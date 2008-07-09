@@ -1,0 +1,5 @@
+ClassName=PowerDevilSettings
+File=PowerDevilSettings.kcfg
+Mutators=true
+Singleton=true
+Visibility=KDE_EXPORT
