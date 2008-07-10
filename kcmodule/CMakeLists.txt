@@ -13,6 +13,8 @@ target_link_libraries(kcm_powerdevil
      ${KDE4_KDECORE_LIBS}
      ${KDE4_KDEUI_LIBRARY}
      ${KDE4_KUTILS_LIBS} 
+     ${KDE4_SOLID_LIBS}
+     solidcontrol
      ${QT_QTGUI_LIBRARY}
 )
 

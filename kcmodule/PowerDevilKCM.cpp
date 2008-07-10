@@ -37,12 +37,12 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &):
 
 void PowerDevilKCM::load()
 {
-  
+	m_widget->load();
 }
 
 void PowerDevilKCM::save()
 {
-  
+	m_widget->save();
 }
 
 void PowerDevilKCM::defaults()
