@@ -6,7 +6,7 @@
 
 class KDisplayManager;
 
-class PowerDevilDaemon : public KDEDModule
+class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
     Q_OBJECT
     

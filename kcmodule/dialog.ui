@@ -1,0 +1,483 @@
+<ui version="4.0" >
+ <class>powersaveConfig</class>
+ <widget class="QWidget" name="powersaveConfig" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>539</width>
+    <height>325</height>
+   </rect>
+  </property>
+  <property name="mouseTracking" >
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle" >
+   <string>Power Manager</string>
+  </property>
+  <layout class="QGridLayout" >
+   <item row="0" column="0" >
+    <widget class="QTabWidget" name="tabWidget" >
+     <property name="minimumSize" >
+      <size>
+       <width>531</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="toolTip" >
+      <string/>
+     </property>
+     <property name="currentIndex" >
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="GeneralSettings" >
+      <property name="geometry" >
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>523</width>
+        <height>283</height>
+       </rect>
+      </property>
+      <attribute name="title" >
+       <string>General</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout" >
+       <item>
+        <widget class="QGroupBox" name="GeneralSettingsBox" >
+         <property name="title" >
+          <string>General Settings</string>
+         </property>
+         <layout class="QGridLayout" >
+          <item row="1" column="0" >
+           <widget class="QCheckBox" name="dimDisplayOnIdle" >
+            <property name="toolTip" >
+             <string>Automatically dim the display when the system is idle.</string>
+            </property>
+            <property name="text" >
+             <string>Dim display when idle</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" >
+           <widget class="QCheckBox" name="lockScreenOnResume" >
+            <property name="text" >
+             <string>Lock screen on resume</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="ACSettings" >
+      <property name="geometry" >
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>523</width>
+        <height>283</height>
+       </rect>
+      </property>
+      <attribute name="title" >
+       <string>AC Scheme Settings</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout" >
+       <item row="0" column="0" >
+        <widget class="QLabel" name="PoweredBrightnessLabel" >
+         <property name="text" >
+          <string>Brightness</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="3" >
+        <widget class="QSlider" name="PoweredBrightnessSlider" >
+         <property name="mouseTracking" >
+          <bool>true</bool>
+         </property>
+         <property name="acceptDrops" >
+          <bool>true</bool>
+         </property>
+         <property name="whatsThis" >
+          <string>With this slider you can set the brightness when the system is plugged into the socket outlet</string>
+         </property>
+         <property name="maximum" >
+          <number>100</number>
+         </property>
+         <property name="singleStep" >
+          <number>1</number>
+         </property>
+         <property name="pageStep" >
+          <number>1</number>
+         </property>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickInterval" >
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2" colspan="2" >
+        <widget class="QComboBox" name="PoweredIdleCombo" />
+       </item>
+       <item row="2" column="0" >
+        <widget class="QLabel" name="PoweredIdleLabel" >
+         <property name="text" >
+          <string>When the system is idle for more than</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+         <property name="buddy" >
+          <cstring>PoweredIdleTime</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" >
+        <widget class="QSpinBox" name="PoweredIdleTime" >
+         <property name="whatsThis" >
+          <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you don't run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+         </property>
+         <property name="suffix" >
+          <string> min</string>
+         </property>
+         <property name="prefix" >
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="3" >
+        <widget class="QComboBox" name="PoweredFreqCombo" />
+       </item>
+       <item row="3" column="0" >
+        <widget class="QLabel" name="PoweredFreqLabel" >
+         <property name="text" >
+          <string>CPU frequency scaling policy</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+         <property name="buddy" >
+          <cstring>PoweredFreqCombo</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="4" >
+        <widget class="QGroupBox" name="LaptopLidACRadios" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Maximum" hsizetype="Preferred" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title" >
+          <string>When Laptop Lid Closed</string>
+         </property>
+         <layout class="QGridLayout" name="_3" >
+          <item row="0" column="0" >
+           <widget class="QRadioButton" name="laptopClosedACNone" >
+            <property name="text" >
+             <string>Do nothing</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QRadioButton" name="laptopClosedACBlank" >
+            <property name="text" >
+             <string>Lock screen</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" >
+           <widget class="QRadioButton" name="laptopClosedACSuspend" >
+            <property name="toolTip" >
+             <string>Suspend to Memory</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Suspend is a sleep state, the system will consume only very little energy when suspended</string>
+            </property>
+            <property name="text" >
+             <string>Suspend</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" >
+           <widget class="QRadioButton" name="laptopClosedACHibernate" >
+            <property name="toolTip" >
+             <string>Suspend to Disk</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Hibernate or "Suspend to Disk" is a deep sleepstate, allowing the system to power off completely</string>
+            </property>
+            <property name="text" >
+             <string>Hibernate</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4" >
+           <widget class="QRadioButton" name="laptopClosedACShutdown" >
+            <property name="toolTip" >
+             <string>Halt the machine</string>
+            </property>
+            <property name="text" >
+             <string>Shutdown</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <widget class="QCheckBox" name="PoweredOffDisplayWhenIdle" >
+         <property name="toolTip" >
+          <string>Automatically turn off the display if idle for more than the set value.</string>
+         </property>
+         <property name="text" >
+          <string>Turn off display if idle for more than</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" >
+        <widget class="QSpinBox" name="PoweredDisplayIdleTime" >
+         <property name="toolTip" >
+          <string>Idle time after which the monitor should turn off</string>
+         </property>
+         <property name="suffix" >
+          <string> min</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="BatterySettings" >
+      <property name="geometry" >
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>523</width>
+        <height>283</height>
+       </rect>
+      </property>
+      <attribute name="title" >
+       <string>Battery Scheme Settings</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2" >
+       <item row="0" column="0" >
+        <widget class="QLabel" name="BatteryBrightnessLabel" >
+         <property name="text" >
+          <string>Brightness</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2" >
+        <widget class="QSlider" name="BatteryBrightnessSlider" >
+         <property name="mouseTracking" >
+          <bool>true</bool>
+         </property>
+         <property name="whatsThis" >
+          <string>This slider controls the brightness when the system runs on batteries</string>
+         </property>
+         <property name="maximum" >
+          <number>100</number>
+         </property>
+         <property name="pageStep" >
+          <number>1</number>
+         </property>
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" >
+        <widget class="QCheckBox" name="BatteryOffDisplayWhenIdle" >
+         <property name="toolTip" >
+          <string>Automatically turn off the display if idle for more than the set value.</string>
+         </property>
+         <property name="text" >
+          <string>Turn off display if idle for more than</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" >
+        <widget class="QSpinBox" name="BatteryDisplayIdleTime" >
+         <property name="toolTip" >
+          <string>Idle time after which the monitor should turn off</string>
+         </property>
+         <property name="suffix" >
+          <string> min</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0" >
+        <widget class="QLabel" name="BatteryCriticalLabel" >
+         <property name="text" >
+          <string>When battery remaining is critical</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+         <property name="buddy" >
+          <cstring>BatteryCriticalCombo</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2" >
+        <widget class="QComboBox" name="BatteryCriticalCombo" />
+       </item>
+       <item row="3" column="0" >
+        <widget class="QLabel" name="BatteryIdleLabel" >
+         <property name="text" >
+          <string>When the system is idle for more than</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+         <property name="buddy" >
+          <cstring>BatteryIdleTime</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" >
+        <widget class="QSpinBox" name="BatteryIdleTime" >
+         <property name="whatsThis" >
+          <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you don't run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+         </property>
+         <property name="suffix" >
+          <string> min</string>
+         </property>
+         <property name="prefix" >
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2" >
+        <widget class="QComboBox" name="BatteryIdleCombo" />
+       </item>
+       <item row="4" column="0" >
+        <widget class="QLabel" name="BatteryFreqLabel" >
+         <property name="text" >
+          <string>CPU frequency scaling policy</string>
+         </property>
+         <property name="wordWrap" >
+          <bool>false</bool>
+         </property>
+         <property name="buddy" >
+          <cstring>BatteryFreqCombo</cstring>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2" >
+        <widget class="QComboBox" name="BatteryFreqCombo" />
+       </item>
+       <item row="5" column="0" colspan="3" >
+        <widget class="QGroupBox" name="LaptopLidBatteryRadios" >
+         <property name="sizePolicy" >
+          <sizepolicy vsizetype="Maximum" hsizetype="Preferred" >
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="title" >
+          <string>When Laptop Lid Closed</string>
+         </property>
+         <layout class="QGridLayout" >
+          <item row="0" column="0" >
+           <widget class="QRadioButton" name="laptopClosedBatteryNone" >
+            <property name="text" >
+             <string>Do nothing</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QRadioButton" name="laptopClosedBatteryBlank" >
+            <property name="text" >
+             <string>Lock screen</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" >
+           <widget class="QRadioButton" name="laptopClosedBatterySuspend" >
+            <property name="toolTip" >
+             <string>Suspend to Memory</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Suspend is a sleep state, the system will consume only very little energy when suspended</string>
+            </property>
+            <property name="text" >
+             <string>Suspend</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" >
+           <widget class="QRadioButton" name="laptopClosedBatteryHibernate" >
+            <property name="toolTip" >
+             <string>Suspend to Disk</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Hibernate or "Suspend to Disk" is a deep sleepstate, allowing the system to power off completely</string>
+            </property>
+            <property name="text" >
+             <string>Hibernate</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4" >
+           <widget class="QRadioButton" name="laptopClosedBatteryShutdown" >
+            <property name="toolTip" >
+             <string>Halt the machine</string>
+            </property>
+            <property name="text" >
+             <string>Shutdown</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11" />
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>lockScreenOnResume</tabstop>
+  <tabstop>dimDisplayOnIdle</tabstop>
+  <tabstop>PoweredBrightnessSlider</tabstop>
+  <tabstop>PoweredOffDisplayWhenIdle</tabstop>
+  <tabstop>PoweredDisplayIdleTime</tabstop>
+  <tabstop>PoweredIdleTime</tabstop>
+  <tabstop>PoweredIdleCombo</tabstop>
+  <tabstop>PoweredFreqCombo</tabstop>
+  <tabstop>laptopClosedACNone</tabstop>
+  <tabstop>laptopClosedACBlank</tabstop>
+  <tabstop>laptopClosedACSuspend</tabstop>
+  <tabstop>laptopClosedACHibernate</tabstop>
+  <tabstop>laptopClosedACShutdown</tabstop>
+  <tabstop>BatteryBrightnessSlider</tabstop>
+  <tabstop>BatteryOffDisplayWhenIdle</tabstop>
+  <tabstop>BatteryDisplayIdleTime</tabstop>
+  <tabstop>BatteryCriticalCombo</tabstop>
+  <tabstop>BatteryIdleTime</tabstop>
+  <tabstop>BatteryIdleCombo</tabstop>
+  <tabstop>BatteryFreqCombo</tabstop>
+  <tabstop>laptopClosedBatteryNone</tabstop>
+  <tabstop>laptopClosedBatteryBlank</tabstop>
+  <tabstop>laptopClosedBatterySuspend</tabstop>
+  <tabstop>laptopClosedBatteryHibernate</tabstop>
+  <tabstop>laptopClosedBatteryShutdown</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
