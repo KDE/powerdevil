@@ -85,6 +85,18 @@ void ConfigWidget::fillUi()
     connect(BatteryIdleCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(BatteryFreqCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+
+    connect(laptopClosedBatteryNone, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedBatteryHibernate, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedBatterySuspend, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedBatteryShutdown, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedBatteryBlank, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+
+    connect(laptopClosedACNone, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedACHibernate, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedACSuspend, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedACShutdown, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedACBlank, SIGNAL(toggled(bool)), SLOT(emitChanged()));
 }
 
 void ConfigWidget::load()
