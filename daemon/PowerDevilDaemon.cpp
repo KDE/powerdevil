@@ -10,6 +10,7 @@
 #include <kworkspace/kdisplaymanager.h>
 
 #include "PowerDevilSettings.h"
+#include "powerdeviladaptor.h"
 
 #include <solid/devicenotifier.h>
 #include <solid/device.h>
@@ -51,6 +52,9 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     m_pollTimer->setInterval(700);
     connect(m_pollTimer, SIGNAL(timeout()), this, SLOT(poll()));
     m_pollTimer->start();
+    
+    //DBus
+    new PowerDevilAdaptor( this );
     
     refreshStatus();
 }

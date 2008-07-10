@@ -10,7 +10,6 @@ class KDisplayManager;
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.PowerDevil")
     
 public:
 	PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
