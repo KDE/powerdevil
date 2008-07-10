@@ -3,6 +3,7 @@
 
 #include <kdedmodule.h>
 #include <solid/control/powermanager.h>
+#include "screensaver_interface.h"
 
 class KDisplayManager;
 
@@ -25,6 +26,10 @@ private slots:
         void suspendToRam();
         void standby();
 	void buttonPressed(int but);
+	void poll();
+	
+private:
+	void lockScreen();
 
 private:
 	enum IdleAction {
@@ -38,6 +43,8 @@ private:
 	
 	Solid::Control::PowerManager::Notifier * m_notifier;
 	KDisplayManager * m_displayManager;
+	OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+	QTimer * m_pollTimer;
 };
 
 #endif /*POWERDEVILDAEMON_H*/
