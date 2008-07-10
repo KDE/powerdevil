@@ -3,14 +3,54 @@
 <kcfg>
   <kcfgfile name="powerdevilrc"/>
 
-  <group name="GUI">
-    <entry name="RootWarning" type="Bool">
+  <group name="ACPreferences">
+    <entry name="ACBrightness" type="Int">
+      <default>80</default>
+    </entry>
+    <entry name="ACIdle" type="Int">
+      <default>50</default>
+    </entry>
+    <entry name="ACIdleAction" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="ACCpuPolicy" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="ACOffDisplayWhenIdle" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="ACDisplayIdle" type="Int">
+      <default>50</default>
+    </entry>
+    <entry name="ACLidAction" type="Int">
+      <default>0</default>
+    </entry>
   </group>
-  <group name="Plugins">
-    <entry name="PlugActivated" type="StringList">
-      <default>General,Ramdisk,Network</default>
+
+  <group name="BatteryPreferences">
+    <entry name="BatBrightness" type="Int">
+      <default>80</default>
+    </entry>
+    <entry name="BatIdle" type="Int">
+      <default>50</default>
+    </entry>
+    <entry name="BatIdleAction" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="BatCpuPolicy" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="BatOffDisplayWhenIdle" type="Bool">
+      <default>false</default>
+    </entry>
+    <entry name="BatDisplayIdle" type="Int">
+      <default>50</default>
+    </entry>
+    <entry name="BatLidAction" type="Int">
+      <default>0</default>
+    </entry>
+    <entry name="BatLowAction" type="Int">
+      <default>0</default>
     </entry>
   </group>
 </kcfg>
