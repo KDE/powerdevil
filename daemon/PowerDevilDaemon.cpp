@@ -52,12 +52,17 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     connect(m_pollTimer, SIGNAL(timeout()), this, SLOT(poll()));
     m_pollTimer->start();
     
-    //Setup initial state
-    acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState());
+    refreshStatus();
 }
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
+}
+
+void PowerDevilDaemon::refreshStatus()
+{
+    //Setup initial state
+    acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState());
 }
 
 void PowerDevilDaemon::acAdapterStateChanged(int state)

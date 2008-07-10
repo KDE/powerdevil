@@ -10,12 +10,16 @@ class KDisplayManager;
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.PowerDevil")
     
 public:
 	PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
 	virtual ~PowerDevilDaemon();
+	
+public Q_SLOTS:
+	void refreshStatus();
 
-private slots:
+private Q_SLOTS:
 	void acAdapterStateChanged(int state);
 	void batteryStateChanged(int state);
 	void decreaseBrightness();
