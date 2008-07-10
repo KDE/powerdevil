@@ -6,5 +6,6 @@ X-KDE-Library=powerdevil
 X-KDE-DBus-ModuleName=kdedpowerdevil
 X-KDE-Kded-autoload=true
 X-KDE-Kded-load-on-demand=false
+X-KDE-Kded-phase=1
 
 Name=KDED PowerDevil regulatory Daemon
