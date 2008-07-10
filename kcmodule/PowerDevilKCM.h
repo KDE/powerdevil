@@ -3,6 +3,8 @@
 
 #include <kcmodule.h>
 
+class ConfigWidget;
+
 class PowerDevilKCM : public KCModule
 {
 	Q_OBJECT
@@ -13,6 +15,9 @@ class PowerDevilKCM : public KCModule
 	void load();
 	void save();
 	void defaults();
+	
+  private:
+	ConfigWidget *m_widget;
 };
 
 #endif /*POWERDEVILKCM_H*/

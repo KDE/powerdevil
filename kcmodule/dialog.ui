@@ -1,12 +1,12 @@
 <ui version="4.0" >
- <class>powersaveConfig</class>
- <widget class="QWidget" name="powersaveConfig" >
+ <class>powerDevilConfig</class>
+ <widget class="QWidget" name="powerDevilConfig" >
   <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
     <width>539</width>
-    <height>325</height>
+    <height>332</height>
    </rect>
   </property>
   <property name="mouseTracking" >
@@ -36,7 +36,7 @@
         <x>0</x>
         <y>0</y>
         <width>523</width>
-        <height>283</height>
+        <height>290</height>
        </rect>
       </property>
       <attribute name="title" >
