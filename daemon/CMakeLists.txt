@@ -11,7 +11,7 @@ kde4_add_plugin( kded_powerdevil
 target_link_libraries(kded_powerdevil 
     ${KDE4_KDECORE_LIBS} 
     ${KDE4_SOLID_LIBS}
-    ${KDE4_KIO_LIBRARY}
+    ${KDE4_KDEUI_LIBRARY}
     solidcontrol
     ${X11_LIBRARIES}
 )

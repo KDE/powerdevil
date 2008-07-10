@@ -13,6 +13,9 @@ public:
 	PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
 	virtual ~PowerDevilDaemon();
 
+private slots:
+	void acAdapterStateChanged(int state);
+
 private:
 	Solid::Control::PowerManager::Notifier * m_notifier;
 	

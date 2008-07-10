@@ -4,6 +4,8 @@
 #include <KPluginFactory>
 #include <KPluginLoader>
 
+#include "PowerDevilSettings.h"
+
 #include <solid/devicenotifier.h>
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
@@ -43,25 +45,21 @@ PowerDevilDaemon::~PowerDevilDaemon()
 {
 }
 
-void Powersave::acAdapterStateChanged(int state)
+void PowerDevilDaemon::acAdapterStateChanged(int state)
 {
     using namespace Solid::Control::PowerManager;
     
     if ( state == Plugged )
     {
-        setBrightness(acBrightness);
-        setCpuFreqPolicy(acCpuPolicy);
+        setBrightness(PowerDevilSettings::aCBrightness());
+        setCpuFreqPolicy((CpuFreqPolicy) PowerDevilSettings::aCCpuPolicy());
     }
     
     else if ( state == Unplugged )
     {
-        onAc = false;
-        currentBrightness = batBrightness;
-        setBrightness(batBrightness);
-        setCpuFreqPolicy(batCpuPolicy);
+        setBrightness(PowerDevilSettings::batBrightness());
+        setCpuFreqPolicy((CpuFreqPolicy) PowerDevilSettings::batCpuPolicy());
     }
-
-    actionBrightnessSlider->setValue(currentBrightness);
 }
 
 #include "PowerDevilDaemon.moc"
