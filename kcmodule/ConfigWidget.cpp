@@ -129,7 +129,64 @@ void ConfigWidget::load()
 
 void ConfigWidget::save()
 {
+    PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
+    PowerDevilSettings::setDimOnIdle(dimDisplayOnIdle->isChecked());
 
+    PowerDevilSettings::setACBrightness(PoweredBrightnessSlider->value());
+    PowerDevilSettings::setACOffDisplayWhenIdle(PoweredOffDisplayWhenIdle->isChecked());
+    PowerDevilSettings::setACDisplayIdle(PoweredDisplayIdleTime->value());
+    PowerDevilSettings::setACIdle(PoweredIdleTime->value());
+    PowerDevilSettings::setACIdleAction(PoweredIdleCombo->currentIndex());
+    PowerDevilSettings::setACCpuPolicy(PoweredFreqCombo->currentIndex());
+
+    PowerDevilSettings::setBatBrightness(BatteryBrightnessSlider->value());
+    PowerDevilSettings::setBatOffDisplayWhenIdle(BatteryOffDisplayWhenIdle->isChecked());
+    PowerDevilSettings::setBatDisplayIdle(BatteryDisplayIdleTime->value());
+    PowerDevilSettings::setBatIdle(BatteryIdleTime->value());
+    PowerDevilSettings::setBatIdleAction(BatteryIdleCombo->currentIndex());
+    PowerDevilSettings::setBatCpuPolicy(BatteryFreqCombo->currentIndex());
+    PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->currentIndex());
+
+    if(laptopClosedBatteryNone->isChecked())
+    {
+        PowerDevilSettings::setBatLidAction(0);
+    }
+    else if(laptopClosedBatteryHibernate->isChecked())
+    {
+        PowerDevilSettings::setBatLidAction((int) S2Disk);
+    }
+    else if(laptopClosedBatterySuspend->isChecked())
+    {
+        PowerDevilSettings::setBatLidAction((int) S2Ram);
+    }
+    else if(laptopClosedBatteryShutdown->isChecked())
+    {
+        PowerDevilSettings::setBatLidAction((int) Shutdown);
+    }
+    else if(laptopClosedBatteryBlank->isChecked())
+    {
+        PowerDevilSettings::setBatLidAction((int) Lock);
+    }
+    if(laptopClosedACNone->isChecked())
+    {
+        PowerDevilSettings::setACLidAction(0);
+    }
+    else if(laptopClosedACHibernate->isChecked())
+    {
+        PowerDevilSettings::setACLidAction((int) S2Disk);
+    }
+    else if(laptopClosedACSuspend->isChecked())
+    {
+        PowerDevilSettings::setACLidAction((int) S2Ram);
+    }
+    else if(laptopClosedACShutdown->isChecked())
+    {
+        PowerDevilSettings::setACLidAction((int) Shutdown);
+    }
+    else if(laptopClosedACBlank->isChecked())
+    {
+        PowerDevilSettings::setACLidAction((int) Lock);
+    }
 }
 
 #include "ConfigWidget.moc"
