@@ -219,6 +219,8 @@ void ConfigWidget::save()
     {
         PowerDevilSettings::setACLidAction((int) Lock);
     }
+
+    PowerDevilSettings::self()->writeConfig();
 }
 
 void ConfigWidget::emitChanged()
