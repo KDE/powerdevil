@@ -16,6 +16,12 @@ public:
       void load();
       void save();
 
+signals:
+      void changed(bool ch);
+
+private slots:
+      void emitChanged();
+
 private:
 	enum IdleAction {
             Shutdown,

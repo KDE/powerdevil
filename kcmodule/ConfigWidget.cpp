@@ -65,6 +65,26 @@ void ConfigWidget::fillUi()
         PoweredFreqCombo->addItem("Powersave", (int) Solid::Control::PowerManager::Powersave);
         BatteryFreqCombo->addItem("Powersave", (int) Solid::Control::PowerManager::Powersave);
     }
+
+    // modified fields...
+
+    connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+
+    connect(PoweredBrightnessSlider, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(PoweredOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(PoweredDisplayIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(PoweredIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(PoweredIdleCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(PoweredFreqCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+
+    connect(BatteryBrightnessSlider, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(BatteryOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(BatteryDisplayIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(BatteryIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(BatteryIdleCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(BatteryFreqCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 }
 
 void ConfigWidget::load()
@@ -187,6 +207,11 @@ void ConfigWidget::save()
     {
         PowerDevilSettings::setACLidAction((int) Lock);
     }
+}
+
+void ConfigWidget::emitChanged()
+{
+    emit changed(true);
 }
 
 #include "ConfigWidget.moc"

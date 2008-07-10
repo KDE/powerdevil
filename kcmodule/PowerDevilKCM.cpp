@@ -24,6 +24,8 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &):
 	lay->addWidget(m_widget);
 	
 	setButtons( Apply );
+	
+	connect(m_widget, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
 
 	//TODO: Add yourself to copyright here
 	KAboutData *about =
