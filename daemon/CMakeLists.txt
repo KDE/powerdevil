@@ -2,7 +2,7 @@ set( kded_powerdevil_SRCS
     PowerDevilDaemon.cpp 
 )
 
-kde4_add_kcfg_files(kded_powerdevil_SRCS GENERATE_MOC ../PowerDevilSettings.kcfgc)
+kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 
 kde4_add_plugin( kded_powerdevil 
     ${kded_powerdevil_SRCS} 
@@ -13,6 +13,7 @@ target_link_libraries(kded_powerdevil
     ${KDE4_SOLID_LIBS}
     ${KDE4_KDEUI_LIBRARY}
     solidcontrol
+    kworkspace
     ${X11_LIBRARIES}
 )
 
