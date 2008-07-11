@@ -3,5 +3,7 @@
   <interface name="org.kde.PowerDevil">
     <method name="refreshStatus">
     </method>
+    <signal name="stateChanged">
+    </method>
   </interface>
 </node>

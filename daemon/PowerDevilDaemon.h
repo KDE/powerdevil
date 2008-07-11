@@ -31,6 +31,9 @@ private Q_SLOTS:
 	void buttonPressed(int but);
 	void poll();
 	
+Q_SIGNALS:
+	void stateChanged();
+	
 private:
 	void lockScreen();
 

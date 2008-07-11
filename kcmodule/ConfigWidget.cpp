@@ -97,15 +97,15 @@ void ConfigWidget::load()
     PoweredOffDisplayWhenIdle->setChecked(PowerDevilSettings::aCOffDisplayWhenIdle());
     PoweredDisplayIdleTime->setValue(PowerDevilSettings::aCDisplayIdle());
     PoweredIdleTime->setValue(PowerDevilSettings::aCIdle());
-    PoweredIdleCombo->setCurrentIndex(PoweredIdleCombo->findData(PowerDevilSettings::aCIdleAction()));
-    PoweredFreqCombo->setCurrentIndex(PoweredFreqCombo->findData(PowerDevilSettings::aCCpuPolicy()));
+    PoweredIdleCombo->setCurrentIndex(PowerDevilSettings::aCIdleAction());
+    PoweredFreqCombo->setCurrentIndex(PowerDevilSettings::aCCpuPolicy());
     BatteryBrightnessSlider->setValue(PowerDevilSettings::batBrightness());
     BatteryOffDisplayWhenIdle->setChecked(PowerDevilSettings::batOffDisplayWhenIdle());
     BatteryDisplayIdleTime->setValue(PowerDevilSettings::batDisplayIdle());
     BatteryIdleTime->setValue(PowerDevilSettings::batIdle());
-    BatteryIdleCombo->setCurrentIndex(BatteryIdleCombo->findData(PowerDevilSettings::batIdleAction()));
-    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batLowAction()));
-    BatteryFreqCombo->setCurrentIndex(BatteryFreqCombo->findData(PowerDevilSettings::batCpuPolicy()));
+    BatteryIdleCombo->setCurrentIndex(PowerDevilSettings::batIdleAction());
+    BatteryCriticalCombo->setCurrentIndex(PowerDevilSettings::batLowAction());
+    BatteryFreqCombo->setCurrentIndex(PowerDevilSettings::batCpuPolicy());
 
     laptopClosedBatteryCombo->setCurrentIndex(PowerDevilSettings::batLidAction());
 

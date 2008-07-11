@@ -84,6 +84,8 @@ void PowerDevilDaemon::acAdapterStateChanged(int state)
         Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
 	PowerDevilSettings::batCpuPolicy());
     }
+    
+    emit stateChanged();
 }
 
 void PowerDevilDaemon::batteryStateChanged(int state)
