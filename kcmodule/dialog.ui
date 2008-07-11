@@ -40,7 +40,7 @@
        </rect>
       </property>
       <attribute name="title" >
-       <string>General</string>
+       <string>General Settings</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout" >
        <item>
@@ -89,8 +89,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>519</width>
-        <height>284</height>
+        <width>523</width>
+        <height>290</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -171,7 +171,7 @@
        <item row="2" column="1" >
         <widget class="QSpinBox" name="PoweredIdleTime" >
          <property name="whatsThis" >
-          <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you don't run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+          <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
          </property>
          <property name="suffix" >
           <string> min</string>
@@ -345,7 +345,7 @@
        <item row="3" column="1" >
         <widget class="QSpinBox" name="BatteryIdleTime" >
          <property name="whatsThis" >
-          <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you don't run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+          <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
          </property>
          <property name="suffix" >
           <string> min</string>
