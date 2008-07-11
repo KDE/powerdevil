@@ -23,14 +23,14 @@ private slots:
       void emitChanged();
 
 private:
-	enum IdleAction {
+	/**enum IdleAction {
             Shutdown,
 	    S2Disk, 
 	    S2Ram, 
 	    Standby, 
 	    Lock, 
 	    None
-        };
+        };**/
 };
 
 #endif /*CONFIGWIDGET_H*/

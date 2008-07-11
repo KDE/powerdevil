@@ -14,33 +14,32 @@ ConfigWidget::ConfigWidget(QWidget *parent)
 
 void ConfigWidget::fillUi()
 {
-    
-    PoweredIdleCombo->addItem(i18n("Do nothing"), 0);
-    PoweredIdleCombo->addItem(i18n("Shutdown"), Shutdown);
-    BatteryCriticalCombo->addItem(i18n("Do nothing"), 0);
-    BatteryCriticalCombo->addItem(i18n("Shutdown"), Shutdown);
-    BatteryIdleCombo->addItem(i18n("Do nothing"), 0);
-    BatteryIdleCombo->addItem(i18n("Shutdown"), Shutdown);
+    PoweredIdleCombo->addItem(i18n("Do nothing"));
+    PoweredIdleCombo->addItem(i18n("Shutdown"));
+    BatteryCriticalCombo->addItem(i18n("Do nothing"));
+    BatteryCriticalCombo->addItem(i18n("Shutdown"));
+    BatteryIdleCombo->addItem(i18n("Do nothing"));
+    BatteryIdleCombo->addItem(i18n("Shutdown"));
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
     if(methods | Solid::Control::PowerManager::ToDisk)
     {
-        PoweredIdleCombo->addItem(i18n("Suspend to Disk"), S2Disk);
-        BatteryCriticalCombo->addItem(i18n("Suspend to Disk"), S2Disk);
-        BatteryIdleCombo->addItem(i18n("Suspend to Disk"), S2Disk);
+        PoweredIdleCombo->addItem(i18n("Suspend to Disk"));
+        BatteryCriticalCombo->addItem(i18n("Suspend to Disk"));
+        BatteryIdleCombo->addItem(i18n("Suspend to Disk"));
     }
     if(methods | Solid::Control::PowerManager::ToRam)
     {
-        PoweredIdleCombo->addItem(i18n("Suspend to Ram"), S2Ram);
-        BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), S2Ram);
-        BatteryIdleCombo->addItem(i18n("Suspend to Ram"), S2Ram);
+        PoweredIdleCombo->addItem(i18n("Suspend to Ram"));
+        BatteryCriticalCombo->addItem(i18n("Suspend to Ram"));
+        BatteryIdleCombo->addItem(i18n("Suspend to Ram"));
     }
     if(methods | Solid::Control::PowerManager::Standby)
     {
-        PoweredIdleCombo->addItem(i18n("Standby"), Standby);
-        BatteryCriticalCombo->addItem(i18n("Standby"), Standby);
-        BatteryIdleCombo->addItem(i18n("Standby"), Standby);
+        PoweredIdleCombo->addItem(i18n("Standby"));
+        BatteryCriticalCombo->addItem(i18n("Standby"));
+        BatteryIdleCombo->addItem(i18n("Standby"));
     }
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
@@ -86,17 +85,8 @@ void ConfigWidget::fillUi()
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(BatteryFreqCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 
-    connect(laptopClosedBatteryNone, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedBatteryHibernate, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedBatterySuspend, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedBatteryShutdown, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedBatteryBlank, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-
-    connect(laptopClosedACNone, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedACHibernate, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedACSuspend, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedACShutdown, SIGNAL(toggled(bool)), SLOT(emitChanged()));
-    connect(laptopClosedACBlank, SIGNAL(toggled(bool)), SLOT(emitChanged()));
+    connect(laptopClosedBatteryCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(laptopClosedACCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 }
 
 void ConfigWidget::load()
@@ -117,46 +107,9 @@ void ConfigWidget::load()
     BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batLowAction()));
     BatteryFreqCombo->setCurrentIndex(BatteryFreqCombo->findData(PowerDevilSettings::batCpuPolicy()));
 
-    switch(PowerDevilSettings::batLidAction())
-    {
-        case None:
-            laptopClosedBatteryNone->setChecked(true);
-            break;
-        case S2Disk:
-            laptopClosedBatteryHibernate->setChecked(true);
-            break;
-        case S2Ram:
-            laptopClosedBatterySuspend->setChecked(true);
-            break;
-        case Shutdown:
-            laptopClosedBatteryShutdown->setChecked(true);
-            break;
-        case Lock:
-            laptopClosedBatteryBlank->setChecked(true);
-            break;
-        default:
-            break;
-    }
-    switch(PowerDevilSettings::aCLidAction())
-    {
-        case None:
-            laptopClosedACNone->setChecked(true);
-            break;
-        case S2Disk:
-            laptopClosedACHibernate->setChecked(true);
-            break;
-        case S2Ram:
-            laptopClosedACSuspend->setChecked(true);
-            break;
-        case Shutdown:
-            laptopClosedACShutdown->setChecked(true);
-            break;
-        case Lock:
-            laptopClosedACBlank->setChecked(true);
-            break;
-        default:
-            break;
-    }
+    laptopClosedBatteryCombo->setCurrentIndex(PowerDevilSettings::batLidAction());
+
+    laptopClosedACCombo->setCurrentIndex(PowerDevilSettings::aCLidAction());
 }
 
 void ConfigWidget::save()
@@ -179,46 +132,11 @@ void ConfigWidget::save()
     PowerDevilSettings::setBatCpuPolicy(BatteryFreqCombo->currentIndex());
     PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->currentIndex());
 
-    if(laptopClosedBatteryNone->isChecked())
-    {
-        PowerDevilSettings::setBatLidAction(0);
-    }
-    else if(laptopClosedBatteryHibernate->isChecked())
-    {
-        PowerDevilSettings::setBatLidAction((int) S2Disk);
-    }
-    else if(laptopClosedBatterySuspend->isChecked())
-    {
-        PowerDevilSettings::setBatLidAction((int) S2Ram);
-    }
-    else if(laptopClosedBatteryShutdown->isChecked())
-    {
-        PowerDevilSettings::setBatLidAction((int) Shutdown);
-    }
-    else if(laptopClosedBatteryBlank->isChecked())
-    {
-        PowerDevilSettings::setBatLidAction((int) Lock);
-    }
-    if(laptopClosedACNone->isChecked())
-    {
-        PowerDevilSettings::setACLidAction(0);
-    }
-    else if(laptopClosedACHibernate->isChecked())
-    {
-        PowerDevilSettings::setACLidAction((int) S2Disk);
-    }
-    else if(laptopClosedACSuspend->isChecked())
-    {
-        PowerDevilSettings::setACLidAction((int) S2Ram);
-    }
-    else if(laptopClosedACShutdown->isChecked())
-    {
-        PowerDevilSettings::setACLidAction((int) Shutdown);
-    }
-    else if(laptopClosedACBlank->isChecked())
-    {
-        PowerDevilSettings::setACLidAction((int) Lock);
-    }
+
+    PowerDevilSettings::setBatLidAction(laptopClosedBatteryCombo->currentIndex());
+
+    PowerDevilSettings::setACLidAction(laptopClosedACCombo->currentIndex());
+
 
     PowerDevilSettings::self()->writeConfig();
 }
