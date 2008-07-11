@@ -28,15 +28,15 @@
       <string/>
      </property>
      <property name="currentIndex" >
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="GeneralSettings" >
       <property name="geometry" >
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>519</width>
-        <height>284</height>
+        <width>523</width>
+        <height>290</height>
        </rect>
       </property>
       <attribute name="title" >
@@ -256,8 +256,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>519</width>
-        <height>284</height>
+        <width>523</width>
+        <height>290</height>
        </rect>
       </property>
       <attribute name="title" >

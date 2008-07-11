@@ -21,6 +21,7 @@ signals:
 
 private slots:
       void emitChanged();
+      void enableBoxes();
 
 private:
 	/**enum IdleAction {

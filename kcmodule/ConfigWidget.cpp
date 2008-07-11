@@ -87,6 +87,9 @@ void ConfigWidget::fillUi()
 
     connect(laptopClosedBatteryCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(laptopClosedACCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    
+    connect(PoweredOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
+    connect(BatteryOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 }
 
 void ConfigWidget::load()
@@ -110,6 +113,8 @@ void ConfigWidget::load()
     laptopClosedBatteryCombo->setCurrentIndex(PowerDevilSettings::batLidAction());
 
     laptopClosedACCombo->setCurrentIndex(PowerDevilSettings::aCLidAction());
+    
+    enableBoxes();
 }
 
 void ConfigWidget::save()
@@ -144,6 +149,12 @@ void ConfigWidget::save()
 void ConfigWidget::emitChanged()
 {
     emit changed(true);
+}
+
+void ConfigWidget::enableBoxes()
+{
+    BatteryDisplayIdleTime->setEnabled(BatteryOffDisplayWhenIdle->isChecked());
+    PoweredDisplayIdleTime->setEnabled(PoweredOffDisplayWhenIdle->isChecked());
 }
 
 #include "ConfigWidget.moc"
