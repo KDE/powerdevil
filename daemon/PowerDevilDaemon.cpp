@@ -141,13 +141,13 @@ void PowerDevilDaemon::batteryStateChanged(int state)
             shutdown();
             break;
         case S2Disk:
-            Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
+            suspendToDisk();
             break;
         case S2Ram:
-            Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
+            suspendToRam();
             break;
         case Standby:
-            Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
+            standby();
             break;
         default:
             break;
@@ -158,7 +158,7 @@ void PowerDevilDaemon::batteryStateChanged(int state)
 void PowerDevilDaemon::buttonPressed(int but)
 {
     if (but == Solid::Control::PowerManager::LidClose) {
-        emit lidClosed(0, "Detected lid closing");
+        emit lidClosed(PowerDevilSettings::aCLidAction(), "Detected lid closing");
         if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
             switch (PowerDevilSettings::aCLidAction()) {
             case Shutdown:
@@ -167,15 +167,15 @@ void PowerDevilDaemon::buttonPressed(int but)
                 break;
             case S2Disk:
 	        emit lidClosed((int)S2Disk, "Requested S2Disk");
-                Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
+                suspendToDisk();
                 break;
             case S2Ram:
 		emit lidClosed((int)S2Ram, "Requested S2Ram");
-                Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
+                suspendToRam();
                 break;
             case Standby:
 		emit lidClosed((int)Standby, "Requested Standby");
-                Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
+                standby();
                 break;
             case Lock:
 		emit lidClosed((int)Lock, "Requested Lock");
@@ -190,13 +190,13 @@ void PowerDevilDaemon::buttonPressed(int but)
                 shutdown();
                 break;
             case S2Disk:
-                Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
+                suspendToDisk();
                 break;
             case S2Ram:
-                Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
+                suspendToRam();
                 break;
             case Standby:
-                Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
+                standby();
                 break;
             case Lock:
                 lockScreen();
