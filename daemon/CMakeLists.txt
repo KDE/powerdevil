@@ -30,4 +30,4 @@ target_link_libraries(kded_powerdevil
 
 install( TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR} )
 
-install( FILES kded_powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+install( FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )

@@ -1,10 +1,10 @@
 [Desktop Entry]
-Exec=kcmshell4 powerdevil
+Exec=kcmshell4 powerdevilconfig
 Icon=battery-charging-060
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
-X-KDE-Library=kcm_powerdevil
+X-KDE-Library=kcm_powerdevilconfig
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=system

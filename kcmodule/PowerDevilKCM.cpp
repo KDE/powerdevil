@@ -67,7 +67,7 @@ void PowerDevilKCM::save()
 {
     m_widget->save();
 
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/kded_powerdevil", "org.kde.PowerDevil", "refreshStatus");
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", "refreshStatus");
     m_dbus.call(msg);
 }
 
