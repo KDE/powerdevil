@@ -56,6 +56,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void stateChanged();
+    void lidClosed(int code, const QString &action);
 
 private:
     void lockScreen();

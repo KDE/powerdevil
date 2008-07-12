@@ -158,21 +158,27 @@ void PowerDevilDaemon::batteryStateChanged(int state)
 void PowerDevilDaemon::buttonPressed(int but)
 {
     if (but == Solid::Control::PowerManager::LidClose) {
+        emit lidClosed(0, "Detected lid closing");
         if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
             switch (PowerDevilSettings::aCLidAction()) {
             case Shutdown:
                 shutdown();
+		emit lidClosed((int)Shutdown, "Requested ShutDown");
                 break;
             case S2Disk:
+	        emit lidClosed((int)S2Disk, "Requested S2Disk");
                 Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
                 break;
             case S2Ram:
+		emit lidClosed((int)S2Ram, "Requested S2Ram");
                 Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
                 break;
             case Standby:
+		emit lidClosed((int)Standby, "Requested Standby");
                 Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
                 break;
             case Lock:
+		emit lidClosed((int)Lock, "Requested Lock");
                 lockScreen();
                 break;
             default:
