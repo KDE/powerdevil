@@ -60,7 +60,7 @@ void ConfigWidget::fillUi()
         laptopClosedACCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
         laptopClosedBatteryCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
-    
+
     if (methods | Solid::Control::PowerManager::ToRam) {
         PoweredIdleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
@@ -68,7 +68,7 @@ void ConfigWidget::fillUi()
         laptopClosedACCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         laptopClosedBatteryCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
-    
+
     if (methods | Solid::Control::PowerManager::Standby) {
         PoweredIdleCombo->addItem(i18n("Standby"), (int) Standby);
         BatteryCriticalCombo->addItem(i18n("Standby"), (int) Standby);
@@ -83,17 +83,17 @@ void ConfigWidget::fillUi()
         PoweredFreqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
         BatteryFreqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
     }
-    
+
     if (policies | Solid::Control::PowerManager::OnDemand) {
         PoweredFreqCombo->addItem(i18n("Dynamic (aggressive)"), (int) Solid::Control::PowerManager::OnDemand);
         BatteryFreqCombo->addItem(i18n("Dynamic (aggressive)"), (int) Solid::Control::PowerManager::OnDemand);
     }
-    
+
     if (policies | Solid::Control::PowerManager::Conservative) {
         PoweredFreqCombo->addItem(i18n("Dynamic (less aggressive)"), (int) Solid::Control::PowerManager::Conservative);
         BatteryFreqCombo->addItem(i18n("Dynamic (less aggressive)"), (int) Solid::Control::PowerManager::Conservative);
     }
-    
+
     if (policies | Solid::Control::PowerManager::Powersave) {
         PoweredFreqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
         BatteryFreqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);

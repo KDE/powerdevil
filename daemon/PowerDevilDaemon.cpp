@@ -26,7 +26,8 @@
 #include <kdemacros.h>
 #include <KPluginFactory>
 #include <KPluginLoader>
-#include <KPassivePopup>
+//#include <KPassivePopup>
+#include <KNotification>
 #include <KIcon>
 #include <klocalizedstring.h>
 #include <kjob.h>
@@ -118,16 +119,18 @@ void PowerDevilDaemon::batteryStateChanged(int state)
     switch (state) {
         //FIXME: Is this the right way?
     case Solid::Control::PowerManager::Critical:
-        KPassivePopup::message(KPassivePopup::Boxed, "PowerDevil", i18n("Battery is at critical level"),
-                               KIcon("dialog-warning").pixmap(20, 20), new QWidget(), 15000);
+        /*KPassivePopup::message(KPassivePopup::Boxed, "PowerDevil", i18n("Battery is at critical level"),
+                               KIcon("dialog-warning").pixmap(20, 20), new QWidget(), 15000);*/
+        KNotification::event(KNotification::Warning, i18n("Battery is at critical level"),
+                             KIcon("dialog-warning").pixmap(20, 20));
         break;
     case Solid::Control::PowerManager::Warning:
-        KPassivePopup::message(KPassivePopup::Boxed, "PowerDevil", i18n("Battery is at warning level"),
-                               KIcon("dialog-warning").pixmap(20, 20), new QWidget(), 15000);
+        KNotification::event(KNotification::Warning, i18n("Battery is at warning level"),
+                             KIcon("dialog-warning").pixmap(20, 20));
         break;
     case Solid::Control::PowerManager::Low:
-        KPassivePopup::message(KPassivePopup::Boxed, "PowerDevil", i18n("Battery is at low level"),
-                               KIcon("dialog-warning").pixmap(20, 20), new QWidget(), 15000);
+        KNotification::event(KNotification::Warning, i18n("Battery is at low level"),
+                             KIcon("dialog-warning").pixmap(20, 20));
         break;
     }
 
@@ -263,8 +266,8 @@ void PowerDevilDaemon::standby()
 void PowerDevilDaemon::suspendJobResult(KJob * job)
 {
     if (job->error()) {
-        KPassivePopup::message(KPassivePopup::Boxed, i18n("PowerDevil"), job->errorString(),
-                               KIcon("dialog-warning").pixmap(20, 20), dynamic_cast<QWidget *>(this), 15000);
+        KNotification::event(KNotification::Warning, job->errorString(),
+                             KIcon("dialog-warning").pixmap(20, 20));
     }
     m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
 }
