@@ -27,6 +27,7 @@
 #include <klocalizedstring.h>
 
 #include <QLayout>
+#include <QtDBus/QDBusMessage>
 
 K_PLUGIN_FACTORY(PowerDevilKCMFactory,
         registerPlugin<PowerDevilKCM>();
@@ -34,7 +35,8 @@ K_PLUGIN_FACTORY(PowerDevilKCMFactory,
 K_EXPORT_PLUGIN(PowerDevilKCMFactory("kcmpowerdevil"))
 
 PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &):
-	KCModule(PowerDevilKCMFactory::componentData(), parent)
+	KCModule(PowerDevilKCMFactory::componentData(), parent),
+	m_dbus(QDBusConnection::sessionBus())
 {
 	QVBoxLayout *lay = new QVBoxLayout(this);
 	lay->setMargin(0);
@@ -64,6 +66,9 @@ void PowerDevilKCM::load()
 void PowerDevilKCM::save()
 {
 	m_widget->save();
+	
+	QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/kded_powerdevil", "org.kde.PowerDevil", "refreshStatus");
+        m_dbus.call(msg);
 }
 
 void PowerDevilKCM::defaults()

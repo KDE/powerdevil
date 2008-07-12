@@ -208,33 +208,7 @@
         </widget>
        </item>
        <item row="4" column="1" colspan="2" >
-        <widget class="QComboBox" name="laptopClosedACCombo" >
-         <item>
-          <property name="text" >
-           <string>Do nothing</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Lock screen</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Suspend</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Hibernate</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Shutdown</string>
-          </property>
-         </item>
-        </widget>
+        <widget class="QComboBox" name="laptopClosedACCombo" />
        </item>
        <item row="5" column="0" colspan="3" >
         <spacer name="verticalSpacer_2" >
@@ -382,33 +356,7 @@
         </widget>
        </item>
        <item row="5" column="1" colspan="2" >
-        <widget class="QComboBox" name="laptopClosedBatteryCombo" >
-         <item>
-          <property name="text" >
-           <string>Do nothing</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Lock screen</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Suspend</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Hibernate</string>
-          </property>
-         </item>
-         <item>
-          <property name="text" >
-           <string>Shutdown</string>
-          </property>
-         </item>
-        </widget>
+        <widget class="QComboBox" name="laptopClosedBatteryCombo" />
        </item>
        <item row="6" column="0" colspan="3" >
         <spacer name="verticalSpacer_3" >

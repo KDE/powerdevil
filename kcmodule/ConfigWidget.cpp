@@ -38,32 +38,44 @@ ConfigWidget::ConfigWidget(QWidget *parent)
 
 void ConfigWidget::fillUi()
 {
-    PoweredIdleCombo->addItem(i18n("Do nothing"));
-    PoweredIdleCombo->addItem(i18n("Shutdown"));
-    BatteryCriticalCombo->addItem(i18n("Do nothing"));
-    BatteryCriticalCombo->addItem(i18n("Shutdown"));
-    BatteryIdleCombo->addItem(i18n("Do nothing"));
-    BatteryIdleCombo->addItem(i18n("Shutdown"));
+    PoweredIdleCombo->addItem(i18n("Do nothing"), (int) None);
+    PoweredIdleCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    BatteryCriticalCombo->addItem(i18n("Do nothing"), (int) None);
+    BatteryCriticalCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    BatteryIdleCombo->addItem(i18n("Do nothing"), (int) None);
+    BatteryIdleCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    laptopClosedACCombo->addItem(i18n("Do nothing"), (int) None);
+    laptopClosedACCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    laptopClosedACCombo->addItem(i18n("Lock Screen"), (int) Lock);
+    laptopClosedBatteryCombo->addItem(i18n("Do nothing"), (int) None);
+    laptopClosedBatteryCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    laptopClosedBatteryCombo->addItem(i18n("Lock Screen"), (int) Lock);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
     if(methods | Solid::Control::PowerManager::ToDisk)
     {
-        PoweredIdleCombo->addItem(i18n("Suspend to Disk"));
-        BatteryCriticalCombo->addItem(i18n("Suspend to Disk"));
-        BatteryIdleCombo->addItem(i18n("Suspend to Disk"));
+        PoweredIdleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        BatteryCriticalCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        BatteryIdleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+	laptopClosedACCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+	laptopClosedBatteryCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
     if(methods | Solid::Control::PowerManager::ToRam)
     {
-        PoweredIdleCombo->addItem(i18n("Suspend to Ram"));
-        BatteryCriticalCombo->addItem(i18n("Suspend to Ram"));
-        BatteryIdleCombo->addItem(i18n("Suspend to Ram"));
+        PoweredIdleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        BatteryIdleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+	laptopClosedACCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+	laptopClosedBatteryCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
     if(methods | Solid::Control::PowerManager::Standby)
     {
-        PoweredIdleCombo->addItem(i18n("Standby"));
-        BatteryCriticalCombo->addItem(i18n("Standby"));
-        BatteryIdleCombo->addItem(i18n("Standby"));
+        PoweredIdleCombo->addItem(i18n("Standby"), (int) Standby);
+        BatteryCriticalCombo->addItem(i18n("Standby"), (int) Standby);
+        BatteryIdleCombo->addItem(i18n("Standby"), (int) Standby);
+	laptopClosedACCombo->addItem(i18n("Standby"), (int) Standby);
+        laptopClosedBatteryCombo->addItem(i18n("Standby"), (int) Standby);
     }
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
@@ -124,19 +136,19 @@ void ConfigWidget::load()
     PoweredOffDisplayWhenIdle->setChecked(PowerDevilSettings::aCOffDisplayWhenIdle());
     PoweredDisplayIdleTime->setValue(PowerDevilSettings::aCDisplayIdle());
     PoweredIdleTime->setValue(PowerDevilSettings::aCIdle());
-    PoweredIdleCombo->setCurrentIndex(PowerDevilSettings::aCIdleAction());
-    PoweredFreqCombo->setCurrentIndex(PowerDevilSettings::aCCpuPolicy());
+    PoweredIdleCombo->setCurrentIndex(PoweredIdleCombo->findData(PowerDevilSettings::aCIdleAction()));
+    PoweredFreqCombo->setCurrentIndex(PoweredFreqCombo->findData(PowerDevilSettings::aCCpuPolicy()));
     BatteryBrightnessSlider->setValue(PowerDevilSettings::batBrightness());
     BatteryOffDisplayWhenIdle->setChecked(PowerDevilSettings::batOffDisplayWhenIdle());
     BatteryDisplayIdleTime->setValue(PowerDevilSettings::batDisplayIdle());
     BatteryIdleTime->setValue(PowerDevilSettings::batIdle());
-    BatteryIdleCombo->setCurrentIndex(PowerDevilSettings::batIdleAction());
-    BatteryCriticalCombo->setCurrentIndex(PowerDevilSettings::batLowAction());
-    BatteryFreqCombo->setCurrentIndex(PowerDevilSettings::batCpuPolicy());
+    BatteryIdleCombo->setCurrentIndex(BatteryIdleCombo->findData(PowerDevilSettings::batIdleAction()));
+    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batLowAction()));
+    BatteryFreqCombo->setCurrentIndex(BatteryFreqCombo->findData(PowerDevilSettings::batCpuPolicy()));
 
-    laptopClosedBatteryCombo->setCurrentIndex(PowerDevilSettings::batLidAction());
+    laptopClosedBatteryCombo->setCurrentIndex(laptopClosedBatteryCombo->findData(PowerDevilSettings::batLidAction()));
 
-    laptopClosedACCombo->setCurrentIndex(PowerDevilSettings::aCLidAction());
+    laptopClosedACCombo->setCurrentIndex(laptopClosedACCombo->findData(PowerDevilSettings::aCLidAction()));
     
     enableBoxes();
 }
@@ -150,21 +162,21 @@ void ConfigWidget::save()
     PowerDevilSettings::setACOffDisplayWhenIdle(PoweredOffDisplayWhenIdle->isChecked());
     PowerDevilSettings::setACDisplayIdle(PoweredDisplayIdleTime->value());
     PowerDevilSettings::setACIdle(PoweredIdleTime->value());
-    PowerDevilSettings::setACIdleAction(PoweredIdleCombo->currentIndex());
-    PowerDevilSettings::setACCpuPolicy(PoweredFreqCombo->currentIndex());
+    PowerDevilSettings::setACIdleAction(PoweredIdleCombo->itemData(PoweredIdleCombo->currentIndex()).toInt());
+    PowerDevilSettings::setACCpuPolicy(PoweredFreqCombo->itemData(PoweredFreqCombo->currentIndex()).toInt());
 
     PowerDevilSettings::setBatBrightness(BatteryBrightnessSlider->value());
     PowerDevilSettings::setBatOffDisplayWhenIdle(BatteryOffDisplayWhenIdle->isChecked());
     PowerDevilSettings::setBatDisplayIdle(BatteryDisplayIdleTime->value());
     PowerDevilSettings::setBatIdle(BatteryIdleTime->value());
-    PowerDevilSettings::setBatIdleAction(BatteryIdleCombo->currentIndex());
-    PowerDevilSettings::setBatCpuPolicy(BatteryFreqCombo->currentIndex());
-    PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->currentIndex());
+    PowerDevilSettings::setBatIdleAction(BatteryIdleCombo->itemData(BatteryIdleCombo->currentIndex()).toInt());
+    PowerDevilSettings::setBatCpuPolicy(BatteryFreqCombo->itemData(BatteryFreqCombo->currentIndex()).toInt());
+    PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
 
-    PowerDevilSettings::setBatLidAction(laptopClosedBatteryCombo->currentIndex());
+    PowerDevilSettings::setBatLidAction(laptopClosedBatteryCombo->itemData(laptopClosedBatteryCombo->currentIndex()).toInt());
 
-    PowerDevilSettings::setACLidAction(laptopClosedACCombo->currentIndex());
+    PowerDevilSettings::setACLidAction(laptopClosedACCombo->itemData(laptopClosedACCombo->currentIndex()).toInt());
 
 
     PowerDevilSettings::self()->writeConfig();

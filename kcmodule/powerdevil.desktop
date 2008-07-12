@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=kcmshell4 powerdevil
-Icon=preferences-desktop-default-applications
+Icon=battery-charging-060
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
@@ -13,4 +13,4 @@ Name=PowerDevil Preferences
 
 Comment=Power Management Preferences
 
-X-KDE-Keywords=components,component chooser,resources,e-mail,email client,terminal emulator,applications
+X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC

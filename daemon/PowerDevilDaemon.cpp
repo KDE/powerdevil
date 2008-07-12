@@ -88,7 +88,12 @@ PowerDevilDaemon::~PowerDevilDaemon()
 
 void PowerDevilDaemon::refreshStatus()
 {
-    //Setup initial state
+    /* The configuration could have changed if this function was called, so
+     * let's resync it.
+     */    
+    PowerDevilSettings::self()->readConfig();
+  
+    // Let's force status update
     acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState());
 }
 

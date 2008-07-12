@@ -21,6 +21,7 @@
 #define POWERDEVILKCM_H
 
 #include <kcmodule.h>
+#include <QDBusConnection>
 
 class ConfigWidget;
 
@@ -37,6 +38,7 @@ class PowerDevilKCM : public KCModule
 	
   private:
 	ConfigWidget *m_widget;
+	QDBusConnection m_dbus;
 };
 
 #endif /*POWERDEVILKCM_H*/

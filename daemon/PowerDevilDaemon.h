@@ -62,12 +62,12 @@ private:
 
 private:
 	enum IdleAction {
-            Shutdown,
-	    S2Disk, 
-	    S2Ram, 
-	    Standby, 
-	    Lock, 
-	    None
+            Shutdown = 1,
+	    S2Disk = 2, 
+	    S2Ram = 3, 
+	    Standby = 4, 
+	    Lock = 5, 
+	    None = 0
         };
 	
 	Solid::Control::PowerManager::Notifier * m_notifier;
