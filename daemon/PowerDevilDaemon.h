@@ -33,47 +33,47 @@ class KDisplayManager;
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
     Q_OBJECT
-    
+
 public:
-	PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
-	virtual ~PowerDevilDaemon();
-	
+    PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
+    virtual ~PowerDevilDaemon();
+
 public Q_SLOTS:
-	void refreshStatus();
+    void refreshStatus();
 
 private Q_SLOTS:
-	void acAdapterStateChanged(int state);
-	void batteryStateChanged(int state);
-	void decreaseBrightness();
-        void increaseBrightness();
-	void shutdown();
-        void suspendJobResult(KJob * job);
-        void suspendToDisk();
-        void suspendToRam();
-        void standby();
-	void buttonPressed(int but);
-	void poll();
-	
+    void acAdapterStateChanged(int state);
+    void batteryStateChanged(int state);
+    void decreaseBrightness();
+    void increaseBrightness();
+    void shutdown();
+    void suspendJobResult(KJob * job);
+    void suspendToDisk();
+    void suspendToRam();
+    void standby();
+    void buttonPressed(int but);
+    void poll();
+
 Q_SIGNALS:
-	void stateChanged();
-	
-private:
-	void lockScreen();
+    void stateChanged();
 
 private:
-	enum IdleAction {
-            Shutdown = 1,
-	    S2Disk = 2, 
-	    S2Ram = 3, 
-	    Standby = 4, 
-	    Lock = 5, 
-	    None = 0
-        };
-	
-	Solid::Control::PowerManager::Notifier * m_notifier;
-	KDisplayManager * m_displayManager;
-	OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
-	QTimer * m_pollTimer;
+    void lockScreen();
+
+private:
+    enum IdleAction {
+        Shutdown = 1,
+        S2Disk = 2,
+        S2Ram = 3,
+        Standby = 4,
+        Lock = 5,
+        None = 0
+    };
+
+    Solid::Control::PowerManager::Notifier * m_notifier;
+    KDisplayManager * m_displayManager;
+    OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+    QTimer * m_pollTimer;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

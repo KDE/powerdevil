@@ -29,32 +29,32 @@
 
 class ConfigWidget : public QWidget, private Ui_powerDevilConfig
 {
-      Q_OBJECT
+    Q_OBJECT
 
 public:
-      ConfigWidget(QWidget *parent = 0);
+    ConfigWidget(QWidget *parent = 0);
 
-      void fillUi();
+    void fillUi();
 
-      void load();
-      void save();
+    void load();
+    void save();
 
 signals:
-      void changed(bool ch);
+    void changed(bool ch);
 
 private slots:
-      void emitChanged();
-      void enableBoxes();
+    void emitChanged();
+    void enableBoxes();
 
 private:
-	enum IdleAction {
-            Shutdown = 1,
-	    S2Disk = 2, 
-	    S2Ram = 3, 
-	    Standby = 4, 
-	    Lock = 5, 
-	    None = 0
-        };
+    enum IdleAction {
+        Shutdown = 1,
+        S2Disk = 2,
+        S2Ram = 3,
+        Standby = 4,
+        Lock = 5,
+        None = 0
+    };
 };
 
 #endif /*CONFIGWIDGET_H*/

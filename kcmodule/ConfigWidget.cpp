@@ -29,7 +29,7 @@
 #include <solid/control/powermanager.h>
 
 ConfigWidget::ConfigWidget(QWidget *parent)
-  : QWidget(parent)
+        : QWidget(parent)
 {
     setupUi(this);
 
@@ -53,50 +53,48 @@ void ConfigWidget::fillUi()
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
-    if(methods | Solid::Control::PowerManager::ToDisk)
-    {
+    if (methods | Solid::Control::PowerManager::ToDisk) {
         PoweredIdleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
         BatteryCriticalCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
         BatteryIdleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
-	laptopClosedACCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
-	laptopClosedBatteryCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        laptopClosedACCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        laptopClosedBatteryCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
-    if(methods | Solid::Control::PowerManager::ToRam)
-    {
+    
+    if (methods | Solid::Control::PowerManager::ToRam) {
         PoweredIdleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         BatteryIdleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
-	laptopClosedACCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
-	laptopClosedBatteryCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        laptopClosedACCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        laptopClosedBatteryCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
-    if(methods | Solid::Control::PowerManager::Standby)
-    {
+    
+    if (methods | Solid::Control::PowerManager::Standby) {
         PoweredIdleCombo->addItem(i18n("Standby"), (int) Standby);
         BatteryCriticalCombo->addItem(i18n("Standby"), (int) Standby);
         BatteryIdleCombo->addItem(i18n("Standby"), (int) Standby);
-	laptopClosedACCombo->addItem(i18n("Standby"), (int) Standby);
+        laptopClosedACCombo->addItem(i18n("Standby"), (int) Standby);
         laptopClosedBatteryCombo->addItem(i18n("Standby"), (int) Standby);
     }
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
-    if(policies | Solid::Control::PowerManager::Performance)
-    {
+    if (policies | Solid::Control::PowerManager::Performance) {
         PoweredFreqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
         BatteryFreqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
     }
-    if(policies | Solid::Control::PowerManager::OnDemand)
-    {
+    
+    if (policies | Solid::Control::PowerManager::OnDemand) {
         PoweredFreqCombo->addItem(i18n("Dynamic (aggressive)"), (int) Solid::Control::PowerManager::OnDemand);
         BatteryFreqCombo->addItem(i18n("Dynamic (aggressive)"), (int) Solid::Control::PowerManager::OnDemand);
     }
-    if(policies | Solid::Control::PowerManager::Conservative)
-    {
+    
+    if (policies | Solid::Control::PowerManager::Conservative) {
         PoweredFreqCombo->addItem(i18n("Dynamic (less aggressive)"), (int) Solid::Control::PowerManager::Conservative);
         BatteryFreqCombo->addItem(i18n("Dynamic (less aggressive)"), (int) Solid::Control::PowerManager::Conservative);
     }
-    if(policies | Solid::Control::PowerManager::Powersave)
-    {
+    
+    if (policies | Solid::Control::PowerManager::Powersave) {
         PoweredFreqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
         BatteryFreqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
     }
@@ -123,7 +121,7 @@ void ConfigWidget::fillUi()
 
     connect(laptopClosedBatteryCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(laptopClosedACCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
-    
+
     connect(PoweredOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
     connect(BatteryOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 }
@@ -149,7 +147,7 @@ void ConfigWidget::load()
     laptopClosedBatteryCombo->setCurrentIndex(laptopClosedBatteryCombo->findData(PowerDevilSettings::batLidAction()));
 
     laptopClosedACCombo->setCurrentIndex(laptopClosedACCombo->findData(PowerDevilSettings::aCLidAction()));
-    
+
     enableBoxes();
 }
 
