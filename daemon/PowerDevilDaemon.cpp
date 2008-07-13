@@ -335,7 +335,7 @@ void PowerDevilDaemon::poll()
             Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
             m_pollTimer->setInterval(2000);
         } else {
-            //Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness());
+            Solid::Control::PowerManager::setBrightness(PowerDevilSettings::aCBrightness());
             m_pollTimer->setInterval((PowerDevilSettings::aCDisplayIdle() * 60000 * 1 / 2) - (idle * 1000));
         }
     } else {
@@ -374,7 +374,7 @@ void PowerDevilDaemon::poll()
             Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
             m_pollTimer->setInterval(2000);
         } else {
-            //Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness());
+            Solid::Control::PowerManager::setBrightness(PowerDevilSettings::batBrightness());
             m_pollTimer->setInterval((PowerDevilSettings::batDisplayIdle() * 60000 * 1 / 2) - (idle * 1000));
         }
     }
