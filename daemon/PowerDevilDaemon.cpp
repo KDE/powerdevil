@@ -57,11 +57,13 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     bool found = false;
     //get a list of all devices that are Batteries
-    foreach(Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString()))
-    found = true;
+    foreach(Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        found = true;
+    }
 
     if (!found) {
-        //TODO: Shut the daemon down.
+        //FIXME: Shut the daemon down. Is that the correct way?
+	deleteLater();
     }
 
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
@@ -333,7 +335,7 @@ void PowerDevilDaemon::poll()
             Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
             m_pollTimer->setInterval(2000);
         } else {
-            Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness());
+            //Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness());
             m_pollTimer->setInterval((PowerDevilSettings::aCDisplayIdle() * 60000 * 1 / 2) - (idle * 1000));
         }
     } else {
@@ -372,7 +374,7 @@ void PowerDevilDaemon::poll()
             Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
             m_pollTimer->setInterval(2000);
         } else {
-            Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness());
+            //Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness());
             m_pollTimer->setInterval((PowerDevilSettings::batDisplayIdle() * 60000 * 1 / 2) - (idle * 1000));
         }
     }

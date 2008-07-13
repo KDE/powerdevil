@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=PowerDevil Data Engine
+X-KDE-ServiceTypes=Plasma/DataEngine
+Type=Service
+Icon=kget
+X-KDE-Library=plasma_engine_powerdevil
+X-Plasma-EngineName=powerdevil
