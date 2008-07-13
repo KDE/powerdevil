@@ -324,19 +324,19 @@ void PowerDevilDaemon::poll()
             //turns off the monitor so i'll just use it
             QProcess::execute("xset dpms force off");
         } else if (PowerDevilSettings::dimOnIdle()
-                   && (idle >= (PowerDevilSettings::aCDisplayIdle() * 60 * 3 / 4)))
+                   && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
             //threefourths time - written this way for readability
         {
             Solid::Control::PowerManager::setBrightness(0);
         } else if (PowerDevilSettings::dimOnIdle() &&
-                   (idle >= (PowerDevilSettings::aCDisplayIdle() * 60 * 1 / 2)))
+                   (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
             //half time - written this way for readability
         {
             Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
             m_pollTimer->setInterval(2000);
         } else {
             Solid::Control::PowerManager::setBrightness(PowerDevilSettings::aCBrightness());
-            m_pollTimer->setInterval((PowerDevilSettings::aCDisplayIdle() * 60000 * 1 / 2) - (idle * 1000));
+            m_pollTimer->setInterval((PowerDevilSettings::dimOnIdleTime() * 60000 * 1 / 2) - (idle * 1000));
         }
     } else {
         if (idle >= PowerDevilSettings::batIdle() * 60) {
@@ -363,19 +363,19 @@ void PowerDevilDaemon::poll()
             //turns off the monitor so i'll use it
             QProcess::execute("xset dpms force off");
         } else if (PowerDevilSettings::dimOnIdle() &&
-                   (idle >= (PowerDevilSettings::batDisplayIdle() * 60 * 3 / 4)))
+                   (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
             //threefourths time - written this way for readability
         {
             Solid::Control::PowerManager::setBrightness(0);
         } else if (PowerDevilSettings::dimOnIdle() &&
-                   (idle >= (PowerDevilSettings::batDisplayIdle() * 60 * 1 / 2)))
+                   (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
             //half time - written this way for readability
         {
             Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
             m_pollTimer->setInterval(2000);
         } else {
             Solid::Control::PowerManager::setBrightness(PowerDevilSettings::batBrightness());
-            m_pollTimer->setInterval((PowerDevilSettings::batDisplayIdle() * 60000 * 1 / 2) - (idle * 1000));
+            m_pollTimer->setInterval((PowerDevilSettings::dimOnIdleTime() * 60000 * 1 / 2) - (idle * 1000));
         }
     }
 }

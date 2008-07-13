@@ -103,6 +103,7 @@ void ConfigWidget::fillUi()
 
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
     connect(PoweredBrightnessSlider, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(PoweredOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
@@ -130,6 +131,7 @@ void ConfigWidget::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
     dimDisplayOnIdle->setChecked(PowerDevilSettings::dimOnIdle());
+    dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
     PoweredBrightnessSlider->setValue(PowerDevilSettings::aCBrightness());
     PoweredOffDisplayWhenIdle->setChecked(PowerDevilSettings::aCOffDisplayWhenIdle());
     PoweredDisplayIdleTime->setValue(PowerDevilSettings::aCDisplayIdle());
@@ -155,6 +157,7 @@ void ConfigWidget::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
     PowerDevilSettings::setDimOnIdle(dimDisplayOnIdle->isChecked());
+    PowerDevilSettings::setDimOnIdleTime(dimOnIdleTime->value());
 
     PowerDevilSettings::setACBrightness(PoweredBrightnessSlider->value());
     PowerDevilSettings::setACOffDisplayWhenIdle(PoweredOffDisplayWhenIdle->isChecked());
