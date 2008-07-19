@@ -11,8 +11,10 @@ X-KDE-System-Settings-Parent-Category=system
 
 Name=PowerDevil Preferences
 Name[et]=PowerDevili seadistused
+Name[sv]=Inställningar av Powerdevil
 
 Comment=Power Management Preferences
 Comment[et]=Toitehalduse seadistused
+Comment[sv]=Inställning av strömsparfunktion
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC
