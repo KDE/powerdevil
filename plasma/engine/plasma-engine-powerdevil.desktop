@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=PowerDevil Data Engine
 Name[et]=PowerDevili andmete mootor
+Name[pt_BR]=Mecanismo de dados do PowerDevil
 Name[sv]=Datagränssnitt för Powerdevil
 X-KDE-ServiceTypes=Plasma/DataEngine
 Type=Service
