@@ -104,6 +104,8 @@ void ConfigWidget::fillUi()
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(notificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(warningNotificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
 
     connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
@@ -136,16 +138,20 @@ void ConfigWidget::load()
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
     dimDisplayOnIdle->setChecked(PowerDevilSettings::dimOnIdle());
     dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
+    notificationsBox->setChecked(PowerDevilSettings::enableNotifications());
+    warningNotificationsBox->setChecked(PowerDevilSettings::enableWarningNotifications());
+
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     warningSpin->setValue(PowerDevilSettings::batteryWarningLevel());
     criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
-    dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
+
     PoweredBrightnessSlider->setValue(PowerDevilSettings::aCBrightness());
     PoweredOffDisplayWhenIdle->setChecked(PowerDevilSettings::aCOffDisplayWhenIdle());
     PoweredDisplayIdleTime->setValue(PowerDevilSettings::aCDisplayIdle());
     PoweredIdleTime->setValue(PowerDevilSettings::aCIdle());
     PoweredIdleCombo->setCurrentIndex(PoweredIdleCombo->findData(PowerDevilSettings::aCIdleAction()));
     PoweredFreqCombo->setCurrentIndex(PoweredFreqCombo->findData(PowerDevilSettings::aCCpuPolicy()));
+
     BatteryBrightnessSlider->setValue(PowerDevilSettings::batBrightness());
     BatteryOffDisplayWhenIdle->setChecked(PowerDevilSettings::batOffDisplayWhenIdle());
     BatteryDisplayIdleTime->setValue(PowerDevilSettings::batDisplayIdle());
@@ -155,7 +161,6 @@ void ConfigWidget::load()
     BatteryFreqCombo->setCurrentIndex(BatteryFreqCombo->findData(PowerDevilSettings::batCpuPolicy()));
 
     laptopClosedBatteryCombo->setCurrentIndex(laptopClosedBatteryCombo->findData(PowerDevilSettings::batLidAction()));
-
     laptopClosedACCombo->setCurrentIndex(laptopClosedACCombo->findData(PowerDevilSettings::aCLidAction()));
 
     enableBoxes();
@@ -166,6 +171,8 @@ void ConfigWidget::save()
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
     PowerDevilSettings::setDimOnIdle(dimDisplayOnIdle->isChecked());
     PowerDevilSettings::setDimOnIdleTime(dimOnIdleTime->value());
+    PowerDevilSettings::setEnableNotifications(notificationsBox->isChecked());
+    PowerDevilSettings::setEnableWarningNotifications(warningNotificationsBox->isChecked());
 
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
     PowerDevilSettings::setBatteryWarningLevel(warningSpin->value());
