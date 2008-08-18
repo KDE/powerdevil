@@ -46,7 +46,7 @@ public Q_SLOTS:
     void emitNotification(const QString &evid, const QString &message = QString());
 
 private Q_SLOTS:
-    void acAdapterStateChanged(int state);
+    void acAdapterStateChanged(int state, bool forced = false);
     void batteryChargePercentChanged(int percent, const QString &udi);
     void decreaseBrightness();
     void increaseBrightness();
@@ -65,6 +65,7 @@ Q_SIGNALS:
 
 private:
     void lockScreen();
+    KConfigGroup *getCurrentProfile(int state = -1);
 
 private:
     enum IdleAction {
@@ -85,6 +86,7 @@ private:
     QTimer * m_pollTimer;
 
     KComponentData m_applicationData;
+    KConfig *m_profilesConfig;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

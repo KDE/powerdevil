@@ -62,6 +62,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     m_applicationData = KComponentData(aboutData);
 
+    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+
     /* First of all, let's check if a battery is present. If not, this
     module has to be shut down. */
 
@@ -112,28 +114,33 @@ void PowerDevilDaemon::refreshStatus()
      * let's resync it.
      */
     PowerDevilSettings::self()->readConfig();
+    m_profilesConfig->reparseConfiguration();
 
     // Let's force status update
-    acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState());
+    acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
 }
 
-void PowerDevilDaemon::acAdapterStateChanged(int state)
+void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
 {
-    if (state == Solid::Control::PowerManager::Plugged) {
-        Solid::Control::PowerManager::setBrightness(PowerDevilSettings::aCBrightness());
-        Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
-                PowerDevilSettings::aCCpuPolicy());
+    if (state == Solid::Control::PowerManager::Plugged && !forced) {
 
-        emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
+            emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
     }
 
-    else if (state == Solid::Control::PowerManager::Unplugged) {
-        Solid::Control::PowerManager::setBrightness(PowerDevilSettings::batBrightness());
-        Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
-                PowerDevilSettings::batCpuPolicy());
-
+    if (state == Solid::Control::PowerManager::Unplugged && !forced) {
         emitNotification("unplugged", i18n("The power adaptor has been unplugged"));
     }
+
+    KConfigGroup *settings = getCurrentProfile(state);
+
+    if(!settings)
+        return;
+
+    Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+    Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
+            settings->readEntry("cpuPolicy").toInt());
+
+    delete settings;
 
     emit stateChanged();
 }
@@ -187,34 +194,13 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
 void PowerDevilDaemon::buttonPressed(int but)
 {
     if (but == Solid::Control::PowerManager::LidClose) {
-        emit lidClosed(PowerDevilSettings::aCLidAction(), "Detected lid closing");
-        if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
-            switch (PowerDevilSettings::aCLidAction()) {
-            case Shutdown:
-                shutdown();
-                emit lidClosed((int)Shutdown, "Requested ShutDown");
-                break;
-            case S2Disk:
-                emit lidClosed((int)S2Disk, "Requested S2Disk");
-                suspendToDisk();
-                break;
-            case S2Ram:
-                emit lidClosed((int)S2Ram, "Requested S2Ram");
-                suspendToRam();
-                break;
-            case Standby:
-                emit lidClosed((int)Standby, "Requested Standby");
-                standby();
-                break;
-            case Lock:
-                emit lidClosed((int)Lock, "Requested Lock");
-                lockScreen();
-                break;
-            default:
-                break;
-            }
-        } else {
-            switch (PowerDevilSettings::batLidAction()) {
+
+        KConfigGroup *settings = getCurrentProfile();
+
+        if(!settings)
+            return;
+
+        switch (settings->readEntry("lidAction").toInt()) {
             case Shutdown:
                 shutdown();
                 break;
@@ -232,8 +218,10 @@ void PowerDevilDaemon::buttonPressed(int but)
                 break;
             default:
                 break;
-            }
         }
+
+        delete settings;
+
     }
 }
 
@@ -326,9 +314,13 @@ void PowerDevilDaemon::poll()
     int idle = mitInfo->idle / 1000;
     //----------------------------------------------------------
 
-    if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
-        if (idle >= PowerDevilSettings::aCIdle() * 60) {
-            switch (PowerDevilSettings::aCIdleAction()) {
+    KConfigGroup *settings = getCurrentProfile();
+
+    if(!settings)
+        return;
+
+    if (idle >= settings->readEntry("idleTime").toInt() * 60) {
+        switch (settings->readEntry("idleAction").toInt()) {
             case Shutdown:
                 shutdown();
                 break;
@@ -343,68 +335,30 @@ void PowerDevilDaemon::poll()
                 break;
             default:
                 break;
-            }
-        } else if (PowerDevilSettings::aCOffDisplayWhenIdle() &&
-                   (idle >= (PowerDevilSettings::aCDisplayIdle() * 60))) {
-            //FIXME Turn off monitor. How do i do this?
-            //For the time being i know that the command "xset dpms force off"
-            //turns off the monitor so i'll just use it
-            QProcess::execute("xset dpms force off");
-        } else if (PowerDevilSettings::dimOnIdle()
-                   && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
-            //threefourths time - written this way for readability
-        {
-            Solid::Control::PowerManager::setBrightness(0);
-        } else if (PowerDevilSettings::dimOnIdle() &&
-                   (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
-            //half time - written this way for readability
-        {
-            Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
-            m_pollTimer->setInterval(2000);
-        } else {
-            Solid::Control::PowerManager::setBrightness(PowerDevilSettings::aCBrightness());
-            m_pollTimer->setInterval((PowerDevilSettings::dimOnIdleTime() * 60000 * 1 / 2) - (idle * 1000));
         }
+    } else if (settings->readEntry("turnOffIdle", false) &&
+            (idle >= (settings->readEntry("turnOffIdleTime").toInt()))) {
+        //FIXME Turn off monitor. How do i do this?
+        //For the time being i know that the command "xset dpms force off"
+        //turns off the monitor so i'll just use it
+        QProcess::execute("xset dpms force off");
+    } else if (PowerDevilSettings::dimOnIdle()
+    && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
+        //threefourths time - written this way for readability
+    {
+        Solid::Control::PowerManager::setBrightness(0);
+    } else if (PowerDevilSettings::dimOnIdle() &&
+            (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
+        //half time - written this way for readability
+    {
+        Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
+        m_pollTimer->setInterval(2000);
     } else {
-        if (idle >= PowerDevilSettings::batIdle() * 60) {
-            switch (PowerDevilSettings::batIdleAction()) {
-            case Shutdown:
-                shutdown();
-                break;
-            case S2Disk:
-                suspendToDisk();
-                break;
-            case S2Ram:
-                suspendToRam();
-                break;
-            case Standby:
-                standby();
-                break;
-            default:
-                break;
-            }
-        } else if (PowerDevilSettings::batOffDisplayWhenIdle() &&
-                   (idle >= PowerDevilSettings::batDisplayIdle() * 60)) {
-            //FIXME Turn off monitor. How do i do this?
-            //For the time being i know that the command "xset dpms force off"
-            //turns off the monitor so i'll use it
-            QProcess::execute("xset dpms force off");
-        } else if (PowerDevilSettings::dimOnIdle() &&
-                   (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
-            //threefourths time - written this way for readability
-        {
-            Solid::Control::PowerManager::setBrightness(0);
-        } else if (PowerDevilSettings::dimOnIdle() &&
-                   (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
-            //half time - written this way for readability
-        {
-            Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
-            m_pollTimer->setInterval(2000);
-        } else {
-            Solid::Control::PowerManager::setBrightness(PowerDevilSettings::batBrightness());
-            m_pollTimer->setInterval((PowerDevilSettings::dimOnIdleTime() * 60000 * 1 / 2) - (idle * 1000));
-        }
+        Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+        m_pollTimer->setInterval((PowerDevilSettings::dimOnIdleTime() * 60000 * 1 / 2) - (idle * 1000));
     }
+
+    delete settings;
 }
 
 void PowerDevilDaemon::lockScreen()
@@ -428,6 +382,41 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
 
     KNotification::event(evid, message,
                          KIcon("dialog-ok-apply").pixmap(20, 20), 0, KNotification::CloseOnTimeout, m_applicationData);
+}
+
+KConfigGroup *PowerDevilDaemon::getCurrentProfile(int state)
+{
+    if(state == -1)
+        state = Solid::Control::PowerManager::acAdapterState();
+
+    KConfigGroup *group;
+
+    if (state == Solid::Control::PowerManager::Plugged)
+    {
+        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::aCProfile());
+    }
+    else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel())
+    {
+        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::warningProfile());
+    }
+    else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel())
+    {
+        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::lowProfile());
+    }
+    else
+    {
+        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::batteryProfile());
+    }
+
+    emit errorTriggered(QString("Current Profile name is %1").arg(group->name()));
+
+    if (!group->isValid() || !group->entryMap().size())
+    {
+        emit errorTriggered("Invalid group!!");
+        return NULL;
+    }
+
+    return group;
 }
 
 #include "PowerDevilDaemon.moc"

@@ -27,6 +27,8 @@
 #include <QWidget>
 #include "ui_dialog.h"
 
+class KConfig;
+
 class ConfigWidget : public QWidget, private Ui_powerDevilConfig
 {
     Q_OBJECT
@@ -45,6 +47,12 @@ signals:
 private slots:
     void emitChanged();
     void enableBoxes();
+    void loadProfile();
+    void saveProfile();
+    void reloadAvailableProfiles();
+    void createProfile(const QString &name);
+    void deleteCurrentProfile();
+    void createProfile();
 
 private:
     enum IdleAction {
@@ -55,6 +63,8 @@ private:
         Lock = 5,
         None = 0
     };
+
+    KConfig *m_profilesConfig;
 };
 
 #endif /*CONFIGWIDGET_H*/
