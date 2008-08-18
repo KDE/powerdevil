@@ -41,7 +41,7 @@
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
 
-#include <config.h>
+#include <config-powerdevil.h>
 
 K_PLUGIN_FACTORY(PowerDevilFactory,
                  registerPlugin<PowerDevilDaemon>();)
