@@ -24,6 +24,7 @@
 #include "PowerDevilDaemon.h"
 
 #include <kdemacros.h>
+#include <KAboutData>
 #include <KPluginFactory>
 #include <KPluginLoader>
 //#include <KPassivePopup>
@@ -40,6 +41,8 @@
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
 
+#include <config.h>
+
 K_PLUGIN_FACTORY(PowerDevilFactory,
                  registerPlugin<PowerDevilDaemon>();)
 K_EXPORT_PLUGIN(PowerDevilFactory("powerdevildaemon"))
@@ -51,6 +54,14 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_displayManager(new KDisplayManager()),
         m_pollTimer(new QTimer())
 {
+    KAboutData aboutData( "powerdevil", 0, ki18n("PowerDevil"),
+        POWERDEVIL_VERSION, ki18n("A Power Management tool for KDE4"), KAboutData::License_GPL,
+        ki18n("(c) 2008 PowerDevil Development Team"), ki18n("drf@kdemod.ath.cx"), "http://www.kde.org");
+
+    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Developer"), "drf@kdemod.ath.cx", "http://drfav.wordpress.com");
+
+    m_applicationData = KComponentData(aboutData);
+
     /* First of all, let's check if a battery is present. If not, this
     module has to be shut down. */
 
@@ -114,7 +125,7 @@ void PowerDevilDaemon::acAdapterStateChanged(int state)
         Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
                 PowerDevilSettings::aCCpuPolicy());
 
-        emitNotification(i18n("The AC Adapter has been plugged in"));
+        emitNotification("pluggedin");
     }
 
     else if (state == Solid::Control::PowerManager::Unplugged) {
@@ -122,7 +133,7 @@ void PowerDevilDaemon::acAdapterStateChanged(int state)
         Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
                 PowerDevilSettings::batCpuPolicy());
 
-        emitNotification(i18n("The AC Adapter has been unplugged"));
+        emitNotification("unplugged");
     }
 
     emit stateChanged();
@@ -142,35 +153,35 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         emit errorTriggered("Critical Level reached");
         switch (PowerDevilSettings::batLowAction()) {
             case Shutdown:
-                emitWarningNotification(i18n("Battery is at critical level, the PC will now be halted..."));
+                emitWarningNotification("criticalbattery", i18n("Battery is at critical level, the PC will now be halted..."));
                 shutdown();
                 break;
             case S2Disk:
-                emitWarningNotification(i18n("Battery is at critical level, the PC will now be suspended to disk..."));
+                emitWarningNotification("criticalbattery", i18n("Battery is at critical level, the PC will now be suspended to disk..."));
                 suspendToDisk();
                 break;
             case S2Ram:
-                emitWarningNotification(i18n("Battery is at critical level, the PC will now be suspended to RAM..."));
+                emitWarningNotification("criticalbattery", i18n("Battery is at critical level, the PC will now be suspended to RAM..."));
                 suspendToRam();
                 break;
             case Standby:
-                emitWarningNotification(i18n("Battery is at critical level, the PC is now going Standby..."));
+                emitWarningNotification("criticalbattery", i18n("Battery is at critical level, the PC is now going Standby..."));
                 standby();
                 break;
             default:
-                emitWarningNotification(i18n("Battery is at critical level, save your work as soon as possible!"));
+                emitWarningNotification("criticalbattery", i18n("Battery is at critical level, save your work as soon as possible!"));
                 break;
         }
     }
     else if (percent == PowerDevilSettings::batteryWarningLevel())
     {
         emit errorTriggered("Warning Level reached");
-        emitWarningNotification(i18n("Battery is at warning level"));
+        emitWarningNotification("warningbattery");
     }
     else if (percent == PowerDevilSettings::batteryLowLevel())
     {
         emit errorTriggered("Low Level reached");
-        emitWarningNotification(i18n("Battery is at low level"));
+        emitWarningNotification("lowbattery");
     }
 }
 
@@ -291,7 +302,7 @@ void PowerDevilDaemon::standby()
 void PowerDevilDaemon::suspendJobResult(KJob * job)
 {
     if (job->error()) {
-        emitWarningNotification(job->errorString());
+        emitWarningNotification("joberror", job->errorString());
     }
     m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
 }
@@ -401,22 +412,22 @@ void PowerDevilDaemon::lockScreen()
     m_screenSaverIface->Lock();
 }
 
-void PowerDevilDaemon::emitWarningNotification(const QString &message)
+void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QString &message)
 {
     if (!PowerDevilSettings::enableWarningNotifications())
         return;
 
-    KNotification::event(KNotification::Warning, message,
-            KIcon("dialog-warning").pixmap(20, 20));
+    KNotification::event(evid, message,
+            KIcon("dialog-warning").pixmap(20, 20), 0, KNotification::CloseOnTimeout, m_applicationData);
 }
 
-void PowerDevilDaemon::emitNotification(const QString &message)
+void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message)
 {
     if (!PowerDevilSettings::enableNotifications())
             return;
 
-    KNotification::event(KNotification::Notification, message,
-            KIcon("dialog-ok-apply").pixmap(20, 20));
+    KNotification::event(evid, message,
+            KIcon("dialog-ok-apply").pixmap(20, 20), 0, KNotification::CloseOnTimeout, m_applicationData);
 }
 
 #include "PowerDevilDaemon.moc"

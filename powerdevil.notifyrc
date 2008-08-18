@@ -2,3 +2,53 @@
 IconName=kopete
 Comment=PowerDevil
 Version=1
+
+[Context/warningnot]
+Name=Warning
+Comment=Used for warning notifications
+
+[Context/stdnot]
+Name=Notification
+Comment=Used for standard notifications
+
+[Event/lowbattery]
+Name=Low Battery
+Comment=Your battery has reached low level
+Contexts=warningnot
+Sound=KDE-Sys-Warning.ogg
+Action=Sound
+
+[Event/warningbattery]
+Name=Battery at warning level
+Comment=Your battery has reached warning level
+Contexts=warningnot
+Sound=KDE-Sys-Warning.ogg
+Action=Sound
+
+[Event/criticalbattery]
+Name=Battery at critical level
+Comment=Your battery has reached critical level
+Contexts=warningnot
+Sound=KDE-Sys-App-Error-Critical.ogg
+Action=Sound
+
+[Event/pluggedin]
+Name=AC adaptor plugged in
+Comment=The power adaptor has been plugged in
+Contexts=stdnot
+Sound=KDE-Sys-App-Positive.ogg
+Action=Sound
+
+[Event/unplugged]
+Name=AC adaptor unplugged
+Comment=The power adaptor has been unplugged
+Contexts=stdnot
+Sound=KDE-Sys-App-Negative.ogg
+Action=Sound
+
+[Event/joberror]
+Name=Job error
+Comment=There was an error while performing a job
+Contexts=warningnot
+Sound=KDE-Sys-App-Error-Critical.ogg
+Action=Sound

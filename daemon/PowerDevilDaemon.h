@@ -28,6 +28,7 @@
 #include <solid/control/powermanager.h>
 #include <solid/battery.h>
 #include "screensaver_interface.h"
+#include <KComponentData>
 
 class KDisplayManager;
 
@@ -41,8 +42,8 @@ public:
 
 public Q_SLOTS:
     void refreshStatus();
-    void emitWarningNotification(const QString &message);
-    void emitNotification(const QString &message);
+    void emitWarningNotification(const QString &evid, const QString &message = QString());
+    void emitNotification(const QString &evid, const QString &message = QString());
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state);
@@ -82,6 +83,8 @@ private:
     OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
 
     QTimer * m_pollTimer;
+
+    KComponentData m_applicationData;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

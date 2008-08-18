@@ -6,7 +6,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.4.0)
 find_package(KDE4 REQUIRED)
 find_package(Plasma REQUIRED)
 
-#configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
+configure_file(config.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config.h )
 
 include (MacroLibrary)
 include (FindPackageHandleStandardArgs)
