@@ -16,39 +16,39 @@ Name=Low Battery
 Comment=Your battery has reached low level
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
-Action=Sound
+Action=Sound|Popup
 
 [Event/warningbattery]
 Name=Battery at warning level
 Comment=Your battery has reached warning level
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
-Action=Sound
+Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
 Comment=Your battery has reached critical level
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
-Action=Sound
+Action=Sound|Popup
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
 Comment=The power adaptor has been plugged in
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
-Action=Sound
+Action=Sound|Popup
 
 [Event/unplugged]
 Name=AC adaptor unplugged
 Comment=The power adaptor has been unplugged
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
-Action=Sound
+Action=Sound|Popup
 
 [Event/joberror]
 Name=Job error
 Comment=There was an error while performing a job
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
-Action=Sound
+Action=Sound|Popup
