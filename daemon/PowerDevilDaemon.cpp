@@ -135,40 +135,33 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
     {
         switch (PowerDevilSettings::batLowAction()) {
             case Shutdown:
+                emitWarningNotification(i18n("Battery is at critical level, the PC will now be halted..."));
                 shutdown();
-                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC will now be halted..."),
-                        KIcon("dialog-warning").pixmap(20, 20));
                 break;
             case S2Disk:
-                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC will now be suspended to disk..."),
-                        KIcon("dialog-warning").pixmap(20, 20));
+                emitWarningNotification(i18n("Battery is at critical level, the PC will now be suspended to disk..."));
                 suspendToDisk();
                 break;
             case S2Ram:
-                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC will now be suspended to RAM..."),
-                        KIcon("dialog-warning").pixmap(20, 20));
+                emitWarningNotification(i18n("Battery is at critical level, the PC will now be suspended to RAM..."));
                 suspendToRam();
                 break;
             case Standby:
-                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC is now going Standby..."),
-                        KIcon("dialog-warning").pixmap(20, 20));
+                emitWarningNotification(i18n("Battery is at critical level, the PC is now going Standby..."));
                 standby();
                 break;
             default:
-                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, save your work as soon as possible!"),
-                        KIcon("dialog-warning").pixmap(20, 20));
+                emitWarningNotification(i18n("Battery is at critical level, save your work as soon as possible!"));
                 break;
         }
     }
     else if (percent == PowerDevilSettings::batteryWarningLevel())
     {
-        KNotification::event(KNotification::Warning, i18n("Battery is at warning level"),
-                KIcon("dialog-warning").pixmap(20, 20));
+        emitWarningNotification(i18n("Battery is at warning level"));
     }
     else if (percent == PowerDevilSettings::batteryWarningLevel())
     {
-        KNotification::event(KNotification::Warning, i18n("Battery is at low level"),
-                KIcon("dialog-warning").pixmap(20, 20));
+        emitWarningNotification(i18n("Battery is at low level"));
     }
 }
 
@@ -289,8 +282,7 @@ void PowerDevilDaemon::standby()
 void PowerDevilDaemon::suspendJobResult(KJob * job)
 {
     if (job->error()) {
-        KNotification::event(KNotification::Warning, job->errorString(),
-                             KIcon("dialog-warning").pixmap(20, 20));
+        emitWarningNotification(job->errorString());
     }
     m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
 }
@@ -398,6 +390,12 @@ void PowerDevilDaemon::poll()
 void PowerDevilDaemon::lockScreen()
 {
     m_screenSaverIface->Lock();
+}
+
+void PowerDevilDaemon::emitWarningNotification(const QString &message)
+{
+    KNotification::event(KNotification::Warning, message,
+            KIcon("dialog-warning").pixmap(20, 20));
 }
 
 #include "PowerDevilDaemon.moc"

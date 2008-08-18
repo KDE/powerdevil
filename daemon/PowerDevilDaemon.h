@@ -41,6 +41,7 @@ public:
 
 public Q_SLOTS:
     void refreshStatus();
+    void emitWarningNotification(const QString &message);
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state);

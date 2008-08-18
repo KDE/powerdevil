@@ -4,6 +4,9 @@
     
     <method name="refreshStatus">
     </method>
+    <method name="emitWarningNotification">
+      <arg type="s" direction="in" />
+    </method>
     
     <signal name="stateChanged">
     </signal>
