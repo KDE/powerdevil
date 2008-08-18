@@ -73,5 +73,11 @@
     <entry name="BatteryCriticalLevel" type="Int">
       <default>5</default>
     </entry>
+    <entry name="EnableNotifications" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="EnableWarningNotifications" type="Bool">
+      <default>true</default>
+    </entry>
   </group>
 </kcfg>

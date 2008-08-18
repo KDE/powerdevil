@@ -113,12 +113,16 @@ void PowerDevilDaemon::acAdapterStateChanged(int state)
         Solid::Control::PowerManager::setBrightness(PowerDevilSettings::aCBrightness());
         Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
                 PowerDevilSettings::aCCpuPolicy());
+
+        emitNotification(i18n("The AC Adapter has been plugged in"));
     }
 
     else if (state == Solid::Control::PowerManager::Unplugged) {
         Solid::Control::PowerManager::setBrightness(PowerDevilSettings::batBrightness());
         Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
                 PowerDevilSettings::batCpuPolicy());
+
+        emitNotification(i18n("The AC Adapter has been unplugged"));
     }
 
     emit stateChanged();
@@ -399,8 +403,20 @@ void PowerDevilDaemon::lockScreen()
 
 void PowerDevilDaemon::emitWarningNotification(const QString &message)
 {
+    if (!PowerDevilSettings::enableWarningNotifications())
+        return;
+
     KNotification::event(KNotification::Warning, message,
             KIcon("dialog-warning").pixmap(20, 20));
+}
+
+void PowerDevilDaemon::emitNotification(const QString &message)
+{
+    if (!PowerDevilSettings::enableNotifications())
+            return;
+
+    KNotification::event(KNotification::Notification, message,
+            KIcon("dialog-ok-apply").pixmap(20, 20));
 }
 
 #include "PowerDevilDaemon.moc"
