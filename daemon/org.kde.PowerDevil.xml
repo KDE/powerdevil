@@ -11,6 +11,9 @@
       <arg type="i" direction="out" />
       <arg type="s" direction="out" />
     </signal>
+    <signal name="errorTriggered">
+      <arg type="s" direction="out" />
+    </signal>
     
   </interface>
 </node>

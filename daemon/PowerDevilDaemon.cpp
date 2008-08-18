@@ -47,6 +47,7 @@ K_EXPORT_PLUGIN(PowerDevilFactory("powerdevildaemon"))
 PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         : KDEDModule(parent),
         m_notifier(Solid::Control::PowerManager::notifier()),
+        m_battery(0),
         m_displayManager(new KDisplayManager()),
         m_pollTimer(new QTimer())
 {
@@ -56,22 +57,29 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     //Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
 
     bool found = false;
+
     //get a list of all devices that are Batteries
-    foreach(Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         found = true;
+        Solid::Device d = device;
+        m_battery = qobject_cast<Solid::Battery*>(d.asDeviceInterface(Solid::DeviceInterface::Battery));
     }
 
-    if (!found) {
+    if (!found || !m_battery) {
         //FIXME: Shut the daemon down. Is that the correct way?
-	deleteLater();
+        deleteLater();
     }
 
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
             QDBusConnection::sessionBus(), this);
 
     connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
-    connect(m_notifier, SIGNAL(batteryStateChanged(int)), this, SLOT(batteryStateChanged(int)));
     connect(m_notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
+
+    if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this, SLOT(batteryChargePercentChanged(int, const QString&))))
+    {
+        emit errorTriggered("Could not connect to battery interface!");
+    }
 
     //setup idle timer, can remove it if we can get some kind of idle time signal from dbus?
     m_pollTimer->setInterval(700);
@@ -116,44 +124,51 @@ void PowerDevilDaemon::acAdapterStateChanged(int state)
     emit stateChanged();
 }
 
-void PowerDevilDaemon::batteryStateChanged(int state)
+void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &udi)
 {
-    switch (state) {
-        //FIXME: Is this the right way?
-    case Solid::Control::PowerManager::Critical:
-        /*KPassivePopup::message(KPassivePopup::Boxed, "PowerDevil", i18n("Battery is at critical level"),
-                               KIcon("dialog-warning").pixmap(20, 20), new QWidget(), 15000);*/
-        KNotification::event(KNotification::Warning, i18n("Battery is at critical level"),
-                             KIcon("dialog-warning").pixmap(20, 20));
-        break;
-    case Solid::Control::PowerManager::Warning:
-        KNotification::event(KNotification::Warning, i18n("Battery is at warning level"),
-                             KIcon("dialog-warning").pixmap(20, 20));
-        break;
-    case Solid::Control::PowerManager::Low:
-        KNotification::event(KNotification::Warning, i18n("Battery is at low level"),
-                             KIcon("dialog-warning").pixmap(20, 20));
-        break;
-    }
+    Q_UNUSED(udi)
 
-    if (state == Solid::Control::PowerManager::Critical &&
-            Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Unplugged) {
+    if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged)
+        return;
+
+    if (percent <= PowerDevilSettings::batteryCriticalLevel())
+    {
         switch (PowerDevilSettings::batLowAction()) {
-        case Shutdown:
-            shutdown();
-            break;
-        case S2Disk:
-            suspendToDisk();
-            break;
-        case S2Ram:
-            suspendToRam();
-            break;
-        case Standby:
-            standby();
-            break;
-        default:
-            break;
+            case Shutdown:
+                shutdown();
+                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC will now be halted..."),
+                        KIcon("dialog-warning").pixmap(20, 20));
+                break;
+            case S2Disk:
+                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC will now be suspended to disk..."),
+                        KIcon("dialog-warning").pixmap(20, 20));
+                suspendToDisk();
+                break;
+            case S2Ram:
+                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC will now be suspended to RAM..."),
+                        KIcon("dialog-warning").pixmap(20, 20));
+                suspendToRam();
+                break;
+            case Standby:
+                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, the PC is now going Standby..."),
+                        KIcon("dialog-warning").pixmap(20, 20));
+                standby();
+                break;
+            default:
+                KNotification::event(KNotification::Warning, i18n("Battery is at critical level, save your work as soon as possible!"),
+                        KIcon("dialog-warning").pixmap(20, 20));
+                break;
         }
+    }
+    else if (percent == PowerDevilSettings::batteryWarningLevel())
+    {
+        KNotification::event(KNotification::Warning, i18n("Battery is at warning level"),
+                KIcon("dialog-warning").pixmap(20, 20));
+    }
+    else if (percent == PowerDevilSettings::batteryWarningLevel())
+    {
+        KNotification::event(KNotification::Warning, i18n("Battery is at low level"),
+                KIcon("dialog-warning").pixmap(20, 20));
     }
 }
 
@@ -165,22 +180,22 @@ void PowerDevilDaemon::buttonPressed(int but)
             switch (PowerDevilSettings::aCLidAction()) {
             case Shutdown:
                 shutdown();
-		emit lidClosed((int)Shutdown, "Requested ShutDown");
+                emit lidClosed((int)Shutdown, "Requested ShutDown");
                 break;
             case S2Disk:
-	        emit lidClosed((int)S2Disk, "Requested S2Disk");
+                emit lidClosed((int)S2Disk, "Requested S2Disk");
                 suspendToDisk();
                 break;
             case S2Ram:
-		emit lidClosed((int)S2Ram, "Requested S2Ram");
+                emit lidClosed((int)S2Ram, "Requested S2Ram");
                 suspendToRam();
                 break;
             case Standby:
-		emit lidClosed((int)Standby, "Requested Standby");
+                emit lidClosed((int)Standby, "Requested Standby");
                 standby();
                 break;
             case Lock:
-		emit lidClosed((int)Lock, "Requested Lock");
+                emit lidClosed((int)Lock, "Requested Lock");
                 lockScreen();
                 break;
             default:

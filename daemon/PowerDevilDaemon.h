@@ -26,6 +26,7 @@
 
 #include <kdedmodule.h>
 #include <solid/control/powermanager.h>
+#include <solid/battery.h>
 #include "screensaver_interface.h"
 
 class KDisplayManager;
@@ -43,7 +44,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state);
-    void batteryStateChanged(int state);
+    void batteryChargePercentChanged(int percent, const QString &udi);
     void decreaseBrightness();
     void increaseBrightness();
     void shutdown();
@@ -57,6 +58,7 @@ private Q_SLOTS:
 Q_SIGNALS:
     void stateChanged();
     void lidClosed(int code, const QString &action);
+    void errorTriggered(const QString &error);
 
 private:
     void lockScreen();
@@ -72,8 +74,11 @@ private:
     };
 
     Solid::Control::PowerManager::Notifier * m_notifier;
+    Solid::Battery *m_battery;
+
     KDisplayManager * m_displayManager;
     OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+
     QTimer * m_pollTimer;
 };
 

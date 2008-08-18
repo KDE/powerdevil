@@ -64,5 +64,14 @@
     <entry name="configLockScreen" type="Bool">
       <default>false</default>
     </entry>
+    <entry name="BatteryLowLevel" type="Int">
+      <default>25</default>
+    </entry>
+    <entry name="BatteryWarningLevel" type="Int">
+      <default>15</default>
+    </entry>
+    <entry name="BatteryCriticalLevel" type="Int">
+      <default>5</default>
+    </entry>
   </group>
 </kcfg>

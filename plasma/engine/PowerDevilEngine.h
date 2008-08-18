@@ -32,8 +32,8 @@ static const uint MINIMUM_UPDATE_INTERVAL = 1000;
 
 class PowerDevilEngine : public Plasma::DataEngine
 {
-Q_OBJECT
-Q_PROPERTY(uint refreshTime READ refreshTime WRITE setRefreshTime)
+    Q_OBJECT
+    Q_PROPERTY(uint refreshTime READ refreshTime WRITE setRefreshTime)
 public:
     PowerDevilEngine(QObject* parent, const QVariantList &args);
     ~PowerDevilEngine();

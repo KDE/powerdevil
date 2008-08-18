@@ -26,15 +26,15 @@
 #include "plasma/datacontainer.h"
 
 PowerDevilEngine::PowerDevilEngine(QObject *parent, const QVariantList &args)
-  : Plasma::DataEngine(parent),
-  dbus(QDBusConnection::sessionBus()),
-  dbusError(false),
-  slotsAreConnected(false)
+        : Plasma::DataEngine(parent),
+        dbus(QDBusConnection::sessionBus()),
+        dbusError(false),
+        slotsAreConnected(false)
 {
-	Q_UNUSED(args)
-	
-	setMinimumPollingInterval(MINIMUM_UPDATE_INTERVAL);
-	
+    Q_UNUSED(args)
+
+    setMinimumPollingInterval(MINIMUM_UPDATE_INTERVAL);
+
 }
 
 PowerDevilEngine::~PowerDevilEngine()
@@ -51,83 +51,75 @@ QStringList PowerDevilEngine::sources() const
 
 void PowerDevilEngine::setRefreshTime(uint time)
 {
-        setPollingInterval(time);
+    setPollingInterval(time);
 }
 
 uint PowerDevilEngine::refreshTime() const
 {
-        return 1000;
+    return 1000;
 }
 
 bool PowerDevilEngine::sourceRequestEvent(const QString &name)
 {
-	return updateSourceEvent(name);
+    return updateSourceEvent(name);
 }
 
 bool PowerDevilEngine::updateSourceEvent(const QString &name)
 {
-	if(!name.compare("PowerDevil", Qt::CaseInsensitive))
-		getPowerDevilData(name);
-	
-	return true;
+    if (!name.compare("PowerDevil", Qt::CaseInsensitive))
+        getPowerDevilData(name);
+
+    return true;
 }
 
 void PowerDevilEngine::getPowerDevilData(const QString &name)
 {
-	removeAllData(name);
+    removeAllData(name);
 
-	if(isDBusServiceRegistered()) 
-	{
-		setData(name, "error", false);
-	}
-	else 
-	{
-		setData(name, "error", true);
-		setData(name, "errorMessage", I18N_NOOP("Is PowerDevil up and running?"));
-	}
+    if (isDBusServiceRegistered()) {
+        setData(name, "error", false);
+    } else {
+        setData(name, "error", true);
+        setData(name, "errorMessage", I18N_NOOP("Is PowerDevil up and running?"));
+    }
 }
 
 bool PowerDevilEngine::isDBusServiceRegistered()
 {
-	QStringList modules;
-	QDBusInterface kdedInterface( "org.kde.kded", "/kded", "org.kde.kded" );
-	QDBusReply<QStringList> reply = kdedInterface.call( "loadedModules"  );
+    QStringList modules;
+    QDBusInterface kdedInterface("org.kde.kded", "/kded", "org.kde.kded");
+    QDBusReply<QStringList> reply = kdedInterface.call("loadedModules");
 
-	if ( reply.isValid() ) {
-		modules = reply.value();
-	}
+    if (reply.isValid()) {
+        modules = reply.value();
+    }
 
-	if ( modules.contains("powerdevil") )
-	{
-		if(!slotsAreConnected)
-		{
-			connectDBusSlots();
-			slotsAreConnected = true;
-		}
-		return true;
-	}
-	else
-	{
-		if(slotsAreConnected)
-		{
-			slotsAreConnected = false;
-		}
-		return false;
-	}
+    if (modules.contains("powerdevil")) {
+        if (!slotsAreConnected) {
+            connectDBusSlots();
+            slotsAreConnected = true;
+        }
+        return true;
+    } else {
+        if (slotsAreConnected) {
+            slotsAreConnected = false;
+        }
+        return false;
+    }
 }
 
 void PowerDevilEngine::updatePowerDevilData()
 {
-	getPowerDevilData("PowerDevil");
+    getPowerDevilData("PowerDevil");
 }
 
 void PowerDevilEngine::connectDBusSlots()
 {
-	/*if(!dbus.connect("org.archlinux.shaman", "/PowerDevil", "org.archlinux.shaman", 
-			"actionStatusChanged", this, SLOT(actionChanged(const QString&))))
-		dbusError = true;
-	else
-		dbusError = false;*/
+    /*if(!dbus.connect("org.archlinux.shaman", "/PowerDevil", "org.archlinux.shaman",
+      "actionStatusChanged", this, SLOT(actionChanged(const QString&))))
+     dbusError = true;
+    else
+     dbusError = false;*/
 }
 
 #include "PowerDevilEngine.moc"
