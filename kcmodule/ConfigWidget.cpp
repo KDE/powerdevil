@@ -37,10 +37,9 @@ ConfigWidget::ConfigWidget(QWidget *parent)
 {
     setupUi(this);
 
-    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
-    if (m_profilesConfig->groupList().isEmpty())
-    {
+    if (m_profilesConfig->groupList().isEmpty()) {
         // Let's add some basic profiles, huh?
 
         KConfigGroup *performance = new KConfigGroup(m_profilesConfig, "Performance");
@@ -265,8 +264,7 @@ void ConfigWidget::reloadAvailableProfiles()
     lowProfile->clear();
     warningProfile->clear();
 
-    if (m_profilesConfig->groupList().isEmpty())
-    {
+    if (m_profilesConfig->groupList().isEmpty()) {
         kDebug() << "No available profiles!";
         return;
     }
@@ -286,7 +284,7 @@ void ConfigWidget::deleteCurrentProfile()
 
     delete m_profilesConfig;
 
-    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
     reloadAvailableProfiles();
 }
@@ -327,8 +325,7 @@ void ConfigWidget::createProfile()
 
     dialog->setMainWidget(wg);
 
-    if ( dialog->exec() == KDialog::Accepted )
-    {
+    if (dialog->exec() == KDialog::Accepted) {
         createProfile(ed->text());
     }
 }

@@ -62,23 +62,18 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     m_applicationData = KComponentData(aboutData);
 
-    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
     /* First of all, let's check if a battery is present. If not, this
     module has to be shut down. */
 
-    //Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
-
-    bool found = false;
-
     //get a list of all devices that are Batteries
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        found = true;
         Solid::Device d = device;
         m_battery = qobject_cast<Solid::Battery*>(d.asDeviceInterface(Solid::DeviceInterface::Battery));
     }
 
-    if (!found || !m_battery) {
+    if (!m_battery) {
         //FIXME: Shut the daemon down. Is that the correct way?
         deleteLater();
     }
@@ -124,7 +119,7 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
 {
     if (state == Solid::Control::PowerManager::Plugged && !forced) {
 
-            emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
+        emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
     }
 
     if (state == Solid::Control::PowerManager::Unplugged && !forced) {
@@ -133,7 +128,7 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
 
     KConfigGroup *settings = getCurrentProfile(state);
 
-    if(!settings)
+    if (!settings)
         return;
 
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
@@ -197,27 +192,27 @@ void PowerDevilDaemon::buttonPressed(int but)
 
         KConfigGroup *settings = getCurrentProfile();
 
-        if(!settings)
+        if (!settings)
             return;
 
         switch (settings->readEntry("lidAction").toInt()) {
-            case Shutdown:
-                shutdown();
-                break;
-            case S2Disk:
-                suspendToDisk();
-                break;
-            case S2Ram:
-                suspendToRam();
-                break;
-            case Standby:
-                standby();
-                break;
-            case Lock:
-                lockScreen();
-                break;
-            default:
-                break;
+        case Shutdown:
+            shutdown();
+            break;
+        case S2Disk:
+            suspendToDisk();
+            break;
+        case S2Ram:
+            suspendToRam();
+            break;
+        case Standby:
+            standby();
+            break;
+        case Lock:
+            lockScreen();
+            break;
+        default:
+            break;
         }
 
         delete settings;
@@ -316,39 +311,39 @@ void PowerDevilDaemon::poll()
 
     KConfigGroup *settings = getCurrentProfile();
 
-    if(!settings)
+    if (!settings)
         return;
 
     if (idle >= settings->readEntry("idleTime").toInt() * 60) {
         switch (settings->readEntry("idleAction").toInt()) {
-            case Shutdown:
-                shutdown();
-                break;
-            case S2Disk:
-                suspendToDisk();
-                break;
-            case S2Ram:
-                suspendToRam();
-                break;
-            case Standby:
-                standby();
-                break;
-            default:
-                break;
+        case Shutdown:
+            shutdown();
+            break;
+        case S2Disk:
+            suspendToDisk();
+            break;
+        case S2Ram:
+            suspendToRam();
+            break;
+        case Standby:
+            standby();
+            break;
+        default:
+            break;
         }
     } else if (settings->readEntry("turnOffIdle", false) &&
-            (idle >= (settings->readEntry("turnOffIdleTime").toInt()))) {
+               (idle >= (settings->readEntry("turnOffIdleTime").toInt()))) {
         //FIXME Turn off monitor. How do i do this?
         //For the time being i know that the command "xset dpms force off"
         //turns off the monitor so i'll just use it
         QProcess::execute("xset dpms force off");
     } else if (PowerDevilSettings::dimOnIdle()
-    && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
+               && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
         //threefourths time - written this way for readability
     {
         Solid::Control::PowerManager::setBrightness(0);
     } else if (PowerDevilSettings::dimOnIdle() &&
-            (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
+               (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
         //half time - written this way for readability
     {
         Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
@@ -386,32 +381,24 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
 
 KConfigGroup *PowerDevilDaemon::getCurrentProfile(int state)
 {
-    if(state == -1)
+    if (state == -1)
         state = Solid::Control::PowerManager::acAdapterState();
 
     KConfigGroup *group;
 
-    if (state == Solid::Control::PowerManager::Plugged)
-    {
+    if (state == Solid::Control::PowerManager::Plugged) {
         group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::aCProfile());
-    }
-    else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel())
-    {
+    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
         group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::warningProfile());
-    }
-    else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel())
-    {
+    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
         group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::lowProfile());
-    }
-    else
-    {
+    } else {
         group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::batteryProfile());
     }
 
     emit errorTriggered(QString("Current Profile name is %1").arg(group->name()));
 
-    if (!group->isValid() || !group->entryMap().size())
-    {
+    if (!group->isValid() || !group->entryMap().size()) {
         emit errorTriggered("Invalid group!!");
         return NULL;
     }
