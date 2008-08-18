@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>539</width>
-    <height>332</height>
+    <height>340</height>
    </rect>
   </property>
   <property name="mouseTracking" >
@@ -31,14 +31,6 @@
       <number>0</number>
      </property>
      <widget class="QWidget" name="GeneralSettings" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>523</width>
-        <height>290</height>
-       </rect>
-      </property>
       <attribute name="title" >
        <string>General Settings</string>
       </attribute>
@@ -104,15 +96,75 @@
             </property>
            </spacer>
           </item>
-          <item row="2" column="0" >
-           <spacer name="verticalSpacer" >
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox" >
+         <property name="title" >
+          <string>Battery Levels</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4" >
+          <item row="0" column="0" >
+           <widget class="QLabel" name="label_3" >
+            <property name="text" >
+             <string>Battery is at low level at</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="KIntSpinBox" name="lowSpin" >
+            <property name="suffix" >
+             <string>%</string>
+            </property>
+            <property name="maximum" >
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item rowspan="2" row="1" column="0" >
+           <widget class="QLabel" name="label_4" >
+            <property name="text" >
+             <string>Battery is at warning level at</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" >
+           <widget class="KIntSpinBox" name="warningSpin" >
+            <property name="suffix" >
+             <string>%</string>
+            </property>
+            <property name="maximum" >
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="QLabel" name="label_5" >
+            <property name="text" >
+             <string>Battery is at critical level at</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" >
+           <widget class="KIntSpinBox" name="criticalSpin" >
+            <property name="suffix" >
+             <string>%</string>
+            </property>
+            <property name="maximum" >
+             <number>100</number>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2" >
+           <spacer name="horizontalSpacer_2" >
             <property name="orientation" >
-             <enum>Qt::Vertical</enum>
+             <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0" >
              <size>
-              <width>20</width>
-              <height>40</height>
+              <width>240</width>
+              <height>20</height>
              </size>
             </property>
            </spacer>
@@ -123,14 +175,6 @@
       </layout>
      </widget>
      <widget class="QWidget" name="ACSettings" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>523</width>
-        <height>290</height>
-       </rect>
-      </property>
       <attribute name="title" >
        <string>AC Scheme Settings</string>
       </attribute>
@@ -264,14 +308,6 @@
       </layout>
      </widget>
      <widget class="QWidget" name="BatterySettings" >
-      <property name="geometry" >
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>523</width>
-        <height>290</height>
-       </rect>
-      </property>
       <attribute name="title" >
        <string>Battery Scheme Settings</string>
       </attribute>

@@ -105,6 +105,10 @@ void ConfigWidget::fillUi()
     connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
+    connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+
     connect(PoweredBrightnessSlider, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(PoweredOffDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(PoweredDisplayIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
@@ -132,6 +136,10 @@ void ConfigWidget::load()
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
     dimDisplayOnIdle->setChecked(PowerDevilSettings::dimOnIdle());
     dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
+    lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
+    warningSpin->setValue(PowerDevilSettings::batteryWarningLevel());
+    criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
+    dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
     PoweredBrightnessSlider->setValue(PowerDevilSettings::aCBrightness());
     PoweredOffDisplayWhenIdle->setChecked(PowerDevilSettings::aCOffDisplayWhenIdle());
     PoweredDisplayIdleTime->setValue(PowerDevilSettings::aCDisplayIdle());
@@ -158,6 +166,10 @@ void ConfigWidget::save()
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
     PowerDevilSettings::setDimOnIdle(dimDisplayOnIdle->isChecked());
     PowerDevilSettings::setDimOnIdleTime(dimOnIdleTime->value());
+
+    PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
+    PowerDevilSettings::setBatteryWarningLevel(warningSpin->value());
+    PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
 
     PowerDevilSettings::setACBrightness(PoweredBrightnessSlider->value());
     PowerDevilSettings::setACOffDisplayWhenIdle(PoweredOffDisplayWhenIdle->isChecked());
