@@ -100,11 +100,11 @@ void ConfigWidget::fillUi()
     }
 
     if (policies | Solid::Control::PowerManager::OnDemand) {
-        freqCombo->addItem(i18n("Dynamic (aggressive)"), (int) Solid::Control::PowerManager::OnDemand);
+        freqCombo->addItem(i18n("Dynamic (ondemand)"), (int) Solid::Control::PowerManager::OnDemand);
     }
 
     if (policies | Solid::Control::PowerManager::Conservative) {
-        freqCombo->addItem(i18n("Dynamic (less aggressive)"), (int) Solid::Control::PowerManager::Conservative);
+        freqCombo->addItem(i18n("Dynamic (conservative)"), (int) Solid::Control::PowerManager::Conservative);
     }
 
     if (policies | Solid::Control::PowerManager::Powersave) {
