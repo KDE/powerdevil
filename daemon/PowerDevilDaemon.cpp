@@ -128,11 +128,14 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
 {
     Q_UNUSED(udi)
 
+    emit errorTriggered(QString("Battery at " + percent));
+
     if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged)
         return;
 
     if (percent <= PowerDevilSettings::batteryCriticalLevel())
     {
+        emit errorTriggered("Critical Level reached");
         switch (PowerDevilSettings::batLowAction()) {
             case Shutdown:
                 emitWarningNotification(i18n("Battery is at critical level, the PC will now be halted..."));
@@ -157,10 +160,12 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
     }
     else if (percent == PowerDevilSettings::batteryWarningLevel())
     {
+        emit errorTriggered("Warning Level reached");
         emitWarningNotification(i18n("Battery is at warning level"));
     }
-    else if (percent == PowerDevilSettings::batteryWarningLevel())
+    else if (percent == PowerDevilSettings::batteryLowLevel())
     {
+        emit errorTriggered("Low Level reached");
         emitWarningNotification(i18n("Battery is at low level"));
     }
 }
