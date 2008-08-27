@@ -36,6 +36,9 @@ public:
     void save();
     void defaults();
 
+private slots:
+    void streamToDBus();
+
 private:
     ConfigWidget *m_widget;
     QDBusConnection m_dbus;

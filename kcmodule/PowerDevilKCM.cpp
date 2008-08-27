@@ -71,6 +71,8 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &):
                       "Then switch to the fourth one, and create/edit your profiles. Last but not least, "
                       "assign your profiles in the third Tab. You do not have to restart PowerDevil, just click "
                       "\"Apply\", and you are done.</p>"));
+
+    connect(m_widget, SIGNAL(profilesChanged()), SLOT(streamToDBus()));
 }
 
 void PowerDevilKCM::load()
@@ -82,15 +84,20 @@ void PowerDevilKCM::save()
 {
     m_widget->save();
 
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", "reloadAndStream");
-    m_dbus.call(msg);
-    msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", "refreshStatus");
-    m_dbus.call(msg);
+    streamToDBus();
 }
 
 void PowerDevilKCM::defaults()
 {
 
+}
+
+void PowerDevilKCM::streamToDBus()
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", "reloadAndStream");
+    m_dbus.call(msg);
+    msg = QDBusMessage::createMethodCall("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", "refreshStatus");
+    m_dbus.call(msg);
 }
 
 #include "PowerDevilKCM.moc"

@@ -39,16 +39,23 @@ public:
 
 signals:
     void changed(bool ch);
+    void profilesChanged();
 
 private slots:
     void emitChanged();
+    void setProfileChanged();
+
+    void enableSaveProfile();
     void enableBoxes();
+
     void loadProfile();
-    void saveProfile();
+    void saveProfile(const QString &p = QString());
+    void switchProfile();
     void reloadAvailableProfiles();
     void createProfile(const QString &name);
     void deleteCurrentProfile();
     void createProfile();
+
     void fillCapabilities();
 
     void importProfiles();
@@ -65,6 +72,8 @@ private:
     };
 
     KConfig *m_profilesConfig;
+    bool m_profileEdited;
+    QString m_currentProfile;
 };
 
 #endif /*CONFIGWIDGET_H*/

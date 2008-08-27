@@ -31,6 +31,7 @@
 #include <QCheckBox>
 #include <KDialog>
 #include <KFileDialog>
+#include <KMessageBox>
 
 ConfigWidget::ConfigWidget(QWidget *parent)
         : QWidget(parent)
@@ -136,6 +137,8 @@ void ConfigWidget::fillUi()
     deleteProfile->setIcon(KIcon("edit-delete-page"));
     importButton->setIcon(KIcon("document-import"));
     exportButton->setIcon(KIcon("document-export"));
+    saveCurrentProfileButton->setIcon(KIcon("document-save"));
+    resetCurrentProfileButton->setIcon(KIcon("edit-undo"));
 
     fillCapabilities();
 
@@ -151,28 +154,31 @@ void ConfigWidget::fillUi()
     connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
-    connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-    connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(displayIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-    connect(idleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-    connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
-    connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(displayIdleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(idleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(laptopClosedCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
-    connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
 
     connect(acProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 
-    connect(profileEditBox, SIGNAL(currentIndexChanged(int)), SLOT(loadProfile()));
+    connect(profileEditBox, SIGNAL(currentIndexChanged(int)), SLOT(switchProfile()));
 
     connect(deleteProfile, SIGNAL(clicked()), SLOT(deleteCurrentProfile()));
     connect(newProfile, SIGNAL(clicked()), SLOT(createProfile()));
     connect(importButton, SIGNAL(clicked()), SLOT(importProfiles()));
     connect(exportButton, SIGNAL(clicked()), SLOT(exportProfiles()));
+    connect(resetCurrentProfileButton, SIGNAL(clicked()), SLOT(loadProfile()));
+    connect(saveCurrentProfileButton, SIGNAL(clicked()), SLOT(saveProfile()));
 }
 
 void ConfigWidget::load()
@@ -219,8 +225,6 @@ void ConfigWidget::save()
     PowerDevilSettings::setBatteryProfile(batteryProfile->currentText());
 
     PowerDevilSettings::self()->writeConfig();
-
-    saveProfile();
 }
 
 void ConfigWidget::emitChanged()
@@ -274,17 +278,37 @@ void ConfigWidget::loadProfile()
     }
 
     delete group;
+
+    m_currentProfile = profileEditBox->currentText();
+
+    m_profileEdited = false;
+    enableSaveProfile();
 }
 
-void ConfigWidget::saveProfile()
+void ConfigWidget::saveProfile(const QString &p)
 {
-    if (profileEditBox->currentText().isEmpty())
+    if (profileEditBox->currentText().isEmpty() && p.isEmpty())
+    {
         return;
+    }
 
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profileEditBox->currentText());
+    QString profile;
+
+    if (p.isEmpty())
+    {
+        profile = profileEditBox->currentText();
+    }
+    else
+    {
+        profile = p;
+    }
+
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profile);
 
     if (!group->isValid() || !group->entryMap().size())
+    {
         return;
+    }
 
     group->writeEntry("brightness", brightnessSlider->value());
     group->writeEntry("cpuPolicy", freqCombo->itemData(freqCombo->currentIndex()).toInt());
@@ -312,6 +336,11 @@ void ConfigWidget::saveProfile()
     group->sync();
 
     delete group;
+
+    m_profileEdited = false;
+    enableSaveProfile();
+
+    emit profilesChanged();
 }
 
 void ConfigWidget::reloadAvailableProfiles()
@@ -350,6 +379,8 @@ void ConfigWidget::deleteCurrentProfile()
     m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
     reloadAvailableProfiles();
+
+    emit profilesChanged();
 }
 
 void ConfigWidget::createProfile(const QString &name)
@@ -369,6 +400,8 @@ void ConfigWidget::createProfile(const QString &name)
     delete group;
 
     reloadAvailableProfiles();
+
+    emit profilesChanged();
 }
 
 void ConfigWidget::createProfile()
@@ -521,6 +554,8 @@ void ConfigWidget::importProfiles()
     m_profilesConfig->sync();
 
     reloadAvailableProfiles();
+
+    emit profilesChanged();
 }
 
 void ConfigWidget::exportProfiles()
@@ -535,6 +570,46 @@ void ConfigWidget::exportProfiles()
     toExport->sync();
 
     delete toExport;
+}
+
+void ConfigWidget::switchProfile()
+{
+    if ( !m_profileEdited )
+    {
+        loadProfile();
+    }
+    else
+    {
+        int result = KMessageBox::warningYesNoCancel(this, i18n("The current profile has not been saved.\n"
+                "Do you want to save it?"), i18n("Save Profile"));
+
+        if ( result == KMessageBox::Yes )
+        {
+            saveProfile(m_currentProfile);
+            loadProfile();
+        }
+        else if ( result == KMessageBox::No )
+        {
+            loadProfile();
+        }
+        else if ( result == KMessageBox::Cancel )
+        {
+            disconnect(saveCurrentProfileButton, SIGNAL(clicked()), this,  SLOT(saveProfile()));
+            profileEditBox->setCurrentIndex(profileEditBox->findText(m_currentProfile));
+            connect(saveCurrentProfileButton, SIGNAL(clicked()), SLOT(saveProfile()));
+        }
+    }
+}
+
+void ConfigWidget::setProfileChanged()
+{
+    m_profileEdited = true;
+    enableSaveProfile();
+}
+
+void ConfigWidget::enableSaveProfile()
+{
+    saveCurrentProfileButton->setEnabled(m_profileEdited);
 }
 
 #include "ConfigWidget.moc"
