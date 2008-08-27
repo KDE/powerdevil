@@ -12,10 +12,9 @@ kde4_add_plugin(kcm_powerdevilconfig ${kcm_powerdevil_SRCS})
 target_link_libraries(kcm_powerdevilconfig  
      ${KDE4_KDECORE_LIBS}
      ${KDE4_KDEUI_LIBRARY}
-     #${KDE4_KUTILS_LIBS} 
+     ${KDE4_KIO_LIBS} 
      ${KDE4_SOLID_LIBS}
      solidcontrol
-     ${QT_QTGUI_LIBRARY}
 )
 
 install(TARGETS kcm_powerdevilconfig  DESTINATION ${PLUGIN_INSTALL_DIR} )

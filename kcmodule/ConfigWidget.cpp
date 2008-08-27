@@ -1,10 +1,5 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
- *   Copyright (C) 2008 by Lukas Appelhans <boom1992@kdemod.ath.cx>        *
- *   Copyright (C) 2007-2008 by Riccardo Iaconelli <riccardo@kde.org>      *
- *   Copyright (C) 2007-2008 by Sebastian Kuegler <sebas@kde.org>          *
- *   Copyright (C) 2007 by Luka Renko <lure@kubuntu.org>                   *
- *   Copyright (C) 2008 by Thomas Gillespie <tomjamesgillespie@gmail.com>  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,10 +22,15 @@
 #include "PowerDevilSettings.h"
 
 #include <solid/control/powermanager.h>
+#include <solid/device.h>
+#include <solid/deviceinterface.h>
+#include <solid/processor.h>
 
 #include <KConfigGroup>
 #include <KLineEdit>
+#include <QCheckBox>
 #include <KDialog>
+#include <KFileDialog>
 
 ConfigWidget::ConfigWidget(QWidget *parent)
         : QWidget(parent)
@@ -110,7 +110,34 @@ void ConfigWidget::fillUi()
         freqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
     }
 
+    schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
+
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
+        Solid::Device d = device;
+        Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
+
+        QString text = QString("CPU %1").arg(processor->number());
+
+        QCheckBox *checkBox = new QCheckBox(this);
+
+        checkBox->setText(text);
+
+        checkBox->setEnabled(Solid::Control::PowerManager::canDisableCpu(processor->number()));
+
+        connect(checkBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+
+        CPUListLayout->addWidget(checkBox);
+    }
+
     reloadAvailableProfiles();
+
+    newProfile->setIcon(KIcon("document-new"));
+    deleteProfile->setIcon(KIcon("edit-delete-page"));
+    importButton->setIcon(KIcon("document-import"));
+    exportButton->setIcon(KIcon("document-export"));
+
+    fillCapabilities();
 
     // modified fields...
 
@@ -133,6 +160,7 @@ void ConfigWidget::fillUi()
     connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 
     connect(acProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
@@ -143,6 +171,8 @@ void ConfigWidget::fillUi()
 
     connect(deleteProfile, SIGNAL(clicked()), SLOT(deleteCurrentProfile()));
     connect(newProfile, SIGNAL(clicked()), SLOT(createProfile()));
+    connect(importButton, SIGNAL(clicked()), SLOT(importProfiles()));
+    connect(exportButton, SIGNAL(clicked()), SLOT(exportProfiles()));
 }
 
 void ConfigWidget::load()
@@ -227,8 +257,21 @@ void ConfigWidget::loadProfile()
     idleTime->setValue(group->readEntry("idleTime").toInt());
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
     freqCombo->setCurrentIndex(freqCombo->findData(group->readEntry("cpuPolicy").toInt()));
+    schemeCombo->setCurrentIndex(schemeCombo->findText(group->readEntry("scheme")));
 
     laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
+
+    QVariant var = group->readEntry("disabledCPUs", QVariant());
+    QList<QVariant> list = var.toList();
+
+    foreach(const QVariant &ent, list) {
+        QCheckBox *box = qobject_cast<QCheckBox*>(CPUListLayout->itemAt(ent.toInt())->widget());
+
+        if (!box)
+            continue;
+
+        box->setChecked(true);
+    }
 
     delete group;
 }
@@ -250,6 +293,21 @@ void ConfigWidget::saveProfile()
     group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
     group->writeEntry("turnOffIdle", offDisplayWhenIdle->isChecked());
     group->writeEntry("turnOffIdleTime", displayIdleTime->value());
+    group->writeEntry("scheme", schemeCombo->currentText());
+
+    QList<int> list;
+
+    for (int i = 0;i < CPUListLayout->count();i++) {
+        QCheckBox *box = qobject_cast<QCheckBox*>(CPUListLayout->itemAt(i)->widget());
+
+        if (!box)
+            continue;
+
+        if (box->isChecked())
+            list.append(i);
+    }
+
+    group->writeEntry("disabledCPUs", list);
 
     group->sync();
 
@@ -274,6 +332,11 @@ void ConfigWidget::reloadAvailableProfiles()
     batteryProfile->addItems(m_profilesConfig->groupList());
     lowProfile->addItems(m_profilesConfig->groupList());
     warningProfile->addItems(m_profilesConfig->groupList());
+
+    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
 }
 
 void ConfigWidget::deleteCurrentProfile()
@@ -328,6 +391,150 @@ void ConfigWidget::createProfile()
     if (dialog->exec() == KDialog::Accepted) {
         createProfile(ed->text());
     }
+}
+
+void ConfigWidget::fillCapabilities()
+{
+    int batteryCount = 0;
+    int cpuCount = 0;
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        Q_UNUSED(device)
+        batteryCount++;
+    }
+
+    bool freqchange = false;
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
+        Solid::Device d = device;
+        Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
+
+        if (processor->canChangeFrequency()) {
+            freqchange = true;
+        }
+
+        cpuCount++;
+    }
+
+    if (freqchange)
+        isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    else
+        isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+
+    cpuNumber->setText(QString("%1").arg(cpuCount));
+    batteriesNumber->setText(QString("%1").arg(batteryCount));
+
+    bool turnOff = false;
+
+    for (int i = 0;i < cpuCount;i++) {
+        if (Solid::Control::PowerManager::canDisableCpu(i))
+            turnOff = true;
+    }
+
+    if (turnOff)
+        isCPUOffSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    else
+        isCPUOffSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+
+    QString sMethods;
+
+    Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
+
+    if (methods | Solid::Control::PowerManager::ToDisk) {
+        sMethods.append(QString(i18n("Suspend to Disk") + QString(", ")));
+    }
+
+    if (methods | Solid::Control::PowerManager::ToRam) {
+        sMethods.append(QString(i18n("Suspend to RAM") + QString(", ")));
+    }
+
+    if (methods | Solid::Control::PowerManager::Standby) {
+        sMethods.append(QString(i18n("Standby") + QString(", ")));
+    }
+
+    sMethods.remove(sMethods.length() - 2, 2);
+
+    supportedMethods->setText(sMethods);
+
+    QString scMethods;
+
+    Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
+
+    if (policies | Solid::Control::PowerManager::Performance) {
+        scMethods.append(QString(i18n("Performance") + QString(", ")));
+    }
+
+    if (policies | Solid::Control::PowerManager::OnDemand) {
+        scMethods.append(QString(i18n("Dynamic (ondemand)") + QString(", ")));
+    }
+
+    if (policies | Solid::Control::PowerManager::Conservative) {
+        scMethods.append(QString(i18n("Dynamic (conservative)") + QString(", ")));
+    }
+
+    if (policies | Solid::Control::PowerManager::Powersave) {
+        scMethods.append(QString(i18n("Powersave") + QString(", ")));
+    }
+
+    scMethods.remove(scMethods.length() - 2, 2);
+
+    supportedPolicies->setText(scMethods);
+
+    if (!Solid::Control::PowerManager::supportedSchemes().isEmpty())
+        isSchemeSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    else
+        isSchemeSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+
+    QString schemes;
+
+    foreach(const QString &scheme, Solid::Control::PowerManager::supportedSchemes()) {
+        schemes.append(scheme + QString(", "));
+    }
+
+    schemes.remove(schemes.length() - 2, 2);
+
+    supportedSchemes->setText(schemes);
+}
+
+void ConfigWidget::importProfiles()
+{
+    QString fileName = KFileDialog::getOpenFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
+                       "(*.powerdevilprofiles)", this, i18n("Import PowerDevil profiles"));
+
+    KConfig toImport(fileName, KConfig::SimpleConfig);
+
+    // FIXME: This should be the correct way, but why it doesn't work?
+    /*foreach(const QString &ent, toImport.groupList()) {
+        KConfigGroup group = toImport.group(ent);
+
+        group.copyTo(m_profilesConfig);
+    }*/
+
+    // FIXME: This way works, but the import file gets cleared, definitely not what we want
+    foreach(const QString &ent, toImport.groupList()) {
+        KConfigGroup group = toImport.group(ent);
+        KConfigGroup group2(group);
+
+        group2.reparent(m_profilesConfig);
+    }
+
+    m_profilesConfig->sync();
+
+    reloadAvailableProfiles();
+}
+
+void ConfigWidget::exportProfiles()
+{
+    QString fileName = KFileDialog::getSaveFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
+                       "(*.powerdevilprofiles)", this, i18n("Export PowerDevil profiles"));
+
+    kDebug() << "Filename is" << fileName;
+
+    KConfig *toExport = m_profilesConfig->copyTo(fileName);
+
+    toExport->sync();
+
+    delete toExport;
 }
 
 #include "ConfigWidget.moc"

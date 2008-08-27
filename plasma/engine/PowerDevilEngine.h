@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Lukas Appelhans                                 *
- *   l.appelhans@gmx.de                                                    *
+ *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -15,7 +14,7 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
 #ifndef POWERDEVILENGINE_H
@@ -27,7 +26,7 @@
 
 static const QString POWERDEVIL_DBUS_SERVICE = "org.kde.kded";
 static const QString POWERDEVIL_DBUS_PATH = "/modules/powerdevil";
-static const QString POWERDEVIL_DBUS_INTERFACE = "org.kde.powerdevil";
+static const QString POWERDEVIL_DBUS_INTERFACE = "org.kde.PowerDevil";
 static const uint MINIMUM_UPDATE_INTERVAL = 1000;
 
 class PowerDevilEngine : public Plasma::DataEngine
@@ -51,14 +50,20 @@ private slots:
     void getPowerDevilData(const QString &name);
     void updatePowerDevilData();
     void connectDBusSlots();
+    void stateChanged(int chargePercent, bool plugged);
+    void profilesChanged(const QString &current, const QStringList &profiles);
 
 private:
     bool isDBusServiceRegistered();
 
-    QDBusConnection dbus;
-    QString currentAction;
-    bool dbusError;
-    bool slotsAreConnected;
+    QDBusConnection m_dbus;
+    bool m_dbusError;
+    bool m_slotsAreConnected;
+
+    int m_batteryPercent;
+    bool m_ACPlugged;
+    QString m_currentProfile;
+    QStringList m_availableProfiles;
 };
 
 K_EXPORT_PLASMA_DATAENGINE(powerdevil, PowerDevilEngine)

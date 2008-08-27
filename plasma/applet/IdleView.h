@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
+ *   Copyright (C) 2008 by Dario Freddi                                    *
+ *   drf54321@yahoo.it                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -14,57 +15,58 @@
  *   You should have received a copy of the GNU General Public License     *
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
+ *   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.          *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#ifndef IDLEVIEW_H
+#define IDLEVIEW_H
 
-#include <QWidget>
-#include "ui_dialog.h"
+namespace Plasma
+{
+class Applet;
+class Icon;
+}
 
-class KConfig;
+#include "AbstractView.h"
 
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+#include <QtDBus/QDBusConnection>
+
+class QGraphicsLinearLayout;
+class QGraphicsProxyWidget;
+class KComboBox;
+class KPushButton;
+
+class IdleView : public AbstractView
 {
     Q_OBJECT
 
 public:
-    ConfigWidget(QWidget *parent = 0);
+    IdleView(Plasma::Applet *parent, QDBusConnection dbs);
+    virtual ~IdleView();
 
-    void fillUi();
-
-    void load();
-    void save();
-
-signals:
-    void changed(bool ch);
+    void installPackageFromFile(const QString &filename);
 
 private slots:
-    void emitChanged();
-    void enableBoxes();
-    void loadProfile();
-    void saveProfile();
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name);
-    void deleteCurrentProfile();
-    void createProfile();
-    void fillCapabilities();
+    void updateBatteryIcon(int percent, bool plugged);
+    void updateProfiles(const QString &current, const QStringList &available);
+    void setSelectedProfile();
 
-    void importProfiles();
-    void exportProfiles();
 
 private:
-    enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
-    };
+    QDBusConnection m_dbus;
+    QGraphicsLinearLayout *m_layout;
+    QGraphicsLinearLayout *m_actionsLayout;
 
-    KConfig *m_profilesConfig;
+    KComboBox *m_profilesCombo;
+    QGraphicsProxyWidget *m_comboBox;
+
+    KPushButton *m_profilesButton;
+    QGraphicsProxyWidget *m_button;
+
+    Plasma::Icon *m_batteryIcon;
+
+    QGraphicsLinearLayout *m_lineLayout;
+
 };
 
-#endif /*CONFIGWIDGET_H*/
+#endif /*IDLEVIEW_H*/

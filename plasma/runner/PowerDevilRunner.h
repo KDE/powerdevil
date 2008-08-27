@@ -17,54 +17,27 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#ifndef POWERDEVILRUNNER_H
+#define POWERDEVILRUNNER_H
 
-#include <QWidget>
-#include "ui_dialog.h"
+#include <plasma/abstractrunner.h>
+#include <QDBusConnection>
 
-class KConfig;
-
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+class PowerDevilRunner : public Plasma::AbstractRunner
 {
     Q_OBJECT
 
 public:
-    ConfigWidget(QWidget *parent = 0);
+    PowerDevilRunner(QObject *parent, const QVariantList &args);
+    ~PowerDevilRunner();
 
-    void fillUi();
-
-    void load();
-    void save();
-
-signals:
-    void changed(bool ch);
-
-private slots:
-    void emitChanged();
-    void enableBoxes();
-    void loadProfile();
-    void saveProfile();
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name);
-    void deleteCurrentProfile();
-    void createProfile();
-    void fillCapabilities();
-
-    void importProfiles();
-    void exportProfiles();
+    void match(Plasma::RunnerContext &context);
+    void run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &action);
 
 private:
-    enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
-    };
-
-    KConfig *m_profilesConfig;
+    QStringList m_words;
 };
 
-#endif /*CONFIGWIDGET_H*/
+K_EXPORT_PLASMA_RUNNER(powerdevil, PowerDevilRunner);
+
+#endif

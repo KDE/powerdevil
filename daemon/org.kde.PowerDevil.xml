@@ -4,18 +4,30 @@
     
     <method name="refreshStatus">
     </method>
+    <method name="reloadAndStream">
+    </method>
     <method name="emitWarningNotification">
+      <arg type="s" direction="in" />
+      <arg type="s" direction="in" />
+    </method>
+    <method name="setProfile">
       <arg type="s" direction="in" />
     </method>
     
-    <signal name="stateChanged">
-    </signal>
     <signal name="lidClosed">
       <arg type="i" direction="out" />
       <arg type="s" direction="out" />
     </signal>
     <signal name="errorTriggered">
       <arg type="s" direction="out" />
+    </signal>
+    <signal name="stateChanged">
+      <arg type="i" direction="out" />
+      <arg type="b" direction="out" />
+    </signal>
+    <signal name="profileChanged">
+      <arg type="s" direction="out" />
+      <arg type="as" direction="out" />
     </signal>
     
   </interface>

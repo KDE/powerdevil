@@ -17,54 +17,36 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#ifndef ERRORVIEW_H
+#define ERRORVIEW_H
 
-#include <QWidget>
-#include "ui_dialog.h"
+namespace Plasma
+{
+class Applet;
+class Icon;
+}
 
-class KConfig;
+#include "AbstractView.h"
 
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+class QGraphicsLinearLayout;
+class QGraphicsProxyWidget;
+
+class ErrorView : public AbstractView
 {
     Q_OBJECT
 
 public:
-    ConfigWidget(QWidget *parent = 0);
-
-    void fillUi();
-
-    void load();
-    void save();
-
-signals:
-    void changed(bool ch);
+    ErrorView(Plasma::Applet *parent, const QString &message);
+    virtual ~ErrorView();
 
 private slots:
-    void emitChanged();
-    void enableBoxes();
-    void loadProfile();
-    void saveProfile();
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name);
-    void deleteCurrentProfile();
-    void createProfile();
-    void fillCapabilities();
-
-    void importProfiles();
-    void exportProfiles();
+    void launchKcm();
 
 private:
-    enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
-    };
-
-    KConfig *m_profilesConfig;
+    QGraphicsLinearLayout *m_layout;
+    QGraphicsProxyWidget *m_proxyErrorLabel;
+    QGraphicsProxyWidget *m_proxyLaunchButton;
+    Plasma::Icon *m_icon;
 };
 
-#endif /*CONFIGWIDGET_H*/
+#endif /*ERRORVIEW_H*/

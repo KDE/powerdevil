@@ -26,8 +26,6 @@
 #include <kdemacros.h>
 #include <KAboutData>
 #include <KPluginFactory>
-#include <KPluginLoader>
-//#include <KPassivePopup>
 #include <KNotification>
 #include <KIcon>
 #include <klocalizedstring.h>
@@ -37,9 +35,9 @@
 #include "PowerDevilSettings.h"
 #include "powerdeviladaptor.h"
 
-#include <solid/devicenotifier.h>
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
+#include <solid/processor.h>
 
 #include <config-powerdevil.h>
 
@@ -54,15 +52,18 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_displayManager(new KDisplayManager()),
         m_pollTimer(new QTimer())
 {
-    KAboutData aboutData("powerdevil", 0, ki18n("PowerDevil"),
+    KGlobal::locale()->insertCatalog("powerdevil");
+
+    KAboutData aboutData("powerdevil", "powerdevil", ki18n("PowerDevil"),
                          POWERDEVIL_VERSION, ki18n("A Power Management tool for KDE4"), KAboutData::License_GPL,
-                         ki18n("(c) 2008 PowerDevil Development Team"), ki18n("drf@kdemod.ath.cx"), "http://www.kde.org");
+                         ki18n("(c) 2008 PowerDevil Development Team"), KLocalizedString(), "http://www.kde.org");
 
     aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Developer"), "drf@kdemod.ath.cx", "http://drfav.wordpress.com");
 
     m_applicationData = KComponentData(aboutData);
 
     m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    m_availableProfiles = m_profilesConfig->groupList();
 
     /* First of all, let's check if a battery is present. If not, this
     module has to be shut down. */
@@ -84,7 +85,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
     connect(m_notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
 
-    if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this, SLOT(batteryChargePercentChanged(int, const QString&)))) {
+    if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
+                 SLOT(batteryChargePercentChanged(int, const QString&)))) {
         emit errorTriggered("Could not connect to battery interface!");
     }
 
@@ -111,6 +113,8 @@ void PowerDevilDaemon::refreshStatus()
     PowerDevilSettings::self()->readConfig();
     m_profilesConfig->reparseConfiguration();
 
+    reloadProfile();
+
     // Let's force status update
     acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
 }
@@ -118,15 +122,19 @@ void PowerDevilDaemon::refreshStatus()
 void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
 {
     if (state == Solid::Control::PowerManager::Plugged && !forced) {
-
+        m_isPlugged = true;
         emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
     }
 
     if (state == Solid::Control::PowerManager::Unplugged && !forced) {
+        m_isPlugged = false;
         emitNotification("unplugged", i18n("The power adaptor has been unplugged"));
     }
 
-    KConfigGroup *settings = getCurrentProfile(state);
+    if (!forced)
+        reloadProfile(state);
+
+    KConfigGroup *settings = getCurrentProfile();
 
     if (!settings)
         return;
@@ -135,22 +143,41 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
     Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
             settings->readEntry("cpuPolicy").toInt());
 
+    QVariant var = settings->readEntry("disabledCPUs", QVariant());
+    QList<QVariant> list = var.toList();
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
+        Solid::Device d = device;
+        Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
+
+        bool enable = true;
+
+        foreach(const QVariant &ent, list) {
+            if (processor->number() == ent.toInt()) {
+                enable = false;
+            }
+        }
+
+        Solid::Control::PowerManager::setCpuEnabled(processor->number(), enable);
+    }
+
+    Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
+
     delete settings;
 
-    emit stateChanged();
+    emit stateChanged(m_batteryPercent, m_isPlugged);
 }
 
 void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &udi)
 {
     Q_UNUSED(udi)
 
-    emit errorTriggered(QString("Battery at " + percent));
+    m_batteryPercent = percent;
 
     if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged)
         return;
 
     if (percent <= PowerDevilSettings::batteryCriticalLevel()) {
-        emit errorTriggered("Critical Level reached");
         switch (PowerDevilSettings::batLowAction()) {
         case Shutdown:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
@@ -178,12 +205,14 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             break;
         }
     } else if (percent == PowerDevilSettings::batteryWarningLevel()) {
-        emit errorTriggered("Warning Level reached");
         emitWarningNotification("warningbattery", i18n("Your battery has reached warning level"));
+        refreshStatus();
     } else if (percent == PowerDevilSettings::batteryLowLevel()) {
-        emit errorTriggered("Low Level reached");
         emitWarningNotification("lowbattery", i18n("Your battery has reached low level"));
+        refreshStatus();
     }
+
+    emit stateChanged(m_batteryPercent, m_isPlugged);
 }
 
 void PowerDevilDaemon::buttonPressed(int but)
@@ -245,6 +274,7 @@ void PowerDevilDaemon::increaseBrightness()
 
 void PowerDevilDaemon::shutdown()
 {
+    emitNotification("doingjob", i18n("The computer is being halted"));
     m_displayManager->shutdown(KWorkSpace::ShutdownTypeHalt, KWorkSpace::ShutdownModeTryNow);
 }
 
@@ -253,6 +283,8 @@ void PowerDevilDaemon::suspendToDisk()
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
     }
+
+    emitNotification("doingjob", i18n("The computer will now be suspended to disk"));
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
@@ -265,6 +297,8 @@ void PowerDevilDaemon::suspendToRam()
         lockScreen();
     }
 
+    emitNotification("doingjob", i18n("The computer will now be suspended to RAM"));
+
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
@@ -275,6 +309,8 @@ void PowerDevilDaemon::standby()
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
     }
+
+    emitNotification("doingjob", i18n("The computer will now be put into standby"));
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
@@ -287,6 +323,7 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
         emitWarningNotification("joberror", QString(i18n("There was an error while suspending:")
                                 + QChar('\n') + job->errorString()));
     }
+
     m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
 }
 
@@ -358,6 +395,7 @@ void PowerDevilDaemon::poll()
 
 void PowerDevilDaemon::lockScreen()
 {
+    emitNotification("doingjob", i18n("The screen is being locked"));
     m_screenSaverIface->Lock();
 }
 
@@ -366,8 +404,8 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
     if (!PowerDevilSettings::enableWarningNotifications())
         return;
 
-    KNotification::event(evid, message,
-                         KIcon("dialog-warning").pixmap(20, 20), 0, KNotification::CloseOnTimeout, m_applicationData);
+    KNotification::event(evid, message, KIcon("dialog-warning").pixmap(20, 20),
+                         0, KNotification::CloseOnTimeout, m_applicationData);
 }
 
 void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message)
@@ -375,35 +413,74 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
     if (!PowerDevilSettings::enableNotifications())
         return;
 
-    KNotification::event(evid, message,
-                         KIcon("dialog-ok-apply").pixmap(20, 20), 0, KNotification::CloseOnTimeout, m_applicationData);
+    KNotification::event(evid, message, KIcon("dialog-ok-apply").pixmap(20, 20),
+                         0, KNotification::CloseOnTimeout, m_applicationData);
 }
 
-KConfigGroup *PowerDevilDaemon::getCurrentProfile(int state)
+KConfigGroup *PowerDevilDaemon::getCurrentProfile()
 {
-    if (state == -1)
-        state = Solid::Control::PowerManager::acAdapterState();
-
-    KConfigGroup *group;
-
-    if (state == Solid::Control::PowerManager::Plugged) {
-        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::aCProfile());
-    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
-        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::warningProfile());
-    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
-        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::lowProfile());
-    } else {
-        group = new KConfigGroup(m_profilesConfig, PowerDevilSettings::batteryProfile());
-    }
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, m_currentProfile);
 
     emit errorTriggered(QString("Current Profile name is %1").arg(group->name()));
 
     if (!group->isValid() || !group->entryMap().size()) {
         emit errorTriggered("Invalid group!!");
+        reloadProfile();
         return NULL;
     }
 
     return group;
+}
+
+void PowerDevilDaemon::reloadProfile(int state)
+{
+    if (state == -1)
+        state = Solid::Control::PowerManager::acAdapterState();
+
+    if (state == Solid::Control::PowerManager::Plugged) {
+        m_currentProfile = PowerDevilSettings::aCProfile();
+    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+        m_currentProfile = PowerDevilSettings::warningProfile();
+    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+        m_currentProfile = PowerDevilSettings::lowProfile();
+    } else {
+        m_currentProfile = PowerDevilSettings::batteryProfile();
+    }
+
+    emit profileChanged(m_currentProfile, m_availableProfiles);
+}
+
+void PowerDevilDaemon::setProfile(const QString & profile)
+{
+    m_currentProfile = profile;
+    refreshStatus();
+    emitNotification("profileset", i18n("Profile changed to \"%1\"", profile));
+    emit profileChanged(m_currentProfile, m_availableProfiles);
+}
+
+void PowerDevilDaemon::reloadAndStream()
+{
+    if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
+        m_currentProfile = PowerDevilSettings::aCProfile();
+        m_isPlugged = true;
+    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+        m_currentProfile = PowerDevilSettings::warningProfile();
+        m_isPlugged = false;
+    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+        m_currentProfile = PowerDevilSettings::lowProfile();
+        m_isPlugged = false;
+    } else {
+        m_currentProfile = PowerDevilSettings::batteryProfile();
+        m_isPlugged = false;
+    }
+
+    m_availableProfiles = m_profilesConfig->groupList();
+    m_batteryPercent = Solid::Control::PowerManager::batteryChargePercent();
+
+    emit profileChanged(m_currentProfile, m_availableProfiles);
+    emit stateChanged(m_batteryPercent, m_isPlugged);
+
+    refreshStatus();
 }
 
 #include "PowerDevilDaemon.moc"

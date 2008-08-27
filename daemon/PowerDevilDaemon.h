@@ -44,6 +44,8 @@ public Q_SLOTS:
     void refreshStatus();
     void emitWarningNotification(const QString &evid, const QString &message = QString());
     void emitNotification(const QString &evid, const QString &message = QString());
+    void setProfile(const QString & profile);
+    void reloadAndStream();
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state, bool forced = false);
@@ -57,15 +59,21 @@ private Q_SLOTS:
     void standby();
     void buttonPressed(int but);
     void poll();
+    void reloadProfile(int state = -1);
+    const QString &profile() {
+        return m_currentProfile;
+    }
 
 Q_SIGNALS:
-    void stateChanged();
     void lidClosed(int code, const QString &action);
     void errorTriggered(const QString &error);
 
+    void stateChanged(int, bool);
+    void profileChanged(const QString&, const QStringList&);
+
 private:
     void lockScreen();
-    KConfigGroup *getCurrentProfile(int state = -1);
+    KConfigGroup *getCurrentProfile();
 
 private:
     enum IdleAction {
@@ -87,6 +95,12 @@ private:
 
     KComponentData m_applicationData;
     KConfig *m_profilesConfig;
+
+    QString m_currentProfile;
+    QStringList m_availableProfiles;
+
+    int m_batteryPercent;
+    bool m_isPlugged;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

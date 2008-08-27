@@ -17,54 +17,17 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#include "AbstractView.h"
 
-#include <QWidget>
-#include "ui_dialog.h"
+#include <plasma/applet.h>
 
-class KConfig;
-
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+AbstractView::AbstractView(Plasma::Applet *parent)
 {
-    Q_OBJECT
+    m_applet = parent;
+}
 
-public:
-    ConfigWidget(QWidget *parent = 0);
+AbstractView::~AbstractView()
+{
+}
 
-    void fillUi();
-
-    void load();
-    void save();
-
-signals:
-    void changed(bool ch);
-
-private slots:
-    void emitChanged();
-    void enableBoxes();
-    void loadProfile();
-    void saveProfile();
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name);
-    void deleteCurrentProfile();
-    void createProfile();
-    void fillCapabilities();
-
-    void importProfiles();
-    void exportProfiles();
-
-private:
-    enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
-    };
-
-    KConfig *m_profilesConfig;
-};
-
-#endif /*CONFIGWIDGET_H*/
+#include "AbstractView.moc"

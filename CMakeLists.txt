@@ -32,3 +32,4 @@ add_subdirectory(kcmodule)
 add_subdirectory(plasma)
 
 install( FILES powerdevil.notifyrc DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
+

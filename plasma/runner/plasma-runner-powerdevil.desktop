@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=PowerDevil
+Name[it]=PowerDevil
+
+Comment=Manage Basic Power Management Operations
+Comment[it]=Gestisce operazioni di base di risparmio energia
+
+X-KDE-ServiceTypes=Plasma/Runner
+Type=Service
+X-KDE-Library=krunner_powerdevil
+Icon=battery-charging-040
+
+X-KDE-PluginInfo-Author=Dario Freddi
+X-KDE-PluginInfo-Email=drf@kdemod.ath.cx
+X-KDE-PluginInfo-Name=PowerDevil
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true

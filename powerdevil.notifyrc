@@ -1,5 +1,5 @@
 [Global]
-IconName=kopete
+IconName=battery-charging-040
 Comment=PowerDevil
 Version=1
 
@@ -51,4 +51,18 @@ Name=Job error
 Comment=There was an error while performing a job
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
+Action=Sound|Popup
+
+[Event/profileset]
+Name=Profile Changed
+Comment=The profile was changed
+Contexts=stdnot
+Sound=KDE-Sys-App-Message.ogg
+Action=Sound|Popup
+
+[Event/doingjob]
+Name=Doing a Job
+Comment=Something is ongoing
+Contexts=stdnot
+Sound=KDE-Sys-App-Negative.ogg
 Action=Sound|Popup

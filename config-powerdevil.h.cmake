@@ -22,16 +22,13 @@
  * totally out of your goddamn mind!
  */
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef CONFIGPOWERDEVIL_H
+#define CONFIGPOWERDEVIL_H
 
 /* Defines the Install Prefix */
 #define INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}"
 
 /* Defines the Version */
-#define POWERDEVIL_VERSION "0.4"
+#define POWERDEVIL_VERSION "0.7.0 (Alpha)"
 
-/* Defines the current Framework Version */
-#define POWERDEVIL_FRAMEWORK_VERSION "1"
-
-#endif /*CONFIG_H*/
+#endif /*CONFIGPOWERDEVIL_H*/
