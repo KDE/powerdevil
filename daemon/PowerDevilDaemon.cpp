@@ -74,20 +74,22 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_battery = qobject_cast<Solid::Battery*>(d.asDeviceInterface(Solid::DeviceInterface::Battery));
     }
 
-    if (!m_battery) {
-        //FIXME: Shut the daemon down. Is that the correct way?
-        deleteLater();
-    }
-
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
             QDBusConnection::sessionBus(), this);
 
-    connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
     connect(m_notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
 
-    if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
-                 SLOT(batteryChargePercentChanged(int, const QString&)))) {
-        emit errorTriggered("Could not connect to battery interface!");
+    /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
+     * about them.
+     */
+    if (m_battery)
+    {
+        connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
+
+        if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
+                SLOT(batteryChargePercentChanged(int, const QString&)))) {
+            emit errorTriggered("Could not connect to battery interface!");
+        }
     }
 
     //setup idle timer, can remove it if we can get some kind of idle time signal from dbus?
@@ -115,8 +117,11 @@ void PowerDevilDaemon::refreshStatus()
 
     reloadProfile();
 
-    // Let's force status update
-    acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
+    // Let's force status update, if we have a battery
+    if (m_battery)
+    {
+        acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
+    }
 }
 
 void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
@@ -434,17 +439,24 @@ KConfigGroup *PowerDevilDaemon::getCurrentProfile()
 
 void PowerDevilDaemon::reloadProfile(int state)
 {
-    if (state == -1)
-        state = Solid::Control::PowerManager::acAdapterState();
-
-    if (state == Solid::Control::PowerManager::Plugged) {
+    if (!m_battery)
+    {
         m_currentProfile = PowerDevilSettings::aCProfile();
-    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
-        m_currentProfile = PowerDevilSettings::warningProfile();
-    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
-        m_currentProfile = PowerDevilSettings::lowProfile();
-    } else {
-        m_currentProfile = PowerDevilSettings::batteryProfile();
+    }
+    else
+    {
+        if (state == -1)
+            state = Solid::Control::PowerManager::acAdapterState();
+
+        if (state == Solid::Control::PowerManager::Plugged) {
+            m_currentProfile = PowerDevilSettings::aCProfile();
+        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+            m_currentProfile = PowerDevilSettings::warningProfile();
+        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+            m_currentProfile = PowerDevilSettings::lowProfile();
+        } else {
+            m_currentProfile = PowerDevilSettings::batteryProfile();
+        }
     }
 
     emit profileChanged(m_currentProfile, m_availableProfiles);
@@ -460,22 +472,33 @@ void PowerDevilDaemon::setProfile(const QString & profile)
 
 void PowerDevilDaemon::reloadAndStream()
 {
-    if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
+    if(!m_battery)
+    {
         m_currentProfile = PowerDevilSettings::aCProfile();
         m_isPlugged = true;
-    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
-        m_currentProfile = PowerDevilSettings::warningProfile();
-        m_isPlugged = false;
-    } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
-        m_currentProfile = PowerDevilSettings::lowProfile();
-        m_isPlugged = false;
-    } else {
-        m_currentProfile = PowerDevilSettings::batteryProfile();
-        m_isPlugged = false;
+
+        m_batteryPercent = 100;
+    }
+    else
+    {
+        if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
+            m_currentProfile = PowerDevilSettings::aCProfile();
+            m_isPlugged = true;
+        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+            m_currentProfile = PowerDevilSettings::warningProfile();
+            m_isPlugged = false;
+        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+            m_currentProfile = PowerDevilSettings::lowProfile();
+            m_isPlugged = false;
+        } else {
+            m_currentProfile = PowerDevilSettings::batteryProfile();
+            m_isPlugged = false;
+        }
+
+        m_batteryPercent = Solid::Control::PowerManager::batteryChargePercent();
     }
 
     m_availableProfiles = m_profilesConfig->groupList();
-    m_batteryPercent = Solid::Control::PowerManager::batteryChargePercent();
 
     emit profileChanged(m_currentProfile, m_availableProfiles);
     emit stateChanged(m_batteryPercent, m_isPlugged);
