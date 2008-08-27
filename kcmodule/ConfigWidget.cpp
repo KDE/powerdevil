@@ -287,26 +287,21 @@ void ConfigWidget::loadProfile()
 
 void ConfigWidget::saveProfile(const QString &p)
 {
-    if (profileEditBox->currentText().isEmpty() && p.isEmpty())
-    {
+    if (profileEditBox->currentText().isEmpty() && p.isEmpty()) {
         return;
     }
 
     QString profile;
 
-    if (p.isEmpty())
-    {
+    if (p.isEmpty()) {
         profile = profileEditBox->currentText();
-    }
-    else
-    {
+    } else {
         profile = p;
     }
 
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, profile);
 
-    if (!group->isValid() || !group->entryMap().size())
-    {
+    if (!group->isValid() || !group->entryMap().size()) {
         return;
     }
 
@@ -574,26 +569,18 @@ void ConfigWidget::exportProfiles()
 
 void ConfigWidget::switchProfile()
 {
-    if ( !m_profileEdited )
-    {
+    if (!m_profileEdited) {
         loadProfile();
-    }
-    else
-    {
+    } else {
         int result = KMessageBox::warningYesNoCancel(this, i18n("The current profile has not been saved.\n"
-                "Do you want to save it?"), i18n("Save Profile"));
+                     "Do you want to save it?"), i18n("Save Profile"));
 
-        if ( result == KMessageBox::Yes )
-        {
+        if (result == KMessageBox::Yes) {
             saveProfile(m_currentProfile);
             loadProfile();
-        }
-        else if ( result == KMessageBox::No )
-        {
+        } else if (result == KMessageBox::No) {
             loadProfile();
-        }
-        else if ( result == KMessageBox::Cancel )
-        {
+        } else if (result == KMessageBox::Cancel) {
             disconnect(saveCurrentProfileButton, SIGNAL(clicked()), this,  SLOT(saveProfile()));
             profileEditBox->setCurrentIndex(profileEditBox->findText(m_currentProfile));
             connect(saveCurrentProfileButton, SIGNAL(clicked()), SLOT(saveProfile()));

@@ -22,7 +22,7 @@ kde4_add_plugin( kded_powerdevil
 target_link_libraries(kded_powerdevil 
     ${KDE4_KDECORE_LIBS} 
     ${KDE4_SOLID_LIBS}
-    ${KDE4_KDEUI_LIBRARY}
+    ${KDE4_KDEUI_LIBS}
     solidcontrol
     kworkspace
     ${X11_Xscreensaver_LIB}

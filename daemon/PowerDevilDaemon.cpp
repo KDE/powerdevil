@@ -82,12 +82,11 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
      * about them.
      */
-    if (m_battery)
-    {
+    if (m_battery) {
         connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
 
         if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
-                SLOT(batteryChargePercentChanged(int, const QString&)))) {
+                     SLOT(batteryChargePercentChanged(int, const QString&)))) {
             emit errorTriggered("Could not connect to battery interface!");
         }
     }
@@ -118,8 +117,7 @@ void PowerDevilDaemon::refreshStatus()
     reloadProfile();
 
     // Let's force status update, if we have a battery
-    if (m_battery)
-    {
+    if (m_battery) {
         acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
     }
 }
@@ -439,12 +437,9 @@ KConfigGroup *PowerDevilDaemon::getCurrentProfile()
 
 void PowerDevilDaemon::reloadProfile(int state)
 {
-    if (!m_battery)
-    {
+    if (!m_battery) {
         m_currentProfile = PowerDevilSettings::aCProfile();
-    }
-    else
-    {
+    } else {
         if (state == -1)
             state = Solid::Control::PowerManager::acAdapterState();
 
@@ -472,15 +467,12 @@ void PowerDevilDaemon::setProfile(const QString & profile)
 
 void PowerDevilDaemon::reloadAndStream()
 {
-    if(!m_battery)
-    {
+    if (!m_battery) {
         m_currentProfile = PowerDevilSettings::aCProfile();
         m_isPlugged = true;
 
         m_batteryPercent = 100;
-    }
-    else
-    {
+    } else {
         if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged) {
             m_currentProfile = PowerDevilSettings::aCProfile();
             m_isPlugged = true;
