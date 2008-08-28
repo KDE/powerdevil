@@ -433,23 +433,16 @@ void ConfigWidget::fillCapabilities()
         batteryCount++;
     }
 
-    bool freqchange = false;
-
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
-        Solid::Device d = device;
+        /*Solid::Device d = device;
         Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
 
         if (processor->canChangeFrequency()) {
             freqchange = true;
-        }
-
+        }*/
+        Q_UNUSED(device)
         cpuCount++;
     }
-
-    if (freqchange)
-        isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    else
-        isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
 
     cpuNumber->setText(QString("%1").arg(cpuCount));
     batteriesNumber->setText(QString("%1").arg(batteryCount));
@@ -508,7 +501,15 @@ void ConfigWidget::fillCapabilities()
 
     scMethods.remove(scMethods.length() - 2, 2);
 
-    supportedPolicies->setText(scMethods);
+    if (!scMethods.isEmpty()) {
+        supportedPolicies->setText(scMethods);
+    }
+
+    if (!scMethods.isEmpty()) {
+        isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    } else {
+        isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+    }
 
     if (!Solid::Control::PowerManager::supportedSchemes().isEmpty())
         isSchemeSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
