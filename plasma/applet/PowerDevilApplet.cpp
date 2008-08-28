@@ -77,7 +77,6 @@ void PowerDevilApplet::init()
     m_showMultipleBatteries = cg.readEntry("showMultipleBatteries", true);
 
     QString svgFile;
-    svgFile.clear();
     if (cg.readEntry("style", 0) == 0) {
         m_batteryStyle = OxygenBattery;
         svgFile = "widgets/battery-oxygen";
@@ -211,7 +210,6 @@ void PowerDevilApplet::configAccepted()
 
     if (ui.styleGroup->selected() != m_batteryStyle) {
         QString svgFile;
-        svgFile.clear();
         if (ui.styleGroup->selected() == OxygenBattery) {
             svgFile = "widgets/battery-oxygen";
         } else {
@@ -443,7 +441,6 @@ void PowerDevilApplet::paintLabel(QPainter *p, const QRect &contentsRect, const 
 void PowerDevilApplet::paintBattery(QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState)
 {
     QString fill_element;
-    fill_element.clear();
     if (plugState && m_theme->hasElement("Battery")) {
         m_theme->paint(p, scaleRectF(m_batteryAlpha, contentsRect), "Battery");
 
