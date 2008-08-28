@@ -13,6 +13,9 @@
     <method name="setProfile">
       <arg type="s" direction="in" />
     </method>
+    <method name="getSupportedGovernors">
+      <arg type="as" direction="out" />
+    </method>
     
     <signal name="lidClosed">
       <arg type="i" direction="out" />

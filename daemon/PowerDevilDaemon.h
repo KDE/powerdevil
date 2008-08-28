@@ -44,6 +44,7 @@ public Q_SLOTS:
     void emitNotification(const QString &evid, const QString &message = QString());
     void setProfile(const QString & profile);
     void reloadAndStream();
+    QStringList getSupportedGovernors();
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state, bool forced = false);

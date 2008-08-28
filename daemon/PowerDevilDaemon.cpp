@@ -650,4 +650,33 @@ void PowerDevilDaemon::reloadAndStream()
     refreshStatus();
 }
 
+QStringList PowerDevilDaemon::getSupportedGovernors()
+{
+    QStringList retlist;
+
+    Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
+
+    if (policies | Solid::Control::PowerManager::Performance) {
+        retlist.append(i18n("Performance"));
+    }
+
+    if (policies | Solid::Control::PowerManager::OnDemand) {
+        retlist.append(i18n("Dynamic (ondemand)"));
+    }
+
+    if (policies | Solid::Control::PowerManager::Conservative) {
+        retlist.append(i18n("Dynamic (conservative)"));
+    }
+
+    if (policies | Solid::Control::PowerManager::Powersave) {
+        retlist.append(i18n("Powersave"));
+    }
+
+    if (policies | Solid::Control::PowerManager::Userspace) {
+        retlist.append(i18n("Userspace"));
+    }
+
+    return retlist;
+}
+
 #include "PowerDevilDaemon.moc"

@@ -112,6 +112,10 @@ void ConfigWidget::fillUi()
         freqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
     }
 
+    if (policies | Solid::Control::PowerManager::Userspace) {
+        freqCombo->addItem(i18n("Userspace"), (int) Solid::Control::PowerManager::Userspace);
+    }
+
     schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
 
 
@@ -497,6 +501,10 @@ void ConfigWidget::fillCapabilities()
 
     if (policies | Solid::Control::PowerManager::Powersave) {
         scMethods.append(QString(i18n("Powersave") + QString(", ")));
+    }
+
+    if (policies | Solid::Control::PowerManager::Userspace) {
+        scMethods.append(QString(i18n("Userspace") + QString(", ")));
     }
 
     scMethods.remove(scMethods.length() - 2, 2);

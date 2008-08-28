@@ -33,7 +33,8 @@ PowerDevilRunner::PowerDevilRunner(QObject *parent, const QVariantList &args)
 
     Q_UNUSED(args)
 
-    m_words << "set-profile" << "change-profile" << "switch-profile";
+    m_words << "set-profile" << "change-profile" << "switch-profile" <<
+    "set-governor" << "change-governor" << "switch-governor";
 
     setObjectName(i18n("PowerDevil"));
 }
@@ -73,6 +74,10 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                 }
 
                 delete m_profilesConfig;
+            }
+            else if (word == "set-governor" || word == "change-governor" ||
+                                word == "switch-governor") {
+
             }
 
         }
