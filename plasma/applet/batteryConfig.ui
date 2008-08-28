@@ -1,0 +1,74 @@
+<ui version="4.0" >
+ <class>batteryConfig</class>
+ <widget class="QWidget" name="batteryConfig" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>363</width>
+    <height>134</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Configure Battery Monitor</string>
+  </property>
+  <property name="accessibleName" >
+   <string>Configure Battery Monitor</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QCheckBox" name="showBatteryStringCheckBox" >
+     <property name="toolTip" >
+      <string/>
+     </property>
+     <property name="text" >
+      <string>Show the percentage of &amp;charge on the battery</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="showMultipleBatteriesCheckBox" >
+     <property name="toolTip" >
+      <string/>
+     </property>
+     <property name="text" >
+      <string>Show the state for &amp;each battery present</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="KButtonGroup" name="styleGroup" >
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QRadioButton" name="oxygenBattery" >
+        <property name="text" >
+         <string>Oxygen theme</string>
+        </property>
+        <property name="checked" >
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="classicBattery" >
+        <property name="text" >
+         <string>Classic theme</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KButtonGroup</class>
+   <extends>QGroupBox</extends>
+   <header>kbuttongroup.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

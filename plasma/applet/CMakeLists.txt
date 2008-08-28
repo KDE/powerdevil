@@ -5,10 +5,9 @@ INCLUDE_DIRECTORIES(
 
 set(plasma_applet_powerdevil_SRCS
   PowerDevilApplet.cpp
-  AbstractView.cpp
-  ErrorView.cpp
-  IdleView.cpp
 )
+
+kde4_add_ui_files(plasma_applet_powerdevil_SRCS batteryConfig.ui )
 
 kde4_add_plugin(plasma_applet_powerdevil 
 	${plasma_applet_powerdevil_SRCS}
