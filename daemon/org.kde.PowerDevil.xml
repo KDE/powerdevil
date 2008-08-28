@@ -21,6 +21,9 @@
     <signal name="errorTriggered">
       <arg type="s" direction="out" />
     </signal>
+    <signal name="pollEvent">
+      <arg type="s" direction="out" />
+    </signal>
     <signal name="stateChanged">
       <arg type="i" direction="out" />
       <arg type="b" direction="out" />
