@@ -26,6 +26,7 @@
 #include <QStyleOptionGraphicsItem>
 #include <QFont>
 #include <QGraphicsSceneHoverEvent>
+#include <QProcess>
 
 #include <KDebug>
 #include <KIcon>
@@ -63,6 +64,10 @@ PowerDevilApplet::PowerDevilApplet(QObject *parent, const QVariantList &args)
     setAspectRatioMode(Plasma::ConstrainedSquare );
     m_textRect = QRect();
     m_theme = new Plasma::Svg(this);
+
+    QAction *configurePowerdevil = new QAction(KIcon("dialog-ok-apply"), i18n("Configure PowerDevil"), 0);
+    connect(configurePowerdevil, SIGNAL(triggered()), this, SLOT(openPowerDevilConfiguration()));
+    addAction(i18n("Configure PowerDevil"), configurePowerdevil);
 }
 
 void PowerDevilApplet::init()
@@ -164,6 +169,9 @@ void PowerDevilApplet::dataUpdated(const QString& source, const Plasma::DataEngi
     } else if (source == I18N_NOOP("AC Adapter")) {
         m_acadapter_plugged = data[I18N_NOOP("Plugged in")].toBool();
         showAcAdapter(m_acadapter_plugged);
+    } else if (source == I18N_NOOP("PowerDevil")) {
+        m_availableProfiles = data[I18N_NOOP("availableProfiles")].toStringList();
+        m_currentProfile = data[I18N_NOOP("currentProfile")].toString();
     } else {
         kDebug() << "Applet::Dunno what to do with " << source;
     }
@@ -585,6 +593,8 @@ void PowerDevilApplet::connectSources() {
 
     dataEngine("powermanagement")->connectSource(I18N_NOOP("AC Adapter"), this);
 
+    //dataEngine("powerdevil")->connectSource(I18N_NOOP("PowerDevil"), this);
+
     connect(dataEngine("powermanagement"), SIGNAL(sourceAdded(QString)),
             this,                          SLOT(sourceAdded(QString)));
     connect(dataEngine("powermanagement"), SIGNAL(sourceRemoved(QString)),
@@ -600,6 +610,7 @@ void PowerDevilApplet::disconnectSources()
     }
 
     dataEngine("powermanagement")->disconnectSource(I18N_NOOP("AC Adapter"), this);
+    dataEngine("powerdevil")->disconnectSource(I18N_NOOP("PowerDevil"), this);
 
     disconnect(SLOT(sourceAdded(QString)));
     disconnect(SLOT(sourceRemoved(QString)));
@@ -620,6 +631,11 @@ void PowerDevilApplet::sourceRemoved(const QString& source)
         m_numOfBattery--;
         update();
     }
+}
+
+void PowerDevilApplet::openPowerDevilConfiguration()
+{
+    QProcess::startDetached("kcmshell4 powerdevilconfig");
 }
 
 #include "PowerDevilApplet.moc"

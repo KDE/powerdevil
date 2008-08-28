@@ -72,6 +72,7 @@ class PowerDevilApplet : public Plasma::Applet
         void batteryAnimationUpdate(qreal progress);
         void sourceAdded(const QString &source);
         void sourceRemoved(const QString &source);
+        void openPowerDevilConfiguration();
 
     private:
         Q_ENUMS( m_batteryStyle )
@@ -129,6 +130,9 @@ class PowerDevilApplet : public Plasma::Applet
         int m_boxAlpha;
         int m_boxHoverAlpha;
         int m_numOfBattery;
+
+        QStringList m_availableProfiles;
+        QString m_currentProfile;
 };
 
 K_EXPORT_PLASMA_APPLET(powerdevilapplet, PowerDevilApplet)
