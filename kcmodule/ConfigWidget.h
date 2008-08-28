@@ -50,7 +50,7 @@ private slots:
 
     void loadProfile();
     void saveProfile(const QString &p = QString());
-    void switchProfile();
+    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
     void reloadAvailableProfiles();
     void createProfile(const QString &name);
     void deleteCurrentProfile();
@@ -73,7 +73,6 @@ private:
 
     KConfig *m_profilesConfig;
     bool m_profileEdited;
-    QString m_currentProfile;
 };
 
 #endif /*CONFIGWIDGET_H*/

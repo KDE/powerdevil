@@ -34,7 +34,8 @@
 #include <KMessageBox>
 
 ConfigWidget::ConfigWidget(QWidget *parent)
-        : QWidget(parent)
+        : QWidget(parent),
+        m_profileEdited(false)
 {
     setupUi(this);
 
@@ -171,7 +172,8 @@ void ConfigWidget::fillUi()
     connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 
-    connect(profileEditBox, SIGNAL(currentIndexChanged(int)), SLOT(switchProfile()));
+    connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
+            SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
 
     connect(deleteProfile, SIGNAL(clicked()), SLOT(deleteCurrentProfile()));
     connect(newProfile, SIGNAL(clicked()), SLOT(createProfile()));
@@ -241,12 +243,12 @@ void ConfigWidget::loadProfile()
 {
     kDebug() << "Loading a profile";
 
-    if (profileEditBox->currentText().isEmpty())
+    if (!profilesList->currentItem())
         return;
 
-    kDebug() << profileEditBox->currentText();
+    kDebug() << profilesList->currentItem()->text();
 
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profileEditBox->currentText());
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
 
     if (!group->isValid())
         return;
@@ -279,22 +281,20 @@ void ConfigWidget::loadProfile()
 
     delete group;
 
-    m_currentProfile = profileEditBox->currentText();
-
     m_profileEdited = false;
     enableSaveProfile();
 }
 
 void ConfigWidget::saveProfile(const QString &p)
 {
-    if (profileEditBox->currentText().isEmpty() && p.isEmpty()) {
+    if (!profilesList->currentItem() && p.isEmpty()) {
         return;
     }
 
     QString profile;
 
     if (p.isEmpty()) {
-        profile = profileEditBox->currentText();
+        profile = profilesList->currentItem()->text();
     } else {
         profile = p;
     }
@@ -340,7 +340,7 @@ void ConfigWidget::saveProfile(const QString &p)
 
 void ConfigWidget::reloadAvailableProfiles()
 {
-    profileEditBox->clear();
+    profilesList->clear();
     acProfile->clear();
     batteryProfile->clear();
     lowProfile->clear();
@@ -351,7 +351,7 @@ void ConfigWidget::reloadAvailableProfiles()
         return;
     }
 
-    profileEditBox->addItems(m_profilesConfig->groupList());
+    profilesList->addItems(m_profilesConfig->groupList());
     acProfile->addItems(m_profilesConfig->groupList());
     batteryProfile->addItems(m_profilesConfig->groupList());
     lowProfile->addItems(m_profilesConfig->groupList());
@@ -361,11 +361,13 @@ void ConfigWidget::reloadAvailableProfiles()
     lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
     warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
     batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
+
+    profilesList->setCurrentRow(0);
 }
 
 void ConfigWidget::deleteCurrentProfile()
 {
-    m_profilesConfig->deleteGroup(profileEditBox->currentText());
+    m_profilesConfig->deleteGroup(profilesList->currentItem()->text());
 
     m_profilesConfig->sync();
 
@@ -567,8 +569,10 @@ void ConfigWidget::exportProfiles()
     delete toExport;
 }
 
-void ConfigWidget::switchProfile()
+void ConfigWidget::switchProfile(QListWidgetItem *current, QListWidgetItem *previous)
 {
+    Q_UNUSED(current)
+
     if (!m_profileEdited) {
         loadProfile();
     } else {
@@ -576,14 +580,16 @@ void ConfigWidget::switchProfile()
                      "Do you want to save it?"), i18n("Save Profile"));
 
         if (result == KMessageBox::Yes) {
-            saveProfile(m_currentProfile);
+            saveProfile(previous->text());
             loadProfile();
         } else if (result == KMessageBox::No) {
             loadProfile();
         } else if (result == KMessageBox::Cancel) {
-            disconnect(saveCurrentProfileButton, SIGNAL(clicked()), this,  SLOT(saveProfile()));
-            profileEditBox->setCurrentIndex(profileEditBox->findText(m_currentProfile));
-            connect(saveCurrentProfileButton, SIGNAL(clicked()), SLOT(saveProfile()));
+            disconnect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
+                       this, SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
+            profilesList->setCurrentItem(previous);
+            connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
+                    SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
         }
     }
 }

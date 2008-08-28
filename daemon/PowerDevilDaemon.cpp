@@ -1,9 +1,5 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
- *   Copyright (C) 2007-2008 by Riccardo Iaconelli <riccardo@kde.org>      *
- *   Copyright (C) 2007-2008 by Sebastian Kuegler <sebas@kde.org>          *
- *   Copyright (C) 2007 by Luka Renko <lure@kubuntu.org>                   *
- *   Copyright (C) 2008 by Thomas Gillespie <tomjamesgillespie@gmail.com>  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,7 +15,12 @@
  *   along with this program; if not, write to the                         *
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
- ***************************************************************************/
+ ***************************************************************************
+ *                                                                         *
+ *   Part of the code in this file was taken from KDE4Powersave and/or     *
+ *   Lithium, where noticed.                                               *
+ *                                                                         *
+ **************************************************************************/
 
 #include "PowerDevilDaemon.h"
 
@@ -31,6 +32,9 @@
 #include <klocalizedstring.h>
 #include <kjob.h>
 #include <kworkspace/kdisplaymanager.h>
+
+#include <QWidget>
+#include <QTimer>
 
 #include "PowerDevilSettings.h"
 #include "powerdeviladaptor.h"
@@ -65,10 +69,13 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
     m_availableProfiles = m_profilesConfig->groupList();
 
-    /* First of all, let's check if a battery is present. If not, this
-    module has to be shut down. */
+    /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
+     * also on system without batteries. Most of modern desktop systems support CPU scaling,
+     * so somebody might find PowerDevil handy, and we don't want it to crash on them. To put it
+     * short, we simply bypass all adaptor and battery events if no batteries are found.
+     */
 
-    //get a list of all devices that are Batteries
+    // Here we get our battery interface, it will be useful later.
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         Solid::Device d = device;
         m_battery = qobject_cast<Solid::Battery*>(d.asDeviceInterface(Solid::DeviceInterface::Battery));
@@ -91,10 +98,14 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         }
     }
 
-    //setup idle timer, can remove it if we can get some kind of idle time signal from dbus?
-    m_pollTimer->setInterval(700);
+    //setup idle timer, with some smart polling
     connect(m_pollTimer, SIGNAL(timeout()), this, SLOT(poll()));
-    m_pollTimer->start();
+
+    // This code was taken from Lithium/KDE4Powersave
+    m_grabber = new QWidget(0, Qt::X11BypassWindowManagerHint);
+    m_grabber->move(-1000, -1000);
+    m_grabber->setMouseTracking(true);
+    m_grabber->installEventFilter(this);
 
     //DBus
     new PowerDevilAdaptor(this);
@@ -104,6 +115,38 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
+}
+
+bool PowerDevilDaemon::eventFilter(QObject* object, QEvent* event)
+{
+    if ((object == m_grabber)
+            && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
+        detectedActivity();
+        return false;
+    } else {
+        // If it's not the grabber, fallback to default event filter
+        return KDEDModule::eventFilter(object, event);
+    }
+}
+
+void PowerDevilDaemon::detectedActivity()
+{
+    // This code was taken from Lithium/KDE4Powersave
+
+    m_grabber->releaseMouse();
+    m_grabber->releaseKeyboard();
+    m_grabber->hide();
+
+    poll();
+}
+
+void PowerDevilDaemon::waitForActivity()
+{
+    // This code was taken from Lithium/KDE4Powersave
+
+    m_grabber->show();
+    m_grabber->grabMouse();
+    m_grabber->grabKeyboard();
 }
 
 void PowerDevilDaemon::refreshStatus()
@@ -116,9 +159,13 @@ void PowerDevilDaemon::refreshStatus()
 
     reloadProfile();
 
-    // Let's force status update, if we have a battery
+    /* Let's force status update, if we have a battery. Otherwise, let's just
+     * re-apply the current profile.
+     */
     if (m_battery) {
         acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
+    } else {
+        applyProfile();
     }
 }
 
@@ -137,6 +184,11 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
     if (!forced)
         reloadProfile(state);
 
+    applyProfile();
+}
+
+void PowerDevilDaemon::applyProfile()
+{
     KConfigGroup *settings = getCurrentProfile();
 
     if (!settings)
@@ -336,12 +388,22 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
 
 void PowerDevilDaemon::poll()
 {
-    /* ///The way that it should be done (i think)
+    /* This poll function behaves smartly. In fact, polling happens only
+     * on-demand. This function is called on the following situations: loading,
+     * profile change, resuming, and upon events.
+     * As you can see below, the timer is in fact started with the minimum
+     * time from next event.
+     * The idea was taken from KDE4Powersave & Lithium, so kudos to them.
+     * We make an intensive use of qMin/qMax here to determine the minimum time.
+     */
+
+    /* Hack! Since KRunner still doesn't behave properly, the
+     * correct way to go doesn't work (yet), and it's this one:
     ------------------------------------------------------------
     int idle = m_screenSaverIface->GetSessionIdleTime();
     ------------------------------------------------------------
     */
-    ///The way that works
+    /// In the meanwhile, this X11 hackish way gets its job done.
     //----------------------------------------------------------
     XScreenSaverInfo* mitInfo = 0;
     mitInfo = XScreenSaverAllocInfo();
@@ -351,8 +413,37 @@ void PowerDevilDaemon::poll()
 
     KConfigGroup *settings = getCurrentProfile();
 
-    if (!settings)
+    if (!settings) {
         return;
+    }
+
+    if (!PowerDevilSettings::dimOnIdle() && !settings->readEntry("turnOffIdle", false) &&
+            settings->readEntry("idleAction").toInt() == None) {
+        m_pollTimer->stop();
+        return;
+    }
+
+    int minDimTime = PowerDevilSettings::dimOnIdleTime() * 60;
+
+    if (idle < PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4) {
+        minDimTime = PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4;
+    }
+    if (idle < PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2) {
+        minDimTime = PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2;
+    }
+
+    int minTime = settings->readEntry("idleTime").toInt() * 60;
+
+    minTime = qMin(minTime, settings->readEntry("turnOffIdleTime").toInt() * 60);
+    minTime = qMin(minTime, minDimTime);
+
+    if (idle < minTime) {
+        int remaining = minTime - idle;
+        m_pollTimer->start(remaining * 1000);
+        return;
+    } else {
+        waitForActivity();
+    }
 
     if (idle >= settings->readEntry("idleTime").toInt() * 60) {
         switch (settings->readEntry("idleAction").toInt()) {
@@ -372,25 +463,52 @@ void PowerDevilDaemon::poll()
             break;
         }
     } else if (settings->readEntry("turnOffIdle", false) &&
-               (idle >= (settings->readEntry("turnOffIdleTime").toInt()))) {
-        //FIXME Turn off monitor. How do i do this?
-        //For the time being i know that the command "xset dpms force off"
-        //turns off the monitor so i'll just use it
+               (idle >= (settings->readEntry("turnOffIdleTime").toInt() * 60))) {
+        /* FIXME: This command works, though we can switch to dpms... need some
+         * feedback here.
+         */
         QProcess::execute("xset dpms force off");
     } else if (PowerDevilSettings::dimOnIdle()
-               && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4)))
-        //threefourths time - written this way for readability
-    {
+               && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60))) {
         Solid::Control::PowerManager::setBrightness(0);
+    } else if (PowerDevilSettings::dimOnIdle()
+               && (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 3 / 4))) {
+        Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 4);
     } else if (PowerDevilSettings::dimOnIdle() &&
-               (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2)))
-        //half time - written this way for readability
-    {
+               (idle >= (PowerDevilSettings::dimOnIdleTime() * 60 * 1 / 2))) {
         Solid::Control::PowerManager::setBrightness(Solid::Control::PowerManager::brightness() / 2);
-        m_pollTimer->setInterval(2000);
     } else {
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
-        m_pollTimer->setInterval((PowerDevilSettings::dimOnIdleTime() * 60000 * 1 / 2) - (idle * 1000));
+    }
+
+    int nextTimeout = -1;
+
+    if (settings->readEntry("idleTime").toInt() * 60 > idle) {
+        if (nextTimeout >= 0) {
+            nextTimeout = qMin(nextTimeout, settings->readEntry("idleTime").toInt() * 60 - idle);
+        } else {
+            nextTimeout = settings->readEntry("idleTime").toInt() * 60 - idle;
+        }
+    }
+    if (settings->readEntry("turnOffIdleTime").toInt() * 60 > idle) {
+        if (nextTimeout >= 0) {
+            nextTimeout = qMin(nextTimeout, settings->readEntry("turnOffIdleTime").toInt() * 60 - idle);
+        } else {
+            nextTimeout = settings->readEntry("turnOffIdleTime").toInt() * 60 - idle;
+        }
+    }
+    if (minDimTime > idle) {
+        if (nextTimeout >= 0) {
+            nextTimeout = qMin(nextTimeout, minDimTime - idle);
+        } else {
+            nextTimeout = minDimTime - idle;
+        }
+    }
+
+    if (nextTimeout >= 0) {
+        m_pollTimer->start(nextTimeout);
+    } else {
+        m_pollTimer->stop();
     }
 
     delete settings;
@@ -455,6 +573,8 @@ void PowerDevilDaemon::reloadProfile(int state)
     }
 
     emit profileChanged(m_currentProfile, m_availableProfiles);
+
+    poll();
 }
 
 void PowerDevilDaemon::setProfile(const QString & profile)

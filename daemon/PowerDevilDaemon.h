@@ -1,9 +1,5 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
- *   Copyright (C) 2007-2008 by Riccardo Iaconelli <riccardo@kde.org>      *
- *   Copyright (C) 2007-2008 by Sebastian Kuegler <sebas@kde.org>          *
- *   Copyright (C) 2007 by Luka Renko <lure@kubuntu.org>                   *
- *   Copyright (C) 2008 by Thomas Gillespie <tomjamesgillespie@gmail.com>  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -31,6 +27,8 @@
 #include <KComponentData>
 
 class KDisplayManager;
+class QWidget;
+class QTimer;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
@@ -50,15 +48,22 @@ public Q_SLOTS:
 private Q_SLOTS:
     void acAdapterStateChanged(int state, bool forced = false);
     void batteryChargePercentChanged(int percent, const QString &udi);
+
     void decreaseBrightness();
     void increaseBrightness();
+
     void shutdown();
     void suspendJobResult(KJob * job);
     void suspendToDisk();
     void suspendToRam();
     void standby();
+
     void buttonPressed(int but);
+
     void poll();
+    void detectedActivity();
+    void waitForActivity();
+
     void reloadProfile(int state = -1);
     const QString &profile() {
         return m_currentProfile;
@@ -71,9 +76,13 @@ Q_SIGNALS:
     void stateChanged(int, bool);
     void profileChanged(const QString&, const QStringList&);
 
+protected:
+    bool eventFilter(QObject * object, QEvent * event);
+
 private:
     void lockScreen();
     KConfigGroup *getCurrentProfile();
+    void applyProfile();
 
 private:
     enum IdleAction {
@@ -86,15 +95,16 @@ private:
     };
 
     Solid::Control::PowerManager::Notifier * m_notifier;
-    Solid::Battery *m_battery;
+    Solid::Battery * m_battery;
 
     KDisplayManager * m_displayManager;
     OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
 
     QTimer * m_pollTimer;
+    QWidget * m_grabber;
 
     KComponentData m_applicationData;
-    KConfig *m_profilesConfig;
+    KConfig * m_profilesConfig;
 
     QString m_currentProfile;
     QStringList m_availableProfiles;
