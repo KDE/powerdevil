@@ -27,7 +27,8 @@
 #include <QDBusConnectionInterface>
 
 PowerDevilRunner::PowerDevilRunner(QObject *parent, const QVariantList &args)
-        : Plasma::AbstractRunner(parent)
+        : Plasma::AbstractRunner(parent),
+        m_dbus(QDBusConnection::sessionBus())
 {
     KGlobal::locale()->insertCatalog("powerdevil");
 
@@ -74,9 +75,30 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                 }
 
                 delete m_profilesConfig;
-            }
-            else if (word == "set-governor" || word == "change-governor" ||
-                                word == "switch-governor") {
+            } else if (word == "set-governor" || word == "change-governor" ||
+                       word == "switch-governor") {
+                QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
+                                   "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedGovernors");
+                QDBusReply<QStringList> govs = m_dbus.call(msg);
+
+                foreach(const QString &ent, govs.value()) {
+                    if (term.split(' ').count() == 2) {
+                        if (!ent.startsWith(term.split(' ').at(1)))
+                            continue;
+                    }
+
+                    Plasma::QueryMatch match(this);
+
+                    match.setType(Plasma::QueryMatch::ExactMatch);
+
+                    match.setIcon(KIcon("battery-charging-040"));
+                    match.setText(i18n("Set CPU Governor to '%1'", ent));
+                    match.setData(ent);
+
+                    match.setRelevance(1);
+                    match.setId("GovernorChange");
+                    context.addMatch(term, match);
+                }
 
             }
 

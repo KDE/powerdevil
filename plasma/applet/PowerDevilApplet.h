@@ -32,107 +32,107 @@
 
 namespace Plasma
 {
-    class Svg;
+class Svg;
 }
 
 class PowerDevilApplet : public Plasma::Applet
 {
     Q_OBJECT
-    public:
-        PowerDevilApplet(QObject *parent, const QVariantList &args);
-        ~PowerDevilApplet();
+public:
+    PowerDevilApplet(QObject *parent, const QVariantList &args);
+    ~PowerDevilApplet();
 
-        void init();
-        void paintInterface(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                            const QRect &contents);
-        void setPath(const QString&);
-        QSizeF sizeHint(const Qt::SizeHint which, const QSizeF& constraint) const;
-        Qt::Orientations expandingDirections() const;
+    void init();
+    void paintInterface(QPainter *painter, const QStyleOptionGraphicsItem *option,
+                        const QRect &contents);
+    void setPath(const QString&);
+    QSizeF sizeHint(const Qt::SizeHint which, const QSizeF& constraint) const;
+    Qt::Orientations expandingDirections() const;
 
-        void constraintsEvent(Plasma::Constraints constraints);
+    void constraintsEvent(Plasma::Constraints constraints);
 
-    public slots:
-        void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
+public slots:
+    void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
 
-    protected Q_SLOTS:
-        virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
-        virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
-        void configAccepted();
-        void readColors();
+protected Q_SLOTS:
+    virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
+    virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+    void configAccepted();
+    void readColors();
 
-    signals:
-        void sizeHintChanged(Qt::SizeHint hint);
+signals:
+    void sizeHintChanged(Qt::SizeHint hint);
 
-    protected:
-        void createConfigurationInterface(KConfigDialog *parent);
+protected:
+    void createConfigurationInterface(KConfigDialog *parent);
 
-    private slots:
-        void animationUpdate(qreal progress);
-        void acAnimationUpdate(qreal progress);
-        void batteryAnimationUpdate(qreal progress);
-        void sourceAdded(const QString &source);
-        void sourceRemoved(const QString &source);
-        void openPowerDevilConfiguration();
+private slots:
+    void animationUpdate(qreal progress);
+    void acAnimationUpdate(qreal progress);
+    void batteryAnimationUpdate(qreal progress);
+    void sourceAdded(const QString &source);
+    void sourceRemoved(const QString &source);
+    void openPowerDevilConfiguration();
 
-    private:
-        Q_ENUMS( m_batteryStyle )
-        enum ClockStyle {
-            // Keep the order of styles the same order as the items in the configdialog!
-            OxygenBattery, ClassicBattery
-        };
-        void connectSources();
-        void disconnectSources();
-        int m_batteryStyle;
-        /* Paint battery with proper charge level */
-        void paintBattery(QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState);
-        /* Paint a label on top of the battery */
-        void paintLabel(QPainter *p, const QRect &contentsRect, const QString& labelText);
-        /* Fade in/out the label above the battery. */
-        void showLabel(bool show);
-        /* Scale in/out Battery. */
-        void showBattery(bool show);
-        /* Scale in/out Ac Adapter. */
-        void showAcAdapter(bool show);
-        /* Scale in a QRectF */
-        QRectF scaleRectF(qreal progress, QRectF rect);
-        /* Show multiple batteries with individual icons and charge info? */
-        bool m_showMultipleBatteries;
-        /* Should the battery charge information be shown on top? */
-        bool m_showBatteryString;
-        QSizeF m_size;
-        int m_pixelSize;
-        Plasma::Svg* m_theme;
-        bool m_acadapter_plugged;
+private:
+    Q_ENUMS(m_batteryStyle)
+    enum ClockStyle {
+        // Keep the order of styles the same order as the items in the configdialog!
+        OxygenBattery, ClassicBattery
+    };
+    void connectSources();
+    void disconnectSources();
+    int m_batteryStyle;
+    /* Paint battery with proper charge level */
+    void paintBattery(QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState);
+    /* Paint a label on top of the battery */
+    void paintLabel(QPainter *p, const QRect &contentsRect, const QString& labelText);
+    /* Fade in/out the label above the battery. */
+    void showLabel(bool show);
+    /* Scale in/out Battery. */
+    void showBattery(bool show);
+    /* Scale in/out Ac Adapter. */
+    void showAcAdapter(bool show);
+    /* Scale in a QRectF */
+    QRectF scaleRectF(qreal progress, QRectF rect);
+    /* Show multiple batteries with individual icons and charge info? */
+    bool m_showMultipleBatteries;
+    /* Should the battery charge information be shown on top? */
+    bool m_showBatteryString;
+    QSizeF m_size;
+    int m_pixelSize;
+    Plasma::Svg* m_theme;
+    bool m_acadapter_plugged;
 
-        // Configuration dialog
-        Ui::batteryConfig ui;
+    // Configuration dialog
+    Ui::batteryConfig ui;
 
-        int m_animId;
-        qreal m_alpha;
-        bool m_fadeIn;
+    int m_animId;
+    qreal m_alpha;
+    bool m_fadeIn;
 
-        int m_acAnimId;
-        qreal m_acAlpha;
-        bool m_acFadeIn;
+    int m_acAnimId;
+    qreal m_acAlpha;
+    bool m_acFadeIn;
 
-        int m_batteryAnimId;
-        qreal m_batteryAlpha;
-        bool m_batteryFadeIn;
+    int m_batteryAnimId;
+    qreal m_batteryAlpha;
+    bool m_batteryFadeIn;
 
-        // Internal data
-        QList<QVariant> batterylist, acadapterlist;
-        QHash<QString, QHash<QString, QVariant> > m_batteries_data;
-        QFont m_font;
-        bool m_isHovered;
-        QColor m_boxColor;
-        QColor m_textColor;
-        QRectF m_textRect;
-        int m_boxAlpha;
-        int m_boxHoverAlpha;
-        int m_numOfBattery;
+    // Internal data
+    QList<QVariant> batterylist, acadapterlist;
+    QHash<QString, QHash<QString, QVariant> > m_batteries_data;
+    QFont m_font;
+    bool m_isHovered;
+    QColor m_boxColor;
+    QColor m_textColor;
+    QRectF m_textRect;
+    int m_boxAlpha;
+    int m_boxHoverAlpha;
+    int m_numOfBattery;
 
-        QStringList m_availableProfiles;
-        QString m_currentProfile;
+    QStringList m_availableProfiles;
+    QString m_currentProfile;
 };
 
 K_EXPORT_PLASMA_APPLET(powerdevilapplet, PowerDevilApplet)

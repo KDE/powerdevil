@@ -42,26 +42,26 @@
 #include <plasma/animator.h>
 
 PowerDevilApplet::PowerDevilApplet(QObject *parent, const QVariantList &args)
-    : Plasma::Applet(parent, args),
-      m_batteryStyle(0),
-      m_theme(0),
-      m_animId(-1),
-      m_alpha(1),
-      m_fadeIn(false),
-      m_acAnimId(-1),
-      m_acAlpha(1),
-      m_acFadeIn(false),
-      m_batteryAnimId(-1),
-      m_batteryAlpha(1),
-      m_batteryFadeIn(true),
-      m_isHovered(false),
-      m_numOfBattery(0)
+        : Plasma::Applet(parent, args),
+        m_batteryStyle(0),
+        m_theme(0),
+        m_animId(-1),
+        m_alpha(1),
+        m_fadeIn(false),
+        m_acAnimId(-1),
+        m_acAlpha(1),
+        m_acFadeIn(false),
+        m_batteryAnimId(-1),
+        m_batteryAlpha(1),
+        m_batteryFadeIn(true),
+        m_isHovered(false),
+        m_numOfBattery(0)
 {
     kDebug() << "Loading applet battery";
     setAcceptsHoverEvents(true);
     setHasConfigurationInterface(true);
     resize(128, 128);
-    setAspectRatioMode(Plasma::ConstrainedSquare );
+    setAspectRatioMode(Plasma::ConstrainedSquare);
     m_textRect = QRect();
     m_theme = new Plasma::Svg(this);
 
@@ -103,7 +103,7 @@ void PowerDevilApplet::init()
     //connect sources
     connectSources();
 
-    foreach (const QString &battery_source, battery_sources) {
+    foreach(const QString &battery_source, battery_sources) {
         kDebug() << "BatterySource:" << battery_source;
         dataUpdated(battery_source, dataEngine("powermanagement")->query(battery_source));
     }
@@ -147,17 +147,17 @@ void PowerDevilApplet::constraintsEvent(Plasma::Constraints constraints)
 
 QSizeF PowerDevilApplet::sizeHint(const Qt::SizeHint which, const QSizeF& constraint) const
 {
-    Q_UNUSED( which );
-    Q_UNUSED( constraint );
+    Q_UNUSED(which);
+    Q_UNUSED(constraint);
     QSizeF sizeHint = contentsRect().size();
     switch (formFactor()) {
-        case Plasma::Vertical:
-            sizeHint.setHeight(sizeHint.width() * qMax(1, m_numOfBattery));
-            break;
+    case Plasma::Vertical:
+        sizeHint.setHeight(sizeHint.width() * qMax(1, m_numOfBattery));
+        break;
 
-        default:
-            sizeHint.setWidth(sizeHint.height() * qMax(1, m_numOfBattery));
-            break;
+    default:
+        sizeHint.setWidth(sizeHint.height() * qMax(1, m_numOfBattery));
+        break;
     }
     return sizeHint;
 }
@@ -183,7 +183,7 @@ void PowerDevilApplet::createConfigurationInterface(KConfigDialog *parent)
 {
     QWidget *widget = new QWidget(parent);
     ui.setupUi(widget);
-    parent->setButtons( KDialog::Ok | KDialog::Cancel | KDialog::Apply );
+    parent->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
     parent->addPage(widget, parent->windowTitle(), icon());
     connect(parent, SIGNAL(applyClicked()), this, SLOT(configAccepted()));
     connect(parent, SIGNAL(okClicked()), this, SLOT(configAccepted()));
@@ -284,21 +284,22 @@ void PowerDevilApplet::showLabel(bool show)
         Plasma::Animator::self()->stopCustomAnimation(m_animId);
     }
     m_animId = Plasma::Animator::self()->customAnimation(40 / (1000 / FadeInDuration), FadeInDuration,
-                                                      Plasma::Animator::EaseOutCurve, this,
-                                                      "animationUpdate");
+               Plasma::Animator::EaseOutCurve, this,
+               "animationUpdate");
 }
 
-QRectF PowerDevilApplet::scaleRectF(const qreal progress, QRectF rect) {
+QRectF PowerDevilApplet::scaleRectF(const qreal progress, QRectF rect)
+{
     if (progress == 1) {
         return rect;
     }
     // Scale
-    qreal w = rect.width()*progress;
-    qreal h = rect.width()*progress;
+    qreal w = rect.width() * progress;
+    qreal h = rect.width() * progress;
 
     // Position centered
-    rect.setX((rect.width() - w)/2);
-    rect.setY((rect.height() - h)/2);
+    rect.setX((rect.width() - w) / 2);
+    rect.setY((rect.height() - h) / 2);
 
     rect.setWidth(w);
     rect.setHeight(h);
@@ -321,8 +322,8 @@ void PowerDevilApplet::showAcAdapter(bool show)
         Plasma::Animator::self()->stopCustomAnimation(m_acAnimId);
     }
     m_acAnimId = Plasma::Animator::self()->customAnimation(40 / (1000 / FadeInDuration), FadeInDuration,
-                                                      Plasma::Animator::EaseOutCurve, this,
-                                                      "acAnimationUpdate");
+                 Plasma::Animator::EaseOutCurve, this,
+                 "acAnimationUpdate");
 }
 
 void PowerDevilApplet::showBattery(bool show)
@@ -337,8 +338,8 @@ void PowerDevilApplet::showBattery(bool show)
         Plasma::Animator::self()->stopCustomAnimation(m_batteryAnimId);
     }
     m_batteryAnimId = Plasma::Animator::self()->customAnimation(40 / (1000 / FadeInDuration), FadeInDuration,
-                                                      Plasma::Animator::EaseOutCurve, this,
-                                                      "batteryAnimationUpdate");
+                      Plasma::Animator::EaseOutCurve, this,
+                      "batteryAnimationUpdate");
 }
 
 void PowerDevilApplet::animationUpdate(qreal progress)
@@ -391,10 +392,10 @@ void PowerDevilApplet::paintLabel(QPainter *p, const QRect &contentsRect, const 
 
     // Longer texts get smaller fonts
     if (labelText.length() > 4) {
-        if (original_font_size/1.5 < KGlobalSettings::smallestReadableFont().pointSize()) {
+        if (original_font_size / 1.5 < KGlobalSettings::smallestReadableFont().pointSize()) {
             m_font.setPointSize((KGlobalSettings::smallestReadableFont().pointSize()));
         } else {
-            m_font.setPointSizeF(original_font_size/1.5);
+            m_font.setPointSizeF(original_font_size / 1.5);
         }
         fm = QFontMetrics(m_font);
         text_width = (fm.width(labelText) * 1.2);
@@ -403,19 +404,19 @@ void PowerDevilApplet::paintLabel(QPainter *p, const QRect &contentsRect, const 
         text_width = (text_width * 1.4);
     }
     if (formFactor() == Plasma::Horizontal ||
-        formFactor() == Plasma::Vertical) {
+            formFactor() == Plasma::Vertical) {
         m_font = KGlobalSettings::smallestReadableFont();
         m_font.setWeight(QFont::Bold);
         fm = QFontMetrics(m_font);
-        text_width = (fm.width(labelText)+8);
+        text_width = (fm.width(labelText) + 8);
     }
     p->setFont(m_font);
 
     // Let's find a good position for painting the background
     m_textRect = QRectF(qMax(qreal(0.0), contentsRect.left() + (contentsRect.width() - text_width) / 2),
-                            contentsRect.top() + ((contentsRect.height() - (int)fm.height()) / 2 * 0.9),
-                            qMin(contentsRect.width(), (int)text_width),
-                            fm.height() * 1.2 );
+                        contentsRect.top() + ((contentsRect.height() - (int)fm.height()) / 2 * 0.9),
+                        qMin(contentsRect.width(), (int)text_width),
+                        fm.height() * 1.2);
 
     // Poor man's highlighting
     m_boxColor.setAlphaF(m_alpha);
@@ -500,7 +501,7 @@ void PowerDevilApplet::paintBattery(QPainter *p, const QRect &contentsRect, cons
 
     // For small FormFactors, we're drawing a shadow
     if (formFactor() == Plasma::Vertical ||
-        formFactor() == Plasma::Horizontal) {
+            formFactor() == Plasma::Horizontal) {
         if (plugState) {
             m_theme->paint(p, contentsRect, "Shadow");
         }
@@ -512,7 +513,7 @@ void PowerDevilApplet::paintBattery(QPainter *p, const QRect &contentsRect, cons
 
 void PowerDevilApplet::paintInterface(QPainter *p, const QStyleOptionGraphicsItem *option, const QRect &contentsRect)
 {
-    Q_UNUSED( option );
+    Q_UNUSED(option);
 
     p->setRenderHint(QPainter::SmoothPixmapTransform);
     p->setRenderHint(QPainter::Antialiasing);
@@ -530,11 +531,11 @@ void PowerDevilApplet::paintInterface(QPainter *p, const QStyleOptionGraphicsIte
     if (m_showMultipleBatteries) {
         // paint each battery with own charge level
         int battery_num = 0;
-        int width = contentsRect.width()/m_numOfBattery;
+        int width = contentsRect.width() / m_numOfBattery;
         QHashIterator<QString, QHash<QString, QVariant > > battery_data(m_batteries_data);
         while (battery_data.hasNext()) {
             battery_data.next();
-            QRect corect = QRect(contentsRect.left()+battery_num*width,
+            QRect corect = QRect(contentsRect.left() + battery_num * width,
                                  contentsRect.top(),
                                  width, contentsRect.height());
 
@@ -576,7 +577,7 @@ void PowerDevilApplet::paintInterface(QPainter *p, const QStyleOptionGraphicsIte
         if (m_showBatteryString || m_isHovered) {
             // Show the charge percentage with a box on top of the battery
             QString batteryLabel;
-            if(has_battery) {
+            if (has_battery) {
                 batteryLabel = QString::number(battery_charge);
                 batteryLabel.append("%");
             } else {
@@ -587,10 +588,11 @@ void PowerDevilApplet::paintInterface(QPainter *p, const QStyleOptionGraphicsIte
     }
 }
 
-void PowerDevilApplet::connectSources() {
+void PowerDevilApplet::connectSources()
+{
     const QStringList& battery_sources = dataEngine("powermanagement")->query(I18N_NOOP("Battery"))[I18N_NOOP("sources")].toStringList();
 
-    foreach (const QString &battery_source, battery_sources) {
+    foreach(const QString &battery_source, battery_sources) {
         dataEngine("powermanagement")->connectSource(battery_source, this);
     }
 
@@ -608,7 +610,7 @@ void PowerDevilApplet::disconnectSources()
 {
     const QStringList& battery_sources = dataEngine("powermanagement")->query(I18N_NOOP("Battery"))[I18N_NOOP("sources")].toStringList();
 
-    foreach (const QString &battery_source ,battery_sources) {
+    foreach(const QString &battery_source , battery_sources) {
         dataEngine("powermanagement")->disconnectSource(battery_source, this);
     }
 
