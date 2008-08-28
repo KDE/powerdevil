@@ -106,6 +106,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     m_grabber->move(-1000, -1000);
     m_grabber->setMouseTracking(true);
     m_grabber->installEventFilter(this);
+    m_grabber->setObjectName("PowerDevilGrabberWidget");
 
     //DBus
     new PowerDevilAdaptor(this);
@@ -119,6 +120,8 @@ PowerDevilDaemon::~PowerDevilDaemon()
 
 bool PowerDevilDaemon::eventFilter(QObject* object, QEvent* event)
 {
+    emit pollEvent(QString("Filtering event %1 from %2").arg(event->type()).arg(object->objectName()));
+
     if ((object == m_grabber)
             && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
         detectedActivity();
