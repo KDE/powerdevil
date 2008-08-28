@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef BATTERY_H
-#define BATTERY_H
+#ifndef POWERDEVILAPPLET_H
+#define POWERDEVILAPPLET_H
 
 #include <QLabel>
 #include <QGraphicsSceneHoverEvent>
@@ -137,4 +137,4 @@ class PowerDevilApplet : public Plasma::Applet
 
 K_EXPORT_PLASMA_APPLET(powerdevilapplet, PowerDevilApplet)
 
-#endif
+#endif /*POWERDEVILAPPLET_H*/
