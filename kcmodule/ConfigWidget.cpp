@@ -451,8 +451,8 @@ void ConfigWidget::fillCapabilities()
         cpuCount++;
     }
 
-    cpuNumber->setText(QString("%1").arg(cpuCount));
-    batteriesNumber->setText(QString("%1").arg(batteryCount));
+    cpuNumber->setText(QString::number(cpuCount));
+    batteriesNumber->setText(QString::number(batteryCount));
 
     bool turnOff = false;
 
