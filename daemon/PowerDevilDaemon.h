@@ -44,7 +44,13 @@ public Q_SLOTS:
     void emitNotification(const QString &evid, const QString &message = QString());
     void setProfile(const QString & profile);
     void reloadAndStream();
+
+    void setGovernor(const QString &governor);
+    void setPowersavingScheme(const QString &scheme);
+    void setBrightness(int value);
+
     QStringList getSupportedGovernors();
+    QStringList getSupportedSchemes();
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state, bool forced = false);

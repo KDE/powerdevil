@@ -76,19 +76,19 @@ void ConfigWidget::fillUi()
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
-    if (methods | Solid::Control::PowerManager::ToDisk) {
+    if (methods & Solid::Control::PowerManager::ToDisk) {
         idleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
         BatteryCriticalCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
         laptopClosedCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
 
-    if (methods | Solid::Control::PowerManager::ToRam) {
+    if (methods & Solid::Control::PowerManager::ToRam) {
         idleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         laptopClosedCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
 
-    if (methods | Solid::Control::PowerManager::Standby) {
+    if (methods & Solid::Control::PowerManager::Standby) {
         idleCombo->addItem(i18n("Standby"), (int) Standby);
         BatteryCriticalCombo->addItem(i18n("Standby"), (int) Standby);
         laptopClosedCombo->addItem(i18n("Standby"), (int) Standby);
@@ -96,23 +96,23 @@ void ConfigWidget::fillUi()
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
-    if (policies | Solid::Control::PowerManager::Performance) {
+    if (policies & Solid::Control::PowerManager::Performance) {
         freqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
     }
 
-    if (policies | Solid::Control::PowerManager::OnDemand) {
+    if (policies & Solid::Control::PowerManager::OnDemand) {
         freqCombo->addItem(i18n("Dynamic (ondemand)"), (int) Solid::Control::PowerManager::OnDemand);
     }
 
-    if (policies | Solid::Control::PowerManager::Conservative) {
+    if (policies & Solid::Control::PowerManager::Conservative) {
         freqCombo->addItem(i18n("Dynamic (conservative)"), (int) Solid::Control::PowerManager::Conservative);
     }
 
-    if (policies | Solid::Control::PowerManager::Powersave) {
+    if (policies & Solid::Control::PowerManager::Powersave) {
         freqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
     }
 
-    if (policies | Solid::Control::PowerManager::Userspace) {
+    if (policies & Solid::Control::PowerManager::Userspace) {
         freqCombo->addItem(i18n("Userspace"), (int) Solid::Control::PowerManager::Userspace);
     }
 
@@ -470,15 +470,15 @@ void ConfigWidget::fillCapabilities()
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
-    if (methods | Solid::Control::PowerManager::ToDisk) {
+    if (methods & Solid::Control::PowerManager::ToDisk) {
         sMethods.append(QString(i18n("Suspend to Disk") + QString(", ")));
     }
 
-    if (methods | Solid::Control::PowerManager::ToRam) {
+    if (methods & Solid::Control::PowerManager::ToRam) {
         sMethods.append(QString(i18n("Suspend to RAM") + QString(", ")));
     }
 
-    if (methods | Solid::Control::PowerManager::Standby) {
+    if (methods & Solid::Control::PowerManager::Standby) {
         sMethods.append(QString(i18n("Standby") + QString(", ")));
     }
 
@@ -490,23 +490,23 @@ void ConfigWidget::fillCapabilities()
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
-    if (policies | Solid::Control::PowerManager::Performance) {
+    if (policies & Solid::Control::PowerManager::Performance) {
         scMethods.append(QString(i18n("Performance") + QString(", ")));
     }
 
-    if (policies | Solid::Control::PowerManager::OnDemand) {
+    if (policies & Solid::Control::PowerManager::OnDemand) {
         scMethods.append(QString(i18n("Dynamic (ondemand)") + QString(", ")));
     }
 
-    if (policies | Solid::Control::PowerManager::Conservative) {
+    if (policies & Solid::Control::PowerManager::Conservative) {
         scMethods.append(QString(i18n("Dynamic (conservative)") + QString(", ")));
     }
 
-    if (policies | Solid::Control::PowerManager::Powersave) {
+    if (policies & Solid::Control::PowerManager::Powersave) {
         scMethods.append(QString(i18n("Powersave") + QString(", ")));
     }
 
-    if (policies | Solid::Control::PowerManager::Userspace) {
+    if (policies & Solid::Control::PowerManager::Userspace) {
         scMethods.append(QString(i18n("Userspace") + QString(", ")));
     }
 
@@ -543,6 +543,10 @@ void ConfigWidget::importProfiles()
     QString fileName = KFileDialog::getOpenFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
                        "(*.powerdevilprofiles)", this, i18n("Import PowerDevil profiles"));
 
+    if (fileName.isEmpty()) {
+        return;
+    }
+
     KConfig toImport(fileName, KConfig::SimpleConfig);
 
     // FIXME: This should be the correct way, but why it doesn't work?
@@ -571,6 +575,10 @@ void ConfigWidget::exportProfiles()
 {
     QString fileName = KFileDialog::getSaveFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
                        "(*.powerdevilprofiles)", this, i18n("Export PowerDevil profiles"));
+
+    if (fileName.isEmpty()) {
+        return;
+    }
 
     kDebug() << "Filename is" << fileName;
 

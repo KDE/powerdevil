@@ -659,27 +659,57 @@ QStringList PowerDevilDaemon::getSupportedGovernors()
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
-    if (policies | Solid::Control::PowerManager::Performance) {
+    if (policies & Solid::Control::PowerManager::Performance) {
         retlist.append(i18n("Performance"));
     }
 
-    if (policies | Solid::Control::PowerManager::OnDemand) {
+    if (policies & Solid::Control::PowerManager::OnDemand) {
         retlist.append(i18n("Dynamic (ondemand)"));
     }
 
-    if (policies | Solid::Control::PowerManager::Conservative) {
+    if (policies & Solid::Control::PowerManager::Conservative) {
         retlist.append(i18n("Dynamic (conservative)"));
     }
 
-    if (policies | Solid::Control::PowerManager::Powersave) {
+    if (policies & Solid::Control::PowerManager::Powersave) {
         retlist.append(i18n("Powersave"));
     }
 
-    if (policies | Solid::Control::PowerManager::Userspace) {
+    if (policies & Solid::Control::PowerManager::Userspace) {
         retlist.append(i18n("Userspace"));
     }
 
     return retlist;
+}
+
+QStringList PowerDevilDaemon::getSupportedSchemes()
+{
+    return Solid::Control::PowerManager::supportedSchemes();
+}
+
+void PowerDevilDaemon::setPowersavingScheme(const QString &scheme)
+{
+    Solid::Control::PowerManager::setScheme(scheme);
+}
+
+void PowerDevilDaemon::setGovernor(const QString &governor)
+{
+    if (governor == i18n("Performance")) {
+        Solid::Control::PowerManager::setCpuFreqPolicy(Solid::Control::PowerManager::Performance);
+    } else if (governor == i18n("Dynamic (ondemand)")) {
+        Solid::Control::PowerManager::setCpuFreqPolicy(Solid::Control::PowerManager::OnDemand);
+    } else if (governor == i18n("Dynamic (conservative)")) {
+        Solid::Control::PowerManager::setCpuFreqPolicy(Solid::Control::PowerManager::Conservative);
+    } else if (governor == i18n("Powersave")) {
+        Solid::Control::PowerManager::setCpuFreqPolicy(Solid::Control::PowerManager::Powersave);
+    } else if (governor == i18n("Userspace")) {
+        Solid::Control::PowerManager::setCpuFreqPolicy(Solid::Control::PowerManager::Userspace);
+    }
+}
+
+void PowerDevilDaemon::setBrightness(int value)
+{
+    Solid::Control::PowerManager::setBrightness(value);
 }
 
 #include "PowerDevilDaemon.moc"

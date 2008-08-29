@@ -34,8 +34,17 @@ PowerDevilRunner::PowerDevilRunner(QObject *parent, const QVariantList &args)
 
     Q_UNUSED(args)
 
-    m_words << "set-profile" << "change-profile" << "switch-profile" <<
-    "set-governor" << "change-governor" << "switch-governor";
+    /* Let's define all the words here. m_words contains all the words that
+     * will eventually trigger a match in the runner.
+     *
+     * FIXME: I made all the words translatable, though I don't know if that's
+     * the right way to go.
+     */
+
+    m_words << i18n("set-profile") << i18n("change-profile") << i18n("switch-profile") <<
+    i18n("set-governor") << i18n("change-governor") << i18n("switch-governor") <<
+    i18n("set-scheme") << i18n("change-scheme") << i18n("switch-scheme") <<
+    i18n("set-brightness") << i18n("change-brightness");
 
     setObjectName(i18n("PowerDevil"));
 }
@@ -46,7 +55,6 @@ PowerDevilRunner::~PowerDevilRunner()
 
 void PowerDevilRunner::match(Plasma::RunnerContext &context)
 {
-    kDebug() << "Match search context?";
     QString term = context.query();
 
     foreach(const QString &word, m_words) {
@@ -73,7 +81,6 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                     match.setId("ProfileChange");
                     context.addMatch(term, match);
                 }
-
                 delete m_profilesConfig;
             } else if (word == "set-governor" || word == "change-governor" ||
                        word == "switch-governor") {
@@ -99,9 +106,53 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                     match.setId("GovernorChange");
                     context.addMatch(term, match);
                 }
+            } else if (word == "set-scheme" || word == "change-scheme" ||
+                       word == "switch-scheme") {
+                QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
+                                   "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedSchemes");
+                QDBusReply<QStringList> schemes = m_dbus.call(msg);
 
+                foreach(const QString &ent, schemes.value()) {
+                    if (term.split(' ').count() == 2) {
+                        if (!ent.startsWith(term.split(' ').at(1)))
+                            continue;
+                    }
+
+                    Plasma::QueryMatch match(this);
+
+                    match.setType(Plasma::QueryMatch::ExactMatch);
+
+                    match.setIcon(KIcon("battery-charging-040"));
+                    match.setText(i18n("Set Powersaving Scheme to '%1'", ent));
+                    match.setData(ent);
+
+                    match.setRelevance(1);
+                    match.setId("SchemeChange");
+                    context.addMatch(term, match);
+                }
+            } else if (word == "set-brightness" || word == "change-brightness") {
+                if (term.split(' ').count() == 2) {
+                    bool test;
+
+                    int b = term.split(' ').at(1).toInt(&test);
+
+                    if (test) {
+                        int brightness = qBound(0, b, 100);
+
+                        Plasma::QueryMatch match(this);
+
+                        match.setType(Plasma::QueryMatch::ExactMatch);
+
+                        match.setIcon(KIcon("battery-charging-040"));
+                        match.setText(i18n("Set Brightness to %1", brightness));
+                        match.setData(brightness);
+
+                        match.setRelevance(1);
+                        match.setId("BrightnessChange");
+                        context.addMatch(term, match);
+                    }
+                }
             }
-
         }
     }
 }
@@ -110,14 +161,17 @@ void PowerDevilRunner::run(const Plasma::RunnerContext &context, const Plasma::Q
 {
     Q_UNUSED(context)
 
-    QDBusInterface iface("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", QDBusConnection::sessionBus());
-
-    /*iface.call("emitWarningNotification", "joberror",
-            QString("match name: %1, context: %2, match id: %3").arg(match.data().toString()).arg(context.query()).arg(match.id()));*/
+    QDBusInterface iface("org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", m_dbus);
 
     if (match.id() == "PowerDevil_ProfileChange") {
         iface.call("refreshStatus");
         iface.call("setProfile", match.data().toString());
+    } else if (match.id() == "PowerDevil_GovernorChange") {
+        iface.call("setGovernor", match.data().toString());
+    } else if (match.id() == "PowerDevil_SchemeChange") {
+        iface.call("setPowersavingScheme", match.data().toString());
+    } else if (match.id() == "PowerDevil_BrightnessChange") {
+        iface.call("setBrightness", match.data().toInt());
     }
 }
 
