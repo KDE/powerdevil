@@ -123,7 +123,7 @@ void ConfigWidget::fillUi()
         Solid::Device d = device;
         Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
 
-        QString text = QString("CPU %1").arg(processor->number());
+        QString text = i18n("CPU %1",QString::number(processor->number()));
 
         QCheckBox *checkBox = new QCheckBox(this);
 
