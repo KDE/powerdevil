@@ -68,6 +68,7 @@ void ConfigWidget::fillUi()
 {
     idleCombo->addItem(i18n("Do nothing"), (int) None);
     idleCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    idleCombo->addItem(i18n("Lock Screen"), (int) Lock);
     BatteryCriticalCombo->addItem(i18n("Do nothing"), (int) None);
     BatteryCriticalCombo->addItem(i18n("Shutdown"), (int) Shutdown);
     laptopClosedCombo->addItem(i18n("Do nothing"), (int) None);

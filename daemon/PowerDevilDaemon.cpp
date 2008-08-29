@@ -477,6 +477,9 @@ void PowerDevilDaemon::poll()
         case Standby:
             standby();
             break;
+        case Lock:
+            lockScreen();
+            break;
         default:
             break;
         }
