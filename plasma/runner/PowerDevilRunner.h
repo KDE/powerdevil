@@ -39,6 +39,6 @@ private:
     QDBusConnection m_dbus;
 };
 
-K_EXPORT_PLASMA_RUNNER(powerdevil, PowerDevilRunner);
+K_EXPORT_PLASMA_RUNNER(powerdevil, PowerDevilRunner)
 
 #endif

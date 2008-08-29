@@ -94,7 +94,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
         if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
                      SLOT(batteryChargePercentChanged(int, const QString&)))) {
-            emit errorTriggered("Could not connect to battery interface!");
+            emit errorTriggered(i18n( "Could not connect to battery interface!" ));
         }
     }
 
@@ -116,6 +116,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
+    delete m_profilesConfig;
 }
 
 bool PowerDevilDaemon::eventFilter(QObject* object, QEvent* event)
@@ -419,7 +420,7 @@ void PowerDevilDaemon::poll()
     int idle = mitInfo->idle / 1000;
     //----------------------------------------------------------
 
-    emit pollEvent(QString("Polling started, idle time is %1 seconds").arg(idle));
+    emit pollEvent(i18n("Polling started, idle time is %1 seconds", idle));
 
     KConfigGroup *settings = getCurrentProfile();
 
@@ -438,7 +439,7 @@ void PowerDevilDaemon::poll()
     int minDimTime = dimOnIdleTime * 1 / 2;
     int minDimEvent = dimOnIdleTime;
 
-    emit pollEvent(QString("dimOnIdleTime is %1 seconds").arg(PowerDevilSettings::dimOnIdleTime() * 60));
+    emit pollEvent(i18n("dimOnIdleTime is %1 seconds", PowerDevilSettings::dimOnIdleTime() * 60));
 
     if (idle < (dimOnIdleTime * 3 / 4)) {
         minDimEvent = dimOnIdleTime * 3 / 4;
@@ -447,25 +448,25 @@ void PowerDevilDaemon::poll()
         minDimEvent = dimOnIdleTime * 1 / 2;
     }
 
-    emit pollEvent(QString("minDimEvent is %1 seconds").arg(minDimEvent));
+    emit pollEvent(i18n("minDimEvent is %1 seconds", minDimEvent));
 
     int minTime = settings->readEntry("idleTime").toInt() * 60;
-    emit pollEvent(QString("idleTime is %1 seconds").arg(settings->readEntry("idleTime").toInt() * 60));
+    emit pollEvent(i18n("idleTime is %1 seconds", settings->readEntry("idleTime").toInt() * 60));
 
     if (settings->readEntry("turnOffIdle", QVariant()).toBool()) {
         minTime = qMin(minTime, settings->readEntry("turnOffIdleTime").toInt() * 60);
-        emit pollEvent(QString("turnoffidleTime is %1 seconds").arg(settings->readEntry("turnOffIdleTime").toInt() * 60));
+        emit pollEvent(i18n("turnoffidleTime is %1 seconds", settings->readEntry("turnOffIdleTime").toInt() * 60));
     }
     if (PowerDevilSettings::dimOnIdle()) {
         minTime = qMin(minTime, minDimTime);
     }
 
-    emit pollEvent(QString("Minimum time is %1 seconds").arg(minTime));
+    emit pollEvent(i18n("Minimum time is %1 seconds", minTime));
 
     if (idle < minTime) {
         int remaining = minTime - idle;
         m_pollTimer->start(remaining * 1000);
-        emit pollEvent(QString("Nothing to do, next event in %1 seconds").arg(remaining));
+        emit pollEvent(i18n("Nothing to do, next event in %1 seconds", remaining));
         return;
     }
 
@@ -535,10 +536,10 @@ void PowerDevilDaemon::poll()
 
     if (nextTimeout >= 0) {
         m_pollTimer->start(nextTimeout * 1000);
-        emit pollEvent(QString("Next timeout in %1 seconds").arg(nextTimeout));
+        emit pollEvent(i18n("Next timeout in %1 seconds", nextTimeout));
     } else {
         m_pollTimer->stop();
-        emit pollEvent("Stopping timer");
+        emit pollEvent(i18n( "Stopping timer" ));
     }
 
     delete settings;
@@ -574,11 +575,12 @@ KConfigGroup *PowerDevilDaemon::getCurrentProfile()
 {
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, m_currentProfile);
 
-    emit errorTriggered(QString("Current Profile name is %1").arg(group->name()));
+    emit errorTriggered(i18n("Current Profile name is %1",group->name()));
 
     if (!group->isValid() || !group->entryMap().size()) {
-        emit errorTriggered("Invalid group!!");
+        emit errorTriggered(i18n( "Invalid group!!" ));
         reloadProfile();
+        delete group;
         return NULL;
     }
 
