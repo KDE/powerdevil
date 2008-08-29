@@ -94,7 +94,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
         if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
                      SLOT(batteryChargePercentChanged(int, const QString&)))) {
-            emit errorTriggered(i18n( "Could not connect to battery interface!" ));
+            emit errorTriggered(i18n("Could not connect to battery interface!"));
         }
     }
 
@@ -122,7 +122,7 @@ PowerDevilDaemon::~PowerDevilDaemon()
 
 bool PowerDevilDaemon::eventFilter(QObject* object, QEvent* event)
 {
-    emit pollEvent(i18n("Filtering event %1 from %2",event->type(),object->objectName()));
+    emit pollEvent(i18n("Filtering event %1 from %2", event->type(), object->objectName()));
 
     if ((object == m_grabber)
             && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
@@ -540,7 +540,7 @@ void PowerDevilDaemon::poll()
         emit pollEvent(i18n("Next timeout in %1 seconds", nextTimeout));
     } else {
         m_pollTimer->stop();
-        emit pollEvent(i18n( "Stopping timer" ));
+        emit pollEvent(i18n("Stopping timer"));
     }
 
     delete settings;
@@ -576,10 +576,10 @@ KConfigGroup *PowerDevilDaemon::getCurrentProfile()
 {
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, m_currentProfile);
 
-    emit errorTriggered(i18n("Current Profile name is %1",group->name()));
+    emit errorTriggered(i18n("Current Profile name is %1", group->name()));
 
     if (!group->isValid() || !group->entryMap().size()) {
-        emit errorTriggered(i18n( "Invalid group!!" ));
+        emit errorTriggered(i18n("Invalid group!!"));
         reloadProfile();
         delete group;
         return NULL;

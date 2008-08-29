@@ -254,8 +254,7 @@ void ConfigWidget::loadProfile()
 
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
 
-    if (!group->isValid())
-    {
+    if (!group->isValid()) {
         delete group;
         return;
     }
