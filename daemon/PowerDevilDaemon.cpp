@@ -122,8 +122,6 @@ PowerDevilDaemon::~PowerDevilDaemon()
 
 bool PowerDevilDaemon::eventFilter(QObject* object, QEvent* event)
 {
-    emit pollEvent(i18n("Filtering event %1 from %2", event->type(), object->objectName()));
-
     if ((object == m_grabber)
             && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
         detectedActivity();
@@ -431,7 +429,7 @@ void PowerDevilDaemon::poll()
 
     if (!PowerDevilSettings::dimOnIdle() && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
-        emit pollEvent(i18n("Stopping the timer"));
+        emit pollEvent(i18n("Stopping timer"));
         m_pollTimer->stop();
         return;
     }
@@ -440,8 +438,6 @@ void PowerDevilDaemon::poll()
     int minDimTime = dimOnIdleTime * 1 / 2;
     int minDimEvent = dimOnIdleTime;
 
-    emit pollEvent(i18n("dimOnIdleTime is %1 seconds", PowerDevilSettings::dimOnIdleTime() * 60));
-
     if (idle < (dimOnIdleTime * 3 / 4)) {
         minDimEvent = dimOnIdleTime * 3 / 4;
     }
@@ -449,14 +445,10 @@ void PowerDevilDaemon::poll()
         minDimEvent = dimOnIdleTime * 1 / 2;
     }
 
-    emit pollEvent(i18n("minDimEvent is %1 seconds", minDimEvent));
-
     int minTime = settings->readEntry("idleTime").toInt() * 60;
-    emit pollEvent(i18n("idleTime is %1 seconds", settings->readEntry("idleTime").toInt() * 60));
 
     if (settings->readEntry("turnOffIdle", QVariant()).toBool()) {
         minTime = qMin(minTime, settings->readEntry("turnOffIdleTime").toInt() * 60);
-        emit pollEvent(i18n("turnoffidleTime is %1 seconds", settings->readEntry("turnOffIdleTime").toInt() * 60));
     }
     if (PowerDevilSettings::dimOnIdle()) {
         minTime = qMin(minTime, minDimTime);
