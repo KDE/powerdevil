@@ -54,7 +54,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_notifier(Solid::Control::PowerManager::notifier()),
         m_battery(0),
         m_displayManager(new KDisplayManager()),
-        m_pollTimer(new QTimer())
+        m_pollTimer(new QTimer(this))
 {
     KGlobal::locale()->insertCatalog("powerdevil");
 
