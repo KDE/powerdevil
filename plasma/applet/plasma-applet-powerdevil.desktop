@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=PowerDevil
+Name[sv]=Powerdevil
+Comment=A Power Management Tool for KDE4
+
+Icon=battery-charging-040
+Type=Service
+X-KDE-ServiceTypes=Plasma/Applet
+
+X-KDE-Library=plasma_applet_powerdevil
+X-KDE-PluginInfo-Author=Dario Freddi
+X-KDE-PluginInfo-Email=drf@kdemod.ath.cx
+X-KDE-PluginInfo-Name=PowerDevil
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://www.kde.org/
+X-KDE-PluginInfo-Category=Miscellaneous
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
