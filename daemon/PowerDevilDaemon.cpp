@@ -117,11 +117,12 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 PowerDevilDaemon::~PowerDevilDaemon()
 {
     delete m_profilesConfig;
+    delete m_displayManager;
 }
 
 bool PowerDevilDaemon::eventFilter(QObject* object, QEvent* event)
 {
-    emit pollEvent(QString("Filtering event %1 from %2").arg(event->type()).arg(object->objectName()));
+    emit pollEvent(i18n("Filtering event %1 from %2",event->type(),object->objectName()));
 
     if ((object == m_grabber)
             && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
@@ -144,7 +145,7 @@ void PowerDevilDaemon::detectedActivity()
     m_grabber->releaseKeyboard();
     m_grabber->hide();
 
-    emit pollEvent("Detected Activity");
+    emit pollEvent(i18n("Detected Activity"));
 
     refreshStatus();
 }
@@ -430,7 +431,7 @@ void PowerDevilDaemon::poll()
 
     if (!PowerDevilSettings::dimOnIdle() && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
-        emit pollEvent("Stopping the timer");
+        emit pollEvent(i18n("Stopping the timer"));
         m_pollTimer->stop();
         return;
     }

@@ -255,8 +255,10 @@ void ConfigWidget::loadProfile()
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
 
     if (!group->isValid())
+    {
+        delete group;
         return;
-
+    }
     kDebug() << "Ok, KConfigGroup ready";
 
     kDebug() << group->readEntry("brightness");
@@ -306,6 +308,7 @@ void ConfigWidget::saveProfile(const QString &p)
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, profile);
 
     if (!group->isValid() || !group->entryMap().size()) {
+        delete group;
         return;
     }
 
