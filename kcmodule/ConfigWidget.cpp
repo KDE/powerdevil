@@ -481,7 +481,11 @@ void ConfigWidget::fillCapabilities()
         sMethods.append(QString(i18n("Standby") + QString(", ")));
     }
 
-    sMethods.remove(sMethods.length() - 2, 2);
+    if (!sMethods.isEmpty()) {
+        sMethods.remove(sMethods.length() - 2, 2);
+    } else {
+        sMethods = i18n("None");
+    }
 
     supportedMethods->setText(sMethods);
 
@@ -509,22 +513,21 @@ void ConfigWidget::fillCapabilities()
         scMethods.append(QString(i18n("Userspace") + QString(", ")));
     }
 
-    scMethods.remove(scMethods.length() - 2, 2);
-
     if (!scMethods.isEmpty()) {
-        supportedPolicies->setText(scMethods);
-    }
-
-    if (!scMethods.isEmpty()) {
+        scMethods.remove(scMethods.length() - 2, 2);
         isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
+        scMethods = i18n("None");
         isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
-    if (!Solid::Control::PowerManager::supportedSchemes().isEmpty())
+    supportedPolicies->setText(scMethods);
+
+    if (!Solid::Control::PowerManager::supportedSchemes().isEmpty()) {
         isSchemeSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    else
+    } else {
         isSchemeSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+    }
 
     QString schemes;
 
@@ -532,7 +535,11 @@ void ConfigWidget::fillCapabilities()
         schemes.append(scheme + QString(", "));
     }
 
-    schemes.remove(schemes.length() - 2, 2);
+    if (!schemes.isEmpty()) {
+        schemes.remove(schemes.length() - 2, 2);
+    } else {
+        schemes = i18n("None");
+    }
 
     supportedSchemes->setText(schemes);
 }
