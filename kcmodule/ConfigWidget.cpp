@@ -123,7 +123,7 @@ void ConfigWidget::fillUi()
         Solid::Device d = device;
         Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
 
-        QString text = i18n("CPU %1", QString::number(processor->number()));
+        QString text = i18n("CPU <numid>%1</numid>", processor->number());
 
         QCheckBox *checkBox = new QCheckBox(this);
 
@@ -484,7 +484,7 @@ void ConfigWidget::fillCapabilities()
     if (!sMethods.isEmpty()) {
         sMethods.remove(sMethods.length() - 2, 2);
     } else {
-        sMethods = i18n("None");
+        sMethods = i18nc("None", "No methods found");
     }
 
     supportedMethods->setText(sMethods);
@@ -517,7 +517,7 @@ void ConfigWidget::fillCapabilities()
         scMethods.remove(scMethods.length() - 2, 2);
         isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
-        scMethods = i18n("None");
+        scMethods = i18nc("None", "No methods found");
         isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
@@ -538,7 +538,7 @@ void ConfigWidget::fillCapabilities()
     if (!schemes.isEmpty()) {
         schemes.remove(schemes.length() - 2, 2);
     } else {
-        schemes = i18n("None");
+        schemes = i18nc("None", "No methods found");
     }
 
     supportedSchemes->setText(schemes);
