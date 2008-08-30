@@ -9,9 +9,5 @@ X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 
 Name=PowerDevil
-Name[sv]=Powerdevil
 
 Comment=A Laptop Power Management Daemon
-Comment[et]=Sülearvuti toitehalduse deemon
-Comment[pt_BR]=Um daemon para gereciamento de energia do laptop
-Comment[sv]=En strömspardemon för bärbara datorer
