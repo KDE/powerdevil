@@ -29,6 +29,7 @@
 #include <KPluginFactory>
 #include <KNotification>
 #include <KIcon>
+#include <kpluginfactory.h>
 #include <klocalizedstring.h>
 #include <kjob.h>
 #include <kworkspace/kdisplaymanager.h>

@@ -40,8 +40,11 @@
           </property>
           <item row="0" column="0" colspan="3" >
            <widget class="QCheckBox" name="lockScreenOnResume" >
-            <property name="whatsThis" >
+            <property name="toolTip" >
              <string>You will be asked for password when resuming from sleep state</string>
+            </property>
+            <property name="whatsThis" >
+             <string/>
             </property>
             <property name="text" >
              <string>Lock screen on resume</string>
@@ -355,6 +358,9 @@
                 <layout class="QGridLayout" name="gridLayout_5" >
                  <item row="0" column="0" >
                   <widget class="QLabel" name="PoweredBrightnessLabel_2" >
+                   <property name="toolTip" >
+                    <string>With this slider you can set the brightness when the system is plugged into the socket outlet</string>
+                   </property>
                    <property name="text" >
                     <string>Brightness</string>
                    </property>
@@ -372,7 +378,7 @@
                     <bool>true</bool>
                    </property>
                    <property name="whatsThis" >
-                    <string>With this slider you can set the brightness when the system is plugged into the socket outlet</string>
+                    <string/>
                    </property>
                    <property name="maximum" >
                     <number>100</number>
@@ -409,10 +415,22 @@
                    <property name="suffix" >
                     <string> min</string>
                    </property>
+                   <property name="minimum" >
+                    <number>1</number>
+                   </property>
+                   <property name="maximum" >
+                    <number>280</number>
+                   </property>
                   </widget>
                  </item>
                  <item row="2" column="0" >
                   <widget class="QLabel" name="PoweredIdleLabel_2" >
+                   <property name="toolTip" >
+                    <string/>
+                   </property>
+                   <property name="whatsThis" >
+                    <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                   </property>
                    <property name="text" >
                     <string>When the system is idle for more than</string>
                    </property>
@@ -435,20 +453,37 @@
                    <property name="prefix" >
                     <string/>
                    </property>
+                   <property name="minimum" >
+                    <number>1</number>
+                   </property>
+                   <property name="maximum" >
+                    <number>280</number>
+                   </property>
                   </widget>
                  </item>
                  <item row="2" column="2" >
-                  <widget class="KComboBox" name="idleCombo" />
+                  <widget class="KComboBox" name="idleCombo" >
+                   <property name="whatsThis" >
+                    <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                   </property>
+                  </widget>
                  </item>
                  <item row="3" column="0" >
                   <widget class="QLabel" name="label_7" >
+                   <property name="toolTip" >
+                    <string/>
+                   </property>
                    <property name="text" >
                     <string>When Laptop Lid Closed</string>
                    </property>
                   </widget>
                  </item>
                  <item row="3" column="1" colspan="2" >
-                  <widget class="KComboBox" name="laptopClosedCombo" />
+                  <widget class="KComboBox" name="laptopClosedCombo" >
+                   <property name="whatsThis" >
+                    <string>This action will be performed when the laptop lid gets closed</string>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </widget>
@@ -480,6 +515,12 @@
                   <layout class="QHBoxLayout" name="horizontalLayout_3" >
                    <item>
                     <widget class="QLabel" name="PoweredFreqLabel_2" >
+                     <property name="toolTip" >
+                      <string/>
+                     </property>
+                     <property name="whatsThis" >
+                      <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
+                     </property>
                      <property name="text" >
                       <string>CPU frequency scaling policy</string>
                      </property>
@@ -492,7 +533,11 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="KComboBox" name="freqCombo" />
+                    <widget class="KComboBox" name="freqCombo" >
+                     <property name="whatsThis" >
+                      <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
@@ -530,6 +575,12 @@
                 </item>
                 <item>
                  <widget class="KPushButton" name="resetCurrentProfileButton" >
+                  <property name="toolTip" >
+                   <string/>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>Undo all the changes to this profile since last saving</string>
+                  </property>
                   <property name="text" >
                    <string>Undo Changes</string>
                   </property>
@@ -537,6 +588,12 @@
                 </item>
                 <item>
                  <widget class="KPushButton" name="saveCurrentProfileButton" >
+                  <property name="toolTip" >
+                   <string/>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>Save changes to this profile</string>
+                  </property>
                   <property name="text" >
                    <string>Save Current Profile</string>
                   </property>
@@ -595,6 +652,12 @@
          </item>
          <item>
           <widget class="KPushButton" name="importButton" >
+           <property name="toolTip" >
+            <string/>
+           </property>
+           <property name="whatsThis" >
+            <string>Import profiles from a file</string>
+           </property>
            <property name="text" >
             <string>Import Profiles</string>
            </property>
@@ -602,6 +665,12 @@
          </item>
          <item>
           <widget class="KPushButton" name="exportButton" >
+           <property name="toolTip" >
+            <string/>
+           </property>
+           <property name="whatsThis" >
+            <string>Export your profiles to a file</string>
+           </property>
            <property name="text" >
             <string>Export Profiles</string>
            </property>
