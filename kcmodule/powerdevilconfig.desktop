@@ -10,7 +10,13 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=system
 
 Name=PowerDevil Preferences
+Name[gl]=Prederencias de PowerDevil
+Name[sv]=Inställningar av Powerdevil
+Name[uk]=Налаштування PowerDevil
 
 Comment=Power Management Preferences
+Comment[gl]=Configura a xestión da enerxía
+Comment[sv]=Inställning av strömsparfunktion
+Comment[uk]=Налаштування керування живленням
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC

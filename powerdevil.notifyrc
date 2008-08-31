@@ -1,68 +1,129 @@
 [Global]
 IconName=battery-charging-040
 Comment=PowerDevil
+Comment[sv]=Powerdevil
 Version=1
 
 [Context/warningnot]
 Name=Warning
+Name[gl]=Aviso
+Name[sv]=Varning
+Name[uk]=Попередження
 Comment=Used for warning notifications
+Comment[gl]=Emprégase para notificacións de avisos
+Comment[sv]=Används för varningsmeddelanden
+Comment[uk]=Використовується для попереджень
 
 [Context/stdnot]
 Name=Notification
+Name[gl]=Notificación
+Name[sv]=Underrättelse
+Name[uk]=Сповіщення
 Comment=Used for standard notifications
+Comment[gl]=Emprégase para notificacións estándar
+Comment[sv]=Används för standardmeddelanden
+Comment[uk]=Використовується для звичайних сповіщень
 
 [Event/lowbattery]
 Name=Low Battery
+Name[gl]=Batería con pouca carga
+Name[sv]=Låg batteriladdning
+Name[uk]=Заряд закінчується
 Comment=Your battery has reached low level
+Comment[gl]=A batería acadou o nível de carga baixa
+Comment[sv]=Batteriet har nått en låg nivå
+Comment[uk]=У вашому акумуляторі закінчується заряд
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
 Action=Sound|Popup
 
 [Event/warningbattery]
 Name=Battery at warning level
+Name[gl]=Batería no nível de alerta
+Name[sv]=Batteriet vid varningsnivå
+Name[uk]=Заряд акумулятора на низькому рівні
 Comment=Your battery has reached warning level
+Comment[gl]=A batería acadou o nível de alerta
+Comment[sv]=Batteriet har nått varningsnivå
+Comment[uk]=У вашому акумуляторі заряд досягнув низького рівня
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
 Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
+Name[gl]=Batería no nível crítico
+Name[sv]=Batteriet vid kritisk nivå
+Name[uk]=Заряд на критичному рівні
 Comment=Your battery has reached critical level
+Comment[gl]=A batería acadou o nível crítico
+Comment[sv]=Batteriet har nått kritisk nivå
+Comment[uk]=У вашому акумуляторі заряд досягнув критичного рівня
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[gl]=Enchufouse a alimentación externa
+Name[sv]=Nätadapter inkopplad
+Name[uk]=Увімкнено живлення від мережі
 Comment=The power adaptor has been plugged in
+Comment[gl]=Enchufouse o transformador
+Comment[sv]=Nätadaptern har kopplats in
+Comment[uk]=Було увімкнено живлення від мережі
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
 Action=Sound|Popup
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[gl]=Desenchufouse a alimentación externa
+Name[sv]=Nätadapter frånkopplad
+Name[uk]=Вимкнено живлення від мережі
 Comment=The power adaptor has been unplugged
+Comment[gl]=Desenchufouse o transformador
+Comment[sv]=Nätadaptern har kopplats från
+Comment[uk]=Було вимкнено живлення від мережі
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Action=Sound|Popup
 
 [Event/joberror]
 Name=Job error
+Name[gl]=Erro na tarefa
+Name[sv]=Jobbfel
+Name[uk]=Помилка виконання завдання
 Comment=There was an error while performing a job
+Comment[gl]=Aconteceu un erro ao realizar unha tarefa
+Comment[sv]=Ett fel uppstod när ett jobb utfördes
+Comment[uk]=Під час виконання завдання сталася помилка
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
 
 [Event/profileset]
 Name=Profile Changed
+Name[gl]=Modificouse o perfil
+Name[sv]=Profil ändrad
+Name[uk]=Профіль змінено
 Comment=The profile was changed
+Comment[gl]=Modificouse o perfil
+Comment[sv]=Profilen har ändrats
+Comment[uk]=Профіль було змінено
 Contexts=stdnot
 Sound=KDE-Sys-App-Message.ogg
 Action=Sound|Popup
 
 [Event/doingjob]
 Name=Doing a Job
+Name[gl]=A facer unha tarefa
+Name[sv]=Utför ett jobb
+Name[uk]=Виконується завдання
 Comment=Something is ongoing
+Comment[gl]=Está a facerse algo
+Comment[sv]=Någonting pågår
+Comment[uk]=Щось відбувається
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Action=Sound|Popup

@@ -1,6 +1,10 @@
 [Desktop Entry]
 Name=PowerDevil
+Name[sv]=Powerdevil
 Comment=A Power Management Tool for KDE4
+Comment[gl]=Unha ferramenta de xestión da enerxía para KDE4
+Comment[sv]=Verktyg för strömsparhantering i KDE 4
+Comment[uk]=Інструмент для керування живленням для KDE4
 
 Icon=battery-charging-040
 Type=Service

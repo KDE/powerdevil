@@ -1,7 +1,11 @@
 [Desktop Entry]
 Name=PowerDevil
+Name[sv]=Powerdevil
 
 Comment=Manage Basic Power Management Operations
+Comment[gl]=Xestiona as operacións básicas de xestión da enerxía
+Comment[sv]=Hantera grundläggande strömsparfunktioner
+Comment[uk]=Керування базовими операціями з керування живленням
 
 X-KDE-ServiceTypes=Plasma/Runner
 Type=Service
