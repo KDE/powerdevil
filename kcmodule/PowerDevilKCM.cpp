@@ -53,8 +53,8 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &):
         new KAboutData("kcmpowerdevil", "powerdevil", ki18n("PowerDevil Configuration"),
                        POWERDEVIL_VERSION, ki18n("A configurator for PowerDevil"),
                        KAboutData::License_GPL, ki18n("(c), 2008 Dario Freddi"),
-                       ki18n("From this module, you can configure the Daemon, create"
-                             "and edit powersaving profiles, and see your system's"
+                       ki18n("From this module, you can configure the Daemon, create "
+                             "and edit powersaving profiles, and see your system's "
                              "capabilities."));
 
     about->addAuthor(ki18n("Dario Freddi"), ki18n("Main Developer") , "drf@kdemod.ath.cx",
