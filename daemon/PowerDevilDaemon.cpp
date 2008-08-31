@@ -140,13 +140,18 @@ void PowerDevilDaemon::detectedActivity()
 {
     // This code was taken from Lithium/KDE4Powersave
 
+    emit pollEvent(i18n("Detected Activity"));
+
+    releaseInputLock();
+
+    refreshStatus();
+}
+
+void PowerDevilDaemon::releaseInputLock()
+{
     m_grabber->releaseMouse();
     m_grabber->releaseKeyboard();
     m_grabber->hide();
-
-    emit pollEvent(i18n("Detected Activity"));
-
-    refreshStatus();
 }
 
 void PowerDevilDaemon::waitForActivity()
@@ -464,24 +469,43 @@ void PowerDevilDaemon::poll()
         return;
     }
 
+    /* You'll see we release input lock here sometimes. Why? Well,
+     * after some tests, I found out that the offscreen widget doesn't work
+     * if the monitor gets turned off or the PC is suspended. But, we don't care
+     * about this for a simple reason: the only parameter we need to look into
+     * is the brightness, so we just release the lock, set back the brightness
+     * to normal, and that's it.
+     */
+
     if (idle >= settings->readEntry("idleTime").toInt() * 60) {
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
+            Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+            releaseInputLock();
             shutdown();
             break;
         case S2Disk:
+            Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+            releaseInputLock();
             suspendToDisk();
             break;
         case S2Ram:
+            Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+            releaseInputLock();
             suspendToRam();
             break;
         case Standby:
+            Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+            releaseInputLock();
             standby();
             break;
         case Lock:
+            Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+            releaseInputLock();
             lockScreen();
             break;
         default:
+            waitForActivity();
             break;
         }
 
@@ -490,18 +514,23 @@ void PowerDevilDaemon::poll()
         /* FIXME: This command works, though we can switch to dpms... need some
          * feedback here.
          */
+        Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+        releaseInputLock();
         QProcess::execute("xset dpms force off");
     } else if (PowerDevilSettings::dimOnIdle()
                && (idle >= dimOnIdleTime)) {
         Solid::Control::PowerManager::setBrightness(0);
+        waitForActivity();
     } else if (PowerDevilSettings::dimOnIdle()
                && (idle >= (dimOnIdleTime * 3 / 4))) {
         float newBrightness = Solid::Control::PowerManager::brightness() / 4;
         Solid::Control::PowerManager::setBrightness(newBrightness);
+        waitForActivity();
     } else if (PowerDevilSettings::dimOnIdle() &&
                (idle >= (dimOnIdleTime * 1 / 2))) {
         float newBrightness = Solid::Control::PowerManager::brightness() / 2;
         Solid::Control::PowerManager::setBrightness(newBrightness);
+        waitForActivity();
     } else {
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     }
@@ -540,8 +569,6 @@ void PowerDevilDaemon::poll()
     }
 
     delete settings;
-
-    waitForActivity();
 }
 
 void PowerDevilDaemon::lockScreen()

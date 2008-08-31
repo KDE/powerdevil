@@ -92,6 +92,7 @@ private:
     void lockScreen();
     KConfigGroup *getCurrentProfile();
     void applyProfile();
+    void releaseInputLock();
 
 private:
     enum IdleAction {
