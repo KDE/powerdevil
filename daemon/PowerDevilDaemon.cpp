@@ -158,9 +158,28 @@ void PowerDevilDaemon::waitForActivity()
 {
     // This code was taken from Lithium/KDE4Powersave
 
-    m_grabber->show();
-    m_grabber->grabMouse();
-    m_grabber->grabKeyboard();
+    /* Ok, this nice trick has a single drawback: if the screensaver
+     * is on, it simply doesn't work. To get a workaround, it's enough
+     * for us to check if the screensaver is actually active
+     */
+
+    QDBusReply<bool> reply = m_screenSaverIface->GetActive();
+
+    if (!reply.isValid()) {
+        // We've got a problem here... let's lock anyway
+        m_grabber->show();
+        m_grabber->grabMouse();
+        m_grabber->grabKeyboard();
+        return;
+    }
+
+    if (reply.value()) {
+        releaseInputLock();
+    } else {
+        m_grabber->show();
+        m_grabber->grabMouse();
+        m_grabber->grabKeyboard();
+    }
 }
 
 void PowerDevilDaemon::refreshStatus()
