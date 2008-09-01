@@ -649,6 +649,38 @@ void PowerDevilDaemon::reloadProfile(int state)
         }
     }
 
+    if (m_currentProfile.isEmpty()) {
+        /* Ok, misconfiguration! Well, first things first: if we have some profiles,
+         * let's just load the first available one.
+         */
+
+        if (!m_availableProfiles.isEmpty()) {
+            m_currentProfile = m_availableProfiles.at(0);
+        } else {
+            /* In this case, let's fill our profiles file with the most basic
+             * performance profile
+             */
+
+            KConfigGroup *performance = new KConfigGroup(m_profilesConfig, "Performance");
+
+            performance->writeEntry("brightness", 100);
+            performance->writeEntry("cpuPolicy", (int) Solid::Control::PowerManager::Performance);
+            performance->writeEntry("idleAction", 0);
+            performance->writeEntry("idleTime", 50);
+            performance->writeEntry("lidAction", 0);
+            performance->writeEntry("turnOffIdle", false);
+            performance->writeEntry("turnOffIdleTime", 120);
+
+            performance->sync();
+
+            delete performance;
+
+            m_availableProfiles = m_profilesConfig->groupList();
+
+            m_currentProfile = m_availableProfiles.at(0);
+        }
+    }
+
     emit profileChanged(m_currentProfile, m_availableProfiles);
 
     poll();
