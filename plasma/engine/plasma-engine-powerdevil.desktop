@@ -1,8 +1,12 @@
 [Desktop Entry]
 Name=PowerDevil Data Engine
+Name[es]=Motor de datos de PowerDevil
 Name[gl]=Motor de datos de PowerDevil
+Name[pt]=Motor de Dados do PowerDevil
+Name[pt_BR]=Motor de Dados do PowerDevil
 Name[sv]=Datagränssnitt för Powerdevil
 Name[uk]=Рушій даних PowerDevil
+Name[zh_TW]=PowerDevil 資料引擎
 X-KDE-ServiceTypes=Plasma/DataEngine
 Type=Service
 Icon=kget

@@ -2,9 +2,13 @@
 Name=PowerDevil
 Name[sv]=Powerdevil
 Comment=A Power Management Tool for KDE4
+Comment[es]=Una herramienta de gestión de energía para KDE4
 Comment[gl]=Unha ferramenta de xestión da enerxía para KDE4
+Comment[pt]=Uma Ferramenta de Gestão de Energia para o KDE4
+Comment[pt_BR]=Uma Ferramenta de Gestão de Energia para o KDE4
 Comment[sv]=Verktyg för strömsparhantering i KDE 4
 Comment[uk]=Інструмент для керування живленням для KDE4
+Comment[zh_TW]=KDE4 的電源管理工具
 
 Icon=battery-charging-040
 Type=Service

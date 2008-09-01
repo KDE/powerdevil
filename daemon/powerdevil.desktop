@@ -12,6 +12,10 @@ Name=PowerDevil
 Name[sv]=Powerdevil
 
 Comment=A Laptop Power Management Daemon
+Comment[es]=Un demonio para la gestión de energía de un ordenador portátil
 Comment[gl]=Un daemon de xestión da enerxía para portátiles
+Comment[pt]=Um Gestor de Energia de Portáteis
+Comment[pt_BR]=Um Gestor de Energia de Portáteis
 Comment[sv]=En strömspardemon för bärbara datorer
 Comment[uk]=Фонова служба керування живленням портативного комп’ютера
+Comment[zh_TW]=筆記型電腦電源管理守護程式
