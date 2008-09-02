@@ -3,6 +3,7 @@ Exec=kcmshell4 powerdevilconfig
 Icon=battery-charging-060
 Type=Service
 X-KDE-ServiceTypes=KCModule
+X-DocPath=kcontrol/powerdevilconfig/index.html
 
 X-KDE-Library=kcm_powerdevilconfig
 X-KDE-ParentApp=kcontrol
