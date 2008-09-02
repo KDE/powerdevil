@@ -41,10 +41,10 @@ PowerDevilRunner::PowerDevilRunner(QObject *parent, const QVariantList &args)
      * the right way to go.
      */
 
-    m_words << i18n("set-profile") << i18n("change-profile") << i18n("switch-profile") <<
-    i18n("set-governor") << i18n("change-governor") << i18n("switch-governor") <<
-    i18n("set-scheme") << i18n("change-scheme") << i18n("switch-scheme") <<
-    i18n("set-brightness") << i18n("change-brightness");
+    m_words << i18nc("Note this is a KRunner keyword", "power profile") <<
+    i18nc("Note this is a KRunner keyword", "power governor") <<
+    i18nc("Note this is a KRunner keyword", "power scheme") <<
+    i18nc("Note this is a KRunner keyword", "screen brightness");
 
     setObjectName(i18n("PowerDevil"));
 }
@@ -59,13 +59,12 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
 
     foreach(const QString &word, m_words) {
         if (term.startsWith(word, Qt::CaseInsensitive)) {
-            if (word == "set-profile" || word == "change-profile" ||
-                    word == "switch-profile") {
+            if (word == i18nc("Note this is a KRunner keyword", "power profile")) {
                 KConfig *m_profilesConfig = new KConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
                 foreach(const QString &profile, m_profilesConfig->groupList()) {
-                    if (term.split(' ').count() == 2) {
-                        if (!profile.startsWith(term.split(' ').at(1)))
+                    if (term.split(' ').count() == 3) {
+                        if (!profile.startsWith(term.split(' ').at(2)))
                             continue;
                     }
 
@@ -82,15 +81,14 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                     context.addMatch(term, match);
                 }
                 delete m_profilesConfig;
-            } else if (word == "set-governor" || word == "change-governor" ||
-                       word == "switch-governor") {
+            } else if (word == i18nc("Note this is a KRunner keyword", "power governor")) {
                 QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
                                    "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedGovernors");
                 QDBusReply<QStringList> govs = m_dbus.call(msg);
 
                 foreach(const QString &ent, govs.value()) {
-                    if (term.split(' ').count() == 2) {
-                        if (!ent.startsWith(term.split(' ').at(1)))
+                    if (term.split(' ').count() == 3) {
+                        if (!ent.startsWith(term.split(' ').at(2)))
                             continue;
                     }
 
@@ -106,15 +104,14 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                     match.setId("GovernorChange");
                     context.addMatch(term, match);
                 }
-            } else if (word == "set-scheme" || word == "change-scheme" ||
-                       word == "switch-scheme") {
+            } else if (word == i18nc("Note this is a KRunner keyword", "power scheme")) {
                 QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
                                    "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedSchemes");
                 QDBusReply<QStringList> schemes = m_dbus.call(msg);
 
                 foreach(const QString &ent, schemes.value()) {
-                    if (term.split(' ').count() == 2) {
-                        if (!ent.startsWith(term.split(' ').at(1)))
+                    if (term.split(' ').count() == 3) {
+                        if (!ent.startsWith(term.split(' ').at(2)))
                             continue;
                     }
 
@@ -130,11 +127,11 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                     match.setId("SchemeChange");
                     context.addMatch(term, match);
                 }
-            } else if (word == "set-brightness" || word == "change-brightness") {
-                if (term.split(' ').count() == 2) {
+            } else if (word == i18nc("Note this is a KRunner keyword", "screen brightness")) {
+                if (term.split(' ').count() == 3) {
                     bool test;
 
-                    int b = term.split(' ').at(1).toInt(&test);
+                    int b = term.split(' ').at(2).toInt(&test);
 
                     if (test) {
                         int brightness = qBound(0, b, 100);
