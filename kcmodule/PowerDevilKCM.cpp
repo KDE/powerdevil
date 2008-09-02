@@ -45,7 +45,7 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &):
     m_widget = new ConfigWidget(this);
     lay->addWidget(m_widget);
 
-    setButtons(Apply);
+    setButtons(Apply | Help);
 
     connect(m_widget, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
 
