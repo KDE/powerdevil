@@ -1,9 +1,12 @@
 [Desktop Entry]
 Name=PowerDevil
+Name[nds]=Stroomdüvel
 Name[sv]=Powerdevil
 Comment=A Power Management Tool for KDE4
 Comment[es]=Una herramienta de gestión de energía para KDE4
+Comment[et]=KDE4 toitehalduse tööriist
 Comment[gl]=Unha ferramenta de xestión da enerxía para KDE4
+Comment[nds]=En Stroompleeg-Warktüüch för KDE-4
 Comment[pt]=Uma Ferramenta de Gestão de Energia para o KDE4
 Comment[pt_BR]=Uma Ferramenta de Gestão de Energia para o KDE4
 Comment[sv]=Verktyg för strömsparhantering i KDE 4

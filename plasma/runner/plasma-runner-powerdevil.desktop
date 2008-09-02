@@ -1,10 +1,13 @@
 [Desktop Entry]
 Name=PowerDevil
+Name[nds]=Stroomdüvel
 Name[sv]=Powerdevil
 
 Comment=Manage Basic Power Management Operations
 Comment[es]=Administrar operaciones básicas de gestión de energía
+Comment[et]=Peamiste toitehalduse operatsioonide haldamine
 Comment[gl]=Xestiona as operacións básicas de xestión da enerxía
+Comment[nds]=Eenfach Stroomspoor-Funkschonen plegen
 Comment[pt]=Gerir as Operações Básicas de Energia
 Comment[pt_BR]=Gerir as Operações Básicas de Energia
 Comment[sv]=Hantera grundläggande strömsparfunktioner
