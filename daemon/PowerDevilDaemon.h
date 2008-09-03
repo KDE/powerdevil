@@ -48,6 +48,7 @@ public Q_SLOTS:
     void setGovernor(const QString &governor);
     void setPowersavingScheme(const QString &scheme);
     void setBrightness(int value);
+    void turnOffScreen();
 
     QStringList getSupportedGovernors();
     QStringList getSupportedSchemes();

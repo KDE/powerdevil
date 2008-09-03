@@ -148,6 +148,39 @@ void PowerDevilRunner::match(Plasma::RunnerContext &context)
                         match.setId("BrightnessChange");
                         context.addMatch(term, match);
                     }
+                } else if (term.split(' ').count() == 2) {
+                    Plasma::QueryMatch match1(this);
+
+                    match1.setType(Plasma::QueryMatch::ExactMatch);
+
+                    match1.setIcon(KIcon("battery-charging-040"));
+                    match1.setText(i18n("Dim screen totally"));
+
+                    match1.setRelevance(1);
+                    match1.setId("DimTotal");
+                    context.addMatch(term, match1);
+
+                    Plasma::QueryMatch match2(this);
+
+                    match2.setType(Plasma::QueryMatch::ExactMatch);
+
+                    match2.setIcon(KIcon("battery-charging-040"));
+                    match2.setText(i18n("Dim screen by half"));
+
+                    match2.setRelevance(1);
+                    match2.setId("DimHalf");
+                    context.addMatch(term, match2);
+
+                    Plasma::QueryMatch match3(this);
+
+                    match3.setType(Plasma::QueryMatch::ExactMatch);
+
+                    match3.setIcon(KIcon("battery-charging-040"));
+                    match3.setText(i18n("Turn off screen"));
+
+                    match3.setRelevance(1);
+                    match3.setId("TurnOffScreen");
+                    context.addMatch(term, match3);
                 }
             }
         }
@@ -169,6 +202,12 @@ void PowerDevilRunner::run(const Plasma::RunnerContext &context, const Plasma::Q
         iface.call("setPowersavingScheme", match.data().toString());
     } else if (match.id() == "PowerDevil_BrightnessChange") {
         iface.call("setBrightness", match.data().toInt());
+    } else if (match.id() == "PowerDevil_DimTotal") {
+        iface.call("setBrightness", 0);
+    } else if (match.id() == "PowerDevil_DimHalf") {
+        iface.call("setBrightness", -2);
+    } else if (match.id() == "PowerDevil_TurnOffScreen") {
+        iface.call("turnOffScreen");
     }
 }
 

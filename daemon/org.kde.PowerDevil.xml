@@ -23,6 +23,8 @@
     <method name="setBrightness">
       <arg type="i" direction="in" />
     </method>
+    <method name="turnOffScreen">
+    </method>
     
     <method name="getSupportedGovernors">
       <arg type="as" direction="out" />

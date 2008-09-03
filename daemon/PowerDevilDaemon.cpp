@@ -533,12 +533,9 @@ void PowerDevilDaemon::poll()
 
     } else if (settings->readEntry("turnOffIdle", QVariant()).toBool() &&
                (idle >= (settings->readEntry("turnOffIdleTime").toInt() * 60))) {
-        /* FIXME: This command works, though we can switch to dpms... need some
-         * feedback here.
-         */
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
         releaseInputLock();
-        QProcess::execute("xset dpms force off");
+        turnOffScreen();
     } else if (PowerDevilSettings::dimOnIdle()
                && (idle >= dimOnIdleTime)) {
         Solid::Control::PowerManager::setBrightness(0);
@@ -804,7 +801,23 @@ void PowerDevilDaemon::setGovernor(const QString &governor)
 
 void PowerDevilDaemon::setBrightness(int value)
 {
+    if (value == -2) {
+        // Then set brightness to half the current brightness.
+
+        float b = Solid::Control::PowerManager::brightness() / 2;
+        Solid::Control::PowerManager::setBrightness(b);
+        return;
+    }
+
     Solid::Control::PowerManager::setBrightness(value);
+}
+
+void PowerDevilDaemon::turnOffScreen()
+{
+    /* FIXME: This command works, though we can switch to dpms... need some
+     * feedback here.
+     */
+    QProcess::execute("xset dpms force off");
 }
 
 #include "PowerDevilDaemon.moc"
