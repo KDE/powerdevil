@@ -46,7 +46,7 @@ PowerDevilRunner::PowerDevilRunner(QObject *parent, const QVariantList &args)
     i18nc("Note this is a KRunner keyword", "power scheme") <<
     i18nc("Note this is a KRunner keyword", "screen brightness");
 
-    setObjectName(i18n("PowerDevil"));
+    setObjectName("PowerDevil");
 }
 
 PowerDevilRunner::~PowerDevilRunner()
