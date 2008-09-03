@@ -11,15 +11,6 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=system
 
 Name=Power Management Preferences
-Name[es]=Preferencias de PowerDevil
-Name[et]=PowerDevili eelistused
-Name[gl]=Prederencias de PowerDevil
-Name[nds]=Stroomdüvel-Instellen
-Name[pt]=Preferências do PowerDevil
-Name[pt_BR]=Preferências do PowerDevil
-Name[sv]=Inställningar av Powerdevil
-Name[uk]=Налаштування PowerDevil
-Name[zh_TW]=PowerDevil 喜好設定
 
 Comment=Power Management Preferences
 Comment[es]=Preferencias de gestión de energía
