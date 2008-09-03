@@ -49,6 +49,10 @@ Comment[sv]=Används för standardmeddelanden
 Comment[uk]=Використовується для звичайних сповіщень
 Comment[zh_TW]=用於標準通知
 
+[Context/criticalnot]
+Name=Critical notification
+Comment=Notifies a critical event
+
 [Event/lowbattery]
 Name=Low Battery
 Name[es]=Batería baja
@@ -247,4 +251,11 @@ Comment[uk]=Щось відбувається
 Comment[zh_TW]=某些事正在發生中
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
+Action=Sound|Popup
+
+[Event/powerdevilerror]
+Name=Internal PowerDevil Error
+Comment=PowerDevil has triggered an internal error
+Contexts=criticalnot
+Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup

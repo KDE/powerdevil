@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>790</width>
-    <height>586</height>
+    <width>835</width>
+    <height>497</height>
    </rect>
   </property>
   <property name="mouseTracking" >
@@ -302,7 +302,7 @@
                <widget class="KListWidget" name="profilesList" >
                 <property name="maximumSize" >
                  <size>
-                  <width>370</width>
+                  <width>340</width>
                   <height>16777215</height>
                  </size>
                 </property>
@@ -314,6 +314,12 @@
                  <layout class="QHBoxLayout" name="horizontalLayout" >
                   <item>
                    <widget class="KPushButton" name="deleteProfile" >
+                    <property name="maximumSize" >
+                     <size>
+                      <width>170</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="text" >
                      <string>Delete Profile</string>
                     </property>
@@ -321,6 +327,12 @@
                   </item>
                   <item>
                    <widget class="KPushButton" name="newProfile" >
+                    <property name="maximumSize" >
+                     <size>
+                      <width>170</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="text" >
                      <string>New Profile</string>
                     </property>
@@ -339,6 +351,12 @@
                  <layout class="QHBoxLayout" name="horizontalLayout_2" >
                   <item>
                    <widget class="KPushButton" name="importButton" >
+                    <property name="maximumSize" >
+                     <size>
+                      <width>170</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="toolTip" >
                      <string/>
                     </property>
@@ -351,20 +369,13 @@
                    </widget>
                   </item>
                   <item>
-                   <spacer name="horizontalSpacer" >
-                    <property name="orientation" >
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0" >
+                   <widget class="KPushButton" name="exportButton" >
+                    <property name="maximumSize" >
                      <size>
-                      <width>40</width>
-                      <height>20</height>
+                      <width>170</width>
+                      <height>16777215</height>
                      </size>
                     </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="KPushButton" name="exportButton" >
                     <property name="toolTip" >
                      <string/>
                     </property>
@@ -385,221 +396,210 @@
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_2" >
               <item>
-               <widget class="QGroupBox" name="groupBox_2" >
-                <property name="title" >
-                 <string>Basic options</string>
+               <widget class="KTabWidget" name="ktabwidget_2" >
+                <property name="currentIndex" >
+                 <number>1</number>
                 </property>
-                <layout class="QFormLayout" name="formLayout" >
-                 <item row="0" column="0" >
-                  <widget class="QLabel" name="PoweredBrightnessLabel_2" >
-                   <property name="toolTip" >
-                    <string>With this slider you can set the brightness when the system is plugged into the socket outlet</string>
-                   </property>
-                   <property name="text" >
-                    <string>Brightness</string>
-                   </property>
-                   <property name="wordWrap" >
-                    <bool>false</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" >
-                  <widget class="QSlider" name="brightnessSlider" >
-                   <property name="mouseTracking" >
-                    <bool>true</bool>
-                   </property>
-                   <property name="acceptDrops" >
-                    <bool>true</bool>
-                   </property>
-                   <property name="whatsThis" >
-                    <string/>
-                   </property>
-                   <property name="maximum" >
-                    <number>100</number>
-                   </property>
-                   <property name="singleStep" >
-                    <number>1</number>
-                   </property>
-                   <property name="pageStep" >
-                    <number>1</number>
-                   </property>
-                   <property name="orientation" >
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="tickInterval" >
-                    <number>0</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0" >
-                  <widget class="QCheckBox" name="offDisplayWhenIdle" >
-                   <property name="toolTip" >
-                    <string>Automatically turn off the display if idle for more than the set value.</string>
-                   </property>
-                   <property name="text" >
-                    <string>Turn off display if idle for more than</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1" >
-                  <widget class="QSpinBox" name="displayIdleTime" >
-                   <property name="toolTip" >
-                    <string>Idle time after which the monitor should turn off</string>
-                   </property>
-                   <property name="suffix" >
-                    <string> min</string>
-                   </property>
-                   <property name="minimum" >
-                    <number>1</number>
-                   </property>
-                   <property name="maximum" >
-                    <number>280</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0" >
-                  <widget class="QLabel" name="PoweredIdleLabel_2" >
-                   <property name="toolTip" >
-                    <string/>
-                   </property>
-                   <property name="whatsThis" >
-                    <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                   </property>
-                   <property name="text" >
-                    <string>When the system is idle for more than</string>
-                   </property>
-                   <property name="wordWrap" >
-                    <bool>false</bool>
-                   </property>
-                   <property name="buddy" >
-                    <cstring>idleTime</cstring>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1" >
-                  <layout class="QHBoxLayout" name="horizontalLayout_4" >
-                   <item>
-                    <widget class="QSpinBox" name="idleTime" >
-                     <property name="whatsThis" >
-                      <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                     </property>
-                     <property name="suffix" >
-                      <string> min</string>
-                     </property>
-                     <property name="prefix" >
-                      <string/>
-                     </property>
-                     <property name="minimum" >
-                      <number>1</number>
-                     </property>
-                     <property name="maximum" >
-                      <number>280</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="KComboBox" name="idleCombo" >
-                     <property name="whatsThis" >
-                      <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item row="3" column="0" >
-                  <widget class="QLabel" name="label_7" >
-                   <property name="toolTip" >
-                    <string/>
-                   </property>
-                   <property name="text" >
-                    <string>When Laptop Lid Closed</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1" >
-                  <widget class="KComboBox" name="laptopClosedCombo" >
-                   <property name="whatsThis" >
-                    <string>This action will be performed when the laptop lid gets closed</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QGroupBox" name="groupBox_7" >
-                <property name="title" >
-                 <string>Advanced Options</string>
-                </property>
-                <layout class="QFormLayout" name="formLayout_5" >
-                 <item row="0" column="0" >
-                  <widget class="QLabel" name="label_12" >
-                   <property name="text" >
-                    <string>Turn off the following CPU(s)</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0" >
-                  <layout class="QHBoxLayout" name="CPUListLayout" />
-                 </item>
-                 <item row="2" column="0" >
-                  <widget class="Line" name="line" >
-                   <property name="orientation" >
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0" >
-                  <widget class="QLabel" name="PoweredFreqLabel_2" >
-                   <property name="toolTip" >
-                    <string/>
-                   </property>
-                   <property name="whatsThis" >
-                    <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
-                   </property>
-                   <property name="text" >
-                    <string>CPU frequency scaling policy</string>
-                   </property>
-                   <property name="wordWrap" >
-                    <bool>false</bool>
-                   </property>
-                   <property name="buddy" >
-                    <cstring>freqCombo</cstring>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="1" >
-                  <widget class="KComboBox" name="freqCombo" >
-                   <property name="whatsThis" >
-                    <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0" >
-                  <widget class="QLabel" name="label_19" >
-                   <property name="text" >
-                    <string>System powersaving scheme</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="1" >
-                  <widget class="KComboBox" name="schemeCombo" />
-                 </item>
-                 <item row="3" column="0" >
-                  <widget class="Line" name="line_4" >
-                   <property name="orientation" >
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1" >
-                  <widget class="Line" name="line_5" >
-                   <property name="orientation" >
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+                <widget class="QWidget" name="tab_2" >
+                 <attribute name="title" >
+                  <string>Screen and Actions</string>
+                 </attribute>
+                 <layout class="QFormLayout" name="formLayout" >
+                  <item row="0" column="0" >
+                   <widget class="QLabel" name="PoweredBrightnessLabel_2" >
+                    <property name="toolTip" >
+                     <string>With this slider you can set the brightness when the system is plugged into the socket outlet</string>
+                    </property>
+                    <property name="text" >
+                     <string>Brightness</string>
+                    </property>
+                    <property name="wordWrap" >
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" >
+                   <widget class="QSlider" name="brightnessSlider" >
+                    <property name="mouseTracking" >
+                     <bool>true</bool>
+                    </property>
+                    <property name="acceptDrops" >
+                     <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" >
+                     <string/>
+                    </property>
+                    <property name="maximum" >
+                     <number>100</number>
+                    </property>
+                    <property name="singleStep" >
+                     <number>1</number>
+                    </property>
+                    <property name="pageStep" >
+                     <number>1</number>
+                    </property>
+                    <property name="orientation" >
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="tickInterval" >
+                     <number>0</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" >
+                   <widget class="QCheckBox" name="offDisplayWhenIdle" >
+                    <property name="toolTip" >
+                     <string>Automatically turn off the display if idle for more than the set value.</string>
+                    </property>
+                    <property name="text" >
+                     <string>Turn off display if idle for more than</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" >
+                   <widget class="QSpinBox" name="displayIdleTime" >
+                    <property name="toolTip" >
+                     <string>Idle time after which the monitor should turn off</string>
+                    </property>
+                    <property name="suffix" >
+                     <string> min</string>
+                    </property>
+                    <property name="minimum" >
+                     <number>1</number>
+                    </property>
+                    <property name="maximum" >
+                     <number>280</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" >
+                   <widget class="QLabel" name="PoweredIdleLabel_2" >
+                    <property name="toolTip" >
+                     <string/>
+                    </property>
+                    <property name="whatsThis" >
+                     <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                    </property>
+                    <property name="text" >
+                     <string>When the system is idle for more than</string>
+                    </property>
+                    <property name="wordWrap" >
+                     <bool>false</bool>
+                    </property>
+                    <property name="buddy" >
+                     <cstring>idleTime</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1" >
+                   <layout class="QHBoxLayout" name="horizontalLayout_4" >
+                    <item>
+                     <widget class="QSpinBox" name="idleTime" >
+                      <property name="whatsThis" >
+                       <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                      </property>
+                      <property name="suffix" >
+                       <string> min</string>
+                      </property>
+                      <property name="prefix" >
+                       <string/>
+                      </property>
+                      <property name="minimum" >
+                       <number>1</number>
+                      </property>
+                      <property name="maximum" >
+                       <number>280</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="KComboBox" name="idleCombo" >
+                      <property name="whatsThis" >
+                       <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="0" >
+                   <widget class="QLabel" name="label_7" >
+                    <property name="toolTip" >
+                     <string/>
+                    </property>
+                    <property name="text" >
+                     <string>When Laptop Lid Closed</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" >
+                   <widget class="KComboBox" name="laptopClosedCombo" >
+                    <property name="whatsThis" >
+                     <string>This action will be performed when the laptop lid gets closed</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab" >
+                 <attribute name="title" >
+                  <string>CPU and System</string>
+                 </attribute>
+                 <layout class="QFormLayout" name="formLayout_5" >
+                  <item row="0" column="0" >
+                   <widget class="QLabel" name="label_12" >
+                    <property name="text" >
+                     <string>Turn off the following CPU(s)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" >
+                   <widget class="QLabel" name="PoweredFreqLabel_2" >
+                    <property name="toolTip" >
+                     <string/>
+                    </property>
+                    <property name="whatsThis" >
+                     <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
+                    </property>
+                    <property name="text" >
+                     <string>CPU frequency scaling policy</string>
+                    </property>
+                    <property name="wordWrap" >
+                     <bool>false</bool>
+                    </property>
+                    <property name="buddy" >
+                     <cstring>freqCombo</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" >
+                   <widget class="KComboBox" name="freqCombo" >
+                    <property name="whatsThis" >
+                     <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" >
+                   <widget class="QLabel" name="label_19" >
+                    <property name="text" >
+                     <string>System powersaving scheme</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1" >
+                   <widget class="KComboBox" name="schemeCombo" />
+                  </item>
+                  <item row="1" column="0" >
+                   <layout class="QHBoxLayout" name="CPUListLayout" />
+                  </item>
+                  <item row="2" column="1" >
+                   <widget class="Line" name="line_5" >
+                    <property name="orientation" >
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
               <item>

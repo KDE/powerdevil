@@ -94,6 +94,8 @@ private:
     void applyProfile();
     void releaseInputLock();
 
+    void emitCriticalNotification(const QString &evid, const QString &message = QString());
+
 private:
     enum IdleAction {
         Shutdown = 1,

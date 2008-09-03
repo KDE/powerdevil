@@ -95,7 +95,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
         if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString&)), this,
                      SLOT(batteryChargePercentChanged(int, const QString&)))) {
-            emit errorTriggered(i18n("Could not connect to battery interface!"));
+            emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
+                                     "Please check your system configuration"));
         }
     }
 
@@ -144,7 +145,7 @@ void PowerDevilDaemon::detectedActivity()
 
     releaseInputLock();
 
-    refreshStatus();
+    poll();
 }
 
 void PowerDevilDaemon::releaseInputLock()
@@ -254,6 +255,8 @@ void PowerDevilDaemon::applyProfile()
     delete settings;
 
     emit stateChanged(m_batteryPercent, m_isPlugged);
+
+    poll();
 }
 
 void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &udi)
@@ -408,8 +411,8 @@ void PowerDevilDaemon::standby()
 void PowerDevilDaemon::suspendJobResult(KJob * job)
 {
     if (job->error()) {
-        emitWarningNotification("joberror", QString(i18n("There was an error while suspending:")
-                                + QChar('\n') + job->errorString()));
+        emitCriticalNotification("joberror", QString(i18n("There was an error while suspending:")
+                                 + QChar('\n') + job->errorString()));
     }
 
     m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
@@ -596,6 +599,14 @@ void PowerDevilDaemon::lockScreen()
     m_screenSaverIface->Lock();
 }
 
+void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QString &message)
+{
+    /* Those notifications are always displayed */
+
+    KNotification::event(evid, message, KIcon("dialog-error").pixmap(20, 20),
+                         0, KNotification::CloseOnTimeout, m_applicationData);
+}
+
 void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QString &message)
 {
     if (!PowerDevilSettings::enableWarningNotifications())
@@ -618,10 +629,10 @@ KConfigGroup *PowerDevilDaemon::getCurrentProfile()
 {
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, m_currentProfile);
 
-    emit errorTriggered(i18n("Current Profile name is %1", group->name()));
-
     if (!group->isValid() || !group->entryMap().size()) {
-        emit errorTriggered(i18n("Invalid group!!"));
+        emitCriticalNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
+                                 "but it does not exist!\nPlease check your PowerDevil configuration.",
+                                 m_currentProfile));
         reloadProfile();
         delete group;
         return NULL;
@@ -689,7 +700,17 @@ void PowerDevilDaemon::reloadProfile(int state)
 void PowerDevilDaemon::setProfile(const QString & profile)
 {
     m_currentProfile = profile;
-    refreshStatus();
+
+    /* Don't call refreshStatus() here, since we don't want the predefined profile
+     * to be loaded!!
+     */
+
+    if (m_battery) {
+        acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
+    } else {
+        applyProfile();
+    }
+
     emitNotification("profileset", i18n("Profile changed to \"%1\"", profile));
     emit profileChanged(m_currentProfile, m_availableProfiles);
 }
