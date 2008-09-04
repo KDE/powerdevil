@@ -4,6 +4,12 @@ Name[nds]=Stroomdüvel
 Name[sv]=Powerdevil
 
 Comment=Basic Power Management Operations
+Comment[nds]=Eenfach Stroomspoor-Funkschonen
+Comment[pt]=Operações Básicas de Gestão de Energia
+Comment[pt_BR]=Operações Básicas de Gestão de Energia
+Comment[sv]=Grundläggande strömsparfunktioner
+Comment[uk]=Керування базовими операціями з керування живленням
+Comment[zh_TW]=基本的電源管理操作
 
 X-KDE-ServiceTypes=Plasma/Runner
 Type=Service
