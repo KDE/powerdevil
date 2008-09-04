@@ -632,7 +632,7 @@ KConfigGroup *PowerDevilDaemon::getCurrentProfile()
                                  m_currentProfile));
         reloadProfile();
         delete group;
-        return NULL;
+        return 0;
     }
 
     return group;

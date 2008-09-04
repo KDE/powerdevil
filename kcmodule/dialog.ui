@@ -35,10 +35,13 @@
           <item row="0" column="0" >
            <widget class="QCheckBox" name="lockScreenOnResume" >
             <property name="toolTip" >
-             <string>You will be asked for password when resuming from sleep state</string>
+             <string>Locks screen when waking up from suspension</string>
+            </property>
+            <property name="statusTip" >
+             <string/>
             </property>
             <property name="whatsThis" >
-             <string/>
+             <string>You will be asked for password when resuming from sleep state</string>
             </property>
             <property name="text" >
              <string>Lock screen on resume</string>
@@ -48,7 +51,13 @@
           <item row="1" column="0" >
            <widget class="QCheckBox" name="dimDisplayOnIdle" >
             <property name="toolTip" >
-             <string>Automatically dim the display when the system is idle.</string>
+             <string>Activate automatic dimming</string>
+            </property>
+            <property name="statusTip" >
+             <string/>
+            </property>
+            <property name="whatsThis" >
+             <string>Automatically dims the display when the system is idle.</string>
             </property>
             <property name="text" >
              <string>Dim display when idle for more than</string>
@@ -57,6 +66,15 @@
           </item>
           <item row="2" column="0" >
            <widget class="QCheckBox" name="notificationsBox" >
+            <property name="toolTip" >
+             <string>Enables standard notifications</string>
+            </property>
+            <property name="statusTip" >
+             <string/>
+            </property>
+            <property name="whatsThis" >
+             <string>Notifications such as standard events or profile change will be shown</string>
+            </property>
             <property name="text" >
              <string>Enable notifications</string>
             </property>
@@ -64,6 +82,12 @@
           </item>
           <item row="3" column="0" >
            <widget class="QCheckBox" name="warningNotificationsBox" >
+            <property name="toolTip" >
+             <string>Enables warning notifications</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Notifications such as warnings or important events will be shown. It is recommended to leave this enabled.</string>
+            </property>
             <property name="text" >
              <string>Enable warning notifications</string>
             </property>
@@ -141,6 +165,12 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="toolTip" >
+             <string>Low battery level</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Battery will be considered low when it reaches this level</string>
+            </property>
             <property name="suffix" >
              <string>%</string>
             </property>
@@ -164,6 +194,12 @@
               <height>16777215</height>
              </size>
             </property>
+            <property name="toolTip" >
+             <string>Warning battery level</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Battery will be considered at warning level when it reaches this level</string>
+            </property>
             <property name="suffix" >
              <string>%</string>
             </property>
@@ -186,6 +222,12 @@
               <width>100</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="toolTip" >
+             <string>Critical battery level</string>
+            </property>
+            <property name="whatsThis" >
+             <string>Battery will be considered critical when it reaches this level</string>
             </property>
             <property name="suffix" >
              <string>%</string>

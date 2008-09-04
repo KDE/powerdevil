@@ -129,6 +129,9 @@ void ConfigWidget::fillUi()
         QCheckBox *checkBox = new QCheckBox(this);
 
         checkBox->setText(text);
+        checkBox->setToolTip(i18n("Disable CPU <numid>%1</numid>", processor->number()));
+        checkBox->setWhatsThis(i18n("If this box is checked, the CPU <numid>%1</numid> "
+                "will be disabled", processor->number()));
 
         checkBox->setEnabled(Solid::Control::PowerManager::canDisableCpu(processor->number()));
 
@@ -417,6 +420,12 @@ void ConfigWidget::createProfile()
     QVBoxLayout *lay = new QVBoxLayout();
 
     lb->setText(i18n("Please enter a name for the new profile"));
+
+    lb->setToolTip(i18n("The name for the new profile"));
+    lb->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
+
+    ed->setToolTip(i18n("The name for the new profile"));
+    ed->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
 
     lay->addWidget(lb);
     lay->addWidget(ed);

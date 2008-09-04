@@ -173,7 +173,7 @@ void PowerDevilApplet::dataUpdated(const QString& source, const Plasma::DataEngi
         m_availableProfiles = data[I18N_NOOP("availableProfiles")].toStringList();
         m_currentProfile = data[I18N_NOOP("currentProfile")].toString();
     } else {
-        kDebug() << "Applet::Dunno what to do with " << source;
+        kDebug() << "Applet : Dunno what to do with " << source;
     }
     update();
 }
