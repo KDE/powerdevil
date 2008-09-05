@@ -51,7 +51,19 @@ Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
+Name[nds]=Kritisch-Bescheed
+Name[pt]=Notificação crítica
+Name[pt_BR]=Notificação crítica
+Name[sv]=Kritisk underrättelse
+Name[uk]=Сповіщення про критичні події
+Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
+Comment[nds]=Bescheed bi Stoop "Kritisch"
+Comment[pt]=Notifica um evento crítico
+Comment[pt_BR]=Notifica um evento crítico
+Comment[sv]=Underrättar om en kritisk händelse
+Comment[uk]=Повідомляє про критичну подію
+Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Low Battery
@@ -255,7 +267,19 @@ Action=Sound|Popup
 
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error
+Name[nds]=Intern Fehler binnen Stroomdüvel
+Name[pt]=Erro Interno do PowerDevil
+Name[pt_BR]=Erro Interno do PowerDevil
+Name[sv]=Internt fel i Powerdevil
+Name[uk]=Внутрішня помилка PowerDevil
+Name[zh_TW]=內部 PowerDevil 錯誤
 Comment=PowerDevil has triggered an internal error
+Comment[nds]=De Stroomdüvel hett intern en Fehler utlööst
+Comment[pt]=O PowerDevil despoletou um erro interno
+Comment[pt_BR]=O PowerDevil despoletou um erro interno
+Comment[sv]=Powerdevil har orsakat ett internt fel
+Comment[uk]=У PowerDevil сталася внутрішня помилка
+Comment[zh_TW]=PowerDevil 觸發了一個內部錯誤
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
