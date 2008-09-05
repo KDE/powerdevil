@@ -20,10 +20,7 @@
 #ifndef POWERDEVILAPPLET_H
 #define POWERDEVILAPPLET_H
 
-#include <QLabel>
 #include <QGraphicsSceneHoverEvent>
-#include <QPair>
-#include <QMap>
 
 #include <plasma/applet.h>
 #include <plasma/animator.h>

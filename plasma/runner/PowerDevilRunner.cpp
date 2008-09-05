@@ -24,7 +24,7 @@
 #include <KDebug>
 #include <KRun>
 #include <QDBusInterface>
-#include <QDBusConnectionInterface>
+#include <QDBusReply>
 
 PowerDevilRunner::PowerDevilRunner(QObject *parent, const QVariantList &args)
         : Plasma::AbstractRunner(parent),

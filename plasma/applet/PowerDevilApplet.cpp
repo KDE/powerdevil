@@ -30,7 +30,6 @@
 
 #include <KDebug>
 #include <KIcon>
-#include <KLocalizedString>
 #include <KSharedConfig>
 #include <KDialog>
 #include <KColorScheme>

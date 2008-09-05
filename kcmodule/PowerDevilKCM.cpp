@@ -27,7 +27,6 @@
 #include <KAboutData>
 #include <klocalizedstring.h>
 
-#include <QLayout>
 #include <QtDBus/QDBusMessage>
 
 K_PLUGIN_FACTORY(PowerDevilKCMFactory,
