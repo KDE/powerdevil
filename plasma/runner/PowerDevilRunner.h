@@ -25,20 +25,20 @@
 
 class PowerDevilRunner : public Plasma::AbstractRunner
 {
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    PowerDevilRunner(QObject *parent, const QVariantList &args);
-    ~PowerDevilRunner();
+    public:
+        PowerDevilRunner( QObject *parent, const QVariantList &args );
+        ~PowerDevilRunner();
 
-    void match(Plasma::RunnerContext &context);
-    void run(const Plasma::RunnerContext &context, const Plasma::QueryMatch &action);
+        void match( Plasma::RunnerContext &context );
+        void run( const Plasma::RunnerContext &context, const Plasma::QueryMatch &action );
 
-private:
-    QStringList m_words;
-    QDBusConnection m_dbus;
+    private:
+        QStringList m_words;
+        QDBusConnection m_dbus;
 };
 
-K_EXPORT_PLASMA_RUNNER(powerdevil, PowerDevilRunner)
+K_EXPORT_PLASMA_RUNNER( powerdevil, PowerDevilRunner )
 
 #endif

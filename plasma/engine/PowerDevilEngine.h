@@ -31,41 +31,41 @@ static const uint MINIMUM_UPDATE_INTERVAL = 1000;
 
 class PowerDevilEngine : public Plasma::DataEngine
 {
-    Q_OBJECT
-    Q_PROPERTY(uint refreshTime READ refreshTime WRITE setRefreshTime)
-public:
-    PowerDevilEngine(QObject* parent, const QVariantList &args);
-    ~PowerDevilEngine();
+        Q_OBJECT
+        Q_PROPERTY( uint refreshTime READ refreshTime WRITE setRefreshTime )
+    public:
+        PowerDevilEngine( QObject* parent, const QVariantList &args );
+        ~PowerDevilEngine();
 
-    QStringList sources() const;
+        QStringList sources() const;
 
-    void setRefreshTime(uint time);
-    uint refreshTime() const;
+        void setRefreshTime( uint time );
+        uint refreshTime() const;
 
-protected:
-    bool sourceRequestEvent(const QString &name);
-    bool updateSourceEvent(const QString& source);
+    protected:
+        bool sourceRequestEvent( const QString &name );
+        bool updateSourceEvent( const QString& source );
 
-private slots:
-    void getPowerDevilData(const QString &name);
-    void updatePowerDevilData();
-    void connectDBusSlots();
-    void stateChanged(int chargePercent, bool plugged);
-    void profilesChanged(const QString &current, const QStringList &profiles);
+    private slots:
+        void getPowerDevilData( const QString &name );
+        void updatePowerDevilData();
+        void connectDBusSlots();
+        void stateChanged( int chargePercent, bool plugged );
+        void profilesChanged( const QString &current, const QStringList &profiles );
 
-private:
-    bool isDBusServiceRegistered();
+    private:
+        bool isDBusServiceRegistered();
 
-    QDBusConnection m_dbus;
-    bool m_dbusError;
-    bool m_slotsAreConnected;
+        QDBusConnection m_dbus;
+        bool m_dbusError;
+        bool m_slotsAreConnected;
 
-    int m_batteryPercent;
-    bool m_ACPlugged;
-    QString m_currentProfile;
-    QStringList m_availableProfiles;
+        int m_batteryPercent;
+        bool m_ACPlugged;
+        QString m_currentProfile;
+        QStringList m_availableProfiles;
 };
 
-K_EXPORT_PLASMA_DATAENGINE(powerdevil, PowerDevilEngine)
+K_EXPORT_PLASMA_DATAENGINE( powerdevil, PowerDevilEngine )
 
 #endif /*POWERDEVILENGINE_H*/

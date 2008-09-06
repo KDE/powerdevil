@@ -32,98 +32,102 @@ class QTimer;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
-    virtual ~PowerDevilDaemon();
+    public:
+        PowerDevilDaemon( QObject *parent, const QList<QVariant>& );
+        virtual ~PowerDevilDaemon();
 
-public Q_SLOTS:
-    void refreshStatus();
-    void emitWarningNotification(const QString &evid, const QString &message = QString());
-    void emitNotification(const QString &evid, const QString &message = QString());
-    void setProfile(const QString & profile);
-    void reloadAndStream();
+    public Q_SLOTS:
+        void refreshStatus();
+        void emitWarningNotification( const QString &evid, const QString &message = QString() );
+        void emitNotification( const QString &evid, const QString &message = QString() );
+        void setProfile( const QString & profile );
+        void reloadAndStream();
 
-    void setGovernor(const QString &governor);
-    void setPowersavingScheme(const QString &scheme);
-    void setBrightness(int value);
-    void turnOffScreen();
+        void setGovernor( const QString &governor );
+        void setPowersavingScheme( const QString &scheme );
+        void setBrightness( int value );
+        void turnOffScreen();
 
-    QStringList getSupportedGovernors();
-    QStringList getSupportedSchemes();
+        void unloadDaemon() {
+            deleteLater();
+        };
 
-private Q_SLOTS:
-    void acAdapterStateChanged(int state, bool forced = false);
-    void batteryChargePercentChanged(int percent, const QString &udi);
+        QStringList getSupportedGovernors();
+        QStringList getSupportedSchemes();
 
-    void decreaseBrightness();
-    void increaseBrightness();
+    private Q_SLOTS:
+        void acAdapterStateChanged( int state, bool forced = false );
+        void batteryChargePercentChanged( int percent, const QString &udi );
 
-    void shutdown();
-    void suspendJobResult(KJob * job);
-    void suspendToDisk();
-    void suspendToRam();
-    void standby();
+        void decreaseBrightness();
+        void increaseBrightness();
 
-    void buttonPressed(int but);
+        void shutdown();
+        void suspendJobResult( KJob * job );
+        void suspendToDisk();
+        void suspendToRam();
+        void standby();
 
-    void poll();
-    void detectedActivity();
-    void waitForActivity();
+        void buttonPressed( int but );
 
-    void reloadProfile(int state = -1);
-    const QString &profile() {
-        return m_currentProfile;
-    }
+        void poll();
+        void detectedActivity();
+        void waitForActivity();
 
-Q_SIGNALS:
-    void lidClosed(int code, const QString &action);
-    void errorTriggered(const QString &error);
+        void reloadProfile( int state = -1 );
+        const QString &profile() {
+            return m_currentProfile;
+        }
 
-    void stateChanged(int, bool);
-    void profileChanged(const QString&, const QStringList&);
+    Q_SIGNALS:
+        void lidClosed( int code, const QString &action );
+        void errorTriggered( const QString &error );
 
-    void pollEvent(const QString &event);
+        void stateChanged( int, bool );
+        void profileChanged( const QString &, const QStringList & );
 
-protected:
-    bool eventFilter(QObject * object, QEvent * event);
+        void pollEvent( const QString &event );
 
-private:
-    void lockScreen();
-    KConfigGroup *getCurrentProfile();
-    void applyProfile();
-    void releaseInputLock();
+    protected:
+        bool eventFilter( QObject * object, QEvent * event );
 
-    void emitCriticalNotification(const QString &evid, const QString &message = QString());
+    private:
+        void lockScreen();
+        KConfigGroup *getCurrentProfile();
+        void applyProfile();
+        void releaseInputLock();
 
-private:
-    enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
-    };
+        void emitCriticalNotification( const QString &evid, const QString &message = QString() );
 
-    Solid::Control::PowerManager::Notifier * m_notifier;
-    Solid::Battery * m_battery;
+    private:
+        enum IdleAction {
+            Shutdown = 1,
+            S2Disk = 2,
+            S2Ram = 3,
+            Standby = 4,
+            Lock = 5,
+            None = 0
+        };
 
-    KDisplayManager * m_displayManager;
-    OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+        Solid::Control::PowerManager::Notifier * m_notifier;
+        Solid::Battery * m_battery;
 
-    QTimer * m_pollTimer;
-    QWidget * m_grabber;
+        KDisplayManager * m_displayManager;
+        OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
 
-    KComponentData m_applicationData;
-    KConfig * m_profilesConfig;
+        QTimer * m_pollTimer;
+        QWidget * m_grabber;
 
-    QString m_currentProfile;
-    QStringList m_availableProfiles;
+        KComponentData m_applicationData;
+        KConfig * m_profilesConfig;
 
-    int m_batteryPercent;
-    bool m_isPlugged;
+        QString m_currentProfile;
+        QStringList m_availableProfiles;
+
+        int m_batteryPercent;
+        bool m_isPlugged;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

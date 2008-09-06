@@ -27,52 +27,52 @@ class KConfig;
 
 class ConfigWidget : public QWidget, private Ui_powerDevilConfig
 {
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    ConfigWidget(QWidget *parent = 0);
+    public:
+        ConfigWidget( QWidget *parent = 0 );
 
-    void fillUi();
+        void fillUi();
 
-    void load();
-    void save();
+        void load();
+        void save();
 
-signals:
-    void changed(bool ch);
-    void profilesChanged();
+    signals:
+        void changed( bool ch );
+        void profilesChanged();
 
-private slots:
-    void emitChanged();
-    void setProfileChanged();
+    private slots:
+        void emitChanged();
+        void setProfileChanged();
 
-    void enableSaveProfile();
-    void enableBoxes();
+        void enableSaveProfile();
+        void enableBoxes();
 
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name);
-    void deleteCurrentProfile();
-    void createProfile();
+        void loadProfile();
+        void saveProfile( const QString &p = QString() );
+        void switchProfile( QListWidgetItem *current, QListWidgetItem *previous );
+        void reloadAvailableProfiles();
+        void createProfile( const QString &name );
+        void deleteCurrentProfile();
+        void createProfile();
 
-    void fillCapabilities();
+        void fillCapabilities();
 
-    void importProfiles();
-    void exportProfiles();
+        void importProfiles();
+        void exportProfiles();
 
-private:
-    enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
-    };
+    private:
+        enum IdleAction {
+            Shutdown = 1,
+            S2Disk = 2,
+            S2Ram = 3,
+            Standby = 4,
+            Lock = 5,
+            None = 0
+        };
 
-    KConfig *m_profilesConfig;
-    bool m_profileEdited;
+        KConfig *m_profilesConfig;
+        bool m_profileEdited;
 };
 
 #endif /*CONFIGWIDGET_H*/

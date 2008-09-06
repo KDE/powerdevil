@@ -31,3 +31,4 @@ target_link_libraries(kded_powerdevil
 install( TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 install( FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded )
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/powerdevil.conf DESTINATION /etc/dbus-1/system.d)

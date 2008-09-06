@@ -27,21 +27,21 @@ class ConfigWidget;
 
 class PowerDevilKCM : public KCModule
 {
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    PowerDevilKCM(QWidget *parent, const QVariantList &args);
+    public:
+        PowerDevilKCM( QWidget *parent, const QVariantList &args );
 
-    void load();
-    void save();
-    void defaults();
+        void load();
+        void save();
+        void defaults();
 
-private slots:
-    void streamToDBus();
+    private slots:
+        void streamToDBus();
 
-private:
-    ConfigWidget *m_widget;
-    QDBusConnection m_dbus;
+    private:
+        ConfigWidget *m_widget;
+        QDBusConnection m_dbus;
 };
 
 #endif /*POWERDEVILKCM_H*/
