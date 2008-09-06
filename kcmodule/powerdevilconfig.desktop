@@ -11,6 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=system
 
 Name=Power Management Preferences
+Name[gl]=Configuración da xestión de enerxía
 Name[nds]=Stroompleeg-Instellen
 Name[pt]=Preferências de Gestão da Energia
 Name[pt_BR]=Preferências de Gestão da Energia
