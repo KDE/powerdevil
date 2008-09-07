@@ -382,6 +382,9 @@ void ConfigWidget::reloadAvailableProfiles()
 
 void ConfigWidget::deleteCurrentProfile()
 {
+    if ( !profilesList->currentItem() || profilesList->currentItem()->text().isEmpty() )
+        return;
+
     m_profilesConfig->deleteGroup( profilesList->currentItem()->text() );
 
     m_profilesConfig->sync();
