@@ -31,7 +31,7 @@ class ConfigWidget : public QWidget, private Ui_powerDevilConfig
 
     public:
         ConfigWidget( QWidget *parent = 0 );
-
+        ~ConfigWidget();
         void fillUi();
 
         void load();

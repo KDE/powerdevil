@@ -64,6 +64,11 @@ ConfigWidget::ConfigWidget( QWidget *parent )
     fillUi();
 }
 
+ConfigWidget::~ConfigWidget()
+{
+    delete m_profilesConfig;
+}
+
 void ConfigWidget::fillUi()
 {
     idleCombo->addItem( i18n( "Do nothing" ), ( int ) None );
