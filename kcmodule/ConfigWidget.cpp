@@ -400,6 +400,8 @@ void ConfigWidget::deleteCurrentProfile()
 
 void ConfigWidget::createProfile( const QString &name )
 {
+    if ( name.isEmpty() )
+        return;
     KConfigGroup *group = new KConfigGroup( m_profilesConfig, name );
 
     group->writeEntry( "brightness", 80 );
@@ -441,10 +443,12 @@ void ConfigWidget::createProfile()
     wg->setLayout( lay );
 
     dialog->setMainWidget( wg );
+    ed->setFocus();
 
     if ( dialog->exec() == KDialog::Accepted ) {
         createProfile( ed->text() );
     }
+    delete dialog;
 }
 
 void ConfigWidget::fillCapabilities()
