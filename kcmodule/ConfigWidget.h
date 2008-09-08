@@ -52,9 +52,11 @@ class ConfigWidget : public QWidget, private Ui_powerDevilConfig
         void saveProfile( const QString &p = QString() );
         void switchProfile( QListWidgetItem *current, QListWidgetItem *previous );
         void reloadAvailableProfiles();
-        void createProfile( const QString &name );
+        void createProfile( const QString &name, const QString &icon );
+        void editProfile( const QString &prevname, const QString &newname, const QString &icon );
         void deleteCurrentProfile();
         void createProfile();
+        void editProfile();
 
         void fillCapabilities();
 

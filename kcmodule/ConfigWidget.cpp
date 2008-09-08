@@ -29,9 +29,11 @@
 #include <KConfigGroup>
 #include <KLineEdit>
 #include <QCheckBox>
+#include <QFormLayout>
 #include <KDialog>
 #include <KFileDialog>
 #include <KMessageBox>
+#include <KIconButton>
 
 ConfigWidget::ConfigWidget( QWidget *parent )
         : QWidget( parent ),
@@ -148,6 +150,7 @@ void ConfigWidget::fillUi()
     reloadAvailableProfiles();
 
     newProfile->setIcon( KIcon( "document-new" ) );
+    editProfileButton->setIcon( KIcon( "edit-rename" ) );
     deleteProfile->setIcon( KIcon( "edit-delete-page" ) );
     importButton->setIcon( KIcon( "document-import" ) );
     exportButton->setIcon( KIcon( "document-export" ) );
@@ -190,6 +193,7 @@ void ConfigWidget::fillUi()
 
     connect( deleteProfile, SIGNAL( clicked() ), SLOT( deleteCurrentProfile() ) );
     connect( newProfile, SIGNAL( clicked() ), SLOT( createProfile() ) );
+    connect( editProfileButton, SIGNAL( clicked() ), SLOT( editProfile() ) );
     connect( importButton, SIGNAL( clicked() ), SLOT( importProfiles() ) );
     connect( exportButton, SIGNAL( clicked() ), SLOT( exportProfiles() ) );
     connect( resetCurrentProfileButton, SIGNAL( clicked() ), SLOT( loadProfile() ) );
@@ -366,11 +370,17 @@ void ConfigWidget::reloadAvailableProfiles()
         return;
     }
 
-    profilesList->addItems( m_profilesConfig->groupList() );
-    acProfile->addItems( m_profilesConfig->groupList() );
-    batteryProfile->addItems( m_profilesConfig->groupList() );
-    lowProfile->addItems( m_profilesConfig->groupList() );
-    warningProfile->addItems( m_profilesConfig->groupList() );
+    foreach ( const QString &ent, m_profilesConfig->groupList() )
+    {
+        KConfigGroup *group = new KConfigGroup( m_profilesConfig, ent );
+        QListWidgetItem *itm = new QListWidgetItem( KIcon( group->readEntry("iconname") ),
+                ent );
+        profilesList->addItem( itm );
+        acProfile->addItem( KIcon( group->readEntry("iconname") ), ent );
+        batteryProfile->addItem( KIcon( group->readEntry("iconname") ), ent );
+        lowProfile->addItem( KIcon( group->readEntry("iconname") ), ent );
+        warningProfile->addItem( KIcon( group->readEntry("iconname") ), ent );
+    }
 
     acProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::aCProfile() ) );
     lowProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::lowProfile() ) );
@@ -398,7 +408,7 @@ void ConfigWidget::deleteCurrentProfile()
     emit profilesChanged();
 }
 
-void ConfigWidget::createProfile( const QString &name )
+void ConfigWidget::createProfile( const QString &name, const QString &icon )
 {
     if ( name.isEmpty() )
         return;
@@ -411,6 +421,7 @@ void ConfigWidget::createProfile( const QString &name )
     group->writeEntry( "lidAction", 0 );
     group->writeEntry( "turnOffIdle", false );
     group->writeEntry( "turnOffIdleTime", 50 );
+    group->writeEntry( "iconname", icon );
 
     group->sync();
 
@@ -425,9 +436,12 @@ void ConfigWidget::createProfile()
 {
     KDialog *dialog = new KDialog( this );
     QWidget *wg = new QWidget();
-    KLineEdit *ed = new KLineEdit();
-    QLabel *lb = new QLabel();
-    QVBoxLayout *lay = new QVBoxLayout();
+    KLineEdit *ed = new KLineEdit(wg);
+    QLabel *lb = new QLabel(wg);
+    QFormLayout *lay = new QFormLayout();
+    KIconButton *ibt = new KIconButton(wg);
+
+    ibt->setIconSize(KIconLoader::SizeSmall);
 
     lb->setText( i18n( "Please enter a name for the new profile" ) );
 
@@ -437,8 +451,8 @@ void ConfigWidget::createProfile()
     ed->setToolTip( i18n( "The name for the new profile" ) );
     ed->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
 
-    lay->addWidget( lb );
-    lay->addWidget( ed );
+    lay->addRow(lb);
+    lay->addRow(ibt, ed);
 
     wg->setLayout( lay );
 
@@ -446,9 +460,72 @@ void ConfigWidget::createProfile()
     ed->setFocus();
 
     if ( dialog->exec() == KDialog::Accepted ) {
-        createProfile( ed->text() );
+        createProfile( ed->text(), ibt->icon() );
     }
     delete dialog;
+}
+
+void ConfigWidget::editProfile( const QString &prevname, const QString &newname, const QString &icon )
+{
+    if ( prevname.isEmpty() )
+        return;
+
+    KConfigGroup *group = new KConfigGroup( m_profilesConfig, prevname );
+
+    group->writeEntry( "name", newname );
+    group->writeEntry( "iconname", icon );
+
+    group->sync();
+
+    delete group;
+
+    reloadAvailableProfiles();
+
+    emit profilesChanged();
+}
+
+void ConfigWidget::editProfile()
+{
+    if ( !profilesList->currentItem() )
+            return;
+
+    KDialog *dialog = new KDialog( this );
+    QWidget *wg = new QWidget();
+    KLineEdit *ed = new KLineEdit(wg);
+    QLabel *lb = new QLabel(wg);
+    QFormLayout *lay = new QFormLayout();
+    KIconButton *ibt = new KIconButton(wg);
+
+    ibt->setIconSize(KIconLoader::SizeSmall);
+
+    lb->setText( i18n( "Please enter a name for this profile" ) );
+
+    lb->setToolTip( i18n( "The name for the new profile" ) );
+    lb->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
+
+    ed->setToolTip( i18n( "The name for the new profile" ) );
+    ed->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
+
+    ed->setText(profilesList->currentItem()->text());
+
+    KConfigGroup *group = new KConfigGroup( m_profilesConfig, profilesList->currentItem()->text() );
+
+    ibt->setIcon( group->readEntry( "iconname" ) );
+
+    lay->addRow(lb);
+    lay->addRow(ibt, ed);
+
+    wg->setLayout( lay );
+
+    dialog->setMainWidget( wg );
+    ed->setFocus();
+
+    if ( dialog->exec() == KDialog::Accepted ) {
+        editProfile( profilesList->currentItem()->text(), ed->text(), ibt->icon() );
+    }
+
+    delete dialog;
+    delete group;
 }
 
 void ConfigWidget::fillCapabilities()

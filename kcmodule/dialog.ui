@@ -409,89 +409,6 @@
                 </property>
                </widget>
               </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_6" >
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout" >
-                  <item>
-                   <widget class="KPushButton" name="deleteProfile" >
-                    <property name="maximumSize" >
-                     <size>
-                      <width>170</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text" >
-                     <string>Delete Profile</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="KPushButton" name="newProfile" >
-                    <property name="maximumSize" >
-                     <size>
-                      <width>170</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="text" >
-                     <string>New Profile</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="Line" name="line_6" >
-                  <property name="orientation" >
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_2" >
-                  <item>
-                   <widget class="KPushButton" name="importButton" >
-                    <property name="maximumSize" >
-                     <size>
-                      <width>170</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip" >
-                     <string/>
-                    </property>
-                    <property name="whatsThis" >
-                     <string>Import profiles from a file</string>
-                    </property>
-                    <property name="text" >
-                     <string>Import Profiles</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="KPushButton" name="exportButton" >
-                    <property name="maximumSize" >
-                     <size>
-                      <width>170</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip" >
-                     <string/>
-                    </property>
-                    <property name="whatsThis" >
-                     <string>Export your profiles to a file</string>
-                    </property>
-                    <property name="text" >
-                     <string>Export Profiles</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
              </layout>
             </item>
             <item>
@@ -747,6 +664,108 @@
                </layout>
               </item>
              </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_6" >
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6" >
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout" >
+              <item>
+               <widget class="KPushButton" name="deleteProfile" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>170</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text" >
+                 <string>Delete</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="KPushButton" name="editProfileButton" >
+                <property name="text" >
+                 <string>Edit</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="KPushButton" name="newProfile" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>170</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text" >
+                 <string>New</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2" >
+                <property name="orientation" >
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0" >
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="KPushButton" name="importButton" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>170</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip" >
+                 <string/>
+                </property>
+                <property name="whatsThis" >
+                 <string>Import profiles from a file</string>
+                </property>
+                <property name="text" >
+                 <string>Import Profiles</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="KPushButton" name="exportButton" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>170</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip" >
+                 <string/>
+                </property>
+                <property name="whatsThis" >
+                 <string>Export your profiles to a file</string>
+                </property>
+                <property name="text" >
+                 <string>Export Profiles</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2" />
             </item>
            </layout>
           </item>

@@ -17,10 +17,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef POWERDEVILAPPLET_H
-#define POWERDEVILAPPLET_H
+#ifndef BATTERY_H
+#define BATTERY_H
 
+#include <QLabel>
 #include <QGraphicsSceneHoverEvent>
+#include <QPair>
+#include <QMap>
 
 #include <plasma/applet.h>
 #include <plasma/animator.h>
@@ -29,47 +32,46 @@
 
 namespace Plasma
 {
-class Svg;
+    class Svg;
 }
 
-class PowerDevilApplet : public Plasma::Applet
+class Battery : public Plasma::Applet
 {
-        Q_OBJECT
+    Q_OBJECT
     public:
-        PowerDevilApplet( QObject *parent, const QVariantList &args );
-        ~PowerDevilApplet();
+        Battery(QObject *parent, const QVariantList &args);
+        ~Battery();
 
         void init();
-        void paintInterface( QPainter *painter, const QStyleOptionGraphicsItem *option,
-                             const QRect &contents );
-        void setPath( const QString& );
-        QSizeF sizeHint( const Qt::SizeHint which, const QSizeF& constraint ) const;
+        void paintInterface(QPainter *painter, const QStyleOptionGraphicsItem *option,
+                            const QRect &contents);
+        void setPath(const QString&);
+        QSizeF sizeHint(const Qt::SizeHint which, const QSizeF& constraint) const;
         Qt::Orientations expandingDirections() const;
 
-        void constraintsEvent( Plasma::Constraints constraints );
+        void constraintsEvent(Plasma::Constraints constraints);
 
     public slots:
-        void dataUpdated( const QString &name, const Plasma::DataEngine::Data &data );
+        void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
 
     protected Q_SLOTS:
-        virtual void hoverEnterEvent( QGraphicsSceneHoverEvent *event );
-        virtual void hoverLeaveEvent( QGraphicsSceneHoverEvent *event );
+        virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
+        virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
         void configAccepted();
         void readColors();
 
-    signals:
-        void sizeHintChanged( Qt::SizeHint hint );
-
     protected:
-        void createConfigurationInterface( KConfigDialog *parent );
+        void createConfigurationInterface(KConfigDialog *parent);
 
     private slots:
-        void animationUpdate( qreal progress );
-        void acAnimationUpdate( qreal progress );
-        void batteryAnimationUpdate( qreal progress );
-        void sourceAdded( const QString &source );
-        void sourceRemoved( const QString &source );
-        void openPowerDevilConfiguration();
+        void animationUpdate(qreal progress);
+        void acAnimationUpdate(qreal progress);
+        void batteryAnimationUpdate(qreal progress);
+        void sourceAdded(const QString &source);
+        void sourceRemoved(const QString &source);
+
+    signals:
+        void sizeHintChanged(Qt::SizeHint hint);
 
     private:
         Q_ENUMS( m_batteryStyle )
@@ -81,17 +83,17 @@ class PowerDevilApplet : public Plasma::Applet
         void disconnectSources();
         int m_batteryStyle;
         /* Paint battery with proper charge level */
-        void paintBattery( QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState );
+        void paintBattery(QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState);
         /* Paint a label on top of the battery */
-        void paintLabel( QPainter *p, const QRect &contentsRect, const QString& labelText );
+        void paintLabel(QPainter *p, const QRect &contentsRect, const QString& labelText);
         /* Fade in/out the label above the battery. */
-        void showLabel( bool show );
+        void showLabel(bool show);
         /* Scale in/out Battery. */
-        void showBattery( bool show );
+        void showBattery(bool show);
         /* Scale in/out Ac Adapter. */
-        void showAcAdapter( bool show );
+        void showAcAdapter(bool show);
         /* Scale in a QRectF */
-        QRectF scaleRectF( qreal progress, QRectF rect );
+        QRectF scaleRectF(qreal progress, QRectF rect);
         /* Show multiple batteries with individual icons and charge info? */
         bool m_showMultipleBatteries;
         /* Should the battery charge information be shown on top? */
@@ -127,11 +129,8 @@ class PowerDevilApplet : public Plasma::Applet
         int m_boxAlpha;
         int m_boxHoverAlpha;
         int m_numOfBattery;
-
-        QStringList m_availableProfiles;
-        QString m_currentProfile;
 };
 
-K_EXPORT_PLASMA_APPLET( powerdevilapplet, PowerDevilApplet )
+K_EXPORT_PLASMA_APPLET(battery, Battery)
 
-#endif /*POWERDEVILAPPLET_H*/
+#endif
