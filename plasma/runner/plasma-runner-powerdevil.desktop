@@ -4,6 +4,8 @@ Name[nds]=Stroomdüvel
 Name[sv]=Powerdevil
 
 Comment=Basic Power Management Operations
+Comment[el]=Λειτουργίες βασικής διαχείρισης ενέργειας
+Comment[es]=Operaciones básicas de gestión de energía
 Comment[gl]=Operacións básicas de xestión da enerxía
 Comment[nds]=Eenfach Stroomspoor-Funkschonen
 Comment[pt]=Operações Básicas de Gestão de Energia

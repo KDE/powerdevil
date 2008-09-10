@@ -7,6 +7,7 @@ Version=1
 
 [Context/warningnot]
 Name=Warning
+Name[el]=Προειδοποίηση
 Name[es]=Advertencia
 Name[et]=Hoiatus
 Name[gl]=Aviso
@@ -17,6 +18,7 @@ Name[sv]=Varning
 Name[uk]=Попередження
 Name[zh_TW]=警告
 Comment=Used for warning notifications
+Comment[el]=Χρήση σε προειδοποιήσεις
 Comment[es]=Usado para las notificaciones de alerta
 Comment[et]=Hoiatavad märguanded
 Comment[gl]=Emprégase para notificacións de avisos
@@ -29,6 +31,7 @@ Comment[zh_TW]=用於警告通知
 
 [Context/stdnot]
 Name=Notification
+Name[el]=Ειδοποίηση
 Name[es]=Notificación
 Name[et]=Märguanne
 Name[gl]=Notificación
@@ -39,6 +42,7 @@ Name[sv]=Underrättelse
 Name[uk]=Сповіщення
 Name[zh_TW]=通知
 Comment=Used for standard notifications
+Comment[el]=Χρήση σε τυπικές ειδοποιήσεις
 Comment[es]=Usado para las notificaciones estándar
 Comment[et]=Tavalised märguanded
 Comment[gl]=Emprégase para notificacións estándar
@@ -51,6 +55,8 @@ Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
+Name[el]=Κρίσιμη ειδοποίηση
+Name[es]=Notificación crítica
 Name[gl]=Notificación crítica
 Name[nds]=Kritisch-Bescheed
 Name[pt]=Notificação crítica
@@ -59,6 +65,8 @@ Name[sv]=Kritisk underrättelse
 Name[uk]=Сповіщення про критичні події
 Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
+Comment[el]=Υποδηλώνει ένα κρίσιμο γεγονός
+Comment[es]=Notifica un evento crítico
 Comment[gl]=Notifica un evento crítico
 Comment[nds]=Bescheed bi Stoop "Kritisch"
 Comment[pt]=Notifica um evento crítico
@@ -69,6 +77,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Low Battery
+Name[el]=Χαμηλή μπαταρία
 Name[es]=Batería baja
 Name[et]=Aku hakkab tühjenema
 Name[gl]=Batería con pouca carga
@@ -79,6 +88,7 @@ Name[sv]=Låg batteriladdning
 Name[uk]=Заряд закінчується
 Name[zh_TW]=電池電力已低
 Comment=Your battery has reached low level
+Comment[el]=Η μπαταρία σας έχει βρεθεί σε χαμηλή στάθμη ενέργειας
 Comment[es]=La carga de la batería ha alcanzado el nivel bajo
 Comment[et]=Aku maht langes madalale tasemele
 Comment[gl]=A batería acadou o nível de carga baixa
@@ -94,6 +104,7 @@ Action=Sound|Popup
 
 [Event/warningbattery]
 Name=Battery at warning level
+Name[el]=Μπαταρία σε στάθμη προειδοποίησης
 Name[es]=La carga de la batería se encuentra en el nivel de alerta
 Name[et]=Aku hoiatustasemel
 Name[gl]=Batería no nível de alerta
@@ -104,6 +115,7 @@ Name[sv]=Batteriet vid varningsnivå
 Name[uk]=Заряд акумулятора на низькому рівні
 Name[zh_TW]=電池電力已到警告區
 Comment=Your battery has reached warning level
+Comment[el]=Η μπαταρία σας βρέθηκε σε στάθμη ενέργειας προειδοποίησης
 Comment[es]=La carga de la batería ha alcanzado el nivel de alerta
 Comment[et]=Aku maht langes hoiatustasemele
 Comment[gl]=A batería acadou o nível de alerta
@@ -119,6 +131,7 @@ Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
+Name[el]=Μπαταρία σε κρίσιμη στάθμη
 Name[es]=La carga de la batería se encuentra en el nivel crítico
 Name[et]=Aku kriitilisel tasemel
 Name[gl]=Batería no nível crítico
@@ -129,6 +142,7 @@ Name[sv]=Batteriet vid kritisk nivå
 Name[uk]=Заряд на критичному рівні
 Name[zh_TW]=電池電力已到嚴重警告區
 Comment=Your battery has reached critical level
+Comment[el]=Η μπαταρία σας βρίσκεται σε κρίσιμη στάθμη ενέργειας
 Comment[es]=La carga de la batería ha alcanzado el nivel crítico
 Comment[et]=Aku maht langes kriitilisele tasemele
 Comment[gl]=A batería acadou o nível crítico
@@ -144,6 +158,7 @@ Action=Sound|Popup
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[el]=Σύνδεση με μετασχηματιστή AC
 Name[es]=Adaptador de corriente alterna conectado
 Name[et]=AC adapter on ühendatud
 Name[gl]=Enchufouse a alimentación externa
@@ -154,6 +169,7 @@ Name[sv]=Nätadapter inkopplad
 Name[uk]=Увімкнено живлення від мережі
 Name[zh_TW]=AC 電源已插入
 Comment=The power adaptor has been plugged in
+Comment[el]=Η μετασχηματιστής ρεύματος συνδέθηκε
 Comment[es]=El adaptador de alimentación de energía ha sido conectado
 Comment[et]=Toiteadapter on ühendatud
 Comment[gl]=Enchufouse o transformador
@@ -169,6 +185,7 @@ Action=Sound|Popup
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[el]=Αποσύνδεση μετασχηματιστή AC
 Name[es]=Adaptador de corriente alterna desconectado
 Name[et]=AC adapter on ühendamata
 Name[gl]=Desenchufouse a alimentación externa
@@ -179,6 +196,7 @@ Name[sv]=Nätadapter frånkopplad
 Name[uk]=Вимкнено живлення від мережі
 Name[zh_TW]=AC 電源已拔除
 Comment=The power adaptor has been unplugged
+Comment[el]=Ο μετασχηματιστής ρεύματος αποσυνδέθηκε
 Comment[es]=El adaptador de alimentación de energía ha sido desconectado
 Comment[et]=Toiteadapter on ühendamata
 Comment[gl]=Desenchufouse o transformador
@@ -194,6 +212,7 @@ Action=Sound|Popup
 
 [Event/joberror]
 Name=Job error
+Name[el]=Σφάλμα εργασίας
 Name[es]=Error de trabajo
 Name[et]=Töö viga
 Name[gl]=Erro na tarefa
@@ -204,6 +223,7 @@ Name[sv]=Jobbfel
 Name[uk]=Помилка виконання завдання
 Name[zh_TW]=工作錯誤
 Comment=There was an error while performing a job
+Comment[el]=Υπήρξε ένα σφάλμα κατά την εκτέλεση μιας εργασίας
 Comment[es]=Hubo un error mientras se ejecutaba un trabajo
 Comment[et]=Töö täitmisel tekkis viga
 Comment[gl]=Aconteceu un erro ao realizar unha tarefa
@@ -219,6 +239,7 @@ Action=Sound|Popup
 
 [Event/profileset]
 Name=Profile Changed
+Name[el]=Τροποποίηση προφίλ
 Name[es]=El perfil ha cambiado
 Name[et]=Profiili on muudetud
 Name[gl]=Modificouse o perfil
@@ -229,6 +250,7 @@ Name[sv]=Profil ändrad
 Name[uk]=Профіль змінено
 Name[zh_TW]=設定檔已變更
 Comment=The profile was changed
+Comment[el]=Το προφίλ τροποποιήθηκε
 Comment[es]=El perfil ha sido cambiado
 Comment[et]=Profiili muudeti
 Comment[gl]=Modificouse o perfil
@@ -244,6 +266,7 @@ Action=Sound|Popup
 
 [Event/doingjob]
 Name=Doing a Job
+Name[el]=Εκτέλεση μιας εργασίας
 Name[es]=Ejecutando un trabajo
 Name[et]=Tehakse tööd
 Name[gl]=A facer unha tarefa
@@ -254,6 +277,7 @@ Name[sv]=Utför ett jobb
 Name[uk]=Виконується завдання
 Name[zh_TW]=執行工作中
 Comment=Something is ongoing
+Comment[el]=Εργασία βρίσκεται σε εξέλιξη
 Comment[es]=Algo está en marcha
 Comment[et]=Midagi toimub
 Comment[gl]=Está a facerse algo
@@ -269,6 +293,8 @@ Action=Sound|Popup
 
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error
+Name[el]=Εσωτερικό σφάλμα PowerDevil
+Name[es]=Error interno de PowerDevil
 Name[gl]=Erro interno de PowerDevil
 Name[nds]=Intern Fehler binnen Stroomdüvel
 Name[pt]=Erro Interno do PowerDevil
@@ -277,6 +303,8 @@ Name[sv]=Internt fel i Powerdevil
 Name[uk]=Внутрішня помилка PowerDevil
 Name[zh_TW]=內部 PowerDevil 錯誤
 Comment=PowerDevil has triggered an internal error
+Comment[el]=Το PowerDevil προκάλεσε ένα εσωτερικό σφάλμα
+Comment[es]=PowerDevil ha dado lugar a un error interno
 Comment[gl]=PowerDevil iniciou un erro interno
 Comment[nds]=De Stroomdüvel hett intern en Fehler utlööst
 Comment[pt]=O PowerDevil despoletou um erro interno
