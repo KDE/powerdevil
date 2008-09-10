@@ -68,17 +68,26 @@ void PowerDevilRunner::match( Plasma::RunnerContext &context )
                             continue;
                     }
 
+                    KConfigGroup *settings = new KConfigGroup( m_profilesConfig, profile );
+
                     Plasma::QueryMatch match( this );
 
                     match.setType( Plasma::QueryMatch::ExactMatch );
 
-                    match.setIcon( KIcon( "battery-charging-040" ) );
-                    match.setText( i18n( "Set Profile to '%1'", profile ) );
+                    if ( settings->readEntry( "iconname" ).isEmpty() ) {
+                        match.setIcon( KIcon( "battery-charging-040" ) );
+                    } else {
+                        match.setIcon( KIcon( settings->readEntry( "iconname" ) ) );
+                    }
+
+                    match.setText( i18n( "Set Profile to '%1'", settings->readEntry( "name" ) ) );
                     match.setData( profile );
 
                     match.setRelevance( 1 );
                     match.setId( "ProfileChange" );
                     context.addMatch( term, match );
+
+                    delete settings;
                 }
                 delete m_profilesConfig;
             } else if ( word == i18nc( "Note this is a KRunner keyword", "power governor" ) ) {

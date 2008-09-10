@@ -629,29 +629,29 @@ void PowerDevilDaemon::lockScreen()
     m_screenSaverIface->Lock();
 }
 
-void PowerDevilDaemon::emitCriticalNotification( const QString &evid, const QString &message )
+void PowerDevilDaemon::emitCriticalNotification( const QString &evid, const QString &message, const QString &iconname )
 {
     /* Those notifications are always displayed */
 
-    KNotification::event( evid, message, KIcon( "dialog-error" ).pixmap( 20, 20 ),
+    KNotification::event( evid, message, KIcon( iconname ).pixmap( 20, 20 ),
                           0, KNotification::CloseOnTimeout, m_applicationData );
 }
 
-void PowerDevilDaemon::emitWarningNotification( const QString &evid, const QString &message )
+void PowerDevilDaemon::emitWarningNotification( const QString &evid, const QString &message, const QString &iconname )
 {
     if ( !PowerDevilSettings::enableWarningNotifications() )
         return;
 
-    KNotification::event( evid, message, KIcon( "dialog-warning" ).pixmap( 20, 20 ),
+    KNotification::event( evid, message, KIcon( iconname ).pixmap( 20, 20 ),
                           0, KNotification::CloseOnTimeout, m_applicationData );
 }
 
-void PowerDevilDaemon::emitNotification( const QString &evid, const QString &message )
+void PowerDevilDaemon::emitNotification( const QString &evid, const QString &message, const QString &iconname )
 {
     if ( !PowerDevilSettings::enableNotifications() )
         return;
 
-    KNotification::event( evid, message, KIcon( "dialog-ok-apply" ).pixmap( 20, 20 ),
+    KNotification::event( evid, message, KIcon( iconname ).pixmap( 20, 20 ),
                           0, KNotification::CloseOnTimeout, m_applicationData );
 }
 
@@ -741,7 +741,10 @@ void PowerDevilDaemon::setProfile( const QString & profile )
         applyProfile();
     }
 
-    emitNotification( "profileset", i18n( "Profile changed to \"%1\"", profile ) );
+    KConfigGroup *group = new KConfigGroup( m_profilesConfig, profile );
+
+    emitNotification( "profileset", i18n( "Profile changed to \"%1\"", profile ) ,
+                      group->readEntry( "iconname" ) );
     emit profileChanged( m_currentProfile, m_availableProfiles );
 }
 

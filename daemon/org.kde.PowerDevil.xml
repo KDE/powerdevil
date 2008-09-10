@@ -9,6 +9,7 @@
     <method name="emitWarningNotification">
       <arg type="s" direction="in" />
       <arg type="s" direction="in" />
+      <arg type="s" direction="in" />
     </method>
     
     <method name="setProfile">

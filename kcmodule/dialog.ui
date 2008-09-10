@@ -403,7 +403,7 @@
                <widget class="KListWidget" name="profilesList" >
                 <property name="maximumSize" >
                  <size>
-                  <width>340</width>
+                  <width>250</width>
                   <height>16777215</height>
                  </size>
                 </property>
@@ -707,7 +707,7 @@
                  </size>
                 </property>
                 <property name="text" >
-                 <string>New</string>
+                 <string comment="Creates a new profile" >New</string>
                 </property>
                </widget>
               </item>

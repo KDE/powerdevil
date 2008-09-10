@@ -40,8 +40,10 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
     public Q_SLOTS:
         void refreshStatus();
-        void emitWarningNotification( const QString &evid, const QString &message = QString() );
-        void emitNotification( const QString &evid, const QString &message = QString() );
+        void emitWarningNotification( const QString &evid, const QString &message = QString(),
+                                      const QString &iconname = "dialog-warning" );
+        void emitNotification( const QString &evid, const QString &message = QString(),
+                               const QString &iconname = "dialog-ok-apply" );
         void setProfile( const QString & profile );
         void reloadAndStream();
 
@@ -99,7 +101,8 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         void applyProfile();
         void releaseInputLock();
 
-        void emitCriticalNotification( const QString &evid, const QString &message = QString() );
+        void emitCriticalNotification( const QString &evid, const QString &message = QString(),
+                                       const QString &iconname = "dialog-error" );
 
     private:
         enum IdleAction {

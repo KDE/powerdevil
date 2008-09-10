@@ -32,46 +32,46 @@
 
 namespace Plasma
 {
-    class Svg;
+class Svg;
 }
 
 class Battery : public Plasma::Applet
 {
-    Q_OBJECT
+        Q_OBJECT
     public:
-        Battery(QObject *parent, const QVariantList &args);
+        Battery( QObject *parent, const QVariantList &args );
         ~Battery();
 
         void init();
-        void paintInterface(QPainter *painter, const QStyleOptionGraphicsItem *option,
-                            const QRect &contents);
-        void setPath(const QString&);
-        QSizeF sizeHint(const Qt::SizeHint which, const QSizeF& constraint) const;
+        void paintInterface( QPainter *painter, const QStyleOptionGraphicsItem *option,
+                             const QRect &contents );
+        void setPath( const QString& );
+        QSizeF sizeHint( const Qt::SizeHint which, const QSizeF& constraint ) const;
         Qt::Orientations expandingDirections() const;
 
-        void constraintsEvent(Plasma::Constraints constraints);
+        void constraintsEvent( Plasma::Constraints constraints );
 
     public slots:
-        void dataUpdated(const QString &name, const Plasma::DataEngine::Data &data);
+        void dataUpdated( const QString &name, const Plasma::DataEngine::Data &data );
 
     protected Q_SLOTS:
-        virtual void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
-        virtual void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+        virtual void hoverEnterEvent( QGraphicsSceneHoverEvent *event );
+        virtual void hoverLeaveEvent( QGraphicsSceneHoverEvent *event );
         void configAccepted();
         void readColors();
 
     protected:
-        void createConfigurationInterface(KConfigDialog *parent);
+        void createConfigurationInterface( KConfigDialog *parent );
 
     private slots:
-        void animationUpdate(qreal progress);
-        void acAnimationUpdate(qreal progress);
-        void batteryAnimationUpdate(qreal progress);
-        void sourceAdded(const QString &source);
-        void sourceRemoved(const QString &source);
+        void animationUpdate( qreal progress );
+        void acAnimationUpdate( qreal progress );
+        void batteryAnimationUpdate( qreal progress );
+        void sourceAdded( const QString &source );
+        void sourceRemoved( const QString &source );
 
     signals:
-        void sizeHintChanged(Qt::SizeHint hint);
+        void sizeHintChanged( Qt::SizeHint hint );
 
     private:
         Q_ENUMS( m_batteryStyle )
@@ -83,17 +83,17 @@ class Battery : public Plasma::Applet
         void disconnectSources();
         int m_batteryStyle;
         /* Paint battery with proper charge level */
-        void paintBattery(QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState);
+        void paintBattery( QPainter *p, const QRect &contentsRect, const int batteryPercent, const bool plugState );
         /* Paint a label on top of the battery */
-        void paintLabel(QPainter *p, const QRect &contentsRect, const QString& labelText);
+        void paintLabel( QPainter *p, const QRect &contentsRect, const QString& labelText );
         /* Fade in/out the label above the battery. */
-        void showLabel(bool show);
+        void showLabel( bool show );
         /* Scale in/out Battery. */
-        void showBattery(bool show);
+        void showBattery( bool show );
         /* Scale in/out Ac Adapter. */
-        void showAcAdapter(bool show);
+        void showAcAdapter( bool show );
         /* Scale in a QRectF */
-        QRectF scaleRectF(qreal progress, QRectF rect);
+        QRectF scaleRectF( qreal progress, QRectF rect );
         /* Show multiple batteries with individual icons and charge info? */
         bool m_showMultipleBatteries;
         /* Should the battery charge information be shown on top? */
@@ -131,6 +131,6 @@ class Battery : public Plasma::Applet
         int m_numOfBattery;
 };
 
-K_EXPORT_PLASMA_APPLET(battery, Battery)
+K_EXPORT_PLASMA_APPLET( battery, Battery )
 
 #endif
