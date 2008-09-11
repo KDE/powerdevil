@@ -101,7 +101,7 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
     }
 
     m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
-    m_availableProfiles = m_profilesConfig->groupList();
+    setAvailableProfiles( m_profilesConfig->groupList() );
 
     /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
      * also on system without batteries. Most of modern desktop systems support CPU scaling,
@@ -240,12 +240,12 @@ void PowerDevilDaemon::refreshStatus()
 void PowerDevilDaemon::acAdapterStateChanged( int state, bool forced )
 {
     if ( state == Solid::Control::PowerManager::Plugged && !forced ) {
-        m_isPlugged = true;
+        setACPlugged( true );
         emitNotification( "pluggedin", i18n( "The power adaptor has been plugged in" ) );
     }
 
     if ( state == Solid::Control::PowerManager::Unplugged && !forced ) {
-        m_isPlugged = false;
+        setACPlugged( false );
         emitNotification( "unplugged", i18n( "The power adaptor has been unplugged" ) );
     }
 
@@ -288,8 +288,6 @@ void PowerDevilDaemon::applyProfile()
 
     delete settings;
 
-    emit stateChanged( m_batteryPercent, m_isPlugged );
-
     poll();
 }
 
@@ -297,7 +295,7 @@ void PowerDevilDaemon::batteryChargePercentChanged( int percent, const QString &
 {
     Q_UNUSED( udi )
 
-    m_batteryPercent = percent;
+    setBatteryPercent( percent );
 
     if ( Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged )
         return;
@@ -336,8 +334,6 @@ void PowerDevilDaemon::batteryChargePercentChanged( int percent, const QString &
         emitWarningNotification( "lowbattery", i18n( "Your battery has reached low level" ) );
         refreshStatus();
     }
-
-    emit stateChanged( m_batteryPercent, m_isPlugged );
 }
 
 void PowerDevilDaemon::buttonPressed( int but )
@@ -674,19 +670,19 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile()
 void PowerDevilDaemon::reloadProfile( int state )
 {
     if ( !m_battery ) {
-        m_currentProfile = PowerDevilSettings::aCProfile();
+        setCurrentProfile( PowerDevilSettings::aCProfile() );
     } else {
         if ( state == -1 )
             state = Solid::Control::PowerManager::acAdapterState();
 
         if ( state == Solid::Control::PowerManager::Plugged ) {
-            m_currentProfile = PowerDevilSettings::aCProfile();
+            setCurrentProfile( PowerDevilSettings::aCProfile() );
         } else if ( m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel() ) {
-            m_currentProfile = PowerDevilSettings::warningProfile();
+            setCurrentProfile( PowerDevilSettings::warningProfile() );
         } else if ( m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel() ) {
-            m_currentProfile = PowerDevilSettings::lowProfile();
+            setCurrentProfile( PowerDevilSettings::lowProfile() );
         } else {
-            m_currentProfile = PowerDevilSettings::batteryProfile();
+            setCurrentProfile( PowerDevilSettings::batteryProfile() );
         }
     }
 
@@ -696,7 +692,7 @@ void PowerDevilDaemon::reloadProfile( int state )
          */
 
         if ( !m_availableProfiles.isEmpty() ) {
-            m_currentProfile = m_availableProfiles.at( 0 );
+            setCurrentProfile( m_availableProfiles.at( 0 ) );
         } else {
             /* In this case, let's fill our profiles file with the most basic
              * performance profile
@@ -716,20 +712,18 @@ void PowerDevilDaemon::reloadProfile( int state )
 
             delete performance;
 
-            m_availableProfiles = m_profilesConfig->groupList();
+            setAvailableProfiles( m_profilesConfig->groupList() );
 
-            m_currentProfile = m_availableProfiles.at( 0 );
+            setCurrentProfile( m_availableProfiles.at( 0 ) );
         }
     }
-
-    emit profileChanged( m_currentProfile, m_availableProfiles );
 
     poll();
 }
 
 void PowerDevilDaemon::setProfile( const QString & profile )
 {
-    m_currentProfile = profile;
+    setCurrentProfile( profile );
 
     /* Don't call refreshStatus() here, since we don't want the predefined profile
      * to be loaded!!
@@ -745,35 +739,34 @@ void PowerDevilDaemon::setProfile( const QString & profile )
 
     emitNotification( "profileset", i18n( "Profile changed to \"%1\"", profile ) ,
                       group->readEntry( "iconname" ) );
-    emit profileChanged( m_currentProfile, m_availableProfiles );
 }
 
 void PowerDevilDaemon::reloadAndStream()
 {
     if ( !m_battery ) {
-        m_currentProfile = PowerDevilSettings::aCProfile();
-        m_isPlugged = true;
+        setCurrentProfile( PowerDevilSettings::aCProfile() );
+        setACPlugged( true );
 
-        m_batteryPercent = 100;
+        setBatteryPercent( 100 );
     } else {
         if ( Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged ) {
-            m_currentProfile = PowerDevilSettings::aCProfile();
-            m_isPlugged = true;
+            setCurrentProfile( PowerDevilSettings::aCProfile() );
+            setACPlugged( true );
         } else if ( m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel() ) {
-            m_currentProfile = PowerDevilSettings::warningProfile();
-            m_isPlugged = false;
+            setCurrentProfile( PowerDevilSettings::warningProfile() );
+            setACPlugged( false );
         } else if ( m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel() ) {
-            m_currentProfile = PowerDevilSettings::lowProfile();
-            m_isPlugged = false;
+            setCurrentProfile( PowerDevilSettings::lowProfile() );
+            setACPlugged( false );
         } else {
-            m_currentProfile = PowerDevilSettings::batteryProfile();
-            m_isPlugged = false;
+            setCurrentProfile( PowerDevilSettings::batteryProfile() );
+            setACPlugged( false );
         }
 
-        m_batteryPercent = Solid::Control::PowerManager::batteryChargePercent();
+        setBatteryPercent( Solid::Control::PowerManager::batteryChargePercent() );
     }
 
-    m_availableProfiles = m_profilesConfig->groupList();
+    setAvailableProfiles( m_profilesConfig->groupList() );
 
     streamData();
 
@@ -859,6 +852,30 @@ void PowerDevilDaemon::turnOffScreen()
      * feedback here.
      */
     QProcess::execute( "xset dpms force off" );
+}
+
+void PowerDevilDaemon::setBatteryPercent( int newpercent )
+{
+    m_batteryPercent = newpercent;
+    emit stateChanged( m_batteryPercent, m_isPlugged );
+}
+
+void PowerDevilDaemon::setACPlugged( bool newplugged )
+{
+    m_isPlugged = newplugged;
+    emit stateChanged( m_batteryPercent, m_isPlugged );
+}
+
+void PowerDevilDaemon::setCurrentProfile( const QString &profile )
+{
+    m_currentProfile = profile;
+    emit profileChanged( m_currentProfile, m_availableProfiles );
+}
+
+void PowerDevilDaemon::setAvailableProfiles( const QStringList &aProfiles )
+{
+    m_availableProfiles = aProfiles;
+    emit profileChanged( m_currentProfile, m_availableProfiles );
 }
 
 #include "PowerDevilDaemon.moc"

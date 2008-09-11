@@ -84,6 +84,11 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
             return m_currentProfile;
         }
 
+        void setBatteryPercent( int newpercent );
+        void setACPlugged( bool newplugged );
+        void setCurrentProfile( const QString &profile );
+        void setAvailableProfiles( const QStringList &aProfiles );
+
     Q_SIGNALS:
         void lidClosed( int code, const QString &action );
         void errorTriggered( const QString &error );
