@@ -6,6 +6,8 @@
     </method>
     <method name="reloadAndStream">
     </method>
+    <method name="streamData">
+    </method>
     <method name="emitWarningNotification">
       <arg type="s" direction="in" />
       <arg type="s" direction="in" />

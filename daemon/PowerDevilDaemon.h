@@ -46,6 +46,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
                                const QString &iconname = "dialog-ok-apply" );
         void setProfile( const QString & profile );
         void reloadAndStream();
+        void streamData();
 
         void setGovernor( const QString &governor );
         void setPowersavingScheme( const QString &scheme );

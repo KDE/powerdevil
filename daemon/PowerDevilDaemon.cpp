@@ -775,10 +775,15 @@ void PowerDevilDaemon::reloadAndStream()
 
     m_availableProfiles = m_profilesConfig->groupList();
 
-    emit profileChanged( m_currentProfile, m_availableProfiles );
-    emit stateChanged( m_batteryPercent, m_isPlugged );
+    streamData();
 
     refreshStatus();
+}
+
+void PowerDevilDaemon::streamData()
+{
+    emit profileChanged( m_currentProfile, m_availableProfiles );
+    emit stateChanged( m_batteryPercent, m_isPlugged );
 }
 
 QStringList PowerDevilDaemon::getSupportedGovernors()
