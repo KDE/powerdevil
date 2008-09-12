@@ -78,6 +78,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         void poll();
         void detectedActivity();
         void waitForActivity();
+        void screensaverActivated( bool activated );
 
         void reloadProfile( int state = -1 );
         const QString &profile() {
@@ -103,9 +104,14 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
     private:
         void lockScreen();
-        KConfigGroup *getCurrentProfile();
+
+        KConfigGroup *getCurrentProfile( bool forcereload = false );
         void applyProfile();
+
         void releaseInputLock();
+        void releaseAndSetBrightness();
+
+        void setUpNextTimeout( int idle, int minDimEvent );
 
         void emitCriticalNotification( const QString &evid, const QString &message = QString(),
                                        const QString &iconname = "dialog-error" );
@@ -131,6 +137,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         KComponentData m_applicationData;
         KConfig * m_profilesConfig;
+        KConfigGroup * m_currentConfig;
 
         QString m_currentProfile;
         QStringList m_availableProfiles;

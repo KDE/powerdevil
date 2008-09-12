@@ -56,7 +56,8 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
         m_notifier( Solid::Control::PowerManager::notifier() ),
         m_battery( 0 ),
         m_displayManager( new KDisplayManager() ),
-        m_pollTimer( new QTimer( this ) )
+        m_pollTimer( new QTimer( this ) ),
+        m_currentConfig( 0 )
 {
     KGlobal::locale()->insertCatalog( "powerdevil" );
 
@@ -118,6 +119,7 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface( "org.freedesktop.ScreenSaver", "/ScreenSaver",
             QDBusConnection::sessionBus(), this );
 
+    connect( m_screenSaverIface, SIGNAL( activeChanged( bool ) ), SLOT( screensaverActivated( bool ) ) );
     connect( m_notifier, SIGNAL( buttonPressed( int ) ), this, SLOT( buttonPressed( int ) ) );
 
     /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
@@ -148,12 +150,18 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
 
     // This gets registered to avoid double copies.
     conn.registerService( "org.kde.powerdevilsystem" );
+
+    // All systems up Houston, let's go!
+    refreshStatus();
 }
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
     delete m_profilesConfig;
     delete m_displayManager;
+
+    if ( m_currentConfig )
+        delete m_currentConfig;
 }
 
 bool PowerDevilDaemon::eventFilter( QObject * object, QEvent * event )
@@ -177,43 +185,49 @@ void PowerDevilDaemon::detectedActivity()
 
     emit pollEvent( i18n( "Detected Activity" ) );
 
-    releaseInputLock();
+    releaseAndSetBrightness();
 
     poll();
 }
 
 void PowerDevilDaemon::releaseInputLock()
 {
+    emit pollEvent( I18N_NOOP( "Grabber widget is off" ) );
+
     m_grabber->releaseMouse();
     m_grabber->releaseKeyboard();
     m_grabber->hide();
+}
+
+void PowerDevilDaemon::releaseAndSetBrightness()
+{
+    KConfigGroup * settings = getCurrentProfile();
+
+    Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
+
+    releaseInputLock();
 }
 
 void PowerDevilDaemon::waitForActivity()
 {
     // This code was taken from Lithium/KDE4Powersave
 
-    /* Ok, this nice trick has a single drawback: if the screensaver
-     * is on, it simply doesn't work. To get a workaround, it's enough
-     * for us to check if the screensaver is actually active
-     */
+    emit pollEvent( I18N_NOOP( "Grabber widget is on" ) );
 
-    QDBusReply<bool> reply = m_screenSaverIface->GetActive();
+    m_grabber->show();
+    m_grabber->grabMouse();
+    m_grabber->grabKeyboard();
 
-    if ( !reply.isValid() ) {
-        // We've got a problem here... let's lock anyway
-        m_grabber->show();
-        m_grabber->grabMouse();
-        m_grabber->grabKeyboard();
-        return;
-    }
+}
 
-    if ( reply.value() ) {
-        releaseInputLock();
-    } else {
-        m_grabber->show();
-        m_grabber->grabMouse();
-        m_grabber->grabKeyboard();
+void PowerDevilDaemon::screensaverActivated( bool activated )
+{
+    // We care only if it has been disactivated
+
+    if ( !activated ) {
+        m_screenSaverIface->SimulateUserActivity();
+        releaseAndSetBrightness();
+        poll();
     }
 }
 
@@ -226,6 +240,8 @@ void PowerDevilDaemon::refreshStatus()
     m_profilesConfig->reparseConfiguration();
 
     reloadProfile();
+
+    getCurrentProfile( true );
 
     /* Let's force status update, if we have a battery. Otherwise, let's just
      * re-apply the current profile.
@@ -286,8 +302,6 @@ void PowerDevilDaemon::applyProfile()
 
     Solid::Control::PowerManager::setScheme( settings->readEntry( "scheme" ) );
 
-    delete settings;
-
     poll();
 }
 
@@ -347,15 +361,19 @@ void PowerDevilDaemon::buttonPressed( int but )
 
         switch ( settings->readEntry( "lidAction" ).toInt() ) {
         case Shutdown:
+            releaseAndSetBrightness();
             shutdown();
             break;
         case S2Disk:
+            releaseAndSetBrightness();
             suspendToDisk();
             break;
         case S2Ram:
+            releaseAndSetBrightness();
             suspendToRam();
             break;
         case Standby:
+            releaseAndSetBrightness();
             standby();
             break;
         case Lock:
@@ -364,9 +382,6 @@ void PowerDevilDaemon::buttonPressed( int but )
         default:
             break;
         }
-
-        delete settings;
-
     }
 }
 
@@ -400,6 +415,8 @@ void PowerDevilDaemon::shutdown()
 
 void PowerDevilDaemon::suspendToDisk()
 {
+    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+
     if ( PowerDevilSettings::configLockScreen() ) {
         lockScreen();
     }
@@ -413,6 +430,8 @@ void PowerDevilDaemon::suspendToDisk()
 
 void PowerDevilDaemon::suspendToRam()
 {
+    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+
     if ( PowerDevilSettings::configLockScreen() ) {
         lockScreen();
     }
@@ -426,6 +445,8 @@ void PowerDevilDaemon::suspendToRam()
 
 void PowerDevilDaemon::standby()
 {
+    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+
     if ( PowerDevilSettings::configLockScreen() ) {
         lockScreen();
     }
@@ -529,30 +550,26 @@ void PowerDevilDaemon::poll()
      */
 
     if ( idle >= settings->readEntry( "idleTime" ).toInt() * 60 ) {
+        setUpNextTimeout( idle, minDimEvent );
+
         switch ( settings->readEntry( "idleAction" ).toInt() ) {
         case Shutdown:
-            Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
-            releaseInputLock();
+            releaseAndSetBrightness();
             shutdown();
             break;
         case S2Disk:
-            Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
-            releaseInputLock();
+            releaseAndSetBrightness();
             suspendToDisk();
             break;
         case S2Ram:
-            Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
-            releaseInputLock();
+            releaseAndSetBrightness();
             suspendToRam();
             break;
         case Standby:
-            Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
-            releaseInputLock();
+            releaseAndSetBrightness();
             standby();
             break;
         case Lock:
-            Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
-            releaseInputLock();
             lockScreen();
             break;
         default:
@@ -560,10 +577,11 @@ void PowerDevilDaemon::poll()
             break;
         }
 
+        return;
+
     } else if ( settings->readEntry( "turnOffIdle", QVariant() ).toBool() &&
                 ( idle >= ( settings->readEntry( "turnOffIdleTime" ).toInt() * 60 ) ) ) {
-        Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
-        releaseInputLock();
+        releaseAndSetBrightness();
         turnOffScreen();
     } else if ( PowerDevilSettings::dimOnIdle()
                 && ( idle >= dimOnIdleTime ) ) {
@@ -580,8 +598,15 @@ void PowerDevilDaemon::poll()
         Solid::Control::PowerManager::setBrightness( newBrightness );
         waitForActivity();
     } else {
-        Solid::Control::PowerManager::setBrightness( settings->readEntry( "brightness" ).toInt() );
+        releaseAndSetBrightness();
     }
+
+    setUpNextTimeout( idle, minDimEvent );
+}
+
+void PowerDevilDaemon::setUpNextTimeout( int idle, int minDimEvent )
+{
+    KConfigGroup *settings = getCurrentProfile();
 
     int nextTimeout = -1;
 
@@ -615,8 +640,6 @@ void PowerDevilDaemon::poll()
         m_pollTimer->stop();
         emit pollEvent( i18n( "Stopping timer" ) );
     }
-
-    delete settings;
 }
 
 void PowerDevilDaemon::lockScreen()
@@ -651,20 +674,40 @@ void PowerDevilDaemon::emitNotification( const QString &evid, const QString &mes
                           0, KNotification::CloseOnTimeout, m_applicationData );
 }
 
-KConfigGroup * PowerDevilDaemon::getCurrentProfile()
+KConfigGroup * PowerDevilDaemon::getCurrentProfile( bool forcereload )
 {
-    KConfigGroup * group = new KConfigGroup( m_profilesConfig, m_currentProfile );
+    /* We need to access this a lot of times, so we use a cached
+     * implementation here. We create the object just if we're sure
+     * it is not already valid.
+     *
+     * IMPORTANT!!! This class already handles deletion of the config
+     * object, so you don't have to delete it!!
+     */
 
-    if ( !group->isValid() || !group->entryMap().size() ) {
+    bool reload = false;
+
+    if ( !m_currentConfig ) {
+        reload = true;
+    } else if ( forcereload || m_currentConfig->name() != m_currentProfile ) {
+        delete m_currentConfig;
+        m_currentConfig = 0;
+        reload = true;
+    }
+
+    if ( reload ) {
+        m_currentConfig = new KConfigGroup( m_profilesConfig, m_currentProfile );
+    }
+
+    if ( !m_currentConfig->isValid() || !m_currentConfig->entryMap().size() ) {
         emitCriticalNotification( "powerdevilerror", i18n( "The profile \"%1\" has been selected, "
                                   "but it does not exist!\nPlease check your PowerDevil configuration.",
                                   m_currentProfile ) );
         reloadProfile();
-        delete group;
-        return 0;
+        delete m_currentConfig;
+        m_currentConfig = 0;
     }
 
-    return group;
+    return m_currentConfig;
 }
 
 void PowerDevilDaemon::reloadProfile( int state )
@@ -735,10 +778,10 @@ void PowerDevilDaemon::setProfile( const QString & profile )
         applyProfile();
     }
 
-    KConfigGroup *group = new KConfigGroup( m_profilesConfig, profile );
+    KConfigGroup * settings = getCurrentProfile();
 
     emitNotification( "profileset", i18n( "Profile changed to \"%1\"", profile ) ,
-                      group->readEntry( "iconname" ) );
+                      settings->readEntry( "iconname" ) );
 }
 
 void PowerDevilDaemon::reloadAndStream()
