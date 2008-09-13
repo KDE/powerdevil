@@ -22,7 +22,9 @@
 
 #include "AbstractSystemPoller.h"
 
+#include <KApplication>
 #include <QDataStream>
+#include <QWidget>
 
 #include <X11/Xlib.h>
 #include <X11/extensions/sync.h>
@@ -45,7 +47,7 @@ class XSyncBasedPoller : public AbstractSystemPoller
         void unloadPoller();
 
     protected:
-        bool catchX11Event( XEvent *event );
+        bool x11Event( XEvent *event );
 
     public slots:
         void setNextTimeout( int nextTimeout );
@@ -72,6 +74,7 @@ class XSyncBasedPoller : public AbstractSystemPoller
         XSyncCounter        m_idleCounter;
         XSyncAlarm          m_timeoutAlarm;
         XSyncAlarm          m_resetAlarm;
+        QWidget * m_filterWidget;
 };
 
 #endif /* XSYNCBASEDPOLLER_H */

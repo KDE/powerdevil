@@ -20,7 +20,7 @@
 #include "AbstractSystemPoller.h"
 
 AbstractSystemPoller::AbstractSystemPoller( QObject *parent )
-        : QObject( parent )
+        : QWidget( 0 )
 {
 }
 

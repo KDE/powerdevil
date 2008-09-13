@@ -34,6 +34,7 @@
 #include <klocalizedstring.h>
 #include <kjob.h>
 #include <kworkspace/kdisplaymanager.h>
+#include <KApplication>
 
 #include <QWidget>
 #include <QTimer>
@@ -856,6 +857,11 @@ void PowerDevilDaemon::turnOffScreen()
 void PowerDevilDaemon::profileFirstLoad()
 {
     KConfigGroup * settings = getCurrentProfile();
+
+    if ( settings->readEntry( "scriptpath" ).isEmpty() )
+    {
+        return;
+    }
 
     QProcess::startDetached( settings->readEntry( "scriptpath" ) );
 }

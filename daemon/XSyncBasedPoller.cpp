@@ -74,6 +74,8 @@ bool XSyncBasedPoller::setUpPoller()
         return false;
     }
 
+    KApplication::kApplication()->installX11EventFilter(this);
+
     return true;
 }
 
@@ -102,7 +104,7 @@ void XSyncBasedPoller::poll()
 
     XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
-    emit pollRequest( XSyncValueHigh32( idleTime ) );
+    emit pollRequest( XSyncValueHigh32( idleTime ) / 1000 );
 }
 
 void XSyncBasedPoller::stopCatchingTimeouts()
@@ -118,10 +120,7 @@ void XSyncBasedPoller::stopCatchingTimeouts()
 
 void XSyncBasedPoller::stopCatchingIdleEvents()
 {
-    // FIXME: How to stop the timer?
-
-    /*setAlarm (dpy, &resetAlarm, idleCounter,
-                          XSyncNegativeComparison, alarmEvent->counter_value);*/
+    XSyncDestroyAlarm(m_display, m_resetAlarm);
 }
 
 void XSyncBasedPoller::catchIdleEvent()
@@ -130,15 +129,23 @@ void XSyncBasedPoller::catchIdleEvent()
 
     XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
-    setAlarm( m_display, &m_resetAlarm, m_idleCounter,
-              XSyncNegativeComparison, idleTime );
+    /* Set the reset alarm to fire the next time idleCounter < the
+                   current counter value. XSyncNegativeComparison means <= so
+                   we have to subtract 1 from the counter value */
+
+    int overflow;
+    XSyncValue add;
+    XSyncValue plusone;
+    XSyncIntToValue (&add, -1);
+    XSyncValueAdd (&plusone, idleTime, add, &overflow);
+    setAlarm (m_display, &m_resetAlarm, m_idleCounter,
+            XSyncNegativeComparison, plusone);
+
 }
 
-bool XSyncBasedPoller::catchX11Event( XEvent *event )
+bool XSyncBasedPoller::x11Event( XEvent *event )
 {
     XSyncAlarmNotifyEvent *alarmEvent;
-
-    //XNextEvent (m_display, event);
 
     if ( event->type != m_sync_event + XSyncAlarmNotify ) {
         return false;
@@ -148,7 +155,7 @@ bool XSyncBasedPoller::catchX11Event( XEvent *event )
 
     if ( alarmEvent->alarm == m_timeoutAlarm ) {
         /* Bling! Catched! */
-        poll();
+        emit pollRequest(XSyncValueHigh32(alarmEvent->counter_value) / 1000);
         return false;
     } else if ( alarmEvent->alarm == m_resetAlarm ) {
         /* Resuming from idle here! */
