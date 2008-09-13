@@ -35,6 +35,7 @@ class PollSystemLoader : public QObject
         virtual ~PollSystemLoader();
 
         QMap<AbstractSystemPoller::PollingType, QString> getAvailableSystems();
+        QMap<int, QString> getAvailableSystemsAsInt();
 
         bool loadSystem( AbstractSystemPoller::PollingType type );
         bool unloadCurrentSystem();
@@ -43,8 +44,11 @@ class PollSystemLoader : public QObject
             return m_poller;
         };
 
+        void createAvailableCache();
+
     private:
         QPointer<AbstractSystemPoller> m_poller;
+        QMap<AbstractSystemPoller::PollingType, QString> m_availableSystems;
 };
 
 #endif /* POLLSYSTEMLOADER_H */

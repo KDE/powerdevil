@@ -61,7 +61,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         QStringList getSupportedGovernors();
         QStringList getSupportedSchemes();
-        QStringList getSupportedPollingSystems();
+        QVariantMap getSupportedPollingSystems();
 
     private Q_SLOTS:
         void acAdapterStateChanged( int state, bool forced = false );

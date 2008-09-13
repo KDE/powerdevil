@@ -141,6 +141,8 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
      * let's check what we got.
      */
 
+    m_pollLoader->createAvailableCache();
+
     if ( PowerDevilSettings::pollingSystem() == -1 ) {
         // Ok, new configuration... so let's see what we've got!!
 
@@ -192,11 +194,26 @@ void PowerDevilDaemon::setUpPollingSystem()
         connect( m_pollLoader->poller(), SIGNAL( resumingFromIdle() ), SLOT( resumeFromIdle() ) );
         connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
     }
+    else
+    {
+        m_pollLoader->loadSystem( AbstractSystemPoller::WidgetBased );
+        connect( m_pollLoader->poller(), SIGNAL( resumingFromIdle() ), SLOT( resumeFromIdle() ) );
+                connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
+    }
 }
 
-QStringList PowerDevilDaemon::getSupportedPollingSystems()
+QVariantMap PowerDevilDaemon::getSupportedPollingSystems()
 {
-    return m_pollLoader->getAvailableSystems().values();
+    QVariantMap map;
+
+    QMap<int, QString> pmap = m_pollLoader->getAvailableSystemsAsInt();
+
+    foreach (int ent, pmap.keys())
+    {
+        map[pmap[ent]] = ent;
+    }
+
+    return map;
 }
 
 void PowerDevilDaemon::resumeFromIdle()
@@ -858,8 +875,7 @@ void PowerDevilDaemon::profileFirstLoad()
 {
     KConfigGroup * settings = getCurrentProfile();
 
-    if ( settings->readEntry( "scriptpath" ).isEmpty() )
-    {
+    if ( settings->readEntry( "scriptpath" ).isEmpty() ) {
         return;
     }
 

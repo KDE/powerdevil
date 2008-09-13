@@ -23,6 +23,7 @@
 #include "AbstractSystemPoller.h"
 
 #include <KApplication>
+#include <KDebug>
 #include <QDataStream>
 #include <QWidget>
 

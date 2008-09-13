@@ -37,7 +37,8 @@
       <arg type="as" direction="out" />
     </method>
     <method name="getSupportedPollingSystems">
-      <arg type="as" direction="out" />
+      <arg type="a{sv}" direction="out"/>
+      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
     </method>
     
     <signal name="lidClosed">

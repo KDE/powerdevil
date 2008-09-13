@@ -163,10 +163,12 @@ void ConfigWidget::fillUi()
 
     QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded",
                        "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems" );
-    QDBusReply<QStringList> systems = QDBusConnection::sessionBus().call( msg );
+    QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call( msg );
 
-    pollingSystemBox->addItems( systems.value() );
-
+    foreach(const QString &ent, systems.value().keys())
+    {
+        pollingSystemBox->addItem( ent, systems.value()[ent].toInt() );
+    }
 
     fillCapabilities();
 
@@ -177,6 +179,7 @@ void ConfigWidget::fillUi()
     connect( dimOnIdleTime, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
     connect( notificationsBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
     connect( warningNotificationsBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
+    connect( pollingSystemBox, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
 
     connect( lowSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
     connect( warningSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
@@ -219,6 +222,7 @@ void ConfigWidget::load()
     dimOnIdleTime->setValue( PowerDevilSettings::dimOnIdleTime() );
     notificationsBox->setChecked( PowerDevilSettings::enableNotifications() );
     warningNotificationsBox->setChecked( PowerDevilSettings::enableWarningNotifications() );
+    pollingSystemBox->setCurrentIndex( pollingSystemBox->findData( PowerDevilSettings::pollingSystem() ) );
 
     lowSpin->setValue( PowerDevilSettings::batteryLowLevel() );
     warningSpin->setValue( PowerDevilSettings::batteryWarningLevel() );
@@ -243,6 +247,7 @@ void ConfigWidget::save()
     PowerDevilSettings::setDimOnIdleTime( dimOnIdleTime->value() );
     PowerDevilSettings::setEnableNotifications( notificationsBox->isChecked() );
     PowerDevilSettings::setEnableWarningNotifications( warningNotificationsBox->isChecked() );
+    PowerDevilSettings::setPollingSystem(pollingSystemBox->itemData( pollingSystemBox->currentIndex() ).toInt());
 
     PowerDevilSettings::setBatteryLowLevel( lowSpin->value() );
     PowerDevilSettings::setBatteryWarningLevel( warningSpin->value() );

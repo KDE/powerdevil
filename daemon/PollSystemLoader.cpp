@@ -20,26 +20,66 @@
 #include "PollSystemLoader.h"
 
 #include "WidgetBasedPoller.h"
+#include "XSyncBasedPoller.h"
 
 PollSystemLoader::PollSystemLoader( QObject *parent )
         : QObject( parent ),
         m_poller( 0 )
 {
+    createAvailableCache();
 }
 
 PollSystemLoader::~PollSystemLoader()
 {
 }
 
-QMap<AbstractSystemPoller::PollingType, QString> PollSystemLoader::getAvailableSystems()
+void PollSystemLoader::createAvailableCache()
 {
-    QMap<AbstractSystemPoller::PollingType, QString> retlist;
+    m_availableSystems.clear();
 
     // Test each polling system
     WidgetBasedPoller *wpl = new WidgetBasedPoller( this );
+    XSyncBasedPoller *xpl = new XSyncBasedPoller( this );
 
     if ( wpl->isAvailable() ) {
-        retlist[AbstractSystemPoller::WidgetBased] = wpl->name();
+        m_availableSystems[AbstractSystemPoller::WidgetBased] = wpl->name();
+    }
+    if ( xpl->isAvailable() ) {
+        m_availableSystems[AbstractSystemPoller::XSyncBased] = xpl->name();
+    }
+
+    wpl->deleteLater();
+    xpl->deleteLater();
+}
+
+QMap<AbstractSystemPoller::PollingType, QString> PollSystemLoader::getAvailableSystems()
+{
+    m_availableSystems.clear();
+
+    // Test each polling system
+    WidgetBasedPoller *wpl = new WidgetBasedPoller( this );
+    XSyncBasedPoller *xpl = new XSyncBasedPoller( this );
+
+    if ( wpl->isAvailable() ) {
+        m_availableSystems[AbstractSystemPoller::WidgetBased] = wpl->name();
+    }
+    if ( xpl->isAvailable() ) {
+        m_availableSystems[AbstractSystemPoller::XSyncBased] = xpl->name();
+    }
+
+    wpl->deleteLater();
+    xpl->deleteLater();
+
+    return m_availableSystems;
+}
+
+QMap<int, QString> PollSystemLoader::getAvailableSystemsAsInt()
+{
+    QMap<int, QString> retlist;
+
+    foreach (const AbstractSystemPoller::PollingType &ent, m_availableSystems.keys())
+    {
+        retlist[(int) ent] = m_availableSystems[ent];
     }
 
     return retlist;
@@ -59,6 +99,8 @@ bool PollSystemLoader::loadSystem( AbstractSystemPoller::PollingType type )
     case AbstractSystemPoller::WidgetBased:
         m_poller = new WidgetBasedPoller( this );
         break;
+    case AbstractSystemPoller::XSyncBased:
+        m_poller = new XSyncBasedPoller( this );
     default:
         return false;
         break;

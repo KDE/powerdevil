@@ -63,6 +63,8 @@ bool XSyncBasedPoller::setUpPoller()
         return false;
     }
 
+    kDebug() << "XSync Inited";
+
     m_counters = XSyncListSystemCounters( m_display, &ncounters );
 
     for ( int i = 0; i < ncounters && !m_idleCounter; i++ ) {
@@ -74,14 +76,16 @@ bool XSyncBasedPoller::setUpPoller()
         return false;
     }
 
-    KApplication::kApplication()->installX11EventFilter(this);
+    KApplication::kApplication()->installX11EventFilter( this );
+
+    kDebug() << "Supported, init completed";
 
     return true;
 }
 
 void XSyncBasedPoller::unloadPoller()
 {
-    XSyncFreeSystemCounterList( m_counters );
+    //XSyncFreeSystemCounterList( m_counters );
 }
 
 void XSyncBasedPoller::setNextTimeout( int nextTimeout )
@@ -104,7 +108,7 @@ void XSyncBasedPoller::poll()
 
     XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
-    emit pollRequest( XSyncValueHigh32( idleTime ) / 1000 );
+    emit pollRequest( XSyncValueLow32( idleTime ) / 1000 );
 }
 
 void XSyncBasedPoller::stopCatchingTimeouts()
@@ -120,7 +124,7 @@ void XSyncBasedPoller::stopCatchingTimeouts()
 
 void XSyncBasedPoller::stopCatchingIdleEvents()
 {
-    XSyncDestroyAlarm(m_display, m_resetAlarm);
+    XSyncDestroyAlarm( m_display, m_resetAlarm );
 }
 
 void XSyncBasedPoller::catchIdleEvent()
@@ -136,10 +140,10 @@ void XSyncBasedPoller::catchIdleEvent()
     int overflow;
     XSyncValue add;
     XSyncValue plusone;
-    XSyncIntToValue (&add, -1);
-    XSyncValueAdd (&plusone, idleTime, add, &overflow);
-    setAlarm (m_display, &m_resetAlarm, m_idleCounter,
-            XSyncNegativeComparison, plusone);
+    XSyncIntToValue( &add, -1 );
+    XSyncValueAdd( &plusone, idleTime, add, &overflow );
+    setAlarm( m_display, &m_resetAlarm, m_idleCounter,
+              XSyncNegativeComparison, plusone );
 
 }
 
@@ -155,7 +159,7 @@ bool XSyncBasedPoller::x11Event( XEvent *event )
 
     if ( alarmEvent->alarm == m_timeoutAlarm ) {
         /* Bling! Catched! */
-        emit pollRequest(XSyncValueHigh32(alarmEvent->counter_value) / 1000);
+        emit pollRequest( XSyncValueLow32( alarmEvent->counter_value ) / 1000 );
         return false;
     } else if ( alarmEvent->alarm == m_resetAlarm ) {
         /* Resuming from idle here! */
