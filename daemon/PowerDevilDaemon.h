@@ -28,7 +28,6 @@
 
 class KDisplayManager;
 class QWidget;
-class QTimer;
 class PollSystemLoader;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
