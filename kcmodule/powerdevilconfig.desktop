@@ -22,15 +22,5 @@ Name[uk]=Налаштування керування живленням
 Name[zh_TW]=電源管理喜好設定
 
 Comment=Display brightness, suspend and power profile settings
-Comment[el]=Προτιμήσεις διαχείρισης ενέργειας
-Comment[es]=Preferencias de gestión de energía
-Comment[et]=Toitehalduse eelistused
-Comment[gl]=Configura a xestión da enerxía
-Comment[nds]=Stroompleeg-Instellen
-Comment[pt]=Preferências de Gestão da Energia
-Comment[pt_BR]=Preferências de Gestão da Energia
-Comment[sv]=Inställning av strömsparfunktion
-Comment[uk]=Налаштування керування живленням
-Comment[zh_TW]=電源管理喜好設定
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
