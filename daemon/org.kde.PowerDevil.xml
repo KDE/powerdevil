@@ -26,6 +26,7 @@
     <method name="setBrightness">
       <arg type="i" direction="in" />
     </method>
+    <method name="setUpPollingSystem" />
     <method name="turnOffScreen">
     </method>
     
@@ -33,6 +34,9 @@
       <arg type="as" direction="out" />
     </method>
     <method name="getSupportedSchemes">
+      <arg type="as" direction="out" />
+    </method>
+    <method name="getSupportedPollingSystems">
       <arg type="as" direction="out" />
     </method>
     

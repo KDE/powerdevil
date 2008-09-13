@@ -1,5 +1,9 @@
 set( kded_powerdevil_SRCS
-    PowerDevilDaemon.cpp 
+    PowerDevilDaemon.cpp
+    AbstractSystemPoller.cpp
+    WidgetBasedPoller.cpp
+    XSyncBasedPoller.cpp
+    PollSystemLoader.cpp 
 )
 
 kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
@@ -26,6 +30,7 @@ target_link_libraries(kded_powerdevil
     solidcontrol
     kworkspace
     ${X11_Xscreensaver_LIB}
+    -lXext
 )
 
 install( TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR} )

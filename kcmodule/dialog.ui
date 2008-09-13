@@ -25,7 +25,7 @@
       <attribute name="title" >
        <string>General Settings</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_8" >
+      <layout class="QVBoxLayout" name="verticalLayout_7" >
        <item>
         <widget class="QGroupBox" name="GeneralSettingsBox" >
          <property name="title" >
@@ -118,29 +118,26 @@
             </property>
            </widget>
           </item>
+          <item row="5" column="0" >
+           <widget class="QLabel" name="label_6" >
+            <property name="text" >
+             <string>Preferred Polling System:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" >
+           <widget class="KComboBox" name="pollingSystemBox" >
+            <property name="maximumSize" >
+             <size>
+              <width>250</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
-       <item>
-        <spacer name="verticalSpacer_4" >
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0" >
-          <size>
-           <width>20</width>
-           <height>235</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_6" >
-      <attribute name="title" >
-       <string>Battery Management Settings</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_9" >
        <item>
         <widget class="QGroupBox" name="groupBox" >
          <property name="title" >
@@ -271,19 +268,6 @@
           </item>
          </layout>
         </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_5" >
-         <property name="orientation" >
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0" >
-          <size>
-           <width>20</width>
-           <height>188</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
@@ -615,6 +599,16 @@
                      <enum>Qt::Horizontal</enum>
                     </property>
                    </widget>
+                  </item>
+                  <item row="5" column="0" >
+                   <widget class="QLabel" name="label_20" >
+                    <property name="text" >
+                     <string>When Loading profile, execute</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1" >
+                   <widget class="KUrlRequester" name="scriptRequester" />
                   </item>
                  </layout>
                 </widget>
@@ -976,6 +970,11 @@
    <extends>QTabWidget</extends>
    <header>ktabwidget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QFrame</extends>
+   <header>kurlrequester.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

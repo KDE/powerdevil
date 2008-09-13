@@ -26,6 +26,10 @@
 #include <solid/deviceinterface.h>
 #include <solid/processor.h>
 
+#include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusReply>
+#include <QtDBus/QDBusConnection>
+
 #include <KConfigGroup>
 #include <KLineEdit>
 #include <QCheckBox>
@@ -157,6 +161,13 @@ void ConfigWidget::fillUi()
     saveCurrentProfileButton->setIcon( KIcon( "document-save" ) );
     resetCurrentProfileButton->setIcon( KIcon( "edit-undo" ) );
 
+    QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded",
+                       "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems" );
+    QDBusReply<QStringList> systems = QDBusConnection::sessionBus().call( msg );
+
+    pollingSystemBox->addItems( systems.value() );
+
+
     fillCapabilities();
 
     // modified fields...
@@ -182,6 +193,7 @@ void ConfigWidget::fillUi()
 
     connect( BatteryCriticalCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
     connect( schemeCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
+    connect( scriptRequester, SIGNAL( textChanged( const QString& ) ), SLOT( setProfileChanged() ) );
 
     connect( acProfile, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
     connect( lowProfile, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
@@ -282,6 +294,7 @@ void ConfigWidget::loadProfile()
     idleCombo->setCurrentIndex( idleCombo->findData( group->readEntry( "idleAction" ).toInt() ) );
     freqCombo->setCurrentIndex( freqCombo->findData( group->readEntry( "cpuPolicy" ).toInt() ) );
     schemeCombo->setCurrentIndex( schemeCombo->findText( group->readEntry( "scheme" ) ) );
+    scriptRequester->setPath( group->readEntry( "scriptpath" ) );
 
     laptopClosedCombo->setCurrentIndex( laptopClosedCombo->findData( group->readEntry( "lidAction" ).toInt() ) );
 
@@ -332,6 +345,7 @@ void ConfigWidget::saveProfile( const QString &p )
     group->writeEntry( "turnOffIdle", offDisplayWhenIdle->isChecked() );
     group->writeEntry( "turnOffIdleTime", displayIdleTime->value() );
     group->writeEntry( "scheme", schemeCombo->currentText() );
+    group->writeEntry( "scriptpath", scriptRequester->url().path() );
 
     QList<int> list;
 

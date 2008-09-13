@@ -29,6 +29,7 @@
 class KDisplayManager;
 class QWidget;
 class QTimer;
+class PollSystemLoader;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
@@ -53,12 +54,15 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         void setBrightness( int value );
         void turnOffScreen();
 
+        void setUpPollingSystem();
+
         void unloadDaemon() {
             deleteLater();
         };
 
         QStringList getSupportedGovernors();
         QStringList getSupportedSchemes();
+        QStringList getSupportedPollingSystems();
 
     private Q_SLOTS:
         void acAdapterStateChanged( int state, bool forced = false );
@@ -75,10 +79,8 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         void buttonPressed( int but );
 
-        void poll();
-        void detectedActivity();
-        void waitForActivity();
-        void screensaverActivated( bool activated );
+        void poll( int idle );
+        void resumeFromIdle();
 
         void reloadProfile( int state = -1 );
         const QString &profile() {
@@ -99,22 +101,18 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         void pollEvent( const QString &event );
 
-    protected:
-        bool eventFilter( QObject * object, QEvent * event );
-
     private:
         void lockScreen();
 
         KConfigGroup *getCurrentProfile( bool forcereload = false );
         void applyProfile();
 
-        void releaseInputLock();
-        void releaseAndSetBrightness();
-
         void setUpNextTimeout( int idle, int minDimEvent );
 
         void emitCriticalNotification( const QString &evid, const QString &message = QString(),
                                        const QString &iconname = "dialog-error" );
+
+        void profileFirstLoad();
 
     private:
         enum IdleAction {
@@ -132,12 +130,12 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         KDisplayManager * m_displayManager;
         OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
 
-        QTimer * m_pollTimer;
         QWidget * m_grabber;
 
         KComponentData m_applicationData;
         KConfig * m_profilesConfig;
         KConfigGroup * m_currentConfig;
+        PollSystemLoader * m_pollLoader;
 
         QString m_currentProfile;
         QStringList m_availableProfiles;
