@@ -857,7 +857,7 @@ void PowerDevilDaemon::profileFirstLoad()
 {
     KConfigGroup * settings = getCurrentProfile();
 
-    QProcess::startDetached(settings->readEntry( "scriptpath" ));
+    QProcess::startDetached( settings->readEntry( "scriptpath" ) );
 }
 
 void PowerDevilDaemon::setBatteryPercent( int newpercent )
@@ -874,8 +874,7 @@ void PowerDevilDaemon::setACPlugged( bool newplugged )
 
 void PowerDevilDaemon::setCurrentProfile( const QString &profile )
 {
-    if ( profile != m_currentProfile )
-    {
+    if ( profile != m_currentProfile ) {
         m_currentProfile = profile;
         profileFirstLoad();
         emit profileChanged( m_currentProfile, m_availableProfiles );

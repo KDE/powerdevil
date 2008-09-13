@@ -24,11 +24,11 @@
 #include <klocalizedstring.h>
 
 XSyncBasedPoller::XSyncBasedPoller( QObject *parent )
-: AbstractSystemPoller( parent ),
-m_display(QX11Info::display()),
-m_idleCounter(None),
-m_timeoutAlarm(None),
-m_resetAlarm(None)
+        : AbstractSystemPoller( parent ),
+        m_display( QX11Info::display() ),
+        m_idleCounter( None ),
+        m_timeoutAlarm( None ),
+        m_resetAlarm( None )
 {
 }
 
@@ -38,17 +38,14 @@ XSyncBasedPoller::~XSyncBasedPoller()
 
 QString XSyncBasedPoller::name()
 {
-    return i18n("XSync Based (recommended)");
+    return i18n( "XSync Based (recommended)" );
 }
 
 bool XSyncBasedPoller::isAvailable()
 {
-    if (!XSyncQueryExtension (m_display, &m_sync_event, &m_sync_error))
-    {
+    if ( !XSyncQueryExtension( m_display, &m_sync_event, &m_sync_error ) ) {
         return false;
-    }
-    else
-    {
+    } else {
         return true;
     }
 }
@@ -58,26 +55,22 @@ bool XSyncBasedPoller::setUpPoller()
     int ncounters;
     int sync_major, sync_minor;
 
-    if (!isAvailable())
-    {
+    if ( !isAvailable() ) {
         return false;
     }
 
-    if ( !XSyncInitialize (m_display, &sync_major, &sync_minor) )
-    {
+    if ( !XSyncInitialize( m_display, &sync_major, &sync_minor ) ) {
         return false;
     }
 
-    m_counters = XSyncListSystemCounters (m_display, &ncounters);
+    m_counters = XSyncListSystemCounters( m_display, &ncounters );
 
-    for (int i = 0; i < ncounters && !m_idleCounter; i++)
-    {
-        if (!strcmp(m_counters[i].name, "IDLETIME"))
+    for ( int i = 0; i < ncounters && !m_idleCounter; i++ ) {
+        if ( !strcmp( m_counters[i].name, "IDLETIME" ) )
             m_idleCounter = m_counters[i].counter;
     }
 
-    if (!m_idleCounter)
-    {
+    if ( !m_idleCounter ) {
         return false;
     }
 
@@ -86,16 +79,16 @@ bool XSyncBasedPoller::setUpPoller()
 
 void XSyncBasedPoller::unloadPoller()
 {
-    XSyncFreeSystemCounterList(m_counters);
+    XSyncFreeSystemCounterList( m_counters );
 }
 
-void XSyncBasedPoller::setNextTimeout(int nextTimeout)
+void XSyncBasedPoller::setNextTimeout( int nextTimeout )
 {
     XSyncValue timeout;
 
-    XSyncIntToValue (&timeout, nextTimeout);
-    setAlarm (m_display, &m_timeoutAlarm, m_idleCounter,
-            XSyncPositiveComparison, timeout);
+    XSyncIntToValue( &timeout, nextTimeout );
+    setAlarm( m_display, &m_timeoutAlarm, m_idleCounter,
+              XSyncPositiveComparison, timeout );
 }
 
 void XSyncBasedPoller::forcePollRequest()
@@ -107,9 +100,9 @@ void XSyncBasedPoller::poll()
 {
     XSyncValue idleTime;
 
-    XSyncQueryCounter(m_display, m_idleCounter, &idleTime);
+    XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
-    emit pollRequest(XSyncValueHigh32(idleTime));
+    emit pollRequest( XSyncValueHigh32( idleTime ) );
 }
 
 void XSyncBasedPoller::stopCatchingTimeouts()
@@ -118,9 +111,9 @@ void XSyncBasedPoller::stopCatchingTimeouts()
 
     XSyncValue timeout;
 
-    XSyncIntToValue (&timeout, 10000000);
-    setAlarm (m_display, &m_timeoutAlarm, m_idleCounter,
-            XSyncPositiveComparison, timeout);
+    XSyncIntToValue( &timeout, 10000000 );
+    setAlarm( m_display, &m_timeoutAlarm, m_idleCounter,
+              XSyncPositiveComparison, timeout );
 }
 
 void XSyncBasedPoller::stopCatchingIdleEvents()
@@ -135,33 +128,29 @@ void XSyncBasedPoller::catchIdleEvent()
 {
     XSyncValue idleTime;
 
-    XSyncQueryCounter(m_display, m_idleCounter, &idleTime);
+    XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
-    setAlarm (m_display, &m_resetAlarm, m_idleCounter,
-            XSyncNegativeComparison, idleTime);
+    setAlarm( m_display, &m_resetAlarm, m_idleCounter,
+              XSyncNegativeComparison, idleTime );
 }
 
-bool XSyncBasedPoller::catchX11Event(XEvent *event)
+bool XSyncBasedPoller::catchX11Event( XEvent *event )
 {
     XSyncAlarmNotifyEvent *alarmEvent;
 
     //XNextEvent (m_display, event);
 
-    if (event->type != m_sync_event + XSyncAlarmNotify)
-    {
+    if ( event->type != m_sync_event + XSyncAlarmNotify ) {
         return false;
     }
 
-    alarmEvent = (XSyncAlarmNotifyEvent *)event;
+    alarmEvent = ( XSyncAlarmNotifyEvent * )event;
 
-    if (alarmEvent->alarm == m_timeoutAlarm)
-    {
+    if ( alarmEvent->alarm == m_timeoutAlarm ) {
         /* Bling! Catched! */
         poll();
         return false;
-    }
-    else if (alarmEvent->alarm == m_resetAlarm)
-    {
+    } else if ( alarmEvent->alarm == m_resetAlarm ) {
         /* Resuming from idle here! */
         emit resumingFromIdle();
     }
@@ -169,14 +158,14 @@ bool XSyncBasedPoller::catchX11Event(XEvent *event)
     return false;
 }
 
-void XSyncBasedPoller::setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
-          XSyncTestType test, XSyncValue value)
+void XSyncBasedPoller::setAlarm( Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
+                                 XSyncTestType test, XSyncValue value )
 {
     XSyncAlarmAttributes  attr;
     XSyncValue            delta;
     unsigned int          flags;
 
-    XSyncIntToValue (&delta, 0);
+    XSyncIntToValue( &delta, 0 );
 
     attr.trigger.counter     = counter;
     attr.trigger.value_type  = XSyncAbsolute;
@@ -185,12 +174,12 @@ void XSyncBasedPoller::setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter co
     attr.delta               = delta;
 
     flags = XSyncCACounter | XSyncCAValueType | XSyncCATestType |
-    XSyncCAValue | XSyncCADelta;
+            XSyncCAValue | XSyncCADelta;
 
-    if (*alarm)
-        XSyncChangeAlarm (dpy, *alarm, flags, &attr);
+    if ( *alarm )
+        XSyncChangeAlarm( dpy, *alarm, flags, &attr );
     else
-        *alarm = XSyncCreateAlarm (dpy, flags, &attr);
+        *alarm = XSyncCreateAlarm( dpy, flags, &attr );
 }
 
 
