@@ -1,34 +1,15 @@
-project(PowerDevil)
-
-#set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/modules")
-
-find_package(KDE4 REQUIRED)
-find_package(Plasma REQUIRED)
 
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
-include (MacroLibrary)
-include (FindPackageHandleStandardArgs)
-include (KDE4Defaults)
-
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
-
-add_definitions (
-    ${QT_DEFINITIONS} 
-    ${QT_QTDBUS_DEFINITIONS} 
-    ${KDE4_DEFINITIONS}
-)
 
 include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR} 
     ${CMAKE_CURRENT_BINARY_DIR} 
-    ${KDE4_INCLUDES} 
-    ${PLASMA_INCLUDES}
 )
 
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
-add_subdirectory(plasma)
 
 install( FILES powerdevil.notifyrc DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
 
