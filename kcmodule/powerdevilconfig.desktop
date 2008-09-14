@@ -22,5 +22,9 @@ Name[uk]=Налаштування керування живленням
 Name[zh_TW]=電源管理喜好設定
 
 Comment=Display brightness, suspend and power profile settings
+Comment[nds]=Instellen för't Stroomprofil, dat Utsetten un de Helligkeit wiesen
+Comment[pt]=Mostra a configuração do brilho, suspensão e perfil de energia
+Comment[pt_BR]=Mostra a configuração do brilho, suspensão e perfil de energia
+Comment[uk]=Показати параметри яскравості, переходу до сну та керування живленням профілю
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
