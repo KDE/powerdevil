@@ -41,7 +41,7 @@ class ConfigWidget : public QWidget, private Ui_powerDevilConfig
         void save();
 
     signals:
-        void changed(bool change);
+        void changed( bool change );
         void profilesChanged();
 
     private:
