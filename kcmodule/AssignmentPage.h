@@ -17,38 +17,37 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#ifndef ASSIGNMENTPAGE_H
+#define ASSIGNMENTPAGE_H
 
 #include <QWidget>
-#include "ui_dialog.h"
 
-#include "GeneralPage.h"
-#include "AssignmentPage.h"
-#include "EditPage.h"
-#include "CapabilitiesPage.h"
+#include "ui_profileAssignmentPage.h"
 
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+class AssignmentPage : public QWidget, private Ui_profileAssignmentPage
 {
         Q_OBJECT
 
     public:
-        ConfigWidget( QWidget *parent = 0 );
-        ~ConfigWidget();
+        AssignmentPage( QWidget *parent = 0 );
+        ~AssignmentPage();
+        void fillUi();
 
-    public slots:
         void load();
         void save();
 
     signals:
-        void changed(bool change);
-        void profilesChanged();
+        void changed( bool ch );
+
+    private slots:
+        void emitChanged();
+
+        void reloadAvailableProfiles();
 
     private:
-        GeneralPage *m_generalPage;
-        AssignmentPage *m_assignmentPage;
-        EditPage *m_editPage;
-        CapabilitiesPage *m_capabilitiesPage;
+
+        KConfig *m_profilesConfig;
+        bool m_profileEdited;
 };
 
-#endif /*CONFIGWIDGET_H*/
+#endif /* ASSIGNMENTPAGE_H_ */

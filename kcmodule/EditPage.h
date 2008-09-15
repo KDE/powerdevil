@@ -17,38 +17,61 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#ifndef EDITPAGE_H
+#define EDITPAGE_H
 
 #include <QWidget>
-#include "ui_dialog.h"
 
-#include "GeneralPage.h"
-#include "AssignmentPage.h"
-#include "EditPage.h"
-#include "CapabilitiesPage.h"
+#include "ui_profileEditPage.h"
 
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+class EditPage : public QWidget, private Ui_profileEditPage
 {
         Q_OBJECT
 
     public:
-        ConfigWidget( QWidget *parent = 0 );
-        ~ConfigWidget();
+        EditPage( QWidget *parent = 0 );
+        ~EditPage();
+        void fillUi();
 
-    public slots:
         void load();
         void save();
 
     signals:
-        void changed(bool change);
+        void changed( bool ch );
         void profilesChanged();
 
+    private slots:
+        void emitChanged();
+        void setProfileChanged();
+
+        void enableSaveProfile();
+        void enableBoxes();
+
+        void loadProfile();
+        void saveProfile( const QString &p = QString() );
+        void switchProfile( QListWidgetItem *current, QListWidgetItem *previous );
+        void reloadAvailableProfiles();
+        void createProfile( const QString &name, const QString &icon );
+        void editProfile( const QString &prevname, const QString &icon );
+        void deleteCurrentProfile();
+        void createProfile();
+        void editProfile();
+
+        void importProfiles();
+        void exportProfiles();
+
     private:
-        GeneralPage *m_generalPage;
-        AssignmentPage *m_assignmentPage;
-        EditPage *m_editPage;
-        CapabilitiesPage *m_capabilitiesPage;
+        enum IdleAction {
+            Shutdown = 1,
+            S2Disk = 2,
+            S2Ram = 3,
+            Standby = 4,
+            Lock = 5,
+            None = 0
+        };
+
+        KConfig *m_profilesConfig;
+        bool m_profileEdited;
 };
 
-#endif /*CONFIGWIDGET_H*/
+#endif /* EDITPAGE_H */

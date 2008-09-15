@@ -17,38 +17,42 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef CONFIGWIDGET_H
-#define CONFIGWIDGET_H
+#ifndef GENERALPAGE_H
+#define GENERALPAGE_H
 
 #include <QWidget>
-#include "ui_dialog.h"
 
-#include "GeneralPage.h"
-#include "AssignmentPage.h"
-#include "EditPage.h"
-#include "CapabilitiesPage.h"
+#include "ui_generalPage.h"
 
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+class GeneralPage : public QWidget, private Ui_generalPage
 {
         Q_OBJECT
 
     public:
-        ConfigWidget( QWidget *parent = 0 );
-        ~ConfigWidget();
+        GeneralPage( QWidget *parent = 0 );
+        ~GeneralPage();
+        void fillUi();
 
-    public slots:
         void load();
         void save();
 
     signals:
-        void changed(bool change);
-        void profilesChanged();
+        void changed( bool ch );
+
+    private slots:
+        void emitChanged();
+
+        void enableBoxes();
 
     private:
-        GeneralPage *m_generalPage;
-        AssignmentPage *m_assignmentPage;
-        EditPage *m_editPage;
-        CapabilitiesPage *m_capabilitiesPage;
+        enum IdleAction {
+            Shutdown = 1,
+            S2Disk = 2,
+            S2Ram = 3,
+            Standby = 4,
+            Lock = 5,
+            None = 0
+        };
 };
 
-#endif /*CONFIGWIDGET_H*/
+#endif /* GENERALPAGE_H */

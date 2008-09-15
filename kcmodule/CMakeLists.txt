@@ -1,9 +1,18 @@
 set( kcm_powerdevil_SRCS 
      PowerDevilKCM.cpp
      ConfigWidget.cpp
+     GeneralPage.cpp
+     AssignmentPage.cpp
+     EditPage.cpp
+     CapabilitiesPage.cpp
 )
 
-kde4_add_ui_files(kcm_powerdevil_SRCS dialog.ui ) 
+kde4_add_ui_files(kcm_powerdevil_SRCS 
+    dialog.ui
+    generalPage.ui
+    profileAssignmentPage.ui
+    profileEditPage.ui
+    capabilitiesPage.ui)
 
 kde4_add_kcfg_files(kcm_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 
