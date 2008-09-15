@@ -193,12 +193,10 @@ void PowerDevilDaemon::setUpPollingSystem()
     if ( m_pollLoader->poller() ) {
         connect( m_pollLoader->poller(), SIGNAL( resumingFromIdle() ), SLOT( resumeFromIdle() ) );
         connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
-    }
-    else
-    {
-        m_pollLoader->loadSystem( AbstractSystemPoller::WidgetBased );
+    } else {
+        m_pollLoader->loadSystem( AbstractSystemPoller::TimerBased );
         connect( m_pollLoader->poller(), SIGNAL( resumingFromIdle() ), SLOT( resumeFromIdle() ) );
-                connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
+        connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
     }
 }
 
@@ -208,8 +206,7 @@ QVariantMap PowerDevilDaemon::getSupportedPollingSystems()
 
     QMap<int, QString> pmap = m_pollLoader->getAvailableSystemsAsInt();
 
-    foreach (int ent, pmap.keys())
-    {
+    foreach( int ent, pmap.keys() ) {
         map[pmap[ent]] = ent;
     }
 
@@ -796,30 +793,51 @@ void PowerDevilDaemon::streamData()
     emit stateChanged( m_batteryPercent, m_isPlugged );
 }
 
-QStringList PowerDevilDaemon::getSupportedGovernors()
+QVariantMap PowerDevilDaemon::getSupportedGovernors()
 {
-    QStringList retlist;
+    QVariantMap retlist;
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
     if ( policies & Solid::Control::PowerManager::Performance ) {
-        retlist.append( i18n( "Performance" ) );
+        retlist[i18n( "Performance" )] = ( int ) Solid::Control::PowerManager::Performance;
     }
 
     if ( policies & Solid::Control::PowerManager::OnDemand ) {
-        retlist.append( i18n( "Dynamic (ondemand)" ) );
+        retlist[i18n( "Dynamic (ondemand)" )] = ( int ) Solid::Control::PowerManager::OnDemand;
     }
 
     if ( policies & Solid::Control::PowerManager::Conservative ) {
-        retlist.append( i18n( "Dynamic (conservative)" ) );
+        retlist[i18n( "Dynamic (conservative)" )] = ( int ) Solid::Control::PowerManager::Conservative;
     }
 
     if ( policies & Solid::Control::PowerManager::Powersave ) {
-        retlist.append( i18n( "Powersave" ) );
+        retlist[i18n( "Powersave" )] = ( int ) Solid::Control::PowerManager::Powersave;
     }
 
     if ( policies & Solid::Control::PowerManager::Userspace ) {
-        retlist.append( i18n( "Userspace" ) );
+        retlist[i18n( "Userspace" )] = ( int ) Solid::Control::PowerManager::Userspace;
+    }
+
+    return retlist;
+}
+
+QVariantMap PowerDevilDaemon::getSupportedSuspendMethods()
+{
+    QVariantMap retlist;
+
+    Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
+
+    if ( methods & Solid::Control::PowerManager::ToDisk ) {
+        retlist[i18n( "Suspend to Disk" )] = ( int ) S2Disk;
+    }
+
+    if ( methods & Solid::Control::PowerManager::ToRam ) {
+        retlist[i18n( "Suspend to Ram" )] = ( int ) S2Ram;
+    }
+
+    if ( methods & Solid::Control::PowerManager::Standby ) {
+        retlist[i18n( "Standby" )] = ( int ) Standby;
     }
 
     return retlist;
@@ -835,18 +853,25 @@ void PowerDevilDaemon::setPowersavingScheme( const QString &scheme )
     Solid::Control::PowerManager::setScheme( scheme );
 }
 
-void PowerDevilDaemon::setGovernor( const QString &governor )
+void PowerDevilDaemon::setGovernor( int governor )
 {
-    if ( governor == i18n( "Performance" ) ) {
-        Solid::Control::PowerManager::setCpuFreqPolicy( Solid::Control::PowerManager::Performance );
-    } else if ( governor == i18n( "Dynamic (ondemand)" ) ) {
-        Solid::Control::PowerManager::setCpuFreqPolicy( Solid::Control::PowerManager::OnDemand );
-    } else if ( governor == i18n( "Dynamic (conservative)" ) ) {
-        Solid::Control::PowerManager::setCpuFreqPolicy( Solid::Control::PowerManager::Conservative );
-    } else if ( governor == i18n( "Powersave" ) ) {
-        Solid::Control::PowerManager::setCpuFreqPolicy( Solid::Control::PowerManager::Powersave );
-    } else if ( governor == i18n( "Userspace" ) ) {
-        Solid::Control::PowerManager::setCpuFreqPolicy( Solid::Control::PowerManager::Userspace );
+    Solid::Control::PowerManager::setCpuFreqPolicy(( Solid::Control::PowerManager::CpuFreqPolicy ) governor );
+}
+
+void PowerDevilDaemon::suspend( int method )
+{
+    switch (( IdleAction ) method ) {
+    case S2Disk:
+        suspendToDisk();
+        break;
+    case S2Ram:
+        suspendToRam();
+        break;
+    case Standby:
+        standby();
+        break;
+    default:
+        break;
     }
 }
 

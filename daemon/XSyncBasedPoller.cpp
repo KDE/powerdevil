@@ -90,11 +90,23 @@ void XSyncBasedPoller::unloadPoller()
 
 void XSyncBasedPoller::setNextTimeout( int nextTimeout )
 {
+    /* We need to set the counter to the idle time + the value
+     * requested for next timeout
+     */
+
     XSyncValue timeout;
+    XSyncValue idleTime;
+    XSyncValue result;
+    int overflow;
+
+    XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
     XSyncIntToValue( &timeout, nextTimeout );
+
+    XSyncValueAdd( &result, idleTime, timeout, &overflow );
+
     setAlarm( m_display, &m_timeoutAlarm, m_idleCounter,
-              XSyncPositiveComparison, timeout );
+              XSyncPositiveComparison, result );
 }
 
 void XSyncBasedPoller::forcePollRequest()
@@ -113,18 +125,14 @@ void XSyncBasedPoller::poll()
 
 void XSyncBasedPoller::stopCatchingTimeouts()
 {
-    // We simply set the counter to an high value here.
-
-    XSyncValue timeout;
-
-    XSyncIntToValue( &timeout, 10000000 );
-    setAlarm( m_display, &m_timeoutAlarm, m_idleCounter,
-              XSyncPositiveComparison, timeout );
+    XSyncDestroyAlarm( m_display, m_timeoutAlarm );
+    m_timeoutAlarm = None;
 }
 
 void XSyncBasedPoller::stopCatchingIdleEvents()
 {
     XSyncDestroyAlarm( m_display, m_resetAlarm );
+    m_resetAlarm = None;
 }
 
 void XSyncBasedPoller::catchIdleEvent()
@@ -134,8 +142,9 @@ void XSyncBasedPoller::catchIdleEvent()
     XSyncQueryCounter( m_display, m_idleCounter, &idleTime );
 
     /* Set the reset alarm to fire the next time idleCounter < the
-                   current counter value. XSyncNegativeComparison means <= so
-                   we have to subtract 1 from the counter value */
+     * current counter value. XSyncNegativeComparison means <= so
+     * we have to subtract 1 from the counter value
+     */
 
     int overflow;
     XSyncValue add;

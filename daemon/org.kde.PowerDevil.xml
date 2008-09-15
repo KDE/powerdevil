@@ -18,7 +18,10 @@
       <arg type="s" direction="in" />
     </method>
     <method name="setGovernor">
-      <arg type="s" direction="in" />
+      <arg type="i" direction="in" />
+    </method>
+    <method name="suspend">
+      <arg type="i" direction="in" />
     </method>
     <method name="setPowersavingScheme">
       <arg type="s" direction="in" />
@@ -31,7 +34,12 @@
     </method>
     
     <method name="getSupportedGovernors">
-      <arg type="as" direction="out" />
+      <arg type="a{sv}" direction="out" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
+    </method>
+    <method name="getSupportedSuspendMethods">
+      <arg type="a{sv}" direction="out" />
+      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
     </method>
     <method name="getSupportedSchemes">
       <arg type="as" direction="out" />

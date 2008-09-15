@@ -119,7 +119,13 @@
            </widget>
           </item>
           <item row="5" column="0" >
-           <widget class="QLabel" name="label_6" >
+           <widget class="QLabel" name="pollingLabel" >
+            <property name="toolTip" >
+             <string>Idle detection method</string>
+            </property>
+            <property name="whatsThis" >
+             <string>This is the method PowerDevil will use to query the system. XSync is the best choice for performance and reliability, if you are unsure on what to choose, go for XSync</string>
+            </property>
             <property name="text" >
              <string>Preferred Polling System:</string>
             </property>

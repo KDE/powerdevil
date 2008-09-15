@@ -38,6 +38,8 @@ PowerDevilKCM::PowerDevilKCM( QWidget *parent, const QVariantList & ) :
         KCModule( PowerDevilKCMFactory::componentData(), parent ),
         m_dbus( QDBusConnection::sessionBus() )
 {
+    KGlobal::locale()->insertCatalog( "powerdevil" );
+
     QVBoxLayout *lay = new QVBoxLayout( this );
     lay->setMargin( 0 );
 
@@ -94,16 +96,16 @@ void PowerDevilKCM::defaults()
 void PowerDevilKCM::streamToDBus()
 {
     QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded", "/modules/powerdevil",
-                                          "org.kde.PowerDevil", "reloadAndStream" );
+                       "org.kde.PowerDevil", "reloadAndStream" );
     m_dbus.call( msg );
     msg = QDBusMessage::createMethodCall( "org.kde.kded", "/modules/powerdevil",
-            "org.kde.PowerDevil", "refreshStatus" );
+                                          "org.kde.PowerDevil", "refreshStatus" );
     m_dbus.call( msg );
     msg = QDBusMessage::createMethodCall( "org.kde.kded", "/modules/powerdevil",
-            "org.kde.PowerDevil", "setUpPollingSystem" );
+                                          "org.kde.PowerDevil", "setUpPollingSystem" );
     m_dbus.call( msg );
     msg = QDBusMessage::createMethodCall( "org.kde.kded", "/modules/powerdevil",
-            "org.kde.PowerDevil", "refreshStatus" );
+                                          "org.kde.PowerDevil", "refreshStatus" );
     m_dbus.call( msg );
 }
 

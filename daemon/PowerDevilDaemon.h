@@ -48,7 +48,8 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         void reloadAndStream();
         void streamData();
 
-        void setGovernor( const QString &governor );
+        void setGovernor( int governor );
+        void suspend( int method );
         void setPowersavingScheme( const QString &scheme );
         void setBrightness( int value );
         void turnOffScreen();
@@ -59,8 +60,9 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
             deleteLater();
         };
 
-        QStringList getSupportedGovernors();
+        QVariantMap getSupportedGovernors();
         QStringList getSupportedSchemes();
+        QVariantMap getSupportedSuspendMethods();
         QVariantMap getSupportedPollingSystems();
 
     private Q_SLOTS:

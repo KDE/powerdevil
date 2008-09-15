@@ -165,8 +165,7 @@ void ConfigWidget::fillUi()
                        "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems" );
     QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call( msg );
 
-    foreach(const QString &ent, systems.value().keys())
-    {
+    foreach( const QString &ent, systems.value().keys() ) {
         pollingSystemBox->addItem( ent, systems.value()[ent].toInt() );
     }
 
@@ -247,7 +246,7 @@ void ConfigWidget::save()
     PowerDevilSettings::setDimOnIdleTime( dimOnIdleTime->value() );
     PowerDevilSettings::setEnableNotifications( notificationsBox->isChecked() );
     PowerDevilSettings::setEnableWarningNotifications( warningNotificationsBox->isChecked() );
-    PowerDevilSettings::setPollingSystem(pollingSystemBox->itemData( pollingSystemBox->currentIndex() ).toInt());
+    PowerDevilSettings::setPollingSystem( pollingSystemBox->itemData( pollingSystemBox->currentIndex() ).toInt() );
 
     PowerDevilSettings::setBatteryLowLevel( lowSpin->value() );
     PowerDevilSettings::setBatteryWarningLevel( warningSpin->value() );

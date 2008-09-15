@@ -17,16 +17,48 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  **************************************************************************/
 
+#ifndef TIMERBASEDPOLLER_H
+#define TIMERBASEDPOLLER_H
+
 #include "AbstractSystemPoller.h"
 
-AbstractSystemPoller::AbstractSystemPoller( QObject *parent )
-        : QWidget( 0 )
-{
-    Q_UNUSED( parent )
-}
+#include <QTimer>
 
-AbstractSystemPoller::~AbstractSystemPoller()
+class TimerBasedPoller : public AbstractSystemPoller
 {
-}
+        Q_OBJECT
 
-#include "AbstractSystemPoller.moc"
+    public:
+        TimerBasedPoller( QObject *parent = 0 );
+        virtual ~TimerBasedPoller();
+
+        AbstractSystemPoller::PollingType getPollingType() {
+            return AbstractSystemPoller::TimerBased;
+        };
+        QString name();
+
+        bool isAvailable();
+        bool setUpPoller();
+        void unloadPoller();
+
+    public slots:
+        void setNextTimeout( int nextTimeout );
+        void forcePollRequest();
+        void stopCatchingTimeouts();
+        void catchIdleEvent();
+        void stopCatchingIdleEvents();
+
+    private slots:
+        void poll();
+
+    signals:
+        void resumingFromIdle();
+        void pollRequest( int idleTime );
+
+    private:
+        QTimer * m_pollTimer;
+        int m_lastIdleTime;
+        bool m_catchingIdle;
+};
+
+#endif /* TIMERBASEDPOLLER_H */

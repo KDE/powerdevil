@@ -3,6 +3,7 @@ set( kded_powerdevil_SRCS
     AbstractSystemPoller.cpp
     WidgetBasedPoller.cpp
     XSyncBasedPoller.cpp
+    TimerBasedPoller.cpp
     PollSystemLoader.cpp 
 )
 
