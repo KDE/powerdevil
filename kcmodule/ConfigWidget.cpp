@@ -30,10 +30,15 @@ ConfigWidget::ConfigWidget( QWidget *parent )
 {
     setupUi( this );
 
-    pageWidget->addPage(m_generalPage, i18n("General Settings"));
-    pageWidget->addPage(m_assignmentPage, i18n("Assign Profiles"));
-    pageWidget->addPage(m_editPage, i18n("Edit Profiles"));
-    pageWidget->addPage(m_capabilitiesPage, i18n("Capabilities"));
+    KPageWidgetItem *general = pageWidget->addPage(m_generalPage, i18n("General Settings"));
+    KPageWidgetItem *assign = pageWidget->addPage(m_assignmentPage, i18n("Assign Profiles"));
+    KPageWidgetItem *edit = pageWidget->addPage(m_editPage, i18n("Edit Profiles"));
+    KPageWidgetItem *capab = pageWidget->addPage(m_capabilitiesPage, i18n("Capabilities"));
+
+    general->setHeader("");
+    assign->setHeader("");
+    edit->setHeader("");
+    capab->setHeader("");
 
     connect(m_generalPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
     connect(m_assignmentPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
