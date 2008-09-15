@@ -900,7 +900,7 @@ void PowerDevilDaemon::profileFirstLoad()
 {
     KConfigGroup * settings = getCurrentProfile();
 
-    if ( settings->readEntry( "scriptpath" ).isEmpty() ) {
+    if ( settings->readEntry( "scriptpath", QString() ).isEmpty() ) {
         return;
     }
 
