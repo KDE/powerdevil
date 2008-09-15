@@ -11,20 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=system
 
 Name=Power Management Preferences
-Name[el]=Προτιμήσεις διαχείρισης ενέργειας
-Name[es]=Preferencias de la gestión de energía
-Name[gl]=Configuración da xestión de enerxía
-Name[nds]=Stroompleeg-Instellen
-Name[pt]=Preferências de Gestão da Energia
-Name[pt_BR]=Preferências de Gestão da Energia
-Name[sv]=Inställning av strömsparfunktion
-Name[uk]=Налаштування керування живленням
-Name[zh_TW]=電源管理喜好設定
 
 Comment=Display brightness, suspend and power profile settings
-Comment[nds]=Instellen för't Stroomprofil, dat Utsetten un de Helligkeit wiesen
-Comment[pt]=Mostra a configuração do brilho, suspensão e perfil de energia
-Comment[pt_BR]=Mostra a configuração do brilho, suspensão e perfil de energia
-Comment[uk]=Показати параметри яскравості, переходу до сну та керування живленням профілю
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
