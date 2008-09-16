@@ -486,6 +486,8 @@ void EditPage::importProfiles()
         delete copyTo;
     }
 
+    delete toImport;
+
     m_profilesConfig->sync();
 
     reloadAvailableProfiles();
