@@ -40,6 +40,11 @@ ConfigWidget::ConfigWidget( QWidget *parent )
     edit->setHeader( "" );
     capab->setHeader( "" );
 
+    general->setIcon(KIcon("configure"));
+    assign->setIcon(KIcon("insert-link"));
+    edit->setIcon(KIcon("edit-select-all"));
+    capab->setIcon(KIcon("hwinfo"));
+
     connect( m_generalPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
     connect( m_assignmentPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
     connect( m_editPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
