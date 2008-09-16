@@ -84,13 +84,22 @@ void PowerDevilKCM::initModule()
         QDBusConnection conn = QDBusConnection::systemBus();
 
         if ( conn.interface()->isServiceRegistered( "org.freedesktop.PowerManagement" ) ||
-                conn.interface()->isServiceRegistered( "com.novell.powersave" ) ||
-                conn.interface()->isServiceRegistered( "org.freedesktop.Policy.Power" ) ||
-                conn.interface()->isServiceRegistered( "org.kde.powerdevilsystem" ) ) {
+                conn.interface()->isServiceRegistered( "org.freedesktop.Policy.Power" ) ) {
             initError(i18n("Another power manager has been detected. PowerDevil will not start if "
                     "other power managers are active. If you want to use PowerDevil as your primary "
                     "power manager, please remove the existing one and restart PowerDevil service."));
             return;
+        }
+        else if (conn.interface()->isServiceRegistered( "com.novell.powersave" )) {
+            initError(i18n("It seems powersaved is running on this system. PowerDevil will not start if "
+                                "other power managers are active. If you want to use PowerDevil as your primary "
+                                "power manager, please stop powersaved and restart PowerDevil service."));
+                        return;
+        }
+        else if (conn.interface()->isServiceRegistered( "org.kde.powerdevilsystem" ) ) {
+            initError(i18n("Another copy of PowerDevil has been detected. Probably another user is using it. "
+                    "This might lead to conflicts, so just a single copy is allowed to run."));
+                        return;
         }
 
         initView();
