@@ -639,9 +639,11 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile( bool forcereload )
      * object, so you don't have to delete it!!
      */
 
-    if ( forcereload || m_currentConfig->name() != m_currentProfile ) {
-        delete m_currentConfig;
-        m_currentConfig = 0;
+    if ( m_currentConfig ) { // This HAS to be kept, since m_currentConfig could be not valid!!
+        if ( forcereload || m_currentConfig->name() != m_currentProfile ) {
+            delete m_currentConfig;
+            m_currentConfig = 0;
+        }
     }
 
     if ( !m_currentConfig ) {
@@ -665,8 +667,9 @@ void PowerDevilDaemon::reloadProfile( int state )
     if ( !m_battery ) {
         setCurrentProfile( PowerDevilSettings::aCProfile() );
     } else {
-        if ( state == -1 )
+        if ( state == -1 ) {
             state = Solid::Control::PowerManager::acAdapterState();
+        }
 
         if ( state == Solid::Control::PowerManager::Plugged ) {
             setCurrentProfile( PowerDevilSettings::aCProfile() );
@@ -820,13 +823,13 @@ void PowerDevilDaemon::suspend( int method )
 {
     switch (( IdleAction ) method ) {
     case S2Disk:
-        suspendToDisk();
+        QTimer::singleShot( 100, this, SLOT( suspendToDisk() ) );
         break;
     case S2Ram:
-        suspendToRam();
+        QTimer::singleShot( 100, this, SLOT( suspendToRam() ) );
         break;
     case Standby:
-        standby();
+        QTimer::singleShot( 100, this, SLOT( standby() ) );
         break;
     default:
         break;
