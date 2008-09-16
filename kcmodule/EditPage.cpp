@@ -86,6 +86,11 @@ void EditPage::fillUi()
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
+    Solid::Control::PowerManager::BrightnessControlsList bControls =
+        Solid::Control::PowerManager::brightnessControlsAvailable();
+
+    brightnessSlider->setEnabled(bControls.values().contains(Solid::Control::PowerManager::Screen));
+
     if ( methods & Solid::Control::PowerManager::ToDisk ) {
         idleCombo->addItem( i18n( "Suspend to Disk" ), ( int ) S2Disk );
         laptopClosedCombo->addItem( i18n( "Suspend to Disk" ), ( int ) S2Disk );
