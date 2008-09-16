@@ -167,7 +167,7 @@ bool XSyncBasedPoller::x11Event( XEvent *event )
     alarmEvent = ( XSyncAlarmNotifyEvent * )event;
 
     if ( alarmEvent->alarm == m_timeoutAlarm ) {
-        /* Bling! Catched! */
+        /* Bling! Caught! */
         emit pollRequest( XSyncValueLow32( alarmEvent->counter_value ) / 1000 );
         return false;
     } else if ( alarmEvent->alarm == m_resetAlarm ) {
