@@ -736,28 +736,7 @@ void PowerDevilDaemon::setProfile( const QString & profile )
 
 void PowerDevilDaemon::reloadAndStream()
 {
-    if ( !m_battery ) {
-        setCurrentProfile( PowerDevilSettings::aCProfile() );
-        setACPlugged( true );
-
-        setBatteryPercent( 100 );
-    } else {
-        if ( Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged ) {
-            setCurrentProfile( PowerDevilSettings::aCProfile() );
-            setACPlugged( true );
-        } else if ( m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel() ) {
-            setCurrentProfile( PowerDevilSettings::warningProfile() );
-            setACPlugged( false );
-        } else if ( m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel() ) {
-            setCurrentProfile( PowerDevilSettings::lowProfile() );
-            setACPlugged( false );
-        } else {
-            setCurrentProfile( PowerDevilSettings::batteryProfile() );
-            setACPlugged( false );
-        }
-
-        setBatteryPercent( Solid::Control::PowerManager::batteryChargePercent() );
-    }
+    reloadProfile();
 
     setAvailableProfiles( m_profilesConfig->groupList() );
 
