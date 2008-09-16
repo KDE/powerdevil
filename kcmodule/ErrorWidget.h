@@ -17,43 +17,23 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef POWERDEVILKCM_H
-#define POWERDEVILKCM_H
+#ifndef ERRORWIDGET_H
+#define ERRORWIDGET_H
 
-#include <kcmodule.h>
-#include <QDBusConnection>
-#include <QPointer>
+#include <QWidget>
 
-class ConfigWidget;
-class QVBoxLayout;
-class ErrorWidget;
+#include "ui_error.h"
 
-class PowerDevilKCM : public KCModule
+class ErrorWidget : public QWidget, private Ui_errorWidget
 {
-        Q_OBJECT
+    Q_OBJECT
 
     public:
-        PowerDevilKCM( QWidget *parent, const QVariantList &args );
+        ErrorWidget(QWidget *parent = 0);
+        virtual ~ErrorWidget();
 
-        void load();
-        void save();
-        void defaults();
-
-    private slots:
-        void streamToDBus();
-        void initModule();
-
-    private:
-        void initView();
-        void initError(const QString &error);
-        void unloadExistingWidgets();
-
-    private:
-        QVBoxLayout *m_layout;
-        QPointer<ConfigWidget> m_widget;
-        QPointer<ErrorWidget> m_error;
-
-        QDBusConnection m_dbus;
+        void setError(const QString &error);
+        QString error();
 };
 
-#endif /*POWERDEVILKCM_H*/
+#endif /* ERRORWIDGET_H_ */

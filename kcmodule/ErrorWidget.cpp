@@ -17,43 +17,30 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef POWERDEVILKCM_H
-#define POWERDEVILKCM_H
+#include "ErrorWidget.h"
 
-#include <kcmodule.h>
-#include <QDBusConnection>
-#include <QPointer>
+#include <KIcon>
 
-class ConfigWidget;
-class QVBoxLayout;
-class ErrorWidget;
-
-class PowerDevilKCM : public KCModule
+ErrorWidget::ErrorWidget(QWidget *parent)
+ : QWidget(parent)
 {
-        Q_OBJECT
+    setupUi(this);
 
-    public:
-        PowerDevilKCM( QWidget *parent, const QVariantList &args );
+    warningLabel->setPixmap(KIcon("dialog-warning").pixmap(128,128));
+}
 
-        void load();
-        void save();
-        void defaults();
+ErrorWidget::~ErrorWidget()
+{
+}
 
-    private slots:
-        void streamToDBus();
-        void initModule();
+void ErrorWidget::setError(const QString &error)
+{
+    detailsLabel->setText(error);
+}
 
-    private:
-        void initView();
-        void initError(const QString &error);
-        void unloadExistingWidgets();
+QString ErrorWidget::error()
+{
+    return detailsLabel->text();
+}
 
-    private:
-        QVBoxLayout *m_layout;
-        QPointer<ConfigWidget> m_widget;
-        QPointer<ErrorWidget> m_error;
-
-        QDBusConnection m_dbus;
-};
-
-#endif /*POWERDEVILKCM_H*/
+#include "ErrorWidget.moc"

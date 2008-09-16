@@ -5,6 +5,7 @@ set( kcm_powerdevil_SRCS
      AssignmentPage.cpp
      EditPage.cpp
      CapabilitiesPage.cpp
+     ErrorWidget.cpp
 )
 
 kde4_add_ui_files(kcm_powerdevil_SRCS 
@@ -12,7 +13,8 @@ kde4_add_ui_files(kcm_powerdevil_SRCS
     generalPage.ui
     profileAssignmentPage.ui
     profileEditPage.ui
-    capabilitiesPage.ui)
+    capabilitiesPage.ui
+    error.ui)
 
 kde4_add_kcfg_files(kcm_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 

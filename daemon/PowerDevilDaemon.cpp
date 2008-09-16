@@ -85,23 +85,8 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
             conn.interface()->isServiceRegistered( "com.novell.powersave" ) ||
             conn.interface()->isServiceRegistered( "org.freedesktop.Policy.Power" ) ||
             conn.interface()->isServiceRegistered( "org.kde.powerdevilsystem" ) ) {
-        if ( KMessageBox::warningYesNo( 0, i18n( "Another power manager has been detected. "
-                                        "Do you want to start PowerDevil anyway? Please note this may lead to "
-                                        "conflicts and undefined behaviour." ),
-                                        i18n( "PowerDevil Startup" ) ) == KMessageBox::No ) {
-            KMessageBox::information( 0, i18n( "If you do not wish to use PowerDevil as your main power manager, "
-                                               "please consider disabling its service in systemsettings. This message "
-                                               "will not be shown again once PowerDevil has been disabled." ),
-                                      i18n( "PowerDevil" ) );
-
-            return;
-        } else {
-            KMessageBox::information( 0, i18n( "If you wish to use PowerDevil as your main power manager, please "
-                                               "consider disabling other power managers you have enabled on "
-                                               "this system. This message will not be shown again once all other "
-                                               "power managers have been disabled." ),
-                                      i18n( "PowerDevil" ) );
-        }
+        kError() << "PowerDevil not initialized, another power manager has been detected";
+        return;
     }
 
     m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
