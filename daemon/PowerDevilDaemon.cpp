@@ -161,8 +161,7 @@ PowerDevilDaemon::~PowerDevilDaemon()
     delete m_profilesConfig;
     delete m_displayManager;
 
-    if ( m_currentConfig )
-        delete m_currentConfig;
+    delete m_currentConfig;
 }
 
 void PowerDevilDaemon::setUpPollingSystem()
@@ -639,8 +638,6 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile( bool forcereload )
      * IMPORTANT!!! This class already handles deletion of the config
      * object, so you don't have to delete it!!
      */
-
-    bool reload = false;
 
     if ( forcereload || m_currentConfig->name() != m_currentProfile ) {
         delete m_currentConfig;
