@@ -1,6 +1,8 @@
 [Global]
 IconName=battery-charging-040
 Comment=PowerDevil
+Comment[nds]=Stroomdüvel
+Comment[sv]=Powerdevil
 Version=1
 
 [Context/warningnot]
@@ -72,6 +74,13 @@ Name[x-test]=xxWarningxx
 Name[zh_CN]=警告
 Name[zh_TW]=警告
 Comment=Used for warning notifications
+Comment[nds]=Bi Wohrschoen bruukt
+Comment[pt]=Usado para as notificações de aviso
+Comment[pt_BR]=Usado para as notificações de aviso
+Comment[sv]=Används för varningsmeddelanden
+Comment[tr]=Uyarı bildirimleri için kullanılır
+Comment[uk]=Використовується для попереджень
+Comment[zh_TW]=用於警告通知
 
 [Context/stdnot]
 Name=Notification
@@ -142,70 +151,205 @@ Name[x-test]=xxNotificationxx
 Name[zh_CN]=通知
 Name[zh_TW]=通知
 Comment=Used for standard notifications
+Comment[nds]=Bi Standardbescheden bruukt
+Comment[pt]=Usado para as notificações normais
+Comment[pt_BR]=Usado para as notificações normais
+Comment[sv]=Används för standardmeddelanden
+Comment[tr]=Standart bildirimler için kullanılır
+Comment[uk]=Використовується для звичайних сповіщень
+Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
+Name[nds]=Kritisch Bescheed
+Name[pt]=Notificação crítica
+Name[pt_BR]=Notificação crítica
+Name[sv]=Kritisk underrättelse
+Name[tr]=Kritik bildirim
+Name[uk]=Сповіщення про критичні події
+Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
+Comment[nds]=Gifft över en kritisch Begeefnis bescheed
+Comment[pt]=Notifica um evento crítico
+Comment[pt_BR]=Notifica um evento crítico
+Comment[sv]=Underrättar om en kritisk händelse
+Comment[uk]=Повідомляє про критичну подію
+Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Low Battery
+Name[nds]=Siet Batterie
+Name[pt]=Bateria Fraca
+Name[pt_BR]=Bateria Fraca
+Name[sv]=Låg batteriladdning
+Name[tr]=Düşük Pil Seviyesi
+Name[uk]=Заряд закінчується
+Name[zh_TW]=電池電力已低
 Comment=Your battery has reached low level
+Comment[nds]=Dien Batteriestoop is nu "Siet"
+Comment[pt]=A sua bateria atingiu um nível baixo
+Comment[pt_BR]=A sua bateria atingiu um nível baixo
+Comment[sv]=Batteriet har nått en låg nivå
+Comment[uk]=У вашому акумуляторі закінчується заряд
+Comment[zh_TW]=您的電池電力已達不足的程度
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
 Action=Sound|Popup
 
 [Event/warningbattery]
 Name=Battery at warning level
+Name[nds]=Batterie bi "Wohrscho"-Stoop
+Name[pt]=Bateria no nível de alerta
+Name[pt_BR]=Bateria no nível de alerta
+Name[sv]=Batteriet vid varningsnivå
+Name[uk]=Заряд акумулятора на низькому рівні
+Name[zh_TW]=電池電力已到警告區
 Comment=Your battery has reached warning level
+Comment[nds]=Dien Batterie is bi de Wohrscho-Stoop ankamen
+Comment[pt]=A sua bateria atingiu um nível de alerta
+Comment[pt_BR]=A sua bateria atingiu um nível de alerta
+Comment[sv]=Batteriet har nått varningsnivå
+Comment[uk]=У вашому акумуляторі заряд досягнув низького рівня
+Comment[zh_TW]=您的電池電力已達警告的程度
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
 Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
+Name[nds]=Batterie bi Stoop "Kritisch"
+Name[pt]=Bateria no nível crítico
+Name[pt_BR]=Bateria no nível crítico
+Name[sv]=Batteriet vid kritisk nivå
+Name[uk]=Заряд на критичному рівні
+Name[zh_TW]=電池電力已到嚴重警告區
 Comment=Your battery has reached critical level
+Comment[nds]=Dien Batterie is bi de Stoop "Kritisch" anlangt
+Comment[pt]=A sua bateria atingiu um nível crítico
+Comment[pt_BR]=A sua bateria atingiu um nível crítico
+Comment[sv]=Batteriet har nått kritisk nivå
+Comment[uk]=У вашому акумуляторі заряд досягнув критичного рівня
+Comment[zh_TW]=電池電力已到嚴重警告區
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[nds]=Stroomkavel tokoppelt
+Name[pt]=Ligado à corrente
+Name[pt_BR]=Ligado à corrente
+Name[sv]=Nätadapter inkopplad
+Name[tr]=AC adaptörünün fişi takıldı
+Name[uk]=Увімкнено живлення від мережі
+Name[zh_TW]=AC 電源已插入
 Comment=The power adaptor has been plugged in
+Comment[nds]=Dat Stroomkavel wöör tokoppelt
+Comment[pt]=O computador foi ligado à corrente
+Comment[pt_BR]=O computador foi ligado à corrente
+Comment[sv]=Nätadaptern har kopplats in
+Comment[tr]=Güç adaptörünün fişi takıldı
+Comment[uk]=Було увімкнено живлення від мережі
+Comment[zh_TW]=市電電源已插上
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
 Action=Sound|Popup
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[nds]=Stroomkavel ruttrocken
+Name[pt]=Desligado da corrente
+Name[pt_BR]=Desligado da corrente
+Name[sv]=Nätadapter frånkopplad
+Name[tr]=AC adaptörünün fişi çekildi
+Name[uk]=Вимкнено живлення від мережі
+Name[zh_TW]=AC 電源已拔除
 Comment=The power adaptor has been unplugged
+Comment[nds]=Dat Stroomkavel wöör ruttrocken
+Comment[pt]=O computador foi desligado da corrente
+Comment[pt_BR]=O computador foi desligado da corrente
+Comment[sv]=Nätadaptern har kopplats från
+Comment[tr]=Güç adaptörünün fişi çekildi
+Comment[uk]=Було вимкнено живлення від мережі
+Comment[zh_TW]=市電電源已拔除
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Action=Sound|Popup
 
 [Event/joberror]
 Name=Job error
+Name[nds]=Opgaav-Fehler
+Name[pt]=Erro na tarefa
+Name[pt_BR]=Erro na tarefa
+Name[sv]=Jobbfel
+Name[uk]=Помилка виконання
+Name[zh_TW]=工作錯誤
 Comment=There was an error while performing a job
+Comment[nds]=Dat geev en Fehler binnen en Opgaav
+Comment[pt]=Ocorreu um erro ao efectuar uma tarefa
+Comment[pt_BR]=Ocorreu um erro ao efectuar uma tarefa
+Comment[sv]=Ett fel uppstod när ett jobb utfördes
+Comment[tr]=Bir görev yapılırken bir hata oluştu
+Comment[uk]=Під час виконання завдання сталася помилка
+Comment[zh_TW]=執行工作時發生錯誤
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
 
 [Event/profileset]
 Name=Profile Changed
+Name[nds]=Profil ännert
+Name[pt]=Mudança no Perfil
+Name[pt_BR]=Mudança no Perfil
+Name[sv]=Profil ändrad
+Name[uk]=Змінений профіль
+Name[zh_TW]=設定檔已變更
 Comment=The profile was changed
+Comment[nds]=Du hest dat Profil ännert
+Comment[pt]=O perfil foi alterado
+Comment[pt_BR]=O perfil foi alterado
+Comment[sv]=Profilen har ändrats
+Comment[uk]=Профіль було змінено
+Comment[zh_TW]=設定檔已變更
 Contexts=stdnot
 Sound=KDE-Sys-App-Message.ogg
 Action=Sound|Popup
 
 [Event/doingjob]
 Name=Doing a Job
+Name[nds]=Opgaav warrt utföhrt
+Name[pt]=A Efectuar uma Tarefa
+Name[pt_BR]=A Efectuar uma Tarefa
+Name[sv]=Utför ett jobb
+Name[uk]=Виконується завдання
+Name[zh_TW]=執行工作中
 Comment=Something is ongoing
+Comment[nds]=Dor geiht wat vör sik
+Comment[pt]=Está algo em curso
+Comment[pt_BR]=Está algo em curso
+Comment[sv]=Någonting pågår
+Comment[uk]=Щось відбувається
+Comment[zh_TW]=某些事正在發生中
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Action=Sound|Popup
 
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error
+Name[nds]=Intern Fehler binnen Stroomdüvel
+Name[pt]=Erro Interno do PowerDevil
+Name[pt_BR]=Erro Interno do PowerDevil
+Name[sv]=Internt fel i Powerdevil
+Name[tr]=PowerDevil İç Hatası
+Name[uk]=Внутрішня помилка PowerDevil
+Name[zh_TW]=PowerDevil 內部錯誤
 Comment=PowerDevil has triggered an internal error
+Comment[nds]=De Stroomdüvel hett en intern Fehler hatt
+Comment[pt]=O PowerDevil originou um erro interno
+Comment[pt_BR]=O PowerDevil originou um erro interno
+Comment[sv]=Powerdevil har orsakat ett internt fel
+Comment[uk]=У PowerDevil сталася внутрішня помилка
+Comment[zh_TW]=PowerDevil 觸發了一個內部錯誤
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
