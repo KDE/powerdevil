@@ -474,21 +474,13 @@ void EditPage::importProfiles()
         return;
     }
 
-    KConfig toImport( fileName, KConfig::SimpleConfig );
+    KConfig *toImport = new KConfig( fileName, KConfig::SimpleConfig );
 
-    // FIXME: This should be the correct way, but why it doesn't work?
-    /*foreach(const QString &ent, toImport.groupList()) {
-        KConfigGroup group = toImport.group(ent);
+    foreach(const QString &ent, toImport->groupList()) {
+        KConfigGroup *group = new KConfigGroup(toImport, ent);
+        KConfigGroup *group2 = new KConfigGroup(m_profilesConfig, ent);
 
-        group.copyTo(m_profilesConfig);
-    }*/
-
-    // FIXME: This way works, but the import file gets cleared, definitely not what we want
-    foreach( const QString &ent, toImport.groupList() ) {
-        KConfigGroup group = toImport.group( ent );
-        KConfigGroup group2( group );
-
-        group2.reparent( m_profilesConfig );
+        group->copyTo(group2);
     }
 
     m_profilesConfig->sync();
