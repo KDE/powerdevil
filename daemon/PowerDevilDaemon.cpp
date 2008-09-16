@@ -642,15 +642,12 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile( bool forcereload )
 
     bool reload = false;
 
-    if ( !m_currentConfig ) {
-        reload = true;
-    } else if ( forcereload || m_currentConfig->name() != m_currentProfile ) {
+    if ( forcereload || m_currentConfig->name() != m_currentProfile ) {
         delete m_currentConfig;
         m_currentConfig = 0;
-        reload = true;
     }
 
-    if ( reload ) {
+    if ( !m_currentConfig ) {
         m_currentConfig = new KConfigGroup( m_profilesConfig, m_currentProfile );
     }
 
