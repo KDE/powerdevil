@@ -477,10 +477,13 @@ void EditPage::importProfiles()
     KConfig *toImport = new KConfig( fileName, KConfig::SimpleConfig );
 
     foreach(const QString &ent, toImport->groupList()) {
-        KConfigGroup *group = new KConfigGroup(toImport, ent);
-        KConfigGroup *group2 = new KConfigGroup(m_profilesConfig, ent);
+        KConfigGroup *copyFrom = new KConfigGroup(toImport, ent);
+        KConfigGroup *copyTo = new KConfigGroup(m_profilesConfig, ent);
 
-        group->copyTo(group2);
+        copyFrom->copyTo(copyTo);
+
+        delete copyFrom;
+        delete copyTo;
     }
 
     m_profilesConfig->sync();
