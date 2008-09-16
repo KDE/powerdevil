@@ -22,13 +22,17 @@
 
 #include "AbstractSystemPoller.h"
 
+#include <config-X11.h>
+
 #include <KApplication>
 #include <KDebug>
 #include <QDataStream>
 #include <QWidget>
 
+#ifdef HAVE_XSYNC
 #include <X11/Xlib.h>
 #include <X11/extensions/sync.h>
+#endif
 
 class XSyncBasedPoller : public AbstractSystemPoller
 {
@@ -64,17 +68,21 @@ class XSyncBasedPoller : public AbstractSystemPoller
         void resumingFromIdle();
         void pollRequest( int idleTime );
 
+#ifdef HAVE_XSYNC
     private:
         void setAlarm( Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
                        XSyncTestType test, XSyncValue value );
+#endif
 
     private:
+#ifdef HAVE_XSYNC
         Display * m_display;
         int                 m_sync_event, m_sync_error;
         XSyncSystemCounter  *m_counters;
         XSyncCounter        m_idleCounter;
         XSyncAlarm          m_timeoutAlarm;
         XSyncAlarm          m_resetAlarm;
+#endif
         QWidget * m_filterWidget;
 };
 

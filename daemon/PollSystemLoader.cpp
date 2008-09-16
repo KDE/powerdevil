@@ -109,11 +109,11 @@ bool PollSystemLoader::loadSystem( AbstractSystemPoller::PollingType type )
     case AbstractSystemPoller::WidgetBased:
         m_poller = new WidgetBasedPoller( this );
         break;
+    case AbstractSystemPoller::TimerBased:
+            m_poller = new TimerBasedPoller( this );
+            break;
     case AbstractSystemPoller::XSyncBased:
         m_poller = new XSyncBasedPoller( this );
-        break;
-    case AbstractSystemPoller::TimerBased:
-        m_poller = new TimerBasedPoller( this );
         break;
     default:
         return false;

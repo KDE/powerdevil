@@ -42,7 +42,11 @@ QString TimerBasedPoller::name()
 
 bool TimerBasedPoller::isAvailable()
 {
+#ifdef HAVE_XSCREENSAVER
     return true;
+#else
+    return false;
+#endif
 }
 
 bool TimerBasedPoller::setUpPoller()
@@ -70,8 +74,10 @@ void TimerBasedPoller::forcePollRequest()
 }
 
 ///HACK yucky
+#ifdef HAVE_XSCREENSAVER
 #include <X11/extensions/scrnsaver.h>
 #include <QX11Info>
+#endif
 
 void TimerBasedPoller::poll()
 {
@@ -83,11 +89,16 @@ void TimerBasedPoller::poll()
      */
     /// In the meanwhile, this X11 hackish way gets its job done.
     //----------------------------------------------------------
+
+    int idle = 0;
+
+#ifdef HAVE_XSCREENSAVER
     XScreenSaverInfo * mitInfo = 0;
     mitInfo = XScreenSaverAllocInfo();
     XScreenSaverQueryInfo( QX11Info::display(), DefaultRootWindow( QX11Info::display() ), mitInfo );
-    int idle = mitInfo->idle / 1000;
+    idle = mitInfo->idle / 1000;
     //----------------------------------------------------------
+#endif
 
     if ( m_lastIdleTime > idle && m_catchingIdle ) {
         // Hey, a wakeup!

@@ -42,8 +42,11 @@ QString WidgetBasedPoller::name()
 
 bool WidgetBasedPoller::isAvailable()
 {
-    // We suppose this is always available
+#ifdef HAVE_XSCREENSAVER
     return true;
+#else
+    return false;
+#endif
 }
 
 bool WidgetBasedPoller::setUpPoller()
@@ -132,8 +135,9 @@ void WidgetBasedPoller::releaseInputLock()
     m_grabber->hide();
 }
 
-///HACK yucky
+#ifdef HAVE_XSCREENSAVER
 #include <X11/extensions/scrnsaver.h>
+#endif
 
 void WidgetBasedPoller::poll()
 {
@@ -145,11 +149,16 @@ void WidgetBasedPoller::poll()
      */
     /// In the meanwhile, this X11 hackish way gets its job done.
     //----------------------------------------------------------
+
+    int idle = 0;
+
+#ifdef HAVE_XSCREENSAVER
     XScreenSaverInfo * mitInfo = 0;
     mitInfo = XScreenSaverAllocInfo();
     XScreenSaverQueryInfo( QX11Info::display(), DefaultRootWindow( QX11Info::display() ), mitInfo );
-    int idle = mitInfo->idle / 1000;
+    idle = mitInfo->idle / 1000;
     //----------------------------------------------------------
+#endif
 
     emit pollRequest( idle );
 }

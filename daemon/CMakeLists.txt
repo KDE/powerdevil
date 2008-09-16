@@ -24,9 +24,15 @@ target_link_libraries(kded_powerdevil
     ${KDE4_KDEUI_LIBS}
     solidcontrol
     kworkspace
-    ${X11_Xscreensaver_LIB}
-    ${X11_Xext_LIB}
 )
+
+if(X11_Xss_LIB)
+  target_link_libraries(kded_powerdevil ${X11_Xss_LIB})
+endif(X11_Xss_LIB)
+
+if(X11_Xext_LIB)
+  target_link_libraries(kded_powerdevil ${X11_Xext_LIB})
+endif(X11_Xext_LIB)
 
 install( TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR} )
 

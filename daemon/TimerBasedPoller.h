@@ -22,6 +22,8 @@
 
 #include "AbstractSystemPoller.h"
 
+#include <config-X11.h>
+
 #include <QTimer>
 
 class TimerBasedPoller : public AbstractSystemPoller
