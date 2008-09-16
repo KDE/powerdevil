@@ -77,7 +77,7 @@ PowerDevilKCM::PowerDevilKCM( QWidget *parent, const QVariantList & ) :
 
 void PowerDevilKCM::initModule()
 {
-    QDBusInterface iface( "org.kde.kded", "/modules/powerdevil", "org.kde.PowerDevil", m_dbus );
+    QDBusInterface iface( "org.kde.kded", "/modules/powerdevil" );
 
     if (iface.isValid())
     {
