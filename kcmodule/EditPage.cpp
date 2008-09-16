@@ -89,7 +89,7 @@ void EditPage::fillUi()
     Solid::Control::PowerManager::BrightnessControlsList bControls =
         Solid::Control::PowerManager::brightnessControlsAvailable();
 
-    brightnessSlider->setEnabled(bControls.values().contains(Solid::Control::PowerManager::Screen));
+    brightnessSlider->setEnabled( bControls.values().contains( Solid::Control::PowerManager::Screen ) );
 
     if ( methods & Solid::Control::PowerManager::ToDisk ) {
         idleCombo->addItem( i18n( "Suspend to Disk" ), ( int ) S2Disk );
@@ -481,11 +481,11 @@ void EditPage::importProfiles()
 
     KConfig toImport( fileName, KConfig::SimpleConfig );
 
-    foreach(const QString &ent, toImport.groupList()) {
-        KConfigGroup copyFrom(&toImport, ent);
-        KConfigGroup copyTo(m_profilesConfig, ent);
+    foreach( const QString &ent, toImport.groupList() ) {
+        KConfigGroup copyFrom( &toImport, ent );
+        KConfigGroup copyTo( m_profilesConfig, ent );
 
-        copyFrom.copyTo(&copyTo);
+        copyFrom.copyTo( &copyTo );
     }
 
     m_profilesConfig->sync();

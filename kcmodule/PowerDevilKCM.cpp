@@ -79,36 +79,31 @@ void PowerDevilKCM::initModule()
 {
     QDBusInterface iface( "org.kde.kded", "/modules/powerdevil" );
 
-    if (iface.isValid())
-    {
+    if ( iface.isValid() ) {
         QDBusConnection conn = QDBusConnection::systemBus();
 
         if ( conn.interface()->isServiceRegistered( "org.freedesktop.PowerManagement" ) ||
                 conn.interface()->isServiceRegistered( "org.freedesktop.Policy.Power" ) ) {
-            initError(i18n("Another power manager has been detected. PowerDevil will not start if "
-                    "other power managers are active. If you want to use PowerDevil as your primary "
-                    "power manager, please remove the existing one and restart PowerDevil service."));
+            initError( i18n( "Another power manager has been detected. PowerDevil will not start if "
+                             "other power managers are active. If you want to use PowerDevil as your primary "
+                             "power manager, please remove the existing one and restart PowerDevil service." ) );
             return;
-        }
-        else if (conn.interface()->isServiceRegistered( "com.novell.powersave" )) {
-            initError(i18n("It seems powersaved is running on this system. PowerDevil will not start if "
-                                "other power managers are active. If you want to use PowerDevil as your primary "
-                                "power manager, please stop powersaved and restart PowerDevil service."));
-                        return;
-        }
-        else if (conn.interface()->isServiceRegistered( "org.kde.powerdevilsystem" ) ) {
-            initError(i18n("Another copy of PowerDevil has been detected. Probably another user is using it. "
-                    "This might lead to conflicts, so just a single copy is allowed to run."));
-                        return;
+        } else if ( conn.interface()->isServiceRegistered( "com.novell.powersave" ) ) {
+            initError( i18n( "It seems powersaved is running on this system. PowerDevil will not start if "
+                             "other power managers are active. If you want to use PowerDevil as your primary "
+                             "power manager, please stop powersaved and restart PowerDevil service." ) );
+            return;
+        } else if ( conn.interface()->isServiceRegistered( "org.kde.powerdevilsystem" ) ) {
+            initError( i18n( "Another copy of PowerDevil has been detected. Probably another user is using it. "
+                             "This might lead to conflicts, so just a single copy is allowed to run." ) );
+            return;
         }
 
         initView();
         return;
-    }
-    else
-    {
-        initError(i18n("PowerDevil seems not to be started. Either you have its service turned off, "
-                "or there is a problem in DBus."));
+    } else {
+        initError( i18n( "PowerDevil seems not to be started. Either you have its service turned off, "
+                         "or there is a problem in DBus." ) );
         return;
     }
 }
@@ -125,43 +120,40 @@ void PowerDevilKCM::initView()
     connect( m_widget, SIGNAL( profilesChanged() ), SLOT( streamToDBus() ) );
 }
 
-void PowerDevilKCM::initError(const QString &error)
+void PowerDevilKCM::initError( const QString &error )
 {
     unloadExistingWidgets();
 
     m_error = new ErrorWidget( this );
     m_layout->addWidget( m_error );
 
-    m_error->setError(error);
+    m_error->setError( error );
 }
 
 void PowerDevilKCM::unloadExistingWidgets()
 {
-    if (m_widget) {
+    if ( m_widget ) {
         m_widget->deleteLater();
     }
 
-    if(m_error)
-    {
+    if ( m_error ) {
         m_error->deleteLater();
     }
 }
 
 void PowerDevilKCM::load()
 {
-    if (m_widget)
-    {
-    m_widget->load();
+    if ( m_widget ) {
+        m_widget->load();
     }
 }
 
 void PowerDevilKCM::save()
 {
-    if (m_widget)
-    {
-    m_widget->save();
+    if ( m_widget ) {
+        m_widget->save();
 
-    streamToDBus();
+        streamToDBus();
     }
 }
 

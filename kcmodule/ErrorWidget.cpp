@@ -21,21 +21,21 @@
 
 #include <KIcon>
 
-ErrorWidget::ErrorWidget(QWidget *parent)
- : QWidget(parent)
+ErrorWidget::ErrorWidget( QWidget *parent )
+        : QWidget( parent )
 {
-    setupUi(this);
+    setupUi( this );
 
-    warningLabel->setPixmap(KIcon("dialog-warning").pixmap(128,128));
+    warningLabel->setPixmap( KIcon( "dialog-warning" ).pixmap( 128, 128 ) );
 }
 
 ErrorWidget::~ErrorWidget()
 {
 }
 
-void ErrorWidget::setError(const QString &error)
+void ErrorWidget::setError( const QString &error )
 {
-    detailsLabel->setText(error);
+    detailsLabel->setText( error );
 }
 
 QString ErrorWidget::error()

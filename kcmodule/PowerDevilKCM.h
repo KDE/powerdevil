@@ -45,7 +45,7 @@ class PowerDevilKCM : public KCModule
 
     private:
         void initView();
-        void initError(const QString &error);
+        void initError( const QString &error );
         void unloadExistingWidgets();
 
     private:

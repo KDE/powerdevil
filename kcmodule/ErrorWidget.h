@@ -26,13 +26,13 @@
 
 class ErrorWidget : public QWidget, private Ui_errorWidget
 {
-    Q_OBJECT
+        Q_OBJECT
 
     public:
-        ErrorWidget(QWidget *parent = 0);
+        ErrorWidget( QWidget *parent = 0 );
         virtual ~ErrorWidget();
 
-        void setError(const QString &error);
+        void setError( const QString &error );
         QString error();
 };
 
