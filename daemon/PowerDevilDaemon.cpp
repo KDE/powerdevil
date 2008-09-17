@@ -89,7 +89,7 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
         return;
     }
 
-    m_profilesConfig = m_applicationData.config();
+    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
     setAvailableProfiles( m_profilesConfig->groupList() );
 
     /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
@@ -158,6 +158,7 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
+    delete m_profilesConfig;
     delete m_displayManager;
 
     delete m_currentConfig;

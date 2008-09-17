@@ -134,7 +134,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         QWidget * m_grabber;
 
         KComponentData m_applicationData;
-        KSharedConfig::Ptr m_profilesConfig;
+        KConfig * m_profilesConfig;
         KConfigGroup * m_currentConfig;
         PollSystemLoader * m_pollLoader;
 
