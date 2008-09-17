@@ -59,7 +59,6 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
         m_notifier( Solid::Control::PowerManager::notifier() ),
         m_battery( 0 ),
         m_displayManager( new KDisplayManager() ),
-        m_profilesConfig( "powerdevilprofilesrc", KConfig::SimpleConfig ),
         m_currentConfig( 0 ),
         m_pollLoader( new PollSystemLoader( this ) )
 {
@@ -90,7 +89,8 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
         return;
     }
 
-    setAvailableProfiles( m_profilesConfig.groupList() );
+    m_profilesConfig = KSharedConfig::openConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    setAvailableProfiles( m_profilesConfig->groupList() );
 
     /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
      * also on system without batteries. Most of modern desktop systems support CPU scaling,
@@ -216,7 +216,7 @@ void PowerDevilDaemon::refreshStatus()
      * let's resync it.
      */
     PowerDevilSettings::self()->readConfig();
-    m_profilesConfig.reparseConfiguration();
+    m_profilesConfig->reparseConfiguration();
 
     reloadProfile();
 
@@ -650,7 +650,7 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile( bool forcereload )
     }
 
     if ( !m_currentConfig ) {
-        m_currentConfig = new KConfigGroup( &m_profilesConfig, m_currentProfile );
+        m_currentConfig = new KConfigGroup( m_profilesConfig, m_currentProfile );
     }
 
     if ( !m_currentConfig->isValid() || !m_currentConfig->entryMap().size() ) {
@@ -697,7 +697,7 @@ void PowerDevilDaemon::reloadProfile( int state )
              * performance profile
              */
 
-            KConfigGroup * performance = new KConfigGroup( &m_profilesConfig, "Performance" );
+            KConfigGroup * performance = new KConfigGroup( m_profilesConfig, "Performance" );
 
             performance->writeEntry( "brightness", 100 );
             performance->writeEntry( "cpuPolicy", ( int ) Solid::Control::PowerManager::Performance );
@@ -711,7 +711,7 @@ void PowerDevilDaemon::reloadProfile( int state )
 
             delete performance;
 
-            setAvailableProfiles( m_profilesConfig.groupList() );
+            setAvailableProfiles( m_profilesConfig->groupList() );
 
             setCurrentProfile( m_availableProfiles.at( 0 ) );
         }
@@ -744,7 +744,7 @@ void PowerDevilDaemon::reloadAndStream()
 {
     reloadProfile();
 
-    setAvailableProfiles( m_profilesConfig.groupList() );
+    setAvailableProfiles( m_profilesConfig->groupList() );
 
     streamData();
 

@@ -44,14 +44,13 @@ AssignmentPage::AssignmentPage( QWidget *parent )
 {
     setupUi( this );
 
-    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = KSharedConfig::openConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
 
     fillUi();
 }
 
 AssignmentPage::~AssignmentPage()
 {
-    delete m_profilesConfig;
 }
 
 void AssignmentPage::fillUi()

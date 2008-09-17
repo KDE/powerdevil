@@ -70,7 +70,7 @@ class EditPage : public QWidget, private Ui_profileEditPage
             None = 0
         };
 
-        KConfig *m_profilesConfig;
+        KSharedConfig::Ptr m_profilesConfig;
         bool m_profileEdited;
 };
 

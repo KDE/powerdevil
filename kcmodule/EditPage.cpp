@@ -45,7 +45,7 @@ EditPage::EditPage( QWidget *parent )
 {
     setupUi( this );
 
-    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = KSharedConfig::openConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
 
     if ( m_profilesConfig->groupList().isEmpty() ) {
         // Let's add some basic profiles, huh?
@@ -72,7 +72,6 @@ EditPage::EditPage( QWidget *parent )
 
 EditPage::~EditPage()
 {
-    delete m_profilesConfig;
 }
 
 void EditPage::fillUi()
@@ -340,10 +339,6 @@ void EditPage::deleteCurrentProfile()
     m_profilesConfig->deleteGroup( profilesList->currentItem()->text() );
 
     m_profilesConfig->sync();
-
-    delete m_profilesConfig;
-
-    m_profilesConfig = new KConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
 
     reloadAvailableProfiles();
 

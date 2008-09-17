@@ -46,7 +46,7 @@ class AssignmentPage : public QWidget, private Ui_profileAssignmentPage
 
     private:
 
-        KConfig *m_profilesConfig;
+        KSharedConfig::Ptr m_profilesConfig;
         bool m_profileEdited;
 };
 
