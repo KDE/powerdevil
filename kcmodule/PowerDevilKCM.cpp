@@ -93,10 +93,6 @@ void PowerDevilKCM::initModule()
                              "other power managers are active. If you want to use PowerDevil as your primary "
                              "power manager, please stop powersaved and restart PowerDevil service." ) );
             return;
-        } else if ( conn.interface()->isServiceRegistered( "org.kde.powerdevilsystem" ) ) {
-            initError( i18n( "Another copy of PowerDevil has been detected. Probably another user is using it. "
-                             "This might lead to conflicts, so just a single copy is allowed to run." ) );
-            return;
         }
 
         initView();
