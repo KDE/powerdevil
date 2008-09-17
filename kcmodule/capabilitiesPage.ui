@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>319</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -19,6 +19,9 @@
       <string>System Capabilities</string>
      </property>
      <layout class="QFormLayout" name="formLayout_7" >
+      <property name="fieldGrowthPolicy" >
+       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+      </property>
       <property name="horizontalSpacing" >
        <number>10</number>
       </property>
@@ -159,6 +162,58 @@
          <string/>
         </property>
        </widget>
+      </item>
+      <item row="10" column="0" >
+       <widget class="Line" name="line" >
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0" >
+       <widget class="QLabel" name="label" >
+        <property name="text" >
+         <string>XSync Support</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0" >
+       <widget class="QLabel" name="label_2" >
+        <property name="text" >
+         <string>XScreenSaver Support</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0" >
+       <widget class="QLabel" name="label_3" >
+        <property name="text" >
+         <string>Status</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="0" >
+       <widget class="Line" name="line_4" >
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1" >
+       <widget class="QLabel" name="xsyncSupport" >
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1" >
+       <widget class="QLabel" name="xssSupport" >
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="1" >
+       <layout class="QVBoxLayout" name="statusLayout" />
       </item>
      </layout>
     </widget>

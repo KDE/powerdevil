@@ -30,4 +30,6 @@
 /* Defines the Version */
 #define POWERDEVIL_VERSION "0.9.0 (Beta)"
 
+#cmakedefine HAVE_XSCREENSAVER 1
+
 #endif /*CONFIGPOWERDEVIL_H*/

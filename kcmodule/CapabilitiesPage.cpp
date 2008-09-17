@@ -21,6 +21,9 @@
 
 #include "PowerDevilSettings.h"
 
+#include <config-X11.h>
+#include <config-powerdevil.h>
+
 #include <solid/control/powermanager.h>
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
@@ -30,14 +33,8 @@
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
 
-#include <KConfigGroup>
-#include <KLineEdit>
-#include <QCheckBox>
 #include <QFormLayout>
-#include <KDialog>
-#include <KFileDialog>
-#include <KMessageBox>
-#include <KIconButton>
+#include <KPushButton>
 
 CapabilitiesPage::CapabilitiesPage( QWidget *parent )
         : QWidget( parent )
@@ -52,6 +49,10 @@ CapabilitiesPage::~CapabilitiesPage()
 }
 
 void CapabilitiesPage::fillUi()
+{
+}
+
+void CapabilitiesPage::load()
 {
     fillCapabilities();
 }
@@ -169,6 +170,119 @@ void CapabilitiesPage::fillCapabilities()
     }
 
     supportedSchemes->setText( schemes );
+
+    bool xss = false;
+    bool xsync = false;
+
+#ifdef HAVE_XSCREENSAVER
+    xss = true;
+#endif
+
+#ifdef HAVE_XSYNC
+    xsync = true;
+#endif
+
+    if ( xss ) {
+        xssSupport->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    } else {
+        xssSupport->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+    }
+
+    if ( xsync ) {
+        xsyncSupport->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    } else {
+        xsyncSupport->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+    }
+
+    // Determine status!
+
+    foreach( QObject *ent, statusLayout->children() ) {
+        ent->deleteLater();
+    }
+
+    QLabel *pm = new QLabel( this );
+    QLabel *tx = new QLabel( this );
+    QHBoxLayout *ly = new QHBoxLayout();
+
+    pm->setMaximumWidth( 30 );
+    tx->setScaledContents( true );
+    tx->setWordWrap( true );
+
+    ly->addWidget( pm );
+    ly->addWidget( tx );
+
+    if ( !xss & !xsync ) {
+        pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
+        tx->setText( i18n( "PowerDevil was compiled without Xss and Xext support, or the XSync "
+                           "extension is not available. Determining idle time will not be possible. "
+                           "Please consider recompiling PowerDevil with at least one of these two "
+                           "libraries." ) );
+        emit issuesFound( true );
+    } else if ( !xsync ) {
+        pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
+        tx->setText( i18n( "PowerDevil was compiled without Xext support, or the XSync extension is "
+                           "not available. XSync grants extra efficiency and performance, saving your "
+                           "battery and CPU. It is advised to use PowerDevil with XSync enabled." ) );
+        emit issuesFound( true );
+    } else if ( PowerDevilSettings::pollingSystem() != 2 ) {
+
+        QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded",
+                           "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems" );
+        QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call( msg );
+
+        bool found = false;
+
+        foreach( const QVariant &ent, systems.value().values() ) {
+            if ( ent.toInt() == 2 ) {
+                found = true;
+            }
+        }
+
+        if ( !found ) {
+            pm->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+            tx->setText( i18n( "No issues found with your configuration." ) );
+            emit issuesFound( false );
+        } else {
+            pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
+            tx->setText( i18n( "XSync does not seem your preferred query backend, though it is available "
+                               "on your system. Using it largely improves performance and efficiency, and "
+                               "it is strongly advised. Click on the button below to enable it now." ) );
+
+            KPushButton *but = new KPushButton( this );
+
+            but->setText( i18n( "Enable XSync Backend" ) );
+            but->setIcon( KIcon( "dialog-ok-apply" ) );
+
+            ly->removeWidget( tx );
+
+            QVBoxLayout *vl = new QVBoxLayout();
+
+            vl->addWidget( tx );
+            vl->addWidget( but );
+
+            ly->addLayout( vl );
+
+            connect( but, SIGNAL( clicked() ), SLOT( enableXSync() ) );
+
+            emit issuesFound( true );
+        }
+    } else {
+        pm->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+        tx->setText( i18n( "No issues found with your configuration." ) );
+        emit issuesFound( false );
+    }
+
+    statusLayout->addLayout( ly );
+}
+
+void CapabilitiesPage::enableXSync()
+{
+    PowerDevilSettings::setPollingSystem( 2 );
+
+    PowerDevilSettings::self()->writeConfig();
+
+    emit reload();
+    emit reloadModule();
 }
 
 #include "CapabilitiesPage.moc"

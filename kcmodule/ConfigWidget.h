@@ -42,7 +42,8 @@ class ConfigWidget : public QWidget, private Ui_powerDevilConfig
 
     signals:
         void changed( bool change );
-        void profilesChanged();
+        void reloadRequest();
+        void reloadModule();
 
     private:
         GeneralPage *m_generalPage;

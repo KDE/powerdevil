@@ -31,10 +31,18 @@ class CapabilitiesPage : public QWidget, private Ui_capabilitiesPage
     public:
         CapabilitiesPage( QWidget *parent = 0 );
         ~CapabilitiesPage();
+
         void fillUi();
+        void load();
 
     private slots:
         void fillCapabilities();
+        void enableXSync();
+
+    signals:
+        void reload();
+        void reloadModule();
+        void issuesFound( bool enable );
 };
 
 #endif /* CAPABILITIESPAGE_H_ */

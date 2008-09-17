@@ -49,8 +49,12 @@ ConfigWidget::ConfigWidget( QWidget *parent )
     connect( m_assignmentPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
     connect( m_editPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
 
-    connect( m_editPage, SIGNAL( profilesChanged() ), SIGNAL( profilesChanged() ) );
+    connect( m_editPage, SIGNAL( profilesChanged() ), SIGNAL( reloadRequest() ) );
     connect( m_editPage, SIGNAL( profilesChanged() ), m_assignmentPage, SLOT( reloadAvailableProfiles() ) );
+
+    connect( m_capabilitiesPage, SIGNAL( reload() ), SIGNAL( reloadRequest() ) );
+    connect( m_capabilitiesPage, SIGNAL( reloadModule() ), SIGNAL( reloadModule() ) );
+    connect( m_capabilitiesPage, SIGNAL( issuesFound( bool ) ), m_generalPage, SLOT( enableIssue( bool ) ) );
 }
 
 ConfigWidget::~ConfigWidget()
@@ -62,6 +66,7 @@ void ConfigWidget::load()
     m_generalPage->load();
     m_assignmentPage->load();
     m_editPage->load();
+    m_capabilitiesPage->load();
 }
 
 void ConfigWidget::save()

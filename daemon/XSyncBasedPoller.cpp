@@ -26,10 +26,10 @@
 XSyncBasedPoller::XSyncBasedPoller( QObject *parent )
         : AbstractSystemPoller( parent )
 #ifdef HAVE_XSYNC
-        ,m_display( QX11Info::display() )
-        ,m_idleCounter( None )
-        ,m_timeoutAlarm( None )
-        ,m_resetAlarm( None )
+        , m_display( QX11Info::display() )
+        , m_idleCounter( None )
+        , m_timeoutAlarm( None )
+        , m_resetAlarm( None )
 #endif
 {
 }

@@ -53,6 +53,10 @@ GeneralPage::~GeneralPage()
 
 void GeneralPage::fillUi()
 {
+    issueIcon->setPixmap( KIcon( "dialog-warning" ).pixmap( 32, 32 ) );
+    issueIcon->setVisible( false );
+    issueText->setVisible( false );
+
     BatteryCriticalCombo->addItem( i18n( "Do nothing" ), ( int ) None );
     BatteryCriticalCombo->addItem( i18n( "Shutdown" ), ( int ) Shutdown );
 
@@ -140,6 +144,12 @@ void GeneralPage::emitChanged()
 void GeneralPage::enableBoxes()
 {
     dimOnIdleTime->setEnabled( dimDisplayOnIdle->isChecked() );
+}
+
+void GeneralPage::enableIssue( bool enable )
+{
+    issueIcon->setVisible( enable );
+    issueText->setVisible( enable );
 }
 
 #include "GeneralPage.moc"

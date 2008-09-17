@@ -43,6 +43,7 @@ class GeneralPage : public QWidget, private Ui_generalPage
         void emitChanged();
 
         void enableBoxes();
+        void enableIssue( bool enable );
 
     private:
         enum IdleAction {

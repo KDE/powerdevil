@@ -116,8 +116,8 @@ void PowerDevilKCM::initView()
     m_layout->addWidget( m_widget );
 
     connect( m_widget, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
-
-    connect( m_widget, SIGNAL( profilesChanged() ), SLOT( streamToDBus() ) );
+    connect( m_widget, SIGNAL( reloadRequest() ), SLOT( streamToDBus() ) );
+    connect( m_widget, SIGNAL( reloadModule() ), SLOT( load() ) );
 }
 
 void PowerDevilKCM::initError( const QString &error )

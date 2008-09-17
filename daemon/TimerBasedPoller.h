@@ -22,7 +22,7 @@
 
 #include "AbstractSystemPoller.h"
 
-#include <config-X11.h>
+#include <config-powerdevil.h>
 
 #include <QTimer>
 
