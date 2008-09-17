@@ -170,6 +170,8 @@ void PowerDevilDaemon::setUpPollingSystem()
 
     if ( !pList.contains(( AbstractSystemPoller::PollingType ) PowerDevilSettings::pollingSystem() ) ) {
         m_pollLoader->loadSystem( AbstractSystemPoller::TimerBased );
+        PowerDevilSettings::setPollingSystem((int) AbstractSystemPoller::TimerBased);
+        PowerDevilSettings::self()->writeConfig();
     } else {
         m_pollLoader->loadSystem(( AbstractSystemPoller::PollingType ) PowerDevilSettings::pollingSystem() );
     }
@@ -179,6 +181,8 @@ void PowerDevilDaemon::setUpPollingSystem()
         connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
     } else {
         m_pollLoader->loadSystem( AbstractSystemPoller::TimerBased );
+        PowerDevilSettings::setPollingSystem((int) AbstractSystemPoller::TimerBased);
+        PowerDevilSettings::self()->writeConfig();
         connect( m_pollLoader->poller(), SIGNAL( resumingFromIdle() ), SLOT( resumeFromIdle() ) );
         connect( m_pollLoader->poller(), SIGNAL( pollRequest( int ) ), SLOT( poll( int ) ) );
     }
