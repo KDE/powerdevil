@@ -74,6 +74,7 @@ Name[x-test]=xxWarningxx
 Name[zh_CN]=警告
 Name[zh_TW]=警告
 Comment=Used for warning notifications
+Comment[km]=បានប្រើ​សម្រាប់​ការ​ជូន​ព្រមាន
 Comment[nds]=Bi Wohrschoen bruukt
 Comment[pt]=Usado para as notificações de aviso
 Comment[pt_BR]=Usado para as notificações de aviso
@@ -151,6 +152,7 @@ Name[x-test]=xxNotificationxx
 Name[zh_CN]=通知
 Name[zh_TW]=通知
 Comment=Used for standard notifications
+Comment[km]=បាន​ប្រើ​សម្រាប់​ការ​ជូនដំណឹង​ស្តង់ដារ
 Comment[nds]=Bi Standardbescheden bruukt
 Comment[pt]=Usado para as notificações normais
 Comment[pt_BR]=Usado para as notificações normais
@@ -161,6 +163,7 @@ Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
+Name[km]=ការ​ជូន​ដំណឹង​សំខាន់
 Name[nds]=Kritisch Bescheed
 Name[pt]=Notificação crítica
 Name[pt_BR]=Notificação crítica
@@ -169,6 +172,7 @@ Name[tr]=Kritik bildirim
 Name[uk]=Сповіщення про критичні події
 Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
+Comment[km]=ជូនដំណឹង​ព្រត្តិការណ៍​សំខាន់
 Comment[nds]=Gifft över en kritisch Begeefnis bescheed
 Comment[pt]=Notifica um evento crítico
 Comment[pt_BR]=Notifica um evento crítico
@@ -178,6 +182,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Low Battery
+Name[km]=ថ្ម​ទាប
 Name[nds]=Siet Batterie
 Name[pt]=Bateria Fraca
 Name[pt_BR]=Bateria Fraca
@@ -186,6 +191,7 @@ Name[tr]=Düşük Pil Seviyesi
 Name[uk]=Заряд закінчується
 Name[zh_TW]=電池電力已低
 Comment=Your battery has reached low level
+Comment[km]=ថ្ម​របស់​​​អ្នក​បាន​ឈាន​ដល់​កម្រិត​ទាប
 Comment[nds]=Dien Batteriestoop is nu "Siet"
 Comment[pt]=A sua bateria atingiu um nível baixo
 Comment[pt_BR]=A sua bateria atingiu um nível baixo
@@ -198,6 +204,7 @@ Action=Sound|Popup
 
 [Event/warningbattery]
 Name=Battery at warning level
+Name[km]=ថ្ម​នៅ​កម្រិត​ព្រមាន
 Name[nds]=Batterie bi "Wohrscho"-Stoop
 Name[pt]=Bateria no nível de alerta
 Name[pt_BR]=Bateria no nível de alerta
@@ -205,6 +212,7 @@ Name[sv]=Batteriet vid varningsnivå
 Name[uk]=Заряд акумулятора на низькому рівні
 Name[zh_TW]=電池電力已到警告區
 Comment=Your battery has reached warning level
+Comment[km]=ថ្ម​របស់​អ្នក​បាន​ឈាន​ដល់​កម្រិត​ព្រមាន
 Comment[nds]=Dien Batterie is bi de Wohrscho-Stoop ankamen
 Comment[pt]=A sua bateria atingiu um nível de alerta
 Comment[pt_BR]=A sua bateria atingiu um nível de alerta
@@ -217,6 +225,7 @@ Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
+Name[km]=ថ្ម​នៅ​កម្រិត​សំខាន់
 Name[nds]=Batterie bi Stoop "Kritisch"
 Name[pt]=Bateria no nível crítico
 Name[pt_BR]=Bateria no nível crítico
@@ -224,6 +233,7 @@ Name[sv]=Batteriet vid kritisk nivå
 Name[uk]=Заряд на критичному рівні
 Name[zh_TW]=電池電力已到嚴重警告區
 Comment=Your battery has reached critical level
+Comment[km]=ថ្ម​របស់​អ្នក​បាន​ឈាន​ដល់​កម្រិត​សំខាន់​
 Comment[nds]=Dien Batterie is bi de Stoop "Kritisch" anlangt
 Comment[pt]=A sua bateria atingiu um nível crítico
 Comment[pt_BR]=A sua bateria atingiu um nível crítico
@@ -236,6 +246,7 @@ Action=Sound|Popup
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[km]=បាន​ដោត​អាដាប់ទ័រ AC
 Name[nds]=Stroomkavel tokoppelt
 Name[pt]=Ligado à corrente
 Name[pt_BR]=Ligado à corrente
@@ -244,6 +255,7 @@ Name[tr]=AC adaptörünün fişi takıldı
 Name[uk]=Увімкнено живлення від мережі
 Name[zh_TW]=AC 電源已插入
 Comment=The power adaptor has been plugged in
+Comment[km]=អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត
 Comment[nds]=Dat Stroomkavel wöör tokoppelt
 Comment[pt]=O computador foi ligado à corrente
 Comment[pt_BR]=O computador foi ligado à corrente
@@ -257,6 +269,7 @@ Action=Sound|Popup
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[km]=បានដក​អាដាប់ទ័រ AC ចេញ
 Name[nds]=Stroomkavel ruttrocken
 Name[pt]=Desligado da corrente
 Name[pt_BR]=Desligado da corrente
@@ -265,6 +278,7 @@ Name[tr]=AC adaptörünün fişi çekildi
 Name[uk]=Вимкнено живлення від мережі
 Name[zh_TW]=AC 電源已拔除
 Comment=The power adaptor has been unplugged
+Comment[km]=អាប់ដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដកចេញ
 Comment[nds]=Dat Stroomkavel wöör ruttrocken
 Comment[pt]=O computador foi desligado da corrente
 Comment[pt_BR]=O computador foi desligado da corrente
@@ -278,6 +292,7 @@ Action=Sound|Popup
 
 [Event/joberror]
 Name=Job error
+Name[km]=កំហុស​ក្នុង​ការងារ
 Name[nds]=Opgaav-Fehler
 Name[pt]=Erro na tarefa
 Name[pt_BR]=Erro na tarefa
@@ -285,6 +300,7 @@ Name[sv]=Jobbfel
 Name[uk]=Помилка виконання
 Name[zh_TW]=工作錯誤
 Comment=There was an error while performing a job
+Comment[km]=មាន​កំហុស​ខណៈពេល​អនុវត្ត​ការងារ
 Comment[nds]=Dat geev en Fehler binnen en Opgaav
 Comment[pt]=Ocorreu um erro ao efectuar uma tarefa
 Comment[pt_BR]=Ocorreu um erro ao efectuar uma tarefa
@@ -298,6 +314,7 @@ Action=Sound|Popup
 
 [Event/profileset]
 Name=Profile Changed
+Name[km]=បានផ្លាស់ប្ដូរ​ទំហំ
 Name[nds]=Profil ännert
 Name[pt]=Mudança no Perfil
 Name[pt_BR]=Mudança no Perfil
@@ -305,6 +322,7 @@ Name[sv]=Profil ändrad
 Name[uk]=Змінений профіль
 Name[zh_TW]=設定檔已變更
 Comment=The profile was changed
+Comment[km]=ទម្រង់​ត្រូវ​បាន​ផ្លាស់ប្ដូរ
 Comment[nds]=Du hest dat Profil ännert
 Comment[pt]=O perfil foi alterado
 Comment[pt_BR]=O perfil foi alterado
@@ -317,6 +335,7 @@ Action=Sound|Popup
 
 [Event/doingjob]
 Name=Doing a Job
+Name[km]=កំពុង​ធ្វើ​ការងារ
 Name[nds]=Opgaav warrt utföhrt
 Name[pt]=A Efectuar uma Tarefa
 Name[pt_BR]=A Efectuar uma Tarefa
@@ -324,6 +343,7 @@ Name[sv]=Utför ett jobb
 Name[uk]=Виконується завдання
 Name[zh_TW]=執行工作中
 Comment=Something is ongoing
+Comment[km]=មាន​អ្វី​មួយ​កំពុង​អនុវត្ត
 Comment[nds]=Dor geiht wat vör sik
 Comment[pt]=Está algo em curso
 Comment[pt_BR]=Está algo em curso
@@ -336,6 +356,7 @@ Action=Sound|Popup
 
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error
+Name[km]=កំហុស PowerDevil ខាង​ក្នុង
 Name[nds]=Intern Fehler binnen Stroomdüvel
 Name[pt]=Erro Interno do PowerDevil
 Name[pt_BR]=Erro Interno do PowerDevil
@@ -344,6 +365,7 @@ Name[tr]=PowerDevil İç Hatası
 Name[uk]=Внутрішня помилка PowerDevil
 Name[zh_TW]=PowerDevil 內部錯誤
 Comment=PowerDevil has triggered an internal error
+Comment[km]=PowerDevil បាន​កេះ​កំហុស​ខា​ងក្នុង​មួយ
 Comment[nds]=De Stroomdüvel hett en intern Fehler hatt
 Comment[pt]=O PowerDevil originou um erro interno
 Comment[pt_BR]=O PowerDevil originou um erro interno
