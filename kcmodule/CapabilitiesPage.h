@@ -39,6 +39,11 @@ class CapabilitiesPage : public QWidget, private Ui_capabilitiesPage
         void fillCapabilities();
         void enableXSync();
 
+    private:
+        void setIssue( bool issue, const QString &text = QString(),
+                       const QString &button = QString(), const QString &buticon = QString(),
+                       const char *slot = 0 );
+
     signals:
         void reload();
         void reloadModule();

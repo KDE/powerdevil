@@ -200,30 +200,20 @@ void CapabilitiesPage::fillCapabilities()
         ent->deleteLater();
     }
 
-    QLabel *pm = new QLabel( this );
-    QLabel *tx = new QLabel( this );
-    QHBoxLayout *ly = new QHBoxLayout();
 
-    pm->setMaximumWidth( 30 );
-    tx->setScaledContents( true );
-    tx->setWordWrap( true );
-
-    ly->addWidget( pm );
-    ly->addWidget( tx );
 
     if ( !xss & !xsync ) {
-        pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
-        tx->setText( i18n( "PowerDevil was compiled without Xss and Xext support, or the XSync "
-                           "extension is not available. Determining idle time will not be possible. "
-                           "Please consider recompiling PowerDevil with at least one of these two "
-                           "libraries." ) );
-        emit issuesFound( true );
+        setIssue( true, i18n( "PowerDevil was compiled without Xss and Xext support, or the XSync "
+                              "extension is not available. Determining idle time will not be possible. "
+                              "Please consider recompiling PowerDevil with at least one of these two "
+                              "libraries." ) );
+    } else if ( scMethods.isEmpty() ) {
+
     } else if ( !xsync ) {
-        pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
-        tx->setText( i18n( "PowerDevil was compiled without Xext support, or the XSync extension is "
-                           "not available. XSync grants extra efficiency and performance, saving your "
-                           "battery and CPU. It is advised to use PowerDevil with XSync enabled." ) );
-        emit issuesFound( true );
+        setIssue( true, i18n( "PowerDevil was compiled without Xext support, or the XSync extension is "
+                              "not available. XSync grants extra efficiency and performance, saving your "
+                              "battery and CPU. It is advised to use PowerDevil with XSync enabled." ) );
+
     } else if ( PowerDevilSettings::pollingSystem() != 2 ) {
 
         QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded",
@@ -239,19 +229,45 @@ void CapabilitiesPage::fillCapabilities()
         }
 
         if ( !found ) {
-            pm->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
-            tx->setText( i18n( "No issues found with your configuration." ) );
-            emit issuesFound( false );
+            setIssue( false, i18n( "No issues found with your configuration." ) );
         } else {
-            pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
-            tx->setText( i18n( "XSync does not seem your preferred query backend, though it is available "
-                               "on your system. Using it largely improves performance and efficiency, and "
-                               "it is strongly advised. Click on the button below to enable it now." ) );
+            setIssue( true, i18n( "XSync does not seem your preferred query backend, though it is available "
+                                  "on your system. Using it largely improves performance and efficiency, and "
+                                  "it is strongly advised. Click on the button below to enable it now." ),
+                      i18n( "Enable XSync Backend" ), "dialog-ok-apply", SLOT( enableXSync() ) );
+        }
+    } else {
+        setIssue( false, i18n( "No issues found with your configuration." ) );
+    }
+}
 
+void CapabilitiesPage::setIssue( bool issue, const QString &text,
+                                 const QString &button, const QString &buticon, const char *slot )
+{
+    QLabel *pm = new QLabel( this );
+    QLabel *tx = new QLabel( this );
+    QHBoxLayout *ly = new QHBoxLayout();
+
+    pm->setMaximumWidth( 30 );
+    tx->setScaledContents( true );
+    tx->setWordWrap( true );
+
+    ly->addWidget( pm );
+    ly->addWidget( tx );
+
+    if ( !issue ) {
+        pm->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+        tx->setText( text );
+        emit issuesFound( false );
+    } else {
+        pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
+        tx->setText( text );
+
+        if ( !button.isEmpty() ) {
             KPushButton *but = new KPushButton( this );
 
-            but->setText( i18n( "Enable XSync Backend" ) );
-            but->setIcon( KIcon( "dialog-ok-apply" ) );
+            but->setText( button );
+            but->setIcon( KIcon( buticon ) );
 
             ly->removeWidget( tx );
 
@@ -262,14 +278,10 @@ void CapabilitiesPage::fillCapabilities()
 
             ly->addLayout( vl );
 
-            connect( but, SIGNAL( clicked() ), SLOT( enableXSync() ) );
-
-            emit issuesFound( true );
+            connect( but, SIGNAL( clicked() ), slot );
         }
-    } else {
-        pm->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
-        tx->setText( i18n( "No issues found with your configuration." ) );
-        emit issuesFound( false );
+
+        emit issuesFound( true );
     }
 
     statusLayout->addLayout( ly );
