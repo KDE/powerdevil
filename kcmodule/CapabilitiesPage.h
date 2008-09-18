@@ -38,6 +38,7 @@ class CapabilitiesPage : public QWidget, private Ui_capabilitiesPage
     private slots:
         void fillCapabilities();
         void enableXSync();
+        void disableScalingWarn();
 
     private:
         void setIssue( bool issue, const QString &text = QString(),

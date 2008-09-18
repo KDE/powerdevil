@@ -207,7 +207,14 @@ void CapabilitiesPage::fillCapabilities()
                               "extension is not available. Determining idle time will not be possible. "
                               "Please consider recompiling PowerDevil with at least one of these two "
                               "libraries." ) );
-    } else if ( scMethods.isEmpty() ) {
+    } else if ( scMethods.isEmpty() && PowerDevilSettings::scalingWarning() ) {
+        setIssue( true, i18n( "No scaling methods were found. If your CPU is reasonably recent, this "
+                              "is probably because you have not loaded some kernel modules. Usually "
+                              "scaling modules have names similar to cpufreq_ondemand. Scaling is "
+                              "useful and can save a lot of battery. If you're sure your PC does not "
+                              "support scaling, click the button below so that this warning will not "
+                              "be displayed again." ),
+                  i18n( "Do not display this warning again" ), "dialog-ok-apply", SLOT( disableScalingWarn() ) );
 
     } else if ( !xsync ) {
         setIssue( true, i18n( "PowerDevil was compiled without Xext support, or the XSync extension is "
@@ -285,6 +292,14 @@ void CapabilitiesPage::setIssue( bool issue, const QString &text,
     }
 
     statusLayout->addLayout( ly );
+}
+
+void CapabilitiesPage::disableScalingWarn()
+{
+    PowerDevilSettings::setScalingWarning( false );
+
+    emit reload();
+    emit reloadModule();
 }
 
 void CapabilitiesPage::enableXSync()
