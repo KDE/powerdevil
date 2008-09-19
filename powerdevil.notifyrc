@@ -152,6 +152,7 @@ Name[x-test]=xxNotificationxx
 Name[zh_CN]=通知
 Name[zh_TW]=通知
 Comment=Used for standard notifications
+Comment[be@latin]=Dla zvyčajnych infarmavańniaŭ
 Comment[km]=បាន​ប្រើ​សម្រាប់​ការ​ជូនដំណឹង​ស្តង់ដារ
 Comment[nds]=Bi Standardbescheden bruukt
 Comment[pt]=Usado para as notificações normais
@@ -163,6 +164,7 @@ Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
+Name[be@latin]=Važnaje infarmavańnie
 Name[km]=ការ​ជូន​ដំណឹង​សំខាន់
 Name[nds]=Kritisch Bescheed
 Name[pt]=Notificação crítica
@@ -300,6 +302,7 @@ Name[sv]=Jobbfel
 Name[uk]=Помилка виконання
 Name[zh_TW]=工作錯誤
 Comment=There was an error while performing a job
+Comment[be@latin]=U prahramie ŭźnikła pamyłka padčas vykanańnia zadańnia.
 Comment[km]=មាន​កំហុស​ខណៈពេល​អនុវត្ត​ការងារ
 Comment[nds]=Dat geev en Fehler binnen en Opgaav
 Comment[pt]=Ocorreu um erro ao efectuar uma tarefa
@@ -356,6 +359,7 @@ Action=Sound|Popup
 
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error
+Name[be@latin]=Unutranaja pamyłka słužby „PowerDevil”
 Name[km]=កំហុស PowerDevil ខាង​ក្នុង
 Name[nds]=Intern Fehler binnen Stroomdüvel
 Name[pt]=Erro Interno do PowerDevil
