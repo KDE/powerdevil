@@ -693,27 +693,22 @@ void PowerDevilDaemon::reloadProfile( int state )
         if ( !m_availableProfiles.isEmpty() ) {
             setCurrentProfile( m_availableProfiles.at( 0 ) );
         } else {
-            /* In this case, let's fill our profiles file with the most basic
-             * performance profile
+            /* In this case, let's fill our profiles file with our
+             * wonderful defaults!
              */
 
-            KConfigGroup * performance = new KConfigGroup( m_profilesConfig, "Performance" );
+            restoreDefaultProfiles();
 
-            performance->writeEntry( "brightness", 100 );
-            performance->writeEntry( "cpuPolicy", ( int ) Solid::Control::PowerManager::Performance );
-            performance->writeEntry( "idleAction", 0 );
-            performance->writeEntry( "idleTime", 50 );
-            performance->writeEntry( "lidAction", 0 );
-            performance->writeEntry( "turnOffIdle", false );
-            performance->writeEntry( "turnOffIdleTime", 120 );
+            PowerDevilSettings::setACProfile( "Performance" );
+            PowerDevilSettings::setBatteryProfile( "Powersave" );
+            PowerDevilSettings::setLowProfile( "Aggressive Powersave" );
+            PowerDevilSettings::setWarningProfile( "Xtreme Powersave" );
 
-            performance->sync();
+            PowerDevilSettings::self()->writeConfig();
 
-            delete performance;
+            reloadAndStream();
 
-            setAvailableProfiles( m_profilesConfig->groupList() );
-
-            setCurrentProfile( m_availableProfiles.at( 0 ) );
+            return;
         }
     }
 
@@ -869,6 +864,22 @@ void PowerDevilDaemon::profileFirstLoad()
     }
 
     QProcess::startDetached( settings->readEntry( "scriptpath" ) );
+}
+
+void PowerDevilDaemon::restoreDefaultProfiles()
+{
+    QString path = QString( "%1/default.powerdevilprofiles" ).arg( DATA_DIRECTORY );
+
+    KConfig toImport( path, KConfig::SimpleConfig );
+
+    foreach( const QString &ent, toImport.groupList() ) {
+        KConfigGroup copyFrom( &toImport, ent );
+        KConfigGroup copyTo( m_profilesConfig, ent );
+
+        copyFrom.copyTo( &copyTo );
+    }
+
+    m_profilesConfig->sync();
 }
 
 void PowerDevilDaemon::setBatteryPercent( int newpercent )

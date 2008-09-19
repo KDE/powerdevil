@@ -10,4 +10,5 @@ add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 
 install( FILES powerdevil.notifyrc DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
+install( FILES default.powerdevilprofiles DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
 

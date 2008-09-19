@@ -1,0 +1,54 @@
+[Aggressive Powersave]
+brightness=38
+cpuPolicy=4
+disabledCPUs=
+iconname=security-medium
+idleAction=3
+idleTime=10
+lidAction=3
+name=Aggressive Powersave
+scheme=powersaving
+scriptpath=
+turnOffIdle=true
+turnOffIdleTime=5
+
+[Performance]
+brightness=100
+cpuPolicy=1
+disabledCPUs=
+iconname=battery-charging
+idleAction=5
+idleTime=15
+lidAction=5
+name=Performance
+scheme=performance
+scriptpath=
+turnOffIdle=false
+turnOffIdleTime=99
+
+[Powersave]
+brightness=62
+cpuPolicy=1
+disabledCPUs=
+iconname=preferences-system-power-management
+idleAction=3
+idleTime=15
+lidAction=3
+name=Powersave
+scheme=powersaving
+scriptpath=
+turnOffIdle=true
+turnOffIdleTime=10
+
+[Xtreme Powersave]
+brightness=13
+cpuPolicy=4
+disabledCPUs=
+iconname=battery-missing
+idleAction=3
+idleTime=5
+lidAction=3
+name=Xtreme Powersave
+scheme=powersaving
+turnOffIdle=true
+turnOffIdleTime=2

@@ -27,8 +27,11 @@
 /* Defines the Install Prefix */
 #define INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}"
 
+/* Defines the Data installation Dir */
+#define DATA_DIRECTORY "${DATA_INSTALL_DIR}/powerdevil"
+
 /* Defines the Version */
-#define POWERDEVIL_VERSION "0.9.0 (Beta)"
+#define POWERDEVIL_VERSION "1.2.0"
 
 #cmakedefine HAVE_XSCREENSAVER 1
 

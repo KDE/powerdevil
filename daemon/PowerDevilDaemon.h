@@ -115,6 +115,8 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         void profileFirstLoad();
 
+        void restoreDefaultProfiles();
+
     private:
         enum IdleAction {
             Shutdown = 1,
