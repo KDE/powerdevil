@@ -4,7 +4,8 @@ set( kded_powerdevil_SRCS
     WidgetBasedPoller.cpp
     XSyncBasedPoller.cpp
     TimerBasedPoller.cpp
-    PollSystemLoader.cpp 
+    PollSystemLoader.cpp
+    PowerManagementConnector.cpp
 )
 
 kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
@@ -13,6 +14,9 @@ set(screensaver_xml "${CMAKE_CURRENT_SOURCE_DIR}/../../krunner/org.freedesktop.S
 
 QT4_ADD_DBUS_INTERFACE(kded_powerdevil_SRCS ${screensaver_xml} screensaver_interface )
 qt4_add_dbus_adaptor( kded_powerdevil_SRCS org.kde.PowerDevil.xml PowerDevilDaemon.h PowerDevilDaemon )
+
+qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.Solid.PowerManagement.xml PowerManagementConnector.h PowerManagementConnector )
+qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.Solid.PowerManagement.Inhibit.xml PowerManagementConnector.h PowerManagementConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor )
 
 kde4_add_plugin( kded_powerdevil 
     ${kded_powerdevil_SRCS} 

@@ -117,7 +117,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         void restoreDefaultProfiles();
 
-    private:
+    public:
         enum IdleAction {
             Shutdown = 1,
             S2Disk = 2,
@@ -127,6 +127,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
             None = 0
         };
 
+    private:
         Solid::Control::PowerManager::Notifier * m_notifier;
         Solid::Battery * m_battery;
 

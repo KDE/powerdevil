@@ -41,6 +41,7 @@
 
 #include "PowerDevilSettings.h"
 #include "powerdeviladaptor.h"
+#include "PowerManagementConnector.h"
 #include "PollSystemLoader.h"
 #include "AbstractSystemPoller.h"
 
@@ -148,6 +149,7 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
 
     //DBus
     new PowerDevilAdaptor( this );
+    new PowerManagementConnector( this );
 
     // This gets registered to avoid double copies.
     QDBusConnection::sessionBus().registerService( "org.kde.powerdevilsystem" );
