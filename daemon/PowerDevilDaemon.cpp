@@ -150,7 +150,7 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
     new PowerDevilAdaptor( this );
 
     // This gets registered to avoid double copies.
-    conn.registerService( "org.kde.powerdevilsystem" );
+    QDBusConnection::sessionBus().registerService( "org.kde.powerdevilsystem" );
 
     // All systems up Houston, let's go!
     refreshStatus();
