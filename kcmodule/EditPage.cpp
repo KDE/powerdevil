@@ -288,7 +288,7 @@ void EditPage::saveProfile( const QString &p )
 
     QList<int> list;
 
-    for ( int i = 0;i < CPUListLayout->count();i++ ) {
+    for ( int i = 0;i < CPUListLayout->count();++i ) {
         QCheckBox *box = qobject_cast<QCheckBox*> ( CPUListLayout->itemAt( i )->widget() );
 
         if ( !box )

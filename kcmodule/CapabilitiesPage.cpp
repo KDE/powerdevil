@@ -75,7 +75,7 @@ void CapabilitiesPage::fillCapabilities()
             freqchange = true;
         }*/
         Q_UNUSED( device )
-        cpuCount++;
+        ++cpuCount;
     }
 
     cpuNumber->setText( QString::number( cpuCount ) );
@@ -83,7 +83,7 @@ void CapabilitiesPage::fillCapabilities()
 
     bool turnOff = false;
 
-    for ( int i = 0;i < cpuCount;i++ ) {
+    for ( int i = 0; i < cpuCount; ++i ) {
         if ( Solid::Control::PowerManager::canDisableCpu( i ) )
             turnOff = true;
     }
@@ -211,7 +211,7 @@ void CapabilitiesPage::fillCapabilities()
         setIssue( true, i18n( "No scaling methods were found. If your CPU is reasonably recent, this "
                               "is probably because you have not loaded some kernel modules. Usually "
                               "scaling modules have names similar to cpufreq_ondemand. Scaling is "
-                              "useful and can save a lot of battery. If you're sure your PC does not "
+                              "useful and can save a lot of battery. If you are sure your PC does not "
                               "support scaling, click the button below so that this warning will not "
                               "be displayed again." ),
                   i18n( "Do not display this warning again" ), "dialog-ok-apply", SLOT( disableScalingWarn() ) );

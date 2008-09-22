@@ -74,7 +74,7 @@ bool XSyncBasedPoller::setUpPoller()
 
     m_counters = XSyncListSystemCounters( m_display, &ncounters );
 
-    for ( int i = 0; i < ncounters && !m_idleCounter; i++ ) {
+    for ( int i = 0; i < ncounters && !m_idleCounter; ++i ) {
         if ( !strcmp( m_counters[i].name, "IDLETIME" ) )
             m_idleCounter = m_counters[i].counter;
     }
