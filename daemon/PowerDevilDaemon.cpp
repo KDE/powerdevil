@@ -61,7 +61,8 @@ PowerDevilDaemon::PowerDevilDaemon( QObject *parent, const QList<QVariant>& )
         m_battery( 0 ),
         m_displayManager( new KDisplayManager() ),
         m_currentConfig( 0 ),
-        m_pollLoader( new PollSystemLoader( this ) )
+        m_pollLoader( new PollSystemLoader( this ) ),
+        m_compositingChanged( false )
 {
     KGlobal::locale()->insertCatalog( "powerdevil" );
 
@@ -858,11 +859,40 @@ void PowerDevilDaemon::profileFirstLoad()
 {
     KConfigGroup * settings = getCurrentProfile();
 
-    if ( settings->readEntry( "scriptpath", QString() ).isEmpty() ) {
-        return;
+    if ( !settings->readEntry( "scriptpath", QString() ).isEmpty() ) {
+        QProcess::startDetached( settings->readEntry( "scriptpath" ) );
     }
 
-    QProcess::startDetached( settings->readEntry( "scriptpath" ) );
+    // Compositing!!
+
+    if ( settings->readEntry( "disableCompositing", false ) ) {
+        if ( toggleCompositing( false ) ) {
+            m_compositingChanged = true;
+        }
+    } else if ( m_compositingChanged ) {
+        toggleCompositing( true );
+        m_compositingChanged = false;
+    }
+}
+
+bool PowerDevilDaemon::toggleCompositing( bool enabled )
+{
+    KSharedConfigPtr KWinConfig = KSharedConfig::openConfig( "kwinrc" );
+    KConfigGroup config( KWinConfig, "Compositing" );
+    bool state = config.readEntry( "Enabled", false );
+
+    if ( state != enabled ) {
+        config.writeEntry( "Enabled", enabled );
+
+        QDBusMessage message = QDBusMessage::createSignal( "/KWin",
+                               "org.kde.KWin",
+                               "reloadConfig" );
+        QDBusConnection::sessionBus().send( message );
+
+        return true;
+    } else {
+        return false;
+    }
 }
 
 void PowerDevilDaemon::restoreDefaultProfiles()

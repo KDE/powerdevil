@@ -165,6 +165,7 @@ void EditPage::fillUi()
     connect( brightnessSlider, SIGNAL( valueChanged( int ) ), SLOT( setProfileChanged() ) );
     connect( offDisplayWhenIdle, SIGNAL( stateChanged( int ) ), SLOT( setProfileChanged() ) );
     connect( displayIdleTime, SIGNAL( valueChanged( int ) ), SLOT( setProfileChanged() ) );
+    connect( disableCompositing, SIGNAL( stateChanged( int ) ), SLOT( setProfileChanged() ) );
     connect( idleTime, SIGNAL( valueChanged( int ) ), SLOT( setProfileChanged() ) );
     connect( idleCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
     connect( freqCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
@@ -229,6 +230,7 @@ void EditPage::loadProfile()
     brightnessSlider->setValue( group->readEntry( "brightness" ).toInt() );
     offDisplayWhenIdle->setChecked( group->readEntry( "turnOffIdle", false ) );
     displayIdleTime->setValue( group->readEntry( "turnOffIdleTime" ).toInt() );
+    disableCompositing->setChecked( group->readEntry( "disableCompositing", false ) );
     idleTime->setValue( group->readEntry( "idleTime" ).toInt() );
     idleCombo->setCurrentIndex( idleCombo->findData( group->readEntry( "idleAction" ).toInt() ) );
     freqCombo->setCurrentIndex( freqCombo->findData( group->readEntry( "cpuPolicy" ).toInt() ) );
@@ -285,6 +287,7 @@ void EditPage::saveProfile( const QString &p )
     group->writeEntry( "turnOffIdleTime", displayIdleTime->value() );
     group->writeEntry( "scheme", schemeCombo->currentText() );
     group->writeEntry( "scriptpath", scriptRequester->url().path() );
+    group->writeEntry( "disableCompositing", disableCompositing->isChecked() );
 
     QList<int> list;
 

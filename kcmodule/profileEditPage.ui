@@ -6,7 +6,7 @@
     <x>0</x>
     <y>0</y>
     <width>476</width>
-    <height>300</height>
+    <height>310</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -47,6 +47,9 @@
               <string>Screen and Actions</string>
              </attribute>
              <layout class="QFormLayout" name="formLayout" >
+              <property name="fieldGrowthPolicy" >
+               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+              </property>
               <item row="0" column="0" >
                <widget class="QLabel" name="PoweredBrightnessLabel_2" >
                 <property name="toolTip" >
@@ -114,7 +117,7 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" >
+              <item row="3" column="0" >
                <widget class="QLabel" name="PoweredIdleLabel_2" >
                 <property name="toolTip" >
                  <string/>
@@ -133,7 +136,7 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="1" >
+              <item row="3" column="1" >
                <layout class="QHBoxLayout" name="horizontalLayout_4" >
                 <item>
                  <widget class="QSpinBox" name="idleTime" >
@@ -163,7 +166,7 @@
                 </item>
                </layout>
               </item>
-              <item row="3" column="0" >
+              <item row="4" column="0" >
                <widget class="QLabel" name="label_7" >
                 <property name="toolTip" >
                  <string/>
@@ -173,10 +176,17 @@
                 </property>
                </widget>
               </item>
-              <item row="3" column="1" >
+              <item row="4" column="1" >
                <widget class="KComboBox" name="laptopClosedCombo" >
                 <property name="whatsThis" >
                  <string>This action will be performed when the laptop lid gets closed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" >
+               <widget class="QCheckBox" name="disableCompositing" >
+                <property name="text" >
+                 <string>Disable KWin compositing, if active</string>
                 </property>
                </widget>
               </item>

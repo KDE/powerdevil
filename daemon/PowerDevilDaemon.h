@@ -93,6 +93,8 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         void setCurrentProfile( const QString &profile );
         void setAvailableProfiles( const QStringList &aProfiles );
 
+        bool toggleCompositing( bool enabled );
+
     Q_SIGNALS:
         void lidClosed( int code, const QString &action );
         void errorTriggered( const QString &error );
@@ -144,6 +146,7 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 
         int m_batteryPercent;
         bool m_isPlugged;
+        bool m_compositingChanged;
 };
 
 #endif /*POWERDEVILDAEMON_H*/
