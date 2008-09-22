@@ -55,6 +55,9 @@
       <string>General Settings</string>
      </property>
      <layout class="QFormLayout" name="formLayout_6" >
+      <property name="fieldGrowthPolicy" >
+       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+      </property>
       <item row="0" column="0" >
        <widget class="QCheckBox" name="lockScreenOnResume" >
         <property name="toolTip" >
@@ -87,6 +90,31 @@
         </property>
        </widget>
       </item>
+      <item row="1" column="1" >
+       <widget class="KIntSpinBox" name="dimOnIdleTime" >
+        <property name="minimumSize" >
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="suffix" >
+         <string comment="Minutes" >min</string>
+        </property>
+        <property name="minimum" >
+         <number>1</number>
+        </property>
+        <property name="maximum" >
+         <number>280</number>
+        </property>
+       </widget>
+      </item>
       <item row="2" column="0" >
        <widget class="QCheckBox" name="notificationsBox" >
         <property name="toolTip" >
@@ -116,51 +144,16 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1" >
-       <widget class="KIntSpinBox" name="dimOnIdleTime" >
-        <property name="minimumSize" >
-         <size>
-          <width>150</width>
-          <height>0</height>
-         </size>
-        </property>
+      <item row="3" column="1" >
+       <widget class="QPushButton" name="notificationsButton" >
         <property name="maximumSize" >
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>16777215</height>
          </size>
-        </property>
-        <property name="suffix" >
-         <string comment="Minutes" >min</string>
-        </property>
-        <property name="minimum" >
-         <number>1</number>
-        </property>
-        <property name="maximum" >
-         <number>280</number>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0" >
-       <widget class="QLabel" name="pollingLabel" >
-        <property name="toolTip" >
-         <string>Idle detection method</string>
-        </property>
-        <property name="whatsThis" >
-         <string>This is the method PowerDevil will use to query the system. XSync is the best choice for performance and reliability, if you are unsure on what to choose, go for XSync</string>
         </property>
         <property name="text" >
-         <string>Preferred Polling System:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1" >
-       <widget class="KComboBox" name="pollingSystemBox" >
-        <property name="maximumSize" >
-         <size>
-          <width>250</width>
-          <height>16777215</height>
-         </size>
+         <string>Configure Notifications</string>
         </property>
        </widget>
       </item>

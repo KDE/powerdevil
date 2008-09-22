@@ -25,6 +25,7 @@ target_link_libraries(kcm_powerdevilconfig
      ${KDE4_KDEUI_LIBRARY}
      ${KDE4_KIO_LIBS}
      ${KDE4_SOLID_LIBS}
+     ${KDE4_KNOTIFYCONFIG_LIBRARY}
      solidcontrol
 )
 

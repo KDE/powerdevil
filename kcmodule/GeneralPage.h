@@ -45,6 +45,8 @@ class GeneralPage : public QWidget, private Ui_generalPage
         void enableBoxes();
         void enableIssue( bool enable );
 
+        void configureNotifications();
+
     private:
         enum IdleAction {
             Shutdown = 1,

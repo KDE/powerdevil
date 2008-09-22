@@ -30,14 +30,7 @@
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
 
-#include <KConfigGroup>
-#include <KLineEdit>
-#include <QCheckBox>
-#include <QFormLayout>
-#include <KDialog>
-#include <KFileDialog>
-#include <KMessageBox>
-#include <KIconButton>
+#include <KNotifyConfigWidget>
 
 GeneralPage::GeneralPage( QWidget *parent )
         : QWidget( parent )
@@ -74,13 +67,7 @@ void GeneralPage::fillUi()
         BatteryCriticalCombo->addItem( i18n( "Standby" ), ( int ) Standby );
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded",
-                       "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems" );
-    QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call( msg );
-
-    foreach( const QString &ent, systems.value().keys() ) {
-        pollingSystemBox->addItem( ent, systems.value()[ent].toInt() );
-    }
+    notificationsButton->setIcon( KIcon( "preferences-desktop-notification" ) );
 
     // modified fields...
 
@@ -89,7 +76,8 @@ void GeneralPage::fillUi()
     connect( dimOnIdleTime, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
     connect( notificationsBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
     connect( warningNotificationsBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
-    connect( pollingSystemBox, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
+
+    connect( notificationsButton, SIGNAL( clicked() ), SLOT( configureNotifications() ) );
 
     connect( lowSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
     connect( warningSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
@@ -107,7 +95,6 @@ void GeneralPage::load()
     dimOnIdleTime->setValue( PowerDevilSettings::dimOnIdleTime() );
     notificationsBox->setChecked( PowerDevilSettings::enableNotifications() );
     warningNotificationsBox->setChecked( PowerDevilSettings::enableWarningNotifications() );
-    pollingSystemBox->setCurrentIndex( pollingSystemBox->findData( PowerDevilSettings::pollingSystem() ) );
 
     lowSpin->setValue( PowerDevilSettings::batteryLowLevel() );
     warningSpin->setValue( PowerDevilSettings::batteryWarningLevel() );
@@ -118,6 +105,11 @@ void GeneralPage::load()
     enableBoxes();
 }
 
+void GeneralPage::configureNotifications()
+{
+    KNotifyConfigWidget::configure( this, "powerdevil" );
+}
+
 void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen( lockScreenOnResume->isChecked() );
@@ -125,7 +117,6 @@ void GeneralPage::save()
     PowerDevilSettings::setDimOnIdleTime( dimOnIdleTime->value() );
     PowerDevilSettings::setEnableNotifications( notificationsBox->isChecked() );
     PowerDevilSettings::setEnableWarningNotifications( warningNotificationsBox->isChecked() );
-    PowerDevilSettings::setPollingSystem( pollingSystemBox->itemData( pollingSystemBox->currentIndex() ).toInt() );
 
     PowerDevilSettings::setBatteryLowLevel( lowSpin->value() );
     PowerDevilSettings::setBatteryWarningLevel( warningSpin->value() );

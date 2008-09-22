@@ -2,12 +2,9 @@
 <node>
   <interface name="org.kde.PowerDevil">
     
-    <method name="refreshStatus">
-    </method>
-    <method name="reloadAndStream">
-    </method>
-    <method name="streamData">
-    </method>
+    <method name="refreshStatus" />
+    <method name="reloadAndStream" />
+    <method name="streamData" />
     <method name="emitWarningNotification">
       <arg type="s" direction="in" />
       <arg type="s" direction="in" />
@@ -30,8 +27,7 @@
       <arg type="i" direction="in" />
     </method>
     <method name="setUpPollingSystem" />
-    <method name="turnOffScreen">
-    </method>
+    <method name="turnOffScreen" />
     
     <method name="getSupportedGovernors">
       <arg type="a{sv}" direction="out" />
@@ -51,12 +47,6 @@
     
     <signal name="lidClosed">
       <arg type="i" direction="out" />
-      <arg type="s" direction="out" />
-    </signal>
-    <signal name="errorTriggered">
-      <arg type="s" direction="out" />
-    </signal>
-    <signal name="pollEvent">
       <arg type="s" direction="out" />
     </signal>
     <signal name="stateChanged">

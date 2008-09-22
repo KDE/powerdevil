@@ -100,8 +100,6 @@ class KDE_EXPORT PowerDevilDaemon : public KDEDModule
         void stateChanged( int, bool );
         void profileChanged( const QString &, const QStringList & );
 
-        void pollEvent( const QString &event );
-
     private:
         void lockScreen();
 

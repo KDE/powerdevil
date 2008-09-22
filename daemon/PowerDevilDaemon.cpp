@@ -447,16 +447,13 @@ void PowerDevilDaemon::suspendJobResult( KJob * job )
 
 void PowerDevilDaemon::poll( int idle )
 {
-    /* This poll function behaves smartly. In fact, polling happens only
-     * on-demand. This function is called on the following situations: loading,
-     * profile change, resuming, and upon events.
-     * As you can see below, the timer is in fact started with the minimum
-     * time from next event.
-     * The idea was taken from KDE4Powersave & Lithium, so kudos to them.
+    /* The polling system is abstract. This function gets called when the current
+     * system requests it. Usually, it is called only when needed (if you're using
+     * an efficient backend such as XSync).
      * We make an intensive use of qMin/qMax here to determine the minimum time.
      */
 
-    emit pollEvent( i18n( "Polling started, idle time is %1 seconds", idle ) );
+    kDebug() << "Polling started, idle time is" << idle << "seconds";
 
     KConfigGroup * settings = getCurrentProfile();
 
@@ -466,7 +463,7 @@ void PowerDevilDaemon::poll( int idle )
 
     if ( !PowerDevilSettings::dimOnIdle() && !settings->readEntry( "turnOffIdle", false ) &&
             settings->readEntry( "idleAction" ).toInt() == None ) {
-        emit pollEvent( i18n( "Stopping timer" ) );
+        kDebug() << "Stopping timer";
         m_pollLoader->poller()->stopCatchingTimeouts();
         return;
     }
@@ -491,12 +488,12 @@ void PowerDevilDaemon::poll( int idle )
         minTime = qMin( minTime, minDimTime );
     }
 
-    emit pollEvent( i18n( "Minimum time is %1 seconds", minTime ) );
+    kDebug() << "Minimum time is" << minTime << "seconds";
 
     if ( idle < minTime ) {
         int remaining = minTime - idle;
         m_pollLoader->poller()->setNextTimeout( remaining * 1000 );
-        emit pollEvent( i18n( "Nothing to do, next event in %1 seconds", remaining ) );
+        kDebug() << "Nothing to do, next event in" << remaining << "seconds";
         return;
     }
 
@@ -595,10 +592,10 @@ void PowerDevilDaemon::setUpNextTimeout( int idle, int minDimEvent )
 
     if ( nextTimeout >= 0 ) {
         m_pollLoader->poller()->setNextTimeout( nextTimeout * 1000 );
-        emit pollEvent( i18n( "Next timeout in %1 seconds", nextTimeout ) );
+        kDebug() << "Next timeout in" << nextTimeout << "seconds";
     } else {
         m_pollLoader->poller()->stopCatchingTimeouts();
-        emit pollEvent( i18n( "Stopping timer" ) );
+        kDebug() << "Stopping timer";
     }
 }
 
