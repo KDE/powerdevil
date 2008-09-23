@@ -42,6 +42,7 @@ class PowerDevilKCM : public KCModule
     private slots:
         void streamToDBus();
         void initModule();
+        void forceReload();
 
     private:
         void initView();

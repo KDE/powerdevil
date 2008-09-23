@@ -39,11 +39,13 @@ class CapabilitiesPage : public QWidget, private Ui_capabilitiesPage
         void fillCapabilities();
         void enableXSync();
         void disableScalingWarn();
+        void attemptLoadingModules();
 
     private:
         void setIssue( bool issue, const QString &text = QString(),
                        const QString &button = QString(), const QString &buticon = QString(),
-                       const char *slot = 0 );
+                       const char *slot = 0, const QString &button2 = QString(),
+                       const QString &buticon2 = QString(), const char *slot2 = 0 );
 
     signals:
         void reload();

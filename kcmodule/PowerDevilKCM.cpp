@@ -113,7 +113,7 @@ void PowerDevilKCM::initView()
 
     connect( m_widget, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
     connect( m_widget, SIGNAL( reloadRequest() ), SLOT( streamToDBus() ) );
-    connect( m_widget, SIGNAL( reloadModule() ), SLOT( load() ) );
+    connect( m_widget, SIGNAL( reloadModule() ), SLOT( forceReload() ) );
 }
 
 void PowerDevilKCM::initError( const QString &error )
@@ -156,6 +156,13 @@ void PowerDevilKCM::save()
 void PowerDevilKCM::defaults()
 {
 
+}
+
+void PowerDevilKCM::forceReload()
+{
+    unloadExistingWidgets();
+    initModule();
+    load();
 }
 
 void PowerDevilKCM::streamToDBus()

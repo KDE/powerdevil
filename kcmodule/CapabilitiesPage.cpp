@@ -34,7 +34,9 @@
 #include <QtDBus/QDBusConnection>
 
 #include <QFormLayout>
+#include <QProcess>
 #include <KPushButton>
+#include <KMessageBox>
 
 CapabilitiesPage::CapabilitiesPage( QWidget *parent )
         : QWidget( parent )
@@ -200,20 +202,21 @@ void CapabilitiesPage::fillCapabilities()
         ent->deleteLater();
     }
 
-
-
     if ( !xss & !xsync ) {
         setIssue( true, i18n( "PowerDevil was compiled without Xss and Xext support, or the XSync "
                               "extension is not available. Determining idle time will not be possible. "
                               "Please consider recompiling PowerDevil with at least one of these two "
                               "libraries." ) );
-    } else if ( scMethods.isEmpty() && PowerDevilSettings::scalingWarning() ) {
+    } else if (( scMethods.isEmpty() || scMethods == i18n( "Performance" ) ) &&
+               PowerDevilSettings::scalingWarning() ) {
         setIssue( true, i18n( "No scaling methods were found. If your CPU is reasonably recent, this "
                               "is probably because you have not loaded some kernel modules. Usually "
                               "scaling modules have names similar to cpufreq_ondemand. Scaling is "
-                              "useful and can save a lot of battery. If you are sure your PC does not "
-                              "support scaling, click the button below so that this warning will not "
-                              "be displayed again." ),
+                              "useful and can save a lot of battery. Click on \"Attempt Loading Modules\" "
+                              "to let PowerDevil try to load the required modules. If you are sure your PC "
+                              "does not support scaling, you can also disable this warning by clicking "
+                              "\"Do not display this warning again\"." ),
+                  i18n( "Attempt loading Modules" ), "system-run", SLOT( attemptLoadingModules() ),
                   i18n( "Do not display this warning again" ), "dialog-ok-apply", SLOT( disableScalingWarn() ) );
 
     } else if ( !xsync ) {
@@ -249,11 +252,13 @@ void CapabilitiesPage::fillCapabilities()
 }
 
 void CapabilitiesPage::setIssue( bool issue, const QString &text,
-                                 const QString &button, const QString &buticon, const char *slot )
+                                 const QString &button, const QString &buticon, const char *slot,
+                                 const QString &button2, const QString &buticon2, const char *slot2 )
 {
     QLabel *pm = new QLabel( this );
     QLabel *tx = new QLabel( this );
     QHBoxLayout *ly = new QHBoxLayout();
+    QHBoxLayout *butly = 0;
 
     pm->setMaximumWidth( 30 );
     tx->setScaledContents( true );
@@ -271,6 +276,7 @@ void CapabilitiesPage::setIssue( bool issue, const QString &text,
         tx->setText( text );
 
         if ( !button.isEmpty() ) {
+            butly = new QHBoxLayout();
             KPushButton *but = new KPushButton( this );
 
             but->setText( button );
@@ -278,14 +284,26 @@ void CapabilitiesPage::setIssue( bool issue, const QString &text,
 
             ly->removeWidget( tx );
 
+            butly->addWidget( but );
+
             QVBoxLayout *vl = new QVBoxLayout();
 
             vl->addWidget( tx );
-            vl->addWidget( but );
+            vl->addLayout( butly );
 
             ly->addLayout( vl );
 
             connect( but, SIGNAL( clicked() ), slot );
+        }
+        if ( !button2.isEmpty() ) {
+            KPushButton *but = new KPushButton( this );
+
+            but->setText( button2 );
+            but->setIcon( KIcon( buticon2 ) );
+
+            butly->addWidget( but );
+
+            connect( but, SIGNAL( clicked() ), slot2 );
         }
 
         emit issuesFound( true );
@@ -297,6 +315,49 @@ void CapabilitiesPage::setIssue( bool issue, const QString &text,
 void CapabilitiesPage::disableScalingWarn()
 {
     PowerDevilSettings::setScalingWarning( false );
+
+    emit reload();
+    emit reloadModule();
+}
+
+void CapabilitiesPage::attemptLoadingModules()
+{
+    // Let's check what we have
+
+    QProcess process;
+
+    process.start( "modprobe -l" );
+    process.waitForFinished();
+
+    QStringList modules;
+
+    foreach( const QString &ent, process.readAll().split( '\n' ) ) {
+        if ( ent.contains( "cpufreq_" ) || ent.contains( "ondemand" ) ) {
+            QStringList ents = ent.split( '/' );
+            QString module = ents.at( ents.count() - 1 );
+            module.remove( module.length() - 3, 3 );
+            modules.append( module );
+        }
+    }
+
+    if ( modules.isEmpty() ) {
+        KMessageBox::sorry( this, i18n( "No CPU scaling kernel modules were found. Maybe you did not "
+                                        "install them, or PowerDevil could not find them" ),
+                            i18n( "Modules not found" ) );
+        return;
+    }
+
+    QString command = "kdesu '";
+
+    foreach( const QString &ent, modules ) {
+        command.append( QString( "modprobe %1 | " ).arg( ent ) );
+    }
+
+    command.remove( command.length() - 3, 3 );
+
+    command.append( '\'' );
+
+    system( command.toAscii().data() );
 
     emit reload();
     emit reloadModule();
