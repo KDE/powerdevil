@@ -11,6 +11,7 @@ X-KDE-Kded-phase=1
 Name=PowerDevil
 Name[nds]=Stroomdüvel
 Name[sv]=Powerdevil
+Name[x-test]=xxPowerDevilxx
 
 Comment=A Laptop Power Management Daemon
 Comment[be@latin]=Słužba kiravańnia enerhijaj na laptopie
@@ -21,4 +22,5 @@ Comment[pt_BR]=Um Sistema de Gestão da Energia para Portáteis
 Comment[sv]=En strömspardemon för bärbara datorer
 Comment[tr]=Dizüstü Bilgisayarlar için bir Güç Yönetimi Servisi
 Comment[uk]=Фонова служба керування живленням портативного комп’ютера
+Comment[x-test]=xxA Laptop Power Management Daemonxx
 Comment[zh_TW]=筆記型電腦電源管理守護程式
