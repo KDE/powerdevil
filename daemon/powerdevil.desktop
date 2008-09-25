@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-
+Icon=preferences-system-power-management
 X-KDE-ServiceTypes=KDEDModule
 X-KDE-Library=powerdevil
 X-KDE-DBus-ModuleName=powerdevil
