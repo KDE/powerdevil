@@ -89,6 +89,11 @@ extern "C"
 #if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
 }
 #endif
+
+int edummy;
+
+bool hasDPMS = DPMSQueryExtension(QX11Info::display(), &edummy, &edummy);
+
 #endif
 
 K_PLUGIN_FACTORY(PowerDevilFactory,
@@ -293,6 +298,19 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
     applyProfile();
 }
 
+#ifdef HAVE_DPMS
+extern "C"
+{
+    int dropError(Display *, XErrorEvent *);
+    typedef int (*XErrFunc)(Display *, XErrorEvent *);
+}
+
+int dropError(Display *, XErrorEvent *)
+{
+    return 0;
+}
+#endif
+
 void PowerDevilDaemon::applyProfile()
 {
     KConfigGroup * settings = getCurrentProfile();
@@ -326,27 +344,38 @@ void PowerDevilDaemon::applyProfile()
 
     // DPMS Stuff
 #ifdef HAVE_DPMS
+    // This causes hanging. Question: how the fuck is this possible?
+    /*XErrFunc defaultHandler;
+    defaultHandler = XSetErrorHandler(dropError);
+
     Display *dpy = QX11Info::display();
 
+    BOOL enabled;
+    CARD16 cdummy;
     int dummy;
-    bool hasDPMS = DPMSQueryExtension(dpy, &dummy, &dummy);
+    DPMSInfo(dpy, &cdummy, &enabled);
+
     if (hasDPMS) {
         if (settings->readEntry("DPMSEnabled", false)) {
-            DPMSEnable(dpy);
-            DPMSSetTimeouts(dpy, settings->readEntry("DPMSStandby", 10),
-                            settings->readEntry("DPMSSuspend", 30),
-                            settings->readEntry("DPMSPowerOff", 60));
-        } else
+            if(!enabled) {
+                DPMSEnable(dpy);
+                DPMSSetTimeouts(dpy, settings->readEntry("DPMSStandby", 10),
+                        settings->readEntry("DPMSSuspend", 30),
+                        settings->readEntry("DPMSPowerOff", 60));
+            }
+        } else if (enabled) {
             DPMSDisable(dpy);
+        }
     } else {
         kWarning("Server has no DPMS extension");
     }
 
     XFlush(dpy);
+    XSetErrorHandler(defaultHandler);
 
     // The screen saver depends on the DPMS settings
     org::kde::screensaver kscreensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
-    kscreensaver.configure();
+    kscreensaver.configure();*/
 #endif
 
     m_pollLoader->poller()->forcePollRequest();
@@ -601,10 +630,6 @@ void PowerDevilDaemon::poll(int idle)
 
         return;
 
-    } else if (settings->readEntry("turnOffIdle", QVariant()).toBool() &&
-               (idle >= (settings->readEntry("turnOffIdleTime").toInt() * 60))) {
-        m_pollLoader->poller()->catchIdleEvent();
-        turnOffScreen();
     } else if (PowerDevilSettings::dimOnIdle()
                && (idle >= dimOnIdleTime)) {
         m_pollLoader->poller()->catchIdleEvent();
@@ -638,14 +663,6 @@ void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
             nextTimeout = qMin(nextTimeout, (settings->readEntry("idleTime").toInt() * 60) - idle);
         } else {
             nextTimeout = (settings->readEntry("idleTime").toInt() * 60) - idle;
-        }
-    }
-    if ((settings->readEntry("turnOffIdleTime").toInt() * 60) > idle &&
-            settings->readEntry("turnOffIdle", QVariant()).toBool()) {
-        if (nextTimeout >= 0) {
-            nextTimeout = qMin(nextTimeout, (settings->readEntry("turnOffIdleTime").toInt() * 60) - idle);
-        } else {
-            nextTimeout = (settings->readEntry("turnOffIdleTime").toInt() * 60) - idle;
         }
     }
     if (minDimEvent > idle && PowerDevilSettings::dimOnIdle()) {
