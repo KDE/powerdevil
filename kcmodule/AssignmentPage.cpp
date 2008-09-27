@@ -39,12 +39,12 @@
 #include <KMessageBox>
 #include <KIconButton>
 
-AssignmentPage::AssignmentPage( QWidget *parent )
-        : QWidget( parent )
+AssignmentPage::AssignmentPage(QWidget *parent)
+        : QWidget(parent)
 {
-    setupUi( this );
+    setupUi(this);
 
-    m_profilesConfig = KSharedConfig::openConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
     fillUi();
 }
@@ -59,33 +59,33 @@ void AssignmentPage::fillUi()
 
     // modified fields...
 
-    connect( acProfile, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
-    connect( lowProfile, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
-    connect( warningProfile, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
-    connect( batteryProfile, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
+    connect(acProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 }
 
 void AssignmentPage::load()
 {
-    acProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::aCProfile() ) );
-    lowProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::lowProfile() ) );
-    warningProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::warningProfile() ) );
-    batteryProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::batteryProfile() ) );
+    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
 }
 
 void AssignmentPage::save()
 {
-    PowerDevilSettings::setACProfile( acProfile->currentText() );
-    PowerDevilSettings::setLowProfile( lowProfile->currentText() );
-    PowerDevilSettings::setWarningProfile( warningProfile->currentText() );
-    PowerDevilSettings::setBatteryProfile( batteryProfile->currentText() );
+    PowerDevilSettings::setACProfile(acProfile->currentText());
+    PowerDevilSettings::setLowProfile(lowProfile->currentText());
+    PowerDevilSettings::setWarningProfile(warningProfile->currentText());
+    PowerDevilSettings::setBatteryProfile(batteryProfile->currentText());
 
     PowerDevilSettings::self()->writeConfig();
 }
 
 void AssignmentPage::emitChanged()
 {
-    emit changed( true );
+    emit changed(true);
 }
 
 void AssignmentPage::reloadAvailableProfiles()
@@ -97,24 +97,24 @@ void AssignmentPage::reloadAvailableProfiles()
     lowProfile->clear();
     warningProfile->clear();
 
-    if ( m_profilesConfig->groupList().isEmpty() ) {
+    if (m_profilesConfig->groupList().isEmpty()) {
         kDebug() << "No available profiles!";
         return;
     }
 
-    foreach( const QString &ent, m_profilesConfig->groupList() ) {
-        KConfigGroup *group = new KConfigGroup( m_profilesConfig, ent );
+    foreach(const QString &ent, m_profilesConfig->groupList()) {
+        KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
 
-        acProfile->addItem( KIcon( group->readEntry( "iconname" ) ), ent );
-        batteryProfile->addItem( KIcon( group->readEntry( "iconname" ) ), ent );
-        lowProfile->addItem( KIcon( group->readEntry( "iconname" ) ), ent );
-        warningProfile->addItem( KIcon( group->readEntry( "iconname" ) ), ent );
+        acProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        batteryProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        lowProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        warningProfile->addItem(KIcon(group->readEntry("iconname")), ent);
     }
 
-    acProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::aCProfile() ) );
-    lowProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::lowProfile() ) );
-    warningProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::warningProfile() ) );
-    batteryProfile->setCurrentIndex( acProfile->findText( PowerDevilSettings::batteryProfile() ) );
+    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
 
 }
 

@@ -26,31 +26,31 @@
 
 class CapabilitiesPage : public QWidget, private Ui_capabilitiesPage
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        CapabilitiesPage( QWidget *parent = 0 );
-        ~CapabilitiesPage();
+public:
+    CapabilitiesPage(QWidget *parent = 0);
+    ~CapabilitiesPage();
 
-        void fillUi();
-        void load();
+    void fillUi();
+    void load();
 
-    private slots:
-        void fillCapabilities();
-        void enableXSync();
-        void disableScalingWarn();
-        void attemptLoadingModules();
+private slots:
+    void fillCapabilities();
+    void enableXSync();
+    void disableScalingWarn();
+    void attemptLoadingModules();
 
-    private:
-        void setIssue( bool issue, const QString &text = QString(),
-                       const QString &button = QString(), const QString &buticon = QString(),
-                       const char *slot = 0, const QString &button2 = QString(),
-                       const QString &buticon2 = QString(), const char *slot2 = 0 );
+private:
+    void setIssue(bool issue, const QString &text = QString(),
+                  const QString &button = QString(), const QString &buticon = QString(),
+                  const char *slot = 0, const QString &button2 = QString(),
+                  const QString &buticon2 = QString(), const char *slot2 = 0);
 
-    signals:
-        void reload();
-        void reloadModule();
-        void issuesFound( bool enable );
+signals:
+    void reload();
+    void reloadModule();
+    void issuesFound(bool enable);
 };
 
 #endif /* CAPABILITIESPAGE_H_ */

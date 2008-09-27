@@ -28,39 +28,39 @@
 
 class TimerBasedPoller : public AbstractSystemPoller
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        TimerBasedPoller( QObject *parent = 0 );
-        virtual ~TimerBasedPoller();
+public:
+    TimerBasedPoller(QObject *parent = 0);
+    virtual ~TimerBasedPoller();
 
-        AbstractSystemPoller::PollingType getPollingType() {
-            return AbstractSystemPoller::TimerBased;
-        };
-        QString name();
+    AbstractSystemPoller::PollingType getPollingType() {
+        return AbstractSystemPoller::TimerBased;
+    };
+    QString name();
 
-        bool isAvailable();
-        bool setUpPoller();
-        void unloadPoller();
+    bool isAvailable();
+    bool setUpPoller();
+    void unloadPoller();
 
-    public slots:
-        void setNextTimeout( int nextTimeout );
-        void forcePollRequest();
-        void stopCatchingTimeouts();
-        void catchIdleEvent();
-        void stopCatchingIdleEvents();
+public slots:
+    void setNextTimeout(int nextTimeout);
+    void forcePollRequest();
+    void stopCatchingTimeouts();
+    void catchIdleEvent();
+    void stopCatchingIdleEvents();
 
-    private slots:
-        void poll();
+private slots:
+    void poll();
 
-    signals:
-        void resumingFromIdle();
-        void pollRequest( int idleTime );
+signals:
+    void resumingFromIdle();
+    void pollRequest(int idleTime);
 
-    private:
-        QTimer * m_pollTimer;
-        int m_lastIdleTime;
-        bool m_catchingIdle;
+private:
+    QTimer * m_pollTimer;
+    int m_lastIdleTime;
+    bool m_catchingIdle;
 };
 
 #endif /* TIMERBASEDPOLLER_H */

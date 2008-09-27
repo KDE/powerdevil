@@ -30,31 +30,31 @@ class ErrorWidget;
 
 class PowerDevilKCM : public KCModule
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        PowerDevilKCM( QWidget *parent, const QVariantList &args );
+public:
+    PowerDevilKCM(QWidget *parent, const QVariantList &args);
 
-        void load();
-        void save();
-        void defaults();
+    void load();
+    void save();
+    void defaults();
 
-    private slots:
-        void streamToDBus();
-        void initModule();
-        void forceReload();
+private slots:
+    void streamToDBus();
+    void initModule();
+    void forceReload();
 
-    private:
-        void initView();
-        void initError( const QString &error );
-        void unloadExistingWidgets();
+private:
+    void initView();
+    void initError(const QString &error);
+    void unloadExistingWidgets();
 
-    private:
-        QVBoxLayout *m_layout;
-        QPointer<ConfigWidget> m_widget;
-        QPointer<ErrorWidget> m_error;
+private:
+    QVBoxLayout *m_layout;
+    QPointer<ConfigWidget> m_widget;
+    QPointer<ErrorWidget> m_error;
 
-        QDBusConnection m_dbus;
+    QDBusConnection m_dbus;
 };
 
 #endif /*POWERDEVILKCM_H*/

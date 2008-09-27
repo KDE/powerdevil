@@ -38,10 +38,10 @@
 #include <KPushButton>
 #include <KMessageBox>
 
-CapabilitiesPage::CapabilitiesPage( QWidget *parent )
-        : QWidget( parent )
+CapabilitiesPage::CapabilitiesPage(QWidget *parent)
+        : QWidget(parent)
 {
-    setupUi( this );
+    setupUi(this);
 
     fillUi();
 }
@@ -64,114 +64,114 @@ void CapabilitiesPage::fillCapabilities()
     int batteryCount = 0;
     int cpuCount = 0;
 
-    foreach( const Solid::Device &device, Solid::Device::listFromType( Solid::DeviceInterface::Battery, QString() ) ) {
-        Q_UNUSED( device )
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        Q_UNUSED(device)
         batteryCount++;
     }
 
-    foreach( const Solid::Device &device, Solid::Device::listFromType( Solid::DeviceInterface::Processor, QString() ) ) {
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
         /*Solid::Device d = device;
         Solid::Processor *processor = qobject_cast<Solid::Processor*>(d.asDeviceInterface(Solid::DeviceInterface::Processor));
 
         if (processor->canChangeFrequency()) {
             freqchange = true;
         }*/
-        Q_UNUSED( device )
+        Q_UNUSED(device)
         ++cpuCount;
     }
 
-    cpuNumber->setText( QString::number( cpuCount ) );
-    batteriesNumber->setText( QString::number( batteryCount ) );
+    cpuNumber->setText(QString::number(cpuCount));
+    batteriesNumber->setText(QString::number(batteryCount));
 
     bool turnOff = false;
 
-    for ( int i = 0; i < cpuCount; ++i ) {
-        if ( Solid::Control::PowerManager::canDisableCpu( i ) )
+    for (int i = 0; i < cpuCount; ++i) {
+        if (Solid::Control::PowerManager::canDisableCpu(i))
             turnOff = true;
     }
 
-    if ( turnOff )
-        isCPUOffSupported->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    if (turnOff)
+        isCPUOffSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     else
-        isCPUOffSupported->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+        isCPUOffSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
 
     QString sMethods;
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
-    if ( methods & Solid::Control::PowerManager::ToDisk ) {
-        sMethods.append( QString( i18n( "Suspend to Disk" ) + QString( ", " ) ) );
+    if (methods & Solid::Control::PowerManager::ToDisk) {
+        sMethods.append(QString(i18n("Suspend to Disk") + QString(", ")));
     }
 
-    if ( methods & Solid::Control::PowerManager::ToRam ) {
-        sMethods.append( QString( i18n( "Suspend to RAM" ) + QString( ", " ) ) );
+    if (methods & Solid::Control::PowerManager::ToRam) {
+        sMethods.append(QString(i18n("Suspend to RAM") + QString(", ")));
     }
 
-    if ( methods & Solid::Control::PowerManager::Standby ) {
-        sMethods.append( QString( i18n( "Standby" ) + QString( ", " ) ) );
+    if (methods & Solid::Control::PowerManager::Standby) {
+        sMethods.append(QString(i18n("Standby") + QString(", ")));
     }
 
-    if ( !sMethods.isEmpty() ) {
-        sMethods.remove( sMethods.length() - 2, 2 );
+    if (!sMethods.isEmpty()) {
+        sMethods.remove(sMethods.length() - 2, 2);
     } else {
-        sMethods = i18nc( "None", "No methods found" );
+        sMethods = i18nc("None", "No methods found");
     }
 
-    supportedMethods->setText( sMethods );
+    supportedMethods->setText(sMethods);
 
     QString scMethods;
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
-    if ( policies & Solid::Control::PowerManager::Performance ) {
-        scMethods.append( QString( i18n( "Performance" ) + QString( ", " ) ) );
+    if (policies & Solid::Control::PowerManager::Performance) {
+        scMethods.append(QString(i18n("Performance") + QString(", ")));
     }
 
-    if ( policies & Solid::Control::PowerManager::OnDemand ) {
-        scMethods.append( QString( i18n( "Dynamic (ondemand)" ) + QString( ", " ) ) );
+    if (policies & Solid::Control::PowerManager::OnDemand) {
+        scMethods.append(QString(i18n("Dynamic (ondemand)") + QString(", ")));
     }
 
-    if ( policies & Solid::Control::PowerManager::Conservative ) {
-        scMethods.append( QString( i18n( "Dynamic (conservative)" ) + QString( ", " ) ) );
+    if (policies & Solid::Control::PowerManager::Conservative) {
+        scMethods.append(QString(i18n("Dynamic (conservative)") + QString(", ")));
     }
 
-    if ( policies & Solid::Control::PowerManager::Powersave ) {
-        scMethods.append( QString( i18n( "Powersave" ) + QString( ", " ) ) );
+    if (policies & Solid::Control::PowerManager::Powersave) {
+        scMethods.append(QString(i18n("Powersave") + QString(", ")));
     }
 
-    if ( policies & Solid::Control::PowerManager::Userspace ) {
-        scMethods.append( QString( i18n( "Userspace" ) + QString( ", " ) ) );
+    if (policies & Solid::Control::PowerManager::Userspace) {
+        scMethods.append(QString(i18n("Userspace") + QString(", ")));
     }
 
-    if ( !scMethods.isEmpty() ) {
-        scMethods.remove( scMethods.length() - 2, 2 );
-        isScalingSupported->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    if (!scMethods.isEmpty()) {
+        scMethods.remove(scMethods.length() - 2, 2);
+        isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
-        scMethods = i18nc( "None", "No methods found" );
-        isScalingSupported->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+        scMethods = i18nc("None", "No methods found");
+        isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
-    supportedPolicies->setText( scMethods );
+    supportedPolicies->setText(scMethods);
 
-    if ( !Solid::Control::PowerManager::supportedSchemes().isEmpty() ) {
-        isSchemeSupported->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    if (!Solid::Control::PowerManager::supportedSchemes().isEmpty()) {
+        isSchemeSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
-        isSchemeSupported->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+        isSchemeSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
     QString schemes;
 
-    foreach( const QString &scheme, Solid::Control::PowerManager::supportedSchemes() ) {
-        schemes.append( scheme + QString( ", " ) );
+    foreach(const QString &scheme, Solid::Control::PowerManager::supportedSchemes()) {
+        schemes.append(scheme + QString(", "));
     }
 
-    if ( !schemes.isEmpty() ) {
-        schemes.remove( schemes.length() - 2, 2 );
+    if (!schemes.isEmpty()) {
+        schemes.remove(schemes.length() - 2, 2);
     } else {
-        schemes = i18nc( "None", "No methods found" );
+        schemes = i18nc("None", "No methods found");
     }
 
-    supportedSchemes->setText( schemes );
+    supportedSchemes->setText(schemes);
 
     bool xss = false;
     bool xsync = false;
@@ -184,137 +184,137 @@ void CapabilitiesPage::fillCapabilities()
     xsync = true;
 #endif
 
-    if ( xss ) {
-        xssSupport->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    if (xss) {
+        xssSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
-        xssSupport->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+        xssSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
-    if ( xsync ) {
-        xsyncSupport->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
+    if (xsync) {
+        xsyncSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
-        xsyncSupport->setPixmap( KIcon( "dialog-cancel" ).pixmap( 16, 16 ) );
+        xsyncSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
     // Determine status!
 
-    foreach( QObject *ent, statusLayout->children() ) {
+    foreach(QObject *ent, statusLayout->children()) {
         ent->deleteLater();
     }
 
-    if ( !xss & !xsync ) {
-        setIssue( true, i18n( "PowerDevil was compiled without Xss and Xext support, or the XSync "
-                              "extension is not available. Determining idle time will not be possible. "
-                              "Please consider recompiling PowerDevil with at least one of these two "
-                              "libraries." ) );
-    } else if (( scMethods.isEmpty() || scMethods == i18n( "Performance" ) ) &&
-               PowerDevilSettings::scalingWarning() ) {
-        setIssue( true, i18n( "No scaling methods were found. If your CPU is reasonably recent, this "
-                              "is probably because you have not loaded some kernel modules. Usually "
-                              "scaling modules have names similar to cpufreq_ondemand. Scaling is "
-                              "useful and can save a lot of battery. Click on \"Attempt Loading Modules\" "
-                              "to let PowerDevil try to load the required modules. If you are sure your PC "
-                              "does not support scaling, you can also disable this warning by clicking "
-                              "\"Do not display this warning again\"." ),
-                  i18n( "Attempt loading Modules" ), "system-run", SLOT( attemptLoadingModules() ),
-                  i18n( "Do not display this warning again" ), "dialog-ok-apply", SLOT( disableScalingWarn() ) );
+    if (!xss & !xsync) {
+        setIssue(true, i18n("PowerDevil was compiled without Xss and Xext support, or the XSync "
+                            "extension is not available. Determining idle time will not be possible. "
+                            "Please consider recompiling PowerDevil with at least one of these two "
+                            "libraries."));
+    } else if ((scMethods.isEmpty() || scMethods == i18n("Performance")) &&
+               PowerDevilSettings::scalingWarning()) {
+        setIssue(true, i18n("No scaling methods were found. If your CPU is reasonably recent, this "
+                            "is probably because you have not loaded some kernel modules. Usually "
+                            "scaling modules have names similar to cpufreq_ondemand. Scaling is "
+                            "useful and can save a lot of battery. Click on \"Attempt Loading Modules\" "
+                            "to let PowerDevil try to load the required modules. If you are sure your PC "
+                            "does not support scaling, you can also disable this warning by clicking "
+                            "\"Do not display this warning again\"."),
+                 i18n("Attempt loading Modules"), "system-run", SLOT(attemptLoadingModules()),
+                 i18n("Do not display this warning again"), "dialog-ok-apply", SLOT(disableScalingWarn()));
 
-    } else if ( !xsync ) {
-        setIssue( true, i18n( "PowerDevil was compiled without Xext support, or the XSync extension is "
-                              "not available. XSync grants extra efficiency and performance, saving your "
-                              "battery and CPU. It is advised to use PowerDevil with XSync enabled." ) );
+    } else if (!xsync) {
+        setIssue(true, i18n("PowerDevil was compiled without Xext support, or the XSync extension is "
+                            "not available. XSync grants extra efficiency and performance, saving your "
+                            "battery and CPU. It is advised to use PowerDevil with XSync enabled."));
 
-    } else if ( PowerDevilSettings::pollingSystem() != 2 ) {
+    } else if (PowerDevilSettings::pollingSystem() != 2) {
 
-        QDBusMessage msg = QDBusMessage::createMethodCall( "org.kde.kded",
-                           "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems" );
-        QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call( msg );
+        QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
+                           "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems");
+        QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call(msg);
 
         bool found = false;
 
-        foreach( const QVariant &ent, systems.value().values() ) {
-            if ( ent.toInt() == 2 ) {
+        foreach(const QVariant &ent, systems.value().values()) {
+            if (ent.toInt() == 2) {
                 found = true;
             }
         }
 
-        if ( !found ) {
-            setIssue( false, i18n( "No issues found with your configuration." ) );
+        if (!found) {
+            setIssue(false, i18n("No issues found with your configuration."));
         } else {
-            setIssue( true, i18n( "XSync does not seem your preferred query backend, though it is available "
-                                  "on your system. Using it largely improves performance and efficiency, and "
-                                  "it is strongly advised. Click on the button below to enable it now." ),
-                      i18n( "Enable XSync Backend" ), "dialog-ok-apply", SLOT( enableXSync() ) );
+            setIssue(true, i18n("XSync does not seem your preferred query backend, though it is available "
+                                "on your system. Using it largely improves performance and efficiency, and "
+                                "it is strongly advised. Click on the button below to enable it now."),
+                     i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
         }
     } else {
-        setIssue( false, i18n( "No issues found with your configuration." ) );
+        setIssue(false, i18n("No issues found with your configuration."));
     }
 }
 
-void CapabilitiesPage::setIssue( bool issue, const QString &text,
-                                 const QString &button, const QString &buticon, const char *slot,
-                                 const QString &button2, const QString &buticon2, const char *slot2 )
+void CapabilitiesPage::setIssue(bool issue, const QString &text,
+                                const QString &button, const QString &buticon, const char *slot,
+                                const QString &button2, const QString &buticon2, const char *slot2)
 {
-    QLabel *pm = new QLabel( this );
-    QLabel *tx = new QLabel( this );
+    QLabel *pm = new QLabel(this);
+    QLabel *tx = new QLabel(this);
     QHBoxLayout *ly = new QHBoxLayout();
     QHBoxLayout *butly = 0;
 
-    pm->setMaximumWidth( 30 );
-    tx->setScaledContents( true );
-    tx->setWordWrap( true );
+    pm->setMaximumWidth(30);
+    tx->setScaledContents(true);
+    tx->setWordWrap(true);
 
-    ly->addWidget( pm );
-    ly->addWidget( tx );
+    ly->addWidget(pm);
+    ly->addWidget(tx);
 
-    if ( !issue ) {
-        pm->setPixmap( KIcon( "dialog-ok-apply" ).pixmap( 16, 16 ) );
-        tx->setText( text );
-        emit issuesFound( false );
+    if (!issue) {
+        pm->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+        tx->setText(text);
+        emit issuesFound(false);
     } else {
-        pm->setPixmap( KIcon( "dialog-warning" ).pixmap( 16, 16 ) );
-        tx->setText( text );
+        pm->setPixmap(KIcon("dialog-warning").pixmap(16, 16));
+        tx->setText(text);
 
-        if ( !button.isEmpty() ) {
+        if (!button.isEmpty()) {
             butly = new QHBoxLayout();
-            KPushButton *but = new KPushButton( this );
+            KPushButton *but = new KPushButton(this);
 
-            but->setText( button );
-            but->setIcon( KIcon( buticon ) );
+            but->setText(button);
+            but->setIcon(KIcon(buticon));
 
-            ly->removeWidget( tx );
+            ly->removeWidget(tx);
 
-            butly->addWidget( but );
+            butly->addWidget(but);
 
             QVBoxLayout *vl = new QVBoxLayout();
 
-            vl->addWidget( tx );
-            vl->addLayout( butly );
+            vl->addWidget(tx);
+            vl->addLayout(butly);
 
-            ly->addLayout( vl );
+            ly->addLayout(vl);
 
-            connect( but, SIGNAL( clicked() ), slot );
+            connect(but, SIGNAL(clicked()), slot);
         }
-        if ( !button2.isEmpty() ) {
-            KPushButton *but = new KPushButton( this );
+        if (!button2.isEmpty()) {
+            KPushButton *but = new KPushButton(this);
 
-            but->setText( button2 );
-            but->setIcon( KIcon( buticon2 ) );
+            but->setText(button2);
+            but->setIcon(KIcon(buticon2));
 
-            butly->addWidget( but );
+            butly->addWidget(but);
 
-            connect( but, SIGNAL( clicked() ), slot2 );
+            connect(but, SIGNAL(clicked()), slot2);
         }
 
-        emit issuesFound( true );
+        emit issuesFound(true);
     }
 
-    statusLayout->addLayout( ly );
+    statusLayout->addLayout(ly);
 }
 
 void CapabilitiesPage::disableScalingWarn()
 {
-    PowerDevilSettings::setScalingWarning( false );
+    PowerDevilSettings::setScalingWarning(false);
 
     emit reload();
     emit reloadModule();
@@ -326,38 +326,38 @@ void CapabilitiesPage::attemptLoadingModules()
 
     QProcess process;
 
-    process.start( "modprobe -l" );
+    process.start("modprobe -l");
     process.waitForFinished();
 
     QStringList modules;
 
-    foreach( const QString &ent, process.readAll().split( '\n' ) ) {
-        if ( ent.contains( "cpufreq_" ) || ent.contains( "ondemand" ) ) {
-            QStringList ents = ent.split( '/' );
-            QString module = ents.at( ents.count() - 1 );
-            module.remove( module.length() - 3, 3 );
-            modules.append( module );
+    foreach(const QString &ent, process.readAll().split('\n')) {
+        if (ent.contains("cpufreq_") || ent.contains("ondemand")) {
+            QStringList ents = ent.split('/');
+            QString module = ents.at(ents.count() - 1);
+            module.remove(module.length() - 3, 3);
+            modules.append(module);
         }
     }
 
-    if ( modules.isEmpty() ) {
-        KMessageBox::sorry( this, i18n( "No CPU scaling kernel modules were found. Maybe you did not "
-                                        "install them, or PowerDevil could not find them" ),
-                            i18n( "Modules not found" ) );
+    if (modules.isEmpty()) {
+        KMessageBox::sorry(this, i18n("No CPU scaling kernel modules were found. Maybe you did not "
+                                      "install them, or PowerDevil could not find them"),
+                           i18n("Modules not found"));
         return;
     }
 
     QString command = "kdesu '";
 
-    foreach( const QString &ent, modules ) {
-        command.append( QString( "modprobe %1 | " ).arg( ent ) );
+    foreach(const QString &ent, modules) {
+        command.append(QString("modprobe %1 | ").arg(ent));
     }
 
-    command.remove( command.length() - 3, 3 );
+    command.remove(command.length() - 3, 3);
 
-    command.append( '\'' );
+    command.append('\'');
 
-    system( command.toAscii().data() );
+    system(command.toAscii().data());
 
     emit reload();
     emit reloadModule();
@@ -365,7 +365,7 @@ void CapabilitiesPage::attemptLoadingModules()
 
 void CapabilitiesPage::enableXSync()
 {
-    PowerDevilSettings::setPollingSystem( 2 );
+    PowerDevilSettings::setPollingSystem(2);
 
     PowerDevilSettings::self()->writeConfig();
 

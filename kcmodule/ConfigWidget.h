@@ -30,26 +30,26 @@
 
 class ConfigWidget : public QWidget, private Ui_powerDevilConfig
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        ConfigWidget( QWidget *parent = 0 );
-        ~ConfigWidget();
+public:
+    ConfigWidget(QWidget *parent = 0);
+    ~ConfigWidget();
 
-    public slots:
-        void load();
-        void save();
+public slots:
+    void load();
+    void save();
 
-    signals:
-        void changed( bool change );
-        void reloadRequest();
-        void reloadModule();
+signals:
+    void changed(bool change);
+    void reloadRequest();
+    void reloadModule();
 
-    private:
-        GeneralPage *m_generalPage;
-        AssignmentPage *m_assignmentPage;
-        EditPage *m_editPage;
-        CapabilitiesPage *m_capabilitiesPage;
+private:
+    GeneralPage *m_generalPage;
+    AssignmentPage *m_assignmentPage;
+    EditPage *m_editPage;
+    CapabilitiesPage *m_capabilitiesPage;
 };
 
 #endif /*CONFIGWIDGET_H*/

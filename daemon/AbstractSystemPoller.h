@@ -24,37 +24,37 @@
 
 class AbstractSystemPoller : public QWidget
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
+public:
 
-        enum PollingType {
-            Abstract = -1,
-            WidgetBased = 1,
-            XSyncBased = 2,
-            TimerBased = 3
-        };
+    enum PollingType {
+        Abstract = -1,
+        WidgetBased = 1,
+        XSyncBased = 2,
+        TimerBased = 3
+    };
 
-        AbstractSystemPoller( QObject *parent = 0 );
-        virtual ~AbstractSystemPoller();
+    AbstractSystemPoller(QObject *parent = 0);
+    virtual ~AbstractSystemPoller();
 
-        virtual PollingType getPollingType() = 0;
-        virtual QString name() = 0;
+    virtual PollingType getPollingType() = 0;
+    virtual QString name() = 0;
 
-        virtual bool isAvailable() = 0;
-        virtual bool setUpPoller() = 0;
-        virtual void unloadPoller() = 0;
+    virtual bool isAvailable() = 0;
+    virtual bool setUpPoller() = 0;
+    virtual void unloadPoller() = 0;
 
-    public slots:
-        virtual void setNextTimeout( int nextTimeout ) = 0;
-        virtual void forcePollRequest() = 0;
-        virtual void stopCatchingTimeouts() = 0;
-        virtual void catchIdleEvent() = 0;
-        virtual void stopCatchingIdleEvents() = 0;
+public slots:
+    virtual void setNextTimeout(int nextTimeout) = 0;
+    virtual void forcePollRequest() = 0;
+    virtual void stopCatchingTimeouts() = 0;
+    virtual void catchIdleEvent() = 0;
+    virtual void stopCatchingIdleEvents() = 0;
 
-    signals:
-        void resumingFromIdle();
-        void pollRequest( int idleTime );
+signals:
+    void resumingFromIdle();
+    void pollRequest(int idleTime);
 
 };
 

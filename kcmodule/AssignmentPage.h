@@ -26,28 +26,28 @@
 
 class AssignmentPage : public QWidget, private Ui_profileAssignmentPage
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        AssignmentPage( QWidget *parent = 0 );
-        ~AssignmentPage();
-        void fillUi();
+public:
+    AssignmentPage(QWidget *parent = 0);
+    ~AssignmentPage();
+    void fillUi();
 
-        void load();
-        void save();
+    void load();
+    void save();
 
-    signals:
-        void changed( bool ch );
+signals:
+    void changed(bool ch);
 
-    private slots:
-        void emitChanged();
+private slots:
+    void emitChanged();
 
-        void reloadAvailableProfiles();
+    void reloadAvailableProfiles();
 
-    private:
+private:
 
-        KSharedConfig::Ptr m_profilesConfig;
-        bool m_profileEdited;
+    KSharedConfig::Ptr m_profilesConfig;
+    bool m_profileEdited;
 };
 
 #endif /* ASSIGNMENTPAGE_H_ */

@@ -32,10 +32,10 @@
 
 #include <KNotifyConfigWidget>
 
-GeneralPage::GeneralPage( QWidget *parent )
-        : QWidget( parent )
+GeneralPage::GeneralPage(QWidget *parent)
+        : QWidget(parent)
 {
-    setupUi( this );
+    setupUi(this);
 
     fillUi();
 }
@@ -46,101 +46,101 @@ GeneralPage::~GeneralPage()
 
 void GeneralPage::fillUi()
 {
-    issueIcon->setPixmap( KIcon( "dialog-warning" ).pixmap( 32, 32 ) );
-    issueIcon->setVisible( false );
-    issueText->setVisible( false );
+    issueIcon->setPixmap(KIcon("dialog-warning").pixmap(32, 32));
+    issueIcon->setVisible(false);
+    issueText->setVisible(false);
 
-    BatteryCriticalCombo->addItem( i18n( "Do nothing" ), ( int ) None );
-    BatteryCriticalCombo->addItem( i18n( "Shutdown" ), ( int ) Shutdown );
+    BatteryCriticalCombo->addItem(i18n("Do nothing"), (int) None);
+    BatteryCriticalCombo->addItem(i18n("Shutdown"), (int) Shutdown);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
-    if ( methods & Solid::Control::PowerManager::ToDisk ) {
-        BatteryCriticalCombo->addItem( i18n( "Suspend to Disk" ), ( int ) S2Disk );
+    if (methods & Solid::Control::PowerManager::ToDisk) {
+        BatteryCriticalCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
 
-    if ( methods & Solid::Control::PowerManager::ToRam ) {
-        BatteryCriticalCombo->addItem( i18n( "Suspend to Ram" ), ( int ) S2Ram );
+    if (methods & Solid::Control::PowerManager::ToRam) {
+        BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
 
-    if ( methods & Solid::Control::PowerManager::Standby ) {
-        BatteryCriticalCombo->addItem( i18n( "Standby" ), ( int ) Standby );
+    if (methods & Solid::Control::PowerManager::Standby) {
+        BatteryCriticalCombo->addItem(i18n("Standby"), (int) Standby);
     }
 
-    notificationsButton->setIcon( KIcon( "preferences-desktop-notification" ) );
+    notificationsButton->setIcon(KIcon("preferences-desktop-notification"));
 
     // modified fields...
 
-    connect( lockScreenOnResume, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
-    connect( dimDisplayOnIdle, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
-    connect( dimOnIdleTime, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
-    connect( notificationsBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
-    connect( warningNotificationsBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
+    connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(notificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(warningNotificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
 
-    connect( notificationsButton, SIGNAL( clicked() ), SLOT( configureNotifications() ) );
+    connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 
-    connect( lowSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
-    connect( warningSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
-    connect( criticalSpin, SIGNAL( valueChanged( int ) ), SLOT( emitChanged() ) );
+    connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
-    connect( dimDisplayOnIdle, SIGNAL( stateChanged( int ) ), SLOT( enableBoxes() ) );
+    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
-    connect( BatteryCriticalCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( emitChanged() ) );
+    connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 }
 
 void GeneralPage::load()
 {
-    lockScreenOnResume->setChecked( PowerDevilSettings::configLockScreen() );
-    dimDisplayOnIdle->setChecked( PowerDevilSettings::dimOnIdle() );
-    dimOnIdleTime->setValue( PowerDevilSettings::dimOnIdleTime() );
-    notificationsBox->setChecked( PowerDevilSettings::enableNotifications() );
-    warningNotificationsBox->setChecked( PowerDevilSettings::enableWarningNotifications() );
+    lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
+    dimDisplayOnIdle->setChecked(PowerDevilSettings::dimOnIdle());
+    dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
+    notificationsBox->setChecked(PowerDevilSettings::enableNotifications());
+    warningNotificationsBox->setChecked(PowerDevilSettings::enableWarningNotifications());
 
-    lowSpin->setValue( PowerDevilSettings::batteryLowLevel() );
-    warningSpin->setValue( PowerDevilSettings::batteryWarningLevel() );
-    criticalSpin->setValue( PowerDevilSettings::batteryCriticalLevel() );
+    lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
+    warningSpin->setValue(PowerDevilSettings::batteryWarningLevel());
+    criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
 
-    BatteryCriticalCombo->setCurrentIndex( BatteryCriticalCombo->findData( PowerDevilSettings::batLowAction() ) );
+    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batLowAction()));
 
     enableBoxes();
 }
 
 void GeneralPage::configureNotifications()
 {
-    KNotifyConfigWidget::configure( this, "powerdevil" );
+    KNotifyConfigWidget::configure(this, "powerdevil");
 }
 
 void GeneralPage::save()
 {
-    PowerDevilSettings::setConfigLockScreen( lockScreenOnResume->isChecked() );
-    PowerDevilSettings::setDimOnIdle( dimDisplayOnIdle->isChecked() );
-    PowerDevilSettings::setDimOnIdleTime( dimOnIdleTime->value() );
-    PowerDevilSettings::setEnableNotifications( notificationsBox->isChecked() );
-    PowerDevilSettings::setEnableWarningNotifications( warningNotificationsBox->isChecked() );
+    PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
+    PowerDevilSettings::setDimOnIdle(dimDisplayOnIdle->isChecked());
+    PowerDevilSettings::setDimOnIdleTime(dimOnIdleTime->value());
+    PowerDevilSettings::setEnableNotifications(notificationsBox->isChecked());
+    PowerDevilSettings::setEnableWarningNotifications(warningNotificationsBox->isChecked());
 
-    PowerDevilSettings::setBatteryLowLevel( lowSpin->value() );
-    PowerDevilSettings::setBatteryWarningLevel( warningSpin->value() );
-    PowerDevilSettings::setBatteryCriticalLevel( criticalSpin->value() );
+    PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
+    PowerDevilSettings::setBatteryWarningLevel(warningSpin->value());
+    PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
 
-    PowerDevilSettings::setBatLowAction( BatteryCriticalCombo->itemData( BatteryCriticalCombo->currentIndex() ).toInt() );
+    PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
     PowerDevilSettings::self()->writeConfig();
 }
 
 void GeneralPage::emitChanged()
 {
-    emit changed( true );
+    emit changed(true);
 }
 
 void GeneralPage::enableBoxes()
 {
-    dimOnIdleTime->setEnabled( dimDisplayOnIdle->isChecked() );
+    dimOnIdleTime->setEnabled(dimDisplayOnIdle->isChecked());
 }
 
-void GeneralPage::enableIssue( bool enable )
+void GeneralPage::enableIssue(bool enable)
 {
-    issueIcon->setVisible( enable );
-    issueText->setVisible( enable );
+    issueIcon->setVisible(enable);
+    issueText->setVisible(enable);
 }
 
 #include "GeneralPage.moc"

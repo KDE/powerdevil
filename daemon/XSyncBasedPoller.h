@@ -36,54 +36,54 @@
 
 class XSyncBasedPoller : public AbstractSystemPoller
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        XSyncBasedPoller( QObject *parent = 0 );
-        virtual ~XSyncBasedPoller();
+public:
+    XSyncBasedPoller(QObject *parent = 0);
+    virtual ~XSyncBasedPoller();
 
-        AbstractSystemPoller::PollingType getPollingType() {
-            return AbstractSystemPoller::XSyncBased;
-        };
-        QString name();
+    AbstractSystemPoller::PollingType getPollingType() {
+        return AbstractSystemPoller::XSyncBased;
+    };
+    QString name();
 
-        bool isAvailable();
-        bool setUpPoller();
-        void unloadPoller();
+    bool isAvailable();
+    bool setUpPoller();
+    void unloadPoller();
 
-    protected:
-        bool x11Event( XEvent *event );
+protected:
+    bool x11Event(XEvent *event);
 
-    public slots:
-        void setNextTimeout( int nextTimeout );
-        void forcePollRequest();
-        void stopCatchingTimeouts();
-        void catchIdleEvent();
-        void stopCatchingIdleEvents();
+public slots:
+    void setNextTimeout(int nextTimeout);
+    void forcePollRequest();
+    void stopCatchingTimeouts();
+    void catchIdleEvent();
+    void stopCatchingIdleEvents();
 
-    private slots:
-        void poll();
+private slots:
+    void poll();
 
-    signals:
-        void resumingFromIdle();
-        void pollRequest( int idleTime );
+signals:
+    void resumingFromIdle();
+    void pollRequest(int idleTime);
 
 #ifdef HAVE_XSYNC
-    private:
-        void setAlarm( Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
-                       XSyncTestType test, XSyncValue value );
+private:
+    void setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
+                  XSyncTestType test, XSyncValue value);
 #endif
 
-    private:
+private:
 #ifdef HAVE_XSYNC
-        Display * m_display;
-        int                 m_sync_event, m_sync_error;
-        XSyncSystemCounter  *m_counters;
-        XSyncCounter        m_idleCounter;
-        XSyncAlarm          m_timeoutAlarm;
-        XSyncAlarm          m_resetAlarm;
+    Display * m_display;
+    int                 m_sync_event, m_sync_error;
+    XSyncSystemCounter  *m_counters;
+    XSyncCounter        m_idleCounter;
+    XSyncAlarm          m_timeoutAlarm;
+    XSyncAlarm          m_resetAlarm;
 #endif
-        QWidget * m_filterWidget;
+    QWidget * m_filterWidget;
 };
 
 #endif /* XSYNCBASEDPOLLER_H */

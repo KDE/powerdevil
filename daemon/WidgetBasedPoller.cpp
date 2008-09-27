@@ -26,8 +26,8 @@
 
 #include <klocalizedstring.h>
 
-WidgetBasedPoller::WidgetBasedPoller( QObject *parent )
-        : AbstractSystemPoller( parent )
+WidgetBasedPoller::WidgetBasedPoller(QObject *parent)
+        : AbstractSystemPoller(parent)
 {
 }
 
@@ -37,7 +37,7 @@ WidgetBasedPoller::~WidgetBasedPoller()
 
 QString WidgetBasedPoller::name()
 {
-    return i18n( "Grabber Widget Based" );
+    return i18n("Grabber Widget Based");
 }
 
 bool WidgetBasedPoller::isAvailable()
@@ -51,22 +51,22 @@ bool WidgetBasedPoller::isAvailable()
 
 bool WidgetBasedPoller::setUpPoller()
 {
-    m_pollTimer = new QTimer( this );
+    m_pollTimer = new QTimer(this);
 
     //setup idle timer, with some smart polling
-    connect( m_pollTimer, SIGNAL( timeout() ), this, SLOT( poll() ) );
+    connect(m_pollTimer, SIGNAL(timeout()), this, SLOT(poll()));
 
     // This code was taken from Lithium/KDE4Powersave
-    m_grabber = new QWidget( 0, Qt::X11BypassWindowManagerHint );
-    m_grabber->move( -1000, -1000 );
-    m_grabber->setMouseTracking( true );
-    m_grabber->installEventFilter( this );
-    m_grabber->setObjectName( "PowerDevilGrabberWidget" );
+    m_grabber = new QWidget(0, Qt::X11BypassWindowManagerHint);
+    m_grabber->move(-1000, -1000);
+    m_grabber->setMouseTracking(true);
+    m_grabber->installEventFilter(this);
+    m_grabber->setObjectName("PowerDevilGrabberWidget");
 
-    m_screenSaverIface = new OrgFreedesktopScreenSaverInterface( "org.freedesktop.ScreenSaver", "/ScreenSaver",
-            QDBusConnection::sessionBus(), this );
+    m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
+            QDBusConnection::sessionBus(), this);
 
-    connect( m_screenSaverIface, SIGNAL( ActiveChanged( bool ) ), SLOT( screensaverActivated( bool ) ) );
+    connect(m_screenSaverIface, SIGNAL(ActiveChanged(bool)), SLOT(screensaverActivated(bool)));
 
     return true;
 }
@@ -77,27 +77,27 @@ void WidgetBasedPoller::unloadPoller()
     m_grabber->deleteLater();
 }
 
-void WidgetBasedPoller::setNextTimeout( int nextTimeout )
+void WidgetBasedPoller::setNextTimeout(int nextTimeout)
 {
-    m_pollTimer->start( nextTimeout );
+    m_pollTimer->start(nextTimeout);
 }
 
-void WidgetBasedPoller::screensaverActivated( bool activated )
+void WidgetBasedPoller::screensaverActivated(bool activated)
 {
     // We care only if it has been disactivated
 
-    if ( !activated ) {
+    if (!activated) {
         m_screenSaverIface->SimulateUserActivity();
         emit resumingFromIdle();
     }
 }
 
-bool WidgetBasedPoller::eventFilter( QObject * object, QEvent * event )
+bool WidgetBasedPoller::eventFilter(QObject * object, QEvent * event)
 {
-    if ( object == m_grabber
-            && ( event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress ) ) {
+    if (object == m_grabber
+            && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
         detectedActivity();
-    } else if ( object != m_grabber ) {
+    } else if (object != m_grabber) {
         // If it's not the grabber, fallback to default event filter
         return false;
     }
@@ -155,12 +155,12 @@ void WidgetBasedPoller::poll()
 #ifdef HAVE_XSCREENSAVER
     XScreenSaverInfo * mitInfo = 0;
     mitInfo = XScreenSaverAllocInfo();
-    XScreenSaverQueryInfo( QX11Info::display(), DefaultRootWindow( QX11Info::display() ), mitInfo );
+    XScreenSaverQueryInfo(QX11Info::display(), DefaultRootWindow(QX11Info::display()), mitInfo);
     idle = mitInfo->idle / 1000;
     //----------------------------------------------------------
 #endif
 
-    emit pollRequest( idle );
+    emit pollRequest(idle);
 }
 
 void WidgetBasedPoller::forcePollRequest()

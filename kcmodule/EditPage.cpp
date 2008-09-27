@@ -39,30 +39,30 @@
 #include <KMessageBox>
 #include <KIconButton>
 
-EditPage::EditPage( QWidget *parent )
-        : QWidget( parent ),
-        m_profileEdited( false )
+EditPage::EditPage(QWidget *parent)
+        : QWidget(parent),
+        m_profileEdited(false)
 {
-    setupUi( this );
+    setupUi(this);
 
-    m_profilesConfig = KSharedConfig::openConfig( "powerdevilprofilesrc", KConfig::SimpleConfig );
+    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
-    if ( m_profilesConfig->groupList().isEmpty() ) {
+    if (m_profilesConfig->groupList().isEmpty()) {
         // Let's add some basic profiles, huh?
 
-        KConfigGroup *performance = new KConfigGroup( m_profilesConfig, "Performance" );
+        KConfigGroup *performance = new KConfigGroup(m_profilesConfig, "Performance");
 
-        performance->writeEntry( "brightness", 100 );
-        performance->writeEntry( "cpuPolicy", ( int ) Solid::Control::PowerManager::Performance );
-        performance->writeEntry( "idleAction", 0 );
-        performance->writeEntry( "idleTime", 50 );
-        performance->writeEntry( "lidAction", 0 );
-        performance->writeEntry( "turnOffIdle", false );
-        performance->writeEntry( "turnOffIdleTime", 120 );
+        performance->writeEntry("brightness", 100);
+        performance->writeEntry("cpuPolicy", (int) Solid::Control::PowerManager::Performance);
+        performance->writeEntry("idleAction", 0);
+        performance->writeEntry("idleTime", 50);
+        performance->writeEntry("lidAction", 0);
+        performance->writeEntry("turnOffIdle", false);
+        performance->writeEntry("turnOffIdleTime", 120);
 
         performance->sync();
 
-        kDebug() << performance->readEntry( "brightness" );
+        kDebug() << performance->readEntry("brightness");
 
         delete performance;
     }
@@ -76,115 +76,115 @@ EditPage::~EditPage()
 
 void EditPage::fillUi()
 {
-    idleCombo->addItem( i18n( "Do nothing" ), ( int ) None );
-    idleCombo->addItem( i18n( "Shutdown" ), ( int ) Shutdown );
-    idleCombo->addItem( i18n( "Lock Screen" ), ( int ) Lock );
-    laptopClosedCombo->addItem( i18n( "Do nothing" ), ( int ) None );
-    laptopClosedCombo->addItem( i18n( "Shutdown" ), ( int ) Shutdown );
-    laptopClosedCombo->addItem( i18n( "Lock Screen" ), ( int ) Lock );
+    idleCombo->addItem(i18n("Do nothing"), (int) None);
+    idleCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    idleCombo->addItem(i18n("Lock Screen"), (int) Lock);
+    laptopClosedCombo->addItem(i18n("Do nothing"), (int) None);
+    laptopClosedCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    laptopClosedCombo->addItem(i18n("Lock Screen"), (int) Lock);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
     Solid::Control::PowerManager::BrightnessControlsList bControls =
         Solid::Control::PowerManager::brightnessControlsAvailable();
 
-    brightnessSlider->setEnabled( bControls.values().contains( Solid::Control::PowerManager::Screen ) );
+    brightnessSlider->setEnabled(bControls.values().contains(Solid::Control::PowerManager::Screen));
 
-    if ( methods & Solid::Control::PowerManager::ToDisk ) {
-        idleCombo->addItem( i18n( "Suspend to Disk" ), ( int ) S2Disk );
-        laptopClosedCombo->addItem( i18n( "Suspend to Disk" ), ( int ) S2Disk );
+    if (methods & Solid::Control::PowerManager::ToDisk) {
+        idleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        laptopClosedCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
 
-    if ( methods & Solid::Control::PowerManager::ToRam ) {
-        idleCombo->addItem( i18n( "Suspend to Ram" ), ( int ) S2Ram );
-        laptopClosedCombo->addItem( i18n( "Suspend to Ram" ), ( int ) S2Ram );
+    if (methods & Solid::Control::PowerManager::ToRam) {
+        idleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        laptopClosedCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
 
-    if ( methods & Solid::Control::PowerManager::Standby ) {
-        idleCombo->addItem( i18n( "Standby" ), ( int ) Standby );
-        laptopClosedCombo->addItem( i18n( "Standby" ), ( int ) Standby );
+    if (methods & Solid::Control::PowerManager::Standby) {
+        idleCombo->addItem(i18n("Standby"), (int) Standby);
+        laptopClosedCombo->addItem(i18n("Standby"), (int) Standby);
     }
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
-    if ( policies & Solid::Control::PowerManager::Performance ) {
-        freqCombo->addItem( i18n( "Performance" ), ( int ) Solid::Control::PowerManager::Performance );
+    if (policies & Solid::Control::PowerManager::Performance) {
+        freqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
     }
 
-    if ( policies & Solid::Control::PowerManager::OnDemand ) {
-        freqCombo->addItem( i18n( "Dynamic (ondemand)" ), ( int ) Solid::Control::PowerManager::OnDemand );
+    if (policies & Solid::Control::PowerManager::OnDemand) {
+        freqCombo->addItem(i18n("Dynamic (ondemand)"), (int) Solid::Control::PowerManager::OnDemand);
     }
 
-    if ( policies & Solid::Control::PowerManager::Conservative ) {
-        freqCombo->addItem( i18n( "Dynamic (conservative)" ), ( int ) Solid::Control::PowerManager::Conservative );
+    if (policies & Solid::Control::PowerManager::Conservative) {
+        freqCombo->addItem(i18n("Dynamic (conservative)"), (int) Solid::Control::PowerManager::Conservative);
     }
 
-    if ( policies & Solid::Control::PowerManager::Powersave ) {
-        freqCombo->addItem( i18n( "Powersave" ), ( int ) Solid::Control::PowerManager::Powersave );
+    if (policies & Solid::Control::PowerManager::Powersave) {
+        freqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
     }
 
-    if ( policies & Solid::Control::PowerManager::Userspace ) {
-        freqCombo->addItem( i18n( "Userspace" ), ( int ) Solid::Control::PowerManager::Userspace );
+    if (policies & Solid::Control::PowerManager::Userspace) {
+        freqCombo->addItem(i18n("Userspace"), (int) Solid::Control::PowerManager::Userspace);
     }
 
-    schemeCombo->addItems( Solid::Control::PowerManager::supportedSchemes() );
+    schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
 
 
-    foreach( const Solid::Device &device, Solid::Device::listFromType( Solid::DeviceInterface::Processor, QString() ) ) {
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
         Solid::Device d = device;
-        Solid::Processor *processor = qobject_cast<Solid::Processor*> ( d.asDeviceInterface( Solid::DeviceInterface::Processor ) );
+        Solid::Processor *processor = qobject_cast<Solid::Processor*> (d.asDeviceInterface(Solid::DeviceInterface::Processor));
 
-        QString text = i18n( "CPU <numid>%1</numid>", processor->number() );
+        QString text = i18n("CPU <numid>%1</numid>", processor->number());
 
-        QCheckBox *checkBox = new QCheckBox( this );
+        QCheckBox *checkBox = new QCheckBox(this);
 
-        checkBox->setText( text );
-        checkBox->setToolTip( i18n( "Disable CPU <numid>%1</numid>", processor->number() ) );
-        checkBox->setWhatsThis( i18n( "If this box is checked, the CPU <numid>%1</numid> "
-                                      "will be disabled", processor->number() ) );
+        checkBox->setText(text);
+        checkBox->setToolTip(i18n("Disable CPU <numid>%1</numid>", processor->number()));
+        checkBox->setWhatsThis(i18n("If this box is checked, the CPU <numid>%1</numid> "
+                                    "will be disabled", processor->number()));
 
-        checkBox->setEnabled( Solid::Control::PowerManager::canDisableCpu( processor->number() ) );
+        checkBox->setEnabled(Solid::Control::PowerManager::canDisableCpu(processor->number()));
 
-        connect( checkBox, SIGNAL( stateChanged( int ) ), SLOT( emitChanged() ) );
+        connect(checkBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
 
-        CPUListLayout->addWidget( checkBox );
+        CPUListLayout->addWidget(checkBox);
     }
 
     reloadAvailableProfiles();
 
-    newProfile->setIcon( KIcon( "document-new" ) );
-    editProfileButton->setIcon( KIcon( "edit-rename" ) );
-    deleteProfile->setIcon( KIcon( "edit-delete-page" ) );
-    importButton->setIcon( KIcon( "document-import" ) );
-    exportButton->setIcon( KIcon( "document-export" ) );
-    saveCurrentProfileButton->setIcon( KIcon( "document-save" ) );
-    resetCurrentProfileButton->setIcon( KIcon( "edit-undo" ) );
+    newProfile->setIcon(KIcon("document-new"));
+    editProfileButton->setIcon(KIcon("edit-rename"));
+    deleteProfile->setIcon(KIcon("edit-delete-page"));
+    importButton->setIcon(KIcon("document-import"));
+    exportButton->setIcon(KIcon("document-export"));
+    saveCurrentProfileButton->setIcon(KIcon("document-save"));
+    resetCurrentProfileButton->setIcon(KIcon("edit-undo"));
 
     // modified fields...
 
-    connect( brightnessSlider, SIGNAL( valueChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( offDisplayWhenIdle, SIGNAL( stateChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( displayIdleTime, SIGNAL( valueChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( disableCompositing, SIGNAL( stateChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( idleTime, SIGNAL( valueChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( idleCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( freqCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( laptopClosedCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( offDisplayWhenIdle, SIGNAL( stateChanged( int ) ), SLOT( enableBoxes() ) );
+    connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(displayIdleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(disableCompositing, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(idleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(laptopClosedCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
-    connect( schemeCombo, SIGNAL( currentIndexChanged( int ) ), SLOT( setProfileChanged() ) );
-    connect( scriptRequester, SIGNAL( textChanged( const QString& ) ), SLOT( setProfileChanged() ) );
+    connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
 
-    connect( profilesList, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
-             SLOT( switchProfile( QListWidgetItem*, QListWidgetItem* ) ) );
+    connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
+            SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
 
-    connect( deleteProfile, SIGNAL( clicked() ), SLOT( deleteCurrentProfile() ) );
-    connect( newProfile, SIGNAL( clicked() ), SLOT( createProfile() ) );
-    connect( editProfileButton, SIGNAL( clicked() ), SLOT( editProfile() ) );
-    connect( importButton, SIGNAL( clicked() ), SLOT( importProfiles() ) );
-    connect( exportButton, SIGNAL( clicked() ), SLOT( exportProfiles() ) );
-    connect( resetCurrentProfileButton, SIGNAL( clicked() ), SLOT( loadProfile() ) );
-    connect( saveCurrentProfileButton, SIGNAL( clicked() ), SLOT( saveProfile() ) );
+    connect(deleteProfile, SIGNAL(clicked()), SLOT(deleteCurrentProfile()));
+    connect(newProfile, SIGNAL(clicked()), SLOT(createProfile()));
+    connect(editProfileButton, SIGNAL(clicked()), SLOT(editProfile()));
+    connect(importButton, SIGNAL(clicked()), SLOT(importProfiles()));
+    connect(exportButton, SIGNAL(clicked()), SLOT(exportProfiles()));
+    connect(resetCurrentProfileButton, SIGNAL(clicked()), SLOT(loadProfile()));
+    connect(saveCurrentProfileButton, SIGNAL(clicked()), SLOT(saveProfile()));
 }
 
 void EditPage::load()
@@ -200,55 +200,55 @@ void EditPage::save()
 
 void EditPage::emitChanged()
 {
-    emit changed( true );
+    emit changed(true);
 }
 
 void EditPage::enableBoxes()
 {
-    displayIdleTime->setEnabled( offDisplayWhenIdle->isChecked() );
+    displayIdleTime->setEnabled(offDisplayWhenIdle->isChecked());
 }
 
 void EditPage::loadProfile()
 {
     kDebug() << "Loading a profile";
 
-    if ( !profilesList->currentItem() )
+    if (!profilesList->currentItem())
         return;
 
     kDebug() << profilesList->currentItem()->text();
 
-    KConfigGroup *group = new KConfigGroup( m_profilesConfig, profilesList->currentItem()->text() );
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
 
-    if ( !group->isValid() ) {
+    if (!group->isValid()) {
         delete group;
         return;
     }
     kDebug() << "Ok, KConfigGroup ready";
 
-    kDebug() << group->readEntry( "brightness" );
+    kDebug() << group->readEntry("brightness");
 
-    brightnessSlider->setValue( group->readEntry( "brightness" ).toInt() );
-    offDisplayWhenIdle->setChecked( group->readEntry( "turnOffIdle", false ) );
-    displayIdleTime->setValue( group->readEntry( "turnOffIdleTime" ).toInt() );
-    disableCompositing->setChecked( group->readEntry( "disableCompositing", false ) );
-    idleTime->setValue( group->readEntry( "idleTime" ).toInt() );
-    idleCombo->setCurrentIndex( idleCombo->findData( group->readEntry( "idleAction" ).toInt() ) );
-    freqCombo->setCurrentIndex( freqCombo->findData( group->readEntry( "cpuPolicy" ).toInt() ) );
-    schemeCombo->setCurrentIndex( schemeCombo->findText( group->readEntry( "scheme" ) ) );
-    scriptRequester->setPath( group->readEntry( "scriptpath" ) );
+    brightnessSlider->setValue(group->readEntry("brightness").toInt());
+    offDisplayWhenIdle->setChecked(group->readEntry("turnOffIdle", false));
+    displayIdleTime->setValue(group->readEntry("turnOffIdleTime").toInt());
+    disableCompositing->setChecked(group->readEntry("disableCompositing", false));
+    idleTime->setValue(group->readEntry("idleTime").toInt());
+    idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
+    freqCombo->setCurrentIndex(freqCombo->findData(group->readEntry("cpuPolicy").toInt()));
+    schemeCombo->setCurrentIndex(schemeCombo->findText(group->readEntry("scheme")));
+    scriptRequester->setPath(group->readEntry("scriptpath"));
 
-    laptopClosedCombo->setCurrentIndex( laptopClosedCombo->findData( group->readEntry( "lidAction" ).toInt() ) );
+    laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
 
-    QVariant var = group->readEntry( "disabledCPUs", QVariant() );
+    QVariant var = group->readEntry("disabledCPUs", QVariant());
     QList<QVariant> list = var.toList();
 
-    foreach( const QVariant &ent, list ) {
-        QCheckBox *box = qobject_cast<QCheckBox*> ( CPUListLayout->itemAt( ent.toInt() )->widget() );
+    foreach(const QVariant &ent, list) {
+        QCheckBox *box = qobject_cast<QCheckBox*> (CPUListLayout->itemAt(ent.toInt())->widget());
 
-        if ( !box )
+        if (!box)
             continue;
 
-        box->setChecked( true );
+        box->setChecked(true);
     }
 
     delete group;
@@ -257,51 +257,51 @@ void EditPage::loadProfile()
     enableSaveProfile();
 }
 
-void EditPage::saveProfile( const QString &p )
+void EditPage::saveProfile(const QString &p)
 {
-    if ( !profilesList->currentItem() && p.isEmpty() ) {
+    if (!profilesList->currentItem() && p.isEmpty()) {
         return;
     }
 
     QString profile;
 
-    if ( p.isEmpty() ) {
+    if (p.isEmpty()) {
         profile = profilesList->currentItem()->text();
     } else {
         profile = p;
     }
 
-    KConfigGroup *group = new KConfigGroup( m_profilesConfig, profile );
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profile);
 
-    if ( !group->isValid() || !group->entryMap().size() ) {
+    if (!group->isValid() || !group->entryMap().size()) {
         delete group;
         return;
     }
 
-    group->writeEntry( "brightness", brightnessSlider->value() );
-    group->writeEntry( "cpuPolicy", freqCombo->itemData( freqCombo->currentIndex() ).toInt() );
-    group->writeEntry( "idleAction", idleCombo->itemData( idleCombo->currentIndex() ).toInt() );
-    group->writeEntry( "idleTime", idleTime->value() );
-    group->writeEntry( "lidAction", laptopClosedCombo->itemData( laptopClosedCombo->currentIndex() ).toInt() );
-    group->writeEntry( "turnOffIdle", offDisplayWhenIdle->isChecked() );
-    group->writeEntry( "turnOffIdleTime", displayIdleTime->value() );
-    group->writeEntry( "scheme", schemeCombo->currentText() );
-    group->writeEntry( "scriptpath", scriptRequester->url().path() );
-    group->writeEntry( "disableCompositing", disableCompositing->isChecked() );
+    group->writeEntry("brightness", brightnessSlider->value());
+    group->writeEntry("cpuPolicy", freqCombo->itemData(freqCombo->currentIndex()).toInt());
+    group->writeEntry("idleAction", idleCombo->itemData(idleCombo->currentIndex()).toInt());
+    group->writeEntry("idleTime", idleTime->value());
+    group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
+    group->writeEntry("turnOffIdle", offDisplayWhenIdle->isChecked());
+    group->writeEntry("turnOffIdleTime", displayIdleTime->value());
+    group->writeEntry("scheme", schemeCombo->currentText());
+    group->writeEntry("scriptpath", scriptRequester->url().path());
+    group->writeEntry("disableCompositing", disableCompositing->isChecked());
 
     QList<int> list;
 
-    for ( int i = 0;i < CPUListLayout->count();++i ) {
-        QCheckBox *box = qobject_cast<QCheckBox*> ( CPUListLayout->itemAt( i )->widget() );
+    for (int i = 0;i < CPUListLayout->count();++i) {
+        QCheckBox *box = qobject_cast<QCheckBox*> (CPUListLayout->itemAt(i)->widget());
 
-        if ( !box )
+        if (!box)
             continue;
 
-        if ( box->isChecked() )
-            list.append( i );
+        if (box->isChecked())
+            list.append(i);
     }
 
-    group->writeEntry( "disabledCPUs", list );
+    group->writeEntry("disabledCPUs", list);
 
     group->sync();
 
@@ -319,27 +319,27 @@ void EditPage::reloadAvailableProfiles()
 
     m_profilesConfig->reparseConfiguration();
 
-    if ( m_profilesConfig->groupList().isEmpty() ) {
+    if (m_profilesConfig->groupList().isEmpty()) {
         kDebug() << "No available profiles!";
         return;
     }
 
-    foreach( const QString &ent, m_profilesConfig->groupList() ) {
-        KConfigGroup *group = new KConfigGroup( m_profilesConfig, ent );
-        QListWidgetItem *itm = new QListWidgetItem( KIcon( group->readEntry( "iconname" ) ),
-                ent );
-        profilesList->addItem( itm );
+    foreach(const QString &ent, m_profilesConfig->groupList()) {
+        KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
+        QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("iconname")),
+                ent);
+        profilesList->addItem(itm);
     }
 
-    profilesList->setCurrentRow( 0 );
+    profilesList->setCurrentRow(0);
 }
 
 void EditPage::deleteCurrentProfile()
 {
-    if ( !profilesList->currentItem() || profilesList->currentItem()->text().isEmpty() )
+    if (!profilesList->currentItem() || profilesList->currentItem()->text().isEmpty())
         return;
 
-    m_profilesConfig->deleteGroup( profilesList->currentItem()->text() );
+    m_profilesConfig->deleteGroup(profilesList->currentItem()->text());
 
     m_profilesConfig->sync();
 
@@ -348,20 +348,20 @@ void EditPage::deleteCurrentProfile()
     emit profilesChanged();
 }
 
-void EditPage::createProfile( const QString &name, const QString &icon )
+void EditPage::createProfile(const QString &name, const QString &icon)
 {
-    if ( name.isEmpty() )
+    if (name.isEmpty())
         return;
-    KConfigGroup *group = new KConfigGroup( m_profilesConfig, name );
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, name);
 
-    group->writeEntry( "brightness", 80 );
-    group->writeEntry( "cpuPolicy", ( int ) Solid::Control::PowerManager::Powersave );
-    group->writeEntry( "idleAction", 0 );
-    group->writeEntry( "idleTime", 50 );
-    group->writeEntry( "lidAction", 0 );
-    group->writeEntry( "turnOffIdle", false );
-    group->writeEntry( "turnOffIdleTime", 50 );
-    group->writeEntry( "iconname", icon );
+    group->writeEntry("brightness", 80);
+    group->writeEntry("cpuPolicy", (int) Solid::Control::PowerManager::Powersave);
+    group->writeEntry("idleAction", 0);
+    group->writeEntry("idleTime", 50);
+    group->writeEntry("lidAction", 0);
+    group->writeEntry("turnOffIdle", false);
+    group->writeEntry("turnOffIdleTime", 50);
+    group->writeEntry("iconname", icon);
 
     group->sync();
 
@@ -374,45 +374,45 @@ void EditPage::createProfile( const QString &name, const QString &icon )
 
 void EditPage::createProfile()
 {
-    KDialog *dialog = new KDialog( this );
+    KDialog *dialog = new KDialog(this);
     QWidget *wg = new QWidget();
-    KLineEdit *ed = new KLineEdit( wg );
-    QLabel *lb = new QLabel( wg );
+    KLineEdit *ed = new KLineEdit(wg);
+    QLabel *lb = new QLabel(wg);
     QFormLayout *lay = new QFormLayout();
-    KIconButton *ibt = new KIconButton( wg );
+    KIconButton *ibt = new KIconButton(wg);
 
-    ibt->setIconSize( KIconLoader::SizeSmall );
+    ibt->setIconSize(KIconLoader::SizeSmall);
 
-    lb->setText( i18n( "Please enter a name for the new profile" ) );
+    lb->setText(i18n("Please enter a name for the new profile"));
 
-    lb->setToolTip( i18n( "The name for the new profile" ) );
-    lb->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
+    lb->setToolTip(i18n("The name for the new profile"));
+    lb->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
 
-    ed->setToolTip( i18n( "The name for the new profile" ) );
-    ed->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
+    ed->setToolTip(i18n("The name for the new profile"));
+    ed->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
 
-    lay->addRow( lb );
-    lay->addRow( ibt, ed );
+    lay->addRow(lb);
+    lay->addRow(ibt, ed);
 
-    wg->setLayout( lay );
+    wg->setLayout(lay);
 
-    dialog->setMainWidget( wg );
+    dialog->setMainWidget(wg);
     ed->setFocus();
 
-    if ( dialog->exec() == KDialog::Accepted ) {
-        createProfile( ed->text(), ibt->icon() );
+    if (dialog->exec() == KDialog::Accepted) {
+        createProfile(ed->text(), ibt->icon());
     }
     delete dialog;
 }
 
-void EditPage::editProfile( const QString &prevname, const QString &icon )
+void EditPage::editProfile(const QString &prevname, const QString &icon)
 {
-    if ( prevname.isEmpty() )
+    if (prevname.isEmpty())
         return;
 
-    KConfigGroup *group = new KConfigGroup( m_profilesConfig, prevname );
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, prevname);
 
-    group->writeEntry( "iconname", icon );
+    group->writeEntry("iconname", icon);
 
     group->sync();
 
@@ -425,43 +425,43 @@ void EditPage::editProfile( const QString &prevname, const QString &icon )
 
 void EditPage::editProfile()
 {
-    if ( !profilesList->currentItem() )
+    if (!profilesList->currentItem())
         return;
 
-    KDialog *dialog = new KDialog( this );
+    KDialog *dialog = new KDialog(this);
     QWidget *wg = new QWidget();
-    KLineEdit *ed = new KLineEdit( wg );
-    QLabel *lb = new QLabel( wg );
+    KLineEdit *ed = new KLineEdit(wg);
+    QLabel *lb = new QLabel(wg);
     QFormLayout *lay = new QFormLayout();
-    KIconButton *ibt = new KIconButton( wg );
+    KIconButton *ibt = new KIconButton(wg);
 
-    ibt->setIconSize( KIconLoader::SizeSmall );
+    ibt->setIconSize(KIconLoader::SizeSmall);
 
-    lb->setText( i18n( "Please enter a name for this profile" ) );
+    lb->setText(i18n("Please enter a name for this profile"));
 
-    lb->setToolTip( i18n( "The name for the new profile" ) );
-    lb->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
+    lb->setToolTip(i18n("The name for the new profile"));
+    lb->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
 
-    ed->setToolTip( i18n( "The name for the new profile" ) );
-    ed->setWhatsThis( i18n( "Enter here the name for the profile you are creating" ) );
-    ed->setEnabled( false );
+    ed->setToolTip(i18n("The name for the new profile"));
+    ed->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
+    ed->setEnabled(false);
 
-    ed->setText( profilesList->currentItem()->text() );
+    ed->setText(profilesList->currentItem()->text());
 
-    KConfigGroup *group = new KConfigGroup( m_profilesConfig, profilesList->currentItem()->text() );
+    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
 
-    ibt->setIcon( group->readEntry( "iconname" ) );
+    ibt->setIcon(group->readEntry("iconname"));
 
-    lay->addRow( lb );
-    lay->addRow( ibt, ed );
+    lay->addRow(lb);
+    lay->addRow(ibt, ed);
 
-    wg->setLayout( lay );
+    wg->setLayout(lay);
 
-    dialog->setMainWidget( wg );
+    dialog->setMainWidget(wg);
     ed->setFocus();
 
-    if ( dialog->exec() == KDialog::Accepted ) {
-        editProfile( profilesList->currentItem()->text(), ibt->icon() );
+    if (dialog->exec() == KDialog::Accepted) {
+        editProfile(profilesList->currentItem()->text(), ibt->icon());
     }
 
     delete dialog;
@@ -470,20 +470,20 @@ void EditPage::editProfile()
 
 void EditPage::importProfiles()
 {
-    QString fileName = KFileDialog::getOpenFileName( KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
-                       "(*.powerdevilprofiles)", this, i18n( "Import PowerDevil profiles" ) );
+    QString fileName = KFileDialog::getOpenFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
+                       "(*.powerdevilprofiles)", this, i18n("Import PowerDevil profiles"));
 
-    if ( fileName.isEmpty() ) {
+    if (fileName.isEmpty()) {
         return;
     }
 
-    KConfig toImport( fileName, KConfig::SimpleConfig );
+    KConfig toImport(fileName, KConfig::SimpleConfig);
 
-    foreach( const QString &ent, toImport.groupList() ) {
-        KConfigGroup copyFrom( &toImport, ent );
-        KConfigGroup copyTo( m_profilesConfig, ent );
+    foreach(const QString &ent, toImport.groupList()) {
+        KConfigGroup copyFrom(&toImport, ent);
+        KConfigGroup copyTo(m_profilesConfig, ent);
 
-        copyFrom.copyTo( &copyTo );
+        copyFrom.copyTo(&copyTo);
     }
 
     m_profilesConfig->sync();
@@ -495,43 +495,43 @@ void EditPage::importProfiles()
 
 void EditPage::exportProfiles()
 {
-    QString fileName = KFileDialog::getSaveFileName( KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
-                       "(*.powerdevilprofiles)", this, i18n( "Export PowerDevil profiles" ) );
+    QString fileName = KFileDialog::getSaveFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
+                       "(*.powerdevilprofiles)", this, i18n("Export PowerDevil profiles"));
 
-    if ( fileName.isEmpty() ) {
+    if (fileName.isEmpty()) {
         return;
     }
 
     kDebug() << "Filename is" << fileName;
 
-    KConfig *toExport = m_profilesConfig->copyTo( fileName );
+    KConfig *toExport = m_profilesConfig->copyTo(fileName);
 
     toExport->sync();
 
     delete toExport;
 }
 
-void EditPage::switchProfile( QListWidgetItem *current, QListWidgetItem *previous )
+void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous)
 {
-    Q_UNUSED( current )
+    Q_UNUSED(current)
 
-    if ( !m_profileEdited ) {
+    if (!m_profileEdited) {
         loadProfile();
     } else {
-        int result = KMessageBox::warningYesNoCancel( this, i18n( "The current profile has not been saved.\n"
-                     "Do you want to save it?" ), i18n( "Save Profile" ) );
+        int result = KMessageBox::warningYesNoCancel(this, i18n("The current profile has not been saved.\n"
+                     "Do you want to save it?"), i18n("Save Profile"));
 
-        if ( result == KMessageBox::Yes ) {
-            saveProfile( previous->text() );
+        if (result == KMessageBox::Yes) {
+            saveProfile(previous->text());
             loadProfile();
-        } else if ( result == KMessageBox::No ) {
+        } else if (result == KMessageBox::No) {
             loadProfile();
-        } else if ( result == KMessageBox::Cancel ) {
-            disconnect( profilesList, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
-                        this, SLOT( switchProfile( QListWidgetItem*, QListWidgetItem* ) ) );
-            profilesList->setCurrentItem( previous );
-            connect( profilesList, SIGNAL( currentItemChanged( QListWidgetItem*, QListWidgetItem* ) ),
-                     SLOT( switchProfile( QListWidgetItem*, QListWidgetItem* ) ) );
+        } else if (result == KMessageBox::Cancel) {
+            disconnect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
+                       this, SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
+            profilesList->setCurrentItem(previous);
+            connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
+                    SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
         }
     }
 }
@@ -544,7 +544,7 @@ void EditPage::setProfileChanged()
 
 void EditPage::enableSaveProfile()
 {
-    saveCurrentProfileButton->setEnabled( m_profileEdited );
+    saveCurrentProfileButton->setEnabled(m_profileEdited);
 }
 
 #include "EditPage.moc"

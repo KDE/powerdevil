@@ -21,11 +21,11 @@
 
 #include <klocalizedstring.h>
 
-TimerBasedPoller::TimerBasedPoller( QObject *parent )
-        : AbstractSystemPoller( parent ),
-        m_pollTimer( new QTimer( this ) ),
-        m_lastIdleTime( 0 ),
-        m_catchingIdle( false )
+TimerBasedPoller::TimerBasedPoller(QObject *parent)
+        : AbstractSystemPoller(parent),
+        m_pollTimer(new QTimer(this)),
+        m_lastIdleTime(0),
+        m_catchingIdle(false)
 {
 
 }
@@ -37,7 +37,7 @@ TimerBasedPoller::~TimerBasedPoller()
 
 QString TimerBasedPoller::name()
 {
-    return i18n( "Timer Based" );
+    return i18n("Timer Based");
 }
 
 bool TimerBasedPoller::isAvailable()
@@ -51,9 +51,9 @@ bool TimerBasedPoller::isAvailable()
 
 bool TimerBasedPoller::setUpPoller()
 {
-    m_pollTimer->start( 800 );
+    m_pollTimer->start(800);
 
-    connect( m_pollTimer, SIGNAL( timeout() ), SLOT( poll() ) );
+    connect(m_pollTimer, SIGNAL(timeout()), SLOT(poll()));
 
     return true;
 }
@@ -62,9 +62,9 @@ void TimerBasedPoller::unloadPoller()
 {
 }
 
-void TimerBasedPoller::setNextTimeout( int nextTimeout )
+void TimerBasedPoller::setNextTimeout(int nextTimeout)
 {
-    Q_UNUSED( nextTimeout )
+    Q_UNUSED(nextTimeout)
     // We don't need this
 }
 
@@ -95,18 +95,18 @@ void TimerBasedPoller::poll()
 #ifdef HAVE_XSCREENSAVER
     XScreenSaverInfo * mitInfo = 0;
     mitInfo = XScreenSaverAllocInfo();
-    XScreenSaverQueryInfo( QX11Info::display(), DefaultRootWindow( QX11Info::display() ), mitInfo );
+    XScreenSaverQueryInfo(QX11Info::display(), DefaultRootWindow(QX11Info::display()), mitInfo);
     idle = mitInfo->idle / 1000;
     //----------------------------------------------------------
 #endif
 
-    if ( m_lastIdleTime > idle && m_catchingIdle ) {
+    if (m_lastIdleTime > idle && m_catchingIdle) {
         // Hey, a wakeup!
         emit resumingFromIdle();
     } else {
         // Let's poll
         m_lastIdleTime = idle;
-        emit pollRequest( m_lastIdleTime );
+        emit pollRequest(m_lastIdleTime);
     }
 }
 

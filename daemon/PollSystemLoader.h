@@ -28,27 +28,27 @@
 
 class PollSystemLoader : public QObject
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        PollSystemLoader( QObject *parent = 0 );
-        virtual ~PollSystemLoader();
+public:
+    PollSystemLoader(QObject *parent = 0);
+    virtual ~PollSystemLoader();
 
-        QMap<AbstractSystemPoller::PollingType, QString> getAvailableSystems();
-        QMap<int, QString> getAvailableSystemsAsInt();
+    QMap<AbstractSystemPoller::PollingType, QString> getAvailableSystems();
+    QMap<int, QString> getAvailableSystemsAsInt();
 
-        bool loadSystem( AbstractSystemPoller::PollingType type );
-        bool unloadCurrentSystem();
+    bool loadSystem(AbstractSystemPoller::PollingType type);
+    bool unloadCurrentSystem();
 
-        AbstractSystemPoller *poller() {
-            return m_poller;
-        };
+    AbstractSystemPoller *poller() {
+        return m_poller;
+    };
 
-        void createAvailableCache();
+    void createAvailableCache();
 
-    private:
-        QPointer<AbstractSystemPoller> m_poller;
-        QMap<AbstractSystemPoller::PollingType, QString> m_availableSystems;
+private:
+    QPointer<AbstractSystemPoller> m_poller;
+    QMap<AbstractSystemPoller::PollingType, QString> m_availableSystems;
 };
 
 #endif /* POLLSYSTEMLOADER_H */

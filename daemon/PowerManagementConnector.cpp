@@ -25,7 +25,7 @@
 #include "powermanagementinhibitadaptor.h"
 
 PowerManagementConnector::PowerManagementConnector(PowerDevilDaemon *parent)
-    : QObject(parent), m_daemon(parent), m_latestInhibitCookie(0)
+        : QObject(parent), m_daemon(parent), m_latestInhibitCookie(0)
 {
     new PowerManagementAdaptor(this);
     new PowerManagementInhibitAdaptor(this);
@@ -38,14 +38,14 @@ PowerManagementConnector::PowerManagementConnector(PowerDevilDaemon *parent)
     c.registerService("org.kde.Solid.PowerManagement.Inhibit");
     c.registerObject("/org/kde/Solid/PowerManagement/Inhibit", this);
 
-    connect(m_daemon, SIGNAL(stateChanged(int,bool)),
-            this, SLOT(_k_stateChanged(int,bool)));
+    connect(m_daemon, SIGNAL(stateChanged(int, bool)),
+            this, SLOT(_k_stateChanged(int, bool)));
 }
 
 bool PowerManagementConnector::CanHibernate()
 {
     Solid::Control::PowerManager::SuspendMethods methods
-        = Solid::Control::PowerManager::supportedSuspendMethods();
+    = Solid::Control::PowerManager::supportedSuspendMethods();
 
     return methods & Solid::Control::PowerManager::ToDisk;
 }
@@ -53,14 +53,14 @@ bool PowerManagementConnector::CanHibernate()
 bool PowerManagementConnector::CanSuspend()
 {
     Solid::Control::PowerManager::SuspendMethods methods
-        = Solid::Control::PowerManager::supportedSuspendMethods();
+    = Solid::Control::PowerManager::supportedSuspendMethods();
 
     return methods & Solid::Control::PowerManager::ToRam;
 }
 
 bool PowerManagementConnector::GetPowerSaveStatus()
 {
-    return Solid::Control::PowerManager::acAdapterState()==Solid::Control::PowerManager::Unplugged;
+    return Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Unplugged;
 }
 
 void PowerManagementConnector::Suspend()

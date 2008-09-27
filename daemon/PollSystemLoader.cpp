@@ -23,9 +23,9 @@
 #include "XSyncBasedPoller.h"
 #include "TimerBasedPoller.h"
 
-PollSystemLoader::PollSystemLoader( QObject *parent )
-        : QObject( parent ),
-        m_poller( 0 )
+PollSystemLoader::PollSystemLoader(QObject *parent)
+        : QObject(parent),
+        m_poller(0)
 {
     createAvailableCache();
 }
@@ -39,17 +39,17 @@ void PollSystemLoader::createAvailableCache()
     m_availableSystems.clear();
 
     // Test each polling system
-    WidgetBasedPoller *wpl = new WidgetBasedPoller( this );
-    XSyncBasedPoller *xpl = new XSyncBasedPoller( this );
-    TimerBasedPoller *tpl = new TimerBasedPoller( this );
+    WidgetBasedPoller *wpl = new WidgetBasedPoller(this);
+    XSyncBasedPoller *xpl = new XSyncBasedPoller(this);
+    TimerBasedPoller *tpl = new TimerBasedPoller(this);
 
-    if ( wpl->isAvailable() ) {
+    if (wpl->isAvailable()) {
         m_availableSystems[AbstractSystemPoller::WidgetBased] = wpl->name();
     }
-    if ( xpl->isAvailable() ) {
+    if (xpl->isAvailable()) {
         m_availableSystems[AbstractSystemPoller::XSyncBased] = xpl->name();
     }
-    if ( tpl->isAvailable() ) {
+    if (tpl->isAvailable()) {
         m_availableSystems[AbstractSystemPoller::TimerBased] = tpl->name();
     }
 
@@ -63,17 +63,17 @@ QMap<AbstractSystemPoller::PollingType, QString> PollSystemLoader::getAvailableS
     m_availableSystems.clear();
 
     // Test each polling system
-    WidgetBasedPoller *wpl = new WidgetBasedPoller( this );
-    XSyncBasedPoller *xpl = new XSyncBasedPoller( this );
-    TimerBasedPoller *tpl = new TimerBasedPoller( this );
+    WidgetBasedPoller *wpl = new WidgetBasedPoller(this);
+    XSyncBasedPoller *xpl = new XSyncBasedPoller(this);
+    TimerBasedPoller *tpl = new TimerBasedPoller(this);
 
-    if ( wpl->isAvailable() ) {
+    if (wpl->isAvailable()) {
         m_availableSystems[AbstractSystemPoller::WidgetBased] = wpl->name();
     }
-    if ( xpl->isAvailable() ) {
+    if (xpl->isAvailable()) {
         m_availableSystems[AbstractSystemPoller::XSyncBased] = xpl->name();
     }
-    if ( tpl->isAvailable() ) {
+    if (tpl->isAvailable()) {
         m_availableSystems[AbstractSystemPoller::TimerBased] = tpl->name();
     }
 
@@ -88,43 +88,43 @@ QMap<int, QString> PollSystemLoader::getAvailableSystemsAsInt()
 {
     QMap<int, QString> retlist;
 
-    foreach( const AbstractSystemPoller::PollingType &ent, m_availableSystems.keys() ) {
-        retlist[( int ) ent] = m_availableSystems[ent];
+    foreach(const AbstractSystemPoller::PollingType &ent, m_availableSystems.keys()) {
+        retlist[(int) ent] = m_availableSystems[ent];
     }
 
     return retlist;
 }
 
-bool PollSystemLoader::loadSystem( AbstractSystemPoller::PollingType type )
+bool PollSystemLoader::loadSystem(AbstractSystemPoller::PollingType type)
 {
-    if ( m_poller ) {
-        if ( m_poller->getPollingType() == type ) {
+    if (m_poller) {
+        if (m_poller->getPollingType() == type) {
             return true;
         } else {
             unloadCurrentSystem();
         }
     }
 
-    switch ( type ) {
+    switch (type) {
     case AbstractSystemPoller::WidgetBased:
-        m_poller = new WidgetBasedPoller( this );
+        m_poller = new WidgetBasedPoller(this);
         break;
     case AbstractSystemPoller::TimerBased:
-        m_poller = new TimerBasedPoller( this );
+        m_poller = new TimerBasedPoller(this);
         break;
     case AbstractSystemPoller::XSyncBased:
-        m_poller = new XSyncBasedPoller( this );
+        m_poller = new XSyncBasedPoller(this);
         break;
     default:
         return false;
         break;
     }
 
-    if ( !m_poller->isAvailable() ) {
+    if (!m_poller->isAvailable()) {
         return false;
     }
 
-    if ( !m_poller->setUpPoller() ) {
+    if (!m_poller->setUpPoller()) {
         return false;
     }
 

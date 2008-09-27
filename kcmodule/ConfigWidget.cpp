@@ -21,40 +21,40 @@
 
 #include "PowerDevilSettings.h"
 
-ConfigWidget::ConfigWidget( QWidget *parent )
-        : QWidget( parent ),
-        m_generalPage( new GeneralPage( this ) ),
-        m_assignmentPage( new AssignmentPage( this ) ),
-        m_editPage( new EditPage( this ) ),
-        m_capabilitiesPage( new CapabilitiesPage( this ) )
+ConfigWidget::ConfigWidget(QWidget *parent)
+        : QWidget(parent),
+        m_generalPage(new GeneralPage(this)),
+        m_assignmentPage(new AssignmentPage(this)),
+        m_editPage(new EditPage(this)),
+        m_capabilitiesPage(new CapabilitiesPage(this))
 {
-    setupUi( this );
+    setupUi(this);
 
-    KPageWidgetItem *general = pageWidget->addPage( m_generalPage, i18n( "General Settings" ) );
-    KPageWidgetItem *assign = pageWidget->addPage( m_assignmentPage, i18n( "Assign Profiles" ) );
-    KPageWidgetItem *edit = pageWidget->addPage( m_editPage, i18n( "Edit Profiles" ) );
-    KPageWidgetItem *capab = pageWidget->addPage( m_capabilitiesPage, i18n( "Capabilities" ) );
+    KPageWidgetItem *general = pageWidget->addPage(m_generalPage, i18n("General Settings"));
+    KPageWidgetItem *assign = pageWidget->addPage(m_assignmentPage, i18n("Assign Profiles"));
+    KPageWidgetItem *edit = pageWidget->addPage(m_editPage, i18n("Edit Profiles"));
+    KPageWidgetItem *capab = pageWidget->addPage(m_capabilitiesPage, i18n("Capabilities"));
 
-    general->setHeader( "" );
-    assign->setHeader( "" );
-    edit->setHeader( "" );
-    capab->setHeader( "" );
+    general->setHeader("");
+    assign->setHeader("");
+    edit->setHeader("");
+    capab->setHeader("");
 
-    general->setIcon( KIcon( "configure" ) );
-    assign->setIcon( KIcon( "insert-link" ) );
-    edit->setIcon( KIcon( "edit-select-all" ) );
-    capab->setIcon( KIcon( "hwinfo" ) );
+    general->setIcon(KIcon("configure"));
+    assign->setIcon(KIcon("insert-link"));
+    edit->setIcon(KIcon("edit-select-all"));
+    capab->setIcon(KIcon("hwinfo"));
 
-    connect( m_generalPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
-    connect( m_assignmentPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
-    connect( m_editPage, SIGNAL( changed( bool ) ), SIGNAL( changed( bool ) ) );
+    connect(m_generalPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
+    connect(m_assignmentPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
+    connect(m_editPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
 
-    connect( m_editPage, SIGNAL( profilesChanged() ), SIGNAL( reloadRequest() ) );
-    connect( m_editPage, SIGNAL( profilesChanged() ), m_assignmentPage, SLOT( reloadAvailableProfiles() ) );
+    connect(m_editPage, SIGNAL(profilesChanged()), SIGNAL(reloadRequest()));
+    connect(m_editPage, SIGNAL(profilesChanged()), m_assignmentPage, SLOT(reloadAvailableProfiles()));
 
-    connect( m_capabilitiesPage, SIGNAL( reload() ), SIGNAL( reloadRequest() ) );
-    connect( m_capabilitiesPage, SIGNAL( reloadModule() ), SIGNAL( reloadModule() ) );
-    connect( m_capabilitiesPage, SIGNAL( issuesFound( bool ) ), m_generalPage, SLOT( enableIssue( bool ) ) );
+    connect(m_capabilitiesPage, SIGNAL(reload()), SIGNAL(reloadRequest()));
+    connect(m_capabilitiesPage, SIGNAL(reloadModule()), SIGNAL(reloadModule()));
+    connect(m_capabilitiesPage, SIGNAL(issuesFound(bool)), m_generalPage, SLOT(enableIssue(bool)));
 }
 
 ConfigWidget::~ConfigWidget()

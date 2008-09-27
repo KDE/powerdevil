@@ -31,47 +31,47 @@ class QEvent;
 
 class WidgetBasedPoller : public AbstractSystemPoller
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        WidgetBasedPoller( QObject *parent = 0 );
-        virtual ~WidgetBasedPoller();
+public:
+    WidgetBasedPoller(QObject *parent = 0);
+    virtual ~WidgetBasedPoller();
 
-        AbstractSystemPoller::PollingType getPollingType() {
-            return AbstractSystemPoller::WidgetBased;
-        };
-        QString name();
+    AbstractSystemPoller::PollingType getPollingType() {
+        return AbstractSystemPoller::WidgetBased;
+    };
+    QString name();
 
-        bool isAvailable();
-        bool setUpPoller();
-        void unloadPoller();
+    bool isAvailable();
+    bool setUpPoller();
+    void unloadPoller();
 
-    protected:
-        bool eventFilter( QObject * object, QEvent * event );
+protected:
+    bool eventFilter(QObject * object, QEvent * event);
 
-    public slots:
-        void setNextTimeout( int nextTimeout );
-        void forcePollRequest();
-        void stopCatchingTimeouts();
-        void catchIdleEvent();
-        void stopCatchingIdleEvents();
+public slots:
+    void setNextTimeout(int nextTimeout);
+    void forcePollRequest();
+    void stopCatchingTimeouts();
+    void catchIdleEvent();
+    void stopCatchingIdleEvents();
 
-    private slots:
-        void poll();
-        void detectedActivity();
-        void waitForActivity();
-        void releaseInputLock();
-        void screensaverActivated( bool activated );
+private slots:
+    void poll();
+    void detectedActivity();
+    void waitForActivity();
+    void releaseInputLock();
+    void screensaverActivated(bool activated);
 
-    signals:
-        void resumingFromIdle();
-        void pollRequest( int idleTime );
+signals:
+    void resumingFromIdle();
+    void pollRequest(int idleTime);
 
-    private:
-        QTimer * m_pollTimer;
-        QWidget * m_grabber;
+private:
+    QTimer * m_pollTimer;
+    QWidget * m_grabber;
 
-        OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+    OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
 };
 
 #endif /* WIDGETBASEDPOLLER_H */

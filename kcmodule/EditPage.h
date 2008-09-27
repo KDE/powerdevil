@@ -26,52 +26,52 @@
 
 class EditPage : public QWidget, private Ui_profileEditPage
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        EditPage( QWidget *parent = 0 );
-        ~EditPage();
-        void fillUi();
+public:
+    EditPage(QWidget *parent = 0);
+    ~EditPage();
+    void fillUi();
 
-        void load();
-        void save();
+    void load();
+    void save();
 
-    signals:
-        void changed( bool ch );
-        void profilesChanged();
+signals:
+    void changed(bool ch);
+    void profilesChanged();
 
-    private slots:
-        void emitChanged();
-        void setProfileChanged();
+private slots:
+    void emitChanged();
+    void setProfileChanged();
 
-        void enableSaveProfile();
-        void enableBoxes();
+    void enableSaveProfile();
+    void enableBoxes();
 
-        void loadProfile();
-        void saveProfile( const QString &p = QString() );
-        void switchProfile( QListWidgetItem *current, QListWidgetItem *previous );
-        void reloadAvailableProfiles();
-        void createProfile( const QString &name, const QString &icon );
-        void editProfile( const QString &prevname, const QString &icon );
-        void deleteCurrentProfile();
-        void createProfile();
-        void editProfile();
+    void loadProfile();
+    void saveProfile(const QString &p = QString());
+    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
+    void reloadAvailableProfiles();
+    void createProfile(const QString &name, const QString &icon);
+    void editProfile(const QString &prevname, const QString &icon);
+    void deleteCurrentProfile();
+    void createProfile();
+    void editProfile();
 
-        void importProfiles();
-        void exportProfiles();
+    void importProfiles();
+    void exportProfiles();
 
-    private:
-        enum IdleAction {
-            Shutdown = 1,
-            S2Disk = 2,
-            S2Ram = 3,
-            Standby = 4,
-            Lock = 5,
-            None = 0
-        };
+private:
+    enum IdleAction {
+        Shutdown = 1,
+        S2Disk = 2,
+        S2Ram = 3,
+        Standby = 4,
+        Lock = 5,
+        None = 0
+    };
 
-        KSharedConfig::Ptr m_profilesConfig;
-        bool m_profileEdited;
+    KSharedConfig::Ptr m_profilesConfig;
+    bool m_profileEdited;
 };
 
 #endif /* EDITPAGE_H */

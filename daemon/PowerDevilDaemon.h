@@ -32,121 +32,121 @@ class PollSystemLoader;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        PowerDevilDaemon( QObject *parent, const QList<QVariant>& );
-        virtual ~PowerDevilDaemon();
+public:
+    PowerDevilDaemon(QObject *parent, const QList<QVariant>&);
+    virtual ~PowerDevilDaemon();
 
-    public Q_SLOTS:
-        void refreshStatus();
-        void emitWarningNotification( const QString &evid, const QString &message = QString(),
-                                      const QString &iconname = "dialog-warning" );
-        void emitNotification( const QString &evid, const QString &message = QString(),
-                               const QString &iconname = "dialog-ok-apply" );
-        void setProfile( const QString & profile );
-        void reloadAndStream();
-        void streamData();
+public Q_SLOTS:
+    void refreshStatus();
+    void emitWarningNotification(const QString &evid, const QString &message = QString(),
+                                 const QString &iconname = "dialog-warning");
+    void emitNotification(const QString &evid, const QString &message = QString(),
+                          const QString &iconname = "dialog-ok-apply");
+    void setProfile(const QString & profile);
+    void reloadAndStream();
+    void streamData();
 
-        void setGovernor( int governor );
-        void suspend( int method );
-        void setPowersavingScheme( const QString &scheme );
-        void setBrightness( int value );
-        void turnOffScreen();
+    void setGovernor(int governor);
+    void suspend(int method);
+    void setPowersavingScheme(const QString &scheme);
+    void setBrightness(int value);
+    void turnOffScreen();
 
-        void setUpPollingSystem();
+    void setUpPollingSystem();
 
-        void unloadDaemon() {
-            deleteLater();
-        };
+    void unloadDaemon() {
+        deleteLater();
+    };
 
-        QVariantMap getSupportedGovernors();
-        QStringList getSupportedSchemes();
-        QVariantMap getSupportedSuspendMethods();
-        QVariantMap getSupportedPollingSystems();
+    QVariantMap getSupportedGovernors();
+    QStringList getSupportedSchemes();
+    QVariantMap getSupportedSuspendMethods();
+    QVariantMap getSupportedPollingSystems();
 
-    private Q_SLOTS:
-        void acAdapterStateChanged( int state, bool forced = false );
-        void batteryChargePercentChanged( int percent, const QString &udi );
+private Q_SLOTS:
+    void acAdapterStateChanged(int state, bool forced = false);
+    void batteryChargePercentChanged(int percent, const QString &udi);
 
-        void decreaseBrightness();
-        void increaseBrightness();
+    void decreaseBrightness();
+    void increaseBrightness();
 
-        void shutdown();
-        void suspendJobResult( KJob * job );
-        void suspendToDisk();
-        void suspendToRam();
-        void standby();
+    void shutdown();
+    void suspendJobResult(KJob * job);
+    void suspendToDisk();
+    void suspendToRam();
+    void standby();
 
-        void buttonPressed( int but );
+    void buttonPressed(int but);
 
-        void poll( int idle );
-        void resumeFromIdle();
+    void poll(int idle);
+    void resumeFromIdle();
 
-        void reloadProfile( int state = -1 );
-        const QString &profile() {
-            return m_currentProfile;
-        }
+    void reloadProfile(int state = -1);
+    const QString &profile() {
+        return m_currentProfile;
+    }
 
-        void setBatteryPercent( int newpercent );
-        void setACPlugged( bool newplugged );
-        void setCurrentProfile( const QString &profile );
-        void setAvailableProfiles( const QStringList &aProfiles );
+    void setBatteryPercent(int newpercent);
+    void setACPlugged(bool newplugged);
+    void setCurrentProfile(const QString &profile);
+    void setAvailableProfiles(const QStringList &aProfiles);
 
-        bool toggleCompositing( bool enabled );
+    bool toggleCompositing(bool enabled);
 
-    Q_SIGNALS:
-        void lidClosed( int code, const QString &action );
-        void errorTriggered( const QString &error );
+Q_SIGNALS:
+    void lidClosed(int code, const QString &action);
+    void errorTriggered(const QString &error);
 
-        void stateChanged( int, bool );
-        void profileChanged( const QString &, const QStringList & );
+    void stateChanged(int, bool);
+    void profileChanged(const QString &, const QStringList &);
 
-    private:
-        void lockScreen();
+private:
+    void lockScreen();
 
-        KConfigGroup *getCurrentProfile( bool forcereload = false );
-        void applyProfile();
+    KConfigGroup *getCurrentProfile(bool forcereload = false);
+    void applyProfile();
 
-        void setUpNextTimeout( int idle, int minDimEvent );
+    void setUpNextTimeout(int idle, int minDimEvent);
 
-        void emitCriticalNotification( const QString &evid, const QString &message = QString(),
-                                       const QString &iconname = "dialog-error" );
+    void emitCriticalNotification(const QString &evid, const QString &message = QString(),
+                                  const QString &iconname = "dialog-error");
 
-        void profileFirstLoad();
+    void profileFirstLoad();
 
-        void restoreDefaultProfiles();
+    void restoreDefaultProfiles();
 
-    public:
-        enum IdleAction {
-            Shutdown = 1,
-            S2Disk = 2,
-            S2Ram = 3,
-            Standby = 4,
-            Lock = 5,
-            None = 0
-        };
+public:
+    enum IdleAction {
+        Shutdown = 1,
+        S2Disk = 2,
+        S2Ram = 3,
+        Standby = 4,
+        Lock = 5,
+        None = 0
+    };
 
-    private:
-        Solid::Control::PowerManager::Notifier * m_notifier;
-        Solid::Battery * m_battery;
+private:
+    Solid::Control::PowerManager::Notifier * m_notifier;
+    Solid::Battery * m_battery;
 
-        KDisplayManager * m_displayManager;
-        OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+    KDisplayManager * m_displayManager;
+    OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
 
-        QWidget * m_grabber;
+    QWidget * m_grabber;
 
-        KComponentData m_applicationData;
-        KSharedConfig::Ptr m_profilesConfig;
-        KConfigGroup * m_currentConfig;
-        PollSystemLoader * m_pollLoader;
+    KComponentData m_applicationData;
+    KSharedConfig::Ptr m_profilesConfig;
+    KConfigGroup * m_currentConfig;
+    PollSystemLoader * m_pollLoader;
 
-        QString m_currentProfile;
-        QStringList m_availableProfiles;
+    QString m_currentProfile;
+    QStringList m_availableProfiles;
 
-        int m_batteryPercent;
-        bool m_isPlugged;
-        bool m_compositingChanged;
+    int m_batteryPercent;
+    bool m_isPlugged;
+    bool m_compositingChanged;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

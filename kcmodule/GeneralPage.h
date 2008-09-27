@@ -26,36 +26,36 @@
 
 class GeneralPage : public QWidget, private Ui_generalPage
 {
-        Q_OBJECT
+    Q_OBJECT
 
-    public:
-        GeneralPage( QWidget *parent = 0 );
-        ~GeneralPage();
-        void fillUi();
+public:
+    GeneralPage(QWidget *parent = 0);
+    ~GeneralPage();
+    void fillUi();
 
-        void load();
-        void save();
+    void load();
+    void save();
 
-    signals:
-        void changed( bool ch );
+signals:
+    void changed(bool ch);
 
-    private slots:
-        void emitChanged();
+private slots:
+    void emitChanged();
 
-        void enableBoxes();
-        void enableIssue( bool enable );
+    void enableBoxes();
+    void enableIssue(bool enable);
 
-        void configureNotifications();
+    void configureNotifications();
 
-    private:
-        enum IdleAction {
-            Shutdown = 1,
-            S2Disk = 2,
-            S2Ram = 3,
-            Standby = 4,
-            Lock = 5,
-            None = 0
-        };
+private:
+    enum IdleAction {
+        Shutdown = 1,
+        S2Disk = 2,
+        S2Ram = 3,
+        Standby = 4,
+        Lock = 5,
+        None = 0
+    };
 };
 
 #endif /* GENERALPAGE_H */
