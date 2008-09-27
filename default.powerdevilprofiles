@@ -1,6 +1,11 @@
 [Aggressive Powersave]
+DPMSEnabled=true
+DPMSPowerOff=20
+DPMSStandby=10
+DPMSSuspend=15
 brightness=38
 cpuPolicy=4
+disableCompositing=true
 disabledCPUs=
 iconname=security-medium
 idleAction=3
@@ -13,8 +18,13 @@ turnOffIdle=true
 turnOffIdleTime=5
 
 [Performance]
+DPMSEnabled=true
+DPMSPowerOff=60
+DPMSStandby=20
+DPMSSuspend=30
 brightness=100
 cpuPolicy=1
+disableCompositing=false
 disabledCPUs=
 iconname=battery-charging
 idleAction=5
@@ -27,8 +37,13 @@ turnOffIdle=false
 turnOffIdleTime=99
 
 [Powersave]
+DPMSEnabled=true
+DPMSPowerOff=40
+DPMSStandby=10
+DPMSSuspend=20
 brightness=62
 cpuPolicy=1
+disableCompositing=false
 disabledCPUs=
 iconname=preferences-system-power-management
 idleAction=3
@@ -40,9 +55,32 @@ scriptpath=
 turnOffIdle=true
 turnOffIdleTime=10
 
+[Presentation]
+DPMSEnabled=false
+DPMSPowerOff=0
+DPMSStandby=0
+DPMSSuspend=0
+brightness=100
+cpuPolicy=1
+disableCompositing=false
+disabledCPUs=
+iconname=graphics-viewer-document
+idleAction=0
+idleTime=50
+lidAction=0
+scheme=powersaving
+scriptpath=
+turnOffIdle=false
+turnOffIdleTime=50
+
 [Xtreme Powersave]
+DPMSEnabled=true
+DPMSPowerOff=15
+DPMSStandby=5
+DPMSSuspend=10
 brightness=13
 cpuPolicy=4
+disableCompositing=true
 disabledCPUs=
 iconname=battery-missing
 idleAction=3
@@ -50,5 +88,6 @@ idleTime=5
 lidAction=3
 name=Xtreme Powersave
 scheme=powersaving
+scriptpath=
 turnOffIdle=true
 turnOffIdleTime=2
