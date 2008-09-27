@@ -33,6 +33,8 @@
 #include <KStandardDirs>
 #include <KRun>
 
+#include <config-workspace.h>
+
 #include <KConfigGroup>
 #include <KLineEdit>
 #include <QCheckBox>
@@ -169,6 +171,13 @@ void EditPage::fillUi()
     DPMSLabel->setUseTips(true);
     connect(DPMSLabel, SIGNAL(leftClickedUrl(const QString&)), SLOT(openUrl(const QString &)));
 
+#ifndef HAVE_DPMS
+    DPMSEnable->setEnabled(false);
+    DPMSSuspend->setEnabled(false);
+    DPMSStandby->setEnabled(false);
+    DPMSPowerOff->setEnabled(false);
+#endif
+
     // modified fields...
 
     connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
@@ -181,11 +190,13 @@ void EditPage::fillUi()
     connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
 
+#ifdef HAVE_DPMS
     connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
     connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
     connect(DPMSSuspend, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(DPMSStandby, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(DPMSPowerOff, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+#endif
 
     connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
@@ -217,9 +228,11 @@ void EditPage::emitChanged()
 
 void EditPage::enableBoxes()
 {
+#ifdef HAVE_DPMS
     DPMSSuspend->setEnabled(DPMSEnable->isChecked());
     DPMSStandby->setEnabled(DPMSEnable->isChecked());
     DPMSPowerOff->setEnabled(DPMSEnable->isChecked());
+#endif
 }
 
 void EditPage::loadProfile()
@@ -251,10 +264,12 @@ void EditPage::loadProfile()
 
     laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
 
+#ifdef HAVE_DPMS
     DPMSEnable->setChecked(group->readEntry("DPMSEnabled", false));
     DPMSStandby->setValue(group->readEntry("DPMSStandby", 10));
     DPMSSuspend->setValue(group->readEntry("DPMSSuspend", 30));
     DPMSPowerOff->setValue(group->readEntry("DPMSPowerOff", 60));
+#endif
 
     QVariant var = group->readEntry("disabledCPUs", QVariant());
     QList<QVariant> list = var.toList();
@@ -303,10 +318,13 @@ void EditPage::saveProfile(const QString &p)
     group->writeEntry("scheme", schemeCombo->currentText());
     group->writeEntry("scriptpath", scriptRequester->url().path());
     group->writeEntry("disableCompositing", disableCompositing->isChecked());
+
+#ifdef HAVE_DPMS
     group->writeEntry("DPMSEnabled", DPMSEnable->isChecked());
     group->writeEntry("DPMSStandby", DPMSStandby->value());
     group->writeEntry("DPMSSuspend", DPMSSuspend->value());
     group->writeEntry("DPMSPowerOff", DPMSPowerOff->value());
+#endif
 
     QList<int> list;
 
