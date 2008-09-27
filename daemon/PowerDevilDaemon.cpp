@@ -914,10 +914,21 @@ void PowerDevilDaemon::setBrightness(int value)
 
 void PowerDevilDaemon::turnOffScreen()
 {
-    /* FIXME: This command works, though we can switch to dpms... need some
-     * feedback here.
-     */
-    QProcess::execute("xset dpms force off");
+#ifdef HAVE_DPMS
+
+    CARD16 dummy;
+    BOOL enabled;
+    Display *dpy = QX11Info::display();
+
+    DPMSInfo(dpy, &dummy, &enabled);
+
+    if (enabled) {
+        DPMSForceLevel(dpy, DPMSModeOff);
+    } else {
+        DPMSEnable(dpy);
+        DPMSForceLevel(dpy, DPMSModeOff);
+    }
+#endif
 }
 
 void PowerDevilDaemon::profileFirstLoad()
