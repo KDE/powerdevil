@@ -55,6 +55,9 @@
               <string>Screen and Actions</string>
              </attribute>
              <layout class="QFormLayout" name="formLayout" >
+              <property name="fieldGrowthPolicy" >
+               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+              </property>
               <item row="0" column="0" >
                <widget class="QLabel" name="PoweredBrightnessLabel_2" >
                 <property name="toolTip" >
@@ -97,39 +100,13 @@
                </widget>
               </item>
               <item row="1" column="0" >
-               <widget class="QCheckBox" name="offDisplayWhenIdle" >
-                <property name="toolTip" >
-                 <string>Automatically turn off the display if idle for more than the set value.</string>
-                </property>
-                <property name="text" >
-                 <string>Turn off display if idle for more than</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1" >
-               <widget class="QSpinBox" name="displayIdleTime" >
-                <property name="toolTip" >
-                 <string>Idle time after which the monitor should turn off</string>
-                </property>
-                <property name="suffix" >
-                 <string> min</string>
-                </property>
-                <property name="minimum" >
-                 <number>1</number>
-                </property>
-                <property name="maximum" >
-                 <number>280</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" >
                <widget class="QCheckBox" name="disableCompositing" >
                 <property name="text" >
                  <string>Disable KWin compositing, if active</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0" >
+              <item row="2" column="0" >
                <widget class="QLabel" name="PoweredIdleLabel_2" >
                 <property name="toolTip" >
                  <string/>
@@ -145,7 +122,7 @@
                 </property>
                </widget>
               </item>
-              <item row="3" column="1" >
+              <item row="2" column="1" >
                <layout class="QHBoxLayout" name="horizontalLayout_4" >
                 <item>
                  <widget class="QSpinBox" name="idleTime" >
@@ -175,7 +152,7 @@
                 </item>
                </layout>
               </item>
-              <item row="4" column="0" >
+              <item row="3" column="0" >
                <widget class="QLabel" name="label_7" >
                 <property name="toolTip" >
                  <string/>
@@ -185,7 +162,7 @@
                 </property>
                </widget>
               </item>
-              <item row="4" column="1" >
+              <item row="3" column="1" >
                <widget class="KComboBox" name="laptopClosedCombo" >
                 <property name="whatsThis" >
                  <string>This action will be performed when the laptop lid gets closed</string>
@@ -318,6 +295,15 @@
                 <property name="label" >
                  <string>&amp;Standby after</string>
                 </property>
+                <property name="minimum" >
+                 <number>0</number>
+                </property>
+                <property name="maximum" >
+                 <number>360</number>
+                </property>
+                <property name="suffix" >
+                 <string>min</string>
+                </property>
                 <property name="specialValueText" >
                  <string>Disabled</string>
                 </property>
@@ -334,6 +320,18 @@
                 <property name="label" >
                  <string>S&amp;uspend after</string>
                 </property>
+                <property name="minimum" >
+                 <number>0</number>
+                </property>
+                <property name="maximum" >
+                 <number>360</number>
+                </property>
+                <property name="suffix" >
+                 <string>min</string>
+                </property>
+                <property name="specialValueText" >
+                 <string>Disabled</string>
+                </property>
                </widget>
               </item>
               <item>
@@ -346,6 +344,18 @@
                 </property>
                 <property name="label" >
                  <string>&amp;Power off after</string>
+                </property>
+                <property name="minimum" >
+                 <number>0</number>
+                </property>
+                <property name="maximum" >
+                 <number>360</number>
+                </property>
+                <property name="suffix" >
+                 <string>min</string>
+                </property>
+                <property name="specialValueText" >
+                 <string>Disabled</string>
                 </property>
                </widget>
               </item>

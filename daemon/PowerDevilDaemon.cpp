@@ -49,7 +49,47 @@
 #include <solid/deviceinterface.h>
 #include <solid/processor.h>
 
+#include "kscreensaver_interface.h"
+
 #include <config-powerdevil.h>
+#include <config-workspace.h>
+
+#ifdef HAVE_DPMS
+#include <X11/Xmd.h>
+#include <X11/X.h>
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+#include <X11/Xutil.h>
+#include <X11/Xos.h>
+extern "C"
+{
+#include <X11/extensions/dpms.h>
+    Status DPMSInfo(Display *, CARD16 *, BOOL *);
+    Bool DPMSCapable(Display *);
+    int __kde_do_not_unload = 1;
+
+#ifndef HAVE_DPMSCAPABLE_PROTO
+    Bool DPMSCapable(Display *);
+#endif
+
+#ifndef HAVE_DPMSINFO_PROTO
+    Status DPMSInfo(Display *, CARD16 *, BOOL *);
+#endif
+}
+
+#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
+extern "C"
+{
+#endif
+    Bool DPMSQueryExtension(Display *, int *, int *);
+    Status DPMSEnable(Display *);
+    Status DPMSDisable(Display *);
+    Bool DPMSGetTimeouts(Display *, CARD16 *, CARD16 *, CARD16 *);
+    Bool DPMSSetTimeouts(Display *, CARD16, CARD16, CARD16);
+#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
+}
+#endif
+#endif
 
 K_PLUGIN_FACTORY(PowerDevilFactory,
                  registerPlugin<PowerDevilDaemon>();)
@@ -283,6 +323,31 @@ void PowerDevilDaemon::applyProfile()
     }
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
+
+    // DPMS Stuff
+#ifdef HAVE_DPMS
+    Display *dpy = QX11Info::display();
+
+    int dummy;
+    bool hasDPMS = DPMSQueryExtension(dpy, &dummy, &dummy);
+    if (hasDPMS) {
+        if (settings->readEntry("DPMSEnabled", false)) {
+            DPMSEnable(dpy);
+            DPMSSetTimeouts(dpy, settings->readEntry("DPMSStandby", 10),
+                            settings->readEntry("DPMSSuspend", 30),
+                            settings->readEntry("DPMSPowerOff", 60));
+        } else
+            DPMSDisable(dpy);
+    } else {
+        kWarning("Server has no DPMS extension");
+    }
+
+    XFlush(dpy);
+
+    // The screen saver depends on the DPMS settings
+    org::kde::screensaver kscreensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
+    kscreensaver.configure();
+#endif
 
     m_pollLoader->poller()->forcePollRequest();
 }

@@ -60,6 +60,8 @@ private slots:
     void importProfiles();
     void exportProfiles();
 
+    void openUrl(const QString &url);
+
 private:
     enum IdleAction {
         Shutdown = 1,

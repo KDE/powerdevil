@@ -29,6 +29,10 @@ target_link_libraries(kcm_powerdevilconfig
      solidcontrol
 )
 
+if(HAVE_DPMS)
+  target_link_libraries(kcm_powerdevilconfig ${X11_LIBRARIES})
+endif(HAVE_DPMS)
+
 install(TARGETS kcm_powerdevilconfig  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
 

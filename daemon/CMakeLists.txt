@@ -1,3 +1,8 @@
+
+if(HAVE_DPMS)
+  include_directories( ${X11_dpms_INCLUDE_PATH}   )
+endif(HAVE_DPMS)
+
 set( kded_powerdevil_SRCS
     PowerDevilDaemon.cpp
     AbstractSystemPoller.cpp
@@ -10,9 +15,11 @@ set( kded_powerdevil_SRCS
 
 kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 
-set(screensaver_xml "${CMAKE_CURRENT_SOURCE_DIR}/../../krunner/org.freedesktop.ScreenSaver.xml")
+set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/org.freedesktop.ScreenSaver.xml")
+set(kscreensaver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/org.kde.screensaver.xml)
 
 QT4_ADD_DBUS_INTERFACE(kded_powerdevil_SRCS ${screensaver_xml} screensaver_interface )
+QT4_ADD_DBUS_INTERFACE(kded_powerdevil_SRCS ${kscreensaver_xml} kscreensaver_interface )
 qt4_add_dbus_adaptor( kded_powerdevil_SRCS org.kde.PowerDevil.xml PowerDevilDaemon.h PowerDevilDaemon )
 
 qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.Solid.PowerManagement.xml PowerManagementConnector.h PowerManagementConnector )
@@ -37,6 +44,10 @@ endif(X11_Xss_LIB)
 if(X11_Xext_LIB)
   target_link_libraries(kded_powerdevil ${X11_Xext_LIB})
 endif(X11_Xext_LIB)
+
+if(HAVE_DPMS)
+  target_link_libraries(kded_powerdevil ${X11_LIBRARIES})
+endif(HAVE_DPMS)
 
 install( TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR} )
 

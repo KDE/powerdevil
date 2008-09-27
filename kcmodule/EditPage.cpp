@@ -30,6 +30,9 @@
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
 
+#include <KStandardDirs>
+#include <KRun>
+
 #include <KConfigGroup>
 #include <KLineEdit>
 #include <QCheckBox>
@@ -160,20 +163,29 @@ void EditPage::fillUi()
     saveCurrentProfileButton->setIcon(KIcon("document-save"));
     resetCurrentProfileButton->setIcon(KIcon("edit-undo"));
 
+    DPMSLabel->setUrl("http://www.energystar.gov");
+    DPMSLabel->setPixmap(QPixmap(KStandardDirs::locate("data", "kcontrol/pics/energybig.png")));
+    DPMSLabel->setTipText(i18n("Learn more about the Energy Star program"));
+    DPMSLabel->setUseTips(true);
+    connect(DPMSLabel, SIGNAL(leftClickedUrl(const QString&)), SLOT(openUrl(const QString &)));
+
     // modified fields...
 
     connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(displayIdleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(disableCompositing, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
     connect(idleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(laptopClosedCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
-    connect(offDisplayWhenIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
     connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
+
+    connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
+    connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSSuspend, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSStandby, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSPowerOff, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
 
     connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
@@ -205,7 +217,9 @@ void EditPage::emitChanged()
 
 void EditPage::enableBoxes()
 {
-    displayIdleTime->setEnabled(offDisplayWhenIdle->isChecked());
+    DPMSSuspend->setEnabled(DPMSEnable->isChecked());
+    DPMSStandby->setEnabled(DPMSEnable->isChecked());
+    DPMSPowerOff->setEnabled(DPMSEnable->isChecked());
 }
 
 void EditPage::loadProfile()
@@ -228,8 +242,6 @@ void EditPage::loadProfile()
     kDebug() << group->readEntry("brightness");
 
     brightnessSlider->setValue(group->readEntry("brightness").toInt());
-    offDisplayWhenIdle->setChecked(group->readEntry("turnOffIdle", false));
-    displayIdleTime->setValue(group->readEntry("turnOffIdleTime").toInt());
     disableCompositing->setChecked(group->readEntry("disableCompositing", false));
     idleTime->setValue(group->readEntry("idleTime").toInt());
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
@@ -238,6 +250,11 @@ void EditPage::loadProfile()
     scriptRequester->setPath(group->readEntry("scriptpath"));
 
     laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
+
+    DPMSEnable->setChecked(group->readEntry("DPMSEnabled", false));
+    DPMSStandby->setValue(group->readEntry("DPMSStandby", 10));
+    DPMSSuspend->setValue(group->readEntry("DPMSSuspend", 30));
+    DPMSPowerOff->setValue(group->readEntry("DPMSPowerOff", 60));
 
     QVariant var = group->readEntry("disabledCPUs", QVariant());
     QList<QVariant> list = var.toList();
@@ -283,11 +300,13 @@ void EditPage::saveProfile(const QString &p)
     group->writeEntry("idleAction", idleCombo->itemData(idleCombo->currentIndex()).toInt());
     group->writeEntry("idleTime", idleTime->value());
     group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
-    group->writeEntry("turnOffIdle", offDisplayWhenIdle->isChecked());
-    group->writeEntry("turnOffIdleTime", displayIdleTime->value());
     group->writeEntry("scheme", schemeCombo->currentText());
     group->writeEntry("scriptpath", scriptRequester->url().path());
     group->writeEntry("disableCompositing", disableCompositing->isChecked());
+    group->writeEntry("DPMSEnabled", DPMSEnable->isChecked());
+    group->writeEntry("DPMSStandby", DPMSStandby->value());
+    group->writeEntry("DPMSSuspend", DPMSSuspend->value());
+    group->writeEntry("DPMSPowerOff", DPMSPowerOff->value());
 
     QList<int> list;
 
@@ -545,6 +564,11 @@ void EditPage::setProfileChanged()
 void EditPage::enableSaveProfile()
 {
     saveCurrentProfileButton->setEnabled(m_profileEdited);
+}
+
+void EditPage::openUrl(const QString &url)
+{
+    new KRun(KUrl(url), this);
 }
 
 #include "EditPage.moc"

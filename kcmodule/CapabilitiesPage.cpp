@@ -22,6 +22,7 @@
 #include "PowerDevilSettings.h"
 
 #include <config-X11.h>
+#include <config-workspace.h>
 #include <config-powerdevil.h>
 
 #include <solid/control/powermanager.h>
@@ -33,10 +34,49 @@
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
 
+#include <QX11Info>
+
 #include <QFormLayout>
 #include <QProcess>
 #include <KPushButton>
 #include <KMessageBox>
+
+#ifdef HAVE_DPMS
+#include <X11/Xmd.h>
+#include <X11/X.h>
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+#include <X11/Xutil.h>
+#include <X11/Xos.h>
+extern "C"
+{
+#include <X11/extensions/dpms.h>
+    Status DPMSInfo(Display *, CARD16 *, BOOL *);
+    Bool DPMSCapable(Display *);
+    int __kde_do_not_unload = 1;
+
+#ifndef HAVE_DPMSCAPABLE_PROTO
+    Bool DPMSCapable(Display *);
+#endif
+
+#ifndef HAVE_DPMSINFO_PROTO
+    Status DPMSInfo(Display *, CARD16 *, BOOL *);
+#endif
+}
+
+#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
+extern "C"
+{
+#endif
+    Bool DPMSQueryExtension(Display *, int *, int *);
+    Status DPMSEnable(Display *);
+    Status DPMSDisable(Display *);
+    Bool DPMSGetTimeouts(Display *, CARD16 *, CARD16 *, CARD16 *);
+    Bool DPMSSetTimeouts(Display *, CARD16, CARD16, CARD16);
+#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
+}
+#endif
+#endif
 
 CapabilitiesPage::CapabilitiesPage(QWidget *parent)
         : QWidget(parent)
@@ -175,6 +215,17 @@ void CapabilitiesPage::fillCapabilities()
 
     bool xss = false;
     bool xsync = false;
+    bool dpms = false;
+
+#ifdef HAVE_DPMS
+    Display *dpy = QX11Info::display();
+
+    int dummy;
+
+    if (DPMSQueryExtension(dpy, &dummy, &dummy) && DPMSCapable(dpy)) {
+        dpms = true;
+    }
+#endif
 
 #ifdef HAVE_XSCREENSAVER
     xss = true;
@@ -194,6 +245,12 @@ void CapabilitiesPage::fillCapabilities()
         xsyncSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
         xsyncSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+    }
+
+    if (dpms) {
+        dpmsSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    } else {
+        dpmsSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
     // Determine status!
