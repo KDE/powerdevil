@@ -343,17 +343,28 @@ void PowerDevilDaemon::applyProfile()
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
 
-    // DPMS Stuff
+    m_pollLoader->poller()->forcePollRequest();
+
+    QTimer::singleShot(300, this, SLOT(setUpDPMS()));
+}
+
+void PowerDevilDaemon::setUpDPMS()
+{
+    KConfigGroup * settings = getCurrentProfile();
+
+    if (!settings)
+        return;
+
 #ifdef HAVE_DPMS
 
-    /*defaultHandler = XSetErrorHandler(dropError);
+    defaultHandler = XSetErrorHandler(dropError);
 
     Display *dpy = QX11Info::display();
 
     int dummy;
     bool has_DPMS = true;
 
-    if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)){
+    if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)) {
         has_DPMS = false;
         XSetErrorHandler(defaultHandler);
     }
@@ -372,8 +383,8 @@ void PowerDevilDaemon::applyProfile()
         //
 
         DPMSSetTimeouts(dpy, 60 * settings->readEntry("DPMSStandby").toInt(),
-                60 * settings->readEntry("DPMSSuspend").toInt(),
-                60 * settings->readEntry("DPMSPowerOff").toInt());
+                        60 * settings->readEntry("DPMSSuspend").toInt(),
+                        60 * settings->readEntry("DPMSPowerOff").toInt());
 
         XFlush(dpy);
         XSetErrorHandler(defaultHandler);
@@ -382,10 +393,8 @@ void PowerDevilDaemon::applyProfile()
 
     // The screen saver depends on the DPMS settings
     org::kde::screensaver kscreensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
-    kscreensaver.configure();*/
+    kscreensaver.configure();
 #endif
-
-    m_pollLoader->poller()->forcePollRequest();
 }
 
 void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &udi)

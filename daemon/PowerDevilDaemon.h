@@ -103,6 +103,8 @@ private Q_SLOTS:
 
     void cleanUpTimer();
 
+    void setUpDPMS();
+
 Q_SIGNALS:
     void lidClosed(int code, const QString &action);
     void errorTriggered(const QString &error);
