@@ -165,6 +165,10 @@ void EditPage::fillUi()
     saveCurrentProfileButton->setIcon(KIcon("document-save"));
     resetCurrentProfileButton->setIcon(KIcon("edit-undo"));
 
+    toolBox->setItemIcon(0, KIcon("video-display"));
+    toolBox->setItemIcon(1, KIcon("cpu"));
+    toolBox->setItemIcon(2, KIcon("preferences-system-power-management"));
+
     DPMSLabel->setUrl("http://www.energystar.gov");
     DPMSLabel->setPixmap(QPixmap(KStandardDirs::locate("data", "kcontrol/pics/energybig.png")));
     DPMSLabel->setTipText(i18n("Learn more about the Energy Star program"));

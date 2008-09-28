@@ -47,12 +47,15 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>376</width>
+               <width>373</width>
                <height>157</height>
               </rect>
              </property>
              <attribute name="label" >
               <string>Screen and Actions</string>
+             </attribute>
+             <attribute name="toolTip" >
+              <string>Configure display preferences and general actions</string>
              </attribute>
              <layout class="QFormLayout" name="formLayout" >
               <property name="fieldGrowthPolicy" >
@@ -183,6 +186,9 @@
              <attribute name="label" >
               <string>CPU and System</string>
              </attribute>
+             <attribute name="toolTip" >
+              <string>Configure System and CPU preferences</string>
+             </attribute>
              <layout class="QFormLayout" name="formLayout_2" >
               <item row="0" column="0" >
                <widget class="QLabel" name="label_12" >
@@ -250,8 +256,19 @@
              </layout>
             </widget>
             <widget class="QWidget" name="page_3" >
+             <property name="geometry" >
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>307</width>
+               <height>187</height>
+              </rect>
+             </property>
              <attribute name="label" >
               <string>Screen Energy</string>
+             </attribute>
+             <attribute name="toolTip" >
+              <string>Configure screen energy management</string>
              </attribute>
              <layout class="QVBoxLayout" name="verticalLayout_4" >
               <item>
@@ -464,6 +481,13 @@
             </property>
             <property name="text" >
              <string comment="Creates a new profile" >New</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="KPushButton" name="kpushbutton" >
+            <property name="text" >
+             <string>Clone</string>
             </property>
            </widget>
           </item>
