@@ -51,7 +51,7 @@ public slots:
     virtual void stopCatchingTimeouts() = 0;
     virtual void catchIdleEvent() = 0;
     virtual void stopCatchingIdleEvents() = 0;
-    virtual void simulateUserActivity() = 0;
+    virtual void simulateUserActivity();
 
 signals:
     void resumingFromIdle();

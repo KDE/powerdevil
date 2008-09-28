@@ -201,16 +201,6 @@ bool XSyncBasedPoller::x11Event(XEvent *event)
 #endif
 }
 
-void XSyncBasedPoller::simulateUserActivity()
-{
-#ifdef HAVE_XSYNC
-    XSyncValue reset;
-    XSyncIntToValue(&reset, 0);
-
-    XSyncSetCounter(m_display, m_idleCounter, reset);
-#endif
-}
-
 #ifdef HAVE_XSYNC
 void XSyncBasedPoller::setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
                                 XSyncTestType test, XSyncValue value)

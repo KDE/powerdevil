@@ -49,7 +49,6 @@ public slots:
     void stopCatchingTimeouts();
     void catchIdleEvent();
     void stopCatchingIdleEvents();
-    void simulateUserActivity();
 
 private slots:
     void poll();

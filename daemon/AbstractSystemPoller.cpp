@@ -19,6 +19,15 @@
 
 #include "AbstractSystemPoller.h"
 
+#include <config-X11.h>
+
+#ifdef HAVE_XTEST
+#include <QX11Info>
+
+#include <X11/keysym.h>
+#include <X11/extensions/XTest.h>
+#endif // HAVE_XTEST
+
 AbstractSystemPoller::AbstractSystemPoller(QObject *parent)
         : QWidget(0)
 {
@@ -27,6 +36,17 @@ AbstractSystemPoller::AbstractSystemPoller(QObject *parent)
 
 AbstractSystemPoller::~AbstractSystemPoller()
 {
+}
+
+void AbstractSystemPoller::simulateUserActivity()
+{
+#ifdef HAVE_XTEST
+    int XTestKeyCode = 0;
+    Display* display = QX11Info::display();
+    XTestFakeKeyEvent(display, XTestKeyCode, true, CurrentTime);
+    XTestFakeKeyEvent(display, XTestKeyCode, false, CurrentTime);
+    XSync(display, false);
+#endif // HAVE_XTEST
 }
 
 #include "AbstractSystemPoller.moc"

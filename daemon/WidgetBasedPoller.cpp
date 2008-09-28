@@ -183,9 +183,4 @@ void WidgetBasedPoller::stopCatchingIdleEvents()
     releaseInputLock();
 }
 
-void WidgetBasedPoller::simulateUserActivity()
-{
-
-}
-
 #include "WidgetBasedPoller.moc"
