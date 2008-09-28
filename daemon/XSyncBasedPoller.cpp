@@ -203,7 +203,12 @@ bool XSyncBasedPoller::x11Event(XEvent *event)
 
 void XSyncBasedPoller::simulateUserActivity()
 {
+#ifdef HAVE_XSYNC
+    XSyncValue reset;
+    XSyncIntToValue(&reset, 0);
 
+    XSyncSetCounter(m_display, m_idleCounter, reset);
+#endif
 }
 
 #ifdef HAVE_XSYNC
