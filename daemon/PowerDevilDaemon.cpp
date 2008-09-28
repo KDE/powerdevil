@@ -107,6 +107,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_displayManager(new KDisplayManager()),
         m_currentConfig(0),
         m_pollLoader(new PollSystemLoader(this)),
+        m_notificationTimer(new QTimer(this)),
         m_compositingChanged(false)
 {
     KGlobal::locale()->insertCatalog("powerdevil");
@@ -384,43 +385,56 @@ void PowerDevilDaemon::applyProfile()
 void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &udi)
 {
     Q_UNUSED(udi)
+    Q_UNUSED(percent)
 
-    setBatteryPercent(percent);
+    int charge = 0;
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        Solid::Device d = device;
+        Solid::Battery *battery = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if (battery->chargePercent() > 0) {
+            charge += battery->chargePercent();
+        }
+    }
+
+    setBatteryPercent(charge);
 
     if (Solid::Control::PowerManager::acAdapterState() == Solid::Control::PowerManager::Plugged)
         return;
 
-    if (percent <= PowerDevilSettings::batteryCriticalLevel()) {
+    if (charge <= PowerDevilSettings::batteryCriticalLevel()) {
         switch (PowerDevilSettings::batLowAction()) {
         case Shutdown:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC will now be halted..."));
-            shutdown();
+                                    "critical level, the PC will be halted in 10 seconds. "
+                                    "Click here to block the process."), SLOT(shutdown()));
             break;
         case S2Disk:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC will now be suspended to disk..."));
-            suspendToDisk();
+                                    "critical level, the PC will be suspended to disk in "
+                                    "10 seconds. Click here to block the process."),
+                                    SLOT(suspendToDisk()));
             break;
         case S2Ram:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC will now be suspended to RAM..."));
-            suspendToRam();
+                                    "critical level, the PC will be suspended to RAM in "
+                                    "10 seconds. Click here to block the process"),
+                                    SLOT(suspendToRam()));
             break;
         case Standby:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC is now going Standby..."));
-            standby();
+                                    "critical level, the PC is going Standby in 10 seconds. "
+                                    "Click here to block the process."), SLOT(standby()));
             break;
         default:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
                                     "critical level, save your work as soon as possible!"));
             break;
         }
-    } else if (percent == PowerDevilSettings::batteryWarningLevel()) {
+    } else if (charge == PowerDevilSettings::batteryWarningLevel()) {
         emitWarningNotification("warningbattery", i18n("Your battery has reached warning level"));
         refreshStatus();
-    } else if (percent == PowerDevilSettings::batteryLowLevel()) {
+    } else if (charge == PowerDevilSettings::batteryLowLevel()) {
         emitWarningNotification("lowbattery", i18n("Your battery has reached low level"));
         refreshStatus();
     }
@@ -437,16 +451,16 @@ void PowerDevilDaemon::buttonPressed(int but)
 
         switch (settings->readEntry("lidAction").toInt()) {
         case Shutdown:
-            shutdown();
+            shutdownNotification();
             break;
         case S2Disk:
-            suspendToDisk();
+            suspendToDiskNotification();
             break;
         case S2Ram:
-            suspendToRam();
+            suspendToRamNotification();
             break;
         case Standby:
-            standby();
+            standbyNotification();
             break;
         case Lock:
             lockScreen();
@@ -479,9 +493,32 @@ void PowerDevilDaemon::increaseBrightness()
     Solid::Control::PowerManager::setBrightness(currentBrightness);
 }
 
+void PowerDevilDaemon::shutdownNotification()
+{
+    emitNotification("doingjob", i18n("The computer will be halted in 10 seconds. Click "
+                                      "here to block the process."), SLOT(shutdown()));
+}
+
+void PowerDevilDaemon::suspendToDiskNotification()
+{
+    emitNotification("doingjob", i18n("The computer will be suspended to disk in 10 "
+                                      "seconds. Click here to block the process."), SLOT(suspendToDisk()));
+}
+
+void PowerDevilDaemon::suspendToRamNotification()
+{
+    emitNotification("doingjob", i18n("The computer will be suspended to RAM in 10 "
+                                      "seconds. Click here to block the process."), SLOT(suspendToRam()));
+}
+
+void PowerDevilDaemon::standbyNotification()
+{
+    emitNotification("doingjob", i18n("The computer will be put into standby in 10 "
+                                      "seconds. Click here to block the process."), SLOT(standby()));
+}
+
 void PowerDevilDaemon::shutdown()
 {
-    emitNotification("doingjob", i18n("The computer is being halted"));
     m_displayManager->shutdown(KWorkSpace::ShutdownTypeHalt, KWorkSpace::ShutdownModeTryNow);
 }
 
@@ -492,8 +529,6 @@ void PowerDevilDaemon::suspendToDisk()
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
     }
-
-    emitNotification("doingjob", i18n("The computer will now be suspended to disk"));
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
@@ -508,8 +543,6 @@ void PowerDevilDaemon::suspendToRam()
         lockScreen();
     }
 
-    emitNotification("doingjob", i18n("The computer will now be suspended to RAM"));
-
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
@@ -522,8 +555,6 @@ void PowerDevilDaemon::standby()
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
     }
-
-    emitNotification("doingjob", i18n("The computer will now be put into standby"));
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
@@ -606,19 +637,19 @@ void PowerDevilDaemon::poll(int idle)
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
             m_pollLoader->poller()->catchIdleEvent();
-            shutdown();
+            shutdownNotification();
             break;
         case S2Disk:
             m_pollLoader->poller()->catchIdleEvent();
-            suspendToDisk();
+            suspendToDiskNotification();
             break;
         case S2Ram:
             m_pollLoader->poller()->catchIdleEvent();
-            suspendToRam();
+            suspendToRamNotification();
             break;
         case Standby:
             m_pollLoader->poller()->catchIdleEvent();
-            standby();
+            standbyNotification();
             break;
         case Lock:
             m_pollLoader->poller()->catchIdleEvent();
@@ -688,30 +719,87 @@ void PowerDevilDaemon::lockScreen()
     m_screenSaverIface->Lock();
 }
 
-void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QString &message, const QString &iconname)
+void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QString &message,
+        const char *slot, const QString &iconname)
 {
     /* Those notifications are always displayed */
+    if (!slot) {
+        KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                             0, KNotification::CloseOnTimeout, m_applicationData);
+    } else {
+        m_notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                                              0, KNotification::Persistent, m_applicationData);
 
-    KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                         0, KNotification::CloseOnTimeout, m_applicationData);
+        connect(m_notificationTimer, SIGNAL(timeout()), slot);
+        connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
+
+        connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+
+        m_notificationTimer->start(10000);
+    }
 }
 
-void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QString &message, const QString &iconname)
+void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QString &message,
+        const char *slot, const QString &iconname)
 {
-    if (!PowerDevilSettings::enableWarningNotifications())
+    if (!PowerDevilSettings::enableWarningNotifications()) {
+        if (slot) {
+            QTimer::singleShot(0, this, slot);
+        }
         return;
+    }
 
-    KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                         0, KNotification::CloseOnTimeout, m_applicationData);
+    if (!slot) {
+        KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                             0, KNotification::CloseOnTimeout, m_applicationData);
+    } else {
+        m_notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                                              0, KNotification::Persistent, m_applicationData);
+
+        connect(m_notificationTimer, SIGNAL(timeout()), slot);
+        connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
+
+        connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+
+        m_notificationTimer->start(10000);
+    }
 }
 
-void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message, const QString &iconname)
+void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message,
+                                        const char *slot, const QString &iconname)
 {
-    if (!PowerDevilSettings::enableNotifications())
+    if (!PowerDevilSettings::enableNotifications()) {
+        if (slot) {
+            QTimer::singleShot(0, this, slot);
+        }
         return;
+    }
 
-    KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                         0, KNotification::CloseOnTimeout, m_applicationData);
+    if (!slot) {
+        KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                             0, KNotification::CloseOnTimeout, m_applicationData);
+    } else {
+        m_notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                                              0, KNotification::Persistent, m_applicationData);
+
+        connect(m_notificationTimer, SIGNAL(timeout()), slot);
+        connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
+
+        connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+
+        m_notificationTimer->start(10000);
+    }
+}
+
+void PowerDevilDaemon::cleanUpTimer()
+{
+    disconnect(m_notificationTimer);
+    disconnect(m_notification);
+    m_notificationTimer->stop();
+
+    if (m_notification) {
+        m_notification->deleteLater();
+    }
 }
 
 KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)
@@ -813,8 +901,8 @@ void PowerDevilDaemon::setProfile(const QString & profile)
 
     KConfigGroup * settings = getCurrentProfile();
 
-    emitNotification("profileset", i18n("Profile changed to \"%1\"", profile) ,
-                     settings->readEntry("iconname"));
+    emitNotification("profileset", i18n("Profile changed to \"%1\"", profile),
+                     0, settings->readEntry("iconname"));
 }
 
 void PowerDevilDaemon::reloadAndStream()

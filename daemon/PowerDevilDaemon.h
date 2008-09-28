@@ -29,6 +29,7 @@
 class KDisplayManager;
 class QWidget;
 class PollSystemLoader;
+class KNotification;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
@@ -41,9 +42,9 @@ public:
 public Q_SLOTS:
     void refreshStatus();
     void emitWarningNotification(const QString &evid, const QString &message = QString(),
-                                 const QString &iconname = "dialog-warning");
+                                 const char *slot = 0, const QString &iconname = "dialog-warning");
     void emitNotification(const QString &evid, const QString &message = QString(),
-                          const QString &iconname = "dialog-ok-apply");
+                          const char *slot = 0, const QString &iconname = "dialog-ok-apply");
     void setProfile(const QString & profile);
     void reloadAndStream();
     void streamData();
@@ -78,6 +79,11 @@ private Q_SLOTS:
     void suspendToRam();
     void standby();
 
+    void shutdownNotification();
+    void suspendToDiskNotification();
+    void suspendToRamNotification();
+    void standbyNotification();
+
     void buttonPressed(int but);
 
     void poll(int idle);
@@ -95,6 +101,8 @@ private Q_SLOTS:
 
     bool toggleCompositing(bool enabled);
 
+    void cleanUpTimer();
+
 Q_SIGNALS:
     void lidClosed(int code, const QString &action);
     void errorTriggered(const QString &error);
@@ -111,7 +119,7 @@ private:
     void setUpNextTimeout(int idle, int minDimEvent);
 
     void emitCriticalNotification(const QString &evid, const QString &message = QString(),
-                                  const QString &iconname = "dialog-error");
+                                  const char *slot = 0, const QString &iconname = "dialog-error");
 
     void profileFirstLoad();
 
@@ -143,6 +151,9 @@ private:
 
     QString m_currentProfile;
     QStringList m_availableProfiles;
+
+    KNotification *m_notification;
+    QTimer *m_notificationTimer;
 
     int m_batteryPercent;
     bool m_isPlugged;
