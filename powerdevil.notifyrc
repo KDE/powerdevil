@@ -260,7 +260,7 @@ Name[sv]=Batteriet vid kritisk nivå
 Name[uk]=Заряд на критичному рівні
 Name[x-test]=xxBattery at critical levelxx
 Name[zh_TW]=電池電力已到嚴重警告區
-Comment=Your battery has reached critical level
+Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
 Comment[gl]=A batería acadou o nível crítico
 Comment[gu]=તમારી બેટ્રી સ્તર પર પહોંચી ગઇ છે
 Comment[km]=ថ្ម​របស់​អ្នក​បាន​ឈាន​ដល់​កម្រិត​សំខាន់​
@@ -386,7 +386,7 @@ Sound=KDE-Sys-App-Message.ogg
 Action=Sound|Popup
 
 [Event/doingjob]
-Name=Doing a Job
+Name=Performing a suspension job
 Name[gl]=A facer unha tarefa
 Name[km]=កំពុង​ធ្វើ​ការងារ
 Name[nds]=Opgaav warrt utföhrt
@@ -396,7 +396,7 @@ Name[sv]=Utför ett jobb
 Name[uk]=Виконується завдання
 Name[x-test]=xxDoing a Jobxx
 Name[zh_TW]=執行工作中
-Comment=Something is ongoing
+Comment=This notification is displayed when a suspension job is about to be done, and it triggers a countdown. Hence, it is strongly advised to leave it on.
 Comment[gl]=Está a facerse algo
 Comment[gu]=કંઇક ચાલી રહ્યું છે
 Comment[km]=មាន​អ្វី​មួយ​កំពុង​អនុវត្ត
