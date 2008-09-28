@@ -92,7 +92,7 @@ extern "C"
 
 int edummy;
 
-bool hasDPMS = DPMSQueryExtension(QX11Info::display(), &edummy, &edummy);
+static XErrorHandler defaultHandler;
 
 #endif
 
@@ -345,34 +345,40 @@ void PowerDevilDaemon::applyProfile()
 
     // DPMS Stuff
 #ifdef HAVE_DPMS
-    // This causes hanging. Question: how the fuck is this possible?
-    /*XErrFunc defaultHandler;
-    defaultHandler = XSetErrorHandler(dropError);
+
+    /*defaultHandler = XSetErrorHandler(dropError);
 
     Display *dpy = QX11Info::display();
 
-    BOOL enabled;
-    CARD16 cdummy;
     int dummy;
-    DPMSInfo(dpy, &cdummy, &enabled);
+    bool has_DPMS = true;
 
-    if (hasDPMS) {
-        if (settings->readEntry("DPMSEnabled", false)) {
-            if(!enabled) {
-                DPMSEnable(dpy);
-                DPMSSetTimeouts(dpy, settings->readEntry("DPMSStandby", 10),
-                        settings->readEntry("DPMSSuspend", 30),
-                        settings->readEntry("DPMSPowerOff", 60));
-            }
-        } else if (enabled) {
-            DPMSDisable(dpy);
-        }
-    } else {
-        kWarning("Server has no DPMS extension");
+    if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)){
+        has_DPMS = false;
+        XSetErrorHandler(defaultHandler);
     }
 
-    XFlush(dpy);
-    XSetErrorHandler(defaultHandler);
+    if (has_DPMS) {
+
+        if (settings->readEntry("DPMSEnabled", false)) {
+            DPMSEnable(dpy);
+        } else {
+            DPMSDisable(dpy);
+        }
+
+        XFlush(dpy);
+        XSetErrorHandler(defaultHandler);
+
+        //
+
+        DPMSSetTimeouts(dpy, 60 * settings->readEntry("DPMSStandby").toInt(),
+                60 * settings->readEntry("DPMSSuspend").toInt(),
+                60 * settings->readEntry("DPMSPowerOff").toInt());
+
+        XFlush(dpy);
+        XSetErrorHandler(defaultHandler);
+
+    }
 
     // The screen saver depends on the DPMS settings
     org::kde::screensaver kscreensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
