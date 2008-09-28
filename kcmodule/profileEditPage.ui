@@ -307,7 +307,7 @@
                  </sizepolicy>
                 </property>
                 <property name="whatsThis" >
-                 <string>Choose the period of inactivity after which the display should enter "standby" mode. This is thefirst level of power saving.</string>
+                 <string>Choose the period of inactivity after which the display should enter "standby" mode. This is the first level of power saving.</string>
                 </property>
                 <property name="label" >
                  <string>&amp;Standby after</string>
