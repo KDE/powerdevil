@@ -64,8 +64,6 @@
 extern "C"
 {
 #include <X11/extensions/dpms.h>
-    Status DPMSInfo(Display *, CARD16 *, BOOL *);
-    Bool DPMSCapable(Display *);
     int __kde_do_not_unload = 1;
 
 #ifndef HAVE_DPMSCAPABLE_PROTO
@@ -76,21 +74,6 @@ extern "C"
     Status DPMSInfo(Display *, CARD16 *, BOOL *);
 #endif
 }
-
-#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
-extern "C"
-{
-#endif
-    Bool DPMSQueryExtension(Display *, int *, int *);
-    Status DPMSEnable(Display *);
-    Status DPMSDisable(Display *);
-    Bool DPMSGetTimeouts(Display *, CARD16 *, CARD16 *, CARD16 *);
-    Bool DPMSSetTimeouts(Display *, CARD16, CARD16, CARD16);
-#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
-}
-#endif
-
-int edummy;
 
 static XErrorHandler defaultHandler;
 
