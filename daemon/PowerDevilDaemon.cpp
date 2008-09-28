@@ -1038,6 +1038,9 @@ void PowerDevilDaemon::profileFirstLoad()
 {
     KConfigGroup * settings = getCurrentProfile();
 
+    if (!settings)
+        return;
+
     if (!settings->readEntry("scriptpath", QString()).isEmpty()) {
         QProcess::startDetached(settings->readEntry("scriptpath"));
     }
