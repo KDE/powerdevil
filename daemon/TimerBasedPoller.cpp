@@ -125,4 +125,9 @@ void TimerBasedPoller::catchIdleEvent()
     m_catchingIdle = true;
 }
 
+void TimerBasedPoller::simulateUserActivity()
+{
+
+}
+
 #include "TimerBasedPoller.moc"

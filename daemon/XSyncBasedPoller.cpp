@@ -201,6 +201,11 @@ bool XSyncBasedPoller::x11Event(XEvent *event)
 #endif
 }
 
+void XSyncBasedPoller::simulateUserActivity()
+{
+
+}
+
 #ifdef HAVE_XSYNC
 void XSyncBasedPoller::setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter counter,
                                 XSyncTestType test, XSyncValue value)

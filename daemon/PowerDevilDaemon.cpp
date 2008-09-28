@@ -524,7 +524,7 @@ void PowerDevilDaemon::shutdown()
 
 void PowerDevilDaemon::suspendToDisk()
 {
-    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -537,7 +537,7 @@ void PowerDevilDaemon::suspendToDisk()
 
 void PowerDevilDaemon::suspendToRam()
 {
-    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -550,7 +550,7 @@ void PowerDevilDaemon::suspendToRam()
 
 void PowerDevilDaemon::standby()
 {
-    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -568,7 +568,7 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
                                  + QChar('\n') + job->errorString()));
     }
 
-    m_screenSaverIface->SimulateUserActivity(); //prevent infinite suspension loops
+    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 }
 
 void PowerDevilDaemon::poll(int idle)
