@@ -179,8 +179,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>326</width>
-               <height>157</height>
+               <width>242</width>
+               <height>117</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -322,7 +322,7 @@
                  <string>min</string>
                 </property>
                 <property name="specialValueText" >
-                 <string>Disabled</string>
+                 <string comment="A DPMS status will be disabled" >Disabled</string>
                 </property>
                </widget>
               </item>
@@ -347,7 +347,7 @@
                  <string>min</string>
                 </property>
                 <property name="specialValueText" >
-                 <string>Disabled</string>
+                 <string comment="A DPMS status will be disabled" >Disabled</string>
                 </property>
                </widget>
               </item>
@@ -372,7 +372,7 @@
                  <string>min</string>
                 </property>
                 <property name="specialValueText" >
-                 <string>Disabled</string>
+                 <string comment="A DPMS status will be disabled" >Disabled</string>
                 </property>
                </widget>
               </item>
