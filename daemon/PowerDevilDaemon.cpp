@@ -92,7 +92,9 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_currentConfig(0),
         m_pollLoader(new PollSystemLoader(this)),
         m_notificationTimer(new QTimer(this)),
-        m_compositingChanged(false)
+        m_compositingChanged(false),
+        m_isJobOngoing(false),
+        m_isOnNotification(false)
 {
     KGlobal::locale()->insertCatalog("powerdevil");
 
@@ -550,42 +552,88 @@ void PowerDevilDaemon::increaseBrightness()
 
 void PowerDevilDaemon::shutdownNotification()
 {
+    if (m_isJobOngoing) {
+        return;
+    }
+
+    m_isOnNotification = true;
+    m_isJobOngoing = true;
+
     emitNotification("doingjob", i18n("The computer will be halted in 10 seconds. Click "
                                       "here to block the process."), SLOT(shutdown()));
 }
 
 void PowerDevilDaemon::suspendToDiskNotification()
 {
+    if (m_isJobOngoing) {
+        return;
+    }
+
+    m_isOnNotification = true;
+    m_isJobOngoing = true;
+
     emitNotification("doingjob", i18n("The computer will be suspended to disk in 10 "
                                       "seconds. Click here to block the process."), SLOT(suspendToDisk()));
 }
 
 void PowerDevilDaemon::suspendToRamNotification()
 {
+    if (m_isJobOngoing) {
+        return;
+    }
+
+    m_isOnNotification = true;
+    m_isJobOngoing = true;
+
     emitNotification("doingjob", i18n("The computer will be suspended to RAM in 10 "
                                       "seconds. Click here to block the process."), SLOT(suspendToRam()));
 }
 
 void PowerDevilDaemon::standbyNotification()
 {
+    if (m_isJobOngoing) {
+        return;
+    }
+
+    m_isOnNotification = true;
+    m_isJobOngoing = true;
+
     emitNotification("doingjob", i18n("The computer will be put into standby in 10 "
                                       "seconds. Click here to block the process."), SLOT(standby()));
 }
 
 void PowerDevilDaemon::shutdown()
 {
+    if (m_isJobOngoing && !m_isOnNotification) {
+        return;
+    }
+
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmNo, (int)KWorkSpace::ShutdownTypeHalt,
                              (int)KWorkSpace::ShutdownModeTryNow);
+
+    m_isOnNotification = false;
+    m_isJobOngoing = false;
 }
 
 void PowerDevilDaemon::shutdownDialog()
 {
+    if (m_isJobOngoing && !m_isOnNotification) {
+        return;
+    }
+
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
                              (int)KWorkSpace::ShutdownModeDefault);
+
+    m_isOnNotification = false;
+    m_isJobOngoing = false;
 }
 
 void PowerDevilDaemon::suspendToDisk()
 {
+    if (m_isJobOngoing && !m_isOnNotification) {
+        return;
+    }
+
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
@@ -599,6 +647,10 @@ void PowerDevilDaemon::suspendToDisk()
 
 void PowerDevilDaemon::suspendToRam()
 {
+    if (m_isJobOngoing && !m_isOnNotification) {
+        return;
+    }
+
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
@@ -606,12 +658,16 @@ void PowerDevilDaemon::suspendToRam()
     }
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
-    connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
+    connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
 }
 
 void PowerDevilDaemon::standby()
 {
+    if (m_isJobOngoing && !m_isOnNotification) {
+        return;
+    }
+
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
@@ -631,6 +687,13 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
     }
 
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
+
+    kDebug() << "Resuming from suspension";
+
+    m_isOnNotification = false;
+    m_isJobOngoing = false;
+
+    job->deleteLater();
 }
 
 void PowerDevilDaemon::poll(int idle)
@@ -855,8 +918,10 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
 
 void PowerDevilDaemon::cleanUpTimer()
 {
-    disconnect(m_notificationTimer);
-    disconnect(m_notification);
+    kDebug() << "Disconnecting signals";
+
+    m_notificationTimer->disconnect();
+    m_notification->disconnect();
     m_notificationTimer->stop();
 
     if (m_notification) {

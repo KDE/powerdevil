@@ -166,6 +166,8 @@ private:
     int m_batteryPercent;
     bool m_isPlugged;
     bool m_compositingChanged;
+    bool m_isJobOngoing;
+    bool m_isOnNotification;
 };
 
 #endif /*POWERDEVILDAEMON_H*/
