@@ -127,23 +127,28 @@ void EditPage::fillUi()
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
     if (policies & Solid::Control::PowerManager::Performance) {
-        freqCombo->addItem(i18n("Performance"), (int) Solid::Control::PowerManager::Performance);
+        freqCombo->addItem(KIcon("preferences-system-performance"), i18n("Performance"),
+                           (int) Solid::Control::PowerManager::Performance);
     }
 
     if (policies & Solid::Control::PowerManager::OnDemand) {
-        freqCombo->addItem(i18n("Dynamic (ondemand)"), (int) Solid::Control::PowerManager::OnDemand);
+        freqCombo->addItem(KIcon("system-switch-user"),
+                           i18n("Dynamic (ondemand)"), (int) Solid::Control::PowerManager::OnDemand);
     }
 
     if (policies & Solid::Control::PowerManager::Conservative) {
-        freqCombo->addItem(i18n("Dynamic (conservative)"), (int) Solid::Control::PowerManager::Conservative);
+        freqCombo->addItem(KIcon("user-invisible"), i18n("Dynamic (conservative)"),
+                           (int) Solid::Control::PowerManager::Conservative);
     }
 
     if (policies & Solid::Control::PowerManager::Powersave) {
-        freqCombo->addItem(i18n("Powersave"), (int) Solid::Control::PowerManager::Powersave);
+        freqCombo->addItem(KIcon("preferences-system-power-management"), i18n("Powersave"),
+                           (int) Solid::Control::PowerManager::Powersave);
     }
 
     if (policies & Solid::Control::PowerManager::Userspace) {
-        freqCombo->addItem(i18n("Userspace"), (int) Solid::Control::PowerManager::Userspace);
+        freqCombo->addItem(KIcon("kuser"), i18n("Userspace"),
+                           (int) Solid::Control::PowerManager::Userspace);
     }
 
     schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
