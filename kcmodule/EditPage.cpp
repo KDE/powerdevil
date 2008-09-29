@@ -81,20 +81,20 @@ EditPage::~EditPage()
 
 void EditPage::fillUi()
 {
-    idleCombo->addItem(i18n("Do nothing"), (int) None);
-    idleCombo->addItem(i18n("Shutdown"), (int) Shutdown);
-    idleCombo->addItem(i18n("Lock Screen"), (int) Lock);
-    laptopClosedCombo->addItem(i18n("Do nothing"), (int) None);
-    laptopClosedCombo->addItem(i18n("Shutdown"), (int) Shutdown);
-    laptopClosedCombo->addItem(i18n("Lock Screen"), (int) Lock);
-    sleepButtonCombo->addItem(i18n("Do nothing"), (int) None);
-    sleepButtonCombo->addItem(i18n("Shutdown"), (int) Shutdown);
-    sleepButtonCombo->addItem(i18n("Lock Screen"), (int) Lock);
-    sleepButtonCombo->addItem(i18n("Prompt Log out dialog"), (int) ShutdownDialog);
-    powerButtonCombo->addItem(i18n("Do nothing"), (int) None);
-    powerButtonCombo->addItem(i18n("Shutdown"), (int) Shutdown);
-    powerButtonCombo->addItem(i18n("Lock Screen"), (int) Lock);
-    powerButtonCombo->addItem(i18n("Prompt Log out dialog"), (int) ShutdownDialog);
+    idleCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    idleCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
+    idleCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    laptopClosedCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    laptopClosedCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
+    laptopClosedCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    sleepButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    sleepButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
+    sleepButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    sleepButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log out dialog"), (int) ShutdownDialog);
+    powerButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    powerButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
+    powerButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    powerButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log out dialog"), (int) ShutdownDialog);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
@@ -104,24 +104,24 @@ void EditPage::fillUi()
     brightnessSlider->setEnabled(bControls.values().contains(Solid::Control::PowerManager::Screen));
 
     if (methods & Solid::Control::PowerManager::ToDisk) {
-        idleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
-        laptopClosedCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
-        sleepButtonCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
-        powerButtonCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        idleCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
+        laptopClosedCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
+        sleepButtonCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
+        powerButtonCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
     }
 
     if (methods & Solid::Control::PowerManager::ToRam) {
-        idleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
-        laptopClosedCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
-        sleepButtonCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
-        powerButtonCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        idleCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
+        laptopClosedCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
+        sleepButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
+        powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
     }
 
     if (methods & Solid::Control::PowerManager::Standby) {
-        idleCombo->addItem(i18n("Standby"), (int) Standby);
-        laptopClosedCombo->addItem(i18n("Standby"), (int) Standby);
-        sleepButtonCombo->addItem(i18n("Standby"), (int) Standby);
-        powerButtonCombo->addItem(i18n("Standby"), (int) Standby);
+        idleCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
+        laptopClosedCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
+        sleepButtonCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
+        powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
     }
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
@@ -147,7 +147,6 @@ void EditPage::fillUi()
     }
 
     schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
-
 
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
         Solid::Device d = device;

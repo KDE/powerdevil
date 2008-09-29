@@ -50,21 +50,21 @@ void GeneralPage::fillUi()
     issueIcon->setVisible(false);
     issueText->setVisible(false);
 
-    BatteryCriticalCombo->addItem(i18n("Do nothing"), (int) None);
-    BatteryCriticalCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
     if (methods & Solid::Control::PowerManager::ToDisk) {
-        BatteryCriticalCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
     }
 
     if (methods & Solid::Control::PowerManager::ToRam) {
-        BatteryCriticalCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
     }
 
     if (methods & Solid::Control::PowerManager::Standby) {
-        BatteryCriticalCombo->addItem(i18n("Standby"), (int) Standby);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
     }
 
     notificationsButton->setIcon(KIcon("preferences-desktop-notification"));
