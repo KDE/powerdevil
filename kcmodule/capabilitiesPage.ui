@@ -176,7 +176,7 @@
          <string>Support for the XSync extension</string>
         </property>
         <property name="whatsThis" >
-         <string>XSync is a system that allows high efficiency query of the system. If it is available, PowerDevil will be much more reliable and efficient</string>
+         <string>XSync is a protocol that allows high efficiency query of the system. If it is available, PowerDevil will be much more reliable and efficient</string>
         </property>
         <property name="text" >
          <string>XSync Support</string>
@@ -253,7 +253,7 @@
          <string>Support for XTest extension</string>
         </property>
         <property name="whatsThis" >
-         <string>Through XTest, PowerDevil is able to fake user activity, preventing suspension loops. If it is not available, loops might occour</string>
+         <string>Through XTest, PowerDevil is able to fake user activity, preventing suspension loops. If it is not available, loops might occur</string>
         </property>
         <property name="text" >
          <string>XTest Support</string>
