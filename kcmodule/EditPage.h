@@ -64,12 +64,13 @@ private slots:
 
 private:
     enum IdleAction {
-        Shutdown = 1,
-        S2Disk = 2,
-        S2Ram = 3,
-        Standby = 4,
-        Lock = 5,
-        None = 0
+        None = 0,
+        Standby = 1,
+        S2Ram = 2,
+        S2Disk = 4,
+        Shutdown = 8,
+        Lock = 16,
+        ShutdownDialog = 32
     };
 
     KSharedConfig::Ptr m_profilesConfig;

@@ -87,6 +87,14 @@ void EditPage::fillUi()
     laptopClosedCombo->addItem(i18n("Do nothing"), (int) None);
     laptopClosedCombo->addItem(i18n("Shutdown"), (int) Shutdown);
     laptopClosedCombo->addItem(i18n("Lock Screen"), (int) Lock);
+    sleepButtonCombo->addItem(i18n("Do nothing"), (int) None);
+    sleepButtonCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    sleepButtonCombo->addItem(i18n("Lock Screen"), (int) Lock);
+    sleepButtonCombo->addItem(i18n("Prompt Log out dialog"), (int) ShutdownDialog);
+    powerButtonCombo->addItem(i18n("Do nothing"), (int) None);
+    powerButtonCombo->addItem(i18n("Shutdown"), (int) Shutdown);
+    powerButtonCombo->addItem(i18n("Lock Screen"), (int) Lock);
+    powerButtonCombo->addItem(i18n("Prompt Log out dialog"), (int) ShutdownDialog);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
@@ -98,16 +106,22 @@ void EditPage::fillUi()
     if (methods & Solid::Control::PowerManager::ToDisk) {
         idleCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
         laptopClosedCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        sleepButtonCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
+        powerButtonCombo->addItem(i18n("Suspend to Disk"), (int) S2Disk);
     }
 
     if (methods & Solid::Control::PowerManager::ToRam) {
         idleCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
         laptopClosedCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        sleepButtonCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
+        powerButtonCombo->addItem(i18n("Suspend to Ram"), (int) S2Ram);
     }
 
     if (methods & Solid::Control::PowerManager::Standby) {
         idleCombo->addItem(i18n("Standby"), (int) Standby);
         laptopClosedCombo->addItem(i18n("Standby"), (int) Standby);
+        sleepButtonCombo->addItem(i18n("Standby"), (int) Standby);
+        powerButtonCombo->addItem(i18n("Standby"), (int) Standby);
     }
 
     Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
@@ -190,6 +204,8 @@ void EditPage::fillUi()
     connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(laptopClosedCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(sleepButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(powerButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
 
     connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
@@ -267,6 +283,8 @@ void EditPage::loadProfile()
     scriptRequester->setPath(group->readEntry("scriptpath"));
 
     laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
+    sleepButtonCombo->setCurrentIndex(sleepButtonCombo->findData(group->readEntry("sleepButtonAction").toInt()));
+    powerButtonCombo->setCurrentIndex(powerButtonCombo->findData(group->readEntry("powerButtonAction").toInt()));
 
 #ifdef HAVE_DPMS
     DPMSEnable->setChecked(group->readEntry("DPMSEnabled", false));
@@ -319,6 +337,8 @@ void EditPage::saveProfile(const QString &p)
     group->writeEntry("idleAction", idleCombo->itemData(idleCombo->currentIndex()).toInt());
     group->writeEntry("idleTime", idleTime->value());
     group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
+    group->writeEntry("sleepButtonAction", sleepButtonCombo->itemData(sleepButtonCombo->currentIndex()).toInt());
+    group->writeEntry("powerButtonAction", powerButtonCombo->itemData(powerButtonCombo->currentIndex()).toInt());
     group->writeEntry("scheme", schemeCombo->currentText());
     group->writeEntry("scriptpath", scriptRequester->url().path());
     group->writeEntry("disableCompositing", disableCompositing->isChecked());

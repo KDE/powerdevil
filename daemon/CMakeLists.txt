@@ -17,9 +17,11 @@ kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/org.freedesktop.ScreenSaver.xml")
 set(kscreensaver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/org.kde.screensaver.xml)
+set(ksmserver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/org.kde.KSMServerInterface.xml)
 
-QT4_ADD_DBUS_INTERFACE(kded_powerdevil_SRCS ${screensaver_xml} screensaver_interface )
-QT4_ADD_DBUS_INTERFACE(kded_powerdevil_SRCS ${kscreensaver_xml} kscreensaver_interface )
+qt4_add_dbus_interface(kded_powerdevil_SRCS ${screensaver_xml} screensaver_interface )
+qt4_add_dbus_interface(kded_powerdevil_SRCS ${kscreensaver_xml} kscreensaver_interface )
+qt4_add_dbus_interface(kded_powerdevil_SRCS ${ksmserver_xml} ksmserver_interface )
 qt4_add_dbus_adaptor( kded_powerdevil_SRCS org.kde.PowerDevil.xml PowerDevilDaemon.h PowerDevilDaemon )
 
 qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${DBUS_INTERFACES_INSTALL_DIR}/org.kde.Solid.PowerManagement.xml PowerManagementConnector.h PowerManagementConnector )
@@ -34,7 +36,6 @@ target_link_libraries(kded_powerdevil
     ${KDE4_SOLID_LIBS}
     ${KDE4_KDEUI_LIBS}
     solidcontrol
-    kworkspace
 )
 
 if(X11_Xss_LIB)

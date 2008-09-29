@@ -33,7 +33,7 @@
 #include <kpluginfactory.h>
 #include <klocalizedstring.h>
 #include <kjob.h>
-#include <kworkspace/kdisplaymanager.h>
+#include <kworkspace/kworkspace.h>
 #include <KApplication>
 
 #include <QWidget>
@@ -49,7 +49,9 @@
 #include <solid/deviceinterface.h>
 #include <solid/processor.h>
 
+#include "screensaver_interface.h"
 #include "kscreensaver_interface.h"
+#include "ksmserver_interface.h"
 
 #include <config-powerdevil.h>
 #include <config-workspace.h>
@@ -87,7 +89,6 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         : KDEDModule(parent),
         m_notifier(Solid::Control::PowerManager::notifier()),
         m_battery(0),
-        m_displayManager(new KDisplayManager()),
         m_currentConfig(0),
         m_pollLoader(new PollSystemLoader(this)),
         m_notificationTimer(new QTimer(this)),
@@ -97,10 +98,10 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     KAboutData aboutData("powerdevil", "powerdevil", ki18n("PowerDevil"),
                          POWERDEVIL_VERSION, ki18n("A Power Management tool for KDE4"),
-                         KAboutData::License_GPL, ki18n("(c) 2008 PowerDevil Development Team"),
+                         KAboutData::License_GPL, ki18n("(c) 2008 Dario Freddi"),
                          KLocalizedString(), "http://www.kde.org");
 
-    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Developer"), "drf@kdemod.ath.cx",
+    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf@kdemod.ath.cx",
                         "http://drfav.wordpress.com");
 
     m_applicationData = KComponentData(aboutData);
@@ -132,10 +133,19 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     // Here we get our battery interface, it will be useful later.
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         Solid::Device d = device;
-        m_battery = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
+        Solid::Battery *b = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if (b->type() != Solid::Battery::PrimaryBattery) {
+            continue;
+        }
+        m_battery = b;
     }
 
+    // Set up all needed DBus interfaces
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
+            QDBusConnection::sessionBus(), this);
+    m_ksmServerIface = new OrgKdeKSMServerInterfaceInterface("org.kde.ksmserver", "/KSMServer",
+            QDBusConnection::sessionBus(), this);
+    m_kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
             QDBusConnection::sessionBus(), this);
 
     connect(m_notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
@@ -190,8 +200,6 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
-    delete m_displayManager;
-
     delete m_currentConfig;
 }
 
@@ -375,8 +383,7 @@ void PowerDevilDaemon::setUpDPMS()
     }
 
     // The screen saver depends on the DPMS settings
-    org::kde::screensaver kscreensaver("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
-    kscreensaver.configure();
+    m_kscreenSaverIface->configure();
 #endif
 }
 
@@ -390,7 +397,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         Solid::Device d = device;
         Solid::Battery *battery = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (battery->chargePercent() > 0) {
+        if (battery->chargePercent() > 0 && battery->type() == Solid::Battery::PrimaryBattery) {
             charge += battery->chargePercent();
         }
     }
@@ -440,12 +447,14 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
 
 void PowerDevilDaemon::buttonPressed(int but)
 {
+    KConfigGroup * settings = getCurrentProfile();
+
+    if (!settings)
+        return;
+
+    kDebug() << "A button was pressed, code" << but;
+
     if (but == Solid::Control::PowerManager::LidClose) {
-
-        KConfigGroup * settings = getCurrentProfile();
-
-        if (!settings)
-            return;
 
         switch (settings->readEntry("lidAction").toInt()) {
         case Shutdown:
@@ -462,6 +471,54 @@ void PowerDevilDaemon::buttonPressed(int but)
             break;
         case Lock:
             lockScreen();
+            break;
+        default:
+            break;
+        }
+    } else if (but == Solid::Control::PowerManager::PowerButton) {
+
+        switch (settings->readEntry("powerButtonAction").toInt()) {
+        case Shutdown:
+            shutdown();
+            break;
+        case S2Disk:
+            suspendToDisk();
+            break;
+        case S2Ram:
+            suspendToRam();
+            break;
+        case Standby:
+            standby();
+            break;
+        case Lock:
+            lockScreen();
+            break;
+        case ShutdownDialog:
+            shutdownDialog();
+            break;
+        default:
+            break;
+        }
+    } else if (but == Solid::Control::PowerManager::SleepButton) {
+
+        switch (settings->readEntry("sleepButtonAction").toInt()) {
+        case Shutdown:
+            shutdown();
+            break;
+        case S2Disk:
+            suspendToDisk();
+            break;
+        case S2Ram:
+            suspendToRam();
+            break;
+        case Standby:
+            standby();
+            break;
+        case Lock:
+            lockScreen();
+            break;
+        case ShutdownDialog:
+            shutdownDialog();
             break;
         default:
             break;
@@ -517,7 +574,14 @@ void PowerDevilDaemon::standbyNotification()
 
 void PowerDevilDaemon::shutdown()
 {
-    m_displayManager->shutdown(KWorkSpace::ShutdownTypeHalt, KWorkSpace::ShutdownModeTryNow);
+    m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmNo, (int)KWorkSpace::ShutdownTypeHalt,
+                             (int)KWorkSpace::ShutdownModeTryNow);
+}
+
+void PowerDevilDaemon::shutdownDialog()
+{
+    m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
+                             (int)KWorkSpace::ShutdownModeDefault);
 }
 
 void PowerDevilDaemon::suspendToDisk()

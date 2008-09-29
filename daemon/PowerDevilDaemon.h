@@ -23,13 +23,16 @@
 #include <kdedmodule.h>
 #include <solid/control/powermanager.h>
 #include <solid/battery.h>
-#include "screensaver_interface.h"
 #include <KComponentData>
+#include <QStringList>
 
-class KDisplayManager;
 class QWidget;
+class QTimer;
 class PollSystemLoader;
 class KNotification;
+class OrgFreedesktopScreenSaverInterface;
+class OrgKdeKSMServerInterfaceInterface;
+class OrgKdeScreensaverInterface;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
@@ -74,6 +77,7 @@ private Q_SLOTS:
     void increaseBrightness();
 
     void shutdown();
+    void shutdownDialog();
     void suspendJobResult(KJob * job);
     void suspendToDisk();
     void suspendToRam();
@@ -134,15 +138,17 @@ public:
         S2Ram = 2,
         S2Disk = 4,
         Shutdown = 8,
-        Lock = 16
+        Lock = 16,
+        ShutdownDialog = 32
     };
 
 private:
     Solid::Control::PowerManager::Notifier * m_notifier;
     Solid::Battery * m_battery;
 
-    KDisplayManager * m_displayManager;
     OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
+    OrgKdeKSMServerInterfaceInterface * m_ksmServerIface;
+    OrgKdeScreensaverInterface * m_kscreenSaverIface;
 
     QWidget * m_grabber;
 

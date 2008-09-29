@@ -200,6 +200,7 @@ void CapabilitiesPage::fillCapabilities()
 
     bool xss = false;
     bool xsync = false;
+    bool xtest = false;
     bool dpms = false;
 
 #ifdef HAVE_DPMS
@@ -220,6 +221,10 @@ void CapabilitiesPage::fillCapabilities()
     xsync = true;
 #endif
 
+#ifdef HAVE_XTEST
+    xtest = true;
+#endif
+
     if (xss) {
         xssSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
@@ -230,6 +235,12 @@ void CapabilitiesPage::fillCapabilities()
         xsyncSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
         xsyncSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+    }
+
+    if (xtest) {
+        xtestSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    } else {
+        xtestSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
     if (dpms) {

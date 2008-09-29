@@ -5,8 +5,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>709</width>
-    <height>376</height>
+    <width>720</width>
+    <height>402</height>
    </rect>
   </property>
   <property name="windowTitle" >
@@ -48,7 +48,7 @@
                <x>0</x>
                <y>0</y>
                <width>373</width>
-               <height>157</height>
+               <height>183</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -172,6 +172,26 @@
                 </property>
                </widget>
               </item>
+              <item row="4" column="0" >
+               <widget class="QLabel" name="label" >
+                <property name="text" >
+                 <string>When Power Button pressed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0" >
+               <widget class="QLabel" name="label_2" >
+                <property name="text" >
+                 <string>When Sleep Button pressed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1" >
+               <widget class="KComboBox" name="powerButtonCombo" />
+              </item>
+              <item row="5" column="1" >
+               <widget class="KComboBox" name="sleepButtonCombo" />
+              </item>
              </layout>
             </widget>
             <widget class="QWidget" name="page_2" >
@@ -179,8 +199,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>242</width>
-               <height>117</height>
+               <width>332</width>
+               <height>183</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -260,7 +280,7 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>307</width>
+               <width>313</width>
                <height>187</height>
               </rect>
              </property>
