@@ -337,8 +337,6 @@ void PowerDevilDaemon::applyProfile()
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
 
     m_pollLoader->poller()->forcePollRequest();
-
-    QTimer::singleShot(300, this, SLOT(setUpDPMS()));
 }
 
 void PowerDevilDaemon::setUpDPMS()
@@ -1170,6 +1168,8 @@ void PowerDevilDaemon::profileFirstLoad()
     if (!settings)
         return;
 
+    kDebug() << "Profile initialization";
+
     if (!settings->readEntry("scriptpath", QString()).isEmpty()) {
         QProcess::startDetached(settings->readEntry("scriptpath"));
     }
@@ -1184,6 +1184,8 @@ void PowerDevilDaemon::profileFirstLoad()
         toggleCompositing(true);
         m_compositingChanged = false;
     }
+
+    QTimer::singleShot(300, this, SLOT(setUpDPMS()));
 }
 
 bool PowerDevilDaemon::toggleCompositing(bool enabled)
