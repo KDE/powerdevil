@@ -609,8 +609,7 @@ void PowerDevilDaemon::shutdown()
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmNo, (int)KWorkSpace::ShutdownTypeHalt,
                              (int)KWorkSpace::ShutdownModeTryNow);
 
-    m_isOnNotification = false;
-    m_isJobOngoing = false;
+    removeSuspensionLock();
 }
 
 void PowerDevilDaemon::shutdownDialog()
@@ -622,8 +621,7 @@ void PowerDevilDaemon::shutdownDialog()
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
                              (int)KWorkSpace::ShutdownModeDefault);
 
-    m_isOnNotification = false;
-    m_isJobOngoing = false;
+    removeSuspensionLock();
 }
 
 void PowerDevilDaemon::suspendToDisk()
@@ -631,6 +629,8 @@ void PowerDevilDaemon::suspendToDisk()
     if (m_isJobOngoing && !m_isOnNotification) {
         return;
     }
+
+    m_isJobOngoing = true;
 
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
@@ -649,6 +649,8 @@ void PowerDevilDaemon::suspendToRam()
         return;
     }
 
+    m_isJobOngoing = true;
+
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
@@ -665,6 +667,8 @@ void PowerDevilDaemon::standby()
     if (m_isJobOngoing && !m_isOnNotification) {
         return;
     }
+
+    m_isJobOngoing = true;
 
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
@@ -688,8 +692,7 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
 
     kDebug() << "Resuming from suspension";
 
-    m_isOnNotification = false;
-    m_isJobOngoing = false;
+    removeSuspensionLock();
 
     job->deleteLater();
 }
@@ -856,6 +859,7 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
+        connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(10000);
@@ -882,6 +886,7 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
+        connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(10000);
@@ -908,6 +913,7 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
+        connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(10000);
@@ -925,6 +931,14 @@ void PowerDevilDaemon::cleanUpTimer()
     if (m_notification) {
         m_notification->deleteLater();
     }
+}
+
+void PowerDevilDaemon::removeSuspensionLock()
+{
+    kDebug() << "Removing lock";
+
+    m_isOnNotification = false;
+    m_isJobOngoing = false;
 }
 
 KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)

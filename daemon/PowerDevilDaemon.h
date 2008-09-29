@@ -106,6 +106,7 @@ private Q_SLOTS:
     bool toggleCompositing(bool enabled);
 
     void cleanUpTimer();
+    void removeSuspensionLock();
 
     void setUpDPMS();
 
