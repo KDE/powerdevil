@@ -176,7 +176,7 @@
          <string>Support for the XSync extension</string>
         </property>
         <property name="whatsThis" >
-         <string>XSync is a protocol that allows high efficiency query of the system. If it is available, PowerDevil will be much more reliable and efficient</string>
+         <string>XSync is an extension that allows high efficiency query of the system. If it is available, PowerDevil will be much more reliable and efficient</string>
         </property>
         <property name="text" >
          <string>XSync Support</string>
