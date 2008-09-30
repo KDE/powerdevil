@@ -685,7 +685,7 @@ void PowerDevilDaemon::suspendToDisk()
     }
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
-    connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
+    connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
 }
 
@@ -723,7 +723,7 @@ void PowerDevilDaemon::standby()
     }
 
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
-    connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
+    connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
 }
 
