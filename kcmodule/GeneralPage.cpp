@@ -76,6 +76,9 @@ void GeneralPage::fillUi()
     connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(notificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(warningNotificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(suspendWaitTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 
@@ -84,6 +87,7 @@ void GeneralPage::fillUi()
     connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
     connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
+    connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 }
@@ -95,6 +99,8 @@ void GeneralPage::load()
     dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
     notificationsBox->setChecked(PowerDevilSettings::enableNotifications());
     warningNotificationsBox->setChecked(PowerDevilSettings::enableWarningNotifications());
+    suspendWait->setChecked(PowerDevilSettings::waitBeforeSuspending());
+    suspendWaitTime->setValue(PowerDevilSettings::waitBeforeSuspendingTime());
 
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     warningSpin->setValue(PowerDevilSettings::batteryWarningLevel());
@@ -117,6 +123,8 @@ void GeneralPage::save()
     PowerDevilSettings::setDimOnIdleTime(dimOnIdleTime->value());
     PowerDevilSettings::setEnableNotifications(notificationsBox->isChecked());
     PowerDevilSettings::setEnableWarningNotifications(warningNotificationsBox->isChecked());
+    PowerDevilSettings::setWaitBeforeSuspending(suspendWait->isChecked());
+    PowerDevilSettings::setWaitBeforeSuspendingTime(suspendWaitTime->value());
 
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
     PowerDevilSettings::setBatteryWarningLevel(warningSpin->value());
@@ -135,6 +143,7 @@ void GeneralPage::emitChanged()
 void GeneralPage::enableBoxes()
 {
     dimOnIdleTime->setEnabled(dimDisplayOnIdle->isChecked());
+    suspendWaitTime->setEnabled(suspendWait->isChecked());
 }
 
 void GeneralPage::enableIssue(bool enable)

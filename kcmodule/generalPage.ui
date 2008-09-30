@@ -157,6 +157,35 @@
         </property>
        </widget>
       </item>
+      <item row="4" column="0" >
+       <widget class="QCheckBox" name="suspendWait" >
+        <property name="toolTip" >
+         <string>Interval for interactive confirm notifications</string>
+        </property>
+        <property name="whatsThis" >
+         <string>If selected, before doing an automatic suspension PowerDevil will show an interactive notification for the specified time. If that notification will be clicked, the queued action will not be run.</string>
+        </property>
+        <property name="text" >
+         <string>Before doing a suspend action, wait</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" >
+       <widget class="KIntSpinBox" name="suspendWaitTime" >
+        <property name="maximumSize" >
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="suffix" >
+         <string comment="As in &quot;seconds&quot;" >sec</string>
+        </property>
+        <property name="maximum" >
+         <number>300</number>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>

@@ -410,26 +410,48 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
     if (charge <= PowerDevilSettings::batteryCriticalLevel()) {
         switch (PowerDevilSettings::batLowAction()) {
         case Shutdown:
-            emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC will be halted in 10 seconds. "
-                                    "Click here to block the process."), SLOT(shutdown()));
+            if (PowerDevilSettings::waitBeforeSuspending()) {
+                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
+                                        "critical level, the PC will be halted in %1 seconds. "
+                                        "Click here to block the process.",
+                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                                        SLOT(shutdown()));
+            } else {
+                shutdown();
+            }
             break;
         case S2Disk:
-            emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC will be suspended to disk in "
-                                    "10 seconds. Click here to block the process."),
-                                    SLOT(suspendToDisk()));
+            if (PowerDevilSettings::waitBeforeSuspending()) {
+                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
+                                        "critical level, the PC will be suspended to disk in "
+                                        "%1 seconds. Click here to block the process.",
+                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                                        SLOT(suspendToDisk()));
+            } else {
+                suspendToDisk();
+            }
             break;
         case S2Ram:
-            emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC will be suspended to RAM in "
-                                    "10 seconds. Click here to block the process"),
-                                    SLOT(suspendToRam()));
+            if (PowerDevilSettings::waitBeforeSuspending()) {
+                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
+                                        "critical level, the PC will be suspended to RAM in "
+                                        "%1 seconds. Click here to block the process",
+                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                                        SLOT(suspendToRam()));
+            } else {
+                suspendToRam();
+            }
             break;
         case Standby:
-            emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, the PC is going Standby in 10 seconds. "
-                                    "Click here to block the process."), SLOT(standby()));
+            if (PowerDevilSettings::waitBeforeSuspending()) {
+                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
+                                        "critical level, the PC is going Standby in %1 seconds. "
+                                        "Click here to block the process.",
+                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                                        SLOT(standby()));
+            } else {
+                standby();
+            }
             break;
         default:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
@@ -557,8 +579,14 @@ void PowerDevilDaemon::shutdownNotification()
     m_isOnNotification = true;
     m_isJobOngoing = true;
 
-    emitNotification("doingjob", i18n("The computer will be halted in 10 seconds. Click "
-                                      "here to block the process."), SLOT(shutdown()));
+    if (PowerDevilSettings::waitBeforeSuspending()) {
+        emitNotification("doingjob", i18n("The computer will be halted in %1 seconds. Click "
+                                          "here to block the process.",
+                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+                         SLOT(shutdown()));
+    } else {
+        shutdown();
+    }
 }
 
 void PowerDevilDaemon::suspendToDiskNotification()
@@ -570,8 +598,14 @@ void PowerDevilDaemon::suspendToDiskNotification()
     m_isOnNotification = true;
     m_isJobOngoing = true;
 
-    emitNotification("doingjob", i18n("The computer will be suspended to disk in 10 "
-                                      "seconds. Click here to block the process."), SLOT(suspendToDisk()));
+    if (PowerDevilSettings::waitBeforeSuspending()) {
+        emitNotification("doingjob", i18n("The computer will be suspended to disk in %1 "
+                                          "seconds. Click here to block the process.",
+                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+                         SLOT(suspendToDisk()));
+    } else {
+        suspendToDisk();
+    }
 }
 
 void PowerDevilDaemon::suspendToRamNotification()
@@ -583,8 +617,14 @@ void PowerDevilDaemon::suspendToRamNotification()
     m_isOnNotification = true;
     m_isJobOngoing = true;
 
-    emitNotification("doingjob", i18n("The computer will be suspended to RAM in 10 "
-                                      "seconds. Click here to block the process."), SLOT(suspendToRam()));
+    if (PowerDevilSettings::waitBeforeSuspending()) {
+        emitNotification("doingjob", i18n("The computer will be suspended to RAM in %1 "
+                                          "seconds. Click here to block the process.",
+                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+                         SLOT(suspendToRam()));
+    } else {
+        suspendToRam();
+    }
 }
 
 void PowerDevilDaemon::standbyNotification()
@@ -596,8 +636,14 @@ void PowerDevilDaemon::standbyNotification()
     m_isOnNotification = true;
     m_isJobOngoing = true;
 
-    emitNotification("doingjob", i18n("The computer will be put into standby in 10 "
-                                      "seconds. Click here to block the process."), SLOT(standby()));
+    if (PowerDevilSettings::waitBeforeSuspending()) {
+        emitNotification("doingjob", i18n("The computer will be put into standby in %1 "
+                                          "seconds. Click here to block the process.",
+                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+                         SLOT(standby()));
+    } else {
+        standby();
+    }
 }
 
 void PowerDevilDaemon::shutdown()
@@ -862,7 +908,7 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
         connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
-        m_notificationTimer->start(10000);
+        m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
 }
 
@@ -889,7 +935,7 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
         connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
-        m_notificationTimer->start(10000);
+        m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
 }
 
@@ -916,7 +962,7 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
         connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
-        m_notificationTimer->start(10000);
+        m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
 }
 

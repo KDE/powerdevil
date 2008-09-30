@@ -1,5 +1,6 @@
 [Global]
-IconName=battery-charging-040
+Name=Power Management
+IconName=preferences-system-power-management
 Comment=PowerDevil
 Comment[gu]=પાવરડેવિલ
 Comment[kn]=ಪವರ್ ಡೆವಿಲ್

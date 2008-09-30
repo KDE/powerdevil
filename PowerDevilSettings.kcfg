@@ -34,6 +34,12 @@
     <entry name="EnableWarningNotifications" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="WaitBeforeSuspending" type="Bool">
+      <default>true</default>
+    </entry>
+    <entry name="WaitBeforeSuspendingTime" type="Int">
+      <default>10</default>
+    </entry>
     <entry name="PollingSystem" type="Int">
       <default>-1</default>
     </entry>
