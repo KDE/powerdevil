@@ -10,6 +10,7 @@ set( kded_powerdevil_SRCS
     XSyncBasedPoller.cpp
     TimerBasedPoller.cpp
     PollSystemLoader.cpp
+    SuspensionLockHandler.cpp
     PowerManagementConnector.cpp
 )
 

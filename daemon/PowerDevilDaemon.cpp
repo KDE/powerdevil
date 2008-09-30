@@ -43,6 +43,7 @@
 #include "powerdeviladaptor.h"
 #include "PowerManagementConnector.h"
 #include "PollSystemLoader.h"
+#include "SuspensionLockHandler.h"
 #include "AbstractSystemPoller.h"
 
 #include <solid/device.h>
@@ -91,10 +92,9 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_battery(0),
         m_currentConfig(0),
         m_pollLoader(new PollSystemLoader(this)),
+        m_lockHandler(new SuspensionLockHandler(this)),
         m_notificationTimer(new QTimer(this)),
-        m_compositingChanged(false),
-        m_isJobOngoing(false),
-        m_isOnNotification(false)
+        m_compositingChanged(false)
 {
     KGlobal::locale()->insertCatalog("powerdevil");
 
@@ -572,12 +572,9 @@ void PowerDevilDaemon::increaseBrightness()
 
 void PowerDevilDaemon::shutdownNotification()
 {
-    if (m_isJobOngoing) {
+    if (!m_lockHandler->setNotificationLock()) {
         return;
     }
-
-    m_isOnNotification = true;
-    m_isJobOngoing = true;
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be halted in %1 seconds. Click "
@@ -591,12 +588,9 @@ void PowerDevilDaemon::shutdownNotification()
 
 void PowerDevilDaemon::suspendToDiskNotification()
 {
-    if (m_isJobOngoing) {
+    if (!m_lockHandler->setNotificationLock()) {
         return;
     }
-
-    m_isOnNotification = true;
-    m_isJobOngoing = true;
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be suspended to disk in %1 "
@@ -610,12 +604,9 @@ void PowerDevilDaemon::suspendToDiskNotification()
 
 void PowerDevilDaemon::suspendToRamNotification()
 {
-    if (m_isJobOngoing) {
+    if (!m_lockHandler->setNotificationLock()) {
         return;
     }
-
-    m_isOnNotification = true;
-    m_isJobOngoing = true;
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be suspended to RAM in %1 "
@@ -629,12 +620,9 @@ void PowerDevilDaemon::suspendToRamNotification()
 
 void PowerDevilDaemon::standbyNotification()
 {
-    if (m_isJobOngoing) {
+    if (!m_lockHandler->setNotificationLock()) {
         return;
     }
-
-    m_isOnNotification = true;
-    m_isJobOngoing = true;
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be put into standby in %1 "
@@ -648,35 +636,33 @@ void PowerDevilDaemon::standbyNotification()
 
 void PowerDevilDaemon::shutdown()
 {
-    if (m_isJobOngoing && !m_isOnNotification) {
+    if (!m_lockHandler->setJobLock()) {
         return;
     }
 
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmNo, (int)KWorkSpace::ShutdownTypeHalt,
                              (int)KWorkSpace::ShutdownModeTryNow);
 
-    removeSuspensionLock();
+    m_lockHandler->releaseAllLocks();
 }
 
 void PowerDevilDaemon::shutdownDialog()
 {
-    if (m_isJobOngoing && !m_isOnNotification) {
+    if (!m_lockHandler->setJobLock()) {
         return;
     }
 
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
                              (int)KWorkSpace::ShutdownModeDefault);
 
-    removeSuspensionLock();
+    m_lockHandler->releaseAllLocks();
 }
 
 void PowerDevilDaemon::suspendToDisk()
 {
-    if (m_isJobOngoing && !m_isOnNotification) {
+    if (!m_lockHandler->setJobLock()) {
         return;
     }
-
-    m_isJobOngoing = true;
 
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
@@ -691,11 +677,9 @@ void PowerDevilDaemon::suspendToDisk()
 
 void PowerDevilDaemon::suspendToRam()
 {
-    if (m_isJobOngoing && !m_isOnNotification) {
+    if (!m_lockHandler->setJobLock()) {
         return;
     }
-
-    m_isJobOngoing = true;
 
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
@@ -706,15 +690,15 @@ void PowerDevilDaemon::suspendToRam()
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
     connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
+    // Temporary hack: the finished signal does not always get emitted
+    QTimer::singleShot(15000, this, SLOT(removeSuspensionLock()));
 }
 
 void PowerDevilDaemon::standby()
 {
-    if (m_isJobOngoing && !m_isOnNotification) {
+    if (!m_lockHandler->setJobLock()) {
         return;
     }
-
-    m_isJobOngoing = true;
 
     m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
 
@@ -738,7 +722,7 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
 
     kDebug() << "Resuming from suspension";
 
-    removeSuspensionLock();
+    m_lockHandler->releaseAllLocks();
 
     job->deleteLater();
 }
@@ -905,7 +889,7 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
+        connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -932,7 +916,7 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
+        connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -959,7 +943,7 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        connect(m_notification, SIGNAL(closed()), SLOT(removeSuspensionLock()));
+        connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -977,14 +961,6 @@ void PowerDevilDaemon::cleanUpTimer()
     if (m_notification) {
         m_notification->deleteLater();
     }
-}
-
-void PowerDevilDaemon::removeSuspensionLock()
-{
-    kDebug() << "Removing lock";
-
-    m_isOnNotification = false;
-    m_isJobOngoing = false;
 }
 
 KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)

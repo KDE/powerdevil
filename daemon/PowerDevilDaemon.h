@@ -29,6 +29,7 @@
 class QWidget;
 class QTimer;
 class PollSystemLoader;
+class SuspensionLockHandler;
 class KNotification;
 class OrgFreedesktopScreenSaverInterface;
 class OrgKdeKSMServerInterfaceInterface;
@@ -106,7 +107,6 @@ private Q_SLOTS:
     bool toggleCompositing(bool enabled);
 
     void cleanUpTimer();
-    void removeSuspensionLock();
 
     void setUpDPMS();
 
@@ -157,6 +157,7 @@ private:
     KSharedConfig::Ptr m_profilesConfig;
     KConfigGroup * m_currentConfig;
     PollSystemLoader * m_pollLoader;
+    SuspensionLockHandler * m_lockHandler;
 
     QString m_currentProfile;
     QStringList m_availableProfiles;
@@ -167,8 +168,6 @@ private:
     int m_batteryPercent;
     bool m_isPlugged;
     bool m_compositingChanged;
-    bool m_isJobOngoing;
-    bool m_isOnNotification;
 };
 
 #endif /*POWERDEVILDAEMON_H*/
