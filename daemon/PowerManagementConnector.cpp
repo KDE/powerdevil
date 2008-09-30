@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Kevin Ottens <ervin@kde.org>                    *
+ *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,13 +20,15 @@
 
 #include "PowerManagementConnector.h"
 
+#include "SuspensionLockHandler.h"
+
 #include <solid/control/powermanager.h>
 
 #include "powermanagementadaptor.h"
 #include "powermanagementinhibitadaptor.h"
 
 PowerManagementConnector::PowerManagementConnector(PowerDevilDaemon *parent)
-        : QObject(parent), m_daemon(parent), m_latestInhibitCookie(0)
+        : QObject(parent), m_daemon(parent)
 {
     new PowerManagementAdaptor(this);
     new PowerManagementInhibitAdaptor(this);
@@ -65,45 +68,32 @@ bool PowerManagementConnector::GetPowerSaveStatus()
 
 void PowerManagementConnector::Suspend()
 {
-    if (!HasInhibit()) {
-        m_daemon->suspend(PowerDevilDaemon::S2Ram);
-    }
-    //TODO: Notify the user in case of inhibit?
+    m_daemon->suspend(PowerDevilDaemon::S2Ram);
 }
 
 void PowerManagementConnector::Hibernate()
 {
-    if (!HasInhibit()) {
-        m_daemon->suspend(PowerDevilDaemon::S2Disk);
-    }
-    //TODO: Notify the user in case of inhibit?
+    m_daemon->suspend(PowerDevilDaemon::S2Disk);
 }
 
 bool PowerManagementConnector::HasInhibit()
 {
-    return !m_inhibitRequests.isEmpty();
+    return m_daemon->lockHandler()->hasInhibit();
 }
 
 int PowerManagementConnector::Inhibit(const QString &application, const QString &reason)
 {
-    m_latestInhibitCookie++;
-
-    InhibitRequest req;
-    //TODO: Keep track of the service name too, to cleanup cookie in case of a crash.
-    req.application = application;
-    req.reason = reason;
-    m_inhibitRequests[m_latestInhibitCookie] = req;
-
-    return m_latestInhibitCookie;
+    return m_daemon->lockHandler()->inhibit(application, reason);
 }
 
 void PowerManagementConnector::UnInhibit(int cookie)
 {
-    m_inhibitRequests.remove(cookie);
+    return m_daemon->lockHandler()->releaseInhibiton(cookie);
 }
 
 void PowerManagementConnector::_k_stateChanged(int battery, bool plugged)
 {
+    Q_UNUSED(battery)
     emit PowerSaveStatusChanged(!plugged);
 }
 

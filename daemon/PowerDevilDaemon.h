@@ -70,6 +70,10 @@ public Q_SLOTS:
     QVariantMap getSupportedSuspendMethods();
     QVariantMap getSupportedPollingSystems();
 
+    SuspensionLockHandler *lockHandler() {
+        return m_lockHandler;
+    };
+
 private Q_SLOTS:
     void acAdapterStateChanged(int state, bool forced = false);
     void batteryChargePercentChanged(int percent, const QString &udi);
@@ -110,6 +114,9 @@ private Q_SLOTS:
 
     void setUpDPMS();
 
+    void emitCriticalNotification(const QString &evid, const QString &message = QString(),
+                                  const char *slot = 0, const QString &iconname = "dialog-error");
+
 Q_SIGNALS:
     void lidClosed(int code, const QString &action);
     void errorTriggered(const QString &error);
@@ -124,9 +131,6 @@ private:
     void applyProfile();
 
     void setUpNextTimeout(int idle, int minDimEvent);
-
-    void emitCriticalNotification(const QString &evid, const QString &message = QString(),
-                                  const char *slot = 0, const QString &iconname = "dialog-error");
 
     void profileFirstLoad();
 

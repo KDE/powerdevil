@@ -478,3 +478,10 @@ Comment[zh_TW]=PowerDevil 觸發了一個內部錯誤
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
+
+[Event/inhibition]
+Name=Suspension inhibited
+Comment=The suspension has been inhibited because an application requested it
+Contexts=criticalnot
+Sound=KDE-Sys-App-Error-Critical.ogg
+Action=Sound|Popup

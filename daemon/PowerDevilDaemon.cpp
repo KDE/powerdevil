@@ -151,6 +151,10 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
             QDBusConnection::sessionBus(), this);
 
     connect(m_notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
+    connect(m_lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
+                                  const char*, const QString&)),
+            SLOT(emitCriticalNotification(const QString&, const QString&,
+                                          const char*, const QString&)));
 
     /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
      * about them.
@@ -648,14 +652,8 @@ void PowerDevilDaemon::shutdown()
 
 void PowerDevilDaemon::shutdownDialog()
 {
-    if (!m_lockHandler->setJobLock()) {
-        return;
-    }
-
     m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
                              (int)KWorkSpace::ShutdownModeDefault);
-
-    m_lockHandler->releaseAllLocks();
 }
 
 void PowerDevilDaemon::suspendToDisk()

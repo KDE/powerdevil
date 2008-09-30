@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Kevin Ottens <ervin@kde.org>                    *
+ *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,13 +28,6 @@
 #include <QtDBus/QDBusMessage>
 
 #include "PowerDevilDaemon.h"
-
-class InhibitRequest
-{
-public:
-    QString application;
-    QString reason;
-};
 
 class PowerManagementConnector : public QObject
 {
@@ -68,8 +62,7 @@ private slots:
 private:
     PowerDevilDaemon *m_daemon;
 
-    int m_latestInhibitCookie;
-    QMap<int, InhibitRequest> m_inhibitRequests;
+
 };
 
 #endif /*POWERMANAGEMENTCONNECTOR_H*/

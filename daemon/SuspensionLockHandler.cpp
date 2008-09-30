@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
+ *   Copyright (C) 2008 by Kevin Ottens <ervin@kde.org>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -20,11 +21,13 @@
 #include "SuspensionLockHandler.h"
 
 #include <KDebug>
+#include <klocalizedstring.h>
 
 SuspensionLockHandler::SuspensionLockHandler(QObject *parent)
         : QObject(parent),
         m_isJobOngoing(false),
-        m_isOnNotification(false)
+        m_isOnNotification(false),
+        m_latestInhibitCookie(0)
 {
 }
 
@@ -34,15 +37,39 @@ SuspensionLockHandler::~SuspensionLockHandler()
 
 bool SuspensionLockHandler::canStartSuspension()
 {
+    if (hasInhibit()) {
+        return false;
+    }
+
     return !m_isJobOngoing;
 }
 
 bool SuspensionLockHandler::canStartNotification()
 {
+    if (hasInhibit()) {
+        return false;
+    }
+
     if (!m_isJobOngoing && !m_isOnNotification) {
         return true;
     } else {
         return false;
+    }
+}
+
+bool SuspensionLockHandler::hasInhibit()
+{
+    if (m_inhibitRequests.isEmpty()) {
+        return false;
+    } else {
+        kDebug() << "Inhibition detected!!";
+        // TODO: uhm... maybe a better notification here?
+        emit streamCriticalNotification("inhibition", i18n("The application %1 "
+                                        "is inhibiting suspension for the following reason:\n%2",
+                                        m_inhibitRequests[m_latestInhibitCookie].application,
+                                        m_inhibitRequests[m_latestInhibitCookie].reason),
+                                        0, "dialog-cancel");
+        return true;
     }
 }
 
@@ -70,6 +97,19 @@ bool SuspensionLockHandler::setJobLock()
     return true;
 }
 
+int SuspensionLockHandler::inhibit(const QString &application, const QString &reason)
+{
+    m_latestInhibitCookie++;
+
+    InhibitRequest req;
+    //TODO: Keep track of the service name too, to cleanup cookie in case of a crash.
+    req.application = application;
+    req.reason = reason;
+    m_inhibitRequests[m_latestInhibitCookie] = req;
+
+    return m_latestInhibitCookie;
+}
+
 void SuspensionLockHandler::releaseNotificationLock()
 {
     kDebug() << "Releasing notification lock";
@@ -85,12 +125,12 @@ void SuspensionLockHandler::releaseAllLocks()
 
 void SuspensionLockHandler::releaseAllInhibitions()
 {
-
+    m_inhibitRequests.clear();
 }
 
-void SuspensionLockHandler::releaseInhibiton(const QString &id)
+void SuspensionLockHandler::releaseInhibiton(int cookie)
 {
-
+    m_inhibitRequests.remove(cookie);
 }
 
 #include "SuspensionLockHandler.moc"
