@@ -1,5 +1,20 @@
 [Global]
 Name=Power Management
+Name[be@latin]=Kiravańnie enerhijaj
+Name[el]=Διαχείριση ενέργειας
+Name[gl]=Xestión da enerxía
+Name[gu]=પાવર વ્યવસ્થાપક
+Name[kk]=Қуаттандыруды басқару
+Name[km]=ការ​គ្រប់គ្រង​ថាមពល
+Name[kn]=ವಿದ್ಯುಚ್ಛಕ್ತಿ ವ್ಯವಸ್ಥಾಪನೆ
+Name[nds]=Stroomkuntrull
+Name[pt]=Gestão de Energia
+Name[pt_BR]=Gestão de Energia
+Name[sv]=Strömsparhantering
+Name[tr]=Güç Yönetimi
+Name[uk]=Керування живленням
+Name[x-test]=xxPower Managementxx
+Name[zh_TW]=電源管理
 IconName=preferences-system-power-management
 Comment=PowerDevil
 Comment[gu]=પાવરડેવિલ
@@ -283,6 +298,10 @@ Name[uk]=Заряд на критичному рівні
 Name[x-test]=xxBattery at critical levelxx
 Name[zh_TW]=電池電力已到嚴重警告區
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
+Comment[pt]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
+Comment[pt_BR]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
+Comment[uk]=Заряд акумулятора вашого комп’ютера досяг критичного рівня. За цим сповіщенням буде почато відлік часу до виконання відповідної налаштованої дії, отже, ми наполегливо рекомендуємо вам не вимикати цей пункт.
+Comment[zh_TW]=您的電池電力已到嚴重警告區。這個通知發出後將會開始倒數計時，時間到後就會進行設定好的動作。建議您保持此項開啟。
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
@@ -415,7 +434,15 @@ Action=Sound|Popup
 
 [Event/doingjob]
 Name=Performing a suspension job
+Name[pt]=A efectuar uma tarefa de suspensão
+Name[pt_BR]=A efectuar uma tarefa de suspensão
+Name[uk]=Виконання завдання з присипляння
+Name[zh_TW]=執行暫停的工作中
 Comment=This notification is displayed when a suspension job is about to be done, and it triggers a countdown. Hence, it is strongly advised to leave it on.
+Comment[pt]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
+Comment[pt_BR]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
+Comment[uk]=Це сповіщення буде показано перед виконанням завдання з присипляння комп’ютера, за ним буде розпочато відлік часу до завершення дії. Отже, ми наполегливо рекомендуємо вам не вимикати це сповіщення.
+Comment[zh_TW]=此通知在暫停的工作將要結束時會顯示，並且開始倒數計時。建議您保持此選項開啟。
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Action=Sound|Popup
