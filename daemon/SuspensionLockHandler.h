@@ -29,6 +29,7 @@ class InhibitRequest
 public:
     QString application;
     QString reason;
+    int cookie;
 };
 
 class SuspensionLockHandler : public QObject
@@ -43,7 +44,7 @@ public slots:
     bool canStartSuspension();
     bool canStartNotification();
 
-    bool hasInhibit();
+    bool hasInhibit(bool notify = false);
 
     bool setNotificationLock();
     bool setJobLock();
@@ -58,6 +59,7 @@ public slots:
 signals:
     void streamCriticalNotification(const QString &evid, const QString &message,
                                     const char *slot, const QString &iconname);
+    void inhibitChanged(bool changed);
 
 private:
     bool m_isJobOngoing;

@@ -48,6 +48,7 @@ public:
 
     int Inhibit(const QString &application, const QString &reason);
     void UnInhibit(int cookie);
+    void ForceUnInhibitAll();
 
 signals:
     void CanSuspendChanged(bool canSuspend);

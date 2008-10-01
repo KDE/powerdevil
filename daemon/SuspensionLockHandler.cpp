@@ -37,7 +37,7 @@ SuspensionLockHandler::~SuspensionLockHandler()
 
 bool SuspensionLockHandler::canStartSuspension()
 {
-    if (hasInhibit()) {
+    if (hasInhibit(true)) {
         return false;
     }
 
@@ -46,7 +46,7 @@ bool SuspensionLockHandler::canStartSuspension()
 
 bool SuspensionLockHandler::canStartNotification()
 {
-    if (hasInhibit()) {
+    if (hasInhibit(true)) {
         return false;
     }
 
@@ -57,18 +57,20 @@ bool SuspensionLockHandler::canStartNotification()
     }
 }
 
-bool SuspensionLockHandler::hasInhibit()
+bool SuspensionLockHandler::hasInhibit(bool notify)
 {
     if (m_inhibitRequests.isEmpty()) {
         return false;
     } else {
         kDebug() << "Inhibition detected!!";
         // TODO: uhm... maybe a better notification here?
-        emit streamCriticalNotification("inhibition", i18n("The application %1 "
-                                        "is inhibiting suspension for the following reason:\n%2",
-                                        m_inhibitRequests[m_latestInhibitCookie].application,
-                                        m_inhibitRequests[m_latestInhibitCookie].reason),
-                                        0, "dialog-cancel");
+        if (notify) {
+            emit streamCriticalNotification("inhibition", i18n("The application %1 "
+                                            "is inhibiting suspension for the following reason:\n%2",
+                                            m_inhibitRequests[m_latestInhibitCookie].application,
+                                            m_inhibitRequests[m_latestInhibitCookie].reason),
+                                            0, "dialog-cancel");
+        }
         return true;
     }
 }
@@ -99,13 +101,16 @@ bool SuspensionLockHandler::setJobLock()
 
 int SuspensionLockHandler::inhibit(const QString &application, const QString &reason)
 {
-    m_latestInhibitCookie++;
+    ++m_latestInhibitCookie;
 
     InhibitRequest req;
     //TODO: Keep track of the service name too, to cleanup cookie in case of a crash.
     req.application = application;
     req.reason = reason;
+    req.cookie = m_latestInhibitCookie;
     m_inhibitRequests[m_latestInhibitCookie] = req;
+
+    emit inhibitChanged(true);
 
     return m_latestInhibitCookie;
 }
@@ -126,11 +131,16 @@ void SuspensionLockHandler::releaseAllLocks()
 void SuspensionLockHandler::releaseAllInhibitions()
 {
     m_inhibitRequests.clear();
+    emit inhibitChanged(false);
 }
 
 void SuspensionLockHandler::releaseInhibiton(int cookie)
 {
+    kDebug() << "Removing cookie" << cookie;
     m_inhibitRequests.remove(cookie);
+    if (m_inhibitRequests.isEmpty()) {
+        emit inhibitChanged(false);
+    }
 }
 
 #include "SuspensionLockHandler.moc"

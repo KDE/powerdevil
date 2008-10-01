@@ -43,6 +43,8 @@ PowerManagementConnector::PowerManagementConnector(PowerDevilDaemon *parent)
 
     connect(m_daemon, SIGNAL(stateChanged(int, bool)),
             this, SLOT(_k_stateChanged(int, bool)));
+    connect(m_daemon->lockHandler(), SIGNAL(inhibitChanged(bool)),
+            this, SIGNAL(HasInhibitChanged(bool)));
 }
 
 bool PowerManagementConnector::CanHibernate()
@@ -88,7 +90,12 @@ int PowerManagementConnector::Inhibit(const QString &application, const QString 
 
 void PowerManagementConnector::UnInhibit(int cookie)
 {
-    return m_daemon->lockHandler()->releaseInhibiton(cookie);
+    m_daemon->lockHandler()->releaseInhibiton(cookie);
+}
+
+void PowerManagementConnector::ForceUnInhibitAll()
+{
+    m_daemon->lockHandler()->releaseAllInhibitions();
 }
 
 void PowerManagementConnector::_k_stateChanged(int battery, bool plugged)
