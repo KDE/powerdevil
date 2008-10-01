@@ -671,6 +671,9 @@ void PowerDevilDaemon::suspendToDisk()
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToDisk);
     connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
+
+    // Temporary hack...
+    QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
 }
 
 void PowerDevilDaemon::suspendToRam()
@@ -688,8 +691,8 @@ void PowerDevilDaemon::suspendToRam()
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::ToRam);
     connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
-    // Temporary hack: the finished signal does not always get emitted
-    QTimer::singleShot(15000, this, SLOT(removeSuspensionLock()));
+    // Temporary hack...
+    QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
 }
 
 void PowerDevilDaemon::standby()
@@ -707,6 +710,9 @@ void PowerDevilDaemon::standby()
     KJob * job = Solid::Control::PowerManager::suspend(Solid::Control::PowerManager::Standby);
     connect(job, SIGNAL(finished(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
+
+    // Temporary hack...
+    QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
 }
 
 void PowerDevilDaemon::suspendJobResult(KJob * job)
@@ -887,7 +893,7 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
+        m_lockHandler->connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -914,7 +920,7 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
+        m_lockHandler->connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -941,7 +947,7 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
         connect(m_notificationTimer, SIGNAL(timeout()), slot);
         connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
+        m_lockHandler->connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
         connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
         m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
