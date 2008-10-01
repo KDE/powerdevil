@@ -20,15 +20,14 @@
 #ifndef CONFIGWIDGET_H
 #define CONFIGWIDGET_H
 
-#include <QWidget>
-#include "ui_dialog.h"
+#include <kpagewidget.h>
 
 #include "GeneralPage.h"
 #include "AssignmentPage.h"
 #include "EditPage.h"
 #include "CapabilitiesPage.h"
 
-class ConfigWidget : public QWidget, private Ui_powerDevilConfig
+class ConfigWidget : public KPageWidget
 {
     Q_OBJECT
 

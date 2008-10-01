@@ -22,18 +22,22 @@
 #include "PowerDevilSettings.h"
 
 ConfigWidget::ConfigWidget(QWidget *parent)
-        : QWidget(parent),
+        : KPageWidget(parent),
         m_generalPage(new GeneralPage(this)),
         m_assignmentPage(new AssignmentPage(this)),
         m_editPage(new EditPage(this)),
         m_capabilitiesPage(new CapabilitiesPage(this))
 {
-    setupUi(this);
+    layout()->setMargin(0);
+    m_generalPage->layout()->setMargin(0);
+    m_assignmentPage->layout()->setMargin(0);
+    m_editPage->layout()->setMargin(0);
+    m_capabilitiesPage->layout()->setMargin(0);
 
-    KPageWidgetItem *general = pageWidget->addPage(m_generalPage, i18n("General Settings"));
-    KPageWidgetItem *assign = pageWidget->addPage(m_assignmentPage, i18n("Assign Profiles"));
-    KPageWidgetItem *edit = pageWidget->addPage(m_editPage, i18n("Edit Profiles"));
-    KPageWidgetItem *capab = pageWidget->addPage(m_capabilitiesPage, i18n("Capabilities"));
+    KPageWidgetItem *general = addPage(m_generalPage, i18n("General Settings"));
+    KPageWidgetItem *assign = addPage(m_assignmentPage, i18n("Assign Profiles"));
+    KPageWidgetItem *edit = addPage(m_editPage, i18n("Edit Profiles"));
+    KPageWidgetItem *capab = addPage(m_capabilitiesPage, i18n("Capabilities"));
 
     general->setHeader("");
     assign->setHeader("");

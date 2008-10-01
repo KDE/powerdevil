@@ -9,7 +9,6 @@ set( kcm_powerdevil_SRCS
 )
 
 kde4_add_ui_files(kcm_powerdevil_SRCS 
-    dialog.ui
     generalPage.ui
     profileAssignmentPage.ui
     profileEditPage.ui
