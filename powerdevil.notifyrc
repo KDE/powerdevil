@@ -298,6 +298,7 @@ Name[uk]=Заряд на критичному рівні
 Name[x-test]=xxBattery at critical levelxx
 Name[zh_TW]=電池電力已到嚴重警告區
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
+Comment[nds]=Dien Batterie is bi de kritische Stoop ankamen. Disse Bescheed tellt en Tiet daal, ehr he de instellte Akschoon utföhrt, laat em also beter an.
 Comment[pt]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
 Comment[pt_BR]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
 Comment[uk]=Заряд акумулятора вашого комп’ютера досяг критичного рівня. За цим сповіщенням буде почато відлік часу до виконання відповідної налаштованої дії, отже, ми наполегливо рекомендуємо вам не вимикати цей пункт.
@@ -434,11 +435,13 @@ Action=Sound|Popup
 
 [Event/doingjob]
 Name=Performing a suspension job
+Name[nds]=En Utsetten warrt utföhrt
 Name[pt]=A efectuar uma tarefa de suspensão
 Name[pt_BR]=A efectuar uma tarefa de suspensão
 Name[uk]=Виконання завдання з присипляння
 Name[zh_TW]=執行暫停的工作中
 Comment=This notification is displayed when a suspension job is about to be done, and it triggers a countdown. Hence, it is strongly advised to leave it on.
+Comment[nds]=Disse Bescheed warrt wiest, wenn en Utsettakschoon utföhrt warrt. He tellt ok en Tiet daal, laat em also beter an.
 Comment[pt]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
 Comment[pt_BR]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
 Comment[uk]=Це сповіщення буде показано перед виконанням завдання з присипляння комп’ютера, за ним буде розпочато відлік часу до завершення дії. Отже, ми наполегливо рекомендуємо вам не вимикати це сповіщення.
