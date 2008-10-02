@@ -95,6 +95,7 @@ Name[zh_CN]=警告
 Name[zh_TW]=警告
 Comment=Used for warning notifications
 Comment[gl]=Emprégase para as notificacións de aviso
+Comment[gu]=ચેતવણી નોંધણીઓ આપવા માટે વપરાય છે
 Comment[kk]=Ескерту хабарларға қолданылады
 Comment[km]=បានប្រើ​សម្រាប់​ការ​ជូន​ព្រមាន
 Comment[kn]=ಎಚ್ಚರಿಕೆ ಸೂಚನೆಗಳಿಗೆ ಬಳಸಲಾಗುತ್ತದೆ
@@ -310,6 +311,7 @@ Action=Sound|Popup
 [Event/pluggedin]
 Name=AC adaptor plugged in
 Name[gl]=Enchufouse a alimentación externa
+Name[gu]=AC એડપ્ટર લગાવવામાં આવ્યું
 Name[kk]=Айнымалы тоқ адаптері қосылған
 Name[km]=បាន​ដោត​អាដាប់ទ័រ AC
 Name[kn]=AC ವಿದ್ಯಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ಅಳವಡಿಸಲಾಗಿದೆ
@@ -342,6 +344,7 @@ Action=Sound|Popup
 [Event/unplugged]
 Name=AC adaptor unplugged
 Name[gl]=Desenchufouse a alimentación externa
+Name[gu]=AC એડપ્ટર નીકાળી લેવામાં આવ્યું
 Name[kk]=Айнымалы тоқ адаптері ажыратылған
 Name[km]=បានដក​អាដាប់ទ័រ AC ចេញ
 Name[kn]=AC ವಿದ್ಯಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ತೆಗೆಯಲಾಗಿದೆ
@@ -484,7 +487,17 @@ Action=Sound|Popup
 
 [Event/inhibition]
 Name=Suspension inhibited
+Name[nds]=Utsetten blockeert
+Name[pt]=Suspensão inibida
+Name[pt_BR]=Suspensão inibida
+Name[uk]=Присипляння заблоковано
+Name[zh_TW]=禁止暫停
 Comment=The suspension has been inhibited because an application requested it
+Comment[nds]=Dat Utsetten wöör blockeert, en Programm hett dat anfraagt.
+Comment[pt]=A suspensão foi inibida porque uma aplicação o pediu
+Comment[pt_BR]=A suspensão foi inibida porque uma aplicação o pediu
+Comment[uk]=Присипляння було заблоковано на вимогу програми
+Comment[zh_TW]=暫停功能已被禁止，因為有應用程式如此要求
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
