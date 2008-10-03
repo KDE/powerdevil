@@ -394,6 +394,7 @@ void EditPage::reloadAvailableProfiles()
         QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("iconname")),
                 ent);
         profilesList->addItem(itm);
+        delete group;
     }
 
     profilesList->setCurrentRow(0);
