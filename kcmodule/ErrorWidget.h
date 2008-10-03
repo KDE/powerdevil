@@ -33,7 +33,7 @@ public:
     virtual ~ErrorWidget();
 
     void setError(const QString &error);
-    QString error();
+    QString error() const;
 };
 
 #endif /* ERRORWIDGET_H_ */

@@ -38,7 +38,7 @@ void ErrorWidget::setError(const QString &error)
     detailsLabel->setText(error);
 }
 
-QString ErrorWidget::error()
+QString ErrorWidget::error() const
 {
     return detailsLabel->text();
 }

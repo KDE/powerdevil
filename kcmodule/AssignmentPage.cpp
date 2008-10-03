@@ -109,6 +109,7 @@ void AssignmentPage::reloadAvailableProfiles()
         batteryProfile->addItem(KIcon(group->readEntry("iconname")), ent);
         lowProfile->addItem(KIcon(group->readEntry("iconname")), ent);
         warningProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        delete group;
     }
 
     acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
