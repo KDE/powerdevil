@@ -38,9 +38,9 @@ SuspensionLockHandler::~SuspensionLockHandler()
 bool SuspensionLockHandler::canStartSuspension(bool automated)
 {
     if (automated) {
-    if (hasInhibit(true)) {
-        return false;
-    }
+        if (hasInhibit(true)) {
+            return false;
+        }
     }
 
     return !m_isJobOngoing;
@@ -49,9 +49,9 @@ bool SuspensionLockHandler::canStartSuspension(bool automated)
 bool SuspensionLockHandler::canStartNotification(bool automated)
 {
     if (automated) {
-    if (hasInhibit(true)) {
-        return false;
-    }
+        if (hasInhibit(true)) {
+            return false;
+        }
     }
 
     if (!m_isJobOngoing && !m_isOnNotification) {
