@@ -81,17 +81,17 @@ private Q_SLOTS:
     void decreaseBrightness();
     void increaseBrightness();
 
-    void shutdown();
+    void shutdown(bool automated = false);
     void shutdownDialog();
     void suspendJobResult(KJob * job);
-    void suspendToDisk();
-    void suspendToRam();
-    void standby();
+    void suspendToDisk(bool automated = false);
+    void suspendToRam(bool automated = false);
+    void standby(bool automated = false);
 
-    void shutdownNotification();
-    void suspendToDiskNotification();
-    void suspendToRamNotification();
-    void standbyNotification();
+    void shutdownNotification(bool automated = false);
+    void suspendToDiskNotification(bool automated = false);
+    void suspendToRamNotification(bool automated = false);
+    void standbyNotification(bool automated = false);
 
     void buttonPressed(int but);
 

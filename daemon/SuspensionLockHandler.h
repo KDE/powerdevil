@@ -41,13 +41,13 @@ public:
     virtual ~SuspensionLockHandler();
 
 public slots:
-    bool canStartSuspension();
-    bool canStartNotification();
+    bool canStartSuspension(bool automated = false);
+    bool canStartNotification(bool automated = false);
 
     bool hasInhibit(bool notify = false);
 
-    bool setNotificationLock();
-    bool setJobLock();
+    bool setNotificationLock(bool automated = false);
+    bool setJobLock(bool automated = false);
 
     int inhibit(const QString &application, const QString &reason);
 

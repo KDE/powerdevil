@@ -35,19 +35,23 @@ SuspensionLockHandler::~SuspensionLockHandler()
 {
 }
 
-bool SuspensionLockHandler::canStartSuspension()
+bool SuspensionLockHandler::canStartSuspension(bool automated)
 {
+    if (automated) {
     if (hasInhibit(true)) {
         return false;
+    }
     }
 
     return !m_isJobOngoing;
 }
 
-bool SuspensionLockHandler::canStartNotification()
+bool SuspensionLockHandler::canStartNotification(bool automated)
 {
+    if (automated) {
     if (hasInhibit(true)) {
         return false;
+    }
     }
 
     if (!m_isJobOngoing && !m_isOnNotification) {
@@ -75,9 +79,9 @@ bool SuspensionLockHandler::hasInhibit(bool notify)
     }
 }
 
-bool SuspensionLockHandler::setNotificationLock()
+bool SuspensionLockHandler::setNotificationLock(bool automated)
 {
-    if (!canStartNotification()) {
+    if (!canStartNotification(automated)) {
         kDebug() << "Notification lock present, aborting";
         return false;
     }
@@ -87,9 +91,9 @@ bool SuspensionLockHandler::setNotificationLock()
     return true;
 }
 
-bool SuspensionLockHandler::setJobLock()
+bool SuspensionLockHandler::setJobLock(bool automated)
 {
-    if (!canStartSuspension()) {
+    if (!canStartSuspension(automated)) {
         kDebug() << "Suspension lock present, aborting";
         return false;
     }

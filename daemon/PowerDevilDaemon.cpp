@@ -484,16 +484,16 @@ void PowerDevilDaemon::buttonPressed(int but)
 
         switch (settings->readEntry("lidAction").toInt()) {
         case Shutdown:
-            shutdownNotification();
+            shutdownNotification(true);
             break;
         case S2Disk:
-            suspendToDiskNotification();
+            suspendToDiskNotification(true);
             break;
         case S2Ram:
-            suspendToRamNotification();
+            suspendToRamNotification(true);
             break;
         case Standby:
-            standbyNotification();
+            standbyNotification(true);
             break;
         case Lock:
             lockScreen();
@@ -574,9 +574,9 @@ void PowerDevilDaemon::increaseBrightness()
     Solid::Control::PowerManager::setBrightness(currentBrightness);
 }
 
-void PowerDevilDaemon::shutdownNotification()
+void PowerDevilDaemon::shutdownNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock()) {
+    if (!m_lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -590,9 +590,9 @@ void PowerDevilDaemon::shutdownNotification()
     }
 }
 
-void PowerDevilDaemon::suspendToDiskNotification()
+void PowerDevilDaemon::suspendToDiskNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock()) {
+    if (!m_lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -606,9 +606,9 @@ void PowerDevilDaemon::suspendToDiskNotification()
     }
 }
 
-void PowerDevilDaemon::suspendToRamNotification()
+void PowerDevilDaemon::suspendToRamNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock()) {
+    if (!m_lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -622,9 +622,9 @@ void PowerDevilDaemon::suspendToRamNotification()
     }
 }
 
-void PowerDevilDaemon::standbyNotification()
+void PowerDevilDaemon::standbyNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock()) {
+    if (!m_lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -638,9 +638,9 @@ void PowerDevilDaemon::standbyNotification()
     }
 }
 
-void PowerDevilDaemon::shutdown()
+void PowerDevilDaemon::shutdown(bool automated)
 {
-    if (!m_lockHandler->setJobLock()) {
+    if (!m_lockHandler->setJobLock(automated)) {
         return;
     }
 
@@ -656,9 +656,9 @@ void PowerDevilDaemon::shutdownDialog()
                              (int)KWorkSpace::ShutdownModeDefault);
 }
 
-void PowerDevilDaemon::suspendToDisk()
+void PowerDevilDaemon::suspendToDisk(bool automated)
 {
-    if (!m_lockHandler->setJobLock()) {
+    if (!m_lockHandler->setJobLock(automated)) {
         return;
     }
 
@@ -676,9 +676,9 @@ void PowerDevilDaemon::suspendToDisk()
     QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
 }
 
-void PowerDevilDaemon::suspendToRam()
+void PowerDevilDaemon::suspendToRam(bool automated)
 {
-    if (!m_lockHandler->setJobLock()) {
+    if (!m_lockHandler->setJobLock(automated)) {
         return;
     }
 
@@ -695,9 +695,9 @@ void PowerDevilDaemon::suspendToRam()
     QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
 }
 
-void PowerDevilDaemon::standby()
+void PowerDevilDaemon::standby(bool automated)
 {
-    if (!m_lockHandler->setJobLock()) {
+    if (!m_lockHandler->setJobLock(automated)) {
         return;
     }
 
@@ -797,19 +797,19 @@ void PowerDevilDaemon::poll(int idle)
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
             m_pollLoader->poller()->catchIdleEvent();
-            shutdownNotification();
+            shutdownNotification(true);
             break;
         case S2Disk:
             m_pollLoader->poller()->catchIdleEvent();
-            suspendToDiskNotification();
+            suspendToDiskNotification(true);
             break;
         case S2Ram:
             m_pollLoader->poller()->catchIdleEvent();
-            suspendToRamNotification();
+            suspendToRamNotification(true);
             break;
         case Standby:
             m_pollLoader->poller()->catchIdleEvent();
-            standbyNotification();
+            standbyNotification(true);
             break;
         case Lock:
             m_pollLoader->poller()->catchIdleEvent();
