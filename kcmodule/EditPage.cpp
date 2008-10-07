@@ -180,8 +180,6 @@ void EditPage::fillUi()
     deleteProfile->setIcon(KIcon("edit-delete-page"));
     importButton->setIcon(KIcon("document-import"));
     exportButton->setIcon(KIcon("document-export"));
-    saveCurrentProfileButton->setIcon(KIcon("document-save"));
-    resetCurrentProfileButton->setIcon(KIcon("edit-undo"));
 
     toolBox->setItemIcon(0, KIcon("video-display"));
     toolBox->setItemIcon(1, KIcon("cpu"));
@@ -230,8 +228,6 @@ void EditPage::fillUi()
     connect(editProfileButton, SIGNAL(clicked()), SLOT(editProfile()));
     connect(importButton, SIGNAL(clicked()), SLOT(importProfiles()));
     connect(exportButton, SIGNAL(clicked()), SLOT(exportProfiles()));
-    connect(resetCurrentProfileButton, SIGNAL(clicked()), SLOT(loadProfile()));
-    connect(saveCurrentProfileButton, SIGNAL(clicked()), SLOT(saveProfile()));
 }
 
 void EditPage::load()
@@ -243,6 +239,7 @@ void EditPage::load()
 
 void EditPage::save()
 {
+    saveProfile();
 }
 
 void EditPage::emitChanged()
@@ -610,7 +607,6 @@ void EditPage::setProfileChanged()
 
 void EditPage::enableSaveProfile()
 {
-    saveCurrentProfileButton->setEnabled(m_profileEdited);
 }
 
 void EditPage::openUrl(const QString &url)

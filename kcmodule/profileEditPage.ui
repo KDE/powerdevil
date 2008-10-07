@@ -50,8 +50,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>452</width>
-               <height>198</height>
+               <width>373</width>
+               <height>271</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -202,8 +202,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>297</width>
-               <height>135</height>
+               <width>336</width>
+               <height>271</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -286,8 +286,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>338</width>
-               <height>205</height>
+               <width>336</width>
+               <height>271</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -419,49 +419,6 @@
             </widget>
            </widget>
           </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_5" >
-            <item>
-             <spacer name="horizontalSpacer" >
-              <property name="orientation" >
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0" >
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="KPushButton" name="resetCurrentProfileButton" >
-              <property name="toolTip" >
-               <string/>
-              </property>
-              <property name="whatsThis" >
-               <string>Undo all the changes to this profile since last saving</string>
-              </property>
-              <property name="text" >
-               <string>Undo Changes</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KPushButton" name="saveCurrentProfileButton" >
-              <property name="toolTip" >
-               <string/>
-              </property>
-              <property name="whatsThis" >
-               <string>Save changes to this profile</string>
-              </property>
-              <property name="text" >
-               <string>Save Current Profile</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
          </layout>
         </item>
        </layout>
@@ -507,13 +464,6 @@
             </property>
             <property name="text" >
              <string comment="Creates a new profile" >New</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="KPushButton" name="kpushbutton" >
-            <property name="text" >
-             <string>Clone</string>
             </property>
            </widget>
           </item>
