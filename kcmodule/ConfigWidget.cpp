@@ -24,37 +24,31 @@
 ConfigWidget::ConfigWidget(QWidget *parent)
         : KPageWidget(parent),
         m_generalPage(new GeneralPage(this)),
-        m_assignmentPage(new AssignmentPage(this)),
         m_editPage(new EditPage(this)),
         m_capabilitiesPage(new CapabilitiesPage(this))
 {
     layout()->setMargin(0);
     m_generalPage->layout()->setMargin(0);
-    m_assignmentPage->layout()->setMargin(0);
     m_editPage->layout()->setMargin(0);
     m_capabilitiesPage->layout()->setMargin(0);
 
     KPageWidgetItem *general = addPage(m_generalPage, i18n("General Settings"));
-    KPageWidgetItem *assign = addPage(m_assignmentPage, i18n("Assign Profiles"));
     KPageWidgetItem *edit = addPage(m_editPage, i18n("Edit Profiles"));
     KPageWidgetItem *capab = addPage(m_capabilitiesPage, i18n("Capabilities"));
 
     general->setHeader("");
-    assign->setHeader("");
     edit->setHeader("");
     capab->setHeader("");
 
     general->setIcon(KIcon("configure"));
-    assign->setIcon(KIcon("insert-link"));
     edit->setIcon(KIcon("edit-select-all"));
     capab->setIcon(KIcon("hwinfo"));
 
     connect(m_generalPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
-    connect(m_assignmentPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
     connect(m_editPage, SIGNAL(changed(bool)), SIGNAL(changed(bool)));
 
     connect(m_editPage, SIGNAL(profilesChanged()), SIGNAL(reloadRequest()));
-    connect(m_editPage, SIGNAL(profilesChanged()), m_assignmentPage, SLOT(reloadAvailableProfiles()));
+    connect(m_editPage, SIGNAL(profilesChanged()), m_generalPage, SLOT(reloadAvailableProfiles()));
 
     connect(m_capabilitiesPage, SIGNAL(reload()), SIGNAL(reloadRequest()));
     connect(m_capabilitiesPage, SIGNAL(reloadModule()), SIGNAL(reloadModule()));
@@ -68,7 +62,6 @@ ConfigWidget::~ConfigWidget()
 void ConfigWidget::load()
 {
     m_generalPage->load();
-    m_assignmentPage->load();
     m_editPage->load();
     m_capabilitiesPage->load();
 }
@@ -76,7 +69,6 @@ void ConfigWidget::load()
 void ConfigWidget::save()
 {
     m_generalPage->save();
-    m_assignmentPage->save();
     m_editPage->save();
 }
 

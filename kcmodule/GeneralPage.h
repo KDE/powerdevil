@@ -47,6 +47,8 @@ private slots:
 
     void configureNotifications();
 
+    void reloadAvailableProfiles();
+
 private:
     enum IdleAction {
         Shutdown = 1,
@@ -56,6 +58,9 @@ private:
         Lock = 5,
         None = 0
     };
+
+    KSharedConfig::Ptr m_profilesConfig;
+    bool m_profileEdited;
 };
 
 #endif /* GENERALPAGE_H */

@@ -747,14 +747,14 @@ void PowerDevilDaemon::poll(int idle)
         return;
     }
 
-    if (!PowerDevilSettings::dimOnIdle() && !settings->readEntry("turnOffIdle", false) &&
+    if (!settings->readEntry("dimOnIdle", false) && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
         kDebug() << "Stopping timer";
         m_pollLoader->poller()->stopCatchingTimeouts();
         return;
     }
 
-    int dimOnIdleTime = PowerDevilSettings::dimOnIdleTime() * 60;
+    int dimOnIdleTime = settings->readEntry("dimOnIdleTime").toInt() * 60;
     int minDimTime = dimOnIdleTime * 1 / 2;
     int minDimEvent = dimOnIdleTime;
 
@@ -767,10 +767,10 @@ void PowerDevilDaemon::poll(int idle)
 
     int minTime = settings->readEntry("idleTime").toInt() * 60;
 
-    if (settings->readEntry("turnOffIdle", QVariant()).toBool()) {
+    if (settings->readEntry("turnOffIdle", false)) {
         minTime = qMin(minTime, settings->readEntry("turnOffIdleTime").toInt() * 60);
     }
-    if (PowerDevilSettings::dimOnIdle()) {
+    if (settings->readEntry("dimOnIdle", false)) {
         minTime = qMin(minTime, minDimTime);
     }
 
@@ -821,16 +821,16 @@ void PowerDevilDaemon::poll(int idle)
 
         return;
 
-    } else if (PowerDevilSettings::dimOnIdle()
+    } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= dimOnIdleTime)) {
         m_pollLoader->poller()->catchIdleEvent();
         Solid::Control::PowerManager::setBrightness(0);
-    } else if (PowerDevilSettings::dimOnIdle()
+    } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= (dimOnIdleTime * 3 / 4))) {
         m_pollLoader->poller()->catchIdleEvent();
         float newBrightness = Solid::Control::PowerManager::brightness() / 4;
         Solid::Control::PowerManager::setBrightness(newBrightness);
-    } else if (PowerDevilSettings::dimOnIdle() &&
+    } else if (settings->readEntry("dimOnIdle", false) &&
                (idle >= (dimOnIdleTime * 1 / 2))) {
         m_pollLoader->poller()->catchIdleEvent();
         float newBrightness = Solid::Control::PowerManager::brightness() / 2;
@@ -856,7 +856,7 @@ void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
             nextTimeout = (settings->readEntry("idleTime").toInt() * 60) - idle;
         }
     }
-    if (minDimEvent > idle && PowerDevilSettings::dimOnIdle()) {
+    if (minDimEvent > idle && settings->readEntry("dimOnIdle", false)) {
         if (nextTimeout >= 0) {
             nextTimeout = qMin(nextTimeout, minDimEvent - idle);
         } else {

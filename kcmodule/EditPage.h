@@ -24,6 +24,8 @@
 
 #include "ui_profileEditPage.h"
 
+class KToolBar;
+
 class EditPage : public QWidget, private Ui_profileEditPage
 {
     Q_OBJECT
@@ -75,6 +77,7 @@ private:
 
     KSharedConfig::Ptr m_profilesConfig;
     bool m_profileEdited;
+    KToolBar *m_toolBar;
 };
 
 #endif /* EDITPAGE_H */

@@ -5,7 +5,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>720</width>
+    <width>730</width>
     <height>452</height>
    </rect>
   </property>
@@ -21,11 +21,11 @@
      <property name="title" >
       <string>Profile Management</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3" >
+     <layout class="QVBoxLayout" name="verticalLayout_5" >
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6" >
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_5" >
+         <layout class="QVBoxLayout" name="listLayout" >
           <item>
            <widget class="KListWidget" name="profilesList" >
             <property name="maximumSize" >
@@ -50,8 +50,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>373</width>
-               <height>271</height>
+               <width>378</width>
+               <height>316</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -76,6 +76,169 @@
                  <bool>false</bool>
                 </property>
                </widget>
+              </item>
+              <item row="1" column="0" >
+               <widget class="QCheckBox" name="disableCompositing" >
+                <property name="text" >
+                 <string>Disable KWin compositing, if active</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0" >
+               <widget class="QLabel" name="label_7" >
+                <property name="toolTip" >
+                 <string/>
+                </property>
+                <property name="text" >
+                 <string>When Laptop Lid Closed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1" >
+               <widget class="KComboBox" name="laptopClosedCombo" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="whatsThis" >
+                 <string>This action will be performed when the laptop lid gets closed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0" >
+               <widget class="QLabel" name="label" >
+                <property name="text" >
+                 <string>When Power Button pressed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0" >
+               <widget class="QLabel" name="label_2" >
+                <property name="text" >
+                 <string>When Sleep Button pressed</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1" >
+               <widget class="KComboBox" name="powerButtonCombo" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1" >
+               <widget class="KComboBox" name="sleepButtonCombo" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" >
+               <widget class="QCheckBox" name="dimDisplayOnIdle" >
+                <property name="toolTip" >
+                 <string>Activate automatic dimming</string>
+                </property>
+                <property name="statusTip" >
+                 <string/>
+                </property>
+                <property name="whatsThis" >
+                 <string>Automatically dims the display when the system is idle.</string>
+                </property>
+                <property name="text" >
+                 <string>Dim display when idle for more than</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1" >
+               <widget class="KIntSpinBox" name="dimOnIdleTime" >
+                <property name="minimumSize" >
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize" >
+                 <size>
+                  <width>100</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="suffix" >
+                 <string comment="Minutes" >min</string>
+                </property>
+                <property name="minimum" >
+                 <number>1</number>
+                </property>
+                <property name="maximum" >
+                 <number>280</number>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0" >
+               <widget class="QLabel" name="PoweredIdleLabel_2" >
+                <property name="toolTip" >
+                 <string/>
+                </property>
+                <property name="whatsThis" >
+                 <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                </property>
+                <property name="text" >
+                 <string>When the system is idle for more than</string>
+                </property>
+                <property name="wordWrap" >
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1" >
+               <layout class="QHBoxLayout" name="horizontalLayout_4" >
+                <item>
+                 <widget class="QSpinBox" name="idleTime" >
+                  <property name="maximumSize" >
+                   <size>
+                    <width>100</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                  </property>
+                  <property name="suffix" >
+                   <string> min</string>
+                  </property>
+                  <property name="prefix" >
+                   <string/>
+                  </property>
+                  <property name="minimum" >
+                   <number>1</number>
+                  </property>
+                  <property name="maximum" >
+                   <number>280</number>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="KComboBox" name="idleCombo" >
+                  <property name="maximumSize" >
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item row="0" column="1" >
                <widget class="QSlider" name="brightnessSlider" >
@@ -105,96 +268,6 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" >
-               <widget class="QCheckBox" name="disableCompositing" >
-                <property name="text" >
-                 <string>Disable KWin compositing, if active</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" >
-               <widget class="QLabel" name="PoweredIdleLabel_2" >
-                <property name="toolTip" >
-                 <string/>
-                </property>
-                <property name="whatsThis" >
-                 <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                </property>
-                <property name="text" >
-                 <string>When the system is idle for more than</string>
-                </property>
-                <property name="wordWrap" >
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1" >
-               <layout class="QHBoxLayout" name="horizontalLayout_4" >
-                <item>
-                 <widget class="QSpinBox" name="idleTime" >
-                  <property name="whatsThis" >
-                   <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                  </property>
-                  <property name="suffix" >
-                   <string> min</string>
-                  </property>
-                  <property name="prefix" >
-                   <string/>
-                  </property>
-                  <property name="minimum" >
-                   <number>1</number>
-                  </property>
-                  <property name="maximum" >
-                   <number>280</number>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="KComboBox" name="idleCombo" >
-                  <property name="whatsThis" >
-                   <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="3" column="0" >
-               <widget class="QLabel" name="label_7" >
-                <property name="toolTip" >
-                 <string/>
-                </property>
-                <property name="text" >
-                 <string>When Laptop Lid Closed</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1" >
-               <widget class="KComboBox" name="laptopClosedCombo" >
-                <property name="whatsThis" >
-                 <string>This action will be performed when the laptop lid gets closed</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0" >
-               <widget class="QLabel" name="label" >
-                <property name="text" >
-                 <string>When Power Button pressed</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0" >
-               <widget class="QLabel" name="label_2" >
-                <property name="text" >
-                 <string>When Sleep Button pressed</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1" >
-               <widget class="KComboBox" name="powerButtonCombo" />
-              </item>
-              <item row="5" column="1" >
-               <widget class="KComboBox" name="sleepButtonCombo" />
-              </item>
              </layout>
             </widget>
             <widget class="QWidget" name="page_2" >
@@ -202,8 +275,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>336</width>
-               <height>271</height>
+               <width>341</width>
+               <height>286</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -247,6 +320,12 @@
               </item>
               <item row="3" column="1" >
                <widget class="KComboBox" name="freqCombo" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
                 <property name="whatsThis" >
                  <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
                 </property>
@@ -260,7 +339,14 @@
                </widget>
               </item>
               <item row="4" column="1" >
-               <widget class="KComboBox" name="schemeCombo" />
+               <widget class="KComboBox" name="schemeCombo" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
               </item>
               <item row="5" column="0" >
                <widget class="QLabel" name="label_20" >
@@ -270,7 +356,14 @@
                </widget>
               </item>
               <item row="5" column="1" >
-               <widget class="KUrlRequester" name="scriptRequester" />
+               <widget class="KUrlRequester" name="scriptRequester" >
+                <property name="maximumSize" >
+                 <size>
+                  <width>250</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
               </item>
               <item row="2" column="1" >
                <widget class="Line" name="line_5" >
@@ -286,8 +379,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>336</width>
-               <height>271</height>
+               <width>341</width>
+               <height>286</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -325,82 +418,102 @@
                </layout>
               </item>
               <item>
-               <widget class="KIntNumInput" name="DPMSStandby" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="MinimumExpanding" hsizetype="Minimum" >
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
+               <spacer name="verticalSpacer_2" >
+                <property name="orientation" >
+                 <enum>Qt::Vertical</enum>
                 </property>
-                <property name="whatsThis" >
-                 <string>Choose the period of inactivity after which the display should enter "standby" mode. This is the first level of power saving.</string>
+                <property name="sizeType" >
+                 <enum>QSizePolicy::Minimum</enum>
                 </property>
-                <property name="label" >
-                 <string>&amp;Standby after</string>
+                <property name="sizeHint" stdset="0" >
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
                 </property>
-                <property name="minimum" >
-                 <number>0</number>
-                </property>
-                <property name="maximum" >
-                 <number>360</number>
-                </property>
-                <property name="suffix" >
-                 <string>min</string>
-                </property>
-                <property name="specialValueText" >
-                 <string comment="A DPMS status will be disabled" >Disabled</string>
-                </property>
-               </widget>
+               </spacer>
               </item>
               <item>
-               <widget class="KIntNumInput" name="DPMSSuspend" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="MinimumExpanding" hsizetype="Minimum" >
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="label" >
-                 <string>S&amp;uspend after</string>
-                </property>
-                <property name="minimum" >
-                 <number>0</number>
-                </property>
-                <property name="maximum" >
-                 <number>360</number>
-                </property>
-                <property name="suffix" >
-                 <string>min</string>
-                </property>
-                <property name="specialValueText" >
-                 <string comment="A DPMS status will be disabled" >Disabled</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="KIntNumInput" name="DPMSPowerOff" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="MinimumExpanding" hsizetype="Minimum" >
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="label" >
-                 <string>&amp;Power off after</string>
-                </property>
-                <property name="minimum" >
-                 <number>0</number>
-                </property>
-                <property name="maximum" >
-                 <number>360</number>
-                </property>
-                <property name="suffix" >
-                 <string>min</string>
-                </property>
-                <property name="specialValueText" >
-                 <string comment="A DPMS status will be disabled" >Disabled</string>
-                </property>
-               </widget>
+               <layout class="QFormLayout" name="formLayout_3" >
+                <item row="1" column="0" >
+                 <widget class="QCheckBox" name="DPMSStandbyEnabled" >
+                  <property name="whatsThis" >
+                   <string>Choose the period of inactivity after which the display should enter "standby" mode. This is the first level of power saving.</string>
+                  </property>
+                  <property name="text" >
+                   <string>&amp;Standby after</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" >
+                 <widget class="KIntSpinBox" name="DPMSStandbyTime" >
+                  <property name="maximumSize" >
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>Choose the period of inactivity after which the display should enter "standby" mode. This is the first level of power saving.</string>
+                  </property>
+                  <property name="suffix" >
+                   <string>min</string>
+                  </property>
+                  <property name="prefix" >
+                   <string/>
+                  </property>
+                  <property name="maximum" >
+                   <number>360</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" >
+                 <widget class="QCheckBox" name="DPMSSuspendEnabled" >
+                  <property name="text" >
+                   <string>S&amp;uspend after</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1" >
+                 <widget class="KIntSpinBox" name="DPMSSuspendTime" >
+                  <property name="maximumSize" >
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="suffix" >
+                   <string>min</string>
+                  </property>
+                  <property name="maximum" >
+                   <number>360</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0" >
+                 <widget class="QCheckBox" name="DPMSPowerOffEnabled" >
+                  <property name="text" >
+                   <string>&amp;Power off after</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1" >
+                 <widget class="KIntSpinBox" name="DPMSPowerOffTime" >
+                  <property name="maximumSize" >
+                   <size>
+                    <width>150</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="suffix" >
+                   <string>min</string>
+                  </property>
+                  <property name="maximum" >
+                   <number>360</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
               <item>
                <spacer name="verticalSpacer" >
@@ -423,112 +536,30 @@
         </item>
        </layout>
       </item>
-      <item>
-       <widget class="Line" name="line_6" >
-        <property name="orientation" >
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_6" >
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout" >
-          <item>
-           <widget class="KPushButton" name="deleteProfile" >
-            <property name="maximumSize" >
-             <size>
-              <width>170</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Delete</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="KPushButton" name="editProfileButton" >
-            <property name="text" >
-             <string>Edit</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="KPushButton" name="newProfile" >
-            <property name="maximumSize" >
-             <size>
-              <width>170</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string comment="Creates a new profile" >New</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2" >
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0" >
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="KPushButton" name="importButton" >
-            <property name="maximumSize" >
-             <size>
-              <width>170</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="toolTip" >
-             <string/>
-            </property>
-            <property name="whatsThis" >
-             <string>Import profiles from a file</string>
-            </property>
-            <property name="text" >
-             <string>Import Profiles</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="KPushButton" name="exportButton" >
-            <property name="maximumSize" >
-             <size>
-              <width>170</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="toolTip" >
-             <string/>
-            </property>
-            <property name="whatsThis" >
-             <string>Export your profiles to a file</string>
-            </property>
-            <property name="text" >
-             <string>Export Profiles</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2" />
-        </item>
-       </layout>
-      </item>
      </layout>
     </widget>
    </item>
   </layout>
+  <action name="actionNewProfile" >
+   <property name="text" >
+    <string>New Profile</string>
+   </property>
+  </action>
+  <action name="actionDeleteProfile" >
+   <property name="text" >
+    <string>Delete Profile</string>
+   </property>
+  </action>
+  <action name="actionImportProfiles" >
+   <property name="text" >
+    <string>Import Profiles</string>
+   </property>
+  </action>
+  <action name="actionExportProfiles" >
+   <property name="text" >
+    <string>Export Profiles</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -537,19 +568,14 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KIntNumInput</class>
-   <extends>QWidget</extends>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
    <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KListWidget</class>
    <extends>QListWidget</extends>
    <header>klistwidget.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
   </customwidget>
   <customwidget>
    <class>KUrlLabel</class>

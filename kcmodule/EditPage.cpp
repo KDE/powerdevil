@@ -43,6 +43,7 @@
 #include <KFileDialog>
 #include <KMessageBox>
 #include <KIconButton>
+#include <KToolBar>
 
 EditPage::EditPage(QWidget *parent)
         : QWidget(parent),
@@ -81,6 +82,21 @@ EditPage::~EditPage()
 
 void EditPage::fillUi()
 {
+    m_toolBar = new KToolBar(this);
+    listLayout->addWidget(m_toolBar);
+
+    m_toolBar->addAction(actionNewProfile);
+    m_toolBar->addAction(actionDeleteProfile);
+    m_toolBar->addSeparator();
+    m_toolBar->addAction(actionImportProfiles);
+    m_toolBar->addAction(actionExportProfiles);
+    m_toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+
+    actionNewProfile->setIcon(KIcon("document-new"));
+    actionDeleteProfile->setIcon(KIcon("edit-delete-page"));
+    actionImportProfiles->setIcon(KIcon("document-import"));
+    actionExportProfiles->setIcon(KIcon("document-export"));
+
     idleCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
     idleCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     idleCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
@@ -175,12 +191,6 @@ void EditPage::fillUi()
 
     reloadAvailableProfiles();
 
-    newProfile->setIcon(KIcon("document-new"));
-    editProfileButton->setIcon(KIcon("edit-rename"));
-    deleteProfile->setIcon(KIcon("edit-delete-page"));
-    importButton->setIcon(KIcon("document-import"));
-    exportButton->setIcon(KIcon("document-export"));
-
     toolBox->setItemIcon(0, KIcon("video-display"));
     toolBox->setItemIcon(1, KIcon("cpu"));
     toolBox->setItemIcon(2, KIcon("preferences-system-power-management"));
@@ -202,6 +212,8 @@ void EditPage::fillUi()
 
     connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(disableCompositing, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(idleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
@@ -209,25 +221,34 @@ void EditPage::fillUi()
     connect(sleepButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(powerButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
 
+    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
+
     connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
 
 #ifdef HAVE_DPMS
     connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
     connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSSuspend, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSStandby, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSPowerOff, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSSuspendTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSStandbyTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSPowerOffTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSSuspendEnabled, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSStandbyEnabled, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+    connect(DPMSPowerOffEnabled, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
+
+    connect(DPMSSuspendEnabled, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
+    connect(DPMSStandbyEnabled, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
+    connect(DPMSPowerOffEnabled, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 #endif
 
     connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
 
-    connect(deleteProfile, SIGNAL(clicked()), SLOT(deleteCurrentProfile()));
-    connect(newProfile, SIGNAL(clicked()), SLOT(createProfile()));
-    connect(editProfileButton, SIGNAL(clicked()), SLOT(editProfile()));
-    connect(importButton, SIGNAL(clicked()), SLOT(importProfiles()));
-    connect(exportButton, SIGNAL(clicked()), SLOT(exportProfiles()));
+    connect(actionDeleteProfile, SIGNAL(triggered()), SLOT(deleteCurrentProfile()));
+    connect(actionNewProfile, SIGNAL(triggered()), SLOT(createProfile()));
+    //connect(editProfileButton, SIGNAL(clicked()), SLOT(editProfile()));
+    connect(actionImportProfiles, SIGNAL(triggered()), SLOT(importProfiles()));
+    connect(actionExportProfiles, SIGNAL(triggered()), SLOT(exportProfiles()));
 }
 
 void EditPage::load()
@@ -250,10 +271,24 @@ void EditPage::emitChanged()
 void EditPage::enableBoxes()
 {
 #ifdef HAVE_DPMS
-    DPMSSuspend->setEnabled(DPMSEnable->isChecked());
-    DPMSStandby->setEnabled(DPMSEnable->isChecked());
-    DPMSPowerOff->setEnabled(DPMSEnable->isChecked());
+    if (DPMSEnable->isChecked()) {
+        DPMSSuspendEnabled->setEnabled(true);
+        DPMSStandbyEnabled->setEnabled(true);
+        DPMSPowerOffEnabled->setEnabled(true);
+        DPMSSuspendTime->setEnabled(DPMSSuspendEnabled->isChecked());
+        DPMSStandbyTime->setEnabled(DPMSStandbyEnabled->isChecked());
+        DPMSPowerOffTime->setEnabled(DPMSPowerOffEnabled->isChecked());
+    } else {
+        DPMSSuspendEnabled->setEnabled(false);
+        DPMSStandbyEnabled->setEnabled(false);
+        DPMSPowerOffEnabled->setEnabled(false);
+        DPMSSuspendTime->setEnabled(false);
+        DPMSStandbyTime->setEnabled(false);
+        DPMSPowerOffTime->setEnabled(false);
+    }
 #endif
+
+    dimOnIdleTime->setEnabled(dimDisplayOnIdle->isChecked());
 }
 
 void EditPage::loadProfile()
@@ -277,6 +312,8 @@ void EditPage::loadProfile()
 
     brightnessSlider->setValue(group->readEntry("brightness").toInt());
     disableCompositing->setChecked(group->readEntry("disableCompositing", false));
+    dimDisplayOnIdle->setChecked(group->readEntry("dimOnIdle", false));
+    dimOnIdleTime->setValue(group->readEntry("dimOnIdleTime").toInt());
     idleTime->setValue(group->readEntry("idleTime").toInt());
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
     freqCombo->setCurrentIndex(freqCombo->findData(group->readEntry("cpuPolicy").toInt()));
@@ -289,9 +326,12 @@ void EditPage::loadProfile()
 
 #ifdef HAVE_DPMS
     DPMSEnable->setChecked(group->readEntry("DPMSEnabled", false));
-    DPMSStandby->setValue(group->readEntry("DPMSStandby", 10));
-    DPMSSuspend->setValue(group->readEntry("DPMSSuspend", 30));
-    DPMSPowerOff->setValue(group->readEntry("DPMSPowerOff", 60));
+    DPMSStandbyTime->setValue(group->readEntry("DPMSStandby", 10));
+    DPMSSuspendTime->setValue(group->readEntry("DPMSSuspend", 30));
+    DPMSPowerOffTime->setValue(group->readEntry("DPMSPowerOff", 60));
+    DPMSStandbyEnabled->setChecked(group->readEntry("DPMSStandbyEnabled", false));
+    DPMSSuspendEnabled->setChecked(group->readEntry("DPMSSuspendEnabled", false));
+    DPMSPowerOffEnabled->setChecked(group->readEntry("DPMSPowerOffEnabled", false));
 #endif
 
     QVariant var = group->readEntry("disabledCPUs", QVariant());
@@ -335,6 +375,8 @@ void EditPage::saveProfile(const QString &p)
 
     group->writeEntry("brightness", brightnessSlider->value());
     group->writeEntry("cpuPolicy", freqCombo->itemData(freqCombo->currentIndex()).toInt());
+    group->writeEntry("dimOnIdle", dimDisplayOnIdle->isChecked());
+    group->writeEntry("dimOnIdleTime", dimOnIdleTime->value());
     group->writeEntry("idleAction", idleCombo->itemData(idleCombo->currentIndex()).toInt());
     group->writeEntry("idleTime", idleTime->value());
     group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
@@ -346,9 +388,12 @@ void EditPage::saveProfile(const QString &p)
 
 #ifdef HAVE_DPMS
     group->writeEntry("DPMSEnabled", DPMSEnable->isChecked());
-    group->writeEntry("DPMSStandby", DPMSStandby->value());
-    group->writeEntry("DPMSSuspend", DPMSSuspend->value());
-    group->writeEntry("DPMSPowerOff", DPMSPowerOff->value());
+    group->writeEntry("DPMSStandby", DPMSStandbyTime->value());
+    group->writeEntry("DPMSSuspend", DPMSSuspendTime->value());
+    group->writeEntry("DPMSPowerOff", DPMSPowerOffTime->value());
+    group->writeEntry("DPMSStandbyEnabled", DPMSStandbyEnabled->isChecked());
+    group->writeEntry("DPMSSuspendEnabled", DPMSSuspendEnabled->isChecked());
+    group->writeEntry("DPMSPowerOffEnabled", DPMSPowerOffEnabled->isChecked());
 #endif
 
     QList<int> list;
@@ -602,7 +647,7 @@ void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous
 void EditPage::setProfileChanged()
 {
     m_profileEdited = true;
-    enableSaveProfile();
+    emitChanged();
 }
 
 void EditPage::enableSaveProfile()

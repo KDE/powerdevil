@@ -19,12 +19,6 @@
   </group>
 
   <group name="General">
-    <entry name="dimOnIdle" type="Bool">
-      <default>true</default>
-    </entry>
-    <entry name="dimOnIdleTime" type="Int">
-      <default>20</default>
-    </entry>
     <entry name="configLockScreen" type="Bool">
       <default>true</default>
     </entry>

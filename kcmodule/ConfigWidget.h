@@ -23,7 +23,6 @@
 #include <kpagewidget.h>
 
 #include "GeneralPage.h"
-#include "AssignmentPage.h"
 #include "EditPage.h"
 #include "CapabilitiesPage.h"
 
@@ -46,7 +45,6 @@ signals:
 
 private:
     GeneralPage *m_generalPage;
-    AssignmentPage *m_assignmentPage;
     EditPage *m_editPage;
     CapabilitiesPage *m_capabilitiesPage;
 };

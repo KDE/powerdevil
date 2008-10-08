@@ -37,6 +37,8 @@ GeneralPage::GeneralPage(QWidget *parent)
 {
     setupUi(this);
 
+    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+
     fillUi();
 }
 
@@ -46,6 +48,11 @@ GeneralPage::~GeneralPage()
 
 void GeneralPage::fillUi()
 {
+    reloadAvailableProfiles();
+
+    toolBox->setItemIcon(0, KIcon("preferences-other"));
+    toolBox->setItemIcon(1, KIcon("battery"));
+
     issueIcon->setPixmap(KIcon("dialog-warning").pixmap(32, 32));
     issueIcon->setVisible(false);
     issueText->setVisible(false);
@@ -72,8 +79,6 @@ void GeneralPage::fillUi()
     // modified fields...
 
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(notificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(warningNotificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
@@ -86,17 +91,19 @@ void GeneralPage::fillUi()
     connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
-    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
     connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+
+    connect(acProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 }
 
 void GeneralPage::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
-    dimDisplayOnIdle->setChecked(PowerDevilSettings::dimOnIdle());
-    dimOnIdleTime->setValue(PowerDevilSettings::dimOnIdleTime());
     notificationsBox->setChecked(PowerDevilSettings::enableNotifications());
     warningNotificationsBox->setChecked(PowerDevilSettings::enableWarningNotifications());
     suspendWait->setChecked(PowerDevilSettings::waitBeforeSuspending());
@@ -107,6 +114,11 @@ void GeneralPage::load()
     criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
 
     BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batLowAction()));
+
+    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
 
     enableBoxes();
 }
@@ -119,8 +131,6 @@ void GeneralPage::configureNotifications()
 void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
-    PowerDevilSettings::setDimOnIdle(dimDisplayOnIdle->isChecked());
-    PowerDevilSettings::setDimOnIdleTime(dimOnIdleTime->value());
     PowerDevilSettings::setEnableNotifications(notificationsBox->isChecked());
     PowerDevilSettings::setEnableWarningNotifications(warningNotificationsBox->isChecked());
     PowerDevilSettings::setWaitBeforeSuspending(suspendWait->isChecked());
@@ -132,6 +142,11 @@ void GeneralPage::save()
 
     PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
+    PowerDevilSettings::setACProfile(acProfile->currentText());
+    PowerDevilSettings::setLowProfile(lowProfile->currentText());
+    PowerDevilSettings::setWarningProfile(warningProfile->currentText());
+    PowerDevilSettings::setBatteryProfile(batteryProfile->currentText());
+
     PowerDevilSettings::self()->writeConfig();
 }
 
@@ -142,7 +157,6 @@ void GeneralPage::emitChanged()
 
 void GeneralPage::enableBoxes()
 {
-    dimOnIdleTime->setEnabled(dimDisplayOnIdle->isChecked());
     suspendWaitTime->setEnabled(suspendWait->isChecked());
 }
 
@@ -150,6 +164,37 @@ void GeneralPage::enableIssue(bool enable)
 {
     issueIcon->setVisible(enable);
     issueText->setVisible(enable);
+}
+
+void GeneralPage::reloadAvailableProfiles()
+{
+    m_profilesConfig->reparseConfiguration();
+
+    acProfile->clear();
+    batteryProfile->clear();
+    lowProfile->clear();
+    warningProfile->clear();
+
+    if (m_profilesConfig->groupList().isEmpty()) {
+        kDebug() << "No available profiles!";
+        return;
+    }
+
+    foreach(const QString &ent, m_profilesConfig->groupList()) {
+        KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
+
+        acProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        batteryProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        lowProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        warningProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        delete group;
+    }
+
+    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
+
 }
 
 #include "GeneralPage.moc"
