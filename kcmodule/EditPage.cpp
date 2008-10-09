@@ -191,9 +191,9 @@ void EditPage::fillUi()
 
     reloadAvailableProfiles();
 
-    toolBox->setItemIcon(0, KIcon("video-display"));
-    toolBox->setItemIcon(1, KIcon("cpu"));
-    toolBox->setItemIcon(2, KIcon("preferences-system-power-management"));
+    toolBox->setItemIcon(0, KIcon("preferences-system-session-services"));
+    toolBox->setItemIcon(1, KIcon("video-display"));
+    toolBox->setItemIcon(2, KIcon("cpu"));
 
     DPMSLabel->setUrl("http://www.energystar.gov");
     DPMSLabel->setPixmap(QPixmap(KStandardDirs::locate("data", "kcontrol/pics/energybig.png")));
