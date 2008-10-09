@@ -377,9 +377,21 @@ void PowerDevilDaemon::setUpDPMS()
 
         //
 
-        DPMSSetTimeouts(dpy, 60 * settings->readEntry("DPMSStandby").toInt(),
-                        60 * settings->readEntry("DPMSSuspend").toInt(),
-                        60 * settings->readEntry("DPMSPowerOff").toInt());
+        int standby = 60 * settings->readEntry("DPMSStandby").toInt();
+        int suspend = 60 * settings->readEntry("DPMSSuspend").toInt();
+        int poff = 60 * settings->readEntry("DPMSPowerOff").toInt();
+
+        if (settings->readEntry("DPMSStandbyEnabled", false)) {
+            standby = 0;
+        }
+        if (settings->readEntry("DPMSSuspendEnabled", false)) {
+            suspend = 0;
+        }
+        if (settings->readEntry("DPMSPowerOffEnabled", false)) {
+            poff = 0;
+        }
+
+        DPMSSetTimeouts(dpy, standby, suspend, poff);
 
         XFlush(dpy);
         XSetErrorHandler(defaultHandler);
