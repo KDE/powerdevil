@@ -285,7 +285,7 @@ void CapabilitiesPage::fillCapabilities()
 
         bool found = false;
 
-        foreach(const QVariant &ent, systems.value().values()) {
+        foreach(const QVariant &ent, systems.value()) {
             if (ent.toInt() == 2) {
                 found = true;
             }
