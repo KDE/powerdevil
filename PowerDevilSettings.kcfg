@@ -22,6 +22,9 @@
     <entry name="configLockScreen" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="manageDPMS" type="Bool">
+      <default>true</default>
+    </entry>
     <entry name="EnableNotifications" type="Bool">
       <default>true</default>
     </entry>

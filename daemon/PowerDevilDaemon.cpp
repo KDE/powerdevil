@@ -1237,7 +1237,9 @@ void PowerDevilDaemon::profileFirstLoad()
         m_compositingChanged = false;
     }
 
-    QTimer::singleShot(300, this, SLOT(setUpDPMS()));
+    if (PowerDevilSettings::manageDPMS()) {
+        QTimer::singleShot(300, this, SLOT(setUpDPMS()));
+    }
 }
 
 bool PowerDevilDaemon::toggleCompositing(bool enabled)

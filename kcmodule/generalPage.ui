@@ -95,7 +95,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0" >
+          <item row="2" column="0" >
            <widget class="QCheckBox" name="notificationsBox" >
             <property name="toolTip" >
              <string>Enables standard notifications</string>
@@ -111,7 +111,7 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="0" >
+          <item row="3" column="0" >
            <widget class="QCheckBox" name="warningNotificationsBox" >
             <property name="toolTip" >
              <string>Enables warning notifications</string>
@@ -124,7 +124,7 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="1" >
+          <item row="3" column="1" >
            <widget class="QPushButton" name="notificationsButton" >
             <property name="maximumSize" >
              <size>
@@ -137,7 +137,7 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="0" >
+          <item row="4" column="0" >
            <widget class="QCheckBox" name="suspendWait" >
             <property name="toolTip" >
              <string>Interval for interactive confirm notifications</string>
@@ -150,7 +150,7 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1" >
+          <item row="4" column="1" >
            <widget class="KIntSpinBox" name="suspendWaitTime" >
             <property name="maximumSize" >
              <size>
@@ -163,6 +163,13 @@
             </property>
             <property name="maximum" >
              <number>300</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QCheckBox" name="enableDPMSBox" >
+            <property name="text" >
+             <string>Let PowerDevil manage screen powersaving</string>
             </property>
            </widget>
           </item>

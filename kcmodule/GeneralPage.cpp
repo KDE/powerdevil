@@ -79,11 +79,11 @@ void GeneralPage::fillUi()
     // modified fields...
 
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
+    connect(enableDPMSBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(notificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(warningNotificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(suspendWaitTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 
@@ -105,6 +105,7 @@ void GeneralPage::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
     notificationsBox->setChecked(PowerDevilSettings::enableNotifications());
+    enableDPMSBox->setChecked(PowerDevilSettings::manageDPMS());
     warningNotificationsBox->setChecked(PowerDevilSettings::enableWarningNotifications());
     suspendWait->setChecked(PowerDevilSettings::waitBeforeSuspending());
     suspendWaitTime->setValue(PowerDevilSettings::waitBeforeSuspendingTime());
@@ -132,6 +133,7 @@ void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
     PowerDevilSettings::setEnableNotifications(notificationsBox->isChecked());
+    PowerDevilSettings::setManageDPMS(enableDPMSBox->isChecked());
     PowerDevilSettings::setEnableWarningNotifications(warningNotificationsBox->isChecked());
     PowerDevilSettings::setWaitBeforeSuspending(suspendWait->isChecked());
     PowerDevilSettings::setWaitBeforeSuspendingTime(suspendWaitTime->value());
