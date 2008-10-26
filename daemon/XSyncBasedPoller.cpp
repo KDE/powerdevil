@@ -224,10 +224,11 @@ void XSyncBasedPoller::setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter co
     flags = XSyncCACounter | XSyncCAValueType | XSyncCATestType |
             XSyncCAValue | XSyncCADelta;
 
-    if (*alarm)
+    if (*alarm) {
         XSyncChangeAlarm(dpy, *alarm, flags, &attr);
-    else
+    } else {
         *alarm = XSyncCreateAlarm(dpy, flags, &attr);
+    }
 }
 #endif
 

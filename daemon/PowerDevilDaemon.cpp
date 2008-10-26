@@ -44,7 +44,6 @@
 #include "PowerManagementConnector.h"
 #include "PollSystemLoader.h"
 #include "SuspensionLockHandler.h"
-#include "AbstractSystemPoller.h"
 
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
@@ -211,26 +210,57 @@ PowerDevilDaemon::~PowerDevilDaemon()
 
 void PowerDevilDaemon::setUpPollingSystem()
 {
+    if (!loadPollingSystem((AbstractSystemPoller::PollingType) PowerDevilSettings::pollingSystem())) {
+        /* Let's try to load each profile one at a time, and then
+         * set the configuration to the profile that worked out.
+         */
+
+        if (loadPollingSystem(AbstractSystemPoller::XSyncBased)) {
+            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::XSyncBased);
+            PowerDevilSettings::self()->writeConfig();
+            return;
+        }
+
+        if (loadPollingSystem(AbstractSystemPoller::WidgetBased)) {
+            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::WidgetBased);
+            PowerDevilSettings::self()->writeConfig();
+            return;
+        }
+
+        if (loadPollingSystem(AbstractSystemPoller::TimerBased)) {
+            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::TimerBased);
+            PowerDevilSettings::self()->writeConfig();
+            return;
+        }
+
+        /* If we're here, we have a big problem, since no polling system has been loaded.
+         * What should we do? For now, let's just spit out a kError
+         */
+
+        kError() << "Could not load a polling system!";
+    }
+}
+
+bool PowerDevilDaemon::loadPollingSystem(AbstractSystemPoller::PollingType type)
+{
     QMap<AbstractSystemPoller::PollingType, QString> pList = m_pollLoader->getAvailableSystems();
 
-    if (!pList.contains((AbstractSystemPoller::PollingType) PowerDevilSettings::pollingSystem())) {
-        m_pollLoader->loadSystem(AbstractSystemPoller::TimerBased);
-        PowerDevilSettings::setPollingSystem((int) AbstractSystemPoller::TimerBased);
-        PowerDevilSettings::self()->writeConfig();
+    if (!pList.contains(type)) {
+        return false;
     } else {
-        m_pollLoader->loadSystem((AbstractSystemPoller::PollingType) PowerDevilSettings::pollingSystem());
+        if (!m_pollLoader->loadSystem(type)) {
+            return false;
+        }
     }
 
     if (m_pollLoader->poller()) {
         connect(m_pollLoader->poller(), SIGNAL(resumingFromIdle()), SLOT(resumeFromIdle()));
         connect(m_pollLoader->poller(), SIGNAL(pollRequest(int)), SLOT(poll(int)));
     } else {
-        m_pollLoader->loadSystem(AbstractSystemPoller::TimerBased);
-        PowerDevilSettings::setPollingSystem((int) AbstractSystemPoller::TimerBased);
-        PowerDevilSettings::self()->writeConfig();
-        connect(m_pollLoader->poller(), SIGNAL(resumingFromIdle()), SLOT(resumeFromIdle()));
-        connect(m_pollLoader->poller(), SIGNAL(pollRequest(int)), SLOT(poll(int)));
+        return false;
     }
+
+    return true;
 }
 
 QVariantMap PowerDevilDaemon::getSupportedPollingSystems()

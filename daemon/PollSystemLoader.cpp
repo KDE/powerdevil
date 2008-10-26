@@ -32,6 +32,7 @@ PollSystemLoader::PollSystemLoader(QObject *parent)
 
 PollSystemLoader::~PollSystemLoader()
 {
+    unloadCurrentSystem();
 }
 
 void PollSystemLoader::createAvailableCache()
@@ -133,9 +134,11 @@ bool PollSystemLoader::loadSystem(AbstractSystemPoller::PollingType type)
 
 bool PollSystemLoader::unloadCurrentSystem()
 {
-    m_poller->unloadPoller();
+    if (m_poller) {
+        m_poller->unloadPoller();
 
-    m_poller->deleteLater();
+        m_poller->deleteLater();
+    }
 
     return true;
 }

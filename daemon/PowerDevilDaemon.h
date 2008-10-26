@@ -26,6 +26,8 @@
 #include <KComponentData>
 #include <QStringList>
 
+#include "AbstractSystemPoller.h"
+
 class QWidget;
 class QTimer;
 class PollSystemLoader;
@@ -136,6 +138,8 @@ private:
     void profileFirstLoad();
 
     void restoreDefaultProfiles();
+
+    bool loadPollingSystem(AbstractSystemPoller::PollingType type);
 
 public:
     enum IdleAction {
