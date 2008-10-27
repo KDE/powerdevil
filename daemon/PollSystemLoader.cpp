@@ -27,7 +27,7 @@ PollSystemLoader::PollSystemLoader(QObject *parent)
         : QObject(parent),
         m_poller(0)
 {
-    createAvailableCache();
+    reloadAvailableCache();
 }
 
 PollSystemLoader::~PollSystemLoader()
@@ -35,7 +35,7 @@ PollSystemLoader::~PollSystemLoader()
     unloadCurrentSystem();
 }
 
-void PollSystemLoader::createAvailableCache()
+void PollSystemLoader::reloadAvailableCache()
 {
     m_availableSystems.clear();
 
@@ -61,32 +61,14 @@ void PollSystemLoader::createAvailableCache()
 
 QMap<AbstractSystemPoller::PollingType, QString> PollSystemLoader::getAvailableSystems()
 {
-    m_availableSystems.clear();
-
-    // Test each polling system
-    WidgetBasedPoller *wpl = new WidgetBasedPoller(this);
-    XSyncBasedPoller *xpl = new XSyncBasedPoller(this);
-    TimerBasedPoller *tpl = new TimerBasedPoller(this);
-
-    if (wpl->isAvailable()) {
-        m_availableSystems[AbstractSystemPoller::WidgetBased] = wpl->name();
-    }
-    if (xpl->isAvailable()) {
-        m_availableSystems[AbstractSystemPoller::XSyncBased] = xpl->name();
-    }
-    if (tpl->isAvailable()) {
-        m_availableSystems[AbstractSystemPoller::TimerBased] = tpl->name();
-    }
-
-    wpl->deleteLater();
-    xpl->deleteLater();
-    tpl->deleteLater();
-
+    // Cached
     return m_availableSystems;
 }
 
 QMap<int, QString> PollSystemLoader::getAvailableSystemsAsInt()
 {
+    // Cached
+
     QMap<int, QString> retlist;
 
     foreach(const AbstractSystemPoller::PollingType &ent, m_availableSystems.keys()) {

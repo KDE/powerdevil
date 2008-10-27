@@ -337,6 +337,7 @@ void CapabilitiesPage::setIssue(bool issue, const QString &text,
 
             ly->removeWidget(tx);
 
+            butly->addStretch();
             butly->addWidget(but);
 
             QVBoxLayout *vl = new QVBoxLayout();
@@ -357,6 +358,9 @@ void CapabilitiesPage::setIssue(bool issue, const QString &text,
             butly->addWidget(but);
 
             connect(but, SIGNAL(clicked()), slot2);
+        }
+        if (!button.isEmpty()) {
+            butly->addStretch();
         }
 
         emit issuesFound(true);

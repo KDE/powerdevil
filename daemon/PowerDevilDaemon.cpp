@@ -172,8 +172,6 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
      * let's check what we got.
      */
 
-    m_pollLoader->createAvailableCache();
-
     if (PowerDevilSettings::pollingSystem() == -1) {
         // Ok, new configuration... so let's see what we've got!!
 

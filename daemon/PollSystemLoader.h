@@ -44,7 +44,7 @@ public:
         return m_poller;
     };
 
-    void createAvailableCache();
+    void reloadAvailableCache();
 
 private:
     QPointer<AbstractSystemPoller> m_poller;

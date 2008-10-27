@@ -84,6 +84,7 @@ private:
     XSyncAlarm          m_resetAlarm;
 #endif
     QWidget * m_filterWidget;
+    bool m_error;
 };
 
 #endif /* XSYNCBASEDPOLLER_H */

@@ -30,8 +30,24 @@ XSyncBasedPoller::XSyncBasedPoller(QObject *parent)
         , m_idleCounter(None)
         , m_timeoutAlarm(None)
         , m_resetAlarm(None)
+        , m_error(false)
 #endif
 {
+#ifdef HAVE_XSYNC
+    int sync_major, sync_minor;
+
+    if (!XSyncQueryExtension(m_display, &m_sync_event, &m_sync_error)) {
+        m_error = true;
+        return;
+    }
+
+    if (!XSyncInitialize(m_display, &sync_major, &sync_minor)) {
+        m_error = true;
+        return;
+    }
+
+    kDebug() << "XSync Inited";
+#endif
 }
 
 XSyncBasedPoller::~XSyncBasedPoller()
@@ -46,11 +62,30 @@ QString XSyncBasedPoller::name()
 bool XSyncBasedPoller::isAvailable()
 {
 #ifdef HAVE_XSYNC
-    if (!XSyncQueryExtension(m_display, &m_sync_event, &m_sync_error)) {
+    if (m_error) {
         return false;
-    } else {
-        return true;
     }
+
+    int ncounters;
+    m_counters = XSyncListSystemCounters(m_display, &ncounters);
+
+    bool idleFound = false;
+
+    for (int i = 0; i < ncounters && !m_idleCounter; ++i) {
+        if (!strcmp(m_counters[i].name, "IDLETIME")) {
+            m_idleCounter = m_counters[i].counter;
+            idleFound = true;
+        }
+    }
+
+    XSyncFreeSystemCounterList(m_counters);
+
+    if (!idleFound) {
+        return false;
+    }
+
+    return true;
+
 #else
     return false;
 #endif
@@ -60,17 +95,10 @@ bool XSyncBasedPoller::setUpPoller()
 {
 #ifdef HAVE_XSYNC
     int ncounters;
-    int sync_major, sync_minor;
 
     if (!isAvailable()) {
         return false;
     }
-
-    if (!XSyncInitialize(m_display, &sync_major, &sync_minor)) {
-        return false;
-    }
-
-    kDebug() << "XSync Inited";
 
     m_counters = XSyncListSystemCounters(m_display, &ncounters);
 
