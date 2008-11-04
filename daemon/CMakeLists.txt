@@ -16,8 +16,8 @@ set( kded_powerdevil_SRCS
 
 kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 
-set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/org.freedesktop.ScreenSaver.xml")
-set(kscreensaver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/org.kde.screensaver.xml)
+set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.freedesktop.ScreenSaver.xml")
+set(kscreensaver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.kde.screensaver.xml)
 set(ksmserver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/org.kde.KSMServerInterface.xml)
 
 qt4_add_dbus_interface(kded_powerdevil_SRCS ${screensaver_xml} screensaver_interface )
