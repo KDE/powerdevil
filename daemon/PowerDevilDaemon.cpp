@@ -125,21 +125,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
     setAvailableProfiles(m_profilesConfig->groupList());
 
-    /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
-     * also on system without batteries. Most of modern desktop systems support CPU scaling,
-     * so somebody might find PowerDevil handy, and we don't want it to crash on them. To put it
-     * short, we simply bypass all adaptor and battery events if no batteries are found.
-     */
-
-    // Here we get our battery interface, it will be useful later.
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        Solid::Device d = device;
-        Solid::Battery *b = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->type() != Solid::Battery::PrimaryBattery) {
-            continue;
-        }
-        m_battery = b;
-    }
+    recacheBatteryPointer();
 
     // Set up all needed DBus interfaces
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
@@ -154,19 +140,6 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
                                   const char*, const QString&)),
             SLOT(emitCriticalNotification(const QString&, const QString&,
                                           const char*, const QString&)));
-
-    /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
-     * about them.
-     */
-    if (m_battery) {
-        connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
-
-        if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
-                     SLOT(batteryChargePercentChanged(int, const QString &)))) {
-            emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
-                                     "Please check your system configuration"));
-        }
-    }
 
     /* Time for setting up polling! We can have different methods, so
      * let's check what we got.
@@ -204,6 +177,40 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 PowerDevilDaemon::~PowerDevilDaemon()
 {
     delete m_currentConfig;
+}
+
+void PowerDevilDaemon::recacheBatteryPointer()
+{
+    /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
+     * also on system without batteries. Most of modern desktop systems support CPU scaling,
+     * so somebody might find PowerDevil handy, and we don't want it to crash on them. To put it
+     * short, we simply bypass all adaptor and battery events if no batteries are found.
+     */
+
+    // Here we get our battery interface, it will be useful later.
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        Solid::Device d = device;
+        Solid::Battery *b = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
+
+        if (b->type() != Solid::Battery::PrimaryBattery) {
+            continue;
+        }
+
+        m_battery = b;
+    }
+
+    /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
+     * about them.
+     */
+    if (m_battery) {
+        connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
+
+        if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
+                SLOT(batteryChargePercentChanged(int, const QString &)))) {
+            emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
+                    "Please check your system configuration"));
+        }
+    }
 }
 
 void PowerDevilDaemon::setUpPollingSystem()
@@ -1045,6 +1052,10 @@ void PowerDevilDaemon::reloadProfile(int state)
     if (!m_battery) {
         setCurrentProfile(PowerDevilSettings::aCProfile());
     } else {
+        if (!m_battery->isValid()) {
+            recacheBatteryPointer();
+        }
+
         if (state == -1) {
             state = Solid::Control::PowerManager::acAdapterState();
         }

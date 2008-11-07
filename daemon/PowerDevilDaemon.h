@@ -141,6 +141,8 @@ private:
 
     bool loadPollingSystem(AbstractSystemPoller::PollingType type);
 
+    void recacheBatteryPointer();
+
 public:
     enum IdleAction {
         None = 0,
