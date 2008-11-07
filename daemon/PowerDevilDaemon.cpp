@@ -1109,11 +1109,7 @@ void PowerDevilDaemon::setProfile(const QString & profile)
      * to be loaded!!
      */
 
-    if (m_battery) {
-        acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
-    } else {
-        applyProfile();
-    }
+    applyProfile();
 
     KConfigGroup * settings = getCurrentProfile();
 
