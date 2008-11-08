@@ -189,13 +189,21 @@ PowerDevilDaemon::~PowerDevilDaemon()
     delete m_currentConfig;
 }
 
-void PowerDevilDaemon::recacheBatteryPointer()
+bool PowerDevilDaemon::recacheBatteryPointer(bool force)
 {
     /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
      * also on system without batteries. Most of modern desktop systems support CPU scaling,
      * so somebody might find PowerDevil handy, and we don't want it to crash on them. To put it
      * short, we simply bypass all adaptor and battery events if no batteries are found.
      */
+
+    if (m_battery) {
+        if (m_battery->isValid() && !force) {
+            return true;
+        }
+    }
+
+    m_battery = 0;
 
     // Here we get our battery interface, it will be useful later.
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
@@ -206,7 +214,9 @@ void PowerDevilDaemon::recacheBatteryPointer()
             continue;
         }
 
-        m_battery = b;
+        if (b->isValid()) {
+            m_battery = b;
+        }
     }
 
     /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
@@ -217,10 +227,16 @@ void PowerDevilDaemon::recacheBatteryPointer()
 
         if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
                      SLOT(batteryChargePercentChanged(int, const QString &)))) {
+
             emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
                                      "Please check your system configuration"));
+            return false;
         }
+    } else {
+        return false;
     }
+
+    return true;
 }
 
 void PowerDevilDaemon::setUpPollingSystem()
@@ -1059,29 +1075,21 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)
 
 void PowerDevilDaemon::reloadProfile(int state)
 {
-    if (!m_battery) {
+    if (!recacheBatteryPointer()) {
         setCurrentProfile(PowerDevilSettings::aCProfile());
     } else {
-        if (!m_battery->isValid()) {
-            recacheBatteryPointer();
+        if (state == -1) {
+            state = Solid::Control::PowerManager::acAdapterState();
         }
 
-        if (!m_battery) {
+        if (state == Solid::Control::PowerManager::Plugged) {
             setCurrentProfile(PowerDevilSettings::aCProfile());
+        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+            setCurrentProfile(PowerDevilSettings::warningProfile());
+        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+            setCurrentProfile(PowerDevilSettings::lowProfile());
         } else {
-            if (state == -1) {
-                state = Solid::Control::PowerManager::acAdapterState();
-            }
-
-            if (state == Solid::Control::PowerManager::Plugged) {
-                setCurrentProfile(PowerDevilSettings::aCProfile());
-            } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
-                setCurrentProfile(PowerDevilSettings::warningProfile());
-            } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
-                setCurrentProfile(PowerDevilSettings::lowProfile());
-            } else {
-                setCurrentProfile(PowerDevilSettings::batteryProfile());
-            }
+            setCurrentProfile(PowerDevilSettings::batteryProfile());
         }
     }
 

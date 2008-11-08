@@ -25,6 +25,7 @@
 #include <solid/battery.h>
 #include <KComponentData>
 #include <QStringList>
+#include <QPointer>
 
 #include "AbstractSystemPoller.h"
 
@@ -141,7 +142,7 @@ private:
 
     bool loadPollingSystem(AbstractSystemPoller::PollingType type);
 
-    void recacheBatteryPointer();
+    bool recacheBatteryPointer(bool force = false);
 
 public:
     enum IdleAction {
@@ -156,7 +157,7 @@ public:
 
 private:
     Solid::Control::PowerManager::Notifier * m_notifier;
-    Solid::Battery * m_battery;
+    QPointer<Solid::Battery> m_battery;
 
     OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
     OrgKdeKSMServerInterfaceInterface * m_ksmServerIface;
