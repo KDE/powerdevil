@@ -135,7 +135,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
     setAvailableProfiles(m_profilesConfig->groupList());
 
-    recacheBatteryPointer();
+    recacheBatteryPointer(true);
 
     // Set up all needed DBus interfaces
     m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
