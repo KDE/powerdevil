@@ -81,6 +81,16 @@ static XErrorHandler defaultHandler;
 
 #endif
 
+#define POLLER_CALL(Object, Method) \
+    if (Object != 0) { \
+        AbstractSystemPoller *t = qobject_cast<AbstractSystemPoller *>(Object); \
+        if (t!=0) { \
+            t->Method; \
+        } \
+    } else { \
+        kWarning() << "WARNING: No poller system loaded, PowerDevil can not detect idle time"; \
+    }
+
 K_PLUGIN_FACTORY(PowerDevilFactory,
                  registerPlugin<PowerDevilDaemon>();)
 K_EXPORT_PLUGIN(PowerDevilFactory("powerdevildaemon"))
@@ -287,8 +297,8 @@ void PowerDevilDaemon::resumeFromIdle()
 
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
 
-    m_pollLoader->poller()->stopCatchingIdleEvents();
-    m_pollLoader->poller()->forcePollRequest();
+    POLLER_CALL(m_pollLoader->poller(), stopCatchingIdleEvents());
+    POLLER_CALL(m_pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::refreshStatus()
@@ -375,7 +385,7 @@ void PowerDevilDaemon::applyProfile()
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
 
-    m_pollLoader->poller()->forcePollRequest();
+    POLLER_CALL(m_pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::setUpDPMS()
@@ -709,7 +719,7 @@ void PowerDevilDaemon::suspendToDisk(bool automated)
         return;
     }
 
-    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
+    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -729,7 +739,7 @@ void PowerDevilDaemon::suspendToRam(bool automated)
         return;
     }
 
-    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
+    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -748,7 +758,7 @@ void PowerDevilDaemon::standby(bool automated)
         return;
     }
 
-    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
+    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -769,7 +779,7 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
                                  + QChar('\n') + job->errorString()));
     }
 
-    m_pollLoader->poller()->simulateUserActivity(); //prevent infinite suspension loops
+    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     kDebug() << "Resuming from suspension";
 
@@ -797,7 +807,7 @@ void PowerDevilDaemon::poll(int idle)
     if (!settings->readEntry("dimOnIdle", false) && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
         kDebug() << "Stopping timer";
-        m_pollLoader->poller()->stopCatchingTimeouts();
+        POLLER_CALL(m_pollLoader->poller(), stopCatchingTimeouts());
         return;
     }
 
@@ -825,7 +835,7 @@ void PowerDevilDaemon::poll(int idle)
 
     if (idle < minTime) {
         int remaining = minTime - idle;
-        m_pollLoader->poller()->setNextTimeout(remaining * 1000);
+        POLLER_CALL(m_pollLoader->poller(), setNextTimeout(remaining * 1000));
         kDebug() << "Nothing to do, next event in" << remaining << "seconds";
         return;
     }
@@ -843,23 +853,23 @@ void PowerDevilDaemon::poll(int idle)
 
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
-            m_pollLoader->poller()->catchIdleEvent();
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
             shutdownNotification(true);
             break;
         case S2Disk:
-            m_pollLoader->poller()->catchIdleEvent();
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
             suspendToDiskNotification(true);
             break;
         case S2Ram:
-            m_pollLoader->poller()->catchIdleEvent();
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
             suspendToRamNotification(true);
             break;
         case Standby:
-            m_pollLoader->poller()->catchIdleEvent();
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
             standbyNotification(true);
             break;
         case Lock:
-            m_pollLoader->poller()->catchIdleEvent();
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
             lockScreen();
             break;
         default:
@@ -870,20 +880,20 @@ void PowerDevilDaemon::poll(int idle)
 
     } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= dimOnIdleTime)) {
-        m_pollLoader->poller()->catchIdleEvent();
+        POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
         Solid::Control::PowerManager::setBrightness(0);
     } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= (dimOnIdleTime * 3 / 4))) {
-        m_pollLoader->poller()->catchIdleEvent();
+        POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
         float newBrightness = Solid::Control::PowerManager::brightness() / 4;
         Solid::Control::PowerManager::setBrightness(newBrightness);
     } else if (settings->readEntry("dimOnIdle", false) &&
                (idle >= (dimOnIdleTime * 1 / 2))) {
-        m_pollLoader->poller()->catchIdleEvent();
+        POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
         float newBrightness = Solid::Control::PowerManager::brightness() / 2;
         Solid::Control::PowerManager::setBrightness(newBrightness);
     } else {
-        m_pollLoader->poller()->stopCatchingIdleEvents();
+        POLLER_CALL(m_pollLoader->poller(), stopCatchingIdleEvents());
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     }
 
@@ -912,10 +922,10 @@ void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
     }
 
     if (nextTimeout >= 0) {
-        m_pollLoader->poller()->setNextTimeout(nextTimeout * 1000);
+        POLLER_CALL(m_pollLoader->poller(), setNextTimeout(nextTimeout * 1000));
         kDebug() << "Next timeout in" << nextTimeout << "seconds";
     } else {
-        m_pollLoader->poller()->stopCatchingTimeouts();
+        POLLER_CALL(m_pollLoader->poller(), stopCatchingTimeouts());
         kDebug() << "Stopping timer";
     }
 }
@@ -1102,7 +1112,7 @@ void PowerDevilDaemon::reloadProfile(int state)
         }
     }
 
-    m_pollLoader->poller()->forcePollRequest();
+    POLLER_CALL(m_pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::setProfile(const QString & profile)
