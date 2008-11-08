@@ -206,9 +206,9 @@ void PowerDevilDaemon::recacheBatteryPointer()
         connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
 
         if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
-                SLOT(batteryChargePercentChanged(int, const QString &)))) {
+                     SLOT(batteryChargePercentChanged(int, const QString &)))) {
             emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
-                    "Please check your system configuration"));
+                                     "Please check your system configuration"));
         }
     }
 }
@@ -1056,18 +1056,22 @@ void PowerDevilDaemon::reloadProfile(int state)
             recacheBatteryPointer();
         }
 
-        if (state == -1) {
-            state = Solid::Control::PowerManager::acAdapterState();
-        }
-
-        if (state == Solid::Control::PowerManager::Plugged) {
+        if (!m_battery) {
             setCurrentProfile(PowerDevilSettings::aCProfile());
-        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
-            setCurrentProfile(PowerDevilSettings::warningProfile());
-        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
-            setCurrentProfile(PowerDevilSettings::lowProfile());
         } else {
-            setCurrentProfile(PowerDevilSettings::batteryProfile());
+            if (state == -1) {
+                state = Solid::Control::PowerManager::acAdapterState();
+            }
+
+            if (state == Solid::Control::PowerManager::Plugged) {
+                setCurrentProfile(PowerDevilSettings::aCProfile());
+            } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+                setCurrentProfile(PowerDevilSettings::warningProfile());
+            } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+                setCurrentProfile(PowerDevilSettings::lowProfile());
+            } else {
+                setCurrentProfile(PowerDevilSettings::batteryProfile());
+            }
         }
     }
 
