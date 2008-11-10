@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=system
 
 Name=Power Management
 Name[be@latin]=Kiravańnie enerhijaj
+Name[ca]=Gestió d'energia
 Name[el]=Διαχείριση ενέργειας
 Name[gl]=Xestión da enerxía
 Name[gu]=પાવર વ્યવસ્થાપક
@@ -33,6 +34,7 @@ Name[x-test]=xxPower Managementxx
 Name[zh_TW]=電源管理
 
 Comment=Display brightness, suspend and power profile settings
+Comment[ca]=Mostra els paràmetres de la lluminositat, suspensió i del perfil d'energia
 Comment[el]=Φωτεινότητα οθόνης, αναστολή και ρυθμίσεις προφίλ ενέργειας
 Comment[gl]=Mostra os axustes de brillo, suspensión e enerxía do perfíl
 Comment[gu]=ડિસ્પ્લે ઉજાસ, સસ્પેન્ડ અને પાવર પ્રોફાઇલ ગોઠવણીઓ

@@ -1,6 +1,7 @@
 [Global]
 Name=Power Management
 Name[be@latin]=Kiravańnie enerhijaj
+Name[ca]=Gestió d'energia
 Name[el]=Διαχείριση ενέργειας
 Name[gl]=Xestión da enerxía
 Name[gu]=પાવર વ્યવસ્થાપક
@@ -101,6 +102,7 @@ Name[x-test]=xxWarningxx
 Name[zh_CN]=警告
 Name[zh_TW]=警告
 Comment=Used for warning notifications
+Comment[ca]=S'usa per a les notificacions d'avís
 Comment[el]=Χρησιμοποιείται για τις προειδοποιήσεις
 Comment[gl]=Emprégase para as notificacións de aviso
 Comment[gu]=ચેતવણી નોંધણીઓ આપવા માટે વપરાય છે
@@ -191,6 +193,7 @@ Name[zh_CN]=通知
 Name[zh_TW]=通知
 Comment=Used for standard notifications
 Comment[be@latin]=Dla zvyčajnych infarmavańniaŭ
+Comment[ca]=S'usa per a les notificacions estàndard
 Comment[el]=Χρησιμοποιείται για τυπικές ειδοποιήσεις
 Comment[gl]=Emprégase para as notificacións estándar
 Comment[gu]=પ્રમાણભૂત નોંધ કરવા માટે ઉપયોગ થાય છે
@@ -212,6 +215,7 @@ Comment[zh_TW]=用於標準通知
 [Context/criticalnot]
 Name=Critical notification
 Name[be@latin]=Važnaje infarmavańnie
+Name[ca]=Notificacions crítiques
 Name[el]=Κρίσιμη ειδοποίηση
 Name[gl]=Notificación crítica
 Name[gu]=નિર્ણાયક નોંધણી
@@ -230,6 +234,7 @@ Name[uk]=Сповіщення про критичні події
 Name[x-test]=xxCritical notificationxx
 Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
+Comment[ca]=Notifiquen esdeveniments crítics
 Comment[el]=Ειδοποίηση ενός κρίσιμου γεγονότος
 Comment[gl]=Notifica un evento crítico
 Comment[gu]=ખતરાની ઘટનાની નોંધ આપે છે
@@ -250,6 +255,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Low Battery
+Name[ca]=Bateria baixa
 Name[el]=Χαμηλή μπαταρία
 Name[gl]=Batería baixa
 Name[gu]=ઓછી બેટ્રી
@@ -269,6 +275,7 @@ Name[uk]=Заряд закінчується
 Name[x-test]=xxLow Batteryxx
 Name[zh_TW]=電池電力已低
 Comment=Your battery has reached low level
+Comment[ca]=La bateria ha arribat al nivell baix
 Comment[el]=Η μπαταρία σας έχει βρεθεί σε χαμηλή στάθμη ενέργειας
 Comment[gl]=A batería acadou o nível de carga baixa
 Comment[gu]=તમારી બેટ્રી નીચા સ્તર પર પહોંચી ગઇ છે
@@ -293,6 +300,7 @@ Action=Sound|Popup
 
 [Event/warningbattery]
 Name=Battery at warning level
+Name[ca]=Bateria al nivell d'avís
 Name[el]=Μπαταρία σε στάθμη προειδοποίησης
 Name[gl]=Batería no nível de alerta
 Name[gu]=બેટ્રી ચેતવણીનાં સ્તર પર છે
@@ -312,6 +320,7 @@ Name[uk]=Заряд акумулятора на низькому рівні
 Name[x-test]=xxBattery at warning levelxx
 Name[zh_TW]=電池電力已到警告區
 Comment=Your battery has reached warning level
+Comment[ca]=La bateria ha arribat al nivell d'avís
 Comment[el]=Η μπαταρία σας έχει βρεθεί σε στάθμη ενέργειας προειδοποίησης
 Comment[gl]=A batería acadou o nível de alerta
 Comment[gu]=તમારી બેટ્રી ચેતવણી સ્તર પર પહોંચી છે
@@ -336,6 +345,7 @@ Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
+Name[ca]=Bateria al nivell crític
 Name[el]=Μπαταρία σε κρίσιμο επίπεδο
 Name[gl]=Batería no nível crítico
 Name[gu]=બેટ્રી ખતરાનાં સ્તર પર છે
@@ -355,6 +365,7 @@ Name[uk]=Заряд на критичному рівні
 Name[x-test]=xxBattery at critical levelxx
 Name[zh_TW]=電池電力已到嚴重警告區
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
+Comment[ca]=La bateria ha arribat al nivell crític. Aquesta notificació activa un compte enrere abans d'efectuar l'acció configurada, per tant, es recomana deixar-ho actiu.
 Comment[el]=Η μπαταρία σας βρίσκεται σε κρίσιμη στάθμη ενέργειας. Η ειδοποίηση αυτή ενεργοποιεί μια αντίστροφη μέτρηση πριν την εκτέλεση της ρυθμισμένης ενέργειας. Συστήνεται έντονα η ενεργοποίηση αυτής της λειτουργίας.
 Comment[gl]=A batería acadou o nível crítico. Esta notificación inicia unha conta-atrás previa a realizar a acción configurada, polo que se recomenda que a deixe seguir.
 Comment[hsb]=Aku je kritisce prózdny. Tute skedźbnjenje startuje countdown před konfigurowanej akciju, tuž so doporuči jón nic přetorhnyć.
@@ -376,6 +387,7 @@ Action=Sound|Popup
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[ca]=Adaptador de CA endollat
 Name[el]=Σύνδεση με μετασχηματιστή AC
 Name[gl]=Enchufouse a alimentación externa
 Name[gu]=AC એડપ્ટર લગાવવામાં આવ્યું
@@ -395,6 +407,7 @@ Name[uk]=Увімкнено живлення від мережі
 Name[x-test]=xxAC adaptor plugged inxx
 Name[zh_TW]=AC 電源已插入
 Comment=The power adaptor has been plugged in
+Comment[ca]=L'adaptador de corrent s'ha endollat
 Comment[el]=Ο μετασχηματιστής ρεύματος συνδέθηκε
 Comment[gl]=Enchufouse o transformador de corrente
 Comment[gu]=પાવર એડપ્ટર લગાવવામાં આવેલ છે
@@ -420,6 +433,7 @@ Action=Sound|Popup
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[ca]=Adaptador de CA desendollat
 Name[el]=Ο μετασχηματιστής ρεύματος AC αποσυνδέθηκε
 Name[gl]=Desenchufouse a alimentación externa
 Name[gu]=AC એડપ્ટર નીકાળી લેવામાં આવ્યું
@@ -440,6 +454,7 @@ Name[uk]=Вимкнено живлення від мережі
 Name[x-test]=xxAC adaptor unpluggedxx
 Name[zh_TW]=AC 電源已拔除
 Comment=The power adaptor has been unplugged
+Comment[ca]=L'adaptador de corrent s'ha desendollat
 Comment[el]=Ο μετασχηματιστής ρεύματος αποσυνδέθηκε
 Comment[gl]=Desenchufouse o transformador de corrente
 Comment[gu]=પાવર એડપ્ટર કાઢી નાખવામાં આવેલ છે
@@ -464,6 +479,7 @@ Action=Sound|Popup
 
 [Event/joberror]
 Name=Job error
+Name[ca]=Error de treball
 Name[el]=Σφάλμα εργασίας
 Name[gl]=Erro na tarefa
 Name[gu]=કાર્ય ક્ષતિ
@@ -484,6 +500,7 @@ Name[x-test]=xxJob errorxx
 Name[zh_TW]=工作錯誤
 Comment=There was an error while performing a job
 Comment[be@latin]=U prahramie ŭźnikła pamyłka padčas vykanańnia zadańnia.
+Comment[ca]=Ha hagut un error en executar un treball
 Comment[el]=Υπήρξε ένα σφάλμα κατά την εκτέλεση μιας εργασίας
 Comment[gl]=Aconteceu un erro ao realizar unha tarefa
 Comment[gu]=કાર્ય કરવામાં ક્ષતિ આવી હતી
@@ -508,6 +525,7 @@ Action=Sound|Popup
 
 [Event/profileset]
 Name=Profile Changed
+Name[ca]=S'ha canviat el perfil
 Name[el]=Τροποποίηση προφίλ
 Name[gl]=Modificouse o perfil
 Name[gu]=પ્રોફાઇલ બદલાઇ ગઇ
@@ -526,6 +544,7 @@ Name[uk]=Змінений профіль
 Name[x-test]=xxProfile Changedxx
 Name[zh_TW]=設定檔已變更
 Comment=The profile was changed
+Comment[ca]=S'ha canviat el perfil
 Comment[el]=Το προφίλ τροποποιήθηκε
 Comment[gl]=Modificouse o perfil
 Comment[gu]=પ્રોફાઇલ બદલાઇ ગયેલ હતી
@@ -549,6 +568,7 @@ Action=Sound|Popup
 
 [Event/doingjob]
 Name=Performing a suspension job
+Name[ca]=S'està executant un treball de suspensió
 Name[el]=Γίνεται εκτέλεση μιας εργασίας αναστολής
 Name[gl]=A facer unha suspensión
 Name[gu]=સસ્પેન્શન કાર્ય કરે છે
@@ -564,6 +584,7 @@ Name[uk]=Виконання завдання з присипляння
 Name[x-test]=xxPerforming a suspension jobxx
 Name[zh_TW]=執行暫停的工作中
 Comment=This notification is displayed when a suspension job is about to be done, and it triggers a countdown. Hence, it is strongly advised to leave it on.
+Comment[ca]=Aquesta notificació es mostra quan s'està a punt d'iniciar un treball de suspensió, i ha activat un compte enrere. Per tant, es recomana deixar-ho actiu.
 Comment[el]=Αυτή η ειδοποίηση εμφανίζεται όταν πρόκειται να εκτελεστεί μια εργασία αναστολής, και εκτελεί μια αντίστροφη μέτρηση πριν από αυτήν. Συστήνεται έντονα η ενεργοποίησή της.
 Comment[gl]=Esta notificación móstrase cando se está a piques de facer unha suspensión, e inicia unha conta atrás. Polo tanto, recoméndase que lle deixe seguir.
 Comment[kk]=Бұл құлақтандыру қалғу режіміне өту ензіне қалған уакыт санауы басталғанда көрсетіледі. Бұған кедергі қылмауы абзал.
@@ -584,6 +605,7 @@ Action=Sound|Popup
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error
 Name[be@latin]=Unutranaja pamyłka słužby „PowerDevil”
+Name[ca]=Error intern del PowerDevil
 Name[el]=Εσωτερικό σφάλμα PowerDevil
 Name[gl]=Erro interno de PowerDevil
 Name[gu]=આંતરિક પાવરડેવિલ ક્ષતિ
@@ -603,6 +625,7 @@ Name[uk]=Внутрішня помилка PowerDevil
 Name[x-test]=xxInternal PowerDevil Errorxx
 Name[zh_TW]=PowerDevil 內部錯誤
 Comment=PowerDevil has triggered an internal error
+Comment[ca]=El PowerDevil ha activat un error intern
 Comment[el]=Προκλήθηκε ένα εσωτερικό σφάλμα στο PowerDevil
 Comment[gl]=PowerDevil iniciou un erro interno
 Comment[gu]=પાવરડેવિલે આંતરિક ક્ષતિ શરૂ કરી છે
@@ -626,6 +649,7 @@ Action=Sound|Popup
 
 [Event/inhibition]
 Name=Suspension inhibited
+Name[ca]=La suspensió s'ha inhibit
 Name[el]=Αποτροπή αναστολής
 Name[gl]=Evitouse a suspensión
 Name[gu]=સસ્પેન્શન રોકી દેવાયું
@@ -642,6 +666,7 @@ Name[uk]=Присипляння заблоковано
 Name[x-test]=xxSuspension inhibitedxx
 Name[zh_TW]=禁止暫停
 Comment=The suspension has been inhibited because an application requested it
+Comment[ca]=La suspensió s'ha inhibit perquè una aplicació ho ha sol·licitat
 Comment[el]=Η αναστολή αποτράπηκε επειδή μια εφαρμογή το απαίτησε
 Comment[gl]=Evitouse a suspensión porque así o pediu un programa
 Comment[gu]=સસ્પેન્શન રોકી દેવામાં આવ્યું કારણકે કાર્યક્રમે તેની વિનંતી કરી હતી
