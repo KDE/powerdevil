@@ -9,8 +9,10 @@ Name[he]=ניהול צריכת חשמל
 Name[kk]=Қуаттандыруды басқару
 Name[km]=ការ​គ្រប់គ្រង​ថាមពល
 Name[kn]=ವಿದ್ಯುಚ್ಛಕ್ತಿ ವ್ಯವಸ್ಥಾಪನೆ
+Name[ml]=പവര്‍ മാനേജ്മെന്റ്
 Name[nb]=Strømstyring
 Name[nds]=Stroomkuntrull
+Name[nl]=Energiebeheer
 Name[pa]=ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ
 Name[pt]=Gestão de Energia
 Name[pt_BR]=Gestão de Energia
@@ -109,8 +111,10 @@ Comment[gu]=ચેતવણી નોંધણીઓ આપવા માટે �
 Comment[kk]=Ескерту хабарларға қолданылады
 Comment[km]=បានប្រើ​សម្រាប់​ការ​ជូន​ព្រមាន
 Comment[kn]=ಎಚ್ಚರಿಕೆ ಸೂಚನೆಗಳಿಗೆ ಬಳಸಲಾಗುತ್ತದೆ
+Comment[ml]=താക്കീത് അറിയിപ്പുകള്‍ക്കായ് ഉപയോഗിക്കുന്നു
 Comment[nb]=Brukt til varselsmeldinger
 Comment[nds]=Bi Wohrschoen bruukt
+Comment[nl]=Wordt gebruikt voor waarschuwingsmeldingen
 Comment[pa]=ਚੇਤਾਵਨੀ ਨੋਟੀਫਿਕੇਸ਼ਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ
 Comment[pt]=Usado para as notificações de aviso
 Comment[pt_BR]=Usado para as notificações de aviso
@@ -200,8 +204,10 @@ Comment[gu]=પ્રમાણભૂત નોંધ કરવા માટે �
 Comment[kk]=Стандаартты құлақтандырулар үшін қолданылады
 Comment[km]=បាន​ប្រើ​សម្រាប់​ការ​ជូនដំណឹង​ស្តង់ដារ
 Comment[kn]=ಪ್ರಮಾಣಿತ ಸೂಚನೆಗಳಿಗೆ ಬಳಸಲಾಗುತ್ತದೆ
+Comment[ml]=സാധാരണ അറിയിപ്പുകള്‍ക്കായ് ഉപയോഗിക്കുന്നത്
 Comment[nb]=Brukt til standardmeldinger
 Comment[nds]=Bi Standardbescheden bruukt
+Comment[nl]=Wordt gebruikt voor standaardmeldingen
 Comment[pa]=ਸਟੈਂਡਰਡ ਨੋਟੀਫਿਕੇਸ਼ਨ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ
 Comment[pt]=Usado para as notificações normais
 Comment[pt_BR]=Usado para as notificações normais
@@ -222,8 +228,10 @@ Name[gu]=નિર્ણાયક નોંધણી
 Name[kk]=Маңызды құлақтандыру
 Name[km]=ការ​ជូន​ដំណឹង​សំខាន់
 Name[kn]=ವಿಷಮ ಸೂಚನೆ
+Name[ml]=അത്യാവശ്യ അറിയിപ്പു്
 Name[nb]=Kritisk varsling
 Name[nds]=Kritisch Bescheed
+Name[nl]=Kritieke melding
 Name[pa]=ਨੁਜ਼ਾਕ ਨੋਟੀਫਿਕੇਸ਼ਨ
 Name[pt]=Notificação crítica
 Name[pt_BR]=Notificação crítica
@@ -241,8 +249,10 @@ Comment[gu]=ખતરાની ઘટનાની નોંધ આપે છે
 Comment[kk]=Дағдарысты оқиға туралы құлақтандыру
 Comment[km]=ជូនដំណឹង​ព្រត្តិការណ៍​សំខាន់
 Comment[kn]=ವಿಷಮ ಘಟನೆಯೊಂದನ್ನು ಸೂಚಿಸುತ್ತದೆ
+Comment[ml]=ഒരു അത്യാവശ്യമായ സംഭവം അറിയിക്കുന്നു
 Comment[nb]=Varsler om en kritisk hendelse
 Comment[nds]=Gifft över en kritisch Begeefnis bescheed
+Comment[nl]=Meldt een kritieke gebeurtenis
 Comment[pa]=ਇੱਕ ਨਾਜ਼ੁਕ ਈਵੈਂਟ ਲਈ ਸੂਚਨਾ
 Comment[pt]=Notifica um evento crítico
 Comment[pt_BR]=Notifica um evento crítico
@@ -263,8 +273,10 @@ Name[he]=סוללה חלשה
 Name[kk]=Қуаты аз
 Name[km]=ថ្ម​ទាប
 Name[kn]=ವಿದ್ಯುಕ್ಕೋಶದ ಶಕ್ತಿ ಕ್ಷೀಣವಾಗಿದೆ
+Name[ml]=ബാറ്ററി കുറവാണു്‌
 Name[nb]=Lavt batterinivå
 Name[nds]=Siet Batterie
+Name[nl]=Lage accucapaciteit
 Name[pa]=ਘੱਟ ਬੈਟਰੀ
 Name[pt]=Bateria Fraca
 Name[pt_BR]=Bateria Fraca
@@ -283,8 +295,10 @@ Comment[hsb]=Aku je nětko skoro prózdny.
 Comment[kk]=Батареяңыздың қуаты аз
 Comment[km]=ថ្ម​របស់​​​អ្នក​បាន​ឈាន​ដល់​កម្រិត​ទាប
 Comment[kn]=ನಿನ್ನ ವಿದ್ಯುತ್ಕೋಶವು ಕ್ಷೀಣ ಸ್ಥಿತಿಗೆ ತಲುಪಿದೆ
+Comment[ml]=നിങ്ങളുടെ ബാറ്ററി കുറവായ നില എത്തിയിരിക്കുന്നു
 Comment[nb]=Batteriet har nådd lavt nivå
 Comment[nds]=Dien Batteriestoop is nu "Siet"
+Comment[nl]=Uw accu heeft het lage niveau bereikt
 Comment[pa]=ਤੁਹਾਡੀ ਬੈਟਰੀ ਘੱਟ ਲੈਵਲ ਤੱਕ ਅੱਪੜ ਗਈ ਹੈ
 Comment[pt]=A sua bateria atingiu um nível baixo
 Comment[pt_BR]=A sua bateria atingiu um nível baixo
@@ -308,8 +322,10 @@ Name[hsb]=Skedźbnjenje na aku
 Name[kk]=Ескерту деңгейінде
 Name[km]=ថ្ម​នៅ​កម្រិត​ព្រមាន
 Name[kn]=ವಿದ್ಯುತ್ಕೋಶವು ಎಚ್ಚರಿಕೆಯನ್ನು ನೀಡುವ ಸ್ಥಿತಿಯನ್ನು ಮುಟ್ಟಿದೆ
+Name[ml]=ബാറ്ററി താക്കീത് നില എത്തിയിരിക്കുന്നു
 Name[nb]=Batteriet er på varslingsnivå
 Name[nds]=Batterie bi "Wohrscho"-Stoop
+Name[nl]=Accucapaciteit op waarschuwingsniveau
 Name[pa]=ਬੈਟਰੀ ਚੇਤਾਵਨੀ ਲੈਵਲ ਉੱਤੇ ਹੈ
 Name[pt]=Bateria no nível de alerta
 Name[pt_BR]=Bateria no nível de alerta
@@ -328,8 +344,10 @@ Comment[hsb]=Na aku dyrbi so skedźbnić
 Comment[kk]=Батареяңыздың қуаты ескертетін деңгейге жетті
 Comment[km]=ថ្ម​របស់​អ្នក​បាន​ឈាន​ដល់​កម្រិត​ព្រមាន
 Comment[kn]=ನಿನ್ನ ವಿದ್ಯುತ್ಕೋಶವು ಎಚ್ಚರಿಕೆಯನ್ನು ನೀಡುವ ಸ್ಥಿತಿಯನ್ನು ಮುಟ್ಟಿದೆ
+Comment[ml]=നിങ്ങളുടെ ബാറ്ററി താക്കീത് നില എത്തിയിരിക്കുന്നു
 Comment[nb]=Batteriet har nådd varslingsnivået
 Comment[nds]=Dien Batterie is bi de Wohrscho-Stoop ankamen
+Comment[nl]=Uw accu heeft het waarschuwingsniveau bereikt
 Comment[pa]=ਤੁਹਾਡੀ ਬੈਟਰੀ ਘੱਟ ਲੈਵਲ ਉੱਤੇ ਅੱਪੜ ਗਈ ਹੈ
 Comment[pt]=A sua bateria atingiu um nível de alerta
 Comment[pt_BR]=A sua bateria atingiu um nível de alerta
@@ -353,8 +371,10 @@ Name[hsb]=Aku je kritisce prózdny
 Name[kk]=Дағдарысты деңгейінде
 Name[km]=ថ្ម​នៅ​កម្រិត​សំខាន់
 Name[kn]=ವಿದ್ಯುತ್ಕೋಶವು ವಿಷಮ ಸ್ಥಿತಿಯನ್ನು ಮುಟ್ಟಿದೆ
+Name[ml]=ബാറ്ററി ക്രിടിക്കല്‍ (ഭയാവഹമായ) നില എത്തിയിരിക്കുന്നു
 Name[nb]=Batteri på kritisk nivå
 Name[nds]=Batterie bi Stoop "Kritisch"
+Name[nl]=Accucapaciteit op kritiek niveau
 Name[pa]=ਬੈਟਰੀ ਨਾਜ਼ੁਕ ਲੈਵਲ ਉੱਤੇ
 Name[pt]=Bateria no nível crítico
 Name[pt_BR]=Bateria no nível crítico
@@ -371,8 +391,10 @@ Comment[gl]=A batería acadou o nível crítico. Esta notificación inicia unha 
 Comment[hsb]=Aku je kritisce prózdny. Tute skedźbnjenje startuje countdown před konfigurowanej akciju, tuž so doporuči jón nic přetorhnyć.
 Comment[kk]=Батареяңыз әбден сарқытылды. Бұл құлақтандырумен бұл жағдайға бағышталған амалға қалған уакыт санауы басталады, бұған кедергі қылмауы абзал.
 Comment[km]=ថ្ម​របស់​អ្នក​បានដល់កម្រិត​សំខាន់ ។ ការ​ជូនដំណឹង​នេះ​កេះ​ឲ្យ​រាប់​ថយ​ក្រោយ​មុនធ្វើ​​សកម្មភាព​ដែល​បានកំណត់​រចនាសម្ព័ន្ធ ដូច្នេះ​វា​ត្រូវ​បានផ្ដល់​អនុសាសន៍​ឲ្យ​ទុក​វា​សិន ។
+Comment[ml]=നിങ്ങളുടെ ബാറ്ററി ക്രിടിക്കല്‍ (ഭയാവഹമായ) നില എത്തിയിരിക്കുന്നു. ഈ അറിയിപ്പ് ഒരു കൗണ്‍ട്-ഡൗണ്‍ തുടങ്ങുന്നു, അതു കഴിഞ്ഞാല്‍ ക്രമീകരിച്ച പ്രവര്‍ത്തനം ചെയ്യപ്പെടും, അതിനാല്‍ അതു സജീവമായിരിക്കട്ടെ എന്നു ഉപദേശിക്കുന്നു.
 Comment[nb]=Batteriet har nådd kritisk nivå. Denne varslingen utløser en nedtelling før den innstilte handlingen utføres, så det tilrådes sterkt å la den stå på.
 Comment[nds]=Dien Batterie is bi de kritische Stoop ankamen. Disse Bescheed tellt en Tiet daal, ehr he de instellte Akschoon utföhrt, laat em also beter an.
+Comment[nl]=Uw accu heeft het kritieke niveau bereikt. Deze melding activeert een aftelling voordat de ingestelde actie zal worden uitgevoerd. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
 Comment[pt]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
 Comment[pt_BR]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
 Comment[ro]=Acumulatorul a atins nivelul critic. Această notificare declanșează o numărătoare inversă pînă la executarea acțiunii implicite, deci se recomandă să îl lăsați activat.
@@ -395,8 +417,11 @@ Name[hsb]=Milinowy adapter přizamknjeny
 Name[kk]=Айнымалы тоқ адаптері қосылған
 Name[km]=បាន​ដោត​អាដាប់ទ័រ AC
 Name[kn]=AC ವಿದ್ಯಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ಅಳವಡಿಸಲಾಗಿದೆ
+Name[lt]=Prijungtas AC adapteris
+Name[ml]=AC അഡാപ്റ്റര്‍ കുത്തിയിരിക്കുന്നു
 Name[nb]=Strømadapteret er koblet til
 Name[nds]=Stroomkavel tokoppelt
+Name[nl]=Netstroomadapter aangesloten
 Name[pa]=AC ਐਡਪਟਰ ਪਲੱਗ ਲੱਗਾ ਹੈ
 Name[pt]=Ligado à corrente
 Name[pt_BR]=Ligado à corrente
@@ -415,8 +440,11 @@ Comment[hsb]=Milinowy adapter je so přizamknył
 Comment[kk]=Қуаттандыру адаптері қосылып тұр
 Comment[km]=អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត
 Comment[kn]=ವಿದ್ಯಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ಅಳವಡಿಸಲಾಗಿದೆ
+Comment[lt]=Kintamosios srovės adapteris buvo prijungtas
+Comment[ml]=ചവറ്റുകുട്ട കാലിയാക്കിയിരിക്കുന്നുപവര്‍ അഡാപ്റ്റര്‍ പ്ലഗ്ഗിലേക്ക് കുത്തിയിരിക്കുന്നു
 Comment[nb]=Strømadapteret er koblet til
 Comment[nds]=Dat Stroomkavel wöör tokoppelt
+Comment[nl]=De netstroomadapter is aangesloten
 Comment[pa]=ਪਾਵਰ ਐਡਪਟਰ ਦਾ ਪਲੱਗ ਲਗਾਇਆ ਗਿਆ
 Comment[pt]=O computador foi ligado à corrente
 Comment[pt_BR]=O computador foi ligado à corrente
@@ -441,8 +469,11 @@ Name[hsb]=Milinowy adapter wućehnjeny
 Name[kk]=Айнымалы тоқ адаптері ажыратылған
 Name[km]=បានដក​អាដាប់ទ័រ AC ចេញ
 Name[kn]=AC ವಿದ್ಯಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ತೆಗೆಯಲಾಗಿದೆ
+Name[lt]=Atjungtas AC adapteris
+Name[ml]=AC അഡാപ്റ്റര്‍ പുറത്തെടുത്തിരിക്കുന്നു
 Name[nb]=Strømadapteret er dratt ut
 Name[nds]=Stroomkavel ruttrocken
+Name[nl]=Netstroomadapter niet aangesloten
 Name[pa]=AC ਐਡਪਟਰ ਦਾ ਪਲੱਗ ਕੱਢਿਆ
 Name[pt]=Desligado da corrente
 Name[pt_BR]=Desligado da corrente
@@ -462,8 +493,11 @@ Comment[hsb]=Milinowy adapter bu wućehnjeny
 Comment[kk]=Қуаттандыру адаптері ажыратылып тұр
 Comment[km]=អាប់ដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដកចេញ
 Comment[kn]=ವಿದ್ಯಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ತೆಗೆಯಲಾಗಿದೆ
+Comment[lt]=Kintamosios srovės adapteris buvo atjungtas
+Comment[ml]=പവര്‍ അഡാപ്റ്റര്‍ പ്ലഗ്ഗില്‍ നിന്നും ഊരിയിരിക്കുന്നു
 Comment[nb]=Strømadapteret er koblet fra
 Comment[nds]=Dat Stroomkavel wöör ruttrocken
+Comment[nl]=De netstroomadapter is losgekoppeld
 Comment[pa]=ਪਾਵਰ ਐਡਪਟਰ ਦਾ ਪਲੱਗ ਕੱਢਿਆ
 Comment[pt]=O computador foi desligado da corrente
 Comment[pt_BR]=O computador foi desligado da corrente
@@ -487,8 +521,10 @@ Name[he]=שגיאת עבודה
 Name[kk]=Орындау қатесі
 Name[km]=កំហុស​ក្នុង​ការងារ
 Name[kn]=ಕಾರ್ಯ ದೋಷ
+Name[ml]=ജോലി പിശക്
 Name[nb]=Jobfeil
 Name[nds]=Opgaav-Fehler
+Name[nl]=Taakfout
 Name[pa]=ਜਾਬ ਗਲਤੀ
 Name[pt]=Erro na tarefa
 Name[pt_BR]=Erro na tarefa
@@ -508,8 +544,10 @@ Comment[he]=התרחשה עבודה במהלך ביצוע העבודה
 Comment[kk]=Тапсырманы орнындағанда қате орын алды
 Comment[km]=មាន​កំហុស​ខណៈពេល​អនុវត្ត​ការងារ
 Comment[kn]=ಒಂದು ಕಾರ್ಯವನ್ನು ಮಾಡುವಾಗ ದೋಷ ಕಂಡುಬಂದಿತು
+Comment[ml]=ജോലി ചെയ്യുന്നതിനിടയില്‍ പിശകുണ്ടായിരുന്നു
 Comment[nb]=Det oppsto en feil mens en jobb ble utført
 Comment[nds]=Dat geev en Fehler binnen en Opgaav
+Comment[nl]=Er deed zich een fout voor tijdens het uitvoeren van een taak
 Comment[pt]=Ocorreu um erro ao efectuar uma tarefa
 Comment[pt_BR]=Ocorreu um erro ao efectuar uma tarefa
 Comment[ro]=A avut loc o eroare în timpul executării unei sarcini
@@ -532,8 +570,11 @@ Name[gu]=પ્રોફાઇલ બદલાઇ ગઇ
 Name[kk]=Профилі өзгерілді
 Name[km]=បានផ្លាស់ប្ដូរ​ទំហំ
 Name[kn]=ವ್ಯಕ್ತಿವೈಶಿಷ್ಟ್ಯ (ಪ್ರೊಫೈಲ್) ಬದಲಾಗಿದೆ
+Name[lt]=Profilis pakeistas
+Name[ml]=പ്രൊഫൈല്‍ മാറി
 Name[nb]=Profil endret
 Name[nds]=Profil ännert
+Name[nl]=Profiel gewijzigd
 Name[pa]=ਪਰੋਫਾਇਲ ਬਦਲਿਆ
 Name[pt]=Mudança no Perfil
 Name[pt_BR]=Mudança no Perfil
@@ -551,8 +592,10 @@ Comment[gu]=પ્રોફાઇલ બદલાઇ ગયેલ હતી
 Comment[kk]=Профилі өзгертілді
 Comment[km]=ទម្រង់​ត្រូវ​បាន​ផ្លាស់ប្ដូរ
 Comment[kn]=ವ್ಯಕ್ತಿವೈಶಿಷ್ಟ್ಯ ವನ್ನು (ಪ್ರೊಫೈಲ್) ಬದಲಾಯಿಸಲಾಯಿತು
+Comment[ml]=പ്രൊഫൈല്‍ മാറ്റിയിരിക്കുന്നു
 Comment[nb]=Profilen ble endret
 Comment[nds]=Du hest dat Profil ännert
+Comment[nl]=Het profiel is gewijzigd
 Comment[pa]=ਪਰੋਫਾਇਲ ਬਦਲਿਆ ਗਿਆ
 Comment[pt]=O perfil foi alterado
 Comment[pt_BR]=O perfil foi alterado
@@ -574,8 +617,10 @@ Name[gl]=A facer unha suspensión
 Name[gu]=સસ્પેન્શન કાર્ય કરે છે
 Name[kk]=Қалғуға өту
 Name[km]=អនុវត្ត​ការងារ suspension
+Name[ml]=താല്‍കാലികമായി നിര്‍ത്തിവെക്കാനുള്ള (മയങ്ങല്‍) ജോലി ചെയ്യുന്നു
 Name[nb]=Utfører en suspenderingsjobb
 Name[nds]=En Utsetten warrt utföhrt
+Name[nl]=Voert een slaapstandtaak uit
 Name[pt]=A efectuar uma tarefa de suspensão
 Name[pt_BR]=A efectuar uma tarefa de suspensão
 Name[sv]=Utför ett vilolägesjobb
@@ -589,8 +634,10 @@ Comment[el]=Αυτή η ειδοποίηση εμφανίζεται όταν π�
 Comment[gl]=Esta notificación móstrase cando se está a piques de facer unha suspensión, e inicia unha conta atrás. Polo tanto, recoméndase que lle deixe seguir.
 Comment[kk]=Бұл құлақтандыру қалғу режіміне өту ензіне қалған уакыт санауы басталғанда көрсетіледі. Бұған кедергі қылмауы абзал.
 Comment[km]=កា​រជូន​ដំណឹង​នេះ​ត្រូវ​បានបង្ហាញ​នៅពេល​ការងារ suspension រៀប​នឹង​ធ្វើ និង​វាកេះ​ឲ្យ​រាប់​ថយក្រោយ ។ ដូច្នេះ​វា​ត្រូវបានណែនាំ​ឲ្យ​ទុកវាសិន ។
+Comment[ml]=ഈ അറിയിപ്പ് കാണിച്ചാല്‍ ഒരു താല്‍കാലികമായി നിര്‍ത്തിവെക്കല്‍ (മയങ്ങല്‍)ജോലി ചെയ്യാന്‍ പോകുന്നു. ഇത് ഒരു കൗണ്‍ട്-ഡൗണ്‍ തുടങ്ങുന്നു, അതിനാല്‍ അതു സജീവമായിരിക്കട്ടെ എന്നു ഉപദേശിക്കുന്നു.
 Comment[nb]=Denne varslingen vises når en suspenderingsjobb skal til å utføres, og utløser en nedtelling, så det tilrådes sterkt å la den stå på.
 Comment[nds]=Disse Bescheed warrt wiest, wenn en Utsettakschoon utföhrt warrt. He tellt ok en Tiet daal, laat em also beter an.
+Comment[nl]=Deze melding wordt weergegeven als het systeem op het punt staat een slaapstandtaak uit te voeren en voorafgaand een afteller weergeeft. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
 Comment[pt]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
 Comment[pt_BR]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
 Comment[sv]=Underrättelsen visas när ett vilolägesjobb just ska utföras, och den utlöser en nerräkning. Därmed råds du att lämna den på.
@@ -612,8 +659,11 @@ Name[gu]=આંતરિક પાવરડેવિલ ક્ષતિ
 Name[kk]=PowerDevil ішкі қатесі
 Name[km]=កំហុស PowerDevil ខាង​ក្នុង
 Name[kn]=ಆಂತರಿಕ PowerDevil ದೋಷ
+Name[lt]=Vidinė PowerDevil klaida
+Name[ml]=ആഭ്യന്തര പവര്‍ഡെവിള്‍ പിശക്
 Name[nb]=Intern PowerDevil-feil
 Name[nds]=Intern Fehler binnen Stroomdüvel
+Name[nl]=Internet fout in PowerDevil
 Name[pa]=ਅੰਦਰੂਨੀ ਪਾਵਰ-ਡੀਵਿਲ ਗਲਤੀ
 Name[pt]=Erro Interno do PowerDevil
 Name[pt_BR]=Erro Interno do PowerDevil
@@ -632,8 +682,10 @@ Comment[gu]=પાવરડેવિલે આંતરિક ક્ષતિ �
 Comment[kk]=PowerDevil ішкі бір қатесін байқады
 Comment[km]=PowerDevil បាន​កេះ​កំហុស​ខា​ងក្នុង​មួយ
 Comment[kn]=ಪವರ್ ಡೆವಿಲ್ ಒಂದು ಆಂತರಿಕ ದೋಷವನ್ನು ಪ್ರಚೋದಿಸಿದೆ (ಟ್ರಿಗರ್)
+Comment[ml]=PowerDevil ഒരു ആന്തരിക പിശക് തുടങ്ങിയിരിക്കുന്നു
 Comment[nb]=PowerDevil har utløst en intern feil
 Comment[nds]=De Stroomdüvel hett en intern Fehler hatt
+Comment[nl]=PowerDevil activeerde een interne fout
 Comment[pa]=ਪਾਵਰ-ਡੀਵਿਲ ਨੇ ਇੱਕ ਅੰਦਰੂਨੀ ਗਲਤੀ ਦਿੱਤੀ ਹੈ
 Comment[pt]=O PowerDevil originou um erro interno
 Comment[pt_BR]=O PowerDevil originou um erro interno
@@ -655,8 +707,10 @@ Name[gl]=Evitouse a suspensión
 Name[gu]=સસ્પેન્શન રોકી દેવાયું
 Name[kk]=Қалғуға өту кідірілді
 Name[km]=បានហាមឃាត់​ការ​ផ្អាក
+Name[ml]=താല്‍കാലിക നിര്‍ത്തിവെക്കല്‍ (മയങ്ങല്‍ ) നിര്‍ത്തിയിരിക്കുന്നു
 Name[nb]=Suspensjon hindret
 Name[nds]=Utsetten blockeert
+Name[nl]=Slaapstand verhinderd
 Name[pt]=Suspensão inibida
 Name[pt_BR]=Suspensão inibida
 Name[ro]=Suspendare inhibată
@@ -672,8 +726,10 @@ Comment[gl]=Evitouse a suspensión porque así o pediu un programa
 Comment[gu]=સસ્પેન્શન રોકી દેવામાં આવ્યું કારણકે કાર્યક્રમે તેની વિનંતી કરી હતી
 Comment[kk]=Қалғу режіміне өту бір бағдарламаның талабымен кідірілді
 Comment[km]=ការ​ផ្អាក​ត្រូវ​បានហាមឃាត់​ ពីព្រោះ​កម្មវិធី​បាន​ស្នើ​វា
+Comment[ml]=താല്‍കാലിക-നിര്‍ത്തിവെക്കല്‍(മയങ്ങല്‍) നിര്‍ത്തിയിരിക്കുന്നു കാരണം ഒരു പ്രയോഗം ഇതു അഭ്യര്‍ത്തിരിക്കുന്നു.
 Comment[nb]=Suspensjonen er blitt hindret fordi et program ba om det
 Comment[nds]=Dat Utsetten wöör blockeert, en Programm hett dat anfraagt.
+Comment[nl]=Het activeren van de slaapstand is verhinderd omdat een programma hierom verzocht
 Comment[pt]=A suspensão foi inibida porque uma aplicação o pediu
 Comment[pt_BR]=A suspensão foi inibida porque uma aplicação o pediu
 Comment[ro]=Suspendarea a fost inhibată pentru că o aplicație a cerut astfel
