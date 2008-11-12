@@ -74,9 +74,7 @@ public Q_SLOTS:
     QVariantMap getSupportedSuspendMethods();
     QVariantMap getSupportedPollingSystems();
 
-    SuspensionLockHandler *lockHandler() {
-        return m_lockHandler;
-    };
+    SuspensionLockHandler *lockHandler();
 
 private Q_SLOTS:
     void acAdapterStateChanged(int state, bool forced = false);
@@ -103,9 +101,7 @@ private Q_SLOTS:
     void resumeFromIdle();
 
     void reloadProfile(int state = -1);
-    const QString &profile() {
-        return m_currentProfile;
-    }
+    QString profile() const;
 
     void setBatteryPercent(int newpercent);
     void setACPlugged(bool newplugged);
@@ -164,32 +160,8 @@ public:
     };
 
 private:
-    Solid::Control::PowerManager::Notifier * m_notifier;
-    QPointer<Solid::Battery> m_battery;
-
-    OrgFreedesktopScreenSaverInterface * m_screenSaverIface;
-    OrgKdeKSMServerInterfaceInterface * m_ksmServerIface;
-    OrgKdeScreensaverInterface * m_kscreenSaverIface;
-
-    QWidget * m_grabber;
-
-    KComponentData m_applicationData;
-    KSharedConfig::Ptr m_profilesConfig;
-    KConfigGroup * m_currentConfig;
-    PollSystemLoader * m_pollLoader;
-    SuspensionLockHandler * m_lockHandler;
-
-    QString m_currentProfile;
-    QStringList m_availableProfiles;
-
-    KNotification *m_notification;
-    QTimer *m_notificationTimer;
-
-    IdleStatus m_status;
-
-    int m_batteryPercent;
-    bool m_isPlugged;
-    bool m_compositingChanged;
+    class Private;
+    Private *d;
 };
 
 #endif /*POWERDEVILDAEMON_H*/

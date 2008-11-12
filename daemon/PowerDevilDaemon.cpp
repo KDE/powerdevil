@@ -95,16 +95,47 @@ K_PLUGIN_FACTORY(PowerDevilFactory,
                  registerPlugin<PowerDevilDaemon>();)
 K_EXPORT_PLUGIN(PowerDevilFactory("powerdevildaemon"))
 
+class PowerDevilDaemon::Private
+{
+public:
+    explicit Private()
+            : notifier(Solid::Control::PowerManager::notifier())
+            , battery(0)
+            , currentConfig(0)
+            , status(PowerDevilDaemon::NoAction)
+            , compositingChanged(false) {};
+
+    Solid::Control::PowerManager::Notifier * notifier;
+    QPointer<Solid::Battery> battery;
+
+    OrgFreedesktopScreenSaverInterface * screenSaverIface;
+    OrgKdeKSMServerInterfaceInterface * ksmServerIface;
+    OrgKdeScreensaverInterface * kscreenSaverIface;
+
+    QWidget * grabber;
+
+    KComponentData applicationData;
+    KSharedConfig::Ptr profilesConfig;
+    KConfigGroup * currentConfig;
+    PollSystemLoader * pollLoader;
+    SuspensionLockHandler * lockHandler;
+
+    QString currentProfile;
+    QStringList availableProfiles;
+
+    KNotification *notification;
+    QTimer *notificationTimer;
+
+    PowerDevilDaemon::IdleStatus status;
+
+    int batteryPercent;
+    bool isPlugged;
+    bool compositingChanged;
+};
+
 PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         : KDEDModule(parent),
-        m_notifier(Solid::Control::PowerManager::notifier()),
-        m_battery(0),
-        m_currentConfig(0),
-        m_pollLoader(new PollSystemLoader(this)),
-        m_lockHandler(new SuspensionLockHandler(this)),
-        m_notificationTimer(new QTimer(this)),
-        m_compositingChanged(false),
-        m_status(NoAction)
+        d(new Private())
 {
     KGlobal::locale()->insertCatalog("powerdevil");
 
@@ -116,7 +147,11 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf@kdemod.ath.cx",
                         "http://drfav.wordpress.com");
 
-    m_applicationData = KComponentData(aboutData);
+    d->applicationData = KComponentData(aboutData);
+
+    d->pollLoader = new PollSystemLoader(this);
+    d->lockHandler = new SuspensionLockHandler(this);
+    d->notificationTimer = new QTimer(this);
 
     /* First things first: PowerDevil might be used when another powermanager is already
      * on. So we need to check the system bus and see if another known powermanager has
@@ -133,22 +168,22 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         return;
     }
 
-    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
-    setAvailableProfiles(m_profilesConfig->groupList());
+    d->profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    setAvailableProfiles(d->profilesConfig->groupList());
 
     recacheBatteryPointer(true);
 
     // Set up all needed DBus interfaces
-    m_screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
+    d->screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
             QDBusConnection::sessionBus(), this);
-    m_ksmServerIface = new OrgKdeKSMServerInterfaceInterface("org.kde.ksmserver", "/KSMServer",
+    d->ksmServerIface = new OrgKdeKSMServerInterfaceInterface("org.kde.ksmserver", "/KSMServer",
             QDBusConnection::sessionBus(), this);
-    m_kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
+    d->kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
             QDBusConnection::sessionBus(), this);
 
-    connect(m_notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
-    connect(m_lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
-                                  const char*, const QString&)),
+    connect(d->notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
+    connect(d->lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
+                                   const char*, const QString&)),
             SLOT(emitCriticalNotification(const QString&, const QString&,
                                           const char*, const QString&)));
 
@@ -159,7 +194,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     if (PowerDevilSettings::pollingSystem() == -1) {
         // Ok, new configuration... so let's see what we've got!!
 
-        QMap<AbstractSystemPoller::PollingType, QString> pList = m_pollLoader->getAvailableSystems();
+        QMap<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
 
         if (pList.contains(AbstractSystemPoller::XSyncBased)) {
             PowerDevilSettings::setPollingSystem(AbstractSystemPoller::XSyncBased);
@@ -187,46 +222,56 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
 PowerDevilDaemon::~PowerDevilDaemon()
 {
-    delete m_currentConfig;
+    delete d;
+}
+
+SuspensionLockHandler *PowerDevilDaemon::lockHandler()
+{
+    return d->lockHandler;
+}
+
+QString PowerDevilDaemon::profile() const
+{
+    return d->currentProfile;
 }
 
 bool PowerDevilDaemon::recacheBatteryPointer(bool force)
 {
-    /* You'll see some switches on m_battery. This is fundamental since PowerDevil might run
+    /* You'll see some switches on d->battery. This is fundamental since PowerDevil might run
      * also on system without batteries. Most of modern desktop systems support CPU scaling,
      * so somebody might find PowerDevil handy, and we don't want it to crash on them. To put it
      * short, we simply bypass all adaptor and battery events if no batteries are found.
      */
 
-    if (m_battery) {
-        if (m_battery->isValid() && !force) {
+    if (d->battery) {
+        if (d->battery->isValid() && !force) {
             return true;
         }
     }
 
-    m_battery = 0;
+    d->battery = 0;
 
     // Here we get our battery interface, it will be useful later.
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        Solid::Device d = device;
-        Solid::Battery *b = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
+        Solid::Device dev = device;
+        Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(Solid::DeviceInterface::Battery));
 
         if (b->type() != Solid::Battery::PrimaryBattery) {
             continue;
         }
 
         if (b->isValid()) {
-            m_battery = b;
+            d->battery = b;
         }
     }
 
     /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
      * about them.
      */
-    if (m_battery) {
-        connect(m_notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
+    if (d->battery) {
+        connect(d->notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
 
-        if (!connect(m_battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
+        if (!connect(d->battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
                      SLOT(batteryChargePercentChanged(int, const QString &)))) {
 
             emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
@@ -275,19 +320,19 @@ void PowerDevilDaemon::setUpPollingSystem()
 
 bool PowerDevilDaemon::loadPollingSystem(AbstractSystemPoller::PollingType type)
 {
-    QMap<AbstractSystemPoller::PollingType, QString> pList = m_pollLoader->getAvailableSystems();
+    QMap<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
 
     if (!pList.contains(type)) {
         return false;
     } else {
-        if (!m_pollLoader->loadSystem(type)) {
+        if (!d->pollLoader->loadSystem(type)) {
             return false;
         }
     }
 
-    if (m_pollLoader->poller()) {
-        connect(m_pollLoader->poller(), SIGNAL(resumingFromIdle()), SLOT(resumeFromIdle()));
-        connect(m_pollLoader->poller(), SIGNAL(pollRequest(int)), SLOT(poll(int)));
+    if (d->pollLoader->poller()) {
+        connect(d->pollLoader->poller(), SIGNAL(resumingFromIdle()), SLOT(resumeFromIdle()));
+        connect(d->pollLoader->poller(), SIGNAL(pollRequest(int)), SLOT(poll(int)));
     } else {
         return false;
     }
@@ -299,7 +344,7 @@ QVariantMap PowerDevilDaemon::getSupportedPollingSystems()
 {
     QVariantMap map;
 
-    QMap<int, QString> pmap = m_pollLoader->getAvailableSystemsAsInt();
+    QMap<int, QString> pmap = d->pollLoader->getAvailableSystemsAsInt();
 
     foreach(int ent, pmap.keys()) {
         map[pmap[ent]] = ent;
@@ -314,8 +359,8 @@ void PowerDevilDaemon::resumeFromIdle()
 
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
 
-    POLLER_CALL(m_pollLoader->poller(), stopCatchingIdleEvents());
-    POLLER_CALL(m_pollLoader->poller(), forcePollRequest());
+    POLLER_CALL(d->pollLoader->poller(), stopCatchingIdleEvents());
+    POLLER_CALL(d->pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::refreshStatus()
@@ -324,7 +369,7 @@ void PowerDevilDaemon::refreshStatus()
      * let's resync it.
      */
     PowerDevilSettings::self()->readConfig();
-    m_profilesConfig->reparseConfiguration();
+    d->profilesConfig->reparseConfiguration();
 
     reloadProfile();
 
@@ -333,7 +378,7 @@ void PowerDevilDaemon::refreshStatus()
     /* Let's force status update, if we have a battery. Otherwise, let's just
      * re-apply the current profile.
      */
-    if (m_battery) {
+    if (d->battery) {
         acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
     } else {
         applyProfile();
@@ -402,7 +447,7 @@ void PowerDevilDaemon::applyProfile()
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
 
-    POLLER_CALL(m_pollLoader->poller(), forcePollRequest());
+    POLLER_CALL(d->pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::setUpDPMS()
@@ -461,7 +506,7 @@ void PowerDevilDaemon::setUpDPMS()
     }
 
     // The screen saver depends on the DPMS settings
-    m_kscreenSaverIface->configure();
+    d->kscreenSaverIface->configure();
 #endif
 }
 
@@ -650,7 +695,7 @@ void PowerDevilDaemon::increaseBrightness()
 
 void PowerDevilDaemon::shutdownNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock(automated)) {
+    if (!d->lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -666,7 +711,7 @@ void PowerDevilDaemon::shutdownNotification(bool automated)
 
 void PowerDevilDaemon::suspendToDiskNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock(automated)) {
+    if (!d->lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -682,7 +727,7 @@ void PowerDevilDaemon::suspendToDiskNotification(bool automated)
 
 void PowerDevilDaemon::suspendToRamNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock(automated)) {
+    if (!d->lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -698,7 +743,7 @@ void PowerDevilDaemon::suspendToRamNotification(bool automated)
 
 void PowerDevilDaemon::standbyNotification(bool automated)
 {
-    if (!m_lockHandler->setNotificationLock(automated)) {
+    if (!d->lockHandler->setNotificationLock(automated)) {
         return;
     }
 
@@ -714,29 +759,29 @@ void PowerDevilDaemon::standbyNotification(bool automated)
 
 void PowerDevilDaemon::shutdown(bool automated)
 {
-    if (!m_lockHandler->setJobLock(automated)) {
+    if (!d->lockHandler->setJobLock(automated)) {
         return;
     }
 
-    m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmNo, (int)KWorkSpace::ShutdownTypeHalt,
-                             (int)KWorkSpace::ShutdownModeTryNow);
+    d->ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmNo, (int)KWorkSpace::ShutdownTypeHalt,
+                              (int)KWorkSpace::ShutdownModeTryNow);
 
-    m_lockHandler->releaseAllLocks();
+    d->lockHandler->releaseAllLocks();
 }
 
 void PowerDevilDaemon::shutdownDialog()
 {
-    m_ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
-                             (int)KWorkSpace::ShutdownModeDefault);
+    d->ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
+                              (int)KWorkSpace::ShutdownModeDefault);
 }
 
 void PowerDevilDaemon::suspendToDisk(bool automated)
 {
-    if (!m_lockHandler->setJobLock(automated)) {
+    if (!d->lockHandler->setJobLock(automated)) {
         return;
     }
 
-    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -747,16 +792,16 @@ void PowerDevilDaemon::suspendToDisk(bool automated)
     job->start();
 
     // Temporary hack...
-    QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
+    QTimer::singleShot(10000, d->lockHandler, SLOT(releaseAllLocks()));
 }
 
 void PowerDevilDaemon::suspendToRam(bool automated)
 {
-    if (!m_lockHandler->setJobLock(automated)) {
+    if (!d->lockHandler->setJobLock(automated)) {
         return;
     }
 
-    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -766,16 +811,16 @@ void PowerDevilDaemon::suspendToRam(bool automated)
     connect(job, SIGNAL(result(KJob *)), this, SLOT(suspendJobResult(KJob *)));
     job->start();
     // Temporary hack...
-    QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
+    QTimer::singleShot(10000, d->lockHandler, SLOT(releaseAllLocks()));
 }
 
 void PowerDevilDaemon::standby(bool automated)
 {
-    if (!m_lockHandler->setJobLock(automated)) {
+    if (!d->lockHandler->setJobLock(automated)) {
         return;
     }
 
-    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -786,7 +831,7 @@ void PowerDevilDaemon::standby(bool automated)
     job->start();
 
     // Temporary hack...
-    QTimer::singleShot(10000, m_lockHandler, SLOT(releaseAllLocks()));
+    QTimer::singleShot(10000, d->lockHandler, SLOT(releaseAllLocks()));
 }
 
 void PowerDevilDaemon::suspendJobResult(KJob * job)
@@ -796,11 +841,11 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
                                  + QChar('\n') + job->errorString()));
     }
 
-    POLLER_CALL(m_pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
 
     kDebug() << "Resuming from suspension";
 
-    m_lockHandler->releaseAllLocks();
+    d->lockHandler->releaseAllLocks();
 
     job->deleteLater();
 }
@@ -824,7 +869,7 @@ void PowerDevilDaemon::poll(int idle)
     if (!settings->readEntry("dimOnIdle", false) && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
         kDebug() << "Stopping timer";
-        POLLER_CALL(m_pollLoader->poller(), stopCatchingTimeouts());
+        POLLER_CALL(d->pollLoader->poller(), stopCatchingTimeouts());
         return;
     }
 
@@ -851,9 +896,9 @@ void PowerDevilDaemon::poll(int idle)
     kDebug() << "Minimum time is" << minTime << "seconds";
 
     if (idle < minTime) {
-        m_status = NoAction;
+        d->status = NoAction;
         int remaining = minTime - idle;
-        POLLER_CALL(m_pollLoader->poller(), setNextTimeout(remaining * 1000));
+        POLLER_CALL(d->pollLoader->poller(), setNextTimeout(remaining * 1000));
         kDebug() << "Nothing to do, next event in" << remaining << "seconds";
         return;
     }
@@ -869,31 +914,31 @@ void PowerDevilDaemon::poll(int idle)
     if (idle >= settings->readEntry("idleTime").toInt() * 60) {
         setUpNextTimeout(idle, minDimEvent);
 
-        if (m_status == Action) {
+        if (d->status == Action) {
             return;
         }
 
-        m_status = Action;
+        d->status = Action;
 
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             shutdownNotification(true);
             break;
         case S2Disk:
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             suspendToDiskNotification(true);
             break;
         case S2Ram:
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             suspendToRamNotification(true);
             break;
         case Standby:
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             standbyNotification(true);
             break;
         case Lock:
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             lockScreen();
             break;
         default:
@@ -904,30 +949,30 @@ void PowerDevilDaemon::poll(int idle)
 
     } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= dimOnIdleTime)) {
-        if (m_status != DimTotal) {
-            m_status = DimTotal;
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+        if (d->status != DimTotal) {
+            d->status = DimTotal;
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             Solid::Control::PowerManager::setBrightness(0);
         }
     } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= (dimOnIdleTime * 3 / 4))) {
-        if (m_status != DimThreeQuarters) {
-            m_status = DimThreeQuarters;
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+        if (d->status != DimThreeQuarters) {
+            d->status = DimThreeQuarters;
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             float newBrightness = Solid::Control::PowerManager::brightness() / 4;
             Solid::Control::PowerManager::setBrightness(newBrightness);
         }
     } else if (settings->readEntry("dimOnIdle", false) &&
                (idle >= (dimOnIdleTime * 1 / 2))) {
-        if (m_status != DimHalf) {
-            m_status = DimHalf;
-            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+        if (d->status != DimHalf) {
+            d->status = DimHalf;
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             float newBrightness = Solid::Control::PowerManager::brightness() / 2;
             Solid::Control::PowerManager::setBrightness(newBrightness);
         }
     } else {
-        m_status = NoAction;
-        POLLER_CALL(m_pollLoader->poller(), stopCatchingIdleEvents());
+        d->status = NoAction;
+        POLLER_CALL(d->pollLoader->poller(), stopCatchingIdleEvents());
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     }
 
@@ -956,10 +1001,10 @@ void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
     }
 
     if (nextTimeout >= 0) {
-        POLLER_CALL(m_pollLoader->poller(), setNextTimeout(nextTimeout * 1000));
+        POLLER_CALL(d->pollLoader->poller(), setNextTimeout(nextTimeout * 1000));
         kDebug() << "Next timeout in" << nextTimeout << "seconds";
     } else {
-        POLLER_CALL(m_pollLoader->poller(), stopCatchingTimeouts());
+        POLLER_CALL(d->pollLoader->poller(), stopCatchingTimeouts());
         kDebug() << "Stopping timer";
     }
 }
@@ -967,7 +1012,7 @@ void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
 void PowerDevilDaemon::lockScreen()
 {
     emitNotification("doingjob", i18n("The screen is being locked"));
-    m_screenSaverIface->Lock();
+    d->screenSaverIface->Lock();
 }
 
 void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QString &message,
@@ -976,18 +1021,18 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
     /* Those notifications are always displayed */
     if (!slot) {
         KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                             0, KNotification::CloseOnTimeout, m_applicationData);
+                             0, KNotification::CloseOnTimeout, d->applicationData);
     } else {
-        m_notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                                              0, KNotification::Persistent, m_applicationData);
+        d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                                               0, KNotification::Persistent, d->applicationData);
 
-        connect(m_notificationTimer, SIGNAL(timeout()), slot);
-        connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
+        connect(d->notificationTimer, SIGNAL(timeout()), slot);
+        connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        m_lockHandler->connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
-        connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+        d->lockHandler->connect(d->notification, SIGNAL(closed()), d->lockHandler, SLOT(releaseNotificationLock()));
+        connect(d->notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
-        m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
+        d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
 }
 
@@ -1003,18 +1048,18 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
 
     if (!slot) {
         KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                             0, KNotification::CloseOnTimeout, m_applicationData);
+                             0, KNotification::CloseOnTimeout, d->applicationData);
     } else {
-        m_notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                                              0, KNotification::Persistent, m_applicationData);
+        d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                                               0, KNotification::Persistent, d->applicationData);
 
-        connect(m_notificationTimer, SIGNAL(timeout()), slot);
-        connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
+        connect(d->notificationTimer, SIGNAL(timeout()), slot);
+        connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        m_lockHandler->connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
-        connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+        d->lockHandler->connect(d->notification, SIGNAL(closed()), d->lockHandler, SLOT(releaseNotificationLock()));
+        connect(d->notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
-        m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
+        d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
 }
 
@@ -1030,18 +1075,18 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
 
     if (!slot) {
         KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                             0, KNotification::CloseOnTimeout, m_applicationData);
+                             0, KNotification::CloseOnTimeout, d->applicationData);
     } else {
-        m_notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                                              0, KNotification::Persistent, m_applicationData);
+        d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+                                               0, KNotification::Persistent, d->applicationData);
 
-        connect(m_notificationTimer, SIGNAL(timeout()), slot);
-        connect(m_notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
+        connect(d->notificationTimer, SIGNAL(timeout()), slot);
+        connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        m_lockHandler->connect(m_notification, SIGNAL(closed()), m_lockHandler, SLOT(releaseNotificationLock()));
-        connect(m_notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+        d->lockHandler->connect(d->notification, SIGNAL(closed()), d->lockHandler, SLOT(releaseNotificationLock()));
+        connect(d->notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
 
-        m_notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
+        d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
 }
 
@@ -1049,12 +1094,12 @@ void PowerDevilDaemon::cleanUpTimer()
 {
     kDebug() << "Disconnecting signals";
 
-    m_notificationTimer->disconnect();
-    m_notification->disconnect();
-    m_notificationTimer->stop();
+    d->notificationTimer->disconnect();
+    d->notification->disconnect();
+    d->notificationTimer->stop();
 
-    if (m_notification) {
-        m_notification->deleteLater();
+    if (d->notification) {
+        d->notification->deleteLater();
     }
 }
 
@@ -1068,27 +1113,27 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)
      * object, so you don't have to delete it!!
      */
 
-    if (m_currentConfig) {   // This HAS to be kept, since m_currentConfig could be not valid!!
-        if (forcereload || m_currentConfig->name() != m_currentProfile) {
-            delete m_currentConfig;
-            m_currentConfig = 0;
+    if (d->currentConfig) {   // This HAS to be kept, since d->currentConfig could be not valid!!
+        if (forcereload || d->currentConfig->name() != d->currentProfile) {
+            delete d->currentConfig;
+            d->currentConfig = 0;
         }
     }
 
-    if (!m_currentConfig) {
-        m_currentConfig = new KConfigGroup(m_profilesConfig, m_currentProfile);
+    if (!d->currentConfig) {
+        d->currentConfig = new KConfigGroup(d->profilesConfig, d->currentProfile);
     }
 
-    if (!m_currentConfig->isValid() || !m_currentConfig->entryMap().size()) {
+    if (!d->currentConfig->isValid() || !d->currentConfig->entryMap().size()) {
         emitCriticalNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                                  "but it does not exist!\nPlease check your PowerDevil configuration.",
-                                 m_currentProfile));
+                                 d->currentProfile));
         reloadProfile();
-        delete m_currentConfig;
-        m_currentConfig = 0;
+        delete d->currentConfig;
+        d->currentConfig = 0;
     }
 
-    return m_currentConfig;
+    return d->currentConfig;
 }
 
 void PowerDevilDaemon::reloadProfile(int state)
@@ -1102,22 +1147,22 @@ void PowerDevilDaemon::reloadProfile(int state)
 
         if (state == Solid::Control::PowerManager::Plugged) {
             setCurrentProfile(PowerDevilSettings::aCProfile());
-        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+        } else if (d->battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
             setCurrentProfile(PowerDevilSettings::warningProfile());
-        } else if (m_battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+        } else if (d->battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
             setCurrentProfile(PowerDevilSettings::lowProfile());
         } else {
             setCurrentProfile(PowerDevilSettings::batteryProfile());
         }
     }
 
-    if (m_currentProfile.isEmpty()) {
+    if (d->currentProfile.isEmpty()) {
         /* Ok, misconfiguration! Well, first things first: if we have some profiles,
          * let's just load the first available one.
          */
 
-        if (!m_availableProfiles.isEmpty()) {
-            setCurrentProfile(m_availableProfiles.at(0));
+        if (!d->availableProfiles.isEmpty()) {
+            setCurrentProfile(d->availableProfiles.at(0));
         } else {
             /* In this case, let's fill our profiles file with our
              * wonderful defaults!
@@ -1138,7 +1183,7 @@ void PowerDevilDaemon::reloadProfile(int state)
         }
     }
 
-    POLLER_CALL(m_pollLoader->poller(), forcePollRequest());
+    POLLER_CALL(d->pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::setProfile(const QString & profile)
@@ -1161,7 +1206,7 @@ void PowerDevilDaemon::reloadAndStream()
 {
     reloadProfile();
 
-    setAvailableProfiles(m_profilesConfig->groupList());
+    setAvailableProfiles(d->profilesConfig->groupList());
 
     streamData();
 
@@ -1170,8 +1215,8 @@ void PowerDevilDaemon::reloadAndStream()
 
 void PowerDevilDaemon::streamData()
 {
-    emit profileChanged(m_currentProfile, m_availableProfiles);
-    emit stateChanged(m_batteryPercent, m_isPlugged);
+    emit profileChanged(d->currentProfile, d->availableProfiles);
+    emit stateChanged(d->batteryPercent, d->isPlugged);
 }
 
 QVariantMap PowerDevilDaemon::getSupportedGovernors()
@@ -1305,11 +1350,11 @@ void PowerDevilDaemon::profileFirstLoad()
 
     if (settings->readEntry("disableCompositing", false)) {
         if (toggleCompositing(false)) {
-            m_compositingChanged = true;
+            d->compositingChanged = true;
         }
-    } else if (m_compositingChanged) {
+    } else if (d->compositingChanged) {
         toggleCompositing(true);
-        m_compositingChanged = false;
+        d->compositingChanged = false;
     }
 
     if (PowerDevilSettings::manageDPMS()) {
@@ -1345,39 +1390,39 @@ void PowerDevilDaemon::restoreDefaultProfiles()
 
     foreach(const QString &ent, toImport.groupList()) {
         KConfigGroup copyFrom(&toImport, ent);
-        KConfigGroup copyTo(m_profilesConfig, ent);
+        KConfigGroup copyTo(d->profilesConfig, ent);
 
         copyFrom.copyTo(&copyTo);
     }
 
-    m_profilesConfig->sync();
+    d->profilesConfig->sync();
 }
 
 void PowerDevilDaemon::setBatteryPercent(int newpercent)
 {
-    m_batteryPercent = newpercent;
-    emit stateChanged(m_batteryPercent, m_isPlugged);
+    d->batteryPercent = newpercent;
+    emit stateChanged(d->batteryPercent, d->isPlugged);
 }
 
 void PowerDevilDaemon::setACPlugged(bool newplugged)
 {
-    m_isPlugged = newplugged;
-    emit stateChanged(m_batteryPercent, m_isPlugged);
+    d->isPlugged = newplugged;
+    emit stateChanged(d->batteryPercent, d->isPlugged);
 }
 
 void PowerDevilDaemon::setCurrentProfile(const QString &profile)
 {
-    if (profile != m_currentProfile) {
-        m_currentProfile = profile;
+    if (profile != d->currentProfile) {
+        d->currentProfile = profile;
         profileFirstLoad();
-        emit profileChanged(m_currentProfile, m_availableProfiles);
+        emit profileChanged(d->currentProfile, d->availableProfiles);
     }
 }
 
 void PowerDevilDaemon::setAvailableProfiles(const QStringList &aProfiles)
 {
-    m_availableProfiles = aProfiles;
-    emit profileChanged(m_currentProfile, m_availableProfiles);
+    d->availableProfiles = aProfiles;
+    emit profileChanged(d->currentProfile, d->availableProfiles);
 }
 
 #include "PowerDevilDaemon.moc"
