@@ -155,6 +155,14 @@ public:
         ShutdownDialog = 32
     };
 
+    enum IdleStatus {
+        NoAction = 0,
+        Action = 1,
+        DimHalf = 2,
+        DimThreeQuarters = 4,
+        DimTotal = 8
+    };
+
 private:
     Solid::Control::PowerManager::Notifier * m_notifier;
     QPointer<Solid::Battery> m_battery;
@@ -176,6 +184,8 @@ private:
 
     KNotification *m_notification;
     QTimer *m_notificationTimer;
+
+    IdleStatus m_status;
 
     int m_batteryPercent;
     bool m_isPlugged;

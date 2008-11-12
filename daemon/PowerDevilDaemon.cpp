@@ -103,7 +103,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
         m_pollLoader(new PollSystemLoader(this)),
         m_lockHandler(new SuspensionLockHandler(this)),
         m_notificationTimer(new QTimer(this)),
-        m_compositingChanged(false)
+        m_compositingChanged(false),
+        m_status(NoAction)
 {
     KGlobal::locale()->insertCatalog("powerdevil");
 
@@ -850,6 +851,7 @@ void PowerDevilDaemon::poll(int idle)
     kDebug() << "Minimum time is" << minTime << "seconds";
 
     if (idle < minTime) {
+        m_status = NoAction;
         int remaining = minTime - idle;
         POLLER_CALL(m_pollLoader->poller(), setNextTimeout(remaining * 1000));
         kDebug() << "Nothing to do, next event in" << remaining << "seconds";
@@ -866,6 +868,12 @@ void PowerDevilDaemon::poll(int idle)
 
     if (idle >= settings->readEntry("idleTime").toInt() * 60) {
         setUpNextTimeout(idle, minDimEvent);
+
+        if (m_status == Action) {
+            return;
+        }
+
+        m_status = Action;
 
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
@@ -896,19 +904,29 @@ void PowerDevilDaemon::poll(int idle)
 
     } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= dimOnIdleTime)) {
-        POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
-        Solid::Control::PowerManager::setBrightness(0);
+        if (m_status != DimTotal) {
+            m_status = DimTotal;
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            Solid::Control::PowerManager::setBrightness(0);
+        }
     } else if (settings->readEntry("dimOnIdle", false)
                && (idle >= (dimOnIdleTime * 3 / 4))) {
-        POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
-        float newBrightness = Solid::Control::PowerManager::brightness() / 4;
-        Solid::Control::PowerManager::setBrightness(newBrightness);
+        if (m_status != DimThreeQuarters) {
+            m_status = DimThreeQuarters;
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            float newBrightness = Solid::Control::PowerManager::brightness() / 4;
+            Solid::Control::PowerManager::setBrightness(newBrightness);
+        }
     } else if (settings->readEntry("dimOnIdle", false) &&
                (idle >= (dimOnIdleTime * 1 / 2))) {
-        POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
-        float newBrightness = Solid::Control::PowerManager::brightness() / 2;
-        Solid::Control::PowerManager::setBrightness(newBrightness);
+        if (m_status != DimHalf) {
+            m_status = DimHalf;
+            POLLER_CALL(m_pollLoader->poller(), catchIdleEvent());
+            float newBrightness = Solid::Control::PowerManager::brightness() / 2;
+            Solid::Control::PowerManager::setBrightness(newBrightness);
+        }
     } else {
+        m_status = NoAction;
         POLLER_CALL(m_pollLoader->poller(), stopCatchingIdleEvents());
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     }
