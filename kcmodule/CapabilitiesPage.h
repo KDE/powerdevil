@@ -47,6 +47,13 @@ private:
                   const char *slot = 0, const QString &button2 = QString(),
                   const QString &buticon2 = QString(), const char *slot2 = 0);
 
+    enum PollingType {
+        Abstract = -1,
+        WidgetBased = 1,
+        XSyncBased = 2,
+        TimerBased = 3
+    };
+
 signals:
     void reload();
     void reloadModule();

@@ -213,13 +213,17 @@ void CapabilitiesPage::fillCapabilities()
     }
 #endif
 
-#ifdef HAVE_XSCREENSAVER
-    xss = true;
-#endif
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
+                       "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems");
+    QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call(msg);
 
-#ifdef HAVE_XSYNC
-    xsync = true;
-#endif
+    foreach(const QVariant &ent, systems.value()) {
+        if (ent.toInt() == XSyncBased) {
+            xsync = true;
+        } else if (ent.toInt() == WidgetBased) {
+            xss = true;
+        }
+    }
 
 #ifdef HAVE_XTEST
     xtest = true;
@@ -277,28 +281,11 @@ void CapabilitiesPage::fillCapabilities()
                             "not available. XSync grants extra efficiency and performance, saving your "
                             "battery and CPU. It is advised to use PowerDevil with XSync enabled."));
 
-    } else if (PowerDevilSettings::pollingSystem() != 2) {
-
-        QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
-                           "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems");
-        QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call(msg);
-
-        bool found = false;
-
-        foreach(const QVariant &ent, systems.value()) {
-            if (ent.toInt() == 2) {
-                found = true;
-            }
-        }
-
-        if (!found) {
-            setIssue(false, i18n("No issues found with your configuration."));
-        } else {
-            setIssue(true, i18n("XSync does not seem your preferred query backend, though it is available "
-                                "on your system. Using it largely improves performance and efficiency, and "
-                                "it is strongly advised. Click on the button below to enable it now."),
-                     i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
-        }
+    } else if (PowerDevilSettings::pollingSystem() != 2 && xsync) {
+        setIssue(true, i18n("XSync does not seem your preferred query backend, though it is available "
+                            "on your system. Using it largely improves performance and efficiency, and "
+                            "it is strongly advised. Click on the button below to enable it now."),
+                 i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
     } else {
         setIssue(false, i18n("No issues found with your configuration."));
     }
@@ -398,8 +385,8 @@ void CapabilitiesPage::attemptLoadingModules()
     }
 
     if (modules.isEmpty()) {
-        KMessageBox::sorry(this, i18n("No CPU scaling kernel modules were found. Maybe you did not "
-                                      "install them, or PowerDevil could not find them"),
+        KMessageBox::sorry(this, i18n("No kernel modules for CPU scaling were found. Either you do not "
+                                      "have them installed, or PowerDevil could not detect them."),
                            i18n("Modules not found"));
         return;
     }
