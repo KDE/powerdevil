@@ -117,6 +117,8 @@ private Q_SLOTS:
     void emitCriticalNotification(const QString &evid, const QString &message = QString(),
                                   const char *slot = 0, const QString &iconname = "dialog-error");
 
+    void batteryRemainingTimeChanged(int time);
+
 Q_SIGNALS:
     void lidClosed(int code, const QString &action);
     void errorTriggered(const QString &error);

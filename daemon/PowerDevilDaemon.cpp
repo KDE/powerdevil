@@ -182,6 +182,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
             QDBusConnection::sessionBus(), this);
 
     connect(d->notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
+    connect(d->notifier, SIGNAL(batteryRemainingTimeChanged(int)), this, SLOT(batteryRemainingTimeChanged(int)));
     connect(d->lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
                                    const char*, const QString&)),
             SLOT(emitCriticalNotification(const QString&, const QString&,
@@ -223,6 +224,11 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 PowerDevilDaemon::~PowerDevilDaemon()
 {
     delete d;
+}
+
+void PowerDevilDaemon::batteryRemainingTimeChanged(int time)
+{
+    kDebug() << KGlobal::locale()->formatDuration(time);
 }
 
 SuspensionLockHandler *PowerDevilDaemon::lockHandler()
