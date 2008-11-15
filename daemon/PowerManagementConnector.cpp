@@ -35,11 +35,11 @@ PowerManagementConnector::PowerManagementConnector(PowerDevilDaemon *parent)
 
     QDBusConnection c = QDBusConnection::sessionBus();
 
-    c.registerService("org.kde.Solid.PowerManagement");
-    c.registerObject("/org/kde/Solid/PowerManagement", this);
+    c.registerService("org.freedesktop.PowerManagement");
+    c.registerObject("/org/freedesktop/PowerManagement", this);
 
-    c.registerService("org.kde.Solid.PowerManagement.Inhibit");
-    c.registerObject("/org/kde/Solid/PowerManagement/Inhibit", this);
+    c.registerService("org.freedesktop.PowerManagement.Inhibit");
+    c.registerObject("/org/freedesktop/PowerManagement/Inhibit", this);
 
     connect(m_daemon, SIGNAL(stateChanged(int, bool)),
             this, SLOT(_k_stateChanged(int, bool)));
