@@ -142,6 +142,7 @@ void PowerDevilKCM::load()
     if (m_widget) {
         m_widget->load();
     }
+    emit changed(false);
 }
 
 void PowerDevilKCM::save()
@@ -151,6 +152,7 @@ void PowerDevilKCM::save()
 
         streamToDBus();
     }
+    emit changed(false);
 }
 
 void PowerDevilKCM::defaults()
