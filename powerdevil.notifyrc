@@ -4,6 +4,7 @@ Name[be@latin]=Kiravańnie enerhijaj
 Name[ca]=Gestió d'energia
 Name[de]=Energieverwaltung
 Name[el]=Διαχείριση ενέργειας
+Name[es]=Gestión de energía
 Name[et]=Voolutarbe haldus
 Name[gl]=Xestión da enerxía
 Name[gu]=પાવર વ્યવસ્થાપક
@@ -430,7 +431,7 @@ Action=Sound|Popup
 
 [Event/criticalbattery]
 Name=Battery at critical level
-Name[be@latin]=Zarad batarei maje vielmi nizki zarad
+Name[be@latin]=Batareja maje vielmi nizki zarad
 Name[ca]=Bateria al nivell crític
 Name[de]=Akku-Ladestand kritisch
 Name[el]=Μπαταρία σε κρίσιμο επίπεδο
