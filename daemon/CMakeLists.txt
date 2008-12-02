@@ -25,8 +25,8 @@ qt4_add_dbus_interface(kded_powerdevil_SRCS ${kscreensaver_xml} kscreensaver_int
 qt4_add_dbus_interface(kded_powerdevil_SRCS ${ksmserver_xml} ksmserver_interface )
 qt4_add_dbus_adaptor( kded_powerdevil_SRCS org.kde.PowerDevil.xml PowerDevilDaemon.h PowerDevilDaemon )
 
-qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${DBUS_INTERFACES_INSTALL_DIR}/org.freedesktop.PowerManagement.xml PowerManagementConnector.h PowerManagementConnector )
-qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${DBUS_INTERFACES_INSTALL_DIR}/org.freedesktop.PowerManagement.Inhibit.xml PowerManagementConnector.h PowerManagementConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor )
+qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.xml PowerManagementConnector.h PowerManagementConnector )
+qt4_add_dbus_adaptor( kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.Inhibit.xml PowerManagementConnector.h PowerManagementConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor )
 
 kde4_add_plugin( kded_powerdevil 
     ${kded_powerdevil_SRCS} 
