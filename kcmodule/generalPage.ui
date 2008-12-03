@@ -124,19 +124,6 @@
             </property>
            </widget>
           </item>
-          <item row="3" column="1" >
-           <widget class="QPushButton" name="notificationsButton" >
-            <property name="maximumSize" >
-             <size>
-              <width>200</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Configure Notifications</string>
-            </property>
-           </widget>
-          </item>
           <item row="4" column="0" >
            <widget class="QCheckBox" name="suspendWait" >
             <property name="toolTip" >
@@ -172,6 +159,36 @@
              <string>Let PowerDevil manage screen powersaving</string>
             </property>
            </widget>
+          </item>
+          <item row="3" column="1" >
+           <layout class="QHBoxLayout" name="horizontalLayout_2" >
+            <item>
+             <widget class="QPushButton" name="notificationsButton" >
+              <property name="maximumSize" >
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text" >
+               <string>Configure Notifications</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer" >
+              <property name="orientation" >
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0" >
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -273,8 +290,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>571</width>
-        <height>431</height>
+        <width>263</width>
+        <height>206</height>
        </rect>
       </property>
       <attribute name="label" >
