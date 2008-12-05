@@ -41,7 +41,7 @@ void PollSystemLoader::reloadAvailableCache()
 
     // Test each polling system
     WidgetBasedPoller *wpl = new WidgetBasedPoller(this);
-    XSyncBasedPoller *xpl = new XSyncBasedPoller(this);
+    XSyncBasedPoller *xpl = XSyncBasedPoller::instance();
     TimerBasedPoller *tpl = new TimerBasedPoller(this);
 
     if (wpl->isAvailable()) {
@@ -55,7 +55,6 @@ void PollSystemLoader::reloadAvailableCache()
     }
 
     wpl->deleteLater();
-    xpl->deleteLater();
     tpl->deleteLater();
 }
 
@@ -96,7 +95,7 @@ bool PollSystemLoader::loadSystem(AbstractSystemPoller::PollingType type)
         m_poller = new TimerBasedPoller(this);
         break;
     case AbstractSystemPoller::XSyncBased:
-        m_poller = new XSyncBasedPoller(this);
+        m_poller = XSyncBasedPoller::instance();
         break;
     default:
         return false;
@@ -119,7 +118,9 @@ bool PollSystemLoader::unloadCurrentSystem()
     if (m_poller) {
         m_poller->unloadPoller();
 
-        m_poller->deleteLater();
+        if (m_poller->getPollingType() != AbstractSystemPoller::XSyncBased) {
+            m_poller->deleteLater();
+        }
     }
 
     return true;

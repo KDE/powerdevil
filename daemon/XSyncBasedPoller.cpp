@@ -22,6 +22,28 @@
 #include <QX11Info>
 
 #include <klocalizedstring.h>
+#include <kglobal.h>
+
+class XSyncBasedPollerHelper
+{
+public:
+    XSyncBasedPollerHelper() : q(0) {}
+    ~XSyncBasedPollerHelper() {
+        delete q;
+    }
+    XSyncBasedPoller *q;
+};
+
+K_GLOBAL_STATIC(XSyncBasedPollerHelper, s_globalXSyncBasedPoller)
+
+XSyncBasedPoller *XSyncBasedPoller::instance()
+{
+    if (!s_globalXSyncBasedPoller->q) {
+        new XSyncBasedPoller;
+    }
+
+    return s_globalXSyncBasedPoller->q;
+}
 
 XSyncBasedPoller::XSyncBasedPoller(QObject *parent)
         : AbstractSystemPoller(parent)
@@ -30,24 +52,55 @@ XSyncBasedPoller::XSyncBasedPoller(QObject *parent)
         , m_idleCounter(None)
         , m_timeoutAlarm(None)
         , m_resetAlarm(None)
-        , m_error(false)
 #endif
+        , m_available(true)
 {
+    Q_ASSERT(!s_globalXSyncBasedPoller->q);
+    s_globalXSyncBasedPoller->q = this;
+
 #ifdef HAVE_XSYNC
     int sync_major, sync_minor;
+    int ncounters;
 
     if (!XSyncQueryExtension(m_display, &m_sync_event, &m_sync_error)) {
-        m_error = true;
+        m_available = false;
         return;
     }
 
     if (!XSyncInitialize(m_display, &sync_major, &sync_minor)) {
-        m_error = true;
+        m_available = false;
         return;
     }
 
-    kDebug() << "XSync Inited";
+    kDebug() << sync_major << sync_minor;
+
+    m_counters = XSyncListSystemCounters(m_display, &ncounters);
+
+    bool idleFound = false;
+
+    for (int i = 0; i < ncounters; ++i) {
+        if (!strcmp(m_counters[i].name, "IDLETIME")) {
+            idleFound = true;
+            break;
+        }
+    }
+
+    XSyncFreeSystemCounterList(m_counters);
+
+    if (!idleFound) {
+        m_available = false;
+    }
+
+#else
+    m_available = false;
 #endif
+
+    if (m_available) {
+        kDebug() << "XSync seems available and ready";
+    } else {
+        kDebug() << "XSync seems not available";
+    }
+
 }
 
 XSyncBasedPoller::~XSyncBasedPoller()
@@ -61,34 +114,7 @@ QString XSyncBasedPoller::name()
 
 bool XSyncBasedPoller::isAvailable()
 {
-#ifdef HAVE_XSYNC
-    if (m_error) {
-        return false;
-    }
-
-    int ncounters;
-    m_counters = XSyncListSystemCounters(m_display, &ncounters);
-
-    bool idleFound = false;
-
-    for (int i = 0; i < ncounters && !m_idleCounter; ++i) {
-        if (!strcmp(m_counters[i].name, "IDLETIME")) {
-            m_idleCounter = m_counters[i].counter;
-            idleFound = true;
-        }
-    }
-
-    XSyncFreeSystemCounterList(m_counters);
-
-    if (!idleFound) {
-        return false;
-    }
-
-    return true;
-
-#else
-    return false;
-#endif
+    return m_available;
 }
 
 bool XSyncBasedPoller::setUpPoller()
@@ -99,6 +125,8 @@ bool XSyncBasedPoller::setUpPoller()
     if (!isAvailable()) {
         return false;
     }
+
+    kDebug() << "XSync Inited";
 
     m_counters = XSyncListSystemCounters(m_display, &ncounters);
 
@@ -252,12 +280,13 @@ void XSyncBasedPoller::setAlarm(Display *dpy, XSyncAlarm *alarm, XSyncCounter co
     flags = XSyncCACounter | XSyncCAValueType | XSyncCATestType |
             XSyncCAValue | XSyncCADelta;
 
-    if (*alarm) {
+    if (*alarm)
         XSyncChangeAlarm(dpy, *alarm, flags, &attr);
-    } else {
+    else
         *alarm = XSyncCreateAlarm(dpy, flags, &attr);
-    }
 }
 #endif
 
 #include "XSyncBasedPoller.moc"
+
+

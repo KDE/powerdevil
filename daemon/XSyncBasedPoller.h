@@ -39,6 +39,9 @@ class XSyncBasedPoller : public AbstractSystemPoller
     Q_OBJECT
 
 public:
+
+    static XSyncBasedPoller *instance();
+
     XSyncBasedPoller(QObject *parent = 0);
     virtual ~XSyncBasedPoller();
 
@@ -84,7 +87,9 @@ private:
     XSyncAlarm          m_resetAlarm;
 #endif
     QWidget * m_filterWidget;
-    bool m_error;
+    bool m_available;
 };
 
 #endif /* XSYNCBASEDPOLLER_H */
+
+
