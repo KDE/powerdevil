@@ -89,6 +89,12 @@
               </item>
               <item row="2" column="1" >
                <widget class="KIntSpinBox" name="dimOnIdleTime" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="minimumSize" >
                  <size>
                   <width>0</width>
@@ -132,6 +138,12 @@
                <layout class="QHBoxLayout" name="horizontalLayout_4" >
                 <item>
                  <widget class="KIntSpinBox" name="idleTime" >
+                  <property name="sizePolicy" >
+                   <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="suffix" >
                    <string>min</string>
                   </property>
@@ -145,6 +157,12 @@
                 </item>
                 <item>
                  <widget class="KComboBox" name="idleCombo" >
+                  <property name="sizePolicy" >
+                   <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="maximumSize" >
                    <size>
                     <width>16777215</width>
@@ -170,6 +188,12 @@
               </item>
               <item row="4" column="1" >
                <widget class="KComboBox" name="laptopClosedCombo" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize" >
                  <size>
                   <width>16777215</width>
@@ -190,6 +214,12 @@
               </item>
               <item row="5" column="1" >
                <widget class="KComboBox" name="powerButtonCombo" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize" >
                  <size>
                   <width>16777215</width>
@@ -207,6 +237,12 @@
               </item>
               <item row="6" column="1" >
                <widget class="KComboBox" name="sleepButtonCombo" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize" >
                  <size>
                   <width>16777215</width>
