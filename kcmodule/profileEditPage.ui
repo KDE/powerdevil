@@ -43,15 +43,15 @@
           <item>
            <widget class="QToolBox" name="toolBox" >
             <property name="currentIndex" >
-             <number>0</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page" >
              <property name="geometry" >
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>358</width>
-               <height>316</height>
+               <width>458</width>
+               <height>292</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -269,8 +269,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>259</width>
-               <height>210</height>
+               <width>408</width>
+               <height>292</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -477,8 +477,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>233</width>
-               <height>123</height>
+               <width>412</width>
+               <height>292</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -522,6 +522,12 @@
               </item>
               <item row="3" column="1" >
                <widget class="KComboBox" name="freqCombo" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize" >
                  <size>
                   <width>250</width>
@@ -542,6 +548,12 @@
               </item>
               <item row="4" column="1" >
                <widget class="KComboBox" name="schemeCombo" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize" >
                  <size>
                   <width>250</width>
@@ -559,6 +571,12 @@
               </item>
               <item row="5" column="1" >
                <widget class="KUrlRequester" name="scriptRequester" >
+                <property name="sizePolicy" >
+                 <sizepolicy vsizetype="Preferred" hsizetype="MinimumExpanding" >
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="maximumSize" >
                  <size>
                   <width>250</width>
