@@ -50,7 +50,7 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>378</width>
+               <width>358</width>
                <height>316</height>
               </rect>
              </property>
@@ -62,9 +62,9 @@
              </attribute>
              <layout class="QFormLayout" name="formLayout" >
               <property name="fieldGrowthPolicy" >
-               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               <enum>QFormLayout::ExpandingFieldsGrow</enum>
               </property>
-              <item row="0" column="0" >
+              <item row="1" column="0" >
                <widget class="QCheckBox" name="disableCompositing" >
                 <property name="text" >
                  <string>Disable KWin compositing, if active</string>
@@ -97,7 +97,7 @@
                 </property>
                 <property name="maximumSize" >
                  <size>
-                  <width>100</width>
+                  <width>16777215</width>
                   <height>16777215</height>
                  </size>
                 </property>
@@ -131,21 +131,9 @@
               <item row="3" column="1" >
                <layout class="QHBoxLayout" name="horizontalLayout_4" >
                 <item>
-                 <widget class="QSpinBox" name="idleTime" >
-                  <property name="maximumSize" >
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="whatsThis" >
-                   <string>To prevent data loss or other damage, you can have the system suspend or hibernate, so you do not run accidentally out of battery power. Configure the number of minutes below which the machine will run the configured action.</string>
-                  </property>
+                 <widget class="KIntSpinBox" name="idleTime" >
                   <property name="suffix" >
-                   <string> min</string>
-                  </property>
-                  <property name="prefix" >
-                   <string/>
+                   <string>min</string>
                   </property>
                   <property name="minimum" >
                    <number>1</number>
@@ -159,7 +147,7 @@
                  <widget class="KComboBox" name="idleCombo" >
                   <property name="maximumSize" >
                    <size>
-                    <width>150</width>
+                    <width>16777215</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -184,7 +172,7 @@
                <widget class="KComboBox" name="laptopClosedCombo" >
                 <property name="maximumSize" >
                  <size>
-                  <width>250</width>
+                  <width>16777215</width>
                   <height>16777215</height>
                  </size>
                 </property>
@@ -204,7 +192,7 @@
                <widget class="KComboBox" name="powerButtonCombo" >
                 <property name="maximumSize" >
                  <size>
-                  <width>250</width>
+                  <width>16777215</width>
                   <height>16777215</height>
                  </size>
                 </property>
@@ -221,21 +209,32 @@
                <widget class="KComboBox" name="sleepButtonCombo" >
                 <property name="maximumSize" >
                  <size>
-                  <width>250</width>
+                  <width>16777215</width>
                   <height>16777215</height>
                  </size>
                 </property>
                </widget>
               </item>
              </layout>
+             <zorder>dimDisplayOnIdle</zorder>
+             <zorder>dimOnIdleTime</zorder>
+             <zorder>PoweredIdleLabel_2</zorder>
+             <zorder>label_7</zorder>
+             <zorder>laptopClosedCombo</zorder>
+             <zorder>label</zorder>
+             <zorder>powerButtonCombo</zorder>
+             <zorder>label_2</zorder>
+             <zorder>sleepButtonCombo</zorder>
+             <zorder></zorder>
+             <zorder>disableCompositing</zorder>
             </widget>
             <widget class="QWidget" name="page_3" >
              <property name="geometry" >
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>341</width>
-               <height>316</height>
+               <width>259</width>
+               <height>210</height>
               </rect>
              </property>
              <attribute name="label" >
@@ -442,8 +441,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>341</width>
-               <height>316</height>
+               <width>233</width>
+               <height>123</height>
               </rect>
              </property>
              <attribute name="label" >
