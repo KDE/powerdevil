@@ -33,7 +33,7 @@
         </size>
        </property>
        <property name="text" >
-        <string/>
+        <string comment="KDE::DoNotExtract" >TextLabel</string>
        </property>
       </widget>
      </item>
@@ -62,8 +62,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>575</width>
-        <height>400</height>
+        <width>571</width>
+        <height>431</height>
        </rect>
       </property>
       <attribute name="label" >
@@ -290,8 +290,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>571</width>
-        <height>417</height>
+        <width>263</width>
+        <height>206</height>
        </rect>
       </property>
       <attribute name="label" >
