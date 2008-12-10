@@ -103,7 +103,7 @@ public:
             , battery(0)
             , currentConfig(0)
             , status(PowerDevilDaemon::NoAction)
-            , compositingChanged(false) {};
+            {};
 
     Solid::Control::PowerManager::Notifier * notifier;
     QPointer<Solid::Battery> battery;
@@ -130,7 +130,6 @@ public:
 
     int batteryPercent;
     bool isPlugged;
-    bool compositingChanged;
 };
 
 PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
@@ -1356,11 +1355,11 @@ void PowerDevilDaemon::profileFirstLoad()
 
     if (settings->readEntry("disableCompositing", false)) {
         if (toggleCompositing(false)) {
-            d->compositingChanged = true;
+            PowerDevilSettings::setCompositingChanged(true);
         }
-    } else if (d->compositingChanged) {
+    } else if (PowerDevilSettings::compositingChanged()) {
         toggleCompositing(true);
-        d->compositingChanged = false;
+        PowerDevilSettings::setCompositingChanged(false);
     }
 
     if (PowerDevilSettings::manageDPMS()) {
