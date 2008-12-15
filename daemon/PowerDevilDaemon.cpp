@@ -102,8 +102,7 @@ public:
             : notifier(Solid::Control::PowerManager::notifier())
             , battery(0)
             , currentConfig(0)
-            , status(PowerDevilDaemon::NoAction)
-            {};
+            , status(PowerDevilDaemon::NoAction) {};
 
     Solid::Control::PowerManager::Notifier * notifier;
     QPointer<Solid::Battery> battery;

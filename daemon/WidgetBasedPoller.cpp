@@ -97,6 +97,7 @@ bool WidgetBasedPoller::eventFilter(QObject * object, QEvent * event)
     if (object == m_grabber
             && (event->type() == QEvent::MouseMove || event->type() == QEvent::KeyPress)) {
         detectedActivity();
+        return true;
     } else if (object != m_grabber) {
         // If it's not the grabber, fallback to default event filter
         return false;
@@ -111,8 +112,6 @@ void WidgetBasedPoller::waitForActivity()
 {
     // This code was taken from Lithium/KDE4Powersave
 
-    //emit pollEvent( I18N_NOOP( "Grabber widget is on" ) );
-
     m_grabber->show();
     m_grabber->grabMouse();
     m_grabber->grabKeyboard();
@@ -121,15 +120,11 @@ void WidgetBasedPoller::waitForActivity()
 
 void WidgetBasedPoller::detectedActivity()
 {
-    //emit pollEvent( i18n( "Detected Activity" ) );
-
     emit resumingFromIdle();
 }
 
 void WidgetBasedPoller::releaseInputLock()
 {
-    //emit pollEvent( I18N_NOOP( "Grabber widget is off" ) );
-
     m_grabber->releaseMouse();
     m_grabber->releaseKeyboard();
     m_grabber->hide();
