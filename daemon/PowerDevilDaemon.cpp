@@ -677,13 +677,13 @@ void PowerDevilDaemon::buttonPressed(int but)
 
 void PowerDevilDaemon::decreaseBrightness()
 {
-    int currentBrightness = qMax(0, Solid::Control::PowerManager::brightness() - 10);
+    int currentBrightness = qMax(0, (int)(Solid::Control::PowerManager::brightness() - 10));
     Solid::Control::PowerManager::setBrightness(currentBrightness);
 }
 
 void PowerDevilDaemon::increaseBrightness()
 {
-    int currentBrightness = qMin(100, Solid::Control::PowerManager::brightness() + 10);
+    int currentBrightness = qMin(100, (int)(Solid::Control::PowerManager::brightness() + 10));
     Solid::Control::PowerManager::setBrightness(currentBrightness);
 }
 
