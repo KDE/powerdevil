@@ -5,6 +5,7 @@ Name[be@latin]=Kiravańnie enerhijaj
 Name[bg]=Захранване
 Name[bn_IN]=বিদ্যুৎ সরবরাহ পরিচালনা
 Name[ca]=Gestió d'energia
+Name[cs]=Správa napájení
 Name[csb]=Sprôwianié mòcą
 Name[da]=Strømstyring
 Name[de]=Energieverwaltung
@@ -28,6 +29,7 @@ Name[ko]=전력 관리
 Name[lt]=Energijos valdymas
 Name[lv]=Energokontrole
 Name[ml]=പവര്‍ മാനേജ്മെന്റ്
+Name[mr]=पावर व्यवस्थापन
 Name[nb]=Strømstyring
 Name[nds]=Stroomkuntrull
 Name[nl]=Energiebeheer
@@ -153,6 +155,7 @@ Comment[kn]=ಎಚ್ಚರಿಕೆ ಸೂಚನೆಗಳಿಗೆ ಬಳಸಲ
 Comment[ko]=경고 알림에 사용됨
 Comment[lv]=Izmanto brīdinājumu paziņojumiem
 Comment[ml]=താക്കീത് അറിയിപ്പുകള്‍ക്കായ് ഉപയോഗിക്കുന്നു
+Comment[mr]=सावधगिरी सूचना करीता वापरले जाते
 Comment[nb]=Brukt til varselsmeldinger
 Comment[nds]=Bi Wohrschoen bruukt
 Comment[nl]=Wordt gebruikt voor waarschuwingsmeldingen
@@ -267,6 +270,7 @@ Comment[kn]=ಪ್ರಮಾಣಿತ ಸೂಚನೆಗಳಿಗೆ ಬಳಸಲ
 Comment[ko]=표준 알림에 사용됨
 Comment[lv]=Izmanto standarta paziņojumiem
 Comment[ml]=സാധാരണ അറിയിപ്പുകള്‍ക്കായ് ഉപയോഗിക്കുന്നത്
+Comment[mr]=मानक सूचना करीता वापरले जाते
 Comment[nb]=Brukt til standardmeldinger
 Comment[nds]=Bi Standardbescheden bruukt
 Comment[nl]=Wordt gebruikt voor standaardmeldingen
@@ -314,6 +318,7 @@ Name[ko]=치명적 알림
 Name[lt]=Kritinis pranešimas
 Name[lv]=Kritisks paziņojums
 Name[ml]=അത്യാവശ്യ അറിയിപ്പു്
+Name[mr]=महत्वाची सूचना
 Name[nb]=Kritisk varsling
 Name[nds]=Kritisch Bescheed
 Name[nl]=Kritieke melding
@@ -356,6 +361,7 @@ Comment[kn]=ವಿಷಮ ಘಟನೆಯೊಂದನ್ನು ಸೂಚಿಸು
 Comment[ko]=치명적인 사건을 알림
 Comment[lv]=Paziņo kritisku notikumu
 Comment[ml]=ഒരു അത്യാവശ്യമായ സംഭവം അറിയിക്കുന്നു
+Comment[mr]=महत्वाच्या घटना करीता सूचीत करतो
 Comment[nb]=Varsler om en kritisk hendelse
 Comment[nds]=Gifft över en kritisch Begeefnis bescheed
 Comment[nl]=Meldt een kritieke gebeurtenis
@@ -444,6 +450,7 @@ Comment[ko]=배터리에 남은 용량이 적습니다
 Comment[lt]=Jūsų akumuliatorius pasiekė žemą lygmenį
 Comment[lv]=Jūsu baterija ir sasniegusi zemu līmeni
 Comment[ml]=നിങ്ങളുടെ ബാറ്ററി കുറവായ നില എത്തിയിരിക്കുന്നു
+Comment[mr]=बॅटरी किमान स्तर पर्यंत पोहचली आहे
 Comment[nb]=Batteriet har nådd lavt nivå
 Comment[nds]=Dien Batteriestoop is nu "Siet"
 Comment[nl]=Uw accu heeft het lage niveau bereikt
@@ -492,6 +499,7 @@ Name[ko]=배터리 거의 없음
 Name[lt]=Akumuliatorius įspėjamajame lygmenyje
 Name[lv]=Baterija brīdinošā līmenī
 Name[ml]=ബാറ്ററി താക്കീത് നില എത്തിയിരിക്കുന്നു
+Name[mr]=बॅटरी सावधानता स्तर पर्यंत पोहचली आहे
 Name[nb]=Batteriet er på varslingsnivå
 Name[nds]=Batterie bi "Wohrscho"-Stoop
 Name[nl]=Accucapaciteit op waarschuwingsniveau
@@ -534,6 +542,7 @@ Comment[ko]=배터리가 거의 없습니다
 Comment[lt]=Jūsų akumuliatorius pasiekė įspėjamąjį lygmenį
 Comment[lv]=Jūsu baterija ir sasniegusi brīdinājuma līmeni
 Comment[ml]=നിങ്ങളുടെ ബാറ്ററി താക്കീത് നില എത്തിയിരിക്കുന്നു
+Comment[mr]=बॅटरी सावधानता स्तर पर्यंत पोहचली आहे
 Comment[nb]=Batteriet har nådd varslingsnivået
 Comment[nds]=Dien Batterie is bi de Wohrscho-Stoop ankamen
 Comment[nl]=Uw accu heeft het waarschuwingsniveau bereikt
@@ -582,6 +591,7 @@ Name[ko]=배터리가 부족합니다
 Name[lt]=Akumuliatorius kritiniame lygmenyje
 Name[lv]=Baterija kritiskā līmenī
 Name[ml]=ബാറ്ററി ക്രിടിക്കല്‍ (ഭയാവഹമായ) നില എത്തിയിരിക്കുന്നു
+Name[mr]=बॅटरी महत्वाच्या स्तर पर्यंत पोहचली आहे
 Name[nb]=Batteri på kritisk nivå
 Name[nds]=Batterie bi Stoop "Kritisch"
 Name[nl]=Accucapaciteit op kritiek niveau
@@ -619,6 +629,7 @@ Comment[km]=ថ្ម​របស់​អ្នក​បានដល់កម�
 Comment[ko]=배터리가 부족합니다. 설정된 동작을 실행할 때까지 잠깐 동안의 여유가 있으며, 그 시간 동안 작업을 정리하십시오.
 Comment[lv]=Jūsu baterija ir sasniegisi kritisku līmeni. Šis paziņojums sāk laika atskaiti līdz konfigurētajai darbībai, tāpēc ir ļoti vēlams atstāt to redzamu.
 Comment[ml]=നിങ്ങളുടെ ബാറ്ററി ക്രിടിക്കല്‍ (ഭയാവഹമായ) നില എത്തിയിരിക്കുന്നു. ഈ അറിയിപ്പ് ഒരു കൗണ്‍ട്-ഡൗണ്‍ തുടങ്ങുന്നു, അതു കഴിഞ്ഞാല്‍ ക്രമീകരിച്ച പ്രവര്‍ത്തനം ചെയ്യപ്പെടും, അതിനാല്‍ അതു സജീവമായിരിക്കട്ടെ എന്നു ഉപദേശിക്കുന്നു.
+Comment[mr]=बॅटरी महत्वाचे स्तर पर्यंत पोहचली आहे. ही सूचना संयोजीत क्रिया करण्यापूर्वी काऊन्टडाऊन सक्रीय करते, ज्यामुळे त्यांस वगळण्यास सूचविले जाते.
 Comment[nb]=Batteriet har nådd kritisk nivå. Denne varslingen utløser en nedtelling før den innstilte handlingen utføres, så det tilrådes sterkt å la den stå på.
 Comment[nds]=Dien Batterie is bi de kritische Stoop ankamen. Disse Bescheed tellt en Tiet daal, ehr he de instellte Akschoon utföhrt, laat em also beter an.
 Comment[nl]=Uw accu heeft het kritieke niveau bereikt. Deze melding activeert een aftelling voordat de ingestelde actie zal worden uitgevoerd. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
@@ -665,6 +676,7 @@ Name[ko]=AC 어댑터 연결됨
 Name[lt]=Prijungtas AC adapteris
 Name[lv]=Iesprausts barošanas vads
 Name[ml]=AC അഡാപ്റ്റര്‍ കുത്തിയിരിക്കുന്നു
+Name[mr]=AC अडॅप्टर प्लग केले
 Name[nb]=Strømadapteret er koblet til
 Name[nds]=Stroomkavel tokoppelt
 Name[nl]=Netstroomadapter aangesloten
@@ -710,6 +722,7 @@ Comment[ko]=AC 어댑터가 연결되었습니다
 Comment[lt]=Kintamosios srovės adapteris buvo prijungtas
 Comment[lv]=Tika iesprausts strāvas vads
 Comment[ml]=ചവറ്റുകുട്ട കാലിയാക്കിയിരിക്കുന്നുപവര്‍ അഡാപ്റ്റര്‍ പ്ലഗ്ഗിലേക്ക് കുത്തിയിരിക്കുന്നു
+Comment[mr]=पावर अडॅप्टरला प्लग केले गेले आहे
 Comment[nb]=Strømadapteret er koblet til
 Comment[nds]=Dat Stroomkavel wöör tokoppelt
 Comment[nl]=De netstroomadapter is aangesloten
@@ -760,6 +773,7 @@ Name[ko]=AC 어댑터 연결 해제됨
 Name[lt]=Atjungtas AC adapteris
 Name[lv]=Izrauts barošanas vads
 Name[ml]=AC അഡാപ്റ്റര്‍ പുറത്തെടുത്തിരിക്കുന്നു
+Name[mr]=AC अडॅप्टर काढून टाकले
 Name[nb]=Strømadapteret er dratt ut
 Name[nds]=Stroomkavel ruttrocken
 Name[nl]=Netstroomadapter niet aangesloten
@@ -806,6 +820,7 @@ Comment[ko]=AC 어댑터의 연결이 해제되었습니다
 Comment[lt]=Kintamosios srovės adapteris buvo atjungtas
 Comment[lv]=Tika izrauts strāvas vads
 Comment[ml]=പവര്‍ അഡാപ്റ്റര്‍ പ്ലഗ്ഗില്‍ നിന്നും ഊരിയിരിക്കുന്നു
+Comment[mr]=पावर अडॅप्टरला काढून टाकण्यात आले आहे
 Comment[nb]=Strømadapteret er koblet fra
 Comment[nds]=Dat Stroomkavel wöör ruttrocken
 Comment[nl]=De netstroomadapter is losgekoppeld
@@ -852,6 +867,7 @@ Name[kn]=ಕಾರ್ಯ ದೋಷ
 Name[ko]=작업 오류
 Name[lv]=Darbības kļūda
 Name[ml]=ജോലി പിശക്
+Name[mr]=कार्य त्रुटी
 Name[nb]=Jobfeil
 Name[nds]=Opgaav-Fehler
 Name[nl]=Taakfout
@@ -895,6 +911,7 @@ Comment[kn]=ಒಂದು ಕಾರ್ಯವನ್ನು ಮಾಡುವಾಗ �
 Comment[ko]=작업을 수행하는 중 오류가 발생했습니다
 Comment[lv]=Gadījās kļūda veicot darbību
 Comment[ml]=ജോലി ചെയ്യുന്നതിനിടയില്‍ പിശകുണ്ടായിരുന്നു
+Comment[mr]=कार्य करतेवेळी त्रुटी आढळली
 Comment[nb]=Det oppsto en feil mens en jobb ble utført
 Comment[nds]=Dat geev en Fehler binnen en Opgaav
 Comment[nl]=Er deed zich een fout voor tijdens het uitvoeren van een taak
@@ -941,6 +958,7 @@ Name[ko]=프로필 변경됨
 Name[lt]=Profilis pakeistas
 Name[lv]=Mainīts profils
 Name[ml]=പ്രൊഫൈല്‍ മാറി
+Name[mr]=प्रोफाइल बदलविले
 Name[nb]=Profil endret
 Name[nds]=Profil ännert
 Name[nl]=Profiel gewijzigd
@@ -982,6 +1000,7 @@ Comment[ko]=전원 프로필이 변경되었습니다
 Comment[lt]=Profilis buvo pakeistas
 Comment[lv]=Ir mainīts profils
 Comment[ml]=പ്രൊഫൈല്‍ മാറ്റിയിരിക്കുന്നു
+Comment[mr]=प्रोफाइल बदलविले
 Comment[nb]=Profilen ble endret
 Comment[nds]=Du hest dat Profil ännert
 Comment[nl]=Het profiel is gewijzigd
@@ -1026,6 +1045,7 @@ Name[km]=អនុវត្ត​ការងារ suspension
 Name[ko]=대기 모드로 들어가는 중
 Name[lv]=Veic iemigšanas darbību
 Name[ml]=താല്‍കാലികമായി നിര്‍ത്തിവെക്കാനുള്ള (മയങ്ങല്‍) ജോലി ചെയ്യുന്നു
+Name[mr]=सस्पेनशन कार्य कार्यान्वीत केले
 Name[nb]=Utfører en suspenderingsjobb
 Name[nds]=En Utsetten warrt utföhrt
 Name[nl]=Voert een slaapstandtaak uit
@@ -1059,6 +1079,7 @@ Comment[km]=កា​រជូន​ដំណឹង​នេះ​ត្រូ�
 Comment[ko]=대기 모드로 곧 들어갑니다. 잠깐 동안의 시간 여유가 주어지며, 그 동안 작업을 정리하십시오.
 Comment[lv]=Šis paziņojums tiek parādīts, kad tiks veikta iemigšanas darbība, un tas sāk laika atskaiti. Tāpēc ļoti vēlams atstāt to redzamu.
 Comment[ml]=ഈ അറിയിപ്പ് കാണിച്ചാല്‍ ഒരു താല്‍കാലികമായി നിര്‍ത്തിവെക്കല്‍ (മയങ്ങല്‍)ജോലി ചെയ്യാന്‍ പോകുന്നു. ഇത് ഒരു കൗണ്‍ട്-ഡൗണ്‍ തുടങ്ങുന്നു, അതിനാല്‍ അതു സജീവമായിരിക്കട്ടെ എന്നു ഉപദേശിക്കുന്നു.
+Comment[mr]=सस्पेनशन कार्य पूर्ण होतेवेळी ही सूनचा दर्शविली जाते, व काऊन्टडाऊन करीता सक्रीय केले जाते. त्यामुळेच, त्यांस वगळणे सूचविले जाते.
 Comment[nb]=Denne varslingen vises når en suspenderingsjobb skal til å utføres, og utløser en nedtelling, så det tilrådes sterkt å la den stå på.
 Comment[nds]=Disse Bescheed warrt wiest, wenn en Utsettakschoon utföhrt warrt. He tellt ok en Tiet daal, laat em also beter an.
 Comment[nl]=Deze melding wordt weergegeven als het systeem op het punt staat een slaapstandtaak uit te voeren en voorafgaand een afteller weergeeft. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
@@ -1105,6 +1126,7 @@ Name[ko]=PowerDevil 내부 오류
 Name[lt]=Vidinė PowerDevil klaida
 Name[lv]=Iekšēja PowerDevil kļūda
 Name[ml]=ആഭ്യന്തര പവര്‍ഡെവിള്‍ പിശക്
+Name[mr]=आंतरीक PowerDevil त्रुटी
 Name[nb]=Intern PowerDevil-feil
 Name[nds]=Intern Fehler binnen Stroomdüvel
 Name[nl]=Internet fout in PowerDevil
@@ -1146,6 +1168,7 @@ Comment[kn]=ಪವರ್ ಡೆವಿಲ್ ಒಂದು ಆಂತರಿಕ ದ�
 Comment[ko]=PowerDevil에서 내부 오류가 발생했습니다
 Comment[lv]=PowerDevil gadījusies iekšēja kļūda
 Comment[ml]=PowerDevil ഒരു ആന്തരിക പിശക് തുടങ്ങിയിരിക്കുന്നു
+Comment[mr]=PowerDevil ने आंतरिक त्रुटीला सक्रीय केले
 Comment[nb]=PowerDevil har utløst en intern feil
 Comment[nds]=De Stroomdüvel hett en intern Fehler hatt
 Comment[nl]=PowerDevil activeerde een interne fout

@@ -16,6 +16,7 @@ Name[be@latin]=Kiravańnie enerhijaj
 Name[bg]=Захранване
 Name[bn_IN]=বিদ্যুৎ সরবরাহ পরিচালনা
 Name[ca]=Gestió d'energia
+Name[cs]=Správa napájení
 Name[csb]=Sprôwianié mòcą
 Name[da]=Strømstyring
 Name[de]=Energieverwaltung
@@ -39,6 +40,7 @@ Name[ko]=전력 관리
 Name[lt]=Energijos valdymas
 Name[lv]=Energokontrole
 Name[ml]=പവര്‍ മാനേജ്മെന്റ്
+Name[mr]=पावर व्यवस्थापन
 Name[nb]=Strømstyring
 Name[nds]=Stroomkuntrull
 Name[nl]=Energiebeheer
@@ -79,6 +81,7 @@ Comment[kn]=ಪ್ರದರ್ಶನ ಉಜ್ವಲತೆ (ಬ್ರೈಟ್�
 Comment[ko]=화면 밝기, 절전 모드, 전원 프로필 설정
 Comment[lv]=Parāda gaišumu, iemigšanas un jaudas profila iestatījumus
 Comment[ml]=തെളിച്ചവും, താല്‍കാലികമായി നിര്‍ത്തിവെക്കാനുള്ളതിന്റെയും ഊര്‍ജ്ജത്തിന്റെയും പ്രൊഫൈല്‍ സജ്ജീകരണങ്ങള്‍ കാണിക്കുക.
+Comment[mr]=तेजपणा, सस्पेंड व पावर प्रदर्शन संयोजना दर्शवा
 Comment[nb]=Innstillinger for lysstyrke, hvile/dvale og strømprofiler
 Comment[nds]=Helligkeit-, Utsett- un Stroomprofil-Instellen wiesen
 Comment[nl]=Schermhelderheid-, slaapstand- en energieprofielen instellen
