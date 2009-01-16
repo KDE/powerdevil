@@ -607,16 +607,16 @@ void PowerDevilDaemon::buttonPressed(int but)
 
         switch (settings->readEntry("lidAction").toInt()) {
         case Shutdown:
-            shutdownNotification(true);
+            shutdown();
             break;
         case S2Disk:
-            suspendToDiskNotification(true);
+            suspendToDisk();
             break;
         case S2Ram:
-            suspendToRamNotification(true);
+            suspendToRam();
             break;
         case Standby:
-            standbyNotification(true);
+            standby();
             break;
         case Lock:
             lockScreen();
