@@ -99,7 +99,7 @@ void PowerDevilKCM::initModule()
         return;
     } else {
         initError(i18n("PowerDevil seems not to be started. Either you have its service turned off, "
-                       "or there is a problem in DBus."));
+                       "or there is a problem in D-Bus."));
         return;
     }
 }
