@@ -111,8 +111,6 @@ public:
     OrgKdeKSMServerInterfaceInterface * ksmServerIface;
     OrgKdeScreensaverInterface * kscreenSaverIface;
 
-    QWidget * grabber;
-
     KComponentData applicationData;
     KSharedConfig::Ptr profilesConfig;
     KConfigGroup * currentConfig;
@@ -142,7 +140,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
                          KAboutData::License_GPL, ki18n("(c) 2008 Dario Freddi"),
                          KLocalizedString(), "http://www.kde.org");
 
-    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf@kdemod.ath.cx",
+    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf54321@gmail.com",
                         "http://drfav.wordpress.com");
 
     d->applicationData = KComponentData(aboutData);
@@ -1345,10 +1343,12 @@ void PowerDevilDaemon::profileFirstLoad()
     if (settings->readEntry("disableCompositing", false)) {
         if (toggleCompositing(false)) {
             PowerDevilSettings::setCompositingChanged(true);
+            PowerDevilSettings::self()->writeConfig();
         }
     } else if (PowerDevilSettings::compositingChanged()) {
         toggleCompositing(true);
         PowerDevilSettings::setCompositingChanged(false);
+        PowerDevilSettings::self()->writeConfig();
     }
 
     if (PowerDevilSettings::manageDPMS()) {
