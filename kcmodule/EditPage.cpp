@@ -100,16 +100,20 @@ void EditPage::fillUi()
     idleCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
     idleCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     idleCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    idleCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
     laptopClosedCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
     laptopClosedCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     laptopClosedCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    laptopClosedCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
     sleepButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
     sleepButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     sleepButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    sleepButtonCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
     sleepButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log out dialog"), (int) ShutdownDialog);
     powerButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
     powerButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     powerButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
+    powerButtonCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
     powerButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log out dialog"), (int) ShutdownDialog);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();

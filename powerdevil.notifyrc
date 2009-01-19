@@ -1151,7 +1151,8 @@ Comment[zh_CN]=此通知会在打断的任务要完成时显示，并进行一�
 Comment[zh_TW]=此通知在暫停的工作將要結束時會顯示，並且開始倒數計時。建議您保持此選項開啟。
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
-Action=Sound|Popup
+Action=Sound|Popup|Taskbar
+Persistant=true
 
 [Event/powerdevilerror]
 Name=Internal PowerDevil Error

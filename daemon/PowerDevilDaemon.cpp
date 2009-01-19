@@ -537,8 +537,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case Shutdown:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC will be halted in %1 seconds. "
-                                        "Click here to block the process.",
+                                        "critical level, the PC will be halted in %1 seconds.",
                                         PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(shutdown()));
             } else {
@@ -549,7 +548,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery", i18n("Your battery has reached "
                                         "critical level, the PC will be suspended to disk in "
-                                        "%1 seconds. Click here to block the process.",
+                                        "%1 seconds.",
                                         PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToDisk()));
             } else {
@@ -560,7 +559,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery", i18n("Your battery has reached "
                                         "critical level, the PC will be suspended to RAM in "
-                                        "%1 seconds. Click here to block the process",
+                                        "%1 seconds.",
                                         PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToRam()));
             } else {
@@ -570,8 +569,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case Standby:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC is going Standby in %1 seconds. "
-                                        "Click here to block the process.",
+                                        "critical level, the PC is going Standby in %1 seconds.",
                                         PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(standby()));
             } else {
@@ -619,6 +617,9 @@ void PowerDevilDaemon::buttonPressed(int but)
         case Lock:
             lockScreen();
             break;
+        case TurnOffScreen:
+            turnOffScreen();
+            break;
         default:
             break;
         }
@@ -643,6 +644,9 @@ void PowerDevilDaemon::buttonPressed(int but)
         case ShutdownDialog:
             shutdownDialog();
             break;
+        case TurnOffScreen:
+            turnOffScreen();
+            break;
         default:
             break;
         }
@@ -666,6 +670,9 @@ void PowerDevilDaemon::buttonPressed(int but)
             break;
         case ShutdownDialog:
             shutdownDialog();
+            break;
+        case TurnOffScreen:
+            turnOffScreen();
             break;
         default:
             break;
@@ -692,8 +699,7 @@ void PowerDevilDaemon::shutdownNotification(bool automated)
     }
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
-        emitNotification("doingjob", i18n("The computer will be halted in %1 seconds. Click "
-                                          "here to block the process.",
+        emitNotification("doingjob", i18n("The computer will be halted in %1 seconds.",
                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(shutdown()));
     } else {
@@ -709,7 +715,7 @@ void PowerDevilDaemon::suspendToDiskNotification(bool automated)
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be suspended to disk in %1 "
-                                          "seconds. Click here to block the process.",
+                                          "seconds.",
                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(suspendToDisk()));
     } else {
@@ -725,7 +731,7 @@ void PowerDevilDaemon::suspendToRamNotification(bool automated)
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be suspended to RAM in %1 "
-                                          "seconds. Click here to block the process.",
+                                          "seconds.",
                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(suspendToRam()));
     } else {
@@ -741,7 +747,7 @@ void PowerDevilDaemon::standbyNotification(bool automated)
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
         emitNotification("doingjob", i18n("The computer will be put into standby in %1 "
-                                          "seconds. Click here to block the process.",
+                                          "seconds.",
                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(standby()));
     } else {
@@ -933,6 +939,10 @@ void PowerDevilDaemon::poll(int idle)
             POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
             lockScreen();
             break;
+        case TurnOffScreen:
+            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            turnOffScreen();
+            break;
         default:
             break;
         }
@@ -1017,12 +1027,13 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Abort Action"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(closed()), d->lockHandler, SLOT(releaseNotificationLock()));
-        connect(d->notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler, SLOT(releaseNotificationLock()));
+        connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
@@ -1044,12 +1055,13 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Abort Action"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(closed()), d->lockHandler, SLOT(releaseNotificationLock()));
-        connect(d->notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler, SLOT(releaseNotificationLock()));
+        connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
@@ -1071,12 +1083,13 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Abort Action"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(closed()), d->lockHandler, SLOT(releaseNotificationLock()));
-        connect(d->notification, SIGNAL(closed()), SLOT(cleanUpTimer()));
+        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler, SLOT(releaseNotificationLock()));
+        connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
@@ -1308,6 +1321,10 @@ void PowerDevilDaemon::setBrightness(int value)
 
 void PowerDevilDaemon::turnOffScreen()
 {
+    if (PowerDevilSettings::configLockScreen()) {
+        lockScreen();
+    }
+
 #ifdef HAVE_DPMS
 
     CARD16 dummy;

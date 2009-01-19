@@ -150,7 +150,8 @@ public:
         S2Disk = 4,
         Shutdown = 8,
         Lock = 16,
-        ShutdownDialog = 32
+        ShutdownDialog = 32,
+        TurnOffScreen = 64
     };
 
     enum IdleStatus {
