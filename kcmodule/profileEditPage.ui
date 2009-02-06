@@ -108,7 +108,7 @@
                  </size>
                 </property>
                 <property name="suffix" >
-                 <string comment="Minutes" >min</string>
+                 <string comment="Minutes" > min</string>
                 </property>
                 <property name="minimum" >
                  <number>1</number>
@@ -145,7 +145,7 @@
                    </sizepolicy>
                   </property>
                   <property name="suffix" >
-                   <string>min</string>
+                   <string> min</string>
                   </property>
                   <property name="minimum" >
                    <number>1</number>
@@ -399,7 +399,7 @@
                    <string>Choose the period of inactivity after which the display should enter "standby" mode. This is the first level of power saving.</string>
                   </property>
                   <property name="suffix" >
-                   <string>min</string>
+                   <string> min</string>
                   </property>
                   <property name="prefix" >
                    <string/>
@@ -425,7 +425,7 @@
                    </size>
                   </property>
                   <property name="suffix" >
-                   <string>min</string>
+                   <string> min</string>
                   </property>
                   <property name="maximum" >
                    <number>360</number>
@@ -448,7 +448,7 @@
                    </size>
                   </property>
                   <property name="suffix" >
-                   <string>min</string>
+                   <string> min</string>
                   </property>
                   <property name="maximum" >
                    <number>360</number>

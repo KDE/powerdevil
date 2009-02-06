@@ -189,7 +189,7 @@
              </size>
             </property>
             <property name="suffix" >
-             <string comment="As in &quot;seconds&quot;" >sec</string>
+             <string comment="As in &quot;seconds&quot;" > sec</string>
             </property>
             <property name="maximum" >
              <number>300</number>
