@@ -59,6 +59,7 @@
       <arg type="s" direction="out" />
       <arg type="as" direction="out" />
     </signal>
-    
+     <signal name="DPMSconfigUpdated">
+    </signal>
   </interface>
 </node>

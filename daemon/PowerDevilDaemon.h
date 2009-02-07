@@ -112,8 +112,6 @@ private Q_SLOTS:
 
     void cleanUpTimer();
 
-    void setUpDPMS();
-
     void emitCriticalNotification(const QString &evid, const QString &message = QString(),
                                   const char *slot = 0, const QString &iconname = "dialog-error");
 
@@ -125,10 +123,13 @@ Q_SIGNALS:
 
     void stateChanged(int, bool);
     void profileChanged(const QString &, const QStringList &);
+    void DPMSconfigUpdated();
 
 private:
     void lockScreen();
 
+    void setUpDPMS();	
+    
     KConfigGroup *getCurrentProfile(bool forcereload = false);
     void applyProfile();
 

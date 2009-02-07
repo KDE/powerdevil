@@ -50,7 +50,7 @@
 #include <solid/processor.h>
 
 #include "screensaver_interface.h"
-#include "kscreensaver_interface.h"
+//#include "kscreensaver_interface.h"
 #include "ksmserver_interface.h"
 
 #include <config-powerdevil.h>
@@ -109,7 +109,8 @@ public:
 
     OrgFreedesktopScreenSaverInterface * screenSaverIface;
     OrgKdeKSMServerInterfaceInterface * ksmServerIface;
-    OrgKdeScreensaverInterface * kscreenSaverIface;
+//  Now we send a signal to trigger the configuration of Kscreensaver (Bug #177123) and we don't need the interface anymore
+//     OrgKdeScreensaverInterface * kscreenSaverIface;
 
     KComponentData applicationData;
     KSharedConfig::Ptr profilesConfig;
@@ -174,9 +175,13 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
             QDBusConnection::sessionBus(), this);
     d->ksmServerIface = new OrgKdeKSMServerInterfaceInterface("org.kde.ksmserver", "/KSMServer",
             QDBusConnection::sessionBus(), this);
-    d->kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
-            QDBusConnection::sessionBus(), this);
 
+    /*  Not needed anymore; I am not sure if we will need that in a future, so I leave it here 
+     *  just in case.
+     *
+     *   d->kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
+     *         QDBusConnection::sessionBus(), this);
+    */
     connect(d->notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
     connect(d->notifier, SIGNAL(batteryRemainingTimeChanged(int)), this, SLOT(batteryRemainingTimeChanged(int)));
     connect(d->lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
@@ -490,13 +495,13 @@ void PowerDevilDaemon::setUpDPMS()
         int suspend = 60 * settings->readEntry("DPMSSuspend").toInt();
         int poff = 60 * settings->readEntry("DPMSPowerOff").toInt();
 
-        if (settings->readEntry("DPMSStandbyEnabled", false)) {
+        if (!settings->readEntry("DPMSStandbyEnabled", false)) {
             standby = 0;
         }
-        if (settings->readEntry("DPMSSuspendEnabled", false)) {
+        if (!settings->readEntry("DPMSSuspendEnabled", false)) {
             suspend = 0;
         }
-        if (settings->readEntry("DPMSPowerOffEnabled", false)) {
+        if (!settings->readEntry("DPMSPowerOffEnabled", false)) {
             poff = 0;
         }
 
@@ -508,7 +513,8 @@ void PowerDevilDaemon::setUpDPMS()
     }
 
     // The screen saver depends on the DPMS settings
-    d->kscreenSaverIface->configure();
+    // Emit a signal so that Kscreensaver knows it has to re-configure itself
+    emit DPMSconfigUpdated();
 #endif
 }
 
@@ -856,7 +862,7 @@ void PowerDevilDaemon::poll(int idle)
      * We make an intensive use of qMin/qMax here to determine the minimum time.
      */
 
-    kDebug() << "Polling started, idle time is" << idle << "seconds";
+   // kDebug() << "Polling started, idle time is" << idle << "seconds";
 
     KConfigGroup * settings = getCurrentProfile();
 
@@ -866,7 +872,7 @@ void PowerDevilDaemon::poll(int idle)
 
     if (!settings->readEntry("dimOnIdle", false) && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
-        kDebug() << "Stopping timer";
+     //   kDebug() << "Stopping timer";
         POLLER_CALL(d->pollLoader->poller(), stopCatchingTimeouts());
         return;
     }
@@ -891,13 +897,13 @@ void PowerDevilDaemon::poll(int idle)
         minTime = qMin(minTime, minDimTime);
     }
 
-    kDebug() << "Minimum time is" << minTime << "seconds";
+   // kDebug() << "Minimum time is" << minTime << "seconds";
 
     if (idle < minTime) {
         d->status = NoAction;
         int remaining = minTime - idle;
         POLLER_CALL(d->pollLoader->poller(), setNextTimeout(remaining * 1000));
-        kDebug() << "Nothing to do, next event in" << remaining << "seconds";
+     //   kDebug() << "Nothing to do, next event in" << remaining << "seconds";
         return;
     }
 
@@ -1315,7 +1321,6 @@ void PowerDevilDaemon::setBrightness(int value)
         Solid::Control::PowerManager::setBrightness(b);
         return;
     }
-
     Solid::Control::PowerManager::setBrightness(value);
 }
 
@@ -1369,7 +1374,7 @@ void PowerDevilDaemon::profileFirstLoad()
     }
 
     if (PowerDevilSettings::manageDPMS()) {
-        QTimer::singleShot(300, this, SLOT(setUpDPMS()));
+        setUpDPMS();
     }
 }
 
