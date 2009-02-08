@@ -188,6 +188,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
                                    const char*, const QString&)),
             SLOT(emitCriticalNotification(const QString&, const QString&,
                                           const char*, const QString&)));
+    connect(d->ksmServerIface, SIGNAL(loggingOut(int,int,int)), this, SLOT(loggingOut(int,int,int)));
 
     /* Time for setting up polling! We can have different methods, so
      * let's check what we got.
@@ -230,6 +231,11 @@ PowerDevilDaemon::~PowerDevilDaemon()
 void PowerDevilDaemon::batteryRemainingTimeChanged(int time)
 {
     kDebug() << KGlobal::locale()->formatDuration(time);
+}
+
+void PowerDevilDaemon::loggingOut(int confirm, int sdtype, int sdmode)
+{
+    d->lockHandler->inhibit("","");
 }
 
 SuspensionLockHandler *PowerDevilDaemon::lockHandler()
