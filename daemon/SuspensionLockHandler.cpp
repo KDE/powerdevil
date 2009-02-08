@@ -23,6 +23,9 @@
 #include <KDebug>
 #include <klocalizedstring.h>
 
+#include <QTimer>
+#include <QVariant>
+
 SuspensionLockHandler::SuspensionLockHandler(QObject *parent)
         : QObject(parent),
         m_isJobOngoing(false),
@@ -105,6 +108,8 @@ bool SuspensionLockHandler::setJobLock(bool automated)
 
 int SuspensionLockHandler::inhibit(const QString &application, const QString &reason)
 {
+    int timeout = 3600;
+
     ++m_latestInhibitCookie;
 
     InhibitRequest req;
@@ -113,6 +118,38 @@ int SuspensionLockHandler::inhibit(const QString &application, const QString &re
     req.reason = reason;
     req.cookie = m_latestInhibitCookie;
     m_inhibitRequests[m_latestInhibitCookie] = req;
+
+    // Start the timer and keep track of it, to release the inhibition after the timeout
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(timeout * 1000);
+    connect(timer, SIGNAL(timeout()), this, SLOT(inhibitionTimeout()));
+    timer->setProperty("inhibit_cookie_id", QVariant(m_latestInhibitCookie));
+    timer->start();
+
+    emit inhibitChanged(true);
+
+    return m_latestInhibitCookie;
+}
+
+int SuspensionLockHandler::inhibit(const QString &application, const QString &reason, int timeout)
+{
+    ++m_latestInhibitCookie;
+
+    InhibitRequest req;
+    //TODO: Keep track of the service name too, to cleanup cookie in case of a crash.
+    req.application = application;
+    req.reason = reason;
+    req.cookie = m_latestInhibitCookie;
+    m_inhibitRequests[m_latestInhibitCookie] = req;
+
+    if (timeout > 0) {
+        // Start the timer and keep track of it, to release the inhibition after the timeout
+        QTimer *timer = new QTimer(this);
+        timer->setInterval(timeout * 1000);
+        connect(timer, SIGNAL(timeout()), this, SLOT(inhibitionTimeout()));
+        timer->setProperty("inhibit_cookie_id", m_latestInhibitCookie);
+        timer->start();
+    }
 
     emit inhibitChanged(true);
 
@@ -146,5 +183,18 @@ void SuspensionLockHandler::releaseInhibiton(int cookie)
         emit inhibitChanged(false);
     }
 }
+
+void SuspensionLockHandler::inhibitionTimeout() {
+    QTimer *timer = qobject_cast<QTimer*>(sender());
+    
+    if (!timer) {
+        return;
+    }
+
+    releaseInhibiton(timer->property("inhibit_cookie_id").toInt());
+    
+    timer->deleteLater();
+}
+
 
 #include "SuspensionLockHandler.moc"

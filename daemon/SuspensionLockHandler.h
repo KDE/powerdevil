@@ -24,6 +24,8 @@
 #include <QObject>
 #include <QMap>
 
+class QTimer;
+
 class InhibitRequest
 {
 public:
@@ -50,11 +52,15 @@ public slots:
     bool setJobLock(bool automated = false);
 
     int inhibit(const QString &application, const QString &reason);
+    int inhibit(const QString &application, const QString &reason, int timeout);
 
     void releaseAllLocks();
     void releaseNotificationLock();
     void releaseAllInhibitions();
     void releaseInhibiton(int cookie);
+
+private slots:
+    void inhibitionTimeout();
 
 signals:
     void streamCriticalNotification(const QString &evid, const QString &message,
