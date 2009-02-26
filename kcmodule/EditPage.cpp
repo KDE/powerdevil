@@ -131,10 +131,10 @@ void EditPage::fillUi()
     }
 
     if (methods & Solid::Control::PowerManager::ToRam) {
-        idleCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
-        laptopClosedCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
-        sleepButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
-        powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
+        idleCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
+        laptopClosedCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
+        sleepButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
+        powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
     }
 
     if (methods & Solid::Control::PowerManager::Standby) {

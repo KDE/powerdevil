@@ -273,7 +273,7 @@ void CapabilitiesPage::fillCapabilities()
                             "to let PowerDevil try to load the required modules. If you are sure your PC "
                             "does not support scaling, you can also disable this warning by clicking "
                             "\"Do not display this warning again\"."),
-                 i18n("Attempt loading Modules"), "system-run", SLOT(attemptLoadingModules()),
+                 i18n("Attempt to load modules"), "system-run", SLOT(attemptLoadingModules()),
                  i18n("Do not display this warning again"), "dialog-ok-apply", SLOT(disableScalingWarn()));
 
     } else if (!xsync) {
@@ -282,7 +282,7 @@ void CapabilitiesPage::fillCapabilities()
                             "battery and CPU. It is advised to use PowerDevil with XSync enabled."));
 
     } else if (PowerDevilSettings::pollingSystem() != 2 && xsync) {
-        setIssue(true, i18n("XSync does not seem your preferred query backend, though it is available "
+        setIssue(true, i18n("XSync does not seem to be your preferred query backend, though it is available "
                             "on your system. Using it largely improves performance and efficiency, and "
                             "it is strongly advised. Click on the button below to enable it now."),
                  i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));

@@ -40,7 +40,7 @@
      <item>
       <widget class="QLabel" name="issueText" >
        <property name="text" >
-        <string>&lt;b>There are some issues in your configuration. Please check Capabilities page for more details.&lt;/b></string>
+        <string>&lt;b>There are some issues in your configuration. Please check the Capabilities page for more details.&lt;/b></string>
        </property>
        <property name="scaledContents" >
         <bool>true</bool>
@@ -88,7 +88,7 @@
              <string/>
             </property>
             <property name="whatsThis" >
-             <string>You will be asked for password when resuming from sleep state</string>
+             <string>You will be asked for a password when resuming from sleep state</string>
             </property>
             <property name="text" >
              <string>Lock screen on resume</string>
@@ -173,7 +173,7 @@
              <string>Interval for interactive confirm notifications</string>
             </property>
             <property name="whatsThis" >
-             <string>If selected, before doing an automatic suspension PowerDevil will show an interactive notification for the specified time. If that notification will be clicked, the queued action will not be run.</string>
+             <string>If selected, before doing an automatic suspension PowerDevil will show an interactive notification for the specified time. If that notification is then clicked, the queued action will not be run.</string>
             </property>
             <property name="text" >
              <string>Before doing a suspend action, wait</string>
@@ -202,7 +202,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_4" >
          <property name="title" >
-          <string>Profiles assignment</string>
+          <string>Profile assignment</string>
          </property>
          <layout class="QFormLayout" name="formLayout_5" >
           <item row="0" column="0" >
@@ -225,7 +225,7 @@
           <item row="1" column="0" >
            <widget class="QLabel" name="label_7" >
             <property name="text" >
-             <string>When on battery Power</string>
+             <string>When on battery power</string>
             </property>
            </widget>
           </item>

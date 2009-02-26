@@ -53,7 +53,7 @@
      <item>
       <widget class="QLabel" name="label_2" >
        <property name="text" >
-        <string>The configuration module can not be started, since there seems to be a problem with PowerDevil Daemon. Read below for more details</string>
+        <string>The configuration module can not be started, since there seems to be a problem with the PowerDevil Daemon. Read below for more details</string>
        </property>
        <property name="scaledContents" >
         <bool>true</bool>

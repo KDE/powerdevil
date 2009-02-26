@@ -67,7 +67,7 @@ void GeneralPage::fillUi()
     }
 
     if (methods & Solid::Control::PowerManager::ToRam) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Suspend to Ram"), (int) S2Ram);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
     }
 
     if (methods & Solid::Control::PowerManager::Standby) {

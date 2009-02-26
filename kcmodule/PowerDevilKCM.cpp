@@ -86,12 +86,12 @@ void PowerDevilKCM::initModule()
                 conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
             initError(i18n("Another power manager has been detected. PowerDevil will not start if "
                            "other power managers are active. If you want to use PowerDevil as your primary "
-                           "power manager, please remove the existing one and restart PowerDevil service."));
+                           "power manager, please remove the existing one and restart the PowerDevil service."));
             return;
         } else if (conn.interface()->isServiceRegistered("com.novell.powersave")) {
             initError(i18n("It seems powersaved is running on this system. PowerDevil will not start if "
                            "other power managers are active. If you want to use PowerDevil as your primary "
-                           "power manager, please stop powersaved and restart PowerDevil service."));
+                           "power manager, please stop powersaved and restart the PowerDevil service."));
             return;
         }
 

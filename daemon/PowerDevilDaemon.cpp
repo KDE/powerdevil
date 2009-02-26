@@ -287,7 +287,7 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
         if (!connect(d->battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
                      SLOT(batteryChargePercentChanged(int, const QString &)))) {
 
-            emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface!\n"
+            emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
                                      "Please check your system configuration"));
             return false;
         }
@@ -581,7 +581,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case Standby:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC is going Standby in %1 seconds.",
+                                        "critical level, the PC will be put into standby in %1 seconds.",
                                         PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(standby()));
             } else {
@@ -590,14 +590,14 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             break;
         default:
             emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level, save your work as soon as possible!"));
+                                    "critical level: save your work as soon as possible."));
             break;
         }
     } else if (charge == PowerDevilSettings::batteryWarningLevel()) {
-        emitWarningNotification("warningbattery", i18n("Your battery has reached warning level"));
+        emitWarningNotification("warningbattery", i18n("Your battery has reached the warning level."));
         refreshStatus();
     } else if (charge == PowerDevilSettings::batteryLowLevel()) {
-        emitWarningNotification("lowbattery", i18n("Your battery has reached low level"));
+        emitWarningNotification("lowbattery", i18n("Your battery has reached a low level."));
         refreshStatus();
     }
 }
@@ -1143,7 +1143,7 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)
 
     if (!d->currentConfig->isValid() || !d->currentConfig->entryMap().size()) {
         emitCriticalNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
-                                 "but it does not exist!\nPlease check your PowerDevil configuration.",
+                                 "but it does not exist.\nPlease check your PowerDevil configuration.",
                                  d->currentProfile));
         reloadProfile();
         delete d->currentConfig;
@@ -1276,7 +1276,7 @@ QVariantMap PowerDevilDaemon::getSupportedSuspendMethods()
     }
 
     if (methods & Solid::Control::PowerManager::ToRam) {
-        retlist[i18n("Suspend to Ram")] = (int) S2Ram;
+        retlist[i18n("Suspend to RAM")] = (int) S2Ram;
     }
 
     if (methods & Solid::Control::PowerManager::Standby) {
