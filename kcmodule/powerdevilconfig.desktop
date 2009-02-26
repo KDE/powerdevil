@@ -3,7 +3,7 @@ Exec=kcmshell4 powerdevilconfig
 Icon=preferences-system-power-management
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/powerdevilconfig/index.html
+X-DocPath=kcontrol/powerdevil/index.html
 
 X-KDE-Library=kcm_powerdevilconfig
 X-KDE-ParentApp=kcontrol
