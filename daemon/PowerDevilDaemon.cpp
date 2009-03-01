@@ -548,9 +548,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         switch (PowerDevilSettings::batLowAction()) {
         case Shutdown:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC will be halted in %1 seconds.",
-                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                emitWarningNotification("criticalbattery",
+                                        i18np("Your battery level is critical, the computer will be halted in 1 second.",
+                                              "Your battery level is critical, the computer will be halted in %1 seconds.",
+                                              PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(shutdown()));
             } else {
                 shutdown();
@@ -558,10 +559,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             break;
         case S2Disk:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC will be suspended to disk in "
-                                        "%1 seconds.",
-                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                emitWarningNotification("criticalbattery",
+                                        i18np("Your battery level is critical, the computer will be suspended to disk in 1 second.",
+                                              "Your battery level is critical, the computer will be suspended to disk in %1 seconds.",
+                                              PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToDisk()));
             } else {
                 suspendToDisk();
@@ -569,10 +570,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             break;
         case S2Ram:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC will be suspended to RAM in "
-                                        "%1 seconds.",
-                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                emitWarningNotification("criticalbattery",
+                                        i18np("Your battery level is critical, the computer will be suspended to RAM in 1 second.",
+                                             "Your battery level is critical, the computer will be suspended to RAM in %1 seconds.",
+                                             PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToRam()));
             } else {
                 suspendToRam();
@@ -580,17 +581,17 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             break;
         case Standby:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                        "critical level, the PC will be put into standby in %1 seconds.",
-                                        PowerDevilSettings::waitBeforeSuspendingTime()),
+                emitWarningNotification("criticalbattery",
+                                        i18np("Your battery level is critical, the computer will be put into standby in 1 second.",
+                                             "Your battery level is critical, the computer will be put into standby in %1 seconds.",
+                                             PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(standby()));
             } else {
                 standby();
             }
             break;
         default:
-            emitWarningNotification("criticalbattery", i18n("Your battery has reached "
-                                    "critical level: save your work as soon as possible."));
+            emitWarningNotification("criticalbattery", i18n("Your battery level is critical: save your work as soon as possible."));
             break;
         }
     } else if (charge == PowerDevilSettings::batteryWarningLevel()) {
@@ -711,8 +712,9 @@ void PowerDevilDaemon::shutdownNotification(bool automated)
     }
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
-        emitNotification("doingjob", i18n("The computer will be halted in %1 seconds.",
-                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+        emitNotification("doingjob", i18np("The computer will be halted in 1 second.",
+                                           "The computer will be halted in %1 seconds.",
+                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(shutdown()));
     } else {
         shutdown();
@@ -726,9 +728,9 @@ void PowerDevilDaemon::suspendToDiskNotification(bool automated)
     }
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
-        emitNotification("doingjob", i18n("The computer will be suspended to disk in %1 "
-                                          "seconds.",
-                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+        emitNotification("doingjob", i18np("The computer will be suspended to disk in 1 second.",
+                                           "The computer will be suspended to disk in %1 seconds.",
+                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(suspendToDisk()));
     } else {
         suspendToDisk();
@@ -742,9 +744,9 @@ void PowerDevilDaemon::suspendToRamNotification(bool automated)
     }
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
-        emitNotification("doingjob", i18n("The computer will be suspended to RAM in %1 "
-                                          "seconds.",
-                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+        emitNotification("doingjob", i18np("The computer will be suspended to RAM in 1 second.",
+                                           "The computer will be suspended to RAM in %1 seconds.",
+                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(suspendToRam()));
     } else {
         suspendToRam();
@@ -758,9 +760,9 @@ void PowerDevilDaemon::standbyNotification(bool automated)
     }
 
     if (PowerDevilSettings::waitBeforeSuspending()) {
-        emitNotification("doingjob", i18n("The computer will be put into standby in %1 "
-                                          "seconds.",
-                                          PowerDevilSettings::waitBeforeSuspendingTime()),
+        emitNotification("doingjob", i18np("The computer will be put into standby in 1 second.",
+                                           "The computer will be put into standby in %1 seconds.",
+                                           PowerDevilSettings::waitBeforeSuspendingTime()),
                          SLOT(standby()));
     } else {
         standby();
