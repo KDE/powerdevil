@@ -218,7 +218,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     // This gets registered to avoid double copies.
     QDBusConnection::sessionBus().registerService("org.kde.powerdevilsystem");
-
+    conn.interface()->registerService("org.freedesktop.Policy.Power");
     // All systems up Houston, let's go!
     refreshStatus();
 }
