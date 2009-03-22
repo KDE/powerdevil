@@ -117,8 +117,6 @@ private Q_SLOTS:
 
     void batteryRemainingTimeChanged(int time);
 
-    void loggingOut(int confirm, int sdtype, int sdmode);
-
 Q_SIGNALS:
     void lidClosed(int code, const QString &action);
     void errorTriggered(const QString &error);
