@@ -284,7 +284,7 @@ void CapabilitiesPage::fillCapabilities()
     } else if (PowerDevilSettings::pollingSystem() != 2 && xsync) {
         setIssue(true, i18n("XSync does not seem to be your preferred query backend, though it is available "
                             "on your system. Using it largely improves performance and efficiency, and "
-                            "it is strongly advised. Click on the button below to enable it now."),
+                            "is strongly advised. Click on the button below to enable it now."),
                  i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
     } else {
         setIssue(false, i18n("No issues found with your configuration."));
