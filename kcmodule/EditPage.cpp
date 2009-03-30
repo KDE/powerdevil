@@ -322,7 +322,7 @@ void EditPage::loadProfile()
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
     freqCombo->setCurrentIndex(freqCombo->findData(group->readEntry("cpuPolicy").toInt()));
     schemeCombo->setCurrentIndex(schemeCombo->findText(group->readEntry("scheme")));
-    scriptRequester->setPath(group->readEntry("scriptpath"));
+    scriptRequester->setUrl(KUrl::fromPath(group->readEntry("scriptpath")));
 
     laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
     sleepButtonCombo->setCurrentIndex(sleepButtonCombo->findData(group->readEntry("sleepButtonAction").toInt()));
