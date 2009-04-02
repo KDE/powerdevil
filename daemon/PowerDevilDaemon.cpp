@@ -104,19 +104,19 @@ public:
             , currentConfig(0)
             , status(PowerDevilDaemon::NoAction) {};
 
-    Solid::Control::PowerManager::Notifier * notifier;
+    Solid::Control::PowerManager::Notifier *notifier;
     QPointer<Solid::Battery> battery;
 
-    OrgFreedesktopScreenSaverInterface * screenSaverIface;
-    OrgKdeKSMServerInterfaceInterface * ksmServerIface;
+    OrgFreedesktopScreenSaverInterface *screenSaverIface;
+    OrgKdeKSMServerInterfaceInterface *ksmServerIface;
 //  Now we send a signal to trigger the configuration of Kscreensaver (Bug #177123) and we don't need the interface anymore
 //     OrgKdeScreensaverInterface * kscreenSaverIface;
 
     KComponentData applicationData;
     KSharedConfig::Ptr profilesConfig;
-    KConfigGroup * currentConfig;
-    PollSystemLoader * pollLoader;
-    SuspensionLockHandler * lockHandler;
+    KConfigGroup *currentConfig;
+    PollSystemLoader *pollLoader;
+    SuspensionLockHandler *lockHandler;
 
     QString currentProfile;
     QStringList availableProfiles;
@@ -176,7 +176,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     d->ksmServerIface = new OrgKdeKSMServerInterfaceInterface("org.kde.ksmserver", "/KSMServer",
             QDBusConnection::sessionBus(), this);
 
-    /*  Not needed anymore; I am not sure if we will need that in a future, so I leave it here 
+    /*  Not needed anymore; I am not sure if we will need that in a future, so I leave it here
      *  just in case.
      *
      *   d->kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
@@ -1382,18 +1382,12 @@ void PowerDevilDaemon::profileFirstLoad()
 
 bool PowerDevilDaemon::toggleCompositing(bool enabled)
 {
-    KSharedConfigPtr KWinConfig = KSharedConfig::openConfig("kwinrc");
-    KConfigGroup config(KWinConfig, "Compositing");
-    bool state = config.readEntry("Enabled", false);
+    QDBusInterface kwiniface("org.kde.kwin", "/KWin", "org.kde.KWin", QDBusConnection::sessionBus());
 
-    if (state != enabled) {
-        config.writeEntry("Enabled", enabled);
+    QDBusReply<bool> state = kwiniface.call("compositingActive");
 
-        QDBusMessage message = QDBusMessage::createSignal("/KWin",
-                               "org.kde.KWin",
-                               "reloadConfig");
-        QDBusConnection::sessionBus().send(message);
-
+    if (state.value() != enabled) {
+        kwiniface.call("toggleCompositing");
         return true;
     } else {
         return false;

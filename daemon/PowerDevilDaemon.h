@@ -34,9 +34,6 @@ class QTimer;
 class PollSystemLoader;
 class SuspensionLockHandler;
 class KNotification;
-class OrgFreedesktopScreenSaverInterface;
-class OrgKdeKSMServerInterfaceInterface;
-class OrgKdeScreensaverInterface;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {
@@ -128,8 +125,8 @@ Q_SIGNALS:
 private:
     void lockScreen();
 
-    void setUpDPMS();	
-    
+    void setUpDPMS();
+
     KConfigGroup *getCurrentProfile(bool forcereload = false);
     void applyProfile();
 
