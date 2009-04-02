@@ -63,8 +63,7 @@
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
-extern "C"
-{
+extern "C" {
 #include <X11/extensions/dpms.h>
     int __kde_do_not_unload = 1;
 
@@ -411,8 +410,7 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
 }
 
 #ifdef HAVE_DPMS
-extern "C"
-{
+extern "C" {
     int dropError(Display *, XErrorEvent *);
     typedef int (*XErrFunc)(Display *, XErrorEvent *);
 }
@@ -566,8 +564,8 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery",
                                         i18np("Your battery level is critical, the computer will be suspended to RAM in 1 second.",
-                                             "Your battery level is critical, the computer will be suspended to RAM in %1 seconds.",
-                                             PowerDevilSettings::waitBeforeSuspendingTime()),
+                                              "Your battery level is critical, the computer will be suspended to RAM in %1 seconds.",
+                                              PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToRam()));
             } else {
                 suspendToRam();
@@ -577,8 +575,8 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery",
                                         i18np("Your battery level is critical, the computer will be put into standby in 1 second.",
-                                             "Your battery level is critical, the computer will be put into standby in %1 seconds.",
-                                             PowerDevilSettings::waitBeforeSuspendingTime()),
+                                              "Your battery level is critical, the computer will be put into standby in %1 seconds.",
+                                              PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(standby()));
             } else {
                 standby();
@@ -864,7 +862,7 @@ void PowerDevilDaemon::poll(int idle)
      * We make an intensive use of qMin/qMax here to determine the minimum time.
      */
 
-   // kDebug() << "Polling started, idle time is" << idle << "seconds";
+    // kDebug() << "Polling started, idle time is" << idle << "seconds";
 
     KConfigGroup * settings = getCurrentProfile();
 
@@ -874,7 +872,7 @@ void PowerDevilDaemon::poll(int idle)
 
     if (!settings->readEntry("dimOnIdle", false) && !settings->readEntry("turnOffIdle", false) &&
             settings->readEntry("idleAction").toInt() == None) {
-     //   kDebug() << "Stopping timer";
+        //   kDebug() << "Stopping timer";
         POLLER_CALL(d->pollLoader->poller(), stopCatchingTimeouts());
         return;
     }
@@ -899,13 +897,13 @@ void PowerDevilDaemon::poll(int idle)
         minTime = qMin(minTime, minDimTime);
     }
 
-   // kDebug() << "Minimum time is" << minTime << "seconds";
+    // kDebug() << "Minimum time is" << minTime << "seconds";
 
     if (idle < minTime) {
         d->status = NoAction;
         int remaining = minTime - idle;
         POLLER_CALL(d->pollLoader->poller(), setNextTimeout(remaining * 1000));
-     //   kDebug() << "Nothing to do, next event in" << remaining << "seconds";
+        //   kDebug() << "Nothing to do, next event in" << remaining << "seconds";
         return;
     }
 

@@ -48,8 +48,7 @@
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
-extern "C"
-{
+extern "C" {
 #include <X11/extensions/dpms.h>
     int __kde_do_not_unload = 1;
 

@@ -83,7 +83,7 @@ void PowerDevilKCM::initModule()
         QDBusConnection conn = QDBusConnection::systemBus();
 
         if (conn.interface()->isServiceRegistered("org.freedesktop.PowerManagement") || (
-	  conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power") && !QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.powerdevilsystem"))){
+                    conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power") && !QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.powerdevilsystem"))) {
             initError(i18n("Another power manager has been detected. PowerDevil will not start if "
                            "other power managers are active. If you want to use PowerDevil as your primary "
                            "power manager, please remove the existing one and restart the PowerDevil service."));

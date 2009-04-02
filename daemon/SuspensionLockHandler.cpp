@@ -184,15 +184,16 @@ void SuspensionLockHandler::releaseInhibiton(int cookie)
     }
 }
 
-void SuspensionLockHandler::inhibitionTimeout() {
+void SuspensionLockHandler::inhibitionTimeout()
+{
     QTimer *timer = qobject_cast<QTimer*>(sender());
-    
+
     if (!timer) {
         return;
     }
 
     releaseInhibiton(timer->property("inhibit_cookie_id").toInt());
-    
+
     timer->deleteLater();
 }
 
