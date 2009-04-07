@@ -140,6 +140,10 @@ private:
 
     bool recacheBatteryPointer(bool force = false);
 
+    void setUpConsoleKit();
+
+    bool checkIfCurrentSessionActive();
+
 public:
     enum IdleAction {
         None = 0,
