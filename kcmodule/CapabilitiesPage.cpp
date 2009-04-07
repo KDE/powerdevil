@@ -33,6 +33,8 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusConnectionInterface>
+#include <QtDBus/QDBusInterface>
 
 #include <QX11Info>
 
@@ -228,6 +230,27 @@ void CapabilitiesPage::fillCapabilities()
     xtest = true;
 #endif
 
+    bool ck;
+
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.ConsoleKit")) {
+        // No way to determine if we are on the current session, simply suppose we are
+        ck = false;
+    } else {
+        QDBusInterface ckiface("org.freedesktop.ConsoleKit", "/org/freedesktop/ConsoleKit/Manager",
+                               "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus());
+
+        QDBusReply<QDBusObjectPath> sessionPath = ckiface.call("GetCurrentSession");
+
+        QDBusInterface ckSessionInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
+                                          "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
+
+        if (!ckSessionInterface.isValid()) {
+            ck = false;
+        } else {
+            ck = true;
+        }
+    }
+
     if (xss) {
         xssSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
@@ -250,6 +273,12 @@ void CapabilitiesPage::fillCapabilities()
         dpmsSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
         dpmsSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
+    }
+
+    if (ck) {
+        ckSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
+    } else {
+        ckSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
     }
 
     // Determine status!
@@ -285,6 +314,12 @@ void CapabilitiesPage::fillCapabilities()
                             "on your system. Using it largely improves performance and efficiency, and "
                             "is strongly advised. Click on the button below to enable it now."),
                  i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
+    } else if (!xsync) {
+        setIssue(true, i18n("ConsoleKit was not found active on your PC, or PowerDevil can not contact it. "
+                            "ConsoleKit lets PowerDevil detect if the current session is active, hence it is "
+                            "very useful if you abitually have more than an user logged into your system at "
+                            "the same time."));
+
     } else {
         setIssue(false, i18n("No issues found with your configuration."));
     }

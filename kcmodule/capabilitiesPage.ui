@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>capabilitiesPage</class>
- <widget class="QWidget" name="capabilitiesPage" >
-  <property name="geometry" >
+ <widget class="QWidget" name="capabilitiesPage">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,263 +10,283 @@
     <height>380</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" >
-   <property name="spacing" >
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin" >
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
-    <widget class="QGroupBox" name="groupBox_5" >
-     <property name="title" >
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="title">
       <string>System Capabilities</string>
      </property>
-     <layout class="QFormLayout" name="formLayout_7" >
-      <property name="fieldGrowthPolicy" >
+     <layout class="QFormLayout" name="formLayout_7">
+      <property name="fieldGrowthPolicy">
        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
       </property>
-      <property name="horizontalSpacing" >
+      <property name="horizontalSpacing">
        <number>10</number>
       </property>
-      <item row="0" column="0" >
-       <widget class="QLabel" name="label_10" >
-        <property name="text" >
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="text">
          <string>Number of CPUs</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1" >
-       <widget class="QLabel" name="cpuNumber" >
-        <property name="text" >
+      <item row="0" column="1">
+       <widget class="QLabel" name="cpuNumber">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="1" column="0" >
-       <widget class="QLabel" name="label_11" >
-        <property name="text" >
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="text">
          <string>Number of Batteries</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1" >
-       <widget class="QLabel" name="batteriesNumber" >
-        <property name="text" >
+      <item row="1" column="1">
+       <widget class="QLabel" name="batteriesNumber">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" >
-       <widget class="Line" name="line_2" >
-        <property name="orientation" >
+      <item row="2" column="0">
+       <widget class="Line" name="line_2">
+        <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" >
-       <widget class="QLabel" name="label_14" >
-        <property name="text" >
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
          <string>CPU can be turned Off</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1" >
-       <widget class="QLabel" name="isCPUOffSupported" >
-        <property name="text" >
+      <item row="3" column="1">
+       <widget class="QLabel" name="isCPUOffSupported">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="4" column="0" >
-       <widget class="QLabel" name="label_13" >
-        <property name="text" >
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
          <string>Scheme support</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="1" >
-       <widget class="QLabel" name="isSchemeSupported" >
-        <property name="text" >
+      <item row="4" column="1">
+       <widget class="QLabel" name="isSchemeSupported">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="5" column="0" >
-       <widget class="QLabel" name="label_15" >
-        <property name="text" >
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_15">
+        <property name="text">
          <string>Scaling capability</string>
         </property>
        </widget>
       </item>
-      <item row="5" column="1" >
-       <widget class="QLabel" name="isScalingSupported" >
-        <property name="text" >
+      <item row="5" column="1">
+       <widget class="QLabel" name="isScalingSupported">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="6" column="0" >
-       <widget class="Line" name="line_3" >
-        <property name="orientation" >
+      <item row="6" column="0">
+       <widget class="Line" name="line_3">
+        <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="7" column="0" >
-       <widget class="QLabel" name="label_16" >
-        <property name="text" >
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
          <string>Supported CPU Policies</string>
         </property>
        </widget>
       </item>
-      <item row="7" column="1" >
-       <widget class="QLabel" name="supportedPolicies" >
-        <property name="text" >
+      <item row="7" column="1">
+       <widget class="QLabel" name="supportedPolicies">
+        <property name="text">
          <string/>
         </property>
-        <property name="scaledContents" >
+        <property name="scaledContents">
          <bool>true</bool>
         </property>
-        <property name="wordWrap" >
+        <property name="wordWrap">
          <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="8" column="0" >
-       <widget class="QLabel" name="label_17" >
-        <property name="text" >
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_17">
+        <property name="text">
          <string>Supported suspend methods</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="1" >
-       <widget class="QLabel" name="supportedMethods" >
-        <property name="text" >
+      <item row="8" column="1">
+       <widget class="QLabel" name="supportedMethods">
+        <property name="text">
          <string/>
         </property>
-        <property name="scaledContents" >
+        <property name="scaledContents">
          <bool>true</bool>
         </property>
-        <property name="wordWrap" >
+        <property name="wordWrap">
          <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="9" column="0" >
-       <widget class="QLabel" name="label_18" >
-        <property name="text" >
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_18">
+        <property name="text">
          <string>Supported schemes</string>
         </property>
        </widget>
       </item>
-      <item row="9" column="1" >
-       <widget class="QLabel" name="supportedSchemes" >
-        <property name="text" >
+      <item row="9" column="1">
+       <widget class="QLabel" name="supportedSchemes">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="10" column="0" >
-       <widget class="Line" name="line" >
-        <property name="orientation" >
+      <item row="10" column="0">
+       <widget class="Line" name="line">
+        <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="11" column="0" >
-       <widget class="QLabel" name="label" >
-        <property name="toolTip" >
+      <item row="11" column="0">
+       <widget class="QLabel" name="label">
+        <property name="toolTip">
          <string>Support for the XSync extension</string>
         </property>
-        <property name="whatsThis" >
+        <property name="whatsThis">
          <string>XSync is an extension that allows high efficiency query of the system. If it is available, PowerDevil will be much more reliable and efficient</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>XSync Support</string>
         </property>
        </widget>
       </item>
-      <item row="12" column="0" >
-       <widget class="QLabel" name="label_2" >
-        <property name="toolTip" >
+      <item row="12" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="toolTip">
          <string>Support for XScreensaver</string>
         </property>
-        <property name="whatsThis" >
+        <property name="whatsThis">
          <string>Through XScreensaver, PowerDevil may query the system if XSync is not available. It is necessary only if your system does not support XSync. If both of them are unavailable, PowerDevil will not be able to query idle time of the system</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>XScreenSaver Support</string>
         </property>
        </widget>
       </item>
-      <item row="16" column="0" >
-       <widget class="QLabel" name="label_3" >
-        <property name="text" >
+      <item row="17" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
          <string>Status</string>
         </property>
        </widget>
       </item>
-      <item row="15" column="0" >
-       <widget class="Line" name="line_4" >
-        <property name="orientation" >
+      <item row="16" column="0">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="11" column="1" >
-       <widget class="QLabel" name="xsyncSupport" >
-        <property name="text" >
+      <item row="11" column="1">
+       <widget class="QLabel" name="xsyncSupport">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="12" column="1" >
-       <widget class="QLabel" name="xssSupport" >
-        <property name="text" >
+      <item row="12" column="1">
+       <widget class="QLabel" name="xssSupport">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="16" column="1" >
-       <layout class="QVBoxLayout" name="statusLayout" />
+      <item row="17" column="1">
+       <layout class="QVBoxLayout" name="statusLayout"/>
       </item>
-      <item row="13" column="0" >
-       <widget class="QLabel" name="label_4" >
-        <property name="toolTip" >
+      <item row="13" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="toolTip">
          <string>Support for DPMS</string>
         </property>
-        <property name="whatsThis" >
+        <property name="whatsThis">
          <string>If this is enabled, PowerDevil will be able to configure power management for your monitor</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>DPMS Support</string>
         </property>
        </widget>
       </item>
-      <item row="13" column="1" >
-       <widget class="QLabel" name="dpmsSupport" >
-        <property name="text" >
+      <item row="13" column="1">
+       <widget class="QLabel" name="dpmsSupport">
+        <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="14" column="0" >
-       <widget class="QLabel" name="label_5" >
-        <property name="toolTip" >
+      <item row="14" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="toolTip">
          <string>Support for XTest extension</string>
         </property>
-        <property name="whatsThis" >
+        <property name="whatsThis">
          <string>Through XTest, PowerDevil is able to fake user activity, preventing suspension loops. If it is not available, loops might occur</string>
         </property>
-        <property name="text" >
+        <property name="text">
          <string>XTest Support</string>
         </property>
        </widget>
       </item>
-      <item row="14" column="1" >
-       <widget class="QLabel" name="xtestSupport" >
-        <property name="text" >
+      <item row="14" column="1">
+       <widget class="QLabel" name="xtestSupport">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="toolTip">
+         <string>Checks if ConsoleKit is active on your system</string>
+        </property>
+        <property name="whatsThis">
+         <string>ConsoleKit lets PowerDevil detect if the current session is active, hence it is very useful if you abitually have more than an user logged into your system at the same time.</string>
+        </property>
+        <property name="text">
+         <string>ConsoleKit Runtime Support</string>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="1">
+       <widget class="QLabel" name="ckSupport">
+        <property name="text">
          <string/>
         </property>
        </widget>
@@ -274,11 +295,11 @@
     </widget>
    </item>
    <item>
-    <spacer name="verticalSpacer_3" >
-     <property name="orientation" >
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
        <height>74</height>
