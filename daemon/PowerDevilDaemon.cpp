@@ -741,8 +741,8 @@ void PowerDevilDaemon::increaseBrightness()
 void PowerDevilDaemon::shutdownNotification(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setNotificationLock(automated)) {
         return;
@@ -761,8 +761,8 @@ void PowerDevilDaemon::shutdownNotification(bool automated)
 void PowerDevilDaemon::suspendToDiskNotification(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setNotificationLock(automated)) {
         return;
@@ -781,8 +781,8 @@ void PowerDevilDaemon::suspendToDiskNotification(bool automated)
 void PowerDevilDaemon::suspendToRamNotification(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setNotificationLock(automated)) {
         return;
@@ -801,8 +801,8 @@ void PowerDevilDaemon::suspendToRamNotification(bool automated)
 void PowerDevilDaemon::standbyNotification(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setNotificationLock(automated)) {
         return;
@@ -821,8 +821,8 @@ void PowerDevilDaemon::standbyNotification(bool automated)
 void PowerDevilDaemon::shutdown(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setJobLock(automated)) {
         return;
@@ -843,8 +843,8 @@ void PowerDevilDaemon::shutdownDialog()
 void PowerDevilDaemon::suspendToDisk(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setJobLock(automated)) {
         return;
@@ -867,8 +867,8 @@ void PowerDevilDaemon::suspendToDisk(bool automated)
 void PowerDevilDaemon::suspendToRam(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setJobLock(automated)) {
         return;
@@ -890,8 +890,8 @@ void PowerDevilDaemon::suspendToRam(bool automated)
 void PowerDevilDaemon::standby(bool automated)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (!d->lockHandler->setJobLock(automated)) {
         return;
@@ -938,8 +938,8 @@ void PowerDevilDaemon::poll(int idle)
     // kDebug() << "Polling started, idle time is" << idle << "seconds";
 
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     KConfigGroup * settings = getCurrentProfile();
 
@@ -1097,8 +1097,8 @@ void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
 void PowerDevilDaemon::lockScreen()
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     emitNotification("doingjob", i18n("The screen is being locked"));
     d->screenSaverIface->Lock();
@@ -1285,8 +1285,8 @@ void PowerDevilDaemon::reloadProfile(int state)
 void PowerDevilDaemon::setProfile(const QString & profile)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     setCurrentProfile(profile);
 
@@ -1305,8 +1305,8 @@ void PowerDevilDaemon::setProfile(const QString & profile)
 void PowerDevilDaemon::reloadAndStream()
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     reloadProfile();
 
@@ -1381,8 +1381,8 @@ QStringList PowerDevilDaemon::getSupportedSchemes()
 void PowerDevilDaemon::setPowersavingScheme(const QString &scheme)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     Solid::Control::PowerManager::setScheme(scheme);
 }
@@ -1390,8 +1390,8 @@ void PowerDevilDaemon::setPowersavingScheme(const QString &scheme)
 void PowerDevilDaemon::setGovernor(int governor)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy) governor);
 }
@@ -1399,8 +1399,8 @@ void PowerDevilDaemon::setGovernor(int governor)
 void PowerDevilDaemon::suspend(int method)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     switch ((IdleAction) method) {
     case S2Disk:
@@ -1420,8 +1420,8 @@ void PowerDevilDaemon::suspend(int method)
 void PowerDevilDaemon::setBrightness(int value)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (value == -2) {
         // Then set brightness to half the current brightness.
@@ -1436,8 +1436,8 @@ void PowerDevilDaemon::setBrightness(int value)
 void PowerDevilDaemon::turnOffScreen()
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -1463,8 +1463,8 @@ void PowerDevilDaemon::turnOffScreen()
 void PowerDevilDaemon::profileFirstLoad()
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     KConfigGroup * settings = getCurrentProfile();
 
@@ -1540,8 +1540,8 @@ void PowerDevilDaemon::setACPlugged(bool newplugged)
 void PowerDevilDaemon::setCurrentProfile(const QString &profile)
 {
     if (!checkIfCurrentSessionActive()) {
-            return;
-        }
+        return;
+    }
 
     if (profile != d->currentProfile) {
         d->currentProfile = profile;
@@ -1589,7 +1589,7 @@ void PowerDevilDaemon::setUpConsoleKit()
     QDBusReply<QDBusObjectPath> sessionPath = ckiface.call("GetCurrentSession");
 
     d->ckSessionInterface = new QDBusInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
-                                           "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
+            "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
 
     if (!d->ckSessionInterface->isValid()) {
         // As above
