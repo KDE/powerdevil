@@ -314,7 +314,7 @@ void CapabilitiesPage::fillCapabilities()
                             "on your system. Using it largely improves performance and efficiency, and "
                             "is strongly advised. Click on the button below to enable it now."),
                  i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
-    } else if (!xsync) {
+    } else if (!ck) {
         setIssue(true, i18n("ConsoleKit was not found active on your PC, or PowerDevil can not contact it. "
                             "ConsoleKit lets PowerDevil detect if the current session is active, hence it is "
                             "very useful if you abitually have more than an user logged into your system at "
