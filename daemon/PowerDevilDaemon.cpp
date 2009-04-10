@@ -36,6 +36,7 @@
 #include <kworkspace/kworkspace.h>
 #include <KApplication>
 
+#include <QPointer>
 #include <QWidget>
 #include <QTimer>
 
@@ -121,7 +122,7 @@ public:
     QString currentProfile;
     QStringList availableProfiles;
 
-    KNotification *notification;
+    QPointer<KNotification> notification;
     QTimer *notificationTimer;
 
     PowerDevilDaemon::IdleStatus status;
@@ -1187,10 +1188,10 @@ void PowerDevilDaemon::cleanUpTimer()
     kDebug() << "Disconnecting signals";
 
     d->notificationTimer->disconnect();
-    d->notification->disconnect();
     d->notificationTimer->stop();
 
     if (d->notification) {
+        d->notification->disconnect();
         d->notification->deleteLater();
     }
 }
