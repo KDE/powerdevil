@@ -1588,6 +1588,12 @@ void PowerDevilDaemon::setUpConsoleKit()
 
     QDBusReply<QDBusObjectPath> sessionPath = ckiface.call("GetCurrentSession");
 
+    if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
+        kDebug() << "The session is not registered with ck";
+        d->ckAvailable = false;
+        return;
+    }
+
     d->ckSessionInterface = new QDBusInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
             "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
 
