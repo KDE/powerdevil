@@ -241,13 +241,18 @@ void CapabilitiesPage::fillCapabilities()
 
         QDBusReply<QDBusObjectPath> sessionPath = ckiface.call("GetCurrentSession");
 
-        QDBusInterface ckSessionInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
-                                          "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
-
-        if (!ckSessionInterface.isValid()) {
+        if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
+            kDebug() << "The session is not registered with ck";
             ck = false;
         } else {
-            ck = true;
+            QDBusInterface ckSessionInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
+                                              "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
+
+            if (!ckSessionInterface.isValid()) {
+                ck = false;
+            } else {
+                ck = true;
+            }
         }
     }
 
