@@ -627,7 +627,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
 
 void PowerDevilDaemon::buttonPressed(int but)
 {
-    if (!checkIfCurrentSessionActive()) {
+    if (!checkIfCurrentSessionActive() || !d->screenSaverIface->GetActive()) {
         return;
     }
 
@@ -1604,6 +1604,15 @@ void PowerDevilDaemon::setUpConsoleKit()
         d->ckAvailable = false;
         return;
     }
+
+    /* If everything's fine, let's attach ourself to the ActiveChanged signal.
+     * You'll see we're attaching to refreshStatus without any further checks. You know why?
+     * refreshStatus already checks if the console is active, so the check is already happening
+     * in the underhood
+     */
+
+    QDBusConnection::systemBus().connect("org.freedesktop.ConsoleKit", sessionPath.value().path(),
+            "org.freedesktop.ConsoleKit.Session", "ActiveChanged", this, SLOT(refreshStatus()));
 }
 
 #include "PowerDevilDaemon.moc"
