@@ -21,7 +21,7 @@
 #define POLLSYSTEMLOADER_H
 
 #include <QObject>
-#include <QMap>
+#include <QHash>
 #include <QPointer>
 
 #include "AbstractSystemPoller.h"
@@ -34,8 +34,8 @@ public:
     PollSystemLoader(QObject *parent = 0);
     virtual ~PollSystemLoader();
 
-    QMap<AbstractSystemPoller::PollingType, QString> getAvailableSystems();
-    QMap<int, QString> getAvailableSystemsAsInt();
+    QHash<AbstractSystemPoller::PollingType, QString> getAvailableSystems();
+    QHash<int, QString> getAvailableSystemsAsInt();
 
     bool loadSystem(AbstractSystemPoller::PollingType type);
     bool unloadCurrentSystem();
@@ -48,7 +48,7 @@ public:
 
 private:
     QPointer<AbstractSystemPoller> m_poller;
-    QMap<AbstractSystemPoller::PollingType, QString> m_availableSystems;
+    QHash<AbstractSystemPoller::PollingType, QString> m_availableSystems;
 };
 
 #endif /* POLLSYSTEMLOADER_H */

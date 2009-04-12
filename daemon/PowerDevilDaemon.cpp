@@ -204,7 +204,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     if (PowerDevilSettings::pollingSystem() == -1) {
         // Ok, new configuration... so let's see what we've got!!
 
-        QMap<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
+        QHash<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
 
         if (pList.contains(AbstractSystemPoller::XSyncBased)) {
             PowerDevilSettings::setPollingSystem(AbstractSystemPoller::XSyncBased);
@@ -336,7 +336,7 @@ void PowerDevilDaemon::setUpPollingSystem()
 
 bool PowerDevilDaemon::loadPollingSystem(AbstractSystemPoller::PollingType type)
 {
-    QMap<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
+    QHash<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
 
     if (!pList.contains(type)) {
         return false;
@@ -360,10 +360,11 @@ QVariantMap PowerDevilDaemon::getSupportedPollingSystems()
 {
     QVariantMap map;
 
-    QMap<int, QString> pmap = d->pollLoader->getAvailableSystemsAsInt();
+    QHash<int, QString> pmap = d->pollLoader->getAvailableSystemsAsInt();
 
-    foreach(int ent, pmap.keys()) {
-        map[pmap[ent]] = ent;
+    QHash<int, QString>::const_iterator i;
+    for (i = pmap.constBegin(); i != pmap.constEnd(); ++i) {
+        map[i.value()] = i.key();
     }
 
     return map;

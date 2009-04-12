@@ -58,20 +58,21 @@ void PollSystemLoader::reloadAvailableCache()
     tpl->deleteLater();
 }
 
-QMap<AbstractSystemPoller::PollingType, QString> PollSystemLoader::getAvailableSystems()
+QHash<AbstractSystemPoller::PollingType, QString> PollSystemLoader::getAvailableSystems()
 {
     // Cached
     return m_availableSystems;
 }
 
-QMap<int, QString> PollSystemLoader::getAvailableSystemsAsInt()
+QHash<int, QString> PollSystemLoader::getAvailableSystemsAsInt()
 {
     // Cached
 
-    QMap<int, QString> retlist;
+    QHash<int, QString> retlist;
 
-    foreach(const AbstractSystemPoller::PollingType &ent, m_availableSystems.keys()) {
-        retlist[(int) ent] = m_availableSystems[ent];
+    QHash<AbstractSystemPoller::PollingType, QString>::const_iterator i;
+    for (i = m_availableSystems.constBegin(); i != m_availableSystems.constEnd(); ++i) {
+        retlist[(int) i.key()] = i.value();
     }
 
     return retlist;
