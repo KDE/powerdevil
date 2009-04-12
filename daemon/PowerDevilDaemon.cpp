@@ -627,7 +627,7 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
 
 void PowerDevilDaemon::buttonPressed(int but)
 {
-    if (!checkIfCurrentSessionActive() || !d->screenSaverIface->GetActive()) {
+    if (!checkIfCurrentSessionActive() || d->screenSaverIface->GetActive()) {
         return;
     }
 
@@ -1612,7 +1612,7 @@ void PowerDevilDaemon::setUpConsoleKit()
      */
 
     QDBusConnection::systemBus().connect("org.freedesktop.ConsoleKit", sessionPath.value().path(),
-            "org.freedesktop.ConsoleKit.Session", "ActiveChanged", this, SLOT(refreshStatus()));
+                                         "org.freedesktop.ConsoleKit.Session", "ActiveChanged", this, SLOT(refreshStatus()));
 }
 
 #include "PowerDevilDaemon.moc"
