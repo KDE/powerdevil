@@ -410,7 +410,16 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
 {
     if (state == Solid::Control::PowerManager::Plugged && !forced) {
         setACPlugged(true);
-        emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
+
+        // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
+        if (d->lockHandler->canStartNotification()) {
+            cleanUpTimer();
+            d->lockHandler->releaseNotificationLock();
+            emitNotification("pluggedin", i18n("The power adaptor has been plugged in. Any pending "
+                                               "suspend actions have been canceled"));
+        } else {
+            emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
+        }
     }
 
     if (state == Solid::Control::PowerManager::Unplugged && !forced) {
