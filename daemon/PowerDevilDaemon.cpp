@@ -416,15 +416,15 @@ void PowerDevilDaemon::acAdapterStateChanged(int state, bool forced)
             cleanUpTimer();
             d->lockHandler->releaseNotificationLock();
             emitNotification("pluggedin", i18n("The power adaptor has been plugged in. Any pending "
-                                               "suspend actions have been canceled"));
+                                               "suspend actions have been canceled."));
         } else {
-            emitNotification("pluggedin", i18n("The power adaptor has been plugged in"));
+            emitNotification("pluggedin", i18n("The power adaptor has been plugged in."));
         }
     }
 
     if (state == Solid::Control::PowerManager::Unplugged && !forced) {
         setACPlugged(false);
-        emitNotification("unplugged", i18n("The power adaptor has been unplugged"));
+        emitNotification("unplugged", i18n("The power adaptor has been unplugged."));
     }
 
     if (!forced) {
