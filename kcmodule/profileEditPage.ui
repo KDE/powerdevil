@@ -182,7 +182,7 @@
                  <string/>
                 </property>
                 <property name="text" >
-                 <string>When Laptop Lid Closed</string>
+                 <string>When laptop lid closed</string>
                 </property>
                </widget>
               </item>
@@ -208,7 +208,7 @@
               <item row="5" column="0" >
                <widget class="QLabel" name="label" >
                 <property name="text" >
-                 <string>When Power Button pressed</string>
+                 <string>When power button pressed</string>
                 </property>
                </widget>
               </item>
@@ -231,7 +231,7 @@
               <item row="6" column="0" >
                <widget class="QLabel" name="label_2" >
                 <property name="text" >
-                 <string>When Sleep Button pressed</string>
+                 <string>When sleep button pressed</string>
                 </property>
                </widget>
               </item>
@@ -288,7 +288,7 @@
                    <string>With this slider you can set the brightness when the system is plugged into the socket outlet</string>
                   </property>
                   <property name="text" >
-                   <string>Brightness</string>
+                   <string>Brightness:</string>
                   </property>
                   <property name="wordWrap" >
                    <bool>false</bool>
@@ -510,7 +510,7 @@
                  <string>CPU Behaviour strongly impacts on your system performance and on your battery's life. Here you can choose the policy best suitable for this profile</string>
                 </property>
                 <property name="text" >
-                 <string>CPU frequency scaling policy</string>
+                 <string>CPU frequency scaling policy:</string>
                 </property>
                 <property name="wordWrap" >
                  <bool>false</bool>
@@ -542,7 +542,7 @@
               <item row="4" column="0" >
                <widget class="QLabel" name="label_19" >
                 <property name="text" >
-                 <string>System powersaving scheme</string>
+                 <string>System powersaving scheme:</string>
                 </property>
                </widget>
               </item>
@@ -565,7 +565,7 @@
               <item row="5" column="0" >
                <widget class="QLabel" name="label_20" >
                 <property name="text" >
-                 <string>When Loading profile, execute</string>
+                 <string>When Loading profile, execute:</string>
                 </property>
                </widget>
               </item>

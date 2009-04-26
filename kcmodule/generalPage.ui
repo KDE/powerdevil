@@ -202,7 +202,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_4" >
          <property name="title" >
-          <string>Profile assignment</string>
+          <string>Profile Assignment</string>
          </property>
          <layout class="QFormLayout" name="formLayout_5" >
           <item row="0" column="0" >
