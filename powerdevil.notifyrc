@@ -1356,6 +1356,7 @@ Comment[nl]=Deze melding wordt weergegeven als het systeem op het punt staat een
 Comment[pl]=Ta informacja jest wyświetlana, kiedy ma nastąpić uruchomienie zadania uśpienia. Następuje rozpoczęcie odliczania. W związku z tym warto je zostawić.
 Comment[pt]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
 Comment[pt_BR]=Esta notificação é exibida quando uma tarefa de suspensão está prestes a ser executada e uma contagem decrescente será acionada. Por este motivo, é recomendável mantê-la ativa.
+Comment[ro]=Această notificare este afișată cînd o sarcină de suspendare este pe cale de a fi îndeplinită și declanșează o numărătoare inversă. De aceea, se recomandă insistent să o lăsați activată.
 Comment[ru]=Это уведомление показывается при окончании перехода в ждущий режим. Рекомендуется оставить его включенным.
 Comment[sk]=Táto notifikácia sa zobrazí, keď sa má vykonať uspanie, a zároveň sa spustí odpočítavanie. Preto je vysoko doporučené nechať ju zapnutú.
 Comment[sl]=To obvestilo se prikaže, ko je zaustavitveno opravilo tik pred izvedbo in sprožitvijo odštevanja. Zato močno priporočamo, da pustite to možnost omogočeno.
