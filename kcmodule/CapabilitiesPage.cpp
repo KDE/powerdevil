@@ -321,9 +321,8 @@ void CapabilitiesPage::fillCapabilities()
                  i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
     } else if (!ck) {
         setIssue(true, i18n("ConsoleKit was not found active on your PC, or PowerDevil cannot contact it. "
-                            "ConsoleKit lets PowerDevil detect if the current session is active, hence it is "
-                            "very useful if you abitually have more than an user logged into your system at "
-                            "the same time."));
+                            "ConsoleKit lets PowerDevil detect whether the current session is active, which is "
+                            "useful if you have more than one user logged into your system at any one time."));
 
     } else {
         setIssue(false, i18n("No issues found with your configuration."));

@@ -277,7 +277,7 @@
          <string>Checks if ConsoleKit is active on your system</string>
         </property>
         <property name="whatsThis">
-         <string>ConsoleKit lets PowerDevil detect if the current session is active, therefore it is useful if you often have more than one user logged into your system at the same time.</string>
+         <string>ConsoleKit lets PowerDevil detect whether the current session is active, which is useful if you have more than one user logged into your system at any one time.</string>
         </property>
         <property name="text">
          <string>ConsoleKit Runtime Support</string>
