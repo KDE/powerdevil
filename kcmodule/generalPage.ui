@@ -148,7 +148,7 @@
                </size>
               </property>
               <property name="text" >
-               <string>Configure Notifications</string>
+               <string>Configure Notifications...</string>
               </property>
              </widget>
             </item>

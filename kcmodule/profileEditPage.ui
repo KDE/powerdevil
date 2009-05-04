@@ -565,7 +565,7 @@
               <item row="5" column="0" >
                <widget class="QLabel" name="label_20" >
                 <property name="text" >
-                 <string>When Loading profile, execute:</string>
+                 <string>When loading profile execute:</string>
                 </property>
                </widget>
               </item>

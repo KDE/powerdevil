@@ -97,24 +97,24 @@ void EditPage::fillUi()
     actionImportProfiles->setIcon(KIcon("document-import"));
     actionExportProfiles->setIcon(KIcon("document-export"));
 
-    idleCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    idleCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
     idleCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     idleCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
     idleCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    laptopClosedCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    laptopClosedCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
     laptopClosedCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     laptopClosedCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
     laptopClosedCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    sleepButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    sleepButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
     sleepButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     sleepButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
     sleepButtonCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    sleepButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log out dialog"), (int) ShutdownDialog);
-    powerButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
+    sleepButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log Out dialog"), (int) ShutdownDialog);
+    powerButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
     powerButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
     powerButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
     powerButtonCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    powerButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log out dialog"), (int) ShutdownDialog);
+    powerButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log Out dialog"), (int) ShutdownDialog);
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
 
@@ -495,7 +495,7 @@ void EditPage::createProfile()
 
     ibt->setIconSize(KIconLoader::SizeSmall);
 
-    lb->setText(i18n("Please enter a name for the new profile"));
+    lb->setText(i18n("Please enter a name for the new profile:"));
 
     lb->setToolTip(i18n("The name for the new profile"));
     lb->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
@@ -549,7 +549,7 @@ void EditPage::editProfile()
 
     ibt->setIconSize(KIconLoader::SizeSmall);
 
-    lb->setText(i18n("Please enter a name for this profile"));
+    lb->setText(i18n("Please enter a name for this profile:"));
 
     lb->setToolTip(i18n("The name for the new profile"));
     lb->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
@@ -583,7 +583,7 @@ void EditPage::editProfile()
 void EditPage::importProfiles()
 {
     QString fileName = KFileDialog::getOpenFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
-                       "(*.powerdevilprofiles)", this, i18n("Import PowerDevil profiles"));
+                       "(*.powerdevilprofiles)", this, i18n("Import PowerDevil Profiles"));
 
     if (fileName.isEmpty()) {
         return;
@@ -608,7 +608,7 @@ void EditPage::importProfiles()
 void EditPage::exportProfiles()
 {
     QString fileName = KFileDialog::getSaveFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
-                       "(*.powerdevilprofiles)", this, i18n("Export PowerDevil profiles"));
+                       "(*.powerdevilprofiles)", this, i18n("Export PowerDevil Profiles"));
 
     if (fileName.isEmpty()) {
         return;
