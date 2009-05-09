@@ -199,11 +199,13 @@ void EditPage::fillUi()
     toolBox->setItemIcon(1, KIcon("video-display"));
     toolBox->setItemIcon(2, KIcon("cpu"));
 
+#if 0 // Re-enable when / if we have permission to use official logo
     DPMSLabel->setUrl("http://www.energystar.gov");
     DPMSLabel->setPixmap(QPixmap(KStandardDirs::locate("data", "kcontrol/pics/energybig.png")));
     DPMSLabel->setTipText(i18n("Learn more about the Energy Star program"));
     DPMSLabel->setUseTips(true);
     connect(DPMSLabel, SIGNAL(leftClickedUrl(const QString&)), SLOT(openUrl(const QString &)));
+#endif
 
 #ifndef HAVE_DPMS
     DPMSEnable->setEnabled(false);
