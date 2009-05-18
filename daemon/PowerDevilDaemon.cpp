@@ -103,7 +103,7 @@ public:
             , battery(0)
             , currentConfig(0)
             , status(PowerDevilDaemon::NoAction)
-            , ckSessionInterface(0) {};
+            , ckSessionInterface(0) {}
 
     Solid::Control::PowerManager::Notifier *notifier;
     QPointer<Solid::Battery> battery;
@@ -164,8 +164,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     if (conn.interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
             conn.interface()->isServiceRegistered("com.novell.powersave") ||
-            conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power") ||
-            conn.interface()->isServiceRegistered("org.kde.powerdevilsystem")) {
+            conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
         kError() << "PowerDevil not initialized, another power manager has been detected";
         return;
     }
@@ -223,9 +222,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     new PowerDevilAdaptor(this);
     new PowerManagementConnector(this);
 
-    // This gets registered to avoid double copies.
-    QDBusConnection::sessionBus().registerService("org.kde.powerdevilsystem");
     conn.interface()->registerService("org.freedesktop.Policy.Power");
+    QDBusConnection::sessionBus().registerService("org.kde.powerdevil");
     // All systems up Houston, let's go!
     refreshStatus();
 }

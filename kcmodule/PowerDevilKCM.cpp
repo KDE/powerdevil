@@ -80,19 +80,21 @@ void PowerDevilKCM::initModule()
     QDBusInterface iface("org.kde.kded", "/modules/powerdevil");
 
     if (iface.isValid()) {
-        QDBusConnection conn = QDBusConnection::systemBus();
+        if (!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.powerdevil").value()) {
+            QDBusConnection conn = QDBusConnection::systemBus();
 
-        if (conn.interface()->isServiceRegistered("org.freedesktop.PowerManagement") || (
-                    conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power") && !QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.powerdevilsystem"))) {
-            initError(i18n("Another power manager has been detected. PowerDevil will not start if "
-                           "other power managers are active. If you want to use PowerDevil as your primary "
-                           "power manager, please remove the existing one and restart the PowerDevil service."));
-            return;
-        } else if (conn.interface()->isServiceRegistered("com.novell.powersave")) {
-            initError(i18n("It seems powersaved is running on this system. PowerDevil will not start if "
-                           "other power managers are active. If you want to use PowerDevil as your primary "
-                           "power manager, please stop powersaved and restart the PowerDevil service."));
-            return;
+            if (conn.interface()->isServiceRegistered("org.freedesktop.PowerManagement") || (
+                        conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power") && !QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.powerdevilsystem"))) {
+                initError(i18n("Another power manager has been detected. PowerDevil will not start if "
+                               "other power managers are active. If you want to use PowerDevil as your primary "
+                               "power manager, please remove the existing one and restart the PowerDevil service."));
+                return;
+            } else if (conn.interface()->isServiceRegistered("com.novell.powersave")) {
+                initError(i18n("It seems powersaved is running on this system. PowerDevil will not start if "
+                               "other power managers are active. If you want to use PowerDevil as your primary "
+                               "power manager, please stop powersaved and restart the PowerDevil service."));
+                return;
+            }
         }
 
         initView();
