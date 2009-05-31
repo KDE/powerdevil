@@ -845,7 +845,7 @@ void PowerDevilDaemon::shutdown(bool automated)
 
 void PowerDevilDaemon::shutdownDialog()
 {
-    d->ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeNone,
+    d->ksmServerIface->logout((int)KWorkSpace::ShutdownConfirmYes, (int)KWorkSpace::ShutdownTypeDefault,
                               (int)KWorkSpace::ShutdownModeDefault);
 }
 
