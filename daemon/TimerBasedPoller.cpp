@@ -77,6 +77,7 @@ void TimerBasedPoller::forcePollRequest()
 #ifdef HAVE_XSCREENSAVER
 #include <X11/extensions/scrnsaver.h>
 #include <QX11Info>
+#include <fixx11h.h>
 #endif
 
 void TimerBasedPoller::poll()

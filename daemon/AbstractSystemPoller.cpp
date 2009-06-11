@@ -26,6 +26,7 @@
 
 #include <X11/keysym.h>
 #include <X11/extensions/XTest.h>
+#include <fixx11h.h>
 #endif // HAVE_XTEST
 
 AbstractSystemPoller::AbstractSystemPoller(QObject *parent)
