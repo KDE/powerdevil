@@ -1123,7 +1123,7 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Abort Action"));
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
@@ -1151,7 +1151,7 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Abort Action"));
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
@@ -1179,7 +1179,7 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Abort Action"));
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
