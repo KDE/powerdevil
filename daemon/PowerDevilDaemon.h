@@ -29,11 +29,7 @@
 
 #include "AbstractSystemPoller.h"
 
-class QWidget;
-class QTimer;
-class PollSystemLoader;
 class SuspensionLockHandler;
-class KNotification;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
 {

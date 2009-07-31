@@ -24,7 +24,6 @@
 #include <QObject>
 #include <QMap>
 
-class QTimer;
 
 class InhibitRequest
 {
