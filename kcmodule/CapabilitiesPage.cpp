@@ -38,7 +38,6 @@
 
 #include <QX11Info>
 
-#include <QFormLayout>
 #include <QProcess>
 #include <KPushButton>
 #include <KMessageBox>
