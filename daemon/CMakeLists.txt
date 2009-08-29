@@ -5,11 +5,6 @@ endif(HAVE_DPMS)
 
 set( kded_powerdevil_SRCS
     PowerDevilDaemon.cpp
-    AbstractSystemPoller.cpp
-    WidgetBasedPoller.cpp
-    XSyncBasedPoller.cpp
-    TimerBasedPoller.cpp
-    PollSystemLoader.cpp
     SuspensionLockHandler.cpp
     PowerManagementConnector.cpp
 )
@@ -36,6 +31,7 @@ target_link_libraries(kded_powerdevil
     ${KDE4_KDECORE_LIBS} 
     ${KDE4_SOLID_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KUTILS_LIBS}
     solidcontrol
 )
 

@@ -28,7 +28,6 @@
     <method name="setBrightness">
       <arg type="i" direction="in" />
     </method>
-    <method name="setUpPollingSystem" />
     <method name="turnOffScreen" />
     
     <method name="getSupportedGovernors">
@@ -41,10 +40,6 @@
     </method>
     <method name="getSupportedSchemes">
       <arg type="as" direction="out" />
-    </method>
-    <method name="getSupportedPollingSystems">
-      <arg type="a{sv}" direction="out"/>
-      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
     </method>
     
     <signal name="lidClosed">

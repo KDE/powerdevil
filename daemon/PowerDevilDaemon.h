@@ -27,8 +27,6 @@
 #include <QStringList>
 #include <QPointer>
 
-#include "AbstractSystemPoller.h"
-
 class SuspensionLockHandler;
 
 class KDE_EXPORT PowerDevilDaemon : public KDEDModule
@@ -56,8 +54,6 @@ public Q_SLOTS:
     void setBrightness(int value);
     void turnOffScreen();
 
-    void setUpPollingSystem();
-
     void unloadDaemon() {
         deleteLater();
     };
@@ -65,7 +61,6 @@ public Q_SLOTS:
     QVariantMap getSupportedGovernors();
     QStringList getSupportedSchemes();
     QVariantMap getSupportedSuspendMethods();
-    QVariantMap getSupportedPollingSystems();
 
     SuspensionLockHandler *lockHandler();
 
@@ -131,8 +126,6 @@ private:
     void profileFirstLoad();
 
     void restoreDefaultProfiles();
-
-    bool loadPollingSystem(AbstractSystemPoller::PollingType type);
 
     bool recacheBatteryPointer(bool force = false);
 

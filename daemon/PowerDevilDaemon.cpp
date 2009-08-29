@@ -35,6 +35,7 @@
 #include <kjob.h>
 #include <kworkspace/kworkspace.h>
 #include <KApplication>
+#include <kidletime.h>
 
 #include <QPointer>
 #include <QWidget>
@@ -43,7 +44,6 @@
 #include "PowerDevilSettings.h"
 #include "powerdeviladaptor.h"
 #include "PowerManagementConnector.h"
-#include "PollSystemLoader.h"
 #include "SuspensionLockHandler.h"
 
 #include <solid/device.h>
@@ -81,16 +81,6 @@ static XErrorHandler defaultHandler;
 
 #endif
 
-#define POLLER_CALL(Object, Method) \
-    if (Object != 0) { \
-        AbstractSystemPoller *t = qobject_cast<AbstractSystemPoller *>(Object); \
-        if (t!=0) { \
-            t->Method; \
-        } \
-    } else { \
-        kWarning() << "WARNING: No poller system loaded, PowerDevil can not detect idle time"; \
-    }
-
 K_PLUGIN_FACTORY(PowerDevilFactory,
                  registerPlugin<PowerDevilDaemon>();)
 K_EXPORT_PLUGIN(PowerDevilFactory("powerdevildaemon"))
@@ -116,7 +106,6 @@ public:
     KComponentData applicationData;
     KSharedConfig::Ptr profilesConfig;
     KConfigGroup *currentConfig;
-    PollSystemLoader *pollLoader;
     SuspensionLockHandler *lockHandler;
 
     QString currentProfile;
@@ -151,7 +140,6 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     d->applicationData = KComponentData(aboutData);
 
-    d->pollLoader = new PollSystemLoader(this);
     d->lockHandler = new SuspensionLockHandler(this);
     d->notificationTimer = new QTimer(this);
 
@@ -195,28 +183,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
                                    const char*, const QString&)),
             SLOT(emitCriticalNotification(const QString&, const QString&,
                                           const char*, const QString&)));
-
-    /* Time for setting up polling! We can have different methods, so
-     * let's check what we got.
-     */
-
-    if (PowerDevilSettings::pollingSystem() == -1) {
-        // Ok, new configuration... so let's see what we've got!!
-
-        QHash<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
-
-        if (pList.contains(AbstractSystemPoller::XSyncBased)) {
-            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::XSyncBased);
-        } else if (pList.contains(AbstractSystemPoller::WidgetBased)) {
-            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::WidgetBased);
-        } else {
-            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::TimerBased);
-        }
-
-        PowerDevilSettings::self()->writeConfig();
-    }
-
-    setUpPollingSystem();
+    connect(KIdleTime::instance(), SIGNAL(timeoutReached(int)), this, SLOT(poll(int)));
+    connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()), this, SLOT(resumeFromIdle()));
 
     //DBus
     new PowerDevilAdaptor(this);
@@ -299,81 +267,9 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
     return true;
 }
 
-void PowerDevilDaemon::setUpPollingSystem()
-{
-    if (!loadPollingSystem((AbstractSystemPoller::PollingType) PowerDevilSettings::pollingSystem())) {
-        /* Let's try to load each profile one at a time, and then
-         * set the configuration to the profile that worked out.
-         */
-
-        if (loadPollingSystem(AbstractSystemPoller::XSyncBased)) {
-            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::XSyncBased);
-            PowerDevilSettings::self()->writeConfig();
-            return;
-        }
-
-        if (loadPollingSystem(AbstractSystemPoller::WidgetBased)) {
-            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::WidgetBased);
-            PowerDevilSettings::self()->writeConfig();
-            return;
-        }
-
-        if (loadPollingSystem(AbstractSystemPoller::TimerBased)) {
-            PowerDevilSettings::setPollingSystem(AbstractSystemPoller::TimerBased);
-            PowerDevilSettings::self()->writeConfig();
-            return;
-        }
-
-        /* If we're here, we have a big problem, since no polling system has been loaded.
-         * What should we do? For now, let's just spit out a kError
-         */
-
-        kError() << "Could not load a polling system!";
-    }
-}
-
-bool PowerDevilDaemon::loadPollingSystem(AbstractSystemPoller::PollingType type)
-{
-    QHash<AbstractSystemPoller::PollingType, QString> pList = d->pollLoader->getAvailableSystems();
-
-    if (!pList.contains(type)) {
-        return false;
-    } else {
-        if (!d->pollLoader->loadSystem(type)) {
-            return false;
-        }
-    }
-
-    if (d->pollLoader->poller()) {
-        connect(d->pollLoader->poller(), SIGNAL(resumingFromIdle()), SLOT(resumeFromIdle()));
-        connect(d->pollLoader->poller(), SIGNAL(pollRequest(int)), SLOT(poll(int)));
-    } else {
-        return false;
-    }
-
-    return true;
-}
-
-QVariantMap PowerDevilDaemon::getSupportedPollingSystems()
-{
-    QVariantMap map;
-
-    QHash<int, QString> pmap = d->pollLoader->getAvailableSystemsAsInt();
-
-    QHash<int, QString>::const_iterator i;
-    for (i = pmap.constBegin(); i != pmap.constEnd(); ++i) {
-        map[i.value()] = i.key();
-    }
-
-    return map;
-}
-
 void PowerDevilDaemon::resumeFromIdle()
 {
     KConfigGroup * settings = getCurrentProfile();
-
-    POLLER_CALL(d->pollLoader->poller(), stopCatchingIdleEvents());
-    POLLER_CALL(d->pollLoader->poller(), forcePollRequest());
 
     if (!checkIfCurrentSessionActive()) {
         return;
@@ -479,8 +375,6 @@ void PowerDevilDaemon::applyProfile()
     }
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
-
-    POLLER_CALL(d->pollLoader->poller(), forcePollRequest());
 }
 
 void PowerDevilDaemon::setUpDPMS()
@@ -859,7 +753,7 @@ void PowerDevilDaemon::suspendToDisk(bool automated)
         return;
     }
 
-    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    KIdleTime::instance()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -883,7 +777,7 @@ void PowerDevilDaemon::suspendToRam(bool automated)
         return;
     }
 
-    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    KIdleTime::instance()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -906,7 +800,7 @@ void PowerDevilDaemon::standby(bool automated)
         return;
     }
 
-    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    KIdleTime::instance()->simulateUserActivity(); //prevent infinite suspension loops
 
     if (PowerDevilSettings::configLockScreen()) {
         lockScreen();
@@ -927,7 +821,7 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
                                  + QChar('\n') + job->errorString()));
     }
 
-    POLLER_CALL(d->pollLoader->poller(), simulateUserActivity()); //prevent infinite suspension loops
+    KIdleTime::instance()->simulateUserActivity(); //prevent infinite suspension loops
 
     kDebug() << "Resuming from suspension";
 
@@ -956,42 +850,7 @@ void PowerDevilDaemon::poll(int idle)
         return;
     }
 
-    if (!settings->readEntry("dimOnIdle", false) && !settings->readEntry("turnOffIdle", false) &&
-            settings->readEntry("idleAction").toInt() == None) {
-        //   kDebug() << "Stopping timer";
-        POLLER_CALL(d->pollLoader->poller(), stopCatchingTimeouts());
-        return;
-    }
-
-    int dimOnIdleTime = settings->readEntry("dimOnIdleTime").toInt() * 60;
-    int minDimTime = dimOnIdleTime * 1 / 2;
-    int minDimEvent = dimOnIdleTime;
-
-    if (idle < (dimOnIdleTime * 3 / 4)) {
-        minDimEvent = dimOnIdleTime * 3 / 4;
-    }
-    if (idle < (dimOnIdleTime * 1 / 2)) {
-        minDimEvent = dimOnIdleTime * 1 / 2;
-    }
-
-    int minTime = settings->readEntry("idleTime").toInt() * 60;
-
-    if (settings->readEntry("turnOffIdle", false)) {
-        minTime = qMin(minTime, settings->readEntry("turnOffIdleTime").toInt() * 60);
-    }
-    if (settings->readEntry("dimOnIdle", false)) {
-        minTime = qMin(minTime, minDimTime);
-    }
-
-    // kDebug() << "Minimum time is" << minTime << "seconds";
-
-    if (idle < minTime) {
-        d->status = NoAction;
-        int remaining = minTime - idle;
-        POLLER_CALL(d->pollLoader->poller(), setNextTimeout(remaining * 1000));
-        //   kDebug() << "Nothing to do, next event in" << remaining << "seconds";
-        return;
-    }
+    int dimOnIdleTime = settings->readEntry("dimOnIdleTime").toInt() * 60 * 1000;
 
     /* You'll see we release input lock here sometimes. Why? Well,
      * after some tests, I found out that the offscreen widget doesn't work
@@ -1001,8 +860,7 @@ void PowerDevilDaemon::poll(int idle)
      * to normal, and that's it.
      */
 
-    if (idle >= settings->readEntry("idleTime").toInt() * 60) {
-        setUpNextTimeout(idle, minDimEvent);
+    if (idle == settings->readEntry("idleTime").toInt() * 60 * 1000) {
 
         if (d->status == Action) {
             return;
@@ -1012,27 +870,27 @@ void PowerDevilDaemon::poll(int idle)
 
         switch (settings->readEntry("idleAction").toInt()) {
         case Shutdown:
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             shutdownNotification(true);
             break;
         case S2Disk:
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             suspendToDiskNotification(true);
             break;
         case S2Ram:
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             suspendToRamNotification(true);
             break;
         case Standby:
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             standbyNotification(true);
             break;
         case Lock:
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             lockScreen();
             break;
         case TurnOffScreen:
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             turnOffScreen();
             break;
         default:
@@ -1042,64 +900,32 @@ void PowerDevilDaemon::poll(int idle)
         return;
 
     } else if (settings->readEntry("dimOnIdle", false)
-               && (idle >= dimOnIdleTime)) {
+               && (idle == dimOnIdleTime)) {
         if (d->status != DimTotal) {
             d->status = DimTotal;
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             Solid::Control::PowerManager::setBrightness(0);
         }
     } else if (settings->readEntry("dimOnIdle", false)
-               && (idle >= (dimOnIdleTime * 3 / 4))) {
+               && (idle == (dimOnIdleTime * 3 / 4))) {
         if (d->status != DimThreeQuarters) {
             d->status = DimThreeQuarters;
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             float newBrightness = Solid::Control::PowerManager::brightness() / 4;
             Solid::Control::PowerManager::setBrightness(newBrightness);
         }
     } else if (settings->readEntry("dimOnIdle", false) &&
-               (idle >= (dimOnIdleTime * 1 / 2))) {
+               (idle == (dimOnIdleTime * 1 / 2))) {
         if (d->status != DimHalf) {
             d->status = DimHalf;
-            POLLER_CALL(d->pollLoader->poller(), catchIdleEvent());
+            KIdleTime::instance()->catchNextResumeEvent();
             float newBrightness = Solid::Control::PowerManager::brightness() / 2;
             Solid::Control::PowerManager::setBrightness(newBrightness);
         }
     } else {
         d->status = NoAction;
-        POLLER_CALL(d->pollLoader->poller(), stopCatchingIdleEvents());
+        //POLLER_CALL(d->pollLoader->poller(), stopCatchingIdleEvents());
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
-    }
-
-    setUpNextTimeout(idle, minDimEvent);
-}
-
-void PowerDevilDaemon::setUpNextTimeout(int idle, int minDimEvent)
-{
-    KConfigGroup *settings = getCurrentProfile();
-
-    int nextTimeout = -1;
-
-    if ((settings->readEntry("idleTime").toInt() * 60) > idle) {
-        if (nextTimeout >= 0) {
-            nextTimeout = qMin(nextTimeout, (settings->readEntry("idleTime").toInt() * 60) - idle);
-        } else {
-            nextTimeout = (settings->readEntry("idleTime").toInt() * 60) - idle;
-        }
-    }
-    if (minDimEvent > idle && settings->readEntry("dimOnIdle", false)) {
-        if (nextTimeout >= 0) {
-            nextTimeout = qMin(nextTimeout, minDimEvent - idle);
-        } else {
-            nextTimeout = minDimEvent - idle;
-        }
-    }
-
-    if (nextTimeout >= 0) {
-        POLLER_CALL(d->pollLoader->poller(), setNextTimeout(nextTimeout * 1000));
-        kDebug() << "Next timeout in" << nextTimeout << "seconds";
-    } else {
-        POLLER_CALL(d->pollLoader->poller(), stopCatchingTimeouts());
-        kDebug() << "Stopping timer";
     }
 }
 
@@ -1288,7 +1114,25 @@ void PowerDevilDaemon::reloadProfile(int state)
         }
     }
 
-    POLLER_CALL(d->pollLoader->poller(), forcePollRequest());
+    KConfigGroup * settings = getCurrentProfile();
+
+    if (!settings) {
+        return;
+    }
+
+    // Set up timeouts
+    KIdleTime::instance()->removeAllIdleTimeouts();
+
+    if (settings->readEntry("idleAction", false)) {
+        KIdleTime::instance()->addIdleTimeout(settings->readEntry("idleTime").toInt() * 60 * 1000);
+    }
+    if (settings->readEntry("dimOnIdle", false)) {
+        int dimOnIdleTime = settings->readEntry("dimOnIdleTime").toInt() * 60 * 1000;
+        KIdleTime::instance()->addIdleTimeout(dimOnIdleTime);
+        KIdleTime::instance()->addIdleTimeout(dimOnIdleTime * 1 / 2);
+        KIdleTime::instance()->addIdleTimeout(dimOnIdleTime * 3 / 4);
+    }
+
 }
 
 void PowerDevilDaemon::setProfile(const QString & profile)
