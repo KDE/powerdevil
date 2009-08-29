@@ -42,7 +42,6 @@ signals:
 private slots:
     void emitChanged();
 
-    void enableBoxes();
     void enableIssue(bool enable);
 
     void configureNotifications();

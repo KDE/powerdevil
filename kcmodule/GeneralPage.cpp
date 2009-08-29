@@ -80,9 +80,6 @@ void GeneralPage::fillUi()
 
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(enableDPMSBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(notificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(warningNotificationsBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
     connect(suspendWaitTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
@@ -90,8 +87,6 @@ void GeneralPage::fillUi()
     connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
     connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-
-    connect(suspendWait, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
 
@@ -104,11 +99,12 @@ void GeneralPage::fillUi()
 void GeneralPage::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
-    notificationsBox->setChecked(PowerDevilSettings::enableNotifications());
     enableDPMSBox->setChecked(PowerDevilSettings::manageDPMS());
-    warningNotificationsBox->setChecked(PowerDevilSettings::enableWarningNotifications());
-    suspendWait->setChecked(PowerDevilSettings::waitBeforeSuspending());
-    suspendWaitTime->setValue(PowerDevilSettings::waitBeforeSuspendingTime());
+    if (PowerDevilSettings::waitBeforeSuspending()) {
+        suspendWaitTime->setValue(PowerDevilSettings::waitBeforeSuspendingTime());
+    } else {
+        suspendWaitTime->setValue(0);
+    }
 
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     warningSpin->setValue(PowerDevilSettings::batteryWarningLevel());
@@ -120,8 +116,6 @@ void GeneralPage::load()
     lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
     warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
     batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
-
-    enableBoxes();
 }
 
 void GeneralPage::configureNotifications()
@@ -132,10 +126,8 @@ void GeneralPage::configureNotifications()
 void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
-    PowerDevilSettings::setEnableNotifications(notificationsBox->isChecked());
     PowerDevilSettings::setManageDPMS(enableDPMSBox->isChecked());
-    PowerDevilSettings::setEnableWarningNotifications(warningNotificationsBox->isChecked());
-    PowerDevilSettings::setWaitBeforeSuspending(suspendWait->isChecked());
+    PowerDevilSettings::setWaitBeforeSuspending(suspendWaitTime->value() != 0);
     PowerDevilSettings::setWaitBeforeSuspendingTime(suspendWaitTime->value());
 
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
@@ -155,11 +147,6 @@ void GeneralPage::save()
 void GeneralPage::emitChanged()
 {
     emit changed(true);
-}
-
-void GeneralPage::enableBoxes()
-{
-    suspendWaitTime->setEnabled(suspendWait->isChecked());
 }
 
 void GeneralPage::enableIssue(bool enable)
