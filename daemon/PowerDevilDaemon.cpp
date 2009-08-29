@@ -100,7 +100,8 @@ public:
 
     OrgFreedesktopScreenSaverInterface *screenSaverIface;
     OrgKdeKSMServerInterfaceInterface *ksmServerIface;
-//  Now we send a signal to trigger the configuration of Kscreensaver (Bug #177123) and we don't need the interface anymore
+//  Now we send a signal to trigger the configuration of Kscreensaver (Bug #177123)
+//    and we don't need the interface anymore
 //     OrgKdeScreensaverInterface * kscreenSaverIface;
 
     KComponentData applicationData;
@@ -166,10 +167,11 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     recacheBatteryPointer(true);
 
     // Set up all needed DBus interfaces
-    d->screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
-            QDBusConnection::sessionBus(), this);
+    d->screenSaverIface = new OrgFreedesktopScreenSaverInterface("org.freedesktop.ScreenSaver",
+                                                                 "/ScreenSaver",
+                                                                 QDBusConnection::sessionBus(), this);
     d->ksmServerIface = new OrgKdeKSMServerInterfaceInterface("org.kde.ksmserver", "/KSMServer",
-            QDBusConnection::sessionBus(), this);
+                                                              QDBusConnection::sessionBus(), this);
 
     /*  Not needed anymore; I am not sure if we will need that in a future, so I leave it here
      *  just in case.
@@ -178,7 +180,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
      *         QDBusConnection::sessionBus(), this);
     */
     connect(d->notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
-    connect(d->notifier, SIGNAL(batteryRemainingTimeChanged(int)), this, SLOT(batteryRemainingTimeChanged(int)));
+    connect(d->notifier, SIGNAL(batteryRemainingTimeChanged(int)),
+            this, SLOT(batteryRemainingTimeChanged(int)));
     connect(d->lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
                                    const char*, const QString&)),
             SLOT(emitCriticalNotification(const QString&, const QString&,
@@ -234,9 +237,11 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
     d->battery = 0;
 
     // Here we get our battery interface, it will be useful later.
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery,
+                                                                     QString())) {
         Solid::Device dev = device;
-        Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(Solid::DeviceInterface::Battery));
+        Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(
+                Solid::DeviceInterface::Battery));
 
         if (b->type() != Solid::Battery::PrimaryBattery) {
             continue;
@@ -359,9 +364,11 @@ void PowerDevilDaemon::applyProfile()
     QVariant var = settings->readEntry("disabledCPUs", QVariant());
     QList<QVariant> list = var.toList();
 
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor,
+                                                                     QString())) {
         Solid::Device d = device;
-        Solid::Processor * processor = qobject_cast<Solid::Processor * > (d.asDeviceInterface(Solid::DeviceInterface::Processor));
+        Solid::Processor * processor = qobject_cast<Solid::Processor * > (d.asDeviceInterface(
+                Solid::DeviceInterface::Processor));
 
         bool enable = true;
 
@@ -450,9 +457,11 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
 
     int charge = 0;
 
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery,
+                                                                     QString())) {
         Solid::Device d = device;
-        Solid::Battery *battery = qobject_cast<Solid::Battery*> (d.asDeviceInterface(Solid::DeviceInterface::Battery));
+        Solid::Battery *battery = qobject_cast<Solid::Battery*> (d.asDeviceInterface(
+                Solid::DeviceInterface::Battery));
         if (battery->chargePercent() > 0 && battery->type() == Solid::Battery::PrimaryBattery) {
             charge += battery->chargePercent();
         }
@@ -473,8 +482,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case Shutdown:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer will be halted in 1 second.",
-                                              "Your battery level is critical, the computer will be halted in %1 seconds.",
+                                        i18np("Your battery level is critical, the computer will "
+                                              "be halted in 1 second.",
+                                              "Your battery level is critical, the computer will "
+                                              "be halted in %1 seconds.",
                                               PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(shutdown()));
             } else {
@@ -484,8 +495,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case S2Disk:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer will be suspended to disk in 1 second.",
-                                              "Your battery level is critical, the computer will be suspended to disk in %1 seconds.",
+                                        i18np("Your battery level is critical, the computer will "
+                                              "be suspended to disk in 1 second.",
+                                              "Your battery level is critical, the computer will "
+                                              "be suspended to disk in %1 seconds.",
                                               PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToDisk()));
             } else {
@@ -495,8 +508,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case S2Ram:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer will be suspended to RAM in 1 second.",
-                                              "Your battery level is critical, the computer will be suspended to RAM in %1 seconds.",
+                                        i18np("Your battery level is critical, the computer "
+                                              "will be suspended to RAM in 1 second.",
+                                              "Your battery level is critical, the computer "
+                                              "will be suspended to RAM in %1 seconds.",
                                               PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(suspendToRam()));
             } else {
@@ -506,8 +521,10 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         case Standby:
             if (PowerDevilSettings::waitBeforeSuspending()) {
                 emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer will be put into standby in 1 second.",
-                                              "Your battery level is critical, the computer will be put into standby in %1 seconds.",
+                                        i18np("Your battery level is critical, the computer "
+                                              "will be put into standby in 1 second.",
+                                              "Your battery level is critical, the computer "
+                                              "will be put into standby in %1 seconds.",
                                               PowerDevilSettings::waitBeforeSuspendingTime()),
                                         SLOT(standby()));
             } else {
@@ -515,7 +532,8 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
             }
             break;
         default:
-            emitWarningNotification("criticalbattery", i18n("Your battery level is critical: save your work as soon as possible."));
+            emitWarningNotification("criticalbattery", i18n("Your battery level is critical: "
+                                                            "save your work as soon as possible."));
             break;
         }
     } else if (charge == PowerDevilSettings::batteryWarningLevel()) {
@@ -949,12 +967,14 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Cancel"));
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
+                                                           "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler, SLOT(releaseNotificationLock()));
+        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)),
+                                d->lockHandler, SLOT(releaseNotificationLock()));
         connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -974,12 +994,14 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Cancel"));
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
+                                                           "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler, SLOT(releaseNotificationLock()));
+        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler,
+                                SLOT(releaseNotificationLock()));
         connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -999,12 +1021,14 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process", "Cancel"));
+        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
+                                                           "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler, SLOT(releaseNotificationLock()));
+        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)),
+                                d->lockHandler, SLOT(releaseNotificationLock()));
         connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
@@ -1174,7 +1198,8 @@ QVariantMap PowerDevilDaemon::getSupportedGovernors()
 {
     QVariantMap retlist;
 
-    Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
+    Solid::Control::PowerManager::CpuFreqPolicies policies =
+            Solid::Control::PowerManager::supportedCpuFreqPolicies();
 
     if (policies & Solid::Control::PowerManager::Performance) {
         retlist[i18n("Performance")] = (int) Solid::Control::PowerManager::Performance;
@@ -1203,7 +1228,8 @@ QVariantMap PowerDevilDaemon::getSupportedSuspendMethods()
 {
     QVariantMap retlist;
 
-    Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
+    Solid::Control::PowerManager::SuspendMethods methods =
+            Solid::Control::PowerManager::supportedSuspendMethods();
 
     if (methods & Solid::Control::PowerManager::ToDisk) {
         retlist[i18n("Suspend to Disk")] = (int) S2Disk;
@@ -1458,7 +1484,8 @@ void PowerDevilDaemon::setUpConsoleKit()
      */
 
     QDBusConnection::systemBus().connect("org.freedesktop.ConsoleKit", sessionPath.value().path(),
-                                         "org.freedesktop.ConsoleKit.Session", "ActiveChanged", this, SLOT(refreshStatus()));
+                                         "org.freedesktop.ConsoleKit.Session", "ActiveChanged", this,
+                                         SLOT(refreshStatus()));
 }
 
 #include "PowerDevilDaemon.moc"
