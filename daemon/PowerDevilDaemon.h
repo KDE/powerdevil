@@ -40,8 +40,6 @@ public:
 
 public Q_SLOTS:
     void refreshStatus();
-    void emitWarningNotification(const QString &evid, const QString &message = QString(),
-                                 const char *slot = 0, const QString &iconname = "dialog-warning");
     void emitNotification(const QString &evid, const QString &message = QString(),
                           const char *slot = 0, const QString &iconname = "dialog-ok-apply");
     void setProfile(const QString & profile);
@@ -56,7 +54,7 @@ public Q_SLOTS:
 
     void unloadDaemon() {
         deleteLater();
-    };
+    }
 
     QVariantMap getSupportedGovernors();
     QStringList getSupportedSchemes();
@@ -99,9 +97,6 @@ private Q_SLOTS:
     bool toggleCompositing(bool enabled);
 
     void cleanUpTimer();
-
-    void emitCriticalNotification(const QString &evid, const QString &message = QString(),
-                                  const char *slot = 0, const QString &iconname = "dialog-error");
 
     void batteryRemainingTimeChanged(int time);
 

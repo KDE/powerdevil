@@ -184,7 +184,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
             this, SLOT(batteryRemainingTimeChanged(int)));
     connect(d->lockHandler, SIGNAL(streamCriticalNotification(const QString&, const QString&,
                                    const char*, const QString&)),
-            SLOT(emitCriticalNotification(const QString&, const QString&,
+            SLOT(emitNotification(const QString&, const QString&,
                                           const char*, const QString&)));
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int)), this, SLOT(poll(int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()), this, SLOT(resumeFromIdle()));
@@ -261,8 +261,8 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
         if (!connect(d->battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
                      SLOT(batteryChargePercentChanged(int, const QString &)))) {
 
-            emitCriticalNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
-                                     "Please check your system configuration"));
+            emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
+                                     "Please check your system configuration"), 0, "dialog-error");
             return false;
         }
     } else {
@@ -481,66 +481,69 @@ void PowerDevilDaemon::batteryChargePercentChanged(int percent, const QString &u
         switch (PowerDevilSettings::batLowAction()) {
         case Shutdown:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer will "
-                                              "be halted in 1 second.",
-                                              "Your battery level is critical, the computer will "
-                                              "be halted in %1 seconds.",
-                                              PowerDevilSettings::waitBeforeSuspendingTime()),
-                                        SLOT(shutdown()));
+                emitNotification("criticalbattery",
+                                 i18np("Your battery level is critical, the computer will "
+                                       "be halted in 1 second.",
+                                       "Your battery level is critical, the computer will "
+                                       "be halted in %1 seconds.",
+                                       PowerDevilSettings::waitBeforeSuspendingTime()),
+                                 SLOT(shutdown()), "dialog-warning");
             } else {
                 shutdown();
             }
             break;
         case S2Disk:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer will "
-                                              "be suspended to disk in 1 second.",
-                                              "Your battery level is critical, the computer will "
-                                              "be suspended to disk in %1 seconds.",
-                                              PowerDevilSettings::waitBeforeSuspendingTime()),
-                                        SLOT(suspendToDisk()));
+                emitNotification("criticalbattery",
+                                 i18np("Your battery level is critical, the computer will "
+                                       "be suspended to disk in 1 second.",
+                                       "Your battery level is critical, the computer will "
+                                       "be suspended to disk in %1 seconds.",
+                                       PowerDevilSettings::waitBeforeSuspendingTime()),
+                                 SLOT(suspendToDisk()), "dialog-warning");
             } else {
                 suspendToDisk();
             }
             break;
         case S2Ram:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer "
-                                              "will be suspended to RAM in 1 second.",
-                                              "Your battery level is critical, the computer "
-                                              "will be suspended to RAM in %1 seconds.",
-                                              PowerDevilSettings::waitBeforeSuspendingTime()),
-                                        SLOT(suspendToRam()));
+                emitNotification("criticalbattery",
+                                 i18np("Your battery level is critical, the computer "
+                                       "will be suspended to RAM in 1 second.",
+                                       "Your battery level is critical, the computer "
+                                       "will be suspended to RAM in %1 seconds.",
+                                       PowerDevilSettings::waitBeforeSuspendingTime()),
+                                 SLOT(suspendToRam()), "dialog-warning");
             } else {
                 suspendToRam();
             }
             break;
         case Standby:
             if (PowerDevilSettings::waitBeforeSuspending()) {
-                emitWarningNotification("criticalbattery",
-                                        i18np("Your battery level is critical, the computer "
-                                              "will be put into standby in 1 second.",
-                                              "Your battery level is critical, the computer "
-                                              "will be put into standby in %1 seconds.",
-                                              PowerDevilSettings::waitBeforeSuspendingTime()),
-                                        SLOT(standby()));
+                emitNotification("criticalbattery",
+                                 i18np("Your battery level is critical, the computer "
+                                       "will be put into standby in 1 second.",
+                                       "Your battery level is critical, the computer "
+                                       "will be put into standby in %1 seconds.",
+                                       PowerDevilSettings::waitBeforeSuspendingTime()),
+                                 SLOT(standby()), "dialog-warning");
             } else {
                 standby();
             }
             break;
         default:
-            emitWarningNotification("criticalbattery", i18n("Your battery level is critical: "
-                                                            "save your work as soon as possible."));
+            emitNotification("criticalbattery", i18n("Your battery level is critical: "
+                                                     "save your work as soon as possible."),
+                             0, "dialog-warning");
             break;
         }
     } else if (charge == PowerDevilSettings::batteryWarningLevel()) {
-        emitWarningNotification("warningbattery", i18n("Your battery has reached the warning level."));
+        emitNotification("warningbattery", i18n("Your battery has reached the warning level."),
+                         0, "dialog-warning");
         refreshStatus();
     } else if (charge == PowerDevilSettings::batteryLowLevel()) {
-        emitWarningNotification("lowbattery", i18n("Your battery has reached a low level."));
+        emitNotification("lowbattery", i18n("Your battery has reached a low level."),
+                         0, "dialog-warning");
         refreshStatus();
     }
 }
@@ -835,8 +838,8 @@ void PowerDevilDaemon::standby(bool automated)
 void PowerDevilDaemon::suspendJobResult(KJob * job)
 {
     if (job->error()) {
-        emitCriticalNotification("joberror", QString(i18n("There was an error while suspending:")
-                                 + QChar('\n') + job->errorString()));
+        emitNotification("joberror", QString(i18n("There was an error while suspending:")
+                                 + QChar('\n') + job->errorString()),  0, "dialog-error");
     }
 
     KIdleTime::instance()->simulateUserActivity(); //prevent infinite suspension loops
@@ -957,57 +960,6 @@ void PowerDevilDaemon::lockScreen()
     d->screenSaverIface->Lock();
 }
 
-void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QString &message,
-        const char *slot, const QString &iconname)
-{
-    /* Those notifications are always displayed */
-    if (!slot) {
-        KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                             0, KNotification::CloseOnTimeout, d->applicationData);
-    } else {
-        d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                                               0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
-                                                           "Cancel"));
-
-        connect(d->notificationTimer, SIGNAL(timeout()), slot);
-        connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
-
-        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)),
-                                d->lockHandler, SLOT(releaseNotificationLock()));
-        connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
-
-        d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
-    }
-}
-
-void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QString &message,
-        const char *slot, const QString &iconname)
-{
-    if (slot) {
-        QTimer::singleShot(0, this, slot);
-    }
-    
-    if (!slot) {
-        KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                             0, KNotification::CloseOnTimeout, d->applicationData);
-    } else {
-        d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
-                                               0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
-                                                           "Cancel"));
-
-        connect(d->notificationTimer, SIGNAL(timeout()), slot);
-        connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
-
-        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)), d->lockHandler,
-                                SLOT(releaseNotificationLock()));
-        connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
-
-        d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
-    }
-}
-
 void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message,
                                         const char *slot, const QString &iconname)
 {
@@ -1070,9 +1022,9 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)
     }
 
     if (!d->currentConfig->isValid() || !d->currentConfig->entryMap().size()) {
-        emitCriticalNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
+        emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                                  "but it does not exist.\nPlease check your PowerDevil configuration.",
-                                 d->currentProfile));
+                                 d->currentProfile),  0, "dialog-error");
         reloadProfile();
         delete d->currentConfig;
         d->currentConfig = 0;
