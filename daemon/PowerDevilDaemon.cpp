@@ -186,7 +186,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
                                    const char*, const QString&)),
             SLOT(emitNotification(const QString&, const QString&,
                                           const char*, const QString&)));
-    connect(KIdleTime::instance(), SIGNAL(timeoutReached(int)), this, SLOT(poll(int)));
+    connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)), this, SLOT(poll(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()), this, SLOT(resumeFromIdle()));
 
     //DBus
@@ -851,8 +851,10 @@ void PowerDevilDaemon::suspendJobResult(KJob * job)
     job->deleteLater();
 }
 
-void PowerDevilDaemon::poll(int idle)
+void PowerDevilDaemon::poll(int id, int idle)
 {
+    Q_UNUSED(id)
+
     /* The polling system is abstract. This function gets called when the current
      * system requests it. Usually, it is called only when needed (if you're using
      * an efficient backend such as XSync).
@@ -945,7 +947,7 @@ void PowerDevilDaemon::poll(int idle)
         }
     } else {
         d->status = NoAction;
-        //POLLER_CALL(d->pollLoader->poller(), stopCatchingIdleEvents());
+        KIdleTime::instance()->stopCatchingResumeEvent();
         Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     }
 }

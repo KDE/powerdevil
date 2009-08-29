@@ -83,7 +83,7 @@ private Q_SLOTS:
 
     void buttonPressed(int but);
 
-    void poll(int idle);
+    void poll(int id, int idle);
     void resumeFromIdle();
 
     void reloadProfile(int state = -1);
