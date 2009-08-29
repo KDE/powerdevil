@@ -964,13 +964,10 @@ void PowerDevilDaemon::emitCriticalNotification(const QString &evid, const QStri
 void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QString &message,
         const char *slot, const QString &iconname)
 {
-    if (!PowerDevilSettings::enableWarningNotifications()) {
-        if (slot) {
-            QTimer::singleShot(0, this, slot);
-        }
-        return;
+    if (slot) {
+        QTimer::singleShot(0, this, slot);
     }
-
+    
     if (!slot) {
         KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                              0, KNotification::CloseOnTimeout, d->applicationData);
@@ -992,11 +989,8 @@ void PowerDevilDaemon::emitWarningNotification(const QString &evid, const QStrin
 void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message,
                                         const char *slot, const QString &iconname)
 {
-    if (!PowerDevilSettings::enableNotifications()) {
-        if (slot) {
-            QTimer::singleShot(0, this, slot);
-        }
-        return;
+    if (slot) {
+        QTimer::singleShot(0, this, slot);
     }
 
     if (!slot) {

@@ -28,12 +28,6 @@
     <entry name="manageDPMS" type="Bool">
       <default>true</default>
     </entry>
-    <entry name="EnableNotifications" type="Bool">
-      <default>true</default>
-    </entry>
-    <entry name="EnableWarningNotifications" type="Bool">
-      <default>true</default>
-    </entry>
     <entry name="WaitBeforeSuspending" type="Bool">
       <default>true</default>
     </entry>
