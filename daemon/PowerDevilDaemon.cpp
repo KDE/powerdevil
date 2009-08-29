@@ -118,6 +118,7 @@ public:
     PowerDevilDaemon::IdleStatus status;
 
     int batteryPercent;
+    int brightness;
     bool isPlugged;
 
     // ConsoleKit stuff
@@ -274,13 +275,11 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
 
 void PowerDevilDaemon::resumeFromIdle()
 {
-    KConfigGroup * settings = getCurrentProfile();
-
     if (!checkIfCurrentSessionActive()) {
         return;
     }
 
-    Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+    Solid::Control::PowerManager::setBrightness(d->brightness);
 }
 
 void PowerDevilDaemon::refreshStatus()
@@ -358,6 +357,7 @@ void PowerDevilDaemon::applyProfile()
     }
 
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
+    d->brightness = settings->readEntry("brightness").toInt();
     Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
             settings->readEntry("cpuPolicy").toInt());
 
@@ -940,6 +940,7 @@ void PowerDevilDaemon::poll(int id, int idle)
     } else if (settings->readEntry("dimOnIdle", false) &&
                (idle == (dimOnIdleTime * 1 / 2))) {
         if (d->status != DimHalf) {
+            d->brightness = Solid::Control::PowerManager::brightness();
             d->status = DimHalf;
             KIdleTime::instance()->catchNextResumeEvent();
             float newBrightness = Solid::Control::PowerManager::brightness() / 2;
