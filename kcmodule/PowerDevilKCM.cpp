@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
+ *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -56,7 +56,7 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &) :
                              "and edit powersaving profiles, and see your system's "
                              "capabilities."));
 
-    about->addAuthor(ki18n("Dario Freddi"), ki18n("Main Developer") , "drf@kdemod.ath.cx",
+    about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
                      "http://drfav.wordpress.com");
 
     setAboutData(about);

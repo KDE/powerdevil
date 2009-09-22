@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
+ *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
  *   Copyright (C) 2008 by Kevin Ottens <ervin@kde.org>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *

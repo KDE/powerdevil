@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kdemod.ath.cx>                *
+ *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -137,7 +137,7 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
                          KAboutData::License_GPL, ki18n("(c) 2008 Dario Freddi"),
                          KLocalizedString(), "http://www.kde.org");
 
-    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf54321@gmail.com",
+    aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf@kde.org",
                         "http://drfav.wordpress.com");
 
     d->applicationData = KComponentData(aboutData);
