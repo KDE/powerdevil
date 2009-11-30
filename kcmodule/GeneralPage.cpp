@@ -48,6 +48,13 @@ GeneralPage::~GeneralPage()
 
 void GeneralPage::fillUi()
 {
+    int batteryCount = 0;
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        Q_UNUSED(device)
+        ++batteryCount;
+    }
+
     reloadAvailableProfiles();
 
     toolBox->setItemIcon(0, KIcon("preferences-other"));
@@ -94,6 +101,14 @@ void GeneralPage::fillUi()
     connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
     connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+
+    // Disable stuff, eventually
+    if (batteryCount == 0) {
+        batteryProfile->setEnabled(false);
+        lowProfile->setEnabled(false);
+        warningProfile->setEnabled(false);
+        toolBox->setItemEnabled(1, false);
+    }
 }
 
 void GeneralPage::load()
