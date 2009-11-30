@@ -381,6 +381,23 @@ void PowerDevilDaemon::applyProfile()
     }
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
+
+    // Compositing!!
+
+    if (settings->readEntry("disableCompositing", false)) {
+        if (toggleCompositing(false)) {
+            PowerDevilSettings::setCompositingChanged(true);
+            PowerDevilSettings::self()->writeConfig();
+        }
+    } else if (PowerDevilSettings::compositingChanged()) {
+        toggleCompositing(true);
+        PowerDevilSettings::setCompositingChanged(false);
+        PowerDevilSettings::self()->writeConfig();
+    }
+
+    if (PowerDevilSettings::manageDPMS()) {
+        setUpDPMS();
+    }
 }
 
 void PowerDevilDaemon::setUpDPMS()
@@ -1302,23 +1319,6 @@ void PowerDevilDaemon::profileFirstLoad()
 
     if (!settings->readEntry("scriptpath", QString()).isEmpty()) {
         QProcess::startDetached(settings->readEntry("scriptpath"));
-    }
-
-    // Compositing!!
-
-    if (settings->readEntry("disableCompositing", false)) {
-        if (toggleCompositing(false)) {
-            PowerDevilSettings::setCompositingChanged(true);
-            PowerDevilSettings::self()->writeConfig();
-        }
-    } else if (PowerDevilSettings::compositingChanged()) {
-        toggleCompositing(true);
-        PowerDevilSettings::setCompositingChanged(false);
-        PowerDevilSettings::self()->writeConfig();
-    }
-
-    if (PowerDevilSettings::manageDPMS()) {
-        setUpDPMS();
     }
 }
 
