@@ -1095,6 +1095,9 @@ void PowerDevilDaemon::reloadProfile(int state)
             PowerDevilSettings::setLowProfile("Aggressive Powersave");
             PowerDevilSettings::setWarningProfile("Xtreme Powersave");
 
+            // TODO 4.5: uncomment (string freeze)
+//             emitNotification("profileset", i18n("Loaded default powersaving profiles"),  0, "dialog-error");
+
             PowerDevilSettings::self()->writeConfig();
 
             reloadAndStream();
@@ -1367,6 +1370,16 @@ void PowerDevilDaemon::setACPlugged(bool newplugged)
 void PowerDevilDaemon::setCurrentProfile(const QString &profile)
 {
     if (!checkIfCurrentSessionActive()) {
+        return;
+    }
+
+    if (!d->availableProfiles.contains(profile)) {
+        // Wait a minute, there's something wrong.
+        d->currentProfile.clear();
+        // Notify back
+        emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
+                                                 "but it does not exist.\nPlease check your PowerDevil configuration.",
+                                                 d->currentProfile),  0, "dialog-error");
         return;
     }
 
