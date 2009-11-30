@@ -175,63 +175,6 @@
        </widget>
       </item>
       <item row="11" column="0">
-       <widget class="QLabel" name="label">
-        <property name="toolTip">
-         <string>Support for the XSync extension</string>
-        </property>
-        <property name="whatsThis">
-         <string>XSync is an extension that allows high efficiency query of the system. If it is available, PowerDevil will be much more reliable and efficient</string>
-        </property>
-        <property name="text">
-         <string>XSync Support</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="toolTip">
-         <string>Support for XScreensaver</string>
-        </property>
-        <property name="whatsThis">
-         <string>Through XScreensaver, PowerDevil may query the system if XSync is not available. It is necessary only if your system does not support XSync. If both of them are unavailable, PowerDevil will not be able to query idle time of the system</string>
-        </property>
-        <property name="text">
-         <string>XScreenSaver Support</string>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Status</string>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="0">
-       <widget class="Line" name="line_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="1">
-       <widget class="QLabel" name="xsyncSupport">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="1">
-       <widget class="QLabel" name="xssSupport">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="1">
-       <layout class="QVBoxLayout" name="statusLayout"/>
-      </item>
-      <item row="13" column="0">
        <widget class="QLabel" name="label_4">
         <property name="toolTip">
          <string>Support for DPMS</string>
@@ -244,34 +187,14 @@
         </property>
        </widget>
       </item>
-      <item row="13" column="1">
+      <item row="11" column="1">
        <widget class="QLabel" name="dpmsSupport">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="14" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="toolTip">
-         <string>Support for XTest extension</string>
-        </property>
-        <property name="whatsThis">
-         <string>Through XTest, PowerDevil is able to fake user activity, preventing suspension loops. If it is not available, loops might occur</string>
-        </property>
-        <property name="text">
-         <string>XTest Support</string>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="1">
-       <widget class="QLabel" name="xtestSupport">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="0">
+      <item row="12" column="0">
        <widget class="QLabel" name="label_6">
         <property name="toolTip">
          <string>Checks if ConsoleKit is active on your system</string>
@@ -284,12 +207,29 @@
         </property>
        </widget>
       </item>
-      <item row="15" column="1">
+      <item row="12" column="1">
        <widget class="QLabel" name="ckSupport">
         <property name="text">
          <string/>
         </property>
        </widget>
+      </item>
+      <item row="13" column="0">
+       <widget class="Line" name="line_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Status</string>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="1">
+       <layout class="QVBoxLayout" name="statusLayout"/>
       </item>
      </layout>
     </widget>

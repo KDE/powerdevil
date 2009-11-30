@@ -198,9 +198,6 @@ void CapabilitiesPage::fillCapabilities()
 
     supportedSchemes->setText(schemes);
 
-    bool xss = false;
-    bool xsync = false;
-    bool xtest = false;
     bool dpms = false;
 
 #ifdef HAVE_DPMS
@@ -211,22 +208,6 @@ void CapabilitiesPage::fillCapabilities()
     if (DPMSQueryExtension(dpy, &dummy, &dummy) && DPMSCapable(dpy)) {
         dpms = true;
     }
-#endif
-
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.kded",
-                       "/modules/powerdevil", "org.kde.PowerDevil", "getSupportedPollingSystems");
-    QDBusReply<QVariantMap> systems = QDBusConnection::sessionBus().call(msg);
-
-    foreach(const QVariant &ent, systems.value()) {
-        if (ent.toInt() == XSyncBased) {
-            xsync = true;
-        } else if (ent.toInt() == WidgetBased) {
-            xss = true;
-        }
-    }
-
-#ifdef HAVE_XTEST
-    xtest = true;
 #endif
 
     bool ck;
@@ -255,24 +236,6 @@ void CapabilitiesPage::fillCapabilities()
         }
     }
 
-    if (xss) {
-        xssSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    } else {
-        xssSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
-    }
-
-    if (xsync) {
-        xsyncSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    } else {
-        xsyncSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
-    }
-
-    if (xtest) {
-        xtestSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    } else {
-        xtestSupport->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
-    }
-
     if (dpms) {
         dpmsSupport->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
     } else {
@@ -291,12 +254,7 @@ void CapabilitiesPage::fillCapabilities()
         ent->deleteLater();
     }
 
-    if (!xss & !xsync) {
-        setIssue(true, i18n("PowerDevil was compiled without Xss and Xext support, or the XSync "
-                            "extension is not available. Determining idle time will not be possible. "
-                            "Please consider recompiling PowerDevil with at least one of these two "
-                            "libraries."));
-    } else if ((scMethods.isEmpty() || scMethods == i18n("Performance")) &&
+    if ((scMethods.isEmpty() || scMethods == i18n("Performance")) &&
                PowerDevilSettings::scalingWarning()) {
         setIssue(true, i18n("No scaling methods were found. If your CPU is reasonably recent, this "
                             "is probably because you have not loaded some kernel modules. Usually "
@@ -308,16 +266,6 @@ void CapabilitiesPage::fillCapabilities()
                  i18n("Attempt to load modules"), "system-run", SLOT(attemptLoadingModules()),
                  i18n("Do not display this warning again"), "dialog-ok-apply", SLOT(disableScalingWarn()));
 
-    } else if (!xsync) {
-        setIssue(true, i18n("PowerDevil was compiled without Xext support, or the XSync extension is "
-                            "not available. XSync grants extra efficiency and performance, saving your "
-                            "battery and CPU. It is advised to use PowerDevil with XSync enabled."));
-
-    } else if (PowerDevilSettings::pollingSystem() != 2 && xsync) {
-        setIssue(true, i18n("XSync does not seem to be your preferred query backend, though it is available "
-                            "on your system. Using it largely improves performance and efficiency, and "
-                            "is strongly advised. Click on the button below to enable it now."),
-                 i18n("Enable XSync Backend"), "dialog-ok-apply", SLOT(enableXSync()));
     } else if (!ck) {
         setIssue(true, i18n("ConsoleKit was not found active on your PC, or PowerDevil cannot contact it. "
                             "ConsoleKit lets PowerDevil detect whether the current session is active, which is "
