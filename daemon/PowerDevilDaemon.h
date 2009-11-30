@@ -85,7 +85,7 @@ private Q_SLOTS:
     void poll(int id, int idle);
     void resumeFromIdle();
 
-    void reloadProfile(int state = -1);
+    bool reloadProfile(int state = -1);
     QString profile() const;
 
     void setBatteryPercent(int newpercent);

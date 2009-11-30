@@ -36,6 +36,7 @@
 #include <kworkspace/kworkspace.h>
 #include <KApplication>
 #include <kidletime.h>
+#include <KStandardDirs>
 
 #include <QWeakPointer>
 #include <QWidget>
@@ -289,7 +290,9 @@ void PowerDevilDaemon::refreshStatus()
     PowerDevilSettings::self()->readConfig();
     d->profilesConfig->reparseConfiguration();
 
-    reloadProfile();
+    if (!reloadProfile()) {
+        return;
+    }
 
     getCurrentProfile(true);
 
@@ -1052,10 +1055,10 @@ KConfigGroup * PowerDevilDaemon::getCurrentProfile(bool forcereload)
     return d->currentConfig;
 }
 
-void PowerDevilDaemon::reloadProfile(int state)
+bool PowerDevilDaemon::reloadProfile(int state)
 {
     if (!checkIfCurrentSessionActive()) {
-        return;
+        return false;
     }
 
     if (!recacheBatteryPointer()) {
@@ -1102,14 +1105,14 @@ void PowerDevilDaemon::reloadProfile(int state)
 
             reloadAndStream();
 
-            return;
+            return false;
         }
     }
 
     KConfigGroup * settings = getCurrentProfile();
 
     if (!settings) {
-        return;
+        return false;
     }
 
     // Set up timeouts
@@ -1125,6 +1128,7 @@ void PowerDevilDaemon::reloadProfile(int state)
         KIdleTime::instance()->addIdleTimeout(dimOnIdleTime * 3 / 4);
     }
 
+    return true;
 }
 
 void PowerDevilDaemon::setProfile(const QString & profile)
@@ -1152,8 +1156,6 @@ void PowerDevilDaemon::reloadAndStream()
     if (!checkIfCurrentSessionActive()) {
         return;
     }
-
-    reloadProfile();
 
     setAvailableProfiles(d->profilesConfig->groupList());
 
@@ -1341,7 +1343,7 @@ bool PowerDevilDaemon::toggleCompositing(bool enabled)
 
 void PowerDevilDaemon::restoreDefaultProfiles()
 {
-    QString path = QString("%1/default.powerdevilprofiles").arg(DATA_DIRECTORY);
+    QString path = KStandardDirs::locate("data", "powerdevil/default.powerdevilprofiles");
 
     KConfig toImport(path, KConfig::SimpleConfig);
 
@@ -1350,9 +1352,8 @@ void PowerDevilDaemon::restoreDefaultProfiles()
         KConfigGroup copyTo(d->profilesConfig, ent);
 
         copyFrom.copyTo(&copyTo);
+        copyTo.config()->sync();
     }
-
-    d->profilesConfig->sync();
 }
 
 void PowerDevilDaemon::setBatteryPercent(int newpercent)
@@ -1376,10 +1377,13 @@ void PowerDevilDaemon::setCurrentProfile(const QString &profile)
     if (!d->availableProfiles.contains(profile)) {
         // Wait a minute, there's something wrong.
         d->currentProfile.clear();
-        // Notify back
-        emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
-                                                 "but it does not exist.\nPlease check your PowerDevil configuration.",
-                                                 d->currentProfile),  0, "dialog-error");
+        if (d->profilesConfig.data()->groupList().count() > 0) {
+            // Notify back only if some profiles were saved. Otherwise we're just initializing the configuration and
+            // it's not really worth it streaming an error
+            emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
+                                                     "but it does not exist.\nPlease check your PowerDevil configuration.",
+                                                     d->currentProfile),  0, "dialog-error");
+        }
         return;
     }
 
