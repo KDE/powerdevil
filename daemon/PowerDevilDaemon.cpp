@@ -37,7 +37,7 @@
 #include <KApplication>
 #include <kidletime.h>
 
-#include <QPointer>
+#include <QWeakPointer>
 #include <QWidget>
 #include <QTimer>
 
@@ -90,13 +90,12 @@ class PowerDevilDaemon::Private
 public:
     explicit Private()
             : notifier(Solid::Control::PowerManager::notifier())
-            , battery(0)
             , currentConfig(0)
             , status(PowerDevilDaemon::NoAction)
             , ckSessionInterface(0) {}
 
     Solid::Control::PowerManager::Notifier *notifier;
-    QPointer<Solid::Battery> battery;
+    QWeakPointer<Solid::Battery> battery;
 
     OrgFreedesktopScreenSaverInterface *screenSaverIface;
     OrgKdeKSMServerInterfaceInterface *ksmServerIface;
@@ -112,7 +111,7 @@ public:
     QString currentProfile;
     QStringList availableProfiles;
 
-    QPointer<KNotification> notification;
+    QWeakPointer<KNotification> notification;
     QTimer *notificationTimer;
 
     PowerDevilDaemon::IdleStatus status;
@@ -229,13 +228,13 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
      * short, we simply bypass all adaptor and battery events if no batteries are found.
      */
 
-    if (d->battery) {
-        if (d->battery->isValid() && !force) {
+    if (!d->battery.isNull()) {
+        if (d->battery.data()->isValid() && !force) {
             return true;
         }
     }
 
-    d->battery = 0;
+    d->battery.clear();
 
     // Here we get our battery interface, it will be useful later.
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery,
@@ -256,10 +255,10 @@ bool PowerDevilDaemon::recacheBatteryPointer(bool force)
     /* Those slots are relevant only if we're on a system that has a battery. If not, we simply don't care
      * about them.
      */
-    if (d->battery) {
+    if (!d->battery.isNull()) {
         connect(d->notifier, SIGNAL(acAdapterStateChanged(int)), this, SLOT(acAdapterStateChanged(int)));
 
-        if (!connect(d->battery, SIGNAL(chargePercentChanged(int, const QString &)), this,
+        if (!connect(d->battery.data(), SIGNAL(chargePercentChanged(int, const QString &)), this,
                      SLOT(batteryChargePercentChanged(int, const QString &)))) {
 
             emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
@@ -297,7 +296,7 @@ void PowerDevilDaemon::refreshStatus()
     /* Let's force status update, if we have a battery. Otherwise, let's just
      * re-apply the current profile.
      */
-    if (d->battery) {
+    if (!d->battery.isNull()) {
         acAdapterStateChanged(Solid::Control::PowerManager::acAdapterState(), true);
     } else {
         applyProfile();
@@ -976,15 +975,15 @@ void PowerDevilDaemon::emitNotification(const QString &evid, const QString &mess
     } else {
         d->notification = KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                                                0, KNotification::Persistent, d->applicationData);
-        d->notification->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
+        d->notification.data()->setActions(QStringList() << i18nc("Interrupts the suspension/shutdown process",
                                                            "Cancel"));
 
         connect(d->notificationTimer, SIGNAL(timeout()), slot);
         connect(d->notificationTimer, SIGNAL(timeout()), SLOT(cleanUpTimer()));
 
-        d->lockHandler->connect(d->notification, SIGNAL(activated(unsigned int)),
+        d->lockHandler->connect(d->notification.data(), SIGNAL(activated(unsigned int)),
                                 d->lockHandler, SLOT(releaseNotificationLock()));
-        connect(d->notification, SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
+        connect(d->notification.data(), SIGNAL(activated(unsigned int)), SLOT(cleanUpTimer()));
 
         d->notificationTimer->start(PowerDevilSettings::waitBeforeSuspendingTime() * 1000);
     }
@@ -998,8 +997,8 @@ void PowerDevilDaemon::cleanUpTimer()
     d->notificationTimer->stop();
 
     if (d->notification) {
-        d->notification->disconnect();
-        d->notification->deleteLater();
+        d->notification.data()->disconnect();
+        d->notification.data()->deleteLater();
     }
 }
 
@@ -1051,9 +1050,9 @@ void PowerDevilDaemon::reloadProfile(int state)
 
         if (state == Solid::Control::PowerManager::Plugged) {
             setCurrentProfile(PowerDevilSettings::aCProfile());
-        } else if (d->battery->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
+        } else if (d->battery.data()->chargePercent() <= PowerDevilSettings::batteryWarningLevel()) {
             setCurrentProfile(PowerDevilSettings::warningProfile());
-        } else if (d->battery->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
+        } else if (d->battery.data()->chargePercent() <= PowerDevilSettings::batteryLowLevel()) {
             setCurrentProfile(PowerDevilSettings::lowProfile());
         } else {
             setCurrentProfile(PowerDevilSettings::batteryProfile());
@@ -1381,7 +1380,9 @@ void PowerDevilDaemon::setCurrentProfile(const QString &profile)
 void PowerDevilDaemon::setAvailableProfiles(const QStringList &aProfiles)
 {
     d->availableProfiles = aProfiles;
-    emit profileChanged(d->currentProfile, d->availableProfiles);
+    if (!d->currentProfile.isEmpty()) {
+        emit profileChanged(d->currentProfile, d->availableProfiles);
+    }
 }
 
 bool PowerDevilDaemon::checkIfCurrentSessionActive()

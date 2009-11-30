@@ -25,7 +25,6 @@
 #include <solid/battery.h>
 #include <KComponentData>
 #include <QStringList>
-#include <QPointer>
 
 class SuspensionLockHandler;
 
