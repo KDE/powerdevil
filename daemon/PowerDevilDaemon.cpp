@@ -1365,6 +1365,8 @@ void PowerDevilDaemon::setBatteryPercent(int newpercent)
 void PowerDevilDaemon::setACPlugged(bool newplugged)
 {
     d->isPlugged = newplugged;
+    // Reset idle counter - otherwise we might run into some funny things, like immediate suspension
+    KIdleTime::instance()->simulateUserActivity();
     emit stateChanged(d->batteryPercent, d->isPlugged);
 }
 
