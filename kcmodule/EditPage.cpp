@@ -450,11 +450,14 @@ void EditPage::reloadAvailableProfiles()
 
 void EditPage::deleteCurrentProfile()
 {
-    if (!profilesList->currentItem() || profilesList->currentItem()->text().isEmpty())
+    if (!profilesList->currentItem() || profilesList->currentItem()->text().isEmpty()) {
         return;
+    }
+
+    // We're deleting it, we don't care anymore
+    m_profileEdited = false;
 
     m_profilesConfig->deleteGroup(profilesList->currentItem()->text());
-
     m_profilesConfig->sync();
 
     reloadAvailableProfiles();
@@ -632,6 +635,16 @@ void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous
     if (!m_profileEdited) {
         loadProfile();
     } else {
+        if (!previous) {
+             // Pass by, the profile has probably been deleted
+            loadProfile();
+            return;
+        } else if (!m_profilesConfig.data()->groupList().contains(previous->text())) {
+            // Pass by, the profile has probably been deleted
+            loadProfile();
+            return;
+        }
+
         int result = KMessageBox::warningYesNoCancel(this, i18n("The current profile has not been saved.\n"
                      "Do you want to save it?"), i18n("Save Profile"));
 
