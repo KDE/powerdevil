@@ -195,9 +195,9 @@ void EditPage::fillUi()
 
     reloadAvailableProfiles();
 
-    toolBox->setItemIcon(0, KIcon("preferences-system-session-services"));
-    toolBox->setItemIcon(1, KIcon("video-display"));
-    toolBox->setItemIcon(2, KIcon("cpu"));
+    tabWidget->setTabIcon(0, KIcon("preferences-system-session-services"));
+    tabWidget->setTabIcon(1, KIcon("video-display"));
+    tabWidget->setTabIcon(2, KIcon("cpu"));
 
 #if 0 // Re-enable when / if we have permission to use official logo
     DPMSLabel->setUrl("http://www.energystar.gov");

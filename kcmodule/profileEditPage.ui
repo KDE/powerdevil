@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>730</width>
-    <height>452</height>
+    <width>735</width>
+    <height>466</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -22,7 +22,7 @@
      <property name="title">
       <string>Profile Management</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
@@ -42,37 +42,23 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QToolBox" name="toolBox">
+           <widget class="KTabWidget" name="tabWidget">
             <property name="currentIndex">
              <number>0</number>
             </property>
-            <widget class="QWidget" name="page">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>488</width>
-               <height>283</height>
-              </rect>
-             </property>
-             <attribute name="label">
+            <widget class="QWidget" name="tab">
+             <attribute name="title">
               <string>Actions</string>
              </attribute>
-             <attribute name="toolTip">
-              <string>Configure actions</string>
-             </attribute>
-             <layout class="QFormLayout" name="formLayout">
-              <property name="fieldGrowthPolicy">
-               <enum>QFormLayout::ExpandingFieldsGrow</enum>
-              </property>
-              <item row="1" column="0">
+             <layout class="QFormLayout" name="formLayout_4">
+              <item row="0" column="0">
                <widget class="QCheckBox" name="disableCompositing">
                 <property name="text">
                  <string>Disable desktop effects, if active</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
+              <item row="1" column="0">
                <widget class="QCheckBox" name="dimDisplayOnIdle">
                 <property name="toolTip">
                  <string>Activate automatic dimming</string>
@@ -88,7 +74,7 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
+              <item row="1" column="1">
                <widget class="KIntSpinBox" name="dimOnIdleTime">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -119,7 +105,7 @@
                 </property>
                </widget>
               </item>
-              <item row="3" column="0">
+              <item row="2" column="0">
                <widget class="QLabel" name="PoweredIdleLabel_2">
                 <property name="toolTip">
                  <string/>
@@ -133,9 +119,12 @@
                 <property name="wordWrap">
                  <bool>false</bool>
                 </property>
+                <property name="buddy">
+                 <cstring>idleTime</cstring>
+                </property>
                </widget>
               </item>
-              <item row="3" column="1">
+              <item row="2" column="1">
                <layout class="QHBoxLayout" name="horizontalLayout_4">
                 <item>
                  <widget class="KIntSpinBox" name="idleTime">
@@ -177,7 +166,7 @@
                 </item>
                </layout>
               </item>
-              <item row="4" column="0">
+              <item row="3" column="0">
                <widget class="QLabel" name="label_7">
                 <property name="toolTip">
                  <string/>
@@ -185,9 +174,12 @@
                 <property name="text">
                  <string>When laptop lid closed</string>
                 </property>
+                <property name="buddy">
+                 <cstring>laptopClosedCombo</cstring>
+                </property>
                </widget>
               </item>
-              <item row="4" column="1">
+              <item row="3" column="1">
                <widget class="KComboBox" name="laptopClosedCombo">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -206,14 +198,17 @@
                 </property>
                </widget>
               </item>
-              <item row="5" column="0">
+              <item row="4" column="0">
                <widget class="QLabel" name="label">
                 <property name="text">
                  <string>When power button pressed</string>
                 </property>
+                <property name="buddy">
+                 <cstring>powerButtonCombo</cstring>
+                </property>
                </widget>
               </item>
-              <item row="5" column="1">
+              <item row="4" column="1">
                <widget class="KComboBox" name="powerButtonCombo">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -229,14 +224,17 @@
                 </property>
                </widget>
               </item>
-              <item row="6" column="0">
+              <item row="5" column="0">
                <widget class="QLabel" name="label_2">
                 <property name="text">
                  <string>When sleep button pressed</string>
                 </property>
+                <property name="buddy">
+                 <cstring>sleepButtonCombo</cstring>
+                </property>
                </widget>
               </item>
-              <item row="6" column="1">
+              <item row="5" column="1">
                <widget class="KComboBox" name="sleepButtonCombo">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -253,33 +251,22 @@
                </widget>
               </item>
              </layout>
-             <zorder>dimDisplayOnIdle</zorder>
-             <zorder>dimOnIdleTime</zorder>
-             <zorder>PoweredIdleLabel_2</zorder>
-             <zorder>label_7</zorder>
-             <zorder>laptopClosedCombo</zorder>
-             <zorder>label</zorder>
-             <zorder>powerButtonCombo</zorder>
-             <zorder>label_2</zorder>
              <zorder>sleepButtonCombo</zorder>
+             <zorder>dimOnIdleTime</zorder>
+             <zorder>powerButtonCombo</zorder>
+             <zorder>dimDisplayOnIdle</zorder>
              <zorder>disableCompositing</zorder>
+             <zorder>label_7</zorder>
+             <zorder>PoweredIdleLabel_2</zorder>
+             <zorder>label_2</zorder>
+             <zorder>label</zorder>
+             <zorder>laptopClosedCombo</zorder>
             </widget>
-            <widget class="QWidget" name="page_3">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>387</width>
-               <height>222</height>
-              </rect>
-             </property>
-             <attribute name="label">
+            <widget class="QWidget" name="tab_2">
+             <attribute name="title">
               <string>Screen</string>
              </attribute>
-             <attribute name="toolTip">
-              <string>Configure preferences for Screen Powersaving</string>
-             </attribute>
-             <layout class="QVBoxLayout" name="verticalLayout_4">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
@@ -292,6 +279,9 @@
                   </property>
                   <property name="wordWrap">
                    <bool>false</bool>
+                  </property>
+                  <property name="buddy">
+                   <cstring>brightnessSlider</cstring>
                   </property>
                  </widget>
                 </item>
@@ -465,31 +455,20 @@
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
-                  <height>40</height>
+                  <height>351</height>
                  </size>
                 </property>
                </spacer>
               </item>
              </layout>
             </widget>
-            <widget class="QWidget" name="page_2">
-             <property name="geometry">
-              <rect>
-               <x>0</x>
-               <y>0</y>
-               <width>460</width>
-               <height>139</height>
-              </rect>
-             </property>
-             <attribute name="label">
+            <widget class="QWidget" name="tab_3">
+             <attribute name="title">
               <string>CPU and System</string>
              </attribute>
-             <attribute name="toolTip">
-              <string>Configure System and CPU preferences</string>
-             </attribute>
-             <layout class="QFormLayout" name="formLayout_2">
+             <layout class="QFormLayout" name="formLayout_5">
               <property name="fieldGrowthPolicy">
-               <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+               <enum>QFormLayout::ExpandingFieldsGrow</enum>
               </property>
               <item row="0" column="0">
                <widget class="QLabel" name="label_12">
@@ -497,9 +476,6 @@
                  <string>Turn off the following CPU(s)</string>
                 </property>
                </widget>
-              </item>
-              <item row="1" column="0">
-               <layout class="QHBoxLayout" name="CPUListLayout"/>
               </item>
               <item row="3" column="0">
                <widget class="QLabel" name="PoweredFreqLabel_2">
@@ -544,6 +520,9 @@
                 <property name="text">
                  <string>System powersaving scheme:</string>
                 </property>
+                <property name="buddy">
+                 <cstring>schemeCombo</cstring>
+                </property>
                </widget>
               </item>
               <item row="4" column="1">
@@ -567,6 +546,9 @@
                 <property name="text">
                  <string>When loading profile execute:</string>
                 </property>
+                <property name="buddy">
+                 <cstring>scriptRequester</cstring>
+                </property>
                </widget>
               </item>
               <item row="5" column="1">
@@ -585,14 +567,26 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
+              <item row="2" column="0" colspan="2">
                <widget class="Line" name="line_5">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
                </widget>
               </item>
+              <item row="0" column="1">
+               <layout class="QHBoxLayout" name="CPUListLayout"/>
+              </item>
              </layout>
+             <zorder>line_5</zorder>
+             <zorder>schemeCombo</zorder>
+             <zorder>PoweredFreqLabel_2</zorder>
+             <zorder>label_12</zorder>
+             <zorder>label_20</zorder>
+             <zorder>freqCombo</zorder>
+             <zorder>label_19</zorder>
+             <zorder>scriptRequester</zorder>
+             <zorder></zorder>
             </widget>
            </widget>
           </item>
@@ -650,6 +644,12 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>ktabwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
