@@ -57,8 +57,8 @@ void GeneralPage::fillUi()
 
     reloadAvailableProfiles();
 
-    toolBox->setItemIcon(0, KIcon("preferences-other"));
-    toolBox->setItemIcon(1, KIcon("battery"));
+    tabWidget->setTabIcon(0, KIcon("preferences-other"));
+    tabWidget->setTabIcon(1, KIcon("battery"));
 
     issueIcon->setPixmap(KIcon("dialog-warning").pixmap(32, 32));
     issueIcon->setVisible(false);
@@ -107,7 +107,7 @@ void GeneralPage::fillUi()
         batteryProfile->setEnabled(false);
         lowProfile->setEnabled(false);
         warningProfile->setEnabled(false);
-        toolBox->setItemEnabled(1, false);
+        tabWidget->setTabEnabled(1, false);
     }
 }
 
