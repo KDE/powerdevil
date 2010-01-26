@@ -35,18 +35,6 @@ target_link_libraries(kded_powerdevil
     solidcontrol
 )
 
-if(X11_Xss_LIB)
-  target_link_libraries(kded_powerdevil ${X11_Xss_LIB})
-endif(X11_Xss_LIB)
-
-if(X11_Xext_LIB)
-  target_link_libraries(kded_powerdevil ${X11_Xext_LIB})
-endif(X11_Xext_LIB)
-
-if(X11_XTest_FOUND)
-  target_link_libraries(kded_powerdevil ${X11_XTest_LIB})
-endif(X11_XTest_FOUND)
-
 if(HAVE_DPMS)
   target_link_libraries(kded_powerdevil ${X11_LIBRARIES})
 endif(HAVE_DPMS)
