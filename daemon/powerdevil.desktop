@@ -8,7 +8,7 @@ X-KDE-Kded-autoload=true
 X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 
-Name=PowerDevil
+Name=Power Management
 Name[ar]=عفريت الطاقة
 Name[be@latin]=PowerDevil
 Name[bg]=PowerDevil
@@ -77,7 +77,7 @@ Name[x-test]=xxPowerDevilxx
 Name[zh_CN]=PowerDevil
 Name[zh_TW]=PowerDevil
 
-Comment=A Laptop Power Management Daemon
+Comment=Battery, Display and CPU power management and notification
 Comment[ar]=مراقب إدارة الطاقة للحواسيب المحمولة
 Comment[be@latin]=Słužba kiravańnia enerhijaj na laptopie
 Comment[bg]=Демон за управление захранването на лаптоп
