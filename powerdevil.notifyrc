@@ -1,5 +1,5 @@
 [Global]
-Name=Power Management
+Name=PowerDevil
 Name[ar]=إدارة الطاقة
 Name[be@latin]=Kiravańnie enerhijaj
 Name[bg]=Захранване
@@ -71,7 +71,7 @@ Name[x-test]=xxPower Managementxx
 Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 IconName=preferences-system-power-management
-Comment=PowerDevil
+Comment=Power Management
 Comment[ar]=عفريت الطاقة
 Comment[be@latin]=PowerDevil
 Comment[bg]=PowerDevil
