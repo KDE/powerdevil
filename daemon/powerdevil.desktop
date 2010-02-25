@@ -81,3 +81,8 @@ Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 
 Comment=Battery, Display and CPU power management and notification
+Comment[pt]=Gestão e notificação da energia, do ecrã e do CPU
+Comment[pt_BR]=Gerenciamento e notificação de energia, da tela e do CPU
+Comment[sv]=Hantering och underrättelser om batteri, skärm och processorkraft
+Comment[uk]=Керування та сповіщення про стан акумуляторів та живлення дисплея і процесора
+Comment[x-test]=xxBattery, Display and CPU power management and notificationxx
