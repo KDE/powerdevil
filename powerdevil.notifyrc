@@ -69,6 +69,7 @@ Name[zh_CN]=PowerDevil
 Name[zh_TW]=PowerDevil
 IconName=preferences-system-power-management
 Comment=Power Management
+Comment[de]=Energieverwaltung
 Comment[el]=Διαχείριση ενέργειας
 Comment[es]=Gestión de energía
 Comment[nb]=Strømstyring

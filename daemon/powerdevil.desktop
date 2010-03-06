@@ -81,6 +81,7 @@ Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 
 Comment=Battery, Display and CPU power management and notification
+Comment[de]=Akku-, Anzeige- und Prozessorleistungsverwaltung und -benachrichtigung
 Comment[el]=Μπαταρία, Εμφάνιση και διαχείριση ενέργειας και ειδοποιήσεων ΚΜΕ
 Comment[es]=Gestión y notificaciones de energía de la batería, pantalla y CPU
 Comment[hr]=Upravljanje potrošnjom energije baterije, ekrana i CPU-a i pripadajućim obavijestima.
