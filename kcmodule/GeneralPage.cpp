@@ -25,6 +25,7 @@
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
 #include <solid/processor.h>
+#include <solid/battery.h>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
@@ -51,7 +52,11 @@ void GeneralPage::fillUi()
     int batteryCount = 0;
 
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        Q_UNUSED(device)
+        Solid::Device dev = device;
+        Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if(b->type() != Solid::Battery::PrimaryBattery) {
+            continue;
+        }
         ++batteryCount;
     }
 
