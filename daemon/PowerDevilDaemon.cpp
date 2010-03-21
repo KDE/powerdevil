@@ -978,7 +978,6 @@ void PowerDevilDaemon::poll(int id, int idle)
     } else {
         d->status = NoAction;
         KIdleTime::instance()->stopCatchingResumeEvent();
-        Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     }
 }
 
