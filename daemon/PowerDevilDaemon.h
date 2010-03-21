@@ -38,6 +38,8 @@ public:
     virtual ~PowerDevilDaemon();
 
 public Q_SLOTS:
+    void init();
+
     void refreshStatus();
     void emitNotification(const QString &evid, const QString &message = QString(),
                           const char *slot = 0, const QString &iconname = "dialog-ok-apply");

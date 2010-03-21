@@ -90,8 +90,12 @@ class PowerDevilDaemon::Private
 {
 public:
     explicit Private()
-            : notifier(Solid::Control::PowerManager::notifier())
+            : notifier(0)
+            , screenSaverIface(0)
+            , ksmServerIface(0)
             , currentConfig(0)
+            , lockHandler(0)
+            , notificationTimer(0)
             , status(PowerDevilDaemon::NoAction)
             , ckSessionInterface(0) {}
 
@@ -142,6 +146,18 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
 
     d->applicationData = KComponentData(aboutData);
 
+    QTimer::singleShot(0, this, SLOT(init()));
+}
+
+PowerDevilDaemon::~PowerDevilDaemon()
+{
+    delete d->ckSessionInterface;
+    delete d;
+}
+
+void PowerDevilDaemon::init()
+{
+    d->notifier = Solid::Control::PowerManager::notifier();
     d->lockHandler = new SuspensionLockHandler(this);
     d->notificationTimer = new QTimer(this);
 
@@ -198,12 +214,6 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     QDBusConnection::sessionBus().registerService("org.kde.powerdevil");
     // All systems up Houston, let's go!
     refreshStatus();
-}
-
-PowerDevilDaemon::~PowerDevilDaemon()
-{
-    delete d->ckSessionInterface;
-    delete d;
 }
 
 void PowerDevilDaemon::batteryRemainingTimeChanged(int time)
