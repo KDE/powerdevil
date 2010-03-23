@@ -370,28 +370,6 @@ void PowerDevilDaemon::applyProfile()
 
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     d->brightness = settings->readEntry("brightness").toInt();
-    Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy)
-            settings->readEntry("cpuPolicy").toInt());
-
-    QVariant var = settings->readEntry("disabledCPUs", QVariant());
-    QList<QVariant> list = var.toList();
-
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor,
-                                                                     QString())) {
-        Solid::Device d = device;
-        Solid::Processor * processor = qobject_cast<Solid::Processor * > (d.asDeviceInterface(
-                Solid::DeviceInterface::Processor));
-
-        bool enable = true;
-
-        foreach(const QVariant &ent, list) {
-            if (processor->number() == ent.toInt()) {
-                enable = false;
-            }
-        }
-
-        Solid::Control::PowerManager::setCpuEnabled(processor->number(), enable);
-    }
 
     Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
 
@@ -1179,36 +1157,6 @@ void PowerDevilDaemon::streamData()
     emit stateChanged(d->batteryPercent, d->isPlugged);
 }
 
-QVariantMap PowerDevilDaemon::getSupportedGovernors()
-{
-    QVariantMap retlist;
-
-    Solid::Control::PowerManager::CpuFreqPolicies policies =
-            Solid::Control::PowerManager::supportedCpuFreqPolicies();
-
-    if (policies & Solid::Control::PowerManager::Performance) {
-        retlist[i18n("Performance")] = (int) Solid::Control::PowerManager::Performance;
-    }
-
-    if (policies & Solid::Control::PowerManager::OnDemand) {
-        retlist[i18n("Dynamic (ondemand)")] = (int) Solid::Control::PowerManager::OnDemand;
-    }
-
-    if (policies & Solid::Control::PowerManager::Conservative) {
-        retlist[i18n("Dynamic (conservative)")] = (int) Solid::Control::PowerManager::Conservative;
-    }
-
-    if (policies & Solid::Control::PowerManager::Powersave) {
-        retlist[i18n("Powersave")] = (int) Solid::Control::PowerManager::Powersave;
-    }
-
-    if (policies & Solid::Control::PowerManager::Userspace) {
-        retlist[i18n("Userspace")] = (int) Solid::Control::PowerManager::Userspace;
-    }
-
-    return retlist;
-}
-
 QVariantMap PowerDevilDaemon::getSupportedSuspendMethods()
 {
     QVariantMap retlist;
@@ -1243,15 +1191,6 @@ void PowerDevilDaemon::setPowersavingScheme(const QString &scheme)
     }
 
     Solid::Control::PowerManager::setScheme(scheme);
-}
-
-void PowerDevilDaemon::setGovernor(int governor)
-{
-    if (!checkIfCurrentSessionActive()) {
-        return;
-    }
-
-    Solid::Control::PowerManager::setCpuFreqPolicy((Solid::Control::PowerManager::CpuFreqPolicy) governor);
 }
 
 void PowerDevilDaemon::suspend(int method)

@@ -38,8 +38,6 @@ public:
 private slots:
     void fillCapabilities();
     void enableXSync();
-    void disableScalingWarn();
-    void attemptLoadingModules();
 
 private:
     void setIssue(bool issue, const QString &text = QString(),

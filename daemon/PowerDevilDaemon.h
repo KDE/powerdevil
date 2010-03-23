@@ -47,7 +47,6 @@ public Q_SLOTS:
     void reloadAndStream();
     void streamData();
 
-    void setGovernor(int governor);
     void suspend(int method);
     void setPowersavingScheme(const QString &scheme);
     void setBrightness(int value);
@@ -57,7 +56,6 @@ public Q_SLOTS:
         deleteLater();
     }
 
-    QVariantMap getSupportedGovernors();
     QStringList getSupportedSchemes();
     QVariantMap getSupportedSuspendMethods();
 

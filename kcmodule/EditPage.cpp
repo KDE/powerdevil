@@ -59,7 +59,6 @@ EditPage::EditPage(QWidget *parent)
         KConfigGroup *performance = new KConfigGroup(m_profilesConfig, "Performance");
 
         performance->writeEntry("brightness", 100);
-        performance->writeEntry("cpuPolicy", (int) Solid::Control::PowerManager::Performance);
         performance->writeEntry("idleAction", 0);
         performance->writeEntry("idleTime", 50);
         performance->writeEntry("lidAction", 0);
@@ -144,54 +143,7 @@ void EditPage::fillUi()
         powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
     }
 
-    Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
-
-    if (policies & Solid::Control::PowerManager::Performance) {
-        freqCombo->addItem(KIcon("preferences-system-performance"), i18n("Performance"),
-                           (int) Solid::Control::PowerManager::Performance);
-    }
-
-    if (policies & Solid::Control::PowerManager::OnDemand) {
-        freqCombo->addItem(KIcon("system-switch-user"),
-                           i18n("Dynamic (ondemand)"), (int) Solid::Control::PowerManager::OnDemand);
-    }
-
-    if (policies & Solid::Control::PowerManager::Conservative) {
-        freqCombo->addItem(KIcon("user-invisible"), i18n("Dynamic (conservative)"),
-                           (int) Solid::Control::PowerManager::Conservative);
-    }
-
-    if (policies & Solid::Control::PowerManager::Powersave) {
-        freqCombo->addItem(KIcon("preferences-system-power-management"), i18n("Powersave"),
-                           (int) Solid::Control::PowerManager::Powersave);
-    }
-
-    if (policies & Solid::Control::PowerManager::Userspace) {
-        freqCombo->addItem(KIcon("kuser"), i18n("Userspace"),
-                           (int) Solid::Control::PowerManager::Userspace);
-    }
-
     schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
-
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Processor, QString())) {
-        Solid::Device d = device;
-        Solid::Processor *processor = qobject_cast<Solid::Processor*> (d.asDeviceInterface(Solid::DeviceInterface::Processor));
-
-        QString text = i18n("CPU <numid>%1</numid>", processor->number());
-
-        QCheckBox *checkBox = new QCheckBox(this);
-
-        checkBox->setText(text);
-        checkBox->setToolTip(i18n("Disable CPU <numid>%1</numid>", processor->number()));
-        checkBox->setWhatsThis(i18n("If this box is checked, the CPU <numid>%1</numid> "
-                                    "will be disabled", processor->number()));
-
-        checkBox->setEnabled(Solid::Control::PowerManager::canDisableCpu(processor->number()));
-
-        connect(checkBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-
-        CPUListLayout->addWidget(checkBox);
-    }
 
     reloadAvailableProfiles();
 
@@ -222,7 +174,6 @@ void EditPage::fillUi()
     connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(idleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
     connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
-    connect(freqCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(laptopClosedCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(sleepButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
     connect(powerButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
@@ -322,7 +273,6 @@ void EditPage::loadProfile()
     dimOnIdleTime->setValue(group->readEntry("dimOnIdleTime").toInt());
     idleTime->setValue(group->readEntry("idleTime").toInt());
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
-    freqCombo->setCurrentIndex(freqCombo->findData(group->readEntry("cpuPolicy").toInt()));
     schemeCombo->setCurrentIndex(schemeCombo->findText(group->readEntry("scheme")));
     scriptRequester->setUrl(KUrl::fromPath(group->readEntry("scriptpath")));
 
@@ -339,18 +289,6 @@ void EditPage::loadProfile()
     DPMSSuspendEnabled->setChecked(group->readEntry("DPMSSuspendEnabled", false));
     DPMSPowerOffEnabled->setChecked(group->readEntry("DPMSPowerOffEnabled", false));
 #endif
-
-    QVariant var = group->readEntry("disabledCPUs", QVariant());
-    QList<QVariant> list = var.toList();
-
-    foreach(const QVariant &ent, list) {
-        QCheckBox *box = qobject_cast<QCheckBox*> (CPUListLayout->itemAt(ent.toInt())->widget());
-
-        if (!box)
-            continue;
-
-        box->setChecked(true);
-    }
 
     delete group;
 
@@ -380,7 +318,6 @@ void EditPage::saveProfile(const QString &p)
     }
 
     group->writeEntry("brightness", brightnessSlider->value());
-    group->writeEntry("cpuPolicy", freqCombo->itemData(freqCombo->currentIndex()).toInt());
     group->writeEntry("dimOnIdle", dimDisplayOnIdle->isChecked());
     group->writeEntry("dimOnIdleTime", dimOnIdleTime->value());
     group->writeEntry("idleAction", idleCombo->itemData(idleCombo->currentIndex()).toInt());
@@ -401,20 +338,6 @@ void EditPage::saveProfile(const QString &p)
     group->writeEntry("DPMSSuspendEnabled", DPMSSuspendEnabled->isChecked());
     group->writeEntry("DPMSPowerOffEnabled", DPMSPowerOffEnabled->isChecked());
 #endif
-
-    QList<int> list;
-
-    for (int i = 0; i < CPUListLayout->count(); ++i) {
-        QCheckBox *box = qobject_cast<QCheckBox*> (CPUListLayout->itemAt(i)->widget());
-
-        if (!box)
-            continue;
-
-        if (box->isChecked())
-            list.append(i);
-    }
-
-    group->writeEntry("disabledCPUs", list);
 
     group->sync();
 
@@ -472,7 +395,6 @@ void EditPage::createProfile(const QString &name, const QString &icon)
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, name);
 
     group->writeEntry("brightness", 80);
-    group->writeEntry("cpuPolicy", (int) Solid::Control::PowerManager::Powersave);
     group->writeEntry("idleAction", 0);
     group->writeEntry("idleTime", 50);
     group->writeEntry("lidAction", 0);

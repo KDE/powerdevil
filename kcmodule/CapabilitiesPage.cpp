@@ -113,18 +113,6 @@ void CapabilitiesPage::fillCapabilities()
     cpuNumber->setText(QString::number(cpuCount));
     batteriesNumber->setText(QString::number(batteryCount));
 
-    bool turnOff = false;
-
-    for (int i = 0; i < cpuCount; ++i) {
-        if (Solid::Control::PowerManager::canDisableCpu(i))
-            turnOff = true;
-    }
-
-    if (turnOff)
-        isCPUOffSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    else
-        isCPUOffSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
-
     QString sMethods;
 
     Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
@@ -148,40 +136,6 @@ void CapabilitiesPage::fillCapabilities()
     }
 
     supportedMethods->setText(sMethods);
-
-    QString scMethods;
-
-    Solid::Control::PowerManager::CpuFreqPolicies policies = Solid::Control::PowerManager::supportedCpuFreqPolicies();
-
-    if (policies & Solid::Control::PowerManager::Performance) {
-        scMethods.append(QString(i18n("Performance") + QString(", ")));
-    }
-
-    if (policies & Solid::Control::PowerManager::OnDemand) {
-        scMethods.append(QString(i18n("Dynamic (ondemand)") + QString(", ")));
-    }
-
-    if (policies & Solid::Control::PowerManager::Conservative) {
-        scMethods.append(QString(i18n("Dynamic (conservative)") + QString(", ")));
-    }
-
-    if (policies & Solid::Control::PowerManager::Powersave) {
-        scMethods.append(QString(i18n("Powersave") + QString(", ")));
-    }
-
-    if (policies & Solid::Control::PowerManager::Userspace) {
-        scMethods.append(QString(i18n("Userspace") + QString(", ")));
-    }
-
-    if (!scMethods.isEmpty()) {
-        scMethods.remove(scMethods.length() - 2, 2);
-        isScalingSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    } else {
-        scMethods = i18nc("None", "No methods found");
-        isScalingSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
-    }
-
-    supportedPolicies->setText(scMethods);
 
     if (!Solid::Control::PowerManager::supportedSchemes().isEmpty()) {
         isSchemeSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
@@ -259,19 +213,7 @@ void CapabilitiesPage::fillCapabilities()
         ent->deleteLater();
     }
 
-    if ((scMethods.isEmpty() || scMethods == i18n("Performance")) &&
-               PowerDevilSettings::scalingWarning()) {
-        setIssue(true, i18n("No scaling methods were found. If your CPU is reasonably recent, this "
-                            "is probably because you have not loaded some kernel modules. Usually "
-                            "scaling modules have names similar to cpufreq_ondemand. Scaling is "
-                            "useful and can save a lot of battery. Click on \"Attempt Loading Modules\" "
-                            "to let PowerDevil try to load the required modules. If you are sure your PC "
-                            "does not support scaling, you can also disable this warning by clicking "
-                            "\"Do not display this warning again\"."),
-                 i18n("Attempt to load modules"), "system-run", SLOT(attemptLoadingModules()),
-                 i18n("Do not display this warning again"), "dialog-ok-apply", SLOT(disableScalingWarn()));
-
-    } else if (!ck) {
+    if (!ck) {
         setIssue(true, i18n("ConsoleKit was not found active on your PC, or PowerDevil cannot contact it. "
                             "ConsoleKit lets PowerDevil detect whether the current session is active, which is "
                             "useful if you have more than one user logged into your system at any one time."));
@@ -344,57 +286,6 @@ void CapabilitiesPage::setIssue(bool issue, const QString &text,
     }
 
     statusLayout->addLayout(ly);
-}
-
-void CapabilitiesPage::disableScalingWarn()
-{
-    PowerDevilSettings::setScalingWarning(false);
-
-    emit reload();
-    emit reloadModule();
-}
-
-void CapabilitiesPage::attemptLoadingModules()
-{
-    // Let's check what we have
-
-    QProcess process;
-
-    process.start("modprobe -l");
-    process.waitForFinished();
-
-    QStringList modules;
-
-    foreach(const QString &ent, process.readAll().split('\n')) {
-        if (ent.contains("cpufreq_") || ent.contains("ondemand")) {
-            QStringList ents = ent.split('/');
-            QString module = ents.at(ents.count() - 1);
-            module.remove(module.length() - 3, 3);
-            modules.append(module);
-        }
-    }
-
-    if (modules.isEmpty()) {
-        KMessageBox::sorry(this, i18n("No kernel modules for CPU scaling were found. Either you do not "
-                                      "have them installed, or PowerDevil could not detect them."),
-                           i18n("Modules not found"));
-        return;
-    }
-
-    QString command = "kdesu '";
-
-    foreach(const QString &ent, modules) {
-        command.append(QString("modprobe %1 | ").arg(ent));
-    }
-
-    command.remove(command.length() - 3, 3);
-
-    command.append('\'');
-
-    system(command.toAscii().data());
-
-    emit reload();
-    emit reloadModule();
 }
 
 void CapabilitiesPage::enableXSync()

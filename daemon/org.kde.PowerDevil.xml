@@ -16,9 +16,6 @@
     <method name="setProfile">
       <arg type="s" direction="in" />
     </method>
-    <method name="setGovernor">
-      <arg type="i" direction="in" />
-    </method>
     <method name="suspend">
       <arg type="i" direction="in" />
     </method>
@@ -30,10 +27,6 @@
     </method>
     <method name="turnOffScreen" />
     
-    <method name="getSupportedGovernors">
-      <arg type="a{sv}" direction="out" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
-    </method>
     <method name="getSupportedSuspendMethods">
       <arg type="a{sv}" direction="out" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
