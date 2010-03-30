@@ -87,6 +87,7 @@ Comment[sv]=Strömsparhantering
 Comment[th]=การจัดการพลังงาน
 Comment[uk]=Керування живленням
 Comment[x-test]=xxPower Managementxx
+Comment[zh_TW]=電源管理
 Version=1
 
 [Context/warningnot]
