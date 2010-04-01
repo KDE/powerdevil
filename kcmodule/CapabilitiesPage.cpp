@@ -137,26 +137,6 @@ void CapabilitiesPage::fillCapabilities()
 
     supportedMethods->setText(sMethods);
 
-    if (!Solid::Control::PowerManager::supportedSchemes().isEmpty()) {
-        isSchemeSupported->setPixmap(KIcon("dialog-ok-apply").pixmap(16, 16));
-    } else {
-        isSchemeSupported->setPixmap(KIcon("dialog-cancel").pixmap(16, 16));
-    }
-
-    QString schemes;
-
-    foreach(const QString &scheme, Solid::Control::PowerManager::supportedSchemes()) {
-        schemes.append(scheme + QString(", "));
-    }
-
-    if (!schemes.isEmpty()) {
-        schemes.remove(schemes.length() - 2, 2);
-    } else {
-        schemes = i18nc("None", "No methods found");
-    }
-
-    supportedSchemes->setText(schemes);
-
     bool dpms = false;
 
 #ifdef HAVE_DPMS

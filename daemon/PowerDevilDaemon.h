@@ -48,7 +48,7 @@ public Q_SLOTS:
     void streamData();
 
     void suspend(int method);
-    void setPowersavingScheme(const QString &scheme);
+    void setPowerSave(bool powersave);
     void setBrightness(int value);
     void turnOffScreen();
 
@@ -56,7 +56,6 @@ public Q_SLOTS:
         deleteLater();
     }
 
-    QStringList getSupportedSchemes();
     QVariantMap getSupportedSuspendMethods();
 
     SuspensionLockHandler *lockHandler();

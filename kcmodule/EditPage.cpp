@@ -143,8 +143,6 @@ void EditPage::fillUi()
         powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
     }
 
-    schemeCombo->addItems(Solid::Control::PowerManager::supportedSchemes());
-
     reloadAvailableProfiles();
 
     tabWidget->setTabIcon(0, KIcon("preferences-system-session-services"));
@@ -180,7 +178,7 @@ void EditPage::fillUi()
 
     connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
 
-    connect(schemeCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
+    connect(SetPowerSaveCheckBox, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
     connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
 
 #ifdef HAVE_DPMS
@@ -273,7 +271,8 @@ void EditPage::loadProfile()
     dimOnIdleTime->setValue(group->readEntry("dimOnIdleTime").toInt());
     idleTime->setValue(group->readEntry("idleTime").toInt());
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
-    schemeCombo->setCurrentIndex(schemeCombo->findText(group->readEntry("scheme")));
+    SetPowerSaveCheckBox->setChecked(group->readEntry("setPowerSave", true));
+
     scriptRequester->setUrl(KUrl::fromPath(group->readEntry("scriptpath")));
 
     laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
@@ -325,7 +324,7 @@ void EditPage::saveProfile(const QString &p)
     group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
     group->writeEntry("sleepButtonAction", sleepButtonCombo->itemData(sleepButtonCombo->currentIndex()).toInt());
     group->writeEntry("powerButtonAction", powerButtonCombo->itemData(powerButtonCombo->currentIndex()).toInt());
-    group->writeEntry("scheme", schemeCombo->currentText());
+    group->writeEntry("setPowerSave", SetPowerSaveCheckBox->isChecked());
     group->writeEntry("scriptpath", scriptRequester->url().path());
     group->writeEntry("disableCompositing", disableCompositing->isChecked());
 

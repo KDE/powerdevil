@@ -19,8 +19,8 @@
     <method name="suspend">
       <arg type="i" direction="in" />
     </method>
-    <method name="setPowersavingScheme">
-      <arg type="s" direction="in" />
+    <method name="setPowerSave">
+      <arg type="b" direction="in" />
     </method>
     <method name="setBrightness">
       <arg type="i" direction="in" />
@@ -30,9 +30,6 @@
     <method name="getSupportedSuspendMethods">
       <arg type="a{sv}" direction="out" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
-    </method>
-    <method name="getSupportedSchemes">
-      <arg type="as" direction="out" />
     </method>
     
     <signal name="lidClosed">

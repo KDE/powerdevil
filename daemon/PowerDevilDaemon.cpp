@@ -371,7 +371,7 @@ void PowerDevilDaemon::applyProfile()
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     d->brightness = settings->readEntry("brightness").toInt();
 
-    Solid::Control::PowerManager::setScheme(settings->readEntry("scheme"));
+    Solid::Control::PowerManager::setPowerSave(settings->readEntry("setPowerSave", true));
 
     // Compositing!!
 
@@ -1179,18 +1179,13 @@ QVariantMap PowerDevilDaemon::getSupportedSuspendMethods()
     return retlist;
 }
 
-QStringList PowerDevilDaemon::getSupportedSchemes()
-{
-    return Solid::Control::PowerManager::supportedSchemes();
-}
-
-void PowerDevilDaemon::setPowersavingScheme(const QString &scheme)
+void PowerDevilDaemon::setPowerSave(bool powersave)
 {
     if (!checkIfCurrentSessionActive()) {
         return;
     }
 
-    Solid::Control::PowerManager::setScheme(scheme);
+    Solid::Control::PowerManager::setPowerSave(powersave);
 }
 
 void PowerDevilDaemon::suspend(int method)
