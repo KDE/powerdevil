@@ -133,7 +133,7 @@
             <number>360</number>
            </property>
            <property name="suffix">
-            <string> min</string>
+            <string> sec</string>
            </property>
            <property name="specialValueText">
             <string>Do not wait</string>
