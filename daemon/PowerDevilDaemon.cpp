@@ -972,10 +972,6 @@ void PowerDevilDaemon::lockScreen()
 void PowerDevilDaemon::emitNotification(const QString &evid, const QString &message,
                                         const char *slot, const QString &iconname)
 {
-    if (slot) {
-        QTimer::singleShot(0, this, slot);
-    }
-
     if (!slot) {
         KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
                              0, KNotification::CloseOnTimeout, d->applicationData);
