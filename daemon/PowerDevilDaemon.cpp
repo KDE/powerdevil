@@ -1230,7 +1230,7 @@ void PowerDevilDaemon::turnOffScreen()
     }
 
     if (PowerDevilSettings::configLockScreen()) {
-        lockScreen();
+        // lockScreen();
     }
 
 #ifdef HAVE_DPMS
