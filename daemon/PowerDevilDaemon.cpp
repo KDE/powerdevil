@@ -26,6 +26,8 @@
 
 #include <kdemacros.h>
 #include <KAboutData>
+#include <KAction>
+#include <KActionCollection>
 #include <KPluginFactory>
 #include <KNotification>
 #include <KIcon>
@@ -196,6 +198,7 @@ void PowerDevilDaemon::init()
      *   d->kscreenSaverIface = new OrgKdeScreensaverInterface("org.freedesktop.ScreenSaver", "/ScreenSaver",
      *         QDBusConnection::sessionBus(), this);
     */
+    connect(d->notifier, SIGNAL(brightnessChanged(float)), SLOT(brightnessChangedSlot(float)));
     connect(d->notifier, SIGNAL(buttonPressed(int)), this, SLOT(buttonPressed(int)));
     connect(d->notifier, SIGNAL(batteryRemainingTimeChanged(int)),
             this, SLOT(batteryRemainingTimeChanged(int)));
@@ -214,6 +217,18 @@ void PowerDevilDaemon::init()
     QDBusConnection::sessionBus().registerService("org.kde.powerdevil");
     // All systems up Houston, let's go!
     refreshStatus();
+
+    KActionCollection* actionCollection = new KActionCollection( this );
+
+    KAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
+    globalAction->setText(i18nc("Global shortcut", "Increase Screen Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp), KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut), KAction::NoAutoloading);
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
+
+    globalAction = actionCollection->addAction("Decrease Screen Brightness");
+    globalAction->setText(i18nc("Global shortcut", "Decrease Screen Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown), KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut), KAction::NoAutoloading);
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
 }
 
 void PowerDevilDaemon::batteryRemainingTimeChanged(int time)
@@ -657,8 +672,8 @@ void PowerDevilDaemon::decreaseBrightness()
         return;
     }
 
-    int currentBrightness = qMax(0, (int)(Solid::Control::PowerManager::brightness() - 10));
-    Solid::Control::PowerManager::setBrightness(currentBrightness);
+    Solid::Control::PowerManager::brightnessKeyPressed(Solid::Control::PowerManager::Decrease);
+    emit brightnessChanged(qRound(Solid::Control::PowerManager::brightness()), true);
 }
 
 void PowerDevilDaemon::increaseBrightness()
@@ -667,8 +682,8 @@ void PowerDevilDaemon::increaseBrightness()
         return;
     }
 
-    int currentBrightness = qMin(100, (int)(Solid::Control::PowerManager::brightness() + 10));
-    Solid::Control::PowerManager::setBrightness(currentBrightness);
+    Solid::Control::PowerManager::brightnessKeyPressed(Solid::Control::PowerManager::Increase);
+    emit brightnessChanged(qRound(Solid::Control::PowerManager::brightness()), true);
 }
 
 void PowerDevilDaemon::shutdownNotification(bool automated)
@@ -1402,6 +1417,10 @@ void PowerDevilDaemon::setUpConsoleKit()
     QDBusConnection::systemBus().connect("org.freedesktop.ConsoleKit", sessionPath.value().path(),
                                          "org.freedesktop.ConsoleKit.Session", "ActiveChanged", this,
                                          SLOT(refreshStatus()));
+}
+
+void PowerDevilDaemon::brightnessChangedSlot(float brightness) {
+    emit brightnessChanged(qRound(brightness), false);
 }
 
 #include "PowerDevilDaemon.moc"

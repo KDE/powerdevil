@@ -97,6 +97,7 @@ private Q_SLOTS:
     void cleanUpTimer();
 
     void batteryRemainingTimeChanged(int time);
+    void brightnessChangedSlot(float brightness);
 
 Q_SIGNALS:
     void lidClosed(int code, const QString &action);
@@ -105,6 +106,7 @@ Q_SIGNALS:
     void stateChanged(int, bool);
     void profileChanged(const QString &, const QStringList &);
     void DPMSconfigUpdated();
+    void brightnessChanged(int brightness, bool byKeyPress);
 
 private:
     void lockScreen();
