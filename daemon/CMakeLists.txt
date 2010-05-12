@@ -31,7 +31,7 @@ target_link_libraries(kded_powerdevil
     ${KDE4_KDECORE_LIBS} 
     ${KDE4_SOLID_LIBS}
     ${KDE4_KDEUI_LIBS}
-    ${KDE4_KUTILS_LIBS}
+    ${KDE4_KIDLETIME_LIBS}
     solidcontrol
 )
 
