@@ -83,6 +83,7 @@ Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 
 Comment=Battery, Display and CPU power management and notification
+Comment[cs]=Správa a oznamování baterie, zobrazení a výkonu CPU
 Comment[da]=Bekendtgørelser om strømstyring for batteri, skærm og CPU
 Comment[de]=Akku-, Anzeige- und Prozessorleistungsverwaltung und -benachrichtigung
 Comment[el]=Μπαταρία, Εμφάνιση και διαχείριση ενέργειας και ειδοποιήσεων ΚΜΕ
@@ -93,6 +94,7 @@ Comment[he]=ניהול והתרעות הספק סוללה, תצוגה ומעבד
 Comment[hr]=Upravljanje potrošnjom energije baterije, ekrana i CPU-a i pripadajućim obavijestima.
 Comment[ia]=Batteria, Monstrator, Gestion de energia e notification 
 Comment[id]=Baterai, Tampilan dan manajemen daya CPU dan notifikasi
+Comment[it]=Gestione e notifica di batteria, schermo e consumo del processore
 Comment[ja]=バッテリ、ディスプレイ、CPU の電源管理と通知
 Comment[kk]=Батарея, дисплей, процесорын қуаттаныруын басқару және олар туралы құлақтандыру
 Comment[km]=ថ្ម បង្ហាញ​ការ​ជូនដំណឹង និង​គ្រប់គ្រង​ថាមពល​ស៊ីភីយូ
