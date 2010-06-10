@@ -1137,7 +1137,7 @@ Comment[zh_CN]=电源适配器已插入
 Comment[zh_TW]=市電電源已插上
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
-Action=Sound|Popup
+Action=None
 
 [Event/unplugged]
 Name=AC adaptor unplugged
