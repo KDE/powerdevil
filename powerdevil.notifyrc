@@ -1703,6 +1703,7 @@ Comment[nb]=Denne varslingen vises når en suspenderingsjobb skal til å utføre
 Comment[nds]=Disse Bescheed warrt wiest, wenn en Utsettakschoon utföhrt warrt. He tellt ok en Tiet daal, laat em also beter an.
 Comment[nl]=Deze melding wordt weergegeven als het systeem op het punt staat een slaapstandtaak uit te voeren en voorafgaand een afteller weergeeft. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
 Comment[nn]=Dette varselet vert vist når maskina skal til å gå i kvilemodus, og ei nedteljing vert sett i gang. Difor er det ikkje tilrådd å lukka det.
+Comment[pa]=ਇਹ ਨੋਟੀਫਿਕੇਸ਼ਨ ਵੇਖਾਇਆ ਜਾਂਦਾ ਹੈ, ਜਦੋਂ ਸਸਪੈਂਡ ਜਾਬ ਲੱਗਭਗ ਸ਼ੁਰੂ ਹੋਣ ਵਾਲੀ ਹੁੰਦੀ ਹੈ, ਅਤੇ ਇਹ ਗਿਣਤੀ ਸ਼ੁਰੂ ਕਰਦੀ ਹੈ। ਇਸਕਰਕੇ ਇਸ ਨੂੰ ਚਾਲੂ ਰਹਿਣ ਦੇਣ ਦੀ ਸਲਾਹ ਦਿੱਤੀ ਜਾਂਦੀ ਹੈ।
 Comment[pl]=Ta informacja jest wyświetlana, kiedy ma nastąpić uruchomienie zadania uśpienia. Następuje rozpoczęcie odliczania. W związku z tym warto je zostawić.
 Comment[pt]=Esta notificação aparece quando está prestes a ser executada uma tarefa de suspensão, a qual irá despoletar uma contagem decrescente. Como tal, recomenda-se que a deixe activa.
 Comment[pt_BR]=Esta notificação é exibida quando uma tarefa de suspensão está prestes a ser executada e uma contagem decrescente será acionada. Por este motivo, é recomendável mantê-la ativa.
