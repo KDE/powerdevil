@@ -271,7 +271,7 @@ void EditPage::loadProfile()
     dimOnIdleTime->setValue(group->readEntry("dimOnIdleTime").toInt());
     idleTime->setValue(group->readEntry("idleTime").toInt());
     idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
-    SetPowerSaveCheckBox->setChecked(group->readEntry("setPowerSave", true));
+    SetPowerSaveCheckBox->setChecked(group->readEntry("setPowerSave", false));
 
     scriptRequester->setUrl(KUrl::fromPath(group->readEntry("scriptpath")));
 
