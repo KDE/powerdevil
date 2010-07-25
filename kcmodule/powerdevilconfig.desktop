@@ -84,7 +84,7 @@ Name[x-test]=xxPower Managementxx
 Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 
-Comment=Display brightness, suspend and power profile settings
+Comment=Display brightness, suspend, and power profile settings
 Comment[ar]=تعرض الإضاءءة و التعليق و إعدادات ملف توصيف الطاقة
 Comment[be@latin]=Pakažy nałady jarkaści, snu j profil kiravańnia enerhijaj
 Comment[bg]=Настройки на яркостта, спирането и захранването
