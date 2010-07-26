@@ -51,9 +51,9 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &) :
     KAboutData *about =
         new KAboutData("kcmpowerdevil", "powerdevil", ki18n("PowerDevil Configuration"),
                        POWERDEVIL_VERSION, ki18n("A configurator for PowerDevil"),
-                       KAboutData::License_GPL, ki18n("(c), 2008 Dario Freddi"),
+                       KAboutData::License_GPL, ki18n("Copyright © 2008 Dario Freddi"),
                        ki18n("From this module, you can configure the Daemon, create "
-                             "and edit powersaving profiles, and see your system's "
+                             "and edit powersaving profiles, and see your system’s "
                              "capabilities."));
 
     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
@@ -63,10 +63,10 @@ PowerDevilKCM::PowerDevilKCM(QWidget *parent, const QVariantList &) :
 
     setQuickHelp(i18n("<h1>PowerDevil configuration</h1> <p>This module lets you configure "
                       "PowerDevil. PowerDevil is a daemon (so it runs in background) that is started "
-                      "upon KDE startup.</p> <p>PowerDevil has 2 levels of configuration: a general one, "
+                      "upon startup.</p> <p>PowerDevil has two levels of configuration: a general one, "
                       "that is always applied, and a profile-based one, that lets you configure a specific "
                       "behavior in every situation. You can also have a look at your system capabilities in "
-                      "the last tab. To get you started, first configure the options in the first 2 tabs. "
+                      "the last tab. To get you started, first configure the options in the first two tabs. "
                       "Then switch to the fourth one, and create/edit your profiles. Last but not least, "
                       "assign your profiles in the third Tab. You do not have to restart PowerDevil, just click "
                       "\"Apply\", and you are done.</p>"));
