@@ -139,8 +139,8 @@ PowerDevilDaemon::PowerDevilDaemon(QObject *parent, const QList<QVariant>&)
     KGlobal::locale()->insertCatalog("powerdevil");
 
     KAboutData aboutData("powerdevil", "powerdevil", ki18n("PowerDevil"),
-                         POWERDEVIL_VERSION, ki18n("A Power Management tool"),
-                         KAboutData::License_GPL, ki18n("Copyright © 2008–2011 Dario Freddi"),
+                         POWERDEVIL_VERSION, ki18n("A Power Management tool for KDE4"),
+                         KAboutData::License_GPL, ki18n("(c) 2008 Dario Freddi"),
                          KLocalizedString(), "http://www.kde.org");
 
     aboutData.addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer"), "drf@kde.org",
