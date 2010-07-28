@@ -85,12 +85,17 @@ Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 
 Comment=Display brightness, suspend and power profile settings
+Comment[cs]=Nastavení jasu displeje, uspání a profilů napájení
+Comment[hr]=Prikaz svjetline i postavki spavanja i profila potrošnje
+Comment[pt]=Mostra a configuração do brilho, suspensão e perfil de energia
 Comment[pt_BR]=Mostra as configurações de brilho, suspensão e perfil de energia
 Comment[ru]=Настройка яркости экрана, режима ожидания и питания
 Comment[sr]=Поставке профила осветљаја екрана, суспендовања и напајања
 Comment[sr@ijekavian]=Поставке профила освјетљаја екрана, суспендовања и напајања
 Comment[sr@ijekavianlatin]=Postavke profila osvjetljaja ekrana, suspendovanja i napajanja
 Comment[sr@latin]=Postavke profila osvetljaja ekrana, suspendovanja i napajanja
+Comment[sv]=Visar ljusstyrka, inställningar av viloläge och strömsparprofil
+Comment[uk]=Налаштування параметрів яскравості дисплея, переходу до сну та профілю керування живленням
 Comment[x-test]=xxDisplay brightness, suspend and power profile settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
