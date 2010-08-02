@@ -388,7 +388,7 @@ void PowerDevilDaemon::applyProfile()
     Solid::Control::PowerManager::setBrightness(settings->readEntry("brightness").toInt());
     d->brightness = settings->readEntry("brightness").toInt();
 
-    Solid::Control::PowerManager::setPowerSave(settings->readEntry("setPowerSave", true));
+    Solid::Control::PowerManager::setPowerSave(settings->readEntry("setPowerSave", false));
 
     // Compositing!!
 
