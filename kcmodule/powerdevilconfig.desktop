@@ -107,5 +107,6 @@ Comment[sr@latin]=Postavke profila osvetljaja ekrana, suspendovanja i napajanja
 Comment[sv]=Visar ljusstyrka, inställningar av viloläge och strömsparprofil
 Comment[uk]=Налаштування параметрів яскравості дисплея, переходу до сну та профілю керування живленням
 Comment[x-test]=xxDisplay brightness, suspend and power profile settingsxx
+Comment[zh_TW]=顯示亮度、暫停與電源設定檔
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
