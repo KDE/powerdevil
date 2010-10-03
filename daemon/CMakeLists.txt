@@ -62,6 +62,7 @@ target_link_libraries(powerdevilui
 )
 
 install(TARGETS powerdevilui DESTINATION ${LIB_INSTALL_DIR})
+install(FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 
 add_subdirectory(backends)
 
