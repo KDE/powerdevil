@@ -4,7 +4,9 @@ X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevilrunscriptaction
 Icon=preferences-desktop-screensaver
 Name=Run Script
+Name[x-test]=xxRun Scriptxx
 Comment=Runs a custom script
+Comment[x-test]=xxRuns a custom scriptxx
 
 X-KDE-PowerDevil-Action-ID=RunScript
 X-KDE-PowerDevil-Action-IsBundled=true

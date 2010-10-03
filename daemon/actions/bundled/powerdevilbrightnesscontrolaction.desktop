@@ -4,7 +4,9 @@ X-KDE-ServiceTypes=PowerDevilAction
 X-KDE-Library=powerdevilbrightnesscontrolaction_config
 Icon=preferences-desktop-screensaver
 Name=Display Brightness
+Name[x-test]=xxDisplay Brightnessxx
 Comment=Basic Controls for brightness
+Comment[x-test]=xxBasic Controls for brightnessxx
 
 X-KDE-PowerDevil-Action-ID=BrightnessControl
 X-KDE-PowerDevil-Action-IsBundled=true

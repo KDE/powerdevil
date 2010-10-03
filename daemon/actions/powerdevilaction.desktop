@@ -3,6 +3,7 @@ Type=ServiceType
 X-KDE-ServiceType=PowerDevilAction
 
 Comment=Power Management Action Extension
+Comment[x-test]=xxPower Management Action Extensionxx
 
 [PropertyDef::X-KDE-PowerDevil-Action-ID]
 Type=QString

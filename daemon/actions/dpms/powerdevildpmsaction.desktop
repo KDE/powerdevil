@@ -4,7 +4,9 @@ X-KDE-ServiceTypes=PowerDevilAction
 X-KDE-Library=powerdevildpmsaction
 Icon=preferences-desktop-screensaver
 Name=Screen Energy Saving
+Name[x-test]=xxScreen Energy Savingxx
 Comment=Controls DPMS settings
+Comment[x-test]=xxControls DPMS settingsxx
 
 X-KDE-PowerDevil-Action-ID=DPMSControl
 X-KDE-PowerDevil-Action-IsBundled=false

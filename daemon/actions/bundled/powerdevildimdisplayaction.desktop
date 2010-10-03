@@ -4,7 +4,9 @@ X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevildimdisplayaction
 Icon=preferences-desktop-screensaver
 Name=Dim Display
+Name[x-test]=xxDim Displayxx
 Comment=Dims gradually the display on a time basis
+Comment[x-test]=xxDims gradually the display on a time basisxx
 
 X-KDE-PowerDevil-Action-ID=DimDisplay
 X-KDE-PowerDevil-Action-IsBundled=true

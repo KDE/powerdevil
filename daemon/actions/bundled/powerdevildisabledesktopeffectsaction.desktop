@@ -4,7 +4,9 @@ X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevildisabledesktopeffectsaction
 Icon=preferences-desktop-screensaver
 Name=Disable Desktop Effects
+Name[x-test]=xxDisable Desktop Effectsxx
 Comment=Temporary disables KWin's desktop effects
+Comment[x-test]=xxTemporary disables KWin's desktop effectsxx
 
 X-KDE-PowerDevil-Action-ID=DisableDesktopEffects
 X-KDE-PowerDevil-Action-IsBundled=true
