@@ -114,8 +114,8 @@ void Core::onBackendReady()
     new PowerManagementAdaptor(this);
     QDBusConnection c = QDBusConnection::sessionBus();
 
-    c.registerService("org.kde.PowerManagement");
-    c.registerObject("/org/kde/PowerManagement", this);
+    c.registerService("org.kde.Solid.PowerManagement");
+    c.registerObject("/org/kde/Solid/PowerManagement", this);
 
     conn.interface()->registerService("org.freedesktop.Policy.Power");
 
