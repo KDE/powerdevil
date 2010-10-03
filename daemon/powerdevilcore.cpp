@@ -199,7 +199,6 @@ void Core::loadProfile(const QString& name)
         emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                          "but it does not exist.\nPlease check your PowerDevil configuration.",
                          name), "dialog-error");
-        reloadProfile();
         return;
     }
 
