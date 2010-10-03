@@ -47,7 +47,7 @@ public:
     explicit Core(QObject* parent, const KComponentData &componentData);
     virtual ~Core();
 
-    void reloadProfile(int state = 1);
+    void reloadProfile(int state);
 
     void emitNotification(const QString &evid, const QString &message = QString(),
                           const QString &iconname = "dialog-ok-apply");
@@ -59,6 +59,8 @@ public:
 public Q_SLOTS:
     // Set of common action - useful for the DBus interface
     void refreshStatus();
+    void reloadProfile();
+    void reloadCurrentProfile();
 
     void loadProfile(const QString &name);
     QString currentProfile() const;

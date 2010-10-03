@@ -38,6 +38,8 @@
 #include <KLocalizedString>
 #include <KServiceTypeTrader>
 #include "powermanagementadaptor.h"
+#include <KDirWatch>
+#include <KStandardDirs>
 
 namespace PowerDevil
 {
@@ -111,6 +113,13 @@ void Core::onBackendReady()
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
             this, SLOT(onResumingFromIdle()));
 
+    // Listen to profile changes
+    KDirWatch *profilesWatch = new KDirWatch(this);
+    profilesWatch->addFile(KStandardDirs::locate("config", "powerdevilprofilesrc"));
+    connect(profilesWatch, SIGNAL(dirty(QString)), this, SLOT(reloadCurrentProfile()));
+    connect(profilesWatch, SIGNAL(created(QString)), this, SLOT(reloadCurrentProfile()));
+    connect(profilesWatch, SIGNAL(deleted(QString)), this, SLOT(reloadCurrentProfile()));
+
     //DBus
     new PowerManagementAdaptor(this);
     QDBusConnection c = QDBusConnection::sessionBus();
@@ -154,16 +163,27 @@ void Core::refreshStatus()
     reloadProfile();
 }
 
+void Core::reloadProfile()
+{
+    reloadProfile(m_backend->acAdapterState());
+}
+
+void Core::reloadCurrentProfile()
+{
+    /* The configuration could have changed if this function was called, so
+     * let's resync it.
+     */
+    PowerDevilSettings::self()->readConfig();
+    m_profilesConfig->reparseConfiguration();
+    loadProfile(m_currentProfile);
+}
+
 void Core::reloadProfile(int state)
 {
     if (m_loadedBatteriesUdi.isEmpty()) {
         kDebug() << "No batteries found, loading AC";
         loadProfile(PowerDevilSettings::aCProfile());
     } else {
-        if (state == -1) {
-            state = m_backend->acAdapterState();
-        }
-
         // Compute the previous and current global percentage
         int percent = 0;
         for (QHash<QString,int>::const_iterator i = m_batteriesPercent.constBegin(); i != m_batteriesPercent.constEnd(); ++i) {
