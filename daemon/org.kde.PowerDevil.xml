@@ -3,20 +3,18 @@
   <interface name="org.kde.PowerDevil">
     
     <method name="refreshStatus" />
-    <method name="reloadAndStream" />
-    <method name="streamData" />
-    <method name="emitNotification">
+    <!--<method name="emitNotification">
       <arg type="s" direction="in" />
       <arg type="s" direction="in" />
       <arg type="a{sv}" direction="in" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="char*" />
       <arg type="s" direction="in" />
-    </method>
+    </method>-->
     
-    <method name="setProfile">
+    <method name="loadProfile">
       <arg type="s" direction="in" />
     </method>
-    <method name="suspend">
+    <!--<method name="suspend">
       <arg type="i" direction="in" />
     </method>
     <method name="setPowerSave">
@@ -49,6 +47,6 @@
     <signal name="brightnessChanged">
       <arg type="i" direction="out" />
       <arg type="b" direction="out" />
-    </signal>
+    </signal>-->
   </interface>
 </node>

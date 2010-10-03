@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,65 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
 
-#include <QWidget>
-
-#include "ui_profileEditPage.h"
-#include <KCModule>
+#include "brightnesscontrol.h"
+#include <KConfigGroup>
+#include <powerdevilbackendinterface.h>
+#include <KLocalizedString>
 
 namespace PowerDevil {
-class ActionConfig;
+namespace BundledActions {
+
+BrightnessControl::BrightnessControl(QObject* parent)
+    : Action(parent)
+{
+
 }
 
-class QCheckBox;
-class KToolBar;
-
-class EditPage : public KCModule, private Ui_profileEditPage
+BrightnessControl::~BrightnessControl()
 {
-    Q_OBJECT
 
-public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+}
 
-    void load();
-    void save();
-    virtual void defaults();
+void BrightnessControl::onProfileUnload()
+{
+    //
+}
 
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
+void BrightnessControl::onWakeupFromIdle()
+{
+    //
+}
 
-    void importProfiles();
-    void exportProfiles();
+void BrightnessControl::onIdleTimeout(int msec)
+{
+    Q_UNUSED(msec);
+}
 
-    void openUrl(const QString &url);
+void BrightnessControl::onProfileLoad()
+{
+    if (m_defaultValue > 0) {
+        QVariantMap args;
+        args["Value"] = QVariant::fromValue((float)m_defaultValue);
+        trigger(args);
+    }
+}
 
-private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
-};
+void BrightnessControl::trigger(const QVariantMap& args)
+{
+    backend()->setBrightness(args["Value"].toFloat());
+}
 
-#endif /* EDITPAGE_H */
+bool BrightnessControl::loadAction(const KConfigGroup& config)
+{
+    if (config.hasKey("value")) {
+        m_defaultValue = config.readEntry<int>("value", 50);
+    } else {
+        m_defaultValue = -1;
+    }
+
+    return true;
+}
+
+}
+}

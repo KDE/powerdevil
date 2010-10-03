@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=PowerDevilBackend
+X-KDE-Library=powerdevilhalbackend
+InitialPreference=100
+Icon=preferences-system-power-management
+Name=HAL PowerDevil Backend
+Comment=Use KDE Power Management system through freedesktop.org HAL daemon

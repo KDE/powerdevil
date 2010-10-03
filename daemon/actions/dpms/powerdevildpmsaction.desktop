@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=PowerDevilAction
+X-KDE-Library=powerdevildpmsaction
+Icon=preferences-desktop-screensaver
+Name=Screen Energy Saving
+Comment=Controls DPMS settings
+
+X-KDE-PowerDevil-Action-ID=DPMSControl
+X-KDE-PowerDevil-Action-IsBundled=false
+X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevildpmsaction_config
+X-KDE-PowerDevil-Action-ConfigPriority=98

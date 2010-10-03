@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2008-2010 by Dario Freddi <drf@kde.org>                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,8 +19,6 @@
 
 #include "EditPage.h"
 
-#include "PowerDevilSettings.h"
-
 #include <solid/control/powermanager.h>
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
@@ -37,6 +35,7 @@
 
 #include <KConfigGroup>
 #include <KLineEdit>
+#include <KDebug>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <KDialog>
@@ -44,11 +43,38 @@
 #include <KMessageBox>
 #include <KIconButton>
 #include <KToolBar>
+#include <KAboutData>
+#include <KPluginFactory>
+#include <QtGui/QLabel>
+#include <KServiceTypeTrader>
+#include <daemon/powerdevilactionconfig.h>
+#include <QtGui/QGroupBox>
+#include "actionconfigwidget.h"
 
-EditPage::EditPage(QWidget *parent)
-        : QWidget(parent),
-        m_profileEdited(false)
+K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
+                 registerPlugin<EditPage>();
+                )
+K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("kcmpowerdevilprofiles"))
+
+EditPage::EditPage(QWidget *parent, const QVariantList &args)
+        : KCModule(PowerDevilProfilesKCMFactory::componentData(), parent, args)
+        , m_profileEdited(false)
 {
+    setButtons(Apply | Help);
+
+    KAboutData *about =
+        new KAboutData("kcmpowerdevilprofiles", "powerdevilprofiles", ki18n("Power Profiles Configuration"),
+                       "", ki18n("A profile configurator for KDE Power Management System"),
+                       KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
+                       ki18n("From this module, you can configure the Daemon, create "
+                             "and edit powersaving profiles, and see your system's "
+                             "capabilities."));
+
+    about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
+                     "http://drfav.wordpress.com");
+
+    setAboutData(about);
+
     setupUi(this);
 
     m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
@@ -72,15 +98,6 @@ EditPage::EditPage(QWidget *parent)
         delete performance;
     }
 
-    fillUi();
-}
-
-EditPage::~EditPage()
-{
-}
-
-void EditPage::fillUi()
-{
     m_toolBar = new KToolBar(this);
     listLayout->addWidget(m_toolBar);
 
@@ -96,106 +113,6 @@ void EditPage::fillUi()
     actionImportProfiles->setIcon(KIcon("document-import"));
     actionExportProfiles->setIcon(KIcon("document-export"));
 
-    idleCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
-    idleCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
-    idleCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
-    idleCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    laptopClosedCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
-    laptopClosedCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
-    laptopClosedCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
-    laptopClosedCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    sleepButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
-    sleepButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
-    sleepButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
-    sleepButtonCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    sleepButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log Out dialog"), (int) ShutdownDialog);
-    powerButtonCombo->addItem(KIcon("dialog-cancel"), i18n("Do Nothing"), (int) None);
-    powerButtonCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
-    powerButtonCombo->addItem(KIcon("system-lock-screen"), i18n("Lock Screen"), (int) Lock);
-    powerButtonCombo->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn Off Screen"), (int) TurnOffScreen);
-    powerButtonCombo->addItem(KIcon("system-log-out"), i18n("Prompt Log Out dialog"), (int) ShutdownDialog);
-
-    Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
-
-    Solid::Control::PowerManager::BrightnessControlsList bControls =
-        Solid::Control::PowerManager::brightnessControlsAvailable();
-
-    brightnessSlider->setEnabled(bControls.values().contains(Solid::Control::PowerManager::Screen));
-
-    if (methods & Solid::Control::PowerManager::ToDisk) {
-        idleCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
-        laptopClosedCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
-        sleepButtonCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
-        powerButtonCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
-    }
-
-    if (methods & Solid::Control::PowerManager::ToRam) {
-        idleCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
-        laptopClosedCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
-        sleepButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
-        powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
-    }
-
-    if (methods & Solid::Control::PowerManager::Standby) {
-        idleCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
-        laptopClosedCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
-        sleepButtonCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
-        powerButtonCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
-    }
-
-    reloadAvailableProfiles();
-
-    tabWidget->setTabIcon(0, KIcon("preferences-system-session-services"));
-    tabWidget->setTabIcon(1, KIcon("video-display"));
-    tabWidget->setTabIcon(2, KIcon("cpu"));
-
-#if 0 // Re-enable when / if we have permission to use official logo
-    DPMSLabel->setUrl("http://www.energystar.gov");
-    DPMSLabel->setPixmap(QPixmap(KStandardDirs::locate("data", "kcontrol/pics/energybig.png")));
-    DPMSLabel->setTipText(i18n("Learn more about the Energy Star program"));
-    DPMSLabel->setUseTips(true);
-    connect(DPMSLabel, SIGNAL(leftClickedUrl(const QString&)), SLOT(openUrl(const QString &)));
-#endif
-
-#ifndef HAVE_DPMS
-    DPMSEnable->setEnabled(false);
-    DPMSSuspend->setEnabled(false);
-    DPMSStandby->setEnabled(false);
-    DPMSPowerOff->setEnabled(false);
-#endif
-
-    // modified fields...
-
-    connect(brightnessSlider, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(disableCompositing, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(dimOnIdleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(idleTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(idleCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
-    connect(laptopClosedCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
-    connect(sleepButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
-    connect(powerButtonCombo, SIGNAL(currentIndexChanged(int)), SLOT(setProfileChanged()));
-
-    connect(dimDisplayOnIdle, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
-
-    connect(SetPowerSaveCheckBox, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(scriptRequester, SIGNAL(textChanged(const QString&)), SLOT(setProfileChanged()));
-
-#ifdef HAVE_DPMS
-    connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
-    connect(DPMSEnable, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSSuspendTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSStandbyTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSPowerOffTime, SIGNAL(valueChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSSuspendEnabled, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSStandbyEnabled, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-    connect(DPMSPowerOffEnabled, SIGNAL(stateChanged(int)), SLOT(setProfileChanged()));
-
-    connect(DPMSSuspendEnabled, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
-    connect(DPMSStandbyEnabled, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
-    connect(DPMSPowerOffEnabled, SIGNAL(stateChanged(int)), SLOT(enableBoxes()));
-#endif
-
     connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
 
@@ -204,46 +121,71 @@ void EditPage::fillUi()
     //connect(editProfileButton, SIGNAL(clicked()), SLOT(editProfile()));
     connect(actionImportProfiles, SIGNAL(triggered()), SLOT(importProfiles()));
     connect(actionExportProfiles, SIGNAL(triggered()), SLOT(exportProfiles()));
+
+    reloadAvailableProfiles();
+    ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(0);
+    QMap< int, QList<QPair<QString, QWidget*> > > widgets;
+
+    // Load all the services
+    KService::List offers = KServiceTypeTrader::self()->query("PowerDevilAction", "(Type == 'Service')");
+
+    foreach (const KService::Ptr &offer, offers) {
+//         KService::Ptr offer;
+        //try to load the specified library
+        KPluginFactory *factory = KPluginLoader(offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
+                                                                QVariant::String).toString()).factory();
+
+        if (!factory) {
+            kError() << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
+                                                                       QVariant::String).toString();
+            continue;
+        }
+
+        PowerDevil::ActionConfig *actionConfig = factory->create<PowerDevil::ActionConfig>();
+        if (!actionConfig) {
+            kError() << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
+                                                                       QVariant::String).toString();
+            continue;
+        }
+
+        connect(actionConfig, SIGNAL(changed()), this, SLOT(changed()));
+
+        QCheckBox *checkbox = new QCheckBox(offer->name());
+        connect(checkbox, SIGNAL(stateChanged(int)), this, SLOT(changed()));
+        m_actionsHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), checkbox);
+        m_actionsConfigHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), actionConfig);
+
+        QList<QPair<QString, QWidget*> > offerWidgets = actionConfig->buildUi();
+        offerWidgets.prepend(qMakePair<QString,QWidget*>(QString(), checkbox));
+        widgets.insert(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
+                       offerWidgets);
+    }
+
+    for (QMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
+        actionConfigWidget->addWidgets(i.value());
+    }
+
+    // Add a proxy widget to prevent vertical fuck ups
+    QWidget *tw = new QWidget;
+    QVBoxLayout *lay = new QVBoxLayout;
+    lay->addWidget(actionConfigWidget);
+    lay->addStretch();
+    tw->setLayout(lay);
+    scrollArea->setWidget(tw);
+}
+
+EditPage::~EditPage()
+{
 }
 
 void EditPage::load()
 {
     loadProfile();
-
-    enableBoxes();
 }
 
 void EditPage::save()
 {
     saveProfile();
-}
-
-void EditPage::emitChanged()
-{
-    emit changed(true);
-}
-
-void EditPage::enableBoxes()
-{
-#ifdef HAVE_DPMS
-    if (DPMSEnable->isChecked()) {
-        DPMSSuspendEnabled->setEnabled(true);
-        DPMSStandbyEnabled->setEnabled(true);
-        DPMSPowerOffEnabled->setEnabled(true);
-        DPMSSuspendTime->setEnabled(DPMSSuspendEnabled->isChecked());
-        DPMSStandbyTime->setEnabled(DPMSStandbyEnabled->isChecked());
-        DPMSPowerOffTime->setEnabled(DPMSPowerOffEnabled->isChecked());
-    } else {
-        DPMSSuspendEnabled->setEnabled(false);
-        DPMSStandbyEnabled->setEnabled(false);
-        DPMSPowerOffEnabled->setEnabled(false);
-        DPMSSuspendTime->setEnabled(false);
-        DPMSStandbyTime->setEnabled(false);
-        DPMSPowerOffTime->setEnabled(false);
-    }
-#endif
-
-    dimOnIdleTime->setEnabled(dimDisplayOnIdle->isChecked());
 }
 
 void EditPage::loadProfile()
@@ -255,44 +197,23 @@ void EditPage::loadProfile()
 
     kDebug() << profilesList->currentItem()->text();
 
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
+    KConfigGroup group(m_profilesConfig, profilesList->currentItem()->text());
 
-    if (!group->isValid()) {
-        delete group;
+    if (!group.isValid()) {
         return;
     }
     kDebug() << "Ok, KConfigGroup ready";
 
-    kDebug() << group->readEntry("brightness");
+    // Iterate over the possible actions
+    for (QHash< QString, QCheckBox* >::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
+        i.value()->setChecked(group.groupList().contains(i.key()));
 
-    brightnessSlider->setValue(group->readEntry("brightness").toInt());
-    disableCompositing->setChecked(group->readEntry("disableCompositing", false));
-    dimDisplayOnIdle->setChecked(group->readEntry("dimOnIdle", false));
-    dimOnIdleTime->setValue(group->readEntry("dimOnIdleTime").toInt());
-    idleTime->setValue(group->readEntry("idleTime").toInt());
-    idleCombo->setCurrentIndex(idleCombo->findData(group->readEntry("idleAction").toInt()));
-    SetPowerSaveCheckBox->setChecked(group->readEntry("setPowerSave", false));
+        KConfigGroup actionGroup = group.group(i.key());
+        m_actionsConfigHash[i.key()]->setConfigGroup(actionGroup);
+        m_actionsConfigHash[i.key()]->load();
+    }
 
-    scriptRequester->setUrl(KUrl::fromPath(group->readEntry("scriptpath")));
-
-    laptopClosedCombo->setCurrentIndex(laptopClosedCombo->findData(group->readEntry("lidAction").toInt()));
-    sleepButtonCombo->setCurrentIndex(sleepButtonCombo->findData(group->readEntry("sleepButtonAction").toInt()));
-    powerButtonCombo->setCurrentIndex(powerButtonCombo->findData(group->readEntry("powerButtonAction").toInt()));
-
-#ifdef HAVE_DPMS
-    DPMSEnable->setChecked(group->readEntry("DPMSEnabled", false));
-    DPMSStandbyTime->setValue(group->readEntry("DPMSStandby", 10));
-    DPMSSuspendTime->setValue(group->readEntry("DPMSSuspend", 30));
-    DPMSPowerOffTime->setValue(group->readEntry("DPMSPowerOff", 60));
-    DPMSStandbyEnabled->setChecked(group->readEntry("DPMSStandbyEnabled", false));
-    DPMSSuspendEnabled->setChecked(group->readEntry("DPMSSuspendEnabled", false));
-    DPMSPowerOffEnabled->setChecked(group->readEntry("DPMSPowerOffEnabled", false));
-#endif
-
-    delete group;
-
-    m_profileEdited = false;
-    enableSaveProfile();
+    emit changed(false);
 }
 
 void EditPage::saveProfile(const QString &p)
@@ -309,43 +230,24 @@ void EditPage::saveProfile(const QString &p)
         profile = p;
     }
 
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profile);
+    KConfigGroup group(m_profilesConfig, profile);
 
-    if (!group->isValid() || !group->entryMap().size()) {
-        delete group;
+    if (!group.isValid() || !group.entryMap().size()) {
         return;
     }
 
-    group->writeEntry("brightness", brightnessSlider->value());
-    group->writeEntry("dimOnIdle", dimDisplayOnIdle->isChecked());
-    group->writeEntry("dimOnIdleTime", dimOnIdleTime->value());
-    group->writeEntry("idleAction", idleCombo->itemData(idleCombo->currentIndex()).toInt());
-    group->writeEntry("idleTime", idleTime->value());
-    group->writeEntry("lidAction", laptopClosedCombo->itemData(laptopClosedCombo->currentIndex()).toInt());
-    group->writeEntry("sleepButtonAction", sleepButtonCombo->itemData(sleepButtonCombo->currentIndex()).toInt());
-    group->writeEntry("powerButtonAction", powerButtonCombo->itemData(powerButtonCombo->currentIndex()).toInt());
-    group->writeEntry("setPowerSave", SetPowerSaveCheckBox->isChecked());
-    group->writeEntry("scriptpath", scriptRequester->url().path());
-    group->writeEntry("disableCompositing", disableCompositing->isChecked());
+    // Iterate over the possible actions
+    for (QHash< QString, QCheckBox* >::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
+        if (i.value()->isChecked()) {
+            // Perform the actual save
+            m_actionsConfigHash[i.key()]->save();
+        } else {
+            // Erase the group
+            group.group(i.key()).deleteGroup();
+        }
+    }
 
-#ifdef HAVE_DPMS
-    group->writeEntry("DPMSEnabled", DPMSEnable->isChecked());
-    group->writeEntry("DPMSStandby", DPMSStandbyTime->value());
-    group->writeEntry("DPMSSuspend", DPMSSuspendTime->value());
-    group->writeEntry("DPMSPowerOff", DPMSPowerOffTime->value());
-    group->writeEntry("DPMSStandbyEnabled", DPMSStandbyEnabled->isChecked());
-    group->writeEntry("DPMSSuspendEnabled", DPMSSuspendEnabled->isChecked());
-    group->writeEntry("DPMSPowerOffEnabled", DPMSPowerOffEnabled->isChecked());
-#endif
-
-    group->sync();
-
-    delete group;
-
-    m_profileEdited = false;
-    enableSaveProfile();
-
-    emit profilesChanged();
+    emit changed(false);
 }
 
 void EditPage::reloadAvailableProfiles()
@@ -359,10 +261,9 @@ void EditPage::reloadAvailableProfiles()
         return;
     }
 
-    foreach(const QString &ent, m_profilesConfig->groupList()) {
+    foreach (const QString &ent, m_profilesConfig->groupList()) {
         KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
-        QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("iconname")),
-                ent);
+        QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("iconname")), ent);
         profilesList->addItem(itm);
         delete group;
     }
@@ -383,31 +284,18 @@ void EditPage::deleteCurrentProfile()
     m_profilesConfig->sync();
 
     reloadAvailableProfiles();
-
-    emit profilesChanged();
 }
 
 void EditPage::createProfile(const QString &name, const QString &icon)
 {
-    if (name.isEmpty())
+    if (name.isEmpty()) {
         return;
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, name);
+    }
+    KConfigGroup group(m_profilesConfig, name);
 
-    group->writeEntry("brightness", 80);
-    group->writeEntry("idleAction", 0);
-    group->writeEntry("idleTime", 50);
-    group->writeEntry("lidAction", 0);
-    group->writeEntry("turnOffIdle", false);
-    group->writeEntry("turnOffIdleTime", 50);
-    group->writeEntry("iconname", icon);
-
-    group->sync();
-
-    delete group;
+    group.sync();
 
     reloadAvailableProfiles();
-
-    emit profilesChanged();
 }
 
 void EditPage::createProfile()
@@ -448,17 +336,15 @@ void EditPage::editProfile(const QString &prevname, const QString &icon)
     if (prevname.isEmpty())
         return;
 
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, prevname);
+    KConfigGroup group(m_profilesConfig, prevname);
 
-    group->writeEntry("iconname", icon);
+    group.writeEntry("iconname", icon);
 
-    group->sync();
-
-    delete group;
+    group.sync();
 
     reloadAvailableProfiles();
 
-    emit profilesChanged();
+
 }
 
 void EditPage::editProfile()
@@ -527,8 +413,6 @@ void EditPage::importProfiles()
     m_profilesConfig->sync();
 
     reloadAvailableProfiles();
-
-    emit profilesChanged();
 }
 
 void EditPage::exportProfiles()
@@ -584,19 +468,14 @@ void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous
     }
 }
 
-void EditPage::setProfileChanged()
-{
-    m_profileEdited = true;
-    emitChanged();
-}
-
-void EditPage::enableSaveProfile()
-{
-}
-
 void EditPage::openUrl(const QString &url)
 {
     new KRun(KUrl(url), this);
+}
+
+void EditPage::defaults()
+{
+    KCModule::defaults();
 }
 
 #include "EditPage.moc"

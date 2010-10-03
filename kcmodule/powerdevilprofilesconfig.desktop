@@ -1,0 +1,17 @@
+[Desktop Entry]
+Exec=kcmshell4 powerdevilprofilesconfig
+Icon=preferences-system-power-management
+Type=Service
+X-KDE-ServiceTypes=KCModule
+X-DocPath=kcontrol/powerdevil/index.html
+
+X-KDE-Library=kcm_powerdevilprofilesconfig
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=hardware
+
+Name=Power Profiles
+
+Comment=Configure Power Management Profiles
+
+X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

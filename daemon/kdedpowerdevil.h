@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,23 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
+#ifndef KDEDPOWERDEVIL_H
+#define KDEDPOWERDEVIL_H
 
-#include <QWidget>
+#include <KDEDModule>
+#include <QVariantList>
 
-#include "ui_profileEditPage.h"
-#include <KCModule>
-
-namespace PowerDevil {
-class ActionConfig;
-}
-
-class QCheckBox;
-class KToolBar;
-
-class EditPage : public KCModule, private Ui_profileEditPage
+class KDEDPowerDevil : public KDEDModule
 {
     Q_OBJECT
+    Q_DISABLE_COPY(KDEDPowerDevil)
 
 public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+    explicit KDEDPowerDevil(QObject* parent, const QVariantList &);
+    virtual ~KDEDPowerDevil();
 
-    void load();
-    void save();
-    virtual void defaults();
-
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
-
-    void importProfiles();
-    void exportProfiles();
-
-    void openUrl(const QString &url);
-
-private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
+private Q_SLOTS:
+    void init();
 };
 
-#endif /* EDITPAGE_H */
+#endif // KDEDPOWERDEVIL_H

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,45 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
+
+#ifndef POWERDEVIL_POWERDEVILACTIONCONFIG_H
+#define POWERDEVIL_POWERDEVILACTIONCONFIG_H
 
 #include <QWidget>
 
-#include "ui_profileEditPage.h"
-#include <KCModule>
+#include <kdemacros.h>
+#include <KConfigGroup>
 
 namespace PowerDevil {
-class ActionConfig;
-}
 
-class QCheckBox;
-class KToolBar;
-
-class EditPage : public KCModule, private Ui_profileEditPage
+class KDE_EXPORT ActionConfig : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(ActionConfig)
 
 public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+    ActionConfig(QObject *parent);
+    virtual ~ActionConfig();
 
-    void load();
-    void save();
-    virtual void defaults();
+    KConfigGroup configGroup() const;
+    void setConfigGroup(const KConfigGroup &group);
 
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
+    virtual QList< QPair< QString, QWidget* > > buildUi() = 0;
 
-    void importProfiles();
-    void exportProfiles();
+    virtual void load() = 0;
+    virtual void save() = 0;
 
-    void openUrl(const QString &url);
+protected Q_SLOTS:
+    void setChanged();
+
+Q_SIGNALS:
+    void changed();
 
 private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
+    class Private;
+    Private * const d;
 };
 
-#endif /* EDITPAGE_H */
+}
+
+#endif // POWERDEVIL_POWERDEVILACTIONCONFIG_H

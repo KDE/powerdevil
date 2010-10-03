@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,69 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
 
-#include <QWidget>
-
-#include "ui_profileEditPage.h"
-#include <KCModule>
+#include "runscript.h"
+#include <KConfigGroup>
+#include <QtCore/QProcess>
 
 namespace PowerDevil {
-class ActionConfig;
+namespace BundledActions {
+
+RunScript::RunScript(QObject* parent)
+    : Action(parent)
+{
+
 }
 
-class QCheckBox;
-class KToolBar;
-
-class EditPage : public KCModule, private Ui_profileEditPage
+RunScript::~RunScript()
 {
-    Q_OBJECT
 
-public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+}
 
-    void load();
-    void save();
-    virtual void defaults();
+void RunScript::onProfileUnload()
+{
+    if (m_scriptPhase == 1) {
+        QProcess::startDetached(m_scriptCommand);
+    }
+}
 
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
+void RunScript::onWakeupFromIdle()
+{
+    //
+}
 
-    void importProfiles();
-    void exportProfiles();
+void RunScript::onIdleTimeout(int msec)
+{
+    QProcess::startDetached(m_scriptCommand);
+}
 
-    void openUrl(const QString &url);
+void RunScript::onProfileLoad()
+{
+    if (m_scriptPhase == 0) {
+        QProcess::startDetached(m_scriptCommand);
+    }
+}
 
-private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
-};
+void RunScript::trigger(const QVariantMap& args)
+{
+    Q_UNUSED(args);
+}
 
-#endif /* EDITPAGE_H */
+bool RunScript::loadAction(const KConfigGroup& config)
+{
+    if (config.hasKey("scriptCommand") && config.hasKey("scriptPhase")) {
+        m_scriptCommand = config.readEntry<QString>("scriptCommand", QString());
+        m_scriptPhase = config.readEntry<int>("scriptPhase", 0);
+        if (m_scriptPhase == 2) {
+            if (!config.hasKey("idleTime")) {
+                return false;
+            }
+            registerIdleTimeout(config.readEntry<int>("idleTime", 10000000));
+        }
+    }
+
+    return true;
+}
+
+}
+}

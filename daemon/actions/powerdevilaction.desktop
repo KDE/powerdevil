@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=ServiceType
+X-KDE-ServiceType=PowerDevilAction
+
+Comment=Power Management Action Extension
+
+[PropertyDef::X-KDE-PowerDevil-Action-ID]
+Type=QString
+[PropertyDef::X-KDE-PowerDevil-Action-IsBundled]
+Type=bool
+[PropertyDef::X-KDE-PowerDevil-Action-UIComponentLibrary]
+Type=QString
+[PropertyDef::X-KDE-PowerDevil-Action-ConfigPriority]
+Type=int

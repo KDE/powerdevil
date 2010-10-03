@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,40 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
 
-#include <QWidget>
+#ifndef POWERDEVIL_BUNDLEDACTIONS_SUSPENDSESSION_H
+#define POWERDEVIL_BUNDLEDACTIONS_SUSPENDSESSION_H
 
-#include "ui_profileEditPage.h"
-#include <KCModule>
+#include <powerdevilaction.h>
 
-namespace PowerDevil {
-class ActionConfig;
-}
+namespace PowerDevil
+{
+namespace BundledActions
+{
 
-class QCheckBox;
-class KToolBar;
-
-class EditPage : public KCModule, private Ui_profileEditPage
+class SuspendSession : public PowerDevil::Action
 {
     Q_OBJECT
+    Q_DISABLE_COPY(SuspendSession)
 
 public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
-
-    void load();
-    void save();
-    virtual void defaults();
-
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
-
-    void importProfiles();
-    void exportProfiles();
-
-    void openUrl(const QString &url);
+    explicit SuspendSession(QObject *parent);
+    virtual ~SuspendSession();
+    virtual void trigger(const QVariantMap& args);
+    virtual bool loadAction(const KConfigGroup& config);
+    
+protected:
+    virtual void onProfileUnload();
+    virtual void onWakeupFromIdle();
+    virtual void onIdleTimeout(int msec);
+    virtual void onProfileLoad();
 
 private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
+    QString m_autoType;
 };
 
-#endif /* EDITPAGE_H */
+}
+
+}
+
+#endif // POWERDEVIL_BUNDLEDACTIONS_SUSPENDSESSION_H

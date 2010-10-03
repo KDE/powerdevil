@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,45 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
 
-#include <QWidget>
+#ifndef POWERDEVIL_POWERDEVILPOLICYAGENT_H
+#define POWERDEVIL_POWERDEVILPOLICYAGENT_H
 
-#include "ui_profileEditPage.h"
-#include <KCModule>
+#include <QtCore/QObject>
 
-namespace PowerDevil {
-class ActionConfig;
-}
+class QDBusInterface;
 
-class QCheckBox;
-class KToolBar;
+namespace PowerDevil
+{
 
-class EditPage : public KCModule, private Ui_profileEditPage
+class PolicyAgent : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(PolicyAgent)
 
 public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+    static PolicyAgent *instance();
 
-    void load();
-    void save();
-    virtual void defaults();
+    virtual ~PolicyAgent();
 
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
-
-    void importProfiles();
-    void exportProfiles();
-
-    void openUrl(const QString &url);
+    bool canInterruptSession();
+    bool canChangeProfile();
+    bool canChangeScreenSettings();
 
 private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
+    explicit PolicyAgent(QObject* parent = 0);
+
+    void init();
+    void startSessionInterruption();
+    void finishSessionInterruption();
+
+    bool m_ckAvailable;
+    QDBusInterface *m_ckSessionInterface;
+    bool m_sessionIsBeingInterrupted;
+
+    friend class Core;
 };
 
-#endif /* EDITPAGE_H */
+}
+
+#endif // POWERDEVIL_POWERDEVILPOLICYAGENT_H

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,55 +17,57 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
 
-#include <QWidget>
+#include "brightnesscontrolconfig.h"
 
-#include "ui_profileEditPage.h"
-#include <KCModule>
+#include <KPluginFactory>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <KLocalizedString>
+#include <QSlider>
+
+K_PLUGIN_FACTORY(PowerDevilBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::BrightnessControlConfig>(); )
+K_EXPORT_PLUGIN(PowerDevilBrightnessControlConfigFactory("powerdevilbrightnesscontrolaction_config"))
 
 namespace PowerDevil {
-class ActionConfig;
+namespace BundledActions {
+
+BrightnessControlConfig::BrightnessControlConfig(QObject *parent, const QVariantList& )
+    : ActionConfig(parent)
+{
+
 }
 
-class QCheckBox;
-class KToolBar;
-
-class EditPage : public KCModule, private Ui_profileEditPage
+BrightnessControlConfig::~BrightnessControlConfig()
 {
-    Q_OBJECT
 
-public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+}
 
-    void load();
-    void save();
-    virtual void defaults();
+void BrightnessControlConfig::save()
+{
+    configGroup().writeEntry("value", m_slider->value());
+    configGroup().sync();
+}
 
-private slots:
-    void loadProfile();
-    void saveProfile(const QString &p = QString());
-    void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
-    void reloadAvailableProfiles();
-    void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
-    void deleteCurrentProfile();
-    void createProfile();
-    void editProfile();
+void BrightnessControlConfig::load()
+{
+    m_slider->setValue(configGroup().readEntry<int>("value", 50));
+}
 
-    void importProfiles();
-    void exportProfiles();
+QList< QPair< QString, QWidget* > > BrightnessControlConfig::buildUi()
+{
+    QList< QPair< QString, QWidget* > > retlist;
+    m_slider = new QSlider(Qt::Horizontal);
+    m_slider->setMaximumWidth(300);
+    retlist.append(qMakePair< QString, QWidget* >(i18n("Level"), m_slider));
 
-    void openUrl(const QString &url);
+    connect(m_slider, SIGNAL(sliderMoved(int)), this, SLOT(setChanged()));
 
-private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
-    bool m_profileEdited;
-    KToolBar *m_toolBar;
-};
+    return retlist;
+}
 
-#endif /* EDITPAGE_H */
+
+}
+}
+
+#include "brightnesscontrolconfig.moc"
