@@ -36,6 +36,9 @@
     <signal name="brightnessChanged">
       <arg type="i" direction="out" />
     </signal>
+    <signal name="profileChanged">
+      <arg type="s" direction="out" />
+    </signal>
     <signal name="batteryRemainingTimeChanged">
       <arg type="i" direction="out" />
     </signal>
