@@ -282,7 +282,7 @@ void PowerDevilHALBackend::computeAcAdapters()
     QList<Solid::Device> adapters
         = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
 
-    foreach (Solid::Device adapter, adapters) {
+    foreach (const Solid::Device &adapter, adapters) {
         m_acAdapters[adapter.udi()] = new Solid::Device(adapter);
         connect(m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool, const QString &)),
                  this, SLOT(slotPlugStateChanged(bool)));
@@ -299,7 +299,7 @@ void PowerDevilHALBackend::computeBatteries()
     QList<Solid::Device> batteries
         = Solid::Device::listFromQuery("Battery.type == 'PrimaryBattery'");
 
-    foreach (Solid::Device battery, batteries) {
+    foreach (const Solid::Device &battery, batteries) {
         m_batteries[battery.udi()] = new Solid::Device(battery);
         connect(m_batteries[battery.udi()]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int, const QString &)),
                  this, SLOT(updateBatteryStats()));
@@ -315,7 +315,7 @@ void PowerDevilHALBackend::computeButtons()
     QList<Solid::Device> buttons
         = Solid::Device::listFromType(Solid::DeviceInterface::Button);
 
-    foreach (Solid::Device button, buttons) {
+    foreach (const Solid::Device &button, buttons) {
         m_buttons[button.udi()] = new Solid::Device(button);
         connect(m_buttons[button.udi()]->as<Solid::Button>(), SIGNAL(pressed(Solid::Button::ButtonType, const QString &)),
                  this, SLOT(slotButtonPressed(Solid::Button::ButtonType)));
