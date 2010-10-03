@@ -98,7 +98,8 @@ void Core::onBackendReady()
         }
     }
 
-    connect(m_backend, SIGNAL(brightnessChanged(float)), this, SLOT(onBrightnessChanged(float)));
+    connect(m_backend, SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
+            this, SLOT(onBrightnessChanged(float)));
     connect(m_backend, SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
     connect(m_backend, SIGNAL(buttonPressed(PowerDevil::BackendInterface::ButtonType)),
