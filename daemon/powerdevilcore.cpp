@@ -157,6 +157,7 @@ void Core::refreshStatus()
 void Core::reloadProfile(int state)
 {
     if (m_loadedBatteriesUdi.isEmpty()) {
+        kDebug() << "No batteries found, loading AC";
         loadProfile(PowerDevilSettings::aCProfile());
     } else {
         if (state == -1) {
@@ -170,13 +171,17 @@ void Core::reloadProfile(int state)
         }
 
         if (state == BackendInterface::Plugged) {
+            kDebug() << "Loading profile for plugged AC";
             loadProfile(PowerDevilSettings::aCProfile());
         } else if (percent <= PowerDevilSettings::batteryWarningLevel()) {
             loadProfile(PowerDevilSettings::warningProfile());
+            kDebug() << "Loading profile for warning battery";
         } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
             loadProfile(PowerDevilSettings::lowProfile());
+            kDebug() << "Loading profile for low battery";
         } else {
             loadProfile(PowerDevilSettings::batteryProfile());
+            kDebug() << "Loading profile for unplugged AC";
         }
     }
 }
@@ -286,7 +291,8 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
 
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
-    reloadProfile();
+    kDebug();
+    reloadProfile(state);
 
     if (state == BackendInterface::Plugged) {
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
