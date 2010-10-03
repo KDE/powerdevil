@@ -242,7 +242,10 @@ void Core::onDeviceAdded(const QString& udi)
                          "Please check your system configuration"), "dialog-error");
     }
 
+    kDebug() << "A new battery was detected";
+
     m_batteriesPercent[udi] = b->chargePercent();
+    m_loadedBatteriesUdi.append(udi);
 }
 
 void Core::onDeviceRemoved(const QString& udi)
@@ -269,7 +272,10 @@ void Core::onDeviceRemoved(const QString& udi)
     disconnect(b, SIGNAL(chargePercentChanged(int,QString)),
                this, SLOT(onBatteryChargePercentChanged(int,QString)));
 
+    kDebug() << "An existing battery has been removed";
+
     m_batteriesPercent.remove(udi);
+    m_loadedBatteriesUdi.removeOne(udi);
 }
 
 void Core::emitNotification(const QString &evid, const QString &message, const QString &iconname)
