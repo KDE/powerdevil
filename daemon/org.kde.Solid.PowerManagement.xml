@@ -2,51 +2,42 @@
 <node>
   <interface name="org.kde.Solid.PowerManagement">
     
-    <method name="refreshStatus" />
-    <!--<method name="emitNotification">
-      <arg type="s" direction="in" />
-      <arg type="s" direction="in" />
-      <arg type="a{sv}" direction="in" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="char*" />
-      <arg type="s" direction="in" />
-    </method>-->
-    
+    <method name="refreshStatus" />    
     <method name="loadProfile">
       <arg type="s" direction="in" />
     </method>
-    <!--<method name="suspend">
-      <arg type="i" direction="in" />
-    </method>
-    <method name="setPowerSave">
-      <arg type="b" direction="in" />
+    <method name="currentProfile">
+      <arg type="s" direction="out" />
     </method>
     <method name="setBrightness">
       <arg type="i" direction="in" />
     </method>
-    <method name="turnOffScreen" />
+    <method name="brightness">
+      <arg type="i" direction="out" />
+    </method>
+    <method name="batteryRemainingTime">
+      <arg type="i" direction="out" />
+    </method>
+    <method name="suspendToRam">
+    </method>
+    <method name="suspendToDisk">
+    </method>
+    <method name="suspendHybrid">
+    </method>
+    <!--<method name="turnOffScreen" />-->
     
-    <method name="getSupportedSuspendMethods">
+    <!--<method name="getSupportedSuspendMethods">
       <arg type="a{sv}" direction="out" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
-    </method>
+    </method>-->
     
-    <signal name="lidClosed">
-      <arg type="i" direction="out" />
-      <arg type="s" direction="out" />
-    </signal>
-    <signal name="stateChanged">
-      <arg type="i" direction="out" />
-      <arg type="b" direction="out" />
-    </signal>
-    <signal name="profileChanged">
-      <arg type="s" direction="out" />
-      <arg type="as" direction="out" />
-    </signal>
-     <signal name="DPMSconfigUpdated">
-    </signal>
+    <!--<signal name="DPMSconfigUpdated">
+    </signal>-->
     <signal name="brightnessChanged">
       <arg type="i" direction="out" />
-      <arg type="b" direction="out" />
-    </signal>-->
+    </signal>
+    <signal name="batteryRemainingTimeChanged">
+      <arg type="i" direction="out" />
+    </signal>
   </interface>
 </node>

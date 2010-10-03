@@ -215,6 +215,9 @@ void Core::loadProfile(const QString& name)
 
         action->onProfileLoad();
     }
+
+    // And set the current profile
+    m_currentProfile = name;
 }
 
 void Core::onDeviceAdded(const QString& udi)
@@ -382,14 +385,14 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
     }
 }
 
-void Core::onBatteryRemainingTimeChanged(int )
+void Core::onBatteryRemainingTimeChanged(int time)
 {
-
+    emit batteryRemainingTimeChanged(time);
 }
 
 void Core::onBrightnessChanged(float brightness)
 {
-
+    emit brightnessChanged(brightness);
 }
 
 void Core::onButtonPressed(PowerDevil::BackendInterface::ButtonType type)
@@ -483,6 +486,49 @@ void Core::decreaseBrightness()
 BackendInterface* Core::backend()
 {
     return m_backend;
+}
+
+void Core::suspendHybrid()
+{
+    QVariantMap args;
+    args["Type"] = "SuspendHybrid";
+    ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
+}
+
+void Core::suspendToDisk()
+{
+    QVariantMap args;
+    args["Type"] = "ToDisk";
+    ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
+}
+
+void Core::suspendToRam()
+{
+    QVariantMap args;
+    args["Type"] = "SuspendHybrid";
+    ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
+}
+
+int Core::batteryRemainingTime() const
+{
+    return m_backend->batteryRemainingTime();
+}
+
+int Core::brightness() const
+{
+    return m_backend->brightness();
+}
+
+QString Core::currentProfile() const
+{
+    return m_currentProfile;
+}
+
+void Core::setBrightness(int percent)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<float>((float)percent);
+    ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
 }
 
 }

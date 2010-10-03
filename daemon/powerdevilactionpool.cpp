@@ -73,7 +73,9 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
     // If it's cached, easy game.
     if (m_cachedPool.contains(actionId)) {
         Action *retaction = m_cachedPool[actionId];
-        retaction->loadAction(group);
+        if (group.isValid()) {
+            retaction->loadAction(group);
+        }
         m_activeActions.append(actionId);
         return retaction;
     }
@@ -96,7 +98,9 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
     }
 
     if (retaction) {
-        retaction->loadAction(group);
+        if (group.isValid()) {
+            retaction->loadAction(group);
+        }
         // Cache
         m_cachedPool.insert(actionId, retaction);
         m_activeActions.append(actionId);
@@ -122,7 +126,9 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
     }
 
     if (retaction) {
-        retaction->loadAction(group);
+        if (group.isValid()) {
+            retaction->loadAction(group);
+        }
         // Cache
         m_cachedPool.insert(actionId, retaction);
         m_activeActions.append(actionId);

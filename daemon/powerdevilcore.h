@@ -47,25 +47,38 @@ public:
     explicit Core(QObject* parent, const KComponentData &componentData);
     virtual ~Core();
 
-    void refreshStatus();
     void reloadProfile(int state = 1);
-    void loadProfile(const QString &name);
 
     void emitNotification(const QString &evid, const QString &message = QString(),
                           const QString &iconname = "dialog-ok-apply");
 
     BackendInterface *backend();
-
-    // Set of common action - useful for the DBus interface
-//     void setBrightness(int percent);
+    
     // More...
 
 public Q_SLOTS:
+    // Set of common action - useful for the DBus interface
+    void refreshStatus();
+
+    void loadProfile(const QString &name);
+    QString currentProfile() const;
+
+    int brightness() const;
+    void setBrightness(int percent);
+
+    int batteryRemainingTime() const;
+
     void increaseBrightness();
     void decreaseBrightness();
 
+    void suspendToRam();
+    void suspendToDisk();
+    void suspendHybrid();
+
 Q_SIGNALS:
-    void availableProfilesChanged();
+    void profileChanged(const QString &newProfile);
+    void brightnessChanged(int percent);
+    void batteryRemainingTimeChanged(int time);
 
 private:
     enum ActionType {
