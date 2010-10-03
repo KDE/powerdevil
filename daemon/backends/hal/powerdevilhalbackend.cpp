@@ -22,7 +22,7 @@
 #include "powerdevilhalbackend.h"
 #include <Solid/DeviceNotifier>
 #include <QtDBus/QDBusReply>
-#include <../../kdelibs/kdecore/io/kdebug.h>
+#include <KDebug>
 #include "halsuspendjob.h"
 #include <Solid/Device>
 #include <Solid/Button>
