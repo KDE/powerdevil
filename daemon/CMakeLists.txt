@@ -23,7 +23,7 @@ set(powerdevilcore_SRCS
 
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
-qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.PowerDevil.xml powerdevilcore.h PowerDevil::Core)
+qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
 
 kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 

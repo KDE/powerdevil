@@ -37,7 +37,7 @@
 #include <QDBusConnectionInterface>
 #include <KLocalizedString>
 #include <KServiceTypeTrader>
-#include "powerdeviladaptor.h"
+#include "powermanagementadaptor.h"
 
 namespace PowerDevil
 {
@@ -111,7 +111,7 @@ void Core::onBackendReady()
             this, SLOT(onResumingFromIdle()));
 
     //DBus
-    new PowerDevilAdaptor(this);
+    new PowerManagementAdaptor(this);
     QDBusConnection c = QDBusConnection::sessionBus();
 
     c.registerService("org.kde.PowerManagement");
