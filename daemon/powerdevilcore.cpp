@@ -492,6 +492,7 @@ void Core::unregisterActionTimeouts(Action* action)
     // Clean the remaining ones
     foreach (int id, timeoutsToClean) {
         KIdleTime::instance()->removeIdleTimeout(id);
+        m_registeredIdleTimeouts.remove(m_registeredIdleTimeouts.key(id));
     }
 }
 

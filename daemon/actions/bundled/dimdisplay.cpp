@@ -22,6 +22,7 @@
 #include <powerdevilbackendinterface.h>
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <KDebug>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -72,8 +73,10 @@ void DimDisplay::trigger(const QVariantMap& args)
 
 bool DimDisplay::loadAction(const KConfigGroup& config)
 {
+    kDebug();
     if (config.hasKey("idleTime")) {
         m_dimOnIdleTime = config.readEntry<int>("idleTime", 10000000);
+        kDebug() << "Loading timeouts with " << m_dimOnIdleTime;
         registerIdleTimeout(m_dimOnIdleTime * 3 / 4);
         registerIdleTimeout(m_dimOnIdleTime / 2);
         registerIdleTimeout(m_dimOnIdleTime);
