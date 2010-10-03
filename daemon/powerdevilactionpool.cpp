@@ -143,6 +143,7 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
 void ActionPool::unloadAllActiveActions()
 {
     foreach (const QString &action, m_activeActions) {
+        m_cachedPool[action]->onProfileUnload();
         m_cachedPool[action]->unloadAction();
     }
     m_activeActions.clear();

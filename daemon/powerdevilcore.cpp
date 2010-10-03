@@ -189,7 +189,7 @@ void Core::loadProfile(const QString& name)
         return;
     }
 
-    // First of all, let's clean the old actions
+    // First of all, let's clean the old actions. This will also call the onProfileUnload callback
     ActionPool::instance()->unloadAllActiveActions();
 
     // Now, let's retrieve our profile

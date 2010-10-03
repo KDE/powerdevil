@@ -66,6 +66,7 @@ private:
     Private * const d;
 
     friend class Core;
+    friend class ActionPool;
 };
 
 }
