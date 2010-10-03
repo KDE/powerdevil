@@ -517,7 +517,7 @@ void Core::suspendToDisk()
 void Core::suspendToRam()
 {
     QVariantMap args;
-    args["Type"] = "SuspendHybrid";
+    args["Type"] = "Suspend";
     ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
 }
 

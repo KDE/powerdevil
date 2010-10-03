@@ -24,6 +24,8 @@
 #include <KConfigGroup>
 #include <powerdevilpolicyagent.h>
 #include <KLocalizedString>
+#include <KJob>
+#include <KDebug>
 
 namespace PowerDevil
 {
@@ -70,12 +72,15 @@ void SuspendSession::trigger(const QVariantMap& args)
         return;
     }
 
+    kDebug() << "Triggered with " << args["Type"].toString();
+
+    KJob *suspendJob = 0;
     if (args["Type"].toString() == "Suspend") {
-        backend()->suspend(PowerDevil::BackendInterface::ToRam);
+        suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
     } else if (args["Type"].toString() == "ToDisk") {
-        backend()->suspend(PowerDevil::BackendInterface::ToDisk);
+        suspendJob =backend()->suspend(PowerDevil::BackendInterface::ToDisk);
     } else if (args["Type"].toString() == "SuspendHybrid") {
-        backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
+        suspendJob =backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
     } else if (args["Type"].toString() == "Shutdown") {
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
     } else if (args["Type"].toString() == "ShowDialog") {
@@ -86,6 +91,10 @@ void SuspendSession::trigger(const QVariantMap& args)
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeLogout);
     } else if (args["Type"].toString() == "LockScreen") {
         // todo
+    }
+
+    if (suspendJob) {
+        suspendJob->start();
     }
 }
 
