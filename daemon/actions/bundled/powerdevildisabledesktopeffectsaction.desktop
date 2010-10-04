@@ -4,8 +4,15 @@ X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevildisabledesktopeffectsaction
 Icon=preferences-desktop-screensaver
 Name=Disable Desktop Effects
+Name[pa]=ਡੈਸਕਟਾਪ ਪਰਭਾਵ ਬੰਦ ਕਰੋ
+Name[pt]=Desactivar os Efeitos do Ecrã
+Name[sv]=Inaktivera skrivbordseffekter
+Name[uk]=Вимкнути ефекти стільниці
 Name[x-test]=xxDisable Desktop Effectsxx
 Comment=Temporary disables KWin's desktop effects
+Comment[pt]=Desactiva temporariamente os efeitos do ecrã do KWin
+Comment[sv]=Inaktiverar Kwins skrivbordseffekter tillfälligt
+Comment[uk]=Тимчасово вимикання ефекти стільниці KWin
 Comment[x-test]=xxTemporary disables KWin's desktop effectsxx
 
 X-KDE-PowerDevil-Action-ID=DisableDesktopEffects

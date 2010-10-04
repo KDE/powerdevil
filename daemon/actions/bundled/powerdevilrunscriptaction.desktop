@@ -4,8 +4,16 @@ X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevilrunscriptaction
 Icon=preferences-desktop-screensaver
 Name=Run Script
+Name[pa]=ਸਕ੍ਰਿਪਟ ਚਲਾਓ
+Name[pt]=Executar um Programa
+Name[sv]=Kör skript
+Name[uk]=Виконати скрипт
 Name[x-test]=xxRun Scriptxx
 Comment=Runs a custom script
+Comment[pa]=ਪਸੰਦੀਦਾ ਸਕ੍ਰਿਪਟ ਚਲਾਓ
+Comment[pt]=Executa um programa personalizado
+Comment[sv]=Kör ett eget skript
+Comment[uk]=Запускає вказаний користувачем скрипт
 Comment[x-test]=xxRuns a custom scriptxx
 
 X-KDE-PowerDevil-Action-ID=RunScript

@@ -4,8 +4,15 @@ X-KDE-ServiceTypes=PowerDevilAction
 X-KDE-Library=powerdevilbrightnesscontrolaction_config
 Icon=preferences-desktop-screensaver
 Name=Display Brightness
+Name[pa]=ਡਿਸਪਲੇਅ ਚਮਕ
+Name[pt]=Brilho do Ecrã
+Name[sv]=Bildskärmens ljusstyrka
+Name[uk]=Яскравість дисплея
 Name[x-test]=xxDisplay Brightnessxx
 Comment=Basic Controls for brightness
+Comment[pt]=Controlos básicos do brilho
+Comment[sv]=Grundkontroller för ljusstyrka
+Comment[uk]=Базове керування яскравістю
 Comment[x-test]=xxBasic Controls for brightnessxx
 
 X-KDE-PowerDevil-Action-ID=BrightnessControl

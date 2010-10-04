@@ -11,9 +11,17 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=Power Profiles
+Name[pa]=ਪਾਵਰ ਪਰੋਫਾਇਲ
+Name[pt]=Perfis de Energia
+Name[sv]=Strömprofiler
+Name[uk]=Профілі живлення
 Name[x-test]=xxPower Profilesxx
 
 Comment=Configure Power Management Profiles
+Comment[pa]=ਪਾਵਰ ਪਰਬੰਧ ਪਰੋਫਾਇਲ ਸੰਰਚਨਾ
+Comment[pt]=Configurar os Perfis de Gestão de Energia
+Comment[sv]=Anpassa strömhanteringsprofiler
+Comment[uk]=Налаштування профілів керування живленням
 Comment[x-test]=xxConfigure Power Management Profilesxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

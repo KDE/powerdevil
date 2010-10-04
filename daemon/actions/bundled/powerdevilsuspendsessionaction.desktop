@@ -4,8 +4,16 @@ X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevilsuspendsessionaction
 Icon=preferences-desktop-screensaver
 Name=Suspend Session
+Name[pa]=ਸ਼ੈਸ਼ਨ ਸਸਪੈਂਡ
+Name[pt]=Suspender a Sessão
+Name[sv]=Stoppa tillfälligt session
+Name[uk]=Призупинити сеанс
 Name[x-test]=xxSuspend Sessionxx
 Comment=Suspends the session
+Comment[pa]=ਸ਼ੈਸ਼ਨ ਸਸਪੈਂਡ ਕਰੋ
+Comment[pt]=Suspende a sessão
+Comment[sv]=Stoppar sessionen tillfälligt
+Comment[uk]=Призупиняє сеанс
 Comment[x-test]=xxSuspends the sessionxx
 
 X-KDE-PowerDevil-Action-ID=SuspendSession
