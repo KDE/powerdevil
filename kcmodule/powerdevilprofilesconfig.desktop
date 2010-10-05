@@ -11,15 +11,21 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=hardware
 
 Name=Power Profiles
+Name[et]=Voolutarbe profiilid
+Name[ia]=Profilos de energia
 Name[pa]=ਪਾਵਰ ਪਰੋਫਾਇਲ
 Name[pt]=Perfis de Energia
+Name[pt_BR]=Perfis de energia
 Name[sv]=Strömprofiler
 Name[uk]=Профілі живлення
 Name[x-test]=xxPower Profilesxx
 
 Comment=Configure Power Management Profiles
+Comment[et]=Voolutarbe profiilide teenuste seadistamine
+Comment[ia]=Configurar profilos de gestion de Energia
 Comment[pa]=ਪਾਵਰ ਪਰਬੰਧ ਪਰੋਫਾਇਲ ਸੰਰਚਨਾ
 Comment[pt]=Configurar os Perfis de Gestão de Energia
+Comment[pt_BR]=Configura os perfis de gerenciamento de energia
 Comment[sv]=Anpassa strömhanteringsprofiler
 Comment[uk]=Налаштування профілів керування живленням
 Comment[x-test]=xxConfigure Power Management Profilesxx

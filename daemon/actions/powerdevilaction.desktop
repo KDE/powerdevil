@@ -3,8 +3,11 @@ Type=ServiceType
 X-KDE-ServiceType=PowerDevilAction
 
 Comment=Power Management Action Extension
+Comment[et]=Toitehalduse laiendus
+Comment[ia]=Extension de Action de Gestion de energia
 Comment[pa]=ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਐਕਸ਼ਣ ਇਕਸਟੈਸ਼ਨ
 Comment[pt]=Extensão da Acção de Gestão da Energia
+Comment[pt_BR]=Extensão da ação do gerenciamento de energia
 Comment[sv]=Åtgärdsutökning för strömsparhantering
 Comment[uk]=Розширення дій керування живленням
 Comment[x-test]=xxPower Management Action Extensionxx
