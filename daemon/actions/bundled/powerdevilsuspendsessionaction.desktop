@@ -12,6 +12,7 @@ Name[pt_BR]=Suspender sessão
 Name[sv]=Stoppa tillfälligt session
 Name[uk]=Призупинити сеанс
 Name[x-test]=xxSuspend Sessionxx
+Name[zh_TW]=暫停工作階段
 Comment=Suspends the session
 Comment[et]=Seansi peatamine
 Comment[ia]=Il suspende le session
@@ -21,6 +22,7 @@ Comment[pt_BR]=Suspende a sessão
 Comment[sv]=Stoppar sessionen tillfälligt
 Comment[uk]=Призупиняє сеанс
 Comment[x-test]=xxSuspends the sessionxx
+Comment[zh_TW]=暫停工作階段
 
 X-KDE-PowerDevil-Action-ID=SuspendSession
 X-KDE-PowerDevil-Action-IsBundled=true

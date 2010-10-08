@@ -12,6 +12,7 @@ Name[pt_BR]=Brilho da tela
 Name[sv]=Bildskärmens ljusstyrka
 Name[uk]=Яскравість дисплея
 Name[x-test]=xxDisplay Brightnessxx
+Name[zh_TW]=顯示亮度
 Comment=Basic Controls for brightness
 Comment[et]=Heleduse lihtne juhtimine
 Comment[ia]=Controlos basic pro brillantia
@@ -21,6 +22,7 @@ Comment[sv]=Grundkontroller för ljusstyrka
 Comment[tr]=Parlaklık için temel kontroller
 Comment[uk]=Базове керування яскравістю
 Comment[x-test]=xxBasic Controls for brightnessxx
+Comment[zh_TW]=基本亮度控制
 
 X-KDE-PowerDevil-Action-ID=BrightnessControl
 X-KDE-PowerDevil-Action-IsBundled=true

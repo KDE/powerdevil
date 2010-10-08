@@ -19,6 +19,7 @@ Name[pt_BR]=Perfis de energia
 Name[sv]=Strömprofiler
 Name[uk]=Профілі живлення
 Name[x-test]=xxPower Profilesxx
+Name[zh_TW]=電源設定檔
 
 Comment=Configure Power Management Profiles
 Comment[et]=Voolutarbe profiilide teenuste seadistamine
@@ -29,5 +30,6 @@ Comment[pt_BR]=Configura os perfis de gerenciamento de energia
 Comment[sv]=Anpassa strömhanteringsprofiler
 Comment[uk]=Налаштування профілів керування живленням
 Comment[x-test]=xxConfigure Power Management Profilesxx
+Comment[zh_TW]=設定電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
