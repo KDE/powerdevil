@@ -230,15 +230,15 @@ void Core::loadProfile(const QString& name)
     // Cool, now let's load the needed actions
     foreach (const QString &actionName, config.groupList()) {
         Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
-        if (!action) {
+        if (action) {
+            action->onProfileLoad();
+        } else {
             // Ouch, error. But let's just warn and move on anyway
             emitNotification("powerdevilerror", i18n("The profile \"%1\" tried to activate %2, "
                              "a non existent action. This is usually due to an installation problem"
                              " or to a configuration problem.",
-                             name, actionName), "dialog-warning");
-        }
-
-        action->onProfileLoad();
+                             name, actionName), "dialog-warning");          
+        }        
     }
 
     // And set the current profile
