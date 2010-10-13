@@ -1,4 +1,4 @@
-find_package(FindX11)
+find_package(X11)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 ${CMAKE_CURRENT_BINARY_DIR} ${X11_INCLUDE_DIR} ${QT_INCLUDE_DIR} ${X11_Xrandr_INCLUDE_PATH})
