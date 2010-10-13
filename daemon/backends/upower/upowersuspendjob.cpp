@@ -24,7 +24,6 @@
 #include <QtDBus/QDBusReply>
 #include <QTimer>
 #include <KConfig>
-#include <KConfigGroup>
 #include <KDebug>
 
 UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
