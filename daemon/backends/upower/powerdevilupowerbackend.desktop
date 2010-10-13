@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=PowerDevilBackend
+X-KDE-Library=powerdevilupowerbackend
+InitialPreference=200
+Icon=preferences-system-power-management
+Name=UPower PowerDevil Backend
+Name[x-test]=xxUPower PowerDevil Backendxx
+Comment=Use KDE Power Management system through freedesktop.org upower daemon
+Comment[x-test]=xxUse KDE Power Management system through freedesktop.org upower daemonxx
