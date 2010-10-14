@@ -67,7 +67,7 @@ private slots:
     void slotButtonPressed(Solid::Button::ButtonType type);
     void slotDeviceAdded(const QString &udi);
     void slotDeviceRemoved(const QString &udi);
-    void slotBatteryPropertyChanged(const QMap<QString,int> &changes);
+    void slotBatteryChargeChanged();
 
 private:
     QMap<QString, Solid::Device *> m_acAdapters;
@@ -76,17 +76,12 @@ private:
 
     int m_pluggedAdapterCount;
 
-    int m_currentBatteryCharge;
-    int m_maxBatteryCharge;
-    int m_warningBatteryCharge;
-    int m_lowBatteryCharge;
-    int m_criticalBatteryCharge;
     int m_estimatedBatteryTime;
 
     bool m_brightnessInHardware;
     float m_cachedBrightness;
 
-    //Custom UPOwer stuff
+    //Custom UPower stuff
     XRandrBrightness              *m_brightNessControl;
     OrgFreedesktopUPowerInterface *m_upowerInterface;
 };

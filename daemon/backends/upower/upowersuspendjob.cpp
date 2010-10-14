@@ -25,6 +25,7 @@
 #include <QTimer>
 #include <KConfig>
 #include <KDebug>
+#include <KLocale>
 
 UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
                              PowerDevil::BackendInterface::SuspendMethod method,
@@ -53,7 +54,7 @@ void UPowerSuspendJob::kill(bool /*quietly */)
 
 void UPowerSuspendJob::doStart()
 {
-    if (m_supported  & m_method)
+    if (m_supported & m_method)
     {
         switch(m_method)
         {
@@ -66,7 +67,7 @@ void UPowerSuspendJob::doStart()
             default:
                 kDebug() << "This backend doesn't support hybrid mode";
                 setError(1);
-                setErrorText("Unsupported suspend method");
+                setErrorText(i18n("Unsupported suspend method"));
             break;
         }
         emitResult();

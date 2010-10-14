@@ -45,9 +45,9 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent, const QVariant
     : BackendInterface(parent),
       m_brightNessControl(new XRandrBrightness()),
       m_upowerInterface(new OrgFreedesktopUPowerInterface(
-                        "org.freedesktop.UPower",
-                        "/org/freedesktop/UPower",
-                        QDBusConnection::systemBus()))
+              "org.freedesktop.UPower",
+              "/org/freedesktop/UPower",
+              QDBusConnection::systemBus()))
 {
 }
 
@@ -137,10 +137,9 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
 
 float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
-    float brightness;
     if (type == Screen) {
         qDebug() << "Brightness: " << m_brightNessControl->brightness();
-        return (float) m_brightNessControl->brightness();
+        return m_brightNessControl->brightness();
     } else {
         //TODO: UPower will support kbd backlight in the next version
     }
@@ -161,21 +160,21 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
     return new UPowerSuspendJob(m_upowerInterface,
-                             method, supportedSuspendMethods());
+                                method, supportedSuspendMethods());
 }
 
 void PowerDevilUPowerBackend::computeAcAdapters()
 {
     QList<Solid::Device> adapters
-        = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
+            = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
 
     foreach (const Solid::Device &adapter, adapters) {
         m_acAdapters[adapter.udi()] = new Solid::Device(adapter);
         connect(m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool, const QString &)),
-                 this, SLOT(slotPlugStateChanged(bool)));
+                this, SLOT(slotPlugStateChanged(bool)));
 
         if (m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>()!=0
-            && m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>()->isPlugged()) {
+                && m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>()->isPlugged()) {
             m_pluggedAdapterCount++;
         }
     }
@@ -183,29 +182,24 @@ void PowerDevilUPowerBackend::computeAcAdapters()
 
 void PowerDevilUPowerBackend::computeBatteries()
 {
-    QList<Solid::Device> batteries
-        = Solid::Device::listFromQuery("Battery.type == 'PrimaryBattery'");
+    QList<Solid::Device> batteries = Solid::Device::listFromQuery("Battery.type == 'PrimaryBattery'");
 
     foreach (const Solid::Device &battery, batteries) {
         m_batteries[battery.udi()] = new Solid::Device(battery);
         connect(m_batteries[battery.udi()]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int, const QString &)),
-                 this, SLOT(updateBatteryStats()));
-        connect(m_batteries[battery.udi()]->as<Solid::GenericInterface>(), SIGNAL(propertyChanged(const QMap<QString,int> &)),
-                 this, SLOT(slotBatteryPropertyChanged(const QMap<QString,int> &)));
+                this, SLOT(slotBatteryChargeChanged()));
     }
-
-    updateBatteryStats();
 }
 
 void PowerDevilUPowerBackend::computeButtons()
 {
     QList<Solid::Device> buttons
-        = Solid::Device::listFromType(Solid::DeviceInterface::Button);
+            = Solid::Device::listFromType(Solid::DeviceInterface::Button);
 
     foreach (const Solid::Device &button, buttons) {
         m_buttons[button.udi()] = new Solid::Device(button);
         connect(m_buttons[button.udi()]->as<Solid::Button>(), SIGNAL(pressed(Solid::Button::ButtonType, const QString &)),
-                 this, SLOT(slotButtonPressed(Solid::Button::ButtonType)));
+                this, SLOT(slotButtonPressed(Solid::Button::ButtonType)));
     }
 }
 
@@ -256,22 +250,20 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QString &udi)
     if (device->is<Solid::AcAdapter>()) {
         m_acAdapters[udi] = device;
         connect(m_acAdapters[udi]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool, const QString &)),
-                 this, SLOT(slotPlugStateChanged(bool)));
+                this, SLOT(slotPlugStateChanged(bool)));
 
         if (m_acAdapters[udi]->as<Solid::AcAdapter>()!=0
-          && m_acAdapters[udi]->as<Solid::AcAdapter>()->isPlugged()) {
+                && m_acAdapters[udi]->as<Solid::AcAdapter>()->isPlugged()) {
             m_pluggedAdapterCount++;
         }
     } else if (device->is<Solid::Battery>()) {
         m_batteries[udi] = device;
-        connect(m_batteries[udi]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int, const QString &)),
-                 this, SLOT(updateBatteryStats()));
-        connect(m_batteries[udi]->as<Solid::GenericInterface>(), SIGNAL(propertyChanged(const QMap<QString,int> &)),
-                 this, SLOT(slotBatteryPropertyChanged(const QMap<QString,int> &)));
+        connect(m_batteries[battery.udi()]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int, const QString &)),
+                this, SLOT(slotBatteryChargeChanged()));
     } else if (device->is<Solid::Button>()) {
         m_buttons[udi] = device;
         connect(m_buttons[udi]->as<Solid::Button>(), SIGNAL(pressed(int, const QString &)),
-                 this, SLOT(slotButtonPressed(int)));
+                this, SLOT(slotButtonPressed(int)));
     } else {
         delete device;
     }
@@ -289,8 +281,7 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QString &udi)
         m_pluggedAdapterCount = 0;
 
         foreach (Solid::Device *d, m_acAdapters) {
-            if (d->as<Solid::AcAdapter>()!=0
-              && d->as<Solid::AcAdapter>()->isPlugged()) {
+            if (d->as<Solid::AcAdapter>()!=0 && d->as<Solid::AcAdapter>()->isPlugged()) {
                 m_pluggedAdapterCount++;
             }
         }
@@ -314,41 +305,23 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QString &udi)
     }
 }
 
-void PowerDevilUPowerBackend::slotBatteryPropertyChanged(const QMap<QString,int> &changes)
+void PowerDevilUPowerBackend::slotBatteryChargeChanged()
 {
-    /* This slot catches property changes on battery devices. At
-     * the moment it is used to find out remaining time on batteries.
-     */
-
-    if (changes.contains("battery.remaining_time")) {
-        updateBatteryStats();
-
-        setBatteryRemainingTime(m_estimatedBatteryTime);
-    }
+    updateBatteryStats();
+    setBatteryRemainingTime(m_estimatedBatteryTime);
 }
 
 void PowerDevilUPowerBackend::updateBatteryStats()
 {
-    m_currentBatteryCharge = 0;
-    m_maxBatteryCharge = 0;
-    m_warningBatteryCharge = 0;
-    m_lowBatteryCharge = 0;
-    m_criticalBatteryCharge = 0;
     m_estimatedBatteryTime = 0;
 
     foreach (Solid::Device *d, m_batteries) {
-        Solid::GenericInterface *interface = d->as<Solid::GenericInterface>();
+        Solid::Battery *interface = d->as<Solid::Battery>();
 
         if (interface == 0) continue;
 
-        m_currentBatteryCharge += interface->property("battery.charge_level.current").toInt();
-        m_maxBatteryCharge += interface->property("battery.charge_level.last_full").toInt();
-        m_warningBatteryCharge += interface->property("battery.charge_level.warning").toInt();
-        m_lowBatteryCharge += interface->property("battery.charge_level.low").toInt();
-        m_estimatedBatteryTime += interface->property("battery.remaining_time").toInt() * 1000;
+        m_estimatedBatteryTime+= interface->property("TimeToEmpty").toLongLong() * 1000;
     }
-
-    m_criticalBatteryCharge = m_lowBatteryCharge/2;
 }
 
 #include "powerdevilupowerbackend.moc"

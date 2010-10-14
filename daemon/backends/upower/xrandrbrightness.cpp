@@ -29,7 +29,7 @@
 #include "xrandrbrightness.h"
 
 XRandrBrightness::XRandrBrightness()
-: m_isSupported(false), m_resources(0)
+    : m_isSupported(false), m_resources(0)
 {
     // init
     int major, minor;
@@ -48,24 +48,24 @@ XRandrBrightness::XRandrBrightness()
     if (m_backlight == None)
         m_backlight = XInternAtom(QX11Info::display(), "BACKLIGHT", True);  // try with legacy atom
 
-        if (m_backlight == None)
-        {
-            qWarning("No outputs have backlight property");
-            return;
-        }
+    if (m_backlight == None)
+    {
+        qWarning("No outputs have backlight property");
+        return;
+    }
 
-        if (minor > 2)
-            m_resources = XRRGetScreenResourcesCurrent(QX11Info::display(), QX11Info::appRootWindow()); // version 1.3, faster version
-            else
-                m_resources = XRRGetScreenResources(QX11Info::display(), QX11Info::appRootWindow());
+    if (minor > 2)
+        m_resources = XRRGetScreenResourcesCurrent(QX11Info::display(), QX11Info::appRootWindow()); // version 1.3, faster version
+    else
+        m_resources = XRRGetScreenResources(QX11Info::display(), QX11Info::appRootWindow());
 
-            if (!m_resources)
-            {
-                qWarning("No available Randr resources");
-            return;
-            }
+    if (!m_resources)
+    {
+        qWarning("No available Randr resources");
+        return;
+    }
 
-            m_isSupported = true;
+    m_isSupported = true;
 }
 
 XRandrBrightness::~XRandrBrightness()
@@ -149,9 +149,9 @@ long XRandrBrightness::backlight_get(RROutput output) const
     long value;
 
     if (!m_backlight || XRRGetOutputProperty (QX11Info::display(), output, m_backlight,
-        0, 4, False, False, None,
-        &actual_type, &actual_format,
-        &nitems, &bytes_after, &prop) != Success)
+                                              0, 4, False, False, None,
+                                              &actual_type, &actual_format,
+                                              &nitems, &bytes_after, &prop) != Success)
         return -1;
 
     if (actual_type != XA_INTEGER || nitems != 1 || actual_format != 32)
