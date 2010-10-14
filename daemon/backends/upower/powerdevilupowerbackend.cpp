@@ -121,7 +121,7 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
 
     float currentBrightness = brightness(Screen);
 
-    if (qFuzzyCompare(currentBrightness, m_cachedBrightness) && !m_brightnessInHardware) {
+    if (qFuzzyCompare(currentBrightness, m_cachedBrightness)) {
         float newBrightness;
         if (type == Increase) {
             newBrightness = qMin(100.0f, currentBrightness + 10);
@@ -159,14 +159,12 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
 
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
-    return new UPowerSuspendJob(m_upowerInterface,
-                                method, supportedSuspendMethods());
+    return new UPowerSuspendJob(m_upowerInterface, method, supportedSuspendMethods());
 }
 
 void PowerDevilUPowerBackend::computeAcAdapters()
 {
-    QList<Solid::Device> adapters
-            = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
+    QList<Solid::Device> adapters = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
 
     foreach (const Solid::Device &adapter, adapters) {
         m_acAdapters[adapter.udi()] = new Solid::Device(adapter);
@@ -193,8 +191,7 @@ void PowerDevilUPowerBackend::computeBatteries()
 
 void PowerDevilUPowerBackend::computeButtons()
 {
-    QList<Solid::Device> buttons
-            = Solid::Device::listFromType(Solid::DeviceInterface::Button);
+    QList<Solid::Device> buttons = Solid::Device::listFromType(Solid::DeviceInterface::Button);
 
     foreach (const Solid::Device &button, buttons) {
         m_buttons[button.udi()] = new Solid::Device(button);
@@ -258,7 +255,7 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QString &udi)
         }
     } else if (device->is<Solid::Battery>()) {
         m_batteries[udi] = device;
-        connect(m_batteries[battery.udi()]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int, const QString &)),
+        connect(m_batteries[udi]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int, const QString &)),
                 this, SLOT(slotBatteryChargeChanged()));
     } else if (device->is<Solid::Button>()) {
         m_buttons[udi] = device;

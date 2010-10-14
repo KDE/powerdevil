@@ -78,7 +78,6 @@ private:
 
     int m_estimatedBatteryTime;
 
-    bool m_brightnessInHardware;
     float m_cachedBrightness;
 
     //Custom UPower stuff
