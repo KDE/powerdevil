@@ -21,24 +21,28 @@
 
 #include "PowerDevilSettings.h"
 
-#include <solid/control/powermanager.h>
 #include <solid/device.h>
 #include <solid/deviceinterface.h>
 #include <solid/processor.h>
 #include <solid/battery.h>
+#include <solid/powermanagement.h>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
 
 #include <KNotifyConfigWidget>
+#include <KPluginFactory>
 
-GeneralPage::GeneralPage(QWidget *parent)
-        : QWidget(parent)
+K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
+                 registerPlugin<GeneralPage>();
+                )
+K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("kcmpowerdevilgeneral"))
+
+GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
+        : KCModule(PowerDevilGeneralKCMFactory::componentData(), parent, args)
 {
     setupUi(this);
-
-    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
     fillUi();
 }
@@ -72,17 +76,17 @@ void GeneralPage::fillUi()
     BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
     BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
 
-    Solid::Control::PowerManager::SuspendMethods methods = Solid::Control::PowerManager::supportedSuspendMethods();
+    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-    if (methods & Solid::Control::PowerManager::ToDisk) {
+    if (methods.contains(Solid::PowerManagement::HibernateState)) {
         BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
     }
 
-    if (methods & Solid::Control::PowerManager::ToRam) {
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
         BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
     }
 
-    if (methods & Solid::Control::PowerManager::Standby) {
+    if (methods.contains(Solid::PowerManagement::StandbyState)) {
         BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
     }
 
@@ -90,22 +94,22 @@ void GeneralPage::fillUi()
 
     // modified fields...
 
-    connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(enableDPMSBox, SIGNAL(stateChanged(int)), SLOT(emitChanged()));
-    connect(suspendWaitTime, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(changed()));
+    connect(enableDPMSBox, SIGNAL(stateChanged(int)), SLOT(changed()));
+    connect(suspendWaitTime, SIGNAL(valueChanged(int)), SLOT(changed()));
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 
-    connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-    connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
-    connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(emitChanged()));
+    connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
+    connect(warningSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
+    connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
 
-    connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
-    connect(acProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
-    connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
-    connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
-    connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(emitChanged()));
+    connect(acProfile, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
+    connect(lowProfile, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
+    connect(warningProfile, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
+    connect(batteryProfile, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
     // Disable stuff, eventually
     if (batteryCount == 0) {
@@ -119,7 +123,7 @@ void GeneralPage::fillUi()
 void GeneralPage::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
-    enableDPMSBox->setChecked(PowerDevilSettings::manageDPMS());
+
     if (PowerDevilSettings::waitBeforeSuspending()) {
         suspendWaitTime->setValue(PowerDevilSettings::waitBeforeSuspendingTime());
     } else {
@@ -146,7 +150,6 @@ void GeneralPage::configureNotifications()
 void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
-    PowerDevilSettings::setManageDPMS(enableDPMSBox->isChecked());
     PowerDevilSettings::setWaitBeforeSuspending(suspendWaitTime->value() != 0);
     PowerDevilSettings::setWaitBeforeSuspendingTime(suspendWaitTime->value());
 
@@ -164,33 +167,22 @@ void GeneralPage::save()
     PowerDevilSettings::self()->writeConfig();
 }
 
-void GeneralPage::emitChanged()
-{
-    emit changed(true);
-}
-
-void GeneralPage::enableIssue(bool enable)
-{
-    issueIcon->setVisible(enable);
-    issueText->setVisible(enable);
-}
-
 void GeneralPage::reloadAvailableProfiles()
 {
-    m_profilesConfig->reparseConfiguration();
+    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
 
     acProfile->clear();
     batteryProfile->clear();
     lowProfile->clear();
     warningProfile->clear();
 
-    if (m_profilesConfig->groupList().isEmpty()) {
+    if (profilesConfig->groupList().isEmpty()) {
         kDebug() << "No available profiles!";
         return;
     }
 
-    foreach(const QString &ent, m_profilesConfig->groupList()) {
-        KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
+    foreach(const QString &ent, profilesConfig->groupList()) {
+        KConfigGroup *group = new KConfigGroup(profilesConfig, ent);
 
         acProfile->addItem(KIcon(group->readEntry("iconname")), ent);
         batteryProfile->addItem(KIcon(group->readEntry("iconname")), ent);
@@ -204,6 +196,11 @@ void GeneralPage::reloadAvailableProfiles()
     warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
     batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
 
+}
+
+void GeneralPage::defaults()
+{
+    KCModule::defaults();
 }
 
 #include "GeneralPage.moc"

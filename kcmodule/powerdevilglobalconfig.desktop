@@ -1,0 +1,17 @@
+[Desktop Entry]
+Exec=kcmshell4 powerdevilglobalconfig
+Icon=preferences-system-power-management
+Type=Service
+X-KDE-ServiceTypes=KCModule
+X-DocPath=kcontrol/powerdevil/index.html
+
+X-KDE-Library=kcm_powerdevilglobalconfig
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=power-management
+
+Name=Global settings
+
+Comment=Configure global Power Management settings
+
+X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

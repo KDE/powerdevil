@@ -104,7 +104,6 @@ private:
     KSharedConfigPtr m_profilesConfig;
 
     QString m_currentProfile;
-    QStringList m_availableProfiles;
 
     QHash< QString, int > m_batteriesPercent;
 

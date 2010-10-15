@@ -19,27 +19,31 @@
 
 #include "powerdevilcore.h"
 
-#include <QtDBus/QDBusConnection>
-#include <KMessageBox>
-#include "powerdevilbackendinterface.h"
-#include <Solid/Device>
-#include <solid/battery.h>
-#include <KIdleTime>
 #include "PowerDevilSettings.h"
-#include <KDebug>
-#include <KActionCollection>
-#include <KAction>
-#include <KNotification>
-#include "powerdevilactionpool.h"
-#include "powerdevilaction.h"
-#include <Solid/DeviceNotifier>
-#include <powerdevilpolicyagent.h>
-#include <QDBusConnectionInterface>
-#include <KLocalizedString>
-#include <KServiceTypeTrader>
 #include "powermanagementadaptor.h"
+
+#include "powerdevilaction.h"
+#include "powerdevilactionpool.h"
+#include "powerdevilbackendinterface.h"
+#include "powerdevilpolicyagent.h"
+
+#include <Solid/Battery>
+#include <Solid/Device>
+#include <Solid/DeviceNotifier>
+
+#include <KAction>
+#include <KActionCollection>
+#include <KDebug>
 #include <KDirWatch>
+#include <KIdleTime>
+#include <KLocalizedString>
+#include <KMessageBox>
+#include <KNotification>
+#include <KServiceTypeTrader>
 #include <KStandardDirs>
+
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusConnectionInterface>
 
 namespace PowerDevil
 {
@@ -77,14 +81,13 @@ void Core::onBackendReady()
     QDBusConnection conn = QDBusConnection::systemBus();
 
     if (conn.interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
-            conn.interface()->isServiceRegistered("com.novell.powersave") ||
-            conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
+        conn.interface()->isServiceRegistered("com.novell.powersave") ||
+        conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
         kError() << "PowerDevil not initialized, another power manager has been detected";
         return;
     }
 
     m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
-//     setAvailableProfiles(m_profilesConfig->groupList());
 
     // Get the battery devices ready
     {
@@ -95,7 +98,7 @@ void Core::onBackendReady()
                 this, SLOT(onDeviceRemoved(QString)));
 
         // Force the addition of already existent batteries
-        foreach(const Device &device, Device::listFromType(DeviceInterface::Battery, QString())) {
+        foreach (const Device &device, Device::listFromType(DeviceInterface::Battery, QString())) {
             onDeviceAdded(device.udi());
         }
     }

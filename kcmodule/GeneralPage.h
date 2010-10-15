@@ -20,32 +20,28 @@
 #ifndef GENERALPAGE_H
 #define GENERALPAGE_H
 
-#include <QWidget>
+#include <KCModule>
 
 #include "ui_generalPage.h"
 
-class GeneralPage : public QWidget, private Ui_generalPage
+class GeneralPage : public KCModule, private Ui_generalPage
 {
     Q_OBJECT
 
 public:
-    GeneralPage(QWidget *parent = 0);
-    ~GeneralPage();
+    GeneralPage(QWidget *parent, const QVariantList &args);
+    virtual ~GeneralPage();
     void fillUi();
 
     void load();
     void save();
+    virtual void defaults();
 
 signals:
     void changed(bool ch);
 
 private slots:
-    void emitChanged();
-
-    void enableIssue(bool enable);
-
     void configureNotifications();
-
     void reloadAvailableProfiles();
 
 private:
@@ -58,9 +54,6 @@ private:
         Lock = 16,
         ShutdownDialog = 32
     };
-
-    KSharedConfig::Ptr m_profilesConfig;
-    bool m_profileEdited;
 };
 
 #endif /* GENERALPAGE_H */

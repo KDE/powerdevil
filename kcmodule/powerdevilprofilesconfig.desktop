@@ -8,7 +8,7 @@ X-DocPath=kcontrol/powerdevil/index.html
 X-KDE-Library=kcm_powerdevilprofilesconfig
 X-KDE-ParentApp=kcontrol
 
-X-KDE-System-Settings-Parent-Category=hardware
+X-KDE-System-Settings-Parent-Category=power-management
 
 Name=Power Profiles
 Name[de]=Energieprofile
