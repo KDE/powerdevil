@@ -11,9 +11,17 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=power-management
 
 Name=Global settings
+Name[es]=Preferencias globales
+Name[pt]=Configuração global
+Name[pt_BR]=Configurações globais
+Name[uk]=Загальні параметри
 Name[x-test]=xxGlobal settingsxx
 
 Comment=Configure global Power Management settings
+Comment[es]=Configuración de las preferencias globales de la gestión de energía
+Comment[pt]=Configurar as opções globais de Gestão de Energia
+Comment[pt_BR]=Configura as opções globais do gerenciamento de energia
+Comment[uk]=Налаштування загальних параметрів керування живленням
 Comment[x-test]=xxConfigure global Power Management settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
