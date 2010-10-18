@@ -247,8 +247,7 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QString &udi)
         connect(m_acAdapters[udi]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool, const QString &)),
                 this, SLOT(slotPlugStateChanged(bool)));
 
-        if (m_acAdapters[udi]->as<Solid::AcAdapter>()!=0
-                && m_acAdapters[udi]->as<Solid::AcAdapter>()->isPlugged()) {
+        if (m_acAdapters[udi]->as<Solid::AcAdapter>()!=0 && m_acAdapters[udi]->as<Solid::AcAdapter>()->isPlugged()) {
             m_pluggedAdapterCount++;
         }
     } else if (device->is<Solid::Battery>()) {
@@ -303,11 +302,13 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QString &udi)
 void PowerDevilUPowerBackend::slotBatteryChargeChanged()
 {
     updateBatteryStats();
+    setBatteryState(batteryState());
     setBatteryRemainingTime(m_estimatedBatteryTime);
 }
 
 void PowerDevilUPowerBackend::updateBatteryStats()
 {
+    m_currentBatteryCharge = 0;
     m_estimatedBatteryTime = 0;
 
     foreach (Solid::Device *d, m_batteries) {
@@ -315,8 +316,23 @@ void PowerDevilUPowerBackend::updateBatteryStats()
 
         if (interface == 0) continue;
 
+        m_currentBatteryCharge+= interface->chargePercent();
         m_estimatedBatteryTime+= interface->property("TimeToEmpty").toLongLong() * 1000;
     }
+}
+
+PowerDevil::BackendInterface::BatteryState PowerDevilUPowerBackend::batteryState() const
+{
+    if (m_batteries.isEmpty())
+        return PowerDevil::BackendInterface::NoBatteryState;
+    else if (m_currentBatteryCharge <= 5)
+        return PowerDevil::BackendInterface::Critical;
+    else if (m_currentBatteryCharge <= 10)
+        return PowerDevil::BackendInterface::Low;
+    else if (m_currentBatteryCharge <= 20)
+        return PowerDevil::BackendInterface::Warning;
+    else
+        return PowerDevil::BackendInterface::Normal;
 }
 
 #include "powerdevilupowerbackend.moc"

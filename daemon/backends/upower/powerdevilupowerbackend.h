@@ -60,6 +60,7 @@ private:
     void computeAcAdapters();
     void computeBatteries();
     void computeButtons();
+    PowerDevil::BackendInterface::BatteryState batteryState() const;
 
 private slots:
     void updateBatteryStats();
@@ -76,7 +77,8 @@ private:
 
     int m_pluggedAdapterCount;
 
-    int m_estimatedBatteryTime;
+    qlonglong m_estimatedBatteryTime;
+    int m_currentBatteryCharge;
 
     float m_cachedBrightness;
 
