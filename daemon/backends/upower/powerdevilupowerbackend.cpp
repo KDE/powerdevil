@@ -2,6 +2,7 @@
     Copyright (C) 2006 Kevin Ottens <ervin@kde.org>
     Copyright (C) 2008-2010 Dario Freddi <drf@kde.org>
     Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
+    Copyright (C) 2010 Lukas Tinkl <ltinkl@redhat.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -78,17 +79,14 @@ void PowerDevilUPowerBackend::init()
     // Brightness Control available
     BrightnessControlsList controls;
     {
-        //TODO: How to support more than one screen? maybe by query xrandr instead of upower?
-        if (m_upowerInterface->lidIsPresent()) {
+        if (m_brightNessControl->isSupported()) {
             controls.insert(QLatin1String("LVDS1"), Screen);
         }
 
         //TODO: UPower will support kbd backlight in the next version, add it to controls
     }
 
-    QList<QString> screenControls = controls.keys(Screen);
-
-    if (!screenControls.isEmpty()) {
+    if (!controls.isEmpty()) {
         m_cachedBrightness = brightness(Screen);
         kDebug() << "current brightness: " << m_cachedBrightness;
     }
