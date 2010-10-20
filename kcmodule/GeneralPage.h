@@ -37,23 +37,9 @@ public:
     void save();
     virtual void defaults();
 
-signals:
-    void changed(bool ch);
-
 private slots:
     void configureNotifications();
     void reloadAvailableProfiles();
-
-private:
-    enum IdleAction {
-        None = 0,
-        Standby = 1,
-        S2Ram = 2,
-        S2Disk = 4,
-        Shutdown = 8,
-        Lock = 16,
-        ShutdownDialog = 32
-    };
 };
 
 #endif /* GENERALPAGE_H */

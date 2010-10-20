@@ -69,34 +69,22 @@ void GeneralPage::fillUi()
     tabWidget->setTabIcon(0, KIcon("preferences-other"));
     tabWidget->setTabIcon(1, KIcon("battery"));
 
-    issueIcon->setPixmap(KIcon("dialog-warning").pixmap(32, 32));
-    issueIcon->setVisible(false);
-    issueText->setVisible(false);
-
-    BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (int) None);
-    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (int) Shutdown);
-
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-    if (methods.contains(Solid::PowerManagement::HibernateState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Suspend to Disk"), (int) S2Disk);
-    }
-
+    BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), 0);
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Suspend to RAM"), (int) S2Ram);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Sleep"), 1);
     }
-
-    if (methods.contains(Solid::PowerManagement::StandbyState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Standby"), (int) Standby);
+    if (methods.contains(Solid::PowerManagement::HibernateState)) {
+        BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), 2);
     }
+    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), 3);
 
     notificationsButton->setIcon(KIcon("preferences-desktop-notification"));
 
     // modified fields...
 
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(changed()));
-    connect(enableDPMSBox, SIGNAL(stateChanged(int)), SLOT(changed()));
-    connect(suspendWaitTime, SIGNAL(valueChanged(int)), SLOT(changed()));
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 
@@ -124,17 +112,11 @@ void GeneralPage::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
 
-    if (PowerDevilSettings::waitBeforeSuspending()) {
-        suspendWaitTime->setValue(PowerDevilSettings::waitBeforeSuspendingTime());
-    } else {
-        suspendWaitTime->setValue(0);
-    }
-
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     warningSpin->setValue(PowerDevilSettings::batteryWarningLevel());
     criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
 
-    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batLowAction()));
+    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batteryCriticalAction()));
 
     acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
     lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
@@ -150,14 +132,12 @@ void GeneralPage::configureNotifications()
 void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
-    PowerDevilSettings::setWaitBeforeSuspending(suspendWaitTime->value() != 0);
-    PowerDevilSettings::setWaitBeforeSuspendingTime(suspendWaitTime->value());
 
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
     PowerDevilSettings::setBatteryWarningLevel(warningSpin->value());
     PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
 
-    PowerDevilSettings::setBatLowAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
+    PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
     PowerDevilSettings::setACProfile(acProfile->currentText());
     PowerDevilSettings::setLowProfile(lowProfile->currentText());
