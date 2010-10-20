@@ -10,6 +10,7 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/brightnesscontrol.cpp
     actions/bundled/dimdisplay.cpp
     actions/bundled/runscript.cpp
+    actions/bundled/handlebuttonevents.cpp
 )
 
 # target no.1 - powerdevil core library

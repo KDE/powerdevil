@@ -30,11 +30,9 @@ namespace PowerDevil
 {
 
 class Core;
-
-
 class Action;
 
-class ActionPool : public QObject
+class ActionPool
 {
 public:
     static ActionPool *instance();
@@ -46,7 +44,7 @@ public:
     void unloadAllActiveActions();
 
 private:
-    explicit ActionPool(QObject* parent = 0);
+    ActionPool();
 
     QHash< QString, Action* > m_cachedPool;
     QStringList m_activeActions;

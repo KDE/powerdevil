@@ -20,18 +20,22 @@
 
 #include "powerdevilactionpool.h"
 
-#include <kglobal.h>
-#include <KConfigGroup>
 #include "powerdevilaction.h"
+#include "powerdevilcore.h"
+
+#include <KConfigGroup>
+#include <KDebug>
+#include <KGlobal>
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
-#include <KDebug>
+
+// Bundled actions:
 #include "actions/bundled/suspendsession.h"
 #include "actions/bundled/disabledesktopeffects.h"
 #include "actions/bundled/brightnesscontrol.h"
 #include "actions/bundled/dimdisplay.h"
 #include "actions/bundled/runscript.h"
-#include "powerdevilcore.h"
+#include "actions/bundled/handlebuttonevents.h"
 
 namespace PowerDevil
 {
@@ -57,7 +61,7 @@ ActionPool *ActionPool::instance()
     return s_globalActionPool->q;
 }
 
-ActionPool::ActionPool(QObject* parent): QObject(parent)
+ActionPool::ActionPool()
 {
     Q_ASSERT(!s_globalActionPool->q);
     s_globalActionPool->q = this;
@@ -95,6 +99,8 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
         retaction = new BundledActions::RunScript(parent);
     } else if (actionId == "ForceInhibition") {
         
+    } else if (actionId == "HandleButtonEvents") {
+        retaction = new BundledActions::HandleButtonEvents(parent);
     }
 
     if (retaction) {

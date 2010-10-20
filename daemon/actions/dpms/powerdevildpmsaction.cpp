@@ -20,6 +20,8 @@
 
 #include "powerdevildpmsaction.h"
 
+#include <powerdevilcore.h>
+
 #include <config-workspace.h>
 
 #include <QtGui/QX11Info>
@@ -107,7 +109,36 @@ void PowerDevilDPMSAction::onProfileLoad()
 
 void PowerDevilDPMSAction::trigger(const QVariantMap& args)
 {
+    CARD16 dummy;
+    BOOL enabled;
+    Display *dpy = QX11Info::display();
+    DPMSInfo(dpy, &dummy, &enabled);
 
+    // Let's pretend we're resuming
+    core()->onResumeFromSuspend();
+
+    if (args["Type"].toString() == "TurnOff") {
+        if (enabled) {
+            DPMSForceLevel(dpy, DPMSModeOff);
+        } else {
+            DPMSEnable(dpy);
+            DPMSForceLevel(dpy, DPMSModeOff);
+        }
+    } else if (args["Type"].toString() == "Standby") {
+        if (enabled) {
+            DPMSForceLevel(dpy, DPMSModeStandby);
+        } else {
+            DPMSEnable(dpy);
+            DPMSForceLevel(dpy, DPMSModeStandby);
+        }
+    } else if (args["Type"].toString() == "Suspend") {
+        if (enabled) {
+            DPMSForceLevel(dpy, DPMSModeSuspend);
+        } else {
+            DPMSEnable(dpy);
+            DPMSForceLevel(dpy, DPMSModeSuspend);
+        }
+    }
 }
 
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
@@ -132,3 +163,5 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
 
     return true;
 }
+
+#include "powerdevildpmsaction.moc"

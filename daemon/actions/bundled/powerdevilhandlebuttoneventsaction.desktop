@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=PowerDevilAction
+# X-KDE-Library=powerdevilhandlebuttoneventsaction
+Icon=preferences-desktop-screensaver
+
+Name=Button events handling
+
+Comment=Performs an action whenever a button is pressed
+
+X-KDE-PowerDevil-Action-ID=HandleButtonEvents
+X-KDE-PowerDevil-Action-IsBundled=true
+X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevilhandlebuttoneventsaction_config
+X-KDE-PowerDevil-Action-ConfigPriority=80

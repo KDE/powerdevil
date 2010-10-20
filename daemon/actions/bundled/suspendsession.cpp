@@ -19,6 +19,8 @@
 
 #include "suspendsession.h"
 
+#include "screensaver_interface.h"
+
 #include "powerdevilbackendinterface.h"
 #include <kworkspace/kworkspace.h>
 #include <KConfigGroup>
@@ -89,8 +91,13 @@ void SuspendSession::trigger(const QVariantMap& args)
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeReboot);
     } else if (args["Type"].toString() == "Logout") {
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeLogout);
+    } else if (args["Type"].toString() == "LogoutDialog") {
+        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
     } else if (args["Type"].toString() == "LockScreen") {
-        // todo
+        OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
+                                                 "/ScreenSaver",
+                                                 QDBusConnection::sessionBus());
+        iface.Lock();
     }
 
     if (suspendJob) {

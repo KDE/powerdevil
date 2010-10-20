@@ -75,6 +75,11 @@ BackendInterface* Action::backend()
     return d->core->backend();
 }
 
+Core* Action::core()
+{
+    return d->core;
+}
+
 }
 
 #include "powerdevilaction.moc"

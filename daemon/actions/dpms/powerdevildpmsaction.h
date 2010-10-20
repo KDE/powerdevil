@@ -23,7 +23,6 @@
 
 #include <powerdevilaction.h>
 
-
 class PowerDevilDPMSAction : public PowerDevil::Action
 {
     Q_OBJECT

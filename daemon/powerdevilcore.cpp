@@ -108,8 +108,6 @@ void Core::onBackendReady()
             this, SLOT(onBrightnessChanged(float)));
     connect(m_backend, SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
-    connect(m_backend, SIGNAL(buttonPressed(PowerDevil::BackendInterface::ButtonType)),
-            this, SLOT(onButtonPressed(PowerDevil::BackendInterface::ButtonType)));
     connect(m_backend, SIGNAL(batteryRemainingTimeChanged(int)),
             this, SLOT(onBatteryRemainingTimeChanged(int)));
     connect(m_backend, SIGNAL(resumeFromSuspend()),
@@ -433,19 +431,12 @@ void Core::onBrightnessChanged(float brightness)
     emit brightnessChanged(brightness);
 }
 
-void Core::onButtonPressed(PowerDevil::BackendInterface::ButtonType type)
-{
-}
-
 void Core::onResumeFromSuspend()
 {
     // Do we want to lock the screen?
     if (PowerDevilSettings::configLockScreen()) {
         // Yeah, we do.
-        OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
-                                                 "/ScreenSaver",
-                                                 QDBusConnection::sessionBus());
-        iface.Lock();
+        triggerSuspendSession("LockScreen");
     }
 }
 
@@ -541,23 +532,17 @@ BackendInterface* Core::backend()
 
 void Core::suspendHybrid()
 {
-    QVariantMap args;
-    args["Type"] = "SuspendHybrid";
-    ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
+    triggerSuspendSession("SuspendHybrid");
 }
 
 void Core::suspendToDisk()
 {
-    QVariantMap args;
-    args["Type"] = "ToDisk";
-    ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
+    triggerSuspendSession("ToDisk");
 }
 
 void Core::suspendToRam()
 {
-    QVariantMap args;
-    args["Type"] = "Suspend";
-    ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this)->trigger(args);
+    triggerSuspendSession("SuspendSession");
 }
 
 int Core::batteryRemainingTime() const
@@ -580,6 +565,16 @@ void Core::setBrightness(int percent)
     QVariantMap args;
     args["Value"] = QVariant::fromValue<float>((float)percent);
     ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
+}
+
+void Core::triggerSuspendSession(const QString& action)
+{
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this);
+    if (helperAction) {
+        QVariantMap args;
+        args["Type"] = action;
+        helperAction->trigger(args);
+    }
 }
 
 }

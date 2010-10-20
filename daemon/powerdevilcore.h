@@ -84,16 +84,10 @@ Q_SIGNALS:
     void batteryRemainingTimeChanged(int time);
 
 private:
-    enum ActionType {
-        None = 0,
-        Standby = 1,
-        S2Ram = 2,
-        S2Disk = 4,
-        Shutdown = 8
-    };
-
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
+
+    void triggerSuspendSession(const QString &action);
 
     friend class Action;
 
@@ -116,7 +110,6 @@ private:
 private Q_SLOTS:
     void onBackendReady();
     void onBackendError(const QString &error);
-    void onButtonPressed(PowerDevil::BackendInterface::ButtonType);
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
     void onBrightnessChanged(float);

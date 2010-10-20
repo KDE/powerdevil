@@ -18,59 +18,47 @@
  ***************************************************************************/
 
 
-#ifndef POWERDEVIL_POWERDEVILACTION_H
-#define POWERDEVIL_POWERDEVILACTION_H
+#ifndef POWERDEVIL_BUNDLEDACTIONS_HANDLEBUTTONEVENTS_H
+#define POWERDEVIL_BUNDLEDACTIONS_HANDLEBUTTONEVENTS_H
 
-#include <QObject>
-#include <QVariantMap>
+#include <powerdevilaction.h>
+#include <powerdevilbackendinterface.h>
 
-#include <kdemacros.h>
+namespace PowerDevil {
+namespace BundledActions {
 
-class KConfigGroup;
-
-namespace PowerDevil
-{
-class BackendInterface;
-class Core;
-
-class KDE_EXPORT Action : public QObject
+class HandleButtonEvents : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(Action)
+    Q_DISABLE_COPY(HandleButtonEvents)
 
 public:
-    explicit Action(QObject *parent);
-    virtual ~Action();
+    explicit HandleButtonEvents(QObject* parent);
+    virtual ~HandleButtonEvents();
 
-    virtual bool loadAction(const KConfigGroup &config) = 0;
-    virtual bool unloadAction();
-
-    virtual void trigger(const QVariantMap &args) = 0;
+    virtual void trigger(const QVariantMap& args);
+    virtual bool loadAction(const KConfigGroup& config);
 
 protected:
-    void registerIdleTimeout(int msec);
+    virtual void onProfileUnload();
+    virtual void onWakeupFromIdle();
+    virtual void onIdleTimeout(int msec);
+    virtual void onProfileLoad();
 
-    PowerDevil::BackendInterface *backend();
-    PowerDevil::Core *core();
-
-protected Q_SLOTS:
-    virtual void onProfileLoad() = 0;
-    virtual void onIdleTimeout(int msec) = 0;
-    virtual void onWakeupFromIdle() = 0;
-    virtual void onProfileUnload() = 0;
-    virtual bool onUnloadAction();
-
-Q_SIGNALS:
-    void actionTriggered(bool result, const QString &error = QString());
+private Q_SLOTS:
+    void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
 
 private:
-    class Private;
-    Private * const d;
+    void processAction(uint action);
+    void triggerAction(const QString &action, const QString &type);
 
-    friend class Core;
-    friend class ActionPool;
+    uint m_lidAction;
+    uint m_sleepButtonAction;
+    uint m_powerButtonAction;
 };
 
 }
 
-#endif // POWERDEVIL_POWERDEVILACTION_H
+}
+
+#endif // POWERDEVIL_BUNDLEDACTIONS_HANDLEBUTTONEVENTS_H
