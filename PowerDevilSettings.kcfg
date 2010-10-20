@@ -25,12 +25,6 @@
     <entry name="configLockScreen" type="Bool">
       <default>true</default>
     </entry>
-    <entry name="WaitBeforeSuspending" type="Bool">
-      <default>true</default>
-    </entry>
-    <entry name="WaitBeforeSuspendingTime" type="Int">
-      <default>30</default>
-    </entry>
   </group>
   
   <group name="BatteryManagement">
