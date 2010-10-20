@@ -52,6 +52,7 @@ namespace PowerDevil
 Core::Core(QObject* parent, const KComponentData &componentData)
     : QObject(parent)
     , m_applicationData(componentData)
+    , m_criticalBatteryTimer(new QTimer(this))
 {
     // Before doing anything, let's set up our backend
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevilBackend", "(Type == 'Service')");
@@ -135,6 +136,11 @@ void Core::onBackendReady()
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
+
+    // Set up the critical battery timer
+    m_criticalBatteryTimer->setSingleShot(true);
+    m_criticalBatteryTimer->setInterval(30000);
+    connect(m_criticalBatteryTimer, SIGNAL(timeout()), this, SLOT(onCriticalBatteryTimerExpired()));
 
     // All systems up Houston, let's go!
     refreshStatus();
@@ -320,7 +326,13 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
 
     if (state == BackendInterface::Plugged) {
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
-        emitNotification("pluggedin", i18n("The power adaptor has been plugged in."));
+        if (m_criticalBatteryTimer->isActive()) {
+            m_criticalBatteryTimer->stop();
+            emitNotification("criticalbattery",
+                             i18n("The power adaptor has been plugged in - all pending suspend actions have been cancelled"));
+        } else {
+            emitNotification("pluggedin", i18n("The power adaptor has been plugged in."));
+        }
     } else {
         emitNotification("unplugged", i18n("The power adaptor has been unplugged."));
     }
@@ -350,64 +362,28 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
 
     if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() &&
         previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
-//         switch (PowerDevilSettings::batLowAction()) {
-//         case Shutdown:
-//             emitNotification("criticalbattery",
-//                                  i18np("Your battery level is critical, the computer will "
-//                                        "be halted in 1 second.",
-//                                        "Your battery level is critical, the computer will "
-//                                        "be halted in %1 seconds.",
-//                                        PowerDevilSettings::waitBeforeSuspendingTime()),
-//                                  SLOT(shutdown()), "dialog-warning");
-//             } else {
-//                 shutdown();
-//             }
-//             break;
-//         case S2Disk:
-//             if (PowerDevilSettings::waitBeforeSuspending()) {
-//                 emitNotification("criticalbattery",
-//                                  i18np("Your battery level is critical, the computer will "
-//                                        "be suspended to disk in 1 second.",
-//                                        "Your battery level is critical, the computer will "
-//                                        "be suspended to disk in %1 seconds.",
-//                                        PowerDevilSettings::waitBeforeSuspendingTime()),
-//                                  SLOT(suspendToDisk()), "dialog-warning");
-//             } else {
-//                 suspendToDisk();
-//             }
-//             break;
-//         case S2Ram:
-//             if (PowerDevilSettings::waitBeforeSuspending()) {
-//                 emitNotification("criticalbattery",
-//                                  i18np("Your battery level is critical, the computer "
-//                                        "will be suspended to RAM in 1 second.",
-//                                        "Your battery level is critical, the computer "
-//                                        "will be suspended to RAM in %1 seconds.",
-//                                        PowerDevilSettings::waitBeforeSuspendingTime()),
-//                                  SLOT(suspendToRam()), "dialog-warning");
-//             } else {
-//                 suspendToRam();
-//             }
-//             break;
-//         case Standby:
-//             if (PowerDevilSettings::waitBeforeSuspending()) {
-//                 emitNotification("criticalbattery",
-//                                  i18np("Your battery level is critical, the computer "
-//                                        "will be put into standby in 1 second.",
-//                                        "Your battery level is critical, the computer "
-//                                        "will be put into standby in %1 seconds.",
-//                                        PowerDevilSettings::waitBeforeSuspendingTime()),
-//                                  SLOT(standby()), "dialog-warning");
-//             } else {
-//                 standby();
-//             }
-//             break;
-//         default:
-//             emitNotification("criticalbattery", i18n("Your battery level is critical: "
-//                                                      "save your work as soon as possible."),
-//                              0, "dialog-warning");
-//             break;
-//         }
+        switch (PowerDevilSettings::batteryCriticalAction()) {
+        case 3:
+            emitNotification("criticalbattery",
+                             i18n("Your battery level is critical, the computer will be halted in 30 seconds."),
+                             "dialog-warning");
+            break;
+        case 2:
+            emitNotification("criticalbattery",
+                             i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."),
+                             "dialog-warning");
+            break;
+        case 1:
+            emitNotification("criticalbattery",
+                             i18n("Your battery level is critical, the computer will be suspended in 30 seconds."),
+                             "dialog-warning");
+            break;
+        default:
+            emitNotification("criticalbattery",
+                             i18n("Your battery level is critical: save your work as soon as possible."),
+                             "dialog-warning");
+            break;
+        }
     } else if (currentPercent <= PowerDevilSettings::batteryWarningLevel() &&
                previousPercent > PowerDevilSettings::batteryWarningLevel()) {
         emitNotification("warningbattery", i18n("Your battery has reached the warning level."),
@@ -418,6 +394,21 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
         emitNotification("lowbattery", i18n("Your battery has reached a low level."),
                          "dialog-warning");
         refreshStatus();
+    }
+}
+
+void Core::onCriticalBatteryTimerExpired()
+{
+    // Do that only if we're not on AC
+    if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
+        // We consider this as a very special button
+        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("HandleButtonEvents", KConfigGroup(), this);
+        if (helperAction) {
+            QVariantMap args;
+            args["Button"] = 32;
+            args["Type"] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
+            helperAction->trigger(args);
+        }
     }
 }
 

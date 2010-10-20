@@ -132,7 +132,26 @@ void HandleButtonEvents::triggerAction(const QString& action, const QString &typ
 
 void HandleButtonEvents::trigger(const QVariantMap& args)
 {
-    Q_UNUSED(args)
+    // For now, let's just accept the phantomatic "32" button.
+    if (args["Button"].toInt() == 32) {
+        switch (args["Button"].toUInt()) {
+        case 1:
+            // Sleep
+            triggerAction("SuspendSession", "Suspend");
+            break;
+        case 2:
+            // Hibernate
+            triggerAction("SuspendSession", "ToDisk");
+            break;
+        case 3:
+            // Turn off PC
+            triggerAction("SuspendSession", "Shutdown");
+            break;
+        default:
+            // Do nothing
+            break;
+        }
+    }
 }
 
 bool HandleButtonEvents::loadAction(const KConfigGroup& config)

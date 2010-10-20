@@ -26,6 +26,7 @@
 #include <QtCore/QStringList>
 #include "powerdevilbackendinterface.h"
 
+class QTimer;
 class KNotification;
 namespace Solid {
 class Battery;
@@ -76,6 +77,7 @@ public Q_SLOTS:
     void suspendToRam();
     void suspendToDisk();
     void suspendHybrid();
+
     void onResumeFromSuspend();
 
 Q_SIGNALS:
@@ -102,6 +104,8 @@ private:
 
     QHash< QString, int > m_batteriesPercent;
 
+    QTimer *m_criticalBatteryTimer;
+
     // Idle time management
     QHash< int, int > m_registeredIdleTimeouts;
     QHash< Action*, QList< int > > m_registeredActionTimeouts;
@@ -118,6 +122,7 @@ private Q_SLOTS:
     void onResumingFromIdle();
     void onDeviceAdded(const QString &udi);
     void onDeviceRemoved(const QString &udi);
+    void onCriticalBatteryTimerExpired();
 };
 
 }
