@@ -23,6 +23,7 @@
 #include <KPluginFactory>
 #include <KComboBox>
 #include <KIcon>
+#include <solid/powermanagement.h>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::HandleButtonEventsConfig>(); )
 K_EXPORT_PLUGIN(PowerDevilSuspendSessionConfigFactory("powerdevilhandlebuttoneventsaction_config"))
@@ -68,10 +69,16 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         QList< KComboBox* > boxes;
         boxes << m_lidCloseCombo << m_powerButtonCombo << m_sleepButtonCombo;
 
+        QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
+
         foreach (KComboBox *box, boxes) {
             box->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (uint)0);
-            box->addItem(KIcon("system-suspend"), i18n("Sleep"), (uint)1);
-            box->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), (uint)2);
+            if (methods.contains(Solid::PowerManagement::SuspendState)) {
+                box->addItem(KIcon("system-suspend"), i18n("Sleep"), (uint)1);
+            }
+            if (methods.contains(Solid::PowerManagement::HibernateState)) {
+                box->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), (uint)2);
+            }
             box->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (uint)3);
             box->addItem(KIcon("system-lock-screen"), i18n("Lock screen"), (uint)4);
             if (box != m_lidCloseCombo) {
