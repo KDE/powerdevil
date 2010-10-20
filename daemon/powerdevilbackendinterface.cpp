@@ -130,6 +130,11 @@ void BackendInterface::onBrightnessChanged(BackendInterface::BrightnessControlTy
     emit brightnessChanged(brightness, device);
 }
 
+void BackendInterface::setResumeFromSuspend()
+{
+    emit resumeFromSuspend();
+}
+
 }
 
 #include "powerdevilbackendinterface.moc"

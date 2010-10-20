@@ -25,6 +25,9 @@ kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
 qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
 
+set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.freedesktop.ScreenSaver.xml")
+qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
+
 kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 
 target_link_libraries(powerdevilcore
@@ -79,7 +82,7 @@ add_subdirectory(backends)
 # 
 # kde4_add_kcfg_files(kded_powerdevil_SRCS ../PowerDevilSettings.kcfgc)
 # 
-# set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.freedesktop.ScreenSaver.xml")
+# 
 # #set(kscreensaver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.kde.screensaver.xml)
 # set(ksmserver_xml  ${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/org.kde.KSMServerInterface.xml)
 # 

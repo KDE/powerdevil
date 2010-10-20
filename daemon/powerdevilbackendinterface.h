@@ -229,6 +229,8 @@ Q_SIGNALS:
 
     void backendError(const QString &error);
 
+    void resumeFromSuspend();
+
 protected:
     void onBrightnessChanged(BrightnessControlType device, float brightness);
     void setBatteryRemainingTime(int time);
@@ -238,6 +240,10 @@ protected:
 
     void setBackendIsReady(BrightnessControlsList availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
+
+protected slots:
+    // This function is actually here due to HAL
+    void setResumeFromSuspend();
 
 private:
     class Private;

@@ -21,6 +21,7 @@
 
 #include "PowerDevilSettings.h"
 #include "powermanagementadaptor.h"
+#include "screensaver_interface.h"
 
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
@@ -111,6 +112,8 @@ void Core::onBackendReady()
             this, SLOT(onButtonPressed(PowerDevil::BackendInterface::ButtonType)));
     connect(m_backend, SIGNAL(batteryRemainingTimeChanged(int)),
             this, SLOT(onBatteryRemainingTimeChanged(int)));
+    connect(m_backend, SIGNAL(resumeFromSuspend()),
+            this, SLOT(onResumeFromSuspend()));
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
@@ -432,6 +435,18 @@ void Core::onBrightnessChanged(float brightness)
 
 void Core::onButtonPressed(PowerDevil::BackendInterface::ButtonType type)
 {
+}
+
+void Core::onResumeFromSuspend()
+{
+    // Do we want to lock the screen?
+    if (PowerDevilSettings::configLockScreen()) {
+        // Yeah, we do.
+        OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
+                                                 "/ScreenSaver",
+                                                 QDBusConnection::sessionBus());
+        iface.Lock();
+    }
 }
 
 void Core::onKIdleTimeoutReached(int identifier, int msec)

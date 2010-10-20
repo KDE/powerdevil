@@ -30,6 +30,7 @@
 #include <Solid/GenericInterface>
 #include <Solid/AcAdapter>
 #include <KPluginFactory>
+#include <QtCore/QTimer>
 
 K_PLUGIN_FACTORY(PowerDevilHalBackendFactory, registerPlugin<PowerDevilHALBackend>(); )
 K_EXPORT_PLUGIN(PowerDevilHalBackendFactory("powerdevilhalbackend"))
@@ -273,6 +274,8 @@ bool PowerDevilHALBackend::setBrightness(float brightnessValue, PowerDevil::Back
 
 KJob* PowerDevilHALBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
+    // Ok, that's not cool, but it's all HAL really gives us, so.
+    QTimer::singleShot(0, this, SLOT(setResumeFromSuspend()));
     return new HalSuspendJob(m_halPowerManagement, m_halComputer,
                              method, supportedSuspendMethods());
 }

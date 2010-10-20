@@ -76,6 +76,7 @@ public Q_SLOTS:
     void suspendToRam();
     void suspendToDisk();
     void suspendHybrid();
+    void onResumeFromSuspend();
 
 Q_SIGNALS:
     void profileChanged(const QString &newProfile);
