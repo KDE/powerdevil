@@ -24,6 +24,8 @@
 #include <KIntSpinBox>
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <solid/powermanagement.h>
+#include <KIcon>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::SuspendSessionConfig>(); )
 K_EXPORT_PLUGIN(PowerDevilSuspendSessionConfigFactory("powerdevilsuspendsessionaction_config"))
@@ -44,18 +46,8 @@ SuspendSessionConfig::~SuspendSessionConfig()
 
 void SuspendSessionConfig::save()
 {
-    switch (m_comboBox->currentIndex()) {
-        case 0:
-            configGroup().writeEntry("suspendType", "Suspend");
-            break;
-        case 1:
-            configGroup().writeEntry("suspendType", "ToDisk");
-            break;
-        case 2:
-            configGroup().writeEntry("suspendType", "Shutdown");
-            break;
-        default:
-            break;
+    if (m_comboBox->currentIndex() != 0) {
+        configGroup().writeEntry< QString >("suspendType", m_comboBox->itemData(m_comboBox->currentIndex()).toString());
     }
     configGroup().writeEntry("idleTime", m_idleTime->value() * 60 * 1000);
 
@@ -65,13 +57,7 @@ void SuspendSessionConfig::save()
 void SuspendSessionConfig::load()
 {
     QString suspendType = configGroup().readEntry< QString >("suspendType", QString());
-    if (suspendType == "Suspend") {
-        m_comboBox->setCurrentIndex(0);
-    } else if (suspendType == "ToDisk") {
-        m_comboBox->setCurrentIndex(1);
-    } else if (suspendType == "Shutdown") {
-        m_comboBox->setCurrentIndex(2);
-    }
+    m_comboBox->setCurrentIndex(m_comboBox->findData(suspendType));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
 }
 
@@ -83,9 +69,18 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     m_idleTime = new KIntSpinBox(0, 180, 1, 0, 0);
     m_idleTime->setMaximumWidth(150);
     m_idleTime->setSuffix(i18n(" min"));
-    m_comboBox->addItem(i18n("Sleep"));
-    m_comboBox->addItem(i18n("Hibernate"));
-    m_comboBox->addItem(i18n("Shutdown"));
+
+    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
+
+    m_comboBox->addItem(KIcon("dialog-cancel"), i18n("Do nothing"));
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+        m_comboBox->addItem(KIcon("system-suspend"), i18n("Sleep"), "Suspend");
+    }
+    if (methods.contains(Solid::PowerManagement::HibernateState)) {
+        m_comboBox->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), "ToDisk");
+    }
+    m_comboBox->addItem(KIcon("system-shutdown"), i18n("Shutdown"), "Shutdown");
+    m_comboBox->addItem(KIcon("system-lock-screen"), i18n("Lock screen"), "LockScreen");
 
     hlay->addWidget(m_idleTime);
     hlay->addWidget(m_comboBox);

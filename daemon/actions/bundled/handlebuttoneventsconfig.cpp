@@ -48,6 +48,8 @@ void HandleButtonEventsConfig::save()
     configGroup().writeEntry< uint >("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
     configGroup().writeEntry< uint >("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
     configGroup().writeEntry< uint >("sleepButtonAction", m_sleepButtonCombo->itemData(m_sleepButtonCombo->currentIndex()).toUInt());
+
+    configGroup().sync();
 }
 
 void HandleButtonEventsConfig::load()

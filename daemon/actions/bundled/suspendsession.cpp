@@ -85,8 +85,6 @@ void SuspendSession::trigger(const QVariantMap& args)
         suspendJob =backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
     } else if (args["Type"].toString() == "Shutdown") {
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
-    } else if (args["Type"].toString() == "ShowDialog") {
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes, KWorkSpace::ShutdownTypeDefault);
     } else if (args["Type"].toString() == "Restart") {
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeReboot);
     } else if (args["Type"].toString() == "Logout") {
