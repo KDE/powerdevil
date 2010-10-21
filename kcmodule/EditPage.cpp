@@ -77,7 +77,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
     setupUi(this);
 
-    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    m_profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
 
     if (m_profilesConfig->groupList().isEmpty()) {
         // Let's add some basic profiles, huh?

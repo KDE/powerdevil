@@ -90,7 +90,7 @@ void Core::onBackendReady()
         return;
     }
 
-    m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    m_profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
 
     // Is it brand new?
     if (m_profilesConfig->groupList().isEmpty()) {
@@ -128,7 +128,7 @@ void Core::onBackendReady()
 
     // Listen to profile changes
     KDirWatch *profilesWatch = new KDirWatch(this);
-    profilesWatch->addFile(KStandardDirs::locate("config", "powerdevilprofilesrc"));
+    profilesWatch->addFile(KStandardDirs::locate("config", "powerdevil2profilesrc"));
     connect(profilesWatch, SIGNAL(dirty(QString)), this, SLOT(reloadCurrentProfile()));
     connect(profilesWatch, SIGNAL(created(QString)), this, SLOT(reloadCurrentProfile()));
     connect(profilesWatch, SIGNAL(deleted(QString)), this, SLOT(reloadCurrentProfile()));

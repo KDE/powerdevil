@@ -180,7 +180,7 @@ void PowerDevilDaemon::init()
     // First things first: let's set up PowerDevil to be aware of active session
     setUpConsoleKit();
 
-    d->profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    d->profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
     setAvailableProfiles(d->profilesConfig->groupList());
 
     recacheBatteryPointer(true);

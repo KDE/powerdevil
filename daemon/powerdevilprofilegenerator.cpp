@@ -47,7 +47,7 @@ void ProfileGenerator::generateProfiles()
     }
 
     // Ok, let's get our config file.
-    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
 
     // And clear it
     foreach (const QString &group, profilesConfig->groupList()) {

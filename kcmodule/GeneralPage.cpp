@@ -152,7 +152,7 @@ void GeneralPage::save()
 
 void GeneralPage::reloadAvailableProfiles()
 {
-    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
 
     acProfile->clear();
     batteryProfile->clear();
