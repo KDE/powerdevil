@@ -105,6 +105,8 @@ void PowerDevilUPowerBackend::init()
         }
     }
 
+    connect(m_upowerInterface, SIGNAL(Resuming()), this, SIGNAL(resumeFromSuspend()));
+
     setBackendIsReady(controls, supported);
 }
 
