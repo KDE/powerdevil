@@ -50,6 +50,7 @@
 #include <daemon/powerdevilactionconfig.h>
 #include <QtGui/QGroupBox>
 #include "actionconfigwidget.h"
+#include <daemon/powerdevilprofilegenerator.h>
 
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
@@ -80,22 +81,9 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
 
     if (m_profilesConfig->groupList().isEmpty()) {
-        // Let's add some basic profiles, huh?
-
-        KConfigGroup *performance = new KConfigGroup(m_profilesConfig, "Performance");
-
-        performance->writeEntry("brightness", 100);
-        performance->writeEntry("idleAction", 0);
-        performance->writeEntry("idleTime", 50);
-        performance->writeEntry("lidAction", 0);
-        performance->writeEntry("turnOffIdle", false);
-        performance->writeEntry("turnOffIdleTime", 120);
-
-        performance->sync();
-
-        kDebug() << performance->readEntry("brightness");
-
-        delete performance;
+        // Use the generator
+        PowerDevil::ProfileGenerator::generateProfiles();
+        m_profilesConfig->reparseConfiguration();
     }
 
     m_toolBar = new KToolBar(this);
@@ -268,7 +256,7 @@ void EditPage::reloadAvailableProfiles()
 
     foreach (const QString &ent, m_profilesConfig->groupList()) {
         KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
-        QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("iconname")), ent);
+        QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("icon")), ent);
         profilesList->addItem(itm);
         delete group;
     }
@@ -297,6 +285,7 @@ void EditPage::createProfile(const QString &name, const QString &icon)
         return;
     }
     KConfigGroup group(m_profilesConfig, name);
+    group.writeEntry("icon", icon);
 
     group.sync();
 
@@ -343,7 +332,7 @@ void EditPage::editProfile(const QString &prevname, const QString &icon)
 
     KConfigGroup group(m_profilesConfig, prevname);
 
-    group.writeEntry("iconname", icon);
+    group.writeEntry("icon", icon);
 
     group.sync();
 
@@ -379,7 +368,7 @@ void EditPage::editProfile()
 
     KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
 
-    ibt->setIcon(group->readEntry("iconname"));
+    ibt->setIcon(group->readEntry("icon"));
 
     lay->addRow(lb);
     lay->addRow(ibt, ed);
@@ -399,8 +388,8 @@ void EditPage::editProfile()
 
 void EditPage::importProfiles()
 {
-    QString fileName = KFileDialog::getOpenFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
-                       "(*.powerdevilprofiles)", this, i18n("Import PowerDevil Profiles"));
+    QString fileName = KFileDialog::getOpenFileName(KUrl(), "*.kpmsprofiles|KDE Power Management System Profiles "
+                       "(*.kpmsprofiles)", this, i18n("Import Power Management Profiles"));
 
     if (fileName.isEmpty()) {
         return;
@@ -422,8 +411,8 @@ void EditPage::importProfiles()
 
 void EditPage::exportProfiles()
 {
-    QString fileName = KFileDialog::getSaveFileName(KUrl(), "*.powerdevilprofiles|PowerDevil Profiles "
-                       "(*.powerdevilprofiles)", this, i18n("Export PowerDevil Profiles"));
+    QString fileName = KFileDialog::getSaveFileName(KUrl(), "*.kpmsprofiles|KDE Power Management System Profiles "
+                       "(*.kpmsprofiles)", this, i18n("Export Power Management Profiles"));
 
     if (fileName.isEmpty()) {
         return;

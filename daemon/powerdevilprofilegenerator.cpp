@@ -56,6 +56,7 @@ void ProfileGenerator::generateProfiles()
 
     // Let's start: performance profile before anything else
     KConfigGroup performance(profilesConfig, i18nc("Name of a power profile", "Performance"));
+    performance.writeEntry("icon", "preferences-system-performance");
 
     // We want to dim the screen after a while, definitely
     {
@@ -105,6 +106,7 @@ void ProfileGenerator::generateProfiles()
 
         // Powersave
         KConfigGroup powersave(profilesConfig, i18nc("Name of a power profile", "Powersave"));
+        powersave.writeEntry("icon", "preferences-system-power-management");
         // Less brightness.
         {
             KConfigGroup brightnessControl(&powersave, "BrightnessControl");
@@ -146,6 +148,7 @@ void ProfileGenerator::generateProfiles()
 
         // Ok, now for aggressive powersave
         KConfigGroup aggrPowersave(profilesConfig, i18nc("Name of a power profile", "Aggressive powersave"));
+        aggrPowersave.writeEntry("icon", "battery-low");
         // Less brightness.
         {
             KConfigGroup brightnessControl(&aggrPowersave, "BrightnessControl");

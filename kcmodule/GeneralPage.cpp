@@ -167,10 +167,10 @@ void GeneralPage::reloadAvailableProfiles()
     foreach(const QString &ent, profilesConfig->groupList()) {
         KConfigGroup *group = new KConfigGroup(profilesConfig, ent);
 
-        acProfile->addItem(KIcon(group->readEntry("iconname")), ent);
-        batteryProfile->addItem(KIcon(group->readEntry("iconname")), ent);
-        lowProfile->addItem(KIcon(group->readEntry("iconname")), ent);
-        warningProfile->addItem(KIcon(group->readEntry("iconname")), ent);
+        acProfile->addItem(KIcon(group->readEntry("icon")), ent);
+        batteryProfile->addItem(KIcon(group->readEntry("icon")), ent);
+        lowProfile->addItem(KIcon(group->readEntry("icon")), ent);
+        warningProfile->addItem(KIcon(group->readEntry("icon")), ent);
         delete group;
     }
 

@@ -1,10 +1,13 @@
 set( kcm_powerdevil_profiles_SRCS
      EditPage.cpp
      actionconfigwidget.cpp
+     ../daemon/powerdevilprofilegenerator.cpp
 )
 
 kde4_add_ui_files(kcm_powerdevil_profiles_SRCS
     profileEditPage.ui)
+
+kde4_add_kcfg_files(kcm_powerdevil_profiles_SRCS ../PowerDevilSettings.kcfgc)
 
 kde4_add_plugin(kcm_powerdevilprofilesconfig ${kcm_powerdevil_profiles_SRCS})
 
