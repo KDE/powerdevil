@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevilsuspendsessionaction
-Icon=preferences-desktop-screensaver
+Icon=system-shutdown
 Name=Suspend Session
 Name[de]=Sitzung in den Ruhezustand versetzen
 Name[es]=Suspender la sesión

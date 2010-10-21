@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevilrunscriptaction
-Icon=preferences-desktop-screensaver
+Icon=system-run
 Name=Run Script
 Name[de]=Skript ausführen
 Name[es]=Ejecutar guión

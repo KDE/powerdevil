@@ -64,6 +64,9 @@ void GeneralPage::fillUi()
         ++batteryCount;
     }
 
+    eventsIconLabel->setPixmap(KIcon("preferences-desktop-notification").pixmap(24));
+    profileIconLabel->setPixmap(KIcon("preferences-system-power-management").pixmap(24));
+
     reloadAvailableProfiles();
 
     tabWidget->setTabIcon(0, KIcon("preferences-other"));

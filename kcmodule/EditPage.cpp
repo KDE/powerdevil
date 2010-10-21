@@ -118,7 +118,6 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
     connect(actionDeleteProfile, SIGNAL(triggered()), SLOT(deleteCurrentProfile()));
     connect(actionNewProfile, SIGNAL(triggered()), SLOT(createProfile()));
-    //connect(editProfileButton, SIGNAL(clicked()), SLOT(editProfile()));
     connect(actionImportProfiles, SIGNAL(triggered()), SLOT(importProfiles()));
     connect(actionExportProfiles, SIGNAL(triggered()), SLOT(exportProfiles()));
 
@@ -130,7 +129,6 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevilAction", "(Type == 'Service')");
 
     foreach (const KService::Ptr &offer, offers) {
-//         KService::Ptr offer;
         //try to load the specified library
         KPluginFactory *factory = KPluginLoader(offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
                                                                 QVariant::String).toString()).factory();
@@ -151,6 +149,9 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         connect(actionConfig, SIGNAL(changed()), this, SLOT(changed()));
 
         QCheckBox *checkbox = new QCheckBox(offer->name());
+        if (!offer->icon().isEmpty()) {
+            checkbox->setIcon(KIcon(offer->icon()));
+        }
         connect(checkbox, SIGNAL(stateChanged(int)), this, SLOT(changed()));
         m_actionsHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), checkbox);
         m_actionsConfigHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), actionConfig);

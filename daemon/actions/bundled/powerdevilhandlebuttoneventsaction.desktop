@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevilhandlebuttoneventsaction
-Icon=preferences-desktop-screensaver
+Icon=system-suspend
 
 Name=Button events handling
 Name[x-test]=xxButton events handlingxx

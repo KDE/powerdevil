@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=PowerDevilAction
 X-KDE-Library=powerdevilbrightnesscontrolaction_config
-Icon=preferences-desktop-screensaver
+Icon=preferences-system-power-management
 Name=Display Brightness
 Name[de]=Bildschirmhelligkeit
 Name[es]=Brillo de la pantalla

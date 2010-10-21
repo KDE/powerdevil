@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=PowerDevilAction
 # X-KDE-Library=powerdevildimdisplayaction
-Icon=preferences-desktop-screensaver
+Icon=preferences-desktop-display
 Name=Dim Display
 Name[de]=Bildschirm dimmen
 Name[es]=Atenuación de pantalla
