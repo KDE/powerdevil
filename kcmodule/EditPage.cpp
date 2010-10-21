@@ -126,7 +126,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     QMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
     // Load all the services
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevilAction", "(Type == 'Service')");
+    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
 
     foreach (const KService::Ptr &offer, offers) {
         //try to load the specified library

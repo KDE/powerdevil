@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-X-KDE-ServiceTypes=PowerDevilAction
+X-KDE-ServiceTypes=PowerDevil/Action
 # X-KDE-Library=powerdevilhandlebuttoneventsaction
 Icon=system-suspend
 

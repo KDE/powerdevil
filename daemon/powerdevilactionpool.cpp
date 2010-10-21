@@ -115,9 +115,13 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
     }
 
     // Otherwise, ask KService for the action itself
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                              "(X-KDE-PowerDevil-Action-ID == '"+actionId+"')");
+    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action");
     foreach (KService::Ptr offer, offers) {
+        if (offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString() != actionId) {
+            continue;
+        }
+
+        kDebug() << "Got a valid offer for " << actionId;
         //try to load the specified library
         retaction = offer->createInstance< PowerDevil::Action >(parent);
 
