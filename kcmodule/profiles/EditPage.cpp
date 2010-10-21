@@ -55,7 +55,7 @@
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("kcmpowerdevilprofiles"))
+K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("powerdevilprofilesconfig"))
 
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilProfilesKCMFactory::componentData(), parent, args)
@@ -64,12 +64,11 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     setButtons(Apply | Help);
 
     KAboutData *about =
-        new KAboutData("kcmpowerdevilprofiles", "powerdevilprofiles", ki18n("Power Profiles Configuration"),
+        new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
                        "", ki18n("A profile configurator for KDE Power Management System"),
                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-                       ki18n("From this module, you can configure the Daemon, create "
-                             "and edit powersaving profiles, and see your system's "
-                             "capabilities."));
+                       ki18n("From this module, you can manage KDE Power Management System's power profile, by tweaking "
+                             "existing ones or creating new ones."));
 
     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
                      "http://drfav.wordpress.com");

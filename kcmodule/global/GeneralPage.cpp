@@ -33,15 +33,30 @@
 
 #include <KNotifyConfigWidget>
 #include <KPluginFactory>
+#include <KAboutData>
 
 K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                  registerPlugin<GeneralPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("kcmpowerdevilgeneral"))
+K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("powerdevilglobalconfig"))
 
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilGeneralKCMFactory::componentData(), parent, args)
 {
+    setButtons(Apply | Help);
+
+    KAboutData *about =
+        new KAboutData("powerdevilglobalconfig", "powerdevilglobalconfig", ki18n("Global Power Management Configuration"),
+                       "", ki18n("A global power management configurator for KDE Power Management System"),
+                       KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
+                       ki18n("From this module, you can configure the main Power Management daemon, assign profiles to "
+                             "states, and do some advanced fine tuning on battery handling"));
+
+    about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
+                     "http://drfav.wordpress.com");
+
+    setAboutData(about);
+
     setupUi(this);
 
     fillUi();
