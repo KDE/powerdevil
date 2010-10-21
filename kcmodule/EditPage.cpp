@@ -220,6 +220,7 @@ void EditPage::loadProfile()
 void EditPage::saveProfile(const QString &p)
 {
     if (!profilesList->currentItem() && p.isEmpty()) {
+        kDebug() << "Could not perform a save operation";
         return;
     }
 
@@ -233,7 +234,8 @@ void EditPage::saveProfile(const QString &p)
 
     KConfigGroup group(m_profilesConfig, profile);
 
-    if (!group.isValid() || !group.entryMap().size()) {
+    if (!group.isValid()) {
+        kDebug() << "Could not perform a save operation, group is not valid!";
         return;
     }
 
@@ -247,6 +249,8 @@ void EditPage::saveProfile(const QString &p)
             group.group(i.key()).deleteGroup();
         }
     }
+
+    group.sync();
 
     emit changed(false);
 }
