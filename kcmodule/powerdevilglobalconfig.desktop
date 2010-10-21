@@ -19,6 +19,7 @@ Name[pt_BR]=Configurações globais
 Name[sv]=Allmänna inställningar
 Name[uk]=Загальні параметри
 Name[x-test]=xxGlobal settingsxx
+Name[zh_TW]=全域設定
 
 Comment=Configure global Power Management settings
 Comment[es]=Configuración de las preferencias globales de la gestión de energía
@@ -29,5 +30,6 @@ Comment[pt_BR]=Configura as opções globais do gerenciamento de energia
 Comment[sv]=Anpassa allmänna inställningar av strömhantering
 Comment[uk]=Налаштування загальних параметрів керування живленням
 Comment[x-test]=xxConfigure global Power Management settingsxx
+Comment[zh_TW]=設定全域電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
