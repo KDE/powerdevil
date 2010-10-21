@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=ServiceType
-X-KDE-ServiceType=PowerDevilAction
+X-KDE-ServiceType=PowerDevil/Action
 
 Comment=Power Management Action Extension
 Comment[de]=Erweiterung für Energieverwaltungs-Aktionen
