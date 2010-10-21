@@ -27,6 +27,7 @@
 #include "powerdevilactionpool.h"
 #include "powerdevilbackendinterface.h"
 #include "powerdevilpolicyagent.h"
+#include "powerdevilprofilegenerator.h"
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -90,6 +91,13 @@ void Core::onBackendReady()
     }
 
     m_profilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+
+    // Is it brand new?
+    if (m_profilesConfig->groupList().isEmpty()) {
+        // Generate defaults
+        ProfileGenerator::generateProfiles();
+        m_profilesConfig->reparseConfiguration();
+    }
 
     // Get the battery devices ready
     {

@@ -20,6 +20,7 @@ set(powerdevilcore_SRCS
     powerdevilbackendinterface.cpp
     powerdevilcore.cpp
     powerdevilpolicyagent.cpp
+    powerdevilprofilegenerator.cpp
 )
 
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
