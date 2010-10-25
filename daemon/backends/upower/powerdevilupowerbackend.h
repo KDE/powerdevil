@@ -74,6 +74,7 @@ private:
     // buttons
     bool m_lidIsPresent;
     bool m_lidIsClosed;
+    bool m_onBattery;
 };
 
 #endif // POWERDEVILUPOWERBACKEND_H

@@ -37,7 +37,7 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent, const QVariant
     : BackendInterface(parent),
       m_brightNessControl(new XRandrBrightness()),
       m_upowerInterface(new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), parent)),
-      m_lidIsPresent(false), m_lidIsClosed(false)
+      m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
 {
 }
 
@@ -116,7 +116,7 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
 float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
     if (type == Screen) {
-        qDebug() << "Brightness: " << m_brightNessControl->brightness();
+        kDebug() << "Brightness: " << m_brightNessControl->brightness();
         return m_brightNessControl->brightness();
     } else {
         //TODO: UPower will support kbd backlight in the next version
@@ -127,7 +127,7 @@ float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightne
 bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == Screen) {
-        qDebug() << "setBrightness: " << brightnessValue;
+        kDebug() << "setBrightness: " << brightnessValue;
         m_brightNessControl->setBrightness(brightnessValue);
         float newBrightness = brightness(Screen);
         if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
@@ -148,12 +148,18 @@ KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMeth
 
 void PowerDevilUPowerBackend::enumerateDevices()
 {
+    m_lidIsPresent = m_upowerInterface->lidIsPresent();
+    m_lidIsClosed = m_upowerInterface->lidIsClosed();
+    m_onBattery = m_upowerInterface->onBattery();
+
     QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
     foreach (const QDBusObjectPath & device, deviceList)
         slotDeviceAdded(device.path());
 
-    m_lidIsPresent = m_upowerInterface->lidIsPresent();
-    m_lidIsClosed = m_upowerInterface->lidIsClosed();
+    if (m_onBattery)
+        setAcAdapterState(Unplugged);
+    else
+        setAcAdapterState(Plugged);
 }
 
 void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
@@ -185,13 +191,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     qlonglong remainingTime = 0;
 
     foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
-        if (upowerDevice->type() == 1)  {
-            if (upowerDevice->online()) // AC plugged in
-                setAcAdapterState(Plugged);
-            else
-                setAcAdapterState(Unplugged);
-        }
-        else if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
+        if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
             if (upowerDevice->state() == 1) // charging
                 remainingTime += upowerDevice->timeToFull();
             else if (upowerDevice->state() == 2) //discharging
@@ -215,6 +215,17 @@ void PowerDevilUPowerBackend::slotPropertyChanged()
         }
         m_lidIsClosed = lidIsClosed;
     }
+
+    // check for AC adapter changes
+    bool onBattery = m_upowerInterface->onBattery();
+    if (m_onBattery != onBattery) {
+        if (onBattery)
+            setAcAdapterState(Unplugged);
+        else
+            setAcAdapterState(Plugged);
+    }
+
+    m_onBattery = onBattery;
 }
 
 #include "powerdevilupowerbackend.moc"

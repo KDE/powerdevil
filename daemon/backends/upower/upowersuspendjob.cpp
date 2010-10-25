@@ -58,16 +58,18 @@ void UPowerSuspendJob::doStart()
     {
         switch(m_method)
         {
-            case PowerDevil::BackendInterface::ToRam:
-                m_upowerInterface->Suspend();
-                break;
-            case PowerDevil::BackendInterface::ToDisk:
-                m_upowerInterface->Hibernate();
-                break;
-            default:
-                kDebug() << "This backend doesn't support hybrid mode";
-                setError(1);
-                setErrorText(i18n("Unsupported suspend method"));
+        case PowerDevil::BackendInterface::ToRam:
+            m_upowerInterface->AboutToSleep();
+            m_upowerInterface->Suspend();
+            break;
+        case PowerDevil::BackendInterface::ToDisk:
+            m_upowerInterface->AboutToSleep();
+            m_upowerInterface->Hibernate();
+            break;
+        default:
+            kDebug() << "This backend doesn't support hybrid mode";
+            setError(1);
+            setErrorText(i18n("Unsupported suspend method"));
             break;
         }
         emitResult();
