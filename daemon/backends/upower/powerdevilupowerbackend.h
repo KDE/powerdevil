@@ -19,8 +19,8 @@
 
 */
 
-#ifndef POWERDEVILHALBACKEND_H
-#define POWERDEVILHALBACKEND_H
+#ifndef POWERDEVILUPOWERBACKEND_H
+#define POWERDEVILUPOWERBACKEND_H
 
 #include <powerdevilbackendinterface.h>
 
@@ -29,16 +29,12 @@
 
 #include <kdemacros.h>
 
-#include <solid/devicenotifier.h>
-#include <solid/device.h>
-#include <solid/button.h>
+#include "upower_device_interface.h"
+#include "upower_interface.h"
+
+#define UPOWER_SERVICE "org.freedesktop.UPower"
 
 class XRandrBrightness;
-class OrgFreedesktopUPowerInterface;
-namespace Solid {
-class Device;
-}
-
 
 class KDE_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
@@ -57,34 +53,27 @@ public:
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
 private:
-    void computeAcAdapters();
-    void computeBatteries();
-    void computeButtons();
-    PowerDevil::BackendInterface::BatteryState batteryState() const;
+    void enumerateDevices();
 
 private slots:
-    void updateBatteryStats();
-    void slotPlugStateChanged(bool newState);
-    void slotButtonPressed(Solid::Button::ButtonType type);
-    void slotDeviceAdded(const QString &udi);
-    void slotDeviceRemoved(const QString &udi);
-    void slotBatteryChargeChanged();
+    void updateDeviceProps();
+    void slotDeviceAdded(const QString &);
+    void slotDeviceRemoved(const QString &);
+    void slotDeviceChanged(const QString &);
+    void slotPropertyChanged();
 
 private:
-    QMap<QString, Solid::Device *> m_acAdapters;
-    QMap<QString, Solid::Device *> m_batteries;
-    QMap<QString, Solid::Device *> m_buttons;
+    // upower devices
+    QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
 
-    int m_pluggedAdapterCount;
-
-    qlonglong m_estimatedBatteryTime;
-    int m_currentBatteryCharge;
-
+    // brightness
     float m_cachedBrightness;
-
-    //Custom UPower stuff
-    XRandrBrightness              *m_brightNessControl;
+    XRandrBrightness         *m_brightNessControl;
     OrgFreedesktopUPowerInterface *m_upowerInterface;
+
+    // buttons
+    bool m_lidIsPresent;
+    bool m_lidIsClosed;
 };
 
-#endif // POWERDEVILHALBACKEND_H
+#endif // POWERDEVILUPOWERBACKEND_H
