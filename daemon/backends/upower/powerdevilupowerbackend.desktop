@@ -5,6 +5,7 @@ X-KDE-Library=powerdevilupowerbackend
 InitialPreference=200
 Icon=preferences-system-power-management
 Name=UPower PowerDevil Backend
+Name[de]=UPower-PowerDevil-Modul
 Name[et]=UPoweri PowerDevili taustaprogramm
 Name[ia]=UPower PowerDevil Backend
 Name[nds]=Hülpprogramm för den UPower-Stroomdüvel

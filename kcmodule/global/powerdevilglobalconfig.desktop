@@ -11,6 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=power-management
 
 Name=Global settings
+Name[de]=Globale Einstellungen
 Name[es]=Preferencias globales
 Name[et]=Globaalsed seadistused
 Name[ia]=Preferentias Global
@@ -25,6 +26,7 @@ Name[x-test]=xxGlobal settingsxx
 Name[zh_TW]=全域設定
 
 Comment=Configure global Power Management settings
+Comment[de]=Globale Energieprofile einrichten
 Comment[es]=Configuración de las preferencias globales de la gestión de energía
 Comment[et]=Toitehalduse globaalsed seadistused
 Comment[ia]=Configurar preferentias global de gestion de Energia

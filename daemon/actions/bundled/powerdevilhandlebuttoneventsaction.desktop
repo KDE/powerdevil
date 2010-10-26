@@ -5,6 +5,8 @@ X-KDE-ServiceTypes=PowerDevil/Action
 Icon=system-suspend
 
 Name=Button events handling
+Name[et]=Nupusündmuste kohtlemine
+Name[ia]=Button maneante de eventos
 Name[nl]=Knop voor afhandelen van evenementen
 Name[pa]=ਬਟਨ ਈਵੈਂਟ ਹੈਡਲਿੰਗ
 Name[pt]=Tratamento dos eventos dos botões
@@ -14,6 +16,8 @@ Name[x-test]=xxButton events handlingxx
 Name[zh_TW]=按鍵事件處理
 
 Comment=Performs an action whenever a button is pressed
+Comment[et]=Toimingu sooritamine, kui vajutatakse nuppu
+Comment[ia]=Il executa un action quando un button es pressate
 Comment[nl]=Voer een actie uit als er een knop wordt ingedrukt
 Comment[pa]=ਜਦੋਂ ਬਟਨ ਦੱਬਿਆ ਜਾਵੇ ਤਾਂ ਕਾਰਵਾਈ ਕਰੋ
 Comment[pt]=Efectua uma acção quando carregar num botão
