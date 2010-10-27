@@ -81,7 +81,7 @@ bool XRandrBrightness::isSupported() const
 float XRandrBrightness::brightness() const
 {
     int o;
-    float result;
+    float result = 0;
 
     for (o = 0; o < m_resources->noutput; o++)
     {
