@@ -6,10 +6,21 @@ ${CMAKE_CURRENT_BINARY_DIR} ${X11_INCLUDE_DIR} ${QT_INCLUDE_DIR} ${X11_Xrandr_IN
 set(powerdevilupowerbackend_SRCS
     upowersuspendjob.cpp
     powerdevilupowerbackend.cpp
-    upower_device_interface.cpp
-    upower_interface.cpp
     xrandrbrightness.cpp
 )
+
+set_source_files_properties(
+  ${CMAKE_CURRENT_SOURCE_DIR}/dbus/org.freedesktop.UPower.xml
+  ${CMAKE_CURRENT_SOURCE_DIR}/dbus/org.freedesktop.UPower.Device.xml
+  PROPERTIES NO_NAMESPACE TRUE)
+
+qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+${CMAKE_CURRENT_SOURCE_DIR}/dbus/org.freedesktop.UPower.xml
+upower_interface)
+
+qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+${CMAKE_CURRENT_SOURCE_DIR}/dbus/org.freedesktop.UPower.Device.xml
+upower_device_interface)
 
 kde4_add_plugin(powerdevilupowerbackend ${powerdevilupowerbackend_SRCS})
 
