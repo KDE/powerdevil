@@ -43,7 +43,7 @@ public:
 
 private Q_SLOTS:
     void doStart();
-    void resumeDone(const QDBusMessage &reply);
+    void resumeDone();
 
 private:
     OrgFreedesktopUPowerInterface *m_upowerInterface;

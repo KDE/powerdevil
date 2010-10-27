@@ -28,13 +28,15 @@
 #include <KLocale>
 
 UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
-                             PowerDevil::BackendInterface::SuspendMethod method,
-                             PowerDevil::BackendInterface::SuspendMethods supported)
+                                   PowerDevil::BackendInterface::SuspendMethod method,
+                                   PowerDevil::BackendInterface::SuspendMethods supported)
     : KJob(), m_upowerInterface(upowerInterface)
 {
     kDebug() << "Stancing Suspend job";
     m_method = method;
     m_supported = supported;
+
+    connect(m_upowerInterface, SIGNAL(Resuming()), this, SLOT(resumeDone()));
 }
 
 UPowerSuspendJob::~UPowerSuspendJob()
@@ -77,19 +79,8 @@ void UPowerSuspendJob::doStart()
 }
 
 
-void UPowerSuspendJob::resumeDone(const QDBusMessage &reply)
+void UPowerSuspendJob::resumeDone()
 {
-    if (reply.type() == QDBusMessage::ErrorMessage)
-    {
-        // We ignore the NoReply error, since we can timeout anyway
-        // if the computer is suspended for too long.
-        if (reply.errorName() != "org.freedesktop.DBus.Error.NoReply")
-        {
-            setError(1);
-            setErrorText(reply.errorName()+": "+reply.arguments().at(0).toString());
-        }
-    }
-
     emitResult();
 }
 
