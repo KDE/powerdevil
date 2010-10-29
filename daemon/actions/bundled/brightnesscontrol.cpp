@@ -29,7 +29,7 @@ namespace BundledActions {
 BrightnessControl::BrightnessControl(QObject* parent)
     : Action(parent)
 {
-
+    setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
 BrightnessControl::~BrightnessControl()

@@ -30,7 +30,7 @@ namespace BundledActions {
 DisableDesktopEffects::DisableDesktopEffects(QObject* parent)
     : Action(parent)
 {
-
+    setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
 DisableDesktopEffects::~DisableDesktopEffects()

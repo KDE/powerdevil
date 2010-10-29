@@ -36,10 +36,10 @@ public:
     explicit HandleButtonEvents(QObject* parent);
     virtual ~HandleButtonEvents();
 
-    virtual void triggerImpl(const QVariantMap& args);
     virtual bool loadAction(const KConfigGroup& config);
 
 protected:
+    virtual void triggerImpl(const QVariantMap& args);
     virtual void onProfileUnload();
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);

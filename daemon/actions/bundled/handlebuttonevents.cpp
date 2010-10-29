@@ -33,6 +33,8 @@ HandleButtonEvents::HandleButtonEvents(QObject* parent)
     , m_sleepButtonAction(0)
     , m_powerButtonAction(0)
 {
+    // We enforce no policies here - after all, we just call other actions - which have their policies.
+    setRequiredPolicies(PowerDevil::PolicyAgent::None);
     connect(backend(), SIGNAL(buttonPressed(PowerDevil::BackendInterface::ButtonType)),
             this, SLOT(onButtonPressed(PowerDevil::BackendInterface::ButtonType)));
 }

@@ -37,7 +37,7 @@ namespace BundledActions
 SuspendSession::SuspendSession(QObject* parent)
     : Action(parent)
 {
-
+    setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 }
 
 SuspendSession::~SuspendSession()

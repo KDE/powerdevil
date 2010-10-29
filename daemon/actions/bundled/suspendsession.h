@@ -36,7 +36,7 @@ class SuspendSession : public PowerDevil::Action
 public:
     explicit SuspendSession(QObject *parent);
     virtual ~SuspendSession();
-    virtual void triggerImpl(const QVariantMap& args);
+
     virtual bool loadAction(const KConfigGroup& config);
     
 protected:
@@ -44,6 +44,7 @@ protected:
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
+    virtual void triggerImpl(const QVariantMap& args);
 
 private:
     QString m_autoType;

@@ -30,7 +30,7 @@ namespace BundledActions {
 DimDisplay::DimDisplay(QObject* parent)
     : Action(parent)
 {
-
+    setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
 DimDisplay::~DimDisplay()
@@ -44,20 +44,20 @@ void DimDisplay::onProfileUnload()
 
 void DimDisplay::onWakeupFromIdle()
 {
-    backend()->setBrightness(m_oldBrightness);
+    setBrightnessHelper(m_oldBrightness);
 }
 
 void DimDisplay::onIdleTimeout(int msec)
 {
     if (msec == m_dimOnIdleTime) {
-        backend()->setBrightness(0);
+        setBrightnessHelper(0);
     } else if (msec == (m_dimOnIdleTime * 3 / 4)) {
         float newBrightness = backend()->brightness() / 4;
-        backend()->setBrightness(newBrightness);
+        setBrightnessHelper(newBrightness);
     } else if (msec == (m_dimOnIdleTime * 1 / 2)) {
         m_oldBrightness = backend()->brightness();
         float newBrightness = backend()->brightness() / 2;
-        backend()->setBrightness(newBrightness);
+        setBrightnessHelper(newBrightness);
     }
 }
 
@@ -66,9 +66,16 @@ void DimDisplay::onProfileLoad()
     //
 }
 
+void DimDisplay::setBrightnessHelper(float brightness)
+{
+    QVariantMap args;
+    args["_BrightnessValue"] = QVariant::fromValue(brightness);
+    trigger(args);
+}
+
 void DimDisplay::triggerImpl(const QVariantMap& args)
 {
-    Q_UNUSED(args);
+    backend()->setBrightness(args["_BrightnessValue"].toFloat());
 }
 
 bool DimDisplay::loadAction(const KConfigGroup& config)

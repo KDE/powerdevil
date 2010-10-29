@@ -41,12 +41,14 @@ protected:
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
+    virtual void triggerImpl(const QVariantMap& args);
 
 public:
-    virtual void triggerImpl(const QVariantMap& args);
     virtual bool loadAction(const KConfigGroup& config);
 
 private:
+    void setBrightnessHelper(float brightness);
+
     int m_dimOnIdleTime;
     float m_oldBrightness;
 };

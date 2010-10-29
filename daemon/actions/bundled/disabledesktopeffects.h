@@ -35,7 +35,6 @@ public:
     explicit DisableDesktopEffects(QObject* parent);
     virtual ~DisableDesktopEffects();
 
-    virtual void triggerImpl(const QVariantMap& args);
     virtual bool loadAction(const KConfigGroup& config);
 
 protected:
@@ -43,6 +42,7 @@ protected:
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
+    virtual void triggerImpl(const QVariantMap& args);
 
 private:
     bool m_hasIdleTime;

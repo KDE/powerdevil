@@ -28,7 +28,8 @@ namespace BundledActions {
 RunScript::RunScript(QObject* parent)
     : Action(parent)
 {
-
+    // TODO: Which policy should we enforce here? Let's go for the less restrictive one
+    setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
 RunScript::~RunScript()
