@@ -18,7 +18,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  **************************************************************************/
 
-#include "PowerManagementConnector.h"
+#include "powerdevilfdoconnector.h"
 
 #include "powerdevilcore.h"
 #include "powerdevilpolicyagent.h"
@@ -26,7 +26,9 @@
 #include "powermanagementfdoadaptor.h"
 #include "powermanagementinhibitadaptor.h"
 
-PowerManagementConnector::PowerManagementConnector(PowerDevil::Core *parent)
+namespace PowerDevil {
+
+FdoConnector::FdoConnector(PowerDevil::Core *parent)
         : QObject(parent), m_core(parent)
 {
     new PowerManagementFdoAdaptor(this);
@@ -46,56 +48,57 @@ PowerManagementConnector::PowerManagementConnector(PowerDevil::Core *parent)
             this, SIGNAL(HasInhibitChanged(bool)));
 }
 
-bool PowerManagementConnector::CanHibernate()
+bool FdoConnector::CanHibernate()
 {
     return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
 }
 
-bool PowerManagementConnector::CanSuspend()
+bool FdoConnector::CanSuspend()
 {
     return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
 }
 
-bool PowerManagementConnector::GetPowerSaveStatus()
+bool FdoConnector::GetPowerSaveStatus()
 {
     return m_core->backend()->acAdapterState() == PowerDevil::BackendInterface::Unplugged;
 }
 
-void PowerManagementConnector::Suspend()
+void FdoConnector::Suspend()
 {
     m_core->suspendToRam();
 }
 
-void PowerManagementConnector::Hibernate()
+void FdoConnector::Hibernate()
 {
     m_core->suspendToDisk();
 }
 
-bool PowerManagementConnector::HasInhibit()
+bool FdoConnector::HasInhibit()
 {
-    return PowerDevil::PolicyAgent::instance()->requirePolicyCheck(PowerDevil::PolicyAgent::InterruptSession)
-                                                                        == PowerDevil::PolicyAgent::None;
+    return PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::InterruptSession) != PolicyAgent::None;
 }
 
-int PowerManagementConnector::Inhibit(const QString &application, const QString &reason)
+int FdoConnector::Inhibit(const QString &application, const QString &reason)
 {
     //return m_daemon->lockHandler()->inhibit(application, reason);
     return 0;
 }
 
-void PowerManagementConnector::UnInhibit(int cookie)
+void FdoConnector::UnInhibit(int cookie)
 {
     //m_daemon->lockHandler()->releaseInhibiton(cookie);
 }
 
-void PowerManagementConnector::ForceUnInhibitAll()
+void FdoConnector::ForceUnInhibitAll()
 {
     //m_daemon->lockHandler()->releaseAllInhibitions();
 }
 
-void PowerManagementConnector::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newstate)
+void FdoConnector::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newstate)
 {
     emit PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Plugged);
 }
 
-#include "PowerManagementConnector.moc"
+}
+
+#include "powerdevilfdoconnector.moc"

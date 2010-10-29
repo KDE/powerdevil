@@ -27,14 +27,13 @@
 
 namespace PowerDevil {
 class Core;
-}
 
-class PowerManagementConnector : public QObject
+class FdoConnector : public QObject
 {
     Q_OBJECT
 
 public:
-    PowerManagementConnector(PowerDevil::Core *parent);
+    FdoConnector(PowerDevil::Core *parent);
 
     bool CanHibernate();
     bool CanSuspend();
@@ -63,5 +62,7 @@ private Q_SLOTS:
 private:
     PowerDevil::Core *m_core;
 };
+
+}
 
 #endif /*POWERMANAGEMENTCONNECTOR_H*/
