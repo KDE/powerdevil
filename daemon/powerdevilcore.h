@@ -42,7 +42,7 @@ class KDE_EXPORT Core : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Core)
-    Q_CLASSINFO("D-Bus Interface", "org.kde.PowerDevil")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement")
 
 public:
     explicit Core(QObject* parent, const KComponentData &componentData);

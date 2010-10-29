@@ -32,6 +32,10 @@ class Core;
 class FdoConnector : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(FdoConnector)
+
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.PowerManagement")
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.PowerManagement.Inhibit")
 
 public:
     FdoConnector(PowerDevil::Core *parent);
