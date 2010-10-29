@@ -66,7 +66,7 @@ void DimDisplay::onProfileLoad()
     //
 }
 
-void DimDisplay::trigger(const QVariantMap& args)
+void DimDisplay::triggerImpl(const QVariantMap& args)
 {
     Q_UNUSED(args);
 }

@@ -43,7 +43,7 @@ protected:
     virtual void onProfileLoad();
 
 public:
-    virtual void trigger(const QVariantMap& args);
+    virtual void triggerImpl(const QVariantMap& args);
     virtual bool loadAction(const KConfigGroup& config);
 
 private:

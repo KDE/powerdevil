@@ -68,7 +68,7 @@ void SuspendSession::onProfileLoad()
     // Nothing to do
 }
 
-void SuspendSession::trigger(const QVariantMap& args)
+void SuspendSession::triggerImpl(const QVariantMap& args)
 {
     if (!PowerDevil::PolicyAgent::instance()->canInterruptSession()) {
         return;

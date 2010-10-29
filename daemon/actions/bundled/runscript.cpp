@@ -60,7 +60,7 @@ void RunScript::onProfileLoad()
     }
 }
 
-void RunScript::trigger(const QVariantMap& args)
+void RunScript::triggerImpl(const QVariantMap& args)
 {
     Q_UNUSED(args);
 }

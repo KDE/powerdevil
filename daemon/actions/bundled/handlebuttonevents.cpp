@@ -130,7 +130,7 @@ void HandleButtonEvents::triggerAction(const QString& action, const QString &typ
     }
 }
 
-void HandleButtonEvents::trigger(const QVariantMap& args)
+void HandleButtonEvents::triggerImpl(const QVariantMap& args)
 {
     // For now, let's just accept the phantomatic "32" button.
     if (args["Button"].toInt() == 32) {

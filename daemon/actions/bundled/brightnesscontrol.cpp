@@ -61,7 +61,7 @@ void BrightnessControl::onProfileLoad()
     }
 }
 
-void BrightnessControl::trigger(const QVariantMap& args)
+void BrightnessControl::triggerImpl(const QVariantMap& args)
 {
     backend()->setBrightness(args["Value"].toFloat());
 }

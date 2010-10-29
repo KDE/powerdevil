@@ -33,6 +33,7 @@ public:
     PowerDevil::Core *core;
 
     QList< int > registeredIdleTimeouts;
+    PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies;
 };
 
 Action::Action(QObject* parent)
@@ -78,6 +79,37 @@ BackendInterface* Action::backend()
 Core* Action::core()
 {
     return d->core;
+}
+
+void Action::trigger(const QVariantMap& args)
+{
+    bool allowed = true;
+    if (d->requiredPolicies & PowerDevil::PolicyAgent::InterruptSession) {
+        if (!PowerDevil::PolicyAgent::instance()->canInterruptSession()) {
+            // nono
+            return;
+        }
+    }
+    if (d->requiredPolicies & PowerDevil::PolicyAgent::ChangeProfile) {
+        if (!PowerDevil::PolicyAgent::instance()->canChangeProfile()) {
+            // nono
+            return;
+        }
+    }
+    if (d->requiredPolicies & PowerDevil::PolicyAgent::ChangeScreenSettings) {
+        if (!PowerDevil::PolicyAgent::instance()->canChangeScreenSettings()) {
+            // nono
+            return;
+        }
+    }
+
+    // If we got here, let's go
+    triggerImpl(args);
+}
+
+void Action::setRequiredPolicies(PolicyAgent::RequiredPolicies requiredPolicies)
+{
+    d->requiredPolicies = requiredPolicies;
 }
 
 }

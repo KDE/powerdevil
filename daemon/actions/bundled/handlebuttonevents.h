@@ -36,7 +36,7 @@ public:
     explicit HandleButtonEvents(QObject* parent);
     virtual ~HandleButtonEvents();
 
-    virtual void trigger(const QVariantMap& args);
+    virtual void triggerImpl(const QVariantMap& args);
     virtual bool loadAction(const KConfigGroup& config);
 
 protected:

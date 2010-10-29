@@ -35,7 +35,7 @@ public:
     explicit DisableDesktopEffects(QObject* parent);
     virtual ~DisableDesktopEffects();
 
-    virtual void trigger(const QVariantMap& args);
+    virtual void triggerImpl(const QVariantMap& args);
     virtual bool loadAction(const KConfigGroup& config);
 
 protected:

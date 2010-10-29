@@ -107,7 +107,7 @@ void PowerDevilDPMSAction::onProfileLoad()
     XSetErrorHandler(defaultHandler);
 }
 
-void PowerDevilDPMSAction::trigger(const QVariantMap& args)
+void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
 {
     CARD16 dummy;
     BOOL enabled;

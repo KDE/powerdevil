@@ -26,6 +26,8 @@
 
 #include <kdemacros.h>
 
+#include "powerdevilpolicyagent.h"
+
 class KConfigGroup;
 
 namespace PowerDevil
@@ -45,10 +47,13 @@ public:
     virtual bool loadAction(const KConfigGroup &config) = 0;
     virtual bool unloadAction();
 
-    virtual void trigger(const QVariantMap &args) = 0;
+    void trigger(const QVariantMap &args);
 
 protected:
     void registerIdleTimeout(int msec);
+    void setRequiredPolicies(PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies);
+
+    virtual void triggerImpl(const QVariantMap &args) = 0;
 
     PowerDevil::BackendInterface *backend();
     PowerDevil::Core *core();

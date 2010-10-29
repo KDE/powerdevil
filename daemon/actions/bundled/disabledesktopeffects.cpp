@@ -70,7 +70,7 @@ void DisableDesktopEffects::onProfileLoad()
     }
 }
 
-void DisableDesktopEffects::trigger(const QVariantMap& args)
+void DisableDesktopEffects::triggerImpl(const QVariantMap& args)
 {
     bool enabled = args["Enable"].toBool();
     QDBusInterface kwiniface("org.kde.kwin", "/KWin", "org.kde.KWin", QDBusConnection::sessionBus());
