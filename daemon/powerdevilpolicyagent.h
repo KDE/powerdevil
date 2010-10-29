@@ -22,7 +22,9 @@
 #define POWERDEVIL_POWERDEVILPOLICYAGENT_H
 
 #include <QtCore/QObject>
+#include <QtCore/QHash>
 
+class QDBusServiceWatcher;
 class QDBusInterface;
 
 namespace PowerDevil
@@ -52,6 +54,22 @@ public:
      */
     RequiredPolicies requirePolicyCheck(RequiredPolicies policies);
 
+    RequiredPolicies unavailablePolicies();
+
+public Q_SLOTS:
+    // Exported slots
+    uint addInhibition(uint types, const QString &appName, const QString &reason);
+    uint addInhibition(uint types, const QString &appName, const QString &reason, const QString &dbusService);
+
+    void releaseInhibition(uint cookie);
+    void releaseAllInhibitions();
+
+Q_SIGNALS:
+    void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
+
+private Q_SLOTS:
+    void onServiceUnregistered(const QString &serviceName);
+
 private:
     explicit PolicyAgent(QObject* parent = 0);
 
@@ -59,9 +77,19 @@ private:
     void startSessionInterruption();
     void finishSessionInterruption();
 
+    void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
+
     bool m_ckAvailable;
     QDBusInterface *m_ckSessionInterface;
     bool m_sessionIsBeingInterrupted;
+
+    QHash< uint, QPair< QString, QString > > m_cookieToAppName;
+    QHash< uint, QString > m_cookieToBusService;
+    QHash< RequiredPolicy, QList< uint > > m_typesToCookie;
+
+    uint m_lastCookie;
+
+    QDBusServiceWatcher *m_busWatcher;
 
     friend class Core;
 };

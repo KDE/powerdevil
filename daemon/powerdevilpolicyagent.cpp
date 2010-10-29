@@ -26,6 +26,7 @@
 #include <QtDBus/QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDBusConnectionInterface>
+#include <QDBusServiceWatcher>
 
 namespace PowerDevil
 {
@@ -54,6 +55,7 @@ PolicyAgent *PolicyAgent::instance()
 PolicyAgent::PolicyAgent(QObject* parent)
     : QObject(parent)
     , m_sessionIsBeingInterrupted(false)
+    , m_lastCookie(0)
 {
     Q_ASSERT(!s_globalPolicyAgent->q);
     s_globalPolicyAgent->q = this;
@@ -99,6 +101,39 @@ void PolicyAgent::init()
         m_ckAvailable = false;
         return;
     }
+
+    // Now set up our service watcher
+    m_busWatcher = new QDBusServiceWatcher(this);
+    m_busWatcher->setConnection(QDBusConnection::sessionBus());
+    m_busWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
+
+    connect(m_busWatcher, SIGNAL(serviceUnregistered(QString)),
+            this, SLOT(onServiceUnregistered(QString)));
+}
+
+void PolicyAgent::onServiceUnregistered(const QString& serviceName)
+{
+    if (m_cookieToBusService.values().contains(serviceName)) {
+        // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
+        releaseInhibition(m_cookieToBusService.key(serviceName));
+    }
+}
+
+PolicyAgent::RequiredPolicies PolicyAgent::unavailablePolicies()
+{
+    RequiredPolicies retpolicies = None;
+
+    if (!m_typesToCookie[ChangeProfile].isEmpty()) {
+        retpolicies |= ChangeProfile;
+    }
+    if (!m_typesToCookie[ChangeScreenSettings].isEmpty()) {
+        retpolicies |= ChangeScreenSettings;
+    }
+    if (!m_typesToCookie[InterruptSession].isEmpty()) {
+        retpolicies |= InterruptSession;
+    }
+
+    return retpolicies;
 }
 
 PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::RequiredPolicies policies)
@@ -141,6 +176,115 @@ void PolicyAgent::startSessionInterruption()
 void PolicyAgent::finishSessionInterruption()
 {
     m_sessionIsBeingInterrupted = false;
+}
+
+uint PolicyAgent::addInhibition(uint types,
+                                const QString& appName,
+                                const QString& reason)
+{
+    ++m_lastCookie;
+
+    m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
+
+    addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
+
+    return m_lastCookie;
+}
+
+uint PolicyAgent::addInhibition(uint types,
+                                const QString& appName,
+                                const QString& reason,
+                                const QString& dbusService)
+{
+    ++m_lastCookie;
+
+    m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
+    m_cookieToBusService.insert(m_lastCookie, dbusService);
+
+    // Watch over the bus service: so that we can eventually release the inhibition if the app crashes.
+    m_busWatcher->addWatchedService(dbusService);
+
+    addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
+
+    return m_lastCookie;
+}
+
+void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPolicies types)
+{
+    // Look through all of the inhibition types
+    bool notify = false;
+    if (types & ChangeProfile) {
+        // Check if we have to notify
+        if (m_typesToCookie[ChangeProfile].isEmpty()) {
+            notify = true;
+        }
+        m_typesToCookie[ChangeProfile].append(cookie);
+    }
+    if (types & ChangeScreenSettings) {
+        // Check if we have to notify
+        if (m_typesToCookie[ChangeScreenSettings].isEmpty()) {
+            notify = true;
+        }
+        m_typesToCookie[ChangeScreenSettings].append(cookie);
+    }
+    if (types & ChangeProfile) {
+        // Check if we have to notify
+        if (m_typesToCookie[InterruptSession].isEmpty()) {
+            notify = true;
+        }
+        m_typesToCookie[InterruptSession].append(cookie);
+    }
+
+    if (notify) {
+        // Emit the signal - inhibition has changed
+        emit unavailablePoliciesChanged(unavailablePolicies());
+    }
+}
+
+void PolicyAgent::releaseInhibition(uint cookie)
+{
+    m_cookieToAppName.remove(cookie);
+    if (m_cookieToBusService.contains(cookie)) {
+        m_busWatcher->removeWatchedService(m_cookieToBusService[cookie]);
+        m_cookieToBusService.remove(cookie);
+    }
+
+    // Look through all of the inhibition types
+    bool notify = false;
+    if (m_typesToCookie[ChangeProfile].contains(cookie)) {
+        m_typesToCookie[ChangeProfile].removeOne(cookie);
+        // Check if we have to notify
+        if (m_typesToCookie[ChangeProfile].isEmpty()) {
+            notify = true;
+        }
+    }
+    if (m_typesToCookie[ChangeScreenSettings].contains(cookie)) {
+        m_typesToCookie[ChangeScreenSettings].removeOne(cookie);
+        // Check if we have to notify
+        if (m_typesToCookie[ChangeScreenSettings].isEmpty()) {
+            notify = true;
+        }
+    }
+    if (m_typesToCookie[InterruptSession].contains(cookie)) {
+        m_typesToCookie[InterruptSession].removeOne(cookie);
+        // Check if we have to notify
+        if (m_typesToCookie[InterruptSession].isEmpty()) {
+            notify = true;
+        }
+    }
+
+    if (notify) {
+        // Emit the signal - inhibition has changed
+        emit unavailablePoliciesChanged(unavailablePolicies());
+    }
+}
+
+void PolicyAgent::releaseAllInhibitions()
+{
+    QList< uint > allCookies = m_cookieToAppName.keys();
+    foreach (uint cookie, allCookies) {
+        releaseInhibition(cookie);
+    }
 }
 
 }
