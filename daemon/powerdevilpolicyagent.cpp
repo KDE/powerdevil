@@ -101,53 +101,36 @@ void PolicyAgent::init()
     }
 }
 
-bool PolicyAgent::canChangeProfile()
+PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::RequiredPolicies policies)
 {
     if (!m_ckAvailable) {
         // No way to determine if we are on the current session, simply suppose we are
         kDebug() << "Can't contact ck";
-        return true;
+    } else {
+        QDBusPendingReply< bool > rp = m_ckSessionInterface->asyncCall("IsActive");
+        rp.waitForFinished();
+
+        if (!rp.value()) {
+            return policies;
+        }
     }
 
-    QDBusPendingReply< bool > rp = m_ckSessionInterface->asyncCall("IsActive");
-    rp.waitForFinished();
-    return rp.value();
-}
+    // Ok, let's go then
+    RequiredPolicies retpolicies = None;
 
-bool PolicyAgent::canChangeScreenSettings()
-{
-    if (!m_ckAvailable) {
-        // No way to determine if we are on the current session, simply suppose we are
-        kDebug() << "Can't contact ck";
-        return true;
+    if (policies & ChangeProfile) {
+        // TODO enforce policies here
+    }
+    if (policies & ChangeScreenSettings) {
+        // TODO enforce policies here
+    }
+    if (policies & InterruptSession) {
+        if (m_sessionIsBeingInterrupted) {
+            retpolicies |= InterruptSession;
+        }
     }
 
-    QDBusPendingReply< bool > rp = m_ckSessionInterface->asyncCall("IsActive");
-    rp.waitForFinished();
-
-    // TODO Add inhibition settings here
-
-    return rp.value();
-}
-
-bool PolicyAgent::canInterruptSession()
-{
-    if (m_sessionIsBeingInterrupted) {
-        return false;
-    }
-
-    if (!m_ckAvailable) {
-        // No way to determine if we are on the current session, simply suppose we are
-        kDebug() << "Can't contact ck";
-        return true;
-    }
-
-    QDBusPendingReply< bool > rp = m_ckSessionInterface->asyncCall("IsActive");
-    rp.waitForFinished();
-
-    // TODO Add inhibition settings here
-
-    return rp.value();
+    return retpolicies;
 }
 
 void PolicyAgent::startSessionInterruption()

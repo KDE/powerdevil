@@ -70,10 +70,6 @@ void SuspendSession::onProfileLoad()
 
 void SuspendSession::triggerImpl(const QVariantMap& args)
 {
-    if (!PowerDevil::PolicyAgent::instance()->canInterruptSession()) {
-        return;
-    }
-
     kDebug() << "Triggered with " << args["Type"].toString();
 
     KJob *suspendJob = 0;

@@ -226,7 +226,7 @@ void Core::reloadProfile(int state)
 void Core::loadProfile(const QString& name)
 {
     // Policy check
-    if (!PolicyAgent::instance()->canChangeProfile()) {
+    if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
         kDebug() << "Policy Agent prevention: on";
         return;
     }

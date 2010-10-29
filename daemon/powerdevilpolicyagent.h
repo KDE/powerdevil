@@ -46,9 +46,11 @@ public:
 
     virtual ~PolicyAgent();
 
-    bool canInterruptSession();
-    bool canChangeProfile();
-    bool canChangeScreenSettings();
+    /**
+     * This function performs a policy check on given policies, and returns a set of unsatisfiable policies,
+     * or \c None if all the policies are satisfiable and the action can be carried on.
+     */
+    RequiredPolicies requirePolicyCheck(RequiredPolicies policies);
 
 private:
     explicit PolicyAgent(QObject* parent = 0);
