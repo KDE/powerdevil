@@ -53,14 +53,15 @@ namespace PowerDevil
 
 Core::Core(QObject* parent, const KComponentData &componentData)
     : QObject(parent)
+    , m_backend(0)
     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
 {
     // Before doing anything, let's set up our backend
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevilBackend", "(Type == 'Service')");
+    QString error_string;
 
     foreach (const KService::Ptr &ptr, offers) {
-        QString error_string;
         m_backend = ptr->createInstance<PowerDevil::BackendInterface>(0, QVariantList(), &error_string);
 
         if (!m_backend != 0) {
@@ -68,10 +69,22 @@ Core::Core(QObject* parent, const KComponentData &componentData)
         }
     }
 
-    // Async backend init - so that KDED gets a bit of a speed up
-    connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
-    connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
-    m_backend->init();
+    if (!m_backend) {
+        // Ouch
+        kError() << "KDE Power Management System init failed!";
+        if (error_string.isEmpty() && offers.isEmpty()) {
+            // No offers were available
+            onBackendError(i18n("No valid Power Management backend plugins were found. "
+                                "A new installation might solve this problem."));
+        } else {
+            onBackendError(error_string);
+        }
+    } else {
+        // Async backend init - so that KDED gets a bit of a speed up
+        connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
+        connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
+        m_backend->init();
+    }
 }
 
 Core::~Core()
