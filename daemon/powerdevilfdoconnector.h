@@ -24,6 +24,7 @@
 #include <QtCore/QObject>
 
 #include "powerdevilbackendinterface.h"
+#include "powerdevilpolicyagent.h"
 
 namespace PowerDevil {
 class Core;
@@ -58,6 +59,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
+    void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies);
 
 private:
     PowerDevil::Core *m_core;

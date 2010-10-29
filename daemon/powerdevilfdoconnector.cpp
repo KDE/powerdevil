@@ -21,7 +21,6 @@
 #include "powerdevilfdoconnector.h"
 
 #include "powerdevilcore.h"
-#include "powerdevilpolicyagent.h"
 
 #include "powermanagementfdoadaptor.h"
 #include "powermanagementinhibitadaptor.h"
@@ -44,8 +43,8 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
 
     connect(m_core->backend(), SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
-    connect(m_core, SIGNAL(inhibitChanged(bool)),
-            this, SIGNAL(HasInhibitChanged(bool)));
+    connect(PolicyAgent::instance(), SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
+            this, SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
 }
 
 bool FdoConnector::CanHibernate()
@@ -80,23 +79,28 @@ bool FdoConnector::HasInhibit()
 
 int FdoConnector::Inhibit(const QString &application, const QString &reason)
 {
-    //return m_daemon->lockHandler()->inhibit(application, reason);
-    return 0;
+    // Inhibit here means we cannot interrupt the session
+    return PolicyAgent::instance()->addInhibition((uint)PolicyAgent::InterruptSession, application, reason);
 }
 
 void FdoConnector::UnInhibit(int cookie)
 {
-    //m_daemon->lockHandler()->releaseInhibiton(cookie);
+    PolicyAgent::instance()->releaseInhibition(cookie);
 }
 
 void FdoConnector::ForceUnInhibitAll()
 {
-    //m_daemon->lockHandler()->releaseAllInhibitions();
+    PolicyAgent::instance()->releaseAllInhibitions();
 }
 
 void FdoConnector::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newstate)
 {
     emit PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Plugged);
+}
+
+void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies)
+{
+    emit HasInhibitChanged(newpolicies & PowerDevil::PolicyAgent::InterruptSession);
 }
 
 }
