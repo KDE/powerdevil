@@ -154,13 +154,17 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
     RequiredPolicies retpolicies = None;
 
     if (policies & ChangeProfile) {
-        // TODO enforce policies here
+        if (!m_typesToCookie[ChangeProfile].isEmpty()) {
+            retpolicies |= ChangeProfile;
+        }
     }
     if (policies & ChangeScreenSettings) {
-        // TODO enforce policies here
+        if (!m_typesToCookie[ChangeScreenSettings].isEmpty()) {
+            retpolicies |= ChangeScreenSettings;
+        }
     }
     if (policies & InterruptSession) {
-        if (m_sessionIsBeingInterrupted) {
+        if (m_sessionIsBeingInterrupted || !m_typesToCookie[InterruptSession].isEmpty()) {
             retpolicies |= InterruptSession;
         }
     }
@@ -288,3 +292,5 @@ void PolicyAgent::releaseAllInhibitions()
 }
 
 }
+
+#include "powerdevilpolicyagent.moc"
