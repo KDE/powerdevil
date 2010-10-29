@@ -347,7 +347,9 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
 
 void Core::onBackendError(const QString& error)
 {
-
+    emitNotification("powerdevilerror", i18n("KDE Power Management System could not be initialized. "
+                         "The backend reported the following error: %1\n"
+                         "Please check your system configuration", error), "dialog-error");
 }
 
 void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
