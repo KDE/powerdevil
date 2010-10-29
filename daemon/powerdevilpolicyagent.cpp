@@ -28,6 +28,8 @@
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
 
+#include "powermanagementpolicyagentadaptor.h"
+
 namespace PowerDevil
 {
 
@@ -68,6 +70,12 @@ PolicyAgent::~PolicyAgent()
 
 void PolicyAgent::init()
 {
+    // Start the DBus service
+    new PowerManagementPolicyAgentAdaptor(this);
+
+    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement.PolicyAgent");
+    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement/PolicyAgent", this);
+
     // Let's cache the needed information to check if our session is actually active
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.ConsoleKit")) {
         // No way to determine if we are on the current session, simply suppose we are

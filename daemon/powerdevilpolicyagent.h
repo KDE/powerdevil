@@ -35,6 +35,8 @@ class PolicyAgent : public QObject
     Q_OBJECT
     Q_DISABLE_COPY(PolicyAgent)
 
+    Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.PolicyAgent")
+
 public:
     enum RequiredPolicy {
         None = 0,
@@ -60,8 +62,8 @@ public Q_SLOTS:
     // Exported slots
     uint addInhibition(uint types, const QString &appName, const QString &reason);
     uint addInhibition(uint types, const QString &appName, const QString &reason, const QString &dbusService);
-
     void releaseInhibition(uint cookie);
+
     void releaseAllInhibitions();
 
 Q_SIGNALS:
