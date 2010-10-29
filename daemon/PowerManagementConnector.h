@@ -22,19 +22,19 @@
 #define POWERMANAGEMENTCONNECTOR_H
 
 #include <QtCore/QObject>
-#include <QtCore/QMap>
-#include <QtCore/QMultiMap>
 
-#include <QtDBus/QDBusMessage>
+#include "powerdevilbackendinterface.h"
 
-#include "PowerDevilDaemon.h"
+namespace PowerDevil {
+class Core;
+}
 
 class PowerManagementConnector : public QObject
 {
     Q_OBJECT
 
 public:
-    PowerManagementConnector(PowerDevilDaemon *parent);
+    PowerManagementConnector(PowerDevil::Core *parent);
 
     bool CanHibernate();
     bool CanSuspend();
@@ -50,20 +50,18 @@ public:
     void UnInhibit(int cookie);
     void ForceUnInhibitAll();
 
-signals:
+Q_SIGNALS:
     void CanSuspendChanged(bool canSuspend);
     void CanHibernateChanged(bool canHibernate);
     void PowerSaveStatusChanged(bool savePower);
 
     void HasInhibitChanged(bool hasInhibit);
 
-private slots:
-    void _k_stateChanged(int battery, bool plugged);
+private Q_SLOTS:
+    void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
 
 private:
-    PowerDevilDaemon *m_daemon;
-
-
+    PowerDevil::Core *m_core;
 };
 
 #endif /*POWERMANAGEMENTCONNECTOR_H*/

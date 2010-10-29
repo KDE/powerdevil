@@ -21,6 +21,7 @@ set(powerdevilcore_SRCS
     powerdevilcore.cpp
     powerdevilpolicyagent.cpp
     powerdevilprofilegenerator.cpp
+    PowerManagementConnector.cpp
 )
 
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
@@ -29,6 +30,9 @@ qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.Solid.PowerManagement.xml power
 
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.freedesktop.ScreenSaver.xml")
 qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
+
+qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.xml PowerManagementConnector.h PowerManagementConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.Inhibit.xml PowerManagementConnector.h PowerManagementConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 
