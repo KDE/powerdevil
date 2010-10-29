@@ -44,6 +44,7 @@
 #include <KServiceTypeTrader>
 #include <KStandardDirs>
 
+#include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
 
@@ -81,11 +82,10 @@ Core::~Core()
 void Core::onBackendReady()
 {
     kDebug() << "Backend is ready, PowerDevil system initialized";
-    QDBusConnection conn = QDBusConnection::systemBus();
 
-    if (conn.interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
-        conn.interface()->isServiceRegistered("com.novell.powersave") ||
-        conn.interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
+    if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
+        QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
+        QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
         kError() << "PowerDevil not initialized, another power manager has been detected";
         return;
     }
@@ -135,12 +135,11 @@ void Core::onBackendReady()
 
     //DBus
     new PowerManagementAdaptor(this);
-    QDBusConnection c = QDBusConnection::sessionBus();
 
-    c.registerService("org.kde.Solid.PowerManagement");
-    c.registerObject("/org/kde/Solid/PowerManagement", this);
+    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement");
+    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement", this);
 
-    conn.interface()->registerService("org.freedesktop.Policy.Power");
+    QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
