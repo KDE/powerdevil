@@ -26,6 +26,7 @@
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
 #include "powerdevilbackendinterface.h"
+#include "powerdevilfdoconnector.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
 
@@ -146,16 +147,17 @@ void Core::onBackendReady()
     connect(profilesWatch, SIGNAL(created(QString)), this, SLOT(reloadCurrentProfile()));
     connect(profilesWatch, SIGNAL(deleted(QString)), this, SLOT(reloadCurrentProfile()));
 
+    // Set up the policy agent
+    PowerDevil::PolicyAgent::instance()->init();
+
     //DBus
     new PowerManagementAdaptor(this);
+    new FdoConnector(this);
 
     QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement");
     QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement", this);
 
     QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
-
-    // Set up the policy agent
-    PowerDevil::PolicyAgent::instance()->init();
 
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
