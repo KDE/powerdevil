@@ -34,12 +34,10 @@ public:
     void setBrightness(float brightness);
 
 private:
-    bool m_isSupported;
     long backlight_get(RROutput output) const;
     void backlight_set(RROutput output, long value);
 
     Atom m_backlight;
-
     XRRScreenResources  *m_resources;
 };
 

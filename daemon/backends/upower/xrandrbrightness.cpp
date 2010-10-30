@@ -29,7 +29,7 @@
 #include "xrandrbrightness.h"
 
 XRandrBrightness::XRandrBrightness()
-    : m_isSupported(false), m_resources(0)
+    : m_backlight(None), m_resources(0)
 {
     // init
     int major, minor;
@@ -38,6 +38,7 @@ XRandrBrightness::XRandrBrightness()
         qWarning("RandR extension missing");
         return;
     }
+
     if (major < 1 || (major == 1 && minor < 2))
     {
         qWarning("RandR version %d.%d too old", major, minor);
@@ -64,8 +65,6 @@ XRandrBrightness::XRandrBrightness()
         qWarning("No available Randr resources");
         return;
     }
-
-    m_isSupported = true;
 }
 
 XRandrBrightness::~XRandrBrightness()
@@ -75,15 +74,17 @@ XRandrBrightness::~XRandrBrightness()
 
 bool XRandrBrightness::isSupported() const
 {
-    return m_isSupported;
+    return (m_resources != 0);
 }
 
 float XRandrBrightness::brightness() const
 {
-    int o;
     float result = 0;
 
-    for (o = 0; o < m_resources->noutput; o++)
+    if (!m_resources)
+        return result;
+
+    for (int o = 0; o < m_resources->noutput; o++)
     {
         RROutput output = m_resources->outputs[o];
         double cur = backlight_get(output);
@@ -111,12 +112,13 @@ float XRandrBrightness::brightness() const
 
 void XRandrBrightness::setBrightness(float brightness)
 {
-    int o;
-    double cur = 0;
-    for (o = 0; o < m_resources->noutput; o++)
+    if (!m_resources)
+        return;
+
+    for (int o = 0; o < m_resources->noutput; o++)
     {
         RROutput output = m_resources->outputs[o];
-        cur = backlight_get(output);
+        double cur = backlight_get(output);
         if (cur != -1)
         {
             XRRPropertyInfo * info = XRRQueryOutputProperty(QX11Info::display(), output, m_backlight);
