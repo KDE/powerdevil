@@ -56,6 +56,8 @@ void DisableDesktopEffects::onWakeupFromIdle()
 
 void DisableDesktopEffects::onIdleTimeout(int msec)
 {
+    Q_UNUSED(msec)    
+
     QVariantMap args;
     args["Enable"] = QVariant::fromValue(false);
     trigger(args);

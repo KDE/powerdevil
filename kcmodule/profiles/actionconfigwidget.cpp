@@ -19,12 +19,12 @@
 
 #include "actionconfigwidget.h"
 
-#include <QCheckBox>
+#include <QtGui/QCheckBox>
 #include <QtGui/QLabel>
 #include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QAction>
-#include <QtGui/qlayoutitem.h>
+#include <QtGui/QLayoutItem>
 
 ActionConfigWidget::ActionConfigWidget(QWidget* parent) : QWidget(parent)
 {
@@ -46,7 +46,7 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
     int row = m_gridLayout->rowCount();
     row++;
 
-    QCheckBox* currentSectionCheckbox;
+    QCheckBox* currentSectionCheckbox = 0;
     /*
         //Clean the values
         QList<QString>::const_iterator it;
