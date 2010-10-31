@@ -19,10 +19,12 @@
 
 #include "handlebuttonevents.h"
 
-#include "screensaver_interface.h"
+#include <powerdevilactionpool.h>
+
 #include <KConfigGroup>
 #include <KIdleTime>
-#include <powerdevilactionpool.h>
+
+#include "screensaver_interface.h"
 
 namespace PowerDevil {
 namespace BundledActions {

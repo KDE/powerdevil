@@ -17,14 +17,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "brightnesscontrolconfig.h"
 
-#include <KPluginFactory>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <KLocalizedString>
 #include <QSlider>
+
+#include <KPluginFactory>
+#include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::BrightnessControlConfig>(); )
 K_EXPORT_PLUGIN(PowerDevilBrightnessControlConfigFactory("powerdevilbrightnesscontrolaction_config"))

@@ -17,13 +17,14 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "dimdisplayconfig.h"
-#include <KLocalizedString>
+
 #include <QHBoxLayout>
 #include <QLabel>
+
 #include <KIntSpinBox>
 #include <KPluginFactory>
+#include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilDimDisplayConfigFactory, registerPlugin<PowerDevil::BundledActions::DimDisplayConfig>(); )
 K_EXPORT_PLUGIN(PowerDevilDimDisplayConfigFactory("powerdevildimdisplayaction_config"))

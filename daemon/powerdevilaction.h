@@ -21,12 +21,12 @@
 #ifndef POWERDEVIL_POWERDEVILACTION_H
 #define POWERDEVIL_POWERDEVILACTION_H
 
-#include <QObject>
-#include <QVariantMap>
+#include "powerdevilpolicyagent.h"
+
+#include <QtCore/QObject>
+#include <QtCore/QVariantMap>
 
 #include <kdemacros.h>
-
-#include "powerdevilpolicyagent.h"
 
 class KConfigGroup;
 

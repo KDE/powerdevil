@@ -19,11 +19,12 @@
 
 #include "kdedpowerdevil.h"
 
-#include <kdemacros.h>
+#include "powerdevilcore.h"
+
+#include <QtCore/QTimer>
+
 #include <KAboutData>
 #include <KPluginFactory>
-#include "powerdevilcore.h"
-#include <QtCore/QTimer>
 
 K_PLUGIN_FACTORY( PowerDevilFactory,
                   registerPlugin<KDEDPowerDevil>(); )
@@ -52,7 +53,7 @@ void KDEDPowerDevil::init()
                          KAboutData::License_GPL, ki18n("(c) 2010 MetalWorkers Co."),
                          KLocalizedString(), "http://www.kde.org");
 
-    aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Developer"), "drf@kde.org",
+    aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
                         "http://drfav.wordpress.com");
 
     new PowerDevil::Core(this, KComponentData(aboutData));

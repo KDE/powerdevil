@@ -21,7 +21,7 @@
 #ifndef POWERDEVIL_BACKENDINTERFACE_H
 #define POWERDEVIL_BACKENDINTERFACE_H
 
-#include <QObject>
+#include <QtCore/QObject>
 #include <QtCore/QHash>
 
 #include <kdemacros.h>

@@ -17,12 +17,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "disabledesktopeffects.h"
+
+#include <QtDBus/QDBusPendingReply>
 #include <QtDBus/QDBusInterface>
+
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <QDBusPendingReply>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -56,7 +57,7 @@ void DisableDesktopEffects::onWakeupFromIdle()
 
 void DisableDesktopEffects::onIdleTimeout(int msec)
 {
-    Q_UNUSED(msec)    
+    Q_UNUSED(msec)
 
     QVariantMap args;
     args["Enable"] = QVariant::fromValue(false);

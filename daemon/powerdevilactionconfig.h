@@ -21,10 +21,11 @@
 #ifndef POWERDEVIL_POWERDEVILACTIONCONFIG_H
 #define POWERDEVIL_POWERDEVILACTIONCONFIG_H
 
-#include <QWidget>
+#include <QtGui/QWidget>
+
+#include <KConfigGroup>
 
 #include <kdemacros.h>
-#include <KConfigGroup>
 
 namespace PowerDevil {
 

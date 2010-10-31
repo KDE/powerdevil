@@ -21,7 +21,6 @@
 #ifndef POWERDEVIL_POWERDEVILACTIONPOOL_H
 #define POWERDEVIL_POWERDEVILACTIONPOOL_H
 
-#include <QObject>
 #include <QtCore/QHash>
 #include <QtCore/QStringList>
 

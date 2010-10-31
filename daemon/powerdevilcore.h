@@ -21,10 +21,12 @@
 #ifndef POWERDEVILCORE_H
 #define POWERDEVILCORE_H
 
-#include <KComponentData>
-#include <QWeakPointer>
-#include <QtCore/QStringList>
 #include "powerdevilbackendinterface.h"
+
+#include <QtCore/QWeakPointer>
+#include <QtCore/QStringList>
+
+#include <KComponentData>
 
 class QTimer;
 class KNotification;

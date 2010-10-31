@@ -19,15 +19,16 @@
 
 #include "suspendsession.h"
 
-#include "screensaver_interface.h"
-
 #include "powerdevilbackendinterface.h"
-#include <kworkspace/kworkspace.h>
+
 #include <KConfigGroup>
-#include <powerdevilpolicyagent.h>
 #include <KLocalizedString>
 #include <KJob>
 #include <KDebug>
+
+#include <kworkspace/kworkspace.h>
+
+#include "screensaver_interface.h"
 
 namespace PowerDevil
 {

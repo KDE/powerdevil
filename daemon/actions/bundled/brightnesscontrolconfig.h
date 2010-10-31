@@ -22,6 +22,7 @@
 #define POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROLCONFIG_H
 
 #include <powerdevilactionconfig.h>
+
 #include <kdemacros.h>
 
 class QSlider;

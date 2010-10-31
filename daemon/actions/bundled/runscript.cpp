@@ -17,10 +17,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "runscript.h"
-#include <KConfigGroup>
+
 #include <QtCore/QProcess>
+
+#include <KConfigGroup>
 
 namespace PowerDevil {
 namespace BundledActions {

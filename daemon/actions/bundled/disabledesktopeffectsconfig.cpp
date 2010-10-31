@@ -18,7 +18,9 @@
  ***************************************************************************/
 
 #include "disabledesktopeffectsconfig.h"
+
 #include <QHBoxLayout>
+
 #include <KComboBox>
 #include <KIntSpinBox>
 #include <KLocalizedString>

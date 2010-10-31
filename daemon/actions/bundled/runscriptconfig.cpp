@@ -19,9 +19,11 @@
 
 
 #include "runscriptconfig.h"
+
+#include <QHBoxLayout>
+
 #include <KLocalizedString>
 #include <KUrlRequester>
-#include <QHBoxLayout>
 #include <KComboBox>
 #include <KIntSpinBox>
 #include <KPluginFactory>

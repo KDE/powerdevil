@@ -20,13 +20,14 @@
 
 #include "powerdevilpolicyagent.h"
 
-#include <KGlobal>
 #include <QtDBus/QDBusConnection>
-#include <KDebug>
 #include <QtDBus/QDBusInterface>
-#include <QDBusPendingReply>
-#include <QDBusConnectionInterface>
-#include <QDBusServiceWatcher>
+#include <QtDBus/QDBusPendingReply>
+#include <QtDBus/QDBusConnectionInterface>
+#include <QtDBus/QDBusServiceWatcher>
+
+#include <KGlobal>
+#include <KDebug>
 
 #include "powermanagementpolicyagentadaptor.h"
 

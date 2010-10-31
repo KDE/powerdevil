@@ -19,12 +19,15 @@
 
 
 #include "suspendsessionconfig.h"
+
 #include <QHBoxLayout>
+
+#include <Solid/PowerManagement>
+
 #include <KComboBox>
 #include <KIntSpinBox>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <solid/powermanagement.h>
 #include <KIcon>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::SuspendSessionConfig>(); )

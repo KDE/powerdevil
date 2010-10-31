@@ -19,11 +19,12 @@
 
 #include "handlebuttoneventsconfig.h"
 
+#include <Solid/PowerManagement>
+
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KComboBox>
 #include <KIcon>
-#include <solid/powermanagement.h>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::HandleButtonEventsConfig>(); )
 K_EXPORT_PLUGIN(PowerDevilSuspendSessionConfigFactory("powerdevilhandlebuttoneventsaction_config"))

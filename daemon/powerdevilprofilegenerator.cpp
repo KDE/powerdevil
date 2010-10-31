@@ -21,15 +21,15 @@
 
 #include <PowerDevilSettings.h>
 
+#include <Solid/Device>
+#include <Solid/Battery>
+#include <Solid/PowerManagement>
+
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
-
-#include <Solid/Device>
-#include <Solid/Battery>
-#include <solid/powermanagement.h>
 #include <KNotification>
-#include <kicon.h>
+#include <KIcon>
 
 namespace PowerDevil {
 
