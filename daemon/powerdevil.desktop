@@ -10,6 +10,7 @@ X-KDE-Kded-phase=1
 
 Name=Power Management
 Name[ar]=إدارة الطاقة
+Name[ast]=Xestión d'enerxía
 Name[be@latin]=Kiravańnie enerhijaj
 Name[bg]=Захранване
 Name[bn]=পাওয়ার ব্যবস্থাপনা
@@ -84,6 +85,7 @@ Name[zh_TW]=電源管理
 
 Comment=Battery, Display and CPU power management and notification
 Comment[ar]=إدارة طاقة وإشعارات البطارية والشاشة والمعالج
+Comment[ast]=Xestión y notificaciones d'enerxía de la batería, pantalla y CPU
 Comment[ca]=Gestió d'energia i notificació de la bateria, pantalla i CPU
 Comment[ca@valencia]=Gestió d'energia i notificació de la bateria, pantalla i CPU
 Comment[cs]=Správa a oznamování baterie, zobrazení a výkonu CPU
