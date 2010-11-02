@@ -58,7 +58,7 @@ target_link_libraries(kded_powerdevil
 )
 
 install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR})
-install(TARGETS powerdevilcore DESTINATION ${LIB_INSTALL_DIR})
+install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
 set(powerdevilui_SRCS
@@ -72,7 +72,7 @@ target_link_libraries(powerdevilui
     ${QT_QTGUI_LIBRARY}
 )
 
-install(TARGETS powerdevilui DESTINATION ${LIB_INSTALL_DIR})
+install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 
 add_subdirectory(backends)
