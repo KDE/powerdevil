@@ -24,13 +24,15 @@
 #include <QtCore/QObject>
 #include <QtCore/QHash>
 
+#include <QtDBus/QDBusContext>
+
 class QDBusServiceWatcher;
 class QDBusInterface;
 
 namespace PowerDevil
 {
 
-class PolicyAgent : public QObject
+class PolicyAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(PolicyAgent)
@@ -61,7 +63,6 @@ public:
 public Q_SLOTS:
     // Exported slots
     uint addInhibition(uint types, const QString &appName, const QString &reason);
-    uint addInhibition(uint types, const QString &appName, const QString &reason, const QString &dbusService);
     void releaseInhibition(uint cookie);
 
     void releaseAllInhibitions();

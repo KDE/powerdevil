@@ -199,23 +199,12 @@ uint PolicyAgent::addInhibition(uint types,
 
     m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
 
-    addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
+    // Retrieve the service
+    if (!message().service().isEmpty()) {
+        m_cookieToBusService.insert(m_lastCookie, message().service());
 
-    return m_lastCookie;
-}
-
-uint PolicyAgent::addInhibition(uint types,
-                                const QString& appName,
-                                const QString& reason,
-                                const QString& dbusService)
-{
-    ++m_lastCookie;
-
-    m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
-    m_cookieToBusService.insert(m_lastCookie, dbusService);
-
-    // Watch over the bus service: so that we can eventually release the inhibition if the app crashes.
-    m_busWatcher->addWatchedService(dbusService);
+        m_busWatcher->addWatchedService(message().service());
+    }
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
