@@ -19,25 +19,24 @@
 
 #include "EditPage.h"
 
-#include <solid/control/powermanager.h>
-#include <solid/device.h>
-#include <solid/deviceinterface.h>
-#include <solid/processor.h>
+#include "actionconfigwidget.h"
+
+#include <daemon/powerdevilactionconfig.h>
+#include <daemon/powerdevilprofilegenerator.h>
+
+#include <config-workspace.h>
+
+#include <QtGui/QCheckBox>
+#include <QtGui/QFormLayout>
+#include <QtGui/QLabel>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
 
-#include <KStandardDirs>
-#include <KRun>
-
-#include <config-workspace.h>
-
 #include <KConfigGroup>
 #include <KLineEdit>
 #include <KDebug>
-#include <QCheckBox>
-#include <QFormLayout>
 #include <KDialog>
 #include <KFileDialog>
 #include <KMessageBox>
@@ -45,12 +44,9 @@
 #include <KToolBar>
 #include <KAboutData>
 #include <KPluginFactory>
-#include <QtGui/QLabel>
 #include <KServiceTypeTrader>
-#include <daemon/powerdevilactionconfig.h>
-#include <QtGui/QGroupBox>
-#include "actionconfigwidget.h"
-#include <daemon/powerdevilprofilegenerator.h>
+#include <KStandardDirs>
+#include <KRun>
 
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
@@ -67,7 +63,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
                        "", ki18n("A profile configurator for KDE Power Management System"),
                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-                       ki18n("From this module, you can manage KDE Power Management System's power profile, by tweaking "
+                       ki18n("From this module, you can manage KDE Power Management System's power profiles, by tweaking "
                              "existing ones or creating new ones."));
 
     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",

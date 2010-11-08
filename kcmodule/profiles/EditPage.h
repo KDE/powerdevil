@@ -20,10 +20,9 @@
 #ifndef EDITPAGE_H
 #define EDITPAGE_H
 
-#include <QWidget>
+#include <KCModule>
 
 #include "ui_profileEditPage.h"
-#include <KCModule>
 
 namespace PowerDevil {
 class ActionConfig;

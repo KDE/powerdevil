@@ -21,11 +21,10 @@
 
 #include "PowerDevilSettings.h"
 
-#include <solid/device.h>
-#include <solid/deviceinterface.h>
-#include <solid/processor.h>
-#include <solid/battery.h>
-#include <solid/powermanagement.h>
+#include <Solid/Device>
+#include <Solid/DeviceInterface>
+#include <Solid/Battery>
+#include <Solid/PowerManagement>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
@@ -71,8 +70,7 @@ void GeneralPage::fillUi()
     int batteryCount = 0;
 
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        Solid::Device dev = device;
-        Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(Solid::DeviceInterface::Battery));
+        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
         if(b->type() != Solid::Battery::PrimaryBattery) {
             continue;
         }
