@@ -45,6 +45,9 @@ public:
 private:
     bool m_hasDPMS;
     int m_idleTime;
+
+    class Private;
+    Private * const d;
 };
 
 #endif // POWERDEVILDPMSACTION_H

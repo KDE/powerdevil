@@ -20,13 +20,14 @@
 
 */
 
+#include "powerdevilupowerbackend.h"
+
 #include <qtextstream.h>
 #include <QtDBus>
 
 #include <KDebug>
 #include <KPluginFactory>
 
-#include "powerdevilupowerbackend.h"
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 

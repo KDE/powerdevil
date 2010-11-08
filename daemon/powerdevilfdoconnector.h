@@ -18,8 +18,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef POWERMANAGEMENTCONNECTOR_H
-#define POWERMANAGEMENTCONNECTOR_H
+#ifndef POWERDEVILFDOCONNECTOR_H
+#define POWERDEVILFDOCONNECTOR_H
 
 #include <QtCore/QObject>
 
@@ -71,4 +71,4 @@ private:
 
 }
 
-#endif /*POWERMANAGEMENTCONNECTOR_H*/
+#endif /*POWERDEVILFDOCONNECTOR_H*/

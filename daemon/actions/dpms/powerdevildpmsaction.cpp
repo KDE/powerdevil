@@ -56,20 +56,25 @@ int dropError(Display *, XErrorEvent *)
     return 0;
 }
 
-static XErrorHandler defaultHandler;
+class PowerDevilDPMSAction::Private
+{
+public:
+    XErrorHandler defaultHandler;
+};
 
 K_PLUGIN_FACTORY(PowerDevilDPMSActionFactory, registerPlugin<PowerDevilDPMSAction>(); )
 K_EXPORT_PLUGIN(PowerDevilDPMSActionFactory("powerdevildpmsaction"))
 
 PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& )
     : Action(parent)
+    , d(new Private)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
 PowerDevilDPMSAction::~PowerDevilDPMSAction()
 {
-
+    delete d;
 }
 
 void PowerDevilDPMSAction::onProfileUnload()
@@ -100,12 +105,12 @@ void PowerDevilDPMSAction::onProfileLoad()
     }
 
     XFlush(dpy);
-    XSetErrorHandler(defaultHandler);
+    XSetErrorHandler(d->defaultHandler);
 
     DPMSSetTimeouts(dpy, m_idleTime, (int)(m_idleTime * 1.5), m_idleTime * 2);
 
     XFlush(dpy);
-    XSetErrorHandler(defaultHandler);
+    XSetErrorHandler(d->defaultHandler);
 }
 
 void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
@@ -144,7 +149,7 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
 
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
 {
-    defaultHandler = XSetErrorHandler(dropError);
+    d->defaultHandler = XSetErrorHandler(dropError);
 
     Display *dpy = QX11Info::display();
 
@@ -153,7 +158,7 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
 
     if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)) {
         m_hasDPMS = false;
-        XSetErrorHandler(defaultHandler);
+        XSetErrorHandler(d->defaultHandler);
     }
 
     if (config.hasKey("idleTime")) {

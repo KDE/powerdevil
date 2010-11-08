@@ -17,16 +17,14 @@
  * 
  */
 
+#include "xrandrbrightness.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include <ctype.h>
 #include <string.h>
 #include <unistd.h>
-
-#include <QtGui/QX11Info>
-
-#include "xrandrbrightness.h"
 
 XRandrBrightness::XRandrBrightness()
     : m_backlight(None), m_resources(0)

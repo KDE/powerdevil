@@ -52,6 +52,7 @@ void RunScript::onWakeupFromIdle()
 
 void RunScript::onIdleTimeout(int msec)
 {
+    Q_UNUSED(msec);
     QProcess::startDetached(m_scriptCommand);
 }
 

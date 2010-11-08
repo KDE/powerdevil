@@ -18,8 +18,10 @@
 
 */
 
-#include "upower_interface.h"
 #include "upowersuspendjob.h"
+
+#include "upower_interface.h"
+
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QTimer>
