@@ -27,7 +27,8 @@ set(powerdevilcore_SRCS
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
 qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
-qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.Solid.PowerManagement.PolicyAgent.xml powerdevilpolicyagent.h PowerDevil::PolicyAgent
+qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.Solid.PowerManagement.PolicyAgent.xml 
+                                         powerdevilpolicyagent.h PowerDevil::PolicyAgent
                                          powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
 
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.freedesktop.ScreenSaver.xml")

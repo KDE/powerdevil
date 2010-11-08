@@ -124,7 +124,7 @@ void PolicyAgent::onServiceUnregistered(const QString& serviceName)
 {
     if (m_cookieToBusService.values().contains(serviceName)) {
         // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
-        releaseInhibition(m_cookieToBusService.key(serviceName));
+        ReleaseInhibition(m_cookieToBusService.key(serviceName));
     }
 }
 
@@ -191,7 +191,7 @@ void PolicyAgent::finishSessionInterruption()
     m_sessionIsBeingInterrupted = false;
 }
 
-uint PolicyAgent::addInhibition(uint types,
+uint PolicyAgent::AddInhibition(uint types,
                                 const QString& appName,
                                 const QString& reason)
 {
@@ -243,7 +243,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
     }
 }
 
-void PolicyAgent::releaseInhibition(uint cookie)
+void PolicyAgent::ReleaseInhibition(uint cookie)
 {
     m_cookieToAppName.remove(cookie);
     if (m_cookieToBusService.contains(cookie)) {
@@ -285,7 +285,7 @@ void PolicyAgent::releaseAllInhibitions()
 {
     QList< uint > allCookies = m_cookieToAppName.keys();
     foreach (uint cookie, allCookies) {
-        releaseInhibition(cookie);
+        ReleaseInhibition(cookie);
     }
 }
 

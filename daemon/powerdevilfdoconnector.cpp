@@ -80,12 +80,12 @@ bool FdoConnector::HasInhibit()
 int FdoConnector::Inhibit(const QString &application, const QString &reason)
 {
     // Inhibit here means we cannot interrupt the session
-    return PolicyAgent::instance()->addInhibition((uint)PolicyAgent::InterruptSession, application, reason);
+    return PolicyAgent::instance()->AddInhibition((uint)PolicyAgent::InterruptSession, application, reason);
 }
 
 void FdoConnector::UnInhibit(int cookie)
 {
-    PolicyAgent::instance()->releaseInhibition(cookie);
+    PolicyAgent::instance()->ReleaseInhibition(cookie);
 }
 
 void FdoConnector::ForceUnInhibitAll()

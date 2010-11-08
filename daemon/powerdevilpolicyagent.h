@@ -62,8 +62,8 @@ public:
 
 public Q_SLOTS:
     // Exported slots
-    uint addInhibition(uint types, const QString &appName, const QString &reason);
-    void releaseInhibition(uint cookie);
+    uint AddInhibition(uint types, const QString &appName, const QString &reason);
+    void ReleaseInhibition(uint cookie);
 
     void releaseAllInhibitions();
 
