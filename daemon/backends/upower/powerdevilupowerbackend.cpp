@@ -38,6 +38,7 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent, const QVariant
     : BackendInterface(parent),
       m_brightNessControl(new XRandrBrightness()),
       m_upowerInterface(new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), parent)),
+      m_kbdBacklight(new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), parent)),
       m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
 {
 }
@@ -47,6 +48,7 @@ PowerDevilUPowerBackend::~PowerDevilUPowerBackend()
     qDeleteAll(m_devices);
     delete m_upowerInterface;
     delete m_brightNessControl;
+    delete m_kbdBacklight;
 }
 
 void PowerDevilUPowerBackend::init()
@@ -58,16 +60,18 @@ void PowerDevilUPowerBackend::init()
     connect(m_upowerInterface, SIGNAL(DeviceRemoved(const QString &)), this, SLOT(slotDeviceRemoved(const QString &)));
     connect(m_upowerInterface, SIGNAL(DeviceChanged(const QString &)), this, SLOT(slotDeviceChanged(const QString &)));
 
-    // Brightness Control available
+    // Brightness Controls available
     BrightnessControlsList controls;
     if (m_brightNessControl->isSupported()) {
         controls.insert(QLatin1String("LVDS1"), Screen);
     }
-    //TODO: UPower will support kbd backlight in the next version, add it to controls
+
+    if (m_kbdBacklight->isValid())
+        controls.insert(QLatin1String("KBD"), Keyboard);
 
     if (!controls.isEmpty()) {
         m_cachedBrightness = brightness(Screen);
-        kDebug() << "current brightness: " << m_cachedBrightness;
+        kDebug() << "current screen brightness: " << m_cachedBrightness;
     }
 
     // Supported suspend methods
@@ -117,18 +121,20 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
 float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
     if (type == Screen) {
-        kDebug() << "Brightness: " << m_brightNessControl->brightness();
+        kDebug() << "Screen brightness: " << m_brightNessControl->brightness();
         return m_brightNessControl->brightness();
-    } else {
-        //TODO: UPower will support kbd backlight in the next version
+    } else if (type == Keyboard) {
+        kDebug() << "Kbd backlight: " << m_brightNessControl->brightness();
+        return m_kbdBacklight->GetBrightness() / m_kbdBacklight->GetMaxBrightness() * 100;
     }
+
     return 0.0;
 }
 
 bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == Screen) {
-        kDebug() << "setBrightness: " << brightnessValue;
+        kDebug() << "set screen brightness: " << brightnessValue;
         m_brightNessControl->setBrightness(brightnessValue);
         float newBrightness = brightness(Screen);
         if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
@@ -136,9 +142,12 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
             onBrightnessChanged(Screen, m_cachedBrightness);
         }
         return true;
-    } else {
-        //TODO: UPower will support kbd backlight in the next version
+    } else if (type == Keyboard) {
+        kDebug() << "set kbd backlight: " << brightnessValue;
+        m_kbdBacklight->SetBrightness(brightnessValue / 100 * m_kbdBacklight->GetMaxBrightness());
+        return true;
     }
+
     return false;
 }
 

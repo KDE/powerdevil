@@ -31,6 +31,7 @@
 
 #include "upower_device_interface.h"
 #include "upower_interface.h"
+#include "upower_kbdbacklight_interface.h"
 
 #define UPOWER_SERVICE "org.freedesktop.UPower"
 
@@ -70,6 +71,7 @@ private:
     float m_cachedBrightness;
     XRandrBrightness         *m_brightNessControl;
     OrgFreedesktopUPowerInterface *m_upowerInterface;
+    OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
 
     // buttons
     bool m_lidIsPresent;

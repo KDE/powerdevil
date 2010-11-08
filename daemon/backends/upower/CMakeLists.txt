@@ -22,6 +22,10 @@ qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
 ${CMAKE_CURRENT_SOURCE_DIR}/dbus/org.freedesktop.UPower.Device.xml
 upower_device_interface)
 
+qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+${CMAKE_CURRENT_SOURCE_DIR}/dbus/org.freedesktop.UPower.KbdBacklight.xml
+upower_kbdbacklight_interface)
+
 kde4_add_plugin(powerdevilupowerbackend ${powerdevilupowerbackend_SRCS})
 
 target_link_libraries(powerdevilupowerbackend ${KDE4_KDECORE_LIBS} ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB} powerdevilcore)
