@@ -82,6 +82,10 @@ private:
 
     void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
 
+    // This function serves solely for fd.o connector
+    uint addInhibitionWithExplicitDBusService(uint types, const QString &appName,
+                                              const QString &reason, const QString &service);
+
     bool m_ckAvailable;
     QDBusInterface *m_ckSessionInterface;
     bool m_sessionIsBeingInterrupted;
@@ -95,6 +99,7 @@ private:
     QDBusServiceWatcher *m_busWatcher;
 
     friend class Core;
+    friend class FdoConnector;
 };
 
 }

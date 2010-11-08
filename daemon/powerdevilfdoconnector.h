@@ -29,7 +29,7 @@
 namespace PowerDevil {
 class Core;
 
-class FdoConnector : public QObject
+class FdoConnector : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(FdoConnector)

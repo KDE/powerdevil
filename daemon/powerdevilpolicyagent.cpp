@@ -191,6 +191,21 @@ void PolicyAgent::finishSessionInterruption()
     m_sessionIsBeingInterrupted = false;
 }
 
+uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString& appName,
+                                                       const QString& reason, const QString& service)
+{
+    ++m_lastCookie;
+
+    m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
+
+    m_cookieToBusService.insert(m_lastCookie, service);
+    m_busWatcher->addWatchedService(service);
+
+    addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
+
+    return m_lastCookie;
+}
+
 uint PolicyAgent::AddInhibition(uint types,
                                 const QString& appName,
                                 const QString& reason)
@@ -199,8 +214,8 @@ uint PolicyAgent::AddInhibition(uint types,
 
     m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
 
-    // Retrieve the service
-    if (!message().service().isEmpty()) {
+    // Retrieve the service, if we've been called from DBus
+    if (calledFromDBus()) {
         m_cookieToBusService.insert(m_lastCookie, message().service());
 
         m_busWatcher->addWatchedService(message().service());
