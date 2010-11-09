@@ -1,7 +1,9 @@
 [Global]
 Name=KDE Power Management System
+Name[x-test]=xxKDE Power Management Systemxx
 IconName=preferences-system-power-management
 Comment=Notifications for KDE Power Management system
+Comment[x-test]=xxNotifications for KDE Power Management systemxx
 Version=1
 
 [Context/warningnot]
@@ -1649,7 +1651,9 @@ Persistant=true
 
 [Event/powerdevilerror]
 Name=Internal KDE Power Management System Error
+Name[x-test]=xxInternal KDE Power Management System Errorxx
 Comment=The KDE Power Management System has triggered an internal error
+Comment[x-test]=xxThe KDE Power Management System has triggered an internal errorxx
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
