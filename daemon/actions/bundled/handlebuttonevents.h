@@ -53,7 +53,6 @@ private:
     void triggerAction(const QString &action, const QString &type);
 
     uint m_lidAction;
-    uint m_sleepButtonAction;
     uint m_powerButtonAction;
 };
 

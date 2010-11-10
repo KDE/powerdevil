@@ -48,7 +48,6 @@ void HandleButtonEventsConfig::save()
 {
     configGroup().writeEntry< uint >("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
     configGroup().writeEntry< uint >("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
-    configGroup().writeEntry< uint >("sleepButtonAction", m_sleepButtonCombo->itemData(m_sleepButtonCombo->currentIndex()).toUInt());
 
     configGroup().sync();
 }
@@ -57,20 +56,18 @@ void HandleButtonEventsConfig::load()
 {
     m_lidCloseCombo->setCurrentIndex(configGroup().readEntry< uint >("lidAction", 0));
     m_powerButtonCombo->setCurrentIndex(configGroup().readEntry< uint >("powerButtonAction", 0));
-    m_sleepButtonCombo->setCurrentIndex(configGroup().readEntry< uint >("sleepButtonAction", 0));
 }
 
 QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
 {
     // Create the boxes
     m_lidCloseCombo = new KComboBox;
-    m_sleepButtonCombo = new KComboBox;
     m_powerButtonCombo = new KComboBox;
 
     // Fill the boxes with options!
     {
         QList< KComboBox* > boxes;
-        boxes << m_lidCloseCombo << m_powerButtonCombo << m_sleepButtonCombo;
+        boxes << m_lidCloseCombo << m_powerButtonCombo;
 
         QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
@@ -92,13 +89,11 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     }
 
     connect(m_lidCloseCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
-    connect(m_sleepButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_powerButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
 
     QList< QPair< QString, QWidget* > > retlist;
     retlist.append(qMakePair< QString, QWidget* >(i18n("When laptop lid closed"), m_lidCloseCombo));
     retlist.append(qMakePair< QString, QWidget* >(i18n("When power button pressed"), m_powerButtonCombo));
-    retlist.append(qMakePair< QString, QWidget* >(i18n("When sleep button pressed"), m_sleepButtonCombo));
 
     return retlist;
 }

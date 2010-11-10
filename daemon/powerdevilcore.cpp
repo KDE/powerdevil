@@ -182,6 +182,20 @@ void Core::onBackendReady()
                                     KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
                                     KAction::NoAutoloading);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
+
+    globalAction = actionCollection->addAction("Sleep");
+    globalAction->setText(i18nc("Global shortcut", "Sleep"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep),
+                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
+                                    KAction::NoAutoloading);
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
+
+    globalAction = actionCollection->addAction("Hibernate");
+    globalAction->setText(i18nc("Global shortcut", "Hibernate"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate),
+                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
+                                    KAction::NoAutoloading);
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
 }
 
 void Core::refreshStatus()

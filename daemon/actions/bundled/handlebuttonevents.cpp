@@ -32,7 +32,6 @@ namespace BundledActions {
 HandleButtonEvents::HandleButtonEvents(QObject* parent)
     : Action(parent)
     , m_lidAction(0)
-    , m_sleepButtonAction(0)
     , m_powerButtonAction(0)
 {
     // We enforce no policies here - after all, we just call other actions - which have their policies.
@@ -50,8 +49,6 @@ void HandleButtonEvents::onProfileUnload()
 {
     m_lidAction = 0;
     m_powerButtonAction = 0;
-    m_sleepButtonAction = 0;
-    
 }
 
 void HandleButtonEvents::onWakeupFromIdle()
@@ -78,9 +75,6 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
         case BackendInterface::LidOpen:
             // In this case, let's send a wakeup event
             KIdleTime::instance()->simulateUserActivity();
-            break;
-        case BackendInterface::SleepButton:
-            processAction(m_sleepButtonAction);
             break;
         case BackendInterface::PowerButton:
             processAction(m_powerButtonAction);
@@ -163,7 +157,6 @@ bool HandleButtonEvents::loadAction(const KConfigGroup& config)
     // Read configs
     m_lidAction = config.readEntry<uint>("lidAction", 0);
     m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
-    m_sleepButtonAction = config.readEntry<uint>("sleepButtonAction", 0);
 
     return true;
 }

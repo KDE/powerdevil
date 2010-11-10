@@ -41,7 +41,6 @@ public:
 
 private:
     KComboBox *m_lidCloseCombo;
-    KComboBox *m_sleepButtonCombo;
     KComboBox *m_powerButtonCombo;
 };
 
