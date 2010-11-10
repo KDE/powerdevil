@@ -164,6 +164,9 @@ void Core::onBackendReady()
     m_criticalBatteryTimer->setInterval(30000);
     connect(m_criticalBatteryTimer, SIGNAL(timeout()), this, SLOT(onCriticalBatteryTimerExpired()));
 
+    // In 30 seconds (so we are sure the user sees eventual notifications), check the battery state
+    QTimer::singleShot(30000, this, SLOT(checkBatteryStatus()));
+
     // All systems up Houston, let's go!
     refreshStatus();
 
@@ -196,6 +199,41 @@ void Core::onBackendReady()
                                     KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
                                     KAction::NoAutoloading);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
+}
+
+void Core::checkBatteryStatus()
+{
+    // Any batteries below 50% of capacity?
+    for (QHash< QString, uint >::const_iterator i = m_backend->capacities().constBegin();
+         i != m_backend->capacities().constEnd(); ++i) {
+        if (i.value() < 50) {
+            // Notify, we have a broken battery.
+            emitNotification("brokenbattery", i18np("Your battery capacity is %2%. This means your battery is broken "
+                                                    "and needs a replacement. Please contact your hardware vendor for more details.",
+
+                                                    "One of your batteries (ID %3) has a capacity of %2%. This means it is broken "
+                                                    "and needs a replacement. Please contact your hardware vendor for more details.",
+                                                    m_loadedBatteriesUdi.size(), i.value(), i.key()),
+                             "dialog-warning");
+        }
+    }
+
+    // Any recalled batteries?
+    foreach (const BackendInterface::RecallNotice &notice, m_backend->recallNotices()) {
+        // Notify, a battery has been recalled
+        emitNotification("brokenbattery", i18np("Your battery might have been recalled by %2. Usually, when vendors recall the "
+                                                "hardware, it is because of factory defects which are usually eligible for a "
+                                                "free repair or substitution. Please check <a href=\"%3\">%2's website</a> to"
+                                                "verify if your battery is faulted.",
+
+                                                "One of your batteries (ID %4) might have been recalled by %2. "
+                                                "Usually, when vendors recall the hardware, it is because of factory defects "
+                                                "which are usually eligible for a free repair or substitution. "
+                                                "Please check <a href=\"%3\">%2's website</a> to"
+                                                "verify if your battery is faulted.",
+                                                m_loadedBatteriesUdi.size(), notice.vendor, notice.url, notice.batteryId),
+                         "dialog-warning");
+    }
 }
 
 void Core::refreshStatus()

@@ -1816,3 +1816,10 @@ Comment[zh_TW]=暫停功能已被禁止，因為有應用程式如此要求
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
+
+[Event/brokenbattery]
+Name=Broken battery notification
+Comment=This notifications will pop up if KDE Power Management System detects some troubles with one of your batteries
+Contexts=criticalnot
+Sound=KDE-Sys-App-Error-Critical.ogg
+Action=Sound|Popup
