@@ -583,7 +583,7 @@ void Core::suspendToDisk()
 
 void Core::suspendToRam()
 {
-    triggerSuspendSession("SuspendSession");
+    triggerSuspendSession("Suspend");
 }
 
 int Core::batteryRemainingTime() const
