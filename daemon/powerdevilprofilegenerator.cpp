@@ -139,9 +139,9 @@ void ProfileGenerator::generateProfiles()
             KConfigGroup suspendSession(&powersave, "SuspendSession");
             suspendSession.writeEntry< uint >("idleTime", 900000);
             if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-                suspendSession.writeEntry< QString >("suspendType", "ToDisk");
+                suspendSession.writeEntry< uint >("suspendType", 2);
             } else {
-                suspendSession.writeEntry< QString >("suspendType", "Suspend");
+                suspendSession.writeEntry< uint >("suspendType", 1);
             }
         }
 
@@ -181,9 +181,9 @@ void ProfileGenerator::generateProfiles()
             KConfigGroup suspendSession(&aggrPowersave, "SuspendSession");
             suspendSession.writeEntry< uint >("idleTime", 600000);
             if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-                suspendSession.writeEntry< QString >("suspendType", "ToDisk");
+                suspendSession.writeEntry< uint >("suspendType", 2);
             } else {
-                suspendSession.writeEntry< QString >("suspendType", "Suspend");
+                suspendSession.writeEntry< uint >("suspendType", 1);
             }
         }
 

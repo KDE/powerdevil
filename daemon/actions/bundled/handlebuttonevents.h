@@ -50,7 +50,7 @@ private Q_SLOTS:
 
 private:
     void processAction(uint action);
-    void triggerAction(const QString &action, const QString &type);
+    void triggerAction(const QString &action, const QVariant &type);
 
     uint m_lidAction;
     uint m_powerButtonAction;

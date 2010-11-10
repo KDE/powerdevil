@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KIcon>
+#include "suspendsession.h"
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::SuspendSessionConfig>(); )
 K_EXPORT_PLUGIN(PowerDevilSuspendSessionConfigFactory("powerdevilsuspendsessionaction_config"))
@@ -49,9 +50,7 @@ SuspendSessionConfig::~SuspendSessionConfig()
 
 void SuspendSessionConfig::save()
 {
-    if (m_comboBox->currentIndex() != 0) {
-        configGroup().writeEntry< QString >("suspendType", m_comboBox->itemData(m_comboBox->currentIndex()).toString());
-    }
+    configGroup().writeEntry< uint >("suspendType", m_comboBox->itemData(m_comboBox->currentIndex()).toUInt());
     configGroup().writeEntry("idleTime", m_idleTime->value() * 60 * 1000);
 
     configGroup().sync();
@@ -59,7 +58,7 @@ void SuspendSessionConfig::save()
 
 void SuspendSessionConfig::load()
 {
-    QString suspendType = configGroup().readEntry< QString >("suspendType", QString());
+    uint suspendType = configGroup().readEntry< uint >("suspendType", 0);
     m_comboBox->setCurrentIndex(m_comboBox->findData(suspendType));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
 }
@@ -75,15 +74,14 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
 
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-    m_comboBox->addItem(KIcon("dialog-cancel"), i18n("Do nothing"));
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
-        m_comboBox->addItem(KIcon("system-suspend"), i18n("Sleep"), "Suspend");
+        m_comboBox->addItem(KIcon("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
     }
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
-        m_comboBox->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), "ToDisk");
+        m_comboBox->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    m_comboBox->addItem(KIcon("system-shutdown"), i18n("Shutdown"), "Shutdown");
-    m_comboBox->addItem(KIcon("system-lock-screen"), i18n("Lock screen"), "LockScreen");
+    m_comboBox->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    m_comboBox->addItem(KIcon("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
 
     hlay->addWidget(m_idleTime);
     hlay->addWidget(m_comboBox);

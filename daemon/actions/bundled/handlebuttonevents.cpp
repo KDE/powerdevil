@@ -90,27 +90,27 @@ void HandleButtonEvents::processAction(uint action)
     switch (action) {
         case 1:
             // Sleep
-            triggerAction("SuspendSession", "Suspend");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(1));
             break;
         case 2:
             // Hibernate
-            triggerAction("SuspendSession", "ToDisk");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(2));
             break;
         case 3:
             // Turn off PC
-            triggerAction("SuspendSession", "Shutdown");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(8));
             break;
         case 4:
             // Lock
-            triggerAction("SuspendSession", "LockScreen");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(32));
             break;
         case 5:
             // Shutdown dialog
-            triggerAction("SuspendSession", "LogoutDialog");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(16));
             break;
         case 6:
             // Turn off screen
-            triggerAction("DPMSControl", "TurnOff");
+            triggerAction("DPMSControl", qVariantFromValue< QString >("TurnOff"));
             break;
         default:
             // Do nothing
@@ -118,7 +118,7 @@ void HandleButtonEvents::processAction(uint action)
     }
 }
 
-void HandleButtonEvents::triggerAction(const QString& action, const QString &type)
+void HandleButtonEvents::triggerAction(const QString& action, const QVariant &type)
 {
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, KConfigGroup(), core());
     if (helperAction) {
@@ -137,15 +137,15 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
         switch (args["Button"].toUInt()) {
         case 1:
             // Sleep
-            triggerAction("SuspendSession", "Suspend");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(1)); // To RAM
             break;
         case 2:
             // Hibernate
-            triggerAction("SuspendSession", "ToDisk");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(2)); // To disk
             break;
         case 3:
             // Turn off PC
-            triggerAction("SuspendSession", "Shutdown");
+            triggerAction("SuspendSession", qVariantFromValue< uint >(8)); // Shutdown
             break;
         default:
             // Do nothing

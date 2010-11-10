@@ -34,6 +34,16 @@ class SuspendSession : public PowerDevil::Action
     Q_DISABLE_COPY(SuspendSession)
 
 public:
+    enum Mode {
+        None = 0,
+        ToRamMode = 1,
+        ToDiskMode = 2,
+        SuspendHybridMode = 4,
+        ShutdownMode = 8,
+        LogoutDialogMode = 16,
+        LockScreenMode = 32
+    };
+
     explicit SuspendSession(QObject *parent);
     virtual ~SuspendSession();
 
@@ -47,7 +57,9 @@ protected:
     virtual void triggerImpl(const QVariantMap& args);
 
 private:
-    QString m_autoType;
+    uint m_autoType;
+
+    void lockScreenAndWait();
 };
 
 }

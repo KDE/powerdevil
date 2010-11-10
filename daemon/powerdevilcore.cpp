@@ -573,17 +573,17 @@ BackendInterface* Core::backend()
 
 void Core::suspendHybrid()
 {
-    triggerSuspendSession("SuspendHybrid");
+    triggerSuspendSession(4);
 }
 
 void Core::suspendToDisk()
 {
-    triggerSuspendSession("ToDisk");
+    triggerSuspendSession(2);
 }
 
 void Core::suspendToRam()
 {
-    triggerSuspendSession("Suspend");
+    triggerSuspendSession(1);
 }
 
 int Core::batteryRemainingTime() const
@@ -609,7 +609,7 @@ void Core::setBrightness(int percent)
     ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
 }
 
-void Core::triggerSuspendSession(const QString& action)
+void Core::triggerSuspendSession(uint action)
 {
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this);
     if (helperAction) {

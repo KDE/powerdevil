@@ -92,7 +92,7 @@ private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
 
-    void triggerSuspendSession(const QString &action);
+    void triggerSuspendSession(uint action);
 
     friend class Action;
 

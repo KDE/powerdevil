@@ -74,48 +74,46 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
 {
     kDebug() << "Triggered with " << args["Type"].toString();
 
+    // Switch for screen lock
+    QVariantMap recallArgs;
+    switch ((Mode) (args["Type"].toUInt())) {
+        case ToRamMode:
+        case ToDiskMode:
+        case SuspendHybridMode:
+            // Do we want to lock the screen?
+            if (PowerDevilSettings::configLockScreen()) {
+                // Yeah, we do.
+                recallArgs["Type"] = (uint)LockScreenMode;
+                triggerImpl(recallArgs);
+            }
+            break;
+        default:
+            break;
+    }
+
+    // Switch for real action
     KJob *suspendJob = 0;
-    if (args["Type"].toString() == "Suspend") {
-        // Do we want to lock the screen?
-        if (PowerDevilSettings::configLockScreen()) {
-            // Yeah, we do.
-            QVariantMap args;
-            args["Type"] = "LockScreen";
-            triggerImpl(args);
-        }
-        suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
-    } else if (args["Type"].toString() == "ToDisk") {
-        // Do we want to lock the screen?
-        if (PowerDevilSettings::configLockScreen()) {
-            // Yeah, we do.
-            QVariantMap args;
-            args["Type"] = "LockScreen";
-            triggerImpl(args);
-        }
-        suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
-    } else if (args["Type"].toString() == "SuspendHybrid") {
-        // Do we want to lock the screen?
-        if (PowerDevilSettings::configLockScreen()) {
-            // Yeah, we do.
-            QVariantMap args;
-            args["Type"] = "LockScreen";
-            triggerImpl(args);
-        }
-        suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
-    } else if (args["Type"].toString() == "Shutdown") {
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
-    } else if (args["Type"].toString() == "Restart") {
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeReboot);
-    } else if (args["Type"].toString() == "Logout") {
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeLogout);
-    } else if (args["Type"].toString() == "LogoutDialog") {
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
-    } else if (args["Type"].toString() == "LockScreen") {
-        OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
-                                                 "/ScreenSaver",
-                                                 QDBusConnection::sessionBus());
-        QDBusPendingReply< void > reply = iface.Lock();
-        reply.waitForFinished();
+    switch ((Mode) (args["Type"].toUInt())) {
+        case ToRamMode:
+            suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
+            break;
+        case ToDiskMode:
+            suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
+            break;
+        case SuspendHybridMode:
+            suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
+            break;
+        case ShutdownMode:
+            KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
+            break;
+        case LogoutDialogMode:
+            KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
+            break;
+        case LockScreenMode:
+            lockScreenAndWait();
+            break;
+        default:
+            break;
     }
 
     if (suspendJob) {
@@ -123,12 +121,21 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
     }
 }
 
+void SuspendSession::lockScreenAndWait()
+{
+    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
+                                             "/ScreenSaver",
+                                             QDBusConnection::sessionBus());
+    QDBusPendingReply< void > reply = iface.Lock();
+    reply.waitForFinished();
+}
+
 bool SuspendSession::loadAction(const KConfigGroup& config)
 {
     if (config.isValid() && config.hasKey("idleTime") && config.hasKey("suspendType")) {
         // Add the idle timeout
         registerIdleTimeout(config.readEntry<int>("idleTime", 0));
-        m_autoType = config.readEntry<QString>("suspendType", QString());
+        m_autoType = config.readEntry<uint>("suspendType", 0);
     }
 
     return true;
