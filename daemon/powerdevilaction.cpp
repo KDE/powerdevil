@@ -83,12 +83,18 @@ Core* Action::core()
 
 void Action::trigger(const QVariantMap& args)
 {
-    PolicyAgent::RequiredPolicies unsatisfiablePolicies = PolicyAgent::instance()->requirePolicyCheck(d->requiredPolicies);
-    if (unsatisfiablePolicies == PolicyAgent::None) {
-        // Ok, let's trigger the action
+    if (args.contains("Explicit") && args["Explicit"].toBool()) {
+        // The action was explicitely triggered by the user, hence any policy check is bypassed.
         triggerImpl(args);
     } else {
-        // TODO: Notify somehow?
+        // The action was taken automatically: let's check if we have the rights to do that
+        PolicyAgent::RequiredPolicies unsatisfiablePolicies = PolicyAgent::instance()->requirePolicyCheck(d->requiredPolicies);
+        if (unsatisfiablePolicies == PolicyAgent::None) {
+            // Ok, let's trigger the action
+            triggerImpl(args);
+        } else {
+            // TODO: Notify somehow?
+        }
     }
 }
 

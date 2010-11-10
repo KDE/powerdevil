@@ -605,6 +605,7 @@ void Core::setBrightness(int percent)
 {
     QVariantMap args;
     args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
     ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
 }
 
@@ -614,6 +615,7 @@ void Core::triggerSuspendSession(const QString& action)
     if (helperAction) {
         QVariantMap args;
         args["Type"] = action;
+        args["Explicit"] = true;
         helperAction->trigger(args);
     }
 }
