@@ -141,6 +141,30 @@ void PowerDevilHALBackend::init()
         }
     }
 
+    // Battery capacity
+    {
+        foreach (Solid::Device *d, m_batteries) {
+            Solid::GenericInterface *interface = d->as<Solid::GenericInterface>();
+
+            if (interface == 0) continue;
+
+            if (interface->property("battery.reporting.design").toInt() > 0) {
+                uint capacity = ((float)(interface->property("battery.reporting.last_full").toInt()) /
+                                 (float)(interface->property("battery.reporting.design").toInt())) * 100;
+
+                if (capacity > 0) {
+                    setCapacityForBattery(d->udi(), capacity);
+                } else {
+                    // Not supported, set capacity to 100%
+                    setCapacityForBattery(d->udi(), 100);
+                }
+            } else {
+                // Not supported, set capacity to 100%
+                setCapacityForBattery(d->udi(), 100);
+            }
+        }
+    }
+
     setBackendIsReady(controls, supported);
 }
 
