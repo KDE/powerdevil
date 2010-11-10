@@ -169,6 +169,8 @@ public:
         */
     virtual float brightness(BrightnessControlType type = Screen) const;
 
+    bool isLidClosed() const;
+
     /**
         * Sets the screen brightness.
         *
@@ -248,6 +250,8 @@ protected slots:
 private:
     class Private;
     Private * const d;
+
+    friend class Core;
 };
 
 }

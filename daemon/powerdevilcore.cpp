@@ -275,6 +275,11 @@ void Core::loadProfile(const QString& name)
 
     // And set the current profile
     m_currentProfile = name;
+
+    // If the lid is closed, retrigger the lid close signal
+    if (m_backend->isLidClosed()) {
+        emit m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
+    }
 }
 
 void Core::onDeviceAdded(const QString& udi)

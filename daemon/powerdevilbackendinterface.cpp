@@ -25,7 +25,7 @@ namespace PowerDevil
 class BackendInterface::Private
 {
 public:
-    Private() : isReady(false), isError(false) {}
+    Private() : isReady(false), isError(false), isLidClosed(false) {}
     ~Private() {}
 
     AcAdapterState acAdapterState;
@@ -38,6 +38,7 @@ public:
     QString errorString;
     bool isReady;
     bool isError;
+    bool isLidClosed;
 };
 
 BackendInterface::BackendInterface(QObject* parent)
@@ -85,6 +86,11 @@ BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() con
     return d->suspendMethods;
 }
 
+bool BackendInterface::isLidClosed() const
+{
+    return d->isLidClosed;
+}
+
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
 {
     d->acAdapterState = state;
@@ -120,6 +126,11 @@ void BackendInterface::setBatteryState(PowerDevil::BackendInterface::BatteryStat
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
 {
+    if (type == LidClose) {
+        d->isLidClosed = true;
+    } else if (type == LidOpen) {
+        d->isLidClosed = false;
+    }
     emit buttonPressed(type);
 }
 
