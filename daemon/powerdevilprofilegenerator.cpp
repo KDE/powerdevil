@@ -90,7 +90,7 @@ void ProfileGenerator::generateProfiles()
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         Solid::Device dev = device;
         Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if(b->type() != Solid::Battery::PrimaryBattery) {
+        if (b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
             continue;
         }
         ++batteryCount;
