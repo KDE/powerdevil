@@ -293,6 +293,11 @@ void Core::onDeviceAdded(const QString& udi)
         return;
     }
 
+    if (b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
+        // Not interesting to us
+        return;
+    }
+
     if (!connect(b, SIGNAL(chargePercentChanged(int,QString)),
                  this, SLOT(onBatteryChargePercentChanged(int,QString)))) {
         emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
@@ -321,7 +326,7 @@ void Core::onDeviceRemoved(const QString& udi)
         return;
     }
 
-    if (b->type() != Solid::Battery::PrimaryBattery) {
+    if (b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
         // Not interesting to us
         return;
     }
