@@ -39,6 +39,8 @@ public:
     bool isReady;
     bool isError;
     bool isLidClosed;
+    QHash< QString, uint > capacities;
+    QList< RecallNotice > recallNotices;
 };
 
 BackendInterface::BackendInterface(QObject* parent)
@@ -79,6 +81,16 @@ float BackendInterface::brightness(BackendInterface::BrightnessControlType type)
 BackendInterface::BrightnessControlsList BackendInterface::brightnessControlsAvailable() const
 {
     return d->brightnessControlsAvailable;
+}
+
+QHash< QString, uint > BackendInterface::capacities() const
+{
+    return d->capacities;
+}
+
+QList< BackendInterface::RecallNotice > BackendInterface::recallNotices() const
+{
+    return d->recallNotices;
 }
 
 BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() const
@@ -132,6 +144,16 @@ void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType
         d->isLidClosed = false;
     }
     emit buttonPressed(type);
+}
+
+void BackendInterface::setCapacityForBattery(const QString& batteryId, uint percent)
+{
+    d->capacities.insert(batteryId, percent);
+}
+
+void BackendInterface::setRecallNotices(const QList< BackendInterface::RecallNotice >& notices)
+{
+    d->recallNotices = notices;
 }
 
 void BackendInterface::onBrightnessChanged(BackendInterface::BrightnessControlType device, float brightness)

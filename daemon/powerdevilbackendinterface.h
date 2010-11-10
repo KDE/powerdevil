@@ -104,6 +104,12 @@ public:
         */
     enum BrightnessKeyType{ Increase, Decrease };
 
+    struct RecallNotice {
+        QString batteryId;
+        QString vendor;
+        QString url;
+    };
+
     virtual void init() = 0;
 
     /**
@@ -188,6 +194,10 @@ public:
         */
     virtual void brightnessKeyPressed(BrightnessKeyType type) = 0;
 
+    QHash< QString, uint > capacities() const;
+
+    QList< RecallNotice > recallNotices() const;
+
 Q_SIGNALS:
     /**
         * This signal is emitted when the AC adapter is plugged or unplugged.
@@ -239,6 +249,9 @@ protected:
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
+
+    void setCapacityForBattery(const QString &batteryId, uint percent);
+    void setRecallNotices(const QList< RecallNotice > &notices);
 
     void setBackendIsReady(BrightnessControlsList availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
