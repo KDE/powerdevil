@@ -233,7 +233,7 @@ Q_SIGNALS:
     /**
     * This signal is emitted when the estimated battery remaining time changes.
     *
-    * @param brightness the new remaining time
+    * @param time the new remaining time
     */
     void batteryRemainingTimeChanged(int time);
 
