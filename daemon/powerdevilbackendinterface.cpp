@@ -29,8 +29,7 @@ public:
     ~Private() {}
 
     AcAdapterState acAdapterState;
-    int batteryChargePercent;
-    int batteryRemainingTime;
+    qulonglong batteryRemainingTime;
     BatteryState batteryState;
     QHash< BrightnessControlType, float > brightness;
     BrightnessControlsList brightnessControlsAvailable;
@@ -58,12 +57,7 @@ BackendInterface::AcAdapterState BackendInterface::acAdapterState() const
     return d->acAdapterState;
 }
 
-// int BackendInterface::batteryChargePercent() const
-// {
-//     return d->batteryChargePercent;
-// }
-
-int BackendInterface::batteryRemainingTime() const
+qulonglong BackendInterface::batteryRemainingTime() const
 {
     return d->batteryRemainingTime;
 }
@@ -124,7 +118,7 @@ void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightn
     emit backendReady();
 }
 
-void BackendInterface::setBatteryRemainingTime(int time)
+void BackendInterface::setBatteryRemainingTime(qulonglong time)
 {
     d->batteryRemainingTime = time;
     emit batteryRemainingTimeChanged(time);

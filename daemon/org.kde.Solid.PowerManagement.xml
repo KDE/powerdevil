@@ -16,7 +16,7 @@
       <arg type="i" direction="out" />
     </method>
     <method name="batteryRemainingTime">
-      <arg type="i" direction="out" />
+      <arg type="t" direction="out" />
     </method>
     <method name="suspendToRam">
     </method>
@@ -40,7 +40,7 @@
       <arg type="s" direction="out" />
     </signal>
     <signal name="batteryRemainingTimeChanged">
-      <arg type="i" direction="out" />
+      <arg type="t" direction="out" />
     </signal>
     <signal name="resumingFromSuspend">
     </signal>

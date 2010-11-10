@@ -121,18 +121,11 @@ public:
     BatteryState batteryState() const;
 
     /**
-        * Retrieves the current charge percentage of the system batteries.
-        *
-        * @return the current global battery charge percentage
-        */
-//     int batteryChargePercent() const;
-
-    /**
         * Retrieves the current estimated remaining time of the system batteries
         *
         * @return the current global estimated remaining time in milliseconds
         */
-    int batteryRemainingTime() const;
+    qulonglong batteryRemainingTime() const;
 
     /**
         * Retrieves the current state of the system AC adapter.
@@ -235,7 +228,7 @@ Q_SIGNALS:
     *
     * @param time the new remaining time
     */
-    void batteryRemainingTimeChanged(int time);
+    void batteryRemainingTimeChanged(qulonglong time);
 
     void backendReady();
 
@@ -245,7 +238,7 @@ Q_SIGNALS:
 
 protected:
     void onBrightnessChanged(BrightnessControlType device, float brightness);
-    void setBatteryRemainingTime(int time);
+    void setBatteryRemainingTime(qulonglong time);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);

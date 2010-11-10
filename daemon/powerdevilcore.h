@@ -71,7 +71,7 @@ public Q_SLOTS:
     int brightness() const;
     void setBrightness(int percent);
 
-    int batteryRemainingTime() const;
+    qulonglong batteryRemainingTime() const;
 
     void increaseBrightness();
     void decreaseBrightness();
@@ -85,7 +85,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void profileChanged(const QString &newProfile);
     void brightnessChanged(int percent);
-    void batteryRemainingTimeChanged(int time);
+    void batteryRemainingTimeChanged(qulonglong time);
     void resumingFromSuspend();
 
 private:
@@ -120,7 +120,7 @@ private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
     void onBrightnessChanged(float);
-    void onBatteryRemainingTimeChanged(int);
+    void onBatteryRemainingTimeChanged(qulonglong);
     void onKIdleTimeoutReached(int,int);
     void onResumingFromIdle();
     void onDeviceAdded(const QString &udi);

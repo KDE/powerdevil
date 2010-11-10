@@ -131,8 +131,8 @@ void Core::onBackendReady()
             this, SLOT(onBrightnessChanged(float)));
     connect(m_backend, SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
-    connect(m_backend, SIGNAL(batteryRemainingTimeChanged(int)),
-            this, SLOT(onBatteryRemainingTimeChanged(int)));
+    connect(m_backend, SIGNAL(batteryRemainingTimeChanged(qulonglong)),
+            this, SLOT(onBatteryRemainingTimeChanged(qulonglong)));
     connect(m_backend, SIGNAL(resumeFromSuspend()),
             this, SLOT(onResumeFromSuspend()));
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
@@ -498,7 +498,7 @@ void Core::onCriticalBatteryTimerExpired()
     }
 }
 
-void Core::onBatteryRemainingTimeChanged(int time)
+void Core::onBatteryRemainingTimeChanged(qulonglong time)
 {
     emit batteryRemainingTimeChanged(time);
 }
@@ -624,7 +624,7 @@ void Core::suspendToRam()
     triggerSuspendSession(1);
 }
 
-int Core::batteryRemainingTime() const
+qulonglong Core::batteryRemainingTime() const
 {
     return m_backend->batteryRemainingTime();
 }
