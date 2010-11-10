@@ -1,9 +1,21 @@
 [Global]
 Name=KDE Power Management System
+Name[ia]=Systema de Gestion de Energia de KDE
+Name[pt]=Sistema de Gestão de Energia do KDE
+Name[pt_BR]=Sistema de Gerenciamento de Energia do KDE
+Name[sv]=KDE:s strömsparhanteringssystem
+Name[uk]=Система керування живленням KDE
 Name[x-test]=xxKDE Power Management Systemxx
+Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Notifications for KDE Power Management system
+Comment[ia]=Notificationes pro systema de gestion de Energia de KDE
+Comment[pt]=Notificações para o sistema de Gestão de Energia do KDE
+Comment[pt_BR]=Notificações para o sistema de Gerenciamento de Energia do KDE
+Comment[sv]=Underrättelser för KDE:s strömsparhanteringssystem
+Comment[uk]=Сповіщення системи керування живленням KDE
 Comment[x-test]=xxNotifications for KDE Power Management systemxx
+Comment[zh_TW]=KDE 電源管理系統通知
 Version=1
 
 [Context/warningnot]
@@ -1651,9 +1663,21 @@ Persistant=true
 
 [Event/powerdevilerror]
 Name=Internal KDE Power Management System Error
+Name[ia]=Error Interne Systema de Gestion de Energia de KDE
+Name[pt]=Erro de Sistema Interno da Gestão da Energia do KDE
+Name[pt_BR]=Erro interno do Sistema de Gerenciamento de Energia do KDE
+Name[sv]=Internt fel i KDE:s strömsparhanteringssystem
+Name[uk]=Помилка вбудованої системи керування живленням KDE
 Name[x-test]=xxInternal KDE Power Management System Errorxx
+Name[zh_TW]=KDE 電源管理系統內部錯誤
 Comment=The KDE Power Management System has triggered an internal error
+Comment[ia]=Le Systema de Gestion de Energia de KDE ha generate un error interne
+Comment[pt]=O Sistema de Gestão de Energia do KDE originou um erro interno
+Comment[pt_BR]=Ocorreu um erro interno no Sistema de Gerenciamento de Energia do KDE
+Comment[sv]=KDE:s strömsparhanteringssystem har orsakat ett internt fel
+Comment[uk]=У системі керування живленням KDE сталася внутрішня помилка
 Comment[x-test]=xxThe KDE Power Management System has triggered an internal errorxx
+Comment[zh_TW]=KDE 電源管理系統觸發了一個內部錯誤
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
