@@ -114,7 +114,8 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
         OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
                                                  "/ScreenSaver",
                                                  QDBusConnection::sessionBus());
-        iface.Lock();
+        QDBusPendingReply< void > reply = iface.Lock();
+        reply.waitForFinished();
     }
 
     if (suspendJob) {
