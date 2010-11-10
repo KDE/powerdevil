@@ -29,6 +29,7 @@
 #include <kworkspace/kworkspace.h>
 
 #include "screensaver_interface.h"
+#include <PowerDevilSettings.h>
 
 namespace PowerDevil
 {
@@ -75,11 +76,32 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
 
     KJob *suspendJob = 0;
     if (args["Type"].toString() == "Suspend") {
+        // Do we want to lock the screen?
+        if (PowerDevilSettings::configLockScreen()) {
+            // Yeah, we do.
+            QVariantMap args;
+            args["Type"] = "LockScreen";
+            triggerImpl(args);
+        }
         suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
     } else if (args["Type"].toString() == "ToDisk") {
-        suspendJob =backend()->suspend(PowerDevil::BackendInterface::ToDisk);
+        // Do we want to lock the screen?
+        if (PowerDevilSettings::configLockScreen()) {
+            // Yeah, we do.
+            QVariantMap args;
+            args["Type"] = "LockScreen";
+            triggerImpl(args);
+        }
+        suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
     } else if (args["Type"].toString() == "SuspendHybrid") {
-        suspendJob =backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
+        // Do we want to lock the screen?
+        if (PowerDevilSettings::configLockScreen()) {
+            // Yeah, we do.
+            QVariantMap args;
+            args["Type"] = "LockScreen";
+            triggerImpl(args);
+        }
+        suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
     } else if (args["Type"].toString() == "Shutdown") {
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
     } else if (args["Type"].toString() == "Restart") {

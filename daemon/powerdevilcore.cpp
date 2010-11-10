@@ -448,11 +448,11 @@ void Core::onBrightnessChanged(float brightness)
 
 void Core::onResumeFromSuspend()
 {
-    // Do we want to lock the screen?
-    if (PowerDevilSettings::configLockScreen()) {
-        // Yeah, we do.
-        triggerSuspendSession("LockScreen");
-    }
+    // Notify the screensaver
+    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
+                                             "/ScreenSaver",
+                                             QDBusConnection::sessionBus());
+    iface.SimulateUserActivity();
 
     emit resumingFromSuspend();
 }
