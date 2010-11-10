@@ -86,6 +86,7 @@ Q_SIGNALS:
     void profileChanged(const QString &newProfile);
     void brightnessChanged(int percent);
     void batteryRemainingTimeChanged(int time);
+    void resumingFromSuspend();
 
 private:
     void registerActionTimeout(Action *action, int timeout);

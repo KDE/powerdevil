@@ -453,6 +453,8 @@ void Core::onResumeFromSuspend()
         // Yeah, we do.
         triggerSuspendSession("LockScreen");
     }
+
+    emit resumingFromSuspend();
 }
 
 void Core::onKIdleTimeoutReached(int identifier, int msec)

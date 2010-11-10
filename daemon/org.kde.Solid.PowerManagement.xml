@@ -42,5 +42,7 @@
     <signal name="batteryRemainingTimeChanged">
       <arg type="i" direction="out" />
     </signal>
+    <signal name="resumingFromSuspend">
+    </signal>
   </interface>
 </node>
