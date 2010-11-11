@@ -65,6 +65,7 @@ public Q_SLOTS:
     void refreshStatus();
     void reloadProfile();
     void reloadCurrentProfile();
+    void reparseConfiguration();
 
     void loadProfile(const QString &name);
     QString currentProfile() const;

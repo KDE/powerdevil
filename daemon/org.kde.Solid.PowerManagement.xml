@@ -4,6 +4,7 @@
     
     <method name="refreshStatus" />
     <method name="reloadCurrentProfile" />
+    <method name="reparseConfiguration" />
     <method name="loadProfile">
       <arg type="s" direction="in" />
     </method>

@@ -169,10 +169,34 @@ void EditPage::load()
 
 void EditPage::save()
 {
+    QString profile = profilesList->currentItem()->text();
     saveProfile();
     // Notify the daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                       "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+                                                       "org.kde.Solid.PowerManagement", "currentProfile");
+    QDBusPendingReply< QString > reply = QDBusConnection::sessionBus().asyncCall(call);
+    reply.waitForFinished();
+
+    if (reply.isValid()) {
+        if (reply.value() == profile) {
+            // Ask to reload the profile
+            kDebug() << "Active profile edited, reloading profile";
+            call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                  "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+        } else {
+            // Ask to reparse config
+            kDebug() << "Inactive profile edited, reparsing configuration";
+            call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                  "org.kde.Solid.PowerManagement", "reparseConfiguration");
+        }
+    } else {
+        kWarning() << "Invalid reply from daemon when asking for current profile!";
+        // To be sure, reload profile
+        call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                              "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+    }
+
+    // Perform call
     QDBusConnection::sessionBus().asyncCall(call);
 }
 
@@ -279,7 +303,7 @@ void EditPage::deleteCurrentProfile()
 
     // Notify the daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                       "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+                                                       "org.kde.Solid.PowerManagement", "reparseConfiguration");
     QDBusConnection::sessionBus().asyncCall(call);
 }
 
@@ -297,7 +321,7 @@ void EditPage::createProfile(const QString &name, const QString &icon)
 
     // Notify the daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                       "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+                                                       "org.kde.Solid.PowerManagement", "reparseConfiguration");
     QDBusConnection::sessionBus().asyncCall(call);
 }
 

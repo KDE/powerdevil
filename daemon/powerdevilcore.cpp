@@ -234,8 +234,7 @@ void Core::refreshStatus()
     /* The configuration could have changed if this function was called, so
      * let's resync it.
      */
-    PowerDevilSettings::self()->readConfig();
-    m_profilesConfig->reparseConfiguration();
+    reparseConfiguration();
 
     reloadProfile();
 }
@@ -250,14 +249,18 @@ void Core::reloadCurrentProfile()
     /* The configuration could have changed if this function was called, so
      * let's resync it.
      */
-    kDebug() << "Request to reload current profile";
+    reparseConfiguration();
+
+    loadProfile(m_currentProfile);
+}
+
+void Core::reparseConfiguration()
+{
     PowerDevilSettings::self()->readConfig();
     m_profilesConfig->reparseConfiguration();
 
     // Config reloaded
     emit configurationReloaded();
-
-    loadProfile(m_currentProfile);
 }
 
 void Core::reloadProfile(int state)
