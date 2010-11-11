@@ -37,7 +37,6 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KDebug>
-#include <KDirWatch>
 #include <KIdleTime>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -140,13 +139,6 @@ void Core::onBackendReady()
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
             this, SLOT(onResumingFromIdle()));
-
-    // Listen to profile changes
-    KDirWatch *profilesWatch = new KDirWatch(this);
-    profilesWatch->addFile(KStandardDirs::locate("config", "powerdevil2profilesrc"));
-    connect(profilesWatch, SIGNAL(dirty(QString)), this, SLOT(reloadCurrentProfile()));
-    connect(profilesWatch, SIGNAL(created(QString)), this, SLOT(reloadCurrentProfile()));
-    connect(profilesWatch, SIGNAL(deleted(QString)), this, SLOT(reloadCurrentProfile()));
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
@@ -258,6 +250,7 @@ void Core::reloadCurrentProfile()
     /* The configuration could have changed if this function was called, so
      * let's resync it.
      */
+    kDebug() << "Request to reload current profile";
     PowerDevilSettings::self()->readConfig();
     m_profilesConfig->reparseConfiguration();
     loadProfile(m_currentProfile);

@@ -2,7 +2,8 @@
 <node>
   <interface name="org.kde.Solid.PowerManagement">
     
-    <method name="refreshStatus" />    
+    <method name="refreshStatus" />
+    <method name="reloadCurrentProfile" />
     <method name="loadProfile">
       <arg type="s" direction="in" />
     </method>

@@ -170,6 +170,10 @@ void EditPage::load()
 void EditPage::save()
 {
     saveProfile();
+    // Notify the daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+    QDBusConnection::sessionBus().asyncCall(call);
 }
 
 void EditPage::loadProfile()

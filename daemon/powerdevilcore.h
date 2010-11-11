@@ -28,6 +28,7 @@
 
 #include <KComponentData>
 
+class KDirWatch;
 class QTimer;
 class KNotification;
 namespace Solid {
