@@ -107,8 +107,8 @@ void PowerDevilUPowerBackend::init()
             }
         }
     }
-    setRecallNotices(recallList);
-
+    if (!recallList.isEmpty())
+        setRecallNotices(recallList);
 
     // backend ready
     setBackendIsReady(controls, supported);
