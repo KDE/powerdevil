@@ -223,13 +223,13 @@ void Core::checkBatteryStatus()
         // Notify, a battery has been recalled
         emitNotification("brokenbattery", i18np("Your battery might have been recalled by %2. Usually, when vendors recall the "
                                                 "hardware, it is because of factory defects which are usually eligible for a "
-                                                "free repair or substitution. Please check <a href=\"%3\">%2's website</a> to"
+                                                "free repair or substitution. Please check <a href=\"%3\">%2's website</a> to "
                                                 "verify if your battery is faulted.",
 
                                                 "One of your batteries (ID %4) might have been recalled by %2. "
                                                 "Usually, when vendors recall the hardware, it is because of factory defects "
                                                 "which are usually eligible for a free repair or substitution. "
-                                                "Please check <a href=\"%3\">%2's website</a> to"
+                                                "Please check <a href=\"%3\">%2's website</a> to "
                                                 "verify if your battery is faulted.",
                                                 m_loadedBatteriesUdi.size(), notice.vendor, notice.url, notice.batteryId),
                          "dialog-warning");
