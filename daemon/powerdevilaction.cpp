@@ -45,7 +45,6 @@ Action::Action(QObject* parent)
 
 Action::~Action()
 {
-    unloadAction();
     delete d;
 }
 

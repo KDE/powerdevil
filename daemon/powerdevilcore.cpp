@@ -90,7 +90,8 @@ Core::Core(QObject* parent, const KComponentData &componentData)
 
 Core::~Core()
 {
-
+    // Unload all actions before exiting
+    ActionPool::instance()->unloadAllActiveActions();
 }
 
 void Core::onBackendReady()
