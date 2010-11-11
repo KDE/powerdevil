@@ -85,6 +85,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void profileChanged(const QString &newProfile);
+    void configurationReloaded();
     void brightnessChanged(int percent);
     void batteryRemainingTimeChanged(qulonglong time);
     void resumingFromSuspend();

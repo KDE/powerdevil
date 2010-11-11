@@ -276,6 +276,11 @@ void EditPage::deleteCurrentProfile()
     m_profilesConfig->sync();
 
     reloadAvailableProfiles();
+
+    // Notify the daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+    QDBusConnection::sessionBus().asyncCall(call);
 }
 
 void EditPage::createProfile(const QString &name, const QString &icon)
@@ -289,6 +294,11 @@ void EditPage::createProfile(const QString &name, const QString &icon)
     group.sync();
 
     reloadAvailableProfiles();
+
+    // Notify the daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+    QDBusConnection::sessionBus().asyncCall(call);
 }
 
 void EditPage::createProfile()

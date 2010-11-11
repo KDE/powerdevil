@@ -40,6 +40,8 @@
     <signal name="profileChanged">
       <arg type="s" direction="out" />
     </signal>
+    <signal name="configurationReloaded">
+    </signal>
     <signal name="batteryRemainingTimeChanged">
       <arg type="t" direction="out" />
     </signal>

@@ -59,6 +59,11 @@ GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
     setupUi(this);
 
     fillUi();
+
+    // Connect to daemon's signal
+    QDBusConnection::sessionBus().connect("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                          "org.kde.Solid.PowerManagement", "configurationReloaded",
+                                          this, SLOT(reloadAvailableProfiles()));
 }
 
 GeneralPage::~GeneralPage()

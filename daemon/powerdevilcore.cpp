@@ -253,6 +253,10 @@ void Core::reloadCurrentProfile()
     kDebug() << "Request to reload current profile";
     PowerDevilSettings::self()->readConfig();
     m_profilesConfig->reparseConfiguration();
+
+    // Config reloaded
+    emit configurationReloaded();
+
     loadProfile(m_currentProfile);
 }
 
@@ -319,8 +323,11 @@ void Core::loadProfile(const QString& name)
         }        
     }
 
-    // And set the current profile
-    m_currentProfile = name;
+    // Set the current profile. Notify if different.
+    if (m_currentProfile != name) {
+        m_currentProfile = name;
+        emit profileChanged(m_currentProfile);
+    }
 
     // If the lid is closed, retrigger the lid close signal
     if (m_backend->isLidClosed()) {
