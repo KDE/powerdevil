@@ -319,6 +319,12 @@ void PowerDevilHALBackend::computeAcAdapters()
             m_pluggedAdapterCount++;
         }
     }
+
+    if (m_pluggedAdapterCount > 0) {
+        setAcAdapterState(Plugged);
+    } else {
+        setAcAdapterState(Unplugged);
+    }
 }
 
 void PowerDevilHALBackend::computeBatteries()
