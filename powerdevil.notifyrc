@@ -1832,6 +1832,7 @@ Action=Sound|Popup
 [Event/brokenbattery]
 Name=Broken battery notification
 Name[ia]=Notification de Batteria rupte
+Name[nl]=Gebroken batterijmelding
 Name[pt]=Notificação de baterias com problemas
 Name[pt_BR]=Notificação de baterias com problemas
 Name[sv]=Underrättelse om felaktigt batteri
@@ -1840,6 +1841,7 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_TW]=電池損壞通知
 Comment=This notification will pop up if KDE Power Management System detects some troubles with one of your batteries
 Comment[ia]=Iste notification apparera con un popup si le Systema de Gestion de Energia de KDE releva alcun problemas con un de tu batterias
+Comment[nl]=Deze melding verschijnt als het KDE energiebeheersysteem een probleemdetecteert met één van uw batterijen
 Comment[pt]=Esta notificação irá aparecer se o Sistema de Gestão de Energia do KDE detectar algum problema com alguma das suas baterias
 Comment[pt_BR]=Esta notificação aparecerá se o Sistema de Gerenciamento de Energia do KDE detectar algum problema com uma das suas baterias
 Comment[sv]=Den här underrättelsen dyker upp om KDE:s strömsparhantering detekterar några problem med något av batterierna
