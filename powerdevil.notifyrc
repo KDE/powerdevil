@@ -1,5 +1,6 @@
 [Global]
 Name=KDE Power Management System
+Name[hu]=KDE energiakezelő rendszer
 Name[ia]=Systema de Gestion de Energia de KDE
 Name[km]=ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល​របស់ KDE
 Name[nds]=Stroomkuntrull-Systeem för KDE
@@ -1847,6 +1848,7 @@ Comment[pt_BR]=Esta notificação aparecerá se o Sistema de Gerenciamento de En
 Comment[sv]=Den här underrättelsen dyker upp om KDE:s strömsparhantering detekterar några problem med något av batterierna
 Comment[uk]=Це сповіщення буде показано, якщо система керування живленням KDE виявить проблеми з одним з акумуляторів
 Comment[x-test]=xxThis notification will pop up if KDE Power Management System detects some troubles with one of your batteriesxx
+Comment[zh_TW]=這會在 KDE 電源管理系統發現您的電池有些問題時跳出通知
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
