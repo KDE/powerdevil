@@ -1,5 +1,6 @@
 [Global]
 Name=KDE Power Management System
+Name[et]=KDE toitehalduse süsteem
 Name[hu]=KDE energiakezelő rendszer
 Name[ia]=Systema de Gestion de Energia de KDE
 Name[km]=ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល​របស់ KDE
@@ -13,6 +14,7 @@ Name[x-test]=xxKDE Power Management Systemxx
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Notifications for KDE Power Management system
+Comment[et]=KDE toitehalduse süsteemi märguanded
 Comment[ia]=Notificationes pro systema de gestion de Energia de KDE
 Comment[km]=ការ​ជូន​ដំណឹង​សម្រាប់​​ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE
 Comment[nds]=Bescheden för dat KDE-Stroomkuntrullsysteem
@@ -1670,6 +1672,7 @@ Persistant=true
 
 [Event/powerdevilerror]
 Name=Internal KDE Power Management System Error
+Name[et]=Sisemine KDE toitehalduse süsteemi tõrge
 Name[ia]=Error Interne Systema de Gestion de Energia de KDE
 Name[km]=កំហុស​របស់​ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល​ KDE ខាង​ក្នុង
 Name[nds]=Intern Fehler binnen KDE-Stroomkuntrullsysteem
@@ -1681,6 +1684,7 @@ Name[uk]=Помилка вбудованої системи керування �
 Name[x-test]=xxInternal KDE Power Management System Errorxx
 Name[zh_TW]=KDE 電源管理系統內部錯誤
 Comment=The KDE Power Management System has triggered an internal error
+Comment[et]=KDE toitehalduse süsteemi tabas sisemine tõrge
 Comment[ia]=Le Systema de Gestion de Energia de KDE ha generate un error interne
 Comment[km]=ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE មាន​កំហុស​ខាង​ក្នុង
 Comment[nds]=Dat KDE-Stroomkuntrullsysteem hett en intern Fehler hatt.
@@ -1832,7 +1836,9 @@ Action=Sound|Popup
 
 [Event/brokenbattery]
 Name=Broken battery notification
+Name[et]=Katkise aku märguanne
 Name[ia]=Notification de Batteria rupte
+Name[km]=ការ​ជូន​ដំណឹង​ថ្ម​ខូច
 Name[nl]=Gebroken batterijmelding
 Name[pt]=Notificação de baterias com problemas
 Name[pt_BR]=Notificação de baterias com problemas
@@ -1841,7 +1847,9 @@ Name[uk]=Сповіщення про пошкоджений акумулятор
 Name[x-test]=xxBroken battery notificationxx
 Name[zh_TW]=電池損壞通知
 Comment=This notification will pop up if KDE Power Management System detects some troubles with one of your batteries
+Comment[et]=Seda märguannet näeb, kui KDE toitehalduse süsteem tuvastab mingeid probleeme mõne su akuga
 Comment[ia]=Iste notification apparera con un popup si le Systema de Gestion de Energia de KDE releva alcun problemas con un de tu batterias
+Comment[km]=ការ​ជូនដំណឹង​នេះ​នឹង​លេចឡើង​ ប្រសិនបើ​ប្រព័ន្ធ​គ្រប់គ្រង​​ថាមពល​របស់ KDE រក​ឃើញ​បញ្ហា​ខ្លះ​ជា​មួយ​នឹង​ថ្ម​របស់​អ្នក​
 Comment[nl]=Deze melding verschijnt als het KDE energiebeheersysteem een probleemdetecteert met één van uw batterijen
 Comment[pt]=Esta notificação irá aparecer se o Sistema de Gestão de Energia do KDE detectar algum problema com alguma das suas baterias
 Comment[pt_BR]=Esta notificação aparecerá se o Sistema de Gerenciamento de Energia do KDE detectar algum problema com uma das suas baterias
