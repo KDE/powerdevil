@@ -26,6 +26,7 @@
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
 #include "powerdevilbackendinterface.h"
+#include "powerdevilbackendloader.h"
 #include "powerdevilfdoconnector.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
@@ -58,27 +59,13 @@ Core::Core(QObject* parent, const KComponentData &componentData)
     , m_criticalBatteryTimer(new QTimer(this))
 {
     // Before doing anything, let's set up our backend
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevilBackend", "(Type == 'Service')");
-    QString error_string;
-
-    foreach (const KService::Ptr &ptr, offers) {
-        m_backend = ptr->createInstance<PowerDevil::BackendInterface>(0, QVariantList(), &error_string);
-
-        if (!m_backend != 0) {
-            kDebug() << "Error loading '" << ptr->name() << "', KService said: " << error_string;
-        }
-    }
+    m_backend = PowerDevil::BackendLoader::loadBackend(this);
 
     if (!m_backend) {
         // Ouch
         kError() << "KDE Power Management System init failed!";
-        if (error_string.isEmpty() && offers.isEmpty()) {
-            // No offers were available
-            onBackendError(i18n("No valid Power Management backend plugins were found. "
-                                "A new installation might solve this problem."));
-        } else {
-            onBackendError(error_string);
-        }
+        onBackendError(i18n("No valid Power Management backend plugins are available. "
+                            "A new installation might solve this problem."));
     } else {
         // Async backend init - so that KDED gets a bit of a speed up
         connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
@@ -95,12 +82,12 @@ Core::~Core()
 
 void Core::onBackendReady()
 {
-    kDebug() << "Backend is ready, PowerDevil system initialized";
+    kDebug() << "Backend is ready, KDE Power Management system initialized";
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
         QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
         QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
-        kError() << "PowerDevil not initialized, another power manager has been detected";
+        kError() << "KDE Power Management system not initialized, another power manager has been detected";
         return;
     }
 

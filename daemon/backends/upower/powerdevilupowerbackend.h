@@ -42,10 +42,11 @@ class KDE_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilUPowerBackend)
 public:
-    explicit PowerDevilUPowerBackend(QObject* parent, const QVariantList&);
+    explicit PowerDevilUPowerBackend(QObject* parent);
     virtual ~PowerDevilUPowerBackend();
 
     virtual void init();
+    virtual bool isAvailable();
 
     virtual float brightness(BrightnessControlType type = Screen) const;
 

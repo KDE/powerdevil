@@ -42,10 +42,11 @@ class KDE_EXPORT PowerDevilHALBackend : public PowerDevil::BackendInterface
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilHALBackend)
 public:
-    explicit PowerDevilHALBackend(QObject* parent, const QVariantList&);
+    explicit PowerDevilHALBackend(QObject* parent);
     virtual ~PowerDevilHALBackend();
 
     virtual void init();
+    virtual bool isAvailable();
 
     virtual float brightness(BrightnessControlType type = Screen) const;
 

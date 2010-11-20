@@ -32,10 +32,7 @@
 #include <KPluginFactory>
 #include <QtCore/QTimer>
 
-K_PLUGIN_FACTORY(PowerDevilHalBackendFactory, registerPlugin<PowerDevilHALBackend>(); )
-K_EXPORT_PLUGIN(PowerDevilHalBackendFactory("powerdevilhalbackend"))
-
-PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent, const QVariantList&)
+PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent)
     : BackendInterface(parent),
       m_brightnessInHardware(true),
       m_halComputer("org.freedesktop.Hal",
@@ -62,6 +59,11 @@ PowerDevilHALBackend::~PowerDevilHALBackend()
     qDeleteAll(m_acAdapters);
     qDeleteAll(m_batteries);
     qDeleteAll(m_buttons);
+}
+
+bool PowerDevilHALBackend::isAvailable()
+{
+    return m_halPowerManagement.isValid();
 }
 
 void PowerDevilHALBackend::init()

@@ -31,10 +31,7 @@
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 
-K_PLUGIN_FACTORY(PowerDevilUpowerBackendFactory, registerPlugin<PowerDevilUPowerBackend>(); )
-K_EXPORT_PLUGIN(PowerDevilUpowerBackendFactory("powerdevilupowerbackend"))
-
-PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent, const QVariantList&)
+PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
       m_brightNessControl(new XRandrBrightness()),
       m_upowerInterface(new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), parent)),
@@ -49,6 +46,11 @@ PowerDevilUPowerBackend::~PowerDevilUPowerBackend()
     delete m_upowerInterface;
     delete m_brightNessControl;
     delete m_kbdBacklight;
+}
+
+bool PowerDevilUPowerBackend::isAvailable()
+{
+    return m_upowerInterface->isValid();
 }
 
 void PowerDevilUPowerBackend::init()

@@ -112,6 +112,8 @@ public:
 
     virtual void init() = 0;
 
+    virtual bool isAvailable() = 0;
+
     /**
         * Retrieves the current state of the system battery.
         *
