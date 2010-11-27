@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 
 Name=Power Profiles
 Name[ast]=Perfiles d'enerxía
+Name[da]=Strømstyringsprofiler
 Name[de]=Energieprofile
 Name[en_GB]=Power Profiles
 Name[es]=Perfiles de energía
@@ -37,6 +38,7 @@ Name[zh_TW]=電源設定檔
 
 Comment=Configure Power Management Profiles
 Comment[ast]=Configurar los perfiles de xestión d'enerxía
+Comment[da]=Indstil strømstyringsprofiler
 Comment[de]=Energieprofile einrichten
 Comment[en_GB]=Configure Power Management Profiles
 Comment[es]=Configurar los perfiles de gestión de energía
