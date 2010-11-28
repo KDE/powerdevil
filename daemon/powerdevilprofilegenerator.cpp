@@ -262,7 +262,7 @@ void ProfileGenerator::upgradeProfiles()
         // Buttons
         if (oldGroup.readEntry< int >("powerButtonAction", 0) > 0 || oldGroup.readEntry< int >("lidAction", 0) > 0) {
             KConfigGroup suspendSession(&newGroup, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime") * 60 * 1000);
+            suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime", 30) * 60 * 1000);
             if (!methods.contains(Solid::PowerManagement::SuspendState)) {
                 suspendSession.writeEntry< uint >("suspendType", 2);
             } else {
