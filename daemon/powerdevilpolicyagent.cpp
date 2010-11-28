@@ -59,6 +59,7 @@ PolicyAgent::PolicyAgent(QObject* parent)
     : QObject(parent)
     , m_sessionIsBeingInterrupted(false)
     , m_lastCookie(0)
+    , m_busWatcher(new QDBusServiceWatcher(this))
 {
     Q_ASSERT(!s_globalPolicyAgent->q);
     s_globalPolicyAgent->q = this;
@@ -112,11 +113,10 @@ void PolicyAgent::init()
     }
 
     // Now set up our service watcher
-    m_busWatcher = new QDBusServiceWatcher(this);
-    m_busWatcher->setConnection(QDBusConnection::sessionBus());
-    m_busWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
+    m_busWatcher.data()->setConnection(QDBusConnection::sessionBus());
+    m_busWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
 
-    connect(m_busWatcher, SIGNAL(serviceUnregistered(QString)),
+    connect(m_busWatcher.data(), SIGNAL(serviceUnregistered(QString)),
             this, SLOT(onServiceUnregistered(QString)));
 }
 
@@ -198,8 +198,10 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
     m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
 
-    m_cookieToBusService.insert(m_lastCookie, service);
-    m_busWatcher->addWatchedService(service);
+    if (!m_busWatcher.isNull() && !service.isEmpty()) {
+        m_cookieToBusService.insert(m_lastCookie, service);
+        m_busWatcher.data()->addWatchedService(service);
+    }
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
@@ -215,10 +217,11 @@ uint PolicyAgent::AddInhibition(uint types,
     m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
 
     // Retrieve the service, if we've been called from DBus
-    if (calledFromDBus()) {
-        m_cookieToBusService.insert(m_lastCookie, message().service());
-
-        m_busWatcher->addWatchedService(message().service());
+    if (calledFromDBus() && !m_busWatcher.isNull()) {
+        if (!message().service().isEmpty()) {
+            m_cookieToBusService.insert(m_lastCookie, message().service());
+            m_busWatcher.data()->addWatchedService(message().service());
+        }
     }
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
@@ -262,7 +265,9 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
 {
     m_cookieToAppName.remove(cookie);
     if (m_cookieToBusService.contains(cookie)) {
-        m_busWatcher->removeWatchedService(m_cookieToBusService[cookie]);
+        if (!m_busWatcher.isNull()) {
+            m_busWatcher.data()->removeWatchedService(m_cookieToBusService[cookie]);
+        }
         m_cookieToBusService.remove(cookie);
     }
 

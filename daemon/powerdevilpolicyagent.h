@@ -23,6 +23,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QHash>
+#include <QtCore/QWeakPointer>
 
 #include <QtDBus/QDBusContext>
 
@@ -96,7 +97,7 @@ private:
 
     uint m_lastCookie;
 
-    QDBusServiceWatcher *m_busWatcher;
+    QWeakPointer< QDBusServiceWatcher > m_busWatcher;
 
     friend class Core;
     friend class FdoConnector;
