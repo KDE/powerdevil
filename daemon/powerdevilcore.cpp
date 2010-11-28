@@ -397,6 +397,8 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
     kDebug();
+    // Fake an activity event - usually adapters don't plug themselves out :)
+    KIdleTime::instance()->simulateUserActivity();
     reloadProfile(state);
 
     if (state == BackendInterface::Plugged) {
