@@ -26,6 +26,7 @@ namespace PowerDevil {
 namespace ProfileGenerator
 {
     void generateProfiles();
+    void upgradeProfiles();
 }
 
 }

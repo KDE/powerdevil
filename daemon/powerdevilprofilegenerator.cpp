@@ -21,6 +21,8 @@
 
 #include <PowerDevilSettings.h>
 
+#include <QtCore/QFile>
+
 #include <Solid/Device>
 #include <Solid/Battery>
 #include <Solid/PowerManagement>
@@ -30,6 +32,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <KIcon>
+#include <KStandardDirs>
 
 namespace PowerDevil {
 
@@ -196,6 +199,96 @@ void ProfileGenerator::generateProfiles()
     // Save and be happy
     PowerDevilSettings::self()->writeConfig();
     profilesConfig->sync();
+}
+
+void ProfileGenerator::upgradeProfiles()
+{
+    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
+
+    // Let's change some defaults
+    if (!methods.contains(Solid::PowerManagement::SuspendState)) {
+        if (!methods.contains(Solid::PowerManagement::HibernateState)) {
+            PowerDevilSettings::setBatteryCriticalAction(0);
+        } else {
+            PowerDevilSettings::setBatteryCriticalAction(2);
+        }
+    }
+
+    // Ok, let's get our config file.
+    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+    KSharedConfigPtr oldProfilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+
+    // And clear it
+    foreach (const QString &group, profilesConfig->groupList()) {
+        profilesConfig->deleteGroup(group);
+    }
+
+    foreach (const QString &group, oldProfilesConfig->groupList()) {
+        KConfigGroup oldGroup = oldProfilesConfig->group(group);
+        KConfigGroup newGroup(profilesConfig, oldGroup.readEntry< QString >("name", QString()));
+
+        // Read stuff
+        // Brightness.
+        {
+            KConfigGroup brightnessControl(&newGroup, "BrightnessControl");
+            brightnessControl.writeEntry< int >("value", oldGroup.readEntry< int >("brightness", 100));
+        }
+        // Dim screen
+        if (oldGroup.readEntry< bool >("dimOnIdle", false)) {
+            KConfigGroup dimDisplay(&newGroup, "DimDisplay");
+            dimDisplay.writeEntry< int >("idleTime", oldGroup.readEntry< int >("dimOnIdleTime", 30) * 60 * 1000);
+        }
+        // DPMS
+        if (oldGroup.readEntry< bool >("DPMSEnabled", false) && oldGroup.readEntry< int >("DPMSPowerOff", 0) > 0) {
+            KConfigGroup dpmsControl(&newGroup, "DPMSControl");
+            dpmsControl.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("DPMSPowerOff", 30) * 60 * 1000);
+        }
+        // Script
+        if (!oldGroup.readEntry< QString >("scriptpath", QString()).isEmpty()) {
+            KConfigGroup runScript(&newGroup, "RunScript");
+            runScript.writeEntry< QString >("scriptCommand", oldGroup.readEntry< QString >("scriptpath", QString()));
+            runScript.writeEntry< uint >("scriptPhase", 0);
+        }
+        // SuspendSession
+        if (oldGroup.readEntry< int >("idleAction", 0) > 0) {
+            KConfigGroup suspendSession(&newGroup, "SuspendSession");
+            suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime", 30) * 60 * 1000);
+            if (!methods.contains(Solid::PowerManagement::SuspendState)) {
+                suspendSession.writeEntry< uint >("suspendType", 2);
+            } else {
+                suspendSession.writeEntry< uint >("suspendType", 1);
+            }
+        }
+        // Buttons
+        if (oldGroup.readEntry< int >("powerButtonAction", 0) > 0 || oldGroup.readEntry< int >("lidAction", 0) > 0) {
+            KConfigGroup suspendSession(&newGroup, "SuspendSession");
+            suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime") * 60 * 1000);
+            if (!methods.contains(Solid::PowerManagement::SuspendState)) {
+                suspendSession.writeEntry< uint >("suspendType", 2);
+            } else {
+                suspendSession.writeEntry< uint >("suspendType", 1);
+            }
+        }
+    }
+
+    // Save and be happy
+    profilesConfig->sync();
+
+    // We also want to backup and erase the old profiles.
+    QString oldProfilesFile = KGlobal::dirs()->findResource("config", "powerdevilprofilesrc");
+    if (!oldProfilesFile.isEmpty()) {
+        // Backup
+        QString bkProfilesFile = oldProfilesFile;
+        bkProfilesFile.append(".old");
+        KConfig *bkConfig = oldProfilesConfig->copyTo(bkProfilesFile);
+        if (bkConfig != 0) {
+            bkConfig->sync();
+            delete bkConfig;
+
+            // Delete the old profiles now.
+            QFile::remove(oldProfilesFile);
+        }
+    }
 }
 
 }
