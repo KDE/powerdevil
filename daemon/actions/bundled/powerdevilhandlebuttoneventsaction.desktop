@@ -6,6 +6,7 @@ Icon=system-suspend
 
 Name=Button events handling
 Name[ast]=Remanar eventos botón
+Name[ca]=Gestió d'esdeveniments de botons
 Name[da]=Håndtering af knaphændelser
 Name[en_GB]=Button events handling
 Name[es]=Gestión de eventos de botón
@@ -28,6 +29,7 @@ Name[zh_TW]=按鍵事件處理
 
 Comment=Performs an action whenever a button is pressed
 Comment[ast]=Facer aiciones cuando se calque un botón
+Comment[ca]=Porta a terme una acció quan es prem un botó
 Comment[da]=Udfører en handling når der trykke på en knap
 Comment[en_GB]=Performs an action whenever a button is pressed
 Comment[es]=Realiza una acción cuando se presiona un botón
