@@ -51,7 +51,7 @@
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("powerdevilprofilesconfig"))
+K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("powerdevilprofilesconfig","powerdevil"))
 
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilProfilesKCMFactory::componentData(), parent, args)

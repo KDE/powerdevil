@@ -37,7 +37,7 @@
 K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                  registerPlugin<GeneralPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("powerdevilglobalconfig"))
+K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("powerdevilglobalconfig","powerdevil"))
 
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilGeneralKCMFactory::componentData(), parent, args)
