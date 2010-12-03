@@ -33,9 +33,6 @@
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
-      m_brightNessControl(new XRandrBrightness()),
-      m_upowerInterface(new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), parent)),
-      m_kbdBacklight(new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), parent)),
       m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
 {
 }
@@ -50,11 +47,39 @@ PowerDevilUPowerBackend::~PowerDevilUPowerBackend()
 
 bool PowerDevilUPowerBackend::isAvailable()
 {
-    return m_upowerInterface->isValid();
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
+        // Is it pending activation?
+        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.DBus",
+                                                              "/org/freedesktop/DBus",
+                                                              "org.freedesktop.DBus",
+                                                              "ListActivatableNames");
+
+        QDBusPendingReply< QStringList > reply = QDBusConnection::sessionBus().asyncCall(message);
+        reply.waitForFinished();
+
+        if (reply.isValid()) {
+            return reply.value().contains(UPOWER_SERVICE);
+        } else {
+            kWarning() << "Could not request activatable names to DBus!";
+            return false;
+        }
+    } else {
+        return true;
+    }
 }
 
 void PowerDevilUPowerBackend::init()
 {
+    // interfaces
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
+        // Activate it.
+        QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
+    }
+
+    m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
+    m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
+    m_brightNessControl = new XRandrBrightness();
+
     // devices
     enumerateDevices();
     connect(m_upowerInterface, SIGNAL(Changed()), this, SLOT(slotPropertyChanged()));
