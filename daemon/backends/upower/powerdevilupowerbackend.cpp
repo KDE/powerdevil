@@ -39,10 +39,7 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
 
 PowerDevilUPowerBackend::~PowerDevilUPowerBackend()
 {
-    qDeleteAll(m_devices);
-    delete m_upowerInterface;
     delete m_brightNessControl;
-    delete m_kbdBacklight;
 }
 
 bool PowerDevilUPowerBackend::isAvailable()
