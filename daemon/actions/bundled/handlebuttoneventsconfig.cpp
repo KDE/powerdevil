@@ -54,8 +54,8 @@ void HandleButtonEventsConfig::save()
 
 void HandleButtonEventsConfig::load()
 {
-    m_lidCloseCombo->setCurrentIndex(configGroup().readEntry< uint >("lidAction", 0));
-    m_powerButtonCombo->setCurrentIndex(configGroup().readEntry< uint >("powerButtonAction", 0));
+    m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("lidAction", 0))));
+    m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("powerButtonAction", 0))));
 }
 
 QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
