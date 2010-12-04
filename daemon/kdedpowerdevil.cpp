@@ -19,11 +19,13 @@
 
 #include "kdedpowerdevil.h"
 
+#include "powerdevilbackendloader.h"
 #include "powerdevilcore.h"
 
 #include <QtCore/QTimer>
 
 #include <KAboutData>
+#include <KDebug>
 #include <KPluginFactory>
 
 K_PLUGIN_FACTORY( PowerDevilFactory,
@@ -56,7 +58,20 @@ void KDEDPowerDevil::init()
     aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
                         "http://drfav.wordpress.com");
 
-    new PowerDevil::Core(this, KComponentData(aboutData));
+    PowerDevil::Core *core = new PowerDevil::Core(this, KComponentData(aboutData));
+
+    // Before doing anything, let's set up our backend
+    PowerDevil::BackendInterface *interface = PowerDevil::BackendLoader::loadBackend(core);
+
+    if (!interface) {
+        // Ouch
+        kError() << "KDE Power Management System init failed!";
+        core->loadCore(0);
+    } else {
+        // Let's go!
+        kDebug() << "Backend loaded, loading core";
+        core->loadCore(interface);
+    }
 }
 
 #include "kdedpowerdevil.moc"

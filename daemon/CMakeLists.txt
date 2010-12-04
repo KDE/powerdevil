@@ -18,15 +18,11 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/handlebuttonevents.cpp
 )
 
-# Backends
-include(BackendConfig.cmake)
-
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
     powerdevilaction.cpp
     powerdevilactionpool.cpp
     powerdevilbackendinterface.cpp
-    powerdevilbackendloader.cpp
     powerdevilcore.cpp
     powerdevilfdoconnector.cpp
     powerdevilpolicyagent.cpp
@@ -46,26 +42,30 @@ qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interf
 qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
 qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
-kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS} ${POWERDEVIL_BACKEND_SRCS})
+kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
 
 target_link_libraries(powerdevilcore
     ${KDE4_KDECORE_LIBS}
     ${KDE4_SOLID_LIBS}
     ${KDE4_KIDLETIME_LIBS}
-    ${POWERDEVIL_BACKEND_LIBS}
     kworkspace
 )
 
 # target no.2 - powerdevil kded module
 set(kded_powerdevil_SRCS
     kdedpowerdevil.cpp
+    powerdevilbackendloader.cpp
 )
 
-kde4_add_plugin(kded_powerdevil ${kded_powerdevil_SRCS})
+# Backends
+include(BackendConfig.cmake)
+
+kde4_add_plugin(kded_powerdevil ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRCS})
 
 target_link_libraries(kded_powerdevil
     ${KDE4_KDECORE_LIBS}
+    ${POWERDEVIL_BACKEND_LIBS}
     powerdevilcore
 )
 

@@ -26,7 +26,6 @@
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
 #include "powerdevilbackendinterface.h"
-#include "powerdevilbackendloader.h"
 #include "powerdevilfdoconnector.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
@@ -58,26 +57,29 @@ Core::Core(QObject* parent, const KComponentData &componentData)
     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
 {
-    // Before doing anything, let's set up our backend
-    m_backend = PowerDevil::BackendLoader::loadBackend(this);
-
-    if (!m_backend) {
-        // Ouch
-        kError() << "KDE Power Management System init failed!";
-        onBackendError(i18n("No valid Power Management backend plugins are available. "
-                            "A new installation might solve this problem."));
-    } else {
-        // Async backend init - so that KDED gets a bit of a speed up
-        connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
-        connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
-        m_backend->init();
-    }
 }
 
 Core::~Core()
 {
     // Unload all actions before exiting
     ActionPool::instance()->unloadAllActiveActions();
+}
+
+void Core::loadCore(BackendInterface* backend)
+{
+    if (!backend) {
+        onBackendError(i18n("No valid Power Management backend plugins are available. "
+                            "A new installation might solve this problem."));
+        return;
+    }
+
+    m_backend = backend;
+
+    // Async backend init - so that KDED gets a bit of a speed up
+    kDebug() << "Core loaded, initializing backend";
+    connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
+    connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
+    m_backend->init();
 }
 
 void Core::onBackendReady()

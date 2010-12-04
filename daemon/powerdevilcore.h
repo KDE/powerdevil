@@ -57,10 +57,11 @@ public:
                           const QString &iconname = "dialog-ok-apply");
 
     BackendInterface *backend();
-    
+
     // More...
 
 public Q_SLOTS:
+    void loadCore(PowerDevil::BackendInterface *backend);
     // Set of common action - useful for the DBus interface
     void refreshStatus();
     void reloadProfile();
