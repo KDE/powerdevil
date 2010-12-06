@@ -67,7 +67,8 @@ XRandrBrightness::XRandrBrightness()
 
 XRandrBrightness::~XRandrBrightness()
 {
-    XRRFreeScreenResources(m_resources);
+    if (m_resources)
+        XRRFreeScreenResources(m_resources);
 }
 
 bool XRandrBrightness::isSupported() const
