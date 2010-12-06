@@ -33,6 +33,7 @@
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
+      m_brightNessControl(0),
       m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
 {
 }
