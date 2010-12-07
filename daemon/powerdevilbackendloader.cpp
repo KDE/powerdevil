@@ -30,29 +30,24 @@ namespace BackendLoader {
 
 BackendInterface* loadBackend(QObject *parent)
 {
-    BackendInterface *interface;
     // Check UPower first
     kDebug() << "Loading UPower backend...";
-    interface = new PowerDevilUPowerBackend(parent);
-    if (interface->isAvailable()) {
+    if (PowerDevilUPowerBackend::isAvailable()) {
         kDebug() << "Success!";
-        return interface;
+        return new PowerDevilUPowerBackend(parent);
     }
 
     kDebug() << "Failed!";
-    interface->deleteLater();
 
     // If we are here, try HAL
     kDebug() << "Loading HAL backend...";
-    interface = new PowerDevilHALBackend(parent);
-    if (interface->isAvailable()) {
+    if (PowerDevilHALBackend::isAvailable()) {
         kDebug() << "Success!";
-        return interface;
+        return new PowerDevilHALBackend(parent);
     }
 
     // Fail...
     kDebug() << "Failed!";
-    interface->deleteLater();
     return 0;
 }
 

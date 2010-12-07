@@ -46,7 +46,7 @@ public:
     virtual ~PowerDevilUPowerBackend();
 
     virtual void init();
-    virtual bool isAvailable();
+    static bool isAvailable();
 
     virtual float brightness(BrightnessControlType type = Screen) const;
 

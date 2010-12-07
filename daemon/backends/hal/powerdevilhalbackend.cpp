@@ -22,6 +22,7 @@
 #include "powerdevilhalbackend.h"
 #include <Solid/DeviceNotifier>
 #include <QtDBus/QDBusReply>
+#include <QtDBus/QDBusConnectionInterface>
 #include <KDebug>
 #include "halsuspendjob.h"
 #include <Solid/Device>
@@ -63,7 +64,7 @@ PowerDevilHALBackend::~PowerDevilHALBackend()
 
 bool PowerDevilHALBackend::isAvailable()
 {
-    return m_halPowerManagement.isValid();
+    return QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Hal");
 }
 
 void PowerDevilHALBackend::init()
