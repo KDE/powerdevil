@@ -101,7 +101,7 @@ void FdoConnector::ForceUnInhibitAll()
 
 void FdoConnector::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newstate)
 {
-    emit PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Plugged);
+    emit PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Unplugged);
 }
 
 void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies)
