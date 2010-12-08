@@ -50,6 +50,7 @@ BackendInterface::BackendInterface(QObject* parent)
 
 BackendInterface::~BackendInterface()
 {
+    delete d;
 }
 
 BackendInterface::AcAdapterState BackendInterface::acAdapterState() const
