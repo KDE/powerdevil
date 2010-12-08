@@ -20,6 +20,7 @@
 #include "suspendsession.h"
 
 #include "powerdevilbackendinterface.h"
+#include "powerdevilcore.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -110,6 +111,7 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
             KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
             break;
         case LockScreenMode:
+            core()->emitNotification("doingjob", i18n("The screen is being locked"));
             lockScreenAndWait();
             break;
         default:
