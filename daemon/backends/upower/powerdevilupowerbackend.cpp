@@ -170,7 +170,7 @@ float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightne
         kDebug() << "Screen brightness: " << m_brightNessControl->brightness();
         return m_brightNessControl->brightness();
     } else if (type == Keyboard) {
-        kDebug() << "Kbd backlight: " << m_brightNessControl->brightness();
+        kDebug() << "Kbd backlight brightness: " << m_kbdBacklight->GetBrightness();
         return m_kbdBacklight->GetBrightness() / m_kbdBacklight->GetMaxBrightness() * 100;
     }
 
@@ -265,9 +265,9 @@ void PowerDevilUPowerBackend::slotPropertyChanged()
         bool lidIsClosed = m_upowerInterface->lidIsClosed();
         if (lidIsClosed != m_lidIsClosed) {
             if (lidIsClosed)
-                emit buttonPressed(LidClose);
+                setButtonPressed(LidClose);
             else
-                emit buttonPressed(LidOpen);
+                setButtonPressed(LidOpen);
         }
         m_lidIsClosed = lidIsClosed;
     }
