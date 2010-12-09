@@ -56,6 +56,9 @@ private slots:
 
     void importProfiles();
     void exportProfiles();
+    void restoreDefaultProfiles();
+
+    void notifyDaemon(const QString &editedProfile = QString());
 
     void openUrl(const QString &url);
 

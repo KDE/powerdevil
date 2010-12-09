@@ -76,6 +76,11 @@
     <string>Export Profiles</string>
    </property>
   </action>
+  <action name="actionRestoreDefaultProfiles">
+   <property name="text">
+    <string>Restore Default Profiles</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>

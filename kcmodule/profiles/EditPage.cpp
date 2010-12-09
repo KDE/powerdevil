@@ -57,7 +57,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilProfilesKCMFactory::componentData(), parent, args)
         , m_profileEdited(false)
 {
-    setButtons(Apply | Help);
+    setButtons(Apply | Help | Default);
 
     KAboutData *about =
         new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
@@ -89,12 +89,14 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_toolBar->addSeparator();
     m_toolBar->addAction(actionImportProfiles);
     m_toolBar->addAction(actionExportProfiles);
+    m_toolBar->addAction(actionRestoreDefaultProfiles);
     m_toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
     actionNewProfile->setIcon(KIcon("document-new"));
     actionDeleteProfile->setIcon(KIcon("edit-delete-page"));
     actionImportProfiles->setIcon(KIcon("document-import"));
     actionExportProfiles->setIcon(KIcon("document-export"));
+    actionRestoreDefaultProfiles->setIcon(KIcon("document-revert"));
 
     connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
@@ -103,6 +105,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     connect(actionNewProfile, SIGNAL(triggered()), SLOT(createProfile()));
     connect(actionImportProfiles, SIGNAL(triggered()), SLOT(importProfiles()));
     connect(actionExportProfiles, SIGNAL(triggered()), SLOT(exportProfiles()));
+    connect(actionRestoreDefaultProfiles, SIGNAL(triggered(bool)), SLOT(restoreDefaultProfiles()));
 
     reloadAvailableProfiles();
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(0);
@@ -172,28 +175,40 @@ void EditPage::save()
     QString profile = profilesList->currentItem()->text();
     saveProfile();
     // Notify the daemon
-    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                       "org.kde.Solid.PowerManagement", "currentProfile");
-    QDBusPendingReply< QString > reply = QDBusConnection::sessionBus().asyncCall(call);
-    reply.waitForFinished();
+    notifyDaemon(profile);
+}
 
-    if (reply.isValid()) {
-        if (reply.value() == profile) {
-            // Ask to reload the profile
-            kDebug() << "Active profile edited, reloading profile";
+void EditPage::notifyDaemon(const QString &editedProfile)
+{
+    QDBusMessage call;
+    if (!editedProfile.isNull()) {
+        QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                           "org.kde.Solid.PowerManagement", "currentProfile");
+        QDBusPendingReply< QString > reply = QDBusConnection::sessionBus().asyncCall(call);
+        reply.waitForFinished();
+
+        if (reply.isValid()) {
+            if (reply.value() == editedProfile) {
+                // Ask to reload the profile
+                kDebug() << "Active profile edited, reloading profile";
+                call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                      "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+            } else {
+                // Ask to reparse config
+                kDebug() << "Inactive profile edited, reparsing configuration";
+                call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                      "org.kde.Solid.PowerManagement", "reparseConfiguration");
+            }
+        } else {
+            kWarning() << "Invalid reply from daemon when asking for current profile!";
+            // To be sure, reload profile
             call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                   "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
-        } else {
-            // Ask to reparse config
-            kDebug() << "Inactive profile edited, reparsing configuration";
-            call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                  "org.kde.Solid.PowerManagement", "reparseConfiguration");
         }
     } else {
-        kWarning() << "Invalid reply from daemon when asking for current profile!";
-        // To be sure, reload profile
+        // Refresh status
         call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                              "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
+                                              "org.kde.Solid.PowerManagement", "refreshStatus");
     }
 
     // Perform call
@@ -460,6 +475,23 @@ void EditPage::exportProfiles()
     delete toExport;
 }
 
+void EditPage::restoreDefaultProfiles()
+{
+    // Confirm
+    int ret = KMessageBox::warningContinueCancel(this, i18n("The KDE Power Management System will now generate a set of default "
+                                                            "profiles based on your computer's capabilities. This will also erase "
+                                                            "all existing profiles. "
+                                                            "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
+    if (ret == KMessageBox::Continue) {
+        kDebug() << "Restoring defaults.";
+        PowerDevil::ProfileGenerator::generateProfiles();
+        reloadAvailableProfiles();
+
+        // Notify the daemon
+        notifyDaemon();
+    }
+}
+
 void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous)
 {
     Q_UNUSED(current)
@@ -502,7 +534,7 @@ void EditPage::openUrl(const QString &url)
 
 void EditPage::defaults()
 {
-    KCModule::defaults();
+    restoreDefaultProfiles();
 }
 
 #include "EditPage.moc"
