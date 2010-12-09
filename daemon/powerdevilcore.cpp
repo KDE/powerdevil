@@ -20,13 +20,11 @@
 #include "powerdevilcore.h"
 
 #include "PowerDevilSettings.h"
-#include "powermanagementadaptor.h"
 #include "screensaver_interface.h"
 
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
 #include "powerdevilbackendinterface.h"
-#include "powerdevilfdoconnector.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
 
@@ -89,13 +87,6 @@ void Core::onBackendReady()
 {
     kDebug() << "Backend is ready, KDE Power Management system initialized";
 
-    if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
-        QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
-        QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
-        kError() << "KDE Power Management system not initialized, another power manager has been detected";
-        return;
-    }
-
     m_profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
 
     // Is it brand new?
@@ -140,15 +131,6 @@ void Core::onBackendReady()
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
 
-    //DBus
-    new PowerManagementAdaptor(this);
-    new FdoConnector(this);
-
-    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement");
-    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement", this);
-
-    QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
-
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
     m_criticalBatteryTimer->setInterval(30000);
@@ -158,6 +140,7 @@ void Core::onBackendReady()
     QTimer::singleShot(30000, this, SLOT(checkBatteryStatus()));
 
     // All systems up Houston, let's go!
+    emit coreReady();
     refreshStatus();
 
     KActionCollection* actionCollection = new KActionCollection( this );

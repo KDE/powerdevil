@@ -23,6 +23,10 @@
 #include <KDEDModule>
 #include <QVariantList>
 
+namespace PowerDevil {
+    class Core;
+}
+
 class KDEDPowerDevil : public KDEDModule
 {
     Q_OBJECT
@@ -34,6 +38,10 @@ public:
 
 private Q_SLOTS:
     void init();
+    void onCoreReady();
+
+private:
+    PowerDevil::Core *m_core;
 };
 
 #endif // KDEDPOWERDEVIL_H

@@ -27,13 +27,15 @@
 
 #include <QtDBus/QDBusContext>
 
+#include <kdemacros.h>
+
 class QDBusServiceWatcher;
 class QDBusInterface;
 
 namespace PowerDevil
 {
 
-class PolicyAgent : public QObject, protected QDBusContext
+class KDE_EXPORT PolicyAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(PolicyAgent)

@@ -90,6 +90,7 @@ public Q_SLOTS:
     void onResumeFromSuspend();
 
 Q_SIGNALS:
+    void coreReady();
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
     void brightnessChanged(int percent);

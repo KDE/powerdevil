@@ -24,23 +24,14 @@ set(powerdevilcore_SRCS
     powerdevilactionpool.cpp
     powerdevilbackendinterface.cpp
     powerdevilcore.cpp
-    powerdevilfdoconnector.cpp
     powerdevilpolicyagent.cpp
     powerdevilprofilegenerator.cpp
 )
 
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
-qt4_add_dbus_adaptor(powerdevilcore_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
-qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.Solid.PowerManagement.PolicyAgent.xml 
-                                         powerdevilpolicyagent.h PowerDevil::PolicyAgent
-                                         powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
-
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/krunner/dbus/org.freedesktop.ScreenSaver.xml")
 qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
-
-qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
-qt4_add_dbus_adaptor(powerdevilcore_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
@@ -56,7 +47,18 @@ target_link_libraries(powerdevilcore
 set(kded_powerdevil_SRCS
     kdedpowerdevil.cpp
     powerdevilbackendloader.cpp
+    powerdevilfdoconnector.cpp
 )
+
+# DBus Adaptors
+qt4_add_dbus_adaptor(kded_powerdevil_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
+qt4_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.Solid.PowerManagement.PolicyAgent.xml
+                                         powerdevilpolicyagent.h PowerDevil::PolicyAgent
+                                         powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
+
+qt4_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt4_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
+
 
 # Backends
 include(BackendConfig.cmake)

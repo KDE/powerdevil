@@ -19,10 +19,17 @@
 
 #include "kdedpowerdevil.h"
 
+#include "powerdevilfdoconnector.h"
+#include "powermanagementadaptor.h"
+#include "powermanagementpolicyagentadaptor.h"
+
 #include "powerdevilbackendloader.h"
 #include "powerdevilcore.h"
 
 #include <QtCore/QTimer>
+
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusConnectionInterface>
 
 #include <KAboutData>
 #include <KDebug>
@@ -58,20 +65,48 @@ void KDEDPowerDevil::init()
     aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
                         "http://drfav.wordpress.com");
 
-    PowerDevil::Core *core = new PowerDevil::Core(this, KComponentData(aboutData));
+    if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
+        QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
+        QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
+        kError() << "KDE Power Management system not initialized, another power manager has been detected";
+        return;
+    }
+
+    m_core = new PowerDevil::Core(this, KComponentData(aboutData));
+
+    connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));
 
     // Before doing anything, let's set up our backend
-    PowerDevil::BackendInterface *interface = PowerDevil::BackendLoader::loadBackend(core);
+    PowerDevil::BackendInterface *interface = PowerDevil::BackendLoader::loadBackend(m_core);
 
     if (!interface) {
         // Ouch
         kError() << "KDE Power Management System init failed!";
-        core->loadCore(0);
+        m_core->loadCore(0);
     } else {
         // Let's go!
         kDebug() << "Backend loaded, loading core";
-        core->loadCore(interface);
+        m_core->loadCore(interface);
     }
+}
+
+void KDEDPowerDevil::onCoreReady()
+{
+    kDebug() << "Core is ready, registering various services on the bus...";
+    //DBus logic for the core
+    new PowerManagementAdaptor(m_core);
+    new PowerDevil::FdoConnector(m_core);
+
+    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement");
+    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement", m_core);
+
+    QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
+
+    // Start the Policy Agent service
+    new PowerManagementPolicyAgentAdaptor(PowerDevil::PolicyAgent::instance());
+
+    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement.PolicyAgent");
+    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement/PolicyAgent", PowerDevil::PolicyAgent::instance());
 }
 
 #include "kdedpowerdevil.moc"
