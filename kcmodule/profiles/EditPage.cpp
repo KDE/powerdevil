@@ -228,12 +228,23 @@ void EditPage::loadProfile()
 {
     kDebug() << "Loading a profile";
 
-    if (!profilesList->currentItem())
+    if (!profilesList->currentItem()) {
         return;
+    }
 
-    kDebug() << profilesList->currentItem()->data(Qt::UserRole).toString();
+    // Check if the profile is not reserved
+    QString profileId = profilesList->currentItem()->data(Qt::UserRole).toString();
+    if (profileId == "Performance" || profileId == "Powersave" || profileId == "Aggressive powersave") {
+        actionDeleteProfile->setEnabled(false);
+        actionEditProfile->setEnabled(false);
+    } else {
+        actionDeleteProfile->setEnabled(true);
+        actionEditProfile->setEnabled(true);
+    }
 
-    KConfigGroup group(m_profilesConfig, profilesList->currentItem()->data(Qt::UserRole).toString());
+    kDebug() << profileId;
+
+    KConfigGroup group(m_profilesConfig, profileId);
 
     if (!group.isValid()) {
         return;
@@ -326,7 +337,7 @@ void EditPage::reloadAvailableProfiles()
 
 void EditPage::deleteCurrentProfile()
 {
-    if (!profilesList->currentItem() || profilesList->currentItem()->data(Qt::UserRole).toString().isEmpty()) {
+    if (!profilesList->currentItem()) {
         return;
     }
 
