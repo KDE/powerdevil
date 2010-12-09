@@ -49,7 +49,7 @@ private slots:
     void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
     void reloadAvailableProfiles();
     void createProfile(const QString &name, const QString &icon);
-    void editProfile(const QString &prevname, const QString &icon);
+    void editProfile(const QString &id, const QString &name, const QString &icon);
     void deleteCurrentProfile();
     void createProfile();
     void editProfile();

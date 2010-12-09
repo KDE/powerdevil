@@ -91,6 +91,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     listLayout->addWidget(m_toolBar);
 
     m_toolBar->addAction(actionNewProfile);
+    m_toolBar->addAction(actionEditProfile);
     m_toolBar->addAction(actionDeleteProfile);
     m_toolBar->addSeparator();
     m_toolBar->addAction(actionImportProfiles);
@@ -99,6 +100,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
 
     actionNewProfile->setIcon(KIcon("document-new"));
+    actionEditProfile->setIcon(KIcon("document-edit"));
     actionDeleteProfile->setIcon(KIcon("edit-delete-page"));
     actionImportProfiles->setIcon(KIcon("document-import"));
     actionExportProfiles->setIcon(KIcon("document-export"));
@@ -108,6 +110,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
 
     connect(actionDeleteProfile, SIGNAL(triggered()), SLOT(deleteCurrentProfile()));
+    connect(actionEditProfile, SIGNAL(triggered(bool)), SLOT(editProfile()));
     connect(actionNewProfile, SIGNAL(triggered()), SLOT(createProfile()));
     connect(actionImportProfiles, SIGNAL(triggered()), SLOT(importProfiles()));
     connect(actionExportProfiles, SIGNAL(triggered()), SLOT(exportProfiles()));
@@ -393,27 +396,30 @@ void EditPage::createProfile()
     delete dialog;
 }
 
-void EditPage::editProfile(const QString &prevname, const QString &icon)
+void EditPage::editProfile(const QString &id, const QString &name, const QString &icon)
 {
-    if (prevname.isEmpty())
+    if (id.isEmpty() || !m_profilesConfig->hasGroup(id)) {
         return;
+    }
 
-    KConfigGroup group(m_profilesConfig, prevname);
+    KConfigGroup group(m_profilesConfig, id);
 
     group.writeEntry("icon", icon);
+    group.writeEntry("name", name);
 
     group.sync();
 
     // Notify the daemon
-    notifyDaemon(prevname);
+    notifyDaemon(id);
 
     reloadAvailableProfiles();
 }
 
 void EditPage::editProfile()
 {
-    if (!profilesList->currentItem())
+    if (!profilesList->currentItem()) {
         return;
+    }
 
     KDialog *dialog = new KDialog(this);
     QWidget *wg = new QWidget();
@@ -431,7 +437,6 @@ void EditPage::editProfile()
 
     ed->setToolTip(i18n("The name for the new profile"));
     ed->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
-    ed->setEnabled(false);
 
     KConfigGroup group(m_profilesConfig, profilesList->currentItem()->data(Qt::UserRole).toString());
 
@@ -447,7 +452,7 @@ void EditPage::editProfile()
     ed->setFocus();
 
     if (dialog->exec() == KDialog::Accepted) {
-        editProfile(profilesList->currentItem()->data(Qt::UserRole).toString(), ibt->icon());
+        editProfile(profilesList->currentItem()->data(Qt::UserRole).toString(), ed->text(), ibt->icon());
     }
 
     delete dialog;

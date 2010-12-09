@@ -81,6 +81,11 @@
     <string>Restore Default Profiles</string>
    </property>
   </action>
+  <action name="actionEditProfile">
+   <property name="text">
+    <string>Edit Profile</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
