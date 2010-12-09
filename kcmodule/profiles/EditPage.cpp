@@ -108,6 +108,8 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
     connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
             SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
+    connect(this, SIGNAL(changed(bool)),
+            this, SLOT(onChanged(bool)));
 
     connect(actionDeleteProfile, SIGNAL(triggered()), SLOT(deleteCurrentProfile()));
     connect(actionEditProfile, SIGNAL(triggered(bool)), SLOT(editProfile()));
@@ -172,6 +174,11 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
 EditPage::~EditPage()
 {
+}
+
+void EditPage::onChanged(bool changed)
+{
+    m_profileEdited = changed;
 }
 
 void EditPage::load()
@@ -342,7 +349,7 @@ void EditPage::deleteCurrentProfile()
     }
 
     // We're deleting it, we don't care anymore
-    m_profileEdited = false;
+    emit changed(false);
 
     m_profilesConfig->deleteGroup(profilesList->currentItem()->data(Qt::UserRole).toString());
     m_profilesConfig->sync();

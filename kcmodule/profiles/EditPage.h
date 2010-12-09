@@ -44,6 +44,7 @@ public:
     virtual void defaults();
 
 private slots:
+    void onChanged(bool changed);
     void loadProfile();
     void saveProfile(const QString &p = QString());
     void switchProfile(QListWidgetItem *current, QListWidgetItem *previous);
