@@ -33,6 +33,7 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMetaType>
 
 #include <KConfigGroup>
 #include <KLineEdit>
@@ -53,10 +54,15 @@ K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                 )
 K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("powerdevilprofilesconfig","powerdevil"))
 
+typedef QMap< QString, QString > StringStringMap;
+Q_DECLARE_METATYPE(StringStringMap)
+
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilProfilesKCMFactory::componentData(), parent, args)
         , m_profileEdited(false)
 {
+    qDBusRegisterMetaType< StringStringMap >();
+
     setButtons(Apply | Help | Default);
 
     KAboutData *about =
@@ -172,8 +178,8 @@ void EditPage::load()
 
 void EditPage::save()
 {
-    QString profile = profilesList->currentItem()->text();
-    saveProfile();
+    QString profile = profilesList->currentItem()->data(Qt::UserRole).toString();
+    saveProfile(profile);
     // Notify the daemon
     notifyDaemon(profile);
 }
@@ -182,8 +188,8 @@ void EditPage::notifyDaemon(const QString &editedProfile)
 {
     QDBusMessage call;
     if (!editedProfile.isNull()) {
-        QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                           "org.kde.Solid.PowerManagement", "currentProfile");
+        call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                              "org.kde.Solid.PowerManagement", "currentProfile");
         QDBusPendingReply< QString > reply = QDBusConnection::sessionBus().asyncCall(call);
         reply.waitForFinished();
 
@@ -222,9 +228,9 @@ void EditPage::loadProfile()
     if (!profilesList->currentItem())
         return;
 
-    kDebug() << profilesList->currentItem()->text();
+    kDebug() << profilesList->currentItem()->data(Qt::UserRole).toString();
 
-    KConfigGroup group(m_profilesConfig, profilesList->currentItem()->text());
+    KConfigGroup group(m_profilesConfig, profilesList->currentItem()->data(Qt::UserRole).toString());
 
     if (!group.isValid()) {
         return;
@@ -253,7 +259,7 @@ void EditPage::saveProfile(const QString &p)
     QString profile;
 
     if (p.isEmpty()) {
-        profile = profilesList->currentItem()->text();
+        profile = profilesList->currentItem()->data(Qt::UserRole).toString();
     } else {
         profile = p;
     }
@@ -285,18 +291,31 @@ void EditPage::reloadAvailableProfiles()
 {
     profilesList->clear();
 
-    m_profilesConfig->reparseConfiguration();
+    // Request profiles to the daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "availableProfiles");
+    QDBusPendingReply< StringStringMap > reply = QDBusConnection::sessionBus().asyncCall(call);
+    reply.waitForFinished();
 
-    if (m_profilesConfig->groupList().isEmpty()) {
+    if (!reply.isValid()) {
+        kDebug() << "Error contacting the daemon!";
+        return;
+    }
+
+    StringStringMap profiles = reply.value();
+
+    if (profiles.isEmpty()) {
         kDebug() << "No available profiles!";
         return;
     }
 
-    foreach (const QString &ent, m_profilesConfig->groupList()) {
-        KConfigGroup *group = new KConfigGroup(m_profilesConfig, ent);
-        QListWidgetItem *itm = new QListWidgetItem(KIcon(group->readEntry("icon")), ent);
+    m_profilesConfig->reparseConfiguration();
+
+    for (StringStringMap::const_iterator i = profiles.constBegin(); i != profiles.constEnd(); ++i) {
+        KConfigGroup group(m_profilesConfig, i.key());
+        QListWidgetItem *itm = new QListWidgetItem(KIcon(group.readEntry("icon")), i.value());
+        itm->setData(Qt::UserRole, i.key());
         profilesList->addItem(itm);
-        delete group;
     }
 
     profilesList->setCurrentRow(0);
@@ -304,22 +323,22 @@ void EditPage::reloadAvailableProfiles()
 
 void EditPage::deleteCurrentProfile()
 {
-    if (!profilesList->currentItem() || profilesList->currentItem()->text().isEmpty()) {
+    if (!profilesList->currentItem() || profilesList->currentItem()->data(Qt::UserRole).toString().isEmpty()) {
         return;
     }
 
     // We're deleting it, we don't care anymore
     m_profileEdited = false;
 
-    m_profilesConfig->deleteGroup(profilesList->currentItem()->text());
+    m_profilesConfig->deleteGroup(profilesList->currentItem()->data(Qt::UserRole).toString());
     m_profilesConfig->sync();
-
-    reloadAvailableProfiles();
 
     // Notify the daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                        "org.kde.Solid.PowerManagement", "reparseConfiguration");
     QDBusConnection::sessionBus().asyncCall(call);
+
+    reloadAvailableProfiles();
 }
 
 void EditPage::createProfile(const QString &name, const QString &icon)
@@ -329,15 +348,16 @@ void EditPage::createProfile(const QString &name, const QString &icon)
     }
     KConfigGroup group(m_profilesConfig, name);
     group.writeEntry("icon", icon);
+    group.writeEntry("name", name);
 
     group.sync();
-
-    reloadAvailableProfiles();
 
     // Notify the daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                        "org.kde.Solid.PowerManagement", "reparseConfiguration");
     QDBusConnection::sessionBus().asyncCall(call);
+
+    reloadAvailableProfiles();
 }
 
 void EditPage::createProfile()
@@ -384,9 +404,10 @@ void EditPage::editProfile(const QString &prevname, const QString &icon)
 
     group.sync();
 
+    // Notify the daemon
+    notifyDaemon(prevname);
+
     reloadAvailableProfiles();
-
-
 }
 
 void EditPage::editProfile()
@@ -412,11 +433,10 @@ void EditPage::editProfile()
     ed->setWhatsThis(i18n("Enter here the name for the profile you are creating"));
     ed->setEnabled(false);
 
-    ed->setText(profilesList->currentItem()->text());
+    KConfigGroup group(m_profilesConfig, profilesList->currentItem()->data(Qt::UserRole).toString());
 
-    KConfigGroup *group = new KConfigGroup(m_profilesConfig, profilesList->currentItem()->text());
-
-    ibt->setIcon(group->readEntry("icon"));
+    ibt->setIcon(group.readEntry("icon"));
+    ed->setText(group.readEntry("name"));
 
     lay->addRow(lb);
     lay->addRow(ibt, ed);
@@ -427,11 +447,10 @@ void EditPage::editProfile()
     ed->setFocus();
 
     if (dialog->exec() == KDialog::Accepted) {
-        editProfile(profilesList->currentItem()->text(), ibt->icon());
+        editProfile(profilesList->currentItem()->data(Qt::UserRole).toString(), ibt->icon());
     }
 
     delete dialog;
-    delete group;
 }
 
 void EditPage::importProfiles()
@@ -453,6 +472,11 @@ void EditPage::importProfiles()
     }
 
     m_profilesConfig->sync();
+
+    // Notify the daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "reparseConfiguration");
+    QDBusConnection::sessionBus().asyncCall(call);
 
     reloadAvailableProfiles();
 }
@@ -485,10 +509,11 @@ void EditPage::restoreDefaultProfiles()
     if (ret == KMessageBox::Continue) {
         kDebug() << "Restoring defaults.";
         PowerDevil::ProfileGenerator::generateProfiles();
-        reloadAvailableProfiles();
 
         // Notify the daemon
         notifyDaemon();
+
+        reloadAvailableProfiles();
     }
 }
 
@@ -513,7 +538,7 @@ void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous
                      "Do you want to save it?"), i18n("Save Profile"));
 
         if (result == KMessageBox::Yes) {
-            saveProfile(previous->text());
+            saveProfile(previous->data(Qt::UserRole).toString());
             loadProfile();
         } else if (result == KMessageBox::No) {
             loadProfile();

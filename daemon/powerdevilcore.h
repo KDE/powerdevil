@@ -28,6 +28,8 @@
 
 #include <KComponentData>
 
+typedef QMap< QString, QString > StringStringMap;
+
 class KDirWatch;
 class QTimer;
 class KNotification;
@@ -67,6 +69,8 @@ public Q_SLOTS:
     void reloadProfile();
     void reloadCurrentProfile();
     void reparseConfiguration();
+
+    StringStringMap availableProfiles() const;
 
     void loadProfile(const QString &name);
     QString currentProfile() const;
@@ -134,5 +138,7 @@ private Q_SLOTS:
 };
 
 }
+
+Q_DECLARE_METATYPE(StringStringMap)
 
 #endif // POWERDEVILCORE_H

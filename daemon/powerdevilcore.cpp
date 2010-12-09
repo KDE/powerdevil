@@ -80,6 +80,9 @@ void Core::loadCore(BackendInterface* backend)
     connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
     connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
     m_backend->init();
+
+    // Register DBus Metatypes
+    qDBusRegisterMetaType< StringStringMap >();
 }
 
 void Core::onBackendReady()
@@ -257,6 +260,29 @@ void Core::reparseConfiguration()
     emit configurationReloaded();
 }
 
+StringStringMap Core::availableProfiles() const
+{
+    QMap< QString, QString > retmap;
+    foreach (const QString &ent, m_profilesConfig->groupList()) {
+        if (ent == "Performance") {
+            retmap.insert(ent, i18nc("Name of a power profile", "Performance"));
+        } else if (ent == "Powersave") {
+            retmap.insert(ent, i18nc("Name of a power profile", "Powersave"));
+        } else if (ent == "Aggressive powersave") {
+            retmap.insert(ent, i18nc("Name of a power profile", "Aggressive powersave"));
+        } else {
+            KConfigGroup group(m_profilesConfig, ent);
+            if (group.hasKey("name")) {
+                retmap.insert(ent, group.readEntry("name"));
+            } else {
+                retmap.insert(ent, ent);
+            }
+        }
+    }
+
+    return retmap;
+}
+
 void Core::reloadProfile(int state)
 {
     if (m_loadedBatteriesUdi.isEmpty()) {
@@ -285,7 +311,7 @@ void Core::reloadProfile(int state)
     }
 }
 
-void Core::loadProfile(const QString& name)
+void Core::loadProfile(const QString& id)
 {
     // Policy check
     if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
@@ -297,12 +323,12 @@ void Core::loadProfile(const QString& name)
     ActionPool::instance()->unloadAllActiveActions();
 
     // Now, let's retrieve our profile
-    KConfigGroup config(m_profilesConfig, name);
+    KConfigGroup config(m_profilesConfig, id);
 
     if (!config.isValid() || config.groupList().isEmpty()) {
         emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                          "but it does not exist.\nPlease check your PowerDevil configuration.",
-                         name), "dialog-error");
+                         id), "dialog-error");
         return;
     }
 
@@ -316,13 +342,13 @@ void Core::loadProfile(const QString& name)
             emitNotification("powerdevilerror", i18n("The profile \"%1\" tried to activate %2, "
                              "a non existent action. This is usually due to an installation problem"
                              " or to a configuration problem.",
-                             name, actionName), "dialog-warning");          
-        }        
+                             id, actionName), "dialog-warning");
+        }
     }
 
     // Set the current profile. Notify if different.
-    if (m_currentProfile != name) {
-        m_currentProfile = name;
+    if (m_currentProfile != id) {
+        m_currentProfile = id;
         emit profileChanged(m_currentProfile);
     }
 

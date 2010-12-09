@@ -29,6 +29,7 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMetaType>
 
 #include <KNotifyConfigWidget>
 #include <KPluginFactory>
@@ -39,9 +40,14 @@ K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                 )
 K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("powerdevilglobalconfig","powerdevil"))
 
+typedef QMap< QString, QString > StringStringMap;
+Q_DECLARE_METATYPE(StringStringMap)
+
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
         : KCModule(PowerDevilGeneralKCMFactory::componentData(), parent, args)
 {
+    qDBusRegisterMetaType< StringStringMap >();
+
     setButtons(Apply | Help);
 
     KAboutData *about =
@@ -139,10 +145,10 @@ void GeneralPage::load()
 
     BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batteryCriticalAction()));
 
-    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
-    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
-    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
-    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
+    acProfile->setCurrentIndex(acProfile->findData(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(lowProfile->findData(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(warningProfile->findData(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(batteryProfile->findData(PowerDevilSettings::batteryProfile()));
 }
 
 void GeneralPage::configureNotifications()
@@ -160,10 +166,10 @@ void GeneralPage::save()
 
     PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
-    PowerDevilSettings::setACProfile(acProfile->currentText());
-    PowerDevilSettings::setLowProfile(lowProfile->currentText());
-    PowerDevilSettings::setWarningProfile(warningProfile->currentText());
-    PowerDevilSettings::setBatteryProfile(batteryProfile->currentText());
+    PowerDevilSettings::setACProfile(acProfile->itemData(acProfile->currentIndex()).toString());
+    PowerDevilSettings::setLowProfile(lowProfile->itemData(lowProfile->currentIndex()).toString());
+    PowerDevilSettings::setWarningProfile(warningProfile->itemData(warningProfile->currentIndex()).toString());
+    PowerDevilSettings::setBatteryProfile(batteryProfile->itemData(batteryProfile->currentIndex()).toString());
 
     PowerDevilSettings::self()->writeConfig();
 }
@@ -171,6 +177,24 @@ void GeneralPage::save()
 void GeneralPage::reloadAvailableProfiles()
 {
     KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+
+    // Request profiles to the daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "availableProfiles");
+    QDBusPendingReply< StringStringMap > reply = QDBusConnection::sessionBus().asyncCall(call);
+    reply.waitForFinished();
+
+    if (!reply.isValid()) {
+        kDebug() << "Error contacting the daemon!";
+        return;
+    }
+
+    StringStringMap profiles = reply.value();
+
+    if (profiles.isEmpty()) {
+        kDebug() << "No available profiles!";
+        return;
+    }
 
     acProfile->clear();
     batteryProfile->clear();
@@ -182,20 +206,19 @@ void GeneralPage::reloadAvailableProfiles()
         return;
     }
 
-    foreach(const QString &ent, profilesConfig->groupList()) {
-        KConfigGroup *group = new KConfigGroup(profilesConfig, ent);
+    for (StringStringMap::const_iterator i = profiles.constBegin(); i != profiles.constEnd(); ++i) {
+        KConfigGroup group(profilesConfig, i.key());
 
-        acProfile->addItem(KIcon(group->readEntry("icon")), ent);
-        batteryProfile->addItem(KIcon(group->readEntry("icon")), ent);
-        lowProfile->addItem(KIcon(group->readEntry("icon")), ent);
-        warningProfile->addItem(KIcon(group->readEntry("icon")), ent);
-        delete group;
+        acProfile->addItem(KIcon(group.readEntry("icon")), i.value(), i.key());
+        batteryProfile->addItem(KIcon(group.readEntry("icon")), i.value(), i.key());
+        lowProfile->addItem(KIcon(group.readEntry("icon")), i.value(), i.key());
+        warningProfile->addItem(KIcon(group.readEntry("icon")), i.value(), i.key());
     }
 
-    acProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::aCProfile()));
-    lowProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::lowProfile()));
-    warningProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::warningProfile()));
-    batteryProfile->setCurrentIndex(acProfile->findText(PowerDevilSettings::batteryProfile()));
+    acProfile->setCurrentIndex(acProfile->findData(PowerDevilSettings::aCProfile()));
+    lowProfile->setCurrentIndex(acProfile->findData(PowerDevilSettings::lowProfile()));
+    warningProfile->setCurrentIndex(acProfile->findData(PowerDevilSettings::warningProfile()));
+    batteryProfile->setCurrentIndex(acProfile->findData(PowerDevilSettings::batteryProfile()));
 
 }
 

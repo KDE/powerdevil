@@ -66,7 +66,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     }
 
     // Let's start: performance profile before anything else
-    KConfigGroup performance(profilesConfig, i18nc("Name of a power profile", "Performance"));
+    KConfigGroup performance(profilesConfig, "Performance");
     performance.writeEntry("icon", "preferences-system-performance");
 
     // We want to dim the screen after a while, definitely
@@ -116,7 +116,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         }
 
         // Powersave
-        KConfigGroup powersave(profilesConfig, i18nc("Name of a power profile", "Powersave"));
+        KConfigGroup powersave(profilesConfig, "Powersave");
         powersave.writeEntry("icon", "preferences-system-power-management");
         // Less brightness.
         {
@@ -158,7 +158,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
 
 
         // Ok, now for aggressive powersave
-        KConfigGroup aggrPowersave(profilesConfig, i18nc("Name of a power profile", "Aggressive powersave"));
+        KConfigGroup aggrPowersave(profilesConfig, "Aggressive powersave");
         aggrPowersave.writeEntry("icon", "battery-low");
         // Less brightness.
         {
