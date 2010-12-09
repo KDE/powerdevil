@@ -25,7 +25,13 @@ namespace PowerDevil {
 
 namespace ProfileGenerator
 {
-    void generateProfiles();
+    enum GeneratorResult {
+        ResultFailed = 0,
+        ResultGenerated = 1,
+        ResultUpgraded = 2
+    };
+
+    GeneratorResult generateProfiles(bool tryUpgrade = false);
     void upgradeProfiles();
 }
 

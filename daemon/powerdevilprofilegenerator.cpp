@@ -36,8 +36,16 @@
 
 namespace PowerDevil {
 
-void ProfileGenerator::generateProfiles()
+ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpgrade)
 {
+    if (tryUpgrade) {
+        KSharedConfigPtr oldProfilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+        if (!oldProfilesConfig->groupList().isEmpty()) {
+            // We can upgrade, let's do that.
+            upgradeProfiles();
+            return ResultUpgraded;
+        }
+    }
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
     // Let's change some defaults
@@ -199,6 +207,8 @@ void ProfileGenerator::generateProfiles()
     // Save and be happy
     PowerDevilSettings::self()->writeConfig();
     profilesConfig->sync();
+
+    return ResultGenerated;
 }
 
 void ProfileGenerator::upgradeProfiles()

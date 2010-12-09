@@ -98,7 +98,12 @@ void Core::onBackendReady()
     // Is it brand new?
     if (m_profilesConfig->groupList().isEmpty()) {
         // Generate defaults
-        ProfileGenerator::generateProfiles();
+        if (ProfileGenerator::generateProfiles(true) == ProfileGenerator::ResultUpgraded) {
+            // Notify the user
+            emitNotification("warningnot", i18n("Your Power Profiles have been updated to be used with the new KDE Power "
+                                                "Management System. You can tweak them or generate a new set of defaults from "
+                                                "System Settings."), "system-software-update");
+        }
         m_profilesConfig->reparseConfiguration();
     }
 
