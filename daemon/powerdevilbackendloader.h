@@ -29,7 +29,7 @@ class BackendInterface;
 namespace BackendLoader
 {
     BackendInterface *loadBackend(QObject *parent);
-};
+}
 
 }
 
