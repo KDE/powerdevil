@@ -47,16 +47,24 @@ bool PowerDevilUPowerBackend::isAvailable()
 {
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
         // Is it pending activation?
+        kDebug() << "UPower service, " << UPOWER_SERVICE << ", is not registered on the bus. Trying to find out if it is activated.";
         QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.DBus",
                                                               "/org/freedesktop/DBus",
                                                               "org.freedesktop.DBus",
                                                               "ListActivatableNames");
 
-        QDBusPendingReply< QStringList > reply = QDBusConnection::sessionBus().asyncCall(message);
+        QDBusPendingReply< QStringList > reply = QDBusConnection::systemBus().asyncCall(message);
         reply.waitForFinished();
 
         if (reply.isValid()) {
-            return reply.value().contains(UPOWER_SERVICE);
+            if (reply.value().contains(UPOWER_SERVICE)) {
+                kDebug() << "UPower was found, activating service...";
+                QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
+                return true;
+            } else {
+                kDebug() << "UPower cannot be found on this system.";
+                return false;
+            }
         } else {
             kWarning() << "Could not request activatable names to DBus!";
             return false;
