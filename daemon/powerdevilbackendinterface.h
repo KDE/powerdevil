@@ -40,200 +40,241 @@ public:
     virtual ~BackendInterface();
 
     /**
-        * This enum type defines the different states of the system battery.
-        *
-        * - NoBatteryState: No battery available
-        * - Normal: The battery is at its normal charge level
-        * - Warning: The battery is at its warning charge level
-        * - Low: The battery is at its low charge level
-        * - Critical: The battery is at its critical charge level
-        */
+     * This enum type defines the different states of the system battery.
+     *
+     * - NoBatteryState: No battery available
+     * - Normal: The battery is at its normal charge level
+     * - Warning: The battery is at its warning charge level
+     * - Low: The battery is at its low charge level
+     * - Critical: The battery is at its critical charge level
+     */
     enum BatteryState{ NoBatteryState, Normal, Warning, Low, Critical };
 
     /**
-        * This enum type defines the different states of the AC adapter.
-        *
-        * - UnknownAcAdapterState: The AC adapter has an unknown state
-        * - Plugged: The AC adapter is plugged
-        * - Unplugged: The AC adapter is unplugged
-        */
+     * This enum type defines the different states of the AC adapter.
+     *
+     * - UnknownAcAdapterState: The AC adapter has an unknown state
+     * - Plugged: The AC adapter is plugged
+     * - Unplugged: The AC adapter is unplugged
+     */
     enum AcAdapterState{ UnknownAcAdapterState, Plugged, Unplugged };
 
     /**
-        * This enum type defines the types of system button events.
-        *
-        * - UnknownButtonType: An unknown button
-        * - PowerButton: A power button pressed event, generally used to turn on or off the system
-        * - SleepButton: A sleep button pressed event, generally used to make the system asleep
-        * - LidOpen: A laptop lid open event
-        * - LidClose: A laptop lid close event
-        */
+     * This enum type defines the types of system button events.
+     *
+     * - UnknownButtonType: An unknown button
+     * - PowerButton: A power button pressed event, generally used to turn on or off the system
+     * - SleepButton: A sleep button pressed event, generally used to make the system asleep
+     * - LidOpen: A laptop lid open event
+     * - LidClose: A laptop lid close event
+     */
     enum ButtonType{ UnknownButtonType, PowerButton, SleepButton, LidOpen, LidClose };
 
     /**
-        * This enum type defines the different suspend methods.
-        *
-        * - UnknownSuspendMethod: The name says it all
-        * - Standby: Processes are stopped, some hardware is deactivated (ACPI S1)
-        * - ToRam: Most devices are deactivated, only RAM is powered (ACPI S3)
-        * - ToDisk: State of the machine is saved to disk, and it's powered down (ACPI S4)
-        */
+     * This enum type defines the different suspend methods.
+     *
+     * - UnknownSuspendMethod: The name says it all
+     * - Standby: Processes are stopped, some hardware is deactivated (ACPI S1)
+     * - ToRam: Most devices are deactivated, only RAM is powered (ACPI S3)
+     * - ToDisk: State of the machine is saved to disk, and it's powered down (ACPI S4)
+     */
     enum SuspendMethod{ UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8 };
 
     /**
-        * This type stores an OR combination of SuspendMethod values.
-        */
+     * This type stores an OR combination of SuspendMethod values.
+     */
     Q_DECLARE_FLAGS(SuspendMethods, SuspendMethod)
 
     /**
-        * This enum defines the different types of brightness controls.
-        *
-        * - UnknownBrightnessControl: Unknown
-        * - Screen: Brightness control for a monitor or laptop panel
-        * - Keyboard: Brightness control for a keyboard backlight
-        */
+     * This enum defines the different types of brightness controls.
+     *
+     * - UnknownBrightnessControl: Unknown
+     * - Screen: Brightness control for a monitor or laptop panel
+     * - Keyboard: Brightness control for a keyboard backlight
+     */
     enum BrightnessControlType{ UnknownBrightnessControl = 0, Screen = 1, Keyboard = 2 };
 
     typedef QHash<QString, BrightnessControlType> BrightnessControlsList;
 
     /**
-        * This enum defines the different types brightness keys.
-        *
-        * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp)
-        * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown)
-        */
+     * This enum defines the different types brightness keys.
+     *
+     * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp)
+     * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown)
+     */
     enum BrightnessKeyType{ Increase, Decrease };
 
+    /**
+     * This struct contains information for a recall notice from the vendor
+     */
     struct RecallNotice {
+        /** The battery uuid */
         QString batteryId;
+        /** The vendor's name */
         QString vendor;
+        /** The vendor's website */
         QString url;
     };
 
+    /**
+     * Initializes the backend. This function @b MUST be called before the backend is usable. Using
+     * any method in BackendInterface without initializing it might lead to undefined behavior. The signal
+     * @c backendReady or @c backendError will be streamed upon completion.
+     *
+     * @note Backend implementations @b MUST reimplement this function
+     */
     virtual void init() = 0;
 
     /**
-        * Retrieves the current state of the system battery.
-        *
-        * @return the current battery state
-        * @see Solid::Control::PowerManager::BatteryState
-        */
+     * Retrieves the current state of the system battery.
+     *
+     * @return the current battery state
+     * @see PowerDevil::BackendInterface::BatteryState
+     */
     BatteryState batteryState() const;
 
     /**
-        * Retrieves the current estimated remaining time of the system batteries
-        *
-        * @return the current global estimated remaining time in milliseconds
-        */
+     * Retrieves the current estimated remaining time of the system batteries
+     *
+     * @return the current global estimated remaining time in milliseconds
+     */
     qulonglong batteryRemainingTime() const;
 
     /**
-        * Retrieves the current state of the system AC adapter.
-        *
-        * @return the current AC adapter state
-        * @see Solid::Control::PowerManager::AcAdapterState
-        */
+     * Retrieves the current state of the system AC adapter.
+     *
+     * @return the current AC adapter state
+     * @see PowerDevil::BackendInterface::AcAdapterState
+     */
     AcAdapterState acAdapterState() const;
 
 
     /**
-        * Retrieves the set of suspend methods supported by the system.
-        *
-        * @return the suspend methods supported by this system
-        * @see Solid::Control::PowerManager::SuspendMethod
-        * @see Solid::Control::PowerManager::SuspendMethods
-        */
+     * Retrieves the set of suspend methods supported by the system.
+     *
+     * @return the suspend methods supported by this system
+     * @see PowerDevil::BackendInterface::SuspendMethod
+     * @see PowerDevil::BackendInterface::SuspendMethods
+     */
     SuspendMethods supportedSuspendMethods() const;
 
     /**
-        * Requests a suspend of the system.
-        *
-        * @param method the suspend method to use
-        * @return the job handling the operation
-        */
+     * Requests a suspend of the system.
+     *
+     * @param method the suspend method to use
+     * @return the job handling the operation
+     */
     virtual KJob *suspend(SuspendMethod method) = 0;
 
     /**
-        * Checks if brightness controls are enabled on this system.
-        *
-        * @return a list of the devices available to control
-        */
+     * Checks if brightness controls are enabled on this system.
+     *
+     * @return a list of the devices available to control
+     */
     BrightnessControlsList brightnessControlsAvailable() const;
 
     /**
-        * Gets the screen brightness.
-        *
-        * @param device the name of the device that you would like to control
-        * @return the brightness of the device, as a percentage
-        */
+     * Gets the screen brightness.
+     *
+     * @param device the name of the device that you would like to control
+     * @return the brightness of the device, as a percentage
+     */
     virtual float brightness(BrightnessControlType type = Screen) const;
 
+    /**
+     * @returns whether the lid is closed or not.
+     */
     bool isLidClosed() const;
 
     /**
-        * Sets the screen brightness.
-        *
-        * @param brightness the desired screen brightness, as a percentage
-        * @param device the name of the device that you would like to control
-        * @return true if the brightness change succeeded, false otherwise
-        */
+     * Sets the screen brightness.
+     *
+     * @param brightness the desired screen brightness, as a percentage
+     * @param device the name of the device that you would like to control
+     * @return true if the brightness change succeeded, false otherwise
+     */
     virtual bool setBrightness(float brightness, BrightnessControlType type = Screen) = 0;
 
     /**
-        * Should be called when the user presses a brightness key.
-        *
-        * @param type the type of the brightness key press
-        * @see Solid::Control::PowerManager::BrightnessKeyType
-        */
+     * Should be called when the user presses a brightness key.
+     *
+     * @param type the type of the brightness key press
+     * @see PowerDevil::BackendInterface::BrightnessKeyType
+     */
     virtual void brightnessKeyPressed(BrightnessKeyType type) = 0;
 
+    /**
+     * Retrieves the capacities of the installed batteries in percentage.
+     *
+     * @returns A dictionary with the battery's capacity percentage mapped to the battery uuid.
+     */
     QHash< QString, uint > capacities() const;
 
+    /**
+     * Returns a list of recall notices, if available
+     *
+     * @return a list of recall notices
+     * @see PowerDevil::BackendInterface::RecallNotice
+     */
     QList< RecallNotice > recallNotices() const;
 
 Q_SIGNALS:
     /**
-        * This signal is emitted when the AC adapter is plugged or unplugged.
-        *
-        * @param newState the new state of the AC adapter, it's one of the
-        * type @see Solid::Control::PowerManager::AcAdapterState
-        */
+     * This signal is emitted when the AC adapter is plugged or unplugged.
+     *
+     * @param newState the new state of the AC adapter, it's one of the
+     * type @see PowerDevil::BackendInterface::AcAdapterState
+     */
     void acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newState);
 
     /**
-        * This signal is emitted when the system battery state changed.
-        *
-        * @param newState the new state of the system battery, it's one of the
-        * type @see Solid::Control::PowerManager::BatteryState
-        */
+     * This signal is emitted when the system battery state changed.
+     *
+     * @param newState the new state of the system battery, it's one of the
+     * type @see PowerDevil::BackendInterface::BatteryState
+     */
     void batteryStateChanged(PowerDevil::BackendInterface::BatteryState newState);
 
     /**
-        * This signal is emitted when a button has been pressed.
-        *
-        * @param buttonType the pressed button type, it's one of the
-        * type @see Solid::Control::PowerManager::ButtonType
-        */
+     * This signal is emitted when a button has been pressed.
+     *
+     * @param buttonType the pressed button type, it's one of the
+     * type @see PowerDevil::BackendInterface::ButtonType
+     */
     void buttonPressed(PowerDevil::BackendInterface::ButtonType buttonType);
 
     /**
-    * This signal is emitted when the brightness changes.
-    *
-    * @param brightness the new brightness level
-    */
+     * This signal is emitted when the brightness changes.
+     *
+     * @param brightness the new brightness level
+     */
     void brightnessChanged(float brightness, PowerDevil::BackendInterface::BrightnessControlType type);
 
     /**
-    * This signal is emitted when the estimated battery remaining time changes.
-    *
-    * @param time the new remaining time
-    */
+     * This signal is emitted when the estimated battery remaining time changes.
+     *
+     * @param time the new remaining time
+     */
     void batteryRemainingTimeChanged(qulonglong time);
 
+    /**
+     * This signal is emitted when the backend is ready to be used
+     *
+     * @see init
+     */
     void backendReady();
 
+    /**
+     * This signal is emitted if the backend could not be initialized
+     *
+     * @param error Details about the error occurred
+     * @see init
+     */
     void backendError(const QString &error);
 
+    /**
+     * This signal is emitted when the PC is resuming from suspension
+     */
     void resumeFromSuspend();
 
 protected:
