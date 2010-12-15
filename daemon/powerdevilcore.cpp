@@ -385,16 +385,6 @@ void Core::onDeviceRemoved(const QString& udi)
     Device device(udi);
     Battery *b = qobject_cast<Battery*>(device.asDeviceInterface(DeviceInterface::Battery));
 
-    if (!b) {
-        // Not interesting to us
-        return;
-    }
-
-    if (b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
-        // Not interesting to us
-        return;
-    }
-
     disconnect(b, SIGNAL(chargePercentChanged(int,QString)),
                this, SLOT(onBatteryChargePercentChanged(int,QString)));
 
@@ -578,7 +568,7 @@ void Core::unregisterActionTimeouts(Action* action)
     QList< int > timeoutsToClean = m_registeredActionTimeouts[action];
     m_registeredActionTimeouts.remove(action);
     for (QHash< Action*, QList< int > >::const_iterator i = m_registeredActionTimeouts.constBegin();
-         i != m_registeredActionTimeouts.constEnd(); ++i) {
+        i != m_registeredActionTimeouts.constEnd(); ++i) {
         foreach (int timeoutId, i.value()) {
             if (timeoutsToClean.contains(timeoutId)) {
                 timeoutsToClean.removeOne(timeoutId);
