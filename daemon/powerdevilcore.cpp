@@ -648,6 +648,11 @@ QString Core::currentProfile() const
     return m_currentProfile;
 }
 
+uint Core::backendCapabilities()
+{
+    return m_backend->capabilities();
+}
+
 void Core::setBrightness(int percent)
 {
     QVariantMap args;

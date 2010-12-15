@@ -69,6 +69,8 @@ bool PowerDevilHALBackend::isAvailable()
 
 void PowerDevilHALBackend::init()
 {
+    setCapabilities(NoCapabilities);
+
     connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(const QString &)),
             this, SLOT(slotDeviceRemoved(const QString &)));
     connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(const QString &)),

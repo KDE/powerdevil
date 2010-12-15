@@ -33,6 +33,7 @@ public:
     BatteryState batteryState;
     QHash< BrightnessControlType, float > brightness;
     BrightnessControlsList brightnessControlsAvailable;
+    Capabilities capabilities;
     SuspendMethods suspendMethods;
     QString errorString;
     bool isReady;
@@ -160,6 +161,16 @@ void BackendInterface::onBrightnessChanged(BackendInterface::BrightnessControlTy
 void BackendInterface::setResumeFromSuspend()
 {
     emit resumeFromSuspend();
+}
+
+BackendInterface::Capabilities BackendInterface::capabilities() const
+{
+    return d->capabilities;
+}
+
+void BackendInterface::setCapabilities(BackendInterface::Capabilities capabilities)
+{
+    d->capabilities = capabilities;
 }
 
 }

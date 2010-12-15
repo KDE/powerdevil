@@ -86,6 +86,9 @@ void PowerDevilUPowerBackend::init()
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightNessControl = new XRandrBrightness();
 
+    // Capabilities
+    setCapabilities(SignalResumeFromSuspend);
+
     // devices
     enumerateDevices();
     connect(m_upowerInterface, SIGNAL(Changed()), this, SLOT(slotPropertyChanged()));

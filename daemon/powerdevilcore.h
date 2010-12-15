@@ -65,6 +65,7 @@ public:
 public Q_SLOTS:
     void loadCore(PowerDevil::BackendInterface *backend);
     // Set of common action - useful for the DBus interface
+    uint backendCapabilities();
     void refreshStatus();
     void reloadProfile();
     void reloadCurrentProfile();

@@ -105,6 +105,15 @@ public:
     enum BrightnessKeyType{ Increase, Decrease };
 
     /**
+     * This enum defines capabilities of the backend
+     *
+     * - SignalResumeFromSuspend: The backend is able to stream the @c resumeFromSuspend signal accurately
+     */
+    enum Capability { NoCapabilities = 0, SignalResumeFromSuspend = 1 };
+
+    Q_DECLARE_FLAGS(Capabilities, Capability)
+
+    /**
      * This struct contains information for a recall notice from the vendor
      */
     struct RecallNotice {
@@ -124,6 +133,12 @@ public:
      * @note Backend implementations @b MUST reimplement this function
      */
     virtual void init() = 0;
+
+    /**
+     * @returns the capabilities of the backend
+     * @see PowerDevil::BackendInterface::Capability
+     */
+    Capabilities capabilities() const;
 
     /**
      * Retrieves the current state of the system battery.
@@ -278,6 +293,8 @@ Q_SIGNALS:
     void resumeFromSuspend();
 
 protected:
+    void setCapabilities(Capabilities capabilities);
+
     void onBrightnessChanged(BrightnessControlType device, float brightness);
     void setBatteryRemainingTime(qulonglong time);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
@@ -302,5 +319,8 @@ private:
 };
 
 }
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::Capabilities)
+Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::SuspendMethods)
 
 #endif // POWERDEVIL_BACKENDINTERFACE_H
