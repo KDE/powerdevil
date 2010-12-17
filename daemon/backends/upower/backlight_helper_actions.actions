@@ -1,0 +1,13 @@
+[Domain]
+Name=KDE
+Icon=kde
+
+[org.kde.powerdevil.backlighthelper.brightness]
+Name=Get brightness
+Description=System policies prevent you from getting the brightness level.
+Policy=yes
+
+[org.kde.powerdevil.backlighthelper.setbrightness]
+Name=Set brightness
+Description=System policies prevent you from setting the brightness level.
+Policy=yes

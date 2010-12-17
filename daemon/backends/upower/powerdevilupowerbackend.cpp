@@ -27,9 +27,12 @@
 
 #include <KDebug>
 #include <KPluginFactory>
+#include <KAuth/Action>
 
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
+
+#define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
@@ -98,9 +101,7 @@ void PowerDevilUPowerBackend::init()
 
     // Brightness Controls available
     BrightnessControlsList controls;
-    if (m_brightNessControl->isSupported()) {
-        controls.insert(QLatin1String("LVDS1"), Screen);
-    }
+    controls.insert(QLatin1String("LVDS1"), Screen);
 
     if (m_kbdBacklight->isValid())
         controls.insert(QLatin1String("KBD"), Keyboard);
@@ -177,22 +178,52 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
 
 float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
+    float result = 0.0;
+
     if (type == Screen) {
-        kDebug() << "Screen brightness: " << m_brightNessControl->brightness();
-        return m_brightNessControl->brightness();
+        if (m_brightNessControl->isSupported()) {
+            //kDebug() << "Calling xrandr brightness";
+            result = m_brightNessControl->brightness();
+        } else {
+            //kDebug() << "Falling back to helper to get brightness";
+            KAuth::Action action("org.kde.powerdevil.backlighthelper.brightness");
+            action.setHelperID(HELPER_ID);
+            KAuth::ActionReply reply = action.execute();
+            if (reply.succeeded()) {
+                result = reply.data()["brightness"].toFloat();
+                //kDebug() << "org.kde.powerdevil.backlighthelper.brightness succeeded: " << reply.data()["brightness"];
+            }
+            else
+                kWarning() << "org.kde.powerdevil.backlighthelper.brightness failed";
+
+        }
+        kDebug() << "Screen brightness: " << result;
     } else if (type == Keyboard) {
         kDebug() << "Kbd backlight brightness: " << m_kbdBacklight->GetBrightness();
-        return m_kbdBacklight->GetBrightness() / m_kbdBacklight->GetMaxBrightness() * 100;
+        result = m_kbdBacklight->GetBrightness() / m_kbdBacklight->GetMaxBrightness() * 100;
     }
 
-    return 0.0;
+    return result;
 }
 
 bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == Screen) {
         kDebug() << "set screen brightness: " << brightnessValue;
-        m_brightNessControl->setBrightness(brightnessValue);
+        if (m_brightNessControl->isSupported()) {
+            m_brightNessControl->setBrightness(brightnessValue);
+        } else {
+            //kDebug() << "Falling back to helper to set brightness";
+            KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
+            action.setHelperID(HELPER_ID);
+            action.addArgument("brightness", brightnessValue);
+            KAuth::ActionReply reply = action.execute();
+            if (reply.failed()) {
+                kWarning() << "org.kde.powerdevil.backlighthelper.setbrightness failed";
+                return false;
+            }
+        }
+
         float newBrightness = brightness(Screen);
         if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
             m_cachedBrightness = newBrightness;
