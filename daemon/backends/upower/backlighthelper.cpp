@@ -108,7 +108,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
         return reply;
     }
 
-    int actual_brightness = args["brightness"].toFloat() * maxBrightness() / 100;
+    int actual_brightness = qRound(args["brightness"].toFloat()) * maxBrightness() / 100;
     qDebug() << "setting brightness:" << actual_brightness;
     int result = file.write(QByteArray::number(actual_brightness));
     file.close();
