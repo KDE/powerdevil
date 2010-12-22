@@ -69,7 +69,8 @@ ActionPool::ActionPool()
 
 ActionPool::~ActionPool()
 {
-
+    // Clear the cache, actions will be deleted through QObject's parentage
+    m_cachedPool.clear();
 }
 
 Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
