@@ -172,6 +172,13 @@ void GeneralPage::save()
     PowerDevilSettings::setBatteryProfile(batteryProfile->itemData(batteryProfile->currentIndex()).toString());
 
     PowerDevilSettings::self()->writeConfig();
+
+    // Notify Daemon
+    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                       "org.kde.Solid.PowerManagement", "refreshStatus");
+
+    // Perform call
+    QDBusConnection::sessionBus().asyncCall(call);
 }
 
 void GeneralPage::reloadAvailableProfiles()
