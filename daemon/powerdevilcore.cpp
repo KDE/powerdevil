@@ -172,6 +172,13 @@ void Core::onBackendReady()
                                     KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
                                     KAction::NoAutoloading);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
+
+    globalAction = actionCollection->addAction("PowerOff");
+    //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_PowerOff),
+                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
+                                    KAction::NoAutoloading);
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
 void Core::checkBatteryStatus()
@@ -660,6 +667,11 @@ void Core::triggerSuspendSession(uint action)
         args["Explicit"] = true;
         helperAction->trigger(args);
     }
+}
+
+void Core::powerOffButtonTriggered()
+{
+    emit m_backend->buttonPressed(PowerDevil::BackendInterface::PowerButton);
 }
 
 }
