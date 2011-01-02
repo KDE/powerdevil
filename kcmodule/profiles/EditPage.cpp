@@ -188,6 +188,10 @@ void EditPage::load()
 
 void EditPage::save()
 {
+    if (!profilesList->currentItem()) {
+        return;
+    }
+
     QString profile = profilesList->currentItem()->data(Qt::UserRole).toString();
     saveProfile(profile);
     // Notify the daemon
