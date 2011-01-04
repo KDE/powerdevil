@@ -419,7 +419,7 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
             emitNotification("criticalbattery",
-                             i18n("The power adaptor has been plugged in - all pending suspend actions have been cancelled"));
+                             i18n("The power adaptor has been plugged in – all pending suspend actions have been cancelled."));
         } else {
             emitNotification("pluggedin", i18n("The power adaptor has been plugged in."));
         }
