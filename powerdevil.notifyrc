@@ -1,6 +1,7 @@
 [Global]
 Name=KDE Power Management System
 Name[ca]=Sistema de gestió d'energia del KDE
+Name[ca@valencia]=Sistema de gestió d'energia del KDE
 Name[da]=KDE's strømstyringssystem
 Name[de]=KDE-Energieverwaltungssystem
 Name[en_GB]=KDE Power Management System
@@ -35,6 +36,7 @@ Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Notifications for KDE Power Management system
 Comment[ca]=Notificacions per al sistema de gestió d'energia del KDE
+Comment[ca@valencia]=Notificacions per al sistema de gestió d'energia del KDE
 Comment[da]=Bekendtgørelser for KDE's strømstyringssystem
 Comment[de]=Benachrichtigungen des KDE-Energieverwaltungssystems
 Comment[en_GB]=Notifications for KDE Power Management system
@@ -1712,6 +1714,7 @@ Persistant=true
 [Event/powerdevilerror]
 Name=Internal KDE Power Management System Error
 Name[ca]=Error intern del sistema de gestió d'energia del KDE
+Name[ca@valencia]=Error intern del sistema de gestió d'energia del KDE
 Name[da]=Intern fejl i KDE's strømstyringssystem
 Name[de]=Interner Fehler des KDE-Energieverwaltungssystems
 Name[en_GB]=Internal KDE Power Management System Error
@@ -1744,6 +1747,7 @@ Name[x-test]=xxInternal KDE Power Management System Errorxx
 Name[zh_TW]=KDE 電源管理系統內部錯誤
 Comment=The KDE Power Management System has triggered an internal error
 Comment[ca]=El sistema de gestió d'energia del KDE ha activat un error intern
+Comment[ca@valencia]=El sistema de gestió d'energia del KDE ha activat un error intern
 Comment[da]=KDE's strømstyringssystem har udløst en intern fejl
 Comment[de]=Das KDE-Energieverwaltungssystem hat einen internen Fehler ausgelöst.
 Comment[en_GB]=The KDE Power Management System has triggered an internal error
@@ -1915,6 +1919,7 @@ Action=Sound|Popup
 [Event/brokenbattery]
 Name=Broken battery notification
 Name[ca]=Notificació de bateria trencada
+Name[ca@valencia]=Notificació de bateria trencada
 Name[da]=Bekendtgørelse af defekt batteri
 Name[de]=Benachrichtigung über defekten Akku
 Name[en_GB]=Broken battery notification
@@ -1946,6 +1951,7 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_TW]=電池損壞通知
 Comment=This notification will pop up if KDE Power Management System detects some troubles with one of your batteries
 Comment[ca]=Aquesta notificació apareixerà si el sistema de gestió d'energia del KDE detecta algun problema amb alguna de les bateries
+Comment[ca@valencia]=Esta notificació apareixerà si el sistema de gestió d'energia del KDE detecta algun problema amb alguna de les bateries
 Comment[da]=Denne bekendtgørelse vil dukke op hvis KDE's strømstyringssystem finder problemer med et af dine batterier
 Comment[de]=Diese Benachrichtigung wird erscheinen, falls das KDE-Energieverwaltungssystem Probleme mit einer Ihrer Batterien entdeckt.
 Comment[en_GB]=This notification will pop up if KDE Power Management System detects some troubles with one of your batteries
