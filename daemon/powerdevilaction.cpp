@@ -21,6 +21,8 @@
 
 #include "powerdevilcore.h"
 
+#include <KDebug>
+
 namespace PowerDevil
 {
 
@@ -93,6 +95,7 @@ void Action::trigger(const QVariantMap& args)
             triggerImpl(args);
         } else {
             // TODO: Notify somehow?
+            kWarning() << "Unsatisfied policies, the action has been aborted";
         }
     }
 }
