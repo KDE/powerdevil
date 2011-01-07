@@ -216,6 +216,8 @@ uint PolicyAgent::AddInhibition(uint types,
         }
     }
 
+    kDebug() << "Added inhibition with cookie " << m_lastCookie;
+
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
     return m_lastCookie;
@@ -239,7 +241,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
         }
         m_typesToCookie[ChangeScreenSettings].append(cookie);
     }
-    if (types & ChangeProfile) {
+    if (types & InterruptSession) {
         // Check if we have to notify
         if (m_typesToCookie[InterruptSession].isEmpty()) {
             notify = true;
