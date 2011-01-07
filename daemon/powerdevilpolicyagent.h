@@ -75,6 +75,9 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onServiceUnregistered(const QString &serviceName);
+    void onConsoleKitRegistered(const QString&);
+    void onConsoleKitUnregistered(const QString&);
+    void onConsoleKitActiveSessionChanged(const QString &activeSession);
 
 private:
     explicit PolicyAgent(QObject* parent = 0);
@@ -90,7 +93,8 @@ private:
                                               const QString &reason, const QString &service);
 
     bool m_ckAvailable;
-    QDBusInterface *m_ckSessionInterface;
+    QWeakPointer< QDBusInterface > m_ckSessionInterface;
+    QWeakPointer< QDBusInterface > m_ckSeatInterface;
     bool m_sessionIsBeingInterrupted;
 
     QHash< uint, QPair< QString, QString > > m_cookieToAppName;
@@ -100,6 +104,9 @@ private:
     uint m_lastCookie;
 
     QWeakPointer< QDBusServiceWatcher > m_busWatcher;
+    QWeakPointer< QDBusServiceWatcher > m_ckWatcher;
+
+    bool m_wasLastActiveSession;
 
     friend class Core;
     friend class FdoConnector;
