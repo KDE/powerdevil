@@ -549,14 +549,17 @@ void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous
     Q_UNUSED(current)
 
     if (!m_profileEdited) {
+        kDebug() << "Profile has not been edited, switch";
         loadProfile();
     } else {
         if (!previous) {
-             // Pass by, the profile has probably been deleted
+            // Pass by, the profile has probably been deleted
+            kDebug() << "No previous profile";
             loadProfile();
             return;
         } else if (!m_profilesConfig.data()->groupList().contains(previous->text())) {
             // Pass by, the profile has probably been deleted
+            kDebug() << "No previous profile saved";
             loadProfile();
             return;
         }
