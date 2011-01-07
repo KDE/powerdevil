@@ -64,6 +64,8 @@ QList< QPair< QString, QWidget* > > DisableDesktopEffectsConfig::buildUi()
     m_comboBox = new KComboBox;
     m_idleTime = new KIntSpinBox(0, 180, 1, 0, 0);
     m_idleTime->setMaximumWidth(150);
+    m_idleTime->setMinimum(1);
+    m_idleTime->setMaximum(360);
     m_idleTime->setSuffix(i18n(" min"));
     m_idleTime->setDisabled(true);
     m_comboBox->addItem(i18n("On Profile Load"));

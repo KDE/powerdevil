@@ -54,6 +54,8 @@ QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
 
     m_spinBox = new KIntSpinBox(0, 180, 1, 0, 0);
     m_spinBox->setMaximumWidth(150);
+    m_spinBox->setMinimum(1);
+    m_spinBox->setMaximum(360);
     m_spinBox->setSuffix(i18n(" min"));
     retlist.append(qMakePair< QString, QWidget* >(i18n("Switch off after"), m_spinBox));
 
