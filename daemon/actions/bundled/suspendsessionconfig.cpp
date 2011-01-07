@@ -70,6 +70,8 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     m_comboBox = new KComboBox;
     m_idleTime = new KIntSpinBox(0, 180, 1, 0, 0);
     m_idleTime->setMaximumWidth(150);
+    m_idleTime->setMinimum(1);
+    m_idleTime->setMaximum(360);
     m_idleTime->setSuffix(i18n(" min"));
 
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
