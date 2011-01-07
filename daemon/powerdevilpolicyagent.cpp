@@ -55,9 +55,11 @@ PolicyAgent *PolicyAgent::instance()
 
 PolicyAgent::PolicyAgent(QObject* parent)
     : QObject(parent)
+    , m_ckAvailable(false)
     , m_sessionIsBeingInterrupted(false)
     , m_lastCookie(0)
     , m_busWatcher(new QDBusServiceWatcher(this))
+    , m_ckWatcher(new QDBusServiceWatcher(this))
 {
     Q_ASSERT(!s_globalPolicyAgent->q);
     s_globalPolicyAgent->q = this;
@@ -70,15 +72,32 @@ PolicyAgent::~PolicyAgent()
 
 void PolicyAgent::init()
 {
-    // Let's cache the needed information to check if our session is actually active
-    if (!QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.ConsoleKit")) {
-        // No way to determine if we are on the current session, simply suppose we are
-        kDebug() << "Can't contact ck";
-        m_ckAvailable = false;
-        return;
-    } else {
-        m_ckAvailable = true;
+    // Watch over the ConsoleKit service
+    m_ckWatcher.data()->setConnection(QDBusConnection::sessionBus());
+    m_ckWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
+                                     QDBusServiceWatcher::WatchForRegistration);
+    m_ckWatcher.data()->addWatchedService("org.freedesktop.ConsoleKit");
+
+    connect(m_ckWatcher.data(), SIGNAL(serviceRegistered(QString)),
+            this, SLOT(onConsoleKitRegistered(QString)));
+    connect(m_ckWatcher.data(), SIGNAL(serviceUnregistered(QString)),
+            this, SLOT(onConsoleKitUnregistered(QString)));
+    // If it's up and running already, let's cache it
+    if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.ConsoleKit")) {
+        onConsoleKitRegistered("org.freedesktop.ConsoleKit");
     }
+
+    // Now set up our service watcher
+    m_busWatcher.data()->setConnection(QDBusConnection::sessionBus());
+    m_busWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
+
+    connect(m_busWatcher.data(), SIGNAL(serviceUnregistered(QString)),
+            this, SLOT(onServiceUnregistered(QString)));
+}
+
+void PowerDevil::PolicyAgent::onConsoleKitRegistered(const QString& )
+{
+    m_ckAvailable = true;
 
     // Otherwise, let's ask ConsoleKit
     QDBusInterface ckiface("org.freedesktop.ConsoleKit", "/org/freedesktop/ConsoleKit/Manager",
@@ -97,19 +116,60 @@ void PolicyAgent::init()
     m_ckSessionInterface = new QDBusInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
                                               "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
 
-    if (!m_ckSessionInterface->isValid()) {
+    if (!m_ckSessionInterface.data()->isValid()) {
         // As above
         kDebug() << "Can't contact iface";
         m_ckAvailable = false;
         return;
     }
 
-    // Now set up our service watcher
-    m_busWatcher.data()->setConnection(QDBusConnection::sessionBus());
-    m_busWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
+    // Now let's obtain the seat
+    QDBusPendingReply< QDBusObjectPath > seatPath = m_ckSessionInterface.data()->asyncCall("GetSeatId");
+    seatPath.waitForFinished();
 
-    connect(m_busWatcher.data(), SIGNAL(serviceUnregistered(QString)),
-            this, SLOT(onServiceUnregistered(QString)));
+    if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
+        kDebug() << "Unable to associate ck session with a seat";
+        m_ckAvailable = false;
+        return;
+    }
+
+    if (!QDBusConnection::systemBus().connect("org.freedesktop.ConsoleKit", seatPath.value().path(),
+                                              "org.freedesktop.ConsoleKit.Seat", "ActiveSessionChanged",
+                                              this, SLOT(onConsoleKitActiveSessionChanged(QString)))) {
+        kDebug() << "Unable to connect to ActiveSessionChanged";
+        m_ckAvailable = false;
+        return;
+    }
+
+    // Force triggering of active session changed
+    QDBusMessage call = QDBusMessage::createMethodCall("org.freedesktop.ConsoleKit", seatPath.value().path(),
+                                                       "org.freedesktop.ConsoleKit.Seat", "GetActiveSession");
+    QDBusPendingReply< QDBusObjectPath > activeSession = QDBusConnection::systemBus().asyncCall(call);
+    activeSession.waitForFinished();
+
+    onConsoleKitActiveSessionChanged(activeSession.value().path());
+
+    kDebug() << "ConsoleKit support initialized";
+}
+
+void PowerDevil::PolicyAgent::onConsoleKitUnregistered(const QString& )
+{
+    m_ckAvailable = false;
+    m_ckSessionInterface.data()->deleteLater();
+}
+
+void PolicyAgent::onConsoleKitActiveSessionChanged(const QString& activeSession)
+{
+    if (activeSession.isEmpty()) {
+        kDebug() << "Switched to inactive session - leaving unchanged";
+        return;
+    } else if (activeSession == m_ckSessionInterface.data()->path()) {
+        kDebug() << "Current session is now active";
+        m_wasLastActiveSession = true;
+    } else {
+        kDebug() << "Current session is now inactive";
+        m_wasLastActiveSession = false;
+    }
 }
 
 void PolicyAgent::onServiceUnregistered(const QString& serviceName)
@@ -142,11 +202,11 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
     if (!m_ckAvailable) {
         // No way to determine if we are on the current session, simply suppose we are
         kDebug() << "Can't contact ck";
-    } else {
-        QDBusPendingReply< bool > rp = m_ckSessionInterface->asyncCall("IsActive");
+    } else if (!m_ckSessionInterface.isNull()) {
+        QDBusPendingReply< bool > rp = m_ckSessionInterface.data()->asyncCall("IsActive");
         rp.waitForFinished();
 
-        if (!rp.value()) {
+        if (!rp.value() && !m_wasLastActiveSession) {
             return policies;
         }
     }
