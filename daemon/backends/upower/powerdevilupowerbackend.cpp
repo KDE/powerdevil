@@ -273,8 +273,7 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QString & device)
 {
     OrgFreedesktopUPowerDeviceInterface * upowerDevice = m_devices.take(device);
 
-    if (upowerDevice)
-        delete upowerDevice;
+    delete upowerDevice;
 
     updateDeviceProps();
 }
