@@ -35,7 +35,7 @@
 
 PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent)
     : BackendInterface(parent),
-      m_brightnessInHardware(true),
+      m_brightnessInHardware(false),
       m_halComputer("org.freedesktop.Hal",
                      "/org/freedesktop/Hal/devices/computer",
                      "org.freedesktop.Hal.Device",
