@@ -107,7 +107,7 @@ void PowerDevilDPMSAction::onProfileLoad()
     XFlush(dpy);
     XSetErrorHandler(d->defaultHandler);
 
-    DPMSSetTimeouts(dpy, m_idleTime, (int)(m_idleTime * 1.5), m_idleTime * 2);
+    DPMSSetTimeouts(dpy, (CARD16)m_idleTime, (CARD16)(m_idleTime * 1.5), (CARD16)(m_idleTime * 2));
 
     XFlush(dpy);
     XSetErrorHandler(d->defaultHandler);

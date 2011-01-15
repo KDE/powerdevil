@@ -89,7 +89,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     // And we also want to turn off the screen after another long while
     {
         KConfigGroup dpmsControl(&performance, "DPMSControl");
-        dpmsControl.writeEntry< uint >("idleTime", 3600000);
+        dpmsControl.writeEntry< uint >("idleTime", 3600);
     }
 
     // Assign the profile, of course!
@@ -143,7 +143,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         // We want to turn off the screen after another while
         {
             KConfigGroup dpmsControl(&powersave, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", 600000);
+            dpmsControl.writeEntry< uint >("idleTime", 600);
         }
         // Last but not least, we want to suspend after a rather long period of inactivity
         if (methods.contains(Solid::PowerManagement::SuspendState) || methods.contains(Solid::PowerManagement::HibernateState)) {
@@ -185,7 +185,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         // We want to turn off the screen after another while
         {
             KConfigGroup dpmsControl(&aggrPowersave, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", 300000);
+            dpmsControl.writeEntry< uint >("idleTime", 300);
         }
         // Last but not least, we want to suspend after a rather long period of inactivity
         if (methods.contains(Solid::PowerManagement::SuspendState) || methods.contains(Solid::PowerManagement::HibernateState)) {
@@ -251,7 +251,7 @@ void ProfileGenerator::upgradeProfiles()
         // DPMS
         if (oldGroup.readEntry< bool >("DPMSEnabled", false) && oldGroup.readEntry< int >("DPMSPowerOff", 0) > 0) {
             KConfigGroup dpmsControl(&newGroup, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("DPMSPowerOff", 30) * 60 * 1000);
+            dpmsControl.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("DPMSPowerOff", 30) * 60);
         }
         // Script
         if (!oldGroup.readEntry< QString >("scriptpath", QString()).isEmpty()) {

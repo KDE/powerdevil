@@ -38,14 +38,14 @@ PowerDevilDPMSActionConfig::~PowerDevilDPMSActionConfig()
 
 void PowerDevilDPMSActionConfig::save()
 {
-    configGroup().writeEntry("idleTime", m_spinBox->value() * 60 * 1000);
+    configGroup().writeEntry("idleTime", m_spinBox->value() * 60);
 
     configGroup().sync();
 }
 
 void PowerDevilDPMSActionConfig::load()
 {
-    m_spinBox->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
+    m_spinBox->setValue(configGroup().readEntry<int>("idleTime", 600000) / 60);
 }
 
 QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
