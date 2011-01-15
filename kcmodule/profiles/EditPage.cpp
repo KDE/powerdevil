@@ -155,8 +155,8 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
         QList<QPair<QString, QWidget*> > offerWidgets = actionConfig->buildUi();
         offerWidgets.prepend(qMakePair<QString,QWidget*>(QString(), checkbox));
-        widgets.insert(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
-                       offerWidgets);
+        widgets.insertMulti(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
+                            offerWidgets);
     }
 
     for (QMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
