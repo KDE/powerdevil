@@ -459,16 +459,19 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
             emitNotification("criticalbattery",
                              i18n("Your battery level is critical, the computer will be halted in 30 seconds."),
                              "dialog-warning");
+            m_criticalBatteryTimer->start();
             break;
         case 2:
             emitNotification("criticalbattery",
                              i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."),
                              "dialog-warning");
+            m_criticalBatteryTimer->start();
             break;
         case 1:
             emitNotification("criticalbattery",
                              i18n("Your battery level is critical, the computer will be suspended in 30 seconds."),
                              "dialog-warning");
+            m_criticalBatteryTimer->start();
             break;
         default:
             emitNotification("criticalbattery",
