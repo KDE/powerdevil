@@ -303,11 +303,14 @@ void EditPage::saveProfile(const QString &p)
             m_actionsConfigHash[i.key()]->save();
         } else {
             // Erase the group
-            group.group(i.key()).deleteGroup();
+            group.deleteGroup(i.key());
         }
     }
 
     group.sync();
+
+    // After saving, reload the config to make sure we'll pick up changes.
+    m_profilesConfig.data()->reparseConfiguration();
 
     emit changed(false);
 }
