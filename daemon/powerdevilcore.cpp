@@ -315,7 +315,7 @@ void Core::loadProfile(const QString& id)
     // Now, let's retrieve our profile
     KConfigGroup config(m_profilesConfig, id);
 
-    if (!config.isValid() || config.groupList().isEmpty()) {
+    if (!config.isValid()) {
         emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                          "but it does not exist.\nPlease check your PowerDevil configuration.",
                          id), "dialog-error");
