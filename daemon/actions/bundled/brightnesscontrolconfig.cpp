@@ -59,6 +59,7 @@ QList< QPair< QString, QWidget* > > BrightnessControlConfig::buildUi()
     QList< QPair< QString, QWidget* > > retlist;
     m_slider = new QSlider(Qt::Horizontal);
     m_slider->setMaximumWidth(300);
+    m_slider->setRange(0, 100);
     retlist.append(qMakePair< QString, QWidget* >(i18nc("Brightness level, label for the slider", "Level"), m_slider));
 
     connect(m_slider, SIGNAL(sliderMoved(int)), this, SLOT(setChanged()));
