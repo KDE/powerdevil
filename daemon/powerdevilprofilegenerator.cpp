@@ -260,24 +260,16 @@ void ProfileGenerator::upgradeProfiles()
             runScript.writeEntry< uint >("scriptPhase", 0);
         }
         // SuspendSession
-        if (oldGroup.readEntry< int >("idleAction", 0) > 0) {
+        if (oldGroup.readEntry< uint >("idleAction", 0) > 0) {
             KConfigGroup suspendSession(&newGroup, "SuspendSession");
             suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime", 30) * 60 * 1000);
-            if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-                suspendSession.writeEntry< uint >("suspendType", 2);
-            } else {
-                suspendSession.writeEntry< uint >("suspendType", 1);
-            }
+            suspendSession.writeEntry< uint >("suspendType", upgradeOldAction(oldGroup.readEntry< uint >("idleAction", 0)));
         }
         // Buttons
-        if (oldGroup.readEntry< int >("powerButtonAction", 0) > 0 || oldGroup.readEntry< int >("lidAction", 0) > 0) {
-            KConfigGroup suspendSession(&newGroup, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime", 30) * 60 * 1000);
-            if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-                suspendSession.writeEntry< uint >("suspendType", 2);
-            } else {
-                suspendSession.writeEntry< uint >("suspendType", 1);
-            }
+        if (oldGroup.readEntry< uint >("powerButtonAction", 0) > 0 || oldGroup.readEntry< uint >("lidAction", 0) > 0) {
+            KConfigGroup handleButtons(&newGroup, "HandleButtonEvents");
+            handleButtons.writeEntry< uint >("powerButtonAction", upgradeOldAction(oldGroup.readEntry< uint >("powerButtonAction", 0)));
+            handleButtons.writeEntry< uint >("lidAction", upgradeOldAction(oldGroup.readEntry< uint >("lidAction", 0)));
         }
     }
 
@@ -298,6 +290,27 @@ void ProfileGenerator::upgradeProfiles()
             // Delete the old profiles now.
             QFile::remove(oldProfilesFile);
         }
+    }
+}
+
+uint ProfileGenerator::upgradeOldAction(uint oldAction)
+{
+    switch ((OldIdleAction)oldAction) {
+        case Standby:
+        case S2Ram:
+            return ToRamMode;
+        case S2Disk:
+            return ToDiskMode;
+        case Shutdown:
+            return ShutdownMode;
+        case Lock:
+            return LockScreenMode;
+        case ShutdownDialog:
+            return LogoutDialogMode;
+        case TurnOffScreen:
+            return TurnOffScreenMode;
+        default:
+            return 0;
     }
 }
 
