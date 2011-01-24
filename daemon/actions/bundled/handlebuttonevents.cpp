@@ -19,6 +19,8 @@
 
 #include "handlebuttonevents.h"
 
+#include "suspendsession.h"
+
 #include <powerdevilactionpool.h>
 
 #include <KConfigGroup>
@@ -87,33 +89,13 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 void HandleButtonEvents::processAction(uint action)
 {
     // Basically, we simply trigger other actions :)
-    switch (action) {
-        case 1:
-            // Sleep
-            triggerAction("SuspendSession", qVariantFromValue< uint >(1));
-            break;
-        case 2:
-            // Hibernate
-            triggerAction("SuspendSession", qVariantFromValue< uint >(2));
-            break;
-        case 3:
-            // Turn off PC
-            triggerAction("SuspendSession", qVariantFromValue< uint >(8));
-            break;
-        case 4:
-            // Lock
-            triggerAction("SuspendSession", qVariantFromValue< uint >(32));
-            break;
-        case 5:
-            // Shutdown dialog
-            triggerAction("SuspendSession", qVariantFromValue< uint >(16));
-            break;
-        case 6:
+    switch ((SuspendSession::Mode)action) {
+        case SuspendSession::TurnOffScreenMode:
             // Turn off screen
             triggerAction("DPMSControl", qVariantFromValue< QString >("TurnOff"));
             break;
         default:
-            // Do nothing
+            triggerAction("SuspendSession", qVariantFromValue< uint >(action));
             break;
     }
 }
@@ -134,23 +116,7 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
 {
     // For now, let's just accept the phantomatic "32" button.
     if (args["Button"].toInt() == 32) {
-        switch (args["Button"].toUInt()) {
-        case 1:
-            // Sleep
-            triggerAction("SuspendSession", qVariantFromValue< uint >(1)); // To RAM
-            break;
-        case 2:
-            // Hibernate
-            triggerAction("SuspendSession", qVariantFromValue< uint >(2)); // To disk
-            break;
-        case 3:
-            // Turn off PC
-            triggerAction("SuspendSession", qVariantFromValue< uint >(8)); // Shutdown
-            break;
-        default:
-            // Do nothing
-            break;
-        }
+        triggerAction("SuspendSession", args["Button"]);
     }
 }
 

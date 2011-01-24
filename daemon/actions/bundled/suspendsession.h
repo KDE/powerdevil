@@ -41,7 +41,8 @@ public:
         SuspendHybridMode = 4,
         ShutdownMode = 8,
         LogoutDialogMode = 16,
-        LockScreenMode = 32
+        LockScreenMode = 32,
+        TurnOffScreenMode = 64
     };
 
     explicit SuspendSession(QObject *parent);
