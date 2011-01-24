@@ -31,8 +31,31 @@ namespace ProfileGenerator
         ResultUpgraded = 2
     };
 
+    enum OldIdleAction {
+        None = 0,
+        Standby = 1,
+        S2Ram = 2,
+        S2Disk = 4,
+        Shutdown = 8,
+        Lock = 16,
+        ShutdownDialog = 32,
+        TurnOffScreen = 64
+    };
+
+    enum NewMode {
+        NoneMode = 0,
+        ToRamMode = 1,
+        ToDiskMode = 2,
+        SuspendHybridMode = 4,
+        ShutdownMode = 8,
+        LogoutDialogMode = 16,
+        LockScreenMode = 32,
+        TurnOffScreenMode = 64
+    };
+
     GeneratorResult generateProfiles(bool tryUpgrade = false);
     void upgradeProfiles();
+    unsigned int upgradeOldAction(unsigned int actionId);
 }
 
 }
