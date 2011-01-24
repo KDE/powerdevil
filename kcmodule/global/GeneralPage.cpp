@@ -105,7 +105,7 @@ void GeneralPage::fillUi()
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
         BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), 2);
     }
-    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), 3);
+    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), 8);
 
     notificationsButton->setIcon(KIcon("preferences-desktop-notification"));
 

@@ -85,7 +85,7 @@ Core* Action::core()
 void Action::trigger(const QVariantMap& args)
 {
     if (args.contains("Explicit") && args["Explicit"].toBool()) {
-        // The action was explicitely triggered by the user, hence any policy check is bypassed.
+        // The action was explicitly triggered by the user, hence any policy check is bypassed.
         triggerImpl(args);
     } else {
         // The action was taken automatically: let's check if we have the rights to do that
