@@ -72,24 +72,22 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     // We want to dim the screen after a while, definitely
     {
         KConfigGroup dimDisplay(&performance, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", 1800000);
+        dimDisplay.writeEntry< int >("idleTime", 600000);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     {
         KConfigGroup handleButtonEvents(&performance, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", 5);
+        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
         if (methods.contains(Solid::PowerManagement::SuspendState)) {
-            handleButtonEvents.writeEntry< uint >("sleepButtonAction", 1);
-            handleButtonEvents.writeEntry< uint >("lidAction", 1);
+            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
-            handleButtonEvents.writeEntry< uint >("sleepButtonAction", 0);
-            handleButtonEvents.writeEntry< uint >("lidAction", 6);
+            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
         }
     }
-    // And we also want to turn off the screen after another long while
+    // And we also want to turn off the screen after another while
     {
         KConfigGroup dpmsControl(&performance, "DPMSControl");
-        dpmsControl.writeEntry< uint >("idleTime", 3600);
+        dpmsControl.writeEntry< uint >("idleTime", 600);
     }
 
     // Assign the profile, of course!
@@ -112,7 +110,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         // Also, now we want to handle brightness in performance.
         {
             KConfigGroup brightnessControl(&performance, "BrightnessControl");
-            brightnessControl.writeEntry< int >("value", 90);
+            brightnessControl.writeEntry< int >("value", 100);
         }
 
         // Powersave
@@ -131,29 +129,23 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
         {
             KConfigGroup handleButtonEvents(&powersave, "HandleButtonEvents");
-            handleButtonEvents.writeEntry< uint >("powerButtonAction", 5);
+            handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
             if (methods.contains(Solid::PowerManagement::SuspendState)) {
-                handleButtonEvents.writeEntry< uint >("sleepButtonAction", 1);
-                handleButtonEvents.writeEntry< uint >("lidAction", 1);
+                handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
             } else {
-                handleButtonEvents.writeEntry< uint >("sleepButtonAction", 0);
-                handleButtonEvents.writeEntry< uint >("lidAction", 6);
+                handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
             }
         }
         // We want to turn off the screen after another while
         {
             KConfigGroup dpmsControl(&powersave, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", 600);
+            dpmsControl.writeEntry< uint >("idleTime", 300);
         }
         // Last but not least, we want to suspend after a rather long period of inactivity
-        if (methods.contains(Solid::PowerManagement::SuspendState) || methods.contains(Solid::PowerManagement::HibernateState)) {
+        if (methods.contains(Solid::PowerManagement::SuspendState)) {
             KConfigGroup suspendSession(&powersave, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", 900000);
-            if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-                suspendSession.writeEntry< uint >("suspendType", 2);
-            } else {
-                suspendSession.writeEntry< uint >("suspendType", 1);
-            }
+            suspendSession.writeEntry< uint >("idleTime", 600000);
+            suspendSession.writeEntry< uint >("suspendType", ToRamMode);
         }
 
 
@@ -173,32 +165,27 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
         {
             KConfigGroup handleButtonEvents(&aggrPowersave, "HandleButtonEvents");
-            handleButtonEvents.writeEntry< uint >("powerButtonAction", 5);
+            handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
             if (methods.contains(Solid::PowerManagement::SuspendState)) {
-                handleButtonEvents.writeEntry< uint >("sleepButtonAction", 1);
-                handleButtonEvents.writeEntry< uint >("lidAction", 1);
+                handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
             } else {
-                handleButtonEvents.writeEntry< uint >("sleepButtonAction", 0);
-                handleButtonEvents.writeEntry< uint >("lidAction", 6);
+                handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
             }
         }
         // We want to turn off the screen after another while
         {
             KConfigGroup dpmsControl(&aggrPowersave, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", 300);
+            dpmsControl.writeEntry< uint >("idleTime", 120);
         }
         // Last but not least, we want to suspend after a rather long period of inactivity
-        if (methods.contains(Solid::PowerManagement::SuspendState) || methods.contains(Solid::PowerManagement::HibernateState)) {
+        if (methods.contains(Solid::PowerManagement::SuspendState)) {
             KConfigGroup suspendSession(&aggrPowersave, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", 600000);
-            if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-                suspendSession.writeEntry< uint >("suspendType", 2);
-            } else {
-                suspendSession.writeEntry< uint >("suspendType", 1);
-            }
+            suspendSession.writeEntry< uint >("idleTime", 300000);
+            suspendSession.writeEntry< uint >("suspendType", ToRamMode);
         }
 
         // Assign profiles
+        PowerDevilSettings::setACProfile(performance.name());
         PowerDevilSettings::setBatteryProfile(powersave.name());
         PowerDevilSettings::setLowProfile(aggrPowersave.name());
         PowerDevilSettings::setWarningProfile(aggrPowersave.name());
@@ -218,10 +205,12 @@ void ProfileGenerator::upgradeProfiles()
     // Let's change some defaults
     if (!methods.contains(Solid::PowerManagement::SuspendState)) {
         if (!methods.contains(Solid::PowerManagement::HibernateState)) {
-            PowerDevilSettings::setBatteryCriticalAction(0);
+            PowerDevilSettings::setBatteryCriticalAction(None);
         } else {
-            PowerDevilSettings::setBatteryCriticalAction(2);
+            PowerDevilSettings::setBatteryCriticalAction(ToDiskMode);
         }
+    } else {
+        PowerDevilSettings::setBatteryCriticalAction(ToRamMode);
     }
 
     // Ok, let's get our config file.
