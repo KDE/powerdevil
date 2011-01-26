@@ -179,6 +179,9 @@ void GeneralPage::save()
 
     // Perform call
     QDBusConnection::sessionBus().asyncCall(call);
+
+    // And now we are set with no change
+    emit changed(false);
 }
 
 void GeneralPage::reloadAvailableProfiles()
