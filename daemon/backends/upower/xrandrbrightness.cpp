@@ -131,7 +131,7 @@ void XRandrBrightness::setBrightness(float brightness)
 
                     // FIXME for now just set the first output's value
                     double value = min + (brightness * (max - min) / 100);
-                    backlight_set(output, (long) value);
+                    backlight_set(output, (long) (value + 0.5));
                 }
                 XFree(info);
             }
