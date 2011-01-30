@@ -38,6 +38,8 @@ public:
 
     virtual ~ActionPool();
 
+    void init(PowerDevil::Core *parent);
+
     Action *loadAction(const QString &actionId, const KConfigGroup &group, PowerDevil::Core *parent);
 
     void unloadAllActiveActions();

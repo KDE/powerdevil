@@ -131,6 +131,9 @@ void Core::onBackendReady()
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
 
+    // Initialize the action pool, which will also load the needed startup actions.
+    PowerDevil::ActionPool::instance()->init(this);
+
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
     m_criticalBatteryTimer->setInterval(30000);
