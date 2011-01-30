@@ -44,6 +44,8 @@ public:
 
     void unloadAllActiveActions();
 
+    void clearCache();
+
 private:
     ActionPool();
 

@@ -69,8 +69,17 @@ ActionPool::ActionPool()
 
 ActionPool::~ActionPool()
 {
-    // Clear the cache, actions will be deleted through QObject's parentage
-    m_cachedPool.clear();
+    clearCache();
+}
+
+void ActionPool::clearCache()
+{
+    QHash< QString, Action* >::iterator i = m_cachedPool.begin();
+    while (i != m_cachedPool.end()) {
+        // Delete the associated action and erase
+        i.value()->deleteLater();
+        i = m_cachedPool.erase(i);
+    }
 }
 
 void ActionPool::init(PowerDevil::Core *parent)
