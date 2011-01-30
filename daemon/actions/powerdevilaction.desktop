@@ -43,6 +43,8 @@ Comment[zh_TW]=電源管理動作延伸
 Type=QString
 [PropertyDef::X-KDE-PowerDevil-Action-IsBundled]
 Type=bool
+[PropertyDef::X-KDE-PowerDevil-Action-ForceInstantLoad]
+Type=bool
 [PropertyDef::X-KDE-PowerDevil-Action-UIComponentLibrary]
 Type=QString
 [PropertyDef::X-KDE-PowerDevil-Action-ConfigPriority]
