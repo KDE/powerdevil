@@ -73,6 +73,33 @@ ActionPool::~ActionPool()
     m_cachedPool.clear();
 }
 
+void ActionPool::init(PowerDevil::Core *parent)
+{
+    // We want to load action which require the loading phase to be performed before anything else
+    // No bundled actions require that (yet)
+
+    // Look for actions not bundled and requiring instant load
+    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
+                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE and "
+                                                              "[X-KDE-PowerDevil-Action-ForceInstantLoad] == TRUE");
+    foreach (KService::Ptr offer, offers) {
+        QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
+
+        kDebug() << "Got a valid offer for " << actionId;
+        //try to load the specified library
+        PowerDevil::Action *retaction = offer->createInstance< PowerDevil::Action >(parent);
+
+        if (!retaction) {
+            // Troubles...
+            kWarning() << "failed to load" << offer->desktopEntryName();
+            continue;
+        }
+
+        // Cache
+        m_cachedPool.insert(actionId, retaction);
+    }
+}
+
 Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
 {
     // If it's cached, easy game.
