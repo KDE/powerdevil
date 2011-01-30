@@ -115,13 +115,12 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
         return retaction;
     }
 
-    // Otherwise, ask KService for the action itself
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action");
+    // Otherwise, ask KService for the action itself. Look for an action which is not bundled and has the Id
+    // we are looking for.
+    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
+                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE and "
+                                                              "[X-KDE-PowerDevil-Action-ID] == '" + actionId + "'");
     foreach (KService::Ptr offer, offers) {
-        if (offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString() != actionId) {
-            continue;
-        }
-
         kDebug() << "Got a valid offer for " << actionId;
         //try to load the specified library
         retaction = offer->createInstance< PowerDevil::Action >(parent);
