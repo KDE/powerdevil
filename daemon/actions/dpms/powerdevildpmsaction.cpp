@@ -67,9 +67,25 @@ K_EXPORT_PLUGIN(PowerDevilDPMSActionFactory("powerdevildpmsaction"))
 
 PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& )
     : Action(parent)
+    , m_hasDPMS(true)
     , d(new Private)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
+
+    // We want to query for DPMS in the constructor, before anything else happens
+    d->defaultHandler = XSetErrorHandler(dropError);
+
+    Display *dpy = QX11Info::display();
+
+    int dummy;
+
+    if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)) {
+        m_hasDPMS = false;
+        XSetErrorHandler(d->defaultHandler);
+    }
+
+    // Pretend we're unloading profiles here, as if the action is not enabled, DPMS should be switched off.
+    onProfileUnload();
 }
 
 PowerDevilDPMSAction::~PowerDevilDPMSAction()
@@ -149,23 +165,7 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
 
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
 {
-    d->defaultHandler = XSetErrorHandler(dropError);
-
-    Display *dpy = QX11Info::display();
-
-    int dummy;
-    m_hasDPMS = true;
-
-    if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)) {
-        m_hasDPMS = false;
-        XSetErrorHandler(d->defaultHandler);
-    }
-
-    if (config.hasKey("idleTime")) {
-        m_idleTime = config.readEntry<int>("idleTime", 100000000);
-    } else {
-        m_hasDPMS = false;
-    }
+    m_idleTime = config.readEntry<int>("idleTime", -1);
 
     return true;
 }
