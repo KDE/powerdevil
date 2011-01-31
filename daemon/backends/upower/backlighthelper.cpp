@@ -1,5 +1,5 @@
 /*  This file is part of the KDE project
- *    Copyright (C) 2010 Lukas Tinkl <ltinkl@redhat.com>
+ *    Copyright (C) 2010-2011 Lukas Tinkl <ltinkl@redhat.com>
  *
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Library General Public
@@ -38,7 +38,7 @@ void BacklightHelper::init()
                << "eeepc" << "thinkpad_screen" << "acpi_video0"
                << "mbp_backlight" << "acpi_video1"
                << "fujitsu-laptop" << "sony" << "samsung"
-               << "nvidia_backlight";
+               << "nvidia_backlight" << "dell_backlight";
 
     QDir dir;
     foreach (const QString & interface, interfaces) {
@@ -46,7 +46,7 @@ void BacklightHelper::init()
         //qDebug() << "searching dir:" << dir;
         if (dir.exists()) {
             m_dirname = dir.path();
-            qDebug() << "kernel backlight support found in" << m_dirname;
+            //qDebug() << "kernel backlight support found in" << m_dirname;
             break;
         }
     }
@@ -82,11 +82,11 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
     QTextStream stream(&file);
     int brightness;
     stream >> brightness;
-    qDebug() << "brightness:" << brightness;
+    //qDebug() << "brightness:" << brightness;
     file.close();
 
     reply.addData("brightness", brightness * 100 / maxBrightness());
-    qDebug() << "data contains:" << reply.data()["brightness"];
+    //qDebug() << "data contains:" << reply.data()["brightness"];
 
     return reply;
 }
@@ -109,7 +109,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
     }
 
     int actual_brightness = qRound(args["brightness"].toFloat() * maxBrightness() / 100);
-    qDebug() << "setting brightness:" << actual_brightness;
+    //qDebug() << "setting brightness:" << actual_brightness;
     int result = file.write(QByteArray::number(actual_brightness));
     file.close();
 
@@ -134,7 +134,7 @@ int BacklightHelper::maxBrightness() const
     QTextStream stream(&file);
     int max_brightness;
     stream >> max_brightness;
-    qDebug() << "max brightness:" << max_brightness;
+    //qDebug() << "max brightness:" << max_brightness;
     file.close();
 
     return max_brightness;
