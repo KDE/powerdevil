@@ -288,7 +288,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     qlonglong remainingTime = 0;
 
     foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
-        if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
+        if ((upowerDevice->type() == 2 || upowerDevice->type() == 3) && upowerDevice->powerSupply()) {
             if (upowerDevice->state() == 1) // charging
                 remainingTime += upowerDevice->timeToFull();
             else if (upowerDevice->state() == 2) //discharging
