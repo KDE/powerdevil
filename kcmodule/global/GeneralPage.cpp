@@ -82,7 +82,7 @@ void GeneralPage::fillUi()
 
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if(b->type() != Solid::Battery::PrimaryBattery) {
+        if(b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
             continue;
         }
         ++batteryCount;
