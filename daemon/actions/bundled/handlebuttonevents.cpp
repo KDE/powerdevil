@@ -116,7 +116,9 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
 {
     // For now, let's just accept the phantomatic "32" button.
     if (args["Button"].toInt() == 32) {
-        triggerAction("SuspendSession", args["Button"]);
+        if (args.contains("Type")) {
+            triggerAction("SuspendSession", args["Type"]);
+	}
     }
 }
 
