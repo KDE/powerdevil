@@ -34,11 +34,11 @@ void BacklightHelper::init()
 {
     // find the first existing device with backlight support
     QStringList interfaces;
-    interfaces << "nv_backlight" << "asus_laptop" << "toshiba"
+    interfaces << "asus_laptop" << "toshiba"
                << "eeepc" << "thinkpad_screen" << "acpi_video0"
                << "mbp_backlight" << "acpi_video1"
                << "fujitsu-laptop" << "samsung"
-               << "nvidia_backlight" << "dell_backlight" << "sony";
+               << "nv_backlight"  << "nvidia_backlight" << "dell_backlight" << "sony";
 
     QDir dir;
     foreach (const QString & interface, interfaces) {
