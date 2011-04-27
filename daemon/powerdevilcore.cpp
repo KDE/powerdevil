@@ -151,37 +151,27 @@ void Core::onBackendReady()
 
     KAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
     globalAction->setText(i18nc("Global shortcut", "Increase Screen Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp),
-                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
-                                    KAction::NoAutoloading);
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
 
     globalAction = actionCollection->addAction("Decrease Screen Brightness");
     globalAction->setText(i18nc("Global shortcut", "Decrease Screen Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown),
-                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
-                                    KAction::NoAutoloading);
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
 
     globalAction = actionCollection->addAction("Sleep");
     globalAction->setText(i18nc("Global shortcut", "Sleep"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep),
-                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
-                                    KAction::NoAutoloading);
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
 
     globalAction = actionCollection->addAction("Hibernate");
     globalAction->setText(i18nc("Global shortcut", "Hibernate"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate),
-                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
-                                    KAction::NoAutoloading);
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
 
     globalAction = actionCollection->addAction("PowerOff");
     //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_PowerOff),
-                                    KAction::ShortcutTypes(KAction::ActiveShortcut | KAction::DefaultShortcut),
-                                    KAction::NoAutoloading);
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_PowerOff));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
