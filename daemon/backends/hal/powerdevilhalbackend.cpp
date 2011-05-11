@@ -192,7 +192,13 @@ void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BackendInterface::Br
             newBrightness = qMax(0.0f, currentBrightness - 10);
         }
 
-        setBrightness(newBrightness, Screen);
+        if (setBrightness(newBrightness, Screen)) {
+            newBrightness = brightness(Screen);
+            if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
+                m_cachedBrightness = newBrightness;
+                onBrightnessChanged(Screen, m_cachedBrightness);
+            }
+        }
     } else {
         m_cachedBrightness = currentBrightness;
     }
@@ -265,11 +271,6 @@ bool PowerDevilHALBackend::setBrightness(float brightnessValue, PowerDevil::Back
                                             "org.freedesktop.Hal.Device.LaptopPanel", QDBusConnection::systemBus());
                 deviceInterface.call("SetBrightness", qRound((levels-1)*(brightnessValue/100.0))); // .0? The right way? Feels hackish.
                 if (!deviceInterface.lastError().isValid()) {
-                    float newBrightness = brightness(Screen);
-                    if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
-                        m_cachedBrightness = newBrightness;
-                        onBrightnessChanged(Screen, m_cachedBrightness);
-                    }
                     return true;
                 }
             }
@@ -288,11 +289,6 @@ bool PowerDevilHALBackend::setBrightness(float brightnessValue, PowerDevil::Back
                 
                 deviceInterface.call("SetBrightness", qRound((levels-1)*(brightnessValue/100.0)));
                 if(!deviceInterface.lastError().isValid()) {
-                    float newBrightness = brightness(Keyboard);
-                    if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
-                        m_cachedBrightness = newBrightness;
-                        onBrightnessChanged(Screen, m_cachedBrightness);
-                    }
                     return true;
                 }
             }
