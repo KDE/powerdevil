@@ -48,6 +48,7 @@ Name[zh_TW]=按鍵事件處理
 
 Comment=Performs an action whenever a button is pressed
 Comment[ast]=Facer aiciones cuando se calque un botón
+Comment[bs]=Izvršava radnju na svaki pritisak dugmeta
 Comment[ca]=Porta a terme una acció quan es prem un botó
 Comment[ca@valencia]=Porta a terme una acció quan es prem un botó
 Comment[cs]=Vykoná akci kdykoli je tlačítko stisknuto

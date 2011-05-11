@@ -52,6 +52,7 @@ Name[x-test]=xxRun Scriptxx
 Name[zh_TW]=執行文稿
 Comment=Runs a custom script
 Comment[ast]=Executa un guión personalizáu
+Comment[bs]=Izvršava posebnu skriptu
 Comment[ca]=Executa un script personalitzat
 Comment[ca@valencia]=Executa un script personalitzat
 Comment[cs]=Spustit vlastní skript

@@ -46,6 +46,7 @@ Name[x-test]=xxScreen Energy Savingxx
 Name[zh_TW]=螢幕節能
 Comment=Controls DPMS settings
 Comment[ast]=Configuraciones control DPMS
+Comment[bs]=Upravlja DPMS postavkama
 Comment[ca]=Controla l'arranjament del DPMS
 Comment[ca@valencia]=Controla l'arranjament del DPMS
 Comment[cs]=Ovládání nastavení DPMS
