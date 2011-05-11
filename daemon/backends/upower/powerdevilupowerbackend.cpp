@@ -170,7 +170,13 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
             newBrightness = qMax(0.0f, currentBrightness - 10);
         }
 
-        setBrightness(newBrightness, Screen);
+        if (setBrightness(newBrightness, Screen)) {
+            newBrightness = brightness(Screen);
+            if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
+                m_cachedBrightness = newBrightness;
+                onBrightnessChanged(Screen, m_cachedBrightness);
+            }
+        }
     } else {
         m_cachedBrightness = currentBrightness;
     }
@@ -224,11 +230,6 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
             }
         }
 
-        float newBrightness = brightness(Screen);
-        if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
-            m_cachedBrightness = newBrightness;
-            onBrightnessChanged(Screen, m_cachedBrightness);
-        }
         return true;
     } else if (type == Keyboard) {
         kDebug() << "set kbd backlight: " << brightnessValue;
