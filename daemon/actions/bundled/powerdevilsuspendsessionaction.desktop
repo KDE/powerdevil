@@ -5,6 +5,7 @@ X-KDE-ServiceTypes=PowerDevil/Action
 Icon=system-shutdown
 Name=Suspend Session
 Name[ast]=Suspender la sesión
+Name[bs]=Suspenduj sesiju
 Name[ca]=Suspèn la sessió
 Name[ca@valencia]=Suspèn la sessió
 Name[cs]=Pozastavit sezení
