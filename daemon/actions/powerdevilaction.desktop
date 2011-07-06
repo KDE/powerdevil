@@ -28,6 +28,7 @@ Comment[nb]=Handlingsutvidelse for strømstyring
 Comment[nds]=Verwiedern för Stroomkuntrullakschonen
 Comment[nl]=Uitbreiding voor energiebeheeractie
 Comment[pa]=ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਐਕਸ਼ਣ ਇਕਸਟੈਸ਼ਨ
+Comment[pl]=Rozszerzenie do działań związanych z zarządzaniem energią
 Comment[pt]=Extensão da Acção de Gestão da Energia
 Comment[pt_BR]=Extensão da ação do gerenciamento de energia
 Comment[ro]=Extensie pentru acțiunea de gestiune a alimentării
@@ -40,8 +41,10 @@ Comment[sr@latin]=Proširenje radnji za upravljanje napajanjem
 Comment[sv]=Åtgärdsutökning för strömsparhantering
 Comment[th]=ส่วนขยายการกระทำเกี่ยวกับการจัดการพลังงาน
 Comment[tr]=Güç Yönetimi Eylem Eklentisi
+Comment[ug]=توك مەنبە باشقۇرۇش مەشغۇلات كېڭەيتىلمىسى
 Comment[uk]=Розширення дій керування живленням
 Comment[x-test]=xxPower Management Action Extensionxx
+Comment[zh_CN]=电源管理动作扩展
 Comment[zh_TW]=電源管理動作延伸
 
 [PropertyDef::X-KDE-PowerDevil-Action-ID]

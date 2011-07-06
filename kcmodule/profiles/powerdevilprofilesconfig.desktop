@@ -54,8 +54,10 @@ Name[sr@latin]=Profili napajanja
 Name[sv]=Strömprofiler
 Name[th]=โพรไฟล์พลังงาน
 Name[tr]=Güç Profilleri
+Name[ug]=توك مەنبە سەپلىمە ھۆججەتلىرى
 Name[uk]=Профілі живлення
 Name[x-test]=xxPower Profilesxx
+Name[zh_CN]=电源配置方案
 Name[zh_TW]=電源設定檔
 
 Comment=Configure Power Management Profiles
@@ -102,8 +104,10 @@ Comment[sr@latin]=Podešavanje profila za upravljanje napajanjem
 Comment[sv]=Anpassa strömhanteringsprofiler
 Comment[th]=ปรับแต่งโพรไฟล์การจัดการพลังงาน
 Comment[tr]=Güç Yönetim Profillerini Yapılandır
+Comment[ug]=توك مەنبە باشقۇرۇش سەپلىمە ھۆججەتلەر سەپلىمىسى
 Comment[uk]=Налаштування профілів керування живленням
 Comment[x-test]=xxConfigure Power Management Profilesxx
+Comment[zh_CN]=配置电源管理方案
 Comment[zh_TW]=設定電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

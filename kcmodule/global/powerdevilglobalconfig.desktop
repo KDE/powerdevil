@@ -59,6 +59,7 @@ Name[ug]=ئادەتتىكى تەڭشەك
 Name[uk]=Загальні параметри
 Name[wa]=Tchuzes po ttavå
 Name[x-test]=xxGlobal settingsxx
+Name[zh_CN]=全局设置
 Name[zh_TW]=全域設定
 
 Comment=Configure global Power Management settings
@@ -104,8 +105,10 @@ Comment[sr@latin]=Podešavanje globalnih postavki za upravljanje napajanjem
 Comment[sv]=Anpassa allmänna inställningar av strömhantering
 Comment[th]=ปรับแต่งการตั้งค่าทั่วไปของการจัดการพลังงาน
 Comment[tr]=Genel Güç Yönetim ayarlarını yapılandır
+Comment[ug]=ئومۇمىيەت توك مەنبە باشقۇرۇش تەڭشەكلەر سەپلىمىسى
 Comment[uk]=Налаштування загальних параметрів керування живленням
 Comment[x-test]=xxConfigure global Power Management settingsxx
+Comment[zh_CN]=配置全局电源管理
 Comment[zh_TW]=設定全域電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
