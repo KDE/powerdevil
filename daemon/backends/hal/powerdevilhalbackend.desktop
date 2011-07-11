@@ -6,6 +6,7 @@ InitialPreference=100
 Icon=preferences-system-power-management
 Name=HAL PowerDevil Backend
 Name[ast]=HAL PowerDevil Backend
+Name[bg]=Ядро HAL PowerDevil
 Name[bs]=HAL kao pozadina Strujnog đavola
 Name[ca]=Dorsal de HAL per al PowerDevil
 Name[ca@valencia]=Dorsal de HAL per al PowerDevil

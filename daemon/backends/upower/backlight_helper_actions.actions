@@ -1,5 +1,6 @@
 [Domain]
 Name=KDE
+Name[bg]=KDE
 Name[bs]=KDE
 Name[ca]=KDE
 Name[ca@valencia]=KDE
@@ -149,6 +150,7 @@ Policy=yes
 
 [org.kde.powerdevil.backlighthelper.setbrightness]
 Name=Set brightness
+Name[bg]=Настройка на яркостта
 Name[bs]=Postavi osvetljaj
 Name[ca]=Ajusta la lluminositat
 Name[ca@valencia]=Ajusta la lluminositat
