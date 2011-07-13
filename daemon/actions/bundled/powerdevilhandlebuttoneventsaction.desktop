@@ -6,6 +6,7 @@ Icon=system-suspend
 
 Name=Button events handling
 Name[ast]=Remanar eventos botón
+Name[bg]=Събития при натискане бутони
 Name[bs]=Rukovanje događajima dugmadi
 Name[ca]=Gestió d'esdeveniments de botons
 Name[ca@valencia]=Gestió d'esdeveniments de botons
@@ -53,6 +54,7 @@ Name[zh_TW]=按鍵事件處理
 
 Comment=Performs an action whenever a button is pressed
 Comment[ast]=Facer aiciones cuando se calque un botón
+Comment[bg]=Изпълнява действие при натискане на бутони
 Comment[bs]=Izvršava radnju na svaki pritisak dugmeta
 Comment[ca]=Porta a terme una acció quan es prem un botó
 Comment[ca@valencia]=Porta a terme una acció quan es prem un botó

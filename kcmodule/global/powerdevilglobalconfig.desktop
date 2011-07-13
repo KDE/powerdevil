@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 
 Name=Global settings
 Name[ast]=Preferencies globales
+Name[bg]=Общи настройки
 Name[bs]=Globalne postavke
 Name[ca]=Arranjament global
 Name[ca@valencia]=Arranjament global
@@ -64,6 +65,7 @@ Name[zh_TW]=全域設定
 
 Comment=Configure global Power Management settings
 Comment[ast]=Configuración de les preferencies globales de la xestión d'enerxía
+Comment[bg]=Глобални настройки на захранването
 Comment[bs]=Podešavanje globalnih postavki za upravljanje napajanjem
 Comment[ca]=Configura l'arranjament global de gestió d'energia
 Comment[ca@valencia]=Configura l'arranjament global de gestió d'energia
