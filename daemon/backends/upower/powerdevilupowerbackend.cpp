@@ -95,9 +95,9 @@ void PowerDevilUPowerBackend::init()
     // devices
     enumerateDevices();
     connect(m_upowerInterface, SIGNAL(Changed()), this, SLOT(slotPropertyChanged()));
-    connect(m_upowerInterface, SIGNAL(DeviceAdded(const QString &)), this, SLOT(slotDeviceAdded(const QString &)));
-    connect(m_upowerInterface, SIGNAL(DeviceRemoved(const QString &)), this, SLOT(slotDeviceRemoved(const QString &)));
-    connect(m_upowerInterface, SIGNAL(DeviceChanged(const QString &)), this, SLOT(slotDeviceChanged(const QString &)));
+    connect(m_upowerInterface, SIGNAL(DeviceAdded(QString)), this, SLOT(slotDeviceAdded(QString)));
+    connect(m_upowerInterface, SIGNAL(DeviceRemoved(QString)), this, SLOT(slotDeviceRemoved(QString)));
+    connect(m_upowerInterface, SIGNAL(DeviceChanged(QString)), this, SLOT(slotDeviceChanged(QString)));
 
     // Brightness Controls available
     BrightnessControlsList controls;

@@ -106,8 +106,8 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     actionExportProfiles->setIcon(KIcon("document-export"));
     actionRestoreDefaultProfiles->setIcon(KIcon("document-revert"));
 
-    connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
-            SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
+    connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+            SLOT(switchProfile(QListWidgetItem*,QListWidgetItem*)));
     connect(this, SIGNAL(changed(bool)),
             this, SLOT(onChanged(bool)));
 
@@ -576,11 +576,11 @@ void EditPage::switchProfile(QListWidgetItem *current, QListWidgetItem *previous
         } else if (result == KMessageBox::No) {
             loadProfile();
         } else if (result == KMessageBox::Cancel) {
-            disconnect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
-                       this, SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
+            disconnect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+                       this, SLOT(switchProfile(QListWidgetItem*,QListWidgetItem*)));
             profilesList->setCurrentItem(previous);
-            connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*, QListWidgetItem*)),
-                    SLOT(switchProfile(QListWidgetItem*, QListWidgetItem*)));
+            connect(profilesList, SIGNAL(currentItemChanged(QListWidgetItem*,QListWidgetItem*)),
+                    SLOT(switchProfile(QListWidgetItem*,QListWidgetItem*)));
         }
     }
 }

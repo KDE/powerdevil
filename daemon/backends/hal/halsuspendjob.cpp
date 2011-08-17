@@ -107,7 +107,7 @@ void HalSuspendJob::doStart()
     }
 
     if (!m_halPowerManagement.callWithCallback(m_dbusMethod, args,
-                                                this, SLOT(resumeDone(const QDBusMessage &))))
+                                                this, SLOT(resumeDone(QDBusMessage))))
     {
         setError(1);
         setErrorText(m_halPowerManagement.lastError().name()+": "
