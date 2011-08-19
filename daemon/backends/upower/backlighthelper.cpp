@@ -36,7 +36,7 @@ void BacklightHelper::init()
     QStringList interfaces;
     interfaces << "asus_laptop" << "toshiba"
                << "eeepc" << "thinkpad_screen" << "acpi_video0"
-               << "mbp_backlight" << "acpi_video1"
+               << "mbp_backlight" << "acpi_video1" << "apple_backlight"
                << "fujitsu-laptop" << "samsung"
                << "nv_backlight"  << "nvidia_backlight" << "dell_backlight" << "sony";
 
