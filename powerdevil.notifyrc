@@ -1343,7 +1343,7 @@ Comment[zh_CN]=已拔出电源适配器
 Comment[zh_TW]=市電電源已拔除
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
-Action=Sound|Popup
+Action=Sound
 
 [Event/joberror]
 Name=Job error
