@@ -28,6 +28,7 @@ namespace PowerDevil {
 class ActionConfig;
 }
 
+class ErrorOverlay;
 class QCheckBox;
 class KToolBar;
 
@@ -63,12 +64,16 @@ private slots:
 
     void openUrl(const QString &url);
 
+    void onServiceRegistered(const QString &service);
+    void onServiceUnregistered(const QString &service);
+
 private:
     KSharedConfig::Ptr m_profilesConfig;
     QHash< QString, QCheckBox* > m_actionsHash;
     QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
     bool m_profileEdited;
     KToolBar *m_toolBar;
+    QWeakPointer< ErrorOverlay > m_errorOverlay;
 };
 
 #endif /* EDITPAGE_H */

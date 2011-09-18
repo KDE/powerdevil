@@ -3,6 +3,7 @@ set( kcm_powerdevil_profiles_SRCS
      EditPage.cpp
      actionconfigwidget.cpp
      ../../daemon/powerdevilprofilegenerator.cpp
+     ../common/ErrorOverlay.cpp
 )
 
 kde4_add_ui_files(kcm_powerdevil_profiles_SRCS

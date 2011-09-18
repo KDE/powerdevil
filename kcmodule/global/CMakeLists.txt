@@ -1,6 +1,7 @@
 
 set( kcm_powerdevil_global_SRCS
      GeneralPage.cpp
+     ../common/ErrorOverlay.cpp
 )
 
 kde4_add_ui_files(kcm_powerdevil_global_SRCS

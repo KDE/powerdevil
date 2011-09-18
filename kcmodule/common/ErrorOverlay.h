@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2011 by Dario Freddi <drf@kde.org>                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,35 +17,26 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef GENERALPAGE_H
-#define GENERALPAGE_H
+#ifndef ERROROVERLAY_H
+#define ERROROVERLAY_H
 
-#include <KCModule>
+#include <QtGui/QWidget>
 
-#include "ui_generalPage.h"
-
-class ErrorOverlay;
-class GeneralPage : public KCModule, private Ui_generalPage
+class ErrorOverlay : public QWidget
 {
     Q_OBJECT
-
 public:
-    GeneralPage(QWidget *parent, const QVariantList &args);
-    virtual ~GeneralPage();
-    void fillUi();
+    explicit ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent = 0);
+    virtual ~ErrorOverlay();
 
-    void load();
-    void save();
-    virtual void defaults();
-
-private slots:
-    void configureNotifications();
-    void reloadAvailableProfiles();
-    void onServiceRegistered(const QString &service);
-    void onServiceUnregistered(const QString &service);
+protected:
+    bool eventFilter(QObject *object, QEvent *event);
 
 private:
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
+    void reposition();
+
+private:
+    QWidget *m_BaseWidget;
 };
 
-#endif /* GENERALPAGE_H */
+#endif // ERROROVERLAY_H

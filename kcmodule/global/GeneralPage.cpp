@@ -19,6 +19,7 @@
 
 #include "GeneralPage.h"
 
+#include "ErrorOverlay.h"
 #include "PowerDevilSettings.h"
 
 #include <Solid/Device>
@@ -29,7 +30,9 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusMetaType>
+#include <QtDBus/QDBusServiceWatcher>
 
 #include <KNotifyConfigWidget>
 #include <KPluginFactory>
@@ -66,10 +69,20 @@ GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
 
     fillUi();
 
-    // Connect to daemon's signal
-    QDBusConnection::sessionBus().connect("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                          "org.kde.Solid.PowerManagement", "configurationReloaded",
-                                          this, SLOT(reloadAvailableProfiles()));
+    QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
+                                                           QDBusConnection::sessionBus(),
+                                                           QDBusServiceWatcher::WatchForRegistration |
+                                                           QDBusServiceWatcher::WatchForUnregistration,
+                                                           this);
+
+    connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
+    connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
+
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
+        onServiceRegistered("org.kde.Solid.PowerManagement");
+    } else {
+        onServiceUnregistered("org.kde.Solid.PowerManagement");
+    }
 }
 
 GeneralPage::~GeneralPage()
@@ -235,6 +248,33 @@ void GeneralPage::reloadAvailableProfiles()
 void GeneralPage::defaults()
 {
     KCModule::defaults();
+}
+
+void GeneralPage::onServiceRegistered(const QString& service)
+{
+    Q_UNUSED(service);
+
+    // Connect to daemon's signal
+    QDBusConnection::sessionBus().connect("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                          "org.kde.Solid.PowerManagement", "configurationReloaded",
+                                          this, SLOT(reloadAvailableProfiles()));
+
+    if (m_errorOverlay) {
+        m_errorOverlay.data()->deleteLater();
+    }
+}
+
+void GeneralPage::onServiceUnregistered(const QString& service)
+{
+    Q_UNUSED(service);
+
+    if (m_errorOverlay) {
+        m_errorOverlay.data()->deleteLater();
+    }
+
+    m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running.\n"
+                                                 "This can be solved by starting or scheduling it inside \"Startup and Shutdown\""),
+                                      this);
 }
 
 #include "GeneralPage.moc"
