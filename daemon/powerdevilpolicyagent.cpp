@@ -206,7 +206,7 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
         QDBusPendingReply< bool > rp = m_ckSessionInterface.data()->asyncCall("IsActive");
         rp.waitForFinished();
 
-        if (!rp.value() && !m_wasLastActiveSession) {
+        if (!rp.value() && !m_wasLastActiveSession && policies != InterruptSession) {
             return policies;
         }
     }
