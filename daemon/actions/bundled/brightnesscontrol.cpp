@@ -19,8 +19,14 @@
 
 #include "brightnesscontrol.h"
 
-#include <powerdevilbackendinterface.h>
+#include "brightnessosdwidget.h"
 
+#include <powerdevilbackendinterface.h>
+#include <powerdevilcore.h>
+
+#include <QtGui/QDesktopWidget>
+
+#include <KApplication>
 #include <KConfigGroup>
 #include <KLocalizedString>
 
@@ -31,11 +37,16 @@ BrightnessControl::BrightnessControl(QObject* parent)
     : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
+
+    connect(core()->backend(), SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
+            this, SLOT(onBrightnessChangedFromBackend(float)));
 }
 
 BrightnessControl::~BrightnessControl()
 {
-
+    if (!m_brightnessOSD.isNull()) {
+        m_brightnessOSD.data()->deleteLater();
+    }
 }
 
 void BrightnessControl::onProfileUnload()
@@ -65,6 +76,9 @@ void BrightnessControl::onProfileLoad()
 void BrightnessControl::triggerImpl(const QVariantMap& args)
 {
     backend()->setBrightness(args["Value"].toFloat());
+    if (args["Explicit"].toBool()) {
+        showBrightnessOSD(args["Value"].toFloat());
+    }
 }
 
 bool BrightnessControl::loadAction(const KConfigGroup& config)
@@ -76,6 +90,30 @@ bool BrightnessControl::loadAction(const KConfigGroup& config)
     }
 
     return true;
+}
+
+void BrightnessControl::showBrightnessOSD(int brightness)
+{
+    // code adapted from KMix
+    if (m_brightnessOSD.isNull()) {
+        m_brightnessOSD = new BrightnessOSDWidget();
+    }
+
+    m_brightnessOSD.data()->setCurrentBrightness(brightness);
+    m_brightnessOSD.data()->show();
+    m_brightnessOSD.data()->activateOSD(); //Enable the hide timer
+
+    //Center the OSD
+    QRect rect = KApplication::kApplication()->desktop()->screenGeometry(QCursor::pos());
+    QSize size = m_brightnessOSD.data()->sizeHint();
+    int posX = rect.x() + (rect.width() - size.width()) / 2;
+    int posY = rect.y() + 4 * rect.height() / 5;
+    m_brightnessOSD.data()->setGeometry(posX, posY, size.width(), size.height());
+}
+
+void BrightnessControl::onBrightnessChangedFromBackend(float brightness)
+{
+    showBrightnessOSD(brightness);
 }
 
 }
