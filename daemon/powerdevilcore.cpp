@@ -566,17 +566,8 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
 
 void Core::registerActionTimeout(Action* action, int timeout)
 {
-    int identifier = -1;
-    // Are there any registered timeouts with the same value?
-    if (m_registeredIdleTimeouts.contains(timeout)) {
-        // Easy game
-        identifier = m_registeredIdleTimeouts[timeout];
-    } else {
-        // Register the timeout with KIdleTime
-        identifier = KIdleTime::instance()->addIdleTimeout(timeout);
-        // And add it to the hash
-        m_registeredIdleTimeouts.insert(timeout, identifier);
-    }
+    // Register the timeout with KIdleTime
+    int identifier = KIdleTime::instance()->addIdleTimeout(timeout);
 
     // Add the identifier to the action hash
     QList< int > timeouts = m_registeredActionTimeouts[action];
@@ -586,24 +577,14 @@ void Core::registerActionTimeout(Action* action, int timeout)
 
 void Core::unregisterActionTimeouts(Action* action)
 {
-    // Clear all timeouts from the action: if the timeouts are not used anywhere else, just remove
-    // them from KIdleTime as well.
+    // Clear all timeouts from the action
     QList< int > timeoutsToClean = m_registeredActionTimeouts[action];
-    m_registeredActionTimeouts.remove(action);
-    for (QHash< Action*, QList< int > >::const_iterator i = m_registeredActionTimeouts.constBegin();
-        i != m_registeredActionTimeouts.constEnd(); ++i) {
-        foreach (int timeoutId, i.value()) {
-            if (timeoutsToClean.contains(timeoutId)) {
-                timeoutsToClean.removeOne(timeoutId);
-            }
-        }
-    }
 
-    // Clean the remaining ones
     foreach (int id, timeoutsToClean) {
         KIdleTime::instance()->removeIdleTimeout(id);
-        m_registeredIdleTimeouts.remove(m_registeredIdleTimeouts.key(id));
     }
+
+    m_registeredActionTimeouts.remove(action);
 }
 
 void Core::onResumingFromIdle()
