@@ -106,8 +106,6 @@ void HandleButtonEvents::triggerAction(const QString& action, const QVariant &ty
     if (helperAction) {
         QVariantMap args;
         args["Type"] = type;
-        // Being these actions a button press, they are always explicit
-        args["Explicit"] = true;
         helperAction->trigger(args);
     }
 }
