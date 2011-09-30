@@ -318,6 +318,13 @@ void Core::loadProfile(const QString& id)
     // First of all, let's clean the old actions. This will also call the onProfileUnload callback
     ActionPool::instance()->unloadAllActiveActions();
 
+    // Do we need to force a wakeup?
+    if (m_pendingWakeupEvent) {
+        // Fake activity at this stage, when no timeouts are registered
+        KIdleTime::instance()->simulateUserActivity();
+        m_pendingWakeupEvent = false;
+    }
+
     // Now, let's retrieve our profile
     KConfigGroup config(m_profilesConfig, id);
 
@@ -416,6 +423,8 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
     kDebug();
+    // Post request for faking an activity event - usually adapters don't plug themselves out :)
+    m_pendingWakeupEvent = true;
     reloadProfile(state);
 
     if (state == BackendInterface::Plugged) {
@@ -430,10 +439,6 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
     } else {
         emitNotification("unplugged", i18n("The power adaptor has been unplugged."));
     }
-
-    // Fake an activity event - usually adapters don't plug themselves out :)
-    // Keep it for last though - we need actions to unregister their timeouts before this happens.
-    KIdleTime::instance()->simulateUserActivity();
 }
 
 void Core::onBackendError(const QString& error)
