@@ -416,8 +416,6 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
     kDebug();
-    // Fake an activity event - usually adapters don't plug themselves out :)
-    KIdleTime::instance()->simulateUserActivity();
     reloadProfile(state);
 
     if (state == BackendInterface::Plugged) {
@@ -432,6 +430,10 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
     } else {
         emitNotification("unplugged", i18n("The power adaptor has been unplugged."));
     }
+
+    // Fake an activity event - usually adapters don't plug themselves out :)
+    // Keep it for last though - we need actions to unregister their timeouts before this happens.
+    KIdleTime::instance()->simulateUserActivity();
 }
 
 void Core::onBackendError(const QString& error)
