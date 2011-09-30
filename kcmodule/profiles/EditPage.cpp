@@ -617,7 +617,7 @@ void EditPage::onServiceRegistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (m_errorOverlay) {
+    if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
 }
@@ -626,7 +626,7 @@ void EditPage::onServiceUnregistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (m_errorOverlay) {
+    if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
 

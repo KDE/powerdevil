@@ -259,7 +259,7 @@ void GeneralPage::onServiceRegistered(const QString& service)
                                           "org.kde.Solid.PowerManagement", "configurationReloaded",
                                           this, SLOT(reloadAvailableProfiles()));
 
-    if (m_errorOverlay) {
+    if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
 }
@@ -268,7 +268,7 @@ void GeneralPage::onServiceUnregistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (m_errorOverlay) {
+    if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
 
