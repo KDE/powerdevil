@@ -13,7 +13,6 @@ endfunction(add_powerdevil_bundled_action _name)
 
 add_powerdevil_bundled_action(brightnesscontrol)
 add_powerdevil_bundled_action(dimdisplay)
-add_powerdevil_bundled_action(disabledesktopeffects)
 add_powerdevil_bundled_action(runscript ${KDE4_KIO_LIBS})
 add_powerdevil_bundled_action(suspendsession ${KDE4_KIO_LIBS} ${KDE4_SOLID_LIBS})
 add_powerdevil_bundled_action(handlebuttonevents ${KDE4_SOLID_LIBS})

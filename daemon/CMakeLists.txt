@@ -11,7 +11,6 @@ set(POWERDEVIL_CORE_VERSION_STRING ${POWERDEVIL_CORE_VERSION_MAJOR}.${POWERDEVIL
 # Add bundled actions
 set(powerdevil_bundled_actions_SRCS
     actions/bundled/suspendsession.cpp
-    actions/bundled/disabledesktopeffects.cpp
     actions/bundled/brightnesscontrol.cpp
     actions/bundled/dimdisplay.cpp
     actions/bundled/runscript.cpp

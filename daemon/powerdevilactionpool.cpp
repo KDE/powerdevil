@@ -31,7 +31,6 @@
 
 // Bundled actions:
 #include "actions/bundled/suspendsession.h"
-#include "actions/bundled/disabledesktopeffects.h"
 #include "actions/bundled/brightnesscontrol.h"
 #include "actions/bundled/dimdisplay.h"
 #include "actions/bundled/runscript.h"
@@ -126,8 +125,6 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
 
     if (actionId == "SuspendSession") {
         retaction = new BundledActions::SuspendSession(parent);
-    } else if (actionId == "DisableDesktopEffects") {
-        retaction = new BundledActions::DisableDesktopEffects(parent);
     } else if (actionId == "BrightnessControl") {
         retaction = new BundledActions::BrightnessControl(parent);
     } else if (actionId == "DimDisplay") {
