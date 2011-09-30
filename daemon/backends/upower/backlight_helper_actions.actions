@@ -156,6 +156,7 @@ Description[x-test]=xxSystem policies prevent you from getting the brightness le
 Description[zh_CN]=系统安全策略不允许获取亮度级别。
 Description[zh_TW]=系統政策不允許您取得亮度設定。
 Policy=yes
+PolicyInactive=yes
 
 [org.kde.powerdevil.backlighthelper.setbrightness]
 Name=Set brightness
