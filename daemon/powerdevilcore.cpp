@@ -627,6 +627,11 @@ void Core::suspendToRam()
     triggerSuspendSession(1);
 }
 
+bool Core::isLidClosed()
+{
+    return m_backend->isLidClosed();
+}
+
 qulonglong Core::batteryRemainingTime() const
 {
     return m_backend->batteryRemainingTime();

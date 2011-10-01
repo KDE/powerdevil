@@ -90,6 +90,8 @@ public Q_SLOTS:
 
     void onResumeFromSuspend();
 
+    bool isLidClosed();
+
 Q_SIGNALS:
     void coreReady();
     void profileChanged(const QString &newProfile);

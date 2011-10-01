@@ -32,13 +32,16 @@
     </method>
     <method name="suspendHybrid">
     </method>
+    <method name="isLidClosed">
+        <arg type="b" direction="out" />
+    </method>
     <!--<method name="turnOffScreen" />-->
-    
+
     <!--<method name="getSupportedSuspendMethods">
       <arg type="a{sv}" direction="out" />
       <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
     </method>-->
-    
+
     <!--<signal name="DPMSconfigUpdated">
     </signal>-->
     <signal name="brightnessChanged">
