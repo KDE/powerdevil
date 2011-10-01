@@ -49,7 +49,7 @@ public:
 private:
     ActionPool();
 
-    QHash< QString, Action* > m_cachedPool;
+    QHash< QString, Action* > m_actionPool;
     QStringList m_activeActions;
 };
 

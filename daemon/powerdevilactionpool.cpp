@@ -73,23 +73,19 @@ ActionPool::~ActionPool()
 
 void ActionPool::clearCache()
 {
-    QHash< QString, Action* >::iterator i = m_cachedPool.begin();
-    while (i != m_cachedPool.end()) {
+    QHash< QString, Action* >::iterator i = m_actionPool.begin();
+    while (i != m_actionPool.end()) {
         // Delete the associated action and erase
         i.value()->deleteLater();
-        i = m_cachedPool.erase(i);
+        i = m_actionPool.erase(i);
     }
 }
 
 void ActionPool::init(PowerDevil::Core *parent)
 {
-    // We want to load action which require the loading phase to be performed before anything else
-    // No bundled actions require that (yet)
-
-    // Look for actions not bundled and requiring instant load
+    // Load all the actions
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE and "
-                                                              "[X-KDE-PowerDevil-Action-ForceInstantLoad] == TRUE");
+                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE");
     foreach (KService::Ptr offer, offers) {
         QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
@@ -103,91 +99,39 @@ void ActionPool::init(PowerDevil::Core *parent)
             continue;
         }
 
-        // Cache
-        m_cachedPool.insert(actionId, retaction);
+        // Insert
+        m_actionPool.insert(actionId, retaction);
     }
+
+    // Load bundled actions now
+    m_actionPool.insert("SuspendSession", new BundledActions::SuspendSession(parent));
+    m_actionPool.insert("BrightnessControl", new BundledActions::BrightnessControl(parent));
+    m_actionPool.insert("DimDisplay", new BundledActions::DimDisplay(parent));
+    m_actionPool.insert("RunScript", new BundledActions::RunScript(parent));
+    m_actionPool.insert("HandleButtonEvents", new BundledActions::HandleButtonEvents(parent));
 }
 
 Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
 {
-    // If it's cached, easy game.
-    if (m_cachedPool.contains(actionId)) {
-        Action *retaction = m_cachedPool[actionId];
+    // Let's retrieve the action
+    if (m_actionPool.contains(actionId)) {
+        Action *retaction = m_actionPool[actionId];
         if (group.isValid()) {
             retaction->loadAction(group);
         }
         m_activeActions.append(actionId);
         return retaction;
+    } else {
+        // Hmm... troubles in configuration. Np, let's just return 0 and let the core handle this
+        return 0;
     }
-
-    // Is it one of the bundled actions?
-    Action *retaction = 0;
-
-    if (actionId == "SuspendSession") {
-        retaction = new BundledActions::SuspendSession(parent);
-    } else if (actionId == "BrightnessControl") {
-        retaction = new BundledActions::BrightnessControl(parent);
-    } else if (actionId == "DimDisplay") {
-        retaction = new BundledActions::DimDisplay(parent);
-    } else if (actionId == "RunScript") {
-        retaction = new BundledActions::RunScript(parent);
-    } else if (actionId == "ForceInhibition") {
-        
-    } else if (actionId == "HandleButtonEvents") {
-        retaction = new BundledActions::HandleButtonEvents(parent);
-    }
-
-    if (retaction) {
-        if (group.isValid()) {
-            retaction->loadAction(group);
-        }
-        // Cache
-        m_cachedPool.insert(actionId, retaction);
-        m_activeActions.append(actionId);
-        // Go
-        return retaction;
-    }
-
-    // Otherwise, ask KService for the action itself. Look for an action which is not bundled and has the Id
-    // we are looking for.
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE and "
-                                                              "[X-KDE-PowerDevil-Action-ID] == '" + actionId + "'");
-    foreach (KService::Ptr offer, offers) {
-        kDebug() << "Got a valid offer for " << actionId;
-        //try to load the specified library
-        retaction = offer->createInstance< PowerDevil::Action >(parent);
-
-        if (!retaction) {
-            // Troubles...
-            kWarning() << "failed to load" << offer->desktopEntryName();
-            break;
-        }
-
-        // All fine, let's break the cycle (cit.)
-        break;
-    }
-
-    if (retaction) {
-        if (group.isValid()) {
-            retaction->loadAction(group);
-        }
-        // Cache
-        m_cachedPool.insert(actionId, retaction);
-        m_activeActions.append(actionId);
-        // Go
-        return retaction;
-    }
-
-    // Hmm... troubles in configuration. Np, let's just return 0 and let the core handle this
-    return 0;
 }
 
 void ActionPool::unloadAllActiveActions()
 {
     foreach (const QString &action, m_activeActions) {
-        m_cachedPool[action]->onProfileUnload();
-        m_cachedPool[action]->unloadAction();
+        m_actionPool[action]->onProfileUnload();
+        m_actionPool[action]->unloadAction();
     }
     m_activeActions.clear();
 }
