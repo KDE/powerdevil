@@ -93,6 +93,9 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     connect(m_lidCloseCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_powerButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
 
+    m_lidCloseCombo->setMaximumWidth(300);
+    m_powerButtonCombo->setMaximumWidth(300);
+
     QList< QPair< QString, QWidget* > > retlist;
     retlist.append(qMakePair< QString, QWidget* >(i18n("When laptop lid closed"), m_lidCloseCombo));
     retlist.append(qMakePair< QString, QWidget* >(i18n("When power button pressed"), m_powerButtonCombo));
