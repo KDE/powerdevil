@@ -54,7 +54,8 @@ namespace ProfileGenerator
     };
 
     GeneratorResult generateProfiles(bool tryUpgrade = false);
-    void upgradeProfiles();
+    void upgradeProfilesv1();
+    void upgradeProfilesv2();
     unsigned int upgradeOldAction(unsigned int actionId);
 }
 

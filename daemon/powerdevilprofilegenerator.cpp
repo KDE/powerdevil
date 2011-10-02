@@ -39,10 +39,21 @@ namespace PowerDevil {
 ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpgrade)
 {
     if (tryUpgrade) {
-        KSharedConfigPtr oldProfilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
-        if (!oldProfilesConfig->groupList().isEmpty()) {
-            // We can upgrade, let's do that.
-            upgradeProfiles();
+        bool isUpgraded = false;
+        KSharedConfigPtr oldProfilesConfigv1 = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
+        if (!oldProfilesConfigv1->groupList().isEmpty()) {
+            // We can upgrade from v1, let's do that.
+            upgradeProfilesv1();
+            isUpgraded = true;
+        }
+        KSharedConfigPtr oldProfilesConfigv2 = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+        if (!oldProfilesConfigv2->groupList().isEmpty()) {
+            // We can upgrade from v2, let's do that.
+            upgradeProfilesv2();
+            isUpgraded = true;
+        }
+
+        if (isUpgraded) {
             return ResultUpgraded;
         }
     }
@@ -58,25 +69,28 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     }
 
     // Ok, let's get our config file.
-    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
 
     // And clear it
     foreach (const QString &group, profilesConfig->groupList()) {
-        profilesConfig->deleteGroup(group);
+        // Don't delete activity-specific settings
+        if (group != "Activities") {
+            profilesConfig->deleteGroup(group);
+        }
     }
 
-    // Let's start: performance profile before anything else
-    KConfigGroup performance(profilesConfig, "Performance");
-    performance.writeEntry("icon", "preferences-system-performance");
+    // Let's start: AC profile before anything else
+    KConfigGroup acProfile(profilesConfig, "AC");
+    acProfile.writeEntry("icon", "battery-charging");
 
     // We want to dim the screen after a while, definitely
     {
-        KConfigGroup dimDisplay(&performance, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", 600000);
+        KConfigGroup dimDisplay(&acProfile, "DimDisplay");
+        dimDisplay.writeEntry< int >("idleTime", 300000);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     {
-        KConfigGroup handleButtonEvents(&performance, "HandleButtonEvents");
+        KConfigGroup handleButtonEvents(&acProfile, "HandleButtonEvents");
         handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
         if (methods.contains(Solid::PowerManagement::SuspendState)) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
@@ -86,12 +100,9 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     }
     // And we also want to turn off the screen after another while
     {
-        KConfigGroup dpmsControl(&performance, "DPMSControl");
+        KConfigGroup dpmsControl(&acProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", 600);
     }
-
-    // Assign the profile, of course!
-    PowerDevilSettings::setACProfile(performance.name());
 
     // Easy part done. Now, any batteries?
     int batteryCount = 0;
@@ -106,99 +117,91 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     }
 
     if (batteryCount > 0) {
-        // Ok, we need a pair more profiles: powersave and aggressive powersave.
-        // Also, now we want to handle brightness in performance.
+        // Then we want to handle brightness in performance.
         {
-            KConfigGroup brightnessControl(&performance, "BrightnessControl");
+            KConfigGroup brightnessControl(&acProfile, "BrightnessControl");
             brightnessControl.writeEntry< int >("value", 100);
         }
+    }
 
-        // Powersave
-        KConfigGroup powersave(profilesConfig, "Powersave");
-        powersave.writeEntry("icon", "preferences-system-power-management");
-        // Less brightness.
-        {
-            KConfigGroup brightnessControl(&powersave, "BrightnessControl");
-            brightnessControl.writeEntry< int >("value", 60);
-        }
-        // We want to dim the screen after a while, definitely
-        {
-            KConfigGroup dimDisplay(&powersave, "DimDisplay");
-            dimDisplay.writeEntry< int >("idleTime", 300000);
-        }
-        // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-        {
-            KConfigGroup handleButtonEvents(&powersave, "HandleButtonEvents");
-            handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
-            if (methods.contains(Solid::PowerManagement::SuspendState)) {
-                handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
-            } else {
-                handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
-            }
-        }
-        // We want to turn off the screen after another while
-        {
-            KConfigGroup dpmsControl(&powersave, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", 300);
-        }
-        // Last but not least, we want to suspend after a rather long period of inactivity
+    // Powersave
+    KConfigGroup batteryProfile(profilesConfig, "Battery");
+    batteryProfile.writeEntry("icon", "battery-060");
+    // Less brightness.
+    {
+        KConfigGroup brightnessControl(&batteryProfile, "BrightnessControl");
+        brightnessControl.writeEntry< int >("value", 60);
+    }
+    // We want to dim the screen after a while, definitely
+    {
+        KConfigGroup dimDisplay(&batteryProfile, "DimDisplay");
+        dimDisplay.writeEntry< int >("idleTime", 120000);
+    }
+    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
+    {
+        KConfigGroup handleButtonEvents(&batteryProfile, "HandleButtonEvents");
+        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
         if (methods.contains(Solid::PowerManagement::SuspendState)) {
-            KConfigGroup suspendSession(&powersave, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", 600000);
-            suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
+        } else {
+            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
         }
+    }
+    // We want to turn off the screen after another while
+    {
+        KConfigGroup dpmsControl(&batteryProfile, "DPMSControl");
+        dpmsControl.writeEntry< uint >("idleTime", 300);
+    }
+    // Last but not least, we want to suspend after a rather long period of inactivity
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+        KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
+        suspendSession.writeEntry< uint >("idleTime", 600000);
+        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+    }
 
 
-        // Ok, now for aggressive powersave
-        KConfigGroup aggrPowersave(profilesConfig, "Aggressive powersave");
-        aggrPowersave.writeEntry("icon", "battery-low");
-        // Less brightness.
-        {
-            KConfigGroup brightnessControl(&aggrPowersave, "BrightnessControl");
-            brightnessControl.writeEntry< int >("value", 30);
-        }
-        // We want to dim the screen after a while, definitely
-        {
-            KConfigGroup dimDisplay(&aggrPowersave, "DimDisplay");
-            dimDisplay.writeEntry< int >("idleTime", 120000);
-        }
-        // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-        {
-            KConfigGroup handleButtonEvents(&aggrPowersave, "HandleButtonEvents");
-            handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
-            if (methods.contains(Solid::PowerManagement::SuspendState)) {
-                handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
-            } else {
-                handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
-            }
-        }
-        // We want to turn off the screen after another while
-        {
-            KConfigGroup dpmsControl(&aggrPowersave, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", 120);
-        }
-        // Last but not least, we want to suspend after a rather long period of inactivity
+    // Ok, now for aggressive powersave
+    KConfigGroup lowBatteryProfile(profilesConfig, "LowBattery");
+    lowBatteryProfile.writeEntry("icon", "battery-low");
+    // Less brightness.
+    {
+        KConfigGroup brightnessControl(&lowBatteryProfile, "BrightnessControl");
+        brightnessControl.writeEntry< int >("value", 30);
+    }
+    // We want to dim the screen after a while, definitely
+    {
+        KConfigGroup dimDisplay(&lowBatteryProfile, "DimDisplay");
+        dimDisplay.writeEntry< int >("idleTime", 60000);
+    }
+    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
+    {
+        KConfigGroup handleButtonEvents(&lowBatteryProfile, "HandleButtonEvents");
+        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
         if (methods.contains(Solid::PowerManagement::SuspendState)) {
-            KConfigGroup suspendSession(&aggrPowersave, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", 300000);
-            suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
+        } else {
+            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
         }
-
-        // Assign profiles
-        PowerDevilSettings::setACProfile(performance.name());
-        PowerDevilSettings::setBatteryProfile(powersave.name());
-        PowerDevilSettings::setLowProfile(aggrPowersave.name());
-        PowerDevilSettings::setWarningProfile(aggrPowersave.name());
+    }
+    // We want to turn off the screen after another while
+    {
+        KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
+        dpmsControl.writeEntry< uint >("idleTime", 120);
+    }
+    // Last but not least, we want to suspend after a rather long period of inactivity
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+        KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
+        suspendSession.writeEntry< uint >("idleTime", 300000);
+        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
     }
 
     // Save and be happy
-    PowerDevilSettings::self()->writeConfig();
     profilesConfig->sync();
 
     return ResultGenerated;
 }
 
-void ProfileGenerator::upgradeProfiles()
+void ProfileGenerator::upgradeProfilesv1()
 {
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
@@ -267,6 +270,60 @@ void ProfileGenerator::upgradeProfiles()
 
     // We also want to backup and erase the old profiles.
     QString oldProfilesFile = KGlobal::dirs()->findResource("config", "powerdevilprofilesrc");
+    if (!oldProfilesFile.isEmpty()) {
+        // Backup
+        QString bkProfilesFile = oldProfilesFile;
+        bkProfilesFile.append(".old");
+        KConfig *bkConfig = oldProfilesConfig->copyTo(bkProfilesFile);
+        if (bkConfig != 0) {
+            bkConfig->sync();
+            delete bkConfig;
+
+            // Delete the old profiles now.
+            QFile::remove(oldProfilesFile);
+        }
+    }
+}
+
+void ProfileGenerator::upgradeProfilesv2()
+{
+    // Ok, let's get our config file.
+    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
+    KSharedConfigPtr oldProfilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+
+    // And clear it
+    foreach (const QString &group, profilesConfig->groupList()) {
+        // Don't delete activity-specific settings
+        if (group != "Activities") {
+            profilesConfig->deleteGroup(group);
+        }
+    }
+
+    // Ok: back in the days, which profile we used for which task?
+    {
+        KConfigGroup oldAC = oldProfilesConfig.data()->group(PowerDevilSettings::aCProfile());
+        KConfigGroup newGroup(profilesConfig, "AC");
+
+        oldAC.copyTo(&newGroup);
+    }
+    {
+        KConfigGroup oldBattery = oldProfilesConfig.data()->group(PowerDevilSettings::batteryProfile());
+        KConfigGroup newGroup(profilesConfig, "Battery");
+
+        oldBattery.copyTo(&newGroup);
+    }
+    {
+        KConfigGroup oldLowBattery = oldProfilesConfig.data()->group(PowerDevilSettings::lowProfile());
+        KConfigGroup newGroup(profilesConfig, "LowBattery");
+
+        oldLowBattery.copyTo(&newGroup);
+    }
+
+    // Save and be happy
+    profilesConfig->sync();
+
+    // We also want to backup and erase the old profiles.
+    QString oldProfilesFile = KGlobal::dirs()->findResource("config", "powerdevil2profilesrc");
     if (!oldProfilesFile.isEmpty()) {
         // Backup
         QString bkProfilesFile = oldProfilesFile;
