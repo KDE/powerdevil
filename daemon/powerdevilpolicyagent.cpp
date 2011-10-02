@@ -290,12 +290,14 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
     if (types & ChangeProfile) {
         // Check if we have to notify
         if (m_typesToCookie[ChangeProfile].isEmpty()) {
+            kDebug() << "Added change profile";
             notify = true;
         }
         m_typesToCookie[ChangeProfile].append(cookie);
     }
     if (types & ChangeScreenSettings) {
         // Check if we have to notify
+        kDebug() << "Added change screen settings";
         if (m_typesToCookie[ChangeScreenSettings].isEmpty()) {
             notify = true;
         }
@@ -303,6 +305,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
     }
     if (types & InterruptSession) {
         // Check if we have to notify
+        kDebug() << "Added interrupt session";
         if (m_typesToCookie[InterruptSession].isEmpty()) {
             notify = true;
         }

@@ -27,6 +27,7 @@
 #include <QtGui/QX11Info>
 
 #include <KConfigGroup>
+#include <KDebug>
 #include <KPluginFactory>
 
 #include <X11/Xmd.h>
@@ -86,6 +87,12 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& 
 
     // Pretend we're unloading profiles here, as if the action is not enabled, DPMS should be switched off.
     onProfileUnload();
+
+    // Listen to the policy agent
+    connect(PowerDevil::PolicyAgent::instance(),
+            SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
+            this,
+            SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
 }
 
 PowerDevilDPMSAction::~PowerDevilDPMSAction()
@@ -95,9 +102,13 @@ PowerDevilDPMSAction::~PowerDevilDPMSAction()
 
 void PowerDevilDPMSAction::onProfileUnload()
 {
+    using namespace PowerDevil;
     Display *dpy = QX11Info::display();
-    if (m_hasDPMS) {
+    if (m_hasDPMS &&
+        !(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
         DPMSDisable(dpy);
+    } else {
+        kDebug() << "Not performing DPMS action due to inhibition";
     }
 }
 
@@ -113,10 +124,13 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
 
 void PowerDevilDPMSAction::onProfileLoad()
 {
+    using namespace PowerDevil;
     Display *dpy = QX11Info::display();
-    if (m_hasDPMS) {
+    if (m_hasDPMS &&
+        !(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
         DPMSEnable(dpy);
     } else {
+        kDebug() << "Not performing DPMS action due to inhibition";
         return;
     }
 
@@ -168,6 +182,22 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
     m_idleTime = config.readEntry<int>("idleTime", -1);
 
     return true;
+}
+
+void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
+{
+    if (policies & PowerDevil::PolicyAgent::ChangeScreenSettings) {
+        // Inhibition triggered: disable DPMS
+        kDebug() << "Disabling DPMS due to inhibition";
+        Display *dpy = QX11Info::display();
+        if (m_hasDPMS) {
+            DPMSDisable(dpy);
+        }
+    } else {
+        // Inhibition removed: let's start again
+        onProfileLoad();
+        kDebug() << "Restoring DPMS features after inhibition release";
+    }
 }
 
 #include "powerdevildpmsaction.moc"

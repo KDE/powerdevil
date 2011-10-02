@@ -42,6 +42,9 @@ protected:
 public:
     virtual bool loadAction(const KConfigGroup& config);
 
+private Q_SLOTS:
+    void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
+
 private:
     bool m_hasDPMS;
     int m_idleTime;
