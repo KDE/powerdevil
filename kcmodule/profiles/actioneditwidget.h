@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2008 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2008-2011 by Dario Freddi <drf@kde.org>                 *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,53 +17,46 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
 
-#include <KCModule>
+#ifndef ACTIONEDITWIDGET_H
+#define ACTIONEDITWIDGET_H
 
-#include "ui_profileEditPage.h"
+#include <QtGui/QWidget>
 
-class ActionEditWidget;
-namespace PowerDevil {
+#include <KSharedConfig>
+
+namespace PowerDevil
+{
 class ActionConfig;
 }
 
-class ErrorOverlay;
 class QCheckBox;
-class KToolBar;
+class KConfigGroup;
 
-class EditPage : public KCModule, private Ui_profileEditPage
+class ActionEditWidget : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+    explicit ActionEditWidget(const QString &configName, QWidget *parent = 0);
+    virtual ~ActionEditWidget();
 
+    QString configName() const;
+
+public Q_SLOTS:
     void load();
     void save();
-    virtual void defaults();
 
-private slots:
-    void onChanged(bool changed);
+private Q_SLOTS:
+    void onChanged();
 
-    void restoreDefaultProfiles();
-
-    void notifyDaemon(const QStringList &editedProfiles = QStringList());
-
-    void openUrl(const QString &url);
-
-    void onServiceRegistered(const QString &service);
-    void onServiceUnregistered(const QString &service);
-
-    void checkAndEmitChanged();
+Q_SIGNALS:
+    void changed(bool changed);
 
 private:
+    QString m_configName;
     KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, bool > m_profileEdited;
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
-    QHash< QString, ActionEditWidget* > m_editWidgets;
+    QHash< QString, QCheckBox* > m_actionsHash;
+    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
 };
 
-#endif /* EDITPAGE_H */
+#endif // ACTIONEDITWIDGET_H

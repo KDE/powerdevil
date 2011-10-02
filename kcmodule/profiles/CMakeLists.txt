@@ -2,6 +2,7 @@
 set( kcm_powerdevil_profiles_SRCS
      EditPage.cpp
      actionconfigwidget.cpp
+     actioneditwidget.cpp
      ../../daemon/powerdevilprofilegenerator.cpp
      ../common/ErrorOverlay.cpp
 )
