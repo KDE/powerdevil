@@ -293,10 +293,7 @@ void Core::reloadProfile(int state)
 
         if (state == BackendInterface::Plugged) {
             kDebug() << "Loading profile for plugged AC";
-            loadProfile(PowerDevilSettings::aCProfile());
-        } else if (percent <= PowerDevilSettings::batteryWarningLevel()) {
-            loadProfile(PowerDevilSettings::warningProfile());
-            kDebug() << "Loading profile for warning battery";
+            loadProfile("AC");
         } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
             loadProfile(PowerDevilSettings::lowProfile());
             kDebug() << "Loading profile for low battery";
@@ -492,11 +489,6 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
                              "dialog-warning");
             break;
         }
-    } else if (currentPercent <= PowerDevilSettings::batteryWarningLevel() &&
-               previousPercent > PowerDevilSettings::batteryWarningLevel()) {
-        emitNotification("warningbattery", i18n("Your battery has reached the warning level."),
-                         "dialog-warning");
-        refreshStatus();
     } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
                previousPercent > PowerDevilSettings::batteryLowLevel()) {
         emitNotification("lowbattery", i18n("Your battery has reached a low level."),

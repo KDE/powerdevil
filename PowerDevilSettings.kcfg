@@ -5,7 +5,8 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="powerdevilrc"/>
-  
+
+  <!--The following group is retained just for compatibility and upgrades.-->
   <group name="Profiles">
     <entry name="ACProfile" type="String">
       <default></default>
@@ -26,25 +27,16 @@
       <default>true</default>
     </entry>
   </group>
-  
+
   <group name="BatteryManagement">
     <entry name="BatteryLowLevel" type="Int">
-      <default>25</default>
-    </entry>
-    <entry name="BatteryWarningLevel" type="Int">
-      <default>15</default>
+      <default>20</default>
     </entry>
     <entry name="BatteryCriticalLevel" type="Int">
       <default>5</default>
     </entry>
     <entry name="BatteryCriticalAction" type="Int">
       <default>2</default>
-    </entry>
-  </group>
-  
-  <group name="InternalSettings">
-    <entry name="CompositingChanged" type="Bool">
-      <default>false</default>
     </entry>
   </group>
 </kcfg>
