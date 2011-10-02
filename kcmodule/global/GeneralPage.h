@@ -40,7 +40,6 @@ public:
 
 private slots:
     void configureNotifications();
-    void reloadAvailableProfiles();
     void onServiceRegistered(const QString &service);
     void onServiceUnregistered(const QString &service);
 
