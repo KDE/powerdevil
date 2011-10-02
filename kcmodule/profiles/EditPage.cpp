@@ -52,6 +52,9 @@
 #include <KStandardDirs>
 #include <KRun>
 
+#include <Solid/Battery>
+#include <Solid/Device>
+
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
                 )
@@ -96,16 +99,19 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_editWidgets.insert("AC", editWidget);
     acScrollArea->setWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
+    tabWidget->setTabIcon(0, KIcon("battery-charging"));
 
     editWidget = new ActionEditWidget("Battery");
     m_editWidgets.insert("Battery", editWidget);
     batteryScrollArea->setWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
+    tabWidget->setTabIcon(1, KIcon("battery-060"));
 
     editWidget = new ActionEditWidget("LowBattery");
     m_editWidgets.insert("LowBattery", editWidget);
     lowBatteryScrollArea->setWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
+    tabWidget->setTabIcon(2, KIcon("battery-low"));
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -115,6 +121,21 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
     connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
     connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
+
+    int batteryCount = 0;
+
+    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if(b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
+            continue;
+        }
+        ++batteryCount;
+    }
+
+    if (batteryCount == 0) {
+        tabWidget->setTabEnabled(1, false);
+        tabWidget->setTabEnabled(2, false);
+    }
 
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
         onServiceRegistered("org.kde.Solid.PowerManagement");
