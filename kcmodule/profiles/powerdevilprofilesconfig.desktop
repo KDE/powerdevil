@@ -9,6 +9,7 @@ X-KDE-Library=kcm_powerdevilprofilesconfig
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=power-management
+X-KDE-Weight=1
 
 Name=Power Profiles
 Name[ast]=Perfiles d'enerxía
