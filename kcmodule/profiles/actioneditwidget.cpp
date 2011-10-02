@@ -36,7 +36,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
     , m_configName(configName)
 {
-    m_profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
 
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(0);
     QMap< int, QList<QPair<QString, QWidget*> > > widgets;

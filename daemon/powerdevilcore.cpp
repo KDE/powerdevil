@@ -88,7 +88,7 @@ void Core::onBackendReady()
 {
     kDebug() << "Backend is ready, KDE Power Management system initialized";
 
-    m_profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
+    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
 
     // Is it brand new?
     if (m_profilesConfig->groupList().isEmpty()) {
@@ -283,7 +283,7 @@ void Core::reloadProfile(int state)
 {
     if (m_loadedBatteriesUdi.isEmpty()) {
         kDebug() << "No batteries found, loading AC";
-        loadProfile(PowerDevilSettings::aCProfile());
+        loadProfile("AC");
     } else {
         // Compute the previous and current global percentage
         int percent = 0;
@@ -295,10 +295,10 @@ void Core::reloadProfile(int state)
             kDebug() << "Loading profile for plugged AC";
             loadProfile("AC");
         } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-            loadProfile(PowerDevilSettings::lowProfile());
+            loadProfile("LowBattery");
             kDebug() << "Loading profile for low battery";
         } else {
-            loadProfile(PowerDevilSettings::batteryProfile());
+            loadProfile("Battery");
             kDebug() << "Loading profile for unplugged AC";
         }
     }
