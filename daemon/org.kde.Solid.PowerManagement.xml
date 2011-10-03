@@ -2,20 +2,12 @@
 <node>
   <interface name="org.kde.Solid.PowerManagement">
     <method name="refreshStatus" />
-    <method name="reloadCurrentProfile" />
     <method name="reparseConfiguration" />
     <method name="backendCapabilities">
       <arg type="u" direction="out" />
     </method>
     <method name="loadProfile">
-      <arg type="s" direction="in" />
-    </method>
-    <method name="currentProfile">
-      <arg type="s" direction="out" />
-    </method>
-    <method name="availableProfiles">
-      <arg type="a{ss}" direction="out" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="StringStringMap"/>
+      <arg type="b" direction="in" />
     </method>
     <method name="setBrightness">
       <arg type="i" direction="in" />

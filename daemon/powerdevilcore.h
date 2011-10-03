@@ -68,14 +68,9 @@ public Q_SLOTS:
     // Set of common action - useful for the DBus interface
     uint backendCapabilities();
     void refreshStatus();
-    void reloadProfile();
-    void reloadCurrentProfile();
     void reparseConfiguration();
 
-    StringStringMap availableProfiles() const;
-
-    void loadProfile(const QString &name);
-    QString currentProfile() const;
+    void loadProfile(bool force = false);
 
     int brightness() const;
     void setBrightness(int percent);

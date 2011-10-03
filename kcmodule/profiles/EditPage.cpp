@@ -204,28 +204,22 @@ void EditPage::notifyDaemon(const QStringList &editedProfiles)
         reply.waitForFinished();
 
         if (reply.isValid()) {
-            if (editedProfiles.contains(reply.value())) {
-                // Ask to reload the profile
-                kDebug() << "Active profile edited, reloading profile";
-                call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                      "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
-            } else {
+            if (!editedProfiles.contains(reply.value())) {
                 // Ask to reparse config
                 kDebug() << "Inactive profile edited, reparsing configuration";
                 call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                       "org.kde.Solid.PowerManagement", "reparseConfiguration");
+
+                // Perform call
+                QDBusConnection::sessionBus().asyncCall(call);
+                return;
             }
-        } else {
-            kWarning() << "Invalid reply from daemon when asking for current profile!";
-            // To be sure, reload profile
-            call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                  "org.kde.Solid.PowerManagement", "reloadCurrentProfile");
         }
-    } else {
-        // Refresh status
-        call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                              "org.kde.Solid.PowerManagement", "refreshStatus");
     }
+
+    // Refresh status
+    call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                          "org.kde.Solid.PowerManagement", "refreshStatus");
 
     // Perform call
     QDBusConnection::sessionBus().asyncCall(call);

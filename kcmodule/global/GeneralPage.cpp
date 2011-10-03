@@ -182,11 +182,6 @@ void GeneralPage::onServiceRegistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    // Connect to daemon's signal
-    QDBusConnection::sessionBus().connect("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                          "org.kde.Solid.PowerManagement", "configurationReloaded",
-                                          this, SLOT(reloadAvailableProfiles()));
-
     if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }

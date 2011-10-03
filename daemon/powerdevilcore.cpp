@@ -132,7 +132,7 @@ void Core::onBackendReady()
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
             this, SLOT(onResumingFromIdle()));
     connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)),
-            this, SLOT(reloadProfile()));
+            this, SLOT(loadProfile()));
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
@@ -234,22 +234,7 @@ void Core::refreshStatus()
      */
     reparseConfiguration();
 
-    reloadProfile();
-}
-
-void Core::reloadProfile()
-{
-    reloadProfile(m_backend->acAdapterState());
-}
-
-void Core::reloadCurrentProfile()
-{
-    /* The configuration could have changed if this function was called, so
-     * let's resync it.
-     */
-    reparseConfiguration();
-
-    loadProfile(m_currentProfile);
+    loadProfile(true);
 }
 
 void Core::reparseConfiguration()
@@ -261,70 +246,14 @@ void Core::reparseConfiguration()
     emit configurationReloaded();
 }
 
-StringStringMap Core::availableProfiles() const
+void Core::loadProfile(bool force)
 {
-    QMap< QString, QString > retmap;
-    foreach (const QString &ent, m_profilesConfig->groupList()) {
-        if (ent == "Performance") {
-            retmap.insert(ent, i18nc("Name of a power profile", "Performance"));
-        } else if (ent == "Powersave") {
-            retmap.insert(ent, i18nc("Name of a power profile", "Powersave"));
-        } else if (ent == "Aggressive powersave") {
-            retmap.insert(ent, i18nc("Name of a power profile", "Aggressive powersave"));
-        } else {
-            KConfigGroup group(m_profilesConfig, ent);
-            if (group.hasKey("name")) {
-                retmap.insert(ent, group.readEntry("name"));
-            } else {
-                retmap.insert(ent, ent);
-            }
-        }
-    }
+    QString profileId;
 
-    return retmap;
-}
-
-void Core::reloadProfile(int state)
-{
-    if (m_loadedBatteriesUdi.isEmpty()) {
-        kDebug() << "No batteries found, loading AC";
-        loadProfile("AC");
-    } else {
-        // Compute the previous and current global percentage
-        int percent = 0;
-        for (QHash<QString,int>::const_iterator i = m_batteriesPercent.constBegin(); i != m_batteriesPercent.constEnd(); ++i) {
-            percent += i.value();
-        }
-
-        if (state == BackendInterface::Plugged) {
-            kDebug() << "Loading profile for plugged AC";
-            loadProfile("AC");
-        } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-            loadProfile("LowBattery");
-            kDebug() << "Loading profile for low battery";
-        } else {
-            loadProfile("Battery");
-            kDebug() << "Loading profile for unplugged AC";
-        }
-    }
-}
-
-void Core::loadProfile(const QString &id)
-{
     // Policy check
     if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
         kDebug() << "Policy Agent prevention: on";
         return;
-    }
-
-    // First of all, let's clean the old actions. This will also call the onProfileUnload callback
-    ActionPool::instance()->unloadAllActiveActions();
-
-    // Do we need to force a wakeup?
-    if (m_pendingWakeupEvent) {
-        // Fake activity at this stage, when no timeouts are registered
-        KIdleTime::instance()->simulateUserActivity();
-        m_pendingWakeupEvent = false;
     }
 
     KConfigGroup config;
@@ -353,25 +282,42 @@ void Core::loadProfile(const QString &id)
         // Prioritize this profile over anything
         config = activityConfig.group("SeparateSettings");
         kDebug() << "Activity is enforcing a different profile";
-        // Wait: if this profile was on before, we can simply do nothing.
-        if (m_currentProfile == activity) {
-            return;
-        } else {
-            m_currentProfile = activity;
-        }
+        profileId = activity;
     } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
         if (activityConfig.readEntry("actLike", QString()) == "AC" ||
             activityConfig.readEntry("actLike", QString()) == "Battery" ||
             activityConfig.readEntry("actLike", QString()) == "LowBattery") {
             // Same as above, but with an existing profile
             config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
-            m_currentProfile = activityConfig.readEntry("actLike", QString());
+            profileId = activityConfig.readEntry("actLike", QString());
             kDebug() << "Activity is mirroring a different profile";
         }
     } else {
-        // It doesn't, let's load the right profile then
-        config = m_profilesConfig.data()->group(id);
-        m_currentProfile = id;
+        // It doesn't, let's load the current state's profile
+        if (m_loadedBatteriesUdi.isEmpty()) {
+            kDebug() << "No batteries found, loading AC";
+            profileId = "AC";
+        } else {
+            // Compute the previous and current global percentage
+            int percent = 0;
+            for (QHash<QString,int>::const_iterator i = m_batteriesPercent.constBegin();
+                 i != m_batteriesPercent.constEnd(); ++i) {
+                percent += i.value();
+            }
+
+            if (backend()->acAdapterState() == BackendInterface::Plugged) {
+                profileId = "AC";
+                kDebug() << "Loading profile for plugged AC";
+            } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
+                profileId = "LowBattery";
+                kDebug() << "Loading profile for low battery";
+            } else {
+                profileId = "Battery";
+                kDebug() << "Loading profile for unplugged AC";
+            }
+        }
+
+        config = m_profilesConfig.data()->group(profileId);
         kDebug() << "Activity is not forcing a profile";
     }
 
@@ -393,22 +339,49 @@ void Core::loadProfile(const QString &id)
     if (!config.isValid()) {
         emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                          "but it does not exist.\nPlease check your PowerDevil configuration.",
-                         id), "dialog-error");
+                         profileId), "dialog-error");
         return;
     }
 
-    // Cool, now let's load the needed actions
-    foreach (const QString &actionName, config.groupList()) {
-        Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
-        if (action) {
-            action->onProfileLoad();
-        } else {
-            // Ouch, error. But let's just warn and move on anyway
-            emitNotification("powerdevilerror", i18n("The profile \"%1\" tried to activate %2, "
-                             "a non existent action. This is usually due to an installation problem"
-                             " or to a configuration problem.",
-                             id, actionName), "dialog-warning");
+    // Check: do we need to change profile at all?
+    if (m_currentProfile == profileId && !force) {
+        // No, let's leave things as they are
+        kDebug() << "Skipping action reload routine as profile has not changed";
+
+        // Do we need to force a wakeup?
+        if (m_pendingWakeupEvent) {
+            // Fake activity at this stage, when no timeouts are registered
+            KIdleTime::instance()->simulateUserActivity();
+            m_pendingWakeupEvent = false;
         }
+    } else {
+        // First of all, let's clean the old actions. This will also call the onProfileUnload callback
+        ActionPool::instance()->unloadAllActiveActions();
+
+        // Do we need to force a wakeup?
+        if (m_pendingWakeupEvent) {
+            // Fake activity at this stage, when no timeouts are registered
+            KIdleTime::instance()->simulateUserActivity();
+            m_pendingWakeupEvent = false;
+        }
+
+        // Cool, now let's load the needed actions
+        foreach (const QString &actionName, config.groupList()) {
+            Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
+            if (action) {
+                action->onProfileLoad();
+            } else {
+                // Ouch, error. But let's just warn and move on anyway
+                emitNotification("powerdevilerror", i18n("The profile \"%1\" tried to activate %2, "
+                                "a non existent action. This is usually due to an installation problem"
+                                " or to a configuration problem.",
+                                profileId, actionName), "dialog-warning");
+            }
+        }
+
+        // We are now on a different profile
+        m_currentProfile = profileId;
+        emit profileChanged(m_currentProfile);
     }
 
     // Now... any special behaviors we'd like to consider?
@@ -516,7 +489,7 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
     kDebug();
     // Post request for faking an activity event - usually adapters don't plug themselves out :)
     m_pendingWakeupEvent = true;
-    reloadProfile(state);
+    loadProfile();
 
     if (state == BackendInterface::Plugged) {
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
@@ -726,11 +699,6 @@ qulonglong Core::batteryRemainingTime() const
 int Core::brightness() const
 {
     return m_backend->brightness();
-}
-
-QString Core::currentProfile() const
-{
-    return m_currentProfile;
 }
 
 uint Core::backendCapabilities()
