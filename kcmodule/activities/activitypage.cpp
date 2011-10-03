@@ -22,16 +22,21 @@
 
 #include "activitywidget.h"
 
+#include <ErrorOverlay.h>
+
 #include <QtGui/QScrollArea>
 #include <QtGui/QVBoxLayout>
 
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
-#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusServiceWatcher>
 
 #include <KAboutData>
 #include <KDebug>
 #include <KIcon>
+#include <KMessageWidget>
 #include <KPluginFactory>
 #include <KTabWidget>
 
@@ -86,15 +91,40 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
         tabWidget->addTab(scrollArea, KIcon(icon), name);
     }
 
+    // Message widget
+    m_messageWidget = new KMessageWidget(i18n("The activity service is running with bare functionalities.\n"
+                                                          "Names and icons of the activities might not be available."));
+    m_messageWidget.data()->setMessageType(KMessageWidget::Warning);
+    m_messageWidget.data()->hide();
+
+    lay->addWidget(m_messageWidget.data());
     lay->addWidget(tabWidget);
     setLayout(lay);
+
+    connect(m_activityConsumer, SIGNAL(serviceStatusChanged(KActivityConsumer::ServiceStatus)),
+            this, SLOT(onActivityServiceStatusChanged(KActivityConsumer::ServiceStatus)));
+    onActivityServiceStatusChanged(m_activityConsumer->serviceStatus());
+
+    QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
+                                                           QDBusConnection::sessionBus(),
+                                                           QDBusServiceWatcher::WatchForRegistration |
+                                                           QDBusServiceWatcher::WatchForUnregistration,
+                                                           this);
+
+    connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
+    connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
+
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
+        onServiceRegistered("org.kde.Solid.PowerManagement");
+    } else {
+        onServiceUnregistered("org.kde.Solid.PowerManagement");
+    }
 }
 
 ActivityPage::~ActivityPage()
 {
 
 }
-
 
 void ActivityPage::load()
 {
@@ -126,9 +156,66 @@ void ActivityPage::fillUi()
 
 }
 
+void ActivityPage::onActivityServiceStatusChanged(KActivityConsumer::ServiceStatus status)
+{
+    switch (status) {
+        case KActivityConsumer::NotRunning:
+            // Create error overlay, if not present
+            if (m_errorOverlay.isNull()) {
+                m_errorOverlay = new ErrorOverlay(this, i18n("The activity service is not running.\n"
+                                                             "It is necessary to have the activity manager running "
+                                                             "to configure activity-specific power management behavior."),
+                                                  this);
+            }
+            break;
+        case KActivityConsumer::BareFunctionality:
+            // Show message widget
+            m_messageWidget.data()->show();
+            break;
+        case KActivityConsumer::FullFunctionality:
+            if (m_previousServiceStatus != KActivityConsumer::FullFunctionality &&
+                !m_errorOverlay.isNull()) {
+                m_errorOverlay.data()->deleteLater();
+                if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
+                    onServiceRegistered("org.kde.Solid.PowerManagement");
+                } else {
+                    onServiceUnregistered("org.kde.Solid.PowerManagement");
+                }
+            }
+            if (m_messageWidget.data()->isVisible()) {
+                m_messageWidget.data()->hide();
+            }
+            break;
+    }
+}
+
 void ActivityPage::defaults()
 {
     KCModule::defaults();
+}
+
+void ActivityPage::onServiceRegistered(const QString& service)
+{
+    Q_UNUSED(service);
+
+    if (!m_errorOverlay.isNull()) {
+        m_errorOverlay.data()->deleteLater();
+    }
+
+    onActivityServiceStatusChanged(m_activityConsumer->serviceStatus());
+}
+
+void ActivityPage::onServiceUnregistered(const QString& service)
+{
+    Q_UNUSED(service);
+
+    if (!m_errorOverlay.isNull()) {
+        return;
+    }
+
+    m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running.\n"
+                                                 "This can be solved by starting or scheduling it inside \"Startup and Shutdown\""),
+                                      this);
 }
 
 #include "activitypage.moc"

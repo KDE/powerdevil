@@ -23,8 +23,12 @@
 
 #include <KCModule>
 
+#include <kworkspace/kactivityconsumer.h>
+
+class ErrorOverlay;
 class ActivityWidget;
 class KActivityConsumer;
+class KMessageWidget;
 class ActivityPage : public KCModule
 {
     Q_OBJECT
@@ -38,9 +42,17 @@ public:
     void save();
     virtual void defaults();
 
+private Q_SLOTS:
+    void onActivityServiceStatusChanged(KActivityConsumer::ServiceStatus status);
+    void onServiceRegistered(const QString &service);
+    void onServiceUnregistered(const QString &service);
+
 private:
     KActivityConsumer *m_activityConsumer;
     QList< ActivityWidget* > m_activityWidgets;
+    QWeakPointer< ErrorOverlay > m_errorOverlay;
+    QWeakPointer< KMessageWidget > m_messageWidget;
+    KActivityConsumer::ServiceStatus m_previousServiceStatus;
 };
 
 #endif // ACTIVITYPAGE_H
