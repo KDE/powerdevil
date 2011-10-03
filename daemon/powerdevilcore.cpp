@@ -180,25 +180,25 @@ void Core::onBackendReady()
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
-void Core::checkBatteryStatus()
+QString Core::checkBatteryStatus(bool notify)
 {
+    QString lastMessage;
     // Any batteries below 50% of capacity?
     for (QHash< QString, uint >::const_iterator i = m_backend->capacities().constBegin();
          i != m_backend->capacities().constEnd(); ++i) {
         if (i.value() < 50) {
             // Notify, we have a broken battery.
             if (m_loadedBatteriesUdi.size() == 1) {
-                emitNotification("brokenbattery",
-                                 i18n("Your battery capacity is %1%. This means your battery is broken and "
-                                      "needs a replacement. Please contact your hardware vendor for more details.",
-                                      i.value()),
-                                 "dialog-warning");
+                lastMessage = i18n("Your battery capacity is %1%. This means your battery is broken and "
+                                   "needs a replacement. Please contact your hardware vendor for more details.",
+                                   i.value());
             } else {
-                emitNotification("brokenbattery",
-                                 i18n("One of your batteries (ID %2) has a capacity of %1%. This means it is broken "
-                                      "and needs a replacement. Please contact your hardware vendor for more details.",
-                                      i.value(), i.key()),
-                                 "dialog-warning");
+                lastMessage = i18n("One of your batteries (ID %2) has a capacity of %1%. This means it is broken "
+                                   "and needs a replacement. Please contact your hardware vendor for more details.",
+                                   i.value(), i.key());
+            }
+            if (notify) {
+                emitNotification("brokenbattery", lastMessage, "dialog-warning");
             }
         }
     }
@@ -207,24 +207,23 @@ void Core::checkBatteryStatus()
     foreach (const BackendInterface::RecallNotice &notice, m_backend->recallNotices()) {
         // Notify, a battery has been recalled
         if (m_loadedBatteriesUdi.size() == 1) {
-            emitNotification("brokenbattery",
-                             i18n("Your battery might have been recalled by %1. Usually, when vendors recall the "
-                                  "hardware, it is because of factory defects which are usually eligible for a "
-                                  "free repair or substitution. Please check <a href=\"%2\">%1's website</a> to "
-                                  "verify if your battery is faulted.",
-                                  notice.vendor, notice.url),
-                             "dialog-warning");
+            lastMessage = i18n("Your battery might have been recalled by %1. Usually, when vendors recall the "
+                               "hardware, it is because of factory defects which are usually eligible for a "
+                               "free repair or substitution. Please check <a href=\"%2\">%1's website</a> to "
+                               "verify if your battery is faulted.", notice.vendor, notice.url);
         } else {
-            emitNotification("brokenbattery",
-                             i18n("One of your batteries (ID %3) might have been recalled by %1. "
-                                  "Usually, when vendors recall the hardware, it is because of factory defects "
-                                  "which are usually eligible for a free repair or substitution. "
-                                  "Please check <a href=\"%2\">%1's website</a> to "
-                                  "verify if your battery is faulted.",
-                                  notice.vendor, notice.url, notice.batteryId),
-                             "dialog-warning");
+            lastMessage = i18n("One of your batteries (ID %3) might have been recalled by %1. "
+                               "Usually, when vendors recall the hardware, it is because of factory defects "
+                               "which are usually eligible for a free repair or substitution. "
+                               "Please check <a href=\"%2\">%1's website</a> to "
+                               "verify if your battery is faulted.", notice.vendor, notice.url, notice.batteryId);
+        }
+        if (notify) {
+            emitNotification("brokenbattery", lastMessage, "dialog-warning");
         }
     }
+
+    return lastMessage;
 }
 
 void Core::refreshStatus()

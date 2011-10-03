@@ -9,6 +9,10 @@
     <method name="loadProfile">
       <arg type="b" direction="in" />
     </method>
+    <method name="checkBatteryStatus">
+      <arg type="b" direction="in" />
+      <arg type="s" direction="out" />
+    </method>
     <method name="setBrightness">
       <arg type="i" direction="in" />
     </method>

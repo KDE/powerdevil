@@ -70,6 +70,8 @@ public Q_SLOTS:
     void refreshStatus();
     void reparseConfiguration();
 
+    QString checkBatteryStatus(bool notify = true);
+
     void loadProfile(bool force = false);
 
     int brightness() const;
@@ -140,7 +142,6 @@ private Q_SLOTS:
     void onDeviceAdded(const QString &udi);
     void onDeviceRemoved(const QString &udi);
     void onCriticalBatteryTimerExpired();
-    void checkBatteryStatus();
     void powerOffButtonTriggered();
 };
 
