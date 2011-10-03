@@ -28,6 +28,7 @@
 
 #include <KApplication>
 #include <KConfigGroup>
+#include <KDebug>
 #include <KLocalizedString>
 
 namespace PowerDevil {
@@ -66,7 +67,15 @@ void BrightnessControl::onIdleTimeout(int msec)
 
 void BrightnessControl::onProfileLoad()
 {
-    if (m_defaultValue > 0) {
+    // This unparsable conditional block means: if the current profile is more
+    // conservative than the previous one and the current brightness is lower
+    // than the new profile
+    if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
+         (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
+        m_defaultValue > core()->brightness()) {
+        // We don't want to change anything here
+        kDebug() << "Not changing brightness, the current one is lower and the profile is more conservative";
+    } else if (m_defaultValue > 0) {
         QVariantMap args;
         args["Value"] = QVariant::fromValue((float)m_defaultValue);
         trigger(args);
@@ -83,6 +92,12 @@ void BrightnessControl::triggerImpl(const QVariantMap& args)
 
 bool BrightnessControl::loadAction(const KConfigGroup& config)
 {
+    // Handle profile changes
+    m_lastProfile = m_currentProfile;
+    m_currentProfile = config.parent().name();
+
+    kDebug() << "Profiles: " << m_currentProfile << m_lastProfile;
+
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);
     } else {

@@ -54,6 +54,8 @@ public Q_SLOTS:
 private:
     int m_defaultValue;
     QWeakPointer< BrightnessOSDWidget > m_brightnessOSD;
+    QString m_lastProfile;
+    QString m_currentProfile;
 };
 
 }
