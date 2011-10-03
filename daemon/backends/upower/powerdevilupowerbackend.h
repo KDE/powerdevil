@@ -70,7 +70,7 @@ private:
 
     // brightness
     float m_cachedBrightness;
-    XRandrBrightness         *m_brightNessControl;
+    XRandrBrightness         *m_brightnessControl;
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
 
