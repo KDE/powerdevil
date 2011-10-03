@@ -116,9 +116,18 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
     // Let's retrieve the action
     if (m_actionPool.contains(actionId)) {
         Action *retaction = m_actionPool[actionId];
+
+        if (m_activeActions.contains(actionId)) {
+            // We are reloading the action: let's unload it first then.
+            retaction->onProfileUnload();
+            retaction->unloadAction();
+            m_activeActions.removeOne(actionId);
+        }
+
         if (group.isValid()) {
             retaction->loadAction(group);
         }
+
         m_activeActions.append(actionId);
         return retaction;
     } else {
