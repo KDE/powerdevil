@@ -25,6 +25,8 @@
 
 #include <KSharedConfig>
 
+#include <kdemacros.h>
+
 namespace PowerDevil
 {
 class ActionConfig;
@@ -33,7 +35,7 @@ class ActionConfig;
 class QCheckBox;
 class KConfigGroup;
 
-class ActionEditWidget : public QWidget
+class KDE_EXPORT ActionEditWidget : public QWidget
 {
     Q_OBJECT
 public:

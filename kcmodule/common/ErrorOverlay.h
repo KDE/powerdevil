@@ -22,7 +22,9 @@
 
 #include <QtGui/QWidget>
 
-class ErrorOverlay : public QWidget
+#include <kdemacros.h>
+
+class KDE_EXPORT ErrorOverlay : public QWidget
 {
     Q_OBJECT
 public:

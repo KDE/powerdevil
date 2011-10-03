@@ -27,7 +27,9 @@
 #include <QMap>
 #include <QString>
 
-class ActionConfigWidget : public QWidget
+#include <kdemacros.h>
+
+class KDE_EXPORT ActionConfigWidget : public QWidget
 {
 Q_OBJECT
 public:
