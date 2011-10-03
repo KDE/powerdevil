@@ -1,0 +1,18 @@
+[Desktop Entry]
+Exec=kcmshell4 powerdevilactivitiesconfig
+Icon=preferences-activities
+Type=Service
+X-KDE-ServiceTypes=KCModule
+X-DocPath=kcontrol/powerdevil/index.html
+
+X-KDE-Library=kcm_powerdevilactivitiesconfig
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=power-management
+X-KDE-Weight=50
+
+Name=Activity settings
+
+Comment=Configure per-activity Power Management settings
+
+X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
