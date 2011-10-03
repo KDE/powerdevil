@@ -55,6 +55,9 @@ Q_SIGNALS:
     void changed(bool changed);
 
 private:
+    KConfigGroup configGroup();
+
+private:
     QString m_configName;
     KSharedConfig::Ptr m_profilesConfig;
     QHash< QString, QCheckBox* > m_actionsHash;

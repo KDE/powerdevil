@@ -95,7 +95,7 @@ ActionEditWidget::~ActionEditWidget()
 
 void ActionEditWidget::load()
 {
-    KConfigGroup group(m_profilesConfig, m_configName);
+    KConfigGroup group = configGroup();
 
     kDebug() << m_profilesConfig.data()->entryMap().keys();
 
@@ -118,7 +118,7 @@ void ActionEditWidget::load()
 
 void ActionEditWidget::save()
 {
-    KConfigGroup group(m_profilesConfig, m_configName);
+    KConfigGroup group = configGroup();
 
     if (!group.isValid()) {
         kDebug() << "Could not perform a save operation, group is not valid!";
@@ -152,6 +152,26 @@ void ActionEditWidget::onChanged()
 QString ActionEditWidget::configName() const
 {
     return m_configName;
+}
+
+KConfigGroup ActionEditWidget::configGroup()
+{
+    if (!m_configName.contains('/')) {
+        return KConfigGroup(m_profilesConfig, m_configName);
+    } else {
+        QStringList names = m_configName.split('/');
+        KConfigGroup retgroup(m_profilesConfig, names.first());
+
+        QStringList::const_iterator i = names.constBegin();
+        ++i;
+
+        while (i != names.constEnd()) {
+            retgroup = retgroup.group(*i);
+            ++i;
+        }
+
+        return retgroup;
+    }
 }
 
 #include "actioneditwidget.moc"
