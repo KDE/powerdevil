@@ -42,6 +42,8 @@
 #include <KServiceTypeTrader>
 #include <KStandardDirs>
 
+#include <kworkspace/kactivityconsumer.h>
+
 #include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
@@ -54,6 +56,7 @@ Core::Core(QObject* parent, const KComponentData &componentData)
     , m_backend(0)
     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
+    , m_activityConsumer(new KActivityConsumer(this))
 {
 }
 
@@ -128,6 +131,8 @@ void Core::onBackendReady()
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
             this, SLOT(onResumingFromIdle()));
+    connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)),
+            this, SLOT(reloadProfile()));
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
@@ -304,7 +309,7 @@ void Core::reloadProfile(int state)
     }
 }
 
-void Core::loadProfile(const QString& id)
+void Core::loadProfile(const QString &id)
 {
     // Policy check
     if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
@@ -322,8 +327,68 @@ void Core::loadProfile(const QString& id)
         m_pendingWakeupEvent = false;
     }
 
-    // Now, let's retrieve our profile
-    KConfigGroup config(m_profilesConfig, id);
+    KConfigGroup config;
+
+    // Check the activity in which we are in
+    QString activity = m_activityConsumer->currentActivity();
+    kDebug() << "We are now into activity " << activity;
+    KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
+    kDebug() << activitiesConfig.groupList() << activitiesConfig.keyList();
+
+    // Are we mirroring an activity?
+    if (activitiesConfig.group(activity).readEntry("mode", "None") == "ActLike" &&
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != "AC" &&
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != "Battery" &&
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != "LowBattery") {
+        // Yes, let's use that then
+        activity = activitiesConfig.group(activity).readEntry("actLike", QString());
+        kDebug() << "Activity is a mirror";
+    }
+
+    KConfigGroup activityConfig = activitiesConfig.group(activity);
+    kDebug() << activityConfig.groupList() << activityConfig.keyList();
+
+    // See if this activity has priority
+    if (activityConfig.readEntry("mode", "None") == "SeparateSettings") {
+        // Prioritize this profile over anything
+        config = activityConfig.group("SeparateSettings");
+        kDebug() << "Activity is enforcing a different profile";
+        // Wait: if this profile was on before, we can simply do nothing.
+        if (m_currentProfile == activity) {
+            return;
+        } else {
+            m_currentProfile = activity;
+        }
+    } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
+        if (activityConfig.readEntry("actLike", QString()) == "AC" ||
+            activityConfig.readEntry("actLike", QString()) == "Battery" ||
+            activityConfig.readEntry("actLike", QString()) == "LowBattery") {
+            // Same as above, but with an existing profile
+            config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
+            m_currentProfile = activityConfig.readEntry("actLike", QString());
+            kDebug() << "Activity is mirroring a different profile";
+        }
+    } else {
+        // It doesn't, let's load the right profile then
+        config = m_profilesConfig.data()->group(id);
+        m_currentProfile = id;
+        kDebug() << "Activity is not forcing a profile";
+    }
+
+    // Release any special inhibitions
+    {
+        QHash<QString,int>::iterator i = m_sessionActivityInhibit.begin();
+        while (i != m_sessionActivityInhibit.end()) {
+            PolicyAgent::instance()->ReleaseInhibition(i.value());
+            i = m_sessionActivityInhibit.erase(i);
+        }
+
+        i = m_screenActivityInhibit.begin();
+        while (i != m_screenActivityInhibit.end()) {
+            PolicyAgent::instance()->ReleaseInhibition(i.value());
+            i = m_screenActivityInhibit.erase(i);
+        }
+    }
 
     if (!config.isValid()) {
         emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
@@ -346,10 +411,39 @@ void Core::loadProfile(const QString& id)
         }
     }
 
-    // Set the current profile. Notify if different.
-    if (m_currentProfile != id) {
-        m_currentProfile = id;
-        emit profileChanged(m_currentProfile);
+    // Now... any special behaviors we'd like to consider?
+    if (activityConfig.readEntry("mode", "None") == "SpecialBehavior") {
+        kDebug() << "Activity has special behaviors";
+        KConfigGroup behaviorGroup = activityConfig.group("SpecialBehavior");
+        if (behaviorGroup.readEntry("performAction", false)) {
+            // Let's override the configuration for this action at all times
+            ActionPool::instance()->loadAction("SuspendSession", behaviorGroup.group("ActionConfig"), this);
+            kDebug() << "Activity overrides suspend session action";
+        }
+
+        if (behaviorGroup.readEntry("noSuspend", false)) {
+            kDebug() << "Activity triggers a suspend inhibition";
+            // Trigger a special inhibition - if we don't have one yet
+            if (!m_sessionActivityInhibit.contains(activity)) {
+                int cookie =
+                PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession, i18n("Activity Manager"),
+                                                       i18n("This activity's policies prevent the system from suspending"));
+
+                m_sessionActivityInhibit.insert(activity, cookie);
+            }
+        }
+
+        if (behaviorGroup.readEntry("noScreenManagement", false)) {
+            kDebug() << "Activity triggers a screen management inhibition";
+            // Trigger a special inhibition - if we don't have one yet
+            if (!m_screenActivityInhibit.contains(activity)) {
+                int cookie =
+                PolicyAgent::instance()->AddInhibition(PolicyAgent::ChangeScreenSettings, i18n("Activity Manager"),
+                                                       i18n("This activity's policies prevent screen power management"));
+
+                m_screenActivityInhibit.insert(activity, cookie);
+            }
+        }
     }
 
     // If the lid is closed, retrigger the lid close signal
