@@ -12,7 +12,13 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=99
 
 Name=Advanced settings
+Name[sv]=Avancerade inställningar
+Name[uk]=Додаткові параметри
+Name[x-test]=xxAdvanced settingsxx
 
 Comment=Configure advanced Power Management settings
+Comment[sv]=Anpassa avancerade inställningar av strömsparhantering
+Comment[uk]=Налаштування додаткових параметрів керування живленням
+Comment[x-test]=xxConfigure advanced Power Management settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

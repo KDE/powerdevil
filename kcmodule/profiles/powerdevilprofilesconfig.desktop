@@ -12,7 +12,13 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=1
 
 Name=Energy Saving Settings
+Name[sv]=Inställning av strömsparhantering
+Name[uk]=Параметри заощадження енергії
+Name[x-test]=xxEnergy Saving Settingsxx
 
 Comment=Configure Energy Saving Settings
+Comment[sv]=Anpassa strömsparhantering
+Comment[uk]=Налаштувати параметри заощадження енергії
+Comment[x-test]=xxConfigure Energy Saving Settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

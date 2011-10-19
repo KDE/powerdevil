@@ -12,7 +12,13 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity settings
+Name[sv]=Inställningar av aktiviteter
+Name[uk]=Параметри простору дій
+Name[x-test]=xxActivity settingsxx
 
 Comment=Configure per-activity Power Management settings
+Comment[sv]=Anpassa inställningar av strömsparhantering per aktivitet
+Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
+Comment[x-test]=xxConfigure per-activity Power Management settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
