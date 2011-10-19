@@ -4,7 +4,6 @@
 
 ########################## UPower Backend #####################################
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/upower
-                    ${CMAKE_CURRENT_BINARY_DIR}/backends/upower
                     ${X11_INCLUDE_DIR}
                     ${X11_Xrandr_INCLUDE_PATH})
 
@@ -42,8 +41,7 @@ kde4_install_auth_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOU
 
 ########################## HAL Backend #####################################
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/hal
-                    ${CMAKE_CURRENT_BINARY_DIR}/backends/hal)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/hal)
 
 set(powerdevilhalbackend_SRCS
     backends/hal/halsuspendjob.cpp
