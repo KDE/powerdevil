@@ -12,11 +12,17 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=1
 
 Name=Energy Saving Settings
+Name[cs]=Nastavení úspory energie
+Name[nl]=Instellingen voor energiebeheer
+Name[pt]=Configuração da Poupança de Energia
 Name[sv]=Inställning av strömsparhantering
 Name[uk]=Параметри заощадження енергії
 Name[x-test]=xxEnergy Saving Settingsxx
 
 Comment=Configure Energy Saving Settings
+Comment[cs]=Upravte nastavení úspory energie
+Comment[nl]=Instellingen voor energiebeheer instellen
+Comment[pt]=Configurar as Opções de Poupança de Energia
 Comment[sv]=Anpassa strömsparhantering
 Comment[uk]=Налаштувати параметри заощадження енергії
 Comment[x-test]=xxConfigure Energy Saving Settingsxx
