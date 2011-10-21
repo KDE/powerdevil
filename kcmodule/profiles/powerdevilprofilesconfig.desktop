@@ -13,7 +13,9 @@ X-KDE-Weight=1
 
 Name=Energy Saving Settings
 Name[cs]=Nastavení úspory energie
+Name[ia]=Preferentias de sparnio de energia
 Name[nl]=Instellingen voor energiebeheer
+Name[pa]=ਊਰਜਾ ਬੱਚਤ ਸੈਟਿੰਗ
 Name[pt]=Configuração da Poupança de Energia
 Name[sv]=Inställning av strömsparhantering
 Name[uk]=Параметри заощадження енергії
@@ -21,7 +23,9 @@ Name[x-test]=xxEnergy Saving Settingsxx
 
 Comment=Configure Energy Saving Settings
 Comment[cs]=Upravte nastavení úspory energie
+Comment[ia]=Configura preferentias de sparnio de energia
 Comment[nl]=Instellingen voor energiebeheer instellen
+Comment[pa]=ਊਰਜਾ ਬੱਚਤ ਸੈਟਿੰਗ ਸੰਰਚਨਾ
 Comment[pt]=Configurar as Opções de Poupança de Energia
 Comment[sv]=Anpassa strömsparhantering
 Comment[uk]=Налаштувати параметри заощадження енергії
