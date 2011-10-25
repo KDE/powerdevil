@@ -13,7 +13,9 @@ X-KDE-Weight=50
 
 Name=Activity settings
 Name[cs]=Nastavení činnosti
+Name[hu]=Aktivitásjellemzők
 Name[ia]=Preferentias de activitate
+Name[kk]=Істің параметрлері
 Name[nb]=Aktivitetsinnstillinger
 Name[nl]=Instellingen voor activiteiten
 Name[pa]=ਐਕਟਵਿਟੀ ਸੈਟਿੰਗ
@@ -27,6 +29,7 @@ Name[x-test]=xxActivity settingsxx
 Comment=Configure per-activity Power Management settings
 Comment[cs]=Konfigurace nastavení správy napájení na činnost
 Comment[ia]=Configura preferentias  de gestion de energia per activitate
+Comment[kk]=Әрбір істің қуаттандыру параметрлерін баптау
 Comment[nb]=Sett opp strømstyringsinnstillinger per aktivitet
 Comment[nl]=Instellingen van per activiteit energiebeheer instellen
 Comment[pt]=Configurar as opções globais de Gestão de Energia por actividade
