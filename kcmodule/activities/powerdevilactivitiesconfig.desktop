@@ -12,10 +12,13 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity settings
+Name[ca]=Arranjament d'activitat
 Name[cs]=Nastavení činnosti
+Name[de]=Aktivitäten-Einstellungen
 Name[hu]=Aktivitásjellemzők
 Name[ia]=Preferentias de activitate
 Name[kk]=Істің параметрлері
+Name[lt]=Veiklų nustatymai
 Name[nb]=Aktivitetsinnstillinger
 Name[nl]=Instellingen voor activiteiten
 Name[pa]=ਐਕਟਵਿਟੀ ਸੈਟਿੰਗ
@@ -27,7 +30,9 @@ Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity settingsxx
 
 Comment=Configure per-activity Power Management settings
+Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
 Comment[cs]=Konfigurace nastavení správy napájení na činnost
+Comment[de]=Energieprofile pro Aktivität einzeln einrichten
 Comment[ia]=Configura preferentias  de gestion de energia per activitate
 Comment[kk]=Әрбір істің қуаттандыру параметрлерін баптау
 Comment[nb]=Sett opp strømstyringsinnstillinger per aktivitet
