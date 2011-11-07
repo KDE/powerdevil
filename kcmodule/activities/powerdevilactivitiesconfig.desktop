@@ -29,6 +29,7 @@ Name[ro]=Configurări activitate
 Name[sv]=Inställningar av aktiviteter
 Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity settingsxx
+Name[zh_CN]=活动设置
 
 Comment=Configure per-activity Power Management settings
 Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
@@ -45,5 +46,6 @@ Comment[ro]=Configurează opțiunile de gestiune a alimentării pe activitate
 Comment[sv]=Anpassa inställningar av strömsparhantering per aktivitet
 Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
 Comment[x-test]=xxConfigure per-activity Power Management settingsxx
+Comment[zh_CN]=配置基于活动的电源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities

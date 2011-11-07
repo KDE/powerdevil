@@ -27,6 +27,7 @@ Name[ro]=Configurări pentru economisirea energiei
 Name[sv]=Inställning av strömsparhantering
 Name[uk]=Параметри заощадження енергії
 Name[x-test]=xxEnergy Saving Settingsxx
+Name[zh_CN]=节能设置
 
 Comment=Configure Energy Saving Settings
 Comment[ca]=Configura l'arranjament de l'estalvi d'energia
@@ -44,5 +45,6 @@ Comment[ro]=Configurează economisirea energiei
 Comment[sv]=Anpassa strömsparhantering
 Comment[uk]=Налаштувати параметри заощадження енергії
 Comment[x-test]=xxConfigure Energy Saving Settingsxx
+Comment[zh_CN]=配置节能设置
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
