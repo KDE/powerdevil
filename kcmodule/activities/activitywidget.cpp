@@ -24,7 +24,7 @@
 
 #include "daemon/actions/bundled/suspendsession.h"
 
-#include <kworkspace/kactivityconsumer.h>
+#include <KActivities/Consumer>
 #include <Solid/PowerManagement>
 #include <actioneditwidget.h>
 #include <QLayout>
@@ -34,7 +34,7 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
     , m_ui(new Ui::ActivityWidget)
     , m_profilesConfig(KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig))
     , m_activity(activity)
-    , m_activityConsumer(new KActivityConsumer(this))
+    , m_activityConsumer(new KActivities::Consumer(this))
     , m_actionEditWidget(new ActionEditWidget(QString("Activities/%1/SeparateSettings").arg(activity)))
 {
     m_ui->setupUi(this);
@@ -116,7 +116,7 @@ void ActivityWidget::load()
             continue;
         }
 
-        KActivityInfo *info = new KActivityInfo(activity, this);
+        KActivities::Info *info = new KActivities::Info(activity, this);
         QString icon = info->icon();
         QString name = i18nc("This is meant to be: Act like activity %1",
                              "Activity \"%1\"", info->name());

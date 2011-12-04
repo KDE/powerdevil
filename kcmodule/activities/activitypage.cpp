@@ -40,8 +40,6 @@
 #include <KPluginFactory>
 #include <KTabWidget>
 
-#include <kworkspace/kactivityconsumer.h>
-
 K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
                  registerPlugin<ActivityPage>();
                 )
@@ -49,7 +47,7 @@ K_EXPORT_PLUGIN(PowerDevilActivitiesKCMFactory("powerdevilactivitiesconfig","pow
 
 ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     : KCModule(PowerDevilActivitiesKCMFactory::componentData(), parent, args)
-    , m_activityConsumer(new KActivityConsumer(this))
+    , m_activityConsumer(new KActivities::Consumer(this))
 {
     setButtons(Apply | Help);
 
@@ -69,7 +67,7 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     QVBoxLayout *lay = new QVBoxLayout();
 
     foreach (const QString &activity, m_activityConsumer->listActivities()) {
-        KActivityInfo *info = new KActivityInfo(activity, this);
+        KActivities::Info *info = new KActivities::Info(activity, this);
         QString icon = info->icon();
         QString name = info->name();
         kDebug() << activity << info->isValid() << info->availability();
@@ -101,8 +99,8 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     lay->addWidget(tabWidget);
     setLayout(lay);
 
-    connect(m_activityConsumer, SIGNAL(serviceStatusChanged(KActivityConsumer::ServiceStatus)),
-            this, SLOT(onActivityServiceStatusChanged(KActivityConsumer::ServiceStatus)));
+    connect(m_activityConsumer, SIGNAL(serviceStatusChanged(KActivities::Consumer::ServiceStatus)),
+            this, SLOT(onActivityServiceStatusChanged(KActivities::Consumer::ServiceStatus)));
     onActivityServiceStatusChanged(m_activityConsumer->serviceStatus());
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
@@ -156,10 +154,10 @@ void ActivityPage::fillUi()
 
 }
 
-void ActivityPage::onActivityServiceStatusChanged(KActivityConsumer::ServiceStatus status)
+void ActivityPage::onActivityServiceStatusChanged(KActivities::Consumer::ServiceStatus status)
 {
     switch (status) {
-        case KActivityConsumer::NotRunning:
+        case KActivities::Consumer::NotRunning:
             // Create error overlay, if not present
             if (m_errorOverlay.isNull()) {
                 m_errorOverlay = new ErrorOverlay(this, i18n("The activity service is not running.\n"
@@ -168,12 +166,12 @@ void ActivityPage::onActivityServiceStatusChanged(KActivityConsumer::ServiceStat
                                                   this);
             }
             break;
-        case KActivityConsumer::BareFunctionality:
+        case KActivities::Consumer::BareFunctionality:
             // Show message widget
             m_messageWidget.data()->show();
             break;
-        case KActivityConsumer::FullFunctionality:
-            if (m_previousServiceStatus != KActivityConsumer::FullFunctionality &&
+        case KActivities::Consumer::FullFunctionality:
+            if (m_previousServiceStatus != KActivities::Consumer::FullFunctionality &&
                 !m_errorOverlay.isNull()) {
                 m_errorOverlay.data()->deleteLater();
                 if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
