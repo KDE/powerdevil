@@ -109,3 +109,4 @@ X-KDE-PowerDevil-Action-IsBundled=false
 X-KDE-PowerDevil-Action-ForceInstantLoad=true
 X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevildpmsaction_config
 X-KDE-PowerDevil-Action-ConfigPriority=98
+X-KDE-PowerDevil-Action-HasRuntimeRequirement=true
