@@ -66,7 +66,7 @@ public:
 K_PLUGIN_FACTORY(PowerDevilDPMSActionFactory, registerPlugin<PowerDevilDPMSAction>(); )
 K_EXPORT_PLUGIN(PowerDevilDPMSActionFactory("powerdevildpmsaction"))
 
-PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& )
+PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
     : Action(parent)
     , d(new Private)
 {
@@ -79,6 +79,14 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& 
     if (!isSupported()) {
         XSetErrorHandler(d->defaultHandler);
         return;
+    }
+
+    // Is the action being loaded outside the core?
+    if (args.size() > 0) {
+        if (args.first().toBool()) {
+            kDebug() << "Action loaded from outside the core, skipping early init";
+            return;
+        }
     }
 
     // Pretend we're unloading profiles here, as if the action is not enabled, DPMS should be switched off.
