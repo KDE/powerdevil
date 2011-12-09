@@ -99,6 +99,13 @@ void ActionPool::init(PowerDevil::Core *parent)
             continue;
         }
 
+        // Is the action available and supported?
+        if (!retaction->isSupported()) {
+            // Skip that
+            retaction->deleteLater();
+            continue;
+        }
+
         // Insert
         m_actionPool.insert(actionId, retaction);
     }
