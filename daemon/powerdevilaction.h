@@ -117,6 +117,17 @@ public:
     virtual bool unloadAction();
 
     /**
+     * This function is meant to find out if this action is available on this system. Actions
+     * CAN reimplement this function if they are dependent on specific hardware/software requirements.
+     * By default, this function will always return true.
+     *
+     * Should this function return false, the core will delete and ignore the action right after creation.
+     *
+     * @returns Whether this action is supported or not by the current system
+     */
+    virtual bool isSupported();
+
+    /**
      * Triggers the action with the given argument. This function is meant to be used by the caller only -
      * if you are implementing your own action, reimplement triggerImpl instead.
      *
