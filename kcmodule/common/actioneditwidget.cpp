@@ -22,6 +22,7 @@
 
 #include "actionconfigwidget.h"
 
+#include <daemon/powerdevilaction.h>
 #include <daemon/powerdevilactionconfig.h>
 
 #include <QtGui/QCheckBox>
@@ -45,6 +46,31 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
 
     foreach (const KService::Ptr &offer, offers) {
+        // Does it have a runtime requirement?
+        if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
+            kDebug() << offer->name() << " has a runtime requirement";
+            // Load the real action, and verify. Stream in the variant list the fact that we are outside the core
+            QVariantList args = QVariantList() << true;
+
+            PowerDevil::Action *retaction = offer->createInstance< PowerDevil::Action >(parent, args);
+
+            if (!retaction) {
+                // Troubles...
+                kWarning() << "failed to load" << offer->desktopEntryName();
+                continue;
+            }
+
+            // Is the action available and supported?
+            if (!retaction->isSupported()) {
+                // Skip that
+                retaction->deleteLater();
+                continue;
+            }
+
+            // Delete the action anyway, we don't need it
+            retaction->deleteLater();
+        }
+
         //try to load the specified library
         KPluginFactory *factory = KPluginLoader(offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
                                                                 QVariant::String).toString()).factory();
