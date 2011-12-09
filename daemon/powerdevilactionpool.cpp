@@ -113,6 +113,7 @@ void ActionPool::init(PowerDevil::Core *parent)
 
 Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
 {
+    Q_UNUSED(parent);
     // Let's retrieve the action
     if (m_actionPool.contains(actionId)) {
         Action *retaction = m_actionPool[actionId];
