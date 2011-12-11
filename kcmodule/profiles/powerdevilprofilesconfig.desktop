@@ -56,6 +56,7 @@ Comment[zh_CN]=配置节能设置
 Comment[zh_TW]=設定省電模式
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
+X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
 X-KDE-Keywords[ia]=systema,potentia,gestion de potentia,energia,laptop,batteria,suspension,CA,suspende,hiberna,brillantia,prestation,coperculo
 X-KDE-Keywords[kk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[nl]=systeem,energie,energiebeheer,laptop,batterij,suspension,AC,onderbreken,slapen,helderheid,prestaties,deksel
@@ -64,3 +65,4 @@ X-KDE-Keywords[pt_BR]=sistema,energia,gerenciamento de energia,energia,notebook,
 X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,viloläge,AC,gå till viloläge,dvala,ljusstyrka,prestanda,lock
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки
 X-KDE-Keywords[x-test]=xxsystem,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lidxx
+X-KDE-Keywords[zh_TW]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
