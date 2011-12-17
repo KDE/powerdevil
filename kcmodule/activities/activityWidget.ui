@@ -36,7 +36,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="actLikeComboBox">
+        <widget class="KComboBox" name="actLikeComboBox">
          <property name="enabled">
           <bool>false</bool>
          </property>
@@ -96,7 +96,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="alwaysActionBox"/>
+          <widget class="KComboBox" name="alwaysActionBox"/>
          </item>
          <item>
           <widget class="QLabel" name="alwaysAfterLabel">
@@ -166,6 +166,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
