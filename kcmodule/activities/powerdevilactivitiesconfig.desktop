@@ -13,6 +13,7 @@ X-KDE-Weight=50
 
 Name=Activity settings
 Name[ca]=Arranjament d'activitat
+Name[ca@valencia]=Arranjament d'activitat
 Name[cs]=Nastavení činnosti
 Name[da]=Aktivitetsindstillinger
 Name[de]=Aktivitäten-Einstellungen
@@ -42,6 +43,7 @@ Name[zh_TW]=活動設定
 
 Comment=Configure per-activity Power Management settings
 Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
+Comment[ca@valencia]=Configura l'arranjament per activitat de gestió d'energia
 Comment[cs]=Konfigurace nastavení správy napájení na činnost
 Comment[da]=Indstil strømstyring pr. aktivitet
 Comment[de]=Energieprofile pro Aktivität einzeln einrichten
@@ -67,6 +69,7 @@ Comment[zh_TW]=設定個別活動電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
+X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg,aktivitet,aktiviteter
 X-KDE-Keywords[et]=süsteem,energia,toide,toitehaldus,sülearvuti,aku,uneseisund,uni,talveuni, heledus,jõudlus,kaas,tegevus,tegevused
 X-KDE-Keywords[fi]=järjestelmä,virta,virranhallinta,energia,kannettava,tietokone,läppäri,akku,lepotila,valmiustila,keskeytä,AC,virtalähde,kirkkaus,suorituskyky,kansi,aktiviteetti,aktiviteetit

@@ -13,6 +13,7 @@ X-KDE-Weight=1
 
 Name=Energy Saving Settings
 Name[ca]=Arranjament de l'estalvi d'energia
+Name[ca@valencia]=Arranjament de l'estalvi d'energia
 Name[cs]=Nastavení úspory energie
 Name[da]=Indstillinger for energibesparelse
 Name[de]=Einstellungen für Energiesparmodus
@@ -40,6 +41,7 @@ Name[zh_TW]=省電設定
 
 Comment=Configure Energy Saving Settings
 Comment[ca]=Configura l'arranjament de l'estalvi d'energia
+Comment[ca@valencia]=Configura l'arranjament de l'estalvi d'energia
 Comment[cs]=Upravte nastavení úspory energie
 Comment[da]=Indstillinger for energibesparelse
 Comment[de]=Energiespar-Einstellungen einrichten
@@ -66,6 +68,7 @@ Comment[zh_TW]=設定省電模式
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
+X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg
 X-KDE-Keywords[et]=süsteem,energia,toide,toitehaldus,sülearvuti,aku,uneseisund,uni,talveuni, heledus,jõudlus,kaas
 X-KDE-Keywords[fi]=järjestelmä,virta,virranhallinta,energia,kannettava,tietokone,läppäri,akku,lepotila,valmiustila,AC,virtalähde,keskeytä,kirkkaus,suorituskyky,kansi

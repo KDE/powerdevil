@@ -13,6 +13,7 @@ X-KDE-Weight=99
 
 Name=Advanced settings
 Name[ca]=Arranjament avançat
+Name[ca@valencia]=Arranjament avançat
 Name[cs]=Pokročilá nastavení
 Name[da]=Avancerede indstillinger
 Name[de]=Erweiterte Einstellungen
@@ -42,6 +43,7 @@ Name[zh_TW]=進階設定
 
 Comment=Configure advanced Power Management settings
 Comment[ca]=Configura l'arranjament avançat de gestió d'energia
+Comment[ca@valencia]=Configura l'arranjament avançat de gestió d'energia
 Comment[cs]=Nastavení pokročilého nastavení správy napájení
 Comment[da]=Indstil avanceret strømstyring
 Comment[de]=Erweiterte Energieprofile einrichten
@@ -68,6 +70,7 @@ Comment[zh_TW]=設定進階電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
+X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg
 X-KDE-Keywords[et]=süsteem,energia,toide,toitehaldus,sülearvuti,aku,uneseisund,uni,talveuni, heledus,jõudlus,kaas
 X-KDE-Keywords[fi]=järjestelmä,virta,virranhallinta,energia,kannettava,tietokone,läppäri,akku,lepotila,valmiustila,AC,virtalähde,keskeytä,kirkkaus,suorituskyky,kansi
