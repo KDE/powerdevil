@@ -37,7 +37,7 @@ void BacklightHelper::init()
     interfaces << "nv_backlight" << "intel_backlight" << "radeon_bl" << "mbp_backlight"
                << "asus_laptop" << "toshiba" << "eeepc" << "thinkpad_screen" << "acpi_video1"
                << "acpi_video0" << "apple_backlight" << "fujitsu-laptop" << "samsung"
-               << "nvidia_backlight" << "dell_backlight" << "sony"
+               << "nvidia_backlight" << "dell_backlight" << "sony" << "pwm-backlight"
                ;
 
     QDir dir;
