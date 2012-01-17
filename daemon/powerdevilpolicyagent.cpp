@@ -176,7 +176,9 @@ void PolicyAgent::onServiceUnregistered(const QString& serviceName)
 {
     if (m_cookieToBusService.values().contains(serviceName)) {
         // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
-        ReleaseInhibition(m_cookieToBusService.key(serviceName));
+        foreach (uint key, m_cookieToBusService.keys(serviceName)) {
+            ReleaseInhibition(key);
+        }
     }
 }
 
@@ -320,6 +322,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 
 void PolicyAgent::ReleaseInhibition(uint cookie)
 {
+    kDebug() << "Released inhibition with cookie " << cookie;
     m_cookieToAppName.remove(cookie);
     if (m_cookieToBusService.contains(cookie)) {
         if (!m_busWatcher.isNull()) {
