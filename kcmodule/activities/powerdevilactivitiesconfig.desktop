@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity settings
+Name[ar]=مدير الأنشطة
 Name[ca]=Arranjament d'activitat
 Name[ca@valencia]=Arranjament d'activitat
 Name[cs]=Nastavení činnosti
