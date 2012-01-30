@@ -1010,7 +1010,7 @@ Comment[nds]=Dien Batterie is bi de kritische Stoop ankamen. Disse Bescheed tell
 Comment[nl]=Uw accu heeft het kritieke niveau bereikt. Deze melding activeert een aftelling voordat de ingestelde actie zal worden uitgevoerd. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
 Comment[nn]=Batterinivået er kritisk lågt
 Comment[pa]=ਤੁਹਾਡੀ ਬੈਟਰੀ ਨਾਜ਼ੁਕ ਲੈਵਲ ਤੱਕ ਘੱਟ ਗਈ ਹੈ। ਇਹ ਨੋਟੀਫਿਕੇਸ਼ਨ ਸੰਰਚਿਤ ਕੀਤੇ ਐਕਸ਼ਨ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਉਲਟੀ-ਗਿਣਟੀ ਸ਼ੁਰੂ ਕਰਦਾ ਹੈ, ਇਸਕਰਕੇ ਇਸ ਨੂੰ ਚੱਲਣ ਦੀ ਸਲਾਹ ਦਿੱਤੀ ਜਾਂਦੀ ਹੈ।
-Comment[pl]=Bateria osiągnęła krytyczny poziom. To powiadomienie rozpoczyna także odliczanie przed wykonaniem skonfigurowanej akcji, więc dobrze jest je zostawić.
+Comment[pl]=Bateria osiągnęła krytyczny poziom. To powiadomienie rozpoczyna także odliczanie przed wykonaniem skonfigurowanego działanie, więc dobrze jest je zostawić.
 Comment[pt]=A sua bateria atingiu um nível crítico. Esta notificação despoleta uma contagem antes de efectuar a acção configurada; por isso, recomenda-se que deixe a opção ligada.
 Comment[pt_BR]=Sua bateria atingiu um nível crítico. Esta notificação aciona uma contagem antes de realizar a ação configurada. Por isso, recomenda-se deixar a opção ativada.
 Comment[ro]=Acumulatorul a atins nivelul critic. Această notificare declanșează o numărătoare inversă pînă la executarea acțiunii implicite, deci se recomandă să îl lăsați activat.
@@ -1798,6 +1798,7 @@ Persistant=true
 
 [Event/powerdevilerror]
 Name=Internal KDE Power Management System Error
+Name[ar]=خطأ داخلي في نظام مراقب الطاقة لكدي
 Name[bg]=Вътрешна грешка в системата за управление на захранването
 Name[bs]=Unutrašnja greška KDE‑ovog sistema za upravljanje napajanjem
 Name[ca]=Error intern del sistema de gestió d'energia del KDE
@@ -1850,6 +1851,7 @@ Name[x-test]=xxInternal KDE Power Management System Errorxx
 Name[zh_CN]=KDE 电源管理系统内部错误
 Name[zh_TW]=KDE 電源管理系統內部錯誤
 Comment=The KDE Power Management System has triggered an internal error
+Comment[ar]=أطلق مراقب الطاقة خطأً داخلياً
 Comment[bg]=Системата за управление на захранването предизвика вътрешна грешка
 Comment[bs]=Unutrašnja greška u KDE‑ovom sistemu za upravljanje napajanjem
 Comment[ca]=El sistema de gestió d'energia del KDE ha activat un error intern
@@ -2047,6 +2049,7 @@ Action=Sound|Popup
 
 [Event/brokenbattery]
 Name=Broken battery notification
+Name[ar]=تبليغ البطارية التالفة
 Name[bg]=Повредена батерия
 Name[bs]=Obavještenje o pokvarenoj bateriji
 Name[ca]=Notificació de bateria trencada
@@ -2098,6 +2101,7 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_CN]=电池损坏通知
 Name[zh_TW]=電池損壞通知
 Comment=This notification will pop up if KDE Power Management System detects some troubles with one of your batteries
+Comment[ar]=هذا الإشعار سيظهر إذا إكتشف نظام إدارة الطاقة لكدي بعض المشاكل في واحدة من بطارياتك
 Comment[bg]=Това съобщение ще се появи, ако системата за управление на захранването на KDE открие проблеми с някоя от батериите
 Comment[bs]=Ovo obavještenje iskače ako KDE‑ov sistem za upravljanje napajanjem otkrije problem sa nekom od baterija.
 Comment[ca]=Aquesta notificació apareixerà si el sistema de gestió d'energia del KDE detecta algun problema amb alguna de les bateries
