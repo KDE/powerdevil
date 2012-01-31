@@ -99,6 +99,13 @@ void ActionPool::init(PowerDevil::Core *parent)
             continue;
         }
 
+        // Is the action available and supported?
+        if (!retaction->isSupported()) {
+            // Skip that
+            retaction->deleteLater();
+            continue;
+        }
+
         // Insert
         m_actionPool.insert(actionId, retaction);
     }
@@ -113,6 +120,7 @@ void ActionPool::init(PowerDevil::Core *parent)
 
 Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
 {
+    Q_UNUSED(parent);
     // Let's retrieve the action
     if (m_actionPool.contains(actionId)) {
         Action *retaction = m_actionPool[actionId];

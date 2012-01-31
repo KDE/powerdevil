@@ -42,6 +42,7 @@ target_link_libraries(powerdevilcore
     ${KDE4_SOLID_LIBS}
     ${KDE4_KIDLETIME_LIBS}
     ${KDE4_PLASMA_LIBS}
+    ${KACTIVITIES_LIBRARY}
     kworkspace
 )
 
@@ -82,6 +83,7 @@ set(powerdevilui_SRCS
 )
 
 kde4_add_library(powerdevilui SHARED ${powerdevilui_SRCS})
+set_target_properties(powerdevilui PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
 target_link_libraries(powerdevilui
     ${KDE4_KDECORE_LIBS}

@@ -38,6 +38,7 @@ protected:
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
     virtual void triggerImpl(const QVariantMap& args);
+    bool isSupported();
 
 public:
     virtual bool loadAction(const KConfigGroup& config);
@@ -46,7 +47,6 @@ private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
 
 private:
-    bool m_hasDPMS;
     int m_idleTime;
 
     class Private;

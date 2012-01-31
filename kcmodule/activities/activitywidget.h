@@ -25,7 +25,11 @@
 #include <KSharedConfig>
 
 class ActionEditWidget;
-class KActivityConsumer;
+namespace KActivities
+{
+class Consumer;
+} // namespace KActivities
+
 namespace Ui {
 class ActivityWidget;
 }
@@ -50,7 +54,7 @@ private:
     Ui::ActivityWidget *m_ui;
     KSharedConfig::Ptr m_profilesConfig;
     QString m_activity;
-    KActivityConsumer *m_activityConsumer;
+    KActivities::Consumer *m_activityConsumer;
     ActionEditWidget* m_actionEditWidget;
 };
 

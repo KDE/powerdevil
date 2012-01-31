@@ -54,7 +54,7 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
     <!-- ************************************************************ -->
 
     <signal name="DeviceAdded">
-      <arg name="device" type="o">
+      <arg name="device" type="s">
         <doc:doc><doc:summary>Object path of device that was added.</doc:summary></doc:doc>
       </arg>
 
@@ -70,7 +70,7 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
     <!-- ************************************************************ -->
 
     <signal name="DeviceRemoved">
-      <arg name="device" type="o">
+      <arg name="device" type="s">
         <doc:doc><doc:summary>Object path of device that was removed.</doc:summary></doc:doc>
       </arg>
 
@@ -86,7 +86,7 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
     <!-- ************************************************************ -->
 
     <signal name="DeviceChanged">
-      <arg name="device" type="o">
+      <arg name="device" type="s">
         <doc:doc><doc:summary>Object path of device that was changed.</doc:summary></doc:doc>
       </arg>
 

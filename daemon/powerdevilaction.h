@@ -70,6 +70,25 @@ class Core;
  * the action is triggered. You usually want to process the action here as triggerImpl is guaranteed
  * to be called just when policies are satisfied.
  *
+ * @par Runtime requirements
+ *
+ * Some actions might be available only when the system satisfies certain hardware or software runtime requirements.
+ * In this case, powerdevil provides a way for the action to advertise to the outside whether it is supported or
+ * not. This can be done by reimplementing @c isSupported and adding to the .desktop file the field
+ *
+ * @code
+ * X-KDE-PowerDevil-Action-HasRuntimeRequirement=true
+ * @endcode
+ *
+ * Done that, powerdevil will take care of exposing your action only if support for it is advertised. In addition,
+ * the UI will expose the configuration of your action only if its support is advertised. Of course, this means the
+ * action will be temporarily loaded by the config UI to verify its support. If your action is performing some tasks in
+ * the constructor besides setting policies, first of all revise your design since you probably don't need or want to
+ * do that. If you really cannot avoid that, you MUST check for an OPTIONAL parameter in the QVariantList coming
+ * from the plugin's constructor. If it exists, it's a boolean and it is true, the action is being loaded just for
+ * a support check, and you should refrain from doing any actions which would affect the system. This parameter is also
+ * used in tests.
+ *
  * @par Handling policies from within the action
  *
  * As you might know, the KDE Power Management system features a very efficient policy handler, which
@@ -115,6 +134,17 @@ public:
      * @returns Whether the action has been successfully unloaded
      */
     virtual bool unloadAction();
+
+    /**
+     * This function is meant to find out if this action is available on this system. Actions
+     * CAN reimplement this function if they are dependent on specific hardware/software requirements.
+     * By default, this function will always return true.
+     *
+     * Should this function return false, the core will delete and ignore the action right after creation.
+     *
+     * @returns Whether this action is supported or not by the current system
+     */
+    virtual bool isSupported();
 
     /**
      * Triggers the action with the given argument. This function is meant to be used by the caller only -

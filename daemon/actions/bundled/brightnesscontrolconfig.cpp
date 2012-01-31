@@ -62,7 +62,7 @@ QList< QPair< QString, QWidget* > > BrightnessControlConfig::buildUi()
     m_slider->setRange(0, 100);
     retlist.append(qMakePair< QString, QWidget* >(i18nc("Brightness level, label for the slider", "Level"), m_slider));
 
-    connect(m_slider, SIGNAL(sliderMoved(int)), this, SLOT(setChanged()));
+    connect(m_slider, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 
     return retlist;
 }

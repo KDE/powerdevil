@@ -72,6 +72,11 @@ bool Action::onUnloadAction()
     return true;
 }
 
+bool Action::isSupported()
+{
+    return true;
+}
+
 BackendInterface* Action::backend()
 {
     return d->core->backend();

@@ -122,8 +122,10 @@ void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightn
 
 void BackendInterface::setBatteryRemainingTime(qulonglong time)
 {
-    d->batteryRemainingTime = time;
-    emit batteryRemainingTimeChanged(time);
+    if (d->batteryRemainingTime != time) {
+        d->batteryRemainingTime = time;
+        emit batteryRemainingTimeChanged(time);
+    }
 }
 
 void BackendInterface::setBatteryState(PowerDevil::BackendInterface::BatteryState state)

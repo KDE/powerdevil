@@ -42,7 +42,7 @@
 #include <KServiceTypeTrader>
 #include <KStandardDirs>
 
-#include <kworkspace/kactivityconsumer.h>
+#include <KActivities/Consumer>
 
 #include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
@@ -56,7 +56,7 @@ Core::Core(QObject* parent, const KComponentData &componentData)
     , m_backend(0)
     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
-    , m_activityConsumer(new KActivityConsumer(this))
+    , m_activityConsumer(new KActivities::Consumer(this))
 {
 }
 

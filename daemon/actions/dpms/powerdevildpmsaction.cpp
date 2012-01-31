@@ -66,9 +66,8 @@ public:
 K_PLUGIN_FACTORY(PowerDevilDPMSActionFactory, registerPlugin<PowerDevilDPMSAction>(); )
 K_EXPORT_PLUGIN(PowerDevilDPMSActionFactory("powerdevildpmsaction"))
 
-PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& )
+PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
     : Action(parent)
-    , m_hasDPMS(true)
     , d(new Private)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
@@ -76,13 +75,18 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList& 
     // We want to query for DPMS in the constructor, before anything else happens
     d->defaultHandler = XSetErrorHandler(dropError);
 
-    Display *dpy = QX11Info::display();
-
-    int dummy;
-
-    if (!DPMSQueryExtension(dpy, &dummy, &dummy) || !DPMSCapable(dpy)) {
-        m_hasDPMS = false;
+    // Since we are in the constructor, we should check for support manually
+    if (!isSupported()) {
         XSetErrorHandler(d->defaultHandler);
+        return;
+    }
+
+    // Is the action being loaded outside the core?
+    if (args.size() > 0) {
+        if (args.first().toBool()) {
+            kDebug() << "Action loaded from outside the core, skipping early init";
+            return;
+        }
     }
 
     // Pretend we're unloading profiles here, as if the action is not enabled, DPMS should be switched off.
@@ -100,12 +104,19 @@ PowerDevilDPMSAction::~PowerDevilDPMSAction()
     delete d;
 }
 
+bool PowerDevilDPMSAction::isSupported()
+{
+    Display *dpy = QX11Info::display();
+    int dummy;
+
+    return DPMSQueryExtension(dpy, &dummy, &dummy) && DPMSCapable(dpy);
+}
+
 void PowerDevilDPMSAction::onProfileUnload()
 {
     using namespace PowerDevil;
     Display *dpy = QX11Info::display();
-    if (m_hasDPMS &&
-        !(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
+    if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
         DPMSDisable(dpy);
     } else {
         kDebug() << "Not performing DPMS action due to inhibition";
@@ -126,8 +137,7 @@ void PowerDevilDPMSAction::onProfileLoad()
 {
     using namespace PowerDevil;
     Display *dpy = QX11Info::display();
-    if (m_hasDPMS &&
-        !(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
+    if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
         DPMSEnable(dpy);
     } else {
         kDebug() << "Not performing DPMS action due to inhibition";
@@ -190,9 +200,7 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
         // Inhibition triggered: disable DPMS
         kDebug() << "Disabling DPMS due to inhibition";
         Display *dpy = QX11Info::display();
-        if (m_hasDPMS) {
-            DPMSDisable(dpy);
-        }
+        DPMSDisable(dpy);
     } else {
         // Inhibition removed: let's start again
         onProfileLoad();
