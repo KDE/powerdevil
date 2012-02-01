@@ -135,6 +135,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     if (batteryCount == 0) {
         tabWidget->setTabEnabled(1, false);
         tabWidget->setTabEnabled(2, false);
+        tabWidget->setTabBarHidden(true);
     }
 
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
