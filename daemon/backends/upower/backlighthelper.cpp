@@ -51,6 +51,16 @@ void BacklightHelper::init()
         }
     }
 
+    //If none of our whitelisted interface is available, get the first one  (if any)
+    if (m_dirname.isEmpty()) {
+        dir.setPath(PREFIX);
+        dir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+        QStringList dirList = dir.entryList();
+        if (!dirList.isEmpty()) {
+            m_dirname = dirList.first();
+        }
+    }
+
     if (m_dirname.isEmpty()) {
         qWarning() << "no kernel backlight interface found";
         return;
