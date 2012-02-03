@@ -22,6 +22,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
 
+
 #define PREFIX "/sys/class/backlight/"
 
 BacklightHelper::BacklightHelper(QObject * parent)
@@ -34,9 +35,9 @@ void BacklightHelper::init()
 {
     // find the first existing device with backlight support
     QStringList interfaces;
-    interfaces << "nv_backlight" << "intel_backlight" << "radeon_bl" << "mbp_backlight"
-               << "asus_laptop" << "toshiba" << "eeepc" << "thinkpad_screen" << "acpi_video1"
-               << "acpi_video0" << "apple_backlight" << "fujitsu-laptop" << "samsung"
+    interfaces << "nv_backlight" << "radeon_bl" << "mbp_backlight" << "asus_laptop"
+               << "toshiba" << "eeepc" << "thinkpad_screen" << "acpi_video1" << "acpi_video0"
+               << "intel_backlight" << "apple_backlight" << "fujitsu-laptop" << "samsung"
                << "nvidia_backlight" << "dell_backlight" << "sony" << "pwm-backlight"
                ;
 
@@ -48,6 +49,16 @@ void BacklightHelper::init()
             m_dirname = dir.path();
             //qDebug() << "kernel backlight support found in" << m_dirname;
             break;
+        }
+    }
+
+    //If none of our whitelisted interface is available, get the first one  (if any)
+    if (m_dirname.isEmpty()) {
+        dir.setPath(PREFIX);
+        dir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+        QStringList dirList = dir.entryList();
+        if (!dirList.isEmpty()) {
+            m_dirname = dirList.first();
         }
     }
 
