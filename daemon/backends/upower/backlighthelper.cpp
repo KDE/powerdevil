@@ -22,6 +22,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
 
+#include <sys/utsname.h>
 
 #define PREFIX "/sys/class/backlight/"
 
@@ -33,7 +34,76 @@ BacklightHelper::BacklightHelper(QObject * parent)
 
 void BacklightHelper::init()
 {
-    // find the first existing device with backlight support
+
+    if (useWhitelistInit()) {
+        initUsingWhitelist();
+    } else {
+        initUsingBacklightType();
+    }
+
+    if (m_dirname.isEmpty()) {
+        qWarning() << "no kernel backlight interface found";
+        return;
+    }
+
+    m_isSupported = true;
+}
+
+void BacklightHelper::initUsingBacklightType()
+{
+    QDir dir(PREFIX);
+    dir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    dir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
+
+    QStringList interfaces = dir.entryList();
+
+    if (interfaces.isEmpty()) {
+        return;
+    }
+
+    QFile file;
+    QByteArray buffer;
+    QStringList firmware, platform, raw;
+
+    foreach(const QString & interface, interfaces) {
+        file.setFileName(PREFIX + interface + "/type");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            continue;
+        }
+
+        buffer = file.readLine().trimmed();
+        if (buffer == "firmware") {
+            firmware.append(buffer);
+        } else if(buffer == "platform") {
+            platform.append(buffer);
+        } else if (buffer == "raw") {
+            raw.append(buffer);
+        } else {
+            qWarning() << "Interface type not handled" << buffer;
+        }
+
+        file.close();
+    }
+
+    if (!firmware.isEmpty()) {
+        m_dirname = firmware.first();
+        return;
+    }
+
+    if (!platform.isEmpty()) {
+        m_dirname = firmware.first();
+        return;
+    }
+
+    if (!raw.isEmpty()) {
+        m_dirname = firmware.first();
+        return;
+    }
+}
+
+
+void BacklightHelper::initUsingWhitelist()
+{
     QStringList interfaces;
     interfaces << "nv_backlight" << "radeon_bl" << "mbp_backlight" << "asus_laptop"
                << "toshiba" << "eeepc" << "thinkpad_screen" << "acpi_video1" << "acpi_video0"
@@ -61,13 +131,35 @@ void BacklightHelper::init()
             m_dirname = dirList.first();
         }
     }
+}
 
-    if (m_dirname.isEmpty()) {
-        qWarning() << "no kernel backlight interface found";
-        return;
+bool BacklightHelper::useWhitelistInit()
+{
+    struct utsname uts;
+    uname(&uts);
+
+    int major, minor, patch, result;
+    result = sscanf(uts.release, "%d.%d", &major, &minor);
+
+    if (result != 2) {
+        return true; // Malformed version
     }
 
-    m_isSupported = true;
+    if (major == 3) {
+        return false; //Kernel 3, we want type based init
+    }
+
+    result = sscanf(uts.release, "%d.%d.%d", &major, &minor, &patch);
+
+    if (result != 3) {
+        return true; // Malformed version
+    }
+
+    if (patch < 37) {
+        return true; //Minor than 2.6.37, use whiteList based
+    }
+
+    return false;//Use Type based interafce
 }
 
 ActionReply BacklightHelper::brightness(const QVariantMap & args)
