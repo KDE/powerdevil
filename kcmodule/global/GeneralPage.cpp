@@ -139,6 +139,7 @@ void GeneralPage::fillUi()
 void GeneralPage::load()
 {
     lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
+    doNotInhibitLid->setChecked(PowerDevilSettings::doNotInhibitOnLidClose());
 
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
@@ -154,6 +155,7 @@ void GeneralPage::configureNotifications()
 void GeneralPage::save()
 {
     PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
+    PowerDevilSettings::setDoNotInhibitOnLidClose(doNotInhibitLid->isChecked());
 
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
     PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
