@@ -49,8 +49,8 @@ private Q_SLOTS:
     void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
 
 private:
-    void processAction(uint action);
-    void triggerAction(const QString &action, const QVariant &type);
+    void processAction(uint action, bool isExplicit);
+    void triggerAction(const QString &action, const QVariant &type, bool isExplicit);
 
     uint m_lidAction;
     uint m_powerButtonAction;
