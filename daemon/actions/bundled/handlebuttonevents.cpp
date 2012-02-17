@@ -81,7 +81,8 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
             KIdleTime::instance()->simulateUserActivity();
             break;
         case BackendInterface::PowerButton:
-            processAction(m_powerButtonAction);
+            // This one is always explicit
+            processAction(m_powerButtonAction, true);
             break;
         default:
             break;
@@ -115,10 +116,10 @@ void HandleButtonEvents::triggerAction(const QString& action, const QVariant &ty
 
 void HandleButtonEvents::triggerImpl(const QVariantMap& args)
 {
-    // For now, let's just accept the phantomatic "32" button.
+    // For now, let's just accept the phantomatic "32" button. It is also always explicit
     if (args["Button"].toInt() == 32) {
         if (args.contains("Type")) {
-            triggerAction("SuspendSession", args["Type"]);
+            triggerAction("SuspendSession", args["Type"], true);
 	}
     }
 }
