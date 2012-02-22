@@ -26,6 +26,7 @@
 #include <KConfigGroup>
 #include <KIdleTime>
 
+#include "PowerDevilSettings.h"
 #include "screensaver_interface.h"
 
 namespace PowerDevil {
@@ -72,50 +73,53 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 {
     switch (type) {
         case BackendInterface::LidClose:
-            processAction(m_lidAction);
+            // Check if the configuration makes it explicit or not
+            processAction(m_lidAction, PowerDevilSettings::doNotInhibitOnLidClose());
             break;
         case BackendInterface::LidOpen:
             // In this case, let's send a wakeup event
             KIdleTime::instance()->simulateUserActivity();
             break;
         case BackendInterface::PowerButton:
-            processAction(m_powerButtonAction);
+            // This one is always explicit
+            processAction(m_powerButtonAction, true);
             break;
         default:
             break;
     }
 }
 
-void HandleButtonEvents::processAction(uint action)
+void HandleButtonEvents::processAction(uint action, bool isExplicit)
 {
     // Basically, we simply trigger other actions :)
     switch ((SuspendSession::Mode)action) {
         case SuspendSession::TurnOffScreenMode:
             // Turn off screen
-            triggerAction("DPMSControl", qVariantFromValue< QString >("TurnOff"));
+            triggerAction("DPMSControl", qVariantFromValue< QString >("TurnOff"), isExplicit);
             break;
         default:
-            triggerAction("SuspendSession", qVariantFromValue< uint >(action));
+            triggerAction("SuspendSession", qVariantFromValue< uint >(action), isExplicit);
             break;
     }
 }
 
-void HandleButtonEvents::triggerAction(const QString& action, const QVariant &type)
+void HandleButtonEvents::triggerAction(const QString& action, const QVariant &type, bool isExplicit)
 {
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, KConfigGroup(), core());
     if (helperAction) {
         QVariantMap args;
         args["Type"] = type;
+        args["Explicit"] = QVariant::fromValue(isExplicit);
         helperAction->trigger(args);
     }
 }
 
 void HandleButtonEvents::triggerImpl(const QVariantMap& args)
 {
-    // For now, let's just accept the phantomatic "32" button.
+    // For now, let's just accept the phantomatic "32" button. It is also always explicit
     if (args["Button"].toInt() == 32) {
         if (args.contains("Type")) {
-            triggerAction("SuspendSession", args["Type"]);
+            triggerAction("SuspendSession", args["Type"], true);
 	}
     }
 }

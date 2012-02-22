@@ -205,7 +205,7 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0" colspan="2">
+     <item row="2" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QPushButton" name="notificationsButton">
@@ -240,6 +240,32 @@
         </spacer>
        </item>
       </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="toolTip">
+        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
+       </property>
+       <property name="whatsThis">
+        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
+       </property>
+       <property name="text">
+        <string>Never prevent an action on lid close</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCheckBox" name="doNotInhibitLid">
+       <property name="toolTip">
+        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
+       </property>
+       <property name="whatsThis">
+        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
