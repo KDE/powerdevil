@@ -252,8 +252,13 @@ void PowerDevilUPowerBackend::enumerateDevices()
     m_onBattery = m_upowerInterface->onBattery();
 
     QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
-    foreach (const QDBusObjectPath & device, deviceList)
-        slotDeviceAdded(device.path());
+    foreach (const QDBusObjectPath & device, deviceList) {
+        OrgFreedesktopUPowerDeviceInterface * upowerDevice =
+                new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, device.path(), QDBusConnection::systemBus(), this);
+        m_devices.insert(device.path(), upowerDevice);
+    }
+
+    updateDeviceProps();
 
     if (m_onBattery)
         setAcAdapterState(Unplugged);
@@ -289,10 +294,12 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     qlonglong remainingTime = 0;
 
     foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
-        if ((upowerDevice->type() == 2 || upowerDevice->type() == 3) && upowerDevice->powerSupply()) {
-            if (upowerDevice->state() == 1) // charging
+        uint type = upowerDevice->type();
+        if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
+            uint state = upowerDevice->state();
+            if (state == 1) // charging
                 remainingTime += upowerDevice->timeToFull();
-            else if (upowerDevice->state() == 2) //discharging
+            else if (state == 2) //discharging
                 remainingTime += upowerDevice->timeToEmpty();
         }
     }
