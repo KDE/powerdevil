@@ -91,12 +91,12 @@ void BacklightHelper::initUsingBacklightType()
     }
 
     if (!platform.isEmpty()) {
-        m_dirname = firmware.first();
+        m_dirname = platform.first();
         return;
     }
 
     if (!raw.isEmpty()) {
-        m_dirname = firmware.first();
+        m_dirname = raw.first();
         return;
     }
 }
