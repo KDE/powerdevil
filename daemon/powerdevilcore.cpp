@@ -259,6 +259,9 @@ void Core::loadProfile(bool force)
 
     // Check the activity in which we are in
     QString activity = m_activityConsumer->currentActivity();
+    if (activity.isEmpty()) {
+        activity = "default";
+    }
     kDebug() << "We are now into activity " << activity;
     KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
     kDebug() << activitiesConfig.groupList() << activitiesConfig.keyList();
