@@ -73,11 +73,11 @@ void BacklightHelper::initUsingBacklightType()
 
         buffer = file.readLine().trimmed();
         if (buffer == "firmware") {
-            firmware.append(buffer);
+            firmware.append(interface);
         } else if(buffer == "platform") {
-            platform.append(buffer);
+            platform.append(interface);
         } else if (buffer == "raw") {
-            raw.append(buffer);
+            raw.append(interface);
         } else {
             qWarning() << "Interface type not handled" << buffer;
         }
@@ -86,17 +86,17 @@ void BacklightHelper::initUsingBacklightType()
     }
 
     if (!firmware.isEmpty()) {
-        m_dirname = firmware.first();
+        m_dirname = PREFIX + firmware.first();
         return;
     }
 
     if (!platform.isEmpty()) {
-        m_dirname = platform.first();
+        m_dirname = PREFIX + platform.first();
         return;
     }
 
     if (!raw.isEmpty()) {
-        m_dirname = raw.first();
+        m_dirname = PREFIX + raw.first();
         return;
     }
 }
