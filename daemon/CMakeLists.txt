@@ -31,7 +31,7 @@ set(powerdevilcore_SRCS
 
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
-set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
+set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
 qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
 
 kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
