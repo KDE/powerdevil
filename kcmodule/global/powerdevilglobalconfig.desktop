@@ -87,7 +87,7 @@ Comment[zh_CN]=配置高级电源管理
 Comment[zh_TW]=設定進階電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
-X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
+X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
 X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg
 X-KDE-Keywords[de]=system,energie,energieverwaltung,laptop,notebook,akku,batterie,ruhezustand,tiefschlaf,helligkeit,leistung,deckel
