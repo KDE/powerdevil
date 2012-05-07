@@ -11,7 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=99
 
-Name=Advanced settings
+Name=Advanced Settings
 Name[ca]=Arranjament avançat
 Name[ca@valencia]=Arranjament avançat
 Name[cs]=Pokročilá nastavení
@@ -51,7 +51,7 @@ Name[x-test]=xxAdvanced settingsxx
 Name[zh_CN]=高级设置
 Name[zh_TW]=進階設定
 
-Comment=Configure advanced Power Management settings
+Comment=Configure Advanced Power Management Settings
 Comment[ca]=Configura l'arranjament avançat de gestió d'energia
 Comment[ca@valencia]=Configura l'arranjament avançat de gestió d'energia
 Comment[cs]=Nastavení pokročilého nastavení správy napájení

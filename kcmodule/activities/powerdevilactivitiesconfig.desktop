@@ -11,7 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
-Name=Activity settings
+Name=Activity Settings
 Name[ar]=مدير الأنشطة
 Name[ca]=Arranjament d'activitat
 Name[ca@valencia]=Arranjament d'activitat
@@ -51,7 +51,7 @@ Name[x-test]=xxActivity settingsxx
 Name[zh_CN]=活动设置
 Name[zh_TW]=活動設定
 
-Comment=Configure per-activity Power Management settings
+Comment=Configure per-activity Power Management
 Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
 Comment[ca@valencia]=Configura l'arranjament per activitat de gestió d'energia
 Comment[cs]=Konfigurace nastavení správy napájení na činnost
