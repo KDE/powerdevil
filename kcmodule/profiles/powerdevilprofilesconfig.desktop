@@ -11,7 +11,7 @@ X-KDE-ParentApp=kcontrol
 X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=1
 
-Name=Energy Saving Settings
+Name=Energy Saving
 Name[ca]=Arranjament de l'estalvi d'energia
 Name[ca@valencia]=Arranjament de l'estalvi d'energia
 Name[cs]=Nastavení úspory energie
@@ -49,7 +49,7 @@ Name[x-test]=xxEnergy Saving Settingsxx
 Name[zh_CN]=节能设置
 Name[zh_TW]=省電設定
 
-Comment=Configure Energy Saving Settings
+Comment=Configure Energy Saving
 Comment[ca]=Configura l'arranjament de l'estalvi d'energia
 Comment[ca@valencia]=Configura l'arranjament de l'estalvi d'energia
 Comment[cs]=Upravte nastavení úspory energie
