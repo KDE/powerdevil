@@ -12,8 +12,18 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=1
 
 Name=Energy Saving
+Name[ia]=Sparnio de energia
+Name[nl]=Energiebesparing
+Name[pt]=Poupança de Energia
+Name[uk]=Заощадження енергії
+Name[x-test]=xxEnergy Savingxx
 
 Comment=Configure Energy Saving
+Comment[ia]=Configura sparnio de energia
+Comment[nl]=Energiebesparing instellen
+Comment[pt]=Configurar a Poupança de Energia
+Comment[uk]=Налаштувати заощадження енергії
+Comment[x-test]=xxConfigure Energy Savingxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa

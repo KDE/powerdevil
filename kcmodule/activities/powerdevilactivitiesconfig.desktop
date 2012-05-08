@@ -12,8 +12,18 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity Settings
+Name[ia]=Preferentias de activitate
+Name[nl]=Instellingen voor activiteiten
+Name[pt]=Configuração da Actividade
+Name[uk]=Параметри простору дій
+Name[x-test]=xxActivity Settingsxx
 
 Comment=Configure per-activity Power Management
+Comment[ia]=Configura gestion de energia per activitate
+Comment[nl]=Energiebeheer per activiteit instellen
+Comment[pt]=Configurar a Gestão de Energia por Actividade
+Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
+Comment[x-test]=xxConfigure per-activity Power Managementxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats

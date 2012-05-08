@@ -12,8 +12,18 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=99
 
 Name=Advanced Settings
+Name[ia]=Preferentias Avantiate
+Name[nl]=Geavanceerde instellingen
+Name[pt]=Configuração Avançada
+Name[uk]=Додаткові параметри
+Name[x-test]=xxAdvanced Settingsxx
 
 Comment=Configure Advanced Power Management Settings
+Comment[ia]=Configura preferentias avantiate de gestion de energia
+Comment[nl]=Instellingen voor geavanceerd energiebeheer configureren
+Comment[pt]=Configurar a Gestão de Energia Avançada
+Comment[uk]=Налаштування додаткових параметрів керування живленням
+Comment[x-test]=xxConfigure Advanced Power Management Settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
