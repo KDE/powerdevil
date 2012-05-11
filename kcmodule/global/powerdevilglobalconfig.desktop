@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=99
 
 Name=Advanced Settings
+Name[cs]=Pokročilá nastavení
 Name[ia]=Preferentias Avantiate
 Name[nl]=Geavanceerde instellingen
 Name[pa]=ਤਕਨੀਕੀ ਸੈਟਿੰਗ
@@ -20,6 +21,7 @@ Name[uk]=Додаткові параметри
 Name[x-test]=xxAdvanced Settingsxx
 
 Comment=Configure Advanced Power Management Settings
+Comment[cs]=Nastavení pokročilého nastavení správy napájení
 Comment[ia]=Configura preferentias avantiate de gestion de energia
 Comment[nl]=Instellingen voor geavanceerd energiebeheer configureren
 Comment[pt]=Configurar a Gestão de Energia Avançada
