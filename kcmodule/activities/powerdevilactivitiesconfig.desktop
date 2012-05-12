@@ -17,6 +17,7 @@ Name[ia]=Preferentias de activitate
 Name[nl]=Instellingen voor activiteiten
 Name[pa]=ਐਕਟਵਿਟੀ ਸੈਟਿੰਗ
 Name[pt]=Configuração da Actividade
+Name[tr]=Etkinlik Ayarları
 Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity Settingsxx
 
@@ -25,6 +26,7 @@ Comment[cs]=Konfigurace správy napájení na činnost
 Comment[ia]=Configura gestion de energia per activitate
 Comment[nl]=Energiebeheer per activiteit instellen
 Comment[pt]=Configurar a Gestão de Energia por Actividade
+Comment[tr]=Her Etkinlik için Genel Güç Yönetimi Ayarlarını Yapılandır
 Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
 Comment[x-test]=xxConfigure per-activity Power Managementxx
 
