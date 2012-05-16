@@ -13,6 +13,7 @@ X-KDE-Weight=99
 
 Name=Advanced Settings
 Name[cs]=Pokročilá nastavení
+Name[de]=Erweiterte Einstellungen
 Name[et]=Muud seadistused
 Name[ia]=Preferentias Avantiate
 Name[nl]=Geavanceerde instellingen
@@ -26,6 +27,7 @@ Name[x-test]=xxAdvanced Settingsxx
 
 Comment=Configure Advanced Power Management Settings
 Comment[cs]=Nastavení pokročilého nastavení správy napájení
+Comment[de]=Erweiterte Energieprofile einrichten
 Comment[et]=Toitehalduse muud seadistused
 Comment[ia]=Configura preferentias avantiate de gestion de energia
 Comment[nl]=Instellingen voor geavanceerd energiebeheer configureren
