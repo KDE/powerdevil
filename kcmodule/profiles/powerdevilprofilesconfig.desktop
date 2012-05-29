@@ -26,6 +26,7 @@ Name[sv]=Strömsparhantering
 Name[tr]=Enerji Tasarrufu
 Name[uk]=Заощадження енергії
 Name[x-test]=xxEnergy Savingxx
+Name[zh_CN]=节能
 
 Comment=Configure Energy Saving
 Comment[cs]=Upravte šetření energie
@@ -42,6 +43,7 @@ Comment[sv]=Anpassa strömsparhantering
 Comment[tr]=Enerji Tasarrufunu Yapılandır
 Comment[uk]=Налаштувати заощадження енергії
 Comment[x-test]=xxConfigure Energy Savingxx
+Comment[zh_CN]=保存能源设置
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
