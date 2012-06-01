@@ -27,6 +27,7 @@ Name[tr]=Etkinlik Ayarları
 Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity Settingsxx
 Name[zh_CN]=活动设置
+Name[zh_TW]=活動設定
 
 Comment=Configure per-activity Power Management
 Comment[cs]=Konfigurace správy napájení na činnost
@@ -43,6 +44,7 @@ Comment[tr]=Her Etkinlik için Genel Güç Yönetimi Ayarlarını Yapılandır
 Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
 Comment[x-test]=xxConfigure per-activity Power Managementxx
 Comment[zh_CN]=配置基于活动的电源管理
+Comment[zh_TW]=設定個別活動的電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats

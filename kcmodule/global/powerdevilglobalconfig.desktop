@@ -27,6 +27,7 @@ Name[tr]=Gelişmiş ayarlar
 Name[uk]=Додаткові параметри
 Name[x-test]=xxAdvanced Settingsxx
 Name[zh_CN]=高级设置
+Name[zh_TW]=進階設定
 
 Comment=Configure Advanced Power Management Settings
 Comment[cs]=Nastavení pokročilého nastavení správy napájení
@@ -43,6 +44,7 @@ Comment[tr]=Gelişmiş Güç Yönetimi Ayarlarını Yapılandır
 Comment[uk]=Налаштування додаткових параметрів керування живленням
 Comment[x-test]=xxConfigure Advanced Power Management Settingsxx
 Comment[zh_CN]=配置高级电源管理设置
+Comment[zh_TW]=設定進階電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
