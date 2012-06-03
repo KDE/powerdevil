@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=1
 
 Name=Energy Saving
+Name[ca]=Estalvi d'energia
 Name[cs]=Úsporný režim
 Name[de]=Energiesparen
 Name[el]=Εξοικονόμηση ενέργειας
@@ -30,6 +31,7 @@ Name[zh_CN]=节能
 Name[zh_TW]=省電模式
 
 Comment=Configure Energy Saving
+Comment[ca]=Configura l'estalvi d'energia
 Comment[cs]=Upravte šetření energie
 Comment[de]=Energiespar-Einstellungen einrichten
 Comment[el]=Διαμόρφωση της εξοικονόμησης ενέργειας
