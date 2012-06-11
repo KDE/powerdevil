@@ -114,12 +114,12 @@ void PowerDevilUPowerBackend::init()
     // Supported suspend methods
     SuspendMethods supported = UnknownSuspendMethod;
     {
-        if (m_upowerInterface->canSuspend()) {
+        if (m_upowerInterface->canSuspend() && m_upowerInterface->SuspendAllowed()) {
             kDebug() << "Can suspend";
             supported |= ToRam;
         }
 
-        if (m_upowerInterface->canHibernate()) {
+        if (m_upowerInterface->canHibernate() && m_upowerInterface->HibernateAllowed()) {
             kDebug() << "Can hibernate";
             supported |= ToDisk;
         }
