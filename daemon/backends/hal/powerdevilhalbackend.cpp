@@ -379,16 +379,16 @@ void PowerDevilHALBackend::slotButtonPressed(Solid::Button::ButtonType type)
 
     switch(type) {
     case Solid::Button::PowerButton:
-        emit buttonPressed(PowerButton);
+        setButtonPressed(PowerButton);
         break;
     case Solid::Button::SleepButton:
-        emit buttonPressed(SleepButton);
+        setButtonPressed(SleepButton);
         break;
     case Solid::Button::LidButton:
         if (button->stateValue()) {
-            emit buttonPressed(LidClose);
+            setButtonPressed(LidClose);
         } else {
-            emit buttonPressed(LidOpen);
+            setButtonPressed(LidOpen);
         }
         break;
     default:
