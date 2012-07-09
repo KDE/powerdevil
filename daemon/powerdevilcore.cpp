@@ -384,6 +384,7 @@ void Core::loadProfile(bool force)
         // We are now on a different profile
         m_currentProfile = profileId;
         emit profileChanged(m_currentProfile);
+        emit brightnessChanged(brightness());
     }
 
     // Now... any special behaviors we'd like to consider?
