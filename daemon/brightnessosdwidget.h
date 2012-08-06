@@ -54,6 +54,8 @@ protected:
     virtual void resizeEvent(QResizeEvent *);
     void showEvent(QShowEvent *event);
 
+    void themeUpdated();
+
 private:
     Plasma::FrameSvg *m_background;
     QGraphicsScene *m_scene;

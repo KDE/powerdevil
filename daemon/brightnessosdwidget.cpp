@@ -57,22 +57,8 @@ BrightnessOSDWidget::BrightnessOSDWidget(QWidget * parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setAttribute(Qt::WA_TranslucentBackground);
 
-    //Cache the icon pixmaps
-    QSize iconSize = QSize(KIconLoader::SizeSmallMedium, KIconLoader::SizeSmallMedium);
-
-    m_brightnessPixmap = KIcon("video-display").pixmap(iconSize);
-
-    //Setup the widgets
-    m_background->setImagePath("widgets/tooltip");
-
-    m_iconLabel->nativeWidget()->setPixmap(m_brightnessPixmap);
-    m_iconLabel->nativeWidget()->setFixedSize(iconSize);
-    m_iconLabel->setMinimumSize(iconSize);
-    m_iconLabel->setMaximumSize(iconSize);
-
     m_meter->setMeterType(Plasma::Meter::BarMeterHorizontal);
     m_meter->setMaximum(100);
-    m_meter->setMaximumHeight(iconSize.height());
 
     m_volumeLabel->setAlignment(Qt::AlignCenter);
 
@@ -85,8 +71,13 @@ BrightnessOSDWidget::BrightnessOSDWidget(QWidget * parent)
     QGraphicsLinearLayout *layout = new QGraphicsLinearLayout(m_container);
     layout->addItem(m_iconLabel);
     layout->addItem(m_meter);
+    layout->addItem(m_volumeLabel);
 
     m_scene->addItem(m_container);
+
+    themeUpdated();
+    connect(Plasma::Theme::defaultTheme(), SIGNAL(themeChanged()), this, SLOT(themeUpdated())); // e.g. for updating font
+
     setScene(m_scene);
 }
 
@@ -98,6 +89,7 @@ void BrightnessOSDWidget::activateOSD()
 void BrightnessOSDWidget::setCurrentBrightness(int brightnessLevel)
 {
     m_meter->setValue(brightnessLevel);
+    m_volumeLabel->setText(QString::number(brightnessLevel) + " %");
 }
 
 void BrightnessOSDWidget::drawBackground(QPainter *painter, const QRectF &/*rectF*/)
@@ -111,11 +103,12 @@ void BrightnessOSDWidget::drawBackground(QPainter *painter, const QRectF &/*rect
 QSize BrightnessOSDWidget::sizeHint() const
 {
     int iconSize = m_iconLabel->nativeWidget()->pixmap()->height();
+    int labelWidth = m_volumeLabel->nativeWidget()->size().width();
     int meterHeight = iconSize;
     int meterWidth = iconSize * 12;
     qreal left, top, right, bottom;
     m_background->getMargins(left, top, right, bottom);
-    return QSize(meterWidth + iconSize + left + right, meterHeight + top + bottom);
+    return QSize(meterWidth + labelWidth + iconSize + left + right, meterHeight + top + bottom);
 }
 
 void BrightnessOSDWidget::resizeEvent(QResizeEvent*)
@@ -136,5 +129,47 @@ void BrightnessOSDWidget::showEvent(QShowEvent *event)
 {
     Plasma::WindowEffects::overrideShadow(winId(), true);
 }
+
+void BrightnessOSDWidget::themeUpdated()
+{
+    //Set a font which makes the text appear as big (height-wise) as the meter.
+    //QFont font = QFont(m_volumeLabel->nativeWidget()->font());
+    Plasma::Theme* theme = Plasma::Theme::defaultTheme();
+
+
+    QPalette palette = m_volumeLabel->palette();
+    palette.setColor(QPalette::WindowText, theme->color(Plasma::Theme::TextColor));
+    m_volumeLabel->setPalette(palette);
+
+    QFont font = theme->font(Plasma::Theme::DefaultFont);
+    font.setPointSize(15);
+    m_volumeLabel->setFont(font);
+    QFontMetrics qfm(font);
+    QRect textSize = qfm.boundingRect("100 %  ");
+
+    int widthHint = textSize.width();
+    int heightHint = textSize.height();
+    //setCurrentVolume(100,false);
+    m_volumeLabel->setMaximumHeight(heightHint);
+    m_volumeLabel->setMinimumWidth(widthHint);
+    m_volumeLabel->nativeWidget()->setFixedWidth(widthHint);
+
+    //Cache the icon pixmaps
+    QFontMetrics fm(m_volumeLabel->font());
+    QSize iconSize = QSize(fm.height(), fm.height());
+
+    m_brightnessPixmap = KIcon("video-display").pixmap(iconSize);
+
+    //Setup the widgets
+    m_background->setImagePath("widgets/tooltip");
+
+    m_iconLabel->nativeWidget()->setPixmap(m_brightnessPixmap);
+    m_iconLabel->nativeWidget()->setFixedSize(iconSize);
+    m_iconLabel->setMinimumSize(iconSize);
+    m_iconLabel->setMaximumSize(iconSize);
+
+    m_meter->setMaximumHeight(iconSize.height());
+}
+
 
 #include "brightnessosdwidget.moc"
