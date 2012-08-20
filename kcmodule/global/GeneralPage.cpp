@@ -120,6 +120,7 @@ void GeneralPage::fillUi()
     // modified fields...
 
     connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(changed()));
+    connect(doNotInhibitLid, SIGNAL(stateChanged(int)), SLOT(changed()));
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 

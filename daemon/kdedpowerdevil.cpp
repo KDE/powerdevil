@@ -53,7 +53,7 @@ KDEDPowerDevil::~KDEDPowerDevil()
 
 void KDEDPowerDevil::init()
 {
-    KGlobal::locale()->insertCatalog("powerdevil");
+    KGlobal::insertCatalog("powerdevil");
 
     KAboutData aboutData("powerdevil", "powerdevil", ki18n("KDE Power Management System"),
                          POWERDEVIL_VERSION, ki18n("KDE Power Management System is PowerDevil, an "
