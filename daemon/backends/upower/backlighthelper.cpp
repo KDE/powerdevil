@@ -240,7 +240,7 @@ int BacklightHelper::maxBrightness() const
     //qDebug() << "max brightness:" << max_brightness;
     file.close();
 
-    return max_brightness;
+    return max_brightness ? max_brightness : -1;
 }
 
 KDE4_AUTH_HELPER_MAIN("org.kde.powerdevil.backlighthelper", BacklightHelper)
