@@ -84,7 +84,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
     setupUi(this);
 
-    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
+    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
 
     if (m_profilesConfig->groupList().isEmpty()) {
         // Use the generator
