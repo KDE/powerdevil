@@ -32,7 +32,7 @@
 ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
     : QWidget(parent)
     , m_ui(new Ui::ActivityWidget)
-    , m_profilesConfig(KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig))
+    , m_profilesConfig(KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig))
     , m_activity(activity)
     , m_activityConsumer(new KActivities::Consumer(this))
     , m_actionEditWidget(new ActionEditWidget(QString("Activities/%1/SeparateSettings").arg(activity)))
