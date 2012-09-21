@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2012 Lukáš Tinkl <ltinkl@redhat.com>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -31,6 +32,15 @@
 
 class QDBusServiceWatcher;
 class QDBusInterface;
+
+#define SYSTEMD_LOGIN1_SERVICE "org.freedesktop.login1"
+#define SYSTEMD_LOGIN1_PATH "/org/freedesktop/login1"
+#define SYSTEMD_LOGIN1_MANAGER_IFACE "org.freedesktop.login1.Manager"
+#define SYSTEMD_LOGIN1_SESSION_IFACE "org.freedesktop.login1.Session"
+#define SYSTEMD_LOGIN1_SEAT_IFACE "org.freedesktop.login1.Seat"
+
+#define CONSOLEKIT_SERVICE "org.freedesktop.ConsoleKit"
+
 
 namespace PowerDevil
 {
@@ -69,15 +79,15 @@ public Q_SLOTS:
     void ReleaseInhibition(uint cookie);
 
     void releaseAllInhibitions();
-
 Q_SIGNALS:
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
 
 private Q_SLOTS:
-    void onServiceUnregistered(const QString &serviceName);
-    void onConsoleKitRegistered(const QString&);
-    void onConsoleKitUnregistered(const QString&);
-    void onConsoleKitActiveSessionChanged(const QString &activeSession);
+    void onServiceUnregistered(const QString & serviceName);
+    void onSessionHandlerRegistered(const QString & serviceName);
+    void onSessionHandlerUnregistered(const QString & serviceName);
+    void onActiveSessionChanged(const QString & ifaceName, const QVariantMap & changedProps, const QStringList & invalidatedProps);
+    void onActiveSessionChanged(const QString &activeSession);
 
 private:
     explicit PolicyAgent(QObject* parent = 0);
@@ -92,6 +102,14 @@ private:
     uint addInhibitionWithExplicitDBusService(uint types, const QString &appName,
                                               const QString &reason, const QString &service);
 
+    // systemd support
+    QString getNamedPathProperty(const QString & path, const QString & iface, const QString & prop) const;
+    bool m_sdAvailable;
+    QString m_activeSessionPath;
+    QWeakPointer< QDBusInterface > m_sdSessionInterface;
+    QWeakPointer< QDBusInterface > m_sdSeatInterface;
+
+    // ConsoleKit support
     bool m_ckAvailable;
     QWeakPointer< QDBusInterface > m_ckSessionInterface;
     QWeakPointer< QDBusInterface > m_ckSeatInterface;
@@ -104,6 +122,7 @@ private:
     uint m_lastCookie;
 
     QWeakPointer< QDBusServiceWatcher > m_busWatcher;
+    QWeakPointer< QDBusServiceWatcher > m_sdWatcher;
     QWeakPointer< QDBusServiceWatcher > m_ckWatcher;
 
     bool m_wasLastActiveSession;

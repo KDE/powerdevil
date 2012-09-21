@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2012 Lukáš Tinkl <ltinkl@redhat.com>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -20,6 +21,12 @@
 
 #include "powerdevilpolicyagent.h"
 
+#include <QtCore/QCoreApplication>
+#include <QtDBus/QDBusObjectPath>
+#include <QtDBus/QDBusArgument>
+#include <QtCore/QMetaType>
+#include <QtDBus/QDBusMetaType>
+
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusPendingReply>
@@ -29,13 +36,39 @@
 #include <KGlobal>
 #include <KDebug>
 
+struct NamedDBusObjectPath
+{
+    QString name;
+    QDBusObjectPath path;
+};
+
+// Marshall the NamedDBusObjectPath data into a D-Bus argument
+QDBusArgument &operator<<(QDBusArgument &argument, const NamedDBusObjectPath &namedPath)
+{
+    argument.beginStructure();
+    argument << namedPath.name << namedPath.path;
+    argument.endStructure();
+    return argument;
+}
+
+// Retrieve the NamedDBusObjectPath data from the D-Bus argument
+const QDBusArgument &operator>>(const QDBusArgument &argument, NamedDBusObjectPath &namedPath)
+{
+    argument.beginStructure();
+    argument >> namedPath.name >> namedPath.path;
+    argument.endStructure();
+    return argument;
+}
+
+Q_DECLARE_METATYPE(NamedDBusObjectPath)
+
 namespace PowerDevil
 {
 
 class PolicyAgentHelper
 {
 public:
-    PolicyAgentHelper() : q(0) {}
+    PolicyAgentHelper() : q(0) { }
     ~PolicyAgentHelper() {
         delete q;
     }
@@ -55,10 +88,12 @@ PolicyAgent *PolicyAgent::instance()
 
 PolicyAgent::PolicyAgent(QObject* parent)
     : QObject(parent)
+    , m_sdAvailable(false)
     , m_ckAvailable(false)
     , m_sessionIsBeingInterrupted(false)
     , m_lastCookie(0)
     , m_busWatcher(new QDBusServiceWatcher(this))
+    , m_sdWatcher(new QDBusServiceWatcher(this))
     , m_ckWatcher(new QDBusServiceWatcher(this))
 {
     Q_ASSERT(!s_globalPolicyAgent->q);
@@ -72,19 +107,34 @@ PolicyAgent::~PolicyAgent()
 
 void PolicyAgent::init()
 {
+    // Watch over the systemd service
+    m_sdWatcher.data()->setConnection(QDBusConnection::systemBus());
+    m_sdWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
+                                     QDBusServiceWatcher::WatchForRegistration);
+    m_sdWatcher.data()->addWatchedService(SYSTEMD_LOGIN1_SERVICE);
+
+    connect(m_sdWatcher.data(), SIGNAL(serviceRegistered(QString)),
+            this, SLOT(onSessionHandlerRegistered(QString)));
+    connect(m_sdWatcher.data(), SIGNAL(serviceUnregistered(QString)),
+            this, SLOT(onSessionHandlerUnregistered(QString)));
+    // If it's up and running already, let's cache it
+    if (QDBusConnection::systemBus().interface()->isServiceRegistered(SYSTEMD_LOGIN1_SERVICE)) {
+        onSessionHandlerRegistered(SYSTEMD_LOGIN1_SERVICE);
+    }
+
     // Watch over the ConsoleKit service
     m_ckWatcher.data()->setConnection(QDBusConnection::sessionBus());
     m_ckWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
                                      QDBusServiceWatcher::WatchForRegistration);
-    m_ckWatcher.data()->addWatchedService("org.freedesktop.ConsoleKit");
+    m_ckWatcher.data()->addWatchedService(CONSOLEKIT_SERVICE);
 
     connect(m_ckWatcher.data(), SIGNAL(serviceRegistered(QString)),
-            this, SLOT(onConsoleKitRegistered(QString)));
+            this, SLOT(onSessionHandlerRegistered(QString)));
     connect(m_ckWatcher.data(), SIGNAL(serviceUnregistered(QString)),
-            this, SLOT(onConsoleKitUnregistered(QString)));
+            this, SLOT(onSessionHandlerUnregistered(QString)));
     // If it's up and running already, let's cache it
-    if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.ConsoleKit")) {
-        onConsoleKitRegistered("org.freedesktop.ConsoleKit");
+    if (QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT_SERVICE)) {
+        onSessionHandlerRegistered(CONSOLEKIT_SERVICE);
     }
 
     // Now set up our service watcher
@@ -95,75 +145,176 @@ void PolicyAgent::init()
             this, SLOT(onServiceUnregistered(QString)));
 }
 
-void PowerDevil::PolicyAgent::onConsoleKitRegistered(const QString& )
+QString PolicyAgent::getNamedPathProperty(const QString &path, const QString &iface, const QString &prop) const
 {
-    m_ckAvailable = true;
+    QDBusMessage message = QDBusMessage::createMethodCall(SYSTEMD_LOGIN1_SERVICE, path,
+                                                          QLatin1String("org.freedesktop.DBus.Properties"), QLatin1String("Get"));
+    message << iface << prop;
+    QDBusMessage reply = QDBusConnection::systemBus().call(message);
 
-    // Otherwise, let's ask ConsoleKit
-    QDBusInterface ckiface("org.freedesktop.ConsoleKit", "/org/freedesktop/ConsoleKit/Manager",
-                           "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus());
-
-    QDBusPendingReply<QDBusObjectPath> sessionPath = ckiface.asyncCall("GetCurrentSession");
-
-    sessionPath.waitForFinished();
-
-    if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
-        kDebug() << "The session is not registered with ck";
-        m_ckAvailable = false;
-        return;
+    QVariantList args = reply.arguments();
+    if (!args.isEmpty()) {
+        NamedDBusObjectPath namedPath;
+        args.at(0).value<QDBusVariant>().variant().value<QDBusArgument>() >> namedPath;
+        return namedPath.path.path();
     }
 
-    m_ckSessionInterface = new QDBusInterface("org.freedesktop.ConsoleKit", sessionPath.value().path(),
-                                              "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
-
-    if (!m_ckSessionInterface.data()->isValid()) {
-        // As above
-        kDebug() << "Can't contact iface";
-        m_ckAvailable = false;
-        return;
-    }
-
-    // Now let's obtain the seat
-    QDBusPendingReply< QDBusObjectPath > seatPath = m_ckSessionInterface.data()->asyncCall("GetSeatId");
-    seatPath.waitForFinished();
-
-    if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
-        kDebug() << "Unable to associate ck session with a seat";
-        m_ckAvailable = false;
-        return;
-    }
-
-    if (!QDBusConnection::systemBus().connect("org.freedesktop.ConsoleKit", seatPath.value().path(),
-                                              "org.freedesktop.ConsoleKit.Seat", "ActiveSessionChanged",
-                                              this, SLOT(onConsoleKitActiveSessionChanged(QString)))) {
-        kDebug() << "Unable to connect to ActiveSessionChanged";
-        m_ckAvailable = false;
-        return;
-    }
-
-    // Force triggering of active session changed
-    QDBusMessage call = QDBusMessage::createMethodCall("org.freedesktop.ConsoleKit", seatPath.value().path(),
-                                                       "org.freedesktop.ConsoleKit.Seat", "GetActiveSession");
-    QDBusPendingReply< QDBusObjectPath > activeSession = QDBusConnection::systemBus().asyncCall(call);
-    activeSession.waitForFinished();
-
-    onConsoleKitActiveSessionChanged(activeSession.value().path());
-
-    kDebug() << "ConsoleKit support initialized";
+    return QString();
 }
 
-void PowerDevil::PolicyAgent::onConsoleKitUnregistered(const QString& )
+void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 {
-    m_ckAvailable = false;
-    m_ckSessionInterface.data()->deleteLater();
+    if (serviceName == SYSTEMD_LOGIN1_SERVICE) {
+        m_sdAvailable = true;
+
+        qRegisterMetaType<NamedDBusObjectPath>();
+        qDBusRegisterMetaType<NamedDBusObjectPath>();
+
+        // get the current session
+        QDBusInterface managerIface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus());
+        QDBusPendingReply<QDBusObjectPath> session = managerIface.asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
+        session.waitForFinished();
+
+        if (!session.isValid()) {
+            kDebug() << "The session is not registered with systemd";
+            m_sdAvailable = false;
+            return;
+        }
+
+        QString sessionPath = session.value().path();
+        kDebug() << "Session path:" << sessionPath;
+
+        m_sdSessionInterface = new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, sessionPath,
+                                                  SYSTEMD_LOGIN1_SESSION_IFACE, QDBusConnection::systemBus(), this);
+        if (!m_sdSessionInterface.data()->isValid()) {
+            // As above
+            kDebug() << "Can't contact session iface";
+            m_sdAvailable = false;
+            delete m_sdSessionInterface.data();
+            return;
+        }
+
+
+        // now let's obtain the seat
+        QString seatPath = getNamedPathProperty(sessionPath, SYSTEMD_LOGIN1_SESSION_IFACE, "Seat");
+
+        if (seatPath.isEmpty() || seatPath == "/") {
+            kDebug() << "Unable to associate systemd session with a seat" << seatPath;
+            m_sdAvailable = false;
+            return;
+        }
+
+        // get the current seat
+        m_sdSeatInterface = new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, seatPath,
+                                               SYSTEMD_LOGIN1_SEAT_IFACE, QDBusConnection::systemBus(), this);
+
+        if (!m_sdSeatInterface.data()->isValid()) {
+            // As above
+            kDebug() << "Can't contact seat iface";
+            m_sdAvailable = false;
+            delete m_sdSeatInterface.data();
+            return;
+        }
+
+        // finally get the active session path and watch for its changes
+        m_activeSessionPath = getNamedPathProperty(seatPath, SYSTEMD_LOGIN1_SEAT_IFACE, "ActiveSession");
+
+        kDebug() << "ACTIVE SESSION PATH:" << m_activeSessionPath;
+        QDBusConnection::systemBus().connect(SYSTEMD_LOGIN1_SERVICE, seatPath, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
+                                             SLOT(onActiveSessionChanged(QString,QVariantMap,QStringList)));
+
+        onActiveSessionChanged(m_activeSessionPath);
+
+        kDebug() << "systemd support initialized";
+    } else if (serviceName == CONSOLEKIT_SERVICE) {
+        m_ckAvailable = true;
+
+        // Otherwise, let's ask ConsoleKit
+        QDBusInterface ckiface(CONSOLEKIT_SERVICE, "/org/freedesktop/ConsoleKit/Manager",
+                               "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus());
+
+        QDBusPendingReply<QDBusObjectPath> sessionPath = ckiface.asyncCall("GetCurrentSession");
+
+        sessionPath.waitForFinished();
+
+        if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
+            kDebug() << "The session is not registered with ck";
+            m_ckAvailable = false;
+            return;
+        }
+
+        m_ckSessionInterface = new QDBusInterface(CONSOLEKIT_SERVICE, sessionPath.value().path(),
+                                                  "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
+
+        if (!m_ckSessionInterface.data()->isValid()) {
+            // As above
+            kDebug() << "Can't contact iface";
+            m_ckAvailable = false;
+            return;
+        }
+
+        // Now let's obtain the seat
+        QDBusPendingReply< QDBusObjectPath > seatPath = m_ckSessionInterface.data()->asyncCall("GetSeatId");
+        seatPath.waitForFinished();
+
+        if (!seatPath.isValid() || seatPath.value().path().isEmpty()) {
+            kDebug() << "Unable to associate ck session with a seat";
+            m_ckAvailable = false;
+            return;
+        }
+
+        if (!QDBusConnection::systemBus().connect(CONSOLEKIT_SERVICE, seatPath.value().path(),
+                                                  "org.freedesktop.ConsoleKit.Seat", "ActiveSessionChanged",
+                                                  this, SLOT(onActiveSessionChanged(QString)))) {
+            kDebug() << "Unable to connect to ActiveSessionChanged";
+            m_ckAvailable = false;
+            return;
+        }
+
+        // Force triggering of active session changed
+        QDBusMessage call = QDBusMessage::createMethodCall(CONSOLEKIT_SERVICE, seatPath.value().path(),
+                                                           "org.freedesktop.ConsoleKit.Seat", "GetActiveSession");
+        QDBusPendingReply< QDBusObjectPath > activeSession = QDBusConnection::systemBus().asyncCall(call);
+        activeSession.waitForFinished();
+
+        onActiveSessionChanged(activeSession.value().path());
+
+        kDebug() << "ConsoleKit support initialized";
+    }
+    else
+        kdWarning() << "Unhandled service registered:" << serviceName;
 }
 
-void PolicyAgent::onConsoleKitActiveSessionChanged(const QString& activeSession)
+void PolicyAgent::onSessionHandlerUnregistered(const QString & serviceName)
 {
-    if (activeSession.isEmpty()) {
+    if (serviceName == SYSTEMD_LOGIN1_SERVICE) {
+        m_sdAvailable = false;
+        delete m_sdSessionInterface.data();
+    }
+    else if (serviceName == CONSOLEKIT_SERVICE) {
+        m_ckAvailable = false;
+        delete m_ckSessionInterface.data();
+    }
+}
+
+void PolicyAgent::onActiveSessionChanged(const QString & ifaceName, const QVariantMap & changedProps, const QStringList & invalidatedProps)
+{
+    const QString key = QLatin1String("ActiveSession");
+
+    if (ifaceName == SYSTEMD_LOGIN1_SEAT_IFACE && (changedProps.keys().contains(key) || invalidatedProps.contains(key))) {
+        m_activeSessionPath = getNamedPathProperty(m_sdSeatInterface.data()->path(), SYSTEMD_LOGIN1_SEAT_IFACE, key);
+        kDebug() << "ACTIVE SESSION PATH CHANGED:" << m_activeSessionPath;
+        onActiveSessionChanged(m_activeSessionPath);
+    }
+}
+
+void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
+{
+    if (activeSession.isEmpty() || activeSession == "/") {
         kDebug() << "Switched to inactive session - leaving unchanged";
         return;
-    } else if (activeSession == m_ckSessionInterface.data()->path()) {
+    } else if ((!m_sdSessionInterface.isNull() && activeSession == m_sdSessionInterface.data()->path()) ||
+               (!m_ckSessionInterface.isNull() && activeSession == m_ckSessionInterface.data()->path())) {
         kDebug() << "Current session is now active";
         m_wasLastActiveSession = true;
     } else {
@@ -201,6 +352,17 @@ PolicyAgent::RequiredPolicies PolicyAgent::unavailablePolicies()
 
 PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::RequiredPolicies policies)
 {
+    if (!m_sdAvailable) {
+        // No way to determine if we are on the current session, simply suppose we are
+        kDebug() << "Can't contact systemd";
+    } else if (!m_sdSessionInterface.isNull()) {
+        bool isActive = m_sdSessionInterface.data()->property("Active").toBool();
+
+        if (!isActive && !m_wasLastActiveSession && policies != InterruptSession) {
+            return policies;
+        }
+    }
+
     if (!m_ckAvailable) {
         // No way to determine if we are on the current session, simply suppose we are
         kDebug() << "Can't contact ck";
