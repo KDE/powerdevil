@@ -282,7 +282,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         kDebug() << "ConsoleKit support initialized";
     }
     else
-        kdWarning() << "Unhandled service registered:" << serviceName;
+        kWarning() << "Unhandled service registered:" << serviceName;
 }
 
 void PolicyAgent::onSessionHandlerUnregistered(const QString & serviceName)
