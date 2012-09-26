@@ -18,9 +18,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#include "powerdevilpolicyagent.h"
-
 #include <QtCore/QCoreApplication>
 #include <QtDBus/QDBusObjectPath>
 #include <QtDBus/QDBusArgument>
@@ -32,9 +29,12 @@
 #include <QtDBus/QDBusPendingReply>
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusServiceWatcher>
+#include <QtDBus/QDBusUnixFileDescriptor>
 
 #include <KGlobal>
 #include <KDebug>
+
+#include "powerdevilpolicyagent.h"
 
 struct NamedDBusObjectPath
 {
@@ -102,7 +102,6 @@ PolicyAgent::PolicyAgent(QObject* parent)
 
 PolicyAgent::~PolicyAgent()
 {
-
 }
 
 void PolicyAgent::init()
@@ -224,6 +223,20 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
                                              SLOT(onActiveSessionChanged(QString,QVariantMap,QStringList)));
 
         onActiveSessionChanged(m_activeSessionPath);
+
+        // inhibit systemd handling of power/sleep/lid buttons
+        QVariantList args;
+        args << "handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch"; // what
+        args << "PowerDevil"; // who
+        args << "KDE handles power events"; // why
+        args << "block"; // mode
+        QDBusPendingReply<QDBusUnixFileDescriptor> desc = managerIface.asyncCallWithArgumentList("Inhibit", args);
+        desc.waitForFinished();
+        if (desc.isValid() && desc.value().isValid()) {
+            kDebug() << "systemd powersave events handling inhibited";
+        }
+        else
+            kWarning() << "failed to inhibit systemd powersave handling";
 
         kDebug() << "systemd support initialized";
     } else if (serviceName == CONSOLEKIT_SERVICE) {
