@@ -478,7 +478,6 @@ void PowerDevilHALBackend::updateBatteryStats()
 {
     m_currentBatteryCharge = 0;
     m_maxBatteryCharge = 0;
-    m_warningBatteryCharge = 0;
     m_lowBatteryCharge = 0;
     m_criticalBatteryCharge = 0;
     m_estimatedBatteryTime = 0;
@@ -490,7 +489,6 @@ void PowerDevilHALBackend::updateBatteryStats()
 
         m_currentBatteryCharge += interface->property("battery.charge_level.current").toInt();
         m_maxBatteryCharge += interface->property("battery.charge_level.last_full").toInt();
-        m_warningBatteryCharge += interface->property("battery.charge_level.warning").toInt();
         m_lowBatteryCharge += interface->property("battery.charge_level.low").toInt();
         m_estimatedBatteryTime += interface->property("battery.remaining_time").toInt() * 1000;
     }

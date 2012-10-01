@@ -111,7 +111,7 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
             KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
             break;
         case LockScreenMode:
-            core()->emitNotification("doingjob", i18n("The screen is being locked"));
+            core()->emitNotification("lockscreen", i18n("Locking Screen"), i18n("The screen is being locked"));
             lockScreenAndWait();
             break;
         default:

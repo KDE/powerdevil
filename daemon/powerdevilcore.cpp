@@ -198,7 +198,7 @@ QString Core::checkBatteryStatus(bool notify)
                                    i.value(), i.key());
             }
             if (notify) {
-                emitNotification("brokenbattery", lastMessage, "dialog-warning");
+                emitRichNotification("brokenbattery", i18n("Broken Battery"), lastMessage);
             }
         }
     }
@@ -219,7 +219,7 @@ QString Core::checkBatteryStatus(bool notify)
                                "verify if your battery is faulted.", notice.vendor, notice.url, notice.batteryId);
         }
         if (notify) {
-            emitNotification("brokenbattery", lastMessage, "dialog-warning");
+            emitRichNotification("brokenbattery", i18n("Check Your Battery"), lastMessage);
         }
     }
 
@@ -341,7 +341,7 @@ void Core::loadProfile(bool force)
     if (!config.isValid()) {
         emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
                          "but it does not exist.\nPlease check your PowerDevil configuration.",
-                         profileId), "dialog-error");
+                         profileId));
         return;
     }
 
@@ -377,7 +377,7 @@ void Core::loadProfile(bool force)
                 emitNotification("powerdevilerror", i18n("The profile \"%1\" tried to activate %2, "
                                 "a non existent action. This is usually due to an installation problem"
                                 " or to a configuration problem.",
-                                profileId, actionName), "dialog-warning");
+                                profileId, actionName));
             }
         }
 
@@ -452,7 +452,7 @@ void Core::onDeviceAdded(const QString& udi)
     if (!connect(b, SIGNAL(chargePercentChanged(int,QString)),
                  this, SLOT(onBatteryChargePercentChanged(int,QString)))) {
         emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
-                         "Please check your system configuration"), "dialog-error");
+                         "Please check your system configuration"));
     }
 
     kDebug() << "A new battery was detected";
@@ -483,9 +483,21 @@ void Core::onDeviceRemoved(const QString& udi)
 
 void Core::emitNotification(const QString &evid, const QString &message, const QString &iconname)
 {
-    KNotification::event(evid, message, KIcon(iconname).pixmap(20, 20),
+    if (iconname.isEmpty()) {
+      KNotification::event(evid, message, KIcon(iconname).pixmap(48,48),
+                           0, KNotification::CloseOnTimeout, m_applicationData);
+    } else {
+      KNotification::event(evid, message, QPixmap(),
+                           0, KNotification::CloseOnTimeout, m_applicationData);
+    }
+}
+
+void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
+{
+    KNotification::event(evid, title, message, QPixmap(),
                          0, KNotification::CloseOnTimeout, m_applicationData);
 }
+
 
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
@@ -498,13 +510,14 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
-            emitNotification("criticalbattery",
-                             i18n("The power adaptor has been plugged in – all pending suspend actions have been canceled."));
+            emitRichNotification("criticalbattery",
+                             i18n("AC Adapter Plugged In"),
+                             i18n("All pending suspend actions have been canceled."));
         } else {
-            emitNotification("pluggedin", i18n("The power adaptor has been plugged in."));
+            emitRichNotification("pluggedin", i18n("Running on AC power"), i18n("The power adaptor has been plugged in."));
         }
     } else {
-        emitNotification("unplugged", i18n("The power adaptor has been unplugged."));
+        emitRichNotification("unplugged", i18n("Running on Battery Power"), i18n("The power adaptor has been unplugged."));
     }
 }
 
@@ -512,7 +525,7 @@ void Core::onBackendError(const QString& error)
 {
     emitNotification("powerdevilerror", i18n("KDE Power Management System could not be initialized. "
                          "The backend reported the following error: %1\n"
-                         "Please check your system configuration", error), "dialog-error");
+                         "Please check your system configuration", error));
 }
 
 void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
@@ -536,33 +549,32 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
         previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
         switch (PowerDevilSettings::batteryCriticalAction()) {
         case 3:
-            emitNotification("criticalbattery",
-                             i18n("Your battery level is critical, the computer will be halted in 30 seconds."),
-                             "dialog-warning");
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                             i18n("Your battery level is critical, the computer will be halted in 30 seconds."));
             m_criticalBatteryTimer->start();
             break;
         case 2:
-            emitNotification("criticalbattery",
-                             i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."),
-                             "dialog-warning");
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                             i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."));
             m_criticalBatteryTimer->start();
             break;
         case 1:
-            emitNotification("criticalbattery",
-                             i18n("Your battery level is critical, the computer will be suspended in 30 seconds."),
-                             "dialog-warning");
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                             i18n("Your battery level is critical, the computer will be suspended in 30 seconds."));
             m_criticalBatteryTimer->start();
             break;
         default:
-            emitNotification("criticalbattery",
-                             i18n("Your battery level is critical: save your work as soon as possible."),
-                             "dialog-warning");
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                                 i18n("Your battery level is critical, save your work as soon as possible."));
             break;
         }
     } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
                previousPercent > PowerDevilSettings::batteryLowLevel()) {
-        emitNotification("lowbattery", i18n("Your battery has reached a low level."),
-                         "dialog-warning");
+        emitRichNotification("lowbattery", i18n("Battery Low (%1% Remaining)", currentPercent),
+                             i18n("Your battery is low. If you need to continue using your computer, either plug in your computer, or shut it down and then change the battery."));
+        refreshStatus();
+    } else if (currentPercent > 99 && previousPercent <= 99) {
+        emitRichNotification("fullbattery", i18n("Charge Complete"), i18n("Your battery is now fully charged."));
         refreshStatus();
     }
 }

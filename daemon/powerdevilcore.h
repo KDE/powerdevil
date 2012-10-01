@@ -60,7 +60,8 @@ public:
     void reloadProfile(int state);
 
     void emitNotification(const QString &evid, const QString &message = QString(),
-                          const QString &iconname = "dialog-ok-apply");
+                          const QString &iconname = QString());
+    void emitRichNotification(const QString &evid, const QString &title, const QString &message = QString());
 
     BackendInterface *backend();
 

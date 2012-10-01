@@ -76,7 +76,6 @@ private:
 
     int m_currentBatteryCharge;
     int m_maxBatteryCharge;
-    int m_warningBatteryCharge;
     int m_lowBatteryCharge;
     int m_criticalBatteryCharge;
     int m_estimatedBatteryTime;
