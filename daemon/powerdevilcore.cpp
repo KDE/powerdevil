@@ -483,7 +483,7 @@ void Core::onDeviceRemoved(const QString& udi)
 
 void Core::emitNotification(const QString &evid, const QString &message, const QString &iconname)
 {
-    if (iconname.isEmpty()) {
+    if (!iconname.isEmpty()) {
       KNotification::event(evid, message, KIcon(iconname).pixmap(48,48),
                            0, KNotification::CloseOnTimeout, m_applicationData);
     } else {
