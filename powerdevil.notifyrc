@@ -56,6 +56,9 @@ Name[zh_CN]=KDE 电源管理系统
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[pt]=Sistema de Gestão de Energia
+Comment[uk]=Система керування живленням
+Comment[x-test]=xxPower Management Systemxx
 Version=2
 
 [Context/warningnot]
@@ -534,6 +537,9 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Battery Low
+Name[pt]=Bateria Fraca
+Name[uk]=Низький рівень заряду
+Name[x-test]=xxBattery Lowxx
 Comment=Your battery has reached low level
 Comment[ar]=وصلت بطاريتك إلى مستوى منخفض
 Comment[ast]=La batería llegó al nivel baxu
@@ -617,6 +623,9 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[pt]=Bateria Crítica
+Name[uk]=Заряд на критичному рівні
+Name[x-test]=xxBattery Criticalxx
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
 Comment[ar]=وصلت بطاريتك إلى مستوى حرج. هذا التنبيه يطلق عداً تنازلياً قبل أن ينفذ الإجراء المضبوط مسبقا؛ لذا ينصح بشده تركه مفعلاً.
 Comment[ast]=La batería llegó al nivel críticu. Esta notificación entama un cuntador enantes d'executar l'aición configurada, encamiéntase dexar esta configuración activada.
@@ -692,7 +701,13 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[pt]=Carga Completa
+Name[uk]=Заряджання завершено
+Name[x-test]=xxCharge Completexx
 Comment=The battery is fully charged
+Comment[pt]=A bateria está completamente carregada
+Comment[uk]=Акумулятор повністю заряджено
+Comment[x-test]=xxThe battery is fully chargedxx
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
 Action=Sound|Popup
@@ -1170,7 +1185,13 @@ IconName=dialog-error
 
 [Event/lockscreen]
 Name=Locking Screen
+Name[pt]=A Bloquear o Ecrã
+Name[uk]=Блокуємо екран
+Name[x-test]=xxLocking Screenxx
 Comment=The screen is being locked
+Comment[pt]=O ecrã está a ser bloqueado
+Comment[uk]=Екран блокується
+Comment[x-test]=xxThe screen is being lockedxx
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Persistant=true
@@ -1178,6 +1199,9 @@ IconName=system-lock-screen
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[pt]=Erro Interno
+Name[uk]=Внутрішня помилка
+Name[x-test]=xxInternal Errorxx
 Comment=The KDE Power Management System has triggered an internal error
 Comment[ar]=أطلق مراقب الطاقة خطأً داخلياً
 Comment[bg]=Системата за управление на захранването предизвика вътрешна грешка
@@ -1432,6 +1456,9 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_CN]=电池损坏通知
 Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[pt]=O Sistema de Gestão de Energia do KDE detectou algum problema com alguma das suas baterias
+Comment[uk]=Ситемою керування живленням KDE виявлено проблеми з одним з акумуляторів
+Comment[x-test]=xxKDE Power Management System has detected some troubles with one of your batteriesxx
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
