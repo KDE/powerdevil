@@ -165,9 +165,6 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
     Display *dpy = QX11Info::display();
     DPMSInfo(dpy, &dummy, &enabled);
 
-    // Let's pretend we're resuming
-    core()->onResumeFromSuspend();
-
     if (args["Type"].toString() == "TurnOff") {
         if (enabled) {
             DPMSForceLevel(dpy, DPMSModeOff);
