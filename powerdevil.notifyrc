@@ -56,7 +56,10 @@ Name[zh_CN]=KDE 电源管理系统
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[nl]=Energiebeheersysteem
 Comment[pt]=Sistema de Gestão de Energia
+Comment[pt_BR]=Sistema de Gerenciamento de Energia
+Comment[sv]=Strömsparhanteringssystem
 Comment[uk]=Система керування живленням
 Comment[x-test]=xxPower Management Systemxx
 Version=2
@@ -537,7 +540,10 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Battery Low
+Name[nl]=Accu op laag niveau
 Name[pt]=Bateria Fraca
+Name[pt_BR]=Bateria fraca
+Name[sv]=Dåligt batteri
 Name[uk]=Низький рівень заряду
 Name[x-test]=xxBattery Lowxx
 Comment=Your battery has reached low level
@@ -623,7 +629,10 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[nl]=Accu op kritiek niveau
 Name[pt]=Bateria Crítica
+Name[pt_BR]=Bateria em nível crítico
+Name[sv]=Kritiskt batteri
 Name[uk]=Заряд на критичному рівні
 Name[x-test]=xxBattery Criticalxx
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
@@ -701,11 +710,17 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[nl]=Laden voltooid
 Name[pt]=Carga Completa
+Name[pt_BR]=Carga completa
+Name[sv]=Laddning klar
 Name[uk]=Заряджання завершено
 Name[x-test]=xxCharge Completexx
 Comment=The battery is fully charged
+Comment[nl]=De accu is volledig geladen
 Comment[pt]=A bateria está completamente carregada
+Comment[pt_BR]=A bateria está completamente carregada
+Comment[sv]=Batteriet är fulladdat
 Comment[uk]=Акумулятор повністю заряджено
 Comment[x-test]=xxThe battery is fully chargedxx
 Contexts=stdnot
@@ -1185,11 +1200,17 @@ IconName=dialog-error
 
 [Event/lockscreen]
 Name=Locking Screen
+Name[nl]=Vergrendelscherm
 Name[pt]=A Bloquear o Ecrã
+Name[pt_BR]=Bloqueando a tela
+Name[sv]=Låser skärmen
 Name[uk]=Блокуємо екран
 Name[x-test]=xxLocking Screenxx
 Comment=The screen is being locked
+Comment[nl]=Het scherm wordt vergrendeld
 Comment[pt]=O ecrã está a ser bloqueado
+Comment[pt_BR]=A tela está sendo bloqueada
+Comment[sv]=Skärmen håller på att låsas
 Comment[uk]=Екран блокується
 Comment[x-test]=xxThe screen is being lockedxx
 Contexts=stdnot
@@ -1199,7 +1220,10 @@ IconName=system-lock-screen
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[nl]=Interne fout
 Name[pt]=Erro Interno
+Name[pt_BR]=Erro interno
+Name[sv]=Internt fel
 Name[uk]=Внутрішня помилка
 Name[x-test]=xxInternal Errorxx
 Comment=The KDE Power Management System has triggered an internal error
@@ -1433,7 +1457,7 @@ Name[lt]=Pranešimas apie sugedusią bateriją
 Name[lv]=Bojātas baterijas paziņojums
 Name[nb]=Varsling om ødelagt batteri
 Name[nds]=Bescheed över Batteriefehlers
-Name[nl]=Gebroken batterijmelding
+Name[nl]=Gebroken melding over accu
 Name[pa]=ਖਰਾਬ ਨੈਟਰੀ ਨੋਟੀਫਿਕੇਸ਼ਨ
 Name[pl]=Powiadomienie o zepsutej baterii
 Name[pt]=Notificação de baterias com problemas
@@ -1456,7 +1480,10 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_CN]=电池损坏通知
 Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[nl]=Deze melding verschijnt als het KDE energiebeheersysteem een probleem detecteert met één van uw accu's
 Comment[pt]=O Sistema de Gestão de Energia do KDE detectou algum problema com alguma das suas baterias
+Comment[pt_BR]=O Sistema de Gerenciamento de Energia do KDE detectou um problema com uma das suas baterias
+Comment[sv]=KDE:s strömsparhantering har detekterar vissa problem med något av batterierna
 Comment[uk]=Ситемою керування живленням KDE виявлено проблеми з одним з акумуляторів
 Comment[x-test]=xxKDE Power Management System has detected some troubles with one of your batteriesxx
 Contexts=criticalnot
