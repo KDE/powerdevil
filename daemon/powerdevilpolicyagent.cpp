@@ -29,7 +29,6 @@
 #include <QtDBus/QDBusPendingReply>
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusServiceWatcher>
-#include <QtDBus/QDBusUnixFileDescriptor>
 
 #include <KGlobal>
 #include <KDebug>
@@ -225,6 +224,9 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         onActiveSessionChanged(m_activeSessionPath);
 
         // inhibit systemd handling of power/sleep/lid buttons
+        // http://www.freedesktop.org/wiki/Software/systemd/inhibit
+        kDebug() << "fd passing available:" << bool(managerIface.connection().connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing);
+
         QVariantList args;
         args << "handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch"; // what
         args << "PowerDevil"; // who
@@ -232,8 +234,9 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         args << "block"; // mode
         QDBusPendingReply<QDBusUnixFileDescriptor> desc = managerIface.asyncCallWithArgumentList("Inhibit", args);
         desc.waitForFinished();
-        if (desc.isValid() && desc.value().isValid()) {
-            kDebug() << "systemd powersave events handling inhibited";
+        if (desc.isValid()) {
+            m_systemdInhibitFd = desc.value();
+            kDebug() << "systemd powersave events handling inhibited, descriptor:" << m_systemdInhibitFd.fileDescriptor();
         }
         else
             kWarning() << "failed to inhibit systemd powersave handling";
