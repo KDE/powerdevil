@@ -27,6 +27,7 @@
 #include <QtCore/QWeakPointer>
 
 #include <QtDBus/QDBusContext>
+#include <QtDBus/QDBusUnixFileDescriptor>
 
 #include <kdemacros.h>
 
@@ -108,6 +109,7 @@ private:
     QString m_activeSessionPath;
     QWeakPointer< QDBusInterface > m_sdSessionInterface;
     QWeakPointer< QDBusInterface > m_sdSeatInterface;
+    QDBusUnixFileDescriptor m_systemdInhibitFd;
 
     // ConsoleKit support
     bool m_ckAvailable;
