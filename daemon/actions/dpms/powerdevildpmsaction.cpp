@@ -68,6 +68,7 @@ K_EXPORT_PLUGIN(PowerDevilDPMSActionFactory("powerdevildpmsaction"))
 
 PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
     : Action(parent)
+    , m_idleTime(0)
     , d(new Private)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
@@ -147,6 +148,9 @@ void PowerDevilDPMSAction::onProfileLoad()
     XFlush(dpy);
     XSetErrorHandler(d->defaultHandler);
 
+    // An unloaded action will have m_idleTime = 0:
+    // DPMS enabled with zeroed timeouts is effectively disabled.
+    // So onProfileLoad is always safe
     DPMSSetTimeouts(dpy, (CARD16)m_idleTime, (CARD16)(m_idleTime * 1.5), (CARD16)(m_idleTime * 2));
 
     XFlush(dpy);
@@ -192,6 +196,12 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
     m_idleTime = config.readEntry<int>("idleTime", -1);
 
     return true;
+}
+
+bool PowerDevilDPMSAction::onUnloadAction()
+{
+    m_idleTime = 0;
+    return Action::onUnloadAction();
 }
 
 void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)

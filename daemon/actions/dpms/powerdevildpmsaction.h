@@ -34,6 +34,7 @@ public:
 
 protected:
     virtual void onProfileUnload();
+    virtual bool onUnloadAction();
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
