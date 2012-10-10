@@ -122,6 +122,7 @@ void PowerDevilDPMSAction::onProfileUnload()
     } else {
         kDebug() << "Not performing DPMS action due to inhibition";
     }
+    DPMSSetTimeouts(dpy, 0, 0, 0);
 }
 
 void PowerDevilDPMSAction::onWakeupFromIdle()
@@ -189,6 +190,9 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
             DPMSForceLevel(dpy, DPMSModeSuspend);
         }
     }
+
+    // this leaves DPMS enabled but if it's meant to be disabled
+    // then the timeouts will be zero and so effectively disabled
 }
 
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
@@ -210,7 +214,8 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
         // Inhibition triggered: disable DPMS
         kDebug() << "Disabling DPMS due to inhibition";
         Display *dpy = QX11Info::display();
-        DPMSDisable(dpy);
+        DPMSSetTimeouts(dpy, 0, 0, 0);
+        DPMSDisable(dpy); // wakes the screen - do we want this?
     } else {
         // Inhibition removed: let's start again
         onProfileLoad();
