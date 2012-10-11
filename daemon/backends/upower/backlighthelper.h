@@ -52,6 +52,11 @@ private:
     void initUsingBacklightType();
 
     /**
+     * FreeBSD (and other BSDs) can control backlight via acpi_video(4)
+     */
+    void initUsingSysctl();
+
+    /**
      * If Kernel older than 2.6.37 use whitelsit, otherwise use backlight/type
      * @see https://bugs.kde.org/show_bug.cgi?id=288180
      */
@@ -59,6 +64,8 @@ private:
     int maxBrightness() const;
     bool m_isSupported;
     QString m_dirname;
+    QString m_sysctlDevice;
+    QList<int> m_sysctlBrightnessLevels;
 };
 
 #endif // BACKLIGHTHELPER_H
