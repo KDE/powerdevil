@@ -24,6 +24,17 @@
 
 #include <sys/utsname.h>
 
+#ifdef Q_OS_FREEBSD
+#define USE_SYSCTL
+#endif
+
+#ifdef USE_SYSCTL
+#include <sys/types.h>
+#include <sys/sysctl.h>
+
+#define HAS_SYSCTL(n) (sysctlbyname(n, NULL, NULL, NULL, 0) == 0)
+#endif
+
 #define PREFIX "/sys/class/backlight/"
 
 BacklightHelper::BacklightHelper(QObject * parent)
@@ -42,8 +53,12 @@ void BacklightHelper::init()
     }
 
     if (m_dirname.isEmpty()) {
-        qWarning() << "no kernel backlight interface found";
-        return;
+        initUsingSysctl();
+
+        if (m_sysctlDevice.isEmpty() || m_sysctlBrightnessLevels.isEmpty()) {
+            qWarning() << "no kernel backlight interface found";
+            return;
+        }
     }
 
     m_isSupported = true;
@@ -162,6 +177,59 @@ bool BacklightHelper::useWhitelistInit()
     return false;//Use Type based interafce
 }
 
+void BacklightHelper::initUsingSysctl()
+{
+#ifdef USE_SYSCTL
+    /*
+     * lcd0 would probably be the correct device, but some ACPI implementations can't report it
+     * correctly; thus, an LCD screen can appear as crtN (crt1, in my case). Let's search for the
+     * first device with brightness management, then.
+     */
+    QStringList types;
+    types << "lcd" << "crt";
+    foreach (const QString &type, types) {
+        for (int i = 0; m_sysctlDevice.isEmpty(); i++) {
+            QString device = QString("%1%2").arg(type, QString::number(i));
+            // We don't care about the value, we only want the sysctl to be there.
+            if (!HAS_SYSCTL(qPrintable(QString("hw.acpi.video.%1.active").arg(device)))) {
+                break;
+            }
+            if (HAS_SYSCTL(qPrintable(QString("hw.acpi.video.%1.brightness").arg(device))) &&
+                HAS_SYSCTL(qPrintable(QString("hw.acpi.video.%1.levels").arg(device)))) {
+                m_sysctlDevice = device;
+                break;
+            }
+        }
+    }
+
+    if (m_sysctlDevice.isEmpty()) {
+        return;
+    }
+
+    size_t len;
+    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), NULL, &len, NULL, 0) != 0 ||
+        len == 0) {
+        return;
+    }
+    int *levels = (int *)malloc(len);
+    if (!levels) {
+        return;
+    }
+    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), levels, &len, NULL, 0) != 0) {
+        free(levels);
+        return;
+    }
+    // acpi_video(4) supports only some predefined brightness levels.
+    int nlevels = len / sizeof(int);
+    for (int i = 0; i < nlevels; i++) {
+        m_sysctlBrightnessLevels << levels[i];
+    }
+    free(levels);
+    // Sorting helps when finding max value and when scanning for the nearest level in setbrightness().
+    qSort(m_sysctlBrightnessLevels.begin(), m_sysctlBrightnessLevels.end());
+#endif
+}
+
 ActionReply BacklightHelper::brightness(const QVariantMap & args)
 {
     Q_UNUSED(args);
@@ -174,6 +242,15 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
     }
 
     // current brightness
+    int brightness;
+
+#ifdef USE_SYSCTL
+    size_t len = sizeof(int);
+    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, NULL, 0) != 0) {
+        reply = ActionReply::HelperErrorReply;
+        return reply;
+    }
+#else
     QFile file(m_dirname + "/brightness");
     if (!file.open(QIODevice::ReadOnly)) {
         reply = ActionReply::HelperErrorReply;
@@ -183,11 +260,11 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
     }
 
     QTextStream stream(&file);
-    int brightness;
     stream >> brightness;
-    //qDebug() << "brightness:" << brightness;
     file.close();
+#endif
 
+    //qDebug() << "brightness:" << brightness;
     reply.addData("brightness", brightness * 100 / maxBrightness());
     //qDebug() << "data contains:" << reply.data()["brightness"];
 
@@ -203,6 +280,34 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
         return reply;
     }
 
+    int actual_brightness = qRound(args["brightness"].toFloat() * maxBrightness() / 100);
+    //qDebug() << "setting brightness:" << actual_brightness;
+
+#ifdef USE_SYSCTL
+    int actual_level = -1;
+    int d1 = 101;
+    // Search for the nearest level.
+    foreach (int level, m_sysctlBrightnessLevels) {
+        int d2 = qAbs(level - actual_brightness);
+        /*
+         * The list is sorted, so we break when it starts diverging. There may be repeated values,
+         * so we keep going on equal gap (e.g., value = 7.5, levels = 0 0 10 ...: we don't break at
+         * the second '0' so we can get to the '10'). This also means that the value will always
+         * round off to the bigger level when in the middle (e.g., value = 5, levels = 0 10 ...:
+         * value rounds off to 10).
+         */
+        if (d2 > d1) {
+            break;
+        }
+        actual_level = level;
+        d1 = d2;
+    }
+    size_t len = sizeof(int);
+    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), NULL, NULL, &actual_level, len) != 0) {
+        reply = ActionReply::HelperErrorReply;
+        return reply;
+    }
+#else
     QFile file(m_dirname + "/brightness");
     if (!file.open(QIODevice::WriteOnly)) {
         reply = ActionReply::HelperErrorReply;
@@ -211,8 +316,6 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
         return reply;
     }
 
-    int actual_brightness = qRound(args["brightness"].toFloat() * maxBrightness() / 100);
-    //qDebug() << "setting brightness:" << actual_brightness;
     int result = file.write(QByteArray::number(actual_brightness));
     file.close();
 
@@ -221,6 +324,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
         reply.setErrorCode(file.error());
         qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
     }
+#endif
 
     return reply;
 }
@@ -228,6 +332,11 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
 int BacklightHelper::maxBrightness() const
 {
     // maximum brightness
+    int max_brightness;
+
+#ifdef USE_SYSCTL
+    max_brightness = m_sysctlBrightnessLevels.last();
+#else
     QFile file(m_dirname + "/max_brightness");
     if (!file.open(QIODevice::ReadOnly)) {
         qWarning() << "reading max brightness failed with error code " << file.error() << file.errorString();
@@ -235,10 +344,11 @@ int BacklightHelper::maxBrightness() const
     }
 
     QTextStream stream(&file);
-    int max_brightness;
     stream >> max_brightness;
-    //qDebug() << "max brightness:" << max_brightness;
     file.close();
+#endif
+
+    //qDebug() << "max brightness:" << max_brightness;
 
     return max_brightness ? max_brightness : -1;
 }
