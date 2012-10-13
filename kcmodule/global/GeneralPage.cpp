@@ -91,14 +91,14 @@ GeneralPage::~GeneralPage()
 
 void GeneralPage::fillUi()
 {
-    int batteryCount = 0;
+    bool hasBattery = false;
 
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if(b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
-            continue;
+        if(b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
+            hasBattery = true;
+            break;
         }
-        ++batteryCount;
     }
 
     eventsIconLabel->setPixmap(KIcon("preferences-desktop-notification").pixmap(24));
@@ -130,10 +130,16 @@ void GeneralPage::fillUi()
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
     // Disable stuff, eventually
-    if (batteryCount == 0) {
-        BatteryCriticalCombo->setEnabled(false);
-        lowSpin->setEnabled(false);
-        criticalSpin->setEnabled(false);
+    if (!hasBattery) {
+        batteryLevelsIconLabel->hide();
+        batteryLevelsLabel->hide();
+
+        BatteryCriticalLabel->hide();
+        BatteryCriticalCombo->hide();
+        lowLabel->hide();
+        lowSpin->hide();
+        criticalLabel->hide();
+        criticalSpin->hide();
     }
 }
 

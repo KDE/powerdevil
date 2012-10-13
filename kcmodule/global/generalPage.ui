@@ -33,7 +33,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="batteryLevelsLabel">
        <property name="text">
         <string>&lt;b&gt;Battery levels&lt;/b&gt;</string>
        </property>
@@ -47,7 +47,7 @@
       <enum>QFormLayout::ExpandingFieldsGrow</enum>
      </property>
      <item row="0" column="0">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="lowLabel">
        <property name="text">
         <string>Battery is at low level at</string>
        </property>
@@ -79,7 +79,7 @@
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="criticalLabel">
        <property name="text">
         <string>Battery is at critical level at</string>
        </property>
