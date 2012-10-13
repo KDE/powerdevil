@@ -120,6 +120,7 @@ private:
     QString m_currentProfile;
 
     QHash< QString, int > m_batteriesPercent;
+    QHash< QString, bool > m_batteriesCharged;
 
     QTimer *m_criticalBatteryTimer;
 
@@ -139,6 +140,7 @@ private Q_SLOTS:
     void onBackendError(const QString &error);
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
+    void onBatteryChargeStateChanged(int,const QString&);
     void onBrightnessChanged(float);
     void onBatteryRemainingTimeChanged(qulonglong);
     void onKIdleTimeoutReached(int,int);

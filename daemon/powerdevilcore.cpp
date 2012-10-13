@@ -450,7 +450,9 @@ void Core::onDeviceAdded(const QString& udi)
     }
 
     if (!connect(b, SIGNAL(chargePercentChanged(int,QString)),
-                 this, SLOT(onBatteryChargePercentChanged(int,QString)))) {
+                 this, SLOT(onBatteryChargePercentChanged(int,QString))) ||
+        !connect(b, SIGNAL(chargeStateChanged(int,QString)),
+                 this, SLOT(onBatteryChargeStateChanged(int,QString)))) {
         emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
                          "Please check your system configuration"));
     }
@@ -458,6 +460,11 @@ void Core::onDeviceAdded(const QString& udi)
     kDebug() << "A new battery was detected";
 
     m_batteriesPercent[udi] = b->chargePercent();
+    if (b->chargeState() == Solid::Battery::NoCharge) {
+      m_batteriesCharged[udi] = true;
+    } else {
+      m_batteriesCharged[udi] = false;
+    }
     m_loadedBatteriesUdi.append(udi);
 }
 
@@ -474,10 +481,13 @@ void Core::onDeviceRemoved(const QString& udi)
 
     disconnect(b, SIGNAL(chargePercentChanged(int,QString)),
                this, SLOT(onBatteryChargePercentChanged(int,QString)));
+    disconnect(b, SIGNAL(chargeStateChanged(int,QString)),
+               this, SLOT(onBatteryChargeStateChanged(int,QString)));
 
     kDebug() << "An existing battery has been removed";
 
     m_batteriesPercent.remove(udi);
+    m_batteriesCharged.remove(udi);
     m_loadedBatteriesUdi.removeOne(udi);
 }
 
@@ -573,7 +583,32 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
         emitRichNotification("lowbattery", i18n("Battery Low (%1% Remaining)", currentPercent),
                              i18n("Your battery is low. If you need to continue using your computer, either plug in your computer, or shut it down and then change the battery."));
         refreshStatus();
-    } else if (currentPercent > 99 && previousPercent <= 99) {
+    }
+}
+
+void Core::onBatteryChargeStateChanged(int state, const QString &udi)
+{
+    bool previousCharged = true;
+    for (QHash<QString,bool>::const_iterator i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
+        if (i.value() != Solid::Battery::NoCharge) {
+            previousCharged = false;
+            break;
+        }
+    }
+
+    bool currentCharged = previousCharged;
+    if (state != Solid::Battery::NoCharge) {
+        currentCharged = false;
+        m_batteriesCharged[udi] = false;
+    } else {
+        m_batteriesCharged[udi] = true;
+    }
+
+    if (m_backend->acAdapterState() != BackendInterface::Plugged) {
+        return;
+    }
+
+    if (previousCharged == false && currentCharged == true) {
         emitRichNotification("fullbattery", i18n("Charge Complete"), i18n("Your battery is now fully charged."));
         refreshStatus();
     }
