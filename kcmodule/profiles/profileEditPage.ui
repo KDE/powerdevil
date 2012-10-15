@@ -22,30 +22,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QScrollArea" name="acScrollArea">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>100</width>
-            <height>30</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
+        <layout class="QGridLayout" name="acWidgetLayout"/>
        </item>
       </layout>
      </widget>
@@ -55,30 +32,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QScrollArea" name="batteryScrollArea">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents_2">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>100</width>
-            <height>30</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
+        <layout class="QGridLayout" name="batteryWidgetLayout"/>
        </item>
       </layout>
      </widget>
@@ -88,30 +42,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="QScrollArea" name="lowBatteryScrollArea">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidgetContents_3">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>100</width>
-            <height>30</height>
-           </rect>
-          </property>
-         </widget>
-        </widget>
+        <layout class="QGridLayout" name="lowBatteryWidgetLayout"/>
        </item>
       </layout>
      </widget>
@@ -124,6 +55,7 @@
    <class>KTabWidget</class>
    <extends>QTabWidget</extends>
    <header>ktabwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

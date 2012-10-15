@@ -97,19 +97,19 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     // Create widgets for each profile
     ActionEditWidget *editWidget = new ActionEditWidget("AC");
     m_editWidgets.insert("AC", editWidget);
-    acScrollArea->setWidget(editWidget);
+    acWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
     tabWidget->setTabIcon(0, KIcon("battery-charging"));
 
     editWidget = new ActionEditWidget("Battery");
     m_editWidgets.insert("Battery", editWidget);
-    batteryScrollArea->setWidget(editWidget);
+    batteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
     tabWidget->setTabIcon(1, KIcon("battery-060"));
 
     editWidget = new ActionEditWidget("LowBattery");
     m_editWidgets.insert("LowBattery", editWidget);
-    lowBatteryScrollArea->setWidget(editWidget);
+    lowBatteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
     tabWidget->setTabIcon(2, KIcon("battery-low"));
 
