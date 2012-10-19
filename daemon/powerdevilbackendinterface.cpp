@@ -25,7 +25,7 @@ namespace PowerDevil
 class BackendInterface::Private
 {
 public:
-    Private() : isReady(false), isError(false), isLidClosed(false) {}
+    Private() : batteryRemainingTime(0), isReady(false), isError(false), isLidClosed(false) {}
     ~Private() {}
 
     AcAdapterState acAdapterState;
