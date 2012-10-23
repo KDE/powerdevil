@@ -53,8 +53,8 @@ namespace ProfileGenerator
         TurnOffScreenMode = 64
     };
 
-    GeneratorResult generateProfiles(bool tryUpgrade = false);
-    void upgradeProfilesv1();
+    GeneratorResult generateProfiles(bool toRam, bool toDisk,  bool tryUpgrade = false);
+    void upgradeProfilesv1(bool toRam, bool toDisk);
     void upgradeProfilesv2();
     unsigned int upgradeOldAction(unsigned int actionId);
 }

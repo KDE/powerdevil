@@ -25,7 +25,6 @@
 
 #include <Solid/Device>
 #include <Solid/Battery>
-#include <Solid/PowerManagement>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -36,14 +35,14 @@
 
 namespace PowerDevil {
 
-ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpgrade)
+ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam, bool toDisk, bool tryUpgrade)
 {
     if (tryUpgrade) {
         bool isUpgraded = false;
         KSharedConfigPtr oldProfilesConfigv1 = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
         if (!oldProfilesConfigv1->groupList().isEmpty()) {
             // We can upgrade from v1, let's do that.
-            upgradeProfilesv1();
+            upgradeProfilesv1(toRam, toDisk);
             isUpgraded = true;
         }
         KSharedConfigPtr oldProfilesConfigv2 = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
@@ -57,11 +56,10 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
             return ResultUpgraded;
         }
     }
-    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
     // Let's change some defaults
-    if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-        if (!methods.contains(Solid::PowerManagement::HibernateState)) {
+    if (!toRam) {
+        if (!toDisk) {
             PowerDevilSettings::setBatteryCriticalAction(0);
         } else {
             PowerDevilSettings::setBatteryCriticalAction(2);
@@ -92,12 +90,13 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     {
         KConfigGroup handleButtonEvents(&acProfile, "HandleButtonEvents");
         handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
-        if (methods.contains(Solid::PowerManagement::SuspendState)) {
+        if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
             handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
         }
     }
+
     // And we also want to turn off the screen after another while
     {
         KConfigGroup dpmsControl(&acProfile, "DPMSControl");
@@ -141,7 +140,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     {
         KConfigGroup handleButtonEvents(&batteryProfile, "HandleButtonEvents");
         handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
-        if (methods.contains(Solid::PowerManagement::SuspendState)) {
+        if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
             handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
@@ -153,7 +152,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         dpmsControl.writeEntry< uint >("idleTime", 300);
     }
     // Last but not least, we want to suspend after a rather long period of inactivity
-    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+    if (toRam) {
         KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
         suspendSession.writeEntry< uint >("idleTime", 600000);
         suspendSession.writeEntry< uint >("suspendType", ToRamMode);
@@ -177,7 +176,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     {
         KConfigGroup handleButtonEvents(&lowBatteryProfile, "HandleButtonEvents");
         handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
-        if (methods.contains(Solid::PowerManagement::SuspendState)) {
+        if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
             handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
@@ -189,7 +188,7 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
         dpmsControl.writeEntry< uint >("idleTime", 120);
     }
     // Last but not least, we want to suspend after a rather long period of inactivity
-    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+    if (toRam) {
         KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
         suspendSession.writeEntry< uint >("idleTime", 300000);
         suspendSession.writeEntry< uint >("suspendType", ToRamMode);
@@ -201,13 +200,11 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool tryUpg
     return ResultGenerated;
 }
 
-void ProfileGenerator::upgradeProfilesv1()
+void ProfileGenerator::upgradeProfilesv1(bool toRam, bool toDisk)
 {
-    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
-
     // Let's change some defaults
-    if (!methods.contains(Solid::PowerManagement::SuspendState)) {
-        if (!methods.contains(Solid::PowerManagement::HibernateState)) {
+    if (!toRam) {
+        if (!toDisk) {
             PowerDevilSettings::setBatteryCriticalAction(None);
         } else {
             PowerDevilSettings::setBatteryCriticalAction(ToDiskMode);
