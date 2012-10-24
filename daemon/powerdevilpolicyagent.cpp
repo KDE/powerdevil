@@ -359,7 +359,7 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
     } else if (!m_sdSessionInterface.isNull()) {
         bool isActive = m_sdSessionInterface.data()->property("Active").toBool();
 
-        if (!isActive && !m_wasLastActiveSession && policies != InterruptSession) {
+        if (!isActive && !m_wasLastActiveSession) {
             return policies;
         }
     }
@@ -371,7 +371,7 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
         QDBusPendingReply< bool > rp = m_ckSessionInterface.data()->asyncCall("IsActive");
         rp.waitForFinished();
 
-        if (!rp.value() && !m_wasLastActiveSession && policies != InterruptSession) {
+        if (!rp.value() && !m_wasLastActiveSession) {
             return policies;
         }
     }
