@@ -181,12 +181,13 @@ void BacklightHelper::initUsingSysctl()
 {
 #ifdef USE_SYSCTL
     /*
-     * lcd0 would probably be the correct device, but some ACPI implementations can't report it
-     * correctly; thus, an LCD screen can appear as crtN (crt1, in my case). Let's search for the
-     * first device with brightness management, then.
+     * lcd0 is, in theory, the correct device, but some vendors have custom ACPI implementations
+     * which cannot be interpreted. In that case, devices should be reported as "out", but
+     * FreeBSD doesn't care (yet), so they can appear as any other type. Let's search for the first
+     * device with brightness management, then.
      */
     QStringList types;
-    types << "lcd" << "crt";
+    types << "lcd" << "out" << "crt" << "tv" << "ext";
     foreach (const QString &type, types) {
         for (int i = 0; m_sysctlDevice.isEmpty(); i++) {
             QString device = QString("%1%2").arg(type, QString::number(i));
