@@ -62,6 +62,7 @@ public:
     void emitNotification(const QString &evid, const QString &message = QString(),
                           const QString &iconname = QString());
     void emitRichNotification(const QString &evid, const QString &title, const QString &message = QString());
+    bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent);
 
     BackendInterface *backend();
 

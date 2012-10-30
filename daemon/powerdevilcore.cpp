@@ -468,6 +468,9 @@ void Core::onDeviceAdded(const QString& udi)
       m_batteriesCharged[udi] = false;
     }
     m_loadedBatteriesUdi.append(udi);
+
+    // So we get a "Battery is low" notification directly on system startup if applicable
+    emitBatteryChargePercentNotification(b->chargePercent(), 100);
 }
 
 void Core::onDeviceRemoved(const QString& udi)
@@ -508,6 +511,45 @@ void Core::emitRichNotification(const QString &evid, const QString &title, const
 {
     KNotification::event(evid, title, message, QPixmap(),
                          0, KNotification::CloseOnTimeout, m_applicationData);
+}
+
+bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent)
+{
+    if (m_backend->acAdapterState() == BackendInterface::Plugged) {
+        return false;
+    }
+
+    if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() &&
+        previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
+        switch (PowerDevilSettings::batteryCriticalAction()) {
+        case 3:
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                             i18n("Your battery level is critical, the computer will be halted in 30 seconds."));
+            m_criticalBatteryTimer->start();
+            break;
+        case 2:
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                             i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."));
+            m_criticalBatteryTimer->start();
+            break;
+        case 1:
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                             i18n("Your battery level is critical, the computer will be suspended in 30 seconds."));
+            m_criticalBatteryTimer->start();
+            break;
+        default:
+            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
+                                 i18n("Your battery level is critical, save your work as soon as possible."));
+            break;
+        }
+        return true;
+    } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
+               previousPercent > PowerDevilSettings::batteryLowLevel()) {
+        emitRichNotification("lowbattery", i18n("Battery Low (%1% Remaining)", currentPercent),
+                             i18n("Your battery is low. If you need to continue using your computer, either plug in your computer, or shut it down and then change the battery."));
+        return true;
+    }
+    return false;
 }
 
 
@@ -552,39 +594,11 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
     // Update the battery percentage
     m_batteriesPercent[udi] = percent;
 
-    // And check if we need to do stuff
-    if (m_backend->acAdapterState() == BackendInterface::Plugged) {
-        return;
-    }
-
-    if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() &&
-        previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
-        switch (PowerDevilSettings::batteryCriticalAction()) {
-        case 3:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be halted in 30 seconds."));
-            m_criticalBatteryTimer->start();
-            break;
-        case 2:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."));
-            m_criticalBatteryTimer->start();
-            break;
-        case 1:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be suspended in 30 seconds."));
-            m_criticalBatteryTimer->start();
-            break;
-        default:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                                 i18n("Your battery level is critical, save your work as soon as possible."));
-            break;
+    if (currentPercent < previousPercent) {
+        if (emitBatteryChargePercentNotification(currentPercent, previousPercent)) {
+            // Only refresh status if a notification has actually been emitted
+            refreshStatus();
         }
-    } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
-               previousPercent > PowerDevilSettings::batteryLowLevel()) {
-        emitRichNotification("lowbattery", i18n("Battery Low (%1% Remaining)", currentPercent),
-                             i18n("Your battery is low. If you need to continue using your computer, either plug in your computer, or shut it down and then change the battery."));
-        refreshStatus();
     }
 }
 
