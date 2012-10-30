@@ -74,6 +74,8 @@ public:
 
     RequiredPolicies unavailablePolicies();
 
+    void setupSystemdInhibition();
+
 public Q_SLOTS:
     // Exported slots
     uint AddInhibition(uint types, const QString &appName, const QString &reason);

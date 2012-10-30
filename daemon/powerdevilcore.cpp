@@ -127,8 +127,6 @@ void Core::onBackendReady()
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
     connect(m_backend, SIGNAL(batteryRemainingTimeChanged(qulonglong)),
             this, SLOT(onBatteryRemainingTimeChanged(qulonglong)));
-    connect(m_backend, SIGNAL(resumeFromSuspend()),
-            this, SLOT(onResumeFromSuspend()));
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
@@ -138,6 +136,9 @@ void Core::onBackendReady()
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
+
+    connect(m_backend, SIGNAL(resumeFromSuspend()),
+            this, SLOT(onResumeFromSuspend()));
 
     // Initialize the action pool, which will also load the needed startup actions.
     PowerDevil::ActionPool::instance()->init(this);
@@ -662,6 +663,7 @@ void Core::onResumeFromSuspend()
                                              "/ScreenSaver",
                                              QDBusConnection::sessionBus());
     iface.SimulateUserActivity();
+    PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
 
     emit resumingFromSuspend();
 }
