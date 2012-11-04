@@ -56,6 +56,7 @@ Name[zh_CN]=KDE 电源管理系统
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[ca]=Sistema de gestió d'energia
 Comment[cs]=Systém správy napájení
 Comment[el]=Σύστημα διαχείρισης ενέργειας
 Comment[es]=Sistema de gestión de energía
@@ -556,6 +557,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Battery Low
+Name[ca]=Bateria baixa
 Name[cs]=Baterie je téměř vybitá
 Name[el]=Μπαταρία χαμηλή
 Name[es]=Batería baja
@@ -661,6 +663,7 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[ca]=Bateria crítica
 Name[cs]=Baterie na kritické úrovni
 Name[el]=Μπαταρία κρίσιμη
 Name[es]=Batería en nivel crítico
@@ -758,6 +761,7 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[ca]=Càrrega completada
 Name[cs]=Nabití bylo dokončeno
 Name[el]=Φόρτιση πλήρης
 Name[es]=Carga completa
@@ -781,6 +785,7 @@ Name[uk]=Заряджання завершено
 Name[x-test]=xxCharge Completexx
 Name[zh_TW]=充電完成
 Comment=The battery is fully charged
+Comment[ca]=La bateria està totalment carregada
 Comment[el]=Η μπαταρία έχει φορτιστεί πλήρως
 Comment[es]=La batería está completamente cargada
 Comment[et]=Aku on täielikult laetud
@@ -924,7 +929,7 @@ Comment[kk]=Қуаттандыру адаптері қосылып тұр
 Comment[km]=អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត
 Comment[kn]=ವಿದ್ಯುಚ್ಛಕ್ತಿ ಅನುಕಾರಕವನ್ನು (ಅಡಾಪ್ಟರ್) ಅಳವಡಿಸಲಾಗಿದೆ
 Comment[ko]=AC 어댑터가 연결되었습니다
-Comment[ku]=Adaptorê hêzê hate girêdan
+Comment[ku]=Adaptorê hêzê hate girêdan 
 Comment[lt]=Kintamosios srovės adapteris buvo prijungtas
 Comment[lv]=Tika iesprausts strāvas vads
 Comment[mai]=पावर एडाप्टर केँ प्लग मे लगाएल गेल अछि
@@ -1125,6 +1130,7 @@ IconName=battery-low
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[ca]=Error intern
 Name[cs]=Vnitřní chyba
 Name[el]=Εσωτερικό σφάλμα
 Name[es]=Error interno
@@ -1401,6 +1407,7 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_CN]=电池损坏通知
 Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[ca]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
 Comment[el]=Το σύστημα διαχείρισης ενέργειας του KDE έχει εντοπίσει κάποια προβλήματα με κάποια από τις μπαταρίες σας
 Comment[es]=El sistema de gestión de energía de KDE ha detectado algún problema en una de sus baterías
 Comment[et]=KDE toitehalduse süsteem tuvastas mingeid probleeme mõne su akuga
