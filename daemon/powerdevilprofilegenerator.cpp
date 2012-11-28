@@ -112,18 +112,17 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam,
 #endif
 
     // Easy part done. Now, any batteries?
-    int batteryCount = 0;
+    bool hasBattery = false;
 
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        Solid::Device dev = device;
-        Solid::Battery *b = qobject_cast<Solid::Battery*> (dev.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
-            continue;
+        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if(b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
+            hasBattery = true;
+            break;
         }
-        ++batteryCount;
     }
 
-    if (batteryCount > 0) {
+    if (hasBattery) {
         // Then we want to handle brightness in performance.
         {
             KConfigGroup brightnessControl(&acProfile, "BrightnessControl");
