@@ -33,6 +33,10 @@
 #include <KIcon>
 #include <KStandardDirs>
 
+#ifdef HAVE_DPMS
+#include "actions/dpms/powerdevildpmsaction.h"
+#endif
+
 namespace PowerDevil {
 
 ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam, bool toDisk, bool tryUpgrade)
@@ -98,10 +102,14 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam,
     }
 
     // And we also want to turn off the screen after another while
+    // and make really really sure that it is supported before writing to the config file
+#ifdef HAVE_DPMS
+    if (PowerDevilDPMSAction::isSupported())
     {
         KConfigGroup dpmsControl(&acProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", 600);
     }
+#endif
 
     // Easy part done. Now, any batteries?
     int batteryCount = 0;
@@ -147,10 +155,14 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam,
         }
     }
     // We want to turn off the screen after another while
+    // and make really really sure that it is supported before writing to the config file
+#ifdef HAVE_DPMS
+    if (PowerDevilDPMSAction::isSupported())
     {
         KConfigGroup dpmsControl(&batteryProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", 300);
     }
+#endif
     // Last but not least, we want to suspend after a rather long period of inactivity
     if (toRam) {
         KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
@@ -183,10 +195,14 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam,
         }
     }
     // We want to turn off the screen after another while
+    // and make really really sure that it is supported before writing to the config file
+#ifdef HAVE_DPMS
+    if (PowerDevilDPMSAction::isSupported())
     {
         KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", 120);
     }
+#endif
     // Last but not least, we want to suspend after a rather long period of inactivity
     if (toRam) {
         KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
