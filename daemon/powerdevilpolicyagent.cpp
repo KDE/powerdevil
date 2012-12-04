@@ -506,7 +506,8 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
     kDebug() << "Released inhibition with cookie " << cookie;
     m_cookieToAppName.remove(cookie);
     QString service = m_cookieToBusService.take(cookie);
-    if (!m_busWatcher.isNull() && !service.isEmpty()) {
+    if (!m_busWatcher.isNull() && !service.isEmpty() && !m_cookieToBusService.key(service)) {
+        // no cookies from service left
         m_busWatcher.data()->removeWatchedService(service);
     }
 
