@@ -484,6 +484,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
             notify = true;
         }
         m_typesToCookie[ChangeScreenSettings].append(cookie);
+        types |= InterruptSession;  // implied by ChangeScreenSettings
     }
     if (types & InterruptSession) {
         // Check if we have to notify
