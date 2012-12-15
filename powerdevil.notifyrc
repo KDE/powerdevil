@@ -1477,6 +1477,7 @@ Comment[sr@latin]=KDE‑ov sistem za upravljanje napajanjem otkrio je problem sa
 Comment[sv]=KDE:s strömsparhantering har detekterar vissa problem med något av batterierna
 Comment[uk]=Ситемою керування живленням KDE виявлено проблеми з одним з акумуляторів
 Comment[x-test]=xxKDE Power Management System has detected some troubles with one of your batteriesxx
+Comment[zh_CN]=KDE 电源管理系统检测到电池问题
 Comment[zh_TW]=KDE 電源管理系統發現您的電池有些問題
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
