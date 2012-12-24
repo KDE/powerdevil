@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity Settings
+Name[bs]=Postavke aktivnosti
 Name[ca]=Arranjament d'activitat
 Name[cs]=Nastavení činnosti
 Name[da]=Aktivitetsindstillinger
@@ -53,6 +54,7 @@ Name[zh_CN]=活动设置
 Name[zh_TW]=活動設定
 
 Comment=Configure per-activity Power Management
+Comment[bs]=Konfiguracija po aktivnosti upravljanja napajanjem
 Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
 Comment[cs]=Konfigurace správy napájení na činnost
 Comment[da]=Indstil strømstyring pr. aktivitet
@@ -93,6 +95,7 @@ Comment[zh_CN]=配置基于活动的电源管理
 Comment[zh_TW]=設定個別活動的電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
+X-KDE-Keywords[bs]=Sistem, Napajanje, Upravljanje napajanjem, energija, laptop, baterija, suspenzija, AC, suspendiraj, hiberniranje, osvljetljenje, perfomanse, kapak, aktivnost, aktivnosti
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
 X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg,aktivitet,aktiviteter
