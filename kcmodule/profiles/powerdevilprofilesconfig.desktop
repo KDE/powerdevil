@@ -12,7 +12,6 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=1
 
 Name=Energy Saving
-Name[bs]=Štednja energije
 Name[ca]=Estalvi d'energia
 Name[cs]=Úsporný režim
 Name[da]=Strømbesparelse
@@ -54,7 +53,6 @@ Name[zh_CN]=节能
 Name[zh_TW]=省電模式
 
 Comment=Configure Energy Saving
-Comment[bs]=Podesi štednju energije
 Comment[ca]=Configura l'estalvi d'energia
 Comment[cs]=Upravte šetření energie
 Comment[da]=Indstillinger for strømbesparelse
@@ -96,7 +94,6 @@ Comment[zh_CN]=保存能源设置
 Comment[zh_TW]=設定省電模式
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
-X-KDE-Keywords[bs]=Sistem, Napajanje, Upravljanje napajanjem, energija, laptop, baterija, suspenzija, AC, suspendiraj, hiberniranje, osvljetljenje, kapak,
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
 X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg
