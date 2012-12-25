@@ -54,6 +54,7 @@ protected:
     virtual void resizeEvent(QResizeEvent *);
     void showEvent(QShowEvent *event);
 
+protected slots:
     void themeUpdated();
 
 private:
