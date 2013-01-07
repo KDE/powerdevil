@@ -24,21 +24,19 @@
 #ifndef BRIGHTNESSOSDWIDGET__H
 #define BRIGHTNESSOSDWIDGET__H
 
-#include <QGraphicsView>
-
 #include <QPixmap>
 
+#include <Plasma/Dialog>
+
 class QTimer;
-class QGraphicsWidget;
 
 namespace Plasma
 {
-class FrameSvg;
 class Label;
 class Meter;
 }
 
-class BrightnessOSDWidget : public QGraphicsView
+class BrightnessOSDWidget : public Plasma::Dialog
 {
 Q_OBJECT
 public:
@@ -47,18 +45,10 @@ public:
     void setCurrentBrightness(int brightnessLevel);
     void activateOSD();
 
-    virtual QSize sizeHint() const;
-
-protected:
-    virtual void drawBackground(QPainter *painter, const QRectF &rectF);
-    virtual void resizeEvent(QResizeEvent *);
-    void showEvent(QShowEvent *event);
-
 protected slots:
     void themeUpdated();
 
 private:
-    Plasma::FrameSvg *m_background;
     QGraphicsScene *m_scene;
     QGraphicsWidget *m_container;
     Plasma::Label *m_iconLabel;
