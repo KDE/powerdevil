@@ -33,15 +33,12 @@
 #include <KIcon>
 #include <KDialog>
 #include <KWindowSystem>
-#include <Plasma/FrameSvg>
 #include <Plasma/Label>
 #include <Plasma/Meter>
 #include <Plasma/Theme>
-#include <Plasma/WindowEffects>
 
 BrightnessOSDWidget::BrightnessOSDWidget(QWidget * parent)
-    : QGraphicsView(parent),
-      m_background(new Plasma::FrameSvg(this)),
+    : Plasma::Dialog(parent, Qt::ToolTip),
       m_scene(new QGraphicsScene(this)),
       m_container(new QGraphicsWidget),
       m_iconLabel(new Plasma::Label),
@@ -49,14 +46,9 @@ BrightnessOSDWidget::BrightnessOSDWidget(QWidget * parent)
       m_meter(new Plasma::Meter),
       m_hideTimer(new QTimer(this))
 {
-    //Setup the window properties
-    setWindowFlags(Qt::X11BypassWindowManagerHint);
-    setFrameStyle(QFrame::NoFrame);
-    viewport()->setAutoFillBackground(false);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setAttribute(Qt::WA_TranslucentBackground);
-
+    KWindowSystem::setState(winId(), NET::KeepAbove);
+    KWindowSystem::setType(winId(), NET::Tooltip);
+    setAttribute(Qt::WA_X11NetWmWindowTypeToolTip, true);
     m_meter->setMeterType(Plasma::Meter::BarMeterHorizontal);
     m_meter->setMaximum(100);
 
@@ -69,16 +61,16 @@ BrightnessOSDWidget::BrightnessOSDWidget(QWidget * parent)
 
     //Setup the OSD layout
     QGraphicsLinearLayout *layout = new QGraphicsLinearLayout(m_container);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->addItem(m_iconLabel);
     layout->addItem(m_meter);
     layout->addItem(m_volumeLabel);
 
     m_scene->addItem(m_container);
+    setGraphicsWidget(m_container);
 
     themeUpdated();
     connect(Plasma::Theme::defaultTheme(), SIGNAL(themeChanged()), this, SLOT(themeUpdated())); // e.g. for updating font
-
-    setScene(m_scene);
 }
 
 void BrightnessOSDWidget::activateOSD()
@@ -90,44 +82,6 @@ void BrightnessOSDWidget::setCurrentBrightness(int brightnessLevel)
 {
     m_meter->setValue(brightnessLevel);
     m_volumeLabel->setText(QString::number(brightnessLevel) + " %");
-}
-
-void BrightnessOSDWidget::drawBackground(QPainter *painter, const QRectF &/*rectF*/)
-{
-    painter->save();
-    painter->setCompositionMode(QPainter::CompositionMode_Source);
-    m_background->paintFrame(painter);
-    painter->restore();
-}
-
-QSize BrightnessOSDWidget::sizeHint() const
-{
-    int iconSize = m_iconLabel->nativeWidget()->pixmap()->height();
-    int labelWidth = m_volumeLabel->nativeWidget()->size().width();
-    int meterHeight = iconSize;
-    int meterWidth = iconSize * 12;
-    qreal left, top, right, bottom;
-    m_background->getMargins(left, top, right, bottom);
-    return QSize(meterWidth + labelWidth + iconSize + left + right, meterHeight + top + bottom);
-}
-
-void BrightnessOSDWidget::resizeEvent(QResizeEvent*)
-{
-    m_background->resizeFrame(size());
-    m_container->setGeometry(0, 0, width(), height());
-    qreal left, top, right, bottom;
-    m_background->getMargins(left, top, right, bottom);
-    m_container->layout()->setContentsMargins(left, top, right, bottom);
-
-    m_scene->setSceneRect(0, 0, width(), height());
-    if (!KWindowSystem::compositingActive()) {
-        setMask(m_background->mask());
-    }
-}
-
-void BrightnessOSDWidget::showEvent(QShowEvent *event)
-{
-    Plasma::WindowEffects::overrideShadow(winId(), true);
 }
 
 void BrightnessOSDWidget::themeUpdated()
@@ -160,15 +114,16 @@ void BrightnessOSDWidget::themeUpdated()
 
     m_brightnessPixmap = KIcon("video-display").pixmap(iconSize);
 
-    //Setup the widgets
-    m_background->setImagePath("widgets/tooltip");
-
     m_iconLabel->nativeWidget()->setPixmap(m_brightnessPixmap);
     m_iconLabel->nativeWidget()->setFixedSize(iconSize);
     m_iconLabel->setMinimumSize(iconSize);
     m_iconLabel->setMaximumSize(iconSize);
 
     m_meter->setMaximumHeight(iconSize.height());
+    m_container->setMinimumSize(iconSize.width() * 13 + m_volumeLabel->nativeWidget()->width(), iconSize.height());
+    m_container->setMaximumSize(iconSize.width() * 13 + m_volumeLabel->nativeWidget()->width(), iconSize.height());
+
+    syncToGraphicsWidget();
 }
 
 
