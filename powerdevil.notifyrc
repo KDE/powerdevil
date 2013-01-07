@@ -30,6 +30,7 @@ Name[kn]=KDE ವಿದ್ಯುಚ್ಛಕ್ತಿ ನಿರ್ವಹಣಾ �
 Name[ko]=KDE 전원 관리 시스템
 Name[lt]=KDE energijos valdymo sistema
 Name[lv]=KDE energokontroles sistēma
+Name[mr]=KDE वीज व्यवस्थापन प्रणाली
 Name[nb]=Et strømstyringsverktøy for KDE
 Name[nds]=Stroomkuntrullsysteem för KDE
 Name[nl]=KDE-energiebeheersysteem
@@ -72,6 +73,7 @@ Comment[ia]=Systema de gestion de energia
 Comment[kk]=Қуаттандыруды басқару жүйесі
 Comment[ko]=전원 관리 시스템
 Comment[lt]=Energijos valdymo sistema
+Comment[mr]=वीज व्यवस्थापन प्रणाली
 Comment[nb]=Et strømstyringsverktøy
 Comment[nl]=Energiebeheersysteem
 Comment[pa]=ਪਾਵਰ ਪਰਬੰਧ ਸਿਸਟਮ
@@ -583,6 +585,7 @@ Name[ia]=Batteria basse
 Name[kk]=Батареясы сарқылды
 Name[ko]=배터리 부족
 Name[lt]=Akumuliatorius ištuštėjęs
+Name[mr]=बॅटरी कमी
 Name[nb]=Lavt batteri
 Name[nl]=Accu op laag niveau
 Name[pa]=ਘੱਟ ਬੈਟਰੀ
@@ -700,6 +703,7 @@ Name[ia]=Batteria critic
 Name[kk]=Батарея дағдарысты деңгейде
 Name[ko]=배터리 바닥남
 Name[lt]=Akumuliatoriaus kritinis lygmuo
+Name[mr]=बॅटरी संकटात
 Name[nb]=Batteri på kritisk nivå
 Name[nl]=Accu op kritiek niveau
 Name[pa]=ਬੈਟਰੀ ਨਾਜ਼ੁਕ ਲੈਵਲ
@@ -758,7 +762,7 @@ Comment[lt]=Jūsų akumuliatoriaus įkrova pasiekė kritinį lygmenį. Šis pers
 Comment[lv]=Jūsu baterija ir sasniegisi kritisku līmeni. Šis paziņojums sāk laika atskaiti līdz konfigurētajai darbībai, tāpēc ir ļoti vēlams atstāt to redzamu.
 Comment[mk]=Вашата батерија достигна критично ниво. Ова известување предизвикува одбројување пред да се изврши конфигурираното дејство и е многу препорачливо тоа да остане вклучено.
 Comment[ml]=നിങ്ങളുടെ ബാറ്ററി ഗുരുതരമായ നിലയില്‍ എത്തിയിരിയ്ക്കുന്നു. ഈ അറിയിപ്പ് ഒരു കഴിഞ്ഞാല്‍ ക്രമീകരിച്ച പ്രവര്‍ത്തനം തുടങ്ങുന്നതിനു് മുമ്പു് ഒരു കൌണ്ട്ഡൌണ്‍ ആരംഭിയ്ക്കും, അതിനാല്‍ ഇതു് സജീവമായി വയ്ക്കാന്‍ ശക്തിയായി ഉപദേശിക്കുന്നു.
-Comment[mr]=बॅटरी महत्वाचे स्तर पर्यंत पोहचली आहे. ही सूचना संयोजीत क्रिया करण्यापूर्वी काऊन्टडाऊन सक्रीय करते, ज्यामुळे त्यांस वगळण्यास सूचविले जाते.
+Comment[mr]=बॅटरी महत्वाच्या स्तरा पर्यंत पोहचली आहे. ही सूचना संयोजीत क्रिया करण्यापूर्वी काऊन्टडाऊन सक्रीय करते, ज्यामुळे त्यांस वगळण्यास सूचविले जाते.
 Comment[nb]=Batteriet har nådd kritisk nivå. Denne varslingen utløser en nedtelling før den innstilte handlinga utføres, så det tilrådes sterkt å la den stå på.
 Comment[nds]=Dien Batterie is bi de kritische Stoop ankamen. Disse Bescheed tellt en Tiet daal, ehr he de instellte Akschoon utföhrt, laat em also beter an.
 Comment[nl]=Uw accu heeft het kritieke niveau bereikt. Deze melding activeert een aftelling voordat de ingestelde actie zal worden uitgevoerd. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
@@ -809,6 +813,7 @@ Name[ia]=Cargamento completate
 Name[kk]=Толтыруы бітті
 Name[ko]=충전 완료됨
 Name[lt]=Įkrovimas baigtas
+Name[mr]=चार्ज पूर्ण
 Name[nb]=Fullført lading
 Name[nl]=Laden voltooid
 Name[pa]=ਚਾਰਜ ਪੂਰਾ
@@ -842,6 +847,7 @@ Comment[ia]=Le batteria es cargate completemente
 Comment[kk]=Батареясы әбден толды
 Comment[ko]=배터리가 완전히 충전됨
 Comment[lt]=Akumuliatorius pilnai įkrautas
+Comment[mr]=बॅटरी पूर्णतया चार्ज झालेली आहे
 Comment[nb]=Batteriet er fullt ladet
 Comment[nl]=De accu is volledig geladen
 Comment[pa]=ਬੈਟਰੀ ਪੂਰੀ ਚਾਰਜ ਹੈ
@@ -1199,6 +1205,7 @@ Name[ia]=Error Interne
 Name[kk]=Ішкі қате
 Name[ko]=내부 오류
 Name[lt]=Vidinė klaida
+Name[mr]=अंतर्गत त्रुटी
 Name[nb]=Intern feil
 Name[nl]=Interne fout
 Name[pa]=ਅੰਦਰੂਨੀ ਗਲਤੀ
@@ -1247,6 +1254,7 @@ Comment[km]=ប្រព័ន្ធ​គ្រប់គ្រង​ថាម�
 Comment[ko]=KDE 전원 관리 시스템에서 내부 오류가 발생하였습니다
 Comment[lt]=KDE energijos valdymo sistema sužadino vidinę klaidą
 Comment[lv]=KDE energokontroles sistēmā radās iekšēja kļūda
+Comment[mr]=KDE वीज व्यवस्थापन प्रणालीने अंतर्गत त्रुटी सक्रीय केली आहे
 Comment[nb]=KDE strømstyringssystem har utløst en intern feil
 Comment[nds]=Dat KDE-Stroomkuntrullsysteem hett en intern Fehler hatt.
 Comment[nl]=Het KDE-energiebeheersysteem activeerde een interne fout
@@ -1317,6 +1325,7 @@ Name[ko]=대기 모드로 들어가지 않았음
 Name[lt]=Sustabdymas sutrukdytas
 Name[lv]=Iemigšana aizkavēta
 Name[ml]=മയങ്ങല്‍ തടഞ്ഞിരിയ്ക്കുന്നു
+Name[mr]=निलंबन थांबविले
 Name[nb]=Suspensjon hindret
 Name[nds]=Utsetten blockeert
 Name[nl]=Slaapstand verhinderd
@@ -1385,6 +1394,7 @@ Comment[ko]=프로그램의 요청으로 대기 모드에 들어가지 않았습
 Comment[lt]=Sustabdymas sutrukdytas, nes to prašė programa
 Comment[lv]=Iemigšana tika aizkavēta, jo to pieprasīja kāda programma
 Comment[ml]=ഒരു പ്രയോഗം ആവശ്യപ്പെട്ട പ്രകാരം മയങ്ങള്‍ തടഞ്ഞിരിയ്ക്കുന്നു
+Comment[mr]=एका अनुप्रयोगाने विनंती केल्यामुळे निलंबन थांबविले आहे
 Comment[nb]=Suspensjonen er blitt hindret fordi et program ba om det
 Comment[nds]=Dat Utsetten wöör blockeert, en Programm hett dat anfraagt.
 Comment[nl]=Het activeren van de slaapstand is verhinderd omdat een programma hierom verzocht
@@ -1449,6 +1459,7 @@ Name[kn]=ಬ್ಯಾಟರಿ ಹಾಳಾದ ಸೂಚನೆ
 Name[ko]=배터리 문제 알림
 Name[lt]=Pranešimas apie sugedusią bateriją
 Name[lv]=Bojātas baterijas paziņojums
+Name[mr]=तुटलेली बॅटरी सूचना
 Name[nb]=Varsling om ødelagt batteri
 Name[nds]=Bescheed över Batteriefehlers
 Name[nl]=Gebroken melding over accu
@@ -1488,6 +1499,7 @@ Comment[ia]=Le systema de gestion de energia de KDE releva alcun problemas con u
 Comment[kk]=KDE қуаттандыруды басқару жүйесі батареяңыздың бір мәселелерін байқады
 Comment[ko]=KDE 전원 관리 시스템에서 배터리에 문제를 발견하였습니다
 Comment[lt]=KDE energijos valdymo sistema aptiko bėdų su vienu iš  Jūsų akumuliatorių
+Comment[mr]=KDE वीज व्यवस्थापन प्रणालीला तुमच्या बैटरीमध्ये काही समस्या वाटत आहे
 Comment[nb]=KDE Strømstyringssystem har oppdaget vanskeligheter med et av batteriene dine
 Comment[nl]=Deze melding verschijnt als het KDE energiebeheersysteem een probleem detecteert met één van uw accu's
 Comment[pa]=ਕੇਡੀਈ ਊਰਜਾ ਪਰਬੰਧ ਸਿਸਟਮ ਨੂੰ ਤੁਹਾਡੀਆਂ ਬੈਟਰੀਆਂ ਵਿੱਚ ਕੋਈ ਸਮੱਸਿਆ ਮਿਲੀ ਹੈ
