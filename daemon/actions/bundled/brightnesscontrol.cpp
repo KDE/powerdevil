@@ -75,7 +75,7 @@ void BrightnessControl::onProfileLoad()
         m_defaultValue > core()->brightness()) {
         // We don't want to change anything here
         kDebug() << "Not changing brightness, the current one is lower and the profile is more conservative";
-    } else if (m_defaultValue > 0) {
+    } else if (m_defaultValue >= 0) {
         QVariantMap args;
         args["Value"] = QVariant::fromValue((float)m_defaultValue);
         trigger(args);
