@@ -58,6 +58,7 @@ Name[zh_CN]=KDE 电源管理系统
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[bs]=Sistem za upravljanje napajanjem
 Comment[ca]=Sistema de gestió d'energia
 Comment[cs]=Systém správy napájení
 Comment[da]=Strømstyringssystem
@@ -571,6 +572,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Battery Low
+Name[bs]=Nizak nivo baterije
 Name[ca]=Bateria baixa
 Name[cs]=Baterie je téměř vybitá
 Name[da]=Lavt batteri
@@ -688,6 +690,7 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[bs]=Baterija kritična
 Name[ca]=Bateria crítica
 Name[cs]=Baterie na kritické úrovni
 Name[da]=Kritisk batteri
@@ -798,6 +801,7 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[bs]=Gotovo punjenje
 Name[ca]=Càrrega completada
 Name[cs]=Nabití bylo dokončeno
 Name[da]=Opladning fuldført
@@ -834,6 +838,7 @@ Name[x-test]=xxCharge Completexx
 Name[zh_CN]=充电完成
 Name[zh_TW]=充電完成
 Comment=The battery is fully charged
+Comment[bs]=Baterija je potpuno puna
 Comment[ca]=La bateria està totalment carregada
 Comment[da]=Batteriet er fuldt opladet
 Comment[de]=Der Akku ist nun vollständig geladen
@@ -1190,6 +1195,7 @@ IconName=battery-low
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[bs]=Interna greška
 Name[ca]=Error intern
 Name[cs]=Vnitřní chyba
 Name[da]=Intern fejl
@@ -1486,6 +1492,7 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_CN]=电池损坏通知
 Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[bs]=KDE sistem za upravljanje napajanjem otkrio je problem sa nekom od baterija.
 Comment[ca]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
 Comment[da]=KDE's strømstyringssystem har fundet nogle problemer med et af dine batterier
 Comment[de]=Das KDE-Energieverwaltungssystem hat Probleme mit einer Ihrer Akkus entdeckt
