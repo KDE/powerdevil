@@ -63,9 +63,11 @@ void UPowerSuspendJob::doStart()
         switch(m_method)
         {
         case PowerDevil::BackendInterface::ToRam:
+            m_upowerInterface->AboutToSleep("suspend");
             m_upowerInterface->Suspend();
             break;
         case PowerDevil::BackendInterface::ToDisk:
+            m_upowerInterface->AboutToSleep("hibernate");
             m_upowerInterface->Hibernate();
             break;
         default:
