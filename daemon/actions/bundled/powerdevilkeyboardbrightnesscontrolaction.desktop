@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=PowerDevil/Action
+X-KDE-Library=powerdevilkeyboardbrightnesscontrolaction_config
+Icon=input-keyboard
+Name=Keyboard Backlight
+Comment=Basic Controls for the keyboard backlight brightness
+
+X-KDE-PowerDevil-Action-ID=KeyboardBrightnessControl
+X-KDE-PowerDevil-Action-IsBundled=true
+X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevilkeyboardbrightnesscontrolaction_config
+X-KDE-PowerDevil-Action-ConfigPriority=100

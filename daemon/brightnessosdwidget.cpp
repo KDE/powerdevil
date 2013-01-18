@@ -37,8 +37,9 @@
 #include <Plasma/Meter>
 #include <Plasma/Theme>
 
-BrightnessOSDWidget::BrightnessOSDWidget(QWidget * parent)
+BrightnessOSDWidget::BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QWidget * parent)
     : Plasma::Dialog(parent, Qt::ToolTip),
+      m_type(type),
       m_scene(new QGraphicsScene(this)),
       m_container(new QGraphicsWidget),
       m_iconLabel(new Plasma::Label),
@@ -112,7 +113,11 @@ void BrightnessOSDWidget::themeUpdated()
     QFontMetrics fm(m_volumeLabel->font());
     QSize iconSize = QSize(fm.height(), fm.height());
 
-    m_brightnessPixmap = KIcon("video-display").pixmap(iconSize);
+    if (m_type == PowerDevil::BackendInterface::Screen) {
+        m_brightnessPixmap = KIcon("video-display").pixmap(iconSize);
+    } else {
+        m_brightnessPixmap = KIcon("input-keyboard").pixmap(iconSize);
+    }
 
     m_iconLabel->nativeWidget()->setPixmap(m_brightnessPixmap);
     m_iconLabel->nativeWidget()->setFixedSize(iconSize);

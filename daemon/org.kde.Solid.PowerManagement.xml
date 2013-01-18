@@ -19,6 +19,12 @@
     <method name="brightness">
       <arg type="i" direction="out" />
     </method>
+    <method name="setKeyboardBrightness">
+      <arg type="i" direction="in" />
+    </method>
+    <method name="keyboardBrightness">
+      <arg type="i" direction="out" />
+    </method>
     <method name="batteryRemainingTime">
       <arg type="t" direction="out" />
     </method>
@@ -41,6 +47,9 @@
     <!--<signal name="DPMSconfigUpdated">
     </signal>-->
     <signal name="brightnessChanged">
+      <arg type="i" direction="out" />
+    </signal>
+    <signal name="keyboardBrightnessChanged">
       <arg type="i" direction="out" />
     </signal>
     <signal name="profileChanged">

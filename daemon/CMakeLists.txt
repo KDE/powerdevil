@@ -12,6 +12,7 @@ set(POWERDEVIL_CORE_VERSION_STRING ${POWERDEVIL_CORE_VERSION_MAJOR}.${POWERDEVIL
 set(powerdevil_bundled_actions_SRCS
     actions/bundled/suspendsession.cpp
     actions/bundled/brightnesscontrol.cpp
+    actions/bundled/keyboardbrightnesscontrol.cpp
     actions/bundled/dimdisplay.cpp
     actions/bundled/runscript.cpp
     actions/bundled/handlebuttonevents.cpp

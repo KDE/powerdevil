@@ -24,6 +24,8 @@
 #ifndef BRIGHTNESSOSDWIDGET__H
 #define BRIGHTNESSOSDWIDGET__H
 
+#include "powerdevilbackendinterface.h"
+
 #include <QPixmap>
 
 #include <Plasma/Dialog>
@@ -40,7 +42,7 @@ class BrightnessOSDWidget : public Plasma::Dialog
 {
 Q_OBJECT
 public:
-    BrightnessOSDWidget(QWidget * parent = 0);
+    BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QWidget * parent = 0);
 
     void setCurrentBrightness(int brightnessLevel);
     void activateOSD();
@@ -49,6 +51,7 @@ protected slots:
     void themeUpdated();
 
 private:
+    PowerDevil::BackendInterface::BrightnessControlType m_type;
     QGraphicsScene *m_scene;
     QGraphicsWidget *m_container;
     Plasma::Label *m_iconLabel;

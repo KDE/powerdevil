@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2012 by Michael Zanetti <mzanetti@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#include "brightnesscontrol.h"
-
+#include "keyboardbrightnesscontrol.h"
 #include "brightnessosdwidget.h"
 
 #include <powerdevilbackendinterface.h>
@@ -34,7 +33,7 @@
 namespace PowerDevil {
 namespace BundledActions {
 
-BrightnessControl::BrightnessControl(QObject* parent)
+KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
@@ -43,29 +42,29 @@ BrightnessControl::BrightnessControl(QObject* parent)
             this, SLOT(onBrightnessChangedFromBackend(float,PowerDevil::BackendInterface::BrightnessControlType)));
 }
 
-BrightnessControl::~BrightnessControl()
+KeyboardBrightnessControl::~KeyboardBrightnessControl()
 {
     if (!m_brightnessOSD.isNull()) {
         m_brightnessOSD.data()->deleteLater();
     }
 }
 
-void BrightnessControl::onProfileUnload()
+void KeyboardBrightnessControl::onProfileUnload()
 {
     //
 }
 
-void BrightnessControl::onWakeupFromIdle()
+void KeyboardBrightnessControl::onWakeupFromIdle()
 {
     //
 }
 
-void BrightnessControl::onIdleTimeout(int msec)
+void KeyboardBrightnessControl::onIdleTimeout(int msec)
 {
     Q_UNUSED(msec);
 }
 
-void BrightnessControl::onProfileLoad()
+void KeyboardBrightnessControl::onProfileLoad()
 {
     // This unparsable conditional block means: if the current profile is more
     // conservative than the previous one and the current brightness is lower
@@ -74,23 +73,23 @@ void BrightnessControl::onProfileLoad()
          (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
         m_defaultValue > core()->brightness()) {
         // We don't want to change anything here
-        kDebug() << "Not changing brightness, the current one is lower and the profile is more conservative";
-    } else if (m_defaultValue >= 0) {
+        kDebug() << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
+    } else if (m_defaultValue > 0) {
         QVariantMap args;
         args["Value"] = QVariant::fromValue((float)m_defaultValue);
         trigger(args);
     }
 }
 
-void BrightnessControl::triggerImpl(const QVariantMap& args)
+void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
 {
-    backend()->setBrightness(args["Value"].toFloat());
+    backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
     if (args["Explicit"].toBool()) {
         showBrightnessOSD(args["Value"].toFloat());
     }
 }
 
-bool BrightnessControl::loadAction(const KConfigGroup& config)
+bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 {
     // Handle profile changes
     m_lastProfile = m_currentProfile;
@@ -107,11 +106,11 @@ bool BrightnessControl::loadAction(const KConfigGroup& config)
     return true;
 }
 
-void BrightnessControl::showBrightnessOSD(int brightness)
+void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
 {
     // code adapted from KMix
     if (m_brightnessOSD.isNull()) {
-        m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Screen);
+        m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Keyboard);
     }
 
     m_brightnessOSD.data()->setCurrentBrightness(brightness);
@@ -126,9 +125,9 @@ void BrightnessControl::showBrightnessOSD(int brightness)
     m_brightnessOSD.data()->setGeometry(posX, posY, size.width(), size.height());
 }
 
-void BrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
+void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
 {
-    if (type == BackendInterface::Screen) {
+    if (type == BackendInterface::Keyboard) {
         showBrightnessOSD(brightness);
     }
 }

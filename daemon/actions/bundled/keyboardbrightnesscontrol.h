@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2012 by Michael Zanetti <mzanetti@kde.org>              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,8 +18,8 @@
  ***************************************************************************/
 
 
-#ifndef POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
-#define POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
+#ifndef POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROL_H
+#define POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROL_H
 
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
@@ -29,14 +29,14 @@ class BrightnessOSDWidget;
 namespace PowerDevil {
 namespace BundledActions {
 
-class BrightnessControl : public PowerDevil::Action
+class KeyboardBrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(BrightnessControl)
+    Q_DISABLE_COPY(KeyboardBrightnessControl)
 
 public:
-    explicit BrightnessControl(QObject* parent);
-    virtual ~BrightnessControl();
+    explicit KeyboardBrightnessControl(QObject* parent);
+    virtual ~KeyboardBrightnessControl();
 
 protected:
     virtual void onProfileUnload();
@@ -63,4 +63,4 @@ private:
 
 }
 
-#endif // POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
+#endif // POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROL_H

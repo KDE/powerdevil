@@ -102,13 +102,13 @@ void PowerDevilUPowerBackend::init()
     // Brightness Controls available
     BrightnessControlsList controls;
     controls.insert(QLatin1String("LVDS1"), Screen);
+    m_cachedBrightnessMap.insert(Screen, brightness(Screen));
+    kDebug() << "current screen brightness: " << m_cachedBrightnessMap.value(Screen);
 
-    if (m_kbdBacklight->isValid())
+    if (m_kbdBacklight->isValid()) {
         controls.insert(QLatin1String("KBD"), Keyboard);
-
-    if (!controls.isEmpty()) {
-        m_cachedBrightness = brightness(Screen);
-        kDebug() << "current screen brightness: " << m_cachedBrightness;
+        m_cachedBrightnessMap.insert(Keyboard, brightness(Keyboard));
+        kDebug() << "current keyboard backlight brightness: " << m_cachedBrightnessMap.value(Keyboard);
     }
 
     // Supported suspend methods
@@ -151,28 +151,45 @@ void PowerDevilUPowerBackend::init()
     setBackendIsReady(controls, supported);
 }
 
-void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type)
+void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, BrightnessControlType controlType)
 {
-    BrightnessControlsList controls = brightnessControlsAvailable();
-    QList<QString> screenControls = controls.keys(Screen);
+    BrightnessControlsList allControls = brightnessControlsAvailable();
+    QList<QString> controls = allControls.keys(controlType);
 
-    if (screenControls.isEmpty()) {
+    if (controls.isEmpty()) {
         return; // ignore as we are not able to determine the brightness level
     }
 
-    float currentBrightness = brightness(Screen);
+    if (type == Toggle && controlType == Screen) {
+        return; // ignore as we wont toggle the screen off
+    }
 
-    if (qFuzzyCompare(currentBrightness, m_cachedBrightness)) {
+    float currentBrightness = brightness(controlType);
+
+    int step = 10;
+    if (controlType == Keyboard) {
+        // In case the keyboard backlight has only 5 or less possible values,
+        // 10% are not enough to hit the next value. Lets use 30% because
+        // that jumps exactly one value for 2, 3, 4 and 5 possible steps
+        // when rounded.
+        if (m_kbdBacklight->GetMaxBrightness() < 6) {
+            step = 30;
+        }
+    }
+
+    if (qFuzzyCompare(currentBrightness, m_cachedBrightnessMap.value(controlType))) {
         float newBrightness;
         if (type == Increase) {
-            newBrightness = qMin(100.0f, currentBrightness + 10);
-        } else {
-            newBrightness = qMax(0.0f, currentBrightness - 10);
+            newBrightness = qMin(100.0f, currentBrightness + step);
+        } else if (type == Decrease) {
+            newBrightness = qMax(0.0f, currentBrightness - step);
+        } else { // Toggle On/off
+            newBrightness = currentBrightness > 0 ? 0 : 100;
         }
 
-        setBrightness(newBrightness, Screen);
+        setBrightness(newBrightness, controlType);
     } else {
-        m_cachedBrightness = currentBrightness;
+        m_cachedBrightnessMap[controlType] = currentBrightness;
     }
 }
 
@@ -200,7 +217,7 @@ float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightne
         kDebug() << "Screen brightness: " << result;
     } else if (type == Keyboard) {
         kDebug() << "Kbd backlight brightness: " << m_kbdBacklight->GetBrightness();
-        result = m_kbdBacklight->GetBrightness() / m_kbdBacklight->GetMaxBrightness() * 100;
+        result = 1.0 * m_kbdBacklight->GetBrightness() / m_kbdBacklight->GetMaxBrightness() * 100;
     }
 
     return result;
@@ -231,12 +248,12 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
         m_kbdBacklight->SetBrightness(brightnessValue / 100 * m_kbdBacklight->GetMaxBrightness());
         success = true;
     }
-
+    
     if (success) {
-        float newBrightness = brightness(Screen);
-        if (!qFuzzyCompare(newBrightness, m_cachedBrightness)) {
-            m_cachedBrightness = newBrightness;
-            onBrightnessChanged(Screen, m_cachedBrightness);
+        float newBrightness = brightness(type);
+        if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[type])) {
+              m_cachedBrightnessMap[type] = newBrightness;
+              onBrightnessChanged(type, m_cachedBrightnessMap[type]);
         }
         return true;
     }

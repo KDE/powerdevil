@@ -99,10 +99,11 @@ public:
     /**
      * This enum defines the different types brightness keys.
      *
-     * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp)
-     * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown)
+     * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
+     * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
+     * - Toggle: Key to toggle backlight (Qt::Key_KeyboardBacklightOnOff)
      */
-    enum BrightnessKeyType{ Increase, Decrease };
+    enum BrightnessKeyType{ Increase, Decrease, Toggle };
 
     /**
      * This enum defines capabilities of the backend
@@ -216,7 +217,7 @@ public:
      * @param type the type of the brightness key press
      * @see PowerDevil::BackendInterface::BrightnessKeyType
      */
-    virtual void brightnessKeyPressed(BrightnessKeyType type) = 0;
+    virtual void brightnessKeyPressed(BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
 
     /**
      * Retrieves the capacities of the installed batteries in percentage.

@@ -18,49 +18,35 @@
  ***************************************************************************/
 
 
-#ifndef POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
-#define POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
+#ifndef POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROLCONFIG_H
+#define POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROLCONFIG_H
 
-#include <powerdevilaction.h>
-#include <powerdevilbackendinterface.h>
+#include <powerdevilactionconfig.h>
 
-class BrightnessOSDWidget;
+#include <kdemacros.h>
+
+class QSlider;
 
 namespace PowerDevil {
 namespace BundledActions {
 
-class BrightnessControl : public PowerDevil::Action
+class KDE_EXPORT KeyboardBrightnessControlConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(BrightnessControl)
-
+    Q_DISABLE_COPY(KeyboardBrightnessControlConfig)
 public:
-    explicit BrightnessControl(QObject* parent);
-    virtual ~BrightnessControl();
+    KeyboardBrightnessControlConfig(QObject*, const QVariantList&);
+    virtual ~KeyboardBrightnessControlConfig();
 
-protected:
-    virtual void onProfileUnload();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap& args);
-
-public:
-    virtual bool loadAction(const KConfigGroup& config);
-
-public Q_SLOTS:
-    void showBrightnessOSD(int brightness);
-    void onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type);
+    virtual void save();
+    virtual void load();
+    virtual QList< QPair< QString, QWidget* > > buildUi();
 
 private:
-    int m_defaultValue;
-    QWeakPointer< BrightnessOSDWidget > m_brightnessOSD;
-    QString m_lastProfile;
-    QString m_currentProfile;
+    QSlider *m_slider;
 };
 
 }
-
 }
 
-#endif // POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
+#endif // POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROLCONFIG_H

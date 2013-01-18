@@ -122,7 +122,7 @@ void Core::onBackendReady()
     }
 
     connect(m_backend, SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
-            this, SLOT(onBrightnessChanged(float)));
+            this, SLOT(onBrightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)));
     connect(m_backend, SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
     connect(m_backend, SIGNAL(batteryRemainingTimeChanged(qulonglong)),
@@ -158,22 +158,37 @@ void Core::onBackendReady()
     KActionCollection* actionCollection = new KActionCollection( this );
 
     KAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
-    globalAction->setText(i18nc("Global shortcut", "Increase Screen Brightness"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
     globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
 
     globalAction = actionCollection->addAction("Decrease Screen Brightness");
-    globalAction->setText(i18nc("Global shortcut", "Decrease Screen Brightness"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
     globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
 
+    globalAction = actionCollection->addAction("Increase Keyboard Brightness");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessUp));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
+
+    globalAction = actionCollection->addAction("Decrease Keyboard Brightness");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessDown));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
+
+    globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardLightOnOff));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
+
     globalAction = actionCollection->addAction("Sleep");
-    globalAction->setText(i18nc("Global shortcut", "Sleep"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Sleep"));
     globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
 
     globalAction = actionCollection->addAction("Hibernate");
-    globalAction->setText(i18nc("Global shortcut", "Hibernate"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
     globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
 
@@ -651,9 +666,13 @@ void Core::onBatteryRemainingTimeChanged(qulonglong time)
     emit batteryRemainingTimeChanged(time);
 }
 
-void Core::onBrightnessChanged(float brightness)
+void Core::onBrightnessChanged(float brightness, BackendInterface::BrightnessControlType type)
 {
-    emit brightnessChanged(brightness);
+    if (type == BackendInterface::Screen) {
+        emit brightnessChanged(brightness);
+    } else {
+        emit keyboardBrightnessChanged(brightness);
+    }
 }
 
 void Core::onResumeFromSuspend()
@@ -734,6 +753,21 @@ void Core::decreaseBrightness()
     m_backend->brightnessKeyPressed(BackendInterface::Decrease);
 }
 
+void Core::increaseKeyboardBrightness()
+{
+    m_backend->brightnessKeyPressed(BackendInterface::Increase, BackendInterface::Keyboard);
+}
+
+void Core::decreaseKeyboardBrightness()
+{
+    m_backend->brightnessKeyPressed(BackendInterface::Decrease, BackendInterface::Keyboard);
+}
+
+void Core::toggleKeyboardBacklight()
+{
+    m_backend->brightnessKeyPressed(BackendInterface::Toggle, BackendInterface::Keyboard);
+}
+
 BackendInterface* Core::backend()
 {
     return m_backend;
@@ -769,6 +803,11 @@ int Core::brightness() const
     return m_backend->brightness();
 }
 
+int Core::keyboardBrightness() const
+{
+    return m_backend->brightness(BackendInterface::Keyboard);
+}
+
 uint Core::backendCapabilities()
 {
     return m_backend->capabilities();
@@ -780,6 +819,14 @@ void Core::setBrightness(int percent)
     args["Value"] = QVariant::fromValue<float>((float)percent);
     args["Explicit"] = true;
     ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
+}
+
+void Core::setKeyboardBrightness(int percent)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
+    ActionPool::instance()->loadAction("KeyboardBrightnessControl", KConfigGroup(), this)->trigger(args);
 }
 
 void Core::triggerSuspendSession(uint action)

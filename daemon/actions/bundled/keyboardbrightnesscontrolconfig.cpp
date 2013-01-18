@@ -17,50 +17,58 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
+#include "keyboardbrightnesscontrolconfig.h"
 
-#ifndef POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
-#define POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QSlider>
 
-#include <powerdevilaction.h>
-#include <powerdevilbackendinterface.h>
+#include <KPluginFactory>
+#include <KLocalizedString>
 
-class BrightnessOSDWidget;
+K_PLUGIN_FACTORY(PowerDevilKeyboardBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::KeyboardBrightnessControlConfig>(); )
+K_EXPORT_PLUGIN(PowerDevilKeyboardBrightnessControlConfigFactory("powerdevilkeyboardbrightnesscontrolaction_config"))
 
 namespace PowerDevil {
 namespace BundledActions {
 
-class BrightnessControl : public PowerDevil::Action
+KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent, const QVariantList& )
+    : ActionConfig(parent)
 {
-    Q_OBJECT
-    Q_DISABLE_COPY(BrightnessControl)
-
-public:
-    explicit BrightnessControl(QObject* parent);
-    virtual ~BrightnessControl();
-
-protected:
-    virtual void onProfileUnload();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap& args);
-
-public:
-    virtual bool loadAction(const KConfigGroup& config);
-
-public Q_SLOTS:
-    void showBrightnessOSD(int brightness);
-    void onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type);
-
-private:
-    int m_defaultValue;
-    QWeakPointer< BrightnessOSDWidget > m_brightnessOSD;
-    QString m_lastProfile;
-    QString m_currentProfile;
-};
 
 }
 
+KeyboardBrightnessControlConfig::~KeyboardBrightnessControlConfig()
+{
+
 }
 
-#endif // POWERDEVIL_BUNDLEDACTIONS_BRIGHTNESSCONTROL_H
+void KeyboardBrightnessControlConfig::save()
+{
+    configGroup().writeEntry("value", m_slider->value());
+    configGroup().sync();
+}
+
+void KeyboardBrightnessControlConfig::load()
+{
+    m_slider->setValue(configGroup().readEntry<int>("value", 50));
+}
+
+QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
+{
+    QList< QPair< QString, QWidget* > > retlist;
+    m_slider = new QSlider(Qt::Horizontal);
+    m_slider->setMaximumWidth(300);
+    m_slider->setRange(0, 100);
+    retlist.append(qMakePair< QString, QWidget* >(i18nc("@label:slider Brightness level", "Level"), m_slider));
+
+    connect(m_slider, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
+
+    return retlist;
+}
+
+
+}
+}
+
+#include "keyboardbrightnesscontrolconfig.moc"

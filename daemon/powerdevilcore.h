@@ -82,10 +82,17 @@ public Q_SLOTS:
     int brightness() const;
     void setBrightness(int percent);
 
+    int keyboardBrightness() const;
+    void setKeyboardBrightness(int percent);
+
     qulonglong batteryRemainingTime() const;
 
     void increaseBrightness();
     void decreaseBrightness();
+
+    void increaseKeyboardBrightness();
+    void decreaseKeyboardBrightness();
+    void toggleKeyboardBacklight();
 
     void suspendToRam();
     void suspendToDisk();
@@ -100,6 +107,7 @@ Q_SIGNALS:
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
     void brightnessChanged(int percent);
+    void keyboardBrightnessChanged(int percent);
     void batteryRemainingTimeChanged(qulonglong time);
     void resumingFromSuspend();
 
@@ -142,7 +150,7 @@ private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
     void onBatteryChargeStateChanged(int,const QString&);
-    void onBrightnessChanged(float);
+    void onBrightnessChanged(float, BackendInterface::BrightnessControlType type);
     void onBatteryRemainingTimeChanged(qulonglong);
     void onKIdleTimeoutReached(int,int);
     void onResumingFromIdle();

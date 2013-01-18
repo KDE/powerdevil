@@ -32,6 +32,7 @@
 // Bundled actions:
 #include "actions/bundled/suspendsession.h"
 #include "actions/bundled/brightnesscontrol.h"
+#include "actions/bundled/keyboardbrightnesscontrol.h"
 #include "actions/bundled/dimdisplay.h"
 #include "actions/bundled/runscript.h"
 #include "actions/bundled/handlebuttonevents.h"
@@ -113,6 +114,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     // Load bundled actions now
     m_actionPool.insert("SuspendSession", new BundledActions::SuspendSession(parent));
     m_actionPool.insert("BrightnessControl", new BundledActions::BrightnessControl(parent));
+    m_actionPool.insert("KeyboardBrightnessControl", new BundledActions::KeyboardBrightnessControl(parent));
     m_actionPool.insert("DimDisplay", new BundledActions::DimDisplay(parent));
     m_actionPool.insert("RunScript", new BundledActions::RunScript(parent));
     m_actionPool.insert("HandleButtonEvents", new BundledActions::HandleButtonEvents(parent));
