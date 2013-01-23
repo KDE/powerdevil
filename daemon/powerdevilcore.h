@@ -150,7 +150,7 @@ private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
     void onBatteryChargeStateChanged(int,const QString&);
-    void onBrightnessChanged(float, BackendInterface::BrightnessControlType type);
+    void onBrightnessChanged(float, PowerDevil::BackendInterface::BrightnessControlType type);
     void onBatteryRemainingTimeChanged(qulonglong);
     void onKIdleTimeoutReached(int,int);
     void onResumingFromIdle();
