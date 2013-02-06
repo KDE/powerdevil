@@ -390,7 +390,7 @@ Comment[lt]=Naudojamas standartiniams pranešimams
 Comment[lv]=Izmanto standarta paziņojumiem
 Comment[mk]=Се користи за стандардни известувања
 Comment[ml]=സ്റ്റാന്‍ഡര്‍ഡ് അറിയിപ്പുകള്‍ക്കായി ഉപയോഗിക്കുന്നത്
-Comment[mr]=मानक सूचना करिता वापरले जाते
+Comment[mr]=प्रमाणित सूचना करिता वापरले जाते
 Comment[nb]=Brukt til standardmeldinger
 Comment[nds]=Bi Standardbescheden bruukt
 Comment[nl]=Wordt gebruikt voor standaardmeldingen
@@ -775,7 +775,7 @@ Comment[lt]=Jūsų akumuliatoriaus įkrova pasiekė kritinį lygmenį. Šis pers
 Comment[lv]=Jūsu baterija ir sasniegisi kritisku līmeni. Šis paziņojums sāk laika atskaiti līdz konfigurētajai darbībai, tāpēc ir ļoti vēlams atstāt to redzamu.
 Comment[mk]=Вашата батерија достигна критично ниво. Ова известување предизвикува одбројување пред да се изврши конфигурираното дејство и е многу препорачливо тоа да остане вклучено.
 Comment[ml]=നിങ്ങളുടെ ബാറ്ററി ഗുരുതരമായ നിലയില്‍ എത്തിയിരിയ്ക്കുന്നു. ഈ അറിയിപ്പ് ഒരു കഴിഞ്ഞാല്‍ ക്രമീകരിച്ച പ്രവര്‍ത്തനം തുടങ്ങുന്നതിനു് മുമ്പു് ഒരു കൌണ്ട്ഡൌണ്‍ ആരംഭിയ്ക്കും, അതിനാല്‍ ഇതു് സജീവമായി വയ്ക്കാന്‍ ശക്തിയായി ഉപദേശിക്കുന്നു.
-Comment[mr]=बॅटरी संकटाच्या पातळी पर्यंत पोहचली आहे. ही सूचना संयोजीत क्रिया करण्यापूर्वी काऊन्टडाऊन सक्रीय करते, ज्यामुळे त्यांस वगळण्यास सूचविले जाते.
+Comment[mr]=बॅटरी संकटाच्या पातळी पर्यंत पोहचली आहे. ही सूचना संयोजीत क्रिया करण्यापूर्वी काऊन्टडाऊन सक्रिय करते, ज्यामुळे त्यांस वगळण्यास सूचविले जाते.
 Comment[nb]=Batteriet har nådd kritisk nivå. Denne varslingen utløser en nedtelling før den innstilte handlinga utføres, så det tilrådes sterkt å la den stå på.
 Comment[nds]=Dien Batterie is bi de kritische Stoop ankamen. Disse Bescheed tellt en Tiet daal, ehr he de instellte Akschoon utföhrt, laat em also beter an.
 Comment[nl]=Uw accu heeft het kritieke niveau bereikt. Deze melding activeert een aftelling voordat de ingestelde actie zal worden uitgevoerd. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
@@ -1279,7 +1279,7 @@ Comment[km]=ប្រព័ន្ធ​គ្រប់គ្រង​ថាម�
 Comment[ko]=KDE 전원 관리 시스템에서 내부 오류가 발생하였습니다
 Comment[lt]=KDE energijos valdymo sistema sužadino vidinę klaidą
 Comment[lv]=KDE energokontroles sistēmā radās iekšēja kļūda
-Comment[mr]=KDE वीज व्यवस्थापन प्रणालीने अंतर्गत त्रुटी सक्रीय केली आहे
+Comment[mr]=KDE वीज व्यवस्थापन प्रणालीने अंतर्गत त्रुटी सक्रिय केली आहे
 Comment[nb]=KDE strømstyringssystem har utløst en intern feil
 Comment[nds]=Dat KDE-Stroomkuntrullsysteem hett en intern Fehler hatt.
 Comment[nl]=Het KDE-energiebeheersysteem activeerde een interne fout
