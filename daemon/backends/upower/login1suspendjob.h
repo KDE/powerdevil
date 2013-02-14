@@ -1,6 +1,7 @@
 /*  This file is part of the KDE project
     Copyright (C) 2006 Kevin Ottens <ervin@kde.org>
     Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
+    Copyright (C) 2013 Lukáš Tinkl <ltinkl@redhat.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -18,37 +19,36 @@
 
 */
 
-#ifndef UPOWERSUSPENDJOB_H
-#define UPOWERSUSPENDJOB_H
+#ifndef LOGIN1SUSPENDJOB_H
+#define LOGIN1SUSPENDJOB_H
 
 #include <kjob.h>
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusPendingCallWatcher>
 
 #include "powerdevilbackendinterface.h"
 
-class OrgFreedesktopUPowerInterface;
-
-class UPowerSuspendJob : public KJob
+class Login1SuspendJob : public KJob
 {
     Q_OBJECT
 public:
-    UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
+    Login1SuspendJob(QDBusInterface *login1Interface,
                      PowerDevil::BackendInterface::SuspendMethod method,
                      PowerDevil::BackendInterface::SuspendMethods supported);
-    virtual ~UPowerSuspendJob();
+    virtual ~Login1SuspendJob();
 
     void start();
     void kill(bool quietly);
 
 private Q_SLOTS:
     void doStart();
-    void resumeDone();
+    void sendResult(QDBusPendingCallWatcher* watcher);
 
 private:
-    OrgFreedesktopUPowerInterface *m_upowerInterface;
+    QDBusInterface *m_login1Interface;
     PowerDevil::BackendInterface::SuspendMethod m_method;
     PowerDevil::BackendInterface::SuspendMethods m_supported;
 };
 
-#endif //UPOWERSUSPENDJOB_H
+#endif //LOGIN1SUSPENDJOB_H

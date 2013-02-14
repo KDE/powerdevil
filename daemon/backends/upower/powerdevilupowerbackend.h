@@ -34,6 +34,7 @@
 #include "upower_kbdbacklight_interface.h"
 
 #define UPOWER_SERVICE "org.freedesktop.UPower"
+#define LOGIN1_SERVICE "org.freedesktop.login1"
 
 class XRandrBrightness;
 
@@ -63,6 +64,7 @@ private slots:
     void slotDeviceRemoved(const QString &);
     void slotDeviceChanged(const QString &);
     void slotPropertyChanged();
+    void slotLogin1Resuming(bool active);
 
 private:
     // upower devices
@@ -73,6 +75,9 @@ private:
     XRandrBrightness         *m_brightnessControl;
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
+
+    // login1 interface
+    QWeakPointer<QDBusInterface> m_login1Interface;
 
     // buttons
     bool m_lidIsPresent;
