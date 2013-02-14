@@ -9,6 +9,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/upower
 
 set(powerdevilupowerbackend_SRCS
     backends/upower/upowersuspendjob.cpp
+    backends/upower/login1suspendjob.cpp
     backends/upower/powerdevilupowerbackend.cpp
     backends/upower/xrandrbrightness.cpp
 )

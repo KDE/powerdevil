@@ -1,6 +1,7 @@
 /*  This file is part of the KDE project
     Copyright (C) 2006 Kevin Ottens <ervin@kde.org>
     Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
+    Copyright (C) 2013 Lukáš Tinkl <ltinkl@redhat.com>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -18,9 +19,7 @@
 
 */
 
-#include "upowersuspendjob.h"
-
-#include "upower_interface.h"
+#include "login1suspendjob.h"
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
@@ -28,61 +27,73 @@
 #include <KDebug>
 #include <KLocale>
 
-UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
+Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
                                    PowerDevil::BackendInterface::SuspendMethod method,
                                    PowerDevil::BackendInterface::SuspendMethods supported)
-    : KJob(), m_upowerInterface(upowerInterface)
+    : KJob(), m_login1Interface(login1Interface)
 {
-    kDebug() << "Starting UPower suspend job";
+    kDebug() << "Starting Login1 suspend job";
     m_method = method;
     m_supported = supported;
-
-    connect(m_upowerInterface, SIGNAL(Resuming()), this, SLOT(resumeDone()));
 }
 
-UPowerSuspendJob::~UPowerSuspendJob()
+Login1SuspendJob::~Login1SuspendJob()
 {
 
 }
 
-void UPowerSuspendJob::start()
+void Login1SuspendJob::start()
 {
     QTimer::singleShot(0, this, SLOT(doStart()));
 }
 
-void UPowerSuspendJob::kill(bool /*quietly */)
+void Login1SuspendJob::kill(bool /*quietly */)
 {
 
 }
 
-void UPowerSuspendJob::doStart()
+void Login1SuspendJob::doStart()
 {
     if (m_supported & m_method)
     {
+        QVariantList args;
+        args << true; // interactive, ie. with polkit dialogs
+
+        QDBusPendingReply<void> reply;
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+        connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(sendResult(QDBusPendingCallWatcher*)));
+
         switch(m_method)
         {
         case PowerDevil::BackendInterface::ToRam:
-            m_upowerInterface->AboutToSleep("suspend");
-            m_upowerInterface->Suspend();
+            reply = m_login1Interface->asyncCallWithArgumentList("Suspend", args);
             break;
         case PowerDevil::BackendInterface::ToDisk:
-            m_upowerInterface->AboutToSleep("hibernate");
-            m_upowerInterface->Hibernate();
+            reply = m_login1Interface->asyncCallWithArgumentList("Hibernate", args);
+            break;
+        case PowerDevil::BackendInterface::HybridSuspend:
+            reply = m_login1Interface->asyncCallWithArgumentList("HybridSleep", args);
             break;
         default:
-            kDebug() << "This backend doesn't support hybrid mode";
+            kDebug() << "Unsupported suspend method";
             setError(1);
             setErrorText(i18n("Unsupported suspend method"));
             break;
         }
-        emitResult();
     }
 }
 
-
-void UPowerSuspendJob::resumeDone()
+void Login1SuspendJob::sendResult(QDBusPendingCallWatcher *watcher)
 {
-    emitResult();
+    const QDBusPendingReply<void> reply = *watcher;
+    if (!reply.isError()) {
+        emitResult();
+    } else {
+        kWarning() << "Failed to start suspend job" << reply.error().name() << reply.error().message();
+    }
+
+    watcher->deleteLater();
 }
 
-#include "upowersuspendjob.moc"
+
+#include "login1suspendjob.moc"
