@@ -119,7 +119,8 @@ void BrightnessControl::showBrightnessOSD(int brightness)
     m_brightnessOSD.data()->activateOSD(); //Enable the hide timer
 
     //Center the OSD
-    QRect rect = KApplication::kApplication()->desktop()->screenGeometry(QCursor::pos());
+    QDesktopWidget * desktop = qApp->desktop();
+    QRect rect = desktop->screenGeometry(desktop->primaryScreen());
     QSize size = m_brightnessOSD.data()->sizeHint();
     int posX = rect.x() + (rect.width() - size.width()) / 2;
     int posY = rect.y() + 4 * rect.height() / 5;
