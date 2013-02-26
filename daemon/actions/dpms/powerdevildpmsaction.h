@@ -49,6 +49,7 @@ private Q_SLOTS:
 
 private:
     int m_idleTime;
+    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen;
 
     class Private;
     Private * const d;

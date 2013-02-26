@@ -69,6 +69,7 @@ K_EXPORT_PLUGIN(PowerDevilDPMSActionFactory("powerdevildpmsaction"))
 PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
     : Action(parent)
     , m_idleTime(0)
+    , m_inhibitScreen(0)  // can't use PowerDevil::PolicyAgent enum because X11/X.h defines None as 0L
     , d(new Private)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
@@ -98,6 +99,8 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
             SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
             this,
             SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
+    // inhibitions persist over kded module unload/load
+    m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
 PowerDevilDPMSAction::~PowerDevilDPMSAction()
@@ -165,9 +168,6 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
     Display *dpy = QX11Info::display();
     DPMSInfo(dpy, &dummy, &enabled);
 
-    // Let's pretend we're resuming
-    core()->onResumeFromSuspend();
-
     if (args["Type"].toString() == "TurnOff") {
         if (enabled) {
             DPMSForceLevel(dpy, DPMSModeOff);
@@ -210,7 +210,14 @@ bool PowerDevilDPMSAction::onUnloadAction()
 
 void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
 {
-    if (policies & PowerDevil::PolicyAgent::ChangeScreenSettings) {
+    // only take action if screen inhibit changed
+    PowerDevil::PolicyAgent::RequiredPolicies oldPolicy = m_inhibitScreen;
+    m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
+    if (oldPolicy == m_inhibitScreen) {
+        return;
+    }
+
+    if (m_inhibitScreen) {
         // Inhibition triggered: disable DPMS
         kDebug() << "Disabling DPMS due to inhibition";
         Display *dpy = QX11Info::display();
