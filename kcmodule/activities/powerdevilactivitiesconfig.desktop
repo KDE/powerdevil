@@ -3,7 +3,7 @@ Exec=kcmshell4 powerdevilactivitiesconfig
 Icon=preferences-activities
 Type=Service
 X-KDE-ServiceTypes=KCModule
-X-DocPath=kcontrol/powerdevil/index.html
+X-DocPath=kcontrol/powerdevil/index.html#activity-setting
 
 X-KDE-Library=kcm_powerdevilactivitiesconfig
 X-KDE-ParentApp=kcontrol
