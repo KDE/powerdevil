@@ -80,7 +80,18 @@ XRandrBrightness::~XRandrBrightness()
 
 bool XRandrBrightness::isSupported() const
 {
-    return (m_resources != 0);
+    if (!m_resources)
+        return false;
+
+    // Verify that there are outputs that actually support backlight control...
+    for (int o = 0; o < m_resources->noutput; o++)
+    {
+        if (backlight_get(m_resources->outputs[o]) != -1) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 float XRandrBrightness::brightness() const
