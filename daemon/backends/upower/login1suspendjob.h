@@ -44,6 +44,7 @@ public:
 private Q_SLOTS:
     void doStart();
     void sendResult(QDBusPendingCallWatcher* watcher);
+    void slotLogin1Resuming(bool active);
 
 private:
     QDBusInterface *m_login1Interface;
