@@ -35,6 +35,8 @@ Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
     kDebug() << "Starting Login1 suspend job";
     m_method = method;
     m_supported = supported;
+
+    connect(m_login1Interface, SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1Resuming(bool)));
 }
 
 Login1SuspendJob::~Login1SuspendJob()
@@ -93,6 +95,12 @@ void Login1SuspendJob::sendResult(QDBusPendingCallWatcher *watcher)
     }
 
     watcher->deleteLater();
+}
+
+void Login1SuspendJob::slotLogin1Resuming(bool active)
+{
+    if (!active)
+        emitResult();
 }
 
 
