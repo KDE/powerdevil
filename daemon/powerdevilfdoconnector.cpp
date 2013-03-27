@@ -57,6 +57,11 @@ bool FdoConnector::CanSuspend()
     return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
 }
 
+bool FdoConnector::CanHybridSuspend()
+{
+    return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::HybridSuspend;
+}
+
 bool FdoConnector::GetPowerSaveStatus()
 {
     return m_core->backend()->acAdapterState() == PowerDevil::BackendInterface::Unplugged;
@@ -70,6 +75,11 @@ void FdoConnector::Suspend()
 void FdoConnector::Hibernate()
 {
     m_core->suspendToDisk();
+}
+
+void FdoConnector::HybridSuspend()
+{
+    m_core->suspendHybrid();
 }
 
 bool FdoConnector::HasInhibit()
