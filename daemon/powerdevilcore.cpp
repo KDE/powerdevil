@@ -673,15 +673,13 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
     // Find which action(s) requested this idle timeout
     for (QHash< Action*, QList< int > >::const_iterator i = m_registeredActionTimeouts.constBegin();
          i != m_registeredActionTimeouts.constEnd(); ++i) {
-        foreach (int timeoutId, i.value()) {
-            if (timeoutId == identifier) {
-                // Yep.
-                i.key()->onIdleTimeout(msec);
-                // And it will need to be awaken
-                if (!m_pendingResumeFromIdleActions.contains(i.key())) {
-                    m_pendingResumeFromIdleActions.append(i.key());
-                }
+        if (i.value().contains(identifier)) {
+            i.key()->onIdleTimeout(msec);
+            // And it will need to be awaken
+            if (!m_pendingResumeFromIdleActions.contains(i.key())) {
+                m_pendingResumeFromIdleActions.append(i.key());
             }
+            break;
         }
     }
 
