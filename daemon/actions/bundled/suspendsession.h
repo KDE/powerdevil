@@ -23,6 +23,8 @@
 
 #include <powerdevilaction.h>
 
+class QDBusPendingCallWatcher;
+
 namespace PowerDevil
 {
 namespace BundledActions
@@ -57,8 +59,13 @@ protected:
     virtual void onProfileLoad();
     virtual void triggerImpl(const QVariantMap& args);
 
+private slots:
+    void lockCompleted();
+
 private:
     uint m_autoType;
+    QVariantMap m_savedArgs;
+    QDBusPendingCallWatcher *m_dbusWatcher;
 
     void lockScreenAndWait();
 };

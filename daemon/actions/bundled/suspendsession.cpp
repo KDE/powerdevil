@@ -38,7 +38,8 @@ namespace BundledActions
 {
 
 SuspendSession::SuspendSession(QObject* parent)
-    : Action(parent)
+    : Action(parent),
+      m_dbusWatcher(0)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 }
@@ -73,7 +74,7 @@ void SuspendSession::onProfileLoad()
 
 void SuspendSession::triggerImpl(const QVariantMap& args)
 {
-    kDebug() << "Triggered with " << args["Type"].toString();
+    kDebug() << "Triggered with " << args["Type"].toString() << args["SkipLocking"].toBool();
 
     // Switch for screen lock
     QVariantMap recallArgs;
@@ -82,10 +83,12 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
         case ToDiskMode:
         case SuspendHybridMode:
             // Do we want to lock the screen?
-            if (PowerDevilSettings::configLockScreen()) {
+            if (PowerDevilSettings::configLockScreen() && !args["SkipLocking"].toBool()) {
                 // Yeah, we do.
+                m_savedArgs = args;
                 recallArgs["Type"] = (uint)LockScreenMode;
                 triggerImpl(recallArgs);
+                return;
             }
             break;
         default:
@@ -128,7 +131,20 @@ void SuspendSession::lockScreenAndWait()
                                              "/ScreenSaver",
                                              QDBusConnection::sessionBus());
     QDBusPendingReply< void > reply = iface.Lock();
-    reply.waitForFinished();
+    m_dbusWatcher = new QDBusPendingCallWatcher(reply, this);
+    connect(m_dbusWatcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(lockCompleted()));
+}
+
+void SuspendSession::lockCompleted()
+{
+    QVariantMap args = m_savedArgs;
+
+    m_dbusWatcher->deleteLater();
+    m_dbusWatcher = 0;
+    m_savedArgs.clear();
+
+    args["SkipLocking"] = true;
+    triggerImpl(args);
 }
 
 bool SuspendSession::loadAction(const KConfigGroup& config)
