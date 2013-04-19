@@ -586,7 +586,7 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
         } else {
             emitRichNotification("pluggedin", i18n("Running on AC power"), i18n("The power adaptor has been plugged in."));
         }
-    } else {
+    } else if (state == BackendInterface::Unplugged) {
         emitRichNotification("unplugged", i18n("Running on Battery Power"), i18n("The power adaptor has been unplugged."));
     }
 }
