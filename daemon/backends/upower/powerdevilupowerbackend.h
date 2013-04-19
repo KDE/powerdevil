@@ -36,6 +36,7 @@
 #define UPOWER_SERVICE "org.freedesktop.UPower"
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 
+class XRandRX11Helper;
 class XRandrBrightness;
 
 class KDE_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
@@ -65,6 +66,7 @@ private slots:
     void slotDeviceChanged(const QString &);
     void slotPropertyChanged();
     void slotLogin1Resuming(bool active);
+    void slotScreenBrightnessChanged();
 
 private:
     // upower devices
@@ -73,6 +75,7 @@ private:
     // brightness
     QMap<BrightnessControlType, float> m_cachedBrightnessMap;
     XRandrBrightness         *m_brightnessControl;
+    XRandRX11Helper *m_randrHelper;
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
 

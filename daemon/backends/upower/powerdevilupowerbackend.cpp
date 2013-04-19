@@ -29,6 +29,7 @@
 #include <KPluginFactory>
 #include <KAuth/Action>
 
+#include "xrandrx11helper.h"
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
@@ -113,6 +114,8 @@ void PowerDevilUPowerBackend::init()
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
+    m_randrHelper = new XRandRX11Helper();
+    connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
 
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
@@ -293,17 +296,17 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
         m_kbdBacklight->SetBrightness(brightnessValue / 100 * m_kbdBacklight->GetMaxBrightness());
         success = true;
     }
-    
-    if (success) {
-        float newBrightness = brightness(type);
-        if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[type])) {
-              m_cachedBrightnessMap[type] = newBrightness;
-              onBrightnessChanged(type, m_cachedBrightnessMap[type]);
-        }
-        return true;
-    }
 
-    return false;
+    return success;
+}
+
+void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
+{
+    float newBrightness = brightness(Screen);
+    if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
+        m_cachedBrightnessMap[Screen] = newBrightness;
+        onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);
+    }
 }
 
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)

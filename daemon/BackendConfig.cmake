@@ -12,6 +12,7 @@ set(powerdevilupowerbackend_SRCS
     backends/upower/login1suspendjob.cpp
     backends/upower/powerdevilupowerbackend.cpp
     backends/upower/xrandrbrightness.cpp
+    backends/upower/xrandrx11helper.cpp
 )
 
 set_source_files_properties(
@@ -31,7 +32,7 @@ qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
 ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
 upower_kbdbacklight_interface)
 
-set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB})
+set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB} ${KDE4_KDEUI_LIBRARY})
 
 ## backlight helper executable
 kde4_add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
