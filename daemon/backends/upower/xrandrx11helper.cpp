@@ -35,9 +35,7 @@ XRandRX11Helper::XRandRX11Helper():
                                    XRootWindow(QX11Info::display(), DefaultScreen(QX11Info::display()))
                                    , 0, 0, 1, 1, 0, 0, 0 );
 
-    XRRSelectInput(QX11Info::display(), m_window,
-                   RRScreenChangeNotifyMask | RRCrtcChangeNotifyMask |
-                   RROutputChangeNotifyMask | RROutputPropertyNotifyMask);
+    XRRSelectInput(QX11Info::display(), m_window, RROutputPropertyNotifyMask);
 
     KSystemEventFilter::installEventFilter(this);
 }
@@ -52,9 +50,12 @@ bool XRandRX11Helper::x11Event(XEvent *event)
 {
     XRRNotifyEvent* e2 = reinterpret_cast< XRRNotifyEvent* >(event);
 
+    if (event->xany.type != m_randrBase + RRNotify) {
+        return false;
+    }
+
     if (e2->subtype == RRNotify_OutputProperty) {
         XRROutputPropertyNotifyEvent* e2 = reinterpret_cast< XRROutputPropertyNotifyEvent* >(event);
-
         char *atomName = XGetAtomName(QX11Info::display(), e2->property);
         if (QString(atomName) == RR_PROPERTY_BACKLIGHT) {
             Q_EMIT brightnessChanged();
