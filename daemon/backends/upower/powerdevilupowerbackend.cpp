@@ -116,6 +116,7 @@ void PowerDevilUPowerBackend::init()
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
     if (!m_brightnessControl->isSupported()) {
+        qDebug() << "Using helper";
         KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
         action.setHelperID(HELPER_ID);
         KAuth::ActionReply reply = action.execute();
@@ -123,6 +124,8 @@ void PowerDevilUPowerBackend::init()
             m_syspath = reply.data()["syspath"].toString();
             m_syspath = QFileInfo(m_syspath).readLink();
         }
+    } else {
+        qDebug() << "Using XRandR";
     }
     m_randrHelper = new XRandRX11Helper();
     UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
@@ -214,11 +217,20 @@ void PowerDevilUPowerBackend::init()
 
 void PowerDevilUPowerBackend::deviceChanged(const UdevQt::Device &device)
 {
+    qDebug() << "Udev device changed";
+    qDebug() << m_syspath;
+    qDebug() << device.sysfsPath();
     if (device.sysfsPath() != m_syspath) {
         return;
     }
 
-    slotScreenBrightnessChanged();
+    int maxBrightness = device.sysfsProperty("max_brightness").toInt();
+    float newBrightness = device.sysfsProperty("brightness").toInt() * 100 / maxBrightness;
+
+    if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
+        m_cachedBrightnessMap[Screen] = newBrightness;
+        onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);
+    }
 }
 
 void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, BrightnessControlType controlType)
