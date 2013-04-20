@@ -55,6 +55,7 @@ Core::Core(QObject* parent, const KComponentData &componentData)
     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
     , m_activityConsumer(new KActivities::Consumer(this))
+    , m_pendingWakeupEvent(true)
 {
 }
 
