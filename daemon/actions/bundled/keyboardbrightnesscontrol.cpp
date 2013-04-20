@@ -89,6 +89,16 @@ void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
     }
 }
 
+bool KeyboardBrightnessControl::isSupported()
+{
+    BackendInterface::BrightnessControlsList controls = backend()->brightnessControlsAvailable();
+    if (controls.key(BackendInterface::Keyboard).isEmpty()) {
+        return false;
+    }
+
+    return true;
+}
+
 bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 {
     // Handle profile changes

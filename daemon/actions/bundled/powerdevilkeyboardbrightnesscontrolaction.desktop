@@ -68,3 +68,4 @@ X-KDE-PowerDevil-Action-ID=KeyboardBrightnessControl
 X-KDE-PowerDevil-Action-IsBundled=true
 X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevilkeyboardbrightnesscontrolaction_config
 X-KDE-PowerDevil-Action-ConfigPriority=100
+X-KDE-PowerDevil-Action-HasRuntimeRequirement=true
