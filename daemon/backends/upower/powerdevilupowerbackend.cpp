@@ -80,6 +80,31 @@ bool PowerDevilUPowerBackend::isAvailable()
             if (reply.value().contains(UPOWER_SERVICE)) {
                 kDebug() << "UPower was found, activating service...";
                 QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
+                if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
+                    // Wait for it
+                    QEventLoop e;
+                    QTimer *timer = new QTimer;
+                    timer->setInterval(10000);
+                    timer->setSingleShot(true);
+
+                    connect(QDBusConnection::systemBus().interface(), SIGNAL(serviceRegistered(QString)),
+                            &e, SLOT(quit()));
+                    connect(timer, SIGNAL(timeout()), &e, SLOT(quit()));
+
+                    timer->start();
+
+                    while (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
+                        e.exec();
+
+                        if (!timer->isActive()) {
+                            kDebug() << "Activation of UPower timed out. There is likely a problem with your configuration.";
+                            timer->deleteLater();
+                            return false;
+                        }
+                    }
+
+                    timer->deleteLater();
+                }
                 return true;
             } else {
                 kDebug() << "UPower cannot be found on this system.";
