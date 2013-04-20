@@ -77,7 +77,7 @@ bool Action::isSupported()
     return true;
 }
 
-BackendInterface* Action::backend()
+BackendInterface* Action::backend() const
 {
     return d->core->backend();
 }

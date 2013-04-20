@@ -182,7 +182,7 @@ protected:
     /**
      * @returns The BackendInterface
      */
-    PowerDevil::BackendInterface *backend();
+    PowerDevil::BackendInterface *backend() const;
     /**
      * @returns The PowerDevil Core
      */
