@@ -115,6 +115,15 @@ void PowerDevilUPowerBackend::init()
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
+    if (m_brightnessControl->isSupported()) {
+        KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
+        action.setHelperID(HELPER_ID);
+        KAuth::ActionReply reply = action.execute();
+        if (reply.succeeded()) {
+            m_syspath = reply.data()["syspath"].toString();
+            m_syspath = QFileInfo(m_syspath).readLink();
+        }
+    }
     m_randrHelper = new XRandRX11Helper();
     UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
     connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(deviceChanged(UdevQt::Device)));
@@ -205,15 +214,11 @@ void PowerDevilUPowerBackend::init()
 
 void PowerDevilUPowerBackend::deviceChanged(const UdevQt::Device &device)
 {
-    qDebug() << "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
-    qDebug() << "Path:" << device.sysfsPath();
-    qDebug() << "Properties:" << device.deviceProperties();
-    Q_FOREACH (const QString &key, device.deviceProperties()) {
-        qDebug() << "\t" << key << ":" << device.deviceProperty(key).toString();
+    if (device.sysfsPath() != m_syspath) {
+        return;
     }
-    qDebug() << "Driver:" << device.driver();
-    qDebug() << "Subsystem:" << device.subsystem();
-    qDebug() << "\t" << "brightness" << ":" << device.sysfsProperty("brightness").toString();
+
+    slotScreenBrightnessChanged();
 }
 
 void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, BrightnessControlType controlType)
