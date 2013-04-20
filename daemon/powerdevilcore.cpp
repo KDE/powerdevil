@@ -157,17 +157,7 @@ void Core::onBackendReady()
 
     KActionCollection* actionCollection = new KActionCollection( this );
 
-    KAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
-
-    globalAction = actionCollection->addAction("Decrease Screen Brightness");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
-
-    globalAction = actionCollection->addAction("Increase Keyboard Brightness");
+    KAction *globalAction = actionCollection->addAction("Increase Keyboard Brightness");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
     globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessUp));
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
@@ -412,7 +402,6 @@ void Core::loadProfile(bool force)
         // We are now on a different profile
         m_currentProfile = profileId;
         emit profileChanged(m_currentProfile);
-        emit brightnessChanged(brightness());
     }
 
     // Now... any special behaviors we'd like to consider?
@@ -679,7 +668,6 @@ void Core::onBatteryRemainingTimeChanged(qulonglong time)
 void Core::onBrightnessChanged(float brightness, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Screen) {
-        emit brightnessChanged(brightness);
     } else {
         emit keyboardBrightnessChanged(brightness);
     }
@@ -753,16 +741,6 @@ void Core::onResumingFromIdle()
     }
 }
 
-void Core::increaseBrightness()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Increase);
-}
-
-void Core::decreaseBrightness()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Decrease);
-}
-
 void Core::increaseKeyboardBrightness()
 {
     m_backend->brightnessKeyPressed(BackendInterface::Increase, BackendInterface::Keyboard);
@@ -808,11 +786,6 @@ qulonglong Core::batteryRemainingTime() const
     return m_backend->batteryRemainingTime();
 }
 
-int Core::brightness() const
-{
-    return m_backend->brightness();
-}
-
 int Core::keyboardBrightness() const
 {
     return m_backend->brightness(BackendInterface::Keyboard);
@@ -821,14 +794,6 @@ int Core::keyboardBrightness() const
 uint Core::backendCapabilities()
 {
     return m_backend->capabilities();
-}
-
-void Core::setBrightness(int percent)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
 }
 
 void Core::setKeyboardBrightness(int percent)

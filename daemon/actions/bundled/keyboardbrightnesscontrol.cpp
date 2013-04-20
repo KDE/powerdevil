@@ -71,7 +71,7 @@ void KeyboardBrightnessControl::onProfileLoad()
     // than the new profile
     if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
          (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
-        m_defaultValue > core()->brightness()) {
+        m_defaultValue > core()->keyboardBrightness()) {
         // We don't want to change anything here
         kDebug() << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else if (m_defaultValue > 0) {

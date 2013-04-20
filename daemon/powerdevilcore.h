@@ -79,16 +79,10 @@ public Q_SLOTS:
 
     void loadProfile(bool force = false);
 
-    int brightness() const;
-    void setBrightness(int percent);
-
     int keyboardBrightness() const;
     void setKeyboardBrightness(int percent);
 
     qulonglong batteryRemainingTime() const;
-
-    void increaseBrightness();
-    void decreaseBrightness();
 
     void increaseKeyboardBrightness();
     void decreaseKeyboardBrightness();
@@ -107,7 +101,6 @@ Q_SIGNALS:
     void coreReady();
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
-    void brightnessChanged(int percent);
     void keyboardBrightnessChanged(int percent);
     void batteryRemainingTimeChanged(qulonglong time);
     void resumingFromSuspend();

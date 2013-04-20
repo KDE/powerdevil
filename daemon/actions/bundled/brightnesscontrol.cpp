@@ -21,12 +21,16 @@
 
 #include "brightnessosdwidget.h"
 
+#include "brightnesscontroladaptor.h"
+
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
 #include <QtGui/QDesktopWidget>
 
 #include <KApplication>
+#include <KAction>
+#include <KActionCollection>
 #include <KConfigGroup>
 #include <KDebug>
 #include <KLocalizedString>
@@ -37,10 +41,25 @@ namespace BundledActions {
 BrightnessControl::BrightnessControl(QObject* parent)
     : Action(parent)
 {
+    // DBus
+    new BrightnessControlAdaptor(this);
+
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
     connect(core()->backend(), SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
             this, SLOT(onBrightnessChangedFromBackend(float,PowerDevil::BackendInterface::BrightnessControlType)));
+
+    KActionCollection* actionCollection = new KActionCollection( this );
+
+    KAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
+
+    globalAction = actionCollection->addAction("Decrease Screen Brightness");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
 }
 
 BrightnessControl::~BrightnessControl()
@@ -72,7 +91,7 @@ void BrightnessControl::onProfileLoad()
     // than the new profile
     if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
          (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
-        m_defaultValue > core()->brightness()) {
+        m_defaultValue > brightness()) {
         // We don't want to change anything here
         kDebug() << "Not changing brightness, the current one is lower and the profile is more conservative";
     } else if (m_defaultValue >= 0) {
@@ -141,7 +160,31 @@ void BrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDe
 {
     if (type == BackendInterface::Screen) {
         showBrightnessOSD(brightness);
+        Q_EMIT brightnessChanged(brightness);
     }
+}
+
+int BrightnessControl::brightness() const
+{
+    return backend()->brightness();
+}
+
+void BrightnessControl::setBrightness(int percent)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
+    trigger(args);
+}
+
+void BrightnessControl::increaseBrightness()
+{
+    backend()->brightnessKeyPressed(BackendInterface::Increase);
+}
+
+void BrightnessControl::decreaseBrightness()
+{
+    backend()->brightnessKeyPressed(BackendInterface::Decrease);
 }
 
 }
