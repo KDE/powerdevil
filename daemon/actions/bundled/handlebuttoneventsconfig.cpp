@@ -21,6 +21,8 @@
 
 #include "suspendsession.h"
 
+#include <Solid/Button>
+#include <Solid/Device>
 #include <Solid/PowerManagement>
 
 #include <KLocalizedString>
@@ -48,16 +50,24 @@ HandleButtonEventsConfig::~HandleButtonEventsConfig()
 
 void HandleButtonEventsConfig::save()
 {
-    configGroup().writeEntry< uint >("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
-    configGroup().writeEntry< uint >("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
+    if (m_lidCloseCombo) {
+        configGroup().writeEntry< uint >("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
+    }
+    if (m_powerButtonCombo) {
+        configGroup().writeEntry< uint >("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
+    }
 
     configGroup().sync();
 }
 
 void HandleButtonEventsConfig::load()
 {
-    m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("lidAction", 0))));
-    m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("powerButtonAction", 0))));
+    if (m_lidCloseCombo) {
+        m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("lidAction", 0))));
+    }
+    if (m_powerButtonCombo) {
+        m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("powerButtonAction", 0))));
+    }
 }
 
 QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
@@ -96,9 +106,33 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     m_lidCloseCombo->setMaximumWidth(300);
     m_powerButtonCombo->setMaximumWidth(300);
 
+    bool lidFound = false;
+    bool powerFound = false;
+    // get a list of all devices that are Buttons
+    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
+        Solid::Button *button = device.as<Solid::Button>();
+        if (button->type() == Solid::Button::LidButton) {
+            lidFound = true;
+        } else if (button->type() == Solid::Button::PowerButton) {
+            powerFound = true;
+        }
+    }
+
     QList< QPair< QString, QWidget* > > retlist;
-    retlist.append(qMakePair< QString, QWidget* >(i18n("When laptop lid closed"), m_lidCloseCombo));
-    retlist.append(qMakePair< QString, QWidget* >(i18n("When power button pressed"), m_powerButtonCombo));
+
+    if (lidFound) {
+        retlist.append(qMakePair< QString, QWidget* >(i18n("When laptop lid closed"), m_lidCloseCombo));
+    } else {
+        m_lidCloseCombo->deleteLater();
+        m_lidCloseCombo = 0;
+    }
+
+    if (powerFound) {
+        retlist.append(qMakePair< QString, QWidget* >(i18n("When power button pressed"), m_powerButtonCombo));
+    } else {
+        m_powerButtonCombo->deleteLater();
+        m_powerButtonCombo = 0;
+    }
 
     return retlist;
 }

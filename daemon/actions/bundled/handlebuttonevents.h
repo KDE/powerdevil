@@ -37,6 +37,7 @@ public:
     virtual ~HandleButtonEvents();
 
     virtual bool loadAction(const KConfigGroup& config);
+    virtual bool isSupported();
 
 protected:
     virtual void triggerImpl(const QVariantMap& args);
