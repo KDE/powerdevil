@@ -22,6 +22,8 @@
 #include "ErrorOverlay.h"
 #include "PowerDevilSettings.h"
 
+#include "daemon/actions/bundled/suspendsession.h"
+
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
 #include <Solid/Battery>
@@ -106,14 +108,14 @@ void GeneralPage::fillUi()
 
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-    BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), 0);
+    BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Sleep"), 1);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Sleep"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
     }
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), 2);
+        BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
     }
-    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), 8);
+    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
 
     notificationsButton->setIcon(KIcon("preferences-desktop-notification"));
 
