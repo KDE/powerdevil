@@ -101,6 +101,7 @@ public Q_SLOTS:
     void onResumeFromSuspend();
 
     bool isLidClosed();
+    bool isActionSupported(const QString &actionName);
 
 Q_SIGNALS:
     void coreReady();

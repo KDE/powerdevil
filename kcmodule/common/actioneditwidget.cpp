@@ -28,6 +28,10 @@
 #include <QtGui/QCheckBox>
 #include <QtGui/QVBoxLayout>
 
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusPendingReply>
+
 #include <KConfigGroup>
 #include <KDebug>
 #include <KServiceTypeTrader>
@@ -49,26 +53,21 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         // Does it have a runtime requirement?
         if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
             kDebug() << offer->name() << " has a runtime requirement";
-            // Load the real action, and verify. Stream in the variant list the fact that we are outside the core
-            QVariantList args = QVariantList() << true;
 
-            PowerDevil::Action *retaction = offer->createInstance< PowerDevil::Action >(parent, args);
+            QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
+                                                               "org.kde.Solid.PowerManagement", "isActionSupported");
+            call.setArguments(QVariantList() << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String));
+            QDBusPendingReply< bool > reply = QDBusConnection::sessionBus().asyncCall(call);
+            reply.waitForFinished();
 
-            if (!retaction) {
-                // Troubles...
-                kWarning() << "failed to load" << offer->desktopEntryName();
-                continue;
+            if (reply.isValid()) {
+                if (!reply.value()) {
+                    kDebug() << "The action " << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String) << " appears not to be supported by the core.";
+                    continue;
+                }
+            } else {
+                kDebug() << "There was a problem in contacting DBus!! Assuming the action is ok.";
             }
-
-            // Is the action available and supported?
-            if (!retaction->isSupported()) {
-                // Skip that
-                retaction->deleteLater();
-                continue;
-            }
-
-            // Delete the action anyway, we don't need it
-            retaction->deleteLater();
         }
 
         //try to load the specified library

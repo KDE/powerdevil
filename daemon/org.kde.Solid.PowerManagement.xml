@@ -37,6 +37,10 @@
     <method name="isLidClosed">
         <arg type="b" direction="out" />
     </method>
+    <method name="isActionSupported">
+      <arg type="s" direction="in" />
+      <arg type="b" direction="out" />
+    </method>
     <!--<method name="turnOffScreen" />-->
 
     <!--<method name="getSupportedSuspendMethods">

@@ -198,6 +198,16 @@ void Core::onBackendReady()
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
+bool Core::isActionSupported(const QString& actionName)
+{
+    Action *action = ActionPool::instance()->loadAction(actionName, KConfigGroup(), this);
+    if (!action) {
+        return false;
+    } else {
+        return action->isSupported();
+    }
+}
+
 QString Core::checkBatteryStatus(bool notify)
 {
     QString lastMessage;
