@@ -34,6 +34,7 @@ public:
 public slots:
     ActionReply brightness(const QVariantMap & args);
     ActionReply setbrightness(const QVariantMap & args);
+    ActionReply syspath(const QVariantMap & args);
 
 private:
     void init();

@@ -29,9 +29,11 @@
 #include <KPluginFactory>
 #include <KAuth/Action>
 
+#include "xrandrx11helper.h"
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
+#include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
@@ -138,6 +140,23 @@ void PowerDevilUPowerBackend::init()
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
+    if (!m_brightnessControl->isSupported()) {
+        kDebug() << "Using helper";
+        KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
+        action.setHelperID(HELPER_ID);
+        KAuth::ActionReply reply = action.execute();
+        if (reply.succeeded()) {
+            m_syspath = reply.data()["syspath"].toString();
+            m_syspath = QFileInfo(m_syspath).readLink();
+        }
+
+        UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+        connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+    } else {
+        kDebug() << "Using XRandR";
+        m_randrHelper = new XRandRX11Helper();
+        connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
+    }
 
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
@@ -219,6 +238,22 @@ void PowerDevilUPowerBackend::init()
 
     // backend ready
     setBackendIsReady(controls, supported);
+}
+
+void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
+{
+    kDebug() << "Udev device changed" << m_syspath << device.sysfsPath();
+    if (device.sysfsPath() != m_syspath) {
+        return;
+    }
+
+    int maxBrightness = device.sysfsProperty("max_brightness").toInt();
+    float newBrightness = device.sysfsProperty("brightness").toInt() * 100 / maxBrightness;
+
+    if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
+        m_cachedBrightnessMap[Screen] = newBrightness;
+        onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);
+    }
 }
 
 void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, BrightnessControlType controlType)
@@ -318,17 +353,18 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
         m_kbdBacklight->SetBrightness(brightnessValue / 100 * m_kbdBacklight->GetMaxBrightness());
         success = true;
     }
-    
-    if (success) {
-        float newBrightness = brightness(type);
-        if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[type])) {
-              m_cachedBrightnessMap[type] = newBrightness;
-              onBrightnessChanged(type, m_cachedBrightnessMap[type]);
-        }
-        return true;
-    }
 
-    return false;
+    return success;
+}
+
+void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
+{
+    float newBrightness = brightness(Screen);
+    kDebug() << "Brightness changed!!";
+    if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
+        m_cachedBrightnessMap[Screen] = newBrightness;
+        onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);
+    }
 }
 
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)

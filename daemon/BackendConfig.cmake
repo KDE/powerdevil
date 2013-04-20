@@ -3,42 +3,47 @@
 
 
 ########################## UPower Backend #####################################
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/upower
-                    ${X11_INCLUDE_DIR}
-                    ${X11_Xrandr_INCLUDE_PATH})
+if (UDEV_FOUND)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/upower
+                        ${X11_INCLUDE_DIR}
+                        ${X11_Xrandr_INCLUDE_PATH})
 
-set(powerdevilupowerbackend_SRCS
-    backends/upower/upowersuspendjob.cpp
-    backends/upower/login1suspendjob.cpp
-    backends/upower/powerdevilupowerbackend.cpp
-    backends/upower/xrandrbrightness.cpp
-)
+    set(powerdevilupowerbackend_SRCS
+        backends/upower/upowersuspendjob.cpp
+        backends/upower/login1suspendjob.cpp
+        backends/upower/powerdevilupowerbackend.cpp
+        backends/upower/xrandrbrightness.cpp
+        backends/upower/xrandrx11helper.cpp
+        backends/upower/udevqtclient.cpp
+        backends/upower/udevqtdevice.cpp
+    )
 
-set_source_files_properties(
-  ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.xml
-  ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.Device.xml
-  PROPERTIES NO_NAMESPACE TRUE)
+    set_source_files_properties(
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.xml
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.Device.xml
+    PROPERTIES NO_NAMESPACE TRUE)
 
-qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
-${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.xml
-upower_interface)
+    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.xml
+    upower_interface)
 
-qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
-${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.Device.xml
-upower_device_interface)
+    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.Device.xml
+    upower_device_interface)
 
-qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
-${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
-upower_kbdbacklight_interface)
+    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
+    upower_kbdbacklight_interface)
 
-set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB})
+    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB} ${KDE4_KDEUI_LIBRARY} ${UDEV_LIBS})
 
-## backlight helper executable
-kde4_add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
-target_link_libraries(backlighthelper ${KDE4_KDECORE_LIBS})
-install(TARGETS backlighthelper DESTINATION ${LIBEXEC_INSTALL_DIR})
-kde4_install_auth_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
-kde4_install_auth_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
+    ## backlight helper executable
+    kde4_add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
+    target_link_libraries(backlighthelper ${KDE4_KDECORE_LIBS})
+    install(TARGETS backlighthelper DESTINATION ${LIBEXEC_INSTALL_DIR})
+    kde4_install_auth_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
+    kde4_install_auth_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
+endif (UDEV_FOUND)
 
 ########################## HAL Backend #####################################
 

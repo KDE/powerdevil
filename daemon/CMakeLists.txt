@@ -72,6 +72,7 @@ kde4_add_plugin(kded_powerdevil ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRC
 target_link_libraries(kded_powerdevil
     ${KDE4_KDECORE_LIBS}
     ${POWERDEVIL_BACKEND_LIBS}
+    ${UDEV_LIBS}
     powerdevilcore
 )
 
@@ -90,6 +91,9 @@ target_link_libraries(powerdevilui
     ${KDE4_KDECORE_LIBS}
     ${QT_QTGUI_LIBRARY}
 )
+
+macro_bool_to_01(UDEV_FOUND HAVE_UDEV)
+configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
 install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
