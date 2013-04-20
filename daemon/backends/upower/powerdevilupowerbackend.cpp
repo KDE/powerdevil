@@ -115,7 +115,7 @@ void PowerDevilUPowerBackend::init()
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
-    if (m_brightnessControl->isSupported()) {
+    if (!m_brightnessControl->isSupported()) {
         KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
         action.setHelperID(HELPER_ID);
         KAuth::ActionReply reply = action.execute();
