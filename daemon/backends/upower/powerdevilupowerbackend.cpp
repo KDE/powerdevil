@@ -217,9 +217,7 @@ void PowerDevilUPowerBackend::init()
 
 void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 {
-    qDebug() << "Udev device changed";
-    qDebug() << m_syspath;
-    qDebug() << device.sysfsPath();
+    kDebug() << "Udev device changed" << m_syspath << device.sysfsPath();
     if (device.sysfsPath() != m_syspath) {
         return;
     }
