@@ -288,3 +288,9 @@ Description[x-test]=xxSystem policies prevent you from setting the brightness le
 Description[zh_CN]=系统安全策略不允许设置亮度级别。
 Description[zh_TW]=系統政策不允許您設定亮度。
 Policy=yes
+
+[org.kde.powerdevil.backlighthelper.syspath]
+Name=Get syspath
+Description=System policies prevent you from getting the syspath
+Policy=yes
+PolicyInactive=yes
