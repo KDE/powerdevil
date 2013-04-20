@@ -118,6 +118,18 @@ void ActionPool::init(PowerDevil::Core *parent)
     m_actionPool.insert("DimDisplay", new BundledActions::DimDisplay(parent));
     m_actionPool.insert("RunScript", new BundledActions::RunScript(parent));
     m_actionPool.insert("HandleButtonEvents", new BundledActions::HandleButtonEvents(parent));
+
+    // Verify support
+    QHash<QString,Action*>::iterator i = m_actionPool.begin();
+    while (i != m_actionPool.end()) {
+        Action *action = i.value();
+        if (!action->isSupported()) {
+            i = m_actionPool.erase(i);
+            action->deleteLater();
+        } else {
+            ++i;
+        }
+    }
 }
 
 Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
