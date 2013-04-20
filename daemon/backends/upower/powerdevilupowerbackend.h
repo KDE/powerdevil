@@ -69,7 +69,7 @@ private slots:
     void slotPropertyChanged();
     void slotLogin1Resuming(bool active);
     void slotScreenBrightnessChanged();
-    void deviceChanged(const UdevQt::Device &device);
+    void onDeviceChanged(const UdevQt::Device &device);
 
 private:
     // upower devices

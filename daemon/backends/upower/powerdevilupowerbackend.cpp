@@ -116,7 +116,7 @@ void PowerDevilUPowerBackend::init()
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
     if (!m_brightnessControl->isSupported()) {
-        qDebug() << "Using helper";
+        kDebug() << "Using helper";
         KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
         action.setHelperID(HELPER_ID);
         KAuth::ActionReply reply = action.execute();
@@ -124,14 +124,14 @@ void PowerDevilUPowerBackend::init()
             m_syspath = reply.data()["syspath"].toString();
             m_syspath = QFileInfo(m_syspath).readLink();
         }
-    } else {
-        qDebug() << "Using XRandR";
-    }
-    m_randrHelper = new XRandRX11Helper();
-    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-    connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(deviceChanged(UdevQt::Device)));
 
-    connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
+        UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+        connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+    } else {
+        kDebug() << "Using XRandR";
+        m_randrHelper = new XRandRX11Helper();
+        connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
+    }
 
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
@@ -215,7 +215,7 @@ void PowerDevilUPowerBackend::init()
     setBackendIsReady(controls, supported);
 }
 
-void PowerDevilUPowerBackend::deviceChanged(const UdevQt::Device &device)
+void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 {
     qDebug() << "Udev device changed";
     qDebug() << m_syspath;
@@ -337,6 +337,7 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
 void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
 {
     float newBrightness = brightness(Screen);
+    kDebug() << "Brightness changed!!";
     if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
         m_cachedBrightnessMap[Screen] = newBrightness;
         onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);

@@ -92,5 +92,8 @@ target_link_libraries(powerdevilui
     ${QT_QTGUI_LIBRARY}
 )
 
+macro_bool_to_01(UDEV_FOUND HAVE_UDEV)
+configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
+
 install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
