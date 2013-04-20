@@ -70,6 +70,7 @@ private slots:
     void slotLogin1Resuming(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
+    void onKeyboardBrightnessChanged(int);
 
 private:
     // upower devices
@@ -82,6 +83,7 @@ private:
 
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
+    int m_kbdMaxBrightness;
 
     // login1 interface
     QWeakPointer<QDBusInterface> m_login1Interface;
