@@ -51,6 +51,7 @@ void KeyboardBrightnessControlConfig::save()
 
 void KeyboardBrightnessControlConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
     m_slider->setValue(configGroup().readEntry<int>("value", 50));
 }
 

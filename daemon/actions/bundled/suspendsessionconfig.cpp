@@ -58,6 +58,8 @@ void SuspendSessionConfig::save()
 
 void SuspendSessionConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
+
     uint suspendType = configGroup().readEntry< uint >("suspendType", 0);
     m_comboBox->setCurrentIndex(m_comboBox->findData(suspendType));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);

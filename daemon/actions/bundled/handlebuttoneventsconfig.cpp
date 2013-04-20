@@ -62,6 +62,8 @@ void HandleButtonEventsConfig::save()
 
 void HandleButtonEventsConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
+
     if (m_lidCloseCombo) {
         m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("lidAction", 0))));
     }

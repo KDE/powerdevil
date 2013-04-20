@@ -50,6 +50,7 @@ void DimDisplayConfig::save()
 
 void DimDisplayConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
     m_spinBox->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
 }
 

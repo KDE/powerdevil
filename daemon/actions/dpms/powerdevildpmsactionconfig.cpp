@@ -45,6 +45,7 @@ void PowerDevilDPMSActionConfig::save()
 
 void PowerDevilDPMSActionConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
     m_spinBox->setValue(configGroup().readEntry<int>("idleTime", 600) / 60);
 }
 

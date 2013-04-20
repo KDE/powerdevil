@@ -51,6 +51,7 @@ void BrightnessControlConfig::save()
 
 void BrightnessControlConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
     m_slider->setValue(configGroup().readEntry<int>("value", 50));
 }
 

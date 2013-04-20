@@ -56,6 +56,7 @@ void RunScriptConfig::save()
 
 void RunScriptConfig::load()
 {
+    configGroup().config()->reparseConfiguration();
     m_urlRequester->setText(configGroup().readEntry<QString>("scriptCommand", QString()));
     m_comboBox->setCurrentIndex(configGroup().readEntry<int>("scriptPhase", 0));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
