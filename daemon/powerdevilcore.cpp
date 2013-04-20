@@ -32,8 +32,6 @@
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
 
-#include <KAction>
-#include <KActionCollection>
 #include <KDebug>
 #include <KIdleTime>
 #include <KLocalizedString>
@@ -149,23 +147,6 @@ void Core::onBackendReady()
     // All systems up Houston, let's go!
     emit coreReady();
     refreshStatus();
-
-    KActionCollection* actionCollection = new KActionCollection( this );
-
-    KAction *globalAction = actionCollection->addAction("Sleep");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Sleep"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
-
-    globalAction = actionCollection->addAction("Hibernate");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
-
-    globalAction = actionCollection->addAction("PowerOff");
-    //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_PowerOff));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
 bool Core::isActionSupported(const QString& actionName)
@@ -719,11 +700,6 @@ qulonglong Core::batteryRemainingTime() const
 uint Core::backendCapabilities()
 {
     return m_backend->capabilities();
-}
-
-void Core::powerOffButtonTriggered()
-{
-    emit m_backend->buttonPressed(PowerDevil::BackendInterface::PowerButton);
 }
 
 }

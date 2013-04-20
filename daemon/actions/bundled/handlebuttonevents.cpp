@@ -23,7 +23,10 @@
 
 #include <powerdevilactionpool.h>
 
+#include <KAction>
+#include <KActionCollection>
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KIdleTime>
 
 #include "PowerDevilSettings.h"
@@ -36,11 +39,30 @@ HandleButtonEvents::HandleButtonEvents(QObject* parent)
     : Action(parent)
     , m_lidAction(0)
     , m_powerButtonAction(0)
+    , m_sleepButtonAction(1)
+    , m_hibernateButtonAction(2)
 {
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
     connect(backend(), SIGNAL(buttonPressed(PowerDevil::BackendInterface::ButtonType)),
             this, SLOT(onButtonPressed(PowerDevil::BackendInterface::ButtonType)));
+
+    KActionCollection* actionCollection = new KActionCollection( this );
+
+    KAction *globalAction = actionCollection->addAction("Sleep");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Sleep"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
+
+    globalAction = actionCollection->addAction("Hibernate");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
+
+    globalAction = actionCollection->addAction("PowerOff");
+    //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_PowerOff));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
 HandleButtonEvents::~HandleButtonEvents()
@@ -83,6 +105,14 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
         case BackendInterface::PowerButton:
             // This one is always explicit
             processAction(m_powerButtonAction, true);
+            break;
+        case BackendInterface::SleepButton:
+            // This one is always explicit
+            processAction(m_sleepButtonAction, true);
+            break;
+        case BackendInterface::HibernateButton:
+            // This one is always explicit
+            processAction(m_hibernateButtonAction, true);
             break;
         default:
             break;
@@ -131,6 +161,21 @@ bool HandleButtonEvents::loadAction(const KConfigGroup& config)
     m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
 
     return true;
+}
+
+void HandleButtonEvents::powerOffButtonTriggered()
+{
+    onButtonPressed(BackendInterface::PowerButton);
+}
+
+void HandleButtonEvents::suspendToDisk()
+{
+    onButtonPressed(BackendInterface::HibernateButton);
+}
+
+void HandleButtonEvents::suspendToRam()
+{
+    onButtonPressed(BackendInterface::SleepButton);
 }
 
 }

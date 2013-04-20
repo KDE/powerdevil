@@ -133,7 +133,6 @@ private Q_SLOTS:
     void onDeviceAdded(const QString &udi);
     void onDeviceRemoved(const QString &udi);
     void onCriticalBatteryTimerExpired();
-    void powerOffButtonTriggered();
 };
 
 }
