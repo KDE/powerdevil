@@ -29,6 +29,8 @@
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
 
+#include <QtDBus/QDBusConnection>
+
 // Bundled actions:
 #include "actions/bundled/suspendsession.h"
 #include "actions/bundled/brightnesscontrol.h"
@@ -128,6 +130,19 @@ void ActionPool::init(PowerDevil::Core *parent)
             action->deleteLater();
         } else {
             ++i;
+        }
+    }
+
+    // Register DBus objects
+    {
+        KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
+                                                                "[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE");
+        foreach (KService::Ptr offer, offers) {
+            QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
+
+            if (m_actionPool.contains(actionId)) {
+                QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement/Actions/" + actionId, m_actionPool[actionId]);
+            }
         }
     }
 }
