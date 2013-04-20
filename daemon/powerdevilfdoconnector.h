@@ -67,6 +67,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies);
+    void triggerSuspendSession(uint action);
 
 private:
     PowerDevil::Core *m_core;

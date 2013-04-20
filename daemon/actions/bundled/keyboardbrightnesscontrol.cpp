@@ -18,13 +18,17 @@
  ***************************************************************************/
 
 #include "keyboardbrightnesscontrol.h"
+
 #include "brightnessosdwidget.h"
+#include "keyboardbrightnesscontroladaptor.h"
 
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
 #include <QtGui/QDesktopWidget>
 
+#include <KAction>
+#include <KActionCollection>
 #include <KApplication>
 #include <KConfigGroup>
 #include <KDebug>
@@ -36,10 +40,30 @@ namespace BundledActions {
 KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     : Action(parent)
 {
+    // DBus
+    new KeyboardBrightnessControlAdaptor(this);
+
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
     connect(core()->backend(), SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
             this, SLOT(onBrightnessChangedFromBackend(float,PowerDevil::BackendInterface::BrightnessControlType)));
+
+    KActionCollection* actionCollection = new KActionCollection( this );
+
+    KAction *globalAction = actionCollection->addAction("Increase Keyboard Brightness");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessUp));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
+
+    globalAction = actionCollection->addAction("Decrease Keyboard Brightness");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessDown));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
+
+    globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
+    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardLightOnOff));
+    connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
 }
 
 KeyboardBrightnessControl::~KeyboardBrightnessControl()
@@ -71,7 +95,7 @@ void KeyboardBrightnessControl::onProfileLoad()
     // than the new profile
     if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
          (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
-        m_defaultValue > core()->brightness()) {
+        m_defaultValue > keyboardBrightness()) {
         // We don't want to change anything here
         kDebug() << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else if (m_defaultValue > 0) {
@@ -139,7 +163,36 @@ void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness,
 {
     if (type == BackendInterface::Keyboard) {
         showBrightnessOSD(brightness);
+        Q_EMIT keyboardBrightnessChanged(brightness);
     }
+}
+
+void KeyboardBrightnessControl::increaseKeyboardBrightness()
+{
+    backend()->brightnessKeyPressed(BackendInterface::Increase, BackendInterface::Keyboard);
+}
+
+void KeyboardBrightnessControl::decreaseKeyboardBrightness()
+{
+    backend()->brightnessKeyPressed(BackendInterface::Decrease, BackendInterface::Keyboard);
+}
+
+void KeyboardBrightnessControl::toggleKeyboardBacklight()
+{
+    backend()->brightnessKeyPressed(BackendInterface::Toggle, BackendInterface::Keyboard);
+}
+
+int KeyboardBrightnessControl::keyboardBrightness() const
+{
+    return backend()->brightness(BackendInterface::Keyboard);
+}
+
+void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
+    trigger(args);
 }
 
 }

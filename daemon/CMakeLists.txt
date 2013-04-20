@@ -35,6 +35,14 @@ kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
 qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
 
+# Action DBus Adaptors
+qt4_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
+                     actions/bundled/brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
+qt4_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl.xml
+                     actions/bundled/keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
+qt4_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
+                     actions/bundled/suspendsession.h PowerDevil::BundledActions::SuspendSession)
+
 kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
 

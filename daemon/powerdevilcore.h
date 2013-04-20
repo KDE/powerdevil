@@ -79,26 +79,7 @@ public Q_SLOTS:
 
     void loadProfile(bool force = false);
 
-    int brightness() const;
-    void setBrightness(int percent);
-
-    int keyboardBrightness() const;
-    void setKeyboardBrightness(int percent);
-
     qulonglong batteryRemainingTime() const;
-
-    void increaseBrightness();
-    void decreaseBrightness();
-
-    void increaseKeyboardBrightness();
-    void decreaseKeyboardBrightness();
-    void toggleKeyboardBacklight();
-
-    void suspendToRam();
-    void suspendToDisk();
-    void suspendHybrid();
-
-    void onResumeFromSuspend();
 
     bool isLidClosed();
     bool isActionSupported(const QString &actionName);
@@ -107,16 +88,11 @@ Q_SIGNALS:
     void coreReady();
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
-    void brightnessChanged(int percent);
-    void keyboardBrightnessChanged(int percent);
     void batteryRemainingTimeChanged(qulonglong time);
-    void resumingFromSuspend();
 
 private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
-
-    void triggerSuspendSession(uint action);
 
     friend class Action;
 
@@ -151,14 +127,12 @@ private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
     void onBatteryChargeStateChanged(int,const QString&);
-    void onBrightnessChanged(float, PowerDevil::BackendInterface::BrightnessControlType type);
     void onBatteryRemainingTimeChanged(qulonglong);
     void onKIdleTimeoutReached(int,int);
     void onResumingFromIdle();
     void onDeviceAdded(const QString &udi);
     void onDeviceRemoved(const QString &udi);
     void onCriticalBatteryTimerExpired();
-    void powerOffButtonTriggered();
 };
 
 }

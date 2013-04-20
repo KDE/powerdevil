@@ -68,7 +68,7 @@ public:
      * - LidOpen: A laptop lid open event
      * - LidClose: A laptop lid close event
      */
-    enum ButtonType{ UnknownButtonType, PowerButton, SleepButton, LidOpen, LidClose };
+    enum ButtonType{ UnknownButtonType, PowerButton, SleepButton, LidOpen, LidClose, HibernateButton };
 
     /**
      * This enum type defines the different suspend methods.

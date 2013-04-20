@@ -32,8 +32,6 @@
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
 
-#include <KAction>
-#include <KActionCollection>
 #include <KDebug>
 #include <KIdleTime>
 #include <KLocalizedString>
@@ -121,8 +119,6 @@ void Core::onBackendReady()
         }
     }
 
-    connect(m_backend, SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
-            this, SLOT(onBrightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)));
     connect(m_backend, SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
     connect(m_backend, SIGNAL(batteryRemainingTimeChanged(qulonglong)),
@@ -136,9 +132,6 @@ void Core::onBackendReady()
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
-
-    connect(m_backend, SIGNAL(resumeFromSuspend()),
-            this, SLOT(onResumeFromSuspend()));
 
     // Initialize the action pool, which will also load the needed startup actions.
     PowerDevil::ActionPool::instance()->init(this);
@@ -154,48 +147,6 @@ void Core::onBackendReady()
     // All systems up Houston, let's go!
     emit coreReady();
     refreshStatus();
-
-    KActionCollection* actionCollection = new KActionCollection( this );
-
-    KAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessUp));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
-
-    globalAction = actionCollection->addAction("Decrease Screen Brightness");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_MonBrightnessDown));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
-
-    globalAction = actionCollection->addAction("Increase Keyboard Brightness");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessUp));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
-
-    globalAction = actionCollection->addAction("Decrease Keyboard Brightness");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessDown));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
-
-    globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardLightOnOff));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
-
-    globalAction = actionCollection->addAction("Sleep");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Sleep"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Sleep));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
-
-    globalAction = actionCollection->addAction("Hibernate");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_Hibernate));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
-
-    globalAction = actionCollection->addAction("PowerOff");
-    //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_PowerOff));
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 
 bool Core::isActionSupported(const QString& actionName)
@@ -412,7 +363,6 @@ void Core::loadProfile(bool force)
         // We are now on a different profile
         m_currentProfile = profileId;
         emit profileChanged(m_currentProfile);
-        emit brightnessChanged(brightness());
     }
 
     // Now... any special behaviors we'd like to consider?
@@ -676,27 +626,6 @@ void Core::onBatteryRemainingTimeChanged(qulonglong time)
     emit batteryRemainingTimeChanged(time);
 }
 
-void Core::onBrightnessChanged(float brightness, BackendInterface::BrightnessControlType type)
-{
-    if (type == BackendInterface::Screen) {
-        emit brightnessChanged(brightness);
-    } else {
-        emit keyboardBrightnessChanged(brightness);
-    }
-}
-
-void Core::onResumeFromSuspend()
-{
-    // Notify the screensaver
-    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
-                                             "/ScreenSaver",
-                                             QDBusConnection::sessionBus());
-    iface.SimulateUserActivity();
-    PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
-
-    emit resumingFromSuspend();
-}
-
 void Core::onKIdleTimeoutReached(int identifier, int msec)
 {
     // Find which action(s) requested this idle timeout
@@ -753,49 +682,9 @@ void Core::onResumingFromIdle()
     }
 }
 
-void Core::increaseBrightness()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Increase);
-}
-
-void Core::decreaseBrightness()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Decrease);
-}
-
-void Core::increaseKeyboardBrightness()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Increase, BackendInterface::Keyboard);
-}
-
-void Core::decreaseKeyboardBrightness()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Decrease, BackendInterface::Keyboard);
-}
-
-void Core::toggleKeyboardBacklight()
-{
-    m_backend->brightnessKeyPressed(BackendInterface::Toggle, BackendInterface::Keyboard);
-}
-
 BackendInterface* Core::backend()
 {
     return m_backend;
-}
-
-void Core::suspendHybrid()
-{
-    triggerSuspendSession(4);
-}
-
-void Core::suspendToDisk()
-{
-    triggerSuspendSession(2);
-}
-
-void Core::suspendToRam()
-{
-    triggerSuspendSession(1);
 }
 
 bool Core::isLidClosed()
@@ -808,51 +697,9 @@ qulonglong Core::batteryRemainingTime() const
     return m_backend->batteryRemainingTime();
 }
 
-int Core::brightness() const
-{
-    return m_backend->brightness();
-}
-
-int Core::keyboardBrightness() const
-{
-    return m_backend->brightness(BackendInterface::Keyboard);
-}
-
 uint Core::backendCapabilities()
 {
     return m_backend->capabilities();
-}
-
-void Core::setBrightness(int percent)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    ActionPool::instance()->loadAction("BrightnessControl", KConfigGroup(), this)->trigger(args);
-}
-
-void Core::setKeyboardBrightness(int percent)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    ActionPool::instance()->loadAction("KeyboardBrightnessControl", KConfigGroup(), this)->trigger(args);
-}
-
-void Core::triggerSuspendSession(uint action)
-{
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this);
-    if (helperAction) {
-        QVariantMap args;
-        args["Type"] = action;
-        args["Explicit"] = true;
-        helperAction->trigger(args);
-    }
-}
-
-void Core::powerOffButtonTriggered()
-{
-    emit m_backend->buttonPressed(PowerDevil::BackendInterface::PowerButton);
 }
 
 }

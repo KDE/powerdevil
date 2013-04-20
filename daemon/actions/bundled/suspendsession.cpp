@@ -22,6 +22,8 @@
 #include "powerdevilbackendinterface.h"
 #include "powerdevilcore.h"
 
+#include "suspendsessionadaptor.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KJob>
@@ -41,7 +43,13 @@ SuspendSession::SuspendSession(QObject* parent)
     : Action(parent),
       m_dbusWatcher(0)
 {
+    // DBus
+    new SuspendSessionAdaptor(this);
+
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
+
+    connect(backend(), SIGNAL(resumeFromSuspend()),
+            this, SLOT(onResumeFromSuspend()));
 }
 
 SuspendSession::~SuspendSession()
@@ -156,6 +164,41 @@ bool SuspendSession::loadAction(const KConfigGroup& config)
     }
 
     return true;
+}
+
+void SuspendSession::suspendHybrid()
+{
+    triggerSuspendSession(SuspendHybridMode);
+}
+
+void SuspendSession::suspendToDisk()
+{
+    triggerSuspendSession(ToDiskMode);
+}
+
+void SuspendSession::suspendToRam()
+{
+    triggerSuspendSession(ToRamMode);
+}
+
+void SuspendSession::triggerSuspendSession(uint action)
+{
+    QVariantMap args;
+    args["Type"] = action;
+    args["Explicit"] = true;
+    trigger(args);
+}
+
+void SuspendSession::onResumeFromSuspend()
+{
+    // Notify the screensaver
+    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
+                                             "/ScreenSaver",
+                                             QDBusConnection::sessionBus());
+    iface.SimulateUserActivity();
+    PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
+
+    Q_EMIT resumingFromSuspend();
 }
 
 }
