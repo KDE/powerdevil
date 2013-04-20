@@ -135,9 +135,6 @@ void Core::onBackendReady()
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
 
-    connect(m_backend, SIGNAL(resumeFromSuspend()),
-            this, SLOT(onResumeFromSuspend()));
-
     // Initialize the action pool, which will also load the needed startup actions.
     PowerDevil::ActionPool::instance()->init(this);
 
@@ -648,18 +645,6 @@ void Core::onBatteryRemainingTimeChanged(qulonglong time)
     emit batteryRemainingTimeChanged(time);
 }
 
-void Core::onResumeFromSuspend()
-{
-    // Notify the screensaver
-    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
-                                             "/ScreenSaver",
-                                             QDBusConnection::sessionBus());
-    iface.SimulateUserActivity();
-    PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
-
-    emit resumingFromSuspend();
-}
-
 void Core::onKIdleTimeoutReached(int identifier, int msec)
 {
     // Find which action(s) requested this idle timeout
@@ -721,21 +706,6 @@ BackendInterface* Core::backend()
     return m_backend;
 }
 
-void Core::suspendHybrid()
-{
-    triggerSuspendSession(4);
-}
-
-void Core::suspendToDisk()
-{
-    triggerSuspendSession(2);
-}
-
-void Core::suspendToRam()
-{
-    triggerSuspendSession(1);
-}
-
 bool Core::isLidClosed()
 {
     return m_backend->isLidClosed();
@@ -749,17 +719,6 @@ qulonglong Core::batteryRemainingTime() const
 uint Core::backendCapabilities()
 {
     return m_backend->capabilities();
-}
-
-void Core::triggerSuspendSession(uint action)
-{
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), this);
-    if (helperAction) {
-        QVariantMap args;
-        args["Type"] = action;
-        args["Explicit"] = true;
-        helperAction->trigger(args);
-    }
 }
 
 void Core::powerOffButtonTriggered()

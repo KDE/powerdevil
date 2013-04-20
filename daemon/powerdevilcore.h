@@ -81,12 +81,6 @@ public Q_SLOTS:
 
     qulonglong batteryRemainingTime() const;
 
-    void suspendToRam();
-    void suspendToDisk();
-    void suspendHybrid();
-
-    void onResumeFromSuspend();
-
     bool isLidClosed();
     bool isActionSupported(const QString &actionName);
 
@@ -95,13 +89,10 @@ Q_SIGNALS:
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
     void batteryRemainingTimeChanged(qulonglong time);
-    void resumingFromSuspend();
 
 private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
-
-    void triggerSuspendSession(uint action);
 
     friend class Action;
 

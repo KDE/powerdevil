@@ -24,6 +24,8 @@
 #include <QtCore/QHash>
 #include <QtCore/QStringList>
 
+#include <kglobal.h>
+
 class KConfigGroup;
 namespace PowerDevil
 {
@@ -31,7 +33,7 @@ namespace PowerDevil
 class Core;
 class Action;
 
-class ActionPool
+class KDE_EXPORT ActionPool
 {
 public:
     static ActionPool *instance();

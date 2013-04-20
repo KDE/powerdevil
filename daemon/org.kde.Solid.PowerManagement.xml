@@ -16,12 +16,6 @@
     <method name="batteryRemainingTime">
       <arg type="t" direction="out" />
     </method>
-    <method name="suspendToRam">
-    </method>
-    <method name="suspendToDisk">
-    </method>
-    <method name="suspendHybrid">
-    </method>
     <method name="isLidClosed">
         <arg type="b" direction="out" />
     </method>
@@ -45,8 +39,6 @@
     </signal>
     <signal name="batteryRemainingTimeChanged">
       <arg type="t" direction="out" />
-    </signal>
-    <signal name="resumingFromSuspend">
     </signal>
   </interface>
 </node>
