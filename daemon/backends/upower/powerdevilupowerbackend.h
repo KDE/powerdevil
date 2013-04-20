@@ -32,10 +32,12 @@
 #include "upower_device_interface.h"
 #include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"
+#include "udevqt.h"
 
 #define UPOWER_SERVICE "org.freedesktop.UPower"
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 
+class UdevHelper;
 class XRandRX11Helper;
 class XRandrBrightness;
 
@@ -67,6 +69,7 @@ private slots:
     void slotPropertyChanged();
     void slotLogin1Resuming(bool active);
     void slotScreenBrightnessChanged();
+    void deviceChanged(const UdevQt::Device &device);
 
 private:
     // upower devices
@@ -76,6 +79,7 @@ private:
     QMap<BrightnessControlType, float> m_cachedBrightnessMap;
     XRandrBrightness         *m_brightnessControl;
     XRandRX11Helper *m_randrHelper;
+
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
 

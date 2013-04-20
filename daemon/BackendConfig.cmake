@@ -13,6 +13,8 @@ set(powerdevilupowerbackend_SRCS
     backends/upower/powerdevilupowerbackend.cpp
     backends/upower/xrandrbrightness.cpp
     backends/upower/xrandrx11helper.cpp
+    backends/upower/udevqtclient.cpp
+    backends/upower/udevqtdevice.cpp
 )
 
 set_source_files_properties(

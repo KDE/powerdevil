@@ -72,6 +72,7 @@ kde4_add_plugin(kded_powerdevil ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRC
 target_link_libraries(kded_powerdevil
     ${KDE4_KDECORE_LIBS}
     ${POWERDEVIL_BACKEND_LIBS}
+    ${UDEV_LIBS}
     powerdevilcore
 )
 
