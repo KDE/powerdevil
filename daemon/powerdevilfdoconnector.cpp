@@ -27,6 +27,8 @@
 #include "powermanagementfdoadaptor.h"
 #include "powermanagementinhibitadaptor.h"
 
+#include "daemon/actions/bundled/suspendsession.h"
+
 #include <KConfigGroup>
 
 namespace PowerDevil {
@@ -73,17 +75,17 @@ bool FdoConnector::GetPowerSaveStatus()
 
 void FdoConnector::Suspend()
 {
-    triggerSuspendSession(1);
+    triggerSuspendSession(BundledActions::SuspendSession::ToRamMode);
 }
 
 void FdoConnector::Hibernate()
 {
-    triggerSuspendSession(2);
+    triggerSuspendSession(BundledActions::SuspendSession::ToDiskMode);
 }
 
 void FdoConnector::HybridSuspend()
 {
-    triggerSuspendSession(4);
+    triggerSuspendSession(BundledActions::SuspendSession::SuspendHybridMode);
 }
 
 bool FdoConnector::HasInhibit()

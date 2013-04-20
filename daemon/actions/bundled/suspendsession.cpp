@@ -168,17 +168,17 @@ bool SuspendSession::loadAction(const KConfigGroup& config)
 
 void SuspendSession::suspendHybrid()
 {
-    triggerSuspendSession(4);
+    triggerSuspendSession(SuspendHybridMode);
 }
 
 void SuspendSession::suspendToDisk()
 {
-    triggerSuspendSession(2);
+    triggerSuspendSession(ToDiskMode);
 }
 
 void SuspendSession::suspendToRam()
 {
-    triggerSuspendSession(1);
+    triggerSuspendSession(ToRamMode);
 }
 
 void SuspendSession::triggerSuspendSession(uint action)
