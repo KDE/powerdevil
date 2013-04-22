@@ -291,6 +291,22 @@ Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
 Name=Get syspath
+Name[es]=Obtener ruta del sistema
+Name[nl]=Systeempad ophalen
+Name[pt]=Obter o 'syspath'
+Name[pt_BR]=Obter o syspath
+Name[sk]=Získať systémovú cestu
+Name[sv]=Hämta systemsökväg
+Name[uk]=Отримання шляху у системі
+Name[x-test]=xxGet syspathxx
 Description=System policies prevent you from getting the syspath
+Description[es]=Las políticas del sistema le impiden obtener la ruta del sistema.
+Description[nl]=Systeembeleid voorkwam dat u het systeempad kon ophalen
+Description[pt]=As políticas de sistema impedem-no de obter o 'syspath'
+Description[pt_BR]=As políticas do sistema não permitem a modificação do syspath
+Description[sk]=Systémové politiky vám zabránili získať systémovú cestu
+Description[sv]=Systemets policy förhindrar att du hämtar systemsökvägen.
+Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо шляхів у системі
+Description[x-test]=xxSystem policies prevent you from getting the syspathxx
 Policy=yes
 PolicyInactive=yes
