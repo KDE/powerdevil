@@ -80,9 +80,12 @@ kde4_add_plugin(kded_powerdevil ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRC
 target_link_libraries(kded_powerdevil
     ${KDE4_KDECORE_LIBS}
     ${POWERDEVIL_BACKEND_LIBS}
-    ${UDEV_LIBS}
     powerdevilcore
 )
+
+if (UDEV_FOUND)
+    target_link_libraries(kded_powerdevil ${UDEV_LIBS})
+endif (UDEV_FOUND)
 
 install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR})
 install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})

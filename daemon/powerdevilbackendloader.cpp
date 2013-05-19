@@ -20,7 +20,9 @@
 
 #include "powerdevilbackendloader.h"
 
+#ifdef HAVE_UDEV
 #include "backends/upower/powerdevilupowerbackend.h"
+#endif
 #include "backends/hal/powerdevilhalbackend.h"
 
 #include <config-powerdevil.h>
