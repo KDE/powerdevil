@@ -1520,6 +1520,7 @@ Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
 Comment[ca]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
 Comment[ca@valencia]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
+Comment[cs]=Správce napájení KDE zjistil problémy s jednou z vašich baterií
 Comment[da]=KDE's strømstyringssystem har fundet nogle problemer med et af dine batterier
 Comment[de]=Das KDE-Energieverwaltungssystem hat Probleme mit einer Ihrer Akkus entdeckt
 Comment[el]=Το σύστημα διαχείρισης ενέργειας του KDE έχει εντοπίσει κάποια προβλήματα με κάποια από τις μπαταρίες σας
