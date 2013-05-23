@@ -137,6 +137,8 @@ void PowerDevilUPowerBackend::init()
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
         m_login1Interface = new QDBusInterface(LOGIN1_SERVICE, "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus(), this);
     }
+
+    bool screenBrightnessAvailable = false;
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
@@ -148,14 +150,16 @@ void PowerDevilUPowerBackend::init()
         if (reply.succeeded()) {
             m_syspath = reply.data()["syspath"].toString();
             m_syspath = QFileInfo(m_syspath).readLink();
-        }
 
-        UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-        connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+            UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+            connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+            screenBrightnessAvailable = true;
+        }
     } else {
         kDebug() << "Using XRandR";
         m_randrHelper = new XRandRX11Helper();
         connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
+        screenBrightnessAvailable = true;
     }
 
     // Capabilities
@@ -170,9 +174,11 @@ void PowerDevilUPowerBackend::init()
 
     // Brightness Controls available
     BrightnessControlsList controls;
-    controls.insert(QLatin1String("LVDS1"), Screen);
-    m_cachedBrightnessMap.insert(Screen, brightness(Screen));
-    kDebug() << "current screen brightness: " << m_cachedBrightnessMap.value(Screen);
+    if (screenBrightnessAvailable) {
+        controls.insert(QLatin1String("LVDS1"), Screen);
+        m_cachedBrightnessMap.insert(Screen, brightness(Screen));
+        kDebug() << "current screen brightness: " << m_cachedBrightnessMap.value(Screen);
+    }
 
     if (m_kbdBacklight->isValid()) {
         controls.insert(QLatin1String("KBD"), Keyboard);
