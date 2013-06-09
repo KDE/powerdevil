@@ -140,7 +140,6 @@ void PowerDevilUPowerBackend::init()
 
     bool screenBrightnessAvailable = false;
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
-    m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
     if (!m_brightnessControl->isSupported()) {
         kDebug() << "Using helper";
@@ -180,13 +179,17 @@ void PowerDevilUPowerBackend::init()
         kDebug() << "current screen brightness: " << m_cachedBrightnessMap.value(Screen);
     }
 
+    m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     if (m_kbdBacklight->isValid()) {
-        controls.insert(QLatin1String("KBD"), Keyboard);
-        m_cachedBrightnessMap.insert(Keyboard, brightness(Keyboard));
         // Cache max value
         m_kbdMaxBrightness = m_kbdBacklight->GetMaxBrightness();
-        kDebug() << "current keyboard backlight brightness: " << m_cachedBrightnessMap.value(Keyboard);
-        connect(m_kbdBacklight, SIGNAL(BrightnessChanged(int)), this, SLOT(onKeyboardBrightnessChanged(int)));
+        // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
+        if (m_kbdMaxBrightness) {
+            controls.insert(QLatin1String("KBD"), Keyboard);
+            m_cachedBrightnessMap.insert(Keyboard, brightness(Keyboard));
+            kDebug() << "current keyboard backlight brightness: " << m_cachedBrightnessMap.value(Keyboard);
+            connect(m_kbdBacklight, SIGNAL(BrightnessChanged(int)), this, SLOT(onKeyboardBrightnessChanged(int)));
+        }
     }
 
     // Supported suspend methods
