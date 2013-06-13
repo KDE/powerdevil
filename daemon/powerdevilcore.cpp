@@ -428,6 +428,12 @@ void Core::onDeviceAdded(const QString& udi)
         return;
     }
 
+    if (!b->isPowerSupply()) {
+        // TODO: At some later point it would be really nice to handle those batteries too
+        // eg, show "your mouse is running low", but in the mean time, we don't care about those
+        return;
+    }
+
     if (!connect(b, SIGNAL(chargePercentChanged(int,QString)),
                  this, SLOT(onBatteryChargePercentChanged(int,QString))) ||
         !connect(b, SIGNAL(chargeStateChanged(int,QString)),
