@@ -127,17 +127,16 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
     connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
 
-    int batteryCount = 0;
-
+    bool hasBattery = false;
     foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if(b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
-            continue;
+        if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
+            hasBattery = true;
+            break;
         }
-        ++batteryCount;
     }
 
-    if (batteryCount == 0) {
+    if (!hasBattery) {
         tabWidget->setTabEnabled(1, false);
         tabWidget->setTabEnabled(2, false);
         tabWidget->setTabBarHidden(true);
