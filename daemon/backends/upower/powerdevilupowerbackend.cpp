@@ -260,6 +260,9 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
     }
 
     int maxBrightness = device.sysfsProperty("max_brightness").toInt();
+    if (maxBrightness <= 0) {
+        return;
+    }
     float newBrightness = device.sysfsProperty("brightness").toInt() * 100 / maxBrightness;
 
     if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
