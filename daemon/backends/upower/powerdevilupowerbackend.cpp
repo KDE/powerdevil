@@ -365,7 +365,7 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
         success = true;
     } else if (type == Keyboard) {
         kDebug() << "set kbd backlight: " << brightnessValue;
-        m_kbdBacklight->SetBrightness(brightnessValue / 100 * m_kbdMaxBrightness);
+        m_kbdBacklight->SetBrightness(qRound(brightnessValue / 100 * m_kbdMaxBrightness));
         success = true;
     }
 
