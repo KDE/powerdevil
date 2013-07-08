@@ -109,7 +109,7 @@ void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
 {
     backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
     if (args["Explicit"].toBool()) {
-        showBrightnessOSD(args["Value"].toFloat());
+        showBrightnessOSD(backend()->brightness(BackendInterface::Keyboard));
     }
 }
 

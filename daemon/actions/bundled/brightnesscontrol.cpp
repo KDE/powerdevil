@@ -105,7 +105,7 @@ void BrightnessControl::triggerImpl(const QVariantMap& args)
 {
     backend()->setBrightness(args["Value"].toFloat());
     if (args["Explicit"].toBool()) {
-        showBrightnessOSD(args["Value"].toFloat());
+        showBrightnessOSD(backend()->brightness());
     }
 }
 
