@@ -58,6 +58,7 @@ Name[zh_CN]=KDE 电源管理系统
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[bs]=Sistem za upravljanje napajanjem
 Comment[ca]=Sistema de gestió d'energia
 Comment[ca@valencia]=Sistema de gestió d'energia
 Comment[cs]=Systém správy napájení
@@ -195,7 +196,7 @@ Comment[ast]=Usáu pa notificaciones d'avisu
 Comment[be@latin]=Dla aścierahalnych paviedamleńniaŭ
 Comment[bg]=Използва се за предупреждения
 Comment[bn]=সতর্কীকরণ বিজ্ঞপ্তির জন্য ব্যবহৃত হয়
-Comment[bs]=Koristi se za pozorna obavještenja
+Comment[bs]=Koristi se za obavještenja o upozorenjima
 Comment[ca]=S'usa per a les notificacions d'avís
 Comment[ca@valencia]=S'usa per a les notificacions d'avís
 Comment[cs]=Použito pro varování a upozornění
@@ -577,6 +578,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Battery Low
+Name[bs]=Nizak nivo baterije
 Name[ca]=Bateria baixa
 Name[ca@valencia]=Bateria baixa
 Name[cs]=Baterie je téměř vybitá
@@ -701,6 +703,7 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[bs]=Baterija kritična
 Name[ca]=Bateria crítica
 Name[ca@valencia]=Bateria crítica
 Name[cs]=Baterie na kritické úrovni
@@ -817,6 +820,7 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[bs]=Gotovo punjenje
 Name[ca]=Càrrega completada
 Name[ca@valencia]=Càrrega completada
 Name[cs]=Nabití bylo dokončeno
@@ -859,6 +863,7 @@ Name[x-test]=xxCharge Completexx
 Name[zh_CN]=充电完成
 Name[zh_TW]=充電完成
 Comment=The battery is fully charged
+Comment[bs]=Baterija je potpuno puna
 Comment[ca]=La bateria està totalment carregada
 Comment[ca@valencia]=La bateria està totalment carregada
 Comment[cs]=Baterie je plně nabitá
@@ -1222,6 +1227,7 @@ IconName=battery-low
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[bs]=Interna greška
 Name[ca]=Error intern
 Name[ca@valencia]=Error intern
 Name[cs]=Vnitřní chyba
@@ -1524,6 +1530,7 @@ Name[x-test]=xxBroken battery notificationxx
 Name[zh_CN]=电池损坏通知
 Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[bs]=KDE sistem za upravljanje napajanjem otkrio je problem sa nekom od baterija.
 Comment[ca]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
 Comment[ca@valencia]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
 Comment[cs]=Správce napájení KDE zjistil problémy s jednou z vašich baterií
