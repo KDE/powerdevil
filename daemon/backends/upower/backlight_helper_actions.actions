@@ -291,7 +291,6 @@ Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
 Name=Get syspath
-Name[bs]=Dobavi sistemsku stazu
 Name[ca]=Obtén el «syspath»
 Name[cs]=Získat syspath
 Name[es]=Obtener ruta del sistema
@@ -322,7 +321,6 @@ Name[x-test]=xxGet syspathxx
 Name[zh_CN]=获取 syspath
 Name[zh_TW]=取得系統路徑
 Description=System policies prevent you from getting the syspath
-Description[bs]=Sistemske smjernice sprečavaju dobavljanje sistemske staze.
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el camí del sistema «syspath»
 Description[cs]=Nastavení systému vám znemožňuje získat syspath
 Description[es]=Las políticas del sistema le impiden obtener la ruta del sistema.

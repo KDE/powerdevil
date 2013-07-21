@@ -4,7 +4,6 @@ X-KDE-ServiceTypes=PowerDevil/Action
 X-KDE-Library=powerdevilbrightnesscontrolaction_config
 Icon=preferences-system-power-management
 Name=Screen Brightness
-Name[bs]=Osvetljaj ekrana
 Name[ca]=Lluminositat de la pantalla
 Name[cs]=Jas obrazovky
 Name[de]=Bildschirmhelligkeit
