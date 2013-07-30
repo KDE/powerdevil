@@ -25,6 +25,9 @@
 
 #include <KIcon>
 #include <KLocalizedString>
+#include <kglobal.h>
+
+static const KCatalogLoader loader("libpowerdevilcommonconfig");
 
 ErrorOverlay::ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent) :
     QWidget(parent ? parent : baseWidget->window()),
