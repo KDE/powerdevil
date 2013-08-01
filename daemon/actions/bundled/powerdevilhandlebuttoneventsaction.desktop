@@ -118,3 +118,4 @@ X-KDE-PowerDevil-Action-IsBundled=true
 X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevilhandlebuttoneventsaction_config
 X-KDE-PowerDevil-Action-ConfigPriority=80
 X-KDE-PowerDevil-Action-HasRuntimeRequirement=true
+X-KDE-PowerDevil-Action-RegistersDBusInterface=true

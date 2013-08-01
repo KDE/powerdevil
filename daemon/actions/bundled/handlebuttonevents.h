@@ -31,6 +31,7 @@ class HandleButtonEvents : public PowerDevil::Action
 {
     Q_OBJECT
     Q_DISABLE_COPY(HandleButtonEvents)
+    Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.HandleButtonEvents")
 
 public:
     explicit HandleButtonEvents(QObject* parent);
@@ -45,6 +46,9 @@ protected:
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
+
+public Q_SLOTS:
+    int lidAction() const;
 
 private Q_SLOTS:
     void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
