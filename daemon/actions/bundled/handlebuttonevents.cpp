@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "handlebuttonevents.h"
+#include "handlebuttoneventsadaptor.h"
 
 #include "suspendsession.h"
 
@@ -45,6 +46,7 @@ HandleButtonEvents::HandleButtonEvents(QObject* parent)
     , m_sleepButtonAction(1)
     , m_hibernateButtonAction(2)
 {
+    new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
     connect(backend(), SIGNAL(buttonPressed(PowerDevil::BackendInterface::ButtonType)),
@@ -177,6 +179,11 @@ bool HandleButtonEvents::loadAction(const KConfigGroup& config)
     m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
 
     return true;
+}
+
+int HandleButtonEvents::lidAction() const
+{
+    return m_lidAction;
 }
 
 void HandleButtonEvents::powerOffButtonTriggered()
