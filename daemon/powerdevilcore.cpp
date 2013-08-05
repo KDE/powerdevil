@@ -589,25 +589,27 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 {
     bool previousCharged = true;
     for (QHash<QString,bool>::const_iterator i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
-        if (i.value() != Solid::Battery::NoCharge) {
+        if (!i.value()) {
             previousCharged = false;
             break;
         }
     }
 
-    bool currentCharged = previousCharged;
-    if (state != Solid::Battery::NoCharge) {
-        currentCharged = false;
-        m_batteriesCharged[udi] = false;
-    } else {
-        m_batteriesCharged[udi] = true;
-    }
+    m_batteriesCharged[udi] = (state == Solid::Battery::NoCharge);
 
     if (m_backend->acAdapterState() != BackendInterface::Plugged) {
         return;
     }
 
-    if (previousCharged == false && currentCharged == true) {
+    bool currentCharged = true;
+    for (QHash<QString,bool>::const_iterator i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
+        if (!i.value()) {
+            currentCharged = false;
+            break;
+        }
+    }
+
+    if (!previousCharged && currentCharged) {
         emitRichNotification("fullbattery", i18n("Charge Complete"), i18n("Your battery is now fully charged."));
         refreshStatus();
     }
