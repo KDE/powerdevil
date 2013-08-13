@@ -906,7 +906,7 @@ Comment[zh_CN]=电池已充满
 Comment[zh_TW]=電池已充飽
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
-Action=Sound|Popup
+Action=
 IconName=battery-100
 
 [Event/pluggedin]
