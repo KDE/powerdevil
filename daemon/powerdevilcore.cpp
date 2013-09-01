@@ -28,6 +28,8 @@
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
 
+#include "daemon/actions/bundled/suspendsession.h"
+
 #include <Solid/Battery>
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
@@ -505,17 +507,17 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() &&
         previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
         switch (PowerDevilSettings::batteryCriticalAction()) {
-        case 3:
+        case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
             emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
                              i18n("Your battery level is critical, the computer will be halted in 30 seconds."));
             m_criticalBatteryTimer->start();
             break;
-        case 2:
+        case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
             emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
                              i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."));
             m_criticalBatteryTimer->start();
             break;
-        case 1:
+        case PowerDevil::BundledActions::SuspendSession::ToRamMode:
             emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
                              i18n("Your battery level is critical, the computer will be suspended in 30 seconds."));
             m_criticalBatteryTimer->start();
