@@ -13,7 +13,7 @@ kde4_add_plugin(kcm_powerdevilglobalconfig ${kcm_powerdevil_global_SRCS})
 target_link_libraries(kcm_powerdevilglobalconfig
      ${KDE4_KDECORE_LIBS}
      ${KDE4_KDEUI_LIBRARY}
-     ${KDE4_KIO_LIBS}
+     KF5::KIOCore KF5::KIOWidgets
      ${KDE4_SOLID_LIBS}
      ${KDE4_KNOTIFYCONFIG_LIBRARY}
      powerdevilconfigcommonprivate
