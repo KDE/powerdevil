@@ -35,6 +35,10 @@
 #include "udevqt.h"
 
 #define UPOWER_SERVICE "org.freedesktop.UPower"
+#define UPOWER_PATH "/org/freedesktop/UPower"
+#define UPOWER_IFACE "org.freedesktop.UPower"
+#define UPOWER_IFACE_DEVICE "org.freedesktop.UPower.Device"
+
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 
 class UdevHelper;
@@ -65,12 +69,17 @@ private slots:
     void updateDeviceProps();
     void slotDeviceAdded(const QString &);
     void slotDeviceRemoved(const QString &);
+    void slotDeviceAdded(const QDBusObjectPath & path);
+    void slotDeviceRemoved(const QDBusObjectPath & path);
     void slotDeviceChanged(const QString &);
     void slotPropertyChanged();
     void slotLogin1Resuming(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int);
+
+    void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
+    void onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
     // upower devices

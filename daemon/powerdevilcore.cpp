@@ -335,6 +335,7 @@ void Core::loadProfile(bool force)
         // Do we need to force a wakeup?
         if (m_pendingWakeupEvent) {
             // Fake activity at this stage, when no timeouts are registered
+            onResumingFromIdle();
             KIdleTime::instance()->simulateUserActivity();
             m_pendingWakeupEvent = false;
         }
@@ -345,6 +346,7 @@ void Core::loadProfile(bool force)
         // Do we need to force a wakeup?
         if (m_pendingWakeupEvent) {
             // Fake activity at this stage, when no timeouts are registered
+            onResumingFromIdle();
             KIdleTime::instance()->simulateUserActivity();
             m_pendingWakeupEvent = false;
         }

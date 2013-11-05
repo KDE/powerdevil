@@ -43,7 +43,7 @@ bool checkSystemdVersion(uint requiredVersion)
 
     QDBusInterface systemdIface("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager",
                                 QDBusConnection::systemBus(), 0);
-    uint version = systemdIface.property("Version").toString().section(' ', 1).toUInt(&ok);
+    const uint version = systemdIface.property("Version").toString().section(' ', 1).toUInt(&ok);
     if (ok) {
        return (version >= requiredVersion);
     } else {
@@ -166,10 +166,22 @@ void PowerDevilUPowerBackend::init()
 
     // devices
     enumerateDevices();
+
     connect(m_upowerInterface, SIGNAL(Changed()), this, SLOT(slotPropertyChanged()));
+    // for UPower >= 0.99.0, missing Changed() signal
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
+                                         SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
+
     connect(m_upowerInterface, SIGNAL(DeviceAdded(QString)), this, SLOT(slotDeviceAdded(QString)));
     connect(m_upowerInterface, SIGNAL(DeviceRemoved(QString)), this, SLOT(slotDeviceRemoved(QString)));
+    // for UPower >= 0.99.0, changed signature :o/
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceAdded",
+                                         this, SLOT(slotDeviceAdded(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved",
+                                         this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
+
     connect(m_upowerInterface, SIGNAL(DeviceChanged(QString)), this, SLOT(slotDeviceChanged(QString)));
+    // for UPower >= 0.99.0, see slotDeviceAdded(const QString & device)
 
     // Brightness Controls available
     BrightnessControlsList controls;
@@ -428,6 +440,10 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
             new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, device, QDBusConnection::systemBus(), this);
     m_devices.insert(device, upowerDevice);
 
+    // for UPower >= 0.99.0 which doesn't emit the DeviceChanged(QString) signal
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, device, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
+                                         SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
+
     updateDeviceProps();
 }
 
@@ -440,6 +456,16 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QString & device)
     updateDeviceProps();
 }
 
+void PowerDevilUPowerBackend::slotDeviceAdded(const QDBusObjectPath &path)
+{
+    slotDeviceAdded(path.path());
+}
+
+void PowerDevilUPowerBackend::slotDeviceRemoved(const QDBusObjectPath &path)
+{
+    slotDeviceRemoved(path.path());
+}
+
 void PowerDevilUPowerBackend::slotDeviceChanged(const QString & /*device*/)
 {
     updateDeviceProps();
@@ -450,9 +476,9 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     qlonglong remainingTime = 0;
 
     foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
-        uint type = upowerDevice->type();
+        const uint type = upowerDevice->type();
         if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
-            uint state = upowerDevice->state();
+            const uint state = upowerDevice->state();
             if (state == 1) // charging
                 remainingTime += upowerDevice->timeToFull();
             else if (state == 2) //discharging
@@ -467,7 +493,7 @@ void PowerDevilUPowerBackend::slotPropertyChanged()
 {
     // check for lid button changes
     if (m_lidIsPresent) {
-        bool lidIsClosed = m_upowerInterface->lidIsClosed();
+        const bool lidIsClosed = m_upowerInterface->lidIsClosed();
         if (lidIsClosed != m_lidIsClosed) {
             if (lidIsClosed)
                 setButtonPressed(LidClose);
@@ -478,7 +504,7 @@ void PowerDevilUPowerBackend::slotPropertyChanged()
     }
 
     // check for AC adapter changes
-    bool onBattery = m_upowerInterface->onBattery();
+    const bool onBattery = m_upowerInterface->onBattery();
     if (m_onBattery != onBattery) {
         if (onBattery)
             setAcAdapterState(Unplugged);
@@ -487,6 +513,26 @@ void PowerDevilUPowerBackend::slotPropertyChanged()
     }
 
     m_onBattery = onBattery;
+}
+
+void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
+{
+    Q_UNUSED(changedProps);
+    Q_UNUSED(invalidatedProps);
+
+    if (ifaceName == UPOWER_IFACE) {
+        slotPropertyChanged(); // TODO maybe process the 2 properties separately?
+    }
+}
+
+void PowerDevilUPowerBackend::onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
+{
+    Q_UNUSED(changedProps);
+    Q_UNUSED(invalidatedProps);
+
+    if (ifaceName == UPOWER_IFACE_DEVICE) {
+        updateDeviceProps(); // TODO maybe process the properties separately?
+    }
 }
 
 void PowerDevilUPowerBackend::slotLogin1Resuming(bool active)
