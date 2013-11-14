@@ -87,7 +87,7 @@ target_link_libraries(kded_powerdevil
 
 if (UDEV_FOUND)
     target_link_libraries(kded_powerdevil ${UDEV_LIBS})
-endif (UDEV_FOUND)
+endif ()
 
 install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR})
 install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})
