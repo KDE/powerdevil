@@ -10,12 +10,12 @@ kde4_add_ui_files(kcm_powerdevil_activities_SRCS
 
 kde4_add_kcfg_files(kcm_powerdevil_activities_SRCS ../../PowerDevilSettings.kcfgc)
 
-kde4_add_plugin(kcm_powerdevilactivitiesconfig ${kcm_powerdevil_activities_SRCS})
+add_library(kcm_powerdevilactivitiesconfig MODULE ${kcm_powerdevil_activities_SRCS})
 
 target_link_libraries(kcm_powerdevilactivitiesconfig
-     ${KDE4_KDECORE_LIBS}
+     
      ${KDE4_KDEUI_LIBRARY}
-     ${KDE4_SOLID_LIBS}
+     KF5::Solid
      ${KACTIVITIES_LIBRARY}
      powerdevilconfigcommonprivate
 )

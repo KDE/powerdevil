@@ -33,7 +33,7 @@ set(powerdevilcore_SRCS
 kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
-qt4_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
+qt5_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
 
 # Action DBus Adaptors
 qt4_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
@@ -45,14 +45,14 @@ qt4_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerMana
 qt4_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
                      actions/bundled/suspendsession.h PowerDevil::BundledActions::SuspendSession)
 
-kde4_add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
+add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
 
 target_link_libraries(powerdevilcore
-    ${KDE4_KDECORE_LIBS}
-    ${KDE4_SOLID_LIBS}
+    
+    KF5::Solid
     ${KDE4_KIDLETIME_LIBS}
-    ${KDE4_PLASMA_LIBS}
+    KF5::Plasma
     ${KACTIVITIES_LIBRARY}
     kworkspace
 )
@@ -77,10 +77,10 @@ qt4_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.freede
 # Backends
 include(BackendConfig.cmake)
 
-kde4_add_plugin(kded_powerdevil ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRCS})
+add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRCS})
 
 target_link_libraries(kded_powerdevil
-    ${KDE4_KDECORE_LIBS}
+    
     ${POWERDEVIL_BACKEND_LIBS}
     powerdevilcore
 )
@@ -97,12 +97,12 @@ set(powerdevilui_SRCS
     powerdevilactionconfig.cpp
 )
 
-kde4_add_library(powerdevilui SHARED ${powerdevilui_SRCS})
+add_library(powerdevilui SHARED ${powerdevilui_SRCS})
 set_target_properties(powerdevilui PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
 target_link_libraries(powerdevilui
-    ${KDE4_KDECORE_LIBS}
-    ${QT_QTGUI_LIBRARY}
+    
+    Qt5::Gui
 )
 
 macro_bool_to_01(UDEV_FOUND HAVE_UDEV)

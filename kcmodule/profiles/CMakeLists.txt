@@ -9,13 +9,13 @@ kde4_add_ui_files(kcm_powerdevil_profiles_SRCS
 
 kde4_add_kcfg_files(kcm_powerdevil_profiles_SRCS ../../PowerDevilSettings.kcfgc)
 
-kde4_add_plugin(kcm_powerdevilprofilesconfig ${kcm_powerdevil_profiles_SRCS})
+add_library(kcm_powerdevilprofilesconfig MODULE ${kcm_powerdevil_profiles_SRCS})
 
 target_link_libraries(kcm_powerdevilprofilesconfig
-     ${KDE4_KDECORE_LIBS}
+     
      ${KDE4_KDEUI_LIBRARY}
      KF5::KIOCore KF5::KIOWidgets
-     ${KDE4_SOLID_LIBS}
+     KF5::Solid
      powerdevilui
      powerdevilconfigcommonprivate
 )
