@@ -370,4 +370,4 @@ int BacklightHelper::maxBrightness() const
     return max_brightness ? max_brightness : -1;
 }
 
-KDE4_AUTH_HELPER_MAIN("org.kde.powerdevil.backlighthelper", BacklightHelper)
+KAUTH_HELPER_MAIN("org.kde.powerdevil.backlighthelper", BacklightHelper)
