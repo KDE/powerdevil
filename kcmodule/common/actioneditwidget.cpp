@@ -25,8 +25,8 @@
 #include <daemon/powerdevilaction.h>
 #include <daemon/powerdevilactionconfig.h>
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QVBoxLayout>
+#include <QCheckBox>
+#include <QVBoxLayout>
 
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>

@@ -19,20 +19,22 @@
 
 #include "keyboardbrightnesscontrol.h"
 
-#include "brightnessosdwidget.h"
+// #include "brightnessosdwidget.h"
 #include "keyboardbrightnesscontroladaptor.h"
 
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
-#include <QtGui/QDesktopWidget>
+#include <QDesktopWidget>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <KApplication>
 #include <KConfigGroup>
 #include <KDebug>
 #include <KLocalizedString>
+#include <kglobalaccel.h>
+#include <kglobalaccel.h>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -49,28 +51,29 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
             this, SLOT(onBrightnessChangedFromBackend(float,PowerDevil::BackendInterface::BrightnessControlType)));
 
     KActionCollection* actionCollection = new KActionCollection( this );
+    KGlobalAccel *accel = KGlobalAccel::self();
 
-    KAction *globalAction = actionCollection->addAction("Increase Keyboard Brightness");
+    QAction *globalAction = actionCollection->addAction("Increase Keyboard Brightness");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessUp));
+    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_KeyboardBrightnessUp);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
 
     globalAction = actionCollection->addAction("Decrease Keyboard Brightness");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardBrightnessDown));
+    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_KeyboardBrightnessDown);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
 
     globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
-    globalAction->setGlobalShortcut(KShortcut(Qt::Key_KeyboardLightOnOff));
+    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_KeyboardLightOnOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
 }
 
 KeyboardBrightnessControl::~KeyboardBrightnessControl()
 {
-    if (!m_brightnessOSD.isNull()) {
-        m_brightnessOSD.data()->deleteLater();
-    }
+//     if (!m_brightnessOSD.isNull()) {
+//         m_brightnessOSD.data()->deleteLater();
+//     }
 }
 
 void KeyboardBrightnessControl::onProfileUnload()
@@ -143,20 +146,20 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
 {
     // code adapted from KMix
-    if (m_brightnessOSD.isNull()) {
-        m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Keyboard);
-    }
-
-    m_brightnessOSD.data()->setCurrentBrightness(brightness);
-    m_brightnessOSD.data()->show();
-    m_brightnessOSD.data()->activateOSD(); //Enable the hide timer
+//     if (m_brightnessOSD.isNull()) {
+//         m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Keyboard);
+//     }
+//
+//     m_brightnessOSD.data()->setCurrentBrightness(brightness);
+//     m_brightnessOSD.data()->show();
+//     m_brightnessOSD.data()->activateOSD(); //Enable the hide timer
 
     //Center the OSD
-    QRect rect = KApplication::kApplication()->desktop()->screenGeometry(QCursor::pos());
-    QSize size = m_brightnessOSD.data()->sizeHint();
-    int posX = rect.x() + (rect.width() - size.width()) / 2;
-    int posY = rect.y() + 4 * rect.height() / 5;
-    m_brightnessOSD.data()->setGeometry(posX, posY, size.width(), size.height());
+//     QRect rect = KApplication::kApplication()->desktop()->screenGeometry(QCursor::pos());
+// //     QSize size = m_brightnessOSD.data()->sizeHint();
+//     int posX = rect.x() + (rect.width() - size.width()) / 2;
+//     int posY = rect.y() + 4 * rect.height() / 5;
+//     m_brightnessOSD.data()->setGeometry(posX, posY, size.width(), size.height());
 }
 
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)

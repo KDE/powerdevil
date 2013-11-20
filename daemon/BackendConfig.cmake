@@ -23,27 +23,27 @@ if (UDEV_FOUND)
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.Device.xml
     PROPERTIES NO_NAMESPACE TRUE)
 
-    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.xml
     upower_interface)
 
-    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.Device.xml
     upower_device_interface)
 
-    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
     upower_kbdbacklight_interface)
 
-    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB} ${KDE4_KDEUI_LIBRARY} ${UDEV_LIBS})
+    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets ${X11_Xrandr_LIB} ${UDEV_LIBS})
 
     ## backlight helper executable
-    kde4_add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
+    add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
     target_link_libraries(backlighthelper ${KDE4_KDECORE_LIBS})
     install(TARGETS backlighthelper DESTINATION ${LIBEXEC_INSTALL_DIR})
-    kde4_install_auth_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
-    kde4_install_auth_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
-endif (UDEV_FOUND)
+    kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
+    kauth_install_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
+endif ()
 
 ########################## HAL Backend #####################################
 
@@ -54,7 +54,7 @@ set(powerdevilhalbackend_SRCS
     backends/hal/powerdevilhalbackend.cpp
 )
 
-set(powerdevilhalbackend_LIBS ${KDE4_SOLID_LIBS})
+set(powerdevilhalbackend_LIBS KF5::Solid)
 
 ########################## Daemon variables ################################
 

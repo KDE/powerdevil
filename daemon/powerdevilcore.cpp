@@ -51,12 +51,12 @@
 namespace PowerDevil
 {
 
-Core::Core(QObject* parent, const KComponentData &componentData)
+Core::Core(QObject* parent/*, const KComponentData &componentData*/)
     : QObject(parent)
     , m_backend(0)
-    , m_applicationData(componentData)
+//     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
-    , m_activityConsumer(new KActivities::Consumer(this))
+//     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
 {
 }
@@ -240,7 +240,7 @@ void Core::loadProfile(bool force)
     KConfigGroup config;
 
     // Check the activity in which we are in
-    QString activity = m_activityConsumer->currentActivity();
+    QString activity;/* = m_activityConsumer->currentActivity();*/
     if (activity.isEmpty()) {
         activity = "default";
     }
@@ -486,18 +486,18 @@ void Core::onDeviceRemoved(const QString& udi)
 void Core::emitNotification(const QString &evid, const QString &message, const QString &iconname)
 {
     if (!iconname.isEmpty()) {
-      KNotification::event(evid, message, KIcon(iconname).pixmap(48,48),
-                           0, KNotification::CloseOnTimeout, m_applicationData);
+      KNotification::event(evid, message, QIcon::fromTheme(iconname).pixmap(48,48),
+                           0, KNotification::CloseOnTimeout, "powerdevil");
     } else {
       KNotification::event(evid, message, QPixmap(),
-                           0, KNotification::CloseOnTimeout, m_applicationData);
+                           0, KNotification::CloseOnTimeout, "powerdevil");
     }
 }
 
 void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
 {
     KNotification::event(evid, title, message, QPixmap(),
-                         0, KNotification::CloseOnTimeout, m_applicationData);
+                         0, KNotification::CloseOnTimeout, "powerdevil");
 }
 
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent)

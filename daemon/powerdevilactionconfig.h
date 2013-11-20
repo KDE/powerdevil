@@ -21,7 +21,7 @@
 #ifndef POWERDEVIL_POWERDEVILACTIONCONFIG_H
 #define POWERDEVIL_POWERDEVILACTIONCONFIG_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 #include <KConfigGroup>
 

@@ -24,7 +24,7 @@
 
 #include <config-workspace.h>
 
-#include <QtGui/QX11Info>
+#include <QX11Info>
 
 #include <KConfigGroup>
 #include <KDebug>

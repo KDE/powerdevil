@@ -21,7 +21,7 @@
 #ifndef ACTIONEDITWIDGET_H
 #define ACTIONEDITWIDGET_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 #include <KSharedConfig>
 

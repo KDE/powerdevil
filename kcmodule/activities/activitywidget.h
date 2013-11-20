@@ -21,7 +21,7 @@
 #ifndef ACTIVITYWIDGET_H
 #define ACTIVITYWIDGET_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <KSharedConfig>
 
 class ActionEditWidget;

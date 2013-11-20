@@ -19,12 +19,12 @@
 
 #include "actionconfigwidget.h"
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QLabel>
-#include <QtGui/QMenu>
-#include <QtGui/QMenuBar>
-#include <QtGui/QAction>
-#include <QtGui/QLayoutItem>
+#include <QCheckBox>
+#include <QLabel>
+#include <QMenu>
+#include <QMenuBar>
+#include <QAction>
+#include <QLayoutItem>
 
 ActionConfigWidget::ActionConfigWidget(QWidget* parent) : QWidget(parent)
 {

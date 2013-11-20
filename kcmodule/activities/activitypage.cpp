@@ -24,8 +24,8 @@
 
 #include <ErrorOverlay.h>
 
-#include <QtGui/QScrollArea>
-#include <QtGui/QVBoxLayout>
+#include <QScrollArea>
+#include <QVBoxLayout>
 
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
@@ -39,6 +39,7 @@
 #include <KMessageWidget>
 #include <KPluginFactory>
 #include <KTabWidget>
+#include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
                  registerPlugin<ActivityPage>();

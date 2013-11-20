@@ -20,8 +20,8 @@
 #include "ErrorOverlay.h"
 
 #include <QtCore/QEvent>
-#include <QtGui/QLabel>
-#include <QtGui/QVBoxLayout>
+#include <QLabel>
+#include <QVBoxLayout>
 
 #include <KIcon>
 #include <KLocalizedString>

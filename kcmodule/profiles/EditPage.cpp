@@ -27,9 +27,9 @@
 
 #include <config-workspace.h>
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QFormLayout>
-#include <QtGui/QLabel>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QLabel>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
@@ -65,23 +65,23 @@ typedef QMap< QString, QString > StringStringMap;
 Q_DECLARE_METATYPE(StringStringMap)
 
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
-        : KCModule(PowerDevilProfilesKCMFactory::componentData(), parent, args)
+        : KCModule(0, parent, args)
 {
     qDBusRegisterMetaType< StringStringMap >();
 
     setButtons(Apply | Help | Default);
 
-    KAboutData *about =
-        new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
-                       "", ki18n("A profile configurator for KDE Power Management System"),
-                       KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-                       ki18n("From this module, you can manage KDE Power Management System's power profiles, by tweaking "
-                             "existing ones or creating new ones."));
-
-    about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
-                     "http://drfav.wordpress.com");
-
-    setAboutData(about);
+//     KAboutData *about =
+//         new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
+//                        "", ki18n("A profile configurator for KDE Power Management System"),
+//                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
+//                        ki18n("From this module, you can manage KDE Power Management System's power profiles, by tweaking "
+//                              "existing ones or creating new ones."));
+//
+//     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
+//                      "http://drfav.wordpress.com");
+//
+//     setAboutData(about);
 
     setupUi(this);
 
@@ -104,19 +104,19 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_editWidgets.insert("AC", editWidget);
     acWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(0, KIcon("battery-charging"));
+    tabWidget->setTabIcon(0, QIcon::fromTheme("battery-charging"));
 
     editWidget = new ActionEditWidget("Battery");
     m_editWidgets.insert("Battery", editWidget);
     batteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(1, KIcon("battery-060"));
+    tabWidget->setTabIcon(1, QIcon::fromTheme("battery-060"));
 
     editWidget = new ActionEditWidget("LowBattery");
     m_editWidgets.insert("LowBattery", editWidget);
     lowBatteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(2, KIcon("battery-low"));
+    tabWidget->setTabIcon(2, QIcon::fromTheme("battery-low"));
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -254,7 +254,7 @@ void EditPage::restoreDefaultProfiles()
 
 void EditPage::openUrl(const QString &url)
 {
-    new KRun(KUrl(url), this);
+    new KRun(QUrl(url), this);
 }
 
 void EditPage::defaults()

@@ -32,6 +32,7 @@
 #include <KNotification>
 #include <KIcon>
 #include <KStandardDirs>
+#include <KGlobal>
 
 namespace PowerDevil {
 

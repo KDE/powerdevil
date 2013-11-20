@@ -34,6 +34,7 @@
 #include <KAboutData>
 #include <KDebug>
 #include <KPluginFactory>
+#include <KLocalizedString>
 
 K_PLUGIN_FACTORY( PowerDevilFactory,
                   registerPlugin<KDEDPowerDevil>(); )
@@ -53,17 +54,17 @@ KDEDPowerDevil::~KDEDPowerDevil()
 
 void KDEDPowerDevil::init()
 {
-    KGlobal::insertCatalog("powerdevil");
+//     KGlobal::insertCatalog("powerdevil");
 
-    KAboutData aboutData("powerdevil", "powerdevil", ki18n("KDE Power Management System"),
-                         POWERDEVIL_VERSION, ki18n("KDE Power Management System is PowerDevil, an "
-                                                   "advanced, modular and lightweight Power Management "
-                                                   "daemon"),
-                         KAboutData::License_GPL, ki18n("(c) 2010 MetalWorkers Co."),
-                         KLocalizedString(), "http://www.kde.org");
-
-    aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
-                        "http://drfav.wordpress.com");
+//     KAboutData aboutData("powerdevil", "powerdevil", ki18n("KDE Power Management System"),
+//                          POWERDEVIL_VERSION, ki18n("KDE Power Management System is PowerDevil, an "
+//                                                    "advanced, modular and lightweight Power Management "
+//                                                    "daemon"),
+//                          KAboutData::License_GPL, ki18n("(c) 2010 MetalWorkers Co."),
+//                          KLocalizedString(), "http://www.kde.org");
+//
+//     aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
+//                         "http://drfav.wordpress.com");
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
         QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
@@ -72,7 +73,7 @@ void KDEDPowerDevil::init()
         return;
     }
 
-    m_core = new PowerDevil::Core(this, KComponentData(aboutData));
+    m_core = new PowerDevil::Core(this/*, KComponentData(aboutData)*/);
 
     connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));
 

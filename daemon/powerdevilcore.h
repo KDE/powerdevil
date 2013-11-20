@@ -54,7 +54,7 @@ class KDE_EXPORT Core : public QObject
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement")
 
 public:
-    explicit Core(QObject* parent, const KComponentData &componentData);
+    explicit Core(QObject* parent/*, const KComponentData &componentData*/);
     virtual ~Core();
 
     void reloadProfile(int state);
@@ -100,7 +100,7 @@ private:
     QStringList m_loadedBatteriesUdi;
 
     QWeakPointer< KNotification > notification;
-    KComponentData m_applicationData;
+//     KComponentData m_applicationData;
     KSharedConfigPtr m_profilesConfig;
 
     QString m_currentProfile;

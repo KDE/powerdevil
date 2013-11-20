@@ -23,7 +23,7 @@
 #include <KCModule>
 
 #include "ui_profileEditPage.h"
-
+#include <KSharedConfig>
 class ActionEditWidget;
 namespace PowerDevil {
 class ActionConfig;

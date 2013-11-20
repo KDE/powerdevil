@@ -20,8 +20,8 @@
 #ifndef ACTIONCONFIG_H
 #define ACTIONCONFIG_H
 
-#include <QtGui/QMainWindow>
-#include <QtGui/QWidget>
+#include <QMainWindow>
+#include <QWidget>
 
 #include <QGridLayout>
 #include <QMap>

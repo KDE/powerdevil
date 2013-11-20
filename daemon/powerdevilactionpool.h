@@ -33,7 +33,7 @@ namespace PowerDevil
 class Core;
 class Action;
 
-class KDE_EXPORT ActionPool
+class Q_DECL_EXPORT ActionPool
 {
 public:
     static ActionPool *instance();

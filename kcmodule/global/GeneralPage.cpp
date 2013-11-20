@@ -49,23 +49,23 @@ typedef QMap< QString, QString > StringStringMap;
 Q_DECLARE_METATYPE(StringStringMap)
 
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
-        : KCModule(PowerDevilGeneralKCMFactory::componentData(), parent, args)
+        : KCModule(0, parent, args)
 {
     qDBusRegisterMetaType< StringStringMap >();
 
     setButtons(Apply | Help);
 
-    KAboutData *about =
-        new KAboutData("powerdevilglobalconfig", "powerdevilglobalconfig", ki18n("Global Power Management Configuration"),
-                       "", ki18n("A global power management configurator for KDE Power Management System"),
-                       KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-                       ki18n("From this module, you can configure the main Power Management daemon, assign profiles to "
-                             "states, and do some advanced fine tuning on battery handling"));
-
-    about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
-                     "http://drfav.wordpress.com");
-
-    setAboutData(about);
+//     KAboutData *about =
+//         new KAboutData("powerdevilglobalconfig", "powerdevilglobalconfig", ki18n("Global Power Management Configuration"),
+//                        "", ki18n("A global power management configurator for KDE Power Management System"),
+//                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
+//                        ki18n("From this module, you can configure the main Power Management daemon, assign profiles to "
+//                              "states, and do some advanced fine tuning on battery handling"));
+//
+//     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
+//                      "http://drfav.wordpress.com");
+//
+//     setAboutData(about);
 
     setupUi(this);
 
@@ -103,21 +103,21 @@ void GeneralPage::fillUi()
         }
     }
 
-    eventsIconLabel->setPixmap(KIcon("preferences-desktop-notification").pixmap(24));
-    batteryLevelsIconLabel->setPixmap(KIcon("battery").pixmap(24));
+    eventsIconLabel->setPixmap(QIcon::fromTheme("preferences-desktop-notification").pixmap(24));
+    batteryLevelsIconLabel->setPixmap(QIcon::fromTheme("battery").pixmap(24));
 
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-    BatteryCriticalCombo->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
+    BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend"), i18n("Sleep"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
+        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
     }
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
-        BatteryCriticalCombo->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
+        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
     }
-    BatteryCriticalCombo->addItem(KIcon("system-shutdown"), i18n("Shutdown"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
+    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
 
-    notificationsButton->setIcon(KIcon("preferences-desktop-notification"));
+    notificationsButton->setIcon(QIcon::fromTheme("preferences-desktop-notification"));
 
     // modified fields...
 

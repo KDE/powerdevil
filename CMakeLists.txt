@@ -6,6 +6,6 @@ include_directories (
 )
 
 add_subdirectory(daemon)
-add_subdirectory(kcmodule)
+#add_subdirectory(kcmodule)
 
 install( FILES powerdevil.notifyrc DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
