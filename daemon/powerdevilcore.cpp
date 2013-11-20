@@ -42,7 +42,7 @@
 #include <KServiceTypeTrader>
 #include <KStandardDirs>
 
-#include <KActivities/Consumer>
+// #include <KActivities/Consumer>
 
 #include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
@@ -130,8 +130,8 @@ void Core::onBackendReady()
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
             this, SLOT(onResumingFromIdle()));
-    connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)),
-            this, SLOT(loadProfile()));
+//     connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)),
+//             this, SLOT(loadProfile()));
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
