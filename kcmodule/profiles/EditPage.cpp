@@ -59,7 +59,6 @@
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilProfilesKCMFactory("powerdevilprofilesconfig","powerdevil"))
 
 typedef QMap< QString, QString > StringStringMap;
 Q_DECLARE_METATYPE(StringStringMap)

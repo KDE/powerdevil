@@ -43,7 +43,6 @@
 K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                  registerPlugin<GeneralPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilGeneralKCMFactory("powerdevilglobalconfig","powerdevil"))
 
 typedef QMap< QString, QString > StringStringMap;
 Q_DECLARE_METATYPE(StringStringMap)
