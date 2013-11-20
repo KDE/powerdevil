@@ -23,8 +23,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-K_PLUGIN_FACTORY(PowerDevilDPMSConfigFactory, registerPlugin<PowerDevilDPMSActionConfig>(); )
-K_EXPORT_PLUGIN(PowerDevilDPMSConfigFactory("powerdevildpmsaction_config"))
+K_PLUGIN_FACTORY(PowerDevilDPMSConfigFactory, registerPlugin<PowerDevilDPMSActionConfig>();)
 
 PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent, const QVariantList& )
         : ActionConfig(parent)
@@ -65,3 +64,4 @@ QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
     return retlist;
 }
 
+#include "powerdevildpmsactionconfig.moc"
