@@ -31,7 +31,6 @@
 #include <KIcon>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::HandleButtonEventsConfig>(); )
-K_EXPORT_PLUGIN(PowerDevilSuspendSessionConfigFactory("powerdevilhandlebuttoneventsaction_config"))
 
 namespace PowerDevil {
 namespace BundledActions {

@@ -29,7 +29,6 @@
 #include <KPluginFactory>
 
 K_PLUGIN_FACTORY(PowerDevilRunScriptConfigFactory, registerPlugin<PowerDevil::BundledActions::RunScriptConfig>(); )
-K_EXPORT_PLUGIN(PowerDevilRunScriptConfigFactory("powerdevilrunscriptaction_config"))
 
 namespace PowerDevil {
 namespace BundledActions {

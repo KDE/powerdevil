@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilKeyboardBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::KeyboardBrightnessControlConfig>(); )
-K_EXPORT_PLUGIN(PowerDevilKeyboardBrightnessControlConfigFactory("powerdevilkeyboardbrightnesscontrolaction_config"))
 
 namespace PowerDevil {
 namespace BundledActions {

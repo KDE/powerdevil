@@ -32,7 +32,6 @@
 #include "suspendsession.h"
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::SuspendSessionConfig>(); )
-K_EXPORT_PLUGIN(PowerDevilSuspendSessionConfigFactory("powerdevilsuspendsessionaction_config"))
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -104,3 +103,5 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
 
 }
 }
+
+#include "suspendsessionconfig.moc"

@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::BrightnessControlConfig>(); )
-K_EXPORT_PLUGIN(PowerDevilBrightnessControlConfigFactory("powerdevilbrightnesscontrolaction_config"))
 
 namespace PowerDevil {
 namespace BundledActions {

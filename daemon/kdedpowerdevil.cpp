@@ -38,7 +38,6 @@
 
 K_PLUGIN_FACTORY( PowerDevilFactory,
                   registerPlugin<KDEDPowerDevil>(); )
-K_EXPORT_PLUGIN( PowerDevilFactory( "powerdevildaemon" ) )
 
 #define POWERDEVIL_VERSION "1.99"
 
