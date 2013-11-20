@@ -30,7 +30,7 @@ class KJob;
 
 namespace PowerDevil {
 
-class KDE_EXPORT BackendInterface : public QObject
+class Q_DECL_EXPORT BackendInterface : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(BackendInterface)

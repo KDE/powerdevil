@@ -61,7 +61,7 @@ namespace PowerDevil {
  *
  * @since 4.6
  */
-class KDE_EXPORT ActionConfig : public QObject
+class Q_DECL_EXPORT ActionConfig : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(ActionConfig)

@@ -45,7 +45,7 @@ class UdevHelper;
 class XRandRX11Helper;
 class XRandrBrightness;
 
-class KDE_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
+class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilUPowerBackend)

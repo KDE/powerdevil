@@ -46,7 +46,7 @@ class QDBusInterface;
 namespace PowerDevil
 {
 
-class KDE_EXPORT PolicyAgent : public QObject, protected QDBusContext
+class Q_DECL_EXPORT PolicyAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(PolicyAgent)

@@ -30,7 +30,7 @@ class QSlider;
 namespace PowerDevil {
 namespace BundledActions {
 
-class KDE_EXPORT KeyboardBrightnessControlConfig : public PowerDevil::ActionConfig
+class Q_DECL_EXPORT KeyboardBrightnessControlConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
     Q_DISABLE_COPY(KeyboardBrightnessControlConfig)

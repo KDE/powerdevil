@@ -102,7 +102,7 @@ class Core;
  *
  * @since 4.6
  */
-class KDE_EXPORT Action : public QObject
+class Q_DECL_EXPORT Action : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Action)

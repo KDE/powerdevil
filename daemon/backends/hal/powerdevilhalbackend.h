@@ -37,7 +37,7 @@ class Device;
 }
 
 
-class KDE_EXPORT PowerDevilHALBackend : public PowerDevil::BackendInterface
+class Q_DECL_EXPORT PowerDevilHALBackend : public PowerDevil::BackendInterface
 {
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilHALBackend)

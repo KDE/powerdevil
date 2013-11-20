@@ -30,7 +30,7 @@ class QSlider;
 namespace PowerDevil {
 namespace BundledActions {
 
-class KDE_EXPORT BrightnessControlConfig : public PowerDevil::ActionConfig
+class Q_DECL_EXPORT BrightnessControlConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
     Q_DISABLE_COPY(BrightnessControlConfig)

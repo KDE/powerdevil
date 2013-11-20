@@ -47,7 +47,7 @@ namespace PowerDevil
 class BackendInterface;
 class Action;
 
-class KDE_EXPORT Core : public QObject
+class Q_DECL_EXPORT Core : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Core)

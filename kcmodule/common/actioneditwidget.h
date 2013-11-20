@@ -35,7 +35,7 @@ class ActionConfig;
 class QCheckBox;
 class KConfigGroup;
 
-class KDE_EXPORT ActionEditWidget : public QWidget
+class Q_DECL_EXPORT ActionEditWidget : public QWidget
 {
     Q_OBJECT
 public:

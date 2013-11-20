@@ -24,7 +24,7 @@
 
 #include <kdemacros.h>
 
-class KDE_EXPORT ErrorOverlay : public QWidget
+class Q_DECL_EXPORT ErrorOverlay : public QWidget
 {
     Q_OBJECT
 public:

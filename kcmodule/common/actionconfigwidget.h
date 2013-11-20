@@ -29,7 +29,7 @@
 
 #include <kdemacros.h>
 
-class KDE_EXPORT ActionConfigWidget : public QWidget
+class Q_DECL_EXPORT ActionConfigWidget : public QWidget
 {
 Q_OBJECT
 public:
