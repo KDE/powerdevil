@@ -239,7 +239,7 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
     ActionReply reply;
 
     if (!m_isSupported) {
-        reply = ActionReply::HelperErrorReply;
+        reply = ActionReply::HelperErrorReply();
         return reply;
     }
 
@@ -255,8 +255,8 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
 #else
     QFile file(m_dirname + "/brightness");
     if (!file.open(QIODevice::ReadOnly)) {
-        reply = ActionReply::HelperErrorReply;
-        reply.setErrorCode(file.error());
+        reply = ActionReply(ActionReply::HelperErrorType);
+        reply.setErrorDescription(i18n("Can't open file"));
         qWarning() << "reading brightness failed with error code " << file.error() << file.errorString();
         return reply;
     }
@@ -278,7 +278,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
     ActionReply reply;
 
     if (!m_isSupported) {
-        reply = ActionReply::HelperErrorReply;
+        reply = ActionReply::HelperErrorReply();
         return reply;
     }
 
@@ -306,14 +306,14 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
     }
     size_t len = sizeof(int);
     if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), NULL, NULL, &actual_level, len) != 0) {
-        reply = ActionReply::HelperErrorReply;
+        reply = ActionReply::HelperErrorReply();
         return reply;
     }
 #else
     QFile file(m_dirname + "/brightness");
     if (!file.open(QIODevice::WriteOnly)) {
-        reply = ActionReply::HelperErrorReply;
-        reply.setErrorCode(file.error());
+        reply = ActionReply::HelperErrorReply();
+//         reply.setErrorCode(file.error());
         qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
         return reply;
     }
@@ -322,8 +322,8 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
     file.close();
 
     if (result == -1) {
-        reply = ActionReply::HelperErrorReply;
-        reply.setErrorCode(file.error());
+        reply = ActionReply::HelperErrorReply();
+//         reply.setErrorCode(file.error());
         qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
     }
 #endif
@@ -338,7 +338,7 @@ ActionReply BacklightHelper::syspath(const QVariantMap& args)
     ActionReply reply;
 
     if (!m_isSupported || m_dirname.isEmpty()) {
-        reply = ActionReply::HelperErrorReply;
+        reply = ActionReply::HelperErrorReply();
         return reply;
     }
 
