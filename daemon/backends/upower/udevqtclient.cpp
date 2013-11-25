@@ -18,11 +18,11 @@
     License along with this library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "udevqt.h"
+#include "udevqtclient.h"
 #include "udevqt_p.h"
 
-#include <sys/stat.h>
 #include <QtCore/QSocketNotifier>
+#include <qplatformdefs.h>
 
 namespace UdevQt {
 
@@ -60,7 +60,7 @@ void ClientPrivate::setWatchedSubsystems(const QStringList &subsystemList)
     }
 
     // apply our filters; an empty list means listen to everything
-    foreach (const QString& subsysDevtype, subsystemList) {
+    Q_FOREACH (const QString& subsysDevtype, subsystemList) {
         int ix = subsysDevtype.indexOf("/");
 
         if (ix > 0) {
@@ -211,9 +211,9 @@ DeviceList Client::devicesBySubsystem(const QString &subsystem)
 
 Device Client::deviceByDeviceFile(const QString &deviceFile)
 {
-    struct stat sb;
+    QT_STATBUF sb;
 
-    if (stat(deviceFile.toLatin1().constData(), &sb) != 0)
+    if (QT_STAT(deviceFile.toLatin1().constData(), &sb) != 0)
         return Device();
 
     struct udev_device *ud = 0;
@@ -253,4 +253,4 @@ Device Client::deviceBySubsystemAndName(const QString &subsystem, const QString 
 
 }
 
-#include "udevqt.moc"
+#include "moc_udevqtclient.cpp"

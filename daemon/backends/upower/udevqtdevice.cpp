@@ -18,7 +18,7 @@
     License along with this library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "udevqt.h"
+#include "udevqtdevice.h"
 #include "udevqt_p.h"
 
 #include <QtCore/QByteArray>
@@ -197,13 +197,15 @@ QStringList Device::deviceProperties() const
     return listFromListEntry(udev_device_get_properties_list_entry(d->udev));
 }
 
+#ifdef UDEV_HAVE_GET_SYSATTR_LIST_ENTRY
 QStringList Device::sysfsProperties() const
 {
     if (!d)
         return QStringList();
 
-    return listFromListEntry(udev_device_get_properties_list_entry(d->udev));
+    return listFromListEntry(udev_device_get_sysattr_list_entry(d->udev));
 }
+#endif
 
 Device Device::parent() const
 {

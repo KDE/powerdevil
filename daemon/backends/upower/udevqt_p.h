@@ -45,7 +45,7 @@ class DevicePrivate
         struct udev_device *udev;
 };
 
-
+class Client;
 class ClientPrivate
 {
     public:
