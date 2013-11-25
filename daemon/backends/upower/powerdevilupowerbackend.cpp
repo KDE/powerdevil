@@ -26,6 +26,7 @@
 #include <QtDBus>
 
 #include <KDebug>
+#include <kauthexecutejob.h>
 #include <KPluginFactory>
 #include <KAuth/Action>
 
@@ -144,10 +145,11 @@ void PowerDevilUPowerBackend::init()
     if (!m_brightnessControl->isSupported()) {
         kDebug() << "Using helper";
         KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
-        action.setHelperID(HELPER_ID);
-        KAuth::ActionReply reply = action.execute();
-        if (reply.succeeded()) {
-            m_syspath = reply.data()["syspath"].toString();
+        action.setHelperId(HELPER_ID);
+        KAuth::ExecuteJob* job = action.execute();
+        job->exec();
+        if (!job->error()) {
+            m_syspath = job->data()["syspath"].toString();
             m_syspath = QFileInfo(m_syspath).readLink();
 
             UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
@@ -336,10 +338,10 @@ float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightne
         } else {
             //kDebug() << "Falling back to helper to get brightness";
             KAuth::Action action("org.kde.powerdevil.backlighthelper.brightness");
-            action.setHelperID(HELPER_ID);
-            KAuth::ActionReply reply = action.execute();
-            if (reply.succeeded()) {
-                result = reply.data()["brightness"].toFloat();
+            action.setHelperId(HELPER_ID);
+            KAuth::ExecuteJob *job = action.execute();
+            if (!job->error()) {
+                result = job->data()["brightness"].toFloat();
                 //kDebug() << "org.kde.powerdevil.backlighthelper.brightness succeeded: " << reply.data()["brightness"];
             }
             else
@@ -365,10 +367,10 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
         } else {
             //kDebug() << "Falling back to helper to set brightness";
             KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
-            action.setHelperID(HELPER_ID);
+            action.setHelperId(HELPER_ID);
             action.addArgument("brightness", brightnessValue);
-            KAuth::ActionReply reply = action.execute();
-            if (reply.failed()) {
+            KAuth::ExecuteJob *job = action.execute();
+            if (job->error()) {
                 kWarning() << "org.kde.powerdevil.backlighthelper.setbrightness failed";
                 return false;
             }
