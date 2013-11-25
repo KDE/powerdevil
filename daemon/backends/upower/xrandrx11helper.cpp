@@ -21,7 +21,7 @@
 
 #include <QX11Info>
 
-#include <KSystemEventFilter>
+// #include <KSystemEventFilter>
 #include <kdebug.h>
 
 XRandRX11Helper::XRandRX11Helper():
@@ -37,12 +37,13 @@ XRandRX11Helper::XRandRX11Helper():
 
     XRRSelectInput(QX11Info::display(), m_window, RROutputPropertyNotifyMask);
 
-    KSystemEventFilter::installEventFilter(this);
+#warning port to QAbstractNativeEventFilter
+//     KSystemEventFilter::installEventFilter(this);
 }
 
 XRandRX11Helper::~XRandRX11Helper()
 {
-    KSystemEventFilter::removeEventFilter(this);
+//     KSystemEventFilter::removeEventFilter(this);
     XDestroyWindow(QX11Info::display(), m_window);
 }
 
