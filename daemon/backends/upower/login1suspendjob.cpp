@@ -26,6 +26,7 @@
 #include <QTimer>
 #include <KDebug>
 #include <KLocale>
+#include <KLocalizedString>
 
 Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
                                    PowerDevil::BackendInterface::SuspendMethod method,

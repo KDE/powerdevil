@@ -21,6 +21,7 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
+#include <KLocalizedString>
 
 #include <sys/utsname.h>
 

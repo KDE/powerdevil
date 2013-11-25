@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <KDebug>
 #include <KLocale>
+#include <KLocalizedString>
 
 UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
                                    PowerDevil::BackendInterface::SuspendMethod method,
