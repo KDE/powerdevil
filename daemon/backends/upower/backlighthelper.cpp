@@ -249,7 +249,7 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
 #ifdef USE_SYSCTL
     size_t len = sizeof(int);
     if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, NULL, 0) != 0) {
-        reply = ActionReply::HelperErrorReply;
+        reply = ActionReply::HelperErrorReply();
         return reply;
     }
 #else
@@ -313,7 +313,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
     QFile file(m_dirname + "/brightness");
     if (!file.open(QIODevice::WriteOnly)) {
         reply = ActionReply::HelperErrorReply();
-//         reply.setErrorCode(file.error());
+//         reply.setErrorCode(ActionReply::ActionReply::UserCancelledError);
         qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
         return reply;
     }
