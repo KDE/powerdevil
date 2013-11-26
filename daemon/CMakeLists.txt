@@ -30,7 +30,7 @@ set(powerdevilcore_SRCS
 #     brightnessosdwidget.cpp
 )
 
-kde4_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
+kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
 set(screensaver_xml "${KDEBASE_WORKSPACE_SOURCE_DIR}/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
 qt5_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
