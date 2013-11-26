@@ -159,7 +159,7 @@ void PowerDevilUPowerBackend::init()
     } else {
         kDebug() << "Using XRandR";
         m_randrHelper = XRandRXCBHelper::self();
-        Q_ASSERT(m_randrHelper && m_randrHelper->isValid());
+        Q_ASSERT(m_randrHelper);
         connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
         screenBrightnessAvailable = true;
     }
