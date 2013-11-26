@@ -1,6 +1,5 @@
 /*************************************************************************************
- *  Copyright (C) 2013 by Dan Vrátil <dvratil@redhat.com>                            *
- *  Copyright (C) 2013 by Dario Freddi <drf@kde.org>                                 *
+ *  Copyright (C) 2013 by Alejandro Fiestas Olivares <afiestas@kde.org>              *
  *                                                                                   *
  *  This program is free software; you can redistribute it and/or                    *
  *  modify it under the terms of the GNU General Public License                      *
@@ -17,33 +16,69 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA   *
  *************************************************************************************/
 
-#ifndef XRANDRX11HELPER_H
-#define XRANDRX11HELPER_H
+#ifndef XRANDR_XCB_HELPER_H
+#define XRANDR_XCB_HELPER_H
 
-#include <QWidget>
-#include "xlibandxrandr.h"
+#include <xcb/xcb.h>
+#include <xcb/xproto.h>
+#include <QX11Info>
+#include <QObject>
+#include <QAbstractNativeEventFilter>
 
-class XRandRX11Helper : public QWidget
+class XRandRInfo
 {
-    Q_OBJECT
-
-    public:
-        XRandRX11Helper();
-        virtual ~XRandRX11Helper();
-
-    Q_SIGNALS:
-        void brightnessChanged();
-
-    protected:
-        virtual bool x11Event(XEvent *);
-
-        int m_randrBase;
-        int m_randrError;
-        int m_versionMajor;
-        int m_versionMinor;
-
-        bool m_debugMode;
-        Window m_window;
+public:
+    int version;
+    int eventBase;
+    int errorBase;
+    int majorOpcode;
+    int eventType;
+    xcb_atom_t backlightAtom;
+    bool isPresent;
 };
 
-#endif // XRANDRX11HELPER_H
+class XRandRXCBHelper : public QObject, public QAbstractNativeEventFilter
+{
+    Q_OBJECT
+public:
+    static inline XRandRXCBHelper* self()
+    {
+        static XRandRXCBHelper* s_instance = 0;
+        if (!s_instance) {
+            s_instance = new XRandRXCBHelper();
+            if (!s_instance->isValid()) {
+                s_instance = 0;
+            }
+        }
+
+        return s_instance;
+    }
+
+    virtual bool nativeEventFilter(const QByteArray& eventType, void* message, long int* result) Q_DECL_OVERRIDE;
+
+Q_SIGNALS:
+        void brightnessChanged();
+
+private:
+    XRandRXCBHelper();
+    void init();
+
+    inline bool isValid()
+    {
+        return s_xrandrInfo.isPresent;
+    }
+
+    inline xcb_connection_t *conn()
+    {
+        static xcb_connection_t *s_con = NULL;
+        if (!s_con) {
+            s_con = QX11Info::connection();
+        }
+        return s_con;
+    }
+
+    static bool s_init;
+    static XRandRInfo s_xrandrInfo;
+};
+
+#endif //XRANDR_XCB_HELPER_H

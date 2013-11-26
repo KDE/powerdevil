@@ -42,7 +42,7 @@
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 
 class UdevHelper;
-class XRandRX11Helper;
+class XRandRXCBHelper;
 class XRandrBrightness;
 
 class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
@@ -88,7 +88,7 @@ private:
     // brightness
     QMap<BrightnessControlType, float> m_cachedBrightnessMap;
     XRandrBrightness         *m_brightnessControl;
-    XRandRX11Helper *m_randrHelper;
+    XRandRXCBHelper *m_randrHelper;
 
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;

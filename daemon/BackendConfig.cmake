@@ -13,7 +13,7 @@ if (UDEV_FOUND)
         backends/upower/login1suspendjob.cpp
         backends/upower/powerdevilupowerbackend.cpp
         backends/upower/xrandrbrightness.cpp
-        backends/upower/xrandrx11helper.cpp
+        backends/upower/xrandrxcbhelper.cpp
         backends/upower/udevqtclient.cpp
         backends/upower/udevqtdevice.cpp
     )
@@ -35,7 +35,8 @@ if (UDEV_FOUND)
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
     upower_kbdbacklight_interface)
 
-    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets ${X11_Xrandr_LIB} ${UDEV_LIBS})
+    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets ${X11_Xrandr_LIB} ${UDEV_LIBS} ${XCB_XCB_LIBRARY}
+    ${XCB_RANDR_LIBRARY})
 
     ## backlight helper executable
     add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})

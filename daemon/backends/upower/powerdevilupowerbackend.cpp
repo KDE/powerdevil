@@ -30,7 +30,7 @@
 #include <KPluginFactory>
 #include <KAuth/Action>
 
-#include "xrandrx11helper.h"
+#include "xrandrxcbhelper.h"
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
@@ -158,7 +158,8 @@ void PowerDevilUPowerBackend::init()
         }
     } else {
         kDebug() << "Using XRandR";
-        m_randrHelper = new XRandRX11Helper();
+        m_randrHelper = XRandRXCBHelper::self();
+        Q_ASSERT(m_randrHelper && m_randrHelper->isValid());
         connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
         screenBrightnessAvailable = true;
     }
