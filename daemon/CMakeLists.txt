@@ -51,7 +51,7 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSIO
 target_link_libraries(powerdevilcore
     KF5::KDE4Support
     KF5::Solid
-    ${KDE4_KIDLETIME_LIBS}
+    KF5::KIdleTime
     KF5::Plasma
 #     ${KACTIVITIES_LIBRARY}
     kworkspace
