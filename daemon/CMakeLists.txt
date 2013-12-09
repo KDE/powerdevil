@@ -53,6 +53,7 @@ target_link_libraries(powerdevilcore
     KF5::Solid
     KF5::KIdleTime
     KF5::Plasma
+    KF5::GlobalAccel
 #     ${KACTIVITIES_LIBRARY}
     kworkspace
 )

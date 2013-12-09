@@ -11,7 +11,7 @@ function(add_powerdevil_bundled_action _name)
     install(FILES powerdevil${_name}action.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 endfunction(add_powerdevil_bundled_action _name)
 
-add_powerdevil_bundled_action(brightnesscontrol)
+add_powerdevil_bundled_action(brightnesscontrol KF5::GlobalAccel)
 add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
