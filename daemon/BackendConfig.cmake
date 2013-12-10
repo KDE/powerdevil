@@ -35,6 +35,10 @@ if (UDEV_FOUND)
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
     upower_kbdbacklight_interface)
 
+    qt4_add_dbus_interface(powerdevilupowerbackend_SRCS
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/com.ubuntu.Upstart.xml
+    upstart_interface)
+
     set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} ${QT_QTGUI_LIBRARY} ${X11_Xrandr_LIB} ${KDE4_KDEUI_LIBRARY} ${UDEV_LIBS})
 
     ## backlight helper executable
