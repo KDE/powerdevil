@@ -51,7 +51,7 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSIO
 target_link_libraries(powerdevilcore
     KF5::KDE4Support
     KF5::Solid
-    KF5::KIdleTime
+    KF5::IdleTime
     KF5::Plasma
     KF5::GlobalAccel
 #     ${KACTIVITIES_LIBRARY}
@@ -83,7 +83,7 @@ add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_
 target_link_libraries(kded_powerdevil
     ${POWERDEVIL_BACKEND_LIBS}
     KF5::KDE4Support
-    KF5::KDBusAddons
+    KF5::DBusAddons
     powerdevilcore
 )
 
@@ -104,7 +104,7 @@ set_target_properties(powerdevilui PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOV
 
 target_link_libraries(powerdevilui
     Qt5::Gui
-    KF5::KConfigCore
+    KF5::ConfigCore
 )
 
 set(HAVE_UDEV ${UDEV_FOUND})
