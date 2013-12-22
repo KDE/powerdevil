@@ -107,6 +107,7 @@ float XRandrBrightness::brightness() const
                 {
                     double min = info->values[0];
                     double max = info->values[1];
+                    XFree(info);
 
                     // FIXME for now just return the first output's value
                     result = (cur - min) * 100 / (max - min);
