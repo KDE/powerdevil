@@ -52,6 +52,7 @@ private:
 
     int m_dimOnIdleTime;
     float m_oldBrightness;
+    bool m_dimmed;
 };
 
 }

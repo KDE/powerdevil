@@ -29,7 +29,7 @@ namespace PowerDevil {
 namespace BundledActions {
 
 DimDisplay::DimDisplay(QObject* parent)
-    : Action(parent)
+    : Action(parent), m_dimmed(false)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
@@ -45,11 +45,23 @@ void DimDisplay::onProfileUnload()
 
 void DimDisplay::onWakeupFromIdle()
 {
+    if (!m_dimmed) {
+        return;
+    }
     setBrightnessHelper(m_oldBrightness);
+    m_dimmed = false;
 }
 
 void DimDisplay::onIdleTimeout(int msec)
 {
+    if (qFuzzyIsNull(backend()->brightness())) {
+        //Some drivers report brightness == 0 when display is off because of DPMS
+        //(especially Intel driver). Don't change brightness in this case, or
+        //backlight won't switch on later.
+        //Furthermore, we can't dim if brightness is 0 already.
+        return;
+    }
+
     if (msec == m_dimOnIdleTime) {
         setBrightnessHelper(0);
     } else if (msec == (m_dimOnIdleTime * 3 / 4)) {
@@ -60,6 +72,8 @@ void DimDisplay::onIdleTimeout(int msec)
         float newBrightness = backend()->brightness() / 2;
         setBrightnessHelper(newBrightness);
     }
+
+    m_dimmed = true;
 }
 
 void DimDisplay::onProfileLoad()
