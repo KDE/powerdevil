@@ -34,6 +34,7 @@
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
+#include "upstart_interface.h"
 #include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
@@ -47,10 +48,24 @@ bool checkSystemdVersion(uint requiredVersion)
     const uint version = systemdIface.property("Version").toString().section(' ', 1).toUInt(&ok);
     if (ok) {
        return (version >= requiredVersion);
-    } else {
-       kDebug() << "Unknown version string from Systemd";
-       return false;
     }
+
+    // Since version 1.11 Upstart user sessions implement the exact same API as logind
+    // and are going to the maintain the API in future releases.
+    // Hence, powerdevil can support this init system as well
+    // This has no effect on systemd integration since the check is done after systemd
+    ComUbuntuUpstart0_6Interface upstartInterface(QLatin1String("com.ubuntu.Upstart"),
+                                                  QLatin1String("/com/ubuntu/Upstart"),
+                                                  QDBusConnection::sessionBus());
+
+    QRegExp exp("init \\(upstart ([0-9.]+)\\)");
+    if(exp.exactMatch(upstartInterface.version())) {
+        const float upstartVersion = exp.cap(1).toFloat();
+        return upstartVersion >= 1.1;
+    }
+
+    kDebug() << "No appropriate systemd version or upstart version found";
+    return false;
 }
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)

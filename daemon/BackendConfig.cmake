@@ -35,9 +35,12 @@ if (UDEV_FOUND)
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml
     upower_kbdbacklight_interface)
 
+    qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
+    ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/com.ubuntu.Upstart.xml
+    upstart_interface)
+
     set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets ${X11_Xrandr_LIB} ${UDEV_LIBS} ${XCB_XCB_LIBRARY}
     ${XCB_RANDR_LIBRARY})
-
     ## backlight helper executable
     add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
     target_link_libraries(backlighthelper Qt5::Core KF5::Auth KF5::I18n)
