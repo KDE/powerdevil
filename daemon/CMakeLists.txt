@@ -71,8 +71,8 @@ qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${SOLID_DBUS_INTERFACES_DIR}/kf5_org.k
                                          powerdevilpolicyagent.h PowerDevil::PolicyAgent
                                          powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
 
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${SOLID_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${SOLID_DBUS_INTERFACES_DIR}/org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
+qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${SOLID_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${SOLID_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 
 # Backends
