@@ -15,7 +15,7 @@ add_library(kcm_powerdevilactivitiesconfig MODULE ${kcm_powerdevil_activities_SR
 target_link_libraries(kcm_powerdevilactivitiesconfig
      
      KF5::Solid
-     KF5::KActivities
+     KF5::Activities
      powerdevilconfigcommonprivate
 )
 
