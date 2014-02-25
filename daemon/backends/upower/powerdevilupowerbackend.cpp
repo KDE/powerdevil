@@ -41,13 +41,17 @@
 
 bool checkSystemdVersion(uint requiredVersion)
 {
-    bool ok;
 
     QDBusInterface systemdIface("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager",
                                 QDBusConnection::systemBus(), 0);
-    const uint version = systemdIface.property("Version").toString().section(' ', 1).toUInt(&ok);
-    if (ok) {
-       return (version >= requiredVersion);
+
+    const QString reply = systemdIface.property("Version").toString();
+
+    QRegExp expsd("(systemd )?([0-9]+)");
+
+    if (expsd.exactMatch(reply)) {
+        const uint version = expsd.cap(2).toUInt();
+        return (version >= requiredVersion);
     }
 
     // Since version 1.11 Upstart user sessions implement the exact same API as logind
