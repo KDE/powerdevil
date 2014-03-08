@@ -74,7 +74,7 @@ bool checkSystemdVersion(uint requiredVersion)
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
       m_brightnessControl(0),
-      m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
+      m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false), m_kbdMaxBrightness(0)
 {
 
 }
@@ -213,7 +213,11 @@ void PowerDevilUPowerBackend::init()
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
     if (m_kbdBacklight->isValid()) {
         // Cache max value
-        m_kbdMaxBrightness = m_kbdBacklight->GetMaxBrightness();
+        QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
+        rep.waitForFinished();
+        if (rep.isValid()) {
+            m_kbdMaxBrightness = rep.value();
+        }
         // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
         if (m_kbdMaxBrightness) {
             controls.insert(QLatin1String("KBD"), Keyboard);
