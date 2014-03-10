@@ -53,7 +53,7 @@ target_link_libraries(powerdevilcore
     KF5::Solid
     KF5::IdleTime
     KF5::GlobalAccel
-    kworkspace
+    PW::KWorkspace
 )
 
 # target no.2 - powerdevil kded module

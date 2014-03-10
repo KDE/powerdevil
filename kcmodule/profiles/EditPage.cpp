@@ -48,6 +48,7 @@
 #include <KPluginFactory>
 #include <KServiceTypeTrader>
 #include <KStandardDirs>
+#include <KLocalizedString>
 #include <KRun>
 
 #include <Solid/Battery>
