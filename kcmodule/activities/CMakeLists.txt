@@ -5,7 +5,7 @@ set( kcm_powerdevil_activities_SRCS
      ../common/ErrorOverlay.cpp
 )
 
-kde4_add_ui_files(kcm_powerdevil_activities_SRCS
+qt5_wrap_ui(kcm_powerdevil_activities_SRCS
     activityWidget.ui)
 
 kconfig_add_kcfg_files(kcm_powerdevil_activities_SRCS ../../PowerDevilSettings.kcfgc)

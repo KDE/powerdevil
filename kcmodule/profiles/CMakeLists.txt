@@ -4,7 +4,7 @@ set( kcm_powerdevil_profiles_SRCS
      ../../daemon/powerdevilprofilegenerator.cpp
 )
 
-kde4_add_ui_files(kcm_powerdevil_profiles_SRCS
+qt5_wrap_ui(kcm_powerdevil_profiles_SRCS
     profileEditPage.ui)
 
 kconfig_add_kcfg_files(kcm_powerdevil_profiles_SRCS ../../PowerDevilSettings.kcfgc)
