@@ -25,8 +25,6 @@
 #include <daemon/powerdevilactionconfig.h>
 #include <daemon/powerdevilprofilegenerator.h>
 
-#include <config-workspace.h>
-
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>

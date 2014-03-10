@@ -25,8 +25,6 @@
 
 #include <KConfigGroup>
 
-#include <kdemacros.h>
-
 namespace PowerDevil {
 
 /**

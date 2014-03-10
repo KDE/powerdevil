@@ -52,9 +52,7 @@ target_link_libraries(powerdevilcore
     KF5::KDE4Support
     KF5::Solid
     KF5::IdleTime
-    KF5::Plasma
     KF5::GlobalAccel
-#     KF5::Activities
     kworkspace
 )
 
@@ -103,7 +101,7 @@ add_library(powerdevilui ${powerdevilui_SRCS})
 set_target_properties(powerdevilui PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
 target_link_libraries(powerdevilui
-    Qt5::Gui
+    Qt5::Widgets
     KF5::ConfigCore
 )
 

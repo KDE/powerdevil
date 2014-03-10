@@ -19,8 +19,6 @@
 
 #include "xrandrbrightness.h"
 
-#include <config-X11.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 
