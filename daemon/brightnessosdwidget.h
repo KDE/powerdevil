@@ -26,40 +26,21 @@
 
 #include "powerdevilbackendinterface.h"
 
-#include <QPixmap>
+#include <QDBusInterface>
 
-#include <Plasma/Dialog>
-
-class QTimer;
-
-namespace Plasma
-{
-class Label;
-class Meter;
-}
-
-class BrightnessOSDWidget : public Plasma::Dialog
+class BrightnessOSDWidget : public QObject
 {
 Q_OBJECT
 public:
-    BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QWidget * parent = 0);
+    BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QObject* parent = 0);
+    virtual ~BrightnessOSDWidget();
 
     void setCurrentBrightness(int brightnessLevel);
-    void activateOSD();
-
-protected slots:
-    void themeUpdated();
 
 private:
+    void initDBus();
+    int m_brightness;
     PowerDevil::BackendInterface::BrightnessControlType m_type;
-    QGraphicsScene *m_scene;
-    QGraphicsWidget *m_container;
-    Plasma::Label *m_iconLabel;
-    Plasma::Label *m_volumeLabel;
-    Plasma::Meter *m_meter;
-    QTimer *m_hideTimer;
-
-    QPixmap m_brightnessPixmap;
 };
 
 #endif

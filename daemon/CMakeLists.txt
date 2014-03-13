@@ -26,8 +26,7 @@ set(powerdevilcore_SRCS
     powerdevilcore.cpp
     powerdevilpolicyagent.cpp
     powerdevilprofilegenerator.cpp
-
-#     brightnessosdwidget.cpp
+    brightnessosdwidget.cpp
 )
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)

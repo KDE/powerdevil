@@ -24,7 +24,7 @@
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
-// class BrightnessOSDWidget;
+class BrightnessOSDWidget;
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -67,7 +67,7 @@ Q_SIGNALS:
 
 private:
     int m_defaultValue;
-//     QWeakPointer< BrightnessOSDWidget > m_brightnessOSD;
+    BrightnessOSDWidget *m_brightnessOSD;
     QString m_lastProfile;
     QString m_currentProfile;
 };

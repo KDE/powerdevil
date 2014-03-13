@@ -19,7 +19,7 @@
 
 #include "brightnesscontrol.h"
 
-// #include "brightnessosdwidget.h"
+#include "brightnessosdwidget.h"
 
 #include "brightnesscontroladaptor.h"
 
@@ -40,6 +40,7 @@ namespace BundledActions {
 
 BrightnessControl::BrightnessControl(QObject* parent)
     : Action(parent)
+    , m_brightnessOSD(0)
 {
     // DBus
     new BrightnessControlAdaptor(this);
@@ -65,9 +66,6 @@ BrightnessControl::BrightnessControl(QObject* parent)
 
 BrightnessControl::~BrightnessControl()
 {
-//     if (!m_brightnessOSD.isNull()) {
-//         m_brightnessOSD.data()->deleteLater();
-//     }
 }
 
 void BrightnessControl::onProfileUnload()
@@ -139,29 +137,18 @@ bool BrightnessControl::loadAction(const KConfigGroup& config)
 
 void BrightnessControl::showBrightnessOSD(int brightness)
 {
-    // code adapted from KMix
-//     if (m_brightnessOSD.isNull()) {
-//         m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Screen);
-//     }
-//
-//     m_brightnessOSD.data()->setCurrentBrightness(brightness);
-//     m_brightnessOSD.data()->show();
-//     m_brightnessOSD.data()->activateOSD(); //Enable the hide timer
+    if (!m_brightnessOSD) {
+        m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Screen, this);
+    }
 
-    //Center the OSD
-//     QDesktopWidget * desktop = qApp->desktop();
-//     QRect rect = desktop->screenGeometry(desktop->primaryScreen());
-//     QSize size = m_brightnessOSD.data()->sizeHint();
-//     int posX = rect.x() + (rect.width() - size.width()) / 2;
-//     int posY = rect.y() + 4 * rect.height() / 5;
-//     m_brightnessOSD.data()->setGeometry(posX, posY, size.width(), size.height());
+    m_brightnessOSD->setCurrentBrightness(brightness);
 }
 
 void BrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Screen) {
         showBrightnessOSD(brightness);
-//         Q_EMIT brightnessChanged(brightness);
+        Q_EMIT brightnessChanged(brightness);
     }
 }
 

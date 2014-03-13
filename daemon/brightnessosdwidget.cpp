@@ -24,112 +24,35 @@
 #include "brightnessosdwidget.h"
 
 // Qt
-#include <QGraphicsLinearLayout>
-#include <QPainter>
-#include <QTimer>
-#include <QLabel>
+#include <QObject>
+#include <QtDBus/QDBusInterface>
+#include <QtDBus/QDBusPendingCall>
 
-// KDE
-#include <KIcon>
-#include <KDialog>
-#include <KWindowSystem>
-#include <Plasma/Label>
-#include <Plasma/Meter>
-#include <Plasma/Theme>
-
-BrightnessOSDWidget::BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QWidget * parent)
-    : Plasma::Dialog(parent, Qt::ToolTip),
-      m_type(type),
-      m_scene(new QGraphicsScene(this)),
-      m_container(new QGraphicsWidget),
-      m_iconLabel(new Plasma::Label),
-      m_volumeLabel(new Plasma::Label),
-      m_meter(new Plasma::Meter),
-      m_hideTimer(new QTimer(this))
+BrightnessOSDWidget::BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QObject *parent)
+    : QObject(parent)
+    , m_type(type)
 {
-    KWindowSystem::setState(winId(), NET::KeepAbove);
-    KWindowSystem::setType(winId(), NET::Tooltip);
-    setAttribute(Qt::WA_X11NetWmWindowTypeToolTip, true);
-    m_meter->setMeterType(Plasma::Meter::BarMeterHorizontal);
-    m_meter->setMaximum(100);
 
-    m_volumeLabel->setAlignment(Qt::AlignCenter);
-
-    //Setup the auto-hide timer
-    m_hideTimer->setInterval(2000);
-    m_hideTimer->setSingleShot(true);
-    connect(m_hideTimer, SIGNAL(timeout()), this, SLOT(hide()));
-
-    //Setup the OSD layout
-    QGraphicsLinearLayout *layout = new QGraphicsLinearLayout(m_container);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->addItem(m_iconLabel);
-    layout->addItem(m_meter);
-    layout->addItem(m_volumeLabel);
-
-    m_scene->addItem(m_container);
-    setGraphicsWidget(m_container);
-
-    themeUpdated();
-    connect(Plasma::Theme::defaultTheme(), SIGNAL(themeChanged()), this, SLOT(themeUpdated())); // e.g. for updating font
 }
 
-void BrightnessOSDWidget::activateOSD()
+BrightnessOSDWidget::~BrightnessOSDWidget()
 {
-    m_hideTimer->start();
 }
 
+#include <QDebug>
 void BrightnessOSDWidget::setCurrentBrightness(int brightnessLevel)
 {
-    m_meter->setValue(brightnessLevel);
-    m_volumeLabel->setText(QString::number(brightnessLevel) + " %");
+    brightnessLevel = 30;
+    qDebug() << "BRIGHTNESSSSSSSS" << brightnessLevel;
+    QDBusMessage msg = QDBusMessage::createMethodCall(
+        QLatin1Literal("org.kde.plasma_shell"),
+        QLatin1Literal("/org/kde/osdService"),
+        QLatin1Literal("org.kde.osdService"),
+        QLatin1Literal("brightnessChanged")
+    );
+
+    msg.setArguments(QList<QVariant>() << brightnessLevel);
+
+    QDBusConnection::sessionBus().asyncCall(msg);
 }
-
-void BrightnessOSDWidget::themeUpdated()
-{
-    //Set a font which makes the text appear as big (height-wise) as the meter.
-    //QFont font = QFont(m_volumeLabel->nativeWidget()->font());
-    Plasma::Theme* theme = Plasma::Theme::defaultTheme();
-
-
-    QPalette palette = m_volumeLabel->palette();
-    palette.setColor(QPalette::WindowText, theme->color(Plasma::Theme::TextColor));
-    m_volumeLabel->setPalette(palette);
-
-    QFont font = theme->font(Plasma::Theme::DefaultFont);
-    font.setPointSize(15);
-    m_volumeLabel->setFont(font);
-    QFontMetrics qfm(font);
-    QRect textSize = qfm.boundingRect("100 %  ");
-
-    int widthHint = textSize.width();
-    int heightHint = textSize.height();
-    //setCurrentVolume(100,false);
-    m_volumeLabel->setMaximumHeight(heightHint);
-    m_volumeLabel->setMinimumWidth(widthHint);
-    m_volumeLabel->nativeWidget()->setFixedWidth(widthHint);
-
-    //Cache the icon pixmaps
-    QFontMetrics fm(m_volumeLabel->font());
-    QSize iconSize = QSize(fm.height(), fm.height());
-
-    if (m_type == PowerDevil::BackendInterface::Screen) {
-        m_brightnessPixmap = KIcon("video-display").pixmap(iconSize);
-    } else {
-        m_brightnessPixmap = KIcon("input-keyboard").pixmap(iconSize);
-    }
-
-    m_iconLabel->nativeWidget()->setPixmap(m_brightnessPixmap);
-    m_iconLabel->nativeWidget()->setFixedSize(iconSize);
-    m_iconLabel->setMinimumSize(iconSize);
-    m_iconLabel->setMaximumSize(iconSize);
-
-    m_meter->setMaximumHeight(iconSize.height());
-    m_container->setMinimumSize(iconSize.width() * 13 + m_volumeLabel->nativeWidget()->width(), iconSize.height());
-    m_container->setMaximumSize(iconSize.width() * 13 + m_volumeLabel->nativeWidget()->width(), iconSize.height());
-
-    syncToGraphicsWidget();
-}
-
-
 #include "brightnessosdwidget.moc"
