@@ -39,11 +39,8 @@ BrightnessOSDWidget::~BrightnessOSDWidget()
 {
 }
 
-#include <QDebug>
 void BrightnessOSDWidget::setCurrentBrightness(int brightnessLevel)
 {
-    brightnessLevel = 30;
-    qDebug() << "BRIGHTNESSSSSSSS" << brightnessLevel;
     QDBusMessage msg = QDBusMessage::createMethodCall(
         QLatin1Literal("org.kde.plasma_shell"),
         QLatin1Literal("/org/kde/osdService"),
