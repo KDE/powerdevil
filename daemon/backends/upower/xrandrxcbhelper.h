@@ -61,6 +61,7 @@ Q_SIGNALS:
 
 private:
     XRandRXCBHelper();
+    virtual ~XRandRXCBHelper();
     void init();
 
     inline bool isValid()
@@ -77,6 +78,20 @@ private:
         return s_con;
     }
 
+    inline xcb_window_t rootWindow(xcb_connection_t *c, int screen)
+    {
+        xcb_screen_iterator_t iter = xcb_setup_roots_iterator(xcb_get_setup(c));
+        for (xcb_screen_iterator_t it = xcb_setup_roots_iterator(xcb_get_setup(c));
+                it.rem;
+                --screen, xcb_screen_next(&it)) {
+            if (screen == 0) {
+                return iter.data->root;
+            }
+        }
+        return XCB_WINDOW_NONE;
+    }
+
+    uint32_t m_window;
     static bool s_init;
     static XRandRInfo s_xrandrInfo;
 };

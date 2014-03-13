@@ -19,6 +19,7 @@
 #include "xrandrxcbhelper.h"
 
 #include <xcb/randr.h>
+#include <QCoreApplication>
 #include <QLatin1String>
 
 bool XRandRXCBHelper::s_init = false;
@@ -29,6 +30,11 @@ XRandRXCBHelper::XRandRXCBHelper() : QObject()
     if (!s_init) {
         init();
     }
+}
+
+XRandRXCBHelper::~XRandRXCBHelper()
+{
+    xcb_destroy_window(conn(), m_window);
 }
 
 bool XRandRXCBHelper::nativeEventFilter(const QByteArray& eventType, void* message, long int* result)
@@ -101,7 +107,15 @@ void XRandRXCBHelper::init()
         return;
     }
 
-    s_xrandrInfo.backlightAtom = atomReply->atom;
+    uint32_t rWindow = rootWindow(c, 0);
+    m_window = xcb_generate_id(c);
+    xcb_create_window(c, XCB_COPY_FROM_PARENT, m_window,
+                      rWindow,
+                      0, 0, 1, 1, 0, XCB_COPY_FROM_PARENT,
+                      XCB_COPY_FROM_PARENT, 0, NULL);
+
+    xcb_randr_select_input(c, m_window, XCB_RANDR_NOTIFY_MASK_OUTPUT_PROPERTY);
+    qApp->installNativeEventFilter(this);
 
     s_init = true;
 }
