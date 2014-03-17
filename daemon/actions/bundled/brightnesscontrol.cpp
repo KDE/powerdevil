@@ -159,7 +159,6 @@ void BrightnessControl::showBrightnessOSD(int brightness)
 void BrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Screen) {
-        showBrightnessOSD(brightness);
         Q_EMIT brightnessChanged(brightness);
     }
 }
