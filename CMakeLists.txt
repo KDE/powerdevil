@@ -6,6 +6,8 @@ include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon
 )
 
+configure_file(config-workspace.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-workspace.h)
+
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 
