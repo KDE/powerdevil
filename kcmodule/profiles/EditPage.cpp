@@ -22,8 +22,8 @@
 #include "actioneditwidget.h"
 #include "ErrorOverlay.h"
 
-#include <daemon/powerdevilactionconfig.h>
-#include <daemon/powerdevilprofilegenerator.h>
+#include <powerdevilactionconfig.h>
+#include <powerdevilprofilegenerator.h>
 
 #include <QCheckBox>
 #include <QFormLayout>

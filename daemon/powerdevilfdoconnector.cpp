@@ -27,7 +27,7 @@
 #include "powermanagementfdoadaptor.h"
 #include "powermanagementinhibitadaptor.h"
 
-#include "daemon/actions/bundled/suspendsession.h"
+#include "actions/bundled/suspendsession.h"
 
 #include <KConfigGroup>
 

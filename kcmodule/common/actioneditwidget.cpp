@@ -22,8 +22,8 @@
 
 #include "actionconfigwidget.h"
 
-#include <daemon/powerdevilaction.h>
-#include <daemon/powerdevilactionconfig.h>
+#include <powerdevilaction.h>
+#include <powerdevilactionconfig.h>
 
 #include <QCheckBox>
 #include <QVBoxLayout>

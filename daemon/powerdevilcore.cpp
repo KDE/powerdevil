@@ -28,7 +28,7 @@
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
 
-#include "daemon/actions/bundled/suspendsession.h"
+#include "actions/bundled/suspendsession.h"
 
 #include <Solid/Battery>
 #include <Solid/Device>

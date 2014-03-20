@@ -22,7 +22,7 @@
 #include "ErrorOverlay.h"
 #include "PowerDevilSettings.h"
 
-#include "daemon/actions/bundled/suspendsession.h"
+#include "actions/bundled/suspendsession.h"
 
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
