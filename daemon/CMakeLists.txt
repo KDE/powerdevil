@@ -31,8 +31,7 @@ set(powerdevilcore_SRCS
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
-set(screensaver_xml "${CMAKE_SOURCE_DIR}/plasma-workspace/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
-qt5_add_dbus_interface(powerdevilcore_SRCS ${screensaver_xml} screensaver_interface )
+qt5_add_dbus_interface(powerdevilcore_SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface )
 
 # Action DBus Adaptors
 qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml

@@ -1,3 +1,26 @@
+project(PowerDevil)
+
+cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
+set(QT_MIN_VERSION "5.2.0")
+
+find_package(ECM 0.0.8 REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+include(FeatureSummary)
+include(WriteBasicConfigVersionFile)
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
+
+find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
+find_package(KF5 CONFIG REQUIRED Auth IdleTime Config Solid I18n GlobalAccel KIO WindowSystem Plasma NotifyConfig KDE4Support)
+if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+    find_package(LibKWorkspace CONFIG)
+    find_package(ScreenSaverDBusInterface CONFIG)
+else()
+    set(SCREENSAVER_DBUS_INTERFACE "${CMAKE_SOURCE_DIR}/plasma-workspace/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
+endif()
+
 find_package(UDev) #upower/udev backend
 
 find_package(X11)
@@ -32,3 +55,7 @@ add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 
 install( FILES powerdevil.notifyrc DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
+
+if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+    feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+endif()
