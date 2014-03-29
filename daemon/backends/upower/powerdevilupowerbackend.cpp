@@ -28,6 +28,7 @@
 #include <KDebug>
 #include <kauthexecutejob.h>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KAuth/Action>
 
 #include "xrandrxcbhelper.h"

@@ -28,6 +28,7 @@
 #include <KIntSpinBox>
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KIcon>
 #include "suspendsession.h"
 

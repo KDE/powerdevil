@@ -46,6 +46,7 @@
 #include <KToolBar>
 #include <KAboutData>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KServiceTypeTrader>
 #include <KStandardDirs>
 #include <KLocalizedString>

@@ -24,6 +24,7 @@
 
 #include <KIntSpinBox>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilDimDisplayConfigFactory, registerPlugin<PowerDevil::BundledActions::DimDisplayConfig>(); )

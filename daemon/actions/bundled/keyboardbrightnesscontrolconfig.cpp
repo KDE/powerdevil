@@ -24,6 +24,7 @@
 #include <QSlider>
 
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilKeyboardBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::KeyboardBrightnessControlConfig>(); )

@@ -22,6 +22,7 @@
 #include <KIntSpinBox>
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <KSharedConfig>
 
 K_PLUGIN_FACTORY(PowerDevilDPMSConfigFactory, registerPlugin<PowerDevilDPMSActionConfig>();)
 

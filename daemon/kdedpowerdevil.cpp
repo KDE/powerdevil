@@ -34,6 +34,7 @@
 #include <KAboutData>
 #include <KDebug>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY( PowerDevilFactory,

@@ -38,6 +38,7 @@
 #include <KIcon>
 #include <KMessageWidget>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KTabWidget>
 #include <KLocalizedString>
 

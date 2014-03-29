@@ -27,6 +27,7 @@
 
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KComboBox>
 #include <KIcon>
 

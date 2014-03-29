@@ -27,6 +27,8 @@
 #include <KComboBox>
 #include <KIntSpinBox>
 #include <KPluginFactory>
+#include <KSharedConfig>
+#include <KConfig>
 
 K_PLUGIN_FACTORY(PowerDevilRunScriptConfigFactory, registerPlugin<PowerDevil::BundledActions::RunScriptConfig>(); )
 

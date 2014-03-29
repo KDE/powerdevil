@@ -24,6 +24,8 @@
 #include <QSlider>
 
 #include <KPluginFactory>
+#include <KSharedConfig>
+#include <KConfig>
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilBrightnessControlConfigFactory, registerPlugin<PowerDevil::BundledActions::BrightnessControlConfig>(); )

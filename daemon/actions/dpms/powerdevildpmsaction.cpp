@@ -29,6 +29,7 @@
 #include <KConfigGroup>
 #include <KDebug>
 #include <KPluginFactory>
+#include <KSharedConfig>
 
 #include <X11/Xmd.h>
 #include <X11/X.h>

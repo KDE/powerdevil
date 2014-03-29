@@ -31,6 +31,7 @@
 #include <Solid/GenericInterface>
 #include <Solid/AcAdapter>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <QtCore/QTimer>
 
 PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent)

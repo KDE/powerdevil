@@ -38,6 +38,7 @@
 
 #include <KNotifyConfigWidget>
 #include <KPluginFactory>
+#include <KSharedConfig>
 #include <KAboutData>
 #include <KLocalizedString>
 
