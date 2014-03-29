@@ -26,8 +26,6 @@
 #include <QtCore/QObject>
 #include <QtCore/QVariantMap>
 
-#include <kdemacros.h>
-
 class KConfigGroup;
 
 namespace PowerDevil

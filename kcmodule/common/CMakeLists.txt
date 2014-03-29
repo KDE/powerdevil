@@ -7,10 +7,11 @@ set( powerdevil_config_common_private_SRCS
 
 add_library(powerdevilconfigcommonprivate SHARED ${powerdevil_config_common_private_SRCS})
 
+# not exported, so just make the links public
 target_link_libraries(powerdevilconfigcommonprivate
-     
-     powerdevilcore
-     powerdevilui
+    PUBLIC
+        powerdevilcore
+        powerdevilui
 )
 
 set_target_properties(powerdevilconfigcommonprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})

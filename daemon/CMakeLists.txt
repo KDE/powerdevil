@@ -46,12 +46,14 @@ qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerMana
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
 
+# not exported, so just make the deps public
 target_link_libraries(powerdevilcore
-    KF5::KDE4Support
-    KF5::Solid
-    KF5::IdleTime
-    KF5::GlobalAccel
-    PW::KWorkspace
+    PUBLIC
+        KF5::KDE4Support
+        KF5::Solid
+        KF5::IdleTime
+        KF5::GlobalAccel
+        PW::KWorkspace
 )
 
 # target no.2 - powerdevil kded module
@@ -82,6 +84,9 @@ target_link_libraries(kded_powerdevil
     KF5::DBusAddons
     powerdevilcore
 )
+if (X11_FOUND)
+    target_link_libraries(kded_powerdevil Qt5::X11Extras)
+endif ()
 
 if (UDEV_FOUND)
     target_link_libraries(kded_powerdevil ${UDEV_LIBS})
@@ -98,9 +103,11 @@ set(powerdevilui_SRCS
 add_library(powerdevilui ${powerdevilui_SRCS})
 set_target_properties(powerdevilui PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
 
+# not exported, so just make the deps public
 target_link_libraries(powerdevilui
-    Qt5::Widgets
-    KF5::ConfigCore
+    PUBLIC
+        Qt5::Widgets
+        KF5::ConfigCore
 )
 
 set(HAVE_UDEV ${UDEV_FOUND})
