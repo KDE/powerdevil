@@ -12,7 +12,24 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=99
 
 Name=Advanced Settings
+Name[cs]=Pokročilá nastavení
+Name[de]=Erweiterte Einstellungen
+Name[pl]=Ustawienia zaawansowane
+Name[pt_BR]=Configurações avançadas
+Name[uk]=Додаткові параметри
+Name[x-test]=xxAdvanced Settingsxx
 
 Comment=Configure Advanced Power Management Settings
+Comment[cs]=Nastavení pokročilého nastavení správy napájení
+Comment[de]=Erweiterte Energieprofile einrichten
+Comment[pl]=Konfiguracja zaawansowanych ustawienia zarządzania energią
+Comment[pt_BR]=Configura as opções avançadas de gerenciamento de energia
+Comment[uk]=Налаштування додаткових параметрів керування живленням
+Comment[x-test]=xxConfigure Advanced Power Management Settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
+X-KDE-Keywords[de]=system,energie,energieverwaltung,laptop,notebook,akku,batterie,ruhezustand,tiefschlaf,helligkeit,leistung,deckel
+X-KDE-Keywords[pl]=system,moc,zarządzanie energią,energia,laptop,bateria,wstrzymanie,AC,wstrzymaj,hibernuj,jasność,wydajność,pokrywka
+X-KDE-Keywords[pt_BR]=sistema,energia,gerenciamento de energia,energia,notebook,laptop,portátil,bateria,suspensão,AC,suspender,hibernar,brilho,desempenho,tampa
+X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки
+X-KDE-Keywords[x-test]=xxsystem,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lidxx

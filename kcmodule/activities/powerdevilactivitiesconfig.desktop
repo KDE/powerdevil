@@ -12,7 +12,24 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity Settings
+Name[cs]=Nastavení aktivit
+Name[de]=Aktivitäten-Einstellungen
+Name[pl]=Ustawienia działań
+Name[pt_BR]=Configurações da atividade
+Name[uk]=Параметри простору дій
+Name[x-test]=xxActivity Settingsxx
 
 Comment=Configure per-activity Power Management
+Comment[cs]=Konfigurace správy napájení na činnost
+Comment[de]=Energieprofile pro Aktivität einzeln einrichten
+Comment[pl]=Ustaw wyjątkowe dla działania zarządzanie energią
+Comment[pt_BR]=Configura o gerenciamento de energia por atividade
+Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
+Comment[x-test]=xxConfigure per-activity Power Managementxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
+X-KDE-Keywords[de]=system,energie,energieverwaltung,laptop,notebook,akku,batterie,ruhezustand,tiefschlaf,helligkeit,leistung,deckel,aktivität
+X-KDE-Keywords[pl]=system,moc,zarządzanie energią,energia,laptop,bateria,wstrzymanie,AC,wstrzymaj,hibernuj,jasność,wydajność,pokrywka,działanie,działania
+X-KDE-Keywords[pt_BR]=sistema,energia,gerenciamento de energia,energia,portátil,laptop,notebook,bateria,suspensão,AC,suspender,hibernar,brilho,desempenho,tampa,atividade,atividades
+X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність
+X-KDE-Keywords[x-test]=xxsystem,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activitiesxx

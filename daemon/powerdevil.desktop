@@ -9,5 +9,17 @@ X-KDE-Kded-load-on-demand=false
 X-KDE-Kded-phase=1
 
 Name=Power Management
+Name[cs]=Správa napájení
+Name[de]=Energieverwaltung
+Name[pl]=Zarządzanie energią
+Name[pt_BR]=Gerenciamento de energia
+Name[uk]=Керування живленням
+Name[x-test]=xxPower Managementxx
 
 Comment=Battery, Display and CPU power management and notification
+Comment[cs]=Správa a oznamování baterie, zobrazení a výkonu CPU
+Comment[de]=Akku-, Anzeige- und Prozessorleistungsverwaltung und -benachrichtigung
+Comment[pl]=Zarządzanie i powiadomienia o stanie baterii, wyświetlacza i zasilania procesora
+Comment[pt_BR]=Gerenciamento e notificação de energia, da tela e do CPU
+Comment[uk]=Керування та сповіщення про стан акумуляторів та живлення дисплея і процесора
+Comment[x-test]=xxBattery, Display and CPU power management and notificationxx

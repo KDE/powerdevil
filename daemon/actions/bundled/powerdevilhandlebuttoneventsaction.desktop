@@ -5,8 +5,20 @@ X-KDE-ServiceTypes=PowerDevil/Action
 Icon=system-suspend
 
 Name=Button events handling
+Name[cs]=Řízení událostí tlačítek
+Name[de]=Knopf-Ereignisbehandlung
+Name[pl]=Reaguj w przypadku naciskania przycisków
+Name[pt_BR]=Tratamento de eventos dos botões
+Name[uk]=Обробка натискань кнопок
+Name[x-test]=xxButton events handlingxx
 
 Comment=Performs an action whenever a button is pressed
+Comment[cs]=Vykoná akci kdykoli je tlačítko stisknuto
+Comment[de]=Führt eine Aktion aus, sobald ein Knopf gedrückt wird
+Comment[pl]=Wykonuje działanie przy każdorazowym naciśnięciu przycisku
+Comment[pt_BR]=Executa uma ação sempre que um botão é pressionado
+Comment[uk]=Виконання дій у відповідь на натискання кнопки
+Comment[x-test]=xxPerforms an action whenever a button is pressedxx
 
 X-KDE-PowerDevil-Action-ID=HandleButtonEvents
 X-KDE-PowerDevil-Action-IsBundled=true

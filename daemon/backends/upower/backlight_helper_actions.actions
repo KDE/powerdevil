@@ -1,20 +1,62 @@
 [Domain]
 Name=KDE
+Name[cs]=KDE
+Name[de]=KDE
+Name[pl]=KDE
+Name[pt_BR]=KDE
+Name[uk]=KDE
+Name[x-test]=xxKDExx
 Icon=kde
 
 [org.kde.powerdevil.backlighthelper.brightness]
 Name=Get brightness
+Name[cs]=Získat jas
+Name[de]=Bildschirmhelligkeit abrufen
+Name[pl]=Pobierz jasność
+Name[pt_BR]=Obter brilho
+Name[uk]=Отримання рівня яскравості
+Name[x-test]=xxGet brightnessxx
 Description=System policies prevent you from getting the brightness level.
+Description[cs]=Nastavení systému vám znemožňuje získat úroveň podsvícení.
+Description[de]=Die Stufe der Bildschirmhelligkeit kann aufgrund einer Systemrichtlinie nicht abgerufen werden.
+Description[pl]=Polityka systemu nie pozwala Ci na pobranie poziomu jasności.
+Description[pt_BR]=As políticas do sistema não permitem a modificação do nível de brilho.
+Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо рівня яскравості.
+Description[x-test]=xxSystem policies prevent you from getting the brightness level.xx
 Policy=yes
 PolicyInactive=yes
 
 [org.kde.powerdevil.backlighthelper.setbrightness]
 Name=Set brightness
+Name[cs]=Nastavit jas
+Name[de]=Bildschirmhelligkeit einstellen
+Name[pl]=Ustaw jasność
+Name[pt_BR]=Definir o brilho
+Name[uk]=Встановлення рівня яскравості
+Name[x-test]=xxSet brightnessxx
 Description=System policies prevent you from setting the brightness level.
+Description[cs]=Systémové omezení vám neumožňuje nastavit úroveň podsvícení.
+Description[de]=Die Bildschirmhelligkeit kann aufgrund einer Systemrichtlinie nicht geändert werden.
+Description[pl]=Polityka systemu nie pozwala Ci na ustawienie jasności.
+Description[pt_BR]=As políticas do sistema não permitem a modificação das configurações do nível de brilho.
+Description[uk]=Відповідно до загальносистемних правил, ви не можете встановлювати рівень яскравості.
+Description[x-test]=xxSystem policies prevent you from setting the brightness level.xx
 Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
 Name=Get syspath
+Name[cs]=Získat syspath
+Name[de]=„syspath“ holen
+Name[pl]=Pobierz ścieżkę systemową
+Name[pt_BR]=Obter o syspath
+Name[uk]=Отримання шляху у системі
+Name[x-test]=xxGet syspathxx
 Description=System policies prevent you from getting the syspath
+Description[cs]=Nastavení systému vám znemožňuje získat syspath
+Description[de]=Systemrichtlinien verhindern das Holen von „syspath“
+Description[pl]=Polityka systemu nie pozwala Ci na pobranie ścieżki systemowej
+Description[pt_BR]=As políticas do sistema não permitem a modificação do syspath
+Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо шляхів у системі
+Description[x-test]=xxSystem policies prevent you from getting the syspathxx
 Policy=yes
 PolicyInactive=yes
