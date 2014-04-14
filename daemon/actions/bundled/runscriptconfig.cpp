@@ -22,6 +22,7 @@
 
 #include <QHBoxLayout>
 
+#include <KConfig>
 #include <KLocalizedString>
 #include <KUrlRequester>
 #include <KComboBox>

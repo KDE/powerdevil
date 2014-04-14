@@ -26,10 +26,8 @@
 #include <KDebug>
 #include "halsuspendjob.h"
 #include <Solid/Device>
-#include <Solid/Button>
 #include <Solid/Battery>
 #include <Solid/GenericInterface>
-#include <Solid/AcAdapter>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <QtCore/QTimer>
@@ -328,7 +326,7 @@ KJob* PowerDevilHALBackend::suspend(PowerDevil::BackendInterface::SuspendMethod 
 
 void PowerDevilHALBackend::computeAcAdapters()
 {
-    QList<Solid::Device> adapters
+/*    QList<Solid::Device> adapters
         = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
 
     foreach (const Solid::Device &adapter, adapters) {
@@ -346,7 +344,7 @@ void PowerDevilHALBackend::computeAcAdapters()
         setAcAdapterState(Plugged);
     } else {
         setAcAdapterState(Unplugged);
-    }
+    }*/
 }
 
 void PowerDevilHALBackend::computeBatteries()
@@ -367,14 +365,14 @@ void PowerDevilHALBackend::computeBatteries()
 
 void PowerDevilHALBackend::computeButtons()
 {
-    QList<Solid::Device> buttons
+/*    QList<Solid::Device> buttons
         = Solid::Device::listFromType(Solid::DeviceInterface::Button);
 
     foreach (const Solid::Device &button, buttons) {
         m_buttons[button.udi()] = new Solid::Device(button);
         connect(m_buttons[button.udi()]->as<Solid::Button>(), SIGNAL(pressed(Solid::Button::ButtonType,QString)),
                  this, SLOT(slotButtonPressed(Solid::Button::ButtonType)));
-    }
+    }*/
 }
 
 void PowerDevilHALBackend::slotPlugStateChanged(bool newState)
@@ -392,7 +390,7 @@ void PowerDevilHALBackend::slotPlugStateChanged(bool newState)
     }
 }
 
-void PowerDevilHALBackend::slotButtonPressed(Solid::Button::ButtonType type)
+/*void PowerDevilHALBackend::slotButtonPressed(Solid::Button::ButtonType type)
 {
     Solid::Button *button = qobject_cast<Solid::Button *>(sender());
 
@@ -416,12 +414,12 @@ void PowerDevilHALBackend::slotButtonPressed(Solid::Button::ButtonType type)
         //kWarning() << "Unknown button type";
         break;
     }
-}
+}*/
 
 void PowerDevilHALBackend::slotDeviceAdded(const QString &udi)
 {
     Solid::Device *device = new Solid::Device(udi);
-    if (device->is<Solid::AcAdapter>()) {
+/*    if (device->is<Solid::AcAdapter>()) {
         m_acAdapters[udi] = device;
         connect(m_acAdapters[udi]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool,QString)),
                  this, SLOT(slotPlugStateChanged(bool)));
@@ -430,17 +428,17 @@ void PowerDevilHALBackend::slotDeviceAdded(const QString &udi)
           && m_acAdapters[udi]->as<Solid::AcAdapter>()->isPlugged()) {
             m_pluggedAdapterCount++;
         }
-    } else if (device->is<Solid::Battery>()) {
+    } else*/ if (device->is<Solid::Battery>()) {
         m_batteries[udi] = device;
         connect(m_batteries[udi]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int,QString)),
                  this, SLOT(updateBatteryStats()));
         connect(m_batteries[udi]->as<Solid::GenericInterface>(), SIGNAL(propertyChanged(QMap<QString,int>)),
                  this, SLOT(slotBatteryPropertyChanged(QMap<QString,int>)));
-    } else if (device->is<Solid::Button>()) {
+    } /*else if (device->is<Solid::Button>()) {
         m_buttons[udi] = device;
         connect(m_buttons[udi]->as<Solid::Button>(), SIGNAL(pressed(int,QString)),
                  this, SLOT(slotButtonPressed(int)));
-    } else {
+    } */else {
         delete device;
     }
 }
@@ -456,12 +454,12 @@ void PowerDevilHALBackend::slotDeviceRemoved(const QString &udi)
 
         m_pluggedAdapterCount = 0;
 
-        foreach (Solid::Device *d, m_acAdapters) {
+/*        foreach (Solid::Device *d, m_acAdapters) {
             if (d->as<Solid::AcAdapter>()!=0
               && d->as<Solid::AcAdapter>()->isPlugged()) {
                 m_pluggedAdapterCount++;
             }
-        }
+        }*/
 
         return;
     }

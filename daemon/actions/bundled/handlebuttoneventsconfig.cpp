@@ -21,7 +21,6 @@
 
 #include "suspendsession.h"
 
-#include <Solid/Button>
 #include <Solid/Device>
 #include <Solid/PowerManagement>
 
@@ -111,14 +110,14 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     bool lidFound = false;
     bool powerFound = false;
     // get a list of all devices that are Buttons
-    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
+/*    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
         Solid::Button *button = device.as<Solid::Button>();
         if (button->type() == Solid::Button::LidButton) {
             lidFound = true;
         } else if (button->type() == Solid::Button::PowerButton) {
             powerFound = true;
         }
-    }
+    }*/
 
     QList< QPair< QString, QWidget* > > retlist;
 

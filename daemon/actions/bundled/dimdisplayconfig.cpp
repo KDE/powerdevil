@@ -22,6 +22,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
+#include <KConfig>
 #include <KIntSpinBox>
 #include <KPluginFactory>
 #include <KSharedConfig>

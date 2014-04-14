@@ -23,6 +23,7 @@
 #include <QLabel>
 #include <QSlider>
 
+#include <KConfig>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KConfig>

@@ -30,7 +30,6 @@
 
 #include <solid/devicenotifier.h>
 #include <solid/device.h>
-#include <solid/button.h>
 
 namespace Solid {
 class Device;
@@ -62,7 +61,7 @@ private:
 private slots:
     void updateBatteryStats();
     void slotPlugStateChanged(bool newState);
-    void slotButtonPressed(Solid::Button::ButtonType type);
+//    void slotButtonPressed(Solid::Button::ButtonType type);
     void slotDeviceAdded(const QString &udi);
     void slotDeviceRemoved(const QString &udi);
     void slotBatteryPropertyChanged(const QMap<QString,int> &changes);

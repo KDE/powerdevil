@@ -30,6 +30,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KIcon>
+#include <KConfig>
 #include "suspendsession.h"
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::SuspendSessionConfig>(); )
