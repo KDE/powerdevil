@@ -21,6 +21,7 @@ Name[sv]=Dämpa skärmen
 Name[tr]=Ekranı kapat
 Name[uk]=Зменшення яскравості екрана
 Name[x-test]=xxDim Screenxx
+Name[zh_TW]=將螢幕變暗
 Comment=Dims gradually the display on a time basis
 Comment[ca]=Atenua gradualment la pantalla en funció del temps
 Comment[cs]=Postupné ztmavení obrazovky
@@ -39,6 +40,7 @@ Comment[sv]=Dämpa bildskärmen gradvis baserat på tid
 Comment[tr]=Zamana bağlı olarak ekranı karart
 Comment[uk]=Поступове зменшення яскравості дисплея з часом
 Comment[x-test]=xxDims gradually the display on a time basisxx
+Comment[zh_TW]=依時間逐漸讓顯示變暗
 
 X-KDE-PowerDevil-Action-ID=DimDisplay
 X-KDE-PowerDevil-Action-IsBundled=true

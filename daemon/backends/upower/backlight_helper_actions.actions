@@ -16,6 +16,7 @@ Name[sv]=KDE
 Name[tr]=KDE
 Name[uk]=KDE
 Name[x-test]=xxKDExx
+Name[zh_TW]=KDE
 Icon=kde
 
 [org.kde.powerdevil.backlighthelper.brightness]
@@ -36,6 +37,7 @@ Name[sv]=Hämta ljusstyrka
 Name[tr]=Parlaklık bilgisi al
 Name[uk]=Отримання рівня яскравості
 Name[x-test]=xxGet brightnessxx
+Name[zh_TW]=取得亮度
 Description=System policies prevent you from getting the brightness level.
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el nivell de brillantor de la pantalla.
 Description[cs]=Nastavení systému vám znemožňuje získat úroveň podsvícení.
@@ -53,6 +55,7 @@ Description[sv]=Systemets policy förhindrar att du hämtar ljusstyrkans nivå.
 Description[tr]=Sistem politikaları parlaklık seviye bilgisini almanızı engelliyor
 Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо рівня яскравості.
 Description[x-test]=xxSystem policies prevent you from getting the brightness level.xx
+Description[zh_TW]=系統政策不允許您取得亮度設定。
 Policy=yes
 PolicyInactive=yes
 
@@ -74,6 +77,7 @@ Name[sv]=Ställ in ljusstyrka
 Name[tr]=Parlaklığı ayarla
 Name[uk]=Встановлення рівня яскравості
 Name[x-test]=xxSet brightnessxx
+Name[zh_TW]=設定亮度
 Description=System policies prevent you from setting the brightness level.
 Description[ca]=Les polítiques del sistema impedeixen que ajusteu la lluminositat de la pantalla.
 Description[cs]=Systémové omezení vám neumožňuje nastavit úroveň podsvícení.
@@ -91,6 +95,7 @@ Description[sv]=Systemets policy förhindrar att du ställer in ljusstyrkans niv
 Description[tr]=Sistem politikaları parlaklık seviyesini ayarlamanızı engelliyor
 Description[uk]=Відповідно до загальносистемних правил, ви не можете встановлювати рівень яскравості.
 Description[x-test]=xxSystem policies prevent you from setting the brightness level.xx
+Description[zh_TW]=系統政策不允許您設定亮度。
 Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
@@ -111,6 +116,7 @@ Name[sv]=Hämta systemsökväg
 Name[tr]=Syspath'i al
 Name[uk]=Отримання шляху у системі
 Name[x-test]=xxGet syspathxx
+Name[zh_TW]=取得系統路徑
 Description=System policies prevent you from getting the syspath
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el camí del sistema «syspath»
 Description[cs]=Nastavení systému vám znemožňuje získat syspath
@@ -128,5 +134,6 @@ Description[sv]=Systemets policy förhindrar att du hämtar systemsökvägen.
 Description[tr]=Sistem politikaları syspath almanızı engelliyor
 Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо шляхів у системі
 Description[x-test]=xxSystem policies prevent you from getting the syspathxx
+Description[zh_TW]=系統政策不允許您取得系統路徑
 Policy=yes
 PolicyInactive=yes

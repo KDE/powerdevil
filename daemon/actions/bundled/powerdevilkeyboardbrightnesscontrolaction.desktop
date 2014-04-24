@@ -21,6 +21,7 @@ Name[sv]=Bakgrundsbelysning på tangentbord
 Name[tr]=Klavye Arkaışığı
 Name[uk]=Підсвічування клавіатури
 Name[x-test]=xxKeyboard Backlightxx
+Name[zh_TW]=鍵盤背光
 Comment=Basic Controls for the keyboard backlight brightness
 Comment[ca]=Controls bàsics per la brillantor de la retroil·luminació del teclat
 Comment[cs]=Základní ovládání jasu podsvícení klávesnice
@@ -39,6 +40,7 @@ Comment[sv]=Grundkontroller för ljusstyrka av tangentbordets bakgrundsbelysning
 Comment[tr]=Klavyenin arkaışık parlaklığı için Temel Kontroller
 Comment[uk]=Базове керування яскравістю підсвічування клавіатури
 Comment[x-test]=xxBasic Controls for the keyboard backlight brightnessxx
+Comment[zh_TW]=鍵盤背光亮度的基本控制
 
 X-KDE-PowerDevil-Action-ID=KeyboardBrightnessControl
 X-KDE-PowerDevil-Action-IsBundled=true

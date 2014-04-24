@@ -28,6 +28,7 @@ Name[sv]=Inställningar av aktiviteter
 Name[tr]=Etkinlik Ayarları
 Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity Settingsxx
+Name[zh_TW]=活動設定
 
 Comment=Configure per-activity Power Management
 Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
@@ -46,6 +47,7 @@ Comment[sv]=Anpassa inställningar av strömhantering per aktivitet
 Comment[tr]=Her Etkinlik için Genel Güç Yönetimi Ayarlarını Yapılandır
 Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
 Comment[x-test]=xxConfigure per-activity Power Managementxx
+Comment[zh_TW]=設定個別活動的電源管理
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
@@ -63,3 +65,4 @@ X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,vilo
 X-KDE-Keywords[tr]=sistem,güç,güç yönetimi,enerji,dizüstü,pil,askıya alma,Adaptör,uyku kipi,hazırda bekletme,parlaklık,performans,başarım,dizüstü kapağı,ekran parlaklığı,etkinlik,etkinlikler
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність
 X-KDE-Keywords[x-test]=xxsystem,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activitiesxx
+X-KDE-Keywords[zh_TW]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
