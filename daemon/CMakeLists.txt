@@ -49,7 +49,7 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSIO
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
     PUBLIC
-        KF5::KDE4Support
+        KF5::KDELibs4Support
         KF5::Solid
         KF5::IdleTime
         KF5::GlobalAccel
@@ -80,7 +80,7 @@ add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_
 
 target_link_libraries(kded_powerdevil
     ${POWERDEVIL_BACKEND_LIBS}
-    KF5::KDE4Support
+    KF5::KDELibs4Support
     KF5::DBusAddons
     powerdevilcore
 )

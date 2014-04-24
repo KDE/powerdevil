@@ -5,7 +5,7 @@ function(add_powerdevil_bundled_action _name)
     target_link_libraries(powerdevil${_name}action_config
                         powerdevilui
                         Qt5::Widgets
-                        KF5::KDE4Support
+                        KF5::KDELibs4Support
                         ${ARGN})
     install(TARGETS powerdevil${_name}action_config DESTINATION ${PLUGIN_INSTALL_DIR})
     install(FILES powerdevil${_name}action.desktop DESTINATION ${SERVICES_INSTALL_DIR})
