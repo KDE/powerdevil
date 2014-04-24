@@ -14,12 +14,8 @@ include(KDECompilerSettings)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
 find_package(KF5 CONFIG REQUIRED Auth IdleTime Config Solid I18n GlobalAccel KIO WindowSystem Plasma NotifyConfig KDE4Support)
-if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
-    find_package(LibKWorkspace CONFIG)
-    find_package(ScreenSaverDBusInterface CONFIG)
-else()
-    set(SCREENSAVER_DBUS_INTERFACE "${CMAKE_SOURCE_DIR}/plasma-workspace/ksmserver/screenlocker/dbus/org.freedesktop.ScreenSaver.xml")
-endif()
+find_package(LibKWorkspace CONFIG)
+find_package(ScreenSaverDBusInterface CONFIG)
 
 find_package(UDev) #upower/udev backend
 
