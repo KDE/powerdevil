@@ -50,7 +50,7 @@ set(GENERIC_LIB_VERSION "${POWERDEVIL_VERSION_MAJOR}.${POWERDEVIL_VERSION_MINOR}
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 
-install( FILES powerdevil.notifyrc DESTINATION ${DATA_INSTALL_DIR}/powerdevil )
+install( FILES powerdevil.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR} )
 
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
     feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
