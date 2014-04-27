@@ -44,7 +44,7 @@ if (UDEV_FOUND)
     ## backlight helper executable
     add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
     target_link_libraries(backlighthelper Qt5::Core KF5::Auth KF5::I18n)
-    install(TARGETS backlighthelper DESTINATION ${KF5_LIBEXEC_INSTALL_DIR})
+    install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_ABSOLUTE_DIR})
     kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
     kauth_install_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
 endif ()
