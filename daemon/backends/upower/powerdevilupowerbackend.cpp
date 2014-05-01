@@ -469,7 +469,7 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
 
     // for UPower >= 0.99.0 which doesn't emit the DeviceChanged(QString) signal
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, device, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
-                                         SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
+                                         SLOT(onDevicePropertiesChanged(QString,QVariantMap,QStringList)));
 
     updateDeviceProps();
 }
