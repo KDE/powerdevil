@@ -3,27 +3,6 @@ Type=ServiceType
 X-KDE-ServiceType=PowerDevil/Action
 
 Comment=Power Management Action Extension
-Comment[ca]=Extensió d'accions de gestió d'energia
-Comment[cs]=Rozšiřující akce správy napájení
-Comment[da]=Udvidelse af strømstyringshandling
-Comment[de]=Erweiterung für Energieverwaltungs-Aktionen
-Comment[es]=Complemento de gestión de energía
-Comment[fi]=Virranhallinnan toimintolaajennus
-Comment[fr]=Extension des actions de gestion de l'énergie
-Comment[nb]=Handlingsutvidelse for strømstyring
-Comment[nds]=Verwiedern för Stroomkuntrullakschonen
-Comment[nl]=Uitbreiding voor energiebeheeractie
-Comment[pl]=Rozszerzenie do działań związanych z zarządzaniem energią
-Comment[pt]=Extensão da Acção de Gestão da Energia
-Comment[pt_BR]=Extensão da ação do gerenciamento de energia
-Comment[ro]=Extensie pentru acțiunea de gestiune a alimentării
-Comment[sk]=Rozširujúce akcie správy napájania
-Comment[sl]=Razširitev za dejanja za upravljanje z energijo
-Comment[sv]=Åtgärdsutökning för strömsparhantering
-Comment[tr]=Güç Yönetimi Eylem Eklentisi
-Comment[uk]=Розширення дій керування живленням
-Comment[x-test]=xxPower Management Action Extensionxx
-Comment[zh_TW]=電源管理動作延伸
 
 [PropertyDef::X-KDE-PowerDevil-Action-ID]
 Type=QString
