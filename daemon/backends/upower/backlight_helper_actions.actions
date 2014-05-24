@@ -1,20 +1,62 @@
 [Domain]
 Name=KDE
+Name[nl]=KDE
+Name[pl]=KDE
+Name[pt_BR]=KDE
+Name[sv]=KDE
+Name[uk]=KDE
+Name[x-test]=xxKDExx
 Icon=kde
 
 [org.kde.powerdevil.backlighthelper.brightness]
 Name=Get brightness
+Name[nl]=Helderheid verkrijgen
+Name[pl]=Pobierz jasność
+Name[pt_BR]=Obter brilho
+Name[sv]=Hämta ljusstyrka
+Name[uk]=Отримання рівня яскравості
+Name[x-test]=xxGet brightnessxx
 Description=System policies prevent you from getting the brightness level.
+Description[nl]=Systeembeleid voorkwam dat u het helderheidsniveau kon verkrijgen.
+Description[pl]=Zasady systemowe nie pozwalają ci na odczytanie poziomu jasności.
+Description[pt_BR]=As políticas do sistema não permitem a modificação do nível de brilho.
+Description[sv]=Systemets policy förhindrar att du hämtar ljusstyrkans nivå.
+Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо рівня яскравості.
+Description[x-test]=xxSystem policies prevent you from getting the brightness level.xx
 Policy=yes
 PolicyInactive=yes
 
 [org.kde.powerdevil.backlighthelper.setbrightness]
 Name=Set brightness
+Name[nl]=Helderheid instellen
+Name[pl]=Ustaw jasność
+Name[pt_BR]=Definir o brilho
+Name[sv]=Ställ in ljusstyrka
+Name[uk]=Встановлення рівня яскравості
+Name[x-test]=xxSet brightnessxx
 Description=System policies prevent you from setting the brightness level.
+Description[nl]=Systeembeleid voorkwam dat u het helderheidsniveau kon instellen.
+Description[pl]=Zasady systemowe nie pozwalają ci na ustawienie jasności.
+Description[pt_BR]=As políticas do sistema não permitem a modificação das configurações do nível de brilho.
+Description[sv]=Systemets policy förhindrar att du ställer in ljusstyrkans nivå.
+Description[uk]=Відповідно до загальносистемних правил, ви не можете встановлювати рівень яскравості.
+Description[x-test]=xxSystem policies prevent you from setting the brightness level.xx
 Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
 Name=Get syspath
+Name[nl]=Systeempad ophalen
+Name[pl]=Pobierz ścieżkę systemową
+Name[pt_BR]=Obter o syspath
+Name[sv]=Hämta systemsökväg
+Name[uk]=Отримання шляху у системі
+Name[x-test]=xxGet syspathxx
 Description=System policies prevent you from getting the syspath
+Description[nl]=Systeembeleid voorkwam dat u het systeempad kon ophalen
+Description[pl]=Zasady systemowe nie pozwalają ci na odczytanie ścieżki systemowej
+Description[pt_BR]=As políticas do sistema não permitem a modificação do syspath
+Description[sv]=Systemets policy förhindrar att du hämtar systemsökvägen.
+Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо шляхів у системі
+Description[x-test]=xxSystem policies prevent you from getting the syspathxx
 Policy=yes
 PolicyInactive=yes

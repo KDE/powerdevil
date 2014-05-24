@@ -1,24 +1,84 @@
 [Global]
 Name=KDE Power Management System
+Name[nl]=KDE energiebeheersysteem
+Name[pl]=System zarządzania energią w KDE
+Name[pt_BR]=Sistema de Gerenciamento de Energia do KDE
+Name[sv]=KDE:s strömsparhanteringssystem
+Name[uk]=Система керування живленням KDE
+Name[x-test]=xxKDE Power Management Systemxx
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[nl]=Energiebeheersysteem
+Comment[pl]=System zarządzania energią
+Comment[pt_BR]=Sistema de Gerenciamento de Energia
+Comment[sv]=Strömsparhanteringssystem
+Comment[uk]=Система керування живленням
+Comment[x-test]=xxPower Management Systemxx
 Version=2
 
 [Context/warningnot]
 Name=Warning
+Name[nl]=Waarschuwing
+Name[pl]=Ostrzeżenie
+Name[pt_BR]=Aviso
+Name[sv]=Varning
+Name[uk]=Попередження
+Name[x-test]=xxWarningxx
 Comment=Used for warning notifications
+Comment[nl]=Wordt gebruikt voor waarschuwingsmeldingen
+Comment[pl]=Używane do ostrzeżeń
+Comment[pt_BR]=Usado para as notificações de aviso
+Comment[sv]=Används för varningsmeddelanden
+Comment[uk]=Використовується для попереджень
+Comment[x-test]=xxUsed for warning notificationsxx
 
 [Context/stdnot]
 Name=Notification
+Name[nl]=Melding
+Name[pl]=Powiadomienie
+Name[pt_BR]=Notificação
+Name[sv]=Underrättelse
+Name[uk]=Сповіщення
+Name[x-test]=xxNotificationxx
 Comment=Used for standard notifications
+Comment[nl]=Wordt gebruikt voor standaardmeldingen
+Comment[pl]=Używane do zwykłych powiadomień
+Comment[pt_BR]=Usado para as notificações padrão
+Comment[sv]=Används för standardmeddelanden
+Comment[uk]=Використовується для звичайних сповіщень
+Comment[x-test]=xxUsed for standard notificationsxx
 
 [Context/criticalnot]
 Name=Critical notification
+Name[nl]=Kritieke melding
+Name[pl]=Powiadomienie krytyczne
+Name[pt_BR]=Notificação crítica
+Name[sv]=Kritisk underrättelse
+Name[uk]=Сповіщення про критичні події
+Name[x-test]=xxCritical notificationxx
 Comment=Notifies a critical event
+Comment[nl]=Meldt een kritieke gebeurtenis
+Comment[pl]=Powiadomienie o zdarzeniu krytycznym
+Comment[pt_BR]=Notifica um evento crítico
+Comment[sv]=Underrättar om en kritisk händelse
+Comment[uk]=Сповіщає про критичну подію
+Comment[x-test]=xxNotifies a critical eventxx
 
 [Event/lowbattery]
 Name=Battery Low
+Name[nl]=Accu op laag niveau
+Name[pl]=Bateria na niskim poziomie
+Name[pt_BR]=Bateria fraca
+Name[sv]=Dåligt batteri
+Name[uk]=Низький рівень заряду
+Name[x-test]=xxBattery Lowxx
 Comment=Your battery has reached low level
+Comment[nl]=Uw accu heeft het lage niveau bereikt
+Comment[pl]=Bateria osiągnęła niski poziom naładowania
+Comment[pt_BR]=Sua bateria atingiu um nível baixo
+Comment[sv]=Batteriet har nått en låg nivå
+Comment[uk]=У вашому акумуляторі закінчується заряд
+Comment[x-test]=xxYour battery has reached low levelxx
 Contexts=warningnot
 Sound=KDE-Sys-Warning.ogg
 Action=Sound|Popup
@@ -26,7 +86,19 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[nl]=Accu op kritiek niveau
+Name[pl]=Bateria na poziomie krytycznym
+Name[pt_BR]=Bateria em nível crítico
+Name[sv]=Kritiskt batteri
+Name[uk]=Заряд на критичному рівні
+Name[x-test]=xxBattery Criticalxx
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
+Comment[nl]=Uw accu heeft het kritieke niveau bereikt. Deze melding activeert een aftelling voordat de ingestelde actie zal worden uitgevoerd. Het wordt ten zeerste aanbevolen dit ingeschakeld te laten.
+Comment[pl]=Bateria osiągnęła krytyczny poziom. To powiadomienie rozpoczyna także odliczanie przed wykonaniem ustawionego działania, więc dobrze jest je zostawić.
+Comment[pt_BR]=Sua bateria atingiu um nível crítico. Esta notificação aciona uma contagem antes de realizar a ação configurada. Por isso, recomenda-se deixar a opção ativada.
+Comment[sv]=Batteriet har nått kritisk nivå. Den här underrättelsen utlöser en nerräkning innan den inställda åtgärden utförs, därmed råds du att lämna den på.
+Comment[uk]=Заряд акумулятора вашого комп’ютера досяг критичного рівня. За цим сповіщенням буде почато відлік часу до виконання відповідної налаштованої дії, отже, ми наполегливо рекомендуємо вам не вимикати цей пункт.
+Comment[x-test]=xxYour battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.xx
 Contexts=warningnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
@@ -34,7 +106,19 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[nl]=Laden voltooid
+Name[pl]=Ukończono ładowanie
+Name[pt_BR]=Carga completa
+Name[sv]=Laddning klar
+Name[uk]=Заряджання завершено
+Name[x-test]=xxCharge Completexx
 Comment=The battery is fully charged
+Comment[nl]=De accu is volledig geladen
+Comment[pl]=Bateria jest w pełni naładowana
+Comment[pt_BR]=A bateria está completamente carregada
+Comment[sv]=Batteriet är fulladdat
+Comment[uk]=Акумулятор повністю заряджено
+Comment[x-test]=xxThe battery is fully chargedxx
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
 Action=
@@ -42,7 +126,19 @@ IconName=battery-100
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[nl]=Netstroomadapter aangesloten
+Name[pl]=Podłączenie zasilania zewnętrznego
+Name[pt_BR]=Adaptador de energia conectado
+Name[sv]=Nätadapter inkopplad
+Name[uk]=Увімкнено живлення від мережі
+Name[x-test]=xxAC adaptor plugged inxx
 Comment=The power adaptor has been plugged in
+Comment[nl]=De netstroomadapter is aangesloten
+Comment[pl]=Podłączono zasilanie zewnętrzne
+Comment[pt_BR]=O adaptador de energia foi conectado
+Comment[sv]=Nätadaptern har kopplats in
+Comment[uk]=Було увімкнено живлення від мережі
+Comment[x-test]=xxThe power adaptor has been plugged inxx
 Contexts=stdnot
 Sound=KDE-Sys-App-Positive.ogg
 Action=None
@@ -50,7 +146,19 @@ IconName=battery-charging-low
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[nl]=Netstroomadapter niet aangesloten
+Name[pl]=Odłączenie zasilania zewnętrznego
+Name[pt_BR]=Adaptador de energia desconectado
+Name[sv]=Nätadapter frånkopplad
+Name[uk]=Вимкнено живлення від мережі
+Name[x-test]=xxAC adaptor unpluggedxx
 Comment=The power adaptor has been unplugged
+Comment[nl]=De netstroomadapter is losgekoppeld
+Comment[pl]=Odłączono zasilanie zewnętrzne
+Comment[pt_BR]=O adaptador de energia foi desconectado
+Comment[sv]=Nätadaptern har kopplats från
+Comment[uk]=Було вимкнено живлення від мережі
+Comment[x-test]=xxThe power adaptor has been unpluggedxx
 Contexts=stdnot
 Sound=KDE-Sys-App-Negative.ogg
 Action=Sound
@@ -58,7 +166,19 @@ IconName=battery-low
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[nl]=Interne fout
+Name[pl]=Błąd wewnętrzny
+Name[pt_BR]=Erro interno
+Name[sv]=Internt fel
+Name[uk]=Внутрішня помилка
+Name[x-test]=xxInternal Errorxx
 Comment=The KDE Power Management System has triggered an internal error
+Comment[nl]=Het KDE-energiebeheersysteem activeerde een interne fout
+Comment[pl]=Wystąpił wewnętrzny błąd systemu zarządzania energią KDE
+Comment[pt_BR]=Ocorreu um erro interno no Sistema de Gerenciamento de Energia do KDE
+Comment[sv]=KDE:s strömsparhanteringssystem har orsakat ett internt fel
+Comment[uk]=У системі керування живленням KDE сталася внутрішня помилка
+Comment[x-test]=xxThe KDE Power Management System has triggered an internal errorxx
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
@@ -66,7 +186,19 @@ IconName=dialog-error
 
 [Event/inhibition]
 Name=Suspension inhibited
+Name[nl]=Slaapstand verhinderd
+Name[pl]=Wstrzymanie usypiania
+Name[pt_BR]=Suspensão inibida
+Name[sv]=Viloläge förhindrat
+Name[uk]=Присипляння заблоковано
+Name[x-test]=xxSuspension inhibitedxx
 Comment=The suspension has been inhibited because an application requested it
+Comment[nl]=Het activeren van de slaapstand is verhinderd omdat een programma hierom verzocht
+Comment[pl]=Usypianie zostało wstrzymane na żądanie programu
+Comment[pt_BR]=A suspensão foi inibida por solicitação de um aplicativo
+Comment[sv]=Viloläget har förhindrats eftersom ett program begärde det
+Comment[uk]=Присипляння було заблоковано на вимогу програми
+Comment[x-test]=xxThe suspension has been inhibited because an application requested itxx
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
@@ -74,7 +206,19 @@ IconName=dialog-information
 
 [Event/brokenbattery]
 Name=Broken battery notification
+Name[nl]=Gebroken melding over accu
+Name[pl]=Powiadomienie o zepsutej baterii
+Name[pt_BR]=Notificação de bateria com problema
+Name[sv]=Underrättelse om felaktigt batteri
+Name[uk]=Сповіщення про пошкоджений акумулятор
+Name[x-test]=xxBroken battery notificationxx
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[nl]=Deze melding verschijnt als het KDE energiebeheersysteem een probleem detecteert met één van uw accu's
+Comment[pl]=System zarządzania energią w KDE wykrył jakieś problemy z jedną z twoich baterii
+Comment[pt_BR]=O Sistema de Gerenciamento de Energia do KDE detectou um problema com uma das suas baterias
+Comment[sv]=KDE:s strömsparhantering har detekterar vissa problem med något av batterierna
+Comment[uk]=Ситемою керування живленням KDE виявлено проблеми з одним з акумуляторів
+Comment[x-test]=xxKDE Power Management System has detected some troubles with one of your batteriesxx
 Contexts=criticalnot
 Sound=KDE-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
