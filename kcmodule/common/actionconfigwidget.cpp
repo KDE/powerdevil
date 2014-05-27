@@ -24,11 +24,19 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QAction>
+#include <QApplication>
 #include <QLayoutItem>
+
 
 ActionConfigWidget::ActionConfigWidget(QWidget* parent) : QWidget(parent)
 {
     m_gridLayout = new QGridLayout(this);
+    setLayout(m_gridLayout);
+
+    // FIXME: pixelSize() returns an useful -1 here, pointSize() doesn't
+    // that's correct though, since points != pixels, and the latter matter
+    m_gridLayout->setVerticalSpacing(QApplication::font().pointSize() / 2);
+
 }
 
 ActionConfigWidget::~ActionConfigWidget()
@@ -48,7 +56,6 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
             // A title checkbox
             currentSectionCheckbox = qobject_cast<QCheckBox*>(line.second);
             currentSectionCheckbox->setChecked(true);
-            currentSectionCheckbox->setStyleSheet("font-weight: bold;");
             m_gridLayout->addWidget(line.second, row, 0, 1, 3);
         } else {
             // connect enabled / disabled
@@ -58,6 +65,7 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
             m_gridLayout->addItem(new QSpacerItem(50 ,3), row, 0);
             m_gridLayout->addWidget(label, row, 1, Qt::AlignRight);
             m_gridLayout->addWidget(line.second, row, 2);
+            m_gridLayout->setColumnStretch(2, 99);
 
             connect(currentSectionCheckbox, SIGNAL(toggled(bool)),
                     label, SLOT(setEnabled(bool)));
