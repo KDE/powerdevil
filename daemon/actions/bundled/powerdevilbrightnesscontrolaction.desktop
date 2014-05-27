@@ -14,6 +14,7 @@ Name[sr@ijekavian]=Освјетљај екрана
 Name[sr@ijekavianlatin]=Osvjetljaj ekrana
 Name[sr@latin]=Osvetljaj ekrana
 Name[sv]=Skärmljusstyrka
+Name[tr]=Ekran Parlaklığı
 Name[uk]=Яскравість екрана
 Name[x-test]=xxScreen Brightnessxx
 Comment=Basic Controls for brightness
@@ -27,6 +28,7 @@ Comment[sr@ijekavian]=Основне контроле освјетљаја
 Comment[sr@ijekavianlatin]=Osnovne kontrole osvjetljaja
 Comment[sr@latin]=Osnovne kontrole osvetljaja
 Comment[sv]=Grundkontroller för ljusstyrka
+Comment[tr]=Parlaklık için temel kontroller
 Comment[uk]=Базове керування яскравістю
 Comment[x-test]=xxBasic Controls for brightnessxx
 

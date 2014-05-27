@@ -22,6 +22,7 @@ Name[sr@ijekavian]=Напредне поставке
 Name[sr@ijekavianlatin]=Napredne postavke
 Name[sr@latin]=Napredne postavke
 Name[sv]=Avancerade inställningar
+Name[tr]=Gelişmiş Ayarlar
 Name[uk]=Додаткові параметри
 Name[x-test]=xxAdvanced Settingsxx
 
@@ -36,6 +37,7 @@ Comment[sr@ijekavian]=Подешавање напредних поставки �
 Comment[sr@ijekavianlatin]=Podešavanje naprednih postavki za upravljanje napajanjem
 Comment[sr@latin]=Podešavanje naprednih postavki za upravljanje napajanjem
 Comment[sv]=Anpassa avancerade inställningar av strömhantering
+Comment[tr]=Gelişmiş Güç Yönetimi Ayarlarını Yönet
 Comment[uk]=Налаштування додаткових параметрів керування живленням
 Comment[x-test]=xxConfigure Advanced Power Management Settingsxx
 
@@ -50,5 +52,6 @@ X-KDE-Keywords[sr@ijekavian]=system,power,power management,energy,laptop,battery
 X-KDE-Keywords[sr@ijekavianlatin]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,sistem,napajanje,struja,upravljanje napajanjem,laptop,baterija,suspendovanje,AC,hibernacija,svetlina,osvetljaj,performanse,poklopac
 X-KDE-Keywords[sr@latin]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,sistem,napajanje,struja,upravljanje napajanjem,laptop,baterija,suspendovanje,AC,hibernacija,svetlina,osvetljaj,performanse,poklopac
 X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,viloläge,AC,gå till viloläge,dvala,ljusstyrka,prestanda,lock
+X-KDE-Keywords[tr]=sistem,güç,güç yönetimi,enerji,dizüstü,laptop,pil,askıya alma,uyutma,AC,fişte,parlaklık,performans,ışık
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки
 X-KDE-Keywords[x-test]=xxsystem,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lidxx

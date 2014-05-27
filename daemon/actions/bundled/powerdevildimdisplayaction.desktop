@@ -14,6 +14,7 @@ Name[sr@ijekavian]=Пригуши екран
 Name[sr@ijekavianlatin]=Priguši ekran
 Name[sr@latin]=Priguši ekran
 Name[sv]=Dämpa skärmen
+Name[tr]=Ekranı Karart
 Name[uk]=Зменшення яскравості екрана
 Name[x-test]=xxDim Screenxx
 Comment=Dims gradually the display on a time basis
@@ -27,6 +28,7 @@ Comment[sr@ijekavian]=Постепено пригушује екран на за
 Comment[sr@ijekavianlatin]=Postepeno prigušuje ekran na zadato vrijeme
 Comment[sr@latin]=Postepeno prigušuje ekran na zadato vreme
 Comment[sv]=Dämpa bildskärmen gradvis baserat på tid
+Comment[tr]=Zamana bağlı olarak ekranı yavaşça karartır
 Comment[uk]=Поступове зменшення яскравості дисплея з часом
 Comment[x-test]=xxDims gradually the display on a time basisxx
 

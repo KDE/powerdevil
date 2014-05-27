@@ -14,6 +14,7 @@ Name[sr@ijekavian]=Суспендуј сесију
 Name[sr@ijekavianlatin]=Suspenduj sesiju
 Name[sr@latin]=Suspenduj sesiju
 Name[sv]=Stoppa tillfälligt session
+Name[tr]=Oturumu Askıya Al
 Name[uk]=Призупинити сеанс
 Name[x-test]=xxSuspend Sessionxx
 Comment=Suspends the session
@@ -27,6 +28,7 @@ Comment[sr@ijekavian]=Суспендује сесију
 Comment[sr@ijekavianlatin]=Suspenduje sesiju
 Comment[sr@latin]=Suspenduje sesiju
 Comment[sv]=Stoppar sessionen tillfälligt
+Comment[tr]=Geçerli oturumu askıya alır
 Comment[uk]=Призупиняє сеанс
 Comment[x-test]=xxSuspends the sessionxx
 

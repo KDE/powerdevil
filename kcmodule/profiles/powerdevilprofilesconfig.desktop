@@ -22,6 +22,7 @@ Name[sr@ijekavian]=Штедња енергије
 Name[sr@ijekavianlatin]=Štednja energije
 Name[sr@latin]=Štednja energije
 Name[sv]=Strömsparhantering
+Name[tr]=Güç Tasarrufu
 Name[uk]=Заощадження енергії
 Name[x-test]=xxEnergy Savingxx
 
@@ -36,6 +37,7 @@ Comment[sr@ijekavian]=Подешавање штедње енергије
 Comment[sr@ijekavianlatin]=Podešavanje štednje energije
 Comment[sr@latin]=Podešavanje štednje energije
 Comment[sv]=Anpassa strömsparhantering
+Comment[tr]=Güç Tasarrufunu Yapılandır
 Comment[uk]=Налаштувати заощадження енергії
 Comment[x-test]=xxConfigure Energy Savingxx
 
@@ -50,5 +52,6 @@ X-KDE-Keywords[sr@ijekavian]=system,power,power management,energy,laptop,battery
 X-KDE-Keywords[sr@ijekavianlatin]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,sistem,napajanje,struja,upravljanje napajanjem,laptop,baterija,suspendovanje,AC,hibernacija,svetlina,osvetljaj,performanse,poklopac
 X-KDE-Keywords[sr@latin]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,sistem,napajanje,struja,upravljanje napajanjem,laptop,baterija,suspendovanje,AC,hibernacija,svetlina,osvetljaj,performanse,poklopac
 X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,viloläge,AC,gå till viloläge,dvala,ljusstyrka,prestanda,lock
+X-KDE-Keywords[tr]=sistem,güç,güç yönetimi,enerji,dizüstü,laptop,pil,askıya alma,uyutma,AC,fişte,parlaklık,performans,ışık
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки
 X-KDE-Keywords[x-test]=xxsystem,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lidxx

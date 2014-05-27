@@ -15,6 +15,7 @@ Name[pl]=Zarządzanie energią
 Name[pt]=Gestão de Energia
 Name[pt_BR]=Gerenciamento de energia
 Name[sv]=Strömhantering
+Name[tr]=Güç Yönetimi
 Name[uk]=Керування живленням
 Name[x-test]=xxPower Managementxx
 
@@ -29,5 +30,6 @@ Comment[sr@ijekavian]=Обавјештавање и управљање бате�
 Comment[sr@ijekavianlatin]=Obavještavanje i upravljanje baterijom i napajanjem ekrana i procesora
 Comment[sr@latin]=Obaveštavanje i upravljanje baterijom i napajanjem ekrana i procesora
 Comment[sv]=Hantering och underrättelser om batteri, skärm och processorkraft
+Comment[tr]=Pil, Görüntü ve İşlemci güç yönetimi ve bildirimleri
 Comment[uk]=Керування та сповіщення про стан акумуляторів та живлення дисплея і процесора
 Comment[x-test]=xxBattery, Display and CPU power management and notificationxx
