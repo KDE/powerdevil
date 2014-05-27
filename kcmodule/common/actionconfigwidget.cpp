@@ -29,17 +29,10 @@
 ActionConfigWidget::ActionConfigWidget(QWidget* parent) : QWidget(parent)
 {
     m_gridLayout = new QGridLayout(this);
-    /*
-    QLabel* l = new QLabel( this );
-    l->setText( "Hello World!" );
-
-    m_gridLayout->addWidget(l, 0, 0);
-    */
 }
 
 ActionConfigWidget::~ActionConfigWidget()
 {}
-
 
 void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
 {
@@ -47,19 +40,9 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
     row++;
 
     QCheckBox* currentSectionCheckbox = 0;
-    /*
-        //Clean the values
-        QList<QString>::const_iterator it;
-        for (it = list.constBegin(); it != list.constEnd(); ++it) {
-            QString tempString = *it;
-            tempString = tempString.trimmed();
-            tempString = tempString.mid(1, tempString.length()-2);
-            versionList.append(tempString);
-        }
-    */
+
     QList<QPair<QString, QWidget*> >::const_iterator it;
     for (it = configMap.constBegin(); it != configMap.constEnd(); ++it) {
-    //foreach (QPair<QString, QWidget*> line, configMap) {
         QPair<QString, QWidget*> line = *it;
         if (line.first.isEmpty()) {
             // A title checkbox
