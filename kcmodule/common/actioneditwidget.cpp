@@ -90,9 +90,6 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         connect(actionConfig, SIGNAL(changed()), this, SLOT(onChanged()));
 
         QCheckBox *checkbox = new QCheckBox(offer->name());
-        if (!offer->icon().isEmpty()) {
-            checkbox->setIcon(KIcon(offer->icon()));
-        }
         connect(checkbox, SIGNAL(stateChanged(int)), this, SLOT(onChanged()));
         m_actionsHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), checkbox);
         m_actionsConfigHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), actionConfig);
