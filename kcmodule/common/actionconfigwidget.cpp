@@ -67,10 +67,10 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
             m_gridLayout->addWidget(line.second, row, 2);
             m_gridLayout->setColumnStretch(2, 99);
 
-            connect(currentSectionCheckbox, SIGNAL(toggled(bool)),
-                    label, SLOT(setEnabled(bool)));
-            connect(currentSectionCheckbox, SIGNAL(toggled(bool)),
-                    line.second, SLOT(setEnabled(bool)));
+            connect(currentSectionCheckbox, &QAbstractButton::toggled,
+                    label, &QWidget::setEnabled);
+            connect(currentSectionCheckbox, &QAbstractButton::toggled,
+                    line.second, &QWidget::setEnabled);
         }
         row++;
     }
