@@ -104,7 +104,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         actionConfigWidget->addWidgets(i.value());
     }
 
-    QVBoxLayout *lay = new QVBoxLayout;
+    QVBoxLayout *lay = new QVBoxLayout(this);
     lay->addWidget(actionConfigWidget);
     lay->addStretch();
     setLayout(lay);
