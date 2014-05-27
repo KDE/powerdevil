@@ -31,7 +31,7 @@ Name[tr]=Etkinlik  Ayarları
 Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity Settingsxx
 
-Comment=Configure per-activity Power Management
+Comment=Per-Activity Power Management
 Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
 Comment[es]=Configurar de las preferencias de la gestión de energía por actividad
 Comment[fi]=Virranhallinnan aktiviteettikohtaiset asetukset
