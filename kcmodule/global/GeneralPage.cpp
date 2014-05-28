@@ -104,9 +104,6 @@ void GeneralPage::fillUi()
         }
     }
 
-    eventsIconLabel->setPixmap(QIcon::fromTheme("preferences-desktop-notification").pixmap(24));
-    batteryLevelsIconLabel->setPixmap(QIcon::fromTheme("battery").pixmap(24));
-
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
     BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
@@ -134,7 +131,6 @@ void GeneralPage::fillUi()
 
     // Disable stuff, eventually
     if (!hasBattery) {
-        batteryLevelsIconLabel->hide();
         batteryLevelsLabel->hide();
 
         BatteryCriticalLabel->hide();

@@ -6,60 +6,47 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>761</width>
-    <height>436</height>
+    <width>412</width>
+    <height>303</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="batteryLevelsIconLabel">
-       <property name="minimumSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="batteryLevelsLabel">
-       <property name="text">
-        <string>&lt;b&gt;Battery levels&lt;/b&gt;</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>8</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
-    <layout class="QFormLayout" name="formLayout_3">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::ExpandingFieldsGrow</enum>
-     </property>
-     <property name="verticalSpacing">
-      <number>0</number>
-     </property>
+    <layout class="QFormLayout" name="formLayout">
      <item row="0" column="0">
+      <widget class="QLabel" name="batteryLevelsLabel">
+       <property name="text">
+        <string>&lt;b&gt;Battery Levels                     &lt;/b&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
       <widget class="QLabel" name="lowLabel">
        <property name="text">
-        <string>Battery is at low level at</string>
+        <string>Low Level</string>
        </property>
        <property name="buddy">
         <cstring>lowSpin</cstring>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
+     <item row="1" column="1">
       <widget class="KIntSpinBox" name="lowSpin">
        <property name="maximumSize">
         <size>
@@ -81,17 +68,17 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="criticalLabel">
        <property name="text">
-        <string>Battery is at critical level at</string>
+        <string>Critical Level</string>
        </property>
        <property name="buddy">
         <cstring>criticalSpin</cstring>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
+     <item row="2" column="1">
       <widget class="KIntSpinBox" name="criticalSpin">
        <property name="maximumSize">
         <size>
@@ -113,10 +100,10 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
+     <item row="3" column="0">
       <widget class="QLabel" name="BatteryCriticalLabel">
        <property name="text">
-        <string>When battery is at critical level</string>
+        <string>At Critical Level</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -129,7 +116,7 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="3" column="1">
       <widget class="KComboBox" name="BatteryCriticalCombo">
        <property name="maximumSize">
         <size>
@@ -139,63 +126,14 @@
        </property>
       </widget>
      </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <property name="spacing">
-      <number>4</number>
-     </property>
-     <item>
-      <widget class="QLabel" name="eventsIconLabel">
-       <property name="minimumSize">
-        <size>
-         <width>24</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
+     <item row="4" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
         <string>&lt;b&gt;Events&lt;/b&gt;</string>
        </property>
       </widget>
      </item>
-    </layout>
-   </item>
-   <item>
-    <layout class="QFormLayout" name="formLayout_4">
-     <property name="leftMargin">
-      <number>30</number>
-     </property>
-     <property name="verticalSpacing">
-      <number>0</number>
-     </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>Lock screen on resume</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-       </property>
-       <property name="buddy">
-        <cstring>lockScreenOnResume</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
+     <item row="5" column="1">
       <widget class="QCheckBox" name="lockScreenOnResume">
        <property name="toolTip">
         <string>Locks screen when waking up from suspension</string>
@@ -207,60 +145,11 @@
         <string>You will be asked for a password when resuming from sleep state</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Loc&amp;k Screen on Resume</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0" colspan="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QPushButton" name="notificationsButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Configure Notifications...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="toolTip">
-        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
-       </property>
-       <property name="whatsThis">
-        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
-       </property>
-       <property name="text">
-        <string>Never prevent an action on lid close</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
+     <item row="6" column="1">
       <widget class="QCheckBox" name="doNotInhibitLid">
        <property name="toolTip">
         <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
@@ -269,37 +158,56 @@
         <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
        </property>
        <property name="text">
-        <string/>
+        <string>Never Prevent an Action on Lid Close</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>8</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="8" column="1">
+      <widget class="QPushButton" name="notificationsButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Configure Notifications...</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item>
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
    <class>KIntSpinBox</class>
    <extends>QSpinBox</extends>
    <header>knuminput.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
