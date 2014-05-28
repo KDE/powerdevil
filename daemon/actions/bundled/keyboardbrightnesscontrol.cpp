@@ -19,7 +19,6 @@
 
 #include "keyboardbrightnesscontrol.h"
 
-// #include "brightnessosdwidget.h"
 #include "keyboardbrightnesscontroladaptor.h"
 
 #include <powerdevilbackendinterface.h>
@@ -71,9 +70,6 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
 
 KeyboardBrightnessControl::~KeyboardBrightnessControl()
 {
-//     if (!m_brightnessOSD.isNull()) {
-//         m_brightnessOSD.data()->deleteLater();
-//     }
 }
 
 void KeyboardBrightnessControl::onProfileUnload()
@@ -141,25 +137,6 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
     }
 
     return true;
-}
-
-void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
-{
-    // code adapted from KMix
-//     if (m_brightnessOSD.isNull()) {
-//         m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Keyboard);
-//     }
-//
-//     m_brightnessOSD.data()->setCurrentBrightness(brightness);
-//     m_brightnessOSD.data()->show();
-//     m_brightnessOSD.data()->activateOSD(); //Enable the hide timer
-
-    //Center the OSD
-//     QRect rect = KApplication::kApplication()->desktop()->screenGeometry(QCursor::pos());
-// //     QSize size = m_brightnessOSD.data()->sizeHint();
-//     int posX = rect.x() + (rect.width() - size.width()) / 2;
-//     int posY = rect.y() + 4 * rect.height() / 5;
-//     m_brightnessOSD.data()->setGeometry(posX, posY, size.width(), size.height());
 }
 
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
