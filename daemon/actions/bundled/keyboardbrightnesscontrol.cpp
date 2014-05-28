@@ -139,6 +139,10 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
     return true;
 }
 
+void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
+{
+}
+
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
