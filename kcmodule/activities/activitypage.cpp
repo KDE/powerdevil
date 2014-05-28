@@ -34,7 +34,7 @@
 #include <QtDBus/QDBusServiceWatcher>
 
 #include <KAboutData>
-#include <KDebug>
+#include <QDebug>
 #include <KIcon>
 #include <KMessageWidget>
 #include <KPluginFactory>
@@ -72,7 +72,7 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
         KActivities::Info *info = new KActivities::Info(activity, this);
         QString icon = info->icon();
         QString name = info->name();
-        kDebug() << activity << info->isValid() << info->availability();
+        qDebug() << activity << info->isValid() << info->availability();
 
         QScrollArea *scrollArea = new QScrollArea();
         scrollArea->setFrameShape(QFrame::NoFrame);
