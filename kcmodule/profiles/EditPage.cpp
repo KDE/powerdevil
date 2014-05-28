@@ -38,7 +38,7 @@
 
 #include <KConfigGroup>
 #include <KLineEdit>
-#include <KDebug>
+#include <QDebug>
 #include <KDialog>
 #include <KFileDialog>
 #include <KMessageBox>
@@ -96,7 +96,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         m_profilesConfig->reparseConfiguration();
     }
 
-    kDebug() << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
+    qDebug() << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
 
     // Create widgets for each profile
     ActionEditWidget *editWidget = new ActionEditWidget("AC", tabWidget);
@@ -170,7 +170,7 @@ void EditPage::onChanged(bool value)
 
 void EditPage::load()
 {
-    kDebug() << "Loading routine called";
+    qDebug() << "Loading routine called";
     for (QHash< QString, ActionEditWidget* >::const_iterator i = m_editWidgets.constBegin();
          i != m_editWidgets.constEnd(); ++i) {
         i.value()->load();
@@ -210,7 +210,7 @@ void EditPage::notifyDaemon(const QStringList &editedProfiles)
         if (reply.isValid()) {
             if (!editedProfiles.contains(reply.value())) {
                 // Ask to reparse config
-                kDebug() << "Inactive profile edited, reparsing configuration";
+                qDebug() << "Inactive profile edited, reparsing configuration";
                 call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                       "org.kde.Solid.PowerManagement", "reparseConfiguration");
 
@@ -237,7 +237,7 @@ void EditPage::restoreDefaultProfiles()
                                                             "all existing modifications you made. "
                                                             "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
     if (ret == KMessageBox::Continue) {
-        kDebug() << "Restoring defaults.";
+        qDebug() << "Restoring defaults.";
         QSet <Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
         PowerDevil::ProfileGenerator::generateProfiles(
             methods.contains(Solid::PowerManagement::SuspendState),

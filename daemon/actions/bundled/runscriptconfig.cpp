@@ -69,7 +69,6 @@ QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
     QList< QPair< QString, QWidget* > > retlist;
     m_urlRequester = new KUrlRequester();
     m_urlRequester->setMode(KFile::File | KFile::LocalOnly | KFile::ExistingOnly);
-    m_urlRequester->setMaximumWidth(300);
     retlist.append(qMakePair< QString, QWidget* >(i18n("Script"), m_urlRequester));
 
     QWidget *tempWidget = new QWidget;

@@ -33,7 +33,6 @@ PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent, const QV
 }
 PowerDevilDPMSActionConfig::~PowerDevilDPMSActionConfig()
 {
-
 }
 
 void PowerDevilDPMSActionConfig::save()
