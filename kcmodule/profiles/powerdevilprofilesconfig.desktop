@@ -13,6 +13,8 @@ X-KDE-Weight=1
 
 Name=Energy Saving
 Name[ca]=Estalvi d'energia
+Name[es]=Ahorro de energía
+Name[nds]=Stroomsporen
 Name[nl]=Energiebesparing
 Name[pl]=Oszczędzanie energii
 Name[pt]=Poupança de Energia
@@ -28,6 +30,8 @@ Name[x-test]=xxEnergy Savingxx
 
 Comment=Configure Energy Saving
 Comment[ca]=Configura l'estalvi d'energia
+Comment[es]=Configurar el ahorro de energía
+Comment[nds]=Instellen för't Stroomsporen fastleggen
 Comment[nl]=Energiebesparing instellen
 Comment[pl]=Ustawienia oszczędzania energii
 Comment[pt]=Configurar a Poupança de Energia
@@ -43,6 +47,8 @@ Comment[x-test]=xxConfigure Energy Savingxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
+X-KDE-Keywords[es]=sistema,energía,gestión de energía,portátil,laptop,batería,suspensión,AC,suspender,hibernar,brillo,rendimiento,tapa
+X-KDE-Keywords[nds]=Systeem,Stroom,Stroompleeg,Energie,Klappreekner,Batterie,utsetten,AC,Wesselstroom,infreren,Helligkeit,Leisten
 X-KDE-Keywords[nl]=systeem,energie,energiebeheer,laptop,batterij,accu,suspension,AC,onderbreken,slapen,helderheid,prestaties,deksel
 X-KDE-Keywords[pl]=system,moc,zarządzanie energią,energia,laptop,bateria,wstrzymanie,AC,wstrzymaj,hibernuj,jasność,wydajność,pokrywka
 X-KDE-Keywords[pt]=sistema,energia,gestão de energia,portátil,bateria,suspensão,AC,suspender,hibernar,hibernação,brilho,performance,tampa

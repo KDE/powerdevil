@@ -10,6 +10,8 @@ X-KDE-Kded-phase=1
 
 Name=Power Management
 Name[ca]=Gestió d'energia
+Name[es]=Gestión de energía
+Name[nds]=Stroompleeg
 Name[nl]=Energiebeheer
 Name[pl]=Zarządzanie energią
 Name[pt]=Gestão de Energia
@@ -21,6 +23,8 @@ Name[x-test]=xxPower Managementxx
 
 Comment=Battery, Display and CPU power management and notification
 Comment[ca]=Gestió d'energia i notificació de la bateria, pantalla i CPU
+Comment[es]=Gestión de energía y notificaciones de la batería, la pantalla y la CPU
+Comment[nds]=Batterie-, Schirm- un Perzesser-Stroomkuntrull un -Bescheden
 Comment[nl]=Energiebeheer voor accu, scherm en CPU en meldingen
 Comment[pl]=Zarządzanie i powiadomienia o stanie baterii, wyświetlacza i zasilania procesora
 Comment[pt]=Gestão de energia e notificações da bateria, ecrã e CPU

@@ -13,6 +13,8 @@ X-KDE-Weight=99
 
 Name=Advanced Settings
 Name[ca]=Arranjament avançat
+Name[es]=Preferencias avanzadas
+Name[nds]=Verwiedert Instellen
 Name[nl]=Geavanceerde instellingen
 Name[pl]=Ustawienia zaawansowane
 Name[pt]=Configuração Avançada
@@ -28,6 +30,8 @@ Name[x-test]=xxAdvanced Settingsxx
 
 Comment=Configure Advanced Power Management Settings
 Comment[ca]=Configura l'arranjament avançat de gestió d'energia
+Comment[es]=Configurar las preferencias avanzadas de la gestión de energía
+Comment[nds]=Verwiedert Stroompleeginstellen
 Comment[nl]=Instellingen voor geavanceerd energiebeheer configureren
 Comment[pl]=Zaawansowane ustawienia zarządzania energią
 Comment[pt]=Configurar as Definições Avançadas de Gestão de Energia
@@ -43,6 +47,8 @@ Comment[x-test]=xxConfigure Advanced Power Management Settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
+X-KDE-Keywords[es]=sistema,energía,gestión de energía,portátil,laptop,batería,suspensión,AC,suspender,hibernar,brillo,rendimiento,tapa
+X-KDE-Keywords[nds]=Systeem,Stroom,Stroompleeg,Energie,Klappreekner,Batterie,utsetten,AC,Wesselstroom,infreren,Helligkeit,Leisten
 X-KDE-Keywords[nl]=systeem,energie,energiebeheer,laptop,batterij,accu,suspension,AC,onderbreken,slapen,helderheid,prestaties,deksel
 X-KDE-Keywords[pl]=system,moc,zarządzanie energią,energia,laptop,bateria,wstrzymanie,AC,wstrzymaj,hibernuj,jasność,wydajność,pokrywka
 X-KDE-Keywords[pt]=sistema,energia,gestão de energia,portátil,bateria,suspensão,AC,suspender,hibernar,hibernação,brilho,performance,tampa

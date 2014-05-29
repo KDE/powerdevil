@@ -6,6 +6,8 @@ Icon=system-suspend
 
 Name=Button events handling
 Name[ca]=Gestió d'esdeveniments de botons
+Name[es]=Gestión de eventos de botones
+Name[nds]=Knoop för't Ümgahn mit Begeefnissen
 Name[nl]=Knop voor afhandelen van evenementen
 Name[pl]=Obsługa zdarzeń przycisków
 Name[pt]=Tratamento dos eventos dos botões
@@ -21,6 +23,8 @@ Name[x-test]=xxButton events handlingxx
 
 Comment=Performs an action whenever a button is pressed
 Comment[ca]=Porta a terme una acció quan es prem un botó
+Comment[es]=Realiza una acción cada vez que se pulsa un botón
+Comment[nds]=Föhrt en Akschoon ut, wenn en Knoop drückt warrt
 Comment[nl]=Voer een actie uit als er een knop wordt ingedrukt
 Comment[pl]=Wykonuje działanie przy każdorazowym naciśnięciu przycisku
 Comment[pt]=Efectua uma dada acção quando se carrega num botão
