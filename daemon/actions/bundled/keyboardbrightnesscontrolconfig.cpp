@@ -58,10 +58,17 @@ void KeyboardBrightnessControlConfig::load()
 
 QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
 {
-    QList< QPair< QString, QWidget* > > retlist;
+
     m_slider = new QSlider(Qt::Horizontal);
     m_slider->setRange(0, 100);
-    retlist.append(qMakePair< QString, QWidget* >(i18nc("@label:slider Brightness level", "Level"), m_slider));
+
+    QWidget *tempWidget = new QWidget;
+    QHBoxLayout *hlay = new QHBoxLayout;
+    hlay->addWidget(m_slider);
+    tempWidget->setLayout(hlay);
+
+    QList< QPair< QString, QWidget* > > retlist;
+    retlist.append(qMakePair< QString, QWidget* >(i18nc("@label:slider Brightness level", "Level"), tempWidget));
 
     connect(m_slider, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 
