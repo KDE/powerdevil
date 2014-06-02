@@ -39,7 +39,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="lowLabel">
        <property name="text">
-        <string>Low Level:</string>
+        <string>Low level:</string>
        </property>
        <property name="buddy">
         <cstring>lowSpin</cstring>
@@ -71,7 +71,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="criticalLabel">
        <property name="text">
-        <string>Critical Level:</string>
+        <string>Critical level:</string>
        </property>
        <property name="buddy">
         <cstring>criticalSpin</cstring>
@@ -103,7 +103,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="BatteryCriticalLabel">
        <property name="text">
-        <string>At Critical Level:</string>
+        <string>At critical level:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
