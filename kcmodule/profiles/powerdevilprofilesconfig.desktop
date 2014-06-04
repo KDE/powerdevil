@@ -32,24 +32,6 @@ Name[uk]=Заощадження енергії
 Name[x-test]=xxEnergy Savingxx
 
 Comment=Energy Saving
-Comment[ca]=Configura l'estalvi d'energia
-Comment[es]=Configurar el ahorro de energía
-Comment[fi]=Virransäästön asetukset
-Comment[nb]=Sett opp strømsparing
-Comment[nds]=Instellen för't Stroomsporen fastleggen
-Comment[nl]=Energiebesparing instellen
-Comment[pl]=Ustawienia oszczędzania energii
-Comment[pt]=Configurar a Poupança de Energia
-Comment[pt_BR]=Configura a economia de energia
-Comment[sk]=Nastaviť šetrenie energie
-Comment[sr]=Подешавање штедње енергије
-Comment[sr@ijekavian]=Подешавање штедње енергије
-Comment[sr@ijekavianlatin]=Podešavanje štednje energije
-Comment[sr@latin]=Podešavanje štednje energije
-Comment[sv]=Anpassa strömsparhantering
-Comment[tr]=Güç Tasarrufunu Yapılandır
-Comment[uk]=Налаштувати заощадження енергії
-Comment[x-test]=xxConfigure Energy Savingxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa

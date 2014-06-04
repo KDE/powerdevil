@@ -32,24 +32,6 @@ Name[uk]=Додаткові параметри
 Name[x-test]=xxAdvanced Settingsxx
 
 Comment=Advanced Power Management Settings
-Comment[ca]=Configura l'arranjament avançat de gestió d'energia
-Comment[es]=Configurar las preferencias avanzadas de la gestión de energía
-Comment[fi]=Virranhallinnan lisäasetukset
-Comment[nb]=Sett avanserte strømstyringsinnstillinger
-Comment[nds]=Verwiedert Stroompleeginstellen
-Comment[nl]=Instellingen voor geavanceerd energiebeheer configureren
-Comment[pl]=Zaawansowane ustawienia zarządzania energią
-Comment[pt]=Configurar as Definições Avançadas de Gestão de Energia
-Comment[pt_BR]=Configura as opções avançadas de gerenciamento de energia
-Comment[sk]=Nastaviť nastavenia pokročilej správy napájania
-Comment[sr]=Подешавање напредних поставки за управљање напајањем
-Comment[sr@ijekavian]=Подешавање напредних поставки за управљање напајањем
-Comment[sr@ijekavianlatin]=Podešavanje naprednih postavki za upravljanje napajanjem
-Comment[sr@latin]=Podešavanje naprednih postavki za upravljanje napajanjem
-Comment[sv]=Anpassa avancerade inställningar av strömhantering
-Comment[tr]=Gelişmiş Güç Yönetimi Ayarlarını Yönet
-Comment[uk]=Налаштування додаткових параметрів керування живленням
-Comment[x-test]=xxConfigure Advanced Power Management Settingsxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa

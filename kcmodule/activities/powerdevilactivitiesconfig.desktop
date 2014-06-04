@@ -32,24 +32,6 @@ Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity Settingsxx
 
 Comment=Per-Activity Power Management
-Comment[ca]=Configura l'arranjament per activitat de gestió d'energia
-Comment[es]=Configurar de las preferencias de la gestión de energía por actividad
-Comment[fi]=Virranhallinnan aktiviteettikohtaiset asetukset
-Comment[nb]=Sett opp strømstyring per aktivitet
-Comment[nds]=Stroompleeg för enkelte Aktiviteten instellen
-Comment[nl]=Energiebeheer per activiteit instellen
-Comment[pl]=Ustaw wyjątkowe dla działania zarządzanie energią
-Comment[pt]=Configura a gestão de energia por actividades
-Comment[pt_BR]=Configura o gerenciamento de energia por atividade
-Comment[sk]=Nastaviť nastavenia správy napájania podľa aktivity
-Comment[sr]=Подешавање управљања напајањем према активности
-Comment[sr@ijekavian]=Подешавање управљања напајањем према активности
-Comment[sr@ijekavianlatin]=Podešavanje upravljanja napajanjem prema aktivnosti
-Comment[sr@latin]=Podešavanje upravljanja napajanjem prema aktivnosti
-Comment[sv]=Anpassa inställningar av strömhantering per aktivitet
-Comment[tr]=Etkinlik başına Güç Yönetimi ayarı yap
-Comment[uk]=Налаштування окремих параметрів керування живленням простору дій
-Comment[x-test]=xxConfigure per-activity Power Managementxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
