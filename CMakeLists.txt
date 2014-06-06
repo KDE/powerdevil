@@ -49,6 +49,7 @@ set(GENERIC_LIB_VERSION "${POWERDEVIL_VERSION_MAJOR}.${POWERDEVIL_VERSION_MINOR}
 
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
+add_subdirectory(doc)
 
 install( FILES powerdevil.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR} )
 
