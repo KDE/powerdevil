@@ -33,7 +33,9 @@ Name[uk]=Параметри простору дій
 Name[x-test]=xxActivity Settingsxx
 
 Comment=Per-Activity Power Management
+Comment[nds]=Stroompleeg för enkelte Aktiviteten instellen
 Comment[nl]=Energiebeheer per activiteit instellen
+Comment[pl]=Zarządzanie energią osobno dla działania
 Comment[pt]=Gestão de Energia por Actividades
 Comment[pt_BR]=Gerenciamento de energia por atividade
 Comment[sk]=Správa napájania podľa aktivity
