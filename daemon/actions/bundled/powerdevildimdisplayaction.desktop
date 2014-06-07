@@ -4,6 +4,7 @@ X-KDE-ServiceTypes=PowerDevil/Action
 # X-KDE-Library=powerdevildimdisplayaction
 Icon=preferences-desktop-display
 Name=Dim screen
+Name[ca]=Enfosquiment de la pantalla
 Name[nds]=Schirmafdüüstern
 Name[nl]=Scherm dimmen
 Name[pl]=Przyciemnienie ekranu
