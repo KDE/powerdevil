@@ -7,6 +7,7 @@ set(powerdevildpmsaction_SRCS powerdevildpmsaction.cpp)
 add_library(powerdevildpmsaction MODULE ${powerdevildpmsaction_SRCS})
 target_link_libraries(powerdevildpmsaction
         ${X11_LIBRARIES}
+        Qt5::X11Extras
         KF5::KDELibs4Support
         Qt5::Widgets
         powerdevilcore)

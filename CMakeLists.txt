@@ -37,6 +37,8 @@ include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon
 )
 
+set(HAVE_DPMS ${X11_dpms_FOUND})
+
 configure_file(config-workspace.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-workspace.h)
 
 set(POWERDEVIL_VERSION_MAJOR 4)
