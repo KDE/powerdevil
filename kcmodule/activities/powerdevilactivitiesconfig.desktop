@@ -34,6 +34,7 @@ Name[x-test]=xxActivity Settingsxx
 
 Comment=Per-Activity Power Management
 Comment[ca]=Gestió d'energia per activitat
+Comment[es]=Gestión de energía por actividad
 Comment[fi]=Aktiviteettikohtainen virranhallinta
 Comment[nds]=Stroompleeg för enkelte Aktiviteten instellen
 Comment[nl]=Energiebeheer per activiteit instellen
