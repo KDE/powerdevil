@@ -167,11 +167,13 @@ void BrightnessControl::setBrightness(int percent)
 void BrightnessControl::increaseBrightness()
 {
     backend()->brightnessKeyPressed(BackendInterface::Increase);
+    showBrightnessOSD(brightness());
 }
 
 void BrightnessControl::decreaseBrightness()
 {
     backend()->brightnessKeyPressed(BackendInterface::Decrease);
+    showBrightnessOSD(brightness());
 }
 
 }
