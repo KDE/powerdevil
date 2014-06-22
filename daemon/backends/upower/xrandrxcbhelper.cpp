@@ -67,7 +67,7 @@ bool XRandRXCBHelper::nativeEventFilter(const QByteArray& eventType, void* messa
     }
 
     //If the modified property is not backlight, we don't care
-    if (!randrEvent->u.op.atom != s_xrandrInfo.backlightAtom) {
+    if (randrEvent->u.op.atom != s_xrandrInfo.backlightAtom) {
         return false;
     }
 
