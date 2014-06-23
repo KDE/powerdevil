@@ -25,7 +25,7 @@ namespace PowerDevil
 class BackendInterface::Private
 {
 public:
-    Private() : batteryRemainingTime(0), isReady(false), isError(false), isLidClosed(false) {}
+    Private() : batteryRemainingTime(0), isReady(false), isError(false), isLidClosed(false), isLidPresent(false) {}
     ~Private() {}
 
     AcAdapterState acAdapterState;
@@ -39,6 +39,7 @@ public:
     bool isReady;
     bool isError;
     bool isLidClosed;
+    bool isLidPresent;
     QHash< QString, uint > capacities;
     QList< RecallNotice > recallNotices;
 };
@@ -97,6 +98,16 @@ BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() con
 bool BackendInterface::isLidClosed() const
 {
     return d->isLidClosed;
+}
+
+bool BackendInterface::isLidPresent() const
+{
+    return d->isLidPresent;
+}
+
+void BackendInterface::setLidPresent(bool present)
+{
+    d->isLidPresent = present;
 }
 
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)

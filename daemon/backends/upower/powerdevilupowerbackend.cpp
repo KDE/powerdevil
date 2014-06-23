@@ -443,6 +443,7 @@ KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMeth
 void PowerDevilUPowerBackend::enumerateDevices()
 {
     m_lidIsPresent = m_upowerInterface->lidIsPresent();
+    setLidPresent(m_lidIsPresent);
     m_lidIsClosed = m_upowerInterface->lidIsClosed();
     m_onBattery = m_upowerInterface->onBattery();
 

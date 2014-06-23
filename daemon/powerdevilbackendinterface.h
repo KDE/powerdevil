@@ -201,7 +201,12 @@ public:
      * @returns whether the lid is closed or not.
      */
     bool isLidClosed() const;
+    /**
+     * @returns whether the a lid is present
+     */
+    bool isLidPresent() const;
 
+    void setLidPresent(bool present);
     /**
      * Sets the screen brightness.
      *
