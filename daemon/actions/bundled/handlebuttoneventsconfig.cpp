@@ -20,6 +20,7 @@
 #include "handlebuttoneventsconfig.h"
 
 #include "suspendsession.h"
+#include "upower_interface.h"
 
 #include <Solid/Device>
 #include <Solid/PowerManagement>
@@ -119,6 +120,9 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         }
     }*/
 
+    auto m_upowerInterface = new OrgFreedesktopUPowerInterface("org.freedesktop.UPower", "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
+
+    lidFound = m_upowerInterface->lidIsPresent();
     QList< QPair< QString, QWidget* > > retlist;
 
     if (lidFound) {

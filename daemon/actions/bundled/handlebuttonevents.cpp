@@ -79,15 +79,7 @@ HandleButtonEvents::~HandleButtonEvents()
 
 bool HandleButtonEvents::isSupported()
 {
-    // get a list of all devices that are Buttons
-/*    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
-        Solid::Button *button = device.as<Solid::Button>();
-        if (button->type() == Solid::Button::LidButton || button->type() == Solid::Button::PowerButton) {
-            return true;
-        }
-    }*/
-
-    return false;
+    return backend()->isLidPresent();
 }
 
 void HandleButtonEvents::onProfileUnload()
