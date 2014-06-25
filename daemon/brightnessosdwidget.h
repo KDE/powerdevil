@@ -38,7 +38,6 @@ public:
     void setCurrentBrightness(int brightnessLevel);
 
 private:
-    void initDBus();
     int m_brightness;
     PowerDevil::BackendInterface::BrightnessControlType m_type;
 };

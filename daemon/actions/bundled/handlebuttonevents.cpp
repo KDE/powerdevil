@@ -58,17 +58,17 @@ HandleButtonEvents::HandleButtonEvents(QObject* parent)
 
     QAction *globalAction = actionCollection->addAction("Sleep");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Sleep"));
-    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_Sleep);
+    accel->setGlobalShortcut(globalAction, Qt::Key_Sleep);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
 
     globalAction = actionCollection->addAction("Hibernate");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
-    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_Hibernate);
+    accel->setGlobalShortcut(globalAction, Qt::Key_Hibernate);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
 
     globalAction = actionCollection->addAction("PowerOff");
     //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
-    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_PowerOff);
+    accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 }
 

@@ -54,17 +54,17 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
 
     QAction *globalAction = actionCollection->addAction("Increase Keyboard Brightness");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
-    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_KeyboardBrightnessUp);
+    accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessUp);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
 
     globalAction = actionCollection->addAction("Decrease Keyboard Brightness");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
-    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_KeyboardBrightnessDown);
+    accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessDown);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
 
     globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
-    accel->setDefaultShortcut(globalAction, QList<QKeySequence>() << Qt::Key_KeyboardLightOnOff);
+    accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardLightOnOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
 }
 
