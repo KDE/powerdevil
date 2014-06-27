@@ -35,6 +35,9 @@
 #include <kglobalaccel.h>
 #include <kglobalaccel.h>
 
+#include <QDBusInterface>
+#include <QDBusPendingCall>
+
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -141,6 +144,16 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 
 void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
 {
+    QDBusMessage msg = QDBusMessage::createMethodCall(
+        QLatin1Literal("org.kde.plasmashell"),
+        QLatin1Literal("/org/kde/osdService"),
+        QLatin1Literal("org.kde.osdService"),
+        QLatin1Literal("keyboardBrightnessChanged")
+    );
+
+    msg.setArguments(QList<QVariant>() << brightness);
+
+    QDBusConnection::sessionBus().asyncCall(msg);
 }
 
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
