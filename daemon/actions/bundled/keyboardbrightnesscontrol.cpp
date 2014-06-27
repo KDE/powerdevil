@@ -167,16 +167,19 @@ void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness,
 void KeyboardBrightnessControl::increaseKeyboardBrightness()
 {
     backend()->brightnessKeyPressed(BackendInterface::Increase, BackendInterface::Keyboard);
+    showBrightnessOSD(keyboardBrightness());
 }
 
 void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 {
     backend()->brightnessKeyPressed(BackendInterface::Decrease, BackendInterface::Keyboard);
+    showBrightnessOSD(keyboardBrightness());
 }
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
     backend()->brightnessKeyPressed(BackendInterface::Toggle, BackendInterface::Keyboard);
+    showBrightnessOSD(keyboardBrightness());
 }
 
 int KeyboardBrightnessControl::keyboardBrightness() const
