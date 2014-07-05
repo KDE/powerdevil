@@ -36,6 +36,7 @@ Name[uk]=Сервер PowerDevil UPower
 Name[x-test]=xxUPower PowerDevil Backendxx
 Name[zh_TW]=UPower PowerDevil 後端介面
 Comment=Use KDE Power Management system through freedesktop.org upower daemon
+Comment[ar]=استخدِم نظام إدارة طاقة كدي باستخدام مراقِب upower من freedesktop.org
 Comment[ca]=Usa el sistema de gestió d'energia del KDE mitjançant el dimoni upower del freedesktop.org
 Comment[cs]=Využít démon freedesktop.org upower pro systém správy napájení KDE
 Comment[da]=Brug KDE strømstyring via upower-dæmonen fra freedesktop.org

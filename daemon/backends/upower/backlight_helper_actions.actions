@@ -1,5 +1,6 @@
 [Domain]
 Name=KDE
+Name[ar]=كدي
 Name[ca]=KDE
 Name[cs]=KDE
 Name[da]=KDE
@@ -34,6 +35,7 @@ Icon=kde
 
 [org.kde.powerdevil.backlighthelper.brightness]
 Name=Get brightness
+Name[ar]=احصل على معلومات السطوع
 Name[ca]=Lluminositat de la pantalla
 Name[cs]=Získat jas
 Name[da]=Hent lysstyrke
@@ -64,6 +66,7 @@ Name[uk]=Отримання рівня яскравості
 Name[x-test]=xxGet brightnessxx
 Name[zh_TW]=取得亮度
 Description=System policies prevent you from getting the brightness level.
+Description[ar]=تمنعك سياسات النظام من الحصول على معلومات مستوى السطوع.
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el nivell de brillantor de la pantalla.
 Description[cs]=Nastavení systému vám znemožňuje získat úroveň podsvícení.
 Description[da]=Systempolitikker forhindrer dig i at  hente lysstyrkeniveauet.
@@ -98,6 +101,7 @@ PolicyInactive=yes
 
 [org.kde.powerdevil.backlighthelper.setbrightness]
 Name=Set brightness
+Name[ar]=اضبط السطوع
 Name[ca]=Ajusta la lluminositat
 Name[cs]=Nastavit jas
 Name[da]=Sæt lysstyrke
@@ -129,6 +133,7 @@ Name[uk]=Встановлення рівня яскравості
 Name[x-test]=xxSet brightnessxx
 Name[zh_TW]=設定亮度
 Description=System policies prevent you from setting the brightness level.
+Description[ar]=تمنعك سياسات النظام من ضبط مستويات السطوع.
 Description[ca]=Les polítiques del sistema impedeixen que ajusteu la lluminositat de la pantalla.
 Description[cs]=Systémové omezení vám neumožňuje nastavit úroveň podsvícení.
 Description[da]=Systempolitikker forhindrer dig i at sætte lysstyrkeniveauet.
@@ -163,6 +168,7 @@ Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
 Name=Get syspath
+Name[ar]=احصل على مسار النظام
 Name[ca]=Obtén el «syspath»
 Name[cs]=Získat syspath
 Name[da]=Hent syspath
@@ -193,6 +199,7 @@ Name[uk]=Отримання шляху у системі
 Name[x-test]=xxGet syspathxx
 Name[zh_TW]=取得系統路徑
 Description=System policies prevent you from getting the syspath
+Description[ar]=تمنعك سياسات النظام من الحصول على مسار النظام
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el camí del sistema «syspath»
 Description[cs]=Nastavení systému vám znemožňuje získat syspath
 Description[da]=Systempolitikker forhindrer dig i at hente syspath

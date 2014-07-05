@@ -12,6 +12,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity Settings
+Name[ar]=إعدادات الأنشطة
 Name[ca]=Arranjament d'activitat
 Name[cs]=Nastavení aktivit
 Name[da]=Aktivitetsindstillinger
@@ -43,6 +44,7 @@ Name[x-test]=xxActivity Settingsxx
 Name[zh_TW]=活動設定
 
 Comment=Per-Activity Power Management
+Comment[ar]=إدارة طاقة ما قبل الأحداث
 Comment[ca]=Gestió d'energia per activitat
 Comment[de]=Energieprofile pro Aktivität einzeln einrichten
 Comment[en_GB]=Per-Activity Power Management
@@ -65,6 +67,7 @@ Comment[uk]=Налаштування окремих параметрів кер�
 Comment[x-test]=xxPer-Activity Power Managementxx
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities
+X-KDE-Keywords[ar]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,activitat,activitats
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg,aktivitet,aktiviteter
 X-KDE-Keywords[de]=system,energie,energieverwaltung,laptop,notebook,akku,batterie,ruhezustand,tiefschlaf,helligkeit,leistung,deckel,aktivität

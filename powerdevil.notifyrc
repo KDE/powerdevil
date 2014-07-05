@@ -1,5 +1,6 @@
 [Global]
 Name=KDE Power Management System
+Name[ar]=نظام إدارة طاقة كدي
 Name[ca]=Sistema de gestió d'energia del KDE
 Name[cs]=Systém správy napájení KDE
 Name[da]=KDE's strømstyringssystem
@@ -32,6 +33,7 @@ Name[x-test]=xxKDE Power Management Systemxx
 Name[zh_TW]=KDE 電源管理系統
 IconName=preferences-system-power-management
 Comment=Power Management System
+Comment[ar]=نظام إدارة الطاقة
 Comment[ca]=Sistema de gestió d'energia
 Comment[cs]=Systém správy napájení
 Comment[da]=Strømstyringssystem
@@ -65,6 +67,7 @@ Version=2
 
 [Context/warningnot]
 Name=Warning
+Name[ar]=تحذير
 Name[ca]=Avís
 Name[cs]=Varování
 Name[da]=Advarsel
@@ -94,6 +97,7 @@ Name[uk]=Попередження
 Name[x-test]=xxWarningxx
 Name[zh_TW]=警告
 Comment=Used for warning notifications
+Comment[ar]=يُتسخدَم لتنبيهات التحذير
 Comment[ca]=S'usa per a les notificacions d'avís
 Comment[cs]=Použito pro varování a upozornění
 Comment[da]=Bruges til advarselsbekendtgørelser
@@ -125,6 +129,7 @@ Comment[zh_TW]=用於警告通知
 
 [Context/stdnot]
 Name=Notification
+Name[ar]=تنبيه
 Name[ca]=Notificació
 Name[cs]=Hlášení
 Name[da]=Bekendtgørelse
@@ -158,6 +163,7 @@ Name[uk]=Сповіщення
 Name[x-test]=xxNotificationxx
 Name[zh_TW]=通知
 Comment=Used for standard notifications
+Comment[ar]=يُستخدَم للتنبيهات الاعتيادية
 Comment[ca]=S'usa per a les notificacions estàndard
 Comment[cs]=Použito pro běžná oznámení
 Comment[da]=Bruges til almindelige bekendtgørelser
@@ -192,6 +198,7 @@ Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
+Name[ar]=تحذير حَرِج
 Name[ca]=Notificacions crítiques
 Name[cs]=Kritické hlášení
 Name[da]=Kritisk bekendtgørelse
@@ -224,6 +231,7 @@ Name[uk]=Сповіщення про критичні події
 Name[x-test]=xxCritical notificationxx
 Name[zh_TW]=緊急通知
 Comment=Notifies a critical event
+Comment[ar]=يُنبِّه عن حدث حَرِج
 Comment[ca]=Notifiquen esdeveniments crítics
 Comment[cs]=Upozorňuje na kritickou událost
 Comment[da]=Bekendtgør en kritisk begivenhed
@@ -258,6 +266,7 @@ Comment[zh_TW]=通知緊急事件
 
 [Event/lowbattery]
 Name=Battery Low
+Name[ar]=البطارية منخفضة
 Name[ca]=Bateria baixa
 Name[cs]=Baterie je téměř vybitá
 Name[da]=Lavt batteri
@@ -288,6 +297,7 @@ Name[uk]=Низький рівень заряду
 Name[x-test]=xxBattery Lowxx
 Name[zh_TW]=電池電力偏低
 Comment=Your battery has reached low level
+Comment[ar]=وصلت بطاريتك إلى مستوى منخفض
 Comment[ca]=La bateria ha arribat al nivell baix
 Comment[cs]=Baterie dosáhla nízké úrovně
 Comment[da]=Dit batteri har nået lavt niveau
@@ -326,6 +336,7 @@ IconName=battery-caution
 
 [Event/criticalbattery]
 Name=Battery Critical
+Name[ar]=البطارية حَرِجة
 Name[ca]=Bateria crítica
 Name[cs]=Baterie na kritické úrovni
 Name[da]=Kritisk batteri
@@ -356,6 +367,7 @@ Name[uk]=Заряд на критичному рівні
 Name[x-test]=xxBattery Criticalxx
 Name[zh_TW]=電池電力嚴重不足
 Comment=Your battery has reached critical level. This notification triggers a countdown before doing the configured action, hence it is strongly advised to leave that on.
+Comment[ar]=وصلت بطاريتك إلى مستوى حرج. يُفعِّل هذا التنبيه عدًّا تنازليًّا قبل تنفيذ حَدَث، حيث يُنصّح بشدّة إبقاء هذا الخيار مفعّلاً.
 Comment[ca]=La bateria ha arribat al nivell crític. Aquesta notificació activa un compte enrere abans d'efectuar l'acció configurada, per tant, es recomana deixar-ho actiu.
 Comment[cs]=Baterie dosáhla kritické úrovně. Tímto upozorněním se spustí odpočet a následně se provede nastavená činnost, proto je doporučeno nezasahovat.
 Comment[da]=Dit batteri har nået kritisk niveau. Denne bekendtgørelse udløser en nedtælling før den konfigurerede handling udføres, derfor anbefales det kraftigt at lade den være slået til.
@@ -394,6 +406,7 @@ IconName=dialog-warning
 
 [Event/fullbattery]
 Name=Charge Complete
+Name[ar]=تمَّ الشحن
 Name[ca]=Càrrega completada
 Name[cs]=Nabití bylo dokončeno
 Name[da]=Opladning fuldført
@@ -424,6 +437,7 @@ Name[uk]=Заряджання завершено
 Name[x-test]=xxCharge Completexx
 Name[zh_TW]=充電完成
 Comment=The battery is fully charged
+Comment[ar]=البطارية مشحونة بالكامل
 Comment[ca]=La bateria està totalment carregada
 Comment[cs]=Baterie je plně nabitá
 Comment[da]=Batteriet er fuldt opladet
@@ -460,6 +474,7 @@ IconName=battery-100
 
 [Event/pluggedin]
 Name=AC adaptor plugged in
+Name[ar]=وُصِلَ محوِّل الكهرباء
 Name[ca]=Adaptador de CA endollat
 Name[cs]=AC adaptér zapojen
 Name[da]=Strømforsyning tilsluttet
@@ -492,6 +507,7 @@ Name[uk]=Увімкнено живлення від мережі
 Name[x-test]=xxAC adaptor plugged inxx
 Name[zh_TW]=AC 電源已插入
 Comment=The power adaptor has been plugged in
+Comment[ar]=تم توصيل محوِّل الكهرباء
 Comment[ca]=L'adaptador de corrent s'ha endollat
 Comment[cs]=Zdroj napájení byl připojen
 Comment[da]=Strømforsyningen er blevet tilsluttet
@@ -530,6 +546,7 @@ IconName=battery-charging-low
 
 [Event/unplugged]
 Name=AC adaptor unplugged
+Name[ar]=فُصِل محوِّل الكهرباء
 Name[ca]=Adaptador de CA desendollat
 Name[cs]=AC adaptér odpojen
 Name[da]=Strømforsyning frakoblet
@@ -562,6 +579,7 @@ Name[uk]=Вимкнено живлення від мережі
 Name[x-test]=xxAC adaptor unpluggedxx
 Name[zh_TW]=AC 電源已拔除
 Comment=The power adaptor has been unplugged
+Comment[ar]=تم فصل محوِّل الكهرباء
 Comment[ca]=L'adaptador de corrent s'ha desendollat
 Comment[cs]=Zdroj napájení byl odpojen
 Comment[da]=Strømforsyningen er blevet frakoblet
@@ -600,6 +618,7 @@ IconName=battery-low
 
 [Event/powerdevilerror]
 Name=Internal Error
+Name[ar]=خطأ داخليّ
 Name[ca]=Error intern
 Name[cs]=Vnitřní chyba
 Name[da]=Intern fejl
@@ -630,6 +649,7 @@ Name[uk]=Внутрішня помилка
 Name[x-test]=xxInternal Errorxx
 Name[zh_TW]=內部錯誤
 Comment=The KDE Power Management System has triggered an internal error
+Comment[ar]=حدث خطأ داخليّ في مدير طاقة كدي
 Comment[ca]=El sistema de gestió d'energia del KDE ha activat un error intern
 Comment[cs]=Systém správy napájení KDE vyvolal interní chybu
 Comment[da]=KDE's strømstyringssystem har udløst en intern fejl
@@ -667,6 +687,7 @@ IconName=dialog-error
 
 [Event/inhibition]
 Name=Suspension inhibited
+Name[ar]=عُطِّل الإسبات
 Name[ca]=La suspensió s'ha inhibit
 Name[cs]=Uspávání potlačeno
 Name[da]=Suspendering undertrykt
@@ -699,6 +720,7 @@ Name[uk]=Присипляння заблоковано
 Name[x-test]=xxSuspension inhibitedxx
 Name[zh_TW]=禁止暫停
 Comment=The suspension has been inhibited because an application requested it
+Comment[ar]=تم تعطيل الإسبات لأن تطبيقاً طلب ذلك
 Comment[ca]=La suspensió s'ha inhibit perquè una aplicació ho ha sol·licitat
 Comment[cs]=Uspávání bylo potlačeno na základě požadavku aplikace
 Comment[da]=Suspendering er blevet undertrykt fordi et program anmodede om det
@@ -737,6 +759,7 @@ IconName=dialog-information
 
 [Event/brokenbattery]
 Name=Broken battery notification
+Name[ar]=تنبيه ببطارية تالفة
 Name[ca]=Notificació de bateria trencada
 Name[cs]=Oznámení vadné baterie
 Name[da]=Bekendtgørelse af defekt batteri
@@ -768,6 +791,7 @@ Name[uk]=Сповіщення про пошкоджений акумулятор
 Name[x-test]=xxBroken battery notificationxx
 Name[zh_TW]=電池損壞通知
 Comment=KDE Power Management System has detected some troubles with one of your batteries
+Comment[ar]=كشف نظام إدارة طاقة كدي عن وجود مشاكل في إحدى بطارياتك
 Comment[ca]=El sistema de gestió d'energia del KDE ha detectat algun problema amb alguna de les bateries
 Comment[cs]=Správce napájení KDE zjistil problémy s jednou z vašich baterií
 Comment[da]=KDE's strømstyringssystem har fundet nogle problemer med et af dine batterier

@@ -3,6 +3,7 @@ Type=ServiceType
 X-KDE-ServiceType=PowerDevil/Action
 
 Comment=Power Management Action Extension
+Comment[ar]=امتداد أحداث إدارة الطاقة
 Comment[ca]=Extensió d'accions de gestió d'energia
 Comment[cs]=Rozšiřující akce správy napájení
 Comment[da]=Udvidelse af strømstyringshandling
