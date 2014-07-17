@@ -37,6 +37,7 @@ Name[sv]=Strömhantering
 Name[tr]=Güç Yönetimi
 Name[uk]=Керування живленням
 Name[x-test]=xxPower Managementxx
+Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 
 Comment=Battery, Display and CPU power management and notification
@@ -70,4 +71,5 @@ Comment[sv]=Hantering och underrättelser om batteri, skärm och processorkraft
 Comment[tr]=Pil, Görüntü ve İşlemci güç yönetimi ve bildirimleri
 Comment[uk]=Керування та сповіщення про стан акумуляторів та живлення дисплея і процесора
 Comment[x-test]=xxBattery, Display and CPU power management and notificationxx
+Comment[zh_CN]=电池、显示器和 CPU 电源管理及通知
 Comment[zh_TW]=電池、顯示與 CPU 電力管理與通知

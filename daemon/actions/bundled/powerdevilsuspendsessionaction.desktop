@@ -27,6 +27,7 @@ Name[sr@latin]=Suspenduj sesiju
 Name[sv]=Stoppa tillfälligt session
 Name[uk]=Призупинити сеанс
 Name[x-test]=xxSuspend sessionxx
+Name[zh_CN]=挂起会话
 Comment=Suspends the session
 Comment[ar]=يعلّق الجلسة
 Comment[ca]=Suspèn la sessió
@@ -58,6 +59,7 @@ Comment[sv]=Stoppar sessionen tillfälligt
 Comment[tr]=Geçerli oturumu askıya alır
 Comment[uk]=Призупиняє сеанс
 Comment[x-test]=xxSuspends the sessionxx
+Comment[zh_CN]=挂起会话
 Comment[zh_TW]=暫停工作階段
 
 X-KDE-PowerDevil-Action-ID=SuspendSession
