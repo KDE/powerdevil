@@ -1,3 +1,4 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilactivitiesconfig\")
 
 set( kcm_powerdevil_activities_SRCS
      activitypage.cpp
