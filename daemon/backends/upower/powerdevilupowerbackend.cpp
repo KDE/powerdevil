@@ -167,8 +167,7 @@ void PowerDevilUPowerBackend::init()
         KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
         action.setHelperId(HELPER_ID);
         KAuth::ExecuteJob* job = action.execute();
-        job->exec();
-        if (!job->error()) {
+        if (job->exec()) {
             m_syspath = job->data()["syspath"].toString();
             m_syspath = QFileInfo(m_syspath).readLink();
 
@@ -341,7 +340,7 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
         if (type == Increase) {
             newBrightness = qMin(100.0f, currentBrightness + step);
         } else if (type == Decrease) {
-            newBrightness = qMax(0.0f, currentBrightness - step);
+            newBrightness = qMax(1.0f, currentBrightness - step);
         } else { // Toggle On/off
             newBrightness = currentBrightness > 0 ? 0 : 100;
         }
@@ -365,7 +364,7 @@ float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightne
             KAuth::Action action("org.kde.powerdevil.backlighthelper.brightness");
             action.setHelperId(HELPER_ID);
             KAuth::ExecuteJob *job = action.execute();
-            if (!job->error()) {
+            if (job->exec()) {
                 result = job->data()["brightness"].toFloat();
                 //kDebug() << "org.kde.powerdevil.backlighthelper.brightness succeeded: " << reply.data()["brightness"];
             }
@@ -395,7 +394,7 @@ bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::B
             action.setHelperId(HELPER_ID);
             action.addArgument("brightness", brightnessValue);
             KAuth::ExecuteJob *job = action.execute();
-            if (job->error()) {
+            if (!job->exec()) {
                 kWarning() << "org.kde.powerdevil.backlighthelper.setbrightness failed";
                 return false;
             }
