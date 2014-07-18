@@ -1,3 +1,4 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilprofilesconfig\")
 
 set( kcm_powerdevil_profiles_SRCS
      EditPage.cpp

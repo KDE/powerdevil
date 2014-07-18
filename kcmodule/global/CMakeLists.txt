@@ -1,3 +1,5 @@
+add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilglobalconfig\")
+
 set( kcm_powerdevil_global_SRCS
      GeneralPage.cpp
 )
