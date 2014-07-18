@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=kcmshell4 powerdevilglobalconfig
+Exec=kcmshell5 powerdevilglobalconfig
 Icon=preferences-other
 Type=Service
 X-KDE-ServiceTypes=KCModule
