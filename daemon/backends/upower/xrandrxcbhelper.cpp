@@ -93,7 +93,7 @@ void XRandRXCBHelper::init()
     s_xrandrInfo.eventType = s_xrandrInfo.eventBase + XCB_RANDR_NOTIFY;
     s_xrandrInfo.majorOpcode = reply->major_opcode;
 
-    QByteArray backlight("BackLight");
+    QByteArray backlight("Backlight");
 
     /*This is KDE5... the world of opengl and wayland (almost), I don't think we really need to
     check the old BACKLIGHT atom*/
@@ -106,6 +106,8 @@ void XRandRXCBHelper::init()
     if (!atomReply) {
         return;
     }
+
+    s_xrandrInfo.backlightAtom = atomReply->atom;
 
     uint32_t rWindow = rootWindow(c, 0);
     m_window = xcb_generate_id(c);
