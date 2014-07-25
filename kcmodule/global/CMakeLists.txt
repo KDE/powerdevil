@@ -4,7 +4,7 @@ set( kcm_powerdevil_global_SRCS
      GeneralPage.cpp
 )
 
-qt5_wrap_ui(kcm_powerdevil_global_SRCS
+ki18n_wrap_ui(kcm_powerdevil_global_SRCS
     generalPage.ui)
 
 kconfig_add_kcfg_files(kcm_powerdevil_global_SRCS ../../PowerDevilSettings.kcfgc)
