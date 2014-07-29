@@ -283,11 +283,7 @@ void Core::loadProfile(bool force)
             profileId = "AC";
         } else {
             // Compute the previous and current global percentage
-            int percent = 0;
-            for (QHash<QString,int>::const_iterator i = m_batteriesPercent.constBegin();
-                 i != m_batteriesPercent.constEnd(); ++i) {
-                percent += i.value();
-            }
+            const int percent = currentChargePercent();
 
             if (backend()->acAdapterState() == BackendInterface::Plugged) {
                 profileId = "AC";
@@ -456,8 +452,19 @@ void Core::onDeviceAdded(const QString& udi)
     }
     m_loadedBatteriesUdi.append(udi);
 
+    const int chargePercent = currentChargePercent();
+
+    // If a new battery has been added, let's clear some pending suspend actions if the new global batteries percentage is
+    // higher than the battery critical level. (See bug 329537)
+    if (m_criticalBatteryTimer->isActive() && chargePercent > PowerDevilSettings::batteryCriticalLevel()) {
+        m_criticalBatteryTimer->stop();
+        emitRichNotification("criticalbattery",
+                             i18n("Additional Battery Added"),
+                             i18n("All pending suspend actions have been canceled."));
+    }
+
     // So we get a "Battery is low" notification directly on system startup if applicable
-    emitBatteryChargePercentNotification(b->chargePercent(), 100);
+    emitBatteryChargePercentNotification(chargePercent, 100);
 }
 
 void Core::onDeviceRemoved(const QString& udi)
@@ -572,11 +579,8 @@ void Core::onBackendError(const QString& error)
 void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
 {
     // Compute the previous and current global percentage
-    int previousPercent = 0;
-    for (QHash<QString,int>::const_iterator i = m_batteriesPercent.constBegin(); i != m_batteriesPercent.constEnd(); ++i) {
-        previousPercent += i.value();
-    }
-    int currentPercent = previousPercent - (m_batteriesPercent[udi] - percent);
+    const int previousPercent = currentChargePercent();
+    const int currentPercent = previousPercent - (m_batteriesPercent[udi] - percent);
 
     // Update the battery percentage
     m_batteriesPercent[udi] = percent;
@@ -681,6 +685,15 @@ void Core::unregisterActionTimeouts(Action* action)
     }
 
     m_registeredActionTimeouts.remove(action);
+}
+
+int Core::currentChargePercent() const
+{
+    int chargePercent = 0;
+    for (auto it = m_batteriesPercent.constBegin(); it != m_batteriesPercent.constEnd(); ++it) {
+        chargePercent += it.value();
+    }
+    return chargePercent;
 }
 
 void Core::onResumingFromIdle()

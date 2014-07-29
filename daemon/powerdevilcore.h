@@ -94,6 +94,12 @@ private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
 
+    /**
+     * Computes the current global charge percentage.
+     * Sum of all battery charges.
+     */
+    int currentChargePercent() const;
+
     friend class Action;
 
     BackendInterface *m_backend;
