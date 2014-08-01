@@ -232,7 +232,7 @@ void BacklightHelper::initUsingSysctl()
 #endif
 }
 
-ActionReply BacklightHelper::brightness(const QVariantMap & args)
+ActionReply BacklightHelper::brightnessvalue(const QVariantMap & args)
 {
     Q_UNUSED(args);
 
@@ -267,22 +267,23 @@ ActionReply BacklightHelper::brightness(const QVariantMap & args)
 #endif
 
     //qDebug() << "brightness:" << brightness;
-    reply.addData("brightness", brightness * 100 / maxBrightness());
-    //qDebug() << "data contains:" << reply.data()["brightness"];
+    reply.addData("brightnessvalue", brightness);
+    //qDebug() << "data contains:" << reply.data()["brightnessvalue"];
 
     return reply;
 }
 
-ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
+ActionReply BacklightHelper::setbrightnessvalue(const QVariantMap & args)
 {
     ActionReply reply;
+
+    int actual_brightness = args["brightnessvalue"].toInt();
 
     if (!m_isSupported) {
         reply = ActionReply::HelperErrorReply();
         return reply;
     }
 
-    int actual_brightness = qRound(args["brightness"].toFloat() * maxBrightness() / 100);
     //qDebug() << "setting brightness:" << actual_brightness;
 
 #ifdef USE_SYSCTL
@@ -327,7 +328,6 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap & args)
         qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
     }
 #endif
-
     return reply;
 }
 
@@ -347,8 +347,17 @@ ActionReply BacklightHelper::syspath(const QVariantMap& args)
     return reply;
 }
 
-int BacklightHelper::maxBrightness() const
+ActionReply BacklightHelper::brightnessvaluemax(const QVariantMap & args)
 {
+    Q_UNUSED(args);
+
+    ActionReply reply;
+
+    if (!m_isSupported) {
+        reply = ActionReply::HelperErrorReply();
+        return -1;
+    }
+
     // maximum brightness
     int max_brightness;
 
@@ -357,8 +366,10 @@ int BacklightHelper::maxBrightness() const
 #else
     QFile file(m_dirname + "/max_brightness");
     if (!file.open(QIODevice::ReadOnly)) {
+        reply = ActionReply::HelperErrorReply();
+//         reply.setErrorCode(file.error());
         qWarning() << "reading max brightness failed with error code " << file.error() << file.errorString();
-        return -1; // some non-zero value
+        return reply;
     }
 
     QTextStream stream(&file);
@@ -368,7 +379,15 @@ int BacklightHelper::maxBrightness() const
 
     //qDebug() << "max brightness:" << max_brightness;
 
-    return max_brightness ? max_brightness : -1;
+    if (max_brightness <= 0) {
+        reply = ActionReply::HelperErrorReply();
+        return reply;
+    }
+
+    reply.addData("brightnessvaluemax", max_brightness);
+    //qDebug() << "data contains:" << reply.data()["brightnessvaluemax"];
+
+    return reply;
 }
 
 KAUTH_HELPER_MAIN("org.kde.powerdevil.backlighthelper", BacklightHelper)

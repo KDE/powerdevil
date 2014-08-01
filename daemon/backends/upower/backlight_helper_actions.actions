@@ -35,7 +35,13 @@ Name[zh_CN]=KDE
 Name[zh_TW]=KDE
 Icon=kde
 
-[org.kde.powerdevil.backlighthelper.brightness]
+[org.kde.powerdevil.backlighthelper.brightnessvaluemax]
+Name=Get maximum brightness value
+Description=System policies prevent you from getting the brightness level.
+Policy=yes
+PolicyInactive=yes
+
+[org.kde.powerdevil.backlighthelper.brightnessvalue]
 Name=Get brightness
 Name[ar]=احصل على معلومات السطوع
 Name[ca]=Lluminositat de la pantalla
@@ -105,7 +111,7 @@ Description[zh_TW]=系統政策不允許您取得亮度設定。
 Policy=yes
 PolicyInactive=yes
 
-[org.kde.powerdevil.backlighthelper.setbrightness]
+[org.kde.powerdevil.backlighthelper.setbrightnessvalue]
 Name=Set brightness
 Name[ar]=اضبط السطوع
 Name[ca]=Ajusta la lluminositat

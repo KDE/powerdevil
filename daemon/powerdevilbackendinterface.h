@@ -190,12 +190,28 @@ public:
     BrightnessControlsList brightnessControlsAvailable() const;
 
     /**
-     * Gets the screen brightness.
+     * Gets the device brightness.
      *
      * @param device the name of the device that you would like to control
      * @return the brightness of the device, as a percentage
      */
     virtual float brightness(BrightnessControlType type = Screen) const;
+
+    /**
+     * Gets the device brightness value.
+     *
+     * @param device the name of the device that you would like to control
+     * @return the brightness of the device, as an integer from 0 to brightnessValueMax
+     */
+    virtual int brightnessValue(BrightnessControlType type = Screen) const;
+
+    /**
+     * Gets the maximum device brightness value.
+     *
+     * @param device the name of the device that you would like to control
+     * @return the maximum brightness of the device
+     */
+    virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
     /**
      * @returns whether the lid is closed or not.
@@ -207,14 +223,24 @@ public:
     bool isLidPresent() const;
 
     void setLidPresent(bool present);
+
     /**
-     * Sets the screen brightness.
+     * Sets the device brightness.
      *
-     * @param brightness the desired screen brightness, as a percentage
+     * @param brightness the desired device brightness, as a percentage
      * @param device the name of the device that you would like to control
      * @return true if the brightness change succeeded, false otherwise
      */
-    virtual bool setBrightness(float brightness, BrightnessControlType type = Screen) = 0;
+    virtual bool setBrightness(float brightness, BrightnessControlType type = Screen);
+
+    /**
+     * Sets the device brightness value.
+     *
+     * @param brightnessValue the desired device brightness, as an integer from 0 to brightnessValueMax
+     * @param device the name of the device that you would like to control
+     * @return true if the brightness change succeeded, false otherwise
+     */
+    virtual bool setBrightnessValue(int brightnessValue, BrightnessControlType type = Screen) = 0;
 
     /**
      * Should be called when the user presses a brightness key.
@@ -265,11 +291,12 @@ Q_SIGNALS:
     void buttonPressed(PowerDevil::BackendInterface::ButtonType buttonType);
 
     /**
-     * This signal is emitted when the brightness changes.
+     * This signal is emitted when the brightness value changes.
      *
-     * @param brightness the new brightness level
+     * @param brightnessValue the new brightness value
+     * @param brightnessValueMax the maximum brightness value
      */
-    void brightnessChanged(float brightness, PowerDevil::BackendInterface::BrightnessControlType type);
+    void brightnessValueChanged(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type);
 
     /**
      * This signal is emitted when the estimated battery remaining time changes.
@@ -301,7 +328,7 @@ Q_SIGNALS:
 protected:
     void setCapabilities(Capabilities capabilities);
 
-    void onBrightnessChanged(BrightnessControlType device, float brightness);
+    void onBrightnessChanged(BrightnessControlType device, int brightnessValue, int brightnessValueMax);
     void setBatteryRemainingTime(qulonglong time);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);

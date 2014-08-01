@@ -47,10 +47,11 @@ public:
     virtual void init();
     static bool isAvailable();
 
-    virtual float brightness(BrightnessControlType type = Screen) const;
+    virtual int brightnessValue(BrightnessControlType type = Screen) const;
+    virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
     virtual void brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, PowerDevil::BackendInterface::BrightnessControlType controlType = Screen);
-    virtual bool setBrightness(float brightness, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
+    virtual bool setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
 private:

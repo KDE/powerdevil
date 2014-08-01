@@ -209,7 +209,7 @@ void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BackendInterface::Br
             newBrightness = brightness(controlType);
             if (!qFuzzyCompare(newBrightness, cachedBrightness)) {
                 cachedBrightness = newBrightness;
-                onBrightnessChanged(controlType, cachedBrightness);
+                onBrightnessChanged(controlType, brightnessValue(controlType), brightnessValueMax(controlType));
             }
         }
     } else {
@@ -223,9 +223,8 @@ void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BackendInterface::Br
     }
 }
 
-float PowerDevilHALBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
+int PowerDevilHALBackend::brightnessValue(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
-    float brightness;
     if (type == Screen) {
         QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "laptop_panel");
         reply.waitForFinished();
@@ -234,17 +233,8 @@ float PowerDevilHALBackend::brightness(PowerDevil::BackendInterface::BrightnessC
                 QDBusInterface deviceInterface("org.freedesktop.Hal", device,
                                                "org.freedesktop.Hal.Device.LaptopPanel", QDBusConnection::systemBus());
                 QDBusReply<int> brightnessReply = deviceInterface.call("GetBrightness");
-                if(!brightnessReply.isValid()) {
-                    return 0.0;
-                }
-                brightness = brightnessReply;
-
-                QDBusInterface propertyInterface("org.freedesktop.Hal", device,
-                                                 "org.freedesktop.Hal.Device", QDBusConnection::systemBus());
-                QDBusReply<int> levelsReply = propertyInterface.call("GetProperty", "laptop_panel.num_levels");
-                if (levelsReply.isValid()) {
-                    int levels = levelsReply;
-                    return (float)(100*(brightness/(levels-1)));
+                if (brightnessReply.isValid()) {
+                    return brightnessReply.value();
                 }
             }
         }
@@ -258,25 +248,16 @@ float PowerDevilHALBackend::brightness(PowerDevil::BackendInterface::BrightnessC
                                                "org.freedesktop.Hal.Device.KeyboardBacklight", QDBusConnection::systemBus());
 
                 QDBusReply<int> brightnessReply = deviceInterface.call("GetBrightness");
-                if (!brightnessReply.isValid()) {
-                    return 0.0;
-                }
-                brightness = brightnessReply;
-
-                QDBusInterface propertyInterface("org.freedesktop.Hal", device,
-                                                 "org.freedesktop.Hal.Device", QDBusConnection::systemBus());
-                QDBusReply<int> levelsReply = propertyInterface.call("GetProperty", "keyboard_backlight.num_levels");
-                if (levelsReply.isValid()) {
-                    int levels = levelsReply;
-                    return (float)(100*(brightness/(levels-1)));
+                if (brightnessReply.isValid()) {
+                    return brightnessReply.value();
                 }
             }
         }
     }
-    return 0.0;
+    return 0;
 }
 
-bool PowerDevilHALBackend::setBrightness(float brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
+int PowerDevilHALBackend::brightnessValueMax(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
     if (type == Screen) {
         QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "laptop_panel");
@@ -284,11 +265,41 @@ bool PowerDevilHALBackend::setBrightness(float brightnessValue, PowerDevil::Back
         if(reply.isValid()) {
             foreach (const QString &device, reply.value()) {
                 QDBusInterface propertyInterface("org.freedesktop.Hal", device,
-                                                "org.freedesktop.Hal.Device", QDBusConnection::systemBus());
-                int levels = propertyInterface.call("GetProperty", "laptop_panel.num_levels").arguments().at(0).toInt();
+                                                 "org.freedesktop.Hal.Device", QDBusConnection::systemBus());
+                QDBusReply<int> levelsReply = propertyInterface.call("GetProperty", "laptop_panel.num_levels");
+                if (levelsReply.isValid()) {
+                    return levelsReply.value();
+                }
+            }
+        }
+    } else {
+        QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "keyboard_backlight");
+        reply.waitForFinished();
+        if(reply.isValid()) {
+            foreach (const QString &device, reply.value()) {
+                //TODO - I do not have a backlight enabled keyboard, so I'm guessing a bit here. Could someone please check this.
+                QDBusInterface propertyInterface("org.freedesktop.Hal", device,
+                                                 "org.freedesktop.Hal.Device", QDBusConnection::systemBus());
+                QDBusReply<int> levelsReply = propertyInterface.call("GetProperty", "keyboard_backlight.num_levels");
+                if (levelsReply.isValid()) {
+                    return levelsReply.value();
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+bool PowerDevilHALBackend::setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
+{
+    if (type == Screen) {
+        QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "laptop_panel");
+        reply.waitForFinished();
+        if(reply.isValid()) {
+            foreach (const QString &device, reply.value()) {
                 QDBusInterface deviceInterface("org.freedesktop.Hal", device,
                                             "org.freedesktop.Hal.Device.LaptopPanel", QDBusConnection::systemBus());
-                deviceInterface.call("SetBrightness", qRound((levels-1)*(brightnessValue/100.0))); // .0? The right way? Feels hackish.
+                deviceInterface.call("SetBrightness", brightnessValue);
                 if (!deviceInterface.lastError().isValid()) {
                     return true;
                 }
@@ -299,14 +310,11 @@ bool PowerDevilHALBackend::setBrightness(float brightnessValue, PowerDevil::Back
         reply.waitForFinished();
         if(reply.isValid()) {
             foreach (const QString &device, reply.value()) {
-                QDBusInterface propertyInterface("org.freedesktop.Hal", device,
-                                                 "org.freedesktop.Hal.Device", QDBusConnection::systemBus());
-                int levels = propertyInterface.call("GetProperty", "keyboard_backlight.num_levels").arguments().at(0).toInt();
                 //TODO - I do not have a backlight enabled keyboard, so I'm guessing a bit here. Could someone please check this.
                 QDBusInterface deviceInterface("org.freedesktop.Hal", device,
                                                "org.freedesktop.Hal.Device.KeyboardBacklight", QDBusConnection::systemBus());
-                
-                deviceInterface.call("SetBrightness", qRound((levels-1)*(brightnessValue/100.0)));
+
+                deviceInterface.call("SetBrightness", brightnessValue);
                 if(!deviceInterface.lastError().isValid()) {
                     return true;
                 }

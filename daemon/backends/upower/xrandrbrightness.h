@@ -32,10 +32,12 @@ public:
     XRandrBrightness();
     ~XRandrBrightness();
     bool isSupported() const;
-    float brightness() const;
-    void setBrightness(float brightness);
+    long brightnessValue() const;
+    long brightnessValueMax() const;
+    void setBrightnessValue(long brightnessValue);
 
 private:
+    bool backlight_get_with_range(RROutput output, long &value, long &min, long &max) const;
     long backlight_get(RROutput output) const;
     void backlight_set(RROutput output, long value);
 

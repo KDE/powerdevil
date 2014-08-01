@@ -49,8 +49,8 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
 
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
-    connect(core()->backend(), SIGNAL(brightnessChanged(float,PowerDevil::BackendInterface::BrightnessControlType)),
-            this, SLOT(onBrightnessChangedFromBackend(float,PowerDevil::BackendInterface::BrightnessControlType)));
+    connect(core()->backend(), SIGNAL(brightnessValueChanged(int,int,PowerDevil::BackendInterface::BrightnessControlType)),
+            this, SLOT(onBrightnessChangedFromBackend(int,int,PowerDevil::BackendInterface::BrightnessControlType)));
 
     KActionCollection* actionCollection = new KActionCollection( this );
     KGlobalAccel *accel = KGlobalAccel::self();
@@ -109,7 +109,11 @@ void KeyboardBrightnessControl::onProfileLoad()
 
 void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
 {
-    backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
+    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
+        backend()->setBrightnessValue(args["Value"].toInt(), BackendInterface::Keyboard);
+    } else {
+        backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
+    }
     if (args["Explicit"].toBool()) {
         showBrightnessOSD(backend()->brightness(BackendInterface::Keyboard));
     }
@@ -156,10 +160,12 @@ void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 
-void KeyboardBrightnessControl::onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type)
+void KeyboardBrightnessControl::onBrightnessChangedFromBackend(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
+        float brightness = (brightnessValueMax > 0) ? brightnessValue * 100.0 / brightnessValueMax : 0.0;
         showBrightnessOSD(brightness);
+        Q_EMIT keyboardBrightnessValueChanged(brightnessValue);
         Q_EMIT keyboardBrightnessChanged(brightness);
     }
 }
@@ -191,6 +197,24 @@ void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
 {
     QVariantMap args;
     args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
+    trigger(args);
+}
+
+int KeyboardBrightnessControl::keyboardBrightnessValue() const
+{
+    return backend()->brightnessValue(BackendInterface::Keyboard);
+}
+
+int KeyboardBrightnessControl::keyboardBrightnessValueMax() const
+{
+    return backend()->brightnessValueMax(BackendInterface::Keyboard);
+}
+
+void KeyboardBrightnessControl::setKeyboardBrightnessValue(int value)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<int>(value);
     args["Explicit"] = true;
     trigger(args);
 }

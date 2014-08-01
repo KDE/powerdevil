@@ -85,41 +85,43 @@ bool XRandrBrightness::isSupported() const
     return false;
 }
 
-float XRandrBrightness::brightness() const
+long XRandrBrightness::brightnessValue() const
 {
-    float result = 0;
-
     if (!m_resources)
-        return result;
+        return 0;
 
     for (int o = 0; o < m_resources->noutput; o++)
     {
         RROutput output = m_resources->outputs[o];
-        double cur = backlight_get(output);
-        if (cur != -1)
-        {
-            XRRPropertyInfo * info = XRRQueryOutputProperty(QX11Info::display(), output, m_backlight);
-            if (info)
-            {
-                if (info->range && info->num_values == 2)
-                {
-                    double min = info->values[0];
-                    double max = info->values[1];
-                    XFree(info);
-
-                    // FIXME for now just return the first output's value
-                    result = (cur - min) * 100 / (max - min);
-                    break;
-                }
-                XFree(info);
-            }
+        long cur, min, max;
+        if (backlight_get_with_range(output, cur, min, max)) {
+            // FIXME for now just return the first output's value
+            return cur - min;
         }
     }
 
-    return result;
+    return 0;
 }
 
-void XRandrBrightness::setBrightness(float brightness)
+long XRandrBrightness::brightnessValueMax() const
+{
+    if (!m_resources)
+        return 0;
+
+    for (int o = 0; o < m_resources->noutput; o++)
+    {
+        RROutput output = m_resources->outputs[o];
+        long cur, min, max;
+        if (backlight_get_with_range(output, cur, min, max)) {
+            // FIXME for now just return the first output's value
+            return max - min;
+        }
+    }
+
+    return 0;
+}
+
+void XRandrBrightness::setBrightnessValue(long brightnessValue)
 {
     if (!m_resources)
         return;
@@ -127,27 +129,37 @@ void XRandrBrightness::setBrightness(float brightness)
     for (int o = 0; o < m_resources->noutput; o++)
     {
         RROutput output = m_resources->outputs[o];
-        double cur = backlight_get(output);
-        if (cur != -1)
-        {
-            XRRPropertyInfo * info = XRRQueryOutputProperty(QX11Info::display(), output, m_backlight);
-            if (info)
-            {
-                if (info->range && info->num_values == 2)
-                {
-                    double min = info->values[0];
-                    double max = info->values[1];
-
-                    // FIXME for now just set the first output's value
-                    double value = min + (brightness * (max - min) / 100);
-                    backlight_set(output, (long) (value + 0.5));
-                }
-                XFree(info);
-            }
+        long cur, min, max;
+        if (backlight_get_with_range(output, cur, min, max)) {
+            // FIXME for now just set the first output's value
+            backlight_set(output, min + brightnessValue);
         }
     }
 
     XSync(QX11Info::display(), False);
+}
+
+bool XRandrBrightness::backlight_get_with_range(RROutput output, long &value, long &min, long &max) const {
+   long cur = backlight_get(output);
+   if (cur == -1) {
+       return false;
+   }
+
+   XRRPropertyInfo * info = XRRQueryOutputProperty(QX11Info::display(), output, m_backlight);
+   if (!info) {
+       return false;
+   }
+
+   if (info->range && info->num_values == 2) {
+       value = cur;
+       min = info->values[0];
+       max = info->values[1];
+       XFree(info);
+       return true;
+   }
+
+   XFree(info);
+   return false;
 }
 
 long XRandrBrightness::backlight_get(RROutput output) const

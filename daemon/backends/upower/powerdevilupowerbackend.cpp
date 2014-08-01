@@ -301,11 +301,12 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
     if (maxBrightness <= 0) {
         return;
     }
-    float newBrightness = device.sysfsProperty("brightness").toInt() * 100 / maxBrightness;
+    int newBrightnessValue = device.sysfsProperty("brightness").toInt();
+    float newBrightness = newBrightnessValue * 100 / maxBrightness;
 
     if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
         m_cachedBrightnessMap[Screen] = newBrightness;
-        onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);
+        onBrightnessChanged(Screen, newBrightnessValue, maxBrightness);
     }
 }
 
@@ -351,59 +352,89 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
     }
 }
 
-float PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
+int PowerDevilUPowerBackend::brightnessValue(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
-    float result = 0.0;
+    int result = 0;
 
     if (type == Screen) {
         if (m_brightnessControl->isSupported()) {
             //kDebug() << "Calling xrandr brightness";
-            result = m_brightnessControl->brightness();
+            result = (int) m_brightnessControl->brightnessValue();
         } else {
             //kDebug() << "Falling back to helper to get brightness";
-            KAuth::Action action("org.kde.powerdevil.backlighthelper.brightness");
+            KAuth::Action action("org.kde.powerdevil.backlighthelper.brightnessvalue");
             action.setHelperId(HELPER_ID);
             KAuth::ExecuteJob *job = action.execute();
             if (job->exec()) {
-                result = job->data()["brightness"].toFloat();
-                //kDebug() << "org.kde.powerdevil.backlighthelper.brightness succeeded: " << reply.data()["brightness"];
+                result = job->data()["brightnessvalue"].toFloat();
+                //kDebug() << "org.kde.powerdevil.backlighthelper.brightnessvalue succeeded: " << reply.data()["brightnessvalue"];
             }
             else
-                kWarning() << "org.kde.powerdevil.backlighthelper.brightness failed";
+                kWarning() << "org.kde.powerdevil.backlighthelper.brightnessvalue failed";
 
         }
-        kDebug() << "Screen brightness: " << result;
+        kDebug() << "Screen brightness value: " << result;
     } else if (type == Keyboard) {
-        kDebug() << "Kbd backlight brightness: " << m_kbdBacklight->GetBrightness();
-        result = 1.0 * m_kbdBacklight->GetBrightness() / m_kbdMaxBrightness * 100;
+        result = m_kbdBacklight->GetBrightness();
+        kDebug() << "Kbd backlight brightness value: " << result;
     }
 
     return result;
 }
 
-bool PowerDevilUPowerBackend::setBrightness(float brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
+int PowerDevilUPowerBackend::brightnessValueMax(PowerDevil::BackendInterface::BrightnessControlType type) const
+{
+    int result = 0;
+
+    if (type == Screen) {
+        if (m_brightnessControl->isSupported()) {
+            //kDebug() << "Calling xrandr brightness";
+            result = (int) m_brightnessControl->brightnessValueMax();
+        } else {
+            //kDebug() << "Falling back to helper to get brightness";
+            KAuth::Action action("org.kde.powerdevil.backlighthelper.brightnessvaluemax");
+            action.setHelperId(HELPER_ID);
+            KAuth::ExecuteJob *job = action.execute();
+            if (job->exec()) {
+                result = job->data()["brightnessvaluemax"].toInt();
+                //kDebug() << "org.kde.powerdevil.backlighthelper.brightnessvaluemax succeeded: " << reply.data()["brightnessvaluemax"];
+            }
+            else
+                kWarning() << "org.kde.powerdevil.backlighthelper.brightnessvaluemax failed";
+
+        }
+        kDebug() << "Screen brightness value max: " << result;
+    } else if (type == Keyboard) {
+        result = m_kbdMaxBrightness;
+        kDebug() << "Kbd backlight brightness value max: " << result;
+    }
+
+    return result;
+}
+
+bool PowerDevilUPowerBackend::setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     bool success = false;
     if (type == Screen) {
-        kDebug() << "set screen brightness: " << brightnessValue;
+        kDebug() << "set screen brightness value: " << brightnessValue;
         if (m_brightnessControl->isSupported()) {
-            m_brightnessControl->setBrightness(brightnessValue);
+            m_brightnessControl->setBrightnessValue(brightnessValue);
         } else {
             //kDebug() << "Falling back to helper to set brightness";
-            KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
+            KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightnessvalue");
             action.setHelperId(HELPER_ID);
-            action.addArgument("brightness", brightnessValue);
+            action.addArgument("brightnessvalue", brightnessValue);
             KAuth::ExecuteJob *job = action.execute();
             if (!job->exec()) {
-                kWarning() << "org.kde.powerdevil.backlighthelper.setbrightness failed";
+                kWarning() << "org.kde.powerdevil.backlighthelper.setbrightnessvalue failed";
                 return false;
             }
         }
 
         success = true;
     } else if (type == Keyboard) {
-        kDebug() << "set kbd backlight: " << brightnessValue;
-        m_kbdBacklight->SetBrightness(qRound(brightnessValue / 100 * m_kbdMaxBrightness));
+        kDebug() << "set kbd backlight value: " << brightnessValue;
+        m_kbdBacklight->SetBrightness(brightnessValue);
         success = true;
     }
 
@@ -416,7 +447,7 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
     kDebug() << "Brightness changed!!";
     if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
         m_cachedBrightnessMap[Screen] = newBrightness;
-        onBrightnessChanged(Screen, m_cachedBrightnessMap[Screen]);
+        onBrightnessChanged(Screen, brightnessValue(Screen), brightnessValueMax(Screen));
     }
 }
 
@@ -426,7 +457,7 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
     float realValue = 1.0 * value / m_kbdMaxBrightness * 100;
     if (!qFuzzyCompare(realValue, m_cachedBrightnessMap[Keyboard])) {
         m_cachedBrightnessMap[Keyboard] = realValue;
-        onBrightnessChanged(Keyboard, m_cachedBrightnessMap[Keyboard]);
+        onBrightnessChanged(Keyboard, value, m_kbdMaxBrightness);
     }
 }
 

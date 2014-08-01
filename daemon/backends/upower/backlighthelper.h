@@ -32,8 +32,9 @@ public:
     BacklightHelper(QObject * parent = 0);
 
 public slots:
-    ActionReply brightness(const QVariantMap & args);
-    ActionReply setbrightness(const QVariantMap & args);
+    ActionReply brightnessvalue(const QVariantMap & args);
+    ActionReply brightnessvaluemax(const QVariantMap & args);
+    ActionReply setbrightnessvalue(const QVariantMap & args);
     ActionReply syspath(const QVariantMap & args);
 
 private:
@@ -62,7 +63,6 @@ private:
      * @see https://bugs.kde.org/show_bug.cgi?id=288180
      */
     bool useWhitelistInit();
-    int maxBrightness() const;
     bool m_isSupported;
     QString m_dirname;
     QString m_sysctlDevice;

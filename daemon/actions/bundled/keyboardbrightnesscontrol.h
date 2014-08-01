@@ -52,7 +52,7 @@ public:
 
 public Q_SLOTS:
     void showBrightnessOSD(int brightness);
-    void onBrightnessChangedFromBackend(float brightness, PowerDevil::BackendInterface::BrightnessControlType type);
+    void onBrightnessChangedFromBackend(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type);
 
     // DBus export
     void increaseKeyboardBrightness();
@@ -62,8 +62,13 @@ public Q_SLOTS:
     int keyboardBrightness() const;
     void setKeyboardBrightness(int percent);
 
+    int keyboardBrightnessValue() const;
+    int keyboardBrightnessValueMax() const;
+    void setKeyboardBrightnessValue(int value);
+
 Q_SIGNALS:
     void keyboardBrightnessChanged(int percent);
+    void keyboardBrightnessValueChanged(int value);
 
 private:
     int m_defaultValue;

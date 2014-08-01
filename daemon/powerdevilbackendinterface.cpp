@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "powerdevilbackendinterface.h"
+#include <KDebug>
 
 namespace PowerDevil
 {
@@ -31,7 +32,8 @@ public:
     AcAdapterState acAdapterState;
     qulonglong batteryRemainingTime;
     BatteryState batteryState;
-    QHash< BrightnessControlType, float > brightness;
+    QHash< BrightnessControlType, int > brightnessValue;
+    QHash< BrightnessControlType, int > brightnessValueMax;
     BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;
     SuspendMethods suspendMethods;
@@ -70,9 +72,32 @@ BackendInterface::BatteryState BackendInterface::batteryState() const
     return d->batteryState;
 }
 
+bool BackendInterface::setBrightness(float brightness, BackendInterface::BrightnessControlType type)
+{
+    if (type == Screen) {
+        kDebug() << "set screen brightness percentage: " << brightness;
+    } else {
+        kDebug() << "set kbd backlight percentage: " << brightness;
+    }
+
+    return setBrightnessValue(qRound(brightness / 100 * brightnessValueMax(type)), type);
+}
+
 float BackendInterface::brightness(BackendInterface::BrightnessControlType type) const
 {
-    return d->brightness[type];
+    int brightness_value = brightnessValue(type),
+        brightness_max = brightnessValueMax(type);
+    return (brightness_max > 0) ? brightness_value * 100.0 / brightness_max : 0.0;
+}
+
+int BackendInterface::brightnessValue(BackendInterface::BrightnessControlType type) const
+{
+    return d->brightnessValue[type];
+}
+
+int BackendInterface::brightnessValueMax(BackendInterface::BrightnessControlType type) const
+{
+    return d->brightnessValueMax[type];
 }
 
 BackendInterface::BrightnessControlsList BackendInterface::brightnessControlsAvailable() const
@@ -165,10 +190,11 @@ void BackendInterface::setRecallNotices(const QList< BackendInterface::RecallNot
     d->recallNotices = notices;
 }
 
-void BackendInterface::onBrightnessChanged(BackendInterface::BrightnessControlType device, float brightness)
+void BackendInterface::onBrightnessChanged(BackendInterface::BrightnessControlType device, int brightnessValue, int brightnessValueMax)
 {
-    d->brightness[device] = brightness;
-    emit brightnessChanged(brightness, device);
+    d->brightnessValueMax[device] = brightnessValueMax;
+    d->brightnessValue[device] = brightnessValue;
+    emit brightnessValueChanged(brightnessValue, brightnessValueMax, device);
 }
 
 void BackendInterface::setResumeFromSuspend()
