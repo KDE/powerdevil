@@ -25,6 +25,7 @@
 #include <QtCore/QHash>
 
 #include <kdemacros.h>
+#include "powerdevilbrightnesslogic.h"
 
 class KJob;
 
@@ -95,15 +96,6 @@ public:
     enum BrightnessControlType{ UnknownBrightnessControl = 0, Screen = 1, Keyboard = 2 };
 
     typedef QHash<QString, BrightnessControlType> BrightnessControlsList;
-
-    /**
-     * This enum defines the different types brightness keys.
-     *
-     * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
-     * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
-     * - Toggle: Key to toggle backlight (Qt::Key_KeyboardBacklightOnOff)
-     */
-    enum BrightnessKeyType{ Increase, Decrease, Toggle };
 
     /**
      * This enum defines capabilities of the backend
@@ -214,6 +206,22 @@ public:
     virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
     /**
+     * Gets the device brightness step.
+     *
+     * @param device the name of the device that you would like to control
+     * @return the brightness of the device, as an integer from 0 to brightnessStepMax
+     */
+    virtual int brightnessStep(BrightnessControlType type = Screen) const;
+
+    /**
+     * Gets the maximum device brightness step.
+     *
+     * @param device the name of the device that you would like to control
+     * @return the maximum brightness of the device
+     */
+    virtual int brightnessStepMax(BrightnessControlType type = Screen) const;
+
+    /**
      * @returns whether the lid is closed or not.
      */
     bool isLidClosed() const;
@@ -234,6 +242,15 @@ public:
     virtual bool setBrightness(float brightness, BrightnessControlType type = Screen);
 
     /**
+     * Sets the device brightness.
+     *
+     * @param brightnessStep the desired device brightness, as an integer from 0 to brightnessStepMax
+     * @param device the name of the device that you would like to control
+     * @return true if the brightness change succeeded, false otherwise
+     */
+    virtual bool setBrightnessStep(int brightnessStep, BrightnessControlType type = Screen);
+
+    /**
      * Sets the device brightness value.
      *
      * @param brightnessValue the desired device brightness, as an integer from 0 to brightnessValueMax
@@ -246,9 +263,9 @@ public:
      * Should be called when the user presses a brightness key.
      *
      * @param type the type of the brightness key press
-     * @see PowerDevil::BackendInterface::BrightnessKeyType
+     * @see PowerDevil::BrightnessLogic::BrightnessKeyType
      */
-    virtual void brightnessKeyPressed(BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
+    virtual void brightnessKeyPressed(BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
 
     /**
      * Retrieves the capacities of the installed batteries in percentage.
@@ -291,12 +308,12 @@ Q_SIGNALS:
     void buttonPressed(PowerDevil::BackendInterface::ButtonType buttonType);
 
     /**
-     * This signal is emitted when the brightness value changes.
+     * This signal is emitted when the brightness changes.
      *
-     * @param brightnessValue the new brightness value
-     * @param brightnessValueMax the maximum brightness value
+     * @param brightnessInfo a copy of the current brightness information
+     * @param type the device type
      */
-    void brightnessValueChanged(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type);
+    void brightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo, BrightnessControlType type);
 
     /**
      * This signal is emitted when the estimated battery remaining time changes.
@@ -339,6 +356,9 @@ protected:
 
     void setBackendIsReady(BrightnessControlsList availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
+
+    // Steps logic
+    int calculateNextStep(int brightnessValue, int brightnessValueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType type);
 
 protected slots:
     // This function is actually here due to HAL

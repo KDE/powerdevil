@@ -49,8 +49,7 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
 
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
-    connect(core()->backend(), SIGNAL(brightnessValueChanged(int,int,PowerDevil::BackendInterface::BrightnessControlType)),
-            this, SLOT(onBrightnessChangedFromBackend(int,int,PowerDevil::BackendInterface::BrightnessControlType)));
+    connect(core()->backend(), &PowerDevil::BackendInterface::brightnessChanged, this, &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromBackend);
 
     KActionCollection* actionCollection = new KActionCollection( this );
     KGlobalAccel *accel = KGlobalAccel::self();
@@ -109,7 +108,9 @@ void KeyboardBrightnessControl::onProfileLoad()
 
 void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
 {
-    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
+    if (args.contains("Step")) {
+        backend()->setBrightnessStep(args["Step"].toInt(), BackendInterface::Keyboard);
+    } else if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
         backend()->setBrightnessValue(args["Value"].toInt(), BackendInterface::Keyboard);
     } else {
         backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
@@ -160,37 +161,38 @@ void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 
-void KeyboardBrightnessControl::onBrightnessChangedFromBackend(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type)
+void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
-        float brightness = (brightnessValueMax > 0) ? brightnessValue * 100.0 / brightnessValueMax : 0.0;
+        int brightness = qRound(info.percentage);
         showBrightnessOSD(brightness);
-        Q_EMIT keyboardBrightnessValueChanged(brightnessValue);
+        Q_EMIT keyboardBrightnessValueChanged(info.value);
+        Q_EMIT keyboardBrightnessStepChanged(info.step);
         Q_EMIT keyboardBrightnessChanged(brightness);
     }
 }
 
 void KeyboardBrightnessControl::increaseKeyboardBrightness()
 {
-    backend()->brightnessKeyPressed(BackendInterface::Increase, BackendInterface::Keyboard);
+    backend()->brightnessKeyPressed(BrightnessLogic::Increase, BackendInterface::Keyboard);
     showBrightnessOSD(keyboardBrightness());
 }
 
 void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 {
-    backend()->brightnessKeyPressed(BackendInterface::Decrease, BackendInterface::Keyboard);
+    backend()->brightnessKeyPressed(BrightnessLogic::Decrease, BackendInterface::Keyboard);
     showBrightnessOSD(keyboardBrightness());
 }
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
-    backend()->brightnessKeyPressed(BackendInterface::Toggle, BackendInterface::Keyboard);
+    backend()->brightnessKeyPressed(BrightnessLogic::Toggle, BackendInterface::Keyboard);
     showBrightnessOSD(keyboardBrightness());
 }
 
 int KeyboardBrightnessControl::keyboardBrightness() const
 {
-    return backend()->brightness(BackendInterface::Keyboard);
+    return qRound(backend()->brightness(BackendInterface::Keyboard));
 }
 
 void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
@@ -214,6 +216,24 @@ void KeyboardBrightnessControl::setKeyboardBrightnessValue(int value)
 {
     QVariantMap args;
     args["Value"] = QVariant::fromValue<int>(value);
+    trigger(args);
+}
+
+int KeyboardBrightnessControl::keyboardBrightnessStep() const
+{
+    return backend()->brightnessStep(BackendInterface::Keyboard);
+}
+
+int KeyboardBrightnessControl::keyboardBrightnessStepMax() const
+{
+    return backend()->brightnessStepMax(BackendInterface::Keyboard);
+}
+
+void KeyboardBrightnessControl::setKeyboardBrightnessStep(int step)
+{
+    QVariantMap args;
+    args["Step"] = QVariant::fromValue<int>(step);
+    args["Explicit"] = true;
     trigger(args);
 }
 

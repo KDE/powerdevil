@@ -47,8 +47,7 @@ BrightnessControl::BrightnessControl(QObject* parent)
 
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
-    connect(core()->backend(), SIGNAL(brightnessValueChanged(int,int,PowerDevil::BackendInterface::BrightnessControlType)),
-            this, SLOT(onBrightnessChangedFromBackend(int,int,PowerDevil::BackendInterface::BrightnessControlType)));
+    connect(core()->backend(), &PowerDevil::BackendInterface::brightnessChanged, this, &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromBackend);
 
     KGlobalAccel *accel = KGlobalAccel::self();
     KActionCollection* actionCollection = new KActionCollection( this );
@@ -102,7 +101,9 @@ void BrightnessControl::onProfileLoad()
 
 void BrightnessControl::triggerImpl(const QVariantMap& args)
 {
-    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
+    if (args.contains("Step")) {
+        backend()->setBrightnessStep(args["Step"].toInt());
+    } else if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
         backend()->setBrightnessValue(args["Value"].toInt());
     } else {
         backend()->setBrightness(args["Value"].toFloat());
@@ -148,18 +149,19 @@ void BrightnessControl::showBrightnessOSD(int brightness)
     m_brightnessOSD->setCurrentBrightness(brightness);
 }
 
-void BrightnessControl::onBrightnessChangedFromBackend(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type)
+void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Screen) {
-        float brightness = (brightnessValueMax > 0) ? brightnessValue * 100.0 / brightnessValueMax : 0.0;
-        Q_EMIT brightnessValueChanged(brightnessValue);
+        int brightness = qRound(info.percentage);
+        Q_EMIT brightnessValueChanged(info.value);
+        Q_EMIT brightnessStepChanged(info.step);
         Q_EMIT brightnessChanged(brightness);
     }
 }
 
 int BrightnessControl::brightness() const
 {
-    return backend()->brightness();
+    return qRound(backend()->brightness());
 }
 
 void BrightnessControl::setBrightness(int percent)
@@ -171,13 +173,13 @@ void BrightnessControl::setBrightness(int percent)
 
 void BrightnessControl::increaseBrightness()
 {
-    backend()->brightnessKeyPressed(BackendInterface::Increase);
+    backend()->brightnessKeyPressed(BrightnessLogic::Increase);
     showBrightnessOSD(brightness());
 }
 
 void BrightnessControl::decreaseBrightness()
 {
-    backend()->brightnessKeyPressed(BackendInterface::Decrease);
+    backend()->brightnessKeyPressed(BrightnessLogic::Decrease);
     showBrightnessOSD(brightness());
 }
 
@@ -195,6 +197,24 @@ void BrightnessControl::setBrightnessValue(int value)
 {
     QVariantMap args;
     args["Value"] = QVariant::fromValue<int>(value);
+    trigger(args);
+}
+
+int BrightnessControl::brightnessStep() const
+{
+    return backend()->brightnessStep();
+}
+
+int BrightnessControl::brightnessStepMax() const
+{
+    return backend()->brightnessStepMax();
+}
+
+void BrightnessControl::setBrightnessStep(int step)
+{
+    QVariantMap args;
+    args["Step"] = QVariant::fromValue<int>(step);
+    args["Explicit"] = true;
     trigger(args);
 }
 

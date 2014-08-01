@@ -50,7 +50,7 @@ public:
     virtual int brightnessValue(BrightnessControlType type = Screen) const;
     virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
-    virtual void brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, PowerDevil::BackendInterface::BrightnessControlType controlType = Screen);
+    virtual void brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen);
     virtual bool setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
@@ -81,8 +81,8 @@ private:
     int m_estimatedBatteryTime;
 
     bool m_screenBrightnessInHardware;
-    float m_cachedScreenBrightness;
-    float m_cachedKeyboardBrightness;
+    int m_cachedScreenBrightness;
+    int m_cachedKeyboardBrightness;
 
     mutable QDBusInterface m_halComputer;
     mutable QDBusInterface m_halPowerManagement;

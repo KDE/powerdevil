@@ -26,5 +26,19 @@
       <arg type="i" direction="out" />
     </signal>
 
+    <method name="setBrightnessStep">
+      <arg type="i" direction="in" />
+    </method>
+    <method name="brightnessStep">
+      <arg type="i" direction="out" />
+    </method>
+    <method name="brightnessStepMax">
+      <arg type="i" direction="out" />
+    </method>
+
+    <signal name="brightnessStepChanged">
+      <arg type="i" direction="out" />
+    </signal>
+
   </interface>
 </node>

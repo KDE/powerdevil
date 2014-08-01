@@ -26,5 +26,19 @@
       <arg type="i" direction="out" />
     </signal>
 
+    <method name="setKeyboardBrightnessStep">
+      <arg type="i" direction="in" />
+    </method>
+    <method name="keyboardBrightnessStep">
+      <arg type="i" direction="out" />
+    </method>
+    <method name="keyboardBrightnessStepMax">
+      <arg type="i" direction="out" />
+    </method>
+
+    <signal name="keyboardBrightnessStepChanged">
+      <arg type="i" direction="out" />
+    </signal>
+
   </interface>
 </node>

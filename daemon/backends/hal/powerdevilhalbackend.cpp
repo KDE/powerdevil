@@ -104,7 +104,7 @@ void PowerDevilHALBackend::init()
     QList<QString> screenControls = controls.keys(Screen);
 
     if (!screenControls.isEmpty()) {
-        m_cachedScreenBrightness = brightness(Screen);
+        m_cachedScreenBrightness = brightnessValue(Screen);
 
         QDBusInterface deviceInterface("org.freedesktop.Hal",
                                        screenControls.at(0),
@@ -172,7 +172,7 @@ void PowerDevilHALBackend::init()
     setBackendIsReady(controls, supported);
 }
 
-void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, BrightnessControlType controlType)
+void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
     BrightnessControlsList allControls = brightnessControlsAvailable();
     QList<QString> controls = allControls.keys(controlType);
@@ -181,13 +181,13 @@ void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BackendInterface::Br
         return; // ignore as we are not able to determine the brightness level
     }
 
-    if (type == Toggle && controlType == Screen) {
+    if (type == PowerDevil::BrightnessLogic::Toggle && controlType == Screen) {
         return; // ignore as we wont toggle the display off
     }
 
-    float currentBrightness = brightness(controlType);
+    int currentBrightness = brightnessValue(controlType);
 
-    float cachedBrightness;
+    int cachedBrightness;
 
     if (controlType == Screen) {
         cachedBrightness = m_cachedScreenBrightness;
@@ -195,21 +195,17 @@ void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BackendInterface::Br
         cachedBrightness = m_cachedKeyboardBrightness;
     }
 
-    if (qFuzzyCompare(currentBrightness, cachedBrightness) && (!m_screenBrightnessInHardware || controlType == Screen)) {
-        float newBrightness;
-        if (type == Increase) {
-            newBrightness = qMin(100.0f, currentBrightness + 10);
-        } else if (type == Decrease) {
-            newBrightness = qMax(0.0f, currentBrightness - 10);
-        } else { // Toggle
-            newBrightness = currentBrightness > 0 ? 0 : 100;
-        }
+    if ((currentBrightness == cachedBrightness) && (!m_screenBrightnessInHardware || controlType == Screen)) {
+        int maxBrightness = brightnessValueMax(controlType),
+            newBrightness = calculateNextStep(currentBrightness, maxBrightness, controlType, type);
 
-        if (setBrightness(newBrightness, controlType)) {
-            newBrightness = brightness(controlType);
-            if (!qFuzzyCompare(newBrightness, cachedBrightness)) {
-                cachedBrightness = newBrightness;
-                onBrightnessChanged(controlType, brightnessValue(controlType), brightnessValueMax(controlType));
+        if (newBrightness >= 0) {
+            if (setBrightnessValue(newBrightness, controlType)) {
+                newBrightness = brightnessValue(controlType);
+                if (newBrightness != cachedBrightness) {
+                    cachedBrightness = newBrightness;
+                    onBrightnessChanged(controlType, newBrightness, maxBrightness);
+                }
             }
         }
     } else {

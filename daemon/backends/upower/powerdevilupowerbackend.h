@@ -59,7 +59,7 @@ public:
     virtual int brightnessValue(BrightnessControlType type = Screen) const;
     virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
-    virtual void brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, PowerDevil::BackendInterface::BrightnessControlType controlType);
+    virtual void brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType);
     virtual bool setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
@@ -87,7 +87,7 @@ private:
     QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
 
     // brightness
-    QMap<BrightnessControlType, float> m_cachedBrightnessMap;
+    QMap<BrightnessControlType, int> m_cachedBrightnessMap;
     XRandrBrightness         *m_brightnessControl;
     XRandRXCBHelper *m_randrHelper;
 

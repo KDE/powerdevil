@@ -63,12 +63,17 @@ public Q_SLOTS:
     int brightnessValueMax() const;
     void setBrightnessValue(int value);
 
+    int brightnessStep() const;
+    int brightnessStepMax() const;
+    void setBrightnessStep(int step);
+
 private Q_SLOTS:
-    void onBrightnessChangedFromBackend(int brightnessValue, int brightnessValueMax, PowerDevil::BackendInterface::BrightnessControlType type);
+    void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
 
 Q_SIGNALS:
     void brightnessChanged(int percent);
     void brightnessValueChanged(int value);
+    void brightnessStepChanged(int step);
 
 private:
     int m_defaultValue;

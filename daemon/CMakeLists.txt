@@ -28,6 +28,9 @@ set(powerdevilcore_SRCS
     powerdevilcore.cpp
     powerdevilpolicyagent.cpp
     powerdevilprofilegenerator.cpp
+    powerdevilbrightnesslogic.cpp
+    powerdevilscreenbrightnesslogic.cpp
+    powerdevilkeyboardbrightnesslogic.cpp
     brightnessosdwidget.cpp
 )
 

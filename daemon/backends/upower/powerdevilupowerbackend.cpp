@@ -211,8 +211,8 @@ void PowerDevilUPowerBackend::init()
     BrightnessControlsList controls;
     if (screenBrightnessAvailable) {
         controls.insert(QLatin1String("LVDS1"), Screen);
-        m_cachedBrightnessMap.insert(Screen, brightness(Screen));
-        kDebug() << "current screen brightness: " << m_cachedBrightnessMap.value(Screen);
+        m_cachedBrightnessMap.insert(Screen, brightnessValue(Screen));
+        kDebug() << "current screen brightness value: " << m_cachedBrightnessMap.value(Screen);
     }
 
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
@@ -226,8 +226,8 @@ void PowerDevilUPowerBackend::init()
         // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
         if (m_kbdMaxBrightness) {
             controls.insert(QLatin1String("KBD"), Keyboard);
-            m_cachedBrightnessMap.insert(Keyboard, brightness(Keyboard));
-            kDebug() << "current keyboard backlight brightness: " << m_cachedBrightnessMap.value(Keyboard);
+            m_cachedBrightnessMap.insert(Keyboard, brightnessValue(Keyboard));
+            kDebug() << "current keyboard backlight brightness value: " << m_cachedBrightnessMap.value(Keyboard);
             connect(m_kbdBacklight, SIGNAL(BrightnessChanged(int)), this, SLOT(onKeyboardBrightnessChanged(int)));
         }
     }
@@ -303,16 +303,15 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
     if (maxBrightness <= 0) {
         return;
     }
-    int newBrightnessValue = device.sysfsProperty("brightness").toInt();
-    float newBrightness = newBrightnessValue * 100 / maxBrightness;
+    int newBrightness = device.sysfsProperty("brightness").toInt();
 
-    if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
+    if (newBrightness != m_cachedBrightnessMap[Screen]) {
         m_cachedBrightnessMap[Screen] = newBrightness;
-        onBrightnessChanged(Screen, newBrightnessValue, maxBrightness);
+        onBrightnessChanged(Screen, newBrightness, maxBrightness);
     }
 }
 
-void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface::BrightnessKeyType type, BrightnessControlType controlType)
+void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
     BrightnessControlsList allControls = brightnessControlsAvailable();
     QList<QString> controls = allControls.keys(controlType);
@@ -321,37 +320,20 @@ void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BackendInterface:
         return; // ignore as we are not able to determine the brightness level
     }
 
-    if (type == Toggle && controlType == Screen) {
-        return; // ignore as we wont toggle the screen off
-    }
-
-    float currentBrightness = brightness(controlType);
-
-    int step = 10;
-    if (controlType == Keyboard) {
-        // In case the keyboard backlight has only 5 or less possible values,
-        // 10% are not enough to hit the next value. Lets use 30% because
-        // that jumps exactly one value for 2, 3, 4 and 5 possible steps
-        // when rounded.
-        if (m_kbdMaxBrightness < 6) {
-            step = 30;
-        }
-    }
-
-    if (qFuzzyCompare(currentBrightness, m_cachedBrightnessMap.value(controlType))) {
-        float newBrightness;
-        if (type == Increase) {
-            newBrightness = qMin(100.0f, currentBrightness + step);
-        } else if (type == Decrease) {
-            newBrightness = qMax(1.0f, currentBrightness - step);
-        } else { // Toggle On/off
-            newBrightness = currentBrightness > 0 ? 0 : 100;
-        }
-
-        setBrightness(newBrightness, controlType);
-    } else {
+    int currentBrightness = brightnessValue(controlType);
+    if (currentBrightness !=  m_cachedBrightnessMap.value(controlType)) {
         m_cachedBrightnessMap[controlType] = currentBrightness;
+        return;
     }
+
+    int maxBrightness = brightnessValueMax(controlType),
+        newBrightness = calculateNextStep(currentBrightness, maxBrightness, controlType, type);
+
+    if (newBrightness < 0) {
+        return;
+    }
+
+    setBrightnessValue(newBrightness, controlType);
 }
 
 int PowerDevilUPowerBackend::brightnessValue(PowerDevil::BackendInterface::BrightnessControlType type) const
@@ -445,21 +427,20 @@ bool PowerDevilUPowerBackend::setBrightnessValue(int brightnessValue, PowerDevil
 
 void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
 {
-    float newBrightness = brightness(Screen);
+    int value = brightnessValue(Screen);
     kDebug() << "Brightness changed!!";
-    if (!qFuzzyCompare(newBrightness, m_cachedBrightnessMap[Screen])) {
-        m_cachedBrightnessMap[Screen] = newBrightness;
-        onBrightnessChanged(Screen, brightnessValue(Screen), brightnessValueMax(Screen));
+    if (value != m_cachedBrightnessMap[Screen]) {
+        m_cachedBrightnessMap[Screen] = value;
+        onBrightnessChanged(Screen, value, brightnessValueMax(Screen));
     }
 }
 
 void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
 {
     kDebug() << "Keyboard brightness changed!!";
-    float realValue = 1.0 * value / m_kbdMaxBrightness * 100;
-    if (!qFuzzyCompare(realValue, m_cachedBrightnessMap[Keyboard])) {
-        m_cachedBrightnessMap[Keyboard] = realValue;
-        onBrightnessChanged(Keyboard, value, m_kbdMaxBrightness);
+    if (value != m_cachedBrightnessMap[Keyboard]) {
+        m_cachedBrightnessMap[Keyboard] = value;
+        onBrightnessChanged(Keyboard, value, brightnessValueMax(Keyboard));
     }
 }
 
