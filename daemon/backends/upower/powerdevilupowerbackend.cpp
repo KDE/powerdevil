@@ -65,7 +65,9 @@ bool checkSystemdVersion(uint requiredVersion)
 
     QRegExp exp("init \\(upstart ([0-9.]+)\\)");
     if(exp.exactMatch(upstartInterface.version())) {
-        const float upstartVersion = exp.cap(1).toFloat();
+        // Only keep the X.Y part of a X.Y.Z version
+        QStringList items = exp.cap(1).split('.').mid(0, 2);
+        const float upstartVersion = items.join(QString('.')).toFloat();
         return upstartVersion >= 1.1;
     }
 
