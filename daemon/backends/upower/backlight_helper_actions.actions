@@ -37,6 +37,16 @@ Icon=kde
 
 [org.kde.powerdevil.backlighthelper.brightnessvaluemax]
 Name=Get maximum brightness value
+Name[ca]=Obtén el valor màxim de la lluminositat
+Name[en_GB]=Get maximum brightness value
+Name[nl]=Waarde van maximale helderheid ophalen
+Name[pt]=Obter o valor máximo do brilho
+Name[pt_BR]=Obter o valor máximo do brilho
+Name[sk]=Získať maximálnu hodnotu jasnosti
+Name[sl]=Dobi največjo vrednost svetlosti
+Name[sv]=Hämta maximalt värde på ljusstyrka
+Name[uk]=Отримання максимального значення яскравості
+Name[x-test]=xxGet maximum brightness valuexx
 Description=System policies prevent you from getting the brightness level.
 Description[ar]=تمنعك سياسات النظام من الحصول على معلومات مستوى السطوع.
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el nivell de brillantor de la pantalla.
@@ -76,7 +86,7 @@ PolicyInactive=yes
 [org.kde.powerdevil.backlighthelper.brightnessvalue]
 Name=Get brightness
 Name[ar]=احصل على معلومات السطوع
-Name[ca]=Lluminositat de la pantalla
+Name[ca]=Obtén la lluminositat
 Name[cs]=Získat jas
 Name[da]=Hent lysstyrke
 Name[de]=Bildschirmhelligkeit abrufen
