@@ -356,8 +356,8 @@ void Core::loadProfile(bool force)
                 // Ouch, error. But let's just warn and move on anyway
                 //TODO Maybe Remove from the configuration if unsupported
                 kWarning() << "The profile " << profileId <<  "tried to activate"
-                                << actionName << "a non existent action. This is usually due to an installation problem"
-                                " or to a configuration problem. or simlpy the action is not supported";
+                                << actionName << "a non-existent action. This is usually due to an installation problem,"
+                                " or to a configuration problem, or simply the action is not supported";
             }
         }
 
