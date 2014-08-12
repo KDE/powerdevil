@@ -50,11 +50,6 @@ void Login1SuspendJob::start()
     QTimer::singleShot(0, this, SLOT(doStart()));
 }
 
-void Login1SuspendJob::kill(bool /*quietly */)
-{
-
-}
-
 void Login1SuspendJob::doStart()
 {
     if (m_supported & m_method)

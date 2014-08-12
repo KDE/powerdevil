@@ -51,11 +51,6 @@ void UPowerSuspendJob::start()
     QTimer::singleShot(0, this, SLOT(doStart()));
 }
 
-void UPowerSuspendJob::kill(bool /*quietly */)
-{
-
-}
-
 void UPowerSuspendJob::doStart()
 {
     if (m_supported & m_method)

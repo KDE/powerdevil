@@ -38,8 +38,7 @@ public:
                      PowerDevil::BackendInterface::SuspendMethods supported);
     virtual ~UPowerSuspendJob();
 
-    void start();
-    void kill(bool quietly);
+    void start() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void doStart();
