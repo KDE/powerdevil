@@ -40,8 +40,6 @@
 K_PLUGIN_FACTORY( PowerDevilFactory,
                   registerPlugin<KDEDPowerDevil>(); )
 
-#define POWERDEVIL_VERSION "1.99"
-
 KDEDPowerDevil::KDEDPowerDevil(QObject* parent, const QVariantList &)
     : KDEDModule(parent)
 {
@@ -57,7 +55,7 @@ void KDEDPowerDevil::init()
 //     KGlobal::insertCatalog("powerdevil");
 
 //     KAboutData aboutData("powerdevil", "powerdevil", ki18n("KDE Power Management System"),
-//                          POWERDEVIL_VERSION, ki18n("KDE Power Management System is PowerDevil, an "
+//                          PROJECT_VERSION, ki18n("KDE Power Management System is PowerDevil, an "
 //                                                    "advanced, modular and lightweight Power Management "
 //                                                    "daemon"),
 //                          KAboutData::License_GPL, ki18n("(c) 2010 MetalWorkers Co."),

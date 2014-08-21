@@ -103,7 +103,7 @@ set(powerdevilui_SRCS
 )
 
 add_library(powerdevilui ${powerdevilui_SRCS})
-set_target_properties(powerdevilui PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION} )
+set_target_properties(powerdevilui PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
 
 # not exported, so just make the deps public
 target_link_libraries(powerdevilui

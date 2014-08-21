@@ -1,4 +1,6 @@
 project(PowerDevil)
+set(PROJECT_VERSION "5.0.95")
+set(PROJECT_VERSION_MAJOR 5)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.2.0")
@@ -38,14 +40,6 @@ include_directories (
 set(HAVE_DPMS ${X11_dpms_FOUND})
 
 configure_file(config-workspace.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-workspace.h)
-
-set(POWERDEVIL_VERSION_MAJOR 5)
-set(POWERDEVIL_VERSION_MINOR 0)
-set(POWERDEVIL_VERSION_PATCH 1)
-set(POWERDEVIL_VERSION ${POWERDEVIL_VERSION_MAJOR}.${POWERDEVIL_VERSION_MINOR}.${POWERDEVIL_VERSION_PATCH} )
-
-set(GENERIC_LIB_SOVERSION 5)
-set(GENERIC_LIB_VERSION "${POWERDEVIL_VERSION_MAJOR}.${POWERDEVIL_VERSION_MINOR}.${POWERDEVIL_VERSION_PATCH}")
 
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
