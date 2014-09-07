@@ -63,7 +63,7 @@ bool checkSystemdVersion(uint requiredVersion)
                                                   QLatin1String("/com/ubuntu/Upstart"),
                                                   QDBusConnection::sessionBus());
 
-    QRegExp exp("init \\(upstart ([0-9.]+)\\)");
+    QRegExp exp("(?:init \\()?upstart ([0-9.]+)(?:\\))?");
     if(exp.exactMatch(upstartInterface.version())) {
         // Only keep the X.Y part of a X.Y.Z version
         QStringList items = exp.cap(1).split('.').mid(0, 2);
