@@ -35,6 +35,7 @@ Name[sv]=Dämpa skärmen
 Name[uk]=Зменшення яскравості екрана
 Name[x-test]=xxDim screenxx
 Name[zh_CN]=暗淡屏幕
+Name[zh_TW]=將螢幕變暗
 Comment=Dims gradually the display on a time basis
 Comment[ar]=يعتِم الشاشة تدريجياً بناء على توقيت
 Comment[ca]=Atenua gradualment la pantalla en funció del temps
