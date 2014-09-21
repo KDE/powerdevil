@@ -41,6 +41,7 @@ Icon=kde
 Name=Get maximum brightness value
 Name[ca]=Obtén el valor màxim de la lluminositat
 Name[cs]=Získat maximální hodnotu jasu
+Name[da]=Hent maksimal værdi for lysstyrke
 Name[de]=Maximale Bildschirmhelligkeit abrufen
 Name[en_GB]=Get maximum brightness value
 Name[es]=Obtener el valor del brillo máximo
