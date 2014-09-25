@@ -15,6 +15,6 @@ target_link_libraries(powerdevilconfigcommonprivate
         powerdevilui
 )
 
-set_target_properties(powerdevilconfigcommonprivate PROPERTIES VERSION ${GENERIC_LIB_VERSION} SOVERSION ${GENERIC_LIB_SOVERSION})
+set_target_properties(powerdevilconfigcommonprivate PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
 
 install( TARGETS powerdevilconfigcommonprivate ${INSTALL_TARGETS_DEFAULT_ARGS} )
