@@ -23,7 +23,7 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-#include <KIcon>
+#include <QIcon>
 #include <KLocalizedString>
 #include <kglobal.h>
 
@@ -38,7 +38,7 @@ ErrorOverlay::ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget 
     layout->setSpacing(10);
 
     QLabel *pixmap = new QLabel();
-    pixmap->setPixmap(KIcon("dialog-error").pixmap(64));
+    pixmap->setPixmap(QIcon::fromTheme("dialog-error").pixmap(64));
 
     QLabel *message = new QLabel(i18n("Power Management configuration module could not be loaded.\n%1", details));
 

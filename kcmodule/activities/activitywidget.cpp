@@ -91,20 +91,20 @@ void ActivityWidget::load()
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
-        m_ui->alwaysActionBox->addItem(KIcon("system-suspend"),
+        m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
                                        i18n("Sleep"), (uint)SuspendSession::ToRamMode);
     }
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
-        m_ui->alwaysActionBox->addItem(KIcon("system-suspend-hibernate"),
+        m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
                                        i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    m_ui->alwaysActionBox->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
 
     m_ui->actLikeComboBox->clear();
 
-    m_ui->actLikeComboBox->addItem(KIcon("battery-charging"), i18n("PC running on AC power"), "AC");
-    m_ui->actLikeComboBox->addItem(KIcon("battery-060"), i18n("PC running on battery power"), "Battery");
-    m_ui->actLikeComboBox->addItem(KIcon("battery-low"), i18n("PC running on low battery"), "LowBattery");
+    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-charging"), i18n("PC running on AC power"), "AC");
+    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-060"), i18n("PC running on battery power"), "Battery");
+    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-low"), i18n("PC running on low battery"), "LowBattery");
 
     foreach (const QString &activity, m_activityConsumer->listActivities()) {
         if (activity == m_activity) {
@@ -121,7 +121,7 @@ void ActivityWidget::load()
         QString name = i18nc("This is meant to be: Act like activity %1",
                              "Activity \"%1\"", info->name());
 
-        m_ui->actLikeComboBox->addItem(KIcon(icon), name, activity);
+        m_ui->actLikeComboBox->addItem(QIcon::fromTheme(icon), name, activity);
     }
 
     // Proper loading routine

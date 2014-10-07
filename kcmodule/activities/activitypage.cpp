@@ -35,7 +35,7 @@
 
 #include <KAboutData>
 #include <QDebug>
-#include <KIcon>
+#include <QIcon>
 #include <KMessageWidget>
 #include <KPluginFactory>
 #include <KSharedConfig>
@@ -88,7 +88,7 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
 
         connect(activityWidget, SIGNAL(changed(bool)), this, SIGNAL(changed(bool)));
 
-        tabWidget->addTab(scrollArea, KIcon(icon), name);
+        tabWidget->addTab(scrollArea, QIcon::fromTheme(icon), name);
     }
 
     // Message widget

@@ -27,7 +27,6 @@
 #include <QMap>
 #include <QString>
 
-#include <kdemacros.h>
 
 class Q_DECL_EXPORT ActionConfigWidget : public QWidget
 {

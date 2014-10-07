@@ -39,8 +39,6 @@
 #include <KConfigGroup>
 #include <KLineEdit>
 #include <QDebug>
-#include <KDialog>
-#include <KFileDialog>
 #include <KMessageBox>
 #include <KIconButton>
 #include <KToolBar>
@@ -48,7 +46,6 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KServiceTypeTrader>
-#include <KStandardDirs>
 #include <KLocalizedString>
 #include <KRun>
 

@@ -35,7 +35,7 @@
 #include <KConfigGroup>
 #include <QDebug>
 #include <KServiceTypeTrader>
-#include <KIcon>
+#include <QIcon>
 
 ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
