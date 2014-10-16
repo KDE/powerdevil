@@ -23,7 +23,7 @@
 
 #include <powerdevilactionconfig.h>
 
-class KIntSpinBox;
+class QSpinBox;
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -41,7 +41,7 @@ public:
     virtual QList< QPair< QString, QWidget* > > buildUi();
 
 private:
-    KIntSpinBox *m_spinBox;
+    QSpinBox *m_spinBox;
 };
 
 }

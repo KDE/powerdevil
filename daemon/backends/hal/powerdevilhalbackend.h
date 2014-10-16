@@ -26,8 +26,6 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 
-#include <kdemacros.h>
-
 #include <solid/devicenotifier.h>
 #include <solid/device.h>
 

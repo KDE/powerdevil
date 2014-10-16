@@ -24,7 +24,7 @@
 #include <powerdevilactionconfig.h>
 
 class KComboBox;
-class KIntSpinBox;
+class QSpinBox;
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -42,7 +42,7 @@ public:
     virtual QList< QPair< QString, QWidget* > > buildUi();
 
 private:
-    KIntSpinBox *m_idleTime;
+    QSpinBox *m_idleTime;
     KComboBox *m_comboBox;
 };
 

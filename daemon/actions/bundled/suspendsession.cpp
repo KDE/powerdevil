@@ -21,13 +21,15 @@
 
 #include "powerdevilbackendinterface.h"
 #include "powerdevilcore.h"
+#include <powerdevil_debug.h>
 
 #include "suspendsessionadaptor.h"
+
+#include <QDebug>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KJob>
-#include <KDebug>
 
 #include <kworkspace.h>
 
@@ -82,7 +84,7 @@ void SuspendSession::onProfileLoad()
 
 void SuspendSession::triggerImpl(const QVariantMap& args)
 {
-    kDebug() << "Triggered with " << args["Type"].toString() << args["SkipLocking"].toBool();
+    qCDebug(POWERDEVIL) << "Triggered with " << args["Type"].toString() << args["SkipLocking"].toBool();
 
     // Switch for screen lock
     QVariantMap recallArgs;

@@ -22,6 +22,7 @@
 #include <PowerDevilSettings.h>
 
 #include <QtCore/QFile>
+#include <QStandardPaths>
 
 #include <Solid/Device>
 #include <Solid/Battery>
@@ -30,9 +31,6 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <KNotification>
-#include <KIcon>
-#include <KStandardDirs>
-#include <KGlobal>
 
 namespace PowerDevil {
 
@@ -266,7 +264,7 @@ void ProfileGenerator::upgradeProfilesv1(bool toRam, bool toDisk)
     profilesConfig->sync();
 
     // We also want to backup and erase the old profiles.
-    QString oldProfilesFile = KGlobal::dirs()->findResource("config", "powerdevilprofilesrc");
+    QString oldProfilesFile = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, "powerdevilprofilesrc");
     if (!oldProfilesFile.isEmpty()) {
         // Backup
         QString bkProfilesFile = oldProfilesFile;
@@ -320,7 +318,7 @@ void ProfileGenerator::upgradeProfilesv2()
     profilesConfig->sync();
 
     // We also want to backup and erase the old profiles.
-    QString oldProfilesFile = KGlobal::dirs()->findResource("config", "powerdevil2profilesrc");
+    QString oldProfilesFile = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, "powerdevil2profilesrc");
     if (!oldProfilesFile.isEmpty()) {
         // Backup
         QString bkProfilesFile = oldProfilesFile;

@@ -27,8 +27,6 @@
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusInterface>
 
-#include <kdemacros.h>
-
 #include "upower_device_interface.h"
 #include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"

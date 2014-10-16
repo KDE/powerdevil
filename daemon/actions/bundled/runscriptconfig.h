@@ -23,7 +23,7 @@
 
 #include <powerdevilactionconfig.h>
 
-class KIntSpinBox;
+class QSpinBox;
 class KComboBox;
 class KUrlRequester;
 
@@ -46,7 +46,7 @@ public:
 private:
     KUrlRequester *m_urlRequester;
     KComboBox *m_comboBox;
-    KIntSpinBox *m_idleTime;
+    QSpinBox *m_idleTime;
 
 private Q_SLOTS:
     void onIndexChanged(const QString&);

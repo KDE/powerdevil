@@ -22,11 +22,12 @@
 
 #include "upower_interface.h"
 
+#include <powerdevil_debug.h>
+
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QTimer>
-#include <KDebug>
-#include <KLocale>
+#include <QDebug>
 #include <KLocalizedString>
 
 UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
@@ -34,7 +35,7 @@ UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterfac
                                    PowerDevil::BackendInterface::SuspendMethods supported)
     : KJob(), m_upowerInterface(upowerInterface)
 {
-    kDebug() << "Starting UPower suspend job";
+    qCDebug(POWERDEVIL) << "Starting UPower suspend job";
     m_method = method;
     m_supported = supported;
 
@@ -66,7 +67,7 @@ void UPowerSuspendJob::doStart()
             m_upowerInterface->Hibernate();
             break;
         default:
-            kDebug() << "This backend doesn't support hybrid mode";
+            qCDebug(POWERDEVIL) << "This backend doesn't support hybrid mode";
             setError(1);
             setErrorText(i18n("Unsupported suspend method"));
             break;

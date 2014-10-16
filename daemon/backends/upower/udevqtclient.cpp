@@ -21,6 +21,8 @@
 #include "udevqtclient.h"
 #include "udevqt_p.h"
 
+#include <powerdevil_debug.h>
+
 #include <QtCore/QSocketNotifier>
 #include <qplatformdefs.h>
 
@@ -55,7 +57,7 @@ void ClientPrivate::setWatchedSubsystems(const QStringList &subsystemList)
     struct udev_monitor *newM = udev_monitor_new_from_netlink(udev, "udev");
 
     if (!newM) {
-        qWarning("UdevQt: unable to create udev monitor connection");
+        qCWarning(POWERDEVIL, "UdevQt: unable to create udev monitor connection");
         return;
     }
 
@@ -112,7 +114,7 @@ void ClientPrivate::_uq_monitorReadyRead(int fd)
     } else  if (action == "offline") {
         emit q->deviceOfflined(device);
     } else {
-        qWarning("UdevQt: unhandled device action \"%s\"", action.constData());
+        qCWarning(POWERDEVIL, "UdevQt: unhandled device action \"%s\"", action.constData());
     }
 }
 

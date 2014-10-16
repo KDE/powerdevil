@@ -25,6 +25,8 @@
 #include <powerdevilactionconfig.h>
 #include <powerdevilprofilegenerator.h>
 
+#include <powerdevil_debug.h>
+
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
@@ -93,7 +95,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         m_profilesConfig->reparseConfiguration();
     }
 
-    qDebug() << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
+    qCDebug(POWERDEVIL) << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
 
     // Create widgets for each profile
     ActionEditWidget *editWidget = new ActionEditWidget("AC", tabWidget);
@@ -167,7 +169,7 @@ void EditPage::onChanged(bool value)
 
 void EditPage::load()
 {
-    qDebug() << "Loading routine called";
+    qCDebug(POWERDEVIL) << "Loading routine called";
     for (QHash< QString, ActionEditWidget* >::const_iterator i = m_editWidgets.constBegin();
          i != m_editWidgets.constEnd(); ++i) {
         i.value()->load();
@@ -207,7 +209,7 @@ void EditPage::notifyDaemon(const QStringList &editedProfiles)
         if (reply.isValid()) {
             if (!editedProfiles.contains(reply.value())) {
                 // Ask to reparse config
-                qDebug() << "Inactive profile edited, reparsing configuration";
+                qCDebug(POWERDEVIL) << "Inactive profile edited, reparsing configuration";
                 call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                       "org.kde.Solid.PowerManagement", "reparseConfiguration");
 
@@ -234,7 +236,7 @@ void EditPage::restoreDefaultProfiles()
                                                             "all existing modifications you made. "
                                                             "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
     if (ret == KMessageBox::Continue) {
-        qDebug() << "Restoring defaults.";
+        qCDebug(POWERDEVIL) << "Restoring defaults.";
         QSet <Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
         PowerDevil::ProfileGenerator::generateProfiles(
             methods.contains(Solid::PowerManagement::SuspendState),

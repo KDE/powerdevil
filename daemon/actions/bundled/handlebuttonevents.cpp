@@ -24,7 +24,7 @@
 
 #include <powerdevilactionpool.h>
 
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KLocalizedString>

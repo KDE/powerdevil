@@ -23,8 +23,6 @@
 
 #include <powerdevilactionconfig.h>
 
-#include <kdemacros.h>
-
 class QSlider;
 
 namespace PowerDevil {

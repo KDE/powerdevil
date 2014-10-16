@@ -22,12 +22,9 @@
 #include <QtCore/QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
-
 #include <QIcon>
-#include <KLocalizedString>
-#include <kglobal.h>
 
-static const KCatalogLoader loader("libpowerdevilcommonconfig");
+#include <KLocalizedString>
 
 ErrorOverlay::ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent) :
     QWidget(parent ? parent : baseWidget->window()),

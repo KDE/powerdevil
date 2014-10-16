@@ -21,13 +21,14 @@
 #include "powerdevildpmsaction.h"
 
 #include <powerdevilcore.h>
+#include <powerdevil_debug.h>
 
 #include <config-workspace.h>
 
 #include <QX11Info>
+#include <QDebug>
 
 #include <KConfigGroup>
-#include <KDebug>
 #include <KPluginFactory>
 #include <KSharedConfig>
 
@@ -86,7 +87,7 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     // Is the action being loaded outside the core?
     if (args.size() > 0) {
         if (args.first().toBool()) {
-            kDebug() << "Action loaded from outside the core, skipping early init";
+            qCDebug(POWERDEVIL) << "Action loaded from outside the core, skipping early init";
             return;
         }
     }
@@ -123,7 +124,7 @@ void PowerDevilDPMSAction::onProfileUnload()
     if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
         DPMSDisable(dpy);
     } else {
-        kDebug() << "Not performing DPMS action due to inhibition";
+        qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
     }
     DPMSSetTimeouts(dpy, 0, 0, 0);
 }
@@ -145,7 +146,7 @@ void PowerDevilDPMSAction::onProfileLoad()
     if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
         DPMSEnable(dpy);
     } else {
-        kDebug() << "Not performing DPMS action due to inhibition";
+        qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
         return;
     }
 
@@ -219,14 +220,14 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
 
     if (m_inhibitScreen) {
         // Inhibition triggered: disable DPMS
-        kDebug() << "Disabling DPMS due to inhibition";
+        qCDebug(POWERDEVIL) << "Disabling DPMS due to inhibition";
         Display *dpy = QX11Info::display();
         DPMSSetTimeouts(dpy, 0, 0, 0);
         DPMSDisable(dpy); // wakes the screen - do we want this?
     } else {
         // Inhibition removed: let's start again
         onProfileLoad();
-        kDebug() << "Restoring DPMS features after inhibition release";
+        qCDebug(POWERDEVIL) << "Restoring DPMS features after inhibition release";
     }
 }
 

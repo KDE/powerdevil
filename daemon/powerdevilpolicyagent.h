@@ -29,8 +29,6 @@
 #include <QtDBus/QDBusContext>
 #include <QtDBus/QDBusUnixFileDescriptor>
 
-#include <kdemacros.h>
-
 class QDBusServiceWatcher;
 class QDBusInterface;
 

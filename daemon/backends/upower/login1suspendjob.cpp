@@ -21,11 +21,12 @@
 
 #include "login1suspendjob.h"
 
+#include <powerdevil_debug.h>
+
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
 #include <QTimer>
-#include <KDebug>
-#include <KLocale>
+#include <QDebug>
 #include <KLocalizedString>
 
 Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
@@ -33,7 +34,7 @@ Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
                                    PowerDevil::BackendInterface::SuspendMethods supported)
     : KJob(), m_login1Interface(login1Interface)
 {
-    kDebug() << "Starting Login1 suspend job";
+    qCDebug(POWERDEVIL) << "Starting Login1 suspend job";
     m_method = method;
     m_supported = supported;
 
@@ -73,7 +74,7 @@ void Login1SuspendJob::doStart()
             reply = m_login1Interface->asyncCallWithArgumentList("HybridSleep", args);
             break;
         default:
-            kDebug() << "Unsupported suspend method";
+            qCDebug(POWERDEVIL) << "Unsupported suspend method";
             setError(1);
             setErrorText(i18n("Unsupported suspend method"));
             break;
@@ -87,7 +88,7 @@ void Login1SuspendJob::sendResult(QDBusPendingCallWatcher *watcher)
     if (!reply.isError()) {
         emitResult();
     } else {
-        kWarning() << "Failed to start suspend job" << reply.error().name() << reply.error().message();
+        qCWarning(POWERDEVIL) << "Failed to start suspend job" << reply.error().name() << reply.error().message();
     }
 
     watcher->deleteLater();

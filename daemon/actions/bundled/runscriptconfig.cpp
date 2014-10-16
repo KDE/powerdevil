@@ -21,12 +21,12 @@
 #include "runscriptconfig.h"
 
 #include <QHBoxLayout>
+#include <QSpinBox>
 
 #include <KConfig>
 #include <KLocalizedString>
 #include <KUrlRequester>
 #include <KComboBox>
-#include <KIntSpinBox>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KConfig>
@@ -74,10 +74,11 @@ QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
     QWidget *tempWidget = new QWidget;
     QHBoxLayout *hlay = new QHBoxLayout;
     m_comboBox = new KComboBox;
-    m_idleTime = new KIntSpinBox(0, 180, 1, 0, 0);
+    m_idleTime = new QSpinBox;
     m_idleTime->setMaximumWidth(150);
     m_idleTime->setMinimum(1);
     m_idleTime->setMaximum(360);
+    m_idleTime->setValue(0);
     m_idleTime->setDisabled(true);
     m_idleTime->setSuffix(i18n(" min"));
     m_comboBox->addItem(i18n("On Profile Load"));

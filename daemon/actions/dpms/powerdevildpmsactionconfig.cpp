@@ -19,7 +19,8 @@
 
 #include "powerdevildpmsactionconfig.h"
 
-#include <KIntSpinBox>
+#include <QSpinBox>
+
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
@@ -52,7 +53,7 @@ QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
 {
     QList< QPair< QString, QWidget* > > retlist;
 
-    m_spinBox = new KIntSpinBox(0, 180, 1, 0, 0);
+    m_spinBox = new QSpinBox;
     m_spinBox->setMaximumWidth(150);
     m_spinBox->setMinimum(1);
     m_spinBox->setMaximum(360);

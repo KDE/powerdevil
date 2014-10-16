@@ -22,6 +22,8 @@
 
 #include "activitywidget.h"
 
+#include <powerdevil_debug.h>
+
 #include <ErrorOverlay.h>
 
 #include <QScrollArea>
@@ -72,7 +74,7 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
         KActivities::Info *info = new KActivities::Info(activity, this);
         QString icon = info->icon();
         QString name = info->name();
-        qDebug() << activity << info->isValid() << info->availability();
+        qCDebug(POWERDEVIL) << activity << info->isValid() << info->availability();
 
         QScrollArea *scrollArea = new QScrollArea();
         scrollArea->setFrameShape(QFrame::NoFrame);

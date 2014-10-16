@@ -17,6 +17,8 @@
  * 
  */
 
+#include <powerdevil_debug.h>
+
 #include "xrandrbrightness.h"
 
 #include <stdio.h>
@@ -33,13 +35,13 @@ XRandrBrightness::XRandrBrightness()
     int major, minor;
     if (!XRRQueryVersion (QX11Info::display(), &major, &minor))
     {
-        qWarning("RandR extension missing");
+        qCWarning(POWERDEVIL, "RandR extension missing");
         return;
     }
 
     if (major < 1 || (major == 1 && minor < 2))
     {
-        qWarning("RandR version %d.%d too old", major, minor);
+        qCWarning(POWERDEVIL, "RandR version %d.%d too old", major, minor);
         return;
     }
 
@@ -49,7 +51,7 @@ XRandrBrightness::XRandrBrightness()
 
     if (m_backlight == None)
     {
-        qWarning("No outputs have backlight property");
+        qCWarning(POWERDEVIL, "No outputs have backlight property");
         return;
     }
 
@@ -57,7 +59,7 @@ XRandrBrightness::XRandrBrightness()
 
     if (!m_resources)
     {
-        qWarning("No available Randr resources");
+        qCWarning(POWERDEVIL, "No available Randr resources");
         return;
     }
 }

@@ -168,7 +168,7 @@ void GeneralPage::save()
 
     PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
-    PowerDevilSettings::self()->writeConfig();
+    PowerDevilSettings::self()->save();
 
     // Notify Daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",

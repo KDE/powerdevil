@@ -22,14 +22,14 @@
 
 #include "powerdevilaction.h"
 #include "powerdevilcore.h"
+#include "powerdevil_debug.h"
 
 #include <KConfigGroup>
-#include <KDebug>
-#include <KGlobal>
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
 
 #include <QtDBus/QDBusConnection>
+#include <QDebug>
 
 // Bundled actions:
 #include "actions/bundled/suspendsession.h"
@@ -52,7 +52,7 @@ public:
     ActionPool *q;
 };
 
-K_GLOBAL_STATIC(ActionPoolHelper, s_globalActionPool)
+Q_GLOBAL_STATIC(ActionPoolHelper, s_globalActionPool)
 
 ActionPool *ActionPool::instance()
 {
@@ -92,13 +92,13 @@ void ActionPool::init(PowerDevil::Core *parent)
     foreach (KService::Ptr offer, offers) {
         QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
-        kDebug() << "Got a valid offer for " << actionId;
+        qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
         //try to load the specified library
         PowerDevil::Action *retaction = offer->createInstance< PowerDevil::Action >(parent);
 
         if (!retaction) {
             // Troubles...
-            kWarning() << "failed to load" << offer->desktopEntryName();
+            qCWarning(POWERDEVIL) << "failed to load" << offer->desktopEntryName();
             continue;
         }
 

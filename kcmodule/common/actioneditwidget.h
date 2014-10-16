@@ -25,8 +25,6 @@
 
 #include <KSharedConfig>
 
-#include <kdemacros.h>
-
 namespace PowerDevil
 {
 class ActionConfig;

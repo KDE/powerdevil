@@ -25,14 +25,15 @@
 
 #include "powerdevilbackendloader.h"
 #include "powerdevilcore.h"
+#include "powerdevil_debug.h"
 
 #include <QtCore/QTimer>
 
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
+#include <QDebug>
 
 #include <KAboutData>
-#include <KDebug>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KLocalizedString>
@@ -67,7 +68,7 @@ void KDEDPowerDevil::init()
     if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
         QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
         QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
-        kError() << "KDE Power Management system not initialized, another power manager has been detected";
+        qCCritical(POWERDEVIL) << "KDE Power Management system not initialized, another power manager has been detected";
         return;
     }
 
@@ -80,18 +81,18 @@ void KDEDPowerDevil::init()
 
     if (!interface) {
         // Ouch
-        kError() << "KDE Power Management System init failed!";
+        qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
         m_core->loadCore(0);
     } else {
         // Let's go!
-        kDebug() << "Backend loaded, loading core";
+        qCDebug(POWERDEVIL) << "Backend loaded, loading core";
         m_core->loadCore(interface);
     }
 }
 
 void KDEDPowerDevil::onCoreReady()
 {
-    kDebug() << "Core is ready, registering various services on the bus...";
+    qCDebug(POWERDEVIL) << "Core is ready, registering various services on the bus...";
     //DBus logic for the core
     new PowerManagementAdaptor(m_core);
     new PowerDevil::FdoConnector(m_core);

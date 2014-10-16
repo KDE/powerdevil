@@ -24,7 +24,6 @@
 #include <QtCore/QObject>
 #include <QtCore/QHash>
 
-#include <kdemacros.h>
 #include "powerdevilbrightnesslogic.h"
 
 class KJob;

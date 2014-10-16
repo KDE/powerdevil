@@ -20,7 +20,8 @@
 #include "powerdevilbackendinterface.h"
 #include "powerdevilscreenbrightnesslogic.h"
 #include "powerdevilkeyboardbrightnesslogic.h"
-#include <KDebug>
+#include "powerdevil_debug.h"
+#include <QDebug>
 
 namespace PowerDevil
 {
@@ -80,9 +81,9 @@ BackendInterface::BatteryState BackendInterface::batteryState() const
 bool BackendInterface::setBrightness(float brightness, BackendInterface::BrightnessControlType type)
 {
     if (type == Screen) {
-        kDebug() << "set screen brightness percentage: " << brightness;
+        qCDebug(POWERDEVIL) << "set screen brightness percentage: " << brightness;
     } else {
-        kDebug() << "set kbd backlight percentage: " << brightness;
+        qCDebug(POWERDEVIL) << "set kbd backlight percentage: " << brightness;
     }
 
     return setBrightnessValue(qRound(brightness / 100 * brightnessValueMax(type)), type);

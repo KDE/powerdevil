@@ -23,14 +23,15 @@
 
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
+#include <powerdevil_debug.h>
 
 #include <QDesktopWidget>
 
 #include <QAction>
+#include <QDebug>
+
 #include <KActionCollection>
-#include <KApplication>
 #include <KConfigGroup>
-#include <KDebug>
 #include <KLocalizedString>
 #include <kglobalaccel.h>
 #include <kglobalaccel.h>
@@ -98,7 +99,7 @@ void KeyboardBrightnessControl::onProfileLoad()
          (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
         m_defaultValue > keyboardBrightness()) {
         // We don't want to change anything here
-        kDebug() << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
+        qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else if (m_defaultValue > 0) {
         QVariantMap args;
         args["Value"] = QVariant::fromValue((float)m_defaultValue);
@@ -136,7 +137,7 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
     m_lastProfile = m_currentProfile;
     m_currentProfile = config.parent().name();
 
-    kDebug() << "Profiles: " << m_currentProfile << m_lastProfile;
+    qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << m_lastProfile;
 
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);

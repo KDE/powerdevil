@@ -25,6 +25,8 @@
 #include <powerdevilaction.h>
 #include <powerdevilactionconfig.h>
 
+#include <powerdevil_debug.h>
+
 #include <QCheckBox>
 #include <QVBoxLayout>
 
@@ -35,7 +37,6 @@
 #include <KConfigGroup>
 #include <QDebug>
 #include <KServiceTypeTrader>
-#include <QIcon>
 
 ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
@@ -52,7 +53,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     foreach (const KService::Ptr &offer, offers) {
         // Does it have a runtime requirement?
         if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
-            qDebug() << offer->name() << " has a runtime requirement";
+            qCDebug(POWERDEVIL) << offer->name() << " has a runtime requirement";
 
             QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                                "org.kde.Solid.PowerManagement", "isActionSupported");
@@ -62,11 +63,11 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 
             if (reply.isValid()) {
                 if (!reply.value()) {
-                    qDebug() << "The action " << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String) << " appears not to be supported by the core.";
+                    qCDebug(POWERDEVIL) << "The action " << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String) << " appears not to be supported by the core.";
                     continue;
                 }
             } else {
-                qDebug() << "There was a problem in contacting DBus!! Assuming the action is ok.";
+                qCDebug(POWERDEVIL) << "There was a problem in contacting DBus!! Assuming the action is ok.";
             }
         }
 
@@ -75,14 +76,14 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
                                                                 QVariant::String).toString()).factory();
 
         if (!factory) {
-            qWarning() << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
+            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
                                                                        QVariant::String).toString();
             continue;
         }
 
         PowerDevil::ActionConfig *actionConfig = factory->create<PowerDevil::ActionConfig>();
         if (!actionConfig) {
-            qWarning() << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
+            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
                                                                        QVariant::String).toString();
             continue;
         }
@@ -119,12 +120,12 @@ void ActionEditWidget::load()
 {
     KConfigGroup group = configGroup();
 
-    qDebug() << m_profilesConfig.data()->entryMap().keys();
+    qCDebug(POWERDEVIL) << m_profilesConfig.data()->entryMap().keys();
 
     if (!group.isValid()) {
         return;
     }
-    qDebug() << "Ok, KConfigGroup ready" << group.entryMap().keys();
+    qCDebug(POWERDEVIL) << "Ok, KConfigGroup ready" << group.entryMap().keys();
 
     // Iterate over the possible actions
     for (QHash< QString, QCheckBox* >::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
@@ -143,7 +144,7 @@ void ActionEditWidget::save()
     KConfigGroup group = configGroup();
 
     if (!group.isValid()) {
-        qDebug() << "Could not perform a save operation, group is not valid!";
+        qCDebug(POWERDEVIL) << "Could not perform a save operation, group is not valid!";
         return;
     }
 

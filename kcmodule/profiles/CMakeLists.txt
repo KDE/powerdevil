@@ -1,8 +1,9 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilprofilesconfig\")
 
 set( kcm_powerdevil_profiles_SRCS
+     ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
      EditPage.cpp
-     ../../daemon/powerdevilprofilegenerator.cpp
+     ${PowerDevil_SOURCE_DIR}/daemon/powerdevilprofilegenerator.cpp
 )
 
 ki18n_wrap_ui(kcm_powerdevil_profiles_SRCS
@@ -16,6 +17,8 @@ target_link_libraries(kcm_powerdevilprofilesconfig
      KF5::KIOWidgets
      KF5::Solid
      KF5::ConfigGui
+     KF5::ConfigWidgets
+     KF5::KDELibs4Support
      powerdevilui
      powerdevilconfigcommonprivate
 )

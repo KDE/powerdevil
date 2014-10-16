@@ -20,8 +20,9 @@
 #include "powerdevilaction.h"
 
 #include "powerdevilcore.h"
+#include "powerdevil_debug.h"
 
-#include <KDebug>
+#include <QDebug>
 
 namespace PowerDevil
 {
@@ -100,7 +101,7 @@ void Action::trigger(const QVariantMap& args)
             triggerImpl(args);
         } else {
             // TODO: Notify somehow?
-            kWarning() << "Unsatisfied policies, the action has been aborted";
+            qCWarning(POWERDEVIL) << "Unsatisfied policies, the action has been aborted";
         }
     }
 }

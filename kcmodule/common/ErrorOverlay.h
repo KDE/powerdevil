@@ -22,8 +22,6 @@
 
 #include <QWidget>
 
-#include <kdemacros.h>
-
 class Q_DECL_EXPORT ErrorOverlay : public QWidget
 {
     Q_OBJECT

@@ -19,6 +19,8 @@
 
 #include "backlighthelper.h"
 
+#include <powerdevil_debug.h>
+
 #include <QtCore/QDir>
 #include <QtCore/QDebug>
 #include <KLocalizedString>
@@ -57,7 +59,7 @@ void BacklightHelper::init()
         initUsingSysctl();
 
         if (m_sysctlDevice.isEmpty() || m_sysctlBrightnessLevels.isEmpty()) {
-            qWarning() << "no kernel backlight interface found";
+            qCWarning(POWERDEVIL) << "no kernel backlight interface found";
             return;
         }
     }
@@ -95,7 +97,7 @@ void BacklightHelper::initUsingBacklightType()
         } else if (buffer == "raw") {
             raw.append(interface);
         } else {
-            qWarning() << "Interface type not handled" << buffer;
+            qCWarning(POWERDEVIL) << "Interface type not handled" << buffer;
         }
 
         file.close();
@@ -130,10 +132,10 @@ void BacklightHelper::initUsingWhitelist()
     QDir dir;
     foreach (const QString & interface, interfaces) {
         dir.setPath(PREFIX + interface);
-        //qDebug() << "searching dir:" << dir;
+        //qCDebug(POWERDEVIL) << "searching dir:" << dir;
         if (dir.exists()) {
             m_dirname = dir.path();
-            //qDebug() << "kernel backlight support found in" << m_dirname;
+            //qCDebug(POWERDEVIL) << "kernel backlight support found in" << m_dirname;
             break;
         }
     }
@@ -257,7 +259,7 @@ ActionReply BacklightHelper::brightnessvalue(const QVariantMap & args)
     if (!file.open(QIODevice::ReadOnly)) {
         reply = ActionReply(ActionReply::HelperErrorType);
         reply.setErrorDescription(i18n("Can't open file"));
-        qWarning() << "reading brightness failed with error code " << file.error() << file.errorString();
+        qCWarning(POWERDEVIL) << "reading brightness failed with error code " << file.error() << file.errorString();
         return reply;
     }
 
@@ -266,9 +268,9 @@ ActionReply BacklightHelper::brightnessvalue(const QVariantMap & args)
     file.close();
 #endif
 
-    //qDebug() << "brightness:" << brightness;
+    //qCDebug(POWERDEVIL) << "brightness:" << brightness;
     reply.addData("brightnessvalue", brightness);
-    //qDebug() << "data contains:" << reply.data()["brightnessvalue"];
+    //qCDebug(POWERDEVIL) << "data contains:" << reply.data()["brightnessvalue"];
 
     return reply;
 }
@@ -284,7 +286,7 @@ ActionReply BacklightHelper::setbrightnessvalue(const QVariantMap & args)
         return reply;
     }
 
-    //qDebug() << "setting brightness:" << actual_brightness;
+    //qCDebug(POWERDEVIL) << "setting brightness:" << actual_brightness;
 
 #ifdef USE_SYSCTL
     int actual_level = -1;
@@ -315,7 +317,7 @@ ActionReply BacklightHelper::setbrightnessvalue(const QVariantMap & args)
     if (!file.open(QIODevice::WriteOnly)) {
         reply = ActionReply::HelperErrorReply();
 //         reply.setErrorCode(ActionReply::ActionReply::UserCancelledError);
-        qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
+        qCWarning(POWERDEVIL) << "writing brightness failed with error code " << file.error() << file.errorString();
         return reply;
     }
 
@@ -325,7 +327,7 @@ ActionReply BacklightHelper::setbrightnessvalue(const QVariantMap & args)
     if (result == -1) {
         reply = ActionReply::HelperErrorReply();
 //         reply.setErrorCode(file.error());
-        qWarning() << "writing brightness failed with error code " << file.error() << file.errorString();
+        qCWarning(POWERDEVIL) << "writing brightness failed with error code " << file.error() << file.errorString();
     }
 #endif
     return reply;
@@ -368,7 +370,7 @@ ActionReply BacklightHelper::brightnessvaluemax(const QVariantMap & args)
     if (!file.open(QIODevice::ReadOnly)) {
         reply = ActionReply::HelperErrorReply();
 //         reply.setErrorCode(file.error());
-        qWarning() << "reading max brightness failed with error code " << file.error() << file.errorString();
+        qCWarning(POWERDEVIL) << "reading max brightness failed with error code " << file.error() << file.errorString();
         return reply;
     }
 
@@ -377,7 +379,7 @@ ActionReply BacklightHelper::brightnessvaluemax(const QVariantMap & args)
     file.close();
 #endif
 
-    //qDebug() << "max brightness:" << max_brightness;
+    //qCDebug(POWERDEVIL) << "max brightness:" << max_brightness;
 
     if (max_brightness <= 0) {
         reply = ActionReply::HelperErrorReply();
@@ -385,7 +387,7 @@ ActionReply BacklightHelper::brightnessvaluemax(const QVariantMap & args)
     }
 
     reply.addData("brightnessvaluemax", max_brightness);
-    //qDebug() << "data contains:" << reply.data()["brightnessvaluemax"];
+    //qCDebug(POWERDEVIL) << "data contains:" << reply.data()["brightnessvaluemax"];
 
     return reply;
 }

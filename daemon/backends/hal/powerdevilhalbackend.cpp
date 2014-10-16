@@ -20,10 +20,11 @@
 
 
 #include "powerdevilhalbackend.h"
+#include <powerdevil_debug.h>
 #include <Solid/DeviceNotifier>
 #include <QtDBus/QDBusReply>
 #include <QtDBus/QDBusConnectionInterface>
-#include <KDebug>
+#include <QDebug>
 #include "halsuspendjob.h"
 #include <Solid/Device>
 #include <Solid/Battery>
@@ -129,7 +130,7 @@ void PowerDevilHALBackend::init()
                 supported |= ToRam;
             }
         } else {
-            kDebug() << reply.error().name() << ": " << reply.error().message();
+            qCDebug(POWERDEVIL) << reply.error().name() << ": " << reply.error().message();
         }
 
         reply = m_halComputer.asyncCall("GetPropertyBoolean", "power_management.can_hibernate");
@@ -141,7 +142,7 @@ void PowerDevilHALBackend::init()
                 supported |= ToDisk;
             }
         } else {
-            kDebug() << reply.error().name() << ": " << reply.error().message();
+            qCDebug(POWERDEVIL) << reply.error().name() << ": " << reply.error().message();
         }
     }
 

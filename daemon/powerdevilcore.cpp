@@ -27,6 +27,7 @@
 #include "powerdevilbackendinterface.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
+#include "powerdevil_debug.h"
 
 #include "actions/bundled/suspendsession.h"
 
@@ -34,27 +35,25 @@
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
 
-#include <KDebug>
 #include <KIdleTime>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KNotification>
 #include <KServiceTypeTrader>
-#include <KStandardDirs>
 
 // #include <KActivities/Consumer>
 
 #include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
+#include <QDebug>
 
 namespace PowerDevil
 {
 
-Core::Core(QObject* parent/*, const KComponentData &componentData*/)
+Core::Core(QObject* parent)
     : QObject(parent)
     , m_backend(0)
-//     , m_applicationData(componentData)
     , m_criticalBatteryTimer(new QTimer(this))
 //     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
@@ -79,7 +78,7 @@ void Core::loadCore(BackendInterface* backend)
     m_backend = backend;
 
     // Async backend init - so that KDED gets a bit of a speed up
-    kDebug() << "Core loaded, initializing backend";
+    qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
     connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
     connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
     m_backend->init();
@@ -90,7 +89,7 @@ void Core::loadCore(BackendInterface* backend)
 
 void Core::onBackendReady()
 {
-    kDebug() << "Backend is ready, KDE Power Management system initialized";
+    qCDebug(POWERDEVIL) << "Backend is ready, KDE Power Management system initialized";
 
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::CascadeConfig);
 
@@ -220,7 +219,7 @@ void Core::refreshStatus()
 
 void Core::reparseConfiguration()
 {
-    PowerDevilSettings::self()->readConfig();
+    PowerDevilSettings::self()->load();
     m_profilesConfig->reparseConfiguration();
 
     // Config reloaded
@@ -233,7 +232,7 @@ void Core::loadProfile(bool force)
 
     // Policy check
     if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
-        kDebug() << "Policy Agent prevention: on";
+        qCDebug(POWERDEVIL) << "Policy Agent prevention: on";
         return;
     }
 
@@ -244,9 +243,9 @@ void Core::loadProfile(bool force)
     if (activity.isEmpty()) {
         activity = "default";
     }
-    kDebug() << "We are now into activity " << activity;
+    qCDebug(POWERDEVIL) << "We are now into activity " << activity;
     KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
-    kDebug() << activitiesConfig.groupList() << activitiesConfig.keyList();
+    qCDebug(POWERDEVIL) << activitiesConfig.groupList() << activitiesConfig.keyList();
 
     // Are we mirroring an activity?
     if (activitiesConfig.group(activity).readEntry("mode", "None") == "ActLike" &&
@@ -255,17 +254,17 @@ void Core::loadProfile(bool force)
         activitiesConfig.group(activity).readEntry("actLike", QString()) != "LowBattery") {
         // Yes, let's use that then
         activity = activitiesConfig.group(activity).readEntry("actLike", QString());
-        kDebug() << "Activity is a mirror";
+        qCDebug(POWERDEVIL) << "Activity is a mirror";
     }
 
     KConfigGroup activityConfig = activitiesConfig.group(activity);
-    kDebug() << activityConfig.groupList() << activityConfig.keyList();
+    qCDebug(POWERDEVIL) << activityConfig.groupList() << activityConfig.keyList();
 
     // See if this activity has priority
     if (activityConfig.readEntry("mode", "None") == "SeparateSettings") {
         // Prioritize this profile over anything
         config = activityConfig.group("SeparateSettings");
-        kDebug() << "Activity is enforcing a different profile";
+        qCDebug(POWERDEVIL) << "Activity is enforcing a different profile";
         profileId = activity;
     } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
         if (activityConfig.readEntry("actLike", QString()) == "AC" ||
@@ -274,12 +273,12 @@ void Core::loadProfile(bool force)
             // Same as above, but with an existing profile
             config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
             profileId = activityConfig.readEntry("actLike", QString());
-            kDebug() << "Activity is mirroring a different profile";
+            qCDebug(POWERDEVIL) << "Activity is mirroring a different profile";
         }
     } else {
         // It doesn't, let's load the current state's profile
         if (m_loadedBatteriesUdi.isEmpty()) {
-            kDebug() << "No batteries found, loading AC";
+            qCDebug(POWERDEVIL) << "No batteries found, loading AC";
             profileId = "AC";
         } else {
             // Compute the previous and current global percentage
@@ -287,18 +286,18 @@ void Core::loadProfile(bool force)
 
             if (backend()->acAdapterState() == BackendInterface::Plugged) {
                 profileId = "AC";
-                kDebug() << "Loading profile for plugged AC";
+                qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
             } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
                 profileId = "LowBattery";
-                kDebug() << "Loading profile for low battery";
+                qCDebug(POWERDEVIL) << "Loading profile for low battery";
             } else {
                 profileId = "Battery";
-                kDebug() << "Loading profile for unplugged AC";
+                qCDebug(POWERDEVIL) << "Loading profile for unplugged AC";
             }
         }
 
         config = m_profilesConfig.data()->group(profileId);
-        kDebug() << "Activity is not forcing a profile";
+        qCDebug(POWERDEVIL) << "Activity is not forcing a profile";
     }
 
     // Release any special inhibitions
@@ -326,7 +325,7 @@ void Core::loadProfile(bool force)
     // Check: do we need to change profile at all?
     if (m_currentProfile == profileId && !force) {
         // No, let's leave things as they are
-        kDebug() << "Skipping action reload routine as profile has not changed";
+        qCDebug(POWERDEVIL) << "Skipping action reload routine as profile has not changed";
 
         // Do we need to force a wakeup?
         if (m_pendingWakeupEvent) {
@@ -355,7 +354,7 @@ void Core::loadProfile(bool force)
             } else {
                 // Ouch, error. But let's just warn and move on anyway
                 //TODO Maybe Remove from the configuration if unsupported
-                kWarning() << "The profile " << profileId <<  "tried to activate"
+                qCWarning(POWERDEVIL) << "The profile " << profileId <<  "tried to activate"
                                 << actionName << "a non-existent action. This is usually due to an installation problem,"
                                 " or to a configuration problem, or simply the action is not supported";
             }
@@ -368,16 +367,16 @@ void Core::loadProfile(bool force)
 
     // Now... any special behaviors we'd like to consider?
     if (activityConfig.readEntry("mode", "None") == "SpecialBehavior") {
-        kDebug() << "Activity has special behaviors";
+        qCDebug(POWERDEVIL) << "Activity has special behaviors";
         KConfigGroup behaviorGroup = activityConfig.group("SpecialBehavior");
         if (behaviorGroup.readEntry("performAction", false)) {
             // Let's override the configuration for this action at all times
             ActionPool::instance()->loadAction("SuspendSession", behaviorGroup.group("ActionConfig"), this);
-            kDebug() << "Activity overrides suspend session action";
+            qCDebug(POWERDEVIL) << "Activity overrides suspend session action";
         }
 
         if (behaviorGroup.readEntry("noSuspend", false)) {
-            kDebug() << "Activity triggers a suspend inhibition";
+            qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition";
             // Trigger a special inhibition - if we don't have one yet
             if (!m_sessionActivityInhibit.contains(activity)) {
                 int cookie =
@@ -389,7 +388,7 @@ void Core::loadProfile(bool force)
         }
 
         if (behaviorGroup.readEntry("noScreenManagement", false)) {
-            kDebug() << "Activity triggers a screen management inhibition";
+            qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
             // Trigger a special inhibition - if we don't have one yet
             if (!m_screenActivityInhibit.contains(activity)) {
                 int cookie =
@@ -442,7 +441,7 @@ void Core::onDeviceAdded(const QString& udi)
                          "Please check your system configuration"));
     }
 
-    kDebug() << "A new battery was detected";
+    qCDebug(POWERDEVIL) << "A new battery was detected";
 
     m_batteriesPercent[udi] = b->chargePercent();
     if (b->chargeState() == Solid::Battery::NoCharge) {
@@ -483,7 +482,7 @@ void Core::onDeviceRemoved(const QString& udi)
     disconnect(b, SIGNAL(chargeStateChanged(int,QString)),
                this, SLOT(onBatteryChargeStateChanged(int,QString)));
 
-    kDebug() << "An existing battery has been removed";
+    qCDebug(POWERDEVIL) << "An existing battery has been removed";
 
     m_batteriesPercent.remove(udi);
     m_batteriesCharged.remove(udi);
@@ -549,7 +548,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
 
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
-    kDebug();
+    qCDebug(POWERDEVIL);
     // Post request for faking an activity event - usually adapters don't plug themselves out :)
     m_pendingWakeupEvent = true;
     loadProfile();

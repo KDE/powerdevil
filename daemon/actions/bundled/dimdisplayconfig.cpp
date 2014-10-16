@@ -21,9 +21,9 @@
 
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QSpinBox>
 
 #include <KConfig>
-#include <KIntSpinBox>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KLocalizedString>
@@ -57,7 +57,7 @@ void DimDisplayConfig::load()
 
 QList< QPair< QString, QWidget* > > DimDisplayConfig::buildUi()
 {
-    m_spinBox = new KIntSpinBox(0, 180, 1, 0, 0);
+    m_spinBox = new QSpinBox;
     m_spinBox->setMaximumWidth(150);
     m_spinBox->setMinimum(1);
     m_spinBox->setMaximum(360);

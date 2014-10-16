@@ -24,8 +24,6 @@
 #include <QtCore/QHash>
 #include <QtCore/QStringList>
 
-#include <kglobal.h>
-
 class KConfigGroup;
 namespace PowerDevil
 {

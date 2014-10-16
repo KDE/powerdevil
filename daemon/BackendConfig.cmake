@@ -9,6 +9,7 @@ if (UDEV_FOUND)
                         ${X11_Xrandr_INCLUDE_PATH})
 
     set(powerdevilupowerbackend_SRCS
+        ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
         backends/upower/upowersuspendjob.cpp
         backends/upower/login1suspendjob.cpp
         backends/upower/powerdevilupowerbackend.cpp
@@ -39,10 +40,10 @@ if (UDEV_FOUND)
     ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/dbus/com.ubuntu.Upstart.xml
     upstart_interface)
 
-    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets ${X11_Xrandr_LIB} ${UDEV_LIBS} ${XCB_XCB_LIBRARY}
+    set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets KF5::Auth ${X11_Xrandr_LIB} ${UDEV_LIBS} ${XCB_XCB_LIBRARY}
     ${XCB_RANDR_LIBRARY})
     ## backlight helper executable
-    add_executable(backlighthelper backends/upower/backlighthelper.cpp ${backlighthelper_mocs})
+    add_executable(backlighthelper backends/upower/backlighthelper.cpp ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp ${backlighthelper_mocs})
     target_link_libraries(backlighthelper Qt5::Core KF5::Auth KF5::I18n)
     install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
     kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
@@ -54,6 +55,7 @@ endif ()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/hal)
 
 set(powerdevilhalbackend_SRCS
+    ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
     backends/hal/halsuspendjob.cpp
     backends/hal/powerdevilhalbackend.cpp
 )

@@ -18,7 +18,8 @@
  ***************************************************************************/
 
 #include "powerdevilkeyboardbrightnesslogic.h"
-#include <KDebug>
+#include "powerdevil_debug.h"
+#include <QDebug>
 
 namespace PowerDevil
 {
@@ -47,7 +48,7 @@ int KeyboardBrightnessLogic::calculateStepMax(int maxValue) const
         return 3;
 
     // 29 different maxValue values between 11 and 79 are left at this point.
-    //kDebug() << "maxValue" << maxValue;
+    //qCDebug(POWERDEVIL) << "maxValue" << maxValue;
 
     // Give up and return 5, there is nothing much we can do here.
     return 5;
