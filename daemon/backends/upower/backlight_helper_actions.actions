@@ -64,6 +64,7 @@ Name[sr@latin]=Dobavi najveću vrednost osvetljaja
 Name[sv]=Hämta maximalt värde på ljusstyrka
 Name[uk]=Отримання максимального значення яскравості
 Name[x-test]=xxGet maximum brightness valuexx
+Name[zh_CN]=获取最大亮度
 Name[zh_TW]=取得最大亮度值
 Description=System policies prevent you from getting the brightness level.
 Description[ar]=تمنعك سياسات النظام من الحصول على معلومات مستوى السطوع.
