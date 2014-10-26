@@ -29,7 +29,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <KComboBox>
-#include <KIcon>
+#include <QIcon>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::HandleButtonEventsConfig>(); )
 
@@ -86,19 +86,19 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
         foreach (KComboBox *box, boxes) {
-            box->addItem(KIcon("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
+            box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
             if (methods.contains(Solid::PowerManagement::SuspendState)) {
-                box->addItem(KIcon("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
+                box->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
             }
             if (methods.contains(Solid::PowerManagement::HibernateState)) {
-                box->addItem(KIcon("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
+                box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
             }
-            box->addItem(KIcon("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
-            box->addItem(KIcon("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
+            box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+            box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
             if (box != m_lidCloseCombo) {
-                box->addItem(KIcon("system-log-out"), i18n("Prompt log out dialog"), (uint)SuspendSession::LogoutDialogMode);
+                box->addItem(QIcon::fromTheme("system-log-out"), i18n("Prompt log out dialog"), (uint)SuspendSession::LogoutDialogMode);
             }
-            box->addItem(KIcon("preferences-desktop-screensaver"), i18n("Turn off screen"), (uint)SuspendSession::TurnOffScreenMode);
+            box->addItem(QIcon::fromTheme("preferences-desktop-screensaver"), i18n("Turn off screen"), (uint)SuspendSession::TurnOffScreenMode);
         }
     }
 
