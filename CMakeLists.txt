@@ -16,8 +16,8 @@ include(KDECompilerSettings)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
 find_package(KF5 REQUIRED COMPONENTS Auth IdleTime Config Solid I18n GlobalAccel KIO NotifyConfig KDELibs4Support)
-find_package(LibKWorkspace CONFIG)
-find_package(ScreenSaverDBusInterface CONFIG)
+find_package(LibKWorkspace CONFIG REQUIRED)
+find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
 
 find_package(UDev) #upower/udev backend
 
