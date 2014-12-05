@@ -65,6 +65,7 @@ public:
 
 private:
     void enumerateDevices();
+    void addDevice(const QString &);
 
 private slots:
     void updateDeviceProps();

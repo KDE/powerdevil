@@ -481,9 +481,7 @@ void PowerDevilUPowerBackend::enumerateDevices()
 
     QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
     foreach (const QDBusObjectPath & device, deviceList) {
-        OrgFreedesktopUPowerDeviceInterface * upowerDevice =
-                new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, device.path(), QDBusConnection::systemBus(), this);
-        m_devices.insert(device.path(), upowerDevice);
+        addDevice(device.path());
     }
 
     updateDeviceProps();
@@ -494,7 +492,7 @@ void PowerDevilUPowerBackend::enumerateDevices()
         setAcAdapterState(Plugged);
 }
 
-void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
+void PowerDevilUPowerBackend::addDevice(const QString & device)
 {
     OrgFreedesktopUPowerDeviceInterface * upowerDevice =
             new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, device, QDBusConnection::systemBus(), this);
@@ -503,7 +501,11 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
     // for UPower >= 0.99.0 which doesn't emit the DeviceChanged(QString) signal
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, device, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
                                          SLOT(onDevicePropertiesChanged(QString,QVariantMap,QStringList)));
+}
 
+void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
+{
+    addDevice(device);
     updateDeviceProps();
 }
 
