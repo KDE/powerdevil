@@ -166,7 +166,6 @@ void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessL
 {
     if (type == BackendInterface::Keyboard) {
         int brightness = qRound(info.percentage);
-        showBrightnessOSD(brightness);
         Q_EMIT keyboardBrightnessValueChanged(info.value);
         Q_EMIT keyboardBrightnessStepChanged(info.step);
         Q_EMIT keyboardBrightnessChanged(brightness);
