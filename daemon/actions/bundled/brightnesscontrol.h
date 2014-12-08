@@ -73,6 +73,7 @@ private Q_SLOTS:
 Q_SIGNALS:
     void brightnessChanged(int percent);
     void brightnessValueChanged(int value);
+    void brightnessValueMaxChanged(int valueMax);
     void brightnessStepChanged(int step);
 
 private:

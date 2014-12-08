@@ -73,6 +73,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void keyboardBrightnessChanged(int percent);
     void keyboardBrightnessValueChanged(int value);
+    void keyboardBrightnessValueMaxChanged(int maxValue);
     void keyboardBrightnessStepChanged(int step);
 
 private:

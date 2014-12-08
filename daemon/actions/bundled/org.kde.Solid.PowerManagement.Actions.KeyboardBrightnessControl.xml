@@ -25,6 +25,9 @@
     <signal name="keyboardBrightnessValueChanged">
       <arg type="i" direction="out" />
     </signal>
+    <signal name="keyboardBrightnessValueMaxChanged">
+      <arg type="i" direction="out" />
+    </signal>
 
     <method name="setKeyboardBrightnessStep">
       <arg type="i" direction="in" />
