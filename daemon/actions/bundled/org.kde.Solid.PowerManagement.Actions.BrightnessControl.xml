@@ -25,9 +25,6 @@
     <signal name="brightnessValueChanged">
       <arg type="i" direction="out" />
     </signal>
-    <signal name="brightnessValueMaxChanged">
-      <arg type="i" direction="out" />
-    </signal>
 
     <method name="setBrightnessStep">
       <arg type="i" direction="in" />

@@ -154,7 +154,6 @@ void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::Br
     if (type == BackendInterface::Screen) {
         int brightness = qRound(info.percentage);
         Q_EMIT brightnessValueChanged(info.value);
-        Q_EMIT brightnessValueMaxChanged(info.valueMax);
         Q_EMIT brightnessStepChanged(info.step);
         Q_EMIT brightnessChanged(brightness);
     }
