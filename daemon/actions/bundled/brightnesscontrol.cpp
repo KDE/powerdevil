@@ -168,6 +168,7 @@ void BrightnessControl::setBrightness(int percent)
 {
     QVariantMap args;
     args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
     trigger(args);
 }
 
@@ -197,6 +198,7 @@ void BrightnessControl::setBrightnessValue(int value)
 {
     QVariantMap args;
     args["Value"] = QVariant::fromValue<int>(value);
+    args["Explicit"] = true;
     trigger(args);
 }
 
