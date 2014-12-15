@@ -68,6 +68,7 @@ public Q_SLOTS:
     void onResumeFromSuspend();
 
 Q_SIGNALS:
+    void aboutToSuspend();
     void resumingFromSuspend();
 
 private slots:

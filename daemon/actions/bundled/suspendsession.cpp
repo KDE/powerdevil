@@ -109,12 +109,15 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
     KJob *suspendJob = 0;
     switch ((Mode) (args["Type"].toUInt())) {
         case ToRamMode:
+            Q_EMIT aboutToSuspend();
             suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
             break;
         case ToDiskMode:
+            Q_EMIT aboutToSuspend();
             suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
             break;
         case SuspendHybridMode:
+            Q_EMIT aboutToSuspend();
             suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
             break;
         case ShutdownMode:

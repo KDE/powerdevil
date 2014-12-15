@@ -8,6 +8,8 @@
     <method name="suspendHybrid">
     </method>
 
+    <signal name="aboutToSuspend">
+    </signal>
     <signal name="resumingFromSuspend">
     </signal>
   </interface>
