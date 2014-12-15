@@ -37,45 +37,9 @@
 #include "xrandrbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
-#include "upstart_interface.h"
 #include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
-
-bool checkSystemdVersion(uint requiredVersion)
-{
-
-    QDBusInterface systemdIface("org.freedesktop.systemd1", "/org/freedesktop/systemd1", "org.freedesktop.systemd1.Manager",
-                                QDBusConnection::systemBus(), 0);
-
-    const QString reply = systemdIface.property("Version").toString();
-
-    QRegExp expsd("(systemd )?([0-9]+)");
-
-    if (expsd.exactMatch(reply)) {
-        const uint version = expsd.cap(2).toUInt();
-        return (version >= requiredVersion);
-    }
-
-    // Since version 1.11 Upstart user sessions implement the exact same API as logind
-    // and are going to the maintain the API in future releases.
-    // Hence, powerdevil can support this init system as well
-    // This has no effect on systemd integration since the check is done after systemd
-    ComUbuntuUpstart0_6Interface upstartInterface(QLatin1String("com.ubuntu.Upstart"),
-                                                  QLatin1String("/com/ubuntu/Upstart"),
-                                                  QDBusConnection::sessionBus());
-
-    QRegExp exp("(?:init \\()?upstart ([0-9.]+)(?:\\))?");
-    if(exp.exactMatch(upstartInterface.version())) {
-        // Only keep the X.Y part of a X.Y.Z version
-        QStringList items = exp.cap(1).split('.').mid(0, 2);
-        const float upstartVersion = items.join(QString('.')).toFloat();
-        return upstartVersion >= 1.1;
-    }
-
-    qCDebug(POWERDEVIL) << "No appropriate systemd version or upstart version found";
-    return false;
-}
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
@@ -236,7 +200,7 @@ void PowerDevilUPowerBackend::init()
 
     // Supported suspend methods
     SuspendMethods supported = UnknownSuspendMethod;
-    if (m_login1Interface && checkSystemdVersion(195)) {
+    if (m_login1Interface) {
         QDBusPendingReply<QString> canSuspend = m_login1Interface.data()->asyncCall("CanSuspend");
         canSuspend.waitForFinished();
         if (canSuspend.isValid() && (canSuspend.value() == "yes" || canSuspend.value() == "challenge"))
@@ -264,7 +228,7 @@ void PowerDevilUPowerBackend::init()
     }
 
     // "resuming" signal
-    if (m_login1Interface && checkSystemdVersion(198)) {
+    if (m_login1Interface) {
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1Resuming(bool)));
     } else {
         connect(m_upowerInterface, SIGNAL(Resuming()), this, SIGNAL(resumeFromSuspend()));
@@ -448,7 +412,7 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
 
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
-    if (m_login1Interface && checkSystemdVersion(195)) {
+    if (m_login1Interface) {
         return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
     } else {
         return new UPowerSuspendJob(m_upowerInterface, method, supportedSuspendMethods());
