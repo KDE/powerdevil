@@ -48,10 +48,13 @@ public:
     virtual bool loadAction(const KConfigGroup& config);
 
 private:
-    void setBrightnessHelper(float brightness);
+    void setBrightnessHelper(int screen, int keyboard);
 
     int m_dimOnIdleTime;
-    float m_oldBrightness;
+
+    int m_oldScreenBrightnessValue;
+    int m_oldKeyboardBrightnessValue;
+
     bool m_dimmed;
 };
 

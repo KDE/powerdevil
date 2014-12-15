@@ -50,13 +50,13 @@ void DimDisplay::onWakeupFromIdle()
     if (!m_dimmed) {
         return;
     }
-    setBrightnessHelper(m_oldBrightness);
+    setBrightnessHelper(m_oldScreenBrightnessValue, m_oldKeyboardBrightnessValue);
     m_dimmed = false;
 }
 
 void DimDisplay::onIdleTimeout(int msec)
 {
-    if (qFuzzyIsNull(backend()->brightness())) {
+    if (backend()->brightnessValue() == 0) {
         //Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
         //backlight won't switch on later.
@@ -65,14 +65,16 @@ void DimDisplay::onIdleTimeout(int msec)
     }
 
     if (msec == m_dimOnIdleTime) {
-        setBrightnessHelper(0);
+        setBrightnessHelper(0, 0);
     } else if (msec == (m_dimOnIdleTime * 3 / 4)) {
-        float newBrightness = backend()->brightness() / 4;
-        setBrightnessHelper(newBrightness);
+        const int newBrightness = qRound(m_oldScreenBrightnessValue / 8.0);
+        setBrightnessHelper(newBrightness, 0);
     } else if (msec == (m_dimOnIdleTime * 1 / 2)) {
-        m_oldBrightness = backend()->brightness();
-        float newBrightness = backend()->brightness() / 2;
-        setBrightnessHelper(newBrightness);
+        m_oldScreenBrightnessValue = backend()->brightnessValue();
+        m_oldKeyboardBrightnessValue = backend()->brightnessValue(BackendInterface::Keyboard);
+
+        const int newBrightness = qRound(m_oldScreenBrightnessValue / 2.0);
+        setBrightnessHelper(newBrightness, 0);
     }
 
     m_dimmed = true;
@@ -83,16 +85,18 @@ void DimDisplay::onProfileLoad()
     //
 }
 
-void DimDisplay::setBrightnessHelper(float brightness)
+void DimDisplay::setBrightnessHelper(int screen, int keyboard)
 {
     QVariantMap args;
-    args["_BrightnessValue"] = QVariant::fromValue(brightness);
+    args["_ScreenBrightnessValue"] = QVariant::fromValue(screen);
+    args["_KeyboardBrightnessValue"] = QVariant::fromValue(keyboard);
     trigger(args);
 }
 
-void DimDisplay::triggerImpl(const QVariantMap& args)
+void DimDisplay::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightness(args["_BrightnessValue"].toFloat());
+    backend()->setBrightnessValue(args["_ScreenBrightnessValue"].toInt(), BackendInterface::Screen);
+    backend()->setBrightnessValue(args["_KeyboardBrightnessValue"].toInt(), BackendInterface::Keyboard);
 }
 
 bool DimDisplay::isSupported()
