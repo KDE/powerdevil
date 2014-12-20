@@ -20,6 +20,7 @@
 
 #include "powerdevildpmsaction.h"
 
+#include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 
@@ -71,6 +72,7 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     : Action(parent)
     , m_idleTime(0)
     , m_inhibitScreen(0)  // can't use PowerDevil::PolicyAgent enum because X11/X.h defines None as 0L
+    , m_oldKeyboardBrightnessValue(0)
     , d(new Private)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
@@ -131,12 +133,26 @@ void PowerDevilDPMSAction::onProfileUnload()
 
 void PowerDevilDPMSAction::onWakeupFromIdle()
 {
-    //
+    if (m_oldKeyboardBrightnessValue > 0) {
+        setKeyboardBrightnessHelper(m_oldKeyboardBrightnessValue);
+        m_oldKeyboardBrightnessValue = 0;
+    }
 }
 
 void PowerDevilDPMSAction::onIdleTimeout(int msec)
 {
     Q_UNUSED(msec);
+
+    const int brightness = backend()->brightnessValue(PowerDevil::BackendInterface::Keyboard);
+    if (brightness > 0) {
+        m_oldKeyboardBrightnessValue = brightness;
+        setKeyboardBrightnessHelper(0);
+    }
+}
+
+void PowerDevilDPMSAction::setKeyboardBrightnessHelper(int brightness)
+{
+    trigger(QVariantMap{ {"KeyboardBrightness", QVariant::fromValue(brightness)} });
 }
 
 void PowerDevilDPMSAction::onProfileLoad()
@@ -164,6 +180,11 @@ void PowerDevilDPMSAction::onProfileLoad()
 
 void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
 {
+    if (args.contains("KeyboardBrightness")) {
+        backend()->setBrightnessValue(args["KeyboardBrightness"].toInt(), PowerDevil::BackendInterface::Keyboard);
+        return;
+    }
+
     CARD16 dummy;
     BOOL enabled;
     Display *dpy = QX11Info::display();
@@ -199,6 +220,9 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
 {
     m_idleTime = config.readEntry<int>("idleTime", -1);
+    if (m_idleTime > 0) {
+        registerIdleTimeout(m_idleTime * 1000);
+    }
 
     return true;
 }

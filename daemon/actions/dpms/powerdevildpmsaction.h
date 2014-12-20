@@ -48,8 +48,12 @@ private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
 
 private:
+    void setKeyboardBrightnessHelper(int brightness);
+
     int m_idleTime;
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen;
+
+    int m_oldKeyboardBrightnessValue;
 
     class Private;
     Private * const d;

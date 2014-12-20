@@ -96,7 +96,11 @@ void DimDisplay::setBrightnessHelper(int screen, int keyboard)
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
     backend()->setBrightnessValue(args["_ScreenBrightnessValue"].toInt(), BackendInterface::Screen);
-    backend()->setBrightnessValue(args["_KeyboardBrightnessValue"].toInt(), BackendInterface::Keyboard);
+
+    // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
+    if (m_oldKeyboardBrightnessValue > 0) {
+        backend()->setBrightnessValue(args["_KeyboardBrightnessValue"].toInt(), BackendInterface::Keyboard);
+    }
 }
 
 bool DimDisplay::isSupported()
