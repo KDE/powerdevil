@@ -108,7 +108,7 @@ void BrightnessControl::triggerImpl(const QVariantMap& args)
     } else {
         backend()->setBrightness(args["Value"].toFloat());
     }
-    if (args["Explicit"].toBool()) {
+    if (args["Explicit"].toBool() && !args["Silent"].toBool()) {
         showBrightnessOSD(backend()->brightness());
     }
 }
@@ -172,6 +172,15 @@ void BrightnessControl::setBrightness(int percent)
     trigger(args);
 }
 
+void BrightnessControl::setBrightnessSilent(int percent)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<float>((float)percent);
+    args["Explicit"] = true;
+    args["Silent"] = true;
+    trigger(args);
+}
+
 void BrightnessControl::increaseBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Increase);
@@ -199,6 +208,15 @@ void BrightnessControl::setBrightnessValue(int value)
     QVariantMap args;
     args["Value"] = QVariant::fromValue<int>(value);
     args["Explicit"] = true;
+    trigger(args);
+}
+
+void BrightnessControl::setBrightnessValueSilent(int value)
+{
+    QVariantMap args;
+    args["Value"] = QVariant::fromValue<int>(value);
+    args["Explicit"] = true;
+    args["Silent"] = true;
     trigger(args);
 }
 

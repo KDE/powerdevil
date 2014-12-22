@@ -58,10 +58,12 @@ public Q_SLOTS:
     void decreaseBrightness();
     int brightness() const;
     void setBrightness(int percent);
+    void setBrightnessSilent(int percent);
 
     int brightnessValue() const;
     int brightnessValueMax() const;
     void setBrightnessValue(int value);
+    void setBrightnessValueSilent(int value);
 
     int brightnessStep() const;
     int brightnessStepMax() const;

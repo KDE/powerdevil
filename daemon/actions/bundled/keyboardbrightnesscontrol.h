@@ -61,10 +61,12 @@ public Q_SLOTS:
 
     int keyboardBrightness() const;
     void setKeyboardBrightness(int percent);
+    void setKeyboardBrightnessSilent(int percent);
 
     int keyboardBrightnessValue() const;
     int keyboardBrightnessValueMax() const;
     void setKeyboardBrightnessValue(int value);
+    void setKeyboardBrightnessValueSilent(int value);
 
     int keyboardBrightnessStep() const;
     int keyboardBrightnessStepMax() const;

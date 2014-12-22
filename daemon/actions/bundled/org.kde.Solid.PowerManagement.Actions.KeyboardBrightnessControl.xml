@@ -4,6 +4,9 @@
     <method name="setKeyboardBrightness">
       <arg type="i" direction="in" />
     </method>
+    <method name="setKeyboardBrightnessSilent">
+      <arg type="i" direction="in" />
+    </method>
     <method name="keyboardBrightness">
       <arg type="i" direction="out" />
     </method>
@@ -13,6 +16,9 @@
     </signal>
 
     <method name="setKeyboardBrightnessValue">
+      <arg type="i" direction="in" />
+    </method>
+    <method name="setKeyboardBrightnessValueSilent">
       <arg type="i" direction="in" />
     </method>
     <method name="keyboardBrightnessValue">

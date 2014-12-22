@@ -4,6 +4,9 @@
     <method name="setBrightness">
       <arg type="i" direction="in" />
     </method>
+    <method name="setBrightnessSilent">
+      <arg type="i" direction="in" />
+    </method>
     <method name="brightness">
       <arg type="i" direction="out" />
     </method>
@@ -13,6 +16,9 @@
     </signal>
 
     <method name="setBrightnessValue">
+      <arg type="i" direction="in" />
+    </method>
+    <method name="setBrightnessValueSilent">
       <arg type="i" direction="in" />
     </method>
     <method name="brightnessValue">
