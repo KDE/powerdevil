@@ -81,7 +81,8 @@ public Q_SLOTS:
 
     qulonglong batteryRemainingTime() const;
 
-    bool isLidClosed();
+    bool isLidClosed() const;
+    bool isLidPresent() const;
     bool isActionSupported(const QString &actionName);
 
 Q_SIGNALS:

@@ -710,9 +710,14 @@ BackendInterface* Core::backend()
     return m_backend;
 }
 
-bool Core::isLidClosed()
+bool Core::isLidClosed() const
 {
     return m_backend->isLidClosed();
+}
+
+bool Core::isLidPresent() const
+{
+    return m_backend->isLidPresent();
 }
 
 qulonglong Core::batteryRemainingTime() const
