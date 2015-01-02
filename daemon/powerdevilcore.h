@@ -35,8 +35,10 @@ namespace KActivities
 typedef QMap< QString, QString > StringStringMap;
 
 class KDirWatch;
+class QDBusServiceWatcher;
 class QTimer;
 class KNotification;
+
 namespace Solid {
 class Battery;
 }
@@ -107,6 +109,8 @@ private:
     QStringList m_loadedBatteriesUdi;
 
     QWeakPointer< KNotification > notification;
+    QDBusServiceWatcher *m_notificationsWatcher;
+
     KSharedConfigPtr m_profilesConfig;
 
     QString m_currentProfile;
@@ -139,6 +143,8 @@ private Q_SLOTS:
     void onDeviceAdded(const QString &udi);
     void onDeviceRemoved(const QString &udi);
     void onCriticalBatteryTimerExpired();
+    void onNotificationTimeout();
+    void onServiceRegistered(const QString &service);
 };
 
 }

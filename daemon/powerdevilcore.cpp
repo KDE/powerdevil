@@ -46,6 +46,8 @@
 #include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
+#include <QtDBus/QDBusServiceWatcher>
+
 #include <QDebug>
 
 namespace PowerDevil
@@ -54,6 +56,7 @@ namespace PowerDevil
 Core::Core(QObject* parent)
     : QObject(parent)
     , m_backend(0)
+    , m_notificationsWatcher(nullptr)
     , m_criticalBatteryTimer(new QTimer(this))
 //     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
@@ -143,8 +146,20 @@ void Core::onBackendReady()
     m_criticalBatteryTimer->setInterval(30000);
     connect(m_criticalBatteryTimer, SIGNAL(timeout()), this, SLOT(onCriticalBatteryTimerExpired()));
 
-    // In 30 seconds (so we are sure the user sees eventual notifications), check the battery state
-    QTimer::singleShot(30000, this, SLOT(checkBatteryStatus()));
+    // wait until the notification system is set up before firing notifications
+    // to avoid them showing ontop of ksplash...
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.freedesktop.Notifications")) {
+        onServiceRegistered(QString());
+    } else {
+        m_notificationsWatcher = new QDBusServiceWatcher("org.freedesktop.Notifications",
+                                                         QDBusConnection::sessionBus(),
+                                                         QDBusServiceWatcher::WatchForRegistration,
+                                                         this);
+        connect(m_notificationsWatcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
+
+        // ...but fire them after 30s nonetheless to ensure they've been shown
+        QTimer::singleShot(30000, this, SLOT(onNotificationTimeout()));
+    }
 
     // All systems up Houston, let's go!
     emit coreReady();
@@ -461,9 +476,6 @@ void Core::onDeviceAdded(const QString& udi)
                              i18n("Additional Battery Added"),
                              i18n("All pending suspend actions have been canceled."));
     }
-
-    // So we get a "Battery is low" notification directly on system startup if applicable
-    emitBatteryChargePercentNotification(chargePercent, 100);
 }
 
 void Core::onDeviceRemoved(const QString& udi)
@@ -702,6 +714,44 @@ void Core::onResumingFromIdle()
     while (i != m_pendingResumeFromIdleActions.end()) {
         (*i)->onWakeupFromIdle();
         i = m_pendingResumeFromIdleActions.erase(i);
+    }
+}
+
+void Core::onNotificationTimeout()
+{
+    // cannot connect QTimer::singleShot directly to the other method
+    onServiceRegistered(QString());
+}
+
+void Core::onServiceRegistered(const QString &service)
+{
+    Q_UNUSED(service);
+
+    static bool notificationsReady = false;
+    if (notificationsReady) {
+        return;
+    }
+
+    // Now emit all the notifications
+    checkBatteryStatus();
+
+    bool emitted = false;
+    for(auto it = m_batteriesPercent.constBegin(); it != m_batteriesPercent.constEnd(); ++it) {
+        if (emitBatteryChargePercentNotification((*it), 100)) {
+            emitted = true;
+        }
+    }
+
+     // need to refresh status to prevent the notification from showing again when charge percentage changes
+    if (emitted) {
+        refreshStatus();
+    }
+
+    notificationsReady = true;
+
+    if (m_notificationsWatcher) {
+        delete m_notificationsWatcher;
+        m_notificationsWatcher = nullptr;
     }
 }
 
