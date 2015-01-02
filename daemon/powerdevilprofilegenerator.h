@@ -20,29 +20,11 @@
 #ifndef POWERDEVIL_PROFILEGENERATOR_H
 #define POWERDEVIL_PROFILEGENERATOR_H
 
-class KComponentData;
 namespace PowerDevil {
 
 namespace ProfileGenerator
 {
-    enum GeneratorResult {
-        ResultFailed = 0,
-        ResultGenerated = 1,
-        ResultUpgraded = 2
-    };
-
-    enum OldIdleAction {
-        None = 0,
-        Standby = 1,
-        S2Ram = 2,
-        S2Disk = 4,
-        Shutdown = 8,
-        Lock = 16,
-        ShutdownDialog = 32,
-        TurnOffScreen = 64
-    };
-
-    enum NewMode {
+    enum Modes {
         NoneMode = 0,
         ToRamMode = 1,
         ToDiskMode = 2,
@@ -53,10 +35,7 @@ namespace ProfileGenerator
         TurnOffScreenMode = 64
     };
 
-    GeneratorResult generateProfiles(bool toRam, bool toDisk,  bool tryUpgrade = false);
-    void upgradeProfilesv1(bool toRam, bool toDisk);
-    void upgradeProfilesv2();
-    unsigned int upgradeOldAction(unsigned int actionId);
+    void generateProfiles(bool toRam, bool toDisk);
 }
 
 }

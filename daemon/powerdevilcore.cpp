@@ -101,12 +101,7 @@ void Core::onBackendReady()
         // Generate defaults
         bool toRam = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
         bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
-        if (ProfileGenerator::generateProfiles(toRam, toDisk, true) == ProfileGenerator::ResultUpgraded) {
-            // Notify the user
-            emitNotification("warningnot", i18n("Your Power Profiles have been updated to be used with the new KDE Power "
-                                                "Management System. You can tweak them or generate a new set of defaults from "
-                                                "System Settings."), "system-software-update");
-        }
+        ProfileGenerator::generateProfiles(toRam, toDisk);
         m_profilesConfig->reparseConfiguration();
     }
 

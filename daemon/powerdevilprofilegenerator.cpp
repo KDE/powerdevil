@@ -21,41 +21,16 @@
 
 #include <PowerDevilSettings.h>
 
-#include <QtCore/QFile>
-#include <QStandardPaths>
-
 #include <Solid/Device>
 #include <Solid/Battery>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <KLocalizedString>
-#include <KNotification>
 
 namespace PowerDevil {
 
-ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam, bool toDisk, bool tryUpgrade)
+void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
 {
-    if (tryUpgrade) {
-        bool isUpgraded = false;
-        KSharedConfigPtr oldProfilesConfigv1 = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
-        if (!oldProfilesConfigv1->groupList().isEmpty()) {
-            // We can upgrade from v1, let's do that.
-            upgradeProfilesv1(toRam, toDisk);
-            isUpgraded = true;
-        }
-        KSharedConfigPtr oldProfilesConfigv2 = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
-        if (!oldProfilesConfigv2->groupList().isEmpty()) {
-            // We can upgrade from v2, let's do that.
-            upgradeProfilesv2();
-            isUpgraded = true;
-        }
-
-        if (isUpgraded) {
-            return ResultUpgraded;
-        }
-    }
-
     // Let's change some defaults
     if (!toRam) {
         if (!toDisk) {
@@ -194,165 +169,6 @@ ProfileGenerator::GeneratorResult ProfileGenerator::generateProfiles(bool toRam,
 
     // Save and be happy
     profilesConfig->sync();
-
-    return ResultGenerated;
-}
-
-void ProfileGenerator::upgradeProfilesv1(bool toRam, bool toDisk)
-{
-    // Let's change some defaults
-    if (!toRam) {
-        if (!toDisk) {
-            PowerDevilSettings::setBatteryCriticalAction(None);
-        } else {
-            PowerDevilSettings::setBatteryCriticalAction(ToDiskMode);
-        }
-    } else {
-        PowerDevilSettings::setBatteryCriticalAction(ToRamMode);
-    }
-
-    // Ok, let's get our config file.
-    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
-    KSharedConfigPtr oldProfilesConfig = KSharedConfig::openConfig("powerdevilprofilesrc", KConfig::SimpleConfig);
-
-    // And clear it
-    foreach (const QString &group, profilesConfig->groupList()) {
-        profilesConfig->deleteGroup(group);
-    }
-
-    foreach (const QString &group, oldProfilesConfig->groupList()) {
-        KConfigGroup oldGroup = oldProfilesConfig->group(group);
-        KConfigGroup newGroup(profilesConfig, oldGroup.readEntry< QString >("name", QString()));
-
-        // Read stuff
-        // Brightness.
-        {
-            KConfigGroup brightnessControl(&newGroup, "BrightnessControl");
-            brightnessControl.writeEntry< int >("value", oldGroup.readEntry< int >("brightness", 100));
-        }
-        // Dim screen
-        if (oldGroup.readEntry< bool >("dimOnIdle", false)) {
-            KConfigGroup dimDisplay(&newGroup, "DimDisplay");
-            dimDisplay.writeEntry< int >("idleTime", oldGroup.readEntry< int >("dimOnIdleTime", 30) * 60 * 1000);
-        }
-        // DPMS
-        if (oldGroup.readEntry< bool >("DPMSEnabled", false) && oldGroup.readEntry< int >("DPMSPowerOff", 0) > 0) {
-            KConfigGroup dpmsControl(&newGroup, "DPMSControl");
-            dpmsControl.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("DPMSPowerOff", 30) * 60);
-        }
-        // Script
-        if (!oldGroup.readEntry< QString >("scriptpath", QString()).isEmpty()) {
-            KConfigGroup runScript(&newGroup, "RunScript");
-            runScript.writeEntry< QString >("scriptCommand", oldGroup.readEntry< QString >("scriptpath", QString()));
-            runScript.writeEntry< uint >("scriptPhase", 0);
-        }
-        // SuspendSession
-        if (oldGroup.readEntry< uint >("idleAction", 0) > 0) {
-            KConfigGroup suspendSession(&newGroup, "SuspendSession");
-            suspendSession.writeEntry< uint >("idleTime", oldGroup.readEntry< int >("idleTime", 30) * 60 * 1000);
-            suspendSession.writeEntry< uint >("suspendType", upgradeOldAction(oldGroup.readEntry< uint >("idleAction", 0)));
-        }
-        // Buttons
-        if (oldGroup.readEntry< uint >("powerButtonAction", 0) > 0 || oldGroup.readEntry< uint >("lidAction", 0) > 0) {
-            KConfigGroup handleButtons(&newGroup, "HandleButtonEvents");
-            handleButtons.writeEntry< uint >("powerButtonAction", upgradeOldAction(oldGroup.readEntry< uint >("powerButtonAction", 0)));
-            handleButtons.writeEntry< uint >("lidAction", upgradeOldAction(oldGroup.readEntry< uint >("lidAction", 0)));
-        }
-    }
-
-    // Save and be happy
-    profilesConfig->sync();
-
-    // We also want to backup and erase the old profiles.
-    QString oldProfilesFile = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, "powerdevilprofilesrc");
-    if (!oldProfilesFile.isEmpty()) {
-        // Backup
-        QString bkProfilesFile = oldProfilesFile;
-        bkProfilesFile.append(".old");
-        KConfig *bkConfig = oldProfilesConfig->copyTo(bkProfilesFile);
-        if (bkConfig != 0) {
-            bkConfig->sync();
-            delete bkConfig;
-
-            // Delete the old profiles now.
-            QFile::remove(oldProfilesFile);
-        }
-    }
-}
-
-void ProfileGenerator::upgradeProfilesv2()
-{
-    // Ok, let's get our config file.
-    KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
-    KSharedConfigPtr oldProfilesConfig = KSharedConfig::openConfig("powerdevil2profilesrc", KConfig::SimpleConfig);
-
-    // And clear it
-    foreach (const QString &group, profilesConfig->groupList()) {
-        // Don't delete activity-specific settings
-        if (group != "Activities") {
-            profilesConfig->deleteGroup(group);
-        }
-    }
-
-    // Ok: back in the days, which profile we used for which task?
-    {
-        KConfigGroup oldAC = oldProfilesConfig.data()->group(PowerDevilSettings::aCProfile());
-        KConfigGroup newGroup(profilesConfig, "AC");
-
-        oldAC.copyTo(&newGroup);
-    }
-    {
-        KConfigGroup oldBattery = oldProfilesConfig.data()->group(PowerDevilSettings::batteryProfile());
-        KConfigGroup newGroup(profilesConfig, "Battery");
-
-        oldBattery.copyTo(&newGroup);
-    }
-    {
-        KConfigGroup oldLowBattery = oldProfilesConfig.data()->group(PowerDevilSettings::lowProfile());
-        KConfigGroup newGroup(profilesConfig, "LowBattery");
-
-        oldLowBattery.copyTo(&newGroup);
-    }
-
-    // Save and be happy
-    profilesConfig->sync();
-
-    // We also want to backup and erase the old profiles.
-    QString oldProfilesFile = QStandardPaths::locate(QStandardPaths::GenericConfigLocation, "powerdevil2profilesrc");
-    if (!oldProfilesFile.isEmpty()) {
-        // Backup
-        QString bkProfilesFile = oldProfilesFile;
-        bkProfilesFile.append(".old");
-        KConfig *bkConfig = oldProfilesConfig->copyTo(bkProfilesFile);
-        if (bkConfig != 0) {
-            bkConfig->sync();
-            delete bkConfig;
-
-            // Delete the old profiles now.
-            QFile::remove(oldProfilesFile);
-        }
-    }
-}
-
-uint ProfileGenerator::upgradeOldAction(uint oldAction)
-{
-    switch ((OldIdleAction)oldAction) {
-        case Standby:
-        case S2Ram:
-            return ToRamMode;
-        case S2Disk:
-            return ToDiskMode;
-        case Shutdown:
-            return ShutdownMode;
-        case Lock:
-            return LockScreenMode;
-        case ShutdownDialog:
-            return LogoutDialogMode;
-        case TurnOffScreen:
-            return TurnOffScreenMode;
-        default:
-            return 0;
-    }
 }
 
 }
