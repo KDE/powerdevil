@@ -40,7 +40,6 @@ namespace BundledActions {
 
 BrightnessControl::BrightnessControl(QObject* parent)
     : Action(parent)
-    , m_brightnessOSD(0)
 {
     // DBus
     new BrightnessControlAdaptor(this);
@@ -109,7 +108,7 @@ void BrightnessControl::triggerImpl(const QVariantMap& args)
         backend()->setBrightness(args["Value"].toFloat());
     }
     if (args["Explicit"].toBool() && !args["Silent"].toBool()) {
-        showBrightnessOSD(backend()->brightness());
+        BrightnessOSDWidget::show(brightness());
     }
 }
 
@@ -138,15 +137,6 @@ bool BrightnessControl::loadAction(const KConfigGroup& config)
     }
 
     return true;
-}
-
-void BrightnessControl::showBrightnessOSD(int brightness)
-{
-    if (!m_brightnessOSD) {
-        m_brightnessOSD = new BrightnessOSDWidget(BackendInterface::Screen, this);
-    }
-
-    m_brightnessOSD->setCurrentBrightness(brightness);
 }
 
 void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
@@ -184,13 +174,13 @@ void BrightnessControl::setBrightnessSilent(int percent)
 void BrightnessControl::increaseBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Increase);
-    showBrightnessOSD(brightness());
+    BrightnessOSDWidget::show(brightness());
 }
 
 void BrightnessControl::decreaseBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Decrease);
-    showBrightnessOSD(brightness());
+    BrightnessOSDWidget::show(brightness());
 }
 
 int BrightnessControl::brightnessValue() const

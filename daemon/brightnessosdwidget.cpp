@@ -5,6 +5,7 @@
 * Copyright  2009    Dario Andres Rodriguez <andresbajotierra@gmail.com>
 * Copyright  2009    Christian Esken <christian.esken@arcor.de>
 * Copyright  2010    Felix Geyer <debfx-kde@fobos.de>
+* Copyright  2015    Kai Uwe Broulik <kde@privat.broulik.de>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public License as
@@ -23,33 +24,31 @@
 
 #include "brightnessosdwidget.h"
 
-// Qt
-#include <QObject>
 #include <QtDBus/QDBusInterface>
 #include <QtDBus/QDBusPendingCall>
 
-BrightnessOSDWidget::BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QObject *parent)
-    : QObject(parent)
-    , m_type(type)
+namespace BrightnessOSDWidget
 {
 
-}
-
-BrightnessOSDWidget::~BrightnessOSDWidget()
+void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type)
 {
-}
+    QString method;
+    if (type == PowerDevil::BackendInterface::Keyboard) {
+        method = QLatin1Literal("keyboardBrightnessChanged");
+    } else {
+        method = QLatin1Literal("brightnessChanged");
+    }
 
-void BrightnessOSDWidget::setCurrentBrightness(int brightnessLevel)
-{
     QDBusMessage msg = QDBusMessage::createMethodCall(
         QLatin1Literal("org.kde.plasmashell"),
         QLatin1Literal("/org/kde/osdService"),
         QLatin1Literal("org.kde.osdService"),
-        QLatin1Literal("brightnessChanged")
+        method
     );
 
-    msg.setArguments(QList<QVariant>() << brightnessLevel);
+    msg << percentage;
 
     QDBusConnection::sessionBus().asyncCall(msg);
 }
-#include "brightnessosdwidget.moc"
+
+}

@@ -21,6 +21,8 @@
 
 #include "keyboardbrightnesscontroladaptor.h"
 
+#include "brightnessosdwidget.h"
+
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
@@ -117,7 +119,7 @@ void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
         backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
     }
     if (args["Explicit"].toBool() && !args["Silent"].toBool()) {
-        showBrightnessOSD(backend()->brightness(BackendInterface::Keyboard));
+        BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
     }
 }
 
@@ -148,20 +150,6 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
     return true;
 }
 
-void KeyboardBrightnessControl::showBrightnessOSD(int brightness)
-{
-    QDBusMessage msg = QDBusMessage::createMethodCall(
-        QLatin1Literal("org.kde.plasmashell"),
-        QLatin1Literal("/org/kde/osdService"),
-        QLatin1Literal("org.kde.osdService"),
-        QLatin1Literal("keyboardBrightnessChanged")
-    );
-
-    msg.setArguments(QList<QVariant>() << brightness);
-
-    QDBusConnection::sessionBus().asyncCall(msg);
-}
-
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
@@ -175,19 +163,19 @@ void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessL
 void KeyboardBrightnessControl::increaseKeyboardBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Increase, BackendInterface::Keyboard);
-    showBrightnessOSD(keyboardBrightness());
+    BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Decrease, BackendInterface::Keyboard);
-    showBrightnessOSD(keyboardBrightness());
+    BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Toggle, BackendInterface::Keyboard);
-    showBrightnessOSD(keyboardBrightness());
+    BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
 }
 
 int KeyboardBrightnessControl::keyboardBrightness() const

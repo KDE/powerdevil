@@ -24,8 +24,6 @@
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
-// class BrightnessOSDWidget;
-
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -51,7 +49,6 @@ public:
     virtual bool loadAction(const KConfigGroup& config);
 
 public Q_SLOTS:
-    void showBrightnessOSD(int brightness);
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
 
     // DBus export
@@ -79,7 +76,6 @@ Q_SIGNALS:
 
 private:
     int m_defaultValue;
-//     QWeakPointer< BrightnessOSDWidget > m_brightnessOSD;
     QString m_lastProfile;
     QString m_currentProfile;
 };

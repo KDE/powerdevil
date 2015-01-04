@@ -5,6 +5,7 @@
 * Copyright  2009    Dario Andres Rodriguez <andresbajotierra@gmail.com>
 * Copyright  2009    Christian Esken <christian.esken@arcor.de>
 * Copyright  2010    Felix Geyer <debfx-kde@fobos.de>
+* Copyright  2015    Kai Uwe Broulik <kde@privat.broulik.de>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public License as
@@ -21,25 +22,16 @@
 *
 ******************************************************************/
 
-#ifndef BRIGHTNESSOSDWIDGET__H
-#define BRIGHTNESSOSDWIDGET__H
+#ifndef BRIGHTNESSOSDWIDGET_H
+#define BRIGHTNESSOSDWIDGET_H
 
 #include "powerdevilbackendinterface.h"
 
-#include <QDBusInterface>
-
-class BrightnessOSDWidget : public QObject
+namespace BrightnessOSDWidget
 {
-Q_OBJECT
-public:
-    BrightnessOSDWidget(PowerDevil::BackendInterface::BrightnessControlType type, QObject* parent = 0);
-    virtual ~BrightnessOSDWidget();
 
-    void setCurrentBrightness(int brightnessLevel);
+    void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
 
-private:
-    int m_brightness;
-    PowerDevil::BackendInterface::BrightnessControlType m_type;
-};
+}
 
-#endif
+#endif // BRIGHTNESSOSDWIDGET_H
