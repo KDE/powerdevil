@@ -34,6 +34,7 @@ set(powerdevilcore_SRCS
     powerdevilscreenbrightnesslogic.cpp
     powerdevilkeyboardbrightnesslogic.cpp
     brightnessosdwidget.cpp
+    kwinkscreenhelpereffect.cpp
 )
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
@@ -55,19 +56,22 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSIO
 
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
-    PUBLIC
-        KF5::ConfigCore
-        KF5::ConfigGui
-        KF5::I18n
-        KF5::Solid
-        KF5::IdleTime
-        KF5::GlobalAccel
-        KF5::Service
-        KF5::WidgetsAddons
-        KF5::Notifications
-        KF5::XmlGui
-        PW::KWorkspace
+    KF5::ConfigCore
+    KF5::ConfigGui
+    KF5::I18n
+    KF5::Solid
+    KF5::IdleTime
+    KF5::GlobalAccel
+    KF5::Service
+    KF5::WidgetsAddons
+    KF5::Notifications
+    KF5::XmlGui
+    PW::KWorkspace
 )
+
+if (X11_FOUND) # kwin kscreen helper effect
+    target_link_libraries(powerdevilcore Qt5::X11Extras XCB::XCB)
+endif ()
 
 # target no.2 - powerdevil kded module
 set(kded_powerdevil_SRCS
@@ -127,6 +131,7 @@ target_link_libraries(powerdevilui
 )
 
 set(HAVE_UDEV ${UDEV_FOUND})
+set(HAVE_X11 ${X11_FOUND})
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
 install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
