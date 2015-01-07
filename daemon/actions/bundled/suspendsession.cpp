@@ -43,7 +43,7 @@ namespace BundledActions
 
 SuspendSession::SuspendSession(QObject* parent)
     : Action(parent),
-      m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect(this))
+      m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
 {
     // DBus
     new SuspendSessionAdaptor(this);
