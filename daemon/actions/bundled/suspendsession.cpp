@@ -25,7 +25,7 @@
 
 #include "suspendsessionadaptor.h"
 
-#include <QDebug>
+#include <kwinkscreenhelpereffect.h>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -43,15 +43,31 @@ namespace BundledActions
 
 SuspendSession::SuspendSession(QObject* parent)
     : Action(parent),
-      m_dbusWatcher(0)
+      m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect(this))
 {
     // DBus
     new SuspendSessionAdaptor(this);
 
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 
-    connect(backend(), SIGNAL(resumeFromSuspend()),
-            this, SLOT(onResumeFromSuspend()));
+    connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this]() {
+        // Notify the screensaver
+        OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
+        iface.SimulateUserActivity();
+        PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
+
+        m_fadeEffect->stop();
+
+        Q_EMIT resumingFromSuspend();
+    });
+
+    connect(m_fadeEffect.data(), &PowerDevil::KWinKScreenHelperEffect::fadedOut, this, [this]() {
+        if (!m_savedArgs.isEmpty()) {
+            QVariantMap args = m_savedArgs;
+            args["SkipFade"] = true;
+            triggerImpl(args);
+        }
+    });
 }
 
 SuspendSession::~SuspendSession()
@@ -84,20 +100,16 @@ void SuspendSession::onProfileLoad()
 
 void SuspendSession::triggerImpl(const QVariantMap& args)
 {
-    qCDebug(POWERDEVIL) << "Triggered with " << args["Type"].toString() << args["SkipLocking"].toBool();
+    qCDebug(POWERDEVIL) << "Triggered with " << args["Type"].toString() << args["SkipFade"].toBool();
 
-    // Switch for screen lock
-    QVariantMap recallArgs;
+    // Switch for screen fading
     switch ((Mode) (args["Type"].toUInt())) {
         case ToRamMode:
         case ToDiskMode:
         case SuspendHybridMode:
-            // Do we want to lock the screen?
-            if (PowerDevilSettings::configLockScreen() && !args["SkipLocking"].toBool()) {
-                // Yeah, we do.
+            if (!args["SkipFade"].toBool() && m_fadeEffect->isValid()) {
                 m_savedArgs = args;
-                recallArgs["Type"] = (uint)LockScreenMode;
-                triggerImpl(recallArgs);
+                m_fadeEffect->start();
                 return;
             }
             break;
@@ -126,38 +138,20 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
         case LogoutDialogMode:
             KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
             break;
-        case LockScreenMode:
-            lockScreenAndWait();
+        case LockScreenMode: {
+            // TODO should probably go through the backend (logind perhaps) eventually
+            OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
+            iface.Lock();
             break;
+        }
         default:
             break;
     }
 
     if (suspendJob) {
+        // TODO connect(suspendJob, &KJob::error ??, this, [this]() { m_fadeEffect->stop(); });
         suspendJob->start();
     }
-}
-
-void SuspendSession::lockScreenAndWait()
-{
-    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
-                                             "/ScreenSaver",
-                                             QDBusConnection::sessionBus());
-    QDBusPendingReply< void > reply = iface.Lock();
-    m_dbusWatcher = new QDBusPendingCallWatcher(reply, this);
-    connect(m_dbusWatcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(lockCompleted()));
-}
-
-void SuspendSession::lockCompleted()
-{
-    QVariantMap args = m_savedArgs;
-
-    m_dbusWatcher->deleteLater();
-    m_dbusWatcher = 0;
-    m_savedArgs.clear();
-
-    args["SkipLocking"] = true;
-    triggerImpl(args);
 }
 
 bool SuspendSession::loadAction(const KConfigGroup& config)
@@ -192,18 +186,6 @@ void SuspendSession::triggerSuspendSession(uint action)
     args["Type"] = action;
     args["Explicit"] = true;
     trigger(args);
-}
-
-void SuspendSession::onResumeFromSuspend()
-{
-    // Notify the screensaver
-    OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver",
-                                             "/ScreenSaver",
-                                             QDBusConnection::sessionBus());
-    iface.SimulateUserActivity();
-    PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
-
-    Q_EMIT resumingFromSuspend();
 }
 
 }

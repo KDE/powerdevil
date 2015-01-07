@@ -23,10 +23,13 @@
 
 #include <powerdevilaction.h>
 
-class QDBusPendingCallWatcher;
+#include <QScopedPointer>
 
 namespace PowerDevil
 {
+
+class KWinKScreenHelperEffect;
+
 namespace BundledActions
 {
 
@@ -65,22 +68,18 @@ public Q_SLOTS:
     void suspendToDisk();
     void suspendHybrid();
 
-    void onResumeFromSuspend();
-
 Q_SIGNALS:
     void aboutToSuspend();
     void resumingFromSuspend();
 
 private slots:
-    void lockCompleted();
     void triggerSuspendSession(uint action);
 
 private:
     uint m_autoType;
     QVariantMap m_savedArgs;
-    QDBusPendingCallWatcher *m_dbusWatcher;
+    QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 
-    void lockScreenAndWait();
 };
 
 }

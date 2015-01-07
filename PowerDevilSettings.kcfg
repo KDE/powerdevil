@@ -23,9 +23,6 @@
   </group>
 
   <group name="General">
-    <entry name="configLockScreen" type="Bool">
-      <default>true</default>
-    </entry>
     <entry name="doNotInhibitOnLidClose" type="Bool">
       <default>true</default>
     </entry>

@@ -119,7 +119,6 @@ void GeneralPage::fillUi()
 
     // modified fields...
 
-    connect(lockScreenOnResume, SIGNAL(stateChanged(int)), SLOT(changed()));
     connect(doNotInhibitLid, SIGNAL(stateChanged(int)), SLOT(changed()));
 
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
@@ -144,7 +143,6 @@ void GeneralPage::fillUi()
 
 void GeneralPage::load()
 {
-    lockScreenOnResume->setChecked(PowerDevilSettings::configLockScreen());
     doNotInhibitLid->setChecked(PowerDevilSettings::doNotInhibitOnLidClose());
 
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
@@ -160,7 +158,6 @@ void GeneralPage::configureNotifications()
 
 void GeneralPage::save()
 {
-    PowerDevilSettings::setConfigLockScreen(lockScreenOnResume->isChecked());
     PowerDevilSettings::setDoNotInhibitOnLidClose(doNotInhibitLid->isChecked());
 
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
