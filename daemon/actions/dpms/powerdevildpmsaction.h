@@ -23,6 +23,12 @@
 
 #include <powerdevilaction.h>
 
+#include <QScopedPointer>
+
+namespace PowerDevil {
+    class KWinKScreenHelperEffect;
+}
+
 class PowerDevilDPMSAction : public PowerDevil::Action
 {
     Q_OBJECT
@@ -54,6 +60,7 @@ private:
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen;
 
     int m_oldKeyboardBrightnessValue;
+    QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 
     class Private;
     Private * const d;

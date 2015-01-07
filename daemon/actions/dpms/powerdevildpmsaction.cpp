@@ -26,6 +26,8 @@
 
 #include <config-workspace.h>
 
+#include <kwinkscreenhelpereffect.h>
+
 #include <QX11Info>
 #include <QDebug>
 
@@ -73,8 +75,10 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     , m_idleTime(0)
     , m_inhibitScreen(0)  // can't use PowerDevil::PolicyAgent enum because X11/X.h defines None as 0L
     , m_oldKeyboardBrightnessValue(0)
+    , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
     , d(new Private)
 {
+
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
     // We want to query for DPMS in the constructor, before anything else happens
@@ -133,6 +137,7 @@ void PowerDevilDPMSAction::onProfileUnload()
 
 void PowerDevilDPMSAction::onWakeupFromIdle()
 {
+    m_fadeEffect->stop();
     if (m_oldKeyboardBrightnessValue > 0) {
         setKeyboardBrightnessHelper(m_oldKeyboardBrightnessValue);
         m_oldKeyboardBrightnessValue = 0;
@@ -143,10 +148,14 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
 {
     Q_UNUSED(msec);
 
-    const int brightness = backend()->brightnessValue(PowerDevil::BackendInterface::Keyboard);
-    if (brightness > 0) {
-        m_oldKeyboardBrightnessValue = brightness;
-        setKeyboardBrightnessHelper(0);
+    if (msec == m_idleTime * 1000 - 3000) { // fade out screen
+        m_fadeEffect->start();
+    } else if (msec == m_idleTime * 1000) {
+        const int brightness = backend()->brightnessValue(PowerDevil::BackendInterface::Keyboard);
+        if (brightness > 0) {
+            m_oldKeyboardBrightnessValue = brightness;
+            setKeyboardBrightnessHelper(0);
+        }
     }
 }
 
@@ -222,6 +231,7 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
     m_idleTime = config.readEntry<int>("idleTime", -1);
     if (m_idleTime > 0) {
         registerIdleTimeout(m_idleTime * 1000);
+        registerIdleTimeout(m_idleTime * 1000 - 3000); // start screen fade a bit earlier to alert user
     }
 
     return true;
