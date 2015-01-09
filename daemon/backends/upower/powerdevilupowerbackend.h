@@ -84,6 +84,7 @@ private slots:
 private:
     // upower devices
     QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
+    OrgFreedesktopUPowerDeviceInterface *m_displayDevice;
 
     // brightness
     QMap<BrightnessControlType, int> m_cachedBrightnessMap;

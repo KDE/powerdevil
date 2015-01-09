@@ -43,7 +43,8 @@
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
-      m_brightnessControl(0),
+      m_displayDevice(Q_NULLPTR),
+      m_brightnessControl(Q_NULLPTR),
       m_kbdMaxBrightness(0),
       m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
 {
@@ -432,6 +433,14 @@ void PowerDevilUPowerBackend::enumerateDevices()
         addDevice(device.path());
     }
 
+    QDBusReply<QDBusObjectPath> reply = m_upowerInterface->call("GetDisplayDevice");
+    if (reply.isValid()) {
+        const QString path = reply.value().path();
+        if (!path.isEmpty() && path != QStringLiteral("/")) {
+            m_displayDevice = new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, path, QDBusConnection::systemBus(), this);
+        }
+    }
+
     updateDeviceProps();
 
     if (m_onBattery)
@@ -485,14 +494,22 @@ void PowerDevilUPowerBackend::updateDeviceProps()
 {
     qlonglong remainingTime = 0;
 
-    foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
-        const uint type = upowerDevice->type();
-        if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
-            const uint state = upowerDevice->state();
-            if (state == 1) // charging
-                remainingTime += upowerDevice->timeToFull();
-            else if (state == 2) //discharging
-                remainingTime += upowerDevice->timeToEmpty();
+    if (m_displayDevice && m_displayDevice->isPresent()) {
+        const uint state = m_displayDevice->state();
+        if (state == 1) // charging
+            remainingTime = m_displayDevice->timeToFull();
+        else if (state == 2) //discharging
+            remainingTime = m_displayDevice->timeToEmpty();
+    } else {
+        foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
+            const uint type = upowerDevice->type();
+            if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
+                const uint state = upowerDevice->state();
+                if (state == 1) // charging
+                    remainingTime += upowerDevice->timeToFull();
+                else if (state == 2) //discharging
+                    remainingTime += upowerDevice->timeToEmpty();
+            }
         }
     }
 
