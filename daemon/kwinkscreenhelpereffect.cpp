@@ -27,25 +27,11 @@ namespace PowerDevil
 
 KWinKScreenHelperEffect::KWinKScreenHelperEffect(QObject *parent) : QObject(parent)
 {
-#ifdef HAVE_X11
-    if (QX11Info::isPlatformX11()) {
-        QScopedPointer<xcb_intern_atom_reply_t, QScopedPointerPodDeleter> atomReply(xcb_intern_atom_reply(QX11Info::connection(),
-            xcb_intern_atom_unchecked(QX11Info::connection(), false, 25, "_KDE_KWIN_KSCREEN_SUPPORT"),
-        NULL));
-        if (atomReply.isNull()) {
-            return;
-        }
+    m_abortTimer.setSingleShot(true);
+    m_abortTimer.setInterval(5000);
+    connect(&m_abortTimer, &QTimer::timeout, this, &KWinKScreenHelperEffect::stop);
 
-        m_atom = atomReply->atom;
-        m_isValid = true;
-
-        m_abortTimer.setSingleShot(true);
-        m_abortTimer.setInterval(5000);
-        connect(&m_abortTimer, &QTimer::timeout, this, &KWinKScreenHelperEffect::stop);
-
-        qApp->installNativeEventFilter(this);
-    }
-#endif
+    qApp->installNativeEventFilter(this);
 }
 
 KWinKScreenHelperEffect::~KWinKScreenHelperEffect()
@@ -53,23 +39,23 @@ KWinKScreenHelperEffect::~KWinKScreenHelperEffect()
     stop();
 }
 
-void KWinKScreenHelperEffect::start()
+bool KWinKScreenHelperEffect::start()
 {
+    m_isValid = checkValid();
     if (!m_isValid) {
-        return;
+        // emit fade out right away since the effect is not available
+        emit fadedOut();
+        return false;
     }
 
     m_running = true;
     setEffectProperty(1);
     m_abortTimer.start();
+    return true;
 }
 
 void KWinKScreenHelperEffect::stop()
 {
-    if (!m_isValid) {
-        return;
-    }
-
     // Maybe somebody got confused, just reset the property then
     if (m_state == NormalState) {
         setEffectProperty(0);
@@ -80,15 +66,42 @@ void KWinKScreenHelperEffect::stop()
     m_abortTimer.stop();
 }
 
-bool KWinKScreenHelperEffect::isValid() const
+bool KWinKScreenHelperEffect::checkValid()
 {
-    return m_isValid;
+#ifdef HAVE_X11
+    if (QX11Info::isPlatformX11()) {
+        QScopedPointer<xcb_list_properties_reply_t, QScopedPointerPodDeleter> propsReply(xcb_list_properties_reply(QX11Info::connection(),
+            xcb_list_properties_unchecked(QX11Info::connection(), QX11Info::appRootWindow()),
+        NULL));
+        QScopedPointer<xcb_intern_atom_reply_t, QScopedPointerPodDeleter> atomReply(xcb_intern_atom_reply(QX11Info::connection(),
+            xcb_intern_atom_unchecked(QX11Info::connection(), false, 25, "_KDE_KWIN_KSCREEN_SUPPORT"),
+        NULL));
+
+        if (propsReply.isNull() || atomReply.isNull()) {
+            return false;
+        }
+
+        auto *atoms = xcb_list_properties_atoms(propsReply.data());
+        for (int i = 0; i < propsReply->atoms_len; ++i) {
+            if (atoms[i] == atomReply->atom) {
+                m_atom = atomReply->atom;
+                return true;
+            }
+        }
+
+        m_atom = 0;
+        return false;
+    }
+#endif
+    return false;
 }
 
 void KWinKScreenHelperEffect::setEffectProperty(long value)
 {
 #ifdef HAVE_X11
-    xcb_change_property(QX11Info::connection(), XCB_PROP_MODE_REPLACE, QX11Info::appRootWindow(), m_atom, XCB_ATOM_CARDINAL, 32, 1, &value);
+    if (m_isValid && QX11Info::isPlatformX11()) {
+        xcb_change_property(QX11Info::connection(), XCB_PROP_MODE_REPLACE, QX11Info::appRootWindow(), m_atom, XCB_ATOM_CARDINAL, 32, 1, &value);
+    }
 #else
     Q_UNUSED(value);
 #endif
@@ -103,47 +116,49 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
     }
 
 #ifdef HAVE_X11
-    auto e = static_cast<xcb_generic_event_t *>(message);
-    const uint8_t type = e->response_type & ~0x80;
-    if (type == XCB_PROPERTY_NOTIFY) {
-        auto *event = reinterpret_cast<xcb_property_notify_event_t *>(e);
-        if (event->window == QX11Info::appRootWindow()) {
-            if (event->atom != m_atom) {
-                return false;
-            }
-
-            auto cookie = xcb_get_property(QX11Info::connection(), false, QX11Info::appRootWindow(), m_atom, XCB_ATOM_CARDINAL, 0, 1);
-            QScopedPointer<xcb_get_property_reply_t, QScopedPointerPodDeleter> reply(xcb_get_property_reply(QX11Info::connection(), cookie, NULL));
-            if (reply.isNull() || reply.data()->value_len != 1 || reply.data()->format != uint8_t(32)) {
-                return false;
-            }
-
-            auto *data = reinterpret_cast<uint32_t *>(xcb_get_property_value(reply.data()));
-            if (!data) {
-                return false;
-            }
-
-            switch(*data) {
-            case 1:
-                m_state = FadingOutState;
-                break;
-            case 2:
-                m_state = FadedOutState;
-                if (m_running) {
-                    emit fadedOut();
+    if (m_isValid && QX11Info::isPlatformX11()) {
+        auto e = static_cast<xcb_generic_event_t *>(message);
+        const uint8_t type = e->response_type & ~0x80;
+        if (type == XCB_PROPERTY_NOTIFY) {
+            auto *event = reinterpret_cast<xcb_property_notify_event_t *>(e);
+            if (event->window == QX11Info::appRootWindow()) {
+                if (event->atom != m_atom) {
+                    return false;
                 }
-                break;
-            case 3:
-                m_state = FadingInState;
-                m_running = false;
-                m_abortTimer.stop();
-                break;
-            default:
-                m_state = NormalState;
-                m_running = false;
-            }
 
-            emit stateChanged(m_state);
+                auto cookie = xcb_get_property(QX11Info::connection(), false, QX11Info::appRootWindow(), m_atom, XCB_ATOM_CARDINAL, 0, 1);
+                QScopedPointer<xcb_get_property_reply_t, QScopedPointerPodDeleter> reply(xcb_get_property_reply(QX11Info::connection(), cookie, NULL));
+                if (reply.isNull() || reply.data()->value_len != 1 || reply.data()->format != uint8_t(32)) {
+                    return false;
+                }
+
+                auto *data = reinterpret_cast<uint32_t *>(xcb_get_property_value(reply.data()));
+                if (!data) {
+                    return false;
+                }
+
+                switch(*data) {
+                case 1:
+                    m_state = FadingOutState;
+                    break;
+                case 2:
+                    m_state = FadedOutState;
+                    if (m_running) {
+                        emit fadedOut();
+                    }
+                    break;
+                case 3:
+                    m_state = FadingInState;
+                    m_running = false;
+                    m_abortTimer.stop();
+                    break;
+                default:
+                    m_state = NormalState;
+                    m_running = false;
+                }
+
+                emit stateChanged(m_state);
+            }
         }
     }
 #else

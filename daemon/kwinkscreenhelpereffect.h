@@ -49,8 +49,7 @@ public:
         FadingInState
     };
 
-    void start();
-    bool isValid() const;
+    bool start();
 
     bool nativeEventFilter(const QByteArray &eventType, void *message, long *result) override;
 
@@ -62,6 +61,7 @@ signals:
     void fadedOut();
 
 private:
+    bool checkValid();
     void setEffectProperty(long value);
 
     State m_state = NormalState;
