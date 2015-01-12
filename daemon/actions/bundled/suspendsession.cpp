@@ -107,7 +107,7 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
         case ToRamMode:
         case ToDiskMode:
         case SuspendHybridMode:
-            if (!args["SkipFade"].toBool() && m_fadeEffect->isValid()) {
+            if (!args["SkipFade"].toBool()) {
                 m_savedArgs = args;
                 m_fadeEffect->start();
                 return;
