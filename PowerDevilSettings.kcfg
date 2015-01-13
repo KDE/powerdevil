@@ -6,22 +6,6 @@
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="powerdevilrc"/>
 
-  <!--The following group is retained just for compatibility and upgrades.-->
-  <group name="Profiles">
-    <entry name="ACProfile" type="String">
-      <default></default>
-    </entry>
-    <entry name="BatteryProfile" type="String">
-      <default></default>
-    </entry>
-    <entry name="LowProfile" type="String">
-      <default></default>
-    </entry>
-    <entry name="WarningProfile" type="String">
-      <default></default>
-    </entry>
-  </group>
-
   <group name="General">
     <entry name="doNotInhibitOnLidClose" type="Bool">
       <default>true</default>
