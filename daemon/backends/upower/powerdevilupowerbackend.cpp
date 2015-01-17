@@ -501,14 +501,40 @@ void PowerDevilUPowerBackend::updateDeviceProps()
         else if (state == 2) //discharging
             remainingTime = m_displayDevice->timeToEmpty();
     } else {
+        qreal energyTotal = 0.0;
+        qreal energyRateTotal = 0.0;
+        qreal energyFullTotal = 0.0;
+        uint stateTotal = 0;
+
         foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
             const uint type = upowerDevice->type();
             if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
                 const uint state = upowerDevice->state();
-                if (state == 1) // charging
+                energyFullTotal += upowerDevice->energyFull();
+                energyTotal += upowerDevice->energy();
+                energyRateTotal += upowerDevice->energyRate();
+
+                if (state == 1) { // total is charging
+                    stateTotal = 1;
+                } else if (state == 2 && stateTotal != 1) { // total is discharging
+                    stateTotal = 2;
+                } else if (state == 4 && stateTotal != 0) { // total is fully-charged
+                    stateTotal = 4;
+                }
+
+                if (state == 1) { // charging
                     remainingTime += upowerDevice->timeToFull();
-                else if (state == 2) //discharging
+                } else if (state == 2) { // discharging
                     remainingTime += upowerDevice->timeToEmpty();
+                }
+            }
+        }
+
+        if (energyRateTotal > 0) {
+            if (stateTotal == 1) { // charging
+                remainingTime = 3600 * ((energyFullTotal - energyTotal) / energyRateTotal);
+            } else if (stateTotal == 2) { // discharging
+                remainingTime = 3600 * (energyTotal / energyRateTotal);
             }
         }
     }
