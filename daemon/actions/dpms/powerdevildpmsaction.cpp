@@ -148,6 +148,11 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
 {
     Q_UNUSED(msec);
 
+    //Do not inhibit anything even if idleTimeout reaches because we are inhibit
+    if (m_inhibitScreen) {
+        return;
+    }
+
     if (msec == m_idleTime * 1000 - 3000) { // fade out screen
         m_fadeEffect->start();
     } else if (msec == m_idleTime * 1000) {
