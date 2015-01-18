@@ -237,24 +237,12 @@ void PowerDevilUPowerBackend::init()
     }
 
     // battery
-    QList<RecallNotice> recallList;
     foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
         if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
             QString udi = upowerDevice->path();
             setCapacityForBattery(udi, qRound(upowerDevice->capacity()));  // acknowledge capacity
-
-            if (upowerDevice->recallNotice()) {                            // check for recall notices
-                RecallNotice notice;
-                notice.batteryId = udi;
-                notice.url = upowerDevice->recallUrl();
-                notice.vendor = upowerDevice->recallVendor();
-
-                recallList.append(notice);
-            }
         }
     }
-    if (!recallList.isEmpty())
-        setRecallNotices(recallList);
 
     // backend ready
     setBackendIsReady(controls, supported);

@@ -194,26 +194,6 @@ QString Core::checkBatteryStatus(bool notify)
         }
     }
 
-    // Any recalled batteries?
-    foreach (const BackendInterface::RecallNotice &notice, m_backend->recallNotices()) {
-        // Notify, a battery has been recalled
-        if (m_loadedBatteriesUdi.size() == 1) {
-            lastMessage = i18n("Your battery might have been recalled by %1. Usually, when vendors recall the "
-                               "hardware, it is because of factory defects which are usually eligible for a "
-                               "free repair or substitution. Please check <a href=\"%2\">%1's website</a> to "
-                               "verify if your battery is faulted.", notice.vendor, notice.url);
-        } else {
-            lastMessage = i18n("One of your batteries (ID %3) might have been recalled by %1. "
-                               "Usually, when vendors recall the hardware, it is because of factory defects "
-                               "which are usually eligible for a free repair or substitution. "
-                               "Please check <a href=\"%2\">%1's website</a> to "
-                               "verify if your battery is faulted.", notice.vendor, notice.url, notice.batteryId);
-        }
-        if (notify) {
-            emitRichNotification("brokenbattery", i18n("Check Your Battery"), lastMessage);
-        }
-    }
-
     return lastMessage;
 }
 

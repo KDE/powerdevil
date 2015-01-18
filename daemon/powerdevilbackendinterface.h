@@ -106,18 +106,6 @@ public:
     Q_DECLARE_FLAGS(Capabilities, Capability)
 
     /**
-     * This struct contains information for a recall notice from the vendor
-     */
-    struct RecallNotice {
-        /** The battery uuid */
-        QString batteryId;
-        /** The vendor's name */
-        QString vendor;
-        /** The vendor's website */
-        QString url;
-    };
-
-    /**
      * Initializes the backend. This function @b MUST be called before the backend is usable. Using
      * any method in BackendInterface without initializing it might lead to undefined behavior. The signal
      * @c backendReady or @c backendError will be streamed upon completion.
@@ -273,14 +261,6 @@ public:
      */
     QHash< QString, uint > capacities() const;
 
-    /**
-     * Returns a list of recall notices, if available
-     *
-     * @return a list of recall notices
-     * @see PowerDevil::BackendInterface::RecallNotice
-     */
-    QList< RecallNotice > recallNotices() const;
-
 Q_SIGNALS:
     /**
      * This signal is emitted when the AC adapter is plugged or unplugged.
@@ -351,7 +331,6 @@ protected:
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
 
     void setCapacityForBattery(const QString &batteryId, uint percent);
-    void setRecallNotices(const QList< RecallNotice > &notices);
 
     void setBackendIsReady(BrightnessControlsList availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
