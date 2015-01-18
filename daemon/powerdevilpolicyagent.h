@@ -24,6 +24,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QHash>
+#include <QtCore/QStringList>
 #include <QtCore/QWeakPointer>
 
 #include <QtDBus/QDBusContext>
@@ -40,6 +41,7 @@ class QDBusInterface;
 
 #define CONSOLEKIT_SERVICE "org.freedesktop.ConsoleKit"
 
+using InhibitionInfo = QPair<QString, QString>;
 
 namespace PowerDevil
 {
@@ -78,9 +80,14 @@ public Q_SLOTS:
     // Exported slots
     uint AddInhibition(uint types, const QString &appName, const QString &reason);
     void ReleaseInhibition(uint cookie);
+    QList<InhibitionInfo> ListInhibitions();
 
     void releaseAllInhibitions();
+
 Q_SIGNALS:
+    // Exported signals
+    void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
+
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
 
 private Q_SLOTS:
