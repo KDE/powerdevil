@@ -27,6 +27,8 @@ namespace PowerDevil {
     class Core;
 }
 
+using InhibitionInfo = QPair<QString, QString>;
+
 class KDEDPowerDevil : public KDEDModule
 {
     Q_OBJECT

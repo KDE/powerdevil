@@ -59,6 +59,8 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, NamedDBusObjectPa
 }
 
 Q_DECLARE_METATYPE(NamedDBusObjectPath)
+Q_DECLARE_METATYPE(InhibitionInfo)
+Q_DECLARE_METATYPE(QList<InhibitionInfo>)
 
 namespace PowerDevil
 {
@@ -105,6 +107,9 @@ PolicyAgent::~PolicyAgent()
 
 void PolicyAgent::init()
 {
+    qDBusRegisterMetaType<InhibitionInfo>();
+    qDBusRegisterMetaType<QList<InhibitionInfo>>();
+
     // Watch over the systemd service
     m_sdWatcher.data()->setConnection(QDBusConnection::systemBus());
     m_sdWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |

@@ -41,10 +41,6 @@
 K_PLUGIN_FACTORY( PowerDevilFactory,
                   registerPlugin<KDEDPowerDevil>(); )
 
-using InhibitionInfo = QPair<QString, QString>;
-Q_DECLARE_METATYPE(InhibitionInfo)
-Q_DECLARE_METATYPE(QList<InhibitionInfo>)
-
 KDEDPowerDevil::KDEDPowerDevil(QObject* parent, const QVariantList &)
     : KDEDModule(parent)
 {
@@ -107,9 +103,8 @@ void KDEDPowerDevil::onCoreReady()
     QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
 
     // Start the Policy Agent service
-    qDBusRegisterMetaType<QList<QPair<QString,QString>>>();
-    qDBusRegisterMetaType<QPair<QString,QString>>();
-
+    qDBusRegisterMetaType<QList<InhibitionInfo>>();
+    qDBusRegisterMetaType<InhibitionInfo>();
     new PowerManagementPolicyAgentAdaptor(PowerDevil::PolicyAgent::instance());
 
     QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement.PolicyAgent");
