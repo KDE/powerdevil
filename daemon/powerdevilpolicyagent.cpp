@@ -440,9 +440,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
-    emit InhibitionsChanged(QList<InhibitionInfo>{
-        {qMakePair<QString, QString>(appName, reason)}
-    }, QStringList());
+    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
 
     return m_lastCookie;
 }
@@ -469,9 +467,7 @@ uint PolicyAgent::AddInhibition(uint types,
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
-    emit InhibitionsChanged(QList<InhibitionInfo>{
-        {qMakePair<QString, QString>(appName, reason)}
-    }, QStringList());
+    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
 
     return m_lastCookie;
 }
@@ -517,7 +513,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 void PolicyAgent::ReleaseInhibition(uint cookie)
 {
     qCDebug(POWERDEVIL) << "Released inhibition with cookie " << cookie;
-    emit InhibitionsChanged(QList<InhibitionInfo>(), QStringList{ {m_cookieToAppName.value(cookie).first} });
+    emit InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
     m_cookieToAppName.remove(cookie);
 
 
@@ -557,15 +553,9 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
     }
 }
 
-QList<InhibitionInfo> PolicyAgent::ListInhibitions()
+QList<InhibitionInfo> PolicyAgent::ListInhibitions() const
 {
-    QList<InhibitionInfo> list;
-
-    for(auto it = m_cookieToAppName.constBegin(); it != m_cookieToAppName.constEnd(); ++it) {
-        list.append((*it));
-    }
-
-    return list;
+    return m_cookieToAppName.values();
 }
 
 void PolicyAgent::releaseAllInhibitions()

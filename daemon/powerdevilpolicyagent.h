@@ -80,7 +80,7 @@ public Q_SLOTS:
     // Exported slots
     uint AddInhibition(uint types, const QString &appName, const QString &reason);
     void ReleaseInhibition(uint cookie);
-    QList<InhibitionInfo> ListInhibitions();
+    QList<InhibitionInfo> ListInhibitions() const;
 
     void releaseAllInhibitions();
 
