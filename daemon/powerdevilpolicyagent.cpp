@@ -32,7 +32,6 @@
 
 #include "powerdevilpolicyagent.h"
 #include "powerdevil_debug.h"
-#include "screensaver_interface.h"
 
 struct NamedDBusObjectPath
 {
@@ -160,15 +159,6 @@ QString PolicyAgent::getNamedPathProperty(const QString &path, const QString &if
     return QString();
 }
 
-void PolicyAgent::forceLockAndWait()
-{
-    OrgFreedesktopScreenSaverInterface screenSaveriface("org.freedesktop.ScreenSaver",
-                                                        "/ScreenSaver",
-                                                        QDBusConnection::sessionBus());
-    QDBusPendingReply< void > reply = screenSaveriface.Lock();
-    reply.waitForFinished();
-}
-
 void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 {
     if (serviceName == SYSTEMD_LOGIN1_SERVICE) {
@@ -200,9 +190,6 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
             delete m_sdSessionInterface.data();
             return;
         }
-
-        // listen to the systemd-login1 session's Lock signal
-        connect(m_sdSessionInterface.data(), SIGNAL(Lock()), this, SLOT(forceLockAndWait()));
 
         // now let's obtain the seat
         QString seatPath = getNamedPathProperty(sessionPath, SYSTEMD_LOGIN1_SESSION_IFACE, "Seat");
