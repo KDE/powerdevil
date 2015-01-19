@@ -58,6 +58,8 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, NamedDBusObjectPa
 }
 
 Q_DECLARE_METATYPE(NamedDBusObjectPath)
+Q_DECLARE_METATYPE(InhibitionInfo)
+Q_DECLARE_METATYPE(QList<InhibitionInfo>)
 
 namespace PowerDevil
 {
@@ -104,6 +106,9 @@ PolicyAgent::~PolicyAgent()
 
 void PolicyAgent::init()
 {
+    qDBusRegisterMetaType<InhibitionInfo>();
+    qDBusRegisterMetaType<QList<InhibitionInfo>>();
+
     // Watch over the systemd service
     m_sdWatcher.data()->setConnection(QDBusConnection::systemBus());
     m_sdWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
@@ -422,6 +427,8 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
+    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
+
     return m_lastCookie;
 }
 
@@ -447,8 +454,12 @@ uint PolicyAgent::AddInhibition(uint types,
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
+    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
+
     return m_lastCookie;
 }
+
+
 
 void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPolicies types)
 {
@@ -489,7 +500,10 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 void PolicyAgent::ReleaseInhibition(uint cookie)
 {
     qCDebug(POWERDEVIL) << "Released inhibition with cookie " << cookie;
+    emit InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
     m_cookieToAppName.remove(cookie);
+
+
     QString service = m_cookieToBusService.take(cookie);
     if (!m_busWatcher.isNull() && !service.isEmpty() && !m_cookieToBusService.key(service)) {
         // no cookies from service left
@@ -524,6 +538,11 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
         // Emit the signal - inhibition has changed
         emit unavailablePoliciesChanged(unavailablePolicies());
     }
+}
+
+QList<InhibitionInfo> PolicyAgent::ListInhibitions() const
+{
+    return m_cookieToAppName.values();
 }
 
 void PolicyAgent::releaseAllInhibitions()

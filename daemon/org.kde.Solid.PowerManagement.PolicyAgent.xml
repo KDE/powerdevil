@@ -12,5 +12,16 @@
     <method name="ReleaseInhibition">
       <arg type="u" direction="in" />
     </method>
+
+    <method name="ListInhibitions">
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg type="a{ss}" direction="out" />
+    </method>
+    <signal name="InhibitionsChanged">
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg type="a{ss}" />
+        <arg type="as" />
+    </signal>
+
   </interface>
 </node>
