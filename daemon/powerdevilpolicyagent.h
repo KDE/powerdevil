@@ -89,7 +89,6 @@ private Q_SLOTS:
     void onSessionHandlerUnregistered(const QString & serviceName);
     void onActiveSessionChanged(const QString & ifaceName, const QVariantMap & changedProps, const QStringList & invalidatedProps);
     void onActiveSessionChanged(const QString &activeSession);
-    void forceLockAndWait();
 
 private:
     explicit PolicyAgent(QObject* parent = 0);
