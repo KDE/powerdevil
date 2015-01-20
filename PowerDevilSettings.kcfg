@@ -22,5 +22,8 @@
     <entry name="BatteryCriticalAction" type="Int">
       <default>2</default>
     </entry>
+    <entry name="PeripheralBatteryLowLevel" type="Int">
+      <default>10</default>
+    </entry>
   </group>
 </kcfg>

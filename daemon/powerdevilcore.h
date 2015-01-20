@@ -23,8 +23,8 @@
 
 #include "powerdevilbackendinterface.h"
 
-#include <QtCore/QWeakPointer>
 #include <QtCore/QStringList>
+#include <QtCore/QWeakPointer>
 
 #include <KSharedConfig>
 
@@ -64,7 +64,10 @@ public:
     void emitNotification(const QString &evid, const QString &message = QString(),
                           const QString &iconname = QString());
     void emitRichNotification(const QString &evid, const QString &title, const QString &message = QString());
-    bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent);
+
+    void emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName);
+
+    bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi = QString());
 
     BackendInterface *backend();
 
@@ -106,7 +109,7 @@ private:
     friend class Action;
 
     BackendInterface *m_backend;
-    QStringList m_loadedBatteriesUdi;
+    QStringList m_batteriesUdi;
 
     QWeakPointer< KNotification > notification;
     QDBusServiceWatcher *m_notificationsWatcher;
@@ -115,8 +118,9 @@ private:
 
     QString m_currentProfile;
 
-    QHash< QString, int > m_batteriesPercent;
-    QHash< QString, bool > m_batteriesCharged;
+    QHash<QString, int> m_batteriesPercent;
+    QHash<QString, int> m_peripheralBatteriesPercent;
+    QHash<QString, bool> m_batteriesCharged;
 
     QTimer *m_criticalBatteryTimer;
 

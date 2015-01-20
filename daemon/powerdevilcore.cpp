@@ -175,18 +175,17 @@ QString Core::checkBatteryStatus(bool notify)
 {
     QString lastMessage;
     // Any batteries below 50% of capacity?
-    for (QHash< QString, uint >::const_iterator i = m_backend->capacities().constBegin();
-         i != m_backend->capacities().constEnd(); ++i) {
-        if (i.value() < 50) {
+    for (auto it = m_backend->capacities().constBegin(); it != m_backend->capacities().constEnd(); ++it) {
+        if (it.value() < 50) {
             // Notify, we have a broken battery.
-            if (m_loadedBatteriesUdi.size() == 1) {
+            if (m_batteriesUdi.size() == 1) {
                 lastMessage = i18n("Your battery capacity is %1%. This means your battery is broken and "
                                    "needs a replacement. Please contact your hardware vendor for more details.",
-                                   i.value());
+                                   it.value());
             } else {
                 lastMessage = i18n("One of your batteries (ID %2) has a capacity of %1%. This means it is broken "
                                    "and needs a replacement. Please contact your hardware vendor for more details.",
-                                   i.value(), i.key());
+                                   it.value(), it.key());
             }
             if (notify) {
                 emitRichNotification("brokenbattery", i18n("Broken Battery"), lastMessage);
@@ -267,7 +266,7 @@ void Core::loadProfile(bool force)
         }
     } else {
         // It doesn't, let's load the current state's profile
-        if (m_loadedBatteriesUdi.isEmpty()) {
+        if (m_batteriesUdi.isEmpty()) {
             qCDebug(POWERDEVIL) << "No batteries found, loading AC";
             profileId = "AC";
         } else {
@@ -396,50 +395,43 @@ void Core::loadProfile(bool force)
     }
 }
 
-void Core::onDeviceAdded(const QString& udi)
+void Core::onDeviceAdded(const QString &udi)
 {
-    if (m_loadedBatteriesUdi.contains(udi)) {
+    if (m_batteriesUdi.contains(udi) || m_peripheralBatteriesPercent.contains(udi)) {
         // We already know about this device
         return;
     }
 
     using namespace Solid;
     Device device(udi);
-    Battery *b = qobject_cast<Battery*>(device.asDeviceInterface(DeviceInterface::Battery));
+    Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
 
     if (!b) {
-        // Not interesting to us
         return;
     }
 
-    if (b->type() != Solid::Battery::PrimaryBattery && b->type() != Solid::Battery::UpsBattery) {
-        // Not interesting to us
-        return;
-    }
-
-    if (!b->isPowerSupply()) {
-        // TODO: At some later point it would be really nice to handle those batteries too
-        // eg, show "your mouse is running low", but in the mean time, we don't care about those
-        return;
-    }
-
-    if (!connect(b, SIGNAL(chargePercentChanged(int,QString)),
-                 this, SLOT(onBatteryChargePercentChanged(int,QString))) ||
-        !connect(b, SIGNAL(chargeStateChanged(int,QString)),
-                 this, SLOT(onBatteryChargeStateChanged(int,QString)))) {
+    if (!connect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged) ||
+        !connect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged)) {
         emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
                          "Please check your system configuration"));
     }
 
-    qCDebug(POWERDEVIL) << "A new battery was detected";
+    qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "was detected";
 
-    m_batteriesPercent[udi] = b->chargePercent();
-    if (b->chargeState() == Solid::Battery::NoCharge) {
-      m_batteriesCharged[udi] = true;
-    } else {
-      m_batteriesCharged[udi] = false;
+    if (b->isPowerSupply()) {
+        m_batteriesPercent[udi] = b->chargePercent();
+
+        // we don't care about fully charged peripheral batteries
+        if (b->chargeState() == Solid::Battery::FullyCharged) {
+            m_batteriesCharged[udi] = true;
+        } else {
+            m_batteriesCharged[udi] = false;
+        }
+    } else { // non-power supply batteries are treated separately
+        m_peripheralBatteriesPercent[udi] = b->chargePercent();
     }
-    m_loadedBatteriesUdi.append(udi);
+
+    m_batteriesUdi.append(udi);
 
     const int chargePercent = currentChargePercent();
 
@@ -449,31 +441,31 @@ void Core::onDeviceAdded(const QString& udi)
         m_criticalBatteryTimer->stop();
         emitRichNotification("criticalbattery",
                              i18n("Additional Battery Added"),
-                             i18n("All pending suspend actions have been canceled."));
+                             i18n("All pending suspend actions have been canceled.")); // FIXME This wording is too technical
     }
 }
 
-void Core::onDeviceRemoved(const QString& udi)
+void Core::onDeviceRemoved(const QString &udi)
 {
-    if (!m_loadedBatteriesUdi.contains(udi)) {
+    if (!m_batteriesUdi.contains(udi)) {
         // We don't know about this device
         return;
     }
 
     using namespace Solid;
     Device device(udi);
-    Battery *b = qobject_cast<Battery*>(device.asDeviceInterface(DeviceInterface::Battery));
+    Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
 
-    disconnect(b, SIGNAL(chargePercentChanged(int,QString)),
-               this, SLOT(onBatteryChargePercentChanged(int,QString)));
-    disconnect(b, SIGNAL(chargeStateChanged(int,QString)),
-               this, SLOT(onBatteryChargeStateChanged(int,QString)));
+    disconnect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged);
+    disconnect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged);
 
-    qCDebug(POWERDEVIL) << "An existing battery has been removed";
+    qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "has been removed";
 
     m_batteriesPercent.remove(udi);
+    m_peripheralBatteriesPercent.remove(udi);
     m_batteriesCharged.remove(udi);
-    m_loadedBatteriesUdi.removeOne(udi);
+
+    m_batteriesUdi.removeOne(udi);
 }
 
 void Core::emitNotification(const QString &evid, const QString &message, const QString &iconname)
@@ -487,14 +479,75 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
     }
 }
 
+void Core::emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName)
+{
+    KNotification::event(eventId, title, message, iconName, 0, KNotification::CloseOnTimeout, "powerdevil");
+}
+
 void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
 {
     KNotification::event(evid, title, message, QPixmap(),
                          0, KNotification::CloseOnTimeout, "powerdevil");
 }
 
-bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent)
+bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi)
 {
+    using namespace Solid;
+    Device device(udi);
+    Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
+
+    if (b && !b->isPowerSupply()) {
+        if (currentPercent <= PowerDevilSettings::peripheralBatteryLowLevel() &&
+            previousPercent > PowerDevilSettings::peripheralBatteryLowLevel()) {
+
+            QString name = device.product();
+            if (!device.vendor().isEmpty()) {
+                name.prepend(QLatin1Char(' ')).prepend(device.vendor());
+            }
+
+            QString title = i18nc("battery of device with name %1 is low", "%1 Battery Low (%2% Remaining)", name, currentPercent);
+
+            QString msg;
+            QString icon;
+
+            switch(b->type()) {
+            case Battery::MouseBattery:
+                if (title.isEmpty()) {
+                    title = i18n("Mouse Battery Low (%1% Remaining)", currentPercent);
+                }
+
+                msg = i18n("The battery in your mouse is low, and the device may turn itself off at any time. "
+                           "Please replace or charge the battery as soon as possible.");
+                icon = QStringLiteral("input-mouse");
+                break;
+            case Battery::KeyboardBattery:
+                if (title.isEmpty()) {
+                    title = i18n("Keyboard Battery Low (%1% Remaining)", currentPercent);
+                }
+
+                msg = i18n("The battery in your keyboard is low, and the device may turn itself off at any time. "
+                           "Please replace or charge the battery as soon as possible.");
+                icon = QStringLiteral("input-keyboard");
+                break;
+            default:
+                if (title.isEmpty()) {
+                    title = i18nc("The battery in an external device is low", "Device Battery Low (%1% Remaining)", currentPercent);
+                }
+
+                msg = i18n("The battery in a connected device is low, and the device may turn itself off at any time. "
+                           "Please replace or charge the battery as soon as possible.");
+                icon = QStringLiteral("battery-caution");
+                break;
+            }
+
+            emitNotification("lowperipheralbattery", title, msg, icon);
+
+            return true;
+        }
+
+        return false;
+    }
+
     if (m_backend->acAdapterState() == BackendInterface::Plugged) {
         return false;
     }
@@ -564,6 +617,16 @@ void Core::onBackendError(const QString& error)
 
 void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
 {
+    if (m_peripheralBatteriesPercent.contains(udi)) {
+        const int previousPercent = m_peripheralBatteriesPercent.value(udi);
+        m_peripheralBatteriesPercent[udi] = percent;
+
+        if (percent < previousPercent) {
+            emitBatteryChargePercentNotification(percent, previousPercent, udi);
+        }
+        return;
+    }
+
     // Compute the previous and current global percentage
     const int previousPercent = currentChargePercent();
     const int currentPercent = previousPercent - (m_batteriesPercent[udi] - percent);
@@ -572,7 +635,7 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
     m_batteriesPercent[udi] = percent;
 
     if (currentPercent < previousPercent) {
-        if (emitBatteryChargePercentNotification(currentPercent, previousPercent)) {
+        if (emitBatteryChargePercentNotification(currentPercent, previousPercent, udi)) {
             // Only refresh status if a notification has actually been emitted
             refreshStatus();
         }
@@ -581,6 +644,10 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
 
 void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 {
+    if (!m_batteriesCharged.contains(udi)) {
+        return;
+    }
+
     bool previousCharged = true;
     for (QHash<QString,bool>::const_iterator i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
         if (!i.value()) {
@@ -589,7 +656,7 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
         }
     }
 
-    m_batteriesCharged[udi] = (state == Solid::Battery::NoCharge);
+    m_batteriesCharged[udi] = (state == Solid::Battery::FullyCharged);
 
     if (m_backend->acAdapterState() != BackendInterface::Plugged) {
         return;
@@ -711,8 +778,14 @@ void Core::onServiceRegistered(const QString &service)
     checkBatteryStatus();
 
     bool emitted = false;
-    for(auto it = m_batteriesPercent.constBegin(); it != m_batteriesPercent.constEnd(); ++it) {
-        if (emitBatteryChargePercentNotification((*it), 100)) {
+    for (auto it = m_batteriesPercent.constBegin(); it != m_batteriesPercent.constEnd(); ++it) {
+        if (emitBatteryChargePercentNotification(it.value(), 100, it.key())) {
+            emitted = true;
+        }
+    }
+
+    for (auto it = m_peripheralBatteriesPercent.constBegin(); it != m_peripheralBatteriesPercent.constEnd(); ++it) {
+        if (emitBatteryChargePercentNotification(it.value(), 100, it.key())) {
             emitted = true;
         }
     }
