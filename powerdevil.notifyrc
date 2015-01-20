@@ -650,6 +650,14 @@ Sound=Oxygen-Sys-App-Positive.ogg
 Action=
 IconName=battery-100
 
+[Event/lowperipheralbattery]
+Name=Peripheral Battery Low
+Comment=The battery in a connected device, such as mouse or keyboard, is low
+Contexts=warningnot
+Sound=Oxygen-Sys-Warning.ogg
+Action=Sound|Popup
+IconName=battery-caution
+
 [Event/pluggedin]
 Name=AC adaptor plugged in
 Name[ar]=وُصِلَ محوِّل الكهرباء
