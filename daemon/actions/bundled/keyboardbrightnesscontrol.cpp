@@ -94,17 +94,24 @@ void KeyboardBrightnessControl::onIdleTimeout(int msec)
 
 void KeyboardBrightnessControl::onProfileLoad()
 {
-    // This unparsable conditional block means: if the current profile is more
-    // conservative than the previous one and the current brightness is lower
-    // than the new profile
+    // if the current profile is more conservative than the previous one and the
+    // current brightness is lower than the new profile
     if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
          (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
         m_defaultValue > keyboardBrightness()) {
+
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else if (m_defaultValue > 0) {
         QVariantMap args;
         args["Value"] = QVariant::fromValue((float)m_defaultValue);
+
+        // plugging in/out the AC is always explicit
+        if ((m_currentProfile == "AC" && m_lastProfile != "AC") ||
+            (m_currentProfile != "AC" && m_lastProfile == "AC")) {
+            args["Explicit"] = true;
+        }
+
         trigger(args);
     }
 }
