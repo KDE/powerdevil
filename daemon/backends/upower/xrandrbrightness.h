@@ -1,5 +1,6 @@
 /*  This file is part of the KDE project
  *    Copyright (C) 2010 Lukas Tinkl <ltinkl@redhat.com>
+ *    Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>
  * 
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Library General Public
@@ -20,11 +21,8 @@
 #ifndef XRANDRBRIGHTNESS_H
 #define XRANDRBRIGHTNESS_H
 
-#include <QX11Info>
-
-#include <X11/Xlib.h>
-#include <X11/extensions/Xrandr.h>
-#include <X11/Xatom.h>
+#include <xcb/xcb.h>
+#include <xcb/randr.h>
 
 class XRandrBrightness
 {
@@ -37,12 +35,13 @@ public:
     void setBrightnessValue(long brightnessValue);
 
 private:
-    bool backlight_get_with_range(RROutput output, long &value, long &min, long &max) const;
-    long backlight_get(RROutput output) const;
-    void backlight_set(RROutput output, long value);
+    bool backlight_get_with_range(xcb_randr_output_t output, long &value, long &min, long &max) const;
+    long backlight_get(xcb_randr_output_t output) const;
+    void backlight_set(xcb_randr_output_t output, long value);
 
-    Atom m_backlight;
-    XRRScreenResources  *m_resources;
+    xcb_atom_t m_backlight = XCB_ATOM_NONE;
+    xcb_randr_get_screen_resources_current_reply_t *m_resources = nullptr;
+
 };
 
 #endif // XRANDRBRIGHTNESS_H
