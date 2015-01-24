@@ -277,6 +277,28 @@ void EditPage::onServiceRegistered(const QString& service)
 {
     Q_UNUSED(service);
 
+    QDBusPendingCallWatcher *currentProfileWatcher = new QDBusPendingCallWatcher(QDBusConnection::sessionBus().asyncCall(
+        QDBusMessage::createMethodCall(
+            QStringLiteral("org.kde.Solid.PowerManagement"),
+            QStringLiteral("/org/kde/Solid/PowerManagement"),
+            QStringLiteral("org.kde.Solid.PowerManagement"),
+            QStringLiteral("currentProfile")
+        )
+    ), this);
+
+    QObject::connect(currentProfileWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<QString> reply = *watcher;
+        if (!reply.isError()) {
+            const QString &currentProfile = reply.value();
+            if (currentProfile == QLatin1String("Battery")) {
+                tabWidget->setCurrentIndex(1);
+            } else if (currentProfile == QLatin1String("LowBattery")) {
+                tabWidget->setCurrentIndex(2);
+            }
+        }
+        watcher->deleteLater();
+    });
+
     if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
