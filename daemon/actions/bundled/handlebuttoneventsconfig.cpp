@@ -84,7 +84,9 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
 {
     // Create the boxes
     m_lidCloseCombo = new QComboBox;
-    m_triggerLidActionWhenExternalMonitorPresent = new QCheckBox;
+    m_triggerLidActionWhenExternalMonitorPresent = new QCheckBox(
+                i18nc("Execute action on lid close even when external monitor is connected", "Even when an external monitor is connected")
+    );
     m_powerButtonCombo = new QComboBox;
 
     // Fill the boxes with options!
@@ -134,7 +136,8 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
 
     if (lidFound) {
         retlist.append(qMakePair<QString, QWidget *>(i18n("When laptop lid closed"), m_lidCloseCombo));
-        retlist.append(qMakePair<QString, QWidget *>(i18nc("Execute action on lid close even when external monitor is connected", "When an external monitor is connected"), m_triggerLidActionWhenExternalMonitorPresent));
+        // an empty label will make it treat the widget as title checkbox and left-align it
+        retlist.append(qMakePair<QString, QWidget *>(QLatin1Literal("NONE"), m_triggerLidActionWhenExternalMonitorPresent));
     } else {
         m_lidCloseCombo->deleteLater();
         m_lidCloseCombo = nullptr;
