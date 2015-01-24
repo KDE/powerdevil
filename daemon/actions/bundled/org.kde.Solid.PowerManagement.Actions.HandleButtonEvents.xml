@@ -4,5 +4,11 @@
     <method name="lidAction">
         <arg type="i" direction="out" />
     </method>
+    <method name="triggersLidAction">
+        <arg type="b" direction="out" />
+    </method>
+    <signal name="triggersLidActionChanged">
+        <arg type="b" />
+    </signal>
   </interface>
 </node>

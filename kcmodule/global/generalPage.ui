@@ -6,27 +6,11 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>635</width>
-    <height>370</height>
+    <width>494</width>
+    <height>276</height>
    </rect>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
-   <item>
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>8</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item>
     <layout class="QFormLayout" name="formLayout">
      <property name="fieldGrowthPolicy">
@@ -142,40 +126,7 @@
        </property>
       </spacer>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>&lt;b&gt;Events&lt;/b&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QCheckBox" name="doNotInhibitLid">
-       <property name="toolTip">
-        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
-       </property>
-       <property name="whatsThis">
-        <string>When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed</string>
-       </property>
-       <property name="text">
-        <string>Never prevent an action on lid close</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>8</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="8" column="1">
+     <item row="5" column="1">
       <widget class="QPushButton" name="notificationsButton">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
@@ -195,6 +146,22 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>8</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

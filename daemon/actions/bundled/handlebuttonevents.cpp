@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -23,16 +24,20 @@
 #include "suspendsession.h"
 
 #include <powerdevilactionpool.h>
+#include <powerdevil_debug.h>
 
 #include <QAction>
+
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KIdleTime>
 
-#include <Solid/Device>
+#include <KScreen/Config>
+#include <KScreen/ConfigMonitor>
+#include <KScreen/GetConfigOperation>
+#include <KScreen/Output>
 
-#include "PowerDevilSettings.h"
 #include "screensaver_interface.h"
 
 #include <kglobalaccel.h>
@@ -40,12 +45,9 @@
 namespace PowerDevil {
 namespace BundledActions {
 
-HandleButtonEvents::HandleButtonEvents(QObject* parent)
+HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
-    , m_lidAction(0)
-    , m_powerButtonAction(0)
-    , m_sleepButtonAction(1)
-    , m_hibernateButtonAction(2)
+    , m_screenConfiguration(nullptr)
 {
     new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
@@ -70,6 +72,15 @@ HandleButtonEvents::HandleButtonEvents(QObject* parent)
     //globalAction->setText(i18nc("Global shortcut", "Power Off button"));
     accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
+
+    connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID), &KScreen::ConfigOperation::finished,
+            this, [this](KScreen::ConfigOperation *op) {
+                m_screenConfiguration = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
+                checkOutputs();
+
+                KScreen::ConfigMonitor::instance()->addConfig(m_screenConfiguration);
+                connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &HandleButtonEvents::checkOutputs);
+    });
 }
 
 HandleButtonEvents::~HandleButtonEvents()
@@ -107,52 +118,53 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 {
     switch (type) {
         case BackendInterface::LidClose:
-            // Check if the configuration makes it explicit or not
-            processAction(m_lidAction, PowerDevilSettings::doNotInhibitOnLidClose());
+            if (!triggersLidAction()) {
+                qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
+                return;
+            }
+
+            processAction(m_lidAction);
             break;
         case BackendInterface::LidOpen:
             // In this case, let's send a wakeup event
             KIdleTime::instance()->simulateUserActivity();
             break;
         case BackendInterface::PowerButton:
-            // This one is always explicit
-            processAction(m_powerButtonAction, true);
+            processAction(m_powerButtonAction);
             break;
         case BackendInterface::SleepButton:
-            // This one is always explicit
-            processAction(m_sleepButtonAction, true);
+            processAction(m_sleepButtonAction);
             break;
         case BackendInterface::HibernateButton:
-            // This one is always explicit
-            processAction(m_hibernateButtonAction, true);
+            processAction(m_hibernateButtonAction);
             break;
         default:
             break;
     }
 }
 
-void HandleButtonEvents::processAction(uint action, bool isExplicit)
+void HandleButtonEvents::processAction(uint action)
 {
     // Basically, we simply trigger other actions :)
-    switch ((SuspendSession::Mode)action) {
+    switch (static_cast<SuspendSession::Mode>(action)) {
         case SuspendSession::TurnOffScreenMode:
             // Turn off screen
-            triggerAction("DPMSControl", qVariantFromValue< QString >("TurnOff"), isExplicit);
+            triggerAction("DPMSControl", QStringLiteral("TurnOff"));
             break;
         default:
-            triggerAction("SuspendSession", qVariantFromValue< uint >(action), isExplicit);
+            triggerAction("SuspendSession", action);
             break;
     }
 }
 
-void HandleButtonEvents::triggerAction(const QString& action, const QVariant &type, bool isExplicit)
+void HandleButtonEvents::triggerAction(const QString &action, const QVariant &type)
 {
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, KConfigGroup(), core());
     if (helperAction) {
-        QVariantMap args;
-        args["Type"] = type;
-        args["Explicit"] = QVariant::fromValue(isExplicit);
-        helperAction->trigger(args);
+        helperAction->trigger({
+            {QStringLiteral("Type"), type},
+            {QStringLiteral("Explicit"), true}
+        });
     }
 }
 
@@ -161,8 +173,8 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
     // For now, let's just accept the phantomatic "32" button. It is also always explicit
     if (args["Button"].toInt() == 32) {
         if (args.contains("Type")) {
-            triggerAction("SuspendSession", args["Type"], true);
-	}
+            triggerAction("SuspendSession", args["Type"]);
+        }
     }
 }
 
@@ -170,7 +182,10 @@ bool HandleButtonEvents::loadAction(const KConfigGroup& config)
 {
     // Read configs
     m_lidAction = config.readEntry<uint>("lidAction", 0);
+    m_triggerLidActionWhenExternalMonitorPresent = config.readEntry<bool>("triggerLidActionWhenExternalMonitorPresent", false);
     m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
+
+    checkOutputs();
 
     return true;
 }
@@ -178,6 +193,11 @@ bool HandleButtonEvents::loadAction(const KConfigGroup& config)
 int HandleButtonEvents::lidAction() const
 {
     return m_lidAction;
+}
+
+bool HandleButtonEvents::triggersLidAction() const
+{
+    return m_triggerLidActionWhenExternalMonitorPresent || !m_externalMonitorPresent;
 }
 
 void HandleButtonEvents::powerOffButtonTriggered()
@@ -193,6 +213,31 @@ void HandleButtonEvents::suspendToDisk()
 void HandleButtonEvents::suspendToRam()
 {
     onButtonPressed(BackendInterface::SleepButton);
+}
+
+void HandleButtonEvents::checkOutputs()
+{
+    if (!m_screenConfiguration) {
+        qCWarning(POWERDEVIL) << "Handle button events action could not check for screen configuration";
+        return;
+    }
+
+    const bool old_triggersLidAction = triggersLidAction();
+
+    bool hasExternalMonitor = false;
+
+    for(const KScreen::OutputPtr &output : m_screenConfiguration->outputs()) {
+        if (output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel) {
+            hasExternalMonitor = true;
+            break;
+        }
+    }
+
+    m_externalMonitorPresent = hasExternalMonitor;
+
+    if (old_triggersLidAction != triggersLidAction()) {
+        emit triggersLidActionChanged(triggersLidAction());
+    }
 }
 
 }

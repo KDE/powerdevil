@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -28,7 +29,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KComboBox>
+#include <QComboBox>
+#include <QCheckBox>
 #include <QIcon>
 
 K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::HandleButtonEventsConfig>(); )
@@ -51,10 +53,13 @@ HandleButtonEventsConfig::~HandleButtonEventsConfig()
 void HandleButtonEventsConfig::save()
 {
     if (m_lidCloseCombo) {
-        configGroup().writeEntry< uint >("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
+        configGroup().writeEntry<uint>("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
+    }
+    if (m_triggerLidActionWhenExternalMonitorPresent) {
+        configGroup().writeEntry<bool>("triggerLidActionWhenExternalMonitorPresent", m_triggerLidActionWhenExternalMonitorPresent->isChecked());
     }
     if (m_powerButtonCombo) {
-        configGroup().writeEntry< uint >("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
+        configGroup().writeEntry<uint>("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
     }
 
     configGroup().sync();
@@ -65,27 +70,31 @@ void HandleButtonEventsConfig::load()
     configGroup().config()->reparseConfiguration();
 
     if (m_lidCloseCombo) {
-        m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("lidAction", 0))));
+        m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry<uint>("lidAction", 0))));
+    }
+    if (m_triggerLidActionWhenExternalMonitorPresent) {
+        m_triggerLidActionWhenExternalMonitorPresent->setChecked(configGroup().readEntry<bool>("triggerLidActionWhenExternalMonitorPresent", false));
     }
     if (m_powerButtonCombo) {
-        m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(configGroup().readEntry< uint >("powerButtonAction", 0))));
+        m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(configGroup().readEntry<uint>("powerButtonAction", 0))));
     }
 }
 
 QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
 {
     // Create the boxes
-    m_lidCloseCombo = new KComboBox;
-    m_powerButtonCombo = new KComboBox;
+    m_lidCloseCombo = new QComboBox;
+    m_triggerLidActionWhenExternalMonitorPresent = new QCheckBox;
+    m_powerButtonCombo = new QComboBox;
 
     // Fill the boxes with options!
     {
-        QList< KComboBox* > boxes;
+        QList<QComboBox *> boxes;
         boxes << m_lidCloseCombo << m_powerButtonCombo;
 
         QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-        foreach (KComboBox *box, boxes) {
+        foreach (QComboBox *box, boxes) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
             if (methods.contains(Solid::PowerManagement::SuspendState)) {
                 box->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
@@ -103,6 +112,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     }
 
     connect(m_lidCloseCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
+    connect(m_triggerLidActionWhenExternalMonitorPresent, SIGNAL(stateChanged(int)), this, SLOT(setChanged()));
     connect(m_powerButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
 
     bool lidFound = false;
@@ -123,17 +133,20 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     QList< QPair< QString, QWidget* > > retlist;
 
     if (lidFound) {
-        retlist.append(qMakePair< QString, QWidget* >(i18n("When laptop lid closed"), m_lidCloseCombo));
+        retlist.append(qMakePair<QString, QWidget *>(i18n("When laptop lid closed"), m_lidCloseCombo));
+        retlist.append(qMakePair<QString, QWidget *>(i18nc("Execute action on lid close even when external monitor is connected", "When an external monitor is connected"), m_triggerLidActionWhenExternalMonitorPresent));
     } else {
         m_lidCloseCombo->deleteLater();
-        m_lidCloseCombo = 0;
+        m_lidCloseCombo = nullptr;
+        m_triggerLidActionWhenExternalMonitorPresent->deleteLater();
+        m_triggerLidActionWhenExternalMonitorPresent = nullptr;
     }
 
     if (powerFound) {
         retlist.append(qMakePair< QString, QWidget* >(i18n("When power button pressed"), m_powerButtonCombo));
     } else {
         m_powerButtonCombo->deleteLater();
-        m_powerButtonCombo = 0;
+        m_powerButtonCombo = nullptr;
     }
 
     const int comboBoxWidth = qMax(m_lidCloseCombo->sizeHint().width(), m_powerButtonCombo->sizeHint().width());
