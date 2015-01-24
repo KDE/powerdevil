@@ -109,7 +109,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     m_powerButtonCombo->setMaximumWidth(300);
 
     bool lidFound = false;
-    bool powerFound = false;
+    bool powerFound = true; // HACK This needs proper API!!
     // get a list of all devices that are Buttons
 /*    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
         Solid::Button *button = device.as<Solid::Button>();
