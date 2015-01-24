@@ -216,6 +216,11 @@ void Core::reparseConfiguration()
     emit configurationReloaded();
 }
 
+QString Core::currentProfile() const
+{
+    return m_currentProfile;
+}
+
 void Core::loadProfile(bool force)
 {
     QString profileId;

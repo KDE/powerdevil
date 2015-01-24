@@ -79,6 +79,7 @@ public Q_SLOTS:
 
     QString checkBatteryStatus(bool notify = true);
 
+    QString currentProfile() const;
     void loadProfile(bool force = false);
 
     qulonglong batteryRemainingTime() const;
