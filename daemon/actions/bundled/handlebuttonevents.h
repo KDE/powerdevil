@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,6 +22,8 @@
 #ifndef POWERDEVIL_BUNDLEDACTIONS_HANDLEBUTTONEVENTS_H
 #define POWERDEVIL_BUNDLEDACTIONS_HANDLEBUTTONEVENTS_H
 
+#include <KScreen/Types>
+
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
@@ -40,6 +43,9 @@ public:
     virtual bool loadAction(const KConfigGroup& config);
     virtual bool isSupported();
 
+signals:
+    void triggersLidActionChanged(bool triggers);
+
 protected:
     virtual void triggerImpl(const QVariantMap& args);
     virtual void onProfileUnload();
@@ -47,23 +53,30 @@ protected:
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
 
-public Q_SLOTS:
+public slots:
     int lidAction() const;
+    bool triggersLidAction() const;
 
-private Q_SLOTS:
+private slots:
     void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void powerOffButtonTriggered();
     void suspendToRam();
     void suspendToDisk();
 
-private:
-    void processAction(uint action, bool isExplicit);
-    void triggerAction(const QString &action, const QVariant &type, bool isExplicit);
+    void checkOutputs();
 
-    uint m_lidAction;
-    uint m_powerButtonAction;
-    uint m_sleepButtonAction;
-    uint m_hibernateButtonAction;
+private:
+    void processAction(uint action);
+    void triggerAction(const QString &action, const QVariant &type);
+
+    KScreen::ConfigPtr m_screenConfiguration;
+    uint m_lidAction = 0;
+    bool m_triggerLidActionWhenExternalMonitorPresent = false;
+    bool m_externalMonitorPresent = false;
+
+    uint m_powerButtonAction = 0;
+    uint m_sleepButtonAction = 1;
+    uint m_hibernateButtonAction = 2;
 };
 
 }

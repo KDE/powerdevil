@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,7 +23,8 @@
 
 #include <powerdevilactionconfig.h>
 
-class KComboBox;
+class QComboBox;
+class QCheckBox;
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -40,8 +42,9 @@ public:
     virtual QList< QPair< QString, QWidget* > > buildUi();
 
 private:
-    KComboBox *m_lidCloseCombo;
-    KComboBox *m_powerButtonCombo;
+    QComboBox *m_lidCloseCombo;
+    QCheckBox *m_triggerLidActionWhenExternalMonitorPresent;
+    QComboBox *m_powerButtonCombo;
 };
 
 }

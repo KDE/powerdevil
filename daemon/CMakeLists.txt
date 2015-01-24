@@ -62,6 +62,7 @@ target_link_libraries(powerdevilcore
     KF5::Solid
     KF5::IdleTime
     KF5::GlobalAccel
+    KF5::Screen
     KF5::Service
     KF5::WidgetsAddons
     KF5::Notifications

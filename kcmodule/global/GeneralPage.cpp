@@ -119,8 +119,6 @@ void GeneralPage::fillUi()
 
     // modified fields...
 
-    connect(doNotInhibitLid, SIGNAL(stateChanged(int)), SLOT(changed()));
-
     connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
 
     connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
@@ -143,8 +141,6 @@ void GeneralPage::fillUi()
 
 void GeneralPage::load()
 {
-    doNotInhibitLid->setChecked(PowerDevilSettings::doNotInhibitOnLidClose());
-
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
 
@@ -158,8 +154,6 @@ void GeneralPage::configureNotifications()
 
 void GeneralPage::save()
 {
-    PowerDevilSettings::setDoNotInhibitOnLidClose(doNotInhibitLid->isChecked());
-
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
     PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
 
