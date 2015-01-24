@@ -121,7 +121,7 @@ private:
 
     QTimer *m_criticalBatteryTimer;
 
-//     KActivities::Consumer *m_activityConsumer;
+    KActivities::Consumer *m_activityConsumer;
 
     // Idle time management
     QHash< Action*, QList< int > > m_registeredActionTimeouts;

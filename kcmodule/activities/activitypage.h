@@ -25,9 +25,13 @@
 
 #include <KActivities/Consumer>
 
+class QTabWidget;
+
+class KMessageWidget;
+
 class ErrorOverlay;
 class ActivityWidget;
-class KMessageWidget;
+
 class ActivityPage : public KCModule
 {
     Q_OBJECT
@@ -47,6 +51,10 @@ private Q_SLOTS:
     void onServiceUnregistered(const QString &service);
 
 private:
+    void populateTabs();
+
+    QTabWidget *m_tabWidget;
+
     KActivities::Consumer *m_activityConsumer;
     QList< ActivityWidget* > m_activityWidgets;
     QWeakPointer< ErrorOverlay > m_errorOverlay;
