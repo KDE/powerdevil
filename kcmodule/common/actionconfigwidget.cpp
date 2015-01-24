@@ -57,6 +57,13 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
             currentSectionCheckbox = qobject_cast<QCheckBox*>(line.second);
             currentSectionCheckbox->setChecked(true);
             m_gridLayout->addWidget(line.second, row, 0, 1, 3);
+
+        // allow left-aligning checkboxes without treating them as section header
+        } else if (line.first == QLatin1String("NONE")) {
+            m_gridLayout->addItem(new QSpacerItem(50 ,3), row, 0);
+            m_gridLayout->addWidget(line.second, row, 1, Qt::AlignRight);
+            //m_gridLayout->addWidget(line.second, row, 1, 2, 1, Qt::AlignRight);
+
         } else {
             // connect enabled / disabled
             QLabel* label = new QLabel(this);
