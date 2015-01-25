@@ -153,7 +153,7 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
         return;
     }
 
-    if (msec == m_idleTime * 1000 - 3000) { // fade out screen
+    if (msec == m_idleTime * 1000 - 5000) { // fade out screen
         m_fadeEffect->start();
     } else if (msec == m_idleTime * 1000) {
         const int brightness = backend()->brightnessValue(PowerDevil::BackendInterface::Keyboard);
@@ -236,7 +236,7 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
     m_idleTime = config.readEntry<int>("idleTime", -1);
     if (m_idleTime > 0) {
         registerIdleTimeout(m_idleTime * 1000);
-        registerIdleTimeout(m_idleTime * 1000 - 3000); // start screen fade a bit earlier to alert user
+        registerIdleTimeout(m_idleTime * 1000 - 5000); // start screen fade a bit earlier to alert user
     }
 
     return true;
