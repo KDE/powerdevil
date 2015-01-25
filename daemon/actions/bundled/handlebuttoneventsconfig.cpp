@@ -105,9 +105,6 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     connect(m_lidCloseCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_powerButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
 
-    m_lidCloseCombo->setMaximumWidth(300);
-    m_powerButtonCombo->setMaximumWidth(300);
-
     bool lidFound = false;
     bool powerFound = true; // HACK This needs proper API!!
     // get a list of all devices that are Buttons
@@ -138,6 +135,12 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         m_powerButtonCombo->deleteLater();
         m_powerButtonCombo = 0;
     }
+
+    const int comboBoxWidth = qMax(m_lidCloseCombo->sizeHint().width(), m_powerButtonCombo->sizeHint().width());
+    m_lidCloseCombo->setMinimumWidth(300);
+    m_lidCloseCombo->setMaximumWidth(comboBoxWidth);
+    m_powerButtonCombo->setMinimumWidth(300);
+    m_powerButtonCombo->setMaximumWidth(comboBoxWidth);
 
     return retlist;
 }
