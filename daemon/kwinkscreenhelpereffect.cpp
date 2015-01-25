@@ -28,7 +28,7 @@ namespace PowerDevil
 KWinKScreenHelperEffect::KWinKScreenHelperEffect(QObject *parent) : QObject(parent)
 {
     m_abortTimer.setSingleShot(true);
-    m_abortTimer.setInterval(5000);
+    m_abortTimer.setInterval(8000);
     connect(&m_abortTimer, &QTimer::timeout, this, &KWinKScreenHelperEffect::stop);
 
     qApp->installNativeEventFilter(this);
