@@ -180,10 +180,11 @@ void ActivityPage::populateTabs()
         return;
     }
 
+    int index = 0;
     foreach (const QString &activity, m_activityConsumer->activities()) {
         KActivities::Info *info = new KActivities::Info(activity, this);
-        QString icon = info->icon();
-        QString name = info->name();
+        const QString icon = info->icon();
+        const QString name = info->name();
         qCDebug(POWERDEVIL) << activity << info->isValid() << info->availability();
 
         QScrollArea *scrollArea = new QScrollArea();
@@ -199,8 +200,17 @@ void ActivityPage::populateTabs()
         m_activityWidgets.append(activityWidget);
 
         connect(activityWidget, SIGNAL(changed(bool)), this, SIGNAL(changed(bool)));
+        if (!icon.isEmpty()) {
+            m_tabWidget->addTab(scrollArea, QIcon::fromTheme(icon), name);
+        } else {
+            m_tabWidget->addTab(scrollArea, name);
+        }
 
-        m_tabWidget->addTab(scrollArea, QIcon::fromTheme(icon), name);
+        if (m_activityConsumer->currentActivity() == activity) {
+            m_tabWidget->setCurrentIndex(index);
+        }
+
+        ++index;
     }
 }
 
@@ -216,8 +226,6 @@ void ActivityPage::onServiceRegistered(const QString& service)
     if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
-
-    onActivityServiceStatusChanged(m_activityConsumer->serviceStatus());
 }
 
 void ActivityPage::onServiceUnregistered(const QString& service)
