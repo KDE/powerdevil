@@ -76,6 +76,7 @@ private slots:
     void triggerSuspendSession(uint action);
 
 private:
+    int m_idleTime = 0;
     uint m_autoType;
     QVariantMap m_savedArgs;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;

@@ -82,14 +82,22 @@ void SuspendSession::onProfileUnload()
 
 void SuspendSession::onWakeupFromIdle()
 {
-    // Nothing to do
+    m_fadeEffect->stop();
 }
 
 void SuspendSession::onIdleTimeout(int msec)
 {
-    Q_UNUSED(msec);
-    QVariantMap args;
-    args.insert("Type", m_autoType);
+    QVariantMap args{
+        {QStringLiteral("Type"), m_autoType}
+    };
+
+    // we fade the screen to black 5 seconds prior to suspending to alert the user
+    if (msec == m_idleTime - 5000) {
+        args.insert(QStringLiteral("GraceFade"), true);
+    } else {
+        args.insert(QStringLiteral("SkipFade"), true);
+    }
+
     trigger(args);
 }
 
@@ -100,7 +108,7 @@ void SuspendSession::onProfileLoad()
 
 void SuspendSession::triggerImpl(const QVariantMap& args)
 {
-    qCDebug(POWERDEVIL) << "Triggered with " << args["Type"].toString() << args["SkipFade"].toBool();
+    qCDebug(POWERDEVIL) << "Triggered with " << args;
 
     // Switch for screen fading
     switch ((Mode) (args["Type"].toUInt())) {
@@ -115,6 +123,10 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
             break;
         default:
             break;
+    }
+
+    if (args["GraceFade"].toBool()) {
+        return;
     }
 
     // Switch for real action
@@ -158,7 +170,11 @@ bool SuspendSession::loadAction(const KConfigGroup& config)
 {
     if (config.isValid() && config.hasKey("idleTime") && config.hasKey("suspendType")) {
         // Add the idle timeout
-        registerIdleTimeout(config.readEntry<int>("idleTime", 0));
+        m_idleTime = config.readEntry<int>("idleTime", 0);
+        if (m_idleTime) {
+            registerIdleTimeout(m_idleTime - 5000);
+            registerIdleTimeout(m_idleTime);
+        }
         m_autoType = config.readEntry<uint>("suspendType", 0);
     }
 
@@ -182,10 +198,10 @@ void SuspendSession::suspendToRam()
 
 void SuspendSession::triggerSuspendSession(uint action)
 {
-    QVariantMap args;
-    args["Type"] = action;
-    args["Explicit"] = true;
-    trigger(args);
+    trigger({
+        {QStringLiteral("Type"), action},
+        {QStringLiteral("Explicit"), true}
+    });
 }
 
 }
