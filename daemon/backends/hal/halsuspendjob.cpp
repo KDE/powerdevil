@@ -132,5 +132,3 @@ void HalSuspendJob::resumeDone(const QDBusMessage &reply)
 
     emitResult();
 }
-
-#include "halsuspendjob.moc"

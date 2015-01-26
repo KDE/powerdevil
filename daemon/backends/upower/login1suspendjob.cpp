@@ -99,6 +99,3 @@ void Login1SuspendJob::slotLogin1Resuming(bool active)
     if (!active)
         emitResult();
 }
-
-
-#include "login1suspendjob.moc"

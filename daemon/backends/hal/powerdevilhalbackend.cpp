@@ -519,5 +519,3 @@ void PowerDevilHALBackend::updateBatteryStats()
 
     m_criticalBatteryCharge = m_lowBatteryCharge/2;
 }
-
-#include "powerdevilhalbackend.moc"

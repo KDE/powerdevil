@@ -54,4 +54,4 @@ int KeyboardBrightnessLogic::calculateStepMax(int maxValue) const
     return 5;
 }
 
-};
+}

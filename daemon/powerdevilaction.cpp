@@ -112,5 +112,3 @@ void Action::setRequiredPolicies(PolicyAgent::RequiredPolicies requiredPolicies)
 }
 
 }
-
-#include "powerdevilaction.moc"

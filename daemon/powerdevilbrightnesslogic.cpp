@@ -120,4 +120,4 @@ int BrightnessLogic::valueToStep(int value) const {
     return qBound(0, qRound(value * 1.0 * m_stepMax / m_valueMax), m_stepMax);
 }
 
-};
+}

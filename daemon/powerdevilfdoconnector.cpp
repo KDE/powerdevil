@@ -137,5 +137,3 @@ void FdoConnector::triggerSuspendSession(uint action)
 }
 
 }
-
-#include "powerdevilfdoconnector.moc"

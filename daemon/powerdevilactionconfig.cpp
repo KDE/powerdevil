@@ -56,5 +56,3 @@ void ActionConfig::setChanged()
 }
    
 }
-
-#include "powerdevilactionconfig.moc"

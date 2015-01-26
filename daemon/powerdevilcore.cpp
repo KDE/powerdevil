@@ -761,5 +761,3 @@ uint Core::backendCapabilities()
 }
 
 }
-
-#include "powerdevilcore.moc"

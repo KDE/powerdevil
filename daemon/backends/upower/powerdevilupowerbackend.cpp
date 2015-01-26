@@ -582,5 +582,3 @@ void PowerDevilUPowerBackend::slotLogin1Resuming(bool active)
         emit resumeFromSuspend();
     }
 }
-
-#include "powerdevilupowerbackend.moc"

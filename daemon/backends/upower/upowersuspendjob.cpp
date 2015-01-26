@@ -81,5 +81,3 @@ void UPowerSuspendJob::resumeDone()
 {
     emitResult();
 }
-
-#include "upowersuspendjob.moc"

@@ -250,5 +250,3 @@ int BackendInterface::calculateNextStep(int brightnessValue, int brightnessValue
 }
 
 }
-
-#include "powerdevilbackendinterface.moc"
