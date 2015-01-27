@@ -545,9 +545,9 @@ QList<InhibitionInfo> PolicyAgent::ListInhibitions() const
     return m_cookieToAppName.values();
 }
 
-bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicy*/ uint type) const
+bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicies*/ uint types)
 {
-    return !m_typesToCookie.value(static_cast<PolicyAgent::RequiredPolicy>(type)).isEmpty();
+    return requirePolicyCheck(static_cast<PolicyAgent::RequiredPolicies>(types)) != PolicyAgent::None;
 }
 
 void PolicyAgent::releaseAllInhibitions()

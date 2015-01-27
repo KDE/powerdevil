@@ -81,7 +81,7 @@ public Q_SLOTS:
     uint AddInhibition(uint types, const QString &appName, const QString &reason);
     void ReleaseInhibition(uint cookie);
     QList<InhibitionInfo> ListInhibitions() const;
-    bool HasInhibition(uint type) const;
+    bool HasInhibition(uint types);
 
     void releaseAllInhibitions();
 
