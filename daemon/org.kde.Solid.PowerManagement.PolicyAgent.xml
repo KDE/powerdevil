@@ -17,6 +17,12 @@
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
         <arg type="a{ss}" direction="out" />
     </method>
+
+    <method name="HasInhibition">
+      <arg type="u" direction="in" />
+      <arg type="b" direction="out" />
+    </method>
+
     <signal name="InhibitionsChanged">
         <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QList&lt;InhibitionInfo&gt;"/>
         <arg type="a{ss}" />
