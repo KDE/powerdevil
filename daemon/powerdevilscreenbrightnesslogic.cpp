@@ -32,42 +32,45 @@ int ScreenBrightnessLogic::toggled() const
 
 int ScreenBrightnessLogic::calculateSteps(int maxValue) const
 {
-    // We assume that a generally good number of steps for screen brightness is about 10.
+    // We assume that the preferred number of steps for screen brightness is 20, but we don't want more.
 
-    if (maxValue <= 15 || maxValue == 17) {
+    if (maxValue <= 20) {
         // Too few steps, return the number of actual steps.
+        // Those would be uniform, but not round in some cases.
         return maxValue;
     }
 
-    if (maxValue % 5 == 0 || maxValue >= 80) {
-        /* If there are more than 100 actual steps, any value will be displayed nicely.
-           If maxValue >= 80 and maxValue % 2 = 0, then 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80% and 90% are displayed nicely.
-           If maxValue >= 80 and maxValue % 2 = 1, then it is showed as
-            0% 10% 20% 30% 40% 51% 60% 70% 80% 90% 100% or 0% 11% 20% 31% 40% 51% 60% 71% 80% 91% 100%, which looks good.
-           If maxValue >= 35 and maxValue % 5 = 0, then it is showed as
-            0% 11% 20% 31% 40% 51% 60% 71% 80% 91% 100% (when maxValue % 10 != 0), which also looks good.
-           For maxValue == 25 steps are showed as
-            0% 12% 20% 32% 40% 52% 60% 72% 80% 92% 100%, which is also fine.
-        */
+    if (maxValue >= 100 || maxValue % 20 == 0 || maxValue >= 80 && maxValue % 4 == 0) {
+        // In this case all 20 steps are perfect.
+        return 20;
+    }
+
+    // At this point we have maxValue in the range 21-79 which probably is a rare case.
+
+    if (maxValue >= 34 || maxValue == 32 || maxValue == 28) {
+        // In this case all 20 steps are matched +-1%, which is fine.
+        return 20;
+    }
+
+    // At this point we have maxValue in the range 21-33.
+    // Trying to make 20 steps from here will make them not uniform.
+
+    if (maxValue % 5 == 0) {
+        // For maxValue == 30 there are 10 even and round steps.
+        // For maxValue == 25 steps are shown as
+        //  0% 12% 20% 32% 40% 52% 60% 72% 80% 92% 100%, which is also fine.
         return 10;
     }
 
-    for (int steps = 10; steps <= 15; steps++) {
+    // Trying hard to find an uniform steps set
+    for (int steps = 9; steps <= 14; steps++) {
         if (maxValue % steps == 0) {
             return steps;
         }
     }
 
-    for (int steps = 9; steps >= 8; steps--) {
-        if (maxValue % steps == 0) {
-            return steps;
-        }
-    }
-
-    // 28 different maxValue values between 17 and 79 are left at this point.
-    //qCDebug(POWERDEVIL) << "maxValue" << maxValue;
-
-    // Give up and return 10, there is nothing much we can do here.
+    // 4 different maxValue values left: 21, 23, 29, 31.
+    // Those produce +-2% on 10 steps, there is nothing better we can do here.
     return 10;
 }
 
