@@ -22,8 +22,9 @@
 
 #include "ui_activityWidget.h"
 
-#include "daemon/actions/bundled/suspendsession.h"
+#include "../daemon/actions/bundled/suspendsession.h"
 
+#include <KConfigGroup>
 #include <KActivities/Consumer>
 #include <Solid/PowerManagement>
 #include <actioneditwidget.h>
@@ -106,7 +107,7 @@ void ActivityWidget::load()
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-060"), i18n("PC running on battery power"), "Battery");
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-low"), i18n("PC running on low battery"), "LowBattery");
 
-    foreach (const QString &activity, m_activityConsumer->listActivities()) {
+    foreach (const QString &activity, m_activityConsumer->activities()) {
         if (activity == m_activity) {
             continue;
         }

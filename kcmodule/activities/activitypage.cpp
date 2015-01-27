@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2011 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -29,6 +30,8 @@
 #include <QScrollArea>
 #include <QVBoxLayout>
 
+#include <QtWidgets/QTabWidget>
+
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtDBus/QDBusMessage>
@@ -41,7 +44,6 @@
 #include <KMessageWidget>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KTabWidget>
 #include <KLocalizedString>
 
 K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
@@ -50,12 +52,12 @@ K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
 K_EXPORT_PLUGIN(PowerDevilActivitiesKCMFactory("powerdevilactivitiesconfig","powerdevil"))
 
 ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
-    : KCModule(PowerDevilActivitiesKCMFactory::componentData(), parent, args)
+    : KCModule(0, parent, args)
     , m_activityConsumer(new KActivities::Consumer(this))
 {
     setButtons(Apply | Help);
 
-    KAboutData *about =
+    /*KAboutData *about =
         new KAboutData("powerdevilactivitiesconfig", "powerdevilactivitiesconfig", ki18n("Activities Power Management Configuration"),
                        "", ki18n("A per-activity configurator of KDE Power Management System"),
                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
@@ -64,34 +66,11 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
                      "http://drfav.wordpress.com");
 
-    setAboutData(about);
+    setAboutData(about);*/
 
     // Build the UI
-    KTabWidget *tabWidget = new KTabWidget();
+    m_tabWidget = new QTabWidget();
     QVBoxLayout *lay = new QVBoxLayout();
-
-    foreach (const QString &activity, m_activityConsumer->listActivities()) {
-        KActivities::Info *info = new KActivities::Info(activity, this);
-        QString icon = info->icon();
-        QString name = info->name();
-        qCDebug(POWERDEVIL) << activity << info->isValid() << info->availability();
-
-        QScrollArea *scrollArea = new QScrollArea();
-        scrollArea->setFrameShape(QFrame::NoFrame);
-        scrollArea->setFrameShadow(QFrame::Plain);
-        scrollArea->setLineWidth(0);
-        scrollArea->setWidgetResizable(true);
-
-        ActivityWidget *activityWidget = new ActivityWidget(activity);
-        scrollArea->setWidget(activityWidget);
-
-        activityWidget->load();
-        m_activityWidgets.append(activityWidget);
-
-        connect(activityWidget, SIGNAL(changed(bool)), this, SIGNAL(changed(bool)));
-
-        tabWidget->addTab(scrollArea, QIcon::fromTheme(icon), name);
-    }
 
     // Message widget
     m_messageWidget = new KMessageWidget(i18n("The activity service is running with bare functionalities.\n"
@@ -100,12 +79,11 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     m_messageWidget.data()->hide();
 
     lay->addWidget(m_messageWidget.data());
-    lay->addWidget(tabWidget);
+    lay->addWidget(m_tabWidget);
     setLayout(lay);
 
-    connect(m_activityConsumer, SIGNAL(serviceStatusChanged(KActivities::Consumer::ServiceStatus)),
-            this, SLOT(onActivityServiceStatusChanged(KActivities::Consumer::ServiceStatus)));
     onActivityServiceStatusChanged(m_activityConsumer->serviceStatus());
+    connect(m_activityConsumer, &KActivities::Consumer::serviceStatusChanged, this, &ActivityPage::onActivityServiceStatusChanged);
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -161,6 +139,7 @@ void ActivityPage::fillUi()
 void ActivityPage::onActivityServiceStatusChanged(KActivities::Consumer::ServiceStatus status)
 {
     switch (status) {
+        case KActivities::Consumer::Unknown: // fall through
         case KActivities::Consumer::NotRunning:
             // Create error overlay, if not present
             if (m_errorOverlay.isNull()) {
@@ -170,24 +149,68 @@ void ActivityPage::onActivityServiceStatusChanged(KActivities::Consumer::Service
                                                   this);
             }
             break;
-        case KActivities::Consumer::BareFunctionality:
-            // Show message widget
-            m_messageWidget.data()->show();
-            break;
-        case KActivities::Consumer::FullFunctionality:
-            if (m_previousServiceStatus != KActivities::Consumer::FullFunctionality &&
-                !m_errorOverlay.isNull()) {
-                m_errorOverlay.data()->deleteLater();
-                if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
-                    onServiceRegistered("org.kde.Solid.PowerManagement");
-                } else {
-                    onServiceUnregistered("org.kde.Solid.PowerManagement");
+        case KActivities::Consumer::Running:
+            if (m_previousServiceStatus != KActivities::Consumer::Running) {
+
+                if (!m_errorOverlay.isNull()) {
+                    m_errorOverlay.data()->deleteLater();
+                    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
+                        onServiceRegistered("org.kde.Solid.PowerManagement");
+                    } else {
+                        onServiceUnregistered("org.kde.Solid.PowerManagement");
+                    }
                 }
+
+                populateTabs();
             }
+
             if (m_messageWidget.data()->isVisible()) {
                 m_messageWidget.data()->hide();
             }
+
             break;
+    }
+
+    m_previousServiceStatus = status;
+}
+
+void ActivityPage::populateTabs()
+{
+    if (m_activityConsumer->serviceStatus() != KActivities::Consumer::Running) {
+        return;
+    }
+
+    int index = 0;
+    foreach (const QString &activity, m_activityConsumer->activities()) {
+        KActivities::Info *info = new KActivities::Info(activity, this);
+        const QString icon = info->icon();
+        const QString name = info->name();
+        qCDebug(POWERDEVIL) << activity << info->isValid() << info->availability();
+
+        QScrollArea *scrollArea = new QScrollArea();
+        scrollArea->setFrameShape(QFrame::NoFrame);
+        scrollArea->setFrameShadow(QFrame::Plain);
+        scrollArea->setLineWidth(0);
+        scrollArea->setWidgetResizable(true);
+
+        ActivityWidget *activityWidget = new ActivityWidget(activity);
+        scrollArea->setWidget(activityWidget);
+
+        activityWidget->load();
+        m_activityWidgets.append(activityWidget);
+
+        connect(activityWidget, SIGNAL(changed(bool)), this, SIGNAL(changed(bool)));
+        if (!icon.isEmpty()) {
+            m_tabWidget->addTab(scrollArea, QIcon::fromTheme(icon), name);
+        } else {
+            m_tabWidget->addTab(scrollArea, name);
+        }
+
+        if (m_activityConsumer->currentActivity() == activity) {
+            m_tabWidget->setCurrentIndex(index);
+        }
+
+        ++index;
     }
 }
 
@@ -203,8 +226,6 @@ void ActivityPage::onServiceRegistered(const QString& service)
     if (!m_errorOverlay.isNull()) {
         m_errorOverlay.data()->deleteLater();
     }
-
-    onActivityServiceStatusChanged(m_activityConsumer->serviceStatus());
 }
 
 void ActivityPage::onServiceUnregistered(const QString& service)

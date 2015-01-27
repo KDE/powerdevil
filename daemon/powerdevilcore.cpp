@@ -41,7 +41,7 @@
 #include <KNotification>
 #include <KServiceTypeTrader>
 
-// #include <KActivities/Consumer>
+#include <KActivities/Consumer>
 
 #include <QtCore/QTimer>
 #include <QtDBus/QDBusConnection>
@@ -58,7 +58,7 @@ Core::Core(QObject* parent)
     , m_backend(0)
     , m_notificationsWatcher(nullptr)
     , m_criticalBatteryTimer(new QTimer(this))
-//     , m_activityConsumer(new KActivities::Consumer(this))
+    , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
 {
 }
@@ -127,8 +127,9 @@ void Core::onBackendReady()
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
             this, SLOT(onResumingFromIdle()));
-//     connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)),
-//             this, SLOT(loadProfile()));
+    connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
+        loadProfile();
+    });
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
@@ -234,10 +235,7 @@ void Core::loadProfile(bool force)
     KConfigGroup config;
 
     // Check the activity in which we are in
-    QString activity;/* = m_activityConsumer->currentActivity();*/
-    if (activity.isEmpty()) {
-        activity = "default";
-    }
+    QString activity = m_activityConsumer->currentActivity();
     qCDebug(POWERDEVIL) << "We are now into activity " << activity;
     KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
     qCDebug(POWERDEVIL) << activitiesConfig.groupList() << activitiesConfig.keyList();

@@ -15,7 +15,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
-find_package(KF5 REQUIRED COMPONENTS Auth IdleTime Config Solid I18n GlobalAccel KIO NotifyConfig Screen KDELibs4Support)
+find_package(KF5 REQUIRED COMPONENTS Activities Auth IdleTime Config Solid I18n GlobalAccel KIO NotifyConfig Screen KDELibs4Support)
 find_package(LibKWorkspace CONFIG REQUIRED)
 find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
 

@@ -56,6 +56,7 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSIO
 
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
+    KF5::Activities
     KF5::ConfigCore
     KF5::ConfigGui
     KF5::I18n
