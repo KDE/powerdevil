@@ -32,7 +32,7 @@ public:
     int toggled() const;
 
 protected:
-    int calculateStepMax(int valueMax) const;
+    int calculateSteps(int valueMax) const;
 
 };
 

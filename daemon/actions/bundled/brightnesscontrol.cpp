@@ -221,9 +221,9 @@ void BrightnessControl::setBrightnessValueSilent(int value)
     trigger(args);
 }
 
-int BrightnessControl::brightnessStepMax() const
+int BrightnessControl::brightnessSteps() const
 {
-    return backend()->brightnessStepMax();
+    return backend()->brightnessSteps();
 }
 
 int BrightnessControl::brightnessPercent(float value) const

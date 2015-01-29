@@ -24,7 +24,7 @@ namespace PowerDevil
 {
 
 BrightnessLogic::BrightnessLogic()
- : m_value(-1), m_valueMax(-1), m_stepMax(-1)
+ : m_value(-1), m_valueMax(-1), m_steps(-1)
 {
 }
 
@@ -39,7 +39,7 @@ void BrightnessLogic::setValue(int value) {
 void BrightnessLogic::setValueMax(int valueMax) {
     if (valueMax != m_valueMax) {
         m_valueMax = valueMax;
-        m_stepMax = calculateStepMax(valueMax);
+        m_steps = calculateSteps(valueMax);
     }
 }
 
@@ -62,7 +62,7 @@ int BrightnessLogic::increased() const {
     }
 
     // Add 1 and round upwards to the nearest step
-    int step = m_stepMax - (m_valueMax - m_value - 1) * m_stepMax / m_valueMax;
+    int step = m_steps - (m_valueMax - m_value - 1) * m_steps / m_valueMax;
     return stepToValue(step);
 }
 
@@ -72,7 +72,7 @@ int BrightnessLogic::decreased() const {
     }
 
     // Subtract 1 and round downwards to the nearest Step
-    int step = (m_value - 1) * m_stepMax / m_valueMax;
+    int step = (m_value - 1) * m_steps / m_valueMax;
     return stepToValue(step);
 }
 
@@ -89,8 +89,8 @@ int BrightnessLogic::valueMax() const {
     return m_valueMax;
 }
 
-int BrightnessLogic::stepMax() const {
-    return m_stepMax;
+int BrightnessLogic::steps() const {
+    return m_steps;
 }
 
 float BrightnessLogic::percentage() const {
@@ -101,17 +101,17 @@ const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const {
     BrightnessInfo brightnessInfo;
     brightnessInfo.valueMax = m_valueMax;
     brightnessInfo.value = m_value;
-    brightnessInfo.stepMax = m_stepMax;
+    brightnessInfo.steps = m_steps;
     brightnessInfo.percentage = percentage();
     return brightnessInfo;
 }
 
 int BrightnessLogic::stepToValue(int step) const {
-    return qBound(0, qRound(step * 1.0 * m_valueMax / m_stepMax), m_valueMax);
+    return qBound(0, qRound(step * 1.0 * m_valueMax / m_steps), m_valueMax);
 }
 
 int BrightnessLogic::valueToStep(int value) const {
-    return qBound(0, qRound(value * 1.0 * m_stepMax / m_valueMax), m_stepMax);
+    return qBound(0, qRound(value * 1.0 * m_steps / m_valueMax), m_steps);
 }
 
 }

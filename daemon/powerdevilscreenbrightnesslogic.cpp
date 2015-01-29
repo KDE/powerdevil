@@ -30,7 +30,7 @@ int ScreenBrightnessLogic::toggled() const
     return -1;
 }
 
-int ScreenBrightnessLogic::calculateStepMax(int maxValue) const
+int ScreenBrightnessLogic::calculateSteps(int maxValue) const
 {
     // We assume that a generally good number of steps for screen brightness is about 10.
 

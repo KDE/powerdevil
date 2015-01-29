@@ -32,7 +32,7 @@
       <arg type="i" direction="out" />
     </signal>
 
-    <method name="keyboardBrightnessStepMax">
+    <method name="keyboardBrightnessSteps">
       <arg type="i" direction="out" />
     </method>
 

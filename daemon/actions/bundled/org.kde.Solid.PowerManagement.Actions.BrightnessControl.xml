@@ -32,7 +32,7 @@
       <arg type="i" direction="out" />
     </signal>
 
-    <method name="brightnessStepMax">
+    <method name="brightnessSteps">
       <arg type="i" direction="out" />
     </method>
 

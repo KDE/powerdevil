@@ -48,7 +48,7 @@ public:
         /** The maximum possible brightness value for this device */
         int valueMax;
         /** The maximum possible brightness step for this device */
-        int stepMax;
+        int steps;
         /** Brightness value expressed as a percentage of maximum possible value */
         float percentage;
     };
@@ -125,7 +125,7 @@ public:
      *
      * @return Maximum possible brightness step
      */
-    int stepMax() const;
+    int steps() const;
 
     /**
      * Retreive the brightness value expressed as a percentage from 0 to 100
@@ -144,7 +144,7 @@ public:
     /**
      * Convert brightness step to raw brightness value
      *
-     * @param step Brightness step, from 0 to stepMax
+     * @param step Brightness step, from 0 to steps
      * @return Brightness value that corresponds to the given step
      */
     int stepToValue(int step) const;
@@ -172,12 +172,12 @@ protected:
      * @param valueMax the maximum brightness value for which we want to calculate the number of steps
      * @return the optimal maximum step number
      */
-    virtual int calculateStepMax(int valueMax) const = 0;
+    virtual int calculateSteps(int valueMax) const = 0;
 
 private:
     int m_value;
     int m_valueMax;
-    int m_stepMax;
+    int m_steps;
 };
 
 }

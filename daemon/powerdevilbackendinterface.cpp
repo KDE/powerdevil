@@ -111,12 +111,12 @@ int BackendInterface::brightnessValueMax(BackendInterface::BrightnessControlType
     return logic->valueMax();
 }
 
-int BackendInterface::brightnessStepMax(BackendInterface::BrightnessControlType type) const
+int BackendInterface::brightnessSteps(BackendInterface::BrightnessControlType type) const
 {
     BrightnessLogic *logic = d->brightnessLogic[type];
     logic->setValueMax(brightnessValueMax(type));
 
-    return logic->stepMax();
+    return logic->steps();
 }
 
 BackendInterface::BrightnessControlsList BackendInterface::brightnessControlsAvailable() const

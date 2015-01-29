@@ -198,7 +198,7 @@ public:
      * @param device the name of the device that you would like to control
      * @return the maximum brightness of the device
      */
-    virtual int brightnessStepMax(BrightnessControlType type = Screen) const;
+    virtual int brightnessSteps(BrightnessControlType type = Screen) const;
 
     /**
      * @returns whether the lid is closed or not.

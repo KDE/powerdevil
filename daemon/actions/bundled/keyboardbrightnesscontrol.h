@@ -65,7 +65,7 @@ public Q_SLOTS:
     void setKeyboardBrightnessValue(int value);
     void setKeyboardBrightnessValueSilent(int value);
 
-    int keyboardBrightnessStepMax() const;
+    int keyboardBrightnessSteps() const;
 
 Q_SIGNALS:
     void keyboardBrightnessChanged(int percent);

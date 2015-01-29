@@ -231,9 +231,9 @@ void KeyboardBrightnessControl::setKeyboardBrightnessValueSilent(int value)
     trigger(args);
 }
 
-int KeyboardBrightnessControl::keyboardBrightnessStepMax() const
+int KeyboardBrightnessControl::keyboardBrightnessSteps() const
 {
-    return backend()->brightnessStepMax(BackendInterface::Keyboard);
+    return backend()->brightnessSteps(BackendInterface::Keyboard);
 }
 
 }

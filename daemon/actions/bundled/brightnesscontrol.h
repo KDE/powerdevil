@@ -61,7 +61,7 @@ public Q_SLOTS:
     void setBrightnessValue(int value);
     void setBrightnessValueSilent(int value);
 
-    int brightnessStepMax() const;
+    int brightnessSteps() const;
 
 private Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);

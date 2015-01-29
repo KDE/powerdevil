@@ -29,7 +29,7 @@ class KeyboardBrightnessLogic : public BrightnessLogic
 {
 
 protected:
-    int calculateStepMax(int valueMax) const;
+    int calculateSteps(int valueMax) const;
 
 };
 
