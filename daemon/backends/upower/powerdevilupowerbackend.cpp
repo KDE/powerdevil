@@ -133,23 +133,44 @@ void PowerDevilUPowerBackend::init()
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_brightnessControl = new XRandrBrightness();
     if (!m_brightnessControl->isSupported()) {
-        qCDebug(POWERDEVIL) << "Using helper";
-        KAuth::Action action("org.kde.powerdevil.backlighthelper.syspath");
-        action.setHelperId(HELPER_ID);
-        KAuth::ExecuteJob* job = action.execute();
-        if (job->exec()) {
-            m_syspath = job->data()["syspath"].toString();
-            m_syspath = QFileInfo(m_syspath).readLink();
+        qCDebug(POWERDEVIL) << "Falling back to helper to get brightness";
 
-            UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-            connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
-            screenBrightnessAvailable = true;
+        KAuth::Action brightnessValueAction("org.kde.powerdevil.backlighthelper.brightnessvalue");
+        brightnessValueAction.setHelperId(HELPER_ID);
+        KAuth::ExecuteJob *brightnessValueJob = brightnessValueAction.execute();
+        if (!brightnessValueJob->exec()) {
+            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessvalue failed";
+        } else {
+            m_cachedBrightnessMap.insert(Screen, brightnessValueJob->data()["brightnessvalue"].toFloat());
+
+            KAuth::Action brightnessValueMaxAction("org.kde.powerdevil.backlighthelper.brightnessvaluemax");
+            brightnessValueMaxAction.setHelperId(HELPER_ID);
+            KAuth::ExecuteJob *brightnessValueMaxJob = brightnessValueMaxAction.execute();
+            if (brightnessValueMaxJob->exec()) {
+                m_brightnessValueMax = brightnessValueMaxJob->data()["brightnessvaluemax"].toInt();
+            } else {
+                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessvaluemax failed";
+            }
+
+            KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
+            syspathAction.setHelperId(HELPER_ID);
+            KAuth::ExecuteJob* syspathJob = syspathAction.execute();
+            if (syspathJob->exec()) {
+                m_syspath = syspathJob->data()["syspath"].toString();
+                m_syspath = QFileInfo(m_syspath).readLink();
+
+                UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+                connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+
+                screenBrightnessAvailable = true;
+            }
         }
     } else {
         qCDebug(POWERDEVIL) << "Using XRandR";
         m_randrHelper = XRandRXCBHelper::self();
         Q_ASSERT(m_randrHelper);
         connect(m_randrHelper, SIGNAL(brightnessChanged()), this, SLOT(slotScreenBrightnessChanged()));
+        m_cachedBrightnessMap.insert(Screen, brightnessValue(Screen));
         screenBrightnessAvailable = true;
     }
 
@@ -179,7 +200,6 @@ void PowerDevilUPowerBackend::init()
     BrightnessControlsList controls;
     if (screenBrightnessAvailable) {
         controls.insert(QLatin1String("LVDS1"), Screen);
-        m_cachedBrightnessMap.insert(Screen, brightnessValue(Screen));
         qCDebug(POWERDEVIL) << "current screen brightness value: " << m_cachedBrightnessMap.value(Screen);
     }
 
@@ -267,29 +287,30 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
     }
 }
 
-void PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
+int PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
     BrightnessControlsList allControls = brightnessControlsAvailable();
     QList<QString> controls = allControls.keys(controlType);
 
     if (controls.isEmpty()) {
-        return; // ignore as we are not able to determine the brightness level
+        return -1; // ignore as we are not able to determine the brightness level
     }
 
     int currentBrightness = brightnessValue(controlType);
     if (currentBrightness !=  m_cachedBrightnessMap.value(controlType)) {
         m_cachedBrightnessMap[controlType] = currentBrightness;
-        return;
+        return currentBrightness;
     }
 
     int maxBrightness = brightnessValueMax(controlType),
         newBrightness = calculateNextStep(currentBrightness, maxBrightness, controlType, type);
 
     if (newBrightness < 0) {
-        return;
+        return -1;
     }
 
     setBrightnessValue(newBrightness, controlType);
+    return newBrightness;
 }
 
 int PowerDevilUPowerBackend::brightnessValue(PowerDevil::BackendInterface::BrightnessControlType type) const
@@ -301,17 +322,7 @@ int PowerDevilUPowerBackend::brightnessValue(PowerDevil::BackendInterface::Brigh
             //qCDebug(POWERDEVIL) << "Calling xrandr brightness";
             result = (int) m_brightnessControl->brightnessValue();
         } else {
-            //qCDebug(POWERDEVIL) << "Falling back to helper to get brightness";
-            KAuth::Action action("org.kde.powerdevil.backlighthelper.brightnessvalue");
-            action.setHelperId(HELPER_ID);
-            KAuth::ExecuteJob *job = action.execute();
-            if (job->exec()) {
-                result = job->data()["brightnessvalue"].toFloat();
-                //qCDebug(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessvalue succeeded: " << reply.data()["brightnessvalue"];
-            }
-            else
-                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessvalue failed";
-
+            return m_cachedBrightnessMap[Screen];
         }
         qCDebug(POWERDEVIL) << "Screen brightness value: " << result;
     } else if (type == Keyboard) {
@@ -331,17 +342,7 @@ int PowerDevilUPowerBackend::brightnessValueMax(PowerDevil::BackendInterface::Br
             //qCDebug(POWERDEVIL) << "Calling xrandr brightness";
             result = (int) m_brightnessControl->brightnessValueMax();
         } else {
-            //qCDebug(POWERDEVIL) << "Falling back to helper to get brightness";
-            KAuth::Action action("org.kde.powerdevil.backlighthelper.brightnessvaluemax");
-            action.setHelperId(HELPER_ID);
-            KAuth::ExecuteJob *job = action.execute();
-            if (job->exec()) {
-                result = job->data()["brightnessvaluemax"].toInt();
-                //qCDebug(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessvaluemax succeeded: " << reply.data()["brightnessvaluemax"];
-            }
-            else
-                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessvaluemax failed";
-
+            return m_brightnessValueMax;
         }
         qCDebug(POWERDEVIL) << "Screen brightness value max: " << result;
     } else if (type == Keyboard) {
@@ -365,10 +366,8 @@ bool PowerDevilUPowerBackend::setBrightnessValue(int brightnessValue, PowerDevil
             action.setHelperId(HELPER_ID);
             action.addArgument("brightnessvalue", brightnessValue);
             KAuth::ExecuteJob *job = action.execute();
-            if (!job->exec()) {
-                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.setbrightnessvalue failed";
-                return false;
-            }
+            // we don't care about the result since executing the job sync is bad
+            job->start();
         }
 
         success = true;

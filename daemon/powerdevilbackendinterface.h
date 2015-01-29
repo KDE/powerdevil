@@ -250,9 +250,10 @@ public:
      * Should be called when the user presses a brightness key.
      *
      * @param type the type of the brightness key press
+     * @return the new brightness value, or -1 if it could not be changed or determined
      * @see PowerDevil::BrightnessLogic::BrightnessKeyType
      */
-    virtual void brightnessKeyPressed(BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
+    virtual int brightnessKeyPressed(BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
 
     /**
      * Retrieves the capacities of the installed batteries in percentage.
