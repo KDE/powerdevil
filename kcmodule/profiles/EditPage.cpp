@@ -39,11 +39,8 @@
 #include <QtDBus/QDBusServiceWatcher>
 
 #include <KConfigGroup>
-#include <KLineEdit>
 #include <QDebug>
 #include <KMessageBox>
-#include <KIconButton>
-#include <KToolBar>
 #include <KAboutData>
 #include <KPluginFactory>
 #include <KSharedConfig>
@@ -137,7 +134,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     if (!hasBattery) {
         tabWidget->setTabEnabled(1, false);
         tabWidget->setTabEnabled(2, false);
-        tabWidget->setTabBarHidden(true);
+        tabWidget->tabBar()->hide();
     }
 
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
