@@ -88,14 +88,6 @@ bool BackendInterface::setBrightness(float brightness, BackendInterface::Brightn
     return setBrightnessValue(qRound(brightness / 100 * brightnessValueMax(type)), type);
 }
 
-bool BackendInterface::setBrightnessStep(int brightnessStep, BackendInterface::BrightnessControlType type)
-{
-    BrightnessLogic *logic = d->brightnessLogic[type];
-    logic->setValueMax(brightnessValueMax(type));
-
-    return setBrightnessValue(logic->stepToValue(brightnessStep), type);
-}
-
 float BackendInterface::brightness(BackendInterface::BrightnessControlType type) const
 {
     BrightnessLogic *logic = d->brightnessLogic[type];
@@ -117,15 +109,6 @@ int BackendInterface::brightnessValueMax(BackendInterface::BrightnessControlType
     BrightnessLogic *logic = d->brightnessLogic[type];
 
     return logic->valueMax();
-}
-
-int BackendInterface::brightnessStep(BackendInterface::BrightnessControlType type) const
-{
-    BrightnessLogic *logic = d->brightnessLogic[type];
-    logic->setValueMax(brightnessValueMax(type));
-    logic->setValue(brightnessValue(type));
-
-    return logic->step();
 }
 
 int BackendInterface::brightnessStepMax(BackendInterface::BrightnessControlType type) const

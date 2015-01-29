@@ -47,8 +47,6 @@ public:
         int value;
         /** The maximum possible brightness value for this device */
         int valueMax;
-        /** Current brightness step, approximate (rounded to the nearest step) */
-        int step;
         /** The maximum possible brightness step for this device */
         int stepMax;
         /** Brightness value expressed as a percentage of maximum possible value */
@@ -179,7 +177,6 @@ protected:
 private:
     int m_value;
     int m_valueMax;
-    int m_step;
     int m_stepMax;
 };
 

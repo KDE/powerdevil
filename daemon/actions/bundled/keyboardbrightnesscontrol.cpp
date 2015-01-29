@@ -118,9 +118,7 @@ void KeyboardBrightnessControl::onProfileLoad()
 
 void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
 {
-    if (args.contains("Step")) {
-        backend()->setBrightnessStep(args["Step"].toInt(), BackendInterface::Keyboard);
-    } else if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
+    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
         backend()->setBrightnessValue(args["Value"].toInt(), BackendInterface::Keyboard);
     } else {
         backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
@@ -162,7 +160,6 @@ void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessL
     if (type == BackendInterface::Keyboard) {
         int brightness = qRound(info.percentage);
         Q_EMIT keyboardBrightnessValueChanged(info.value);
-        Q_EMIT keyboardBrightnessStepChanged(info.step);
         Q_EMIT keyboardBrightnessChanged(brightness);
     }
 }
@@ -234,22 +231,9 @@ void KeyboardBrightnessControl::setKeyboardBrightnessValueSilent(int value)
     trigger(args);
 }
 
-int KeyboardBrightnessControl::keyboardBrightnessStep() const
-{
-    return backend()->brightnessStep(BackendInterface::Keyboard);
-}
-
 int KeyboardBrightnessControl::keyboardBrightnessStepMax() const
 {
     return backend()->brightnessStepMax(BackendInterface::Keyboard);
-}
-
-void KeyboardBrightnessControl::setKeyboardBrightnessStep(int step)
-{
-    QVariantMap args;
-    args["Step"] = QVariant::fromValue<int>(step);
-    args["Explicit"] = true;
-    trigger(args);
 }
 
 }

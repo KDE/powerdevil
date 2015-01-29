@@ -24,7 +24,7 @@ namespace PowerDevil
 {
 
 BrightnessLogic::BrightnessLogic()
- : m_value(-1), m_valueMax(-1), m_step(-1), m_stepMax(-1)
+ : m_value(-1), m_valueMax(-1), m_stepMax(-1)
 {
 }
 
@@ -34,7 +34,6 @@ BrightnessLogic::~BrightnessLogic()
 
 void BrightnessLogic::setValue(int value) {
     m_value = value;
-    m_step = valueToStep(value);
 }
 
 void BrightnessLogic::setValueMax(int valueMax) {
@@ -90,10 +89,6 @@ int BrightnessLogic::valueMax() const {
     return m_valueMax;
 }
 
-int BrightnessLogic::step() const {
-    return m_step;
-}
-
 int BrightnessLogic::stepMax() const {
     return m_stepMax;
 }
@@ -107,7 +102,6 @@ const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const {
     brightnessInfo.valueMax = m_valueMax;
     brightnessInfo.value = m_value;
     brightnessInfo.stepMax = m_stepMax;
-    brightnessInfo.step = m_step;
     brightnessInfo.percentage = percentage();
     return brightnessInfo;
 }

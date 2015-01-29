@@ -108,9 +108,7 @@ void BrightnessControl::onProfileLoad()
 void BrightnessControl::triggerImpl(const QVariantMap& args)
 {
     int newBrightness = -1;
-    if (args.contains("Step")) {
-        backend()->setBrightnessStep(args["Step"].toInt());
-    } else if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
+    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
         backend()->setBrightnessValue(args["Value"].toInt());
         newBrightness = brightnessPercent(args["Value"].toInt());
     } else {
@@ -154,7 +152,6 @@ void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::Br
     if (type == BackendInterface::Screen) {
         int brightness = qRound(info.percentage);
         Q_EMIT brightnessValueChanged(info.value);
-        Q_EMIT brightnessStepChanged(info.step);
         Q_EMIT brightnessChanged(brightness);
     }
 }
@@ -224,22 +221,9 @@ void BrightnessControl::setBrightnessValueSilent(int value)
     trigger(args);
 }
 
-int BrightnessControl::brightnessStep() const
-{
-    return backend()->brightnessStep();
-}
-
 int BrightnessControl::brightnessStepMax() const
 {
     return backend()->brightnessStepMax();
-}
-
-void BrightnessControl::setBrightnessStep(int step)
-{
-    QVariantMap args;
-    args["Step"] = QVariant::fromValue<int>(step);
-    args["Explicit"] = true;
-    trigger(args);
 }
 
 int BrightnessControl::brightnessPercent(float value) const

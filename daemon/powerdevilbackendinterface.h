@@ -193,14 +193,6 @@ public:
     virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
     /**
-     * Gets the device brightness step.
-     *
-     * @param device the name of the device that you would like to control
-     * @return the brightness of the device, as an integer from 0 to brightnessStepMax
-     */
-    virtual int brightnessStep(BrightnessControlType type = Screen) const;
-
-    /**
      * Gets the maximum device brightness step.
      *
      * @param device the name of the device that you would like to control
@@ -227,15 +219,6 @@ public:
      * @return true if the brightness change succeeded, false otherwise
      */
     virtual bool setBrightness(float brightness, BrightnessControlType type = Screen);
-
-    /**
-     * Sets the device brightness.
-     *
-     * @param brightnessStep the desired device brightness, as an integer from 0 to brightnessStepMax
-     * @param device the name of the device that you would like to control
-     * @return true if the brightness change succeeded, false otherwise
-     */
-    virtual bool setBrightnessStep(int brightnessStep, BrightnessControlType type = Screen);
 
     /**
      * Sets the device brightness value.
