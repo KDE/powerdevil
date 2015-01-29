@@ -48,7 +48,7 @@ public:
     virtual int brightnessValue(BrightnessControlType type = Screen) const;
     virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
-    virtual void brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen);
+    virtual int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen);
     virtual bool setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 

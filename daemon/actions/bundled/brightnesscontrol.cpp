@@ -107,15 +107,18 @@ void BrightnessControl::onProfileLoad()
 
 void BrightnessControl::triggerImpl(const QVariantMap& args)
 {
+    int newBrightness = -1;
     if (args.contains("Step")) {
         backend()->setBrightnessStep(args["Step"].toInt());
     } else if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
         backend()->setBrightnessValue(args["Value"].toInt());
+        newBrightness = brightnessPercent(args["Value"].toInt());
     } else {
         backend()->setBrightness(args["Value"].toFloat());
+        newBrightness = args["Value"].toFloat();
     }
-    if (args["Explicit"].toBool() && !args["Silent"].toBool()) {
-        BrightnessOSDWidget::show(brightness());
+    if (args["Explicit"].toBool() && !args["Silent"].toBool() && newBrightness > -1) {
+        BrightnessOSDWidget::show(newBrightness);
     }
 }
 
@@ -180,14 +183,18 @@ void BrightnessControl::setBrightnessSilent(int percent)
 
 void BrightnessControl::increaseBrightness()
 {
-    backend()->brightnessKeyPressed(BrightnessLogic::Increase);
-    BrightnessOSDWidget::show(brightness());
+    const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::Increase);
+    if (newBrightness > -1) {
+        BrightnessOSDWidget::show(brightnessPercent(newBrightness));
+    }
 }
 
 void BrightnessControl::decreaseBrightness()
 {
-    backend()->brightnessKeyPressed(BrightnessLogic::Decrease);
-    BrightnessOSDWidget::show(brightness());
+    const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::Decrease);
+    if (newBrightness > -1) {
+        BrightnessOSDWidget::show(brightnessPercent(newBrightness));
+    }
 }
 
 int BrightnessControl::brightnessValue() const
@@ -233,6 +240,16 @@ void BrightnessControl::setBrightnessStep(int step)
     args["Step"] = QVariant::fromValue<int>(step);
     args["Explicit"] = true;
     trigger(args);
+}
+
+int BrightnessControl::brightnessPercent(float value) const
+{
+    const float maxBrightness = brightnessValueMax();
+    if (maxBrightness <= 0) {
+        return 0;
+    }
+
+    return qRound(value / maxBrightness * 100);
 }
 
 }

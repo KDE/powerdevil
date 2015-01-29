@@ -74,6 +74,8 @@ Q_SIGNALS:
     void brightnessStepChanged(int step);
 
 private:
+    int brightnessPercent(float value) const;
+
     int m_defaultValue;
     QString m_lastProfile;
     QString m_currentProfile;

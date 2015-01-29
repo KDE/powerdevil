@@ -173,17 +173,17 @@ void PowerDevilHALBackend::init()
     setBackendIsReady(controls, supported);
 }
 
-void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
+int PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
     BrightnessControlsList allControls = brightnessControlsAvailable();
     QList<QString> controls = allControls.keys(controlType);
 
     if (controls.isEmpty()) {
-        return; // ignore as we are not able to determine the brightness level
+        return -1; // ignore as we are not able to determine the brightness level
     }
 
     if (type == PowerDevil::BrightnessLogic::Toggle && controlType == Screen) {
-        return; // ignore as we wont toggle the display off
+        return -1; // ignore as we wont toggle the display off
     }
 
     int currentBrightness = brightnessValue(controlType);
@@ -218,6 +218,8 @@ void PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::Bri
     } else {
         m_cachedKeyboardBrightness = cachedBrightness;
     }
+
+    return cachedBrightness;
 }
 
 int PowerDevilHALBackend::brightnessValue(PowerDevil::BackendInterface::BrightnessControlType type) const
