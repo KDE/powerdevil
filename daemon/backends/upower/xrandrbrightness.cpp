@@ -40,9 +40,9 @@ XRandrBrightness::XRandrBrightness()
         return;
     }
 
-    auto *backlightReply = xcb_intern_atom_reply(QX11Info::connection(),
+    ScopedCPointer<xcb_intern_atom_reply_t> backlightReply(xcb_intern_atom_reply(QX11Info::connection(),
         xcb_intern_atom (QX11Info::connection(), 1, strlen("Backlight"), "Backlight"),
-    nullptr);
+    nullptr));
 
     if (!backlightReply) {
         qCWarning(POWERDEVIL, "Intern Atom for Backlight returned null");
@@ -50,7 +50,6 @@ XRandrBrightness::XRandrBrightness()
     }
 
     m_backlight = backlightReply->atom;
-    free(backlightReply);
 
     if (m_backlight == XCB_NONE) {
         qCWarning(POWERDEVIL, "No outputs have backlight property");
@@ -66,20 +65,13 @@ XRandrBrightness::XRandrBrightness()
     xcb_screen_t *screen = iter.data;
     xcb_window_t root = screen->root;
 
-    m_resources = xcb_randr_get_screen_resources_current_reply(QX11Info::connection(),
+    m_resources.reset(xcb_randr_get_screen_resources_current_reply(QX11Info::connection(),
         xcb_randr_get_screen_resources_current(QX11Info::connection(), root)
-    , nullptr);
+    , nullptr));
 
     if (!m_resources) {
         qCWarning(POWERDEVIL, "RANDR Get Screen Resources returned null");
         return;
-    }
-}
-
-XRandrBrightness::~XRandrBrightness()
-{
-    if (m_resources) {
-        free(m_resources);
     }
 }
 
@@ -89,7 +81,7 @@ bool XRandrBrightness::isSupported() const
         return false;
     }
 
-    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources);
+    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources.data());
     for (int i = 0; i < m_resources->num_outputs; ++i) {
         if (backlight_get(outputs[i]) != -1) {
             return true;
@@ -105,7 +97,7 @@ long XRandrBrightness::brightnessValue() const
         return 0;
     }
 
-    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources);
+    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources.data());
     for (int i = 0; i < m_resources->num_outputs; ++i) {
         auto output = outputs[i];
 
@@ -125,7 +117,7 @@ long XRandrBrightness::brightnessValueMax() const
         return 0;
     }
 
-    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources);
+    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources.data());
     for (int i = 0; i < m_resources->num_outputs; ++i) {
         auto output = outputs[i];
 
@@ -145,7 +137,7 @@ void XRandrBrightness::setBrightnessValue(long brightnessValue)
         return;
     }
 
-    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources);
+    auto *outputs = xcb_randr_get_screen_resources_current_outputs(m_resources.data());
     for (int i = 0; i < m_resources->num_outputs; ++i) {
         auto output = outputs[i];
 
@@ -155,7 +147,6 @@ void XRandrBrightness::setBrightnessValue(long brightnessValue)
             backlight_set(output, min + brightnessValue);
         }
     }
-
 
     free(xcb_get_input_focus_reply(QX11Info::connection(), xcb_get_input_focus(QX11Info::connection()), nullptr)); // sync
 }
@@ -191,9 +182,9 @@ long XRandrBrightness::backlight_get(xcb_randr_output_t output) const
     long value;
 
     if (m_backlight != XCB_ATOM_NONE) {
-        propertyReply = xcb_randr_get_output_property_reply(QX11Info::connection(),
+        ScopedCPointer<xcb_randr_get_output_property_reply_t> propertyReply(xcb_randr_get_output_property_reply(QX11Info::connection(),
             xcb_randr_get_output_property(QX11Info::connection(), output, m_backlight, XCB_ATOM_NONE, 0, 4, 0, 0)
-        , nullptr);
+        , nullptr));
 
         if (!propertyReply) {
             return -1;
@@ -205,7 +196,6 @@ long XRandrBrightness::backlight_get(xcb_randr_output_t output) const
     } else {
         value = *(reinterpret_cast<long *>(xcb_randr_get_output_property_data(propertyReply)));
     }
-    free(propertyReply);
     return value;
 }
 

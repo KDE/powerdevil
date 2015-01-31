@@ -24,11 +24,15 @@
 #include <xcb/xcb.h>
 #include <xcb/randr.h>
 
+#include <QScopedPointer>
+
+template <typename T> using ScopedCPointer = QScopedPointer<T, QScopedPointerPodDeleter>;
+
 class XRandrBrightness
 {
 public:
     XRandrBrightness();
-    ~XRandrBrightness();
+    ~XRandrBrightness() = default;
     bool isSupported() const;
     long brightnessValue() const;
     long brightnessValueMax() const;
@@ -40,7 +44,7 @@ private:
     void backlight_set(xcb_randr_output_t output, long value);
 
     xcb_atom_t m_backlight = XCB_ATOM_NONE;
-    xcb_randr_get_screen_resources_current_reply_t *m_resources = nullptr;
+    ScopedCPointer<xcb_randr_get_screen_resources_current_reply_t> m_resources;
 
 };
 
