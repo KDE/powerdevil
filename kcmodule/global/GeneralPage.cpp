@@ -46,14 +46,9 @@ K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                  registerPlugin<GeneralPage>();
                 )
 
-typedef QMap< QString, QString > StringStringMap;
-Q_DECLARE_METATYPE(StringStringMap)
-
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
         : KCModule(0, parent, args)
 {
-    qDBusRegisterMetaType< StringStringMap >();
-
     setButtons(Apply | Help);
 
 //     KAboutData *about =

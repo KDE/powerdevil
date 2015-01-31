@@ -85,9 +85,6 @@ void Core::loadCore(BackendInterface* backend)
     connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
     connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
     m_backend->init();
-
-    // Register DBus Metatypes
-    qDBusRegisterMetaType< StringStringMap >();
 }
 
 void Core::onBackendReady()

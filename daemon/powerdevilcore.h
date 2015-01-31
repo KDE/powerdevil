@@ -32,7 +32,6 @@ namespace KActivities
 {
     class Consumer;
 } // namespace KActivities
-typedef QMap< QString, QString > StringStringMap;
 
 class KDirWatch;
 class QDBusServiceWatcher;
@@ -149,7 +148,5 @@ private Q_SLOTS:
 };
 
 }
-
-Q_DECLARE_METATYPE(StringStringMap)
 
 #endif // POWERDEVILCORE_H

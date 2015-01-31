@@ -56,14 +56,9 @@ K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
                 )
 
-typedef QMap< QString, QString > StringStringMap;
-Q_DECLARE_METATYPE(StringStringMap)
-
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
         : KCModule(0, parent, args)
 {
-    qDBusRegisterMetaType< StringStringMap >();
-
     setButtons(Apply | Help | Default);
 
 //     KAboutData *about =
