@@ -28,6 +28,7 @@
 #include <kwinkscreenhelpereffect.h>
 
 #include <KConfigGroup>
+#include <KIdleTime>
 #include <KLocalizedString>
 #include <KJob>
 
@@ -50,6 +51,8 @@ SuspendSession::SuspendSession(QObject* parent)
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 
     connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this]() {
+        KIdleTime::instance()->simulateUserActivity();
+
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
 
         m_fadeEffect->stop();
