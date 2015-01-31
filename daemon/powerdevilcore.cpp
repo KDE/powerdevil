@@ -20,7 +20,6 @@
 #include "powerdevilcore.h"
 
 #include "PowerDevilSettings.h"
-#include "screensaver_interface.h"
 
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"

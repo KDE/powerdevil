@@ -33,7 +33,6 @@
 
 #include <kworkspace.h>
 
-#include "screensaver_interface.h"
 #include <PowerDevilSettings.h>
 
 namespace PowerDevil
@@ -51,9 +50,6 @@ SuspendSession::SuspendSession(QObject* parent)
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 
     connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this]() {
-        // Notify the screensaver
-        OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
-        iface.SimulateUserActivity();
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
 
         m_fadeEffect->stop();
@@ -152,8 +148,10 @@ void SuspendSession::triggerImpl(const QVariantMap& args)
             break;
         case LockScreenMode: {
             // TODO should probably go through the backend (logind perhaps) eventually
-            OrgFreedesktopScreenSaverInterface iface("org.freedesktop.ScreenSaver", "/ScreenSaver", QDBusConnection::sessionBus());
-            iface.Lock();
+            QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
+                                                                                   "/ScreenSaver",
+                                                                                   "org.freedesktop.ScreenSaver",
+                                                                                   "Lock"));
             break;
         }
         default:

@@ -38,8 +38,6 @@
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
 
-#include "screensaver_interface.h"
-
 #include <kglobalaccel.h>
 
 namespace PowerDevil {

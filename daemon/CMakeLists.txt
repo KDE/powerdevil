@@ -39,8 +39,6 @@ set(powerdevilcore_SRCS
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
-qt5_add_dbus_interface(powerdevilcore_SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface )
-
 # Action DBus Adaptors
 qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
                      actions/bundled/brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
