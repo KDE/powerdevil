@@ -178,11 +178,11 @@ bool XRandrBrightness::backlight_get_with_range(xcb_randr_output_t output, long 
 
 long XRandrBrightness::backlight_get(xcb_randr_output_t output) const
 {
-    xcb_randr_get_output_property_reply_t *propertyReply = nullptr;
+    ScopedCPointer<xcb_randr_get_output_property_reply_t> propertyReply;
     long value;
 
     if (m_backlight != XCB_ATOM_NONE) {
-        ScopedCPointer<xcb_randr_get_output_property_reply_t> propertyReply(xcb_randr_get_output_property_reply(QX11Info::connection(),
+        propertyReply.reset(xcb_randr_get_output_property_reply(QX11Info::connection(),
             xcb_randr_get_output_property(QX11Info::connection(), output, m_backlight, XCB_ATOM_NONE, 0, 4, 0, 0)
         , nullptr));
 
@@ -194,7 +194,7 @@ long XRandrBrightness::backlight_get(xcb_randr_output_t output) const
     if (!propertyReply || propertyReply->type != XCB_ATOM_INTEGER || propertyReply->num_items != 1 || propertyReply->format != 32) {
         value = -1;
     } else {
-        value = *(reinterpret_cast<long *>(xcb_randr_get_output_property_data(propertyReply)));
+        value = *(reinterpret_cast<long *>(xcb_randr_get_output_property_data(propertyReply.data())));
     }
     return value;
 }
