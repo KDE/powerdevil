@@ -63,6 +63,13 @@ int BrightnessLogic::increased() const {
 
     // Add 1 and round upwards to the nearest step
     int step = m_steps - (m_valueMax - m_value - 1) * m_steps / m_valueMax;
+
+    if (m_valueMax > 100 && qRound(percentage(stepToValue(step))) <= qRound(percentage())) {
+        // When no visible change was made, add 1 step.
+        // This can happen only if valueMax > 100, else 1 >= 1%.
+        step++;
+    }
+
     return stepToValue(step);
 }
 
@@ -73,6 +80,13 @@ int BrightnessLogic::decreased() const {
 
     // Subtract 1 and round downwards to the nearest Step
     int step = (m_value - 1) * m_steps / m_valueMax;
+
+    if (m_valueMax > 100 && qRound(percentage(stepToValue(step))) >= qRound(percentage())) {
+        // When no visible change was made, subtract 1 step.
+        // This can happen only if valueMax > 100, else 1 >= 1%.
+        step--;
+    }
+
     return stepToValue(step);
 }
 
@@ -95,6 +109,11 @@ int BrightnessLogic::steps() const {
 
 float BrightnessLogic::percentage() const {
     return m_value * 100.0 / m_valueMax;
+}
+
+float BrightnessLogic::percentage(int value) const
+{
+    return value * 100.0 / m_valueMax;
 }
 
 const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const {

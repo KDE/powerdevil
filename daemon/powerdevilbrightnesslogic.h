@@ -135,6 +135,14 @@ public:
     float percentage() const;
 
     /**
+     * Retreive the supplied brightness value expressed as a percentage from 0 to 100
+     *
+     * @param value Brightness value, from 0 to valueMax
+     * @return The brightness percentage for the supplied value
+     */
+    float percentage(int value) const;
+
+    /**
      * Retreive a copy of the current brightness state
      *
      * @return A struct that contains the current brightness state.
