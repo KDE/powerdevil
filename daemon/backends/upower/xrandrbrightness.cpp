@@ -26,9 +26,9 @@
 
 XRandrBrightness::XRandrBrightness()
 {
-    auto *versionReply = xcb_randr_query_version_reply(QX11Info::connection(),
+    ScopedCPointer<xcb_randr_query_version_reply_t> versionReply(xcb_randr_query_version_reply(QX11Info::connection(),
         xcb_randr_query_version(QX11Info::connection(), 1, 2),
-    nullptr);
+    nullptr));
 
     if (!versionReply) {
         qCWarning(POWERDEVIL) << "RandR Query version returned null";
@@ -157,16 +157,16 @@ bool XRandrBrightness::backlight_get_with_range(xcb_randr_output_t output, long 
        return false;
     }
 
-    auto *propertyReply = xcb_randr_query_output_property_reply(QX11Info::connection(),
+    ScopedCPointer<xcb_randr_query_output_property_reply_t> propertyReply(xcb_randr_query_output_property_reply(QX11Info::connection(),
         xcb_randr_query_output_property(QX11Info::connection(), output, m_backlight)
-    , nullptr);
+    , nullptr));
 
     if (!propertyReply) {
         return -1;
     }
 
-    if (propertyReply->range && xcb_randr_query_output_property_valid_values_length(propertyReply) == 2) {
-        int32_t *values = xcb_randr_query_output_property_valid_values(propertyReply);
+    if (propertyReply->range && xcb_randr_query_output_property_valid_values_length(propertyReply.data()) == 2) {
+        int32_t *values = xcb_randr_query_output_property_valid_values(propertyReply.data());
         value = cur;
         min = values[0];
         max = values[1];
