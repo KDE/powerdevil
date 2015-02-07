@@ -152,11 +152,22 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         m_powerButtonCombo = nullptr;
     }
 
-    const int comboBoxWidth = qMax(m_lidCloseCombo->sizeHint().width(), m_powerButtonCombo->sizeHint().width());
-    m_lidCloseCombo->setMinimumWidth(300);
-    m_lidCloseCombo->setMaximumWidth(comboBoxWidth);
-    m_powerButtonCombo->setMinimumWidth(300);
-    m_powerButtonCombo->setMaximumWidth(comboBoxWidth);
+    // unified width for the comboboxes
+    int comboBoxMaxWidth = 300;
+    if (m_lidCloseCombo) {
+        comboBoxMaxWidth = qMax(comboBoxMaxWidth, m_lidCloseCombo->sizeHint().width());
+    }
+    if (m_powerButtonCombo) {
+        comboBoxMaxWidth = qMax(comboBoxMaxWidth, m_powerButtonCombo->sizeHint().width());
+    }
+    if (m_lidCloseCombo) {
+        m_lidCloseCombo->setMinimumWidth(300);
+        m_lidCloseCombo->setMaximumWidth(comboBoxMaxWidth);
+    }
+    if (m_powerButtonCombo) {
+        m_powerButtonCombo->setMinimumWidth(300);
+        m_powerButtonCombo->setMaximumWidth(comboBoxMaxWidth);
+    }
 
     return retlist;
 }
