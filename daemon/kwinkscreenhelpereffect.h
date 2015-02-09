@@ -27,7 +27,7 @@
 #include <QScopedPointer>
 #include <QTimer>
 
-#ifdef HAVE_X11
+#ifdef HAVE_XCB
 #include <xcb/xcb.h>
 #endif
 
@@ -70,7 +70,7 @@ private:
 
     QTimer m_abortTimer;
 
-#ifdef HAVE_X11
+#ifdef HAVE_XCB
     xcb_atom_t m_atom;
 #endif
 

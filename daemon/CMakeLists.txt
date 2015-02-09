@@ -69,7 +69,7 @@ target_link_libraries(powerdevilcore
     PW::KWorkspace
 )
 
-if (X11_FOUND) # kwin kscreen helper effect
+if (XCB_FOUND) # kwin kscreen helper effect
     target_link_libraries(powerdevilcore Qt5::X11Extras XCB::XCB)
 endif ()
 
@@ -104,7 +104,7 @@ target_link_libraries(kded_powerdevil
     KF5::DBusAddons
     powerdevilcore
 )
-if (X11_FOUND)
+if (XCB_FOUND)
     target_link_libraries(kded_powerdevil Qt5::X11Extras)
 endif ()
 
@@ -131,7 +131,7 @@ target_link_libraries(powerdevilui
 )
 
 set(HAVE_UDEV ${UDEV_FOUND})
-set(HAVE_X11 ${X11_FOUND})
+set(HAVE_XCB ${XCB_FOUND})
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
 install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
