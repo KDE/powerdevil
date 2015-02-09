@@ -2,6 +2,7 @@
     Copyright (C) 2006 Kevin Ottens <ervin@kde.org>
     Copyright (C) 2008-2010 Dario Freddi <drf@kde.org>
     Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
+    Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -42,11 +43,15 @@
 class UdevHelper;
 class XRandRXCBHelper;
 class XRandrBrightness;
+class QPropertyAnimation;
 
 class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilUPowerBackend)
+
+    Q_PROPERTY(int brightnessAnimationValue WRITE setBrightnessAnimationValue)
+
 public:
     explicit PowerDevilUPowerBackend(QObject* parent);
     virtual ~PowerDevilUPowerBackend();
@@ -58,7 +63,7 @@ public:
     virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
 
     virtual int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType);
-    virtual bool setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
+    virtual bool setBrightnessValue(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
 private:
@@ -82,6 +87,8 @@ private slots:
     void onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
+    void setBrightnessAnimationValue(int value);
+
     // upower devices
     QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
     OrgFreedesktopUPowerDeviceInterface *m_displayDevice;
@@ -95,6 +102,8 @@ private:
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
     int m_kbdMaxBrightness;
     int m_brightnessValueMax = 0;
+
+    QPropertyAnimation *m_brightnessAnimation = nullptr;
 
     // login1 interface
     QWeakPointer<QDBusInterface> m_login1Interface;

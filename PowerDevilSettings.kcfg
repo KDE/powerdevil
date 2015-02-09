@@ -12,6 +12,15 @@
     </entry>
   </group>
 
+  <group name="Brightness">
+    <entry name="brightnessAnimationDuration" type="Int">
+      <default>250</default>
+    </entry>
+    <entry name="brightnessAnimationThreshold" type="Int">
+      <default>100</default>
+    </entry>
+  </group>
+
   <group name="BatteryManagement">
     <entry name="BatteryLowLevel" type="Int">
       <default>20</default>
