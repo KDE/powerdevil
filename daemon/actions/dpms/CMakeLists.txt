@@ -1,14 +1,14 @@
 include_directories(${PowerDevil_SOURCE_DIR}/daemon
                     ${CMAKE_CURRENT_SOURCE_DIR}
-                    ${CMAKE_CURRENT_BINARY_DIR}
-                    ${X11_dpms_INCLUDE_PATH})
+                    ${CMAKE_CURRENT_BINARY_DIR})
 
 set(powerdevildpmsaction_SRCS ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp powerdevildpmsaction.cpp ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp)
 
 add_library(powerdevildpmsaction MODULE ${powerdevildpmsaction_SRCS})
 target_link_libraries(powerdevildpmsaction
-        ${X11_LIBRARIES}
         Qt5::X11Extras
+        XCB::XCB
+        XCB::DPMS
         KF5::CoreAddons
         KF5::ConfigGui
         Qt5::Widgets

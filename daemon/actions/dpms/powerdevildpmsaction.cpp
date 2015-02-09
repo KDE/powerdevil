@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -35,59 +36,22 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
-#include <X11/Xmd.h>
-#include <X11/X.h>
-#include <X11/Xlib.h>
-#include <X11/Xatom.h>
-#include <X11/Xutil.h>
-#include <X11/Xos.h>
-extern "C" {
-#include <X11/extensions/dpms.h>
-    int __kde_do_not_unload = 1;
-
-#ifndef HAVE_DPMSCAPABLE_PROTO
-    Bool DPMSCapable(Display *);
-#endif
-
-#ifndef HAVE_DPMSINFO_PROTO
-    Status DPMSInfo(Display *, CARD16 *, BOOL *);
-#endif
-
-int dropError(Display *, XErrorEvent *);
-typedef int (*XErrFunc)(Display *, XErrorEvent *);
-}
-
-int dropError(Display *, XErrorEvent *)
-{
-    return 0;
-}
-
-class PowerDevilDPMSAction::Private
-{
-public:
-    XErrorHandler defaultHandler;
-};
+#include <xcb/dpms.h>
 
 K_PLUGIN_FACTORY(PowerDevilDPMSActionFactory, registerPlugin<PowerDevilDPMSAction>(); )
 
 PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
     : Action(parent)
-    , m_idleTime(0)
-    , m_inhibitScreen(0)  // can't use PowerDevil::PolicyAgent enum because X11/X.h defines None as 0L
-    , m_oldKeyboardBrightnessValue(0)
     , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
-    , d(new Private)
 {
-
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
-    // We want to query for DPMS in the constructor, before anything else happens
-    d->defaultHandler = XSetErrorHandler(dropError);
+    ScopedCPointer<xcb_dpms_capable_reply_t> capableReply(xcb_dpms_capable_reply(QX11Info::connection(),
+        xcb_dpms_capable(QX11Info::connection()),
+    nullptr));
 
-    // Since we are in the constructor, we should check for support manually
-    if (!isSupported()) {
-        XSetErrorHandler(d->defaultHandler);
-        return;
+    if (capableReply && capableReply->capable) {
+        m_supported = true;
     }
 
     // Is the action being loaded outside the core?
@@ -102,37 +66,29 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     onProfileUnload();
 
     // Listen to the policy agent
-    connect(PowerDevil::PolicyAgent::instance(),
-            SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
-            this,
-            SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
+            this, &PowerDevilDPMSAction::onUnavailablePoliciesChanged);
+
     // inhibitions persist over kded module unload/load
     m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
-PowerDevilDPMSAction::~PowerDevilDPMSAction()
-{
-    delete d;
-}
-
 bool PowerDevilDPMSAction::isSupported()
 {
-    Display *dpy = QX11Info::display();
-    int dummy;
-
-    return DPMSQueryExtension(dpy, &dummy, &dummy) && DPMSCapable(dpy);
+    return m_supported;
 }
 
 void PowerDevilDPMSAction::onProfileUnload()
 {
     using namespace PowerDevil;
-    Display *dpy = QX11Info::display();
+
     if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
-        DPMSDisable(dpy);
+        xcb_dpms_disable(QX11Info::connection());
     } else {
         qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
     }
-    DPMSSetTimeouts(dpy, 0, 0, 0);
+
+    xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
 }
 
 void PowerDevilDPMSAction::onWakeupFromIdle()
@@ -146,9 +102,7 @@ void PowerDevilDPMSAction::onWakeupFromIdle()
 
 void PowerDevilDPMSAction::onIdleTimeout(int msec)
 {
-    Q_UNUSED(msec);
-
-    //Do not inhibit anything even if idleTimeout reaches because we are inhibit
+    // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (m_inhibitScreen) {
         return;
     }
@@ -172,24 +126,18 @@ void PowerDevilDPMSAction::setKeyboardBrightnessHelper(int brightness)
 void PowerDevilDPMSAction::onProfileLoad()
 {
     using namespace PowerDevil;
-    Display *dpy = QX11Info::display();
+
     if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
-        DPMSEnable(dpy);
+        xcb_dpms_enable(QX11Info::connection());
     } else {
         qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
         return;
     }
 
-    XFlush(dpy);
-    XSetErrorHandler(d->defaultHandler);
-
     // An unloaded action will have m_idleTime = 0:
     // DPMS enabled with zeroed timeouts is effectively disabled.
     // So onProfileLoad is always safe
-    DPMSSetTimeouts(dpy, (CARD16)m_idleTime, (CARD16)(m_idleTime * 1.5), (CARD16)(m_idleTime * 2));
-
-    XFlush(dpy);
-    XSetErrorHandler(d->defaultHandler);
+    xcb_dpms_set_timeouts(QX11Info::connection(), m_idleTime, m_idleTime * 1.5, m_idleTime * 2);
 }
 
 void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
@@ -199,36 +147,35 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
         return;
     }
 
-    CARD16 dummy;
-    BOOL enabled;
-    Display *dpy = QX11Info::display();
-    DPMSInfo(dpy, &dummy, &enabled);
+    const QString type = args.value(QStringLiteral("Type")).toString();
+    int level = 0;
 
-    if (args["Type"].toString() == "TurnOff") {
-        if (enabled) {
-            DPMSForceLevel(dpy, DPMSModeOff);
-        } else {
-            DPMSEnable(dpy);
-            DPMSForceLevel(dpy, DPMSModeOff);
-        }
-    } else if (args["Type"].toString() == "Standby") {
-        if (enabled) {
-            DPMSForceLevel(dpy, DPMSModeStandby);
-        } else {
-            DPMSEnable(dpy);
-            DPMSForceLevel(dpy, DPMSModeStandby);
-        }
-    } else if (args["Type"].toString() == "Suspend") {
-        if (enabled) {
-            DPMSForceLevel(dpy, DPMSModeSuspend);
-        } else {
-            DPMSEnable(dpy);
-            DPMSForceLevel(dpy, DPMSModeSuspend);
-        }
+    if (type == QLatin1String("TurnOff")) {
+        level = XCB_DPMS_DPMS_MODE_OFF;
+    } else if (type == QLatin1String("Standby")) {
+        level = XCB_DPMS_DPMS_MODE_STANDBY;
+    } else if (type == QLatin1String("Suspend")) {
+        level = XCB_DPMS_DPMS_MODE_SUSPEND;
+    } else {
+        // this leaves DPMS enabled but if it's meant to be disabled
+        // then the timeouts will be zero and so effectively disabled
+        return;
     }
 
-    // this leaves DPMS enabled but if it's meant to be disabled
-    // then the timeouts will be zero and so effectively disabled
+    ScopedCPointer<xcb_dpms_info_reply_t> infoReply(xcb_dpms_info_reply(QX11Info::connection(),
+        xcb_dpms_info(QX11Info::connection()),
+    nullptr));
+
+    if (!infoReply) {
+        qCWarning(POWERDEVIL) << "Failed to query DPMS state, cannot trigger" << level;
+        return;
+    }
+
+    if (!infoReply->state) {
+        xcb_dpms_enable(QX11Info::connection());
+    }
+
+    xcb_dpms_force_level(QX11Info::connection(), level);
 }
 
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
@@ -260,9 +207,8 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
     if (m_inhibitScreen) {
         // Inhibition triggered: disable DPMS
         qCDebug(POWERDEVIL) << "Disabling DPMS due to inhibition";
-        Display *dpy = QX11Info::display();
-        DPMSSetTimeouts(dpy, 0, 0, 0);
-        DPMSDisable(dpy); // wakes the screen - do we want this?
+        xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
+        xcb_dpms_disable(QX11Info::connection()); // wakes the screen - do we want this?
     } else {
         // Inhibition removed: let's start again
         onProfileLoad();

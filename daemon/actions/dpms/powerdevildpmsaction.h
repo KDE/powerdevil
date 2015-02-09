@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -25,6 +26,8 @@
 
 #include <QScopedPointer>
 
+template <typename T> using ScopedCPointer = QScopedPointer<T, QScopedPointerPodDeleter>;
+
 namespace PowerDevil {
     class KWinKScreenHelperEffect;
 }
@@ -35,8 +38,8 @@ class PowerDevilDPMSAction : public PowerDevil::Action
     Q_DISABLE_COPY(PowerDevilDPMSAction)
 
 public:
-    explicit PowerDevilDPMSAction(QObject* parent, const QVariantList&);
-    virtual ~PowerDevilDPMSAction();
+    explicit PowerDevilDPMSAction(QObject *parent, const QVariantList &);
+    virtual ~PowerDevilDPMSAction() = default;
 
 protected:
     virtual void onProfileUnload();
@@ -44,11 +47,11 @@ protected:
     virtual void onWakeupFromIdle();
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap& args);
+    virtual void triggerImpl(const QVariantMap &args);
     bool isSupported();
 
 public:
-    virtual bool loadAction(const KConfigGroup& config);
+    virtual bool loadAction(const KConfigGroup &config);
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
@@ -56,14 +59,14 @@ private Q_SLOTS:
 private:
     void setKeyboardBrightnessHelper(int brightness);
 
-    int m_idleTime;
-    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen;
+    bool m_supported = false;
 
-    int m_oldKeyboardBrightnessValue;
+    int m_idleTime = 0;
+    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
+
+    int m_oldKeyboardBrightnessValue = 0;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 
-    class Private;
-    Private * const d;
 };
 
 #endif // POWERDEVILDPMSACTION_H
