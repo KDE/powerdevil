@@ -105,23 +105,24 @@ void SuspendSession::onProfileLoad()
     // Nothing to do
 }
 
-void SuspendSession::triggerImpl(const QVariantMap& args)
+void SuspendSession::triggerImpl(const QVariantMap &args)
 {
-    qCDebug(POWERDEVIL) << "Triggered with " << args;
+    qCDebug(POWERDEVIL) << "Suspend session triggered with" << args;
 
-    // Switch for screen fading
-    switch ((Mode) (args["Type"].toUInt())) {
-        case ToRamMode:
-        case ToDiskMode:
-        case SuspendHybridMode:
-            if (!args["SkipFade"].toBool()) {
-                m_savedArgs = args;
-                m_fadeEffect->start();
-                return;
-            }
-            break;
-        default:
-            break;
+    const auto mode = static_cast<Mode>(args["Type"].toUInt());
+
+    if (mode == ToRamMode || mode == ToDiskMode || mode == SuspendHybridMode) {
+        // don't suspend if shutting down
+        if (KWorkSpace::isShuttingDown()) {
+            qCDebug(POWERDEVIL) << "Not suspending because a shutdown is in progress";
+            return;
+        }
+
+        if (!args["SkipFade"].toBool()) {
+            m_savedArgs = args;
+            m_fadeEffect->start();
+            return;
+        }
     }
 
     if (args["GraceFade"].toBool()) {
