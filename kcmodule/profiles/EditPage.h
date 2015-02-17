@@ -21,9 +21,10 @@
 #define EDITPAGE_H
 
 #include <KCModule>
+#include <KSharedConfig>
 
 #include "ui_profileEditPage.h"
-#include <KSharedConfig>
+
 class ActionEditWidget;
 namespace PowerDevil {
 class ActionConfig;
@@ -39,7 +40,7 @@ class EditPage : public KCModule, private Ui_profileEditPage
 
 public:
     explicit EditPage(QWidget *parent, const QVariantList &args);
-    ~EditPage();
+    virtual ~EditPage() = default;
 
     void load();
     void save();
@@ -50,7 +51,7 @@ private slots:
 
     void restoreDefaultProfiles();
 
-    void notifyDaemon(const QStringList &editedProfiles = QStringList());
+    void notifyDaemon();
 
     void openUrl(const QString &url);
 

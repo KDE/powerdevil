@@ -139,10 +139,6 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     }
 }
 
-EditPage::~EditPage()
-{
-}
-
 void EditPage::onChanged(bool value)
 {
     ActionEditWidget *editWidget = qobject_cast< ActionEditWidget* >(sender());
@@ -172,52 +168,25 @@ void EditPage::load()
 
 void EditPage::save()
 {
-    QStringList profiles;
-
-    for (QHash< QString, ActionEditWidget* >::const_iterator i = m_editWidgets.constBegin();
-         i != m_editWidgets.constEnd(); ++i) {
-        i.value()->save();
-        if (m_profileEdited[i.value()->configName()]) {
-            profiles.append(i.value()->configName());
-        }
-
-        m_profileEdited[i.value()->configName()] = false;
+    for (auto it = m_editWidgets.constBegin(); it != m_editWidgets.constEnd(); ++it) {
+        (*it)->save();
     }
-    // Notify the daemon
-    notifyDaemon(profiles);
+
+    notifyDaemon();
 
     emit changed(false);
 }
 
-void EditPage::notifyDaemon(const QStringList &editedProfiles)
+void EditPage::notifyDaemon()
 {
-    QDBusMessage call;
-    if (!editedProfiles.isEmpty()) {
-        call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                              "org.kde.Solid.PowerManagement", "currentProfile");
-        QDBusPendingReply< QString > reply = QDBusConnection::sessionBus().asyncCall(call);
-        reply.waitForFinished();
-
-        if (reply.isValid()) {
-            if (!editedProfiles.contains(reply.value())) {
-                // Ask to reparse config
-                qCDebug(POWERDEVIL) << "Inactive profile edited, reparsing configuration";
-                call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                      "org.kde.Solid.PowerManagement", "reparseConfiguration");
-
-                // Perform call
-                QDBusConnection::sessionBus().asyncCall(call);
-                return;
-            }
-        }
-    }
-
-    // Refresh status
-    call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                          "org.kde.Solid.PowerManagement", "refreshStatus");
-
-    // Perform call
-    QDBusConnection::sessionBus().asyncCall(call);
+    QDBusConnection::sessionBus().asyncCall(
+        QDBusMessage::createMethodCall(
+            QStringLiteral("org.kde.Solid.PowerManagement"),
+            QStringLiteral("/org/kde/Solid/PowerManagement"),
+            QStringLiteral("org.kde.Solid.PowerManagement"),
+            QStringLiteral("refreshStatus")
+        )
+    );
 }
 
 void EditPage::restoreDefaultProfiles()
@@ -237,7 +206,6 @@ void EditPage::restoreDefaultProfiles()
 
         load();
 
-        // Notify the daemon
         notifyDaemon();
     }
 }
@@ -280,6 +248,7 @@ void EditPage::onServiceRegistered(const QString& service)
 
     QObject::connect(currentProfileWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QString> reply = *watcher;
+
         if (!reply.isError()) {
             const QString &currentProfile = reply.value();
             if (currentProfile == QLatin1String("Battery")) {
@@ -288,6 +257,7 @@ void EditPage::onServiceRegistered(const QString& service)
                 tabWidget->setCurrentIndex(2);
             }
         }
+
         watcher->deleteLater();
     });
 
