@@ -108,6 +108,7 @@ void KeyboardBrightnessControl::onProfileLoad()
         if ((m_currentProfile == "AC" && m_lastProfile != "AC") ||
             (m_currentProfile != "AC" && m_lastProfile == "AC")) {
             args["Explicit"] = true;
+            args["Silent"] = true; // but we still don't want to show the OSD then
         }
 
         trigger(args);
