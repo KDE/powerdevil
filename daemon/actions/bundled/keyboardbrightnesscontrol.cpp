@@ -35,8 +35,7 @@
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <kglobalaccel.h>
-#include <kglobalaccel.h>
+#include <KGlobalAccel>
 
 #include <QDBusInterface>
 #include <QDBusPendingCall>

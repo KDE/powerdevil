@@ -23,7 +23,7 @@
 
 #include <powerdevil_debug.h>
 
-#include <QtCore/QSocketNotifier>
+#include <QSocketNotifier>
 #include <qplatformdefs.h>
 
 namespace UdevQt {

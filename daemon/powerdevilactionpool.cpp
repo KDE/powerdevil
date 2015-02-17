@@ -28,7 +28,7 @@
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
 
-#include <QtDBus/QDBusConnection>
+#include <QDBusConnection>
 #include <QDebug>
 
 // Bundled actions:

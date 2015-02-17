@@ -22,10 +22,10 @@
 #ifndef LOGIN1SUSPENDJOB_H
 #define LOGIN1SUSPENDJOB_H
 
-#include <kjob.h>
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusPendingCallWatcher>
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
+
+#include <KJob>
 
 #include "powerdevilbackendinterface.h"
 

@@ -23,8 +23,8 @@
 
 #include "powerdevilpolicyagent.h"
 
-#include <QtCore/QObject>
-#include <QtCore/QVariantMap>
+#include <QObject>
+#include <QVariantMap>
 
 class KConfigGroup;
 

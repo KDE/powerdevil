@@ -18,17 +18,16 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#include <QtCore/QCoreApplication>
-#include <QtDBus/QDBusObjectPath>
-#include <QtDBus/QDBusArgument>
-#include <QtCore/QMetaType>
-#include <QtDBus/QDBusMetaType>
-
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusPendingReply>
-#include <QtDBus/QDBusConnectionInterface>
-#include <QtDBus/QDBusServiceWatcher>
+#include <QCoreApplication>
+#include <QDBusObjectPath>
+#include <QDBusArgument>
+#include <QMetaType>
+#include <QDBusMetaType>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusPendingReply>
+#include <QDBusConnectionInterface>
+#include <QDBusServiceWatcher>
 
 #include "powerdevilpolicyagent.h"
 #include "powerdevil_debug.h"

@@ -23,10 +23,11 @@
 
 #include <powerdevil_debug.h>
 
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
+#include <QDBusReply>
+#include <QDBusMessage>
 #include <QTimer>
 #include <QDebug>
+
 #include <KLocalizedString>
 
 Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
@@ -53,8 +54,7 @@ void Login1SuspendJob::start()
 
 void Login1SuspendJob::doStart()
 {
-    if (m_supported & m_method)
-    {
+    if (m_supported & m_method) {
         QVariantList args;
         args << true; // interactive, ie. with polkit dialogs
 
@@ -62,8 +62,7 @@ void Login1SuspendJob::doStart()
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
         connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(sendResult(QDBusPendingCallWatcher*)));
 
-        switch(m_method)
-        {
+        switch(m_method) {
         case PowerDevil::BackendInterface::ToRam:
             reply = m_login1Interface->asyncCallWithArgumentList("Suspend", args);
             break;

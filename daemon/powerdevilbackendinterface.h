@@ -21,8 +21,8 @@
 #ifndef POWERDEVIL_BACKENDINTERFACE_H
 #define POWERDEVIL_BACKENDINTERFACE_H
 
-#include <QtCore/QObject>
-#include <QtCore/QHash>
+#include <QObject>
+#include <QHash>
 
 #include "powerdevilbrightnesslogic.h"
 

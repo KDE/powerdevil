@@ -21,8 +21,9 @@
 
 #include <powerdevil_debug.h>
 
-#include <QtCore/QDir>
-#include <QtCore/QDebug>
+#include <QDir>
+#include <QDebug>
+
 #include <KLocalizedString>
 
 #include <sys/utsname.h>

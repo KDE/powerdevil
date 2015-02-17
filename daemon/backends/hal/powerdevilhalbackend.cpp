@@ -20,18 +20,19 @@
 
 
 #include "powerdevilhalbackend.h"
-#include <powerdevil_debug.h>
-#include <Solid/DeviceNotifier>
-#include <QtDBus/QDBusReply>
-#include <QtDBus/QDBusConnectionInterface>
-#include <QDebug>
 #include "halsuspendjob.h"
-#include <Solid/Device>
+#include <powerdevil_debug.h>
+
+#include <QTimer>
+#include <QDBusReply>
+#include <QDBusConnectionInterface>
+#include <QDebug>
+
 #include <Solid/Battery>
 #include <Solid/GenericInterface>
+
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <QtCore/QTimer>
 
 PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent)
     : BackendInterface(parent),

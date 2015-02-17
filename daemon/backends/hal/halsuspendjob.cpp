@@ -19,9 +19,10 @@
 
 #include "halsuspendjob.h"
 
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
+#include <QDBusMessage>
+#include <QDBusReply>
 #include <QTimer>
+
 #include <KConfig>
 #include <KConfigGroup>
 

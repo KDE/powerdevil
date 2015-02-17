@@ -24,8 +24,8 @@
 
 #include "brightnessosdwidget.h"
 
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusPendingCall>
+#include <QDBusInterface>
+#include <QDBusPendingCall>
 
 namespace BrightnessOSDWidget
 {

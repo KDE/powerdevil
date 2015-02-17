@@ -23,11 +23,11 @@
 
 #include <powerdevilbackendinterface.h>
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusInterface>
 
-#include <solid/devicenotifier.h>
-#include <solid/device.h>
+#include <Solid/Device>
+#include <Solid/DeviceNotifier>
 
 namespace Solid {
 class Device;

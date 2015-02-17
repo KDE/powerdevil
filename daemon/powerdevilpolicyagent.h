@@ -22,13 +22,13 @@
 #ifndef POWERDEVIL_POWERDEVILPOLICYAGENT_H
 #define POWERDEVIL_POWERDEVILPOLICYAGENT_H
 
-#include <QtCore/QObject>
-#include <QtCore/QHash>
-#include <QtCore/QStringList>
-#include <QtCore/QWeakPointer>
+#include <QObject>
+#include <QHash>
+#include <QStringList>
+#include <QWeakPointer>
 
-#include <QtDBus/QDBusContext>
-#include <QtDBus/QDBusUnixFileDescriptor>
+#include <QDBusContext>
+#include <QDBusUnixFileDescriptor>
 
 class QDBusServiceWatcher;
 class QDBusInterface;

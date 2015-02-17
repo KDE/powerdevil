@@ -21,9 +21,9 @@
 #ifndef UPOWERSUSPENDJOB_H
 #define UPOWERSUSPENDJOB_H
 
-#include <kjob.h>
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusMessage>
+#include <QDBusInterface>
+
+#include <KJob>
 
 #include "powerdevilbackendinterface.h"
 

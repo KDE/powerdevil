@@ -18,17 +18,16 @@
 
 */
 
-#include "upowersuspendjob.h"
-
-#include "upower_interface.h"
-
-#include <powerdevil_debug.h>
-
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
+#include <QDBusMessage>
+#include <QDBusReply>
 #include <QTimer>
 #include <QDebug>
+
 #include <KLocalizedString>
+
+#include "upowersuspendjob.h"
+#include "upower_interface.h"
+#include <powerdevil_debug.h>
 
 UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
                                    PowerDevil::BackendInterface::SuspendMethod method,
@@ -54,10 +53,8 @@ void UPowerSuspendJob::start()
 
 void UPowerSuspendJob::doStart()
 {
-    if (m_supported & m_method)
-    {
-        switch(m_method)
-        {
+    if (m_supported & m_method) {
+        switch(m_method) {
         case PowerDevil::BackendInterface::ToRam:
             m_upowerInterface->AboutToSleep("suspend");
             m_upowerInterface->Suspend();
@@ -75,7 +72,6 @@ void UPowerSuspendJob::doStart()
         emitResult();
     }
 }
-
 
 void UPowerSuspendJob::resumeDone()
 {

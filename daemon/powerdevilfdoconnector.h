@@ -21,7 +21,7 @@
 #ifndef POWERDEVILFDOCONNECTOR_H
 #define POWERDEVILFDOCONNECTOR_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #include "powerdevilbackendinterface.h"
 #include "powerdevilpolicyagent.h"

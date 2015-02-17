@@ -19,7 +19,7 @@
 
 #include "runscript.h"
 
-#include <QtCore/QProcess>
+#include <QProcess>
 
 #include <KConfigGroup>
 

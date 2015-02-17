@@ -20,9 +20,10 @@
 #ifndef HALSUSPENDJOB_H
 #define HALSUSPENDJOB_H
 
-#include <kjob.h>
-#include <QtDBus/QDBusInterface>
-#include <QtDBus/QDBusMessage>
+#include <QDBusInterface>
+#include <QDBusMessage>
+
+#include <KJob>
 
 #include "powerdevilhalbackend.h"
 

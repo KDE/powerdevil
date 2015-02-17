@@ -27,10 +27,9 @@
 #include "powerdevilcore.h"
 #include "powerdevil_debug.h"
 
-#include <QtCore/QTimer>
-
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusConnectionInterface>
+#include <QTimer>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDebug>
 
 #include <KAboutData>

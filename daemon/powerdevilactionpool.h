@@ -21,8 +21,8 @@
 #ifndef POWERDEVIL_POWERDEVILACTIONPOOL_H
 #define POWERDEVIL_POWERDEVILACTIONPOOL_H
 
-#include <QtCore/QHash>
-#include <QtCore/QStringList>
+#include <QHash>
+#include <QStringList>
 
 class KConfigGroup;
 namespace PowerDevil
