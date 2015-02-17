@@ -126,13 +126,6 @@ public:
     int steps() const;
 
     /**
-     * Retreive the brightness value expressed as a percentage from 0 to 100
-     *
-     * @return The brightness percentage
-     */
-    float percentage() const;
-
-    /**
      * Retreive the supplied brightness value expressed as a percentage from 0 to 100
      *
      * @param value Brightness value, from 0 to valueMax
