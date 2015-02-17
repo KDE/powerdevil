@@ -88,7 +88,8 @@ HandleButtonEvents::~HandleButtonEvents()
 
 bool HandleButtonEvents::isSupported()
 {
-    return backend()->isLidPresent();
+    //we handles keyboard shortcuts in our button handling, users always have a keyboard
+    return true;
 }
 
 void HandleButtonEvents::onProfileUnload()
