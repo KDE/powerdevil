@@ -34,9 +34,9 @@ public:
     XRandrBrightness();
     ~XRandrBrightness() = default;
     bool isSupported() const;
-    long brightnessValue() const;
-    long brightnessValueMax() const;
-    void setBrightnessValue(long brightnessValue);
+    long brightness() const;
+    long brightnessMax() const;
+    void setBrightness(long value);
 
 private:
     bool backlight_get_with_range(xcb_randr_output_t output, long &value, long &min, long &max) const;

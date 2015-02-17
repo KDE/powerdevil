@@ -32,10 +32,10 @@ public:
     BacklightHelper(QObject * parent = 0);
 
 public slots:
-    ActionReply brightnessvalue(const QVariantMap & args);
-    ActionReply brightnessvaluemax(const QVariantMap & args);
-    ActionReply setbrightnessvalue(const QVariantMap & args);
-    ActionReply syspath(const QVariantMap & args);
+    ActionReply brightness(const QVariantMap &args);
+    ActionReply brightnessmax(const QVariantMap &args);
+    ActionReply setbrightness(const QVariantMap &args);
+    ActionReply syspath(const QVariantMap &args);
 
 private:
     void init();

@@ -105,7 +105,7 @@ void PowerDevilHALBackend::init()
     QList<QString> screenControls = controls.keys(Screen);
 
     if (!screenControls.isEmpty()) {
-        m_cachedScreenBrightness = brightnessValue(Screen);
+        m_cachedScreenBrightness = brightness(Screen);
 
         QDBusInterface deviceInterface("org.freedesktop.Hal",
                                        screenControls.at(0),
@@ -186,7 +186,7 @@ int PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::Brig
         return -1; // ignore as we wont toggle the display off
     }
 
-    int currentBrightness = brightnessValue(controlType);
+    int currentBrightness = brightness(controlType);
 
     int cachedBrightness;
 
@@ -197,16 +197,15 @@ int PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::Brig
     }
 
     if ((currentBrightness == cachedBrightness) && (!m_screenBrightnessInHardware || controlType == Screen)) {
-        int maxBrightness = brightnessValueMax(controlType),
+        int maxBrightness = brightnessMax(controlType),
             newBrightness = calculateNextStep(currentBrightness, maxBrightness, controlType, type);
 
         if (newBrightness >= 0) {
-            if (setBrightnessValue(newBrightness, controlType)) {
-                newBrightness = brightnessValue(controlType);
-                if (newBrightness != cachedBrightness) {
-                    cachedBrightness = newBrightness;
-                    onBrightnessChanged(controlType, newBrightness, maxBrightness);
-                }
+            setBrightness(newBrightness, controlType);
+            newBrightness = brightness(controlType);
+            if (newBrightness != cachedBrightness) {
+                cachedBrightness = newBrightness;
+                onBrightnessChanged(controlType, newBrightness, maxBrightness);
             }
         }
     } else {
@@ -222,7 +221,7 @@ int PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::Brig
     return cachedBrightness;
 }
 
-int PowerDevilHALBackend::brightnessValue(PowerDevil::BackendInterface::BrightnessControlType type) const
+int PowerDevilHALBackend::brightness(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
     if (type == Screen) {
         QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "laptop_panel");
@@ -256,7 +255,7 @@ int PowerDevilHALBackend::brightnessValue(PowerDevil::BackendInterface::Brightne
     return 0;
 }
 
-int PowerDevilHALBackend::brightnessValueMax(PowerDevil::BackendInterface::BrightnessControlType type) const
+int PowerDevilHALBackend::brightnessMax(PowerDevil::BackendInterface::BrightnessControlType type) const
 {
     if (type == Screen) {
         QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "laptop_panel");
@@ -289,7 +288,7 @@ int PowerDevilHALBackend::brightnessValueMax(PowerDevil::BackendInterface::Brigh
     return 0;
 }
 
-bool PowerDevilHALBackend::setBrightnessValue(int brightnessValue, PowerDevil::BackendInterface::BrightnessControlType type)
+void PowerDevilHALBackend::setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     if (type == Screen) {
         QDBusPendingReply<QStringList> reply = m_halManager.asyncCall("FindDeviceByCapability", "laptop_panel");
@@ -298,9 +297,9 @@ bool PowerDevilHALBackend::setBrightnessValue(int brightnessValue, PowerDevil::B
             foreach (const QString &device, reply.value()) {
                 QDBusInterface deviceInterface("org.freedesktop.Hal", device,
                                             "org.freedesktop.Hal.Device.LaptopPanel", QDBusConnection::systemBus());
-                deviceInterface.call("SetBrightness", brightnessValue);
+                deviceInterface.call("SetBrightness", value);
                 if (!deviceInterface.lastError().isValid()) {
-                    return true;
+                    return;
                 }
             }
         }
@@ -313,14 +312,14 @@ bool PowerDevilHALBackend::setBrightnessValue(int brightnessValue, PowerDevil::B
                 QDBusInterface deviceInterface("org.freedesktop.Hal", device,
                                                "org.freedesktop.Hal.Device.KeyboardBacklight", QDBusConnection::systemBus());
 
-                deviceInterface.call("SetBrightness", brightnessValue);
+                deviceInterface.call("SetBrightness", value);
                 if(!deviceInterface.lastError().isValid()) {
-                    return true;
+                    return;
                 }
             }
         }
     }
-    return false;
+    return;
 }
 
 KJob* PowerDevilHALBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)

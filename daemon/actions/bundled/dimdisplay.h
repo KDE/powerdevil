@@ -34,7 +34,7 @@ class DimDisplay : public PowerDevil::Action
 
 public:
     explicit DimDisplay(QObject *parent);
-    virtual ~DimDisplay();
+    virtual ~DimDisplay() = default;
 
 protected:
     virtual void onProfileUnload();
@@ -50,12 +50,12 @@ public:
 private:
     void setBrightnessHelper(int screen, int keyboard);
 
-    int m_dimOnIdleTime;
+    int m_dimOnIdleTime = 0;
 
-    int m_oldScreenBrightnessValue;
-    int m_oldKeyboardBrightnessValue;
+    int m_oldScreenBrightness = 0;
+    int m_oldKeyboardBrightness = 0;
 
-    bool m_dimmed;
+    bool m_dimmed = false;
 };
 
 }

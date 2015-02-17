@@ -62,10 +62,6 @@ BrightnessControl::BrightnessControl(QObject* parent)
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
 }
 
-BrightnessControl::~BrightnessControl()
-{
-}
-
 void BrightnessControl::onProfileUnload()
 {
     //
@@ -105,18 +101,13 @@ void BrightnessControl::onProfileLoad()
     }
 }
 
-void BrightnessControl::triggerImpl(const QVariantMap& args)
+void BrightnessControl::triggerImpl(const QVariantMap &args)
 {
-    int newBrightness = -1;
-    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
-        backend()->setBrightnessValue(args["Value"].toInt());
-        newBrightness = brightnessPercent(args["Value"].toInt());
-    } else {
-        backend()->setBrightness(args["Value"].toFloat());
-        newBrightness = args["Value"].toFloat();
-    }
-    if (args["Explicit"].toBool() && !args["Silent"].toBool() && newBrightness > -1) {
-        BrightnessOSDWidget::show(newBrightness);
+    const int value = args.value(QStringLiteral("Value")).toInt();
+
+    backend()->setBrightness(value);
+    if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
+        BrightnessOSDWidget::show(brightnessPercent(value));
     }
 }
 
@@ -150,32 +141,36 @@ bool BrightnessControl::loadAction(const KConfigGroup& config)
 void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Screen) {
-        int brightness = qRound(info.percentage);
-        Q_EMIT brightnessValueChanged(info.value);
-        Q_EMIT brightnessChanged(brightness);
+        Q_EMIT brightnessChanged(info.value);
+        Q_EMIT brightnessMaxChanged(info.valueMax);
     }
 }
 
 int BrightnessControl::brightness() const
 {
-    return qRound(backend()->brightness());
+    return backend()->brightness();
 }
 
-void BrightnessControl::setBrightness(int percent)
+int BrightnessControl::brightnessMax() const
 {
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    trigger(args);
+    return backend()->brightnessMax();
 }
 
-void BrightnessControl::setBrightnessSilent(int percent)
+void BrightnessControl::setBrightness(int value)
 {
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    args["Silent"] = true;
-    trigger(args);
+    trigger({
+        {QStringLiteral("Value"), QVariant::fromValue(value)},
+        {QStringLiteral("Explicit"), true}
+    });
+}
+
+void BrightnessControl::setBrightnessSilent(int value)
+{
+    trigger({
+        {QStringLiteral("Value"), QVariant::fromValue(value)},
+        {QStringLiteral("Explicit"), true},
+        {QStringLiteral("Silent"), true}
+    });
 }
 
 void BrightnessControl::increaseBrightness()
@@ -194,33 +189,6 @@ void BrightnessControl::decreaseBrightness()
     }
 }
 
-int BrightnessControl::brightnessValue() const
-{
-    return backend()->brightnessValue();
-}
-
-int BrightnessControl::brightnessValueMax() const
-{
-    return backend()->brightnessValueMax();
-}
-
-void BrightnessControl::setBrightnessValue(int value)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<int>(value);
-    args["Explicit"] = true;
-    trigger(args);
-}
-
-void BrightnessControl::setBrightnessValueSilent(int value)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<int>(value);
-    args["Explicit"] = true;
-    args["Silent"] = true;
-    trigger(args);
-}
-
 int BrightnessControl::brightnessSteps() const
 {
     return backend()->brightnessSteps();
@@ -228,7 +196,7 @@ int BrightnessControl::brightnessSteps() const
 
 int BrightnessControl::brightnessPercent(float value) const
 {
-    const float maxBrightness = brightnessValueMax();
+    const float maxBrightness = brightnessMax();
     if (maxBrightness <= 0) {
         return 0;
     }

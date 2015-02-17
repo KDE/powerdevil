@@ -35,7 +35,7 @@ class BrightnessControl : public PowerDevil::Action
 
 public:
     explicit BrightnessControl(QObject* parent);
-    virtual ~BrightnessControl();
+    virtual ~BrightnessControl() = default;
 
 protected:
     virtual void onProfileUnload();
@@ -53,13 +53,9 @@ public Q_SLOTS:
     void increaseBrightness();
     void decreaseBrightness();
     int brightness() const;
+    int brightnessMax() const;
     void setBrightness(int percent);
     void setBrightnessSilent(int percent);
-
-    int brightnessValue() const;
-    int brightnessValueMax() const;
-    void setBrightnessValue(int value);
-    void setBrightnessValueSilent(int value);
 
     int brightnessSteps() const;
 
@@ -67,13 +63,13 @@ private Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
 
 Q_SIGNALS:
-    void brightnessChanged(int percent);
-    void brightnessValueChanged(int value);
+    void brightnessChanged(int value);
+    void brightnessMaxChanged(int valueMax);
 
 private:
     int brightnessPercent(float value) const;
 
-    int m_defaultValue;
+    int m_defaultValue = 0;
     QString m_lastProfile;
     QString m_currentProfile;
 };

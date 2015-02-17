@@ -28,7 +28,7 @@ class BrightnessLogic
 
 public:
     BrightnessLogic();
-    virtual ~BrightnessLogic();
+    virtual ~BrightnessLogic() = default;
 
     /**
      * This enum defines the different types brightness keys.
@@ -37,7 +37,7 @@ public:
      * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
      * - Toggle: Key to toggle backlight (Qt::Key_KeyboardBacklightOnOff)
      */
-    enum BrightnessKeyType{ Increase, Decrease, Toggle };
+    enum BrightnessKeyType { Increase, Decrease, Toggle };
 
     /**
      * This struct contains information about current brightness state for a single device
@@ -49,8 +49,6 @@ public:
         int valueMax;
         /** The maximum possible brightness step for this device */
         int steps;
-        /** Brightness value expressed as a percentage of maximum possible value */
-        float percentage;
     };
 
     /**
@@ -183,9 +181,9 @@ protected:
     virtual int calculateSteps(int valueMax) const = 0;
 
 private:
-    int m_value;
-    int m_valueMax;
-    int m_steps;
+    int m_value = -1;
+    int m_valueMax = -1;
+    int m_steps = -1;
 };
 
 }

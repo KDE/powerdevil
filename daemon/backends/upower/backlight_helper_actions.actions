@@ -40,7 +40,7 @@ Name[zh_CN]=KDE
 Name[zh_TW]=KDE
 Icon=kde
 
-[org.kde.powerdevil.backlighthelper.brightnessvaluemax]
+[org.kde.powerdevil.backlighthelper.brightnessmax]
 Name=Get maximum brightness value
 Name[ca]=Obtén el valor màxim de la lluminositat
 Name[cs]=Získat maximální hodnotu jasu
@@ -114,7 +114,7 @@ Description[zh_TW]=系統政策不允許您取得亮度設定。
 Policy=yes
 PolicyInactive=yes
 
-[org.kde.powerdevil.backlighthelper.brightnessvalue]
+[org.kde.powerdevil.backlighthelper.brightness]
 Name=Get brightness
 Name[ar]=احصل على معلومات السطوع
 Name[ca]=Obtén la lluminositat
@@ -194,7 +194,7 @@ Description[zh_TW]=系統政策不允許您取得亮度設定。
 Policy=yes
 PolicyInactive=yes
 
-[org.kde.powerdevil.backlighthelper.setbrightnessvalue]
+[org.kde.powerdevil.backlighthelper.setbrightness]
 Name=Set brightness
 Name[ar]=اضبط السطوع
 Name[ca]=Ajusta la lluminositat
@@ -286,7 +286,7 @@ Name[el]=Λήψη syspath
 Name[en_GB]=Get syspath
 Name[es]=Obtener ruta del sistema
 Name[fi]=Lue järjestelmäpolku
-Name[fr]=Obtenir « syspath »
+Name[fr]=Obtenir « syspath »
 Name[hu]=Rendszerútvonal lekérése
 Name[ia]=Obtene syspath
 Name[id]=Dapatkan syspath
@@ -324,7 +324,7 @@ Description[el]=Οι πολιτικές του συστήματος αποτρέ
 Description[en_GB]=System policies prevent you from getting the syspath
 Description[es]=Las políticas del sistema le impiden obtener la ruta del sistema.
 Description[fi]=Järjestelmäkäytäntö estää sinua lukemasta järjestelmäpolkua.
-Description[fr]=La stratégie système vous empêche d'obtenir « syspath ».
+Description[fr]=La stratégie système vous empêche d'obtenir « syspath ».
 Description[hu]=A rendszer házirendjei nem engedik meg Önnek a rendszerútvonal lekérdezését.
 Description[ia]=Le politicas de systema preveni te ex obtener le syspath
 Description[id]=Kebijakan sistem mencegah Anda dari mendapatkan syspath.

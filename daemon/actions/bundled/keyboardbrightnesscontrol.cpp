@@ -73,10 +73,6 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
 }
 
-KeyboardBrightnessControl::~KeyboardBrightnessControl()
-{
-}
-
 void KeyboardBrightnessControl::onProfileUnload()
 {
     //
@@ -116,14 +112,11 @@ void KeyboardBrightnessControl::onProfileLoad()
     }
 }
 
-void KeyboardBrightnessControl::triggerImpl(const QVariantMap& args)
+void KeyboardBrightnessControl::triggerImpl(const QVariantMap &args)
 {
-    if ((QMetaType::Type) args["Value"].type() == QMetaType::Int) {
-        backend()->setBrightnessValue(args["Value"].toInt(), BackendInterface::Keyboard);
-    } else {
-        backend()->setBrightness(args["Value"].toFloat(), BackendInterface::Keyboard);
-    }
-    if (args["Explicit"].toBool() && !args["Silent"].toBool()) {
+    backend()->setBrightness(args.value(QStringLiteral("Value")).toInt(), BackendInterface::Keyboard);
+
+    if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
         BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
     }
 }
@@ -158,9 +151,8 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
-        int brightness = qRound(info.percentage);
-        Q_EMIT keyboardBrightnessValueChanged(info.value);
-        Q_EMIT keyboardBrightnessChanged(brightness);
+        Q_EMIT keyboardBrightnessChanged(info.value);
+        Q_EMIT keyboardBrightnessMaxChanged(info.valueMax);
     }
 }
 
@@ -184,51 +176,29 @@ void KeyboardBrightnessControl::toggleKeyboardBacklight()
 
 int KeyboardBrightnessControl::keyboardBrightness() const
 {
-    return qRound(backend()->brightness(BackendInterface::Keyboard));
+    return backend()->brightness(BackendInterface::Keyboard);
+}
+
+int KeyboardBrightnessControl::keyboardBrightnessMax() const
+{
+    return backend()->brightnessMax(BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
 {
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    trigger(args);
+    trigger({
+        {QStringLiteral("Value"), QVariant::fromValue(percent)},
+        {QStringLiteral("Explicit"), true}
+    });
 }
 
 void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
 {
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<float>((float)percent);
-    args["Explicit"] = true;
-    args["Silent"] = true;
-    trigger(args);
-}
-
-int KeyboardBrightnessControl::keyboardBrightnessValue() const
-{
-    return backend()->brightnessValue(BackendInterface::Keyboard);
-}
-
-int KeyboardBrightnessControl::keyboardBrightnessValueMax() const
-{
-    return backend()->brightnessValueMax(BackendInterface::Keyboard);
-}
-
-void KeyboardBrightnessControl::setKeyboardBrightnessValue(int value)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<int>(value);
-    args["Explicit"] = true;
-    trigger(args);
-}
-
-void KeyboardBrightnessControl::setKeyboardBrightnessValueSilent(int value)
-{
-    QVariantMap args;
-    args["Value"] = QVariant::fromValue<int>(value);
-    args["Explicit"] = true;
-    args["Silent"] = true;
-    trigger(args);
+    trigger({
+        {QStringLiteral("Value"), QVariant::fromValue(percent)},
+        {QStringLiteral("Explicit"), true},
+        {QStringLiteral("Silent"), true}
+    });
 }
 
 int KeyboardBrightnessControl::keyboardBrightnessSteps() const

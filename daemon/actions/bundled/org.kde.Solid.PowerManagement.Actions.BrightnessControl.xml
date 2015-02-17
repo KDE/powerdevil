@@ -10,25 +10,14 @@
     <method name="brightness">
       <arg type="i" direction="out" />
     </method>
+    <method name="brightnessMax">
+      <arg type="i" direction="out" />
+    </method>
 
     <signal name="brightnessChanged">
       <arg type="i" direction="out" />
     </signal>
-
-    <method name="setBrightnessValue">
-      <arg type="i" direction="in" />
-    </method>
-    <method name="setBrightnessValueSilent">
-      <arg type="i" direction="in" />
-    </method>
-    <method name="brightnessValue">
-      <arg type="i" direction="out" />
-    </method>
-    <method name="brightnessValueMax">
-      <arg type="i" direction="out" />
-    </method>
-
-    <signal name="brightnessValueChanged">
+    <signal name="brightnessMaxChanged">
       <arg type="i" direction="out" />
     </signal>
 

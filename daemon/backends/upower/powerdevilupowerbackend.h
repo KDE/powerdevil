@@ -59,11 +59,11 @@ public:
     virtual void init();
     static bool isAvailable();
 
-    virtual int brightnessValue(BrightnessControlType type = Screen) const;
-    virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
+    virtual int brightness(BrightnessControlType type = Screen) const;
+    virtual int brightnessMax(BrightnessControlType type = Screen) const;
 
     virtual int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType);
-    virtual bool setBrightnessValue(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
+    virtual void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
 private:
@@ -101,7 +101,7 @@ private:
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
     int m_kbdMaxBrightness;
-    int m_brightnessValueMax = 0;
+    int m_brightnessMax = 0;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
 

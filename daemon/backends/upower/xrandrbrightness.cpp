@@ -91,7 +91,7 @@ bool XRandrBrightness::isSupported() const
     return false;
 }
 
-long XRandrBrightness::brightnessValue() const
+long XRandrBrightness::brightness() const
 {
     if (!m_resources) {
         return 0;
@@ -111,7 +111,7 @@ long XRandrBrightness::brightnessValue() const
     return 0;
 }
 
-long XRandrBrightness::brightnessValueMax() const
+long XRandrBrightness::brightnessMax() const
 {
     if (!m_resources) {
         return 0;
@@ -131,7 +131,7 @@ long XRandrBrightness::brightnessValueMax() const
     return 0;
 }
 
-void XRandrBrightness::setBrightnessValue(long brightnessValue)
+void XRandrBrightness::setBrightness(long value)
 {
     if (!m_resources) {
         return;
@@ -144,7 +144,7 @@ void XRandrBrightness::setBrightnessValue(long brightnessValue)
         long cur, min, max;
         if (backlight_get_with_range(output, cur, min, max)) {
             // FIXME for now just set the first output's value
-            backlight_set(output, min + brightnessValue);
+            backlight_set(output, min + value);
         }
     }
 

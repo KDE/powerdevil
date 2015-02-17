@@ -143,7 +143,6 @@ public:
      */
     AcAdapterState acAdapterState() const;
 
-
     /**
      * Retrieves the set of suspend methods supported by the system.
      *
@@ -169,20 +168,12 @@ public:
     BrightnessControlsList brightnessControlsAvailable() const;
 
     /**
-     * Gets the device brightness.
-     *
-     * @param device the name of the device that you would like to control
-     * @return the brightness of the device, as a percentage
-     */
-    virtual float brightness(BrightnessControlType type = Screen) const;
-
-    /**
      * Gets the device brightness value.
      *
      * @param device the name of the device that you would like to control
      * @return the brightness of the device, as an integer from 0 to brightnessValueMax
      */
-    virtual int brightnessValue(BrightnessControlType type = Screen) const;
+    virtual int brightness(BrightnessControlType type = Screen) const;
 
     /**
      * Gets the maximum device brightness value.
@@ -190,7 +181,7 @@ public:
      * @param device the name of the device that you would like to control
      * @return the maximum brightness of the device
      */
-    virtual int brightnessValueMax(BrightnessControlType type = Screen) const;
+    virtual int brightnessMax(BrightnessControlType type = Screen) const;
 
     /**
      * Gets the maximum device brightness step.
@@ -212,22 +203,13 @@ public:
     void setLidPresent(bool present);
 
     /**
-     * Sets the device brightness.
-     *
-     * @param brightness the desired device brightness, as a percentage
-     * @param device the name of the device that you would like to control
-     * @return true if the brightness change succeeded, false otherwise
-     */
-    virtual bool setBrightness(float brightness, BrightnessControlType type = Screen);
-
-    /**
      * Sets the device brightness value.
      *
      * @param brightnessValue the desired device brightness, as an integer from 0 to brightnessValueMax
      * @param device the name of the device that you would like to control
      * @return true if the brightness change succeeded, false otherwise
      */
-    virtual bool setBrightnessValue(int brightnessValue, BrightnessControlType type = Screen) = 0;
+    virtual void setBrightness(int value, BrightnessControlType type = Screen) = 0;
 
     /**
      * Should be called when the user presses a brightness key.
@@ -243,7 +225,7 @@ public:
      *
      * @returns A dictionary with the battery's capacity percentage mapped to the battery uuid.
      */
-    QHash< QString, uint > capacities() const;
+    QHash<QString, uint> capacities() const;
 
 Q_SIGNALS:
     /**
@@ -308,7 +290,7 @@ Q_SIGNALS:
 protected:
     void setCapabilities(Capabilities capabilities);
 
-    void onBrightnessChanged(BrightnessControlType device, int brightnessValue, int brightnessValueMax);
+    void onBrightnessChanged(BrightnessControlType device, int value, int valueMax);
     void setBatteryRemainingTime(qulonglong time);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
@@ -320,7 +302,7 @@ protected:
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic
-    int calculateNextStep(int brightnessValue, int brightnessValueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType type);
+    int calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType type);
 
 protected slots:
     // This function is actually here due to HAL

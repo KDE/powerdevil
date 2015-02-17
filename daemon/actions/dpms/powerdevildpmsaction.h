@@ -64,7 +64,7 @@ private:
     int m_idleTime = 0;
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
-    int m_oldKeyboardBrightnessValue = 0;
+    int m_oldKeyboardBrightness = 0;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 
 };

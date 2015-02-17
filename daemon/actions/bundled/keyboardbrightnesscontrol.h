@@ -35,7 +35,7 @@ class KeyboardBrightnessControl : public PowerDevil::Action
 
 public:
     explicit KeyboardBrightnessControl(QObject* parent);
-    virtual ~KeyboardBrightnessControl();
+    virtual ~KeyboardBrightnessControl() = default;
 
 protected:
     virtual void onProfileUnload();
@@ -57,22 +57,18 @@ public Q_SLOTS:
     void toggleKeyboardBacklight();
 
     int keyboardBrightness() const;
-    void setKeyboardBrightness(int percent);
-    void setKeyboardBrightnessSilent(int percent);
-
-    int keyboardBrightnessValue() const;
-    int keyboardBrightnessValueMax() const;
-    void setKeyboardBrightnessValue(int value);
-    void setKeyboardBrightnessValueSilent(int value);
+    int keyboardBrightnessMax() const;
+    void setKeyboardBrightness(int value);
+    void setKeyboardBrightnessSilent(int value);
 
     int keyboardBrightnessSteps() const;
 
 Q_SIGNALS:
-    void keyboardBrightnessChanged(int percent);
-    void keyboardBrightnessValueChanged(int value);
+    void keyboardBrightnessChanged(int value);
+    void keyboardBrightnessMaxChanged(int valueMax);
 
 private:
-    int m_defaultValue;
+    int m_defaultValue = 0;
     QString m_lastProfile;
     QString m_currentProfile;
 };

@@ -77,45 +77,31 @@ BackendInterface::BatteryState BackendInterface::batteryState() const
     return d->batteryState;
 }
 
-bool BackendInterface::setBrightness(float brightness, BackendInterface::BrightnessControlType type)
+void BackendInterface::setBrightness(int brightness, BackendInterface::BrightnessControlType type)
 {
     if (type == Screen) {
-        qCDebug(POWERDEVIL) << "set screen brightness percentage: " << brightness;
+        qCDebug(POWERDEVIL) << "set screen brightness: " << brightness;
     } else {
-        qCDebug(POWERDEVIL) << "set kbd backlight percentage: " << brightness;
+        qCDebug(POWERDEVIL) << "set kbd backlight: " << brightness;
     }
 
-    return setBrightnessValue(qRound(brightness / 100 * brightnessValueMax(type)), type);
+    d->brightnessLogic.value(type)->setValue(brightness);
 }
 
-float BackendInterface::brightness(BackendInterface::BrightnessControlType type) const
+int BackendInterface::brightness(BackendInterface::BrightnessControlType type) const
 {
-    BrightnessLogic *logic = d->brightnessLogic[type];
-    logic->setValueMax(brightnessValueMax(type));
-    logic->setValue(brightnessValue(type));
-
-    return logic->percentage();
+    return d->brightnessLogic.value(type)->value();
 }
 
-int BackendInterface::brightnessValue(BackendInterface::BrightnessControlType type) const
+int BackendInterface::brightnessMax(BackendInterface::BrightnessControlType type) const
 {
-    BrightnessLogic *logic = d->brightnessLogic[type];
-
-    return logic->value();
-}
-
-int BackendInterface::brightnessValueMax(BackendInterface::BrightnessControlType type) const
-{
-    BrightnessLogic *logic = d->brightnessLogic[type];
-
-    return logic->valueMax();
+    return d->brightnessLogic.value(type)->valueMax();
 }
 
 int BackendInterface::brightnessSteps(BackendInterface::BrightnessControlType type) const
 {
-    BrightnessLogic *logic = d->brightnessLogic[type];
-    logic->setValueMax(brightnessValueMax(type));
-
+    BrightnessLogic *logic = d->brightnessLogic.value(type);
+    logic->setValueMax(brightnessMax(type));
     return logic->steps();
 }
 
@@ -199,11 +185,11 @@ void BackendInterface::setCapacityForBattery(const QString& batteryId, uint perc
     d->capacities.insert(batteryId, percent);
 }
 
-void BackendInterface::onBrightnessChanged(BrightnessControlType type, int brightnessValue, int brightnessValueMax)
+void BackendInterface::onBrightnessChanged(BrightnessControlType type, int value, int valueMax)
 {
-    BrightnessLogic *logic = d->brightnessLogic[type];
-    logic->setValueMax(brightnessValueMax);
-    logic->setValue(brightnessValue);
+    BrightnessLogic *logic = d->brightnessLogic.value(type);
+    logic->setValueMax(valueMax);
+    logic->setValue(value);
 
     emit brightnessChanged(logic->info(), type);
 }
@@ -223,11 +209,11 @@ void BackendInterface::setCapabilities(BackendInterface::Capabilities capabiliti
     d->capabilities = capabilities;
 }
 
-int BackendInterface::calculateNextStep(int brightnessValue, int brightnessValueMax, BrightnessControlType type, BrightnessLogic::BrightnessKeyType keyType)
+int BackendInterface::calculateNextStep(int value, int valueMax, BrightnessControlType type, BrightnessLogic::BrightnessKeyType keyType)
 {
-    BrightnessLogic *logic = d->brightnessLogic[type];
-    logic->setValueMax(brightnessValueMax);
-    logic->setValue(brightnessValue);
+    BrightnessLogic *logic = d->brightnessLogic.value(type);
+    logic->setValueMax(valueMax);
+    logic->setValue(value);
 
     return logic->action(keyType);
 }

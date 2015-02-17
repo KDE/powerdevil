@@ -30,19 +30,14 @@
 namespace PowerDevil {
 namespace BundledActions {
 
-DimDisplay::DimDisplay(QObject* parent)
-    : Action(parent), m_dimmed(false)
+DimDisplay::DimDisplay(QObject* parent) : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
-DimDisplay::~DimDisplay()
-{
-
-}
-
 void DimDisplay::onProfileUnload()
 {
+
 }
 
 void DimDisplay::onWakeupFromIdle()
@@ -50,13 +45,13 @@ void DimDisplay::onWakeupFromIdle()
     if (!m_dimmed) {
         return;
     }
-    setBrightnessHelper(m_oldScreenBrightnessValue, m_oldKeyboardBrightnessValue);
+    setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
     m_dimmed = false;
 }
 
 void DimDisplay::onIdleTimeout(int msec)
 {
-    if (backend()->brightnessValue() == 0) {
+    if (backend()->brightness() == 0) {
         //Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
         //backlight won't switch on later.
@@ -67,13 +62,13 @@ void DimDisplay::onIdleTimeout(int msec)
     if (msec == m_dimOnIdleTime) {
         setBrightnessHelper(0, 0);
     } else if (msec == (m_dimOnIdleTime * 3 / 4)) {
-        const int newBrightness = qRound(m_oldScreenBrightnessValue / 8.0);
+        const int newBrightness = qRound(m_oldScreenBrightness / 8.0);
         setBrightnessHelper(newBrightness, 0);
     } else if (msec == (m_dimOnIdleTime * 1 / 2)) {
-        m_oldScreenBrightnessValue = backend()->brightnessValue();
-        m_oldKeyboardBrightnessValue = backend()->brightnessValue(BackendInterface::Keyboard);
+        m_oldScreenBrightness = backend()->brightness();
+        m_oldKeyboardBrightness = backend()->brightness(BackendInterface::Keyboard);
 
-        const int newBrightness = qRound(m_oldScreenBrightnessValue / 2.0);
+        const int newBrightness = qRound(m_oldScreenBrightness / 2.0);
         setBrightnessHelper(newBrightness, 0);
     }
 
@@ -87,19 +82,19 @@ void DimDisplay::onProfileLoad()
 
 void DimDisplay::setBrightnessHelper(int screen, int keyboard)
 {
-    QVariantMap args;
-    args["_ScreenBrightnessValue"] = QVariant::fromValue(screen);
-    args["_KeyboardBrightnessValue"] = QVariant::fromValue(keyboard);
-    trigger(args);
+    trigger({
+        {QStringLiteral("_ScreenBrightness"), QVariant::fromValue(screen)},
+        {QStringLiteral("_KeyboardBrightness"), QVariant::fromValue(keyboard)}
+    });
 }
 
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightnessValue(args["_ScreenBrightnessValue"].toInt(), BackendInterface::Screen);
+    backend()->setBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt(), BackendInterface::Screen);
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
-    if (m_oldKeyboardBrightnessValue > 0) {
-        backend()->setBrightnessValue(args["_KeyboardBrightnessValue"].toInt(), BackendInterface::Keyboard);
+    if (m_oldKeyboardBrightness > 0) {
+        backend()->setBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt(), BackendInterface::Keyboard);
     }
 }
 
