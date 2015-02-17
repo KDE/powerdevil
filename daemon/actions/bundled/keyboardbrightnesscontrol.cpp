@@ -99,8 +99,10 @@ void KeyboardBrightnessControl::onProfileLoad()
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else if (m_defaultValue > 0) {
-        QVariantMap args;
-        args["Value"] = QVariant::fromValue((float)m_defaultValue);
+        const int absoluteValue = qRound(m_defaultValue / 100.0 * keyboardBrightnessMax());
+        QVariantMap args{
+            {QStringLiteral("Value"), QVariant::fromValue(absoluteValue)}
+        };
 
         // plugging in/out the AC is always explicit
         if ((m_currentProfile == "AC" && m_lastProfile != "AC") ||
@@ -141,8 +143,6 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);
-    } else {
-        m_defaultValue = -1;
     }
 
     return true;

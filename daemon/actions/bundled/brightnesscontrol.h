@@ -69,7 +69,7 @@ Q_SIGNALS:
 private:
     int brightnessPercent(float value) const;
 
-    int m_defaultValue = 0;
+    int m_defaultValue = -1;
     QString m_lastProfile;
     QString m_currentProfile;
 };

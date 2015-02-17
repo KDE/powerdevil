@@ -68,7 +68,7 @@ Q_SIGNALS:
     void keyboardBrightnessMaxChanged(int valueMax);
 
 private:
-    int m_defaultValue = 0;
+    int m_defaultValue = -1;
     QString m_lastProfile;
     QString m_currentProfile;
 };
