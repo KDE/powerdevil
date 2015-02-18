@@ -120,7 +120,7 @@ void KeyboardBrightnessControl::triggerImpl(const QVariantMap &args)
     backend()->setBrightness(args.value(QStringLiteral("Value")).toInt(), BackendInterface::Keyboard);
 
     if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
-        BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
+        BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
     }
 }
 
@@ -160,19 +160,19 @@ void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessL
 void KeyboardBrightnessControl::increaseKeyboardBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Increase, BackendInterface::Keyboard);
-    BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Decrease, BackendInterface::Keyboard);
-    BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
     backend()->brightnessKeyPressed(BrightnessLogic::Toggle, BackendInterface::Keyboard);
-    BrightnessOSDWidget::show(keyboardBrightness(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 int KeyboardBrightnessControl::keyboardBrightness() const
@@ -205,6 +205,16 @@ void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
 int KeyboardBrightnessControl::keyboardBrightnessSteps() const
 {
     return backend()->brightnessSteps(BackendInterface::Keyboard);
+}
+
+int KeyboardBrightnessControl::keyboardBrightnessPercent() const
+{
+    const float maxBrightness = keyboardBrightnessMax();
+    if (maxBrightness <= 0) {
+        return 0;
+    }
+
+    return qRound(keyboardBrightness() / maxBrightness * 100);
 }
 
 }
