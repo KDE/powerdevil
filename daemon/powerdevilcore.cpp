@@ -135,7 +135,7 @@ void Core::onBackendReady()
 
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
-    m_criticalBatteryTimer->setInterval(30000);
+    m_criticalBatteryTimer->setInterval(60000);
     connect(m_criticalBatteryTimer, SIGNAL(timeout()), this, SLOT(onCriticalBatteryTimerExpired()));
 
     // wait until the notification system is set up before firing notifications
@@ -503,17 +503,17 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         switch (PowerDevilSettings::batteryCriticalAction()) {
         case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
             emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be halted in 30 seconds."));
+                             i18n("Your battery level is critical, the computer will be halted in 60 seconds."));
             m_criticalBatteryTimer->start();
             break;
         case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
             emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be hibernated in 30 seconds."));
+                             i18n("Your battery level is critical, the computer will be hibernated in 60 seconds."));
             m_criticalBatteryTimer->start();
             break;
         case PowerDevil::BundledActions::SuspendSession::ToRamMode:
             emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be suspended in 30 seconds."));
+                             i18n("Your battery level is critical, the computer will be suspended in 60 seconds."));
             m_criticalBatteryTimer->start();
             break;
         default:
