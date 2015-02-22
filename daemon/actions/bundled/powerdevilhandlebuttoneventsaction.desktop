@@ -6,6 +6,7 @@ Icon=system-suspend
 
 Name=Button events handling
 Name[ar]=التعامل مع أحداث ضغط الأزرار
+Name[bs]=Rukovanje događajima dugmadi
 Name[ca]=Gestió d'esdeveniments de botons
 Name[cs]=Řízení událostí tlačítek
 Name[da]=Håndtering af knaphændelser
@@ -45,6 +46,7 @@ Name[zh_TW]=按鍵事件處理
 
 Comment=Performs an action whenever a button is pressed
 Comment[ar]=تنفيذ حَدَث عند ضغط زِرّ
+Comment[bs]=Izvršava radnju na svaki pritisak dugmeta
 Comment[ca]=Porta a terme una acció quan es prem un botó
 Comment[cs]=Vykoná akci kdykoli je tlačítko stisknuto
 Comment[da]=Udfører en handling når der trykkes på en knap

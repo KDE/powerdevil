@@ -13,6 +13,7 @@ X-KDE-Weight=99
 
 Name=Advanced Settings
 Name[ar]=الإعدادات المتقدمة
+Name[bs]=Napredne postavke
 Name[ca]=Arranjament avançat
 Name[cs]=Pokročilá nastavení
 Name[da]=Avancerede indstillinger
@@ -52,6 +53,7 @@ Name[zh_TW]=進階設定
 
 Comment=Advanced Power Management Settings
 Comment[ar]=إعدادات إدارة الطاقة المتقدمة
+Comment[bs]=Postavke naprednog upravljanja napajanjem
 Comment[ca]=Arranjament avançat de gestió d'energia
 Comment[cs]=Pokročilé nastavení správy napájení
 Comment[da]=Indstil avanceret strømstyring
@@ -89,6 +91,7 @@ Comment[zh_TW]=進階電源管理設定
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ar]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,
+X-KDE-Keywords[bs]=sistem, Napajanje, Upravljanje napajanjem, energija, laptop, baterija, suspenzija, AC, suspendiraj, hiberniranje, osvljetljenje, kapak
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
 X-KDE-Keywords[da]=system,strøm,strømstyring,energi,laptop,bærbar,batteri,suspension,AC,strømforsyning,suspender,slumre,dvale,lysstyrke,ydelse,låg
 X-KDE-Keywords[de]=system,energie,energieverwaltung,laptop,notebook,akku,batterie,ruhezustand,tiefschlaf,helligkeit,leistung,deckel
