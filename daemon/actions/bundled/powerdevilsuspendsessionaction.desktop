@@ -38,6 +38,7 @@ Name[sv]=Stoppa tillfälligt session
 Name[uk]=Призупинити сеанс
 Name[x-test]=xxSuspend sessionxx
 Name[zh_CN]=挂起会话
+Name[zh_TW]=暫停工作階段
 Comment=Suspends the session
 Comment[ar]=يعلّق الجلسة
 Comment[bs]=Obustavlja sesiju
