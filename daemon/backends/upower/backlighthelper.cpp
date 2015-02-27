@@ -164,8 +164,8 @@ bool BacklightHelper::useWhitelistInit()
         return true; // Malformed version
     }
 
-    if (major == 3) {
-        return false; //Kernel 3, we want type based init
+    if (major >= 3) {
+        return false; //Kernel 3+, we want type based init
     }
 
     result = sscanf(uts.release, "%d.%d.%d", &major, &minor, &patch);
