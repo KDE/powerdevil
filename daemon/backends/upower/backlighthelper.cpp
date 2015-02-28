@@ -41,20 +41,14 @@
 
 #define PREFIX "/sys/class/backlight/"
 
-BacklightHelper::BacklightHelper(QObject * parent)
-    : QObject(parent), m_isSupported(false)
+BacklightHelper::BacklightHelper(QObject *parent) : QObject(parent)
 {
     init();
 }
 
 void BacklightHelper::init()
 {
-
-    if (useWhitelistInit()) {
-        initUsingWhitelist();
-    } else {
-        initUsingBacklightType();
-    }
+    initUsingBacklightType();
 
     if (m_dirname.isEmpty()) {
         initUsingSysctl();
@@ -118,67 +112,6 @@ void BacklightHelper::initUsingBacklightType()
         m_dirname = PREFIX + raw.first();
         return;
     }
-}
-
-
-void BacklightHelper::initUsingWhitelist()
-{
-    QStringList interfaces;
-    interfaces << "nv_backlight" << "radeon_bl" << "mbp_backlight" << "asus_laptop"
-               << "toshiba" << "eeepc" << "thinkpad_screen" << "acpi_video1" << "acpi_video0"
-               << "intel_backlight" << "apple_backlight" << "fujitsu-laptop" << "samsung"
-               << "nvidia_backlight" << "dell_backlight" << "sony" << "pwm-backlight"
-               ;
-
-    QDir dir;
-    foreach (const QString & interface, interfaces) {
-        dir.setPath(PREFIX + interface);
-        //qCDebug(POWERDEVIL) << "searching dir:" << dir;
-        if (dir.exists()) {
-            m_dirname = dir.path();
-            //qCDebug(POWERDEVIL) << "kernel backlight support found in" << m_dirname;
-            break;
-        }
-    }
-
-    //If none of our whitelisted interface is available, get the first one  (if any)
-    if (m_dirname.isEmpty()) {
-        dir.setPath(PREFIX);
-        dir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
-        QStringList dirList = dir.entryList();
-        if (!dirList.isEmpty()) {
-            m_dirname = dirList.first();
-        }
-    }
-}
-
-bool BacklightHelper::useWhitelistInit()
-{
-    struct utsname uts;
-    uname(&uts);
-
-    int major, minor, patch, result;
-    result = sscanf(uts.release, "%d.%d", &major, &minor);
-
-    if (result != 2) {
-        return true; // Malformed version
-    }
-
-    if (major >= 3) {
-        return false; //Kernel 3+, we want type based init
-    }
-
-    result = sscanf(uts.release, "%d.%d.%d", &major, &minor, &patch);
-
-    if (result != 3) {
-        return true; // Malformed version
-    }
-
-    if (patch < 37) {
-        return true; //Minor than 2.6.37, use whiteList based
-    }
-
-    return false;//Use Type based interafce
 }
 
 void BacklightHelper::initUsingSysctl()

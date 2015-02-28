@@ -29,7 +29,7 @@ class BacklightHelper: public QObject
 {
     Q_OBJECT
 public:
-    BacklightHelper(QObject * parent = 0);
+    BacklightHelper(QObject *parent = nullptr);
 
 public slots:
     ActionReply brightness(const QVariantMap &args);
@@ -39,12 +39,6 @@ public slots:
 
 private:
     void init();
-    /**
-     * For older kernels that doesn't indicate which type the interface use we have
-     * a whitelsit based on the feedback given by our users, if the interface is not
-     * within our whitelist we will look for a random one within the backlight folder
-     */
-    void initUsingWhitelist();
 
     /**
      * The kernel offer from version 2.6.37 the type of the interface, and based on that
@@ -58,12 +52,7 @@ private:
      */
     void initUsingSysctl();
 
-    /**
-     * If Kernel older than 2.6.37 use whitelsit, otherwise use backlight/type
-     * @see https://bugs.kde.org/show_bug.cgi?id=288180
-     */
-    bool useWhitelistInit();
-    bool m_isSupported;
+    bool m_isSupported = false;
     QString m_dirname;
     QString m_sysctlDevice;
     QList<int> m_sysctlBrightnessLevels;
