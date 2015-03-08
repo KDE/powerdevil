@@ -178,9 +178,11 @@ void PowerDevilUPowerBackend::init()
 
         const int duration = PowerDevilSettings::brightnessAnimationDuration();
         if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
-            m_brightnessAnimation = new QPropertyAnimation(this, "brightnessAnimationValue", this);
+            m_brightnessAnimation = new QPropertyAnimation(this);
+            m_brightnessAnimation->setTargetObject(this);
             m_brightnessAnimation->setDuration(duration);
             m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
+            connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
         }
     }
 
@@ -601,7 +603,7 @@ void PowerDevilUPowerBackend::slotLogin1Resuming(bool active)
     }
 }
 
-void PowerDevilUPowerBackend::setBrightnessAnimationValue(int value)
+void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
 {
-    m_brightnessControl->setBrightness(value);
+    m_brightnessControl->setBrightness(value.toInt());
 }

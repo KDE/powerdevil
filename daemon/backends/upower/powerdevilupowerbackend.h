@@ -50,8 +50,6 @@ class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterfac
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilUPowerBackend)
 
-    Q_PROPERTY(int brightnessAnimationValue WRITE setBrightnessAnimationValue)
-
 public:
     explicit PowerDevilUPowerBackend(QObject* parent);
     virtual ~PowerDevilUPowerBackend();
@@ -87,7 +85,7 @@ private slots:
     void onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
-    void setBrightnessAnimationValue(int value);
+    void animationValueChanged(const QVariant &value);
 
     // upower devices
     QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
