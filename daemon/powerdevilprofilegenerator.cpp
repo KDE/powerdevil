@@ -31,13 +31,15 @@ namespace PowerDevil {
 
 void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
 {
-    // Let's change some defaults
-    if (!toRam) {
-        if (!toDisk) {
+    // Change critical action if default (hibernate) is unavailable
+    if (!toDisk) {
+        if (!toRam) {
             PowerDevilSettings::setBatteryCriticalAction(0);
         } else {
-            PowerDevilSettings::setBatteryCriticalAction(2);
+            PowerDevilSettings::setBatteryCriticalAction(1);
         }
+
+        PowerDevilSettings::self()->save();
     }
 
     // Ok, let's get our config file.
