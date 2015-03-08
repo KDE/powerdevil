@@ -23,7 +23,7 @@
 
   <group name="BatteryManagement">
     <entry name="BatteryLowLevel" type="Int">
-      <default>20</default>
+      <default>10</default>
     </entry>
     <entry name="BatteryCriticalLevel" type="Int">
       <default>5</default>
