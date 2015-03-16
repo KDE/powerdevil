@@ -84,13 +84,12 @@ void Login1SuspendJob::doStart()
 void Login1SuspendJob::sendResult(QDBusPendingCallWatcher *watcher)
 {
     const QDBusPendingReply<void> reply = *watcher;
+    watcher->deleteLater();
     if (!reply.isError()) {
         emitResult();
     } else {
         qCWarning(POWERDEVIL) << "Failed to start suspend job" << reply.error().name() << reply.error().message();
     }
-
-    watcher->deleteLater();
 }
 
 void Login1SuspendJob::slotLogin1Resuming(bool active)
