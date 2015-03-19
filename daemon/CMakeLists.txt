@@ -58,6 +58,7 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSIO
 target_link_libraries(powerdevilcore
     KF5::ConfigCore
     KF5::ConfigGui
+    KF5::DBusAddons
     KF5::I18n
     KF5::Solid
     KF5::IdleTime
