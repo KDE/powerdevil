@@ -57,6 +57,7 @@ target_link_libraries(powerdevilcore
     KF5::Activities
     KF5::ConfigCore
     KF5::ConfigGui
+    KF5::DBusAddons
     KF5::I18n
     KF5::Solid
     KF5::IdleTime
