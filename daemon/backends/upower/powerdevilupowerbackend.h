@@ -96,6 +96,8 @@ private:
     XRandrBrightness         *m_brightnessControl;
     XRandRXCBHelper *m_randrHelper;
 
+    bool m_helperSupported = false;
+
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
     int m_kbdMaxBrightness;

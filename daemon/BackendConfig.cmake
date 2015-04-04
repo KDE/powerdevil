@@ -38,12 +38,20 @@ if (UDEV_FOUND)
 
     set(powerdevilupowerbackend_LIBS ${X11_LIBRARIES} Qt5::Widgets KF5::Auth ${X11_Xrandr_LIB} ${UDEV_LIBS} ${XCB_XCB_LIBRARY}
     ${XCB_RANDR_LIBRARY})
+
     ## backlight helper executable
     add_executable(backlighthelper backends/upower/backlighthelper.cpp ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp ${backlighthelper_mocs})
     target_link_libraries(backlighthelper Qt5::Core KF5::Auth KF5::I18n)
     install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
     kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
     kauth_install_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
+
+    ## ddccontrol helper executable
+    add_executable(ddchelper backends/upower/ddchelper.cpp ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp ${ddchelper_mocs})
+    target_link_libraries(ddchelper Qt5::Core KF5::Auth KF5::I18n)
+    install(TARGETS ddchelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+    kauth_install_helper_files(ddchelper org.kde.powerdevil.ddchelper root)
+    kauth_install_actions(org.kde.powerdevil.ddchelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/ddc_helper_actions.actions)
 endif ()
 
 ########################## HAL Backend #####################################

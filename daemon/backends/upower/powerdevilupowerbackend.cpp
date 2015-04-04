@@ -43,6 +43,7 @@
 #include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
+#define DDC_HELPER_ID "org.kde.powerdevil.ddchelper"
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
@@ -151,21 +152,47 @@ void PowerDevilUPowerBackend::init()
             KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
             if (brightnessMaxJob->exec()) {
                 m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
+
+                KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
+                syspathAction.setHelperId(HELPER_ID);
+                KAuth::ExecuteJob* syspathJob = syspathAction.execute();
+                if (syspathJob->exec()) {
+                    m_syspath = syspathJob->data()["syspath"].toString();
+                    m_syspath = QFileInfo(m_syspath).readLink();
+
+                    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+                    connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+
+                    screenBrightnessAvailable = true;
+                    m_helperSupported = true;
+                } else {
+                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
+                }
             } else {
                 qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
-            }
 
-            KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
-            syspathAction.setHelperId(HELPER_ID);
-            KAuth::ExecuteJob* syspathJob = syspathAction.execute();
-            if (syspathJob->exec()) {
-                m_syspath = syspathJob->data()["syspath"].toString();
-                m_syspath = QFileInfo(m_syspath).readLink();
+                // Use DDC
+                qCDebug(POWERDEVIL) << "Using DDC";
+                KAuth::Action ddcBrightnessAction("org.kde.powerdevil.ddchelper.brightness");
+                ddcBrightnessAction.setHelperId(DDC_HELPER_ID);
+                KAuth::ExecuteJob *ddcBrightnessJob = ddcBrightnessAction.execute();
+                if (!ddcBrightnessJob->exec()) {
+                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.ddchelper.brightness failed";
+                } else {
+                    m_cachedBrightnessMap.insert(Screen, ddcBrightnessJob->data()["brightness"].toFloat());
 
-                UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+                    KAuth::Action ddcBrightnessMaxAction("org.kde.powerdevil.ddchelper.brightnessmax");
+                    ddcBrightnessMaxAction.setHelperId(DDC_HELPER_ID);
+                    KAuth::ExecuteJob *ddcBrightnessMaxJob = ddcBrightnessMaxAction.execute();
+                    if (!ddcBrightnessMaxJob->exec()) {
+                        qCWarning(POWERDEVIL) << "org.kde.powerdevil.ddchelper.brightnessmax failed";
+                    } else {
+                        qCDebug(POWERDEVIL) << "inited using ddc" << m_brightnessMax;
+                        m_brightnessMax = ddcBrightnessMaxJob->data()["brightnessmax"].toInt();
 
-                screenBrightnessAvailable = true;
+                        screenBrightnessAvailable = true;
+                    }
+                }
             }
         }
     } else {
@@ -383,9 +410,19 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
                 m_brightnessControl->setBrightness(value);
             }
         } else {
+            KAuth::Action action;
+            if (m_helperSupported) {
+                qDebug() << "set brightness through helper";
+                action = KAuth::Action("org.kde.powerdevil.backlighthelper.setbrightness");
+                action.setHelperId(HELPER_ID);
+            } else {
+                qDebug() << "set brightness through ddc";
+                action = KAuth::Action("org.kde.powerdevil.ddchelper.setbrightness");
+                action.setHelperId(DDC_HELPER_ID);
+            }
+
             //qCDebug(POWERDEVIL) << "Falling back to helper to set brightness";
-            KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
-            action.setHelperId(HELPER_ID);
+
             action.addArgument("brightness", value);
             KAuth::ExecuteJob *job = action.execute();
             // we don't care about the result since executing the job sync is bad
