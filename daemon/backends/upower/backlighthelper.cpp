@@ -48,22 +48,16 @@ BacklightHelper::BacklightHelper(QObject *parent) : QObject(parent)
 
 void BacklightHelper::init()
 {
-    qDebug() << "BACKLIGHT HELPER INIT";
     initUsingBacklightType();
-    qDebug() << "dir name?" << m_dirname << m_dirname.isEmpty();
 
     if (m_dirname.isEmpty()) {
         initUsingSysctl();
-
-        qDebug() << m_sysctlDevice << m_sysctlDevice.isEmpty() << m_sysctlBrightnessLevels << m_sysctlBrightnessLevels.isEmpty();
 
         if (m_sysctlDevice.isEmpty() || m_sysctlBrightnessLevels.isEmpty()) {
             qCWarning(POWERDEVIL) << "no kernel backlight interface found";
             return;
         }
     }
-
-    qDebug() << "supported";
 
     m_isSupported = true;
 }
@@ -122,7 +116,6 @@ void BacklightHelper::initUsingBacklightType()
 
 void BacklightHelper::initUsingSysctl()
 {
-    qDebug() << "Use sysctl";
 #ifdef USE_SYSCTL
     /*
      * lcd0 is, in theory, the correct device, but some vendors have custom ACPI implementations

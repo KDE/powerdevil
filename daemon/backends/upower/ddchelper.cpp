@@ -24,8 +24,6 @@
 #include <QDebug>
 #include <QProcess>
 
-#include <KLocalizedString>
-
 DdcHelper::DdcHelper(QObject *parent) : QObject(parent)
 {
     init();
@@ -45,7 +43,6 @@ void DdcHelper::init()
         const QString line = QString::fromLocal8Bit(ddcProcess.readLine()).simplified();
         if (line.startsWith(QLatin1String("- Device:"))) {
             m_device = line.mid(10);
-            qCDebug(POWERDEVIL) << "Found monitor at device" << m_device;
             continue;
         }
 
@@ -59,7 +56,6 @@ void DdcHelper::init()
                     if (pair.first() == QLatin1String("address")) {
                         // found it
                         m_address = pair.last();
-                        qCDebug(POWERDEVIL) << "Found backlight address" << m_address;
                         break;
                     }
                 }
@@ -73,7 +69,7 @@ void DdcHelper::init()
             {
                 const QString line = QString::fromLocal8Bit(ddcProcess.readLine()).simplified();
                 if (!line.startsWith(QLatin1String("supported"))) {
-                    qCDebug(POWERDEVIL) << "We got an address for our monitor" << m_address << "but it is not supported";
+                    qCWarning(POWERDEVIL) << "We got an address for our monitor" << m_address << "but it is not supported";
                     return;
                 }
 
@@ -82,10 +78,8 @@ void DdcHelper::init()
                     const QStringList pair = (*it).simplified().split('=');
                     if (pair.first() == QLatin1String("value")) {
                         m_currentBrightness = pair.last().toInt();
-                        qCDebug(POWERDEVIL) << "Monitor current brightness" << m_address << "is" << m_currentBrightness;
                     } else if (pair.first() == QLatin1String("maximum")) {
                         m_maximumBrightness = pair.last().toInt();
-                        qCDebug(POWERDEVIL) << "Monitor maximum brightness" << m_address << "is" << m_maximumBrightness;
                     }
                 }
             }
@@ -98,8 +92,6 @@ void DdcHelper::init()
         qCDebug(POWERDEVIL) << "DDC is not supported, our device is" << m_device << ", our address is" << m_address << ", have a maximum of" << m_maximumBrightness;
         return;
     }
-
-    qCDebug(POWERDEVIL) << "We now have the full DD Control!!!";
 
     m_isSupported = true;
 }
@@ -115,8 +107,7 @@ ActionReply DdcHelper::brightness(const QVariantMap &args)
         return reply;
     }
 
-    // TODO query the actual brightness
-    // but I think we don't ever query that in PowerDevil again anyway
+    // We don't query the actual brightness again since PowerDevil just queries it once anyway
 
     reply.addData("brightness", m_currentBrightness);
 

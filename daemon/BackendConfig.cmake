@@ -48,7 +48,7 @@ if (UDEV_FOUND)
 
     ## ddccontrol helper executable
     add_executable(ddchelper backends/upower/ddchelper.cpp ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp ${ddchelper_mocs})
-    target_link_libraries(ddchelper Qt5::Core KF5::Auth KF5::I18n)
+    target_link_libraries(ddchelper Qt5::Core KF5::Auth)
     install(TARGETS ddchelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
     kauth_install_helper_files(ddchelper org.kde.powerdevil.ddchelper root)
     kauth_install_actions(org.kde.powerdevil.ddchelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/ddc_helper_actions.actions)

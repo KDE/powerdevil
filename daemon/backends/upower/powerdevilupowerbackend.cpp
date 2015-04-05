@@ -172,7 +172,6 @@ void PowerDevilUPowerBackend::init()
                 qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
 
                 // Use DDC
-                qCDebug(POWERDEVIL) << "Using DDC";
                 KAuth::Action ddcBrightnessAction("org.kde.powerdevil.ddchelper.brightness");
                 ddcBrightnessAction.setHelperId(DDC_HELPER_ID);
                 KAuth::ExecuteJob *ddcBrightnessJob = ddcBrightnessAction.execute();
@@ -187,7 +186,8 @@ void PowerDevilUPowerBackend::init()
                     if (!ddcBrightnessMaxJob->exec()) {
                         qCWarning(POWERDEVIL) << "org.kde.powerdevil.ddchelper.brightnessmax failed";
                     } else {
-                        qCDebug(POWERDEVIL) << "inited using ddc" << m_brightnessMax;
+                        qCDebug(POWERDEVIL) << "Using DDC";
+
                         m_brightnessMax = ddcBrightnessMaxJob->data()["brightnessmax"].toInt();
 
                         screenBrightnessAvailable = true;
@@ -412,11 +412,9 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
         } else {
             KAuth::Action action;
             if (m_helperSupported) {
-                qDebug() << "set brightness through helper";
                 action = KAuth::Action("org.kde.powerdevil.backlighthelper.setbrightness");
                 action.setHelperId(HELPER_ID);
             } else {
-                qDebug() << "set brightness through ddc";
                 action = KAuth::Action("org.kde.powerdevil.ddchelper.setbrightness");
                 action.setHelperId(DDC_HELPER_ID);
             }
