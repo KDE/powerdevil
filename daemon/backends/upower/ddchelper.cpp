@@ -1,20 +1,20 @@
-/*  This file is part of the KDE project
- *    Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>
+/*
+ *   Copyright 2015 Kai Uwe Broulik <kde@privat.broulik.de>
  *
- *    This library is free software; you can redistribute it and/or
- *    modify it under the terms of the GNU Library General Public
- *    License version 2 as published by the Free Software Foundation.
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU Library General Public License as
+ *   published by the Free Software Foundation; either version 2, or
+ *   (at your option) any later version.
  *
- *    This library is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *    Library General Public License for more details.
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details
  *
- *    You should have received a copy of the GNU Library General Public License
- *    along with this library; see the file COPYING.LIB.  If not, write to
- *    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- *    Boston, MA 02110-1301, USA.
- *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this program; if not, write to the
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 #include "ddchelper.h"
@@ -53,7 +53,7 @@ void DdcHelper::init()
                 for (auto it = params.constBegin(); it != params.constEnd(); ++it) {
                     const QString param = (*it).simplified();
                     const QStringList pair = param.split(QLatin1Char('='));
-                    if (pair.first() == QLatin1String("address")) {
+                    if (pair.count() == 2 && pair.first() == QLatin1String("address")) {
                         // found it
                         m_address = pair.last();
                         break;
@@ -76,6 +76,10 @@ void DdcHelper::init()
                 const QStringList params = line.split(QLatin1Char(','));
                 for (auto it = params.constBegin(); it != params.constEnd(); ++it) {
                     const QStringList pair = (*it).simplified().split('=');
+                    if (pair.count() != 2) {
+                        continue;
+                    }
+
                     if (pair.first() == QLatin1String("value")) {
                         m_currentBrightness = pair.last().toInt();
                     } else if (pair.first() == QLatin1String("maximum")) {
@@ -132,11 +136,7 @@ ActionReply DdcHelper::setbrightness(const QVariantMap &args)
         m_device
     });
 
-    if (!ddcProcess.waitForFinished()) { // somehow always says it failed
-        reply = ActionReply::HelperErrorReply();
-        qCWarning(POWERDEVIL) << "Failed to execute ddccontrol for setting brightness" << ddcProcess.errorString();
-        return reply;
-    }
+    // don't care whether it worked or not
 
     return reply;
 }
