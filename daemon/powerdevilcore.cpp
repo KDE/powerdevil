@@ -54,7 +54,7 @@ namespace PowerDevil
 
 Core::Core(QObject* parent)
     : QObject(parent)
-    , m_backend(0)
+    , m_backend(nullptr)
     , m_notificationsWatcher(nullptr)
     , m_criticalBatteryTimer(new QTimer(this))
     , m_activityConsumer(new KActivities::Consumer(this))
