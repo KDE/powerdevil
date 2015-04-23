@@ -64,6 +64,9 @@ public:
     virtual void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
     virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
 
+Q_SIGNALS:
+    void brightnessSupportQueried(bool available);
+
 private:
     void enumerateDevices();
     void addDevice(const QString &);
@@ -86,6 +89,7 @@ private slots:
 
 private:
     void animationValueChanged(const QVariant &value);
+    void initWithBrightness(bool brightnessSupport);
 
     // upower devices
     QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
