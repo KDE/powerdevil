@@ -709,15 +709,10 @@ void Core::onServiceRegistered(const QString &service)
     // Now emit all the notifications
     checkBatteryStatus();
 
-    bool emitted = false;
-    for(auto it = m_batteriesPercent.constBegin(); it != m_batteriesPercent.constEnd(); ++it) {
-        if (emitBatteryChargePercentNotification((*it), 100)) {
-            emitted = true;
-        }
-    }
-
-     // need to refresh status to prevent the notification from showing again when charge percentage changes
-    if (emitted) {
+    // show warning about low batteries right on session startup, force it to show
+    // by making sure the "old" percentage (that magic number) is always higher than the current one
+    if (emitBatteryChargePercentNotification(currentChargePercent(), 1000)) {
+        // need to refresh status to prevent the notification from showing again when charge percentage changes
         refreshStatus();
     }
 
