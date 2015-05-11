@@ -24,7 +24,7 @@
 #include "upower_interface.h"
 
 #include <Solid/Device>
-#include <Solid/PowerManagement>
+#include <Solid/Power/PowerManagement>
 
 #include <KLocalizedString>
 #include <KPluginFactory>

@@ -25,8 +25,9 @@
 
 #include <powerdevilbackendinterface.h>
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
+#include <QPointer>
+#include <QDBusConnection>
+#include <QDBusInterface>
 
 #include "upower_device_interface.h"
 #include "upower_interface.h"
@@ -104,7 +105,7 @@ private:
     QPropertyAnimation *m_brightnessAnimation = nullptr;
 
     // login1 interface
-    QWeakPointer<QDBusInterface> m_login1Interface;
+    QPointer<QDBusInterface> m_login1Interface;
 
     // buttons
     bool m_lidIsPresent;

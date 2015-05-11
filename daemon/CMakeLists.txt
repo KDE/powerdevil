@@ -6,7 +6,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 add_subdirectory(actions)
 
 set(POWERDEVIL_CORE_VERSION_MAJOR 2)
-set(POWERDEVIL_CORE_VERSION_MINOR 0)
+set(POWERDEVIL_CORE_VERSION_MINOR 1)
 set(POWERDEVIL_CORE_VERSION_MICRO 0)
 set(POWERDEVIL_CORE_VERSION_STRING ${POWERDEVIL_CORE_VERSION_MAJOR}.${POWERDEVIL_CORE_VERSION_MINOR}.${POWERDEVIL_CORE_VERSION_MICRO})
 
@@ -88,8 +88,8 @@ qt5_add_dbus_adaptor(kded_powerdevil_SRCS org.kde.Solid.PowerManagement.PolicyAg
                                          powerdevilpolicyagent.h PowerDevil::PolicyAgent
                                          powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
 
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
+qt5_add_dbus_adaptor(kded_powerdevil_SRCS org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt5_add_dbus_adaptor(kded_powerdevil_SRCS org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 
 # Backends

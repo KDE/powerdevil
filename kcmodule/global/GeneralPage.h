@@ -20,6 +20,8 @@
 #ifndef GENERALPAGE_H
 #define GENERALPAGE_H
 
+#include <QPointer>
+
 #include <KCModule>
 
 #include "ui_generalPage.h"
@@ -44,7 +46,7 @@ private slots:
     void onServiceUnregistered(const QString &service);
 
 private:
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
+    QPointer<ErrorOverlay> m_errorOverlay;
 };
 
 #endif /* GENERALPAGE_H */

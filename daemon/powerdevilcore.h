@@ -33,14 +33,8 @@ namespace KActivities
     class Consumer;
 } // namespace KActivities
 
-class KDirWatch;
 class QDBusServiceWatcher;
 class QTimer;
-class KNotification;
-
-namespace Solid {
-class Battery;
-}
 
 namespace PowerDevil
 {
@@ -108,7 +102,6 @@ private:
     BackendInterface *m_backend;
     QStringList m_loadedBatteriesUdi;
 
-    QWeakPointer< KNotification > notification;
     QDBusServiceWatcher *m_notificationsWatcher;
 
     KSharedConfigPtr m_profilesConfig;

@@ -464,7 +464,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 {
     // Look through all of the inhibition types
     bool notify = false;
-    if (types & ChangeProfile) {
+    if (types.testFlag(ChangeProfile)) {
         // Check if we have to notify
         if (m_typesToCookie[ChangeProfile].isEmpty()) {
             qCDebug(POWERDEVIL) << "Added change profile";
@@ -472,7 +472,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
         }
         m_typesToCookie[ChangeProfile].append(cookie);
     }
-    if (types & ChangeScreenSettings) {
+    if (types.testFlag(ChangeScreenSettings)) {
         // Check if we have to notify
         qCDebug(POWERDEVIL) << "Added change screen settings";
         if (m_typesToCookie[ChangeScreenSettings].isEmpty()) {
@@ -481,7 +481,7 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
         m_typesToCookie[ChangeScreenSettings].append(cookie);
         types |= InterruptSession;  // implied by ChangeScreenSettings
     }
-    if (types & InterruptSession) {
+    if (types.testFlag(InterruptSession)) {
         // Check if we have to notify
         qCDebug(POWERDEVIL) << "Added interrupt session";
         if (m_typesToCookie[InterruptSession].isEmpty()) {

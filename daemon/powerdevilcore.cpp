@@ -42,10 +42,10 @@
 
 #include <KActivities/Consumer>
 
-#include <QtCore/QTimer>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusConnectionInterface>
-#include <QtDBus/QDBusServiceWatcher>
+#include <QTimer>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDBusServiceWatcher>
 
 #include <QDebug>
 

@@ -27,7 +27,7 @@
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
 #include <Solid/Battery>
-#include <Solid/PowerManagement>
+#include <Solid/Power/PowerManagement>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>

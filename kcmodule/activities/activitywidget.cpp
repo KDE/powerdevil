@@ -26,7 +26,7 @@
 
 #include <KConfigGroup>
 #include <KActivities/Consumer>
-#include <Solid/PowerManagement>
+#include <Solid/Power/PowerManagement>
 #include <actioneditwidget.h>
 #include <QLayout>
 

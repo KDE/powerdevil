@@ -23,7 +23,7 @@
 #include <QHBoxLayout>
 #include <QSpinBox>
 
-#include <Solid/PowerManagement>
+#include <Solid/Power/PowerManagement>
 
 #include <KComboBox>
 #include <KLocalizedString>

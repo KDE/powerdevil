@@ -16,9 +16,9 @@ add_library(kcm_powerdevilprofilesconfig MODULE ${kcm_powerdevil_profiles_SRCS})
 target_link_libraries(kcm_powerdevilprofilesconfig
      KF5::KIOWidgets
      KF5::Solid
+     KF5::SolidPower
      KF5::ConfigGui
      KF5::ConfigWidgets
-     KF5::KDELibs4Support
      powerdevilui
      powerdevilconfigcommonprivate
 )

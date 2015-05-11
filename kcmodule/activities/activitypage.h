@@ -21,6 +21,8 @@
 #ifndef ACTIVITYPAGE_H
 #define ACTIVITYPAGE_H
 
+#include <QPointer>
+
 #include <KCModule>
 
 #include <KActivities/Consumer>
@@ -57,8 +59,8 @@ private:
 
     KActivities::Consumer *m_activityConsumer;
     QList< ActivityWidget* > m_activityWidgets;
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
-    QWeakPointer< KMessageWidget > m_messageWidget;
+    QPointer<ErrorOverlay> m_errorOverlay;
+    QPointer<KMessageWidget> m_messageWidget;
     KActivities::Consumer::ServiceStatus m_previousServiceStatus;
 };
 

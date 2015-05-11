@@ -50,7 +50,7 @@
 
 #include <Solid/Battery>
 #include <Solid/Device>
-#include <Solid/PowerManagement>
+#include <Solid/Power/PowerManagement>
 
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();

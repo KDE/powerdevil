@@ -20,6 +20,8 @@
 #ifndef EDITPAGE_H
 #define EDITPAGE_H
 
+#include <QPointer>
+
 #include <KCModule>
 #include <KSharedConfig>
 
@@ -63,7 +65,7 @@ private slots:
 private:
     KSharedConfig::Ptr m_profilesConfig;
     QHash< QString, bool > m_profileEdited;
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
+    QPointer< ErrorOverlay > m_errorOverlay;
     QHash< QString, ActionEditWidget* > m_editWidgets;
 };
 

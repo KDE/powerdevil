@@ -74,7 +74,7 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
 
     // Message widget
     m_messageWidget = new KMessageWidget(i18n("The activity service is running with bare functionalities.\n"
-                                                          "Names and icons of the activities might not be available."));
+                                              "Names and icons of the activities might not be available."));
     m_messageWidget.data()->setMessageType(KMessageWidget::Warning);
     m_messageWidget.data()->hide();
 

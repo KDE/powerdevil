@@ -26,6 +26,7 @@
 #include <QHash>
 #include <QStringList>
 #include <QWeakPointer>
+#include <QPointer>
 
 #include <QDBusContext>
 #include <QDBusUnixFileDescriptor>
@@ -115,25 +116,25 @@ private:
     QString getNamedPathProperty(const QString & path, const QString & iface, const QString & prop) const;
     bool m_sdAvailable;
     QString m_activeSessionPath;
-    QWeakPointer< QDBusInterface > m_sdSessionInterface;
-    QWeakPointer< QDBusInterface > m_sdSeatInterface;
+    QPointer<QDBusInterface> m_sdSessionInterface;
+    QPointer<QDBusInterface> m_sdSeatInterface;
     QDBusUnixFileDescriptor m_systemdInhibitFd;
 
     // ConsoleKit support
     bool m_ckAvailable;
-    QWeakPointer< QDBusInterface > m_ckSessionInterface;
-    QWeakPointer< QDBusInterface > m_ckSeatInterface;
+    QPointer<QDBusInterface> m_ckSessionInterface;
+    QPointer<QDBusInterface> m_ckSeatInterface;
     bool m_sessionIsBeingInterrupted;
 
-    QHash< uint, QPair< QString, QString > > m_cookieToAppName;
-    QHash< uint, QString > m_cookieToBusService;
-    QHash< RequiredPolicy, QList< uint > > m_typesToCookie;
+    QHash<uint, QPair<QString, QString>> m_cookieToAppName;
+    QHash<uint, QString> m_cookieToBusService;
+    QHash<RequiredPolicy, QList<uint>> m_typesToCookie;
 
     uint m_lastCookie;
 
-    QWeakPointer< QDBusServiceWatcher > m_busWatcher;
-    QWeakPointer< QDBusServiceWatcher > m_sdWatcher;
-    QWeakPointer< QDBusServiceWatcher > m_ckWatcher;
+    QPointer<QDBusServiceWatcher> m_busWatcher;
+    QPointer<QDBusServiceWatcher> m_sdWatcher;
+    QPointer<QDBusServiceWatcher> m_ckWatcher;
 
     bool m_wasLastActiveSession;
 

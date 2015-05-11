@@ -15,8 +15,8 @@ target_link_libraries(kcm_powerdevilglobalconfig
      KF5::ConfigWidgets
      KF5::KIOWidgets
      KF5::Solid
+     KF5::SolidPower
      KF5::NotifyConfig
-     KF5::KDELibs4Support
      powerdevilconfigcommonprivate
 )
 

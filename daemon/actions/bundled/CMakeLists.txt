@@ -18,7 +18,7 @@ add_powerdevil_bundled_action(brightnesscontrol KF5::GlobalAccel)
 add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
-add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets KF5::Solid KF5::KDELibs4Support)
+add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets KF5::Solid KF5::SolidPower)
 
 
 set(actionconfig_SRCS handlebuttoneventsconfig.cpp)
@@ -34,8 +34,8 @@ target_link_libraries(powerdevilhandlebuttoneventsaction_config
                     KF5::I18n
                     KF5::ConfigGui
                     KF5::Solid
+                    KF5::SolidPower
                     KF5::XmlGui
-                    KF5::KDELibs4Support
                     )
 install(TARGETS powerdevilhandlebuttoneventsaction_config DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES powerdevilhandlebuttoneventsaction.desktop DESTINATION ${SERVICES_INSTALL_DIR})
