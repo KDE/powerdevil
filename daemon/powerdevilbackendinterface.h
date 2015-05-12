@@ -36,7 +36,7 @@ class Q_DECL_EXPORT BackendInterface : public QObject
     Q_DISABLE_COPY(BackendInterface)
 
 public:
-    explicit BackendInterface(QObject* parent = 0);
+    explicit BackendInterface(QObject* parent = Q_NULLPTR);
     virtual ~BackendInterface();
 
     /**

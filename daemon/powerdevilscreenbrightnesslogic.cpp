@@ -74,4 +74,4 @@ int ScreenBrightnessLogic::calculateSteps(int maxValue) const
     return 10;
 }
 
-};
+}

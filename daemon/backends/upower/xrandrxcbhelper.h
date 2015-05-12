@@ -43,18 +43,18 @@ class XRandRXCBHelper : public QObject, public QAbstractNativeEventFilter
 public:
     static inline XRandRXCBHelper* self()
     {
-        static XRandRXCBHelper* s_instance = 0;
+        static XRandRXCBHelper* s_instance = Q_NULLPTR;
         if (!s_instance) {
             s_instance = new XRandRXCBHelper();
             if (!s_instance->isValid()) {
-                s_instance = 0;
+                s_instance = Q_NULLPTR;
             }
         }
 
         return s_instance;
     }
 
-    virtual bool nativeEventFilter(const QByteArray& eventType, void* message, long int* result) Q_DECL_OVERRIDE;
+    bool nativeEventFilter(const QByteArray& eventType, void* message, long int* result) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
         void brightnessChanged();
@@ -71,7 +71,7 @@ private:
 
     inline xcb_connection_t *conn()
     {
-        static xcb_connection_t *s_con = NULL;
+        static xcb_connection_t *s_con = Q_NULLPTR;
         if (!s_con) {
             s_con = QX11Info::connection();
         }

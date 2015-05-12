@@ -36,7 +36,7 @@ public:
                   PowerDevil::BackendInterface::SuspendMethods supported);
     virtual ~HalSuspendJob();
 
-    void start();
+    void start() Q_DECL_OVERRIDE;
     void kill(bool quietly);
 
 private Q_SLOTS:

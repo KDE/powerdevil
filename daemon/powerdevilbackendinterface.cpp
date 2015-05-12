@@ -157,7 +157,7 @@ void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapter
 
 void BackendInterface::setBackendHasError(const QString& errorDetails)
 {
-    Q_UNUSED(errorDetails)
+    d->errorString = errorDetails;
 }
 
 void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightnessControls)
