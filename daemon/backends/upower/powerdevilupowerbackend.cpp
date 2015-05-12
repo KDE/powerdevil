@@ -36,8 +36,6 @@
 
 #include "xrandrxcbhelper.h"
 #include "xrandrbrightness.h"
-#include "upowersuspendjob.h"
-#include "login1suspendjob.h"
 #include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
@@ -371,15 +369,6 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
     if (value != m_cachedBrightnessMap[Keyboard]) {
         m_cachedBrightnessMap[Keyboard] = value;
         onBrightnessChanged(Keyboard, value, brightnessMax(Keyboard));
-    }
-}
-
-KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
-{
-    if (m_login1Interface) {
-        return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
-    } else {
-        return new UPowerSuspendJob(m_upowerInterface, method, supportedSuspendMethods());
     }
 }
 

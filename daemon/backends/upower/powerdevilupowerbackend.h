@@ -63,7 +63,6 @@ public:
 
     int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) Q_DECL_OVERRIDE;
     void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) Q_DECL_OVERRIDE;
-    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) Q_DECL_OVERRIDE;
 
 private:
     void enumerateDevices();

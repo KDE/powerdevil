@@ -156,9 +156,8 @@ public:
      * Requests a suspend of the system.
      *
      * @param method the suspend method to use
-     * @return the job handling the operation
      */
-    virtual KJob *suspend(SuspendMethod method) = 0;
+    void suspend(SuspendMethod method);
 
     /**
      * Checks if brightness controls are enabled on this system.

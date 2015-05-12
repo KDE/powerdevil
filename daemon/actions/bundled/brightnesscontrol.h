@@ -67,7 +67,7 @@ Q_SIGNALS:
     void brightnessMaxChanged(int valueMax);
 
 private:
-    int brightnessPercent(float value) const;
+    int brightnessPercent(int value) const;
 
     int m_defaultValue = -1;
     QString m_lastProfile;

@@ -116,7 +116,7 @@ void BrightnessControl::triggerImpl(const QVariantMap &args)
 
 bool BrightnessControl::isSupported()
 {
-    BackendInterface::BrightnessControlsList controls = backend()->brightnessControlsAvailable();
+    const BackendInterface::BrightnessControlsList controls = backend()->brightnessControlsAvailable();
     if (controls.key(BackendInterface::Screen).isEmpty()) {
         return false;
     }
@@ -195,7 +195,7 @@ int BrightnessControl::brightnessSteps() const
     return backend()->brightnessSteps();
 }
 
-int BrightnessControl::brightnessPercent(float value) const
+int BrightnessControl::brightnessPercent(int value) const
 {
     const float maxBrightness = brightnessMax();
     if (maxBrightness <= 0) {

@@ -10,8 +10,6 @@ if (UDEV_FOUND)
 
     set(powerdevilupowerbackend_SRCS
         ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
-        backends/upower/upowersuspendjob.cpp
-        backends/upower/login1suspendjob.cpp
         backends/upower/powerdevilupowerbackend.cpp
         backends/upower/xrandrbrightness.cpp
         backends/upower/xrandrxcbhelper.cpp
@@ -52,7 +50,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/hal)
 
 set(powerdevilhalbackend_SRCS
     ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
-    backends/hal/halsuspendjob.cpp
     backends/hal/powerdevilhalbackend.cpp
 )
 

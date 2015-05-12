@@ -22,7 +22,6 @@
 #include "handlebuttoneventsconfig.h"
 
 #include "suspendsession.h"
-#include "upower_interface.h"
 
 #include <Solid/Device>
 #include <Solid/Power/PowerManagement>

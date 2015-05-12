@@ -20,7 +20,6 @@
 
 
 #include "powerdevilhalbackend.h"
-#include "halsuspendjob.h"
 #include <powerdevil_debug.h>
 
 #include <QTimer>
@@ -283,14 +282,6 @@ void PowerDevilHALBackend::setBrightness(int value, PowerDevil::BackendInterface
         }
     }
     return;
-}
-
-KJob* PowerDevilHALBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
-{
-    // Ok, that's not cool, but it's all HAL really gives us, so.
-    QTimer::singleShot(0, this, SLOT(setResumeFromSuspend()));
-    return new HalSuspendJob(m_halPowerManagement, m_halComputer,
-                             method, supportedSuspendMethods());
 }
 
 void PowerDevilHALBackend::computeBatteries()

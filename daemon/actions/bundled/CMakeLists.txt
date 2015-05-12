@@ -18,7 +18,7 @@ add_powerdevil_bundled_action(brightnesscontrol KF5::GlobalAccel)
 add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
-add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets KF5::Solid KF5::SolidPower)
+add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets KF5::Solid KF5::SolidPower PW::KWorkspace)
 
 
 set(actionconfig_SRCS handlebuttoneventsconfig.cpp)

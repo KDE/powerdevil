@@ -32,6 +32,8 @@
 #include <KLocalizedString>
 #include <KJob>
 
+#include <Solid/Power/PowerManagement>
+
 #include <kworkspace.h>
 
 #include <PowerDevilSettings.h>
@@ -49,6 +51,9 @@ SuspendSession::SuspendSession(QObject* parent)
     new SuspendSessionAdaptor(this);
 
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
+
+    connect(Solid::PowerManagement::notifier(), &Solid::PowerManagement::Notifier::aboutToSuspend,
+            this, &SuspendSession::aboutToSuspend);
 
     connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this]() {
         KIdleTime::instance()->simulateUserActivity();
@@ -130,19 +135,15 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 
     // Switch for real action
-    KJob *suspendJob = 0;
     switch ((Mode) (args["Type"].toUInt())) {
         case ToRamMode:
-            Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
+            Solid::PowerManagement::suspend();
             break;
         case ToDiskMode:
-            Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
+            Solid::PowerManagement::hibernate();
             break;
         case SuspendHybridMode:
-            Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
+            Solid::PowerManagement::hybridSleep();
             break;
         case ShutdownMode:
             KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
@@ -160,11 +161,6 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
         }
         default:
             break;
-    }
-
-    if (suspendJob) {
-        // TODO connect(suspendJob, &KJob::error ??, this, [this]() { m_fadeEffect->stop(); });
-        suspendJob->start();
     }
 }
 

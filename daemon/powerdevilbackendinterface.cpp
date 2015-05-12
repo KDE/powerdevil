@@ -149,6 +149,26 @@ BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() con
     return d->suspendMethods;
 }
 
+void BackendInterface::suspend(BackendInterface::SuspendMethod method)
+{
+    switch (method) {
+    case Standby:
+    case ToRam:
+        Solid::PowerManagement::suspend();
+        break;
+    case ToDisk:
+        Solid::PowerManagement::hibernate();
+        break;
+    case HybridSuspend:
+        Solid::PowerManagement::hybridSleep();
+        break;
+    case UnknownSuspendMethod:
+    default:
+        qCWarning(POWERDEVIL) << "Unknown suspend method:" << method;
+        break;
+    }
+}
+
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
 {
     d->acAdapterState = state;
