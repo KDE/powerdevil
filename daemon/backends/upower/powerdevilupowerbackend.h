@@ -39,8 +39,6 @@
 #define UPOWER_IFACE "org.freedesktop.UPower"
 #define UPOWER_IFACE_DEVICE "org.freedesktop.UPower.Device"
 
-#define LOGIN1_SERVICE "org.freedesktop.login1"
-
 class UdevHelper;
 class XRandRXCBHelper;
 class XRandrBrightness;
@@ -98,9 +96,6 @@ private:
     int m_brightnessMax = 0;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
-
-    // login1 interface
-    QPointer<QDBusInterface> m_login1Interface;
 
     //helper path
     QString m_syspath;

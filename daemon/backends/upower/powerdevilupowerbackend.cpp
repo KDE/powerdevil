@@ -112,18 +112,9 @@ bool PowerDevilUPowerBackend::isAvailable()
 void PowerDevilUPowerBackend::init()
 {
     // interfaces
-    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
-        // Activate it.
-        QDBusConnection::systemBus().interface()->startService(LOGIN1_SERVICE);
-    }
-
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
         // Activate it.
         QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
-    }
-
-    if (QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
-        m_login1Interface = new QDBusInterface(LOGIN1_SERVICE, "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus(), this);
     }
 
     bool screenBrightnessAvailable = false;
