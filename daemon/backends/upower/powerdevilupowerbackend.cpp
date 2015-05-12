@@ -2,7 +2,7 @@
     Copyright (C) 2006 Kevin Ottens <ervin@kde.org>
     Copyright (C) 2008-2010 Dario Freddi <drf@kde.org>
     Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
-    Copyright (C) 2010-2013 Lukáš Tinkl <ltinkl@redhat.com>
+    Copyright (C) 2010-2015 Lukáš Tinkl <ltinkl@redhat.com>
     Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>
 
     This library is free software; you can redistribute it and/or
@@ -32,8 +32,6 @@
 #include <QPropertyAnimation>
 
 #include <kauthexecutejob.h>
-#include <KPluginFactory>
-#include <KSharedConfig>
 #include <KAuthAction>
 
 #include "xrandrxcbhelper.h"
@@ -48,10 +46,8 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent),
       m_displayDevice(Q_NULLPTR),
       m_brightnessControl(Q_NULLPTR),
-      m_kbdMaxBrightness(0),
-      m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
+      m_kbdMaxBrightness(0)
 {
-
 }
 
 PowerDevilUPowerBackend::~PowerDevilUPowerBackend()
@@ -192,11 +188,6 @@ void PowerDevilUPowerBackend::init()
     // devices
     enumerateDevices();
 
-    connect(m_upowerInterface, SIGNAL(Changed()), this, SLOT(slotPropertyChanged()));
-    // for UPower >= 0.99.0, missing Changed() signal
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
-                                         SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
-
     connect(m_upowerInterface, SIGNAL(DeviceAdded(QString)), this, SLOT(slotDeviceAdded(QString)));
     connect(m_upowerInterface, SIGNAL(DeviceRemoved(QString)), this, SLOT(slotDeviceRemoved(QString)));
     // for UPower >= 0.99.0, changed signature :o/
@@ -232,42 +223,6 @@ void PowerDevilUPowerBackend::init()
         }
     }
 
-    // Supported suspend methods
-    SuspendMethods supported = UnknownSuspendMethod;
-    if (m_login1Interface) {
-        QDBusPendingReply<QString> canSuspend = m_login1Interface.data()->asyncCall("CanSuspend");
-        canSuspend.waitForFinished();
-        if (canSuspend.isValid() && (canSuspend.value() == "yes" || canSuspend.value() == "challenge"))
-            supported |= ToRam;
-
-        QDBusPendingReply<QString> canHibernate = m_login1Interface.data()->asyncCall("CanHibernate");
-        canHibernate.waitForFinished();
-        if (canHibernate.isValid() && (canHibernate.value() == "yes" || canHibernate.value() == "challenge"))
-            supported |= ToDisk;
-
-        QDBusPendingReply<QString> canHybridSleep = m_login1Interface.data()->asyncCall("CanHybridSleep");
-        canHybridSleep.waitForFinished();
-        if (canHybridSleep.isValid() && (canHybridSleep.value() == "yes" || canHybridSleep.value() == "challenge"))
-            supported |= HybridSuspend;
-    } else {
-        if (m_upowerInterface->canSuspend() && m_upowerInterface->SuspendAllowed()) {
-            qCDebug(POWERDEVIL) << "Can suspend";
-            supported |= ToRam;
-        }
-
-        if (m_upowerInterface->canHibernate() && m_upowerInterface->HibernateAllowed()) {
-            qCDebug(POWERDEVIL) << "Can hibernate";
-            supported |= ToDisk;
-        }
-    }
-
-    // "resuming" signal
-    if (m_login1Interface) {
-        connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1Resuming(bool)));
-    } else {
-        connect(m_upowerInterface, SIGNAL(Resuming()), this, SIGNAL(resumeFromSuspend()));
-    }
-
     // battery
     foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
         if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
@@ -277,7 +232,7 @@ void PowerDevilUPowerBackend::init()
     }
 
     // backend ready
-    setBackendIsReady(controls, supported);
+    setBackendIsReady(controls);
 }
 
 void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
@@ -301,8 +256,7 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 
 int PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
-    BrightnessControlsList allControls = brightnessControlsAvailable();
-    QList<QString> controls = allControls.keys(controlType);
+    const QStringList controls = brightnessControlsAvailable().keys(controlType);
 
     if (controls.isEmpty()) {
         return -1; // ignore as we are not able to determine the brightness level
@@ -431,12 +385,7 @@ KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMeth
 
 void PowerDevilUPowerBackend::enumerateDevices()
 {
-    m_lidIsPresent = m_upowerInterface->lidIsPresent();
-    setLidPresent(m_lidIsPresent);
-    m_lidIsClosed = m_upowerInterface->lidIsClosed();
-    m_onBattery = m_upowerInterface->onBattery();
-
-    QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
+    const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
     foreach (const QDBusObjectPath & device, deviceList) {
         addDevice(device.path());
     }
@@ -450,11 +399,6 @@ void PowerDevilUPowerBackend::enumerateDevices()
     }
 
     updateDeviceProps();
-
-    if (m_onBattery)
-        setAcAdapterState(Unplugged);
-    else
-        setAcAdapterState(Plugged);
 }
 
 void PowerDevilUPowerBackend::addDevice(const QString & device)
@@ -550,42 +494,6 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     setBatteryRemainingTime(remainingTime * 1000);
 }
 
-void PowerDevilUPowerBackend::slotPropertyChanged()
-{
-    // check for lid button changes
-    if (m_lidIsPresent) {
-        const bool lidIsClosed = m_upowerInterface->lidIsClosed();
-        if (lidIsClosed != m_lidIsClosed) {
-            if (lidIsClosed)
-                setButtonPressed(LidClose);
-            else
-                setButtonPressed(LidOpen);
-        }
-        m_lidIsClosed = lidIsClosed;
-    }
-
-    // check for AC adapter changes
-    const bool onBattery = m_upowerInterface->onBattery();
-    if (m_onBattery != onBattery) {
-        if (onBattery)
-            setAcAdapterState(Unplugged);
-        else
-            setAcAdapterState(Plugged);
-    }
-
-    m_onBattery = onBattery;
-}
-
-void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
-{
-    Q_UNUSED(changedProps);
-    Q_UNUSED(invalidatedProps);
-
-    if (ifaceName == UPOWER_IFACE) {
-        slotPropertyChanged(); // TODO maybe process the 2 properties separately?
-    }
-}
-
 void PowerDevilUPowerBackend::onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
 {
     Q_UNUSED(changedProps);
@@ -593,13 +501,6 @@ void PowerDevilUPowerBackend::onDevicePropertiesChanged(const QString &ifaceName
 
     if (ifaceName == UPOWER_IFACE_DEVICE) {
         updateDeviceProps(); // TODO maybe process the properties separately?
-    }
-}
-
-void PowerDevilUPowerBackend::slotLogin1Resuming(bool active)
-{
-    if (!active) {
-        emit resumeFromSuspend();
     }
 }
 

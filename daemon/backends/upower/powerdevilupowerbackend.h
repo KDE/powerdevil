@@ -55,15 +55,15 @@ public:
     explicit PowerDevilUPowerBackend(QObject* parent);
     virtual ~PowerDevilUPowerBackend();
 
-    virtual void init();
+    void init() Q_DECL_OVERRIDE;
     static bool isAvailable();
 
-    virtual int brightness(BrightnessControlType type = Screen) const;
-    virtual int brightnessMax(BrightnessControlType type = Screen) const;
+    int brightness(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
+    int brightnessMax(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
 
-    virtual int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType);
-    virtual void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
-    virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
+    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) Q_DECL_OVERRIDE;
+    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) Q_DECL_OVERRIDE;
+    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) Q_DECL_OVERRIDE;
 
 private:
     void enumerateDevices();
@@ -76,13 +76,9 @@ private slots:
     void slotDeviceAdded(const QDBusObjectPath & path);
     void slotDeviceRemoved(const QDBusObjectPath & path);
     void slotDeviceChanged(const QString &);
-    void slotPropertyChanged();
-    void slotLogin1Resuming(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int);
-
-    void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
     void onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
@@ -106,11 +102,6 @@ private:
 
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;
-
-    // buttons
-    bool m_lidIsPresent;
-    bool m_lidIsClosed;
-    bool m_onBattery;
 
     //helper path
     QString m_syspath;

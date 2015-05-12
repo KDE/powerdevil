@@ -36,6 +36,8 @@ target_link_libraries(powerdevilhandlebuttoneventsaction_config
                     KF5::Solid
                     KF5::SolidPower
                     KF5::XmlGui
+                    KF5::GlobalAccel
+                    KF5::IdleTime
                     )
 install(TARGETS powerdevilhandlebuttoneventsaction_config DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES powerdevilhandlebuttoneventsaction.desktop DESTINATION ${SERVICES_INSTALL_DIR})

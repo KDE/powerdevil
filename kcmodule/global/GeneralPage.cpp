@@ -99,16 +99,16 @@ void GeneralPage::fillUi()
         }
     }
 
-    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
-
     BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
-    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+    if (Solid::PowerManagement::canSuspend()) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
     }
-    if (methods.contains(Solid::PowerManagement::HibernateState)) {
+    if (Solid::PowerManagement::canHibernate()) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
     }
-    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
+    if (Solid::PowerManagement::canShutdown()) {
+        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
+    }
 
     notificationsButton->setIcon(QIcon::fromTheme("preferences-desktop-notification"));
 

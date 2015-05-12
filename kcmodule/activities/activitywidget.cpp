@@ -89,17 +89,17 @@ void ActivityWidget::load()
 
     using namespace PowerDevil::BundledActions;
 
-    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
-
-    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+    if (Solid::PowerManagement::canSuspend()) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
                                        i18n("Sleep"), (uint)SuspendSession::ToRamMode);
     }
-    if (methods.contains(Solid::PowerManagement::HibernateState)) {
+    if (Solid::PowerManagement::canHibernate()) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
                                        i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    if (Solid::PowerManagement::canShutdown()) {
+        m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    }
 
     m_ui->actLikeComboBox->clear();
 

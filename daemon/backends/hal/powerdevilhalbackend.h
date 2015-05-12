@@ -27,7 +27,6 @@
 #include <QDBusInterface>
 
 #include <Solid/Device>
-#include <Solid/DeviceNotifier>
 
 namespace Solid {
 class Device;
@@ -42,35 +41,27 @@ public:
     explicit PowerDevilHALBackend(QObject* parent);
     virtual ~PowerDevilHALBackend();
 
-    virtual void init();
+    void init() Q_DECL_OVERRIDE;
     static bool isAvailable();
 
-    virtual int brightness(BrightnessControlType type = Screen) const;
-    virtual int brightnessMax(BrightnessControlType type = Screen) const;
+    int brightness(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
+    int brightnessMax(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
 
-    virtual int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen);
-    virtual void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
-    virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
+    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen) Q_DECL_OVERRIDE;
+    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) Q_DECL_OVERRIDE;
+    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) Q_DECL_OVERRIDE;
 
 private:
-    void computeAcAdapters();
     void computeBatteries();
-    void computeButtons();
 
 private slots:
     void updateBatteryStats();
-    void slotPlugStateChanged(bool newState);
-//    void slotButtonPressed(Solid::Button::ButtonType type);
     void slotDeviceAdded(const QString &udi);
     void slotDeviceRemoved(const QString &udi);
     void slotBatteryPropertyChanged(const QMap<QString,int> &changes);
 
 private:
-    QMap<QString, Solid::Device *> m_acAdapters;
     QMap<QString, Solid::Device *> m_batteries;
-    QMap<QString, Solid::Device *> m_buttons;
-
-    int m_pluggedAdapterCount;
 
     int m_currentBatteryCharge;
     int m_maxBatteryCharge;

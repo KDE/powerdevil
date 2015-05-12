@@ -77,7 +77,14 @@ public Q_SLOTS:
 
     qulonglong batteryRemainingTime() const;
 
+    /**
+     * @return whether the lid is closed or not.
+     */
     bool isLidClosed() const;
+
+    /**
+     * @return whether the a lid is present
+     */
     bool isLidPresent() const;
     bool isActionSupported(const QString &actionName);
 

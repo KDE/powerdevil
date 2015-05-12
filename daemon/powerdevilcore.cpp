@@ -33,6 +33,7 @@
 #include <Solid/Battery>
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
+#include <Solid/Power/PowerManagement>
 
 #include <KIdleTime>
 #include <KLocalizedString>
@@ -390,7 +391,7 @@ void Core::loadProfile(bool force)
     }
 
     // If the lid is closed, retrigger the lid close signal
-    if (m_backend->isLidClosed()) {
+    if (isLidClosed()) {
         emit m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
     }
 }
@@ -731,12 +732,12 @@ BackendInterface* Core::backend()
 
 bool Core::isLidClosed() const
 {
-    return m_backend->isLidClosed();
+    return Solid::PowerManagement::isLidClosed();
 }
 
 bool Core::isLidPresent() const
 {
-    return m_backend->isLidPresent();
+    return Solid::PowerManagement::hasLid();
 }
 
 qulonglong Core::batteryRemainingTime() const

@@ -30,9 +30,7 @@
 
 #include <Solid/Battery>
 #include <Solid/GenericInterface>
-
-#include <KPluginFactory>
-#include <KSharedConfig>
+#include <Solid/DeviceNotifier>
 
 PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent)
     : BackendInterface(parent),
@@ -58,9 +56,7 @@ PowerDevilHALBackend::PowerDevilHALBackend(QObject* parent)
 
 PowerDevilHALBackend::~PowerDevilHALBackend()
 {
-    qDeleteAll(m_acAdapters);
     qDeleteAll(m_batteries);
-    qDeleteAll(m_buttons);
 }
 
 bool PowerDevilHALBackend::isAvailable()
@@ -70,20 +66,15 @@ bool PowerDevilHALBackend::isAvailable()
 
 void PowerDevilHALBackend::init()
 {
-    setCapabilities(NoCapabilities);
+    setCapabilities(SignalResumeFromSuspend); // not really, but we fake it
 
     connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceRemoved(QString)),
             this, SLOT(slotDeviceRemoved(QString)));
     connect(Solid::DeviceNotifier::instance(), SIGNAL(deviceAdded(QString)),
             this, SLOT(slotDeviceAdded(QString)));
 
-    m_pluggedAdapterCount = 0;
-    computeAcAdapters();
-
     computeBatteries();
     updateBatteryStats();
-
-    computeButtons();
 
     // Brightness Control available
     BrightnessControlsList controls;
@@ -103,7 +94,7 @@ void PowerDevilHALBackend::init()
         }
     }
 
-    QList<QString> screenControls = controls.keys(Screen);
+    const QStringList screenControls = controls.keys(Screen);
 
     if (!screenControls.isEmpty()) {
         m_cachedScreenBrightness = brightness(Screen);
@@ -116,34 +107,6 @@ void PowerDevilHALBackend::init()
                                                                 "laptop_panel.brightness_in_hardware");
         if (replyInHardware.isValid()) {
             m_screenBrightnessInHardware = replyInHardware;
-        }
-    }
-
-    // Supported suspend methods
-    SuspendMethods supported = UnknownSuspendMethod;
-    {
-        QDBusPendingReply<bool> reply = m_halComputer.asyncCall("GetPropertyBoolean", "power_management.can_suspend");
-        reply.waitForFinished();
-
-        if (reply.isValid()) {
-            bool can_suspend = reply;
-            if (can_suspend) {
-                supported |= ToRam;
-            }
-        } else {
-            qCDebug(POWERDEVIL) << reply.error().name() << ": " << reply.error().message();
-        }
-
-        reply = m_halComputer.asyncCall("GetPropertyBoolean", "power_management.can_hibernate");
-        reply.waitForFinished();
-
-        if (reply.isValid()) {
-            bool can_hibernate = reply;
-            if (can_hibernate) {
-                supported |= ToDisk;
-            }
-        } else {
-            qCDebug(POWERDEVIL) << reply.error().name() << ": " << reply.error().message();
         }
     }
 
@@ -171,20 +134,19 @@ void PowerDevilHALBackend::init()
         }
     }
 
-    setBackendIsReady(controls, supported);
+    setBackendIsReady(controls);
 }
 
 int PowerDevilHALBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
-    BrightnessControlsList allControls = brightnessControlsAvailable();
-    QList<QString> controls = allControls.keys(controlType);
+    const QStringList controls = brightnessControlsAvailable().keys(controlType);
 
     if (controls.isEmpty()) {
         return -1; // ignore as we are not able to determine the brightness level
     }
 
     if (type == PowerDevil::BrightnessLogic::Toggle && controlType == Screen) {
-        return -1; // ignore as we wont toggle the display off
+        return -1; // ignore as we won't toggle the display off
     }
 
     int currentBrightness = brightness(controlType);
@@ -331,33 +293,9 @@ KJob* PowerDevilHALBackend::suspend(PowerDevil::BackendInterface::SuspendMethod 
                              method, supportedSuspendMethods());
 }
 
-void PowerDevilHALBackend::computeAcAdapters()
-{
-/*    QList<Solid::Device> adapters
-        = Solid::Device::listFromType(Solid::DeviceInterface::AcAdapter);
-
-    foreach (const Solid::Device &adapter, adapters) {
-        m_acAdapters[adapter.udi()] = new Solid::Device(adapter);
-        connect(m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool,QString)),
-                 this, SLOT(slotPlugStateChanged(bool)));
-
-        if (m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>()!=0
-            && m_acAdapters[adapter.udi()]->as<Solid::AcAdapter>()->isPlugged()) {
-            m_pluggedAdapterCount++;
-        }
-    }
-
-    if (m_pluggedAdapterCount > 0) {
-        setAcAdapterState(Plugged);
-    } else {
-        setAcAdapterState(Unplugged);
-    }*/
-}
-
 void PowerDevilHALBackend::computeBatteries()
 {
-    QList<Solid::Device> batteries
-        = Solid::Device::listFromQuery("Battery.type == 'PrimaryBattery'");
+    const QList<Solid::Device> batteries = Solid::Device::listFromQuery("Battery.type == 'PrimaryBattery'");
 
     foreach (const Solid::Device &battery, batteries) {
         m_batteries[battery.udi()] = new Solid::Device(battery);
@@ -370,82 +308,16 @@ void PowerDevilHALBackend::computeBatteries()
     updateBatteryStats();
 }
 
-void PowerDevilHALBackend::computeButtons()
-{
-/*    QList<Solid::Device> buttons
-        = Solid::Device::listFromType(Solid::DeviceInterface::Button);
-
-    foreach (const Solid::Device &button, buttons) {
-        m_buttons[button.udi()] = new Solid::Device(button);
-        connect(m_buttons[button.udi()]->as<Solid::Button>(), SIGNAL(pressed(Solid::Button::ButtonType,QString)),
-                 this, SLOT(slotButtonPressed(Solid::Button::ButtonType)));
-    }*/
-}
-
-void PowerDevilHALBackend::slotPlugStateChanged(bool newState)
-{
-    if (newState) {
-        if(m_pluggedAdapterCount == 0) {
-            setAcAdapterState(Plugged);
-        }
-        m_pluggedAdapterCount++;
-    } else {
-        if(m_pluggedAdapterCount == 1) {
-            setAcAdapterState(Unplugged);
-        }
-        m_pluggedAdapterCount--;
-    }
-}
-
-/*void PowerDevilHALBackend::slotButtonPressed(Solid::Button::ButtonType type)
-{
-    Solid::Button *button = qobject_cast<Solid::Button *>(sender());
-
-    if (button == 0) return;
-
-    switch(type) {
-    case Solid::Button::PowerButton:
-        setButtonPressed(PowerButton);
-        break;
-    case Solid::Button::SleepButton:
-        setButtonPressed(SleepButton);
-        break;
-    case Solid::Button::LidButton:
-        if (button->stateValue()) {
-            setButtonPressed(LidClose);
-        } else {
-            setButtonPressed(LidOpen);
-        }
-        break;
-    default:
-        //kWarning() << "Unknown button type";
-        break;
-    }
-}*/
-
 void PowerDevilHALBackend::slotDeviceAdded(const QString &udi)
 {
     Solid::Device *device = new Solid::Device(udi);
-/*    if (device->is<Solid::AcAdapter>()) {
-        m_acAdapters[udi] = device;
-        connect(m_acAdapters[udi]->as<Solid::AcAdapter>(), SIGNAL(plugStateChanged(bool,QString)),
-                 this, SLOT(slotPlugStateChanged(bool)));
-
-        if (m_acAdapters[udi]->as<Solid::AcAdapter>()!=0
-          && m_acAdapters[udi]->as<Solid::AcAdapter>()->isPlugged()) {
-            m_pluggedAdapterCount++;
-        }
-    } else*/ if (device->is<Solid::Battery>()) {
+    if (device->is<Solid::Battery>()) {
         m_batteries[udi] = device;
         connect(m_batteries[udi]->as<Solid::Battery>(), SIGNAL(chargePercentChanged(int,QString)),
                  this, SLOT(updateBatteryStats()));
         connect(m_batteries[udi]->as<Solid::GenericInterface>(), SIGNAL(propertyChanged(QMap<QString,int>)),
                  this, SLOT(slotBatteryPropertyChanged(QMap<QString,int>)));
-    } /*else if (device->is<Solid::Button>()) {
-        m_buttons[udi] = device;
-        connect(m_buttons[udi]->as<Solid::Button>(), SIGNAL(pressed(int,QString)),
-                 this, SLOT(slotButtonPressed(int)));
-    } */else {
+    } else {
         delete device;
     }
 }
@@ -454,35 +326,11 @@ void PowerDevilHALBackend::slotDeviceRemoved(const QString &udi)
 {
     Solid::Device *device = 0;
 
-    device = m_acAdapters.take(udi);
-
-    if (device != 0) {
-        delete device;
-
-        m_pluggedAdapterCount = 0;
-
-/*        foreach (Solid::Device *d, m_acAdapters) {
-            if (d->as<Solid::AcAdapter>()!=0
-              && d->as<Solid::AcAdapter>()->isPlugged()) {
-                m_pluggedAdapterCount++;
-            }
-        }*/
-
-        return;
-    }
-
     device = m_batteries.take(udi);
 
     if (device!=0) {
         delete device;
         updateBatteryStats();
-        return;
-    }
-
-    device = m_buttons.take(udi);
-
-    if (device!=0) {
-        delete device;
         return;
     }
 }

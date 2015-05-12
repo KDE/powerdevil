@@ -78,15 +78,15 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     m_idleTime->setValue(0);
     m_idleTime->setSuffix(i18n(" min"));
 
-    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
-
-    if (methods.contains(Solid::PowerManagement::SuspendState)) {
+    if (Solid::PowerManagement::canSuspend()) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
     }
-    if (methods.contains(Solid::PowerManagement::HibernateState)) {
+    if (Solid::PowerManagement::canHibernate()) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    if (Solid::PowerManagement::canShutdown()) {
+        m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    }
     m_comboBox->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
 
     hlay->addWidget(m_idleTime);

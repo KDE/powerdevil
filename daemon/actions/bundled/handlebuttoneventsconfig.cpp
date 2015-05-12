@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
+ *   Copyright (C) 2015 Lukáš Tinkl <lukas@kde.org>                        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -94,17 +95,17 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         QList<QComboBox *> boxes;
         boxes << m_lidCloseCombo << m_powerButtonCombo;
 
-        QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
-
         foreach (QComboBox *box, boxes) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
-            if (methods.contains(Solid::PowerManagement::SuspendState)) {
+            if (Solid::PowerManagement::canSuspend()) {
                 box->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
             }
-            if (methods.contains(Solid::PowerManagement::HibernateState)) {
+            if (Solid::PowerManagement::canHibernate()) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
             }
-            box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+            if (Solid::PowerManagement::canShutdown()) {
+                box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+            }
             box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
             if (box != m_lidCloseCombo) {
                 box->addItem(QIcon::fromTheme("system-log-out"), i18n("Prompt log out dialog"), (uint)SuspendSession::LogoutDialogMode);
@@ -117,7 +118,6 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     connect(m_triggerLidActionWhenExternalMonitorPresent, SIGNAL(stateChanged(int)), this, SLOT(setChanged()));
     connect(m_powerButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
 
-    bool lidFound = false;
     bool powerFound = true; // HACK This needs proper API!!
     // get a list of all devices that are Buttons
 /*    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
@@ -129,12 +129,9 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         }
     }*/
 
-    auto m_upowerInterface = new OrgFreedesktopUPowerInterface("org.freedesktop.UPower", "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
-
-    lidFound = m_upowerInterface->lidIsPresent();
     QList< QPair< QString, QWidget* > > retlist;
 
-    if (lidFound) {
+    if (Solid::PowerManagement::hasLid()) {
         retlist.append(qMakePair<QString, QWidget *>(i18n("When laptop lid closed"), m_lidCloseCombo));
         // an empty label will make it treat the widget as title checkbox and left-align it
         retlist.append(qMakePair<QString, QWidget *>(QLatin1Literal("NONE"), m_triggerLidActionWhenExternalMonitorPresent));

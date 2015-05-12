@@ -67,6 +67,7 @@ target_link_libraries(powerdevilcore
     KF5::WidgetsAddons
     KF5::Notifications
     KF5::XmlGui
+    KF5::SolidPower
     PW::KWorkspace
 )
 

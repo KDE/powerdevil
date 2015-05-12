@@ -192,17 +192,6 @@ public:
     virtual int brightnessSteps(BrightnessControlType type = Screen) const;
 
     /**
-     * @returns whether the lid is closed or not.
-     */
-    bool isLidClosed() const;
-    /**
-     * @returns whether the a lid is present
-     */
-    bool isLidPresent() const;
-
-    void setLidPresent(bool present);
-
-    /**
      * Sets the device brightness value.
      *
      * @param brightnessValue the desired device brightness, as an integer from 0 to brightnessValueMax
@@ -298,7 +287,7 @@ protected:
 
     void setCapacityForBattery(const QString &batteryId, uint percent);
 
-    void setBackendIsReady(BrightnessControlsList availableBrightnessControls, SuspendMethods supportedSuspendMethods);
+    void setBackendIsReady(BrightnessControlsList availableBrightnessControls);
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic

@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Lukáš Tinkl <lukas@kde.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -23,13 +24,33 @@
 #include "powerdevil_debug.h"
 #include <QDebug>
 
+#include <Solid/Power/PowerManagement>
+
 namespace PowerDevil
 {
 
 class BackendInterface::Private
 {
 public:
-    Private() : batteryRemainingTime(0), isReady(false), isError(false), isLidClosed(false), isLidPresent(false) {}
+    Private() : batteryRemainingTime(0), isReady(false), isError(false)
+    {
+        // AC plugged state
+        if (Solid::PowerManagement::appShouldConserveResources())
+            acAdapterState = Unplugged;
+        else
+            acAdapterState = Plugged;
+
+        // supported suspend methods
+        if (Solid::PowerManagement::canSuspend()) {
+            suspendMethods |= ToRam;
+        }
+        if (Solid::PowerManagement::canHibernate()) {
+            suspendMethods |= ToDisk;
+        }
+        if (Solid::PowerManagement::canHybridSleep()) {
+            suspendMethods |= HybridSuspend;
+        }
+    }
     ~Private() {}
 
     AcAdapterState acAdapterState;
@@ -38,12 +59,10 @@ public:
     QHash< BrightnessControlType, BrightnessLogic* > brightnessLogic;
     BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;
-    SuspendMethods suspendMethods;
+    SuspendMethods suspendMethods = UnknownSuspendMethod;
     QString errorString;
     bool isReady;
     bool isError;
-    bool isLidClosed;
-    bool isLidPresent;
     QHash< QString, uint > capacities;
 };
 
@@ -53,6 +72,16 @@ BackendInterface::BackendInterface(QObject* parent)
 {
     d->brightnessLogic[Screen] = new ScreenBrightnessLogic();
     d->brightnessLogic[Keyboard] = new KeyboardBrightnessLogic();
+
+    // AC adapter state changes
+    connect(Solid::PowerManagement::notifier(), &Solid::PowerManagement::Notifier::appShouldConserveResourcesChanged,
+            [this](bool onBattery){setAcAdapterState(onBattery ? Unplugged : Plugged);});
+    // lid closed changes
+    connect(Solid::PowerManagement::notifier(), &Solid::PowerManagement::Notifier::isLidClosedChanged,
+            [this](bool lidClosed){setButtonPressed(lidClosed ? LidClose : LidOpen);});
+    // "resuming" signal
+    connect(Solid::PowerManagement::notifier(), &Solid::PowerManagement::Notifier::resumingFromSuspend,
+            this, &BackendInterface::resumeFromSuspend);
 }
 
 BackendInterface::~BackendInterface()
@@ -120,21 +149,6 @@ BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() con
     return d->suspendMethods;
 }
 
-bool BackendInterface::isLidClosed() const
-{
-    return d->isLidClosed;
-}
-
-bool BackendInterface::isLidPresent() const
-{
-    return d->isLidPresent;
-}
-
-void BackendInterface::setLidPresent(bool present)
-{
-    d->isLidPresent = present;
-}
-
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
 {
     d->acAdapterState = state;
@@ -146,11 +160,9 @@ void BackendInterface::setBackendHasError(const QString& errorDetails)
     Q_UNUSED(errorDetails)
 }
 
-void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightnessControls,
-                                         BackendInterface::SuspendMethods supportedSuspendMethods)
+void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightnessControls)
 {
     d->brightnessControlsAvailable = availableBrightnessControls;
-    d->suspendMethods = supportedSuspendMethods;
     d->isReady = true;
 
     emit backendReady();
@@ -172,11 +184,6 @@ void BackendInterface::setBatteryState(PowerDevil::BackendInterface::BatteryStat
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
 {
-    if (type == LidClose) {
-        d->isLidClosed = true;
-    } else if (type == LidOpen) {
-        d->isLidClosed = false;
-    }
     emit buttonPressed(type);
 }
 
