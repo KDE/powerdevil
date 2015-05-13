@@ -48,7 +48,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     QMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
     // Load all the services
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
+    const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
 
     foreach (const KService::Ptr &offer, offers) {
         // Does it have a runtime requirement?
