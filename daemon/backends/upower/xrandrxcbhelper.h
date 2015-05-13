@@ -57,7 +57,7 @@ public:
     bool nativeEventFilter(const QByteArray& eventType, void* message, long int* result) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
-        void brightnessChanged();
+    void brightnessChanged();
 
 private:
     XRandRXCBHelper();

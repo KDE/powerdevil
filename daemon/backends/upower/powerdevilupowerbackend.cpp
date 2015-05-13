@@ -424,7 +424,7 @@ void PowerDevilUPowerBackend::slotDeviceChanged(const QString & /*device*/)
 
 void PowerDevilUPowerBackend::updateDeviceProps()
 {
-    qlonglong remainingTime = 0;
+    qulonglong remainingTime = 0;
 
     if (m_displayDevice && m_displayDevice->isPresent()) {
         const uint state = m_displayDevice->state();
@@ -433,14 +433,14 @@ void PowerDevilUPowerBackend::updateDeviceProps()
         else if (state == 2) //discharging
             remainingTime = m_displayDevice->timeToEmpty();
     } else {
-        qreal energyTotal = 0.0;
-        qreal energyRateTotal = 0.0;
-        qreal energyFullTotal = 0.0;
+        double energyTotal = 0.0;
+        double energyRateTotal = 0.0;
+        double energyFullTotal = 0.0;
         uint stateTotal = 0;
 
         foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
             const uint type = upowerDevice->type();
-            if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
+            if ((type == 2 || type == 3) && upowerDevice->powerSupply()) {
                 const uint state = upowerDevice->state();
                 energyFullTotal += upowerDevice->energyFull();
                 energyTotal += upowerDevice->energy();

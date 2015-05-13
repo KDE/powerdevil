@@ -99,7 +99,7 @@ void PowerDevilHALBackend::init()
         m_cachedScreenBrightness = brightness(Screen);
 
         QDBusInterface deviceInterface("org.freedesktop.Hal",
-                                       screenControls.at(0),
+                                       screenControls.first(),
                                        "org.freedesktop.Hal.Device",
                                        QDBusConnection::systemBus());
         QDBusReply<bool> replyInHardware = deviceInterface.call("GetPropertyBoolean",
@@ -114,11 +114,11 @@ void PowerDevilHALBackend::init()
         foreach (Solid::Device *d, m_batteries) {
             Solid::GenericInterface *interface = d->as<Solid::GenericInterface>();
 
-            if (interface == 0) continue;
+            if (!interface) continue;
 
             if (interface->property("battery.reporting.design").toInt() > 0) {
-                uint capacity = ((float)(interface->property("battery.reporting.last_full").toInt()) /
-                                 (float)(interface->property("battery.reporting.design").toInt())) * 100;
+                const uint capacity = ((float)(interface->property("battery.reporting.last_full").toInt()) /
+                                       (float)(interface->property("battery.reporting.design").toInt())) * 100;
 
                 if (capacity > 0) {
                     setCapacityForBattery(d->udi(), capacity);
