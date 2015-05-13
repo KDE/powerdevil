@@ -55,17 +55,17 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
 
 bool FdoConnector::CanHibernate()
 {
-    return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
+    return m_core->backend()->supportedSuspendMethods().testFlag(PowerDevil::BackendInterface::ToDisk);
 }
 
 bool FdoConnector::CanSuspend()
 {
-    return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
+    return m_core->backend()->supportedSuspendMethods().testFlag(PowerDevil::BackendInterface::ToRam);
 }
 
 bool FdoConnector::CanHybridSuspend()
 {
-    return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::HybridSuspend;
+    return m_core->backend()->supportedSuspendMethods().testFlag(PowerDevil::BackendInterface::HybridSuspend);
 }
 
 bool FdoConnector::GetPowerSaveStatus()

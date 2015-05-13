@@ -87,10 +87,10 @@ void ActionPool::clearCache()
 void ActionPool::init(PowerDevil::Core *parent)
 {
     // Load all the actions
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE");
-    foreach (KService::Ptr offer, offers) {
-        QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
+    const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
+                                                                    "[X-KDE-PowerDevil-Action-IsBundled] == FALSE");
+    foreach (const KService::Ptr &offer, offers) {
+        const QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
         qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
         //try to load the specified library
@@ -135,9 +135,9 @@ void ActionPool::init(PowerDevil::Core *parent)
 
     // Register DBus objects
     {
-        KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                                "[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE");
-        foreach (KService::Ptr offer, offers) {
+        const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
+                                                                        "[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE");
+        foreach (const KService::Ptr &offer, offers) {
             QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
             if (m_actionPool.contains(actionId)) {
