@@ -25,7 +25,6 @@
 #include <QObject>
 #include <QHash>
 #include <QStringList>
-#include <QWeakPointer>
 #include <QPointer>
 
 #include <QDBusContext>

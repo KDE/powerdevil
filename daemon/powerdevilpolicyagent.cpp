@@ -25,7 +25,7 @@
 #include <QDBusMetaType>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QDBusPendingReply>
+#include <QDBusReply>
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
 
@@ -109,14 +109,14 @@ void PolicyAgent::init()
     qDBusRegisterMetaType<QList<InhibitionInfo>>();
 
     // Watch over the systemd service
-    m_sdWatcher.data()->setConnection(QDBusConnection::systemBus());
-    m_sdWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
-                                     QDBusServiceWatcher::WatchForRegistration);
-    m_sdWatcher.data()->addWatchedService(SYSTEMD_LOGIN1_SERVICE);
+    m_sdWatcher->setConnection(QDBusConnection::systemBus());
+    m_sdWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
+                              QDBusServiceWatcher::WatchForRegistration);
+    m_sdWatcher->addWatchedService(SYSTEMD_LOGIN1_SERVICE);
 
-    connect(m_sdWatcher.data(), SIGNAL(serviceRegistered(QString)),
+    connect(m_sdWatcher, SIGNAL(serviceRegistered(QString)),
             this, SLOT(onSessionHandlerRegistered(QString)));
-    connect(m_sdWatcher.data(), SIGNAL(serviceUnregistered(QString)),
+    connect(m_sdWatcher, SIGNAL(serviceUnregistered(QString)),
             this, SLOT(onSessionHandlerUnregistered(QString)));
     // If it's up and running already, let's cache it
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(SYSTEMD_LOGIN1_SERVICE)) {
@@ -124,14 +124,14 @@ void PolicyAgent::init()
     }
 
     // Watch over the ConsoleKit service
-    m_ckWatcher.data()->setConnection(QDBusConnection::sessionBus());
-    m_ckWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
-                                     QDBusServiceWatcher::WatchForRegistration);
-    m_ckWatcher.data()->addWatchedService(CONSOLEKIT_SERVICE);
+    m_ckWatcher->setConnection(QDBusConnection::sessionBus());
+    m_ckWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration |
+                              QDBusServiceWatcher::WatchForRegistration);
+    m_ckWatcher->addWatchedService(CONSOLEKIT_SERVICE);
 
-    connect(m_ckWatcher.data(), SIGNAL(serviceRegistered(QString)),
+    connect(m_ckWatcher, SIGNAL(serviceRegistered(QString)),
             this, SLOT(onSessionHandlerRegistered(QString)));
-    connect(m_ckWatcher.data(), SIGNAL(serviceUnregistered(QString)),
+    connect(m_ckWatcher, SIGNAL(serviceUnregistered(QString)),
             this, SLOT(onSessionHandlerUnregistered(QString)));
     // If it's up and running already, let's cache it
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT_SERVICE)) {
@@ -139,10 +139,10 @@ void PolicyAgent::init()
     }
 
     // Now set up our service watcher
-    m_busWatcher.data()->setConnection(QDBusConnection::sessionBus());
-    m_busWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
+    m_busWatcher->setConnection(QDBusConnection::sessionBus());
+    m_busWatcher->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
 
-    connect(m_busWatcher.data(), SIGNAL(serviceUnregistered(QString)),
+    connect(m_busWatcher, SIGNAL(serviceUnregistered(QString)),
             this, SLOT(onServiceUnregistered(QString)));
 }
 
@@ -173,8 +173,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 
         // get the current session
         QDBusInterface managerIface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus());
-        QDBusPendingReply<QDBusObjectPath> session = managerIface.asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
-        session.waitForFinished();
+        QDBusReply<QDBusObjectPath> session = managerIface.asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
 
         if (!session.isValid()) {
             qCDebug(POWERDEVIL) << "The session is not registered with systemd";
@@ -187,11 +186,11 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 
         m_sdSessionInterface = new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, sessionPath,
                                                   SYSTEMD_LOGIN1_SESSION_IFACE, QDBusConnection::systemBus(), this);
-        if (!m_sdSessionInterface.data()->isValid()) {
+        if (!m_sdSessionInterface->isValid()) {
             // As above
             qCDebug(POWERDEVIL) << "Can't contact session iface";
             m_sdAvailable = false;
-            delete m_sdSessionInterface.data();
+            delete m_sdSessionInterface;
             return;
         }
 
@@ -208,11 +207,11 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         m_sdSeatInterface = new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, seatPath,
                                                SYSTEMD_LOGIN1_SEAT_IFACE, QDBusConnection::systemBus(), this);
 
-        if (!m_sdSeatInterface.data()->isValid()) {
+        if (!m_sdSeatInterface->isValid()) {
             // As above
             qCDebug(POWERDEVIL) << "Can't contact seat iface";
             m_sdAvailable = false;
-            delete m_sdSeatInterface.data();
+            delete m_sdSeatInterface;
             return;
         }
 
@@ -235,9 +234,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         QDBusInterface ckiface(CONSOLEKIT_SERVICE, "/org/freedesktop/ConsoleKit/Manager",
                                "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus());
 
-        QDBusPendingReply<QDBusObjectPath> sessionPath = ckiface.asyncCall("GetCurrentSession");
-
-        sessionPath.waitForFinished();
+        QDBusReply<QDBusObjectPath> sessionPath = ckiface.asyncCall("GetCurrentSession");
 
         if (!sessionPath.isValid() || sessionPath.value().path().isEmpty()) {
             qCDebug(POWERDEVIL) << "The session is not registered with ck";
@@ -248,7 +245,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         m_ckSessionInterface = new QDBusInterface(CONSOLEKIT_SERVICE, sessionPath.value().path(),
                                                   "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
 
-        if (!m_ckSessionInterface.data()->isValid()) {
+        if (!m_ckSessionInterface->isValid()) {
             // As above
             qCDebug(POWERDEVIL) << "Can't contact iface";
             m_ckAvailable = false;
@@ -256,8 +253,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         }
 
         // Now let's obtain the seat
-        QDBusPendingReply< QDBusObjectPath > seatPath = m_ckSessionInterface.data()->asyncCall("GetSeatId");
-        seatPath.waitForFinished();
+        QDBusReply< QDBusObjectPath > seatPath = m_ckSessionInterface->asyncCall("GetSeatId");
 
         if (!seatPath.isValid() || seatPath.value().path().isEmpty()) {
             qCDebug(POWERDEVIL) << "Unable to associate ck session with a seat";
@@ -276,8 +272,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         // Force triggering of active session changed
         QDBusMessage call = QDBusMessage::createMethodCall(CONSOLEKIT_SERVICE, seatPath.value().path(),
                                                            "org.freedesktop.ConsoleKit.Seat", "GetActiveSession");
-        QDBusPendingReply< QDBusObjectPath > activeSession = QDBusConnection::systemBus().asyncCall(call);
-        activeSession.waitForFinished();
+        QDBusReply< QDBusObjectPath > activeSession = QDBusConnection::systemBus().asyncCall(call);
 
         onActiveSessionChanged(activeSession.value().path());
 
@@ -291,11 +286,11 @@ void PolicyAgent::onSessionHandlerUnregistered(const QString & serviceName)
 {
     if (serviceName == SYSTEMD_LOGIN1_SERVICE) {
         m_sdAvailable = false;
-        delete m_sdSessionInterface.data();
+        delete m_sdSessionInterface;
     }
     else if (serviceName == CONSOLEKIT_SERVICE) {
         m_ckAvailable = false;
-        delete m_ckSessionInterface.data();
+        delete m_ckSessionInterface;
     }
 }
 
@@ -304,7 +299,7 @@ void PolicyAgent::onActiveSessionChanged(const QString & ifaceName, const QVaria
     const QString key = QLatin1String("ActiveSession");
 
     if (ifaceName == SYSTEMD_LOGIN1_SEAT_IFACE && (changedProps.keys().contains(key) || invalidatedProps.contains(key))) {
-        m_activeSessionPath = getNamedPathProperty(m_sdSeatInterface.data()->path(), SYSTEMD_LOGIN1_SEAT_IFACE, key);
+        m_activeSessionPath = getNamedPathProperty(m_sdSeatInterface->path(), SYSTEMD_LOGIN1_SEAT_IFACE, key);
         qCDebug(POWERDEVIL) << "ACTIVE SESSION PATH CHANGED:" << m_activeSessionPath;
         onActiveSessionChanged(m_activeSessionPath);
     }
@@ -315,8 +310,8 @@ void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
     if (activeSession.isEmpty() || activeSession == "/") {
         qCDebug(POWERDEVIL) << "Switched to inactive session - leaving unchanged";
         return;
-    } else if ((!m_sdSessionInterface.isNull() && activeSession == m_sdSessionInterface.data()->path()) ||
-               (!m_ckSessionInterface.isNull() && activeSession == m_ckSessionInterface.data()->path())) {
+    } else if ((!m_sdSessionInterface.isNull() && activeSession == m_sdSessionInterface->path()) ||
+               (!m_ckSessionInterface.isNull() && activeSession == m_ckSessionInterface->path())) {
         qCDebug(POWERDEVIL) << "Current session is now active";
         m_wasLastActiveSession = true;
     } else {
@@ -358,7 +353,7 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
         // No way to determine if we are on the current session, simply suppose we are
         qCDebug(POWERDEVIL) << "Can't contact systemd";
     } else if (!m_sdSessionInterface.isNull()) {
-        bool isActive = m_sdSessionInterface.data()->property("Active").toBool();
+        bool isActive = m_sdSessionInterface->property("Active").toBool();
 
         if (!isActive && !m_wasLastActiveSession) {
             return policies;
@@ -369,8 +364,7 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
         // No way to determine if we are on the current session, simply suppose we are
         qCDebug(POWERDEVIL) << "Can't contact ck";
     } else if (!m_ckSessionInterface.isNull()) {
-        QDBusPendingReply< bool > rp = m_ckSessionInterface.data()->asyncCall("IsActive");
-        rp.waitForFinished();
+        QDBusReply< bool > rp = m_ckSessionInterface->asyncCall("IsActive");
 
         if (!(rp.isValid() && rp.value()) && !m_wasLastActiveSession) {
             return policies;
@@ -418,7 +412,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
     if (!m_busWatcher.isNull() && !service.isEmpty()) {
         m_cookieToBusService.insert(m_lastCookie, service);
-        m_busWatcher.data()->addWatchedService(service);
+        m_busWatcher->addWatchedService(service);
     }
 
     qCDebug(POWERDEVIL) << "Added inhibition from an explicit DBus service, " << service << ", with cookie " <<
@@ -426,7 +420,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
-    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
+    emit InhibitionsChanged({qMakePair(appName, reason)}, QStringList());
 
     return m_lastCookie;
 }
@@ -444,7 +438,7 @@ uint PolicyAgent::AddInhibition(uint types,
         if (!message().service().isEmpty()) {
             qCDebug(POWERDEVIL) << "DBus service " << message().service() << " is requesting inhibition";
             m_cookieToBusService.insert(m_lastCookie, message().service());
-            m_busWatcher.data()->addWatchedService(message().service());
+            m_busWatcher->addWatchedService(message().service());
         }
     }
 
@@ -453,7 +447,7 @@ uint PolicyAgent::AddInhibition(uint types,
 
     addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
-    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
+    emit InhibitionsChanged({qMakePair(appName, reason)}, QStringList());
 
     return m_lastCookie;
 }
@@ -499,14 +493,14 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 void PolicyAgent::ReleaseInhibition(uint cookie)
 {
     qCDebug(POWERDEVIL) << "Released inhibition with cookie " << cookie;
-    emit InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
+    emit InhibitionsChanged({}, {m_cookieToAppName.value(cookie).first});
     m_cookieToAppName.remove(cookie);
 
 
-    QString service = m_cookieToBusService.take(cookie);
+    const QString service = m_cookieToBusService.take(cookie);
     if (!m_busWatcher.isNull() && !service.isEmpty() && !m_cookieToBusService.key(service)) {
         // no cookies from service left
-        m_busWatcher.data()->removeWatchedService(service);
+        m_busWatcher->removeWatchedService(service);
     }
 
     // Look through all of the inhibition types
@@ -551,7 +545,7 @@ bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicies*/ uint types)
 
 void PolicyAgent::releaseAllInhibitions()
 {
-    QList< uint > allCookies = m_cookieToAppName.keys();
+    const QList<uint> allCookies = m_cookieToAppName.keys();
     foreach (uint cookie, allCookies) {
         ReleaseInhibition(cookie);
     }
@@ -572,10 +566,9 @@ void PolicyAgent::setupSystemdInhibition()
     args << "PowerDevil"; // who
     args << "KDE handles power events"; // why
     args << "block"; // mode
-    QDBusPendingReply<QDBusUnixFileDescriptor> desc = managerIface.asyncCallWithArgumentList("Inhibit", args);
-    desc.waitForFinished();
+    QDBusReply<QDBusUnixFileDescriptor> desc = managerIface.asyncCallWithArgumentList("Inhibit", args);
     if (desc.isValid()) {
-        m_systemdInhibitFd = desc.value();
+        m_systemdInhibitFd = desc;
         qCDebug(POWERDEVIL) << "systemd powersave events handling inhibited, descriptor:" << m_systemdInhibitFd.fileDescriptor();
     }
     else
