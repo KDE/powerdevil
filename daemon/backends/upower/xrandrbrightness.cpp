@@ -26,6 +26,9 @@
 
 XRandrBrightness::XRandrBrightness()
 {
+    if (!QX11Info::isPlatformX11()) {
+        return;
+    }
     ScopedCPointer<xcb_randr_query_version_reply_t> versionReply(xcb_randr_query_version_reply(QX11Info::connection(),
         xcb_randr_query_version(QX11Info::connection(), 1, 2),
     nullptr));
