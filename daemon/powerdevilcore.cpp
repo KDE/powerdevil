@@ -129,6 +129,12 @@ void Core::onBackendReady()
 
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
+    // When inhibitions change, simulate user activity, see Bug 315438
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::unavailablePoliciesChanged, this,
+            [](PowerDevil::PolicyAgent::RequiredPolicies newPolicies) {
+        Q_UNUSED(newPolicies);
+        KIdleTime::instance()->simulateUserActivity();
+    });
 
     // Initialize the action pool, which will also load the needed startup actions.
     PowerDevil::ActionPool::instance()->init(this);
