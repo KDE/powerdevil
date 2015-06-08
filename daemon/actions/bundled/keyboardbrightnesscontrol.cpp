@@ -70,6 +70,12 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardLightOnOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
+
+    // My laptop sets the keyboard brightness to zero when I close the lid and it suspends
+    // this makes sure the keyboard brightness is restored when we wake up :)
+    connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this] {
+        setKeyboardBrightnessSilent(keyboardBrightness());
+    });
 }
 
 void KeyboardBrightnessControl::onProfileUnload()
