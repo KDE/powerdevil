@@ -506,27 +506,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
 
     if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() &&
         previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
-        switch (PowerDevilSettings::batteryCriticalAction()) {
-        case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be halted in 60 seconds."));
-            m_criticalBatteryTimer->start();
-            break;
-        case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be hibernated in 60 seconds."));
-            m_criticalBatteryTimer->start();
-            break;
-        case PowerDevil::BundledActions::SuspendSession::ToRamMode:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                             i18n("Your battery level is critical, the computer will be suspended in 60 seconds."));
-            m_criticalBatteryTimer->start();
-            break;
-        default:
-            emitRichNotification("criticalbattery", i18n("Battery Critical (%1% Remaining)", currentPercent),
-                                 i18n("Your battery level is critical, save your work as soon as possible."));
-            break;
-        }
+        handleCriticalBattery(currentPercent);
         return true;
     } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
                previousPercent > PowerDevilSettings::batteryLowLevel()) {
@@ -537,6 +517,44 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     return false;
 }
 
+void Core::handleCriticalBattery(int percent)
+{
+    // no parent, but it won't leak, since it will be closed both in case of timeout or direct action
+    m_criticalBatteryNotification = new KNotification("criticalbattery", KNotification::Persistent, nullptr);
+    m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
+    m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
+
+    const QStringList actions = {i18nc("Cancel timeout that will automatically suspend system because of low battery", "Cancel")};
+
+    connect(m_criticalBatteryNotification.data(), &KNotification::action1Activated, this, [this] {
+        m_criticalBatteryTimer->stop();
+        m_criticalBatteryNotification->close();
+    });
+
+    switch (PowerDevilSettings::batteryCriticalAction()) {
+    case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
+        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, the computer will be halted in 60 seconds."));
+        m_criticalBatteryNotification->setActions(actions);
+        m_criticalBatteryTimer->start();
+        break;
+    case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
+        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, the computer will be hibernated in 60 seconds."));
+        m_criticalBatteryNotification->setActions(actions);
+        m_criticalBatteryTimer->start();
+        break;
+    case PowerDevil::BundledActions::SuspendSession::ToRamMode:
+        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, the computer will be suspended in 60 seconds."));
+        m_criticalBatteryNotification->setActions(actions);
+        m_criticalBatteryTimer->start();
+        break;
+    default:
+        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, save your work as soon as possible."));
+        // no timer, no actions
+        break;
+    }
+
+    m_criticalBatteryNotification->sendEvent();
+}
 
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
 {
@@ -616,6 +634,10 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 
 void Core::onCriticalBatteryTimerExpired()
 {
+    if (m_criticalBatteryNotification) {
+        m_criticalBatteryNotification->close();
+    }
+
     // Do that only if we're not on AC
     if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
         // We consider this as a very special button

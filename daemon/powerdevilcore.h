@@ -23,8 +23,8 @@
 
 #include "powerdevilbackendinterface.h"
 
-#include <QWeakPointer>
 #include <QStringList>
+#include <QPointer>
 
 #include <KSharedConfig>
 
@@ -96,6 +96,7 @@ Q_SIGNALS:
 private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
+    void handleCriticalBattery(int percent);
 
     /**
      * Computes the current global charge percentage.
@@ -108,7 +109,6 @@ private:
     BackendInterface *m_backend;
     QStringList m_loadedBatteriesUdi;
 
-    QWeakPointer< KNotification > notification;
     QDBusServiceWatcher *m_notificationsWatcher;
 
     KSharedConfigPtr m_profilesConfig;
@@ -119,6 +119,7 @@ private:
     QHash< QString, bool > m_batteriesCharged;
 
     QTimer *m_criticalBatteryTimer;
+    QPointer<KNotification> m_criticalBatteryNotification;
 
     KActivities::Consumer *m_activityConsumer;
 
