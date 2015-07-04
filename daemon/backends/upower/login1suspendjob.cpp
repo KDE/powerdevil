@@ -59,8 +59,6 @@ void Login1SuspendJob::doStart()
         args << true; // interactive, ie. with polkit dialogs
 
         QDBusPendingReply<void> reply;
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
-        connect(watcher, SIGNAL(finished(QDBusPendingCallWatcher*)), this, SLOT(sendResult(QDBusPendingCallWatcher*)));
 
         switch(m_method) {
         case PowerDevil::BackendInterface::ToRam:
@@ -76,8 +74,11 @@ void Login1SuspendJob::doStart()
             qCDebug(POWERDEVIL) << "Unsupported suspend method";
             setError(1);
             setErrorText(i18n("Unsupported suspend method"));
-            break;
+            return;
         }
+
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &Login1SuspendJob::sendResult);
     }
 }
 
