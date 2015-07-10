@@ -93,6 +93,12 @@ void ActionPool::init(PowerDevil::Core *parent)
         QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
         qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
+
+        if (!offer->showOnCurrentPlatform()) {
+            qCDebug(POWERDEVIL) << "Doesn't support the windowing system";
+            continue;
+        }
+
         //try to load the specified library
         PowerDevil::Action *retaction = offer->createInstance< PowerDevil::Action >(parent);
 
