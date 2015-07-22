@@ -123,6 +123,11 @@ void PowerDevilUPowerBackend::init()
         QDBusConnection::systemBus().interface()->startService(LOGIN1_SERVICE);
     }
 
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT2_SERVICE)) {
+        // Activate it.
+        QDBusConnection::systemBus().interface()->startService(CONSOLEKIT2_SERVICE);
+    }
+
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
         // Activate it.
         QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
@@ -130,6 +135,11 @@ void PowerDevilUPowerBackend::init()
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
         m_login1Interface = new QDBusInterface(LOGIN1_SERVICE, "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus(), this);
+    }
+
+    // if login1 isn't available, try using the same interface with ConsoleKit2
+    if (!m_login1Interface && QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT2_SERVICE)) {
+        m_login1Interface = new QDBusInterface(CONSOLEKIT2_SERVICE, "/org/freedesktop/ConsoleKit/Manager", "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus(), this);
     }
 
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
@@ -270,7 +280,11 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         canHybridSleep.waitForFinished();
         if (canHybridSleep.isValid() && (canHybridSleep.value() == "yes" || canHybridSleep.value() == "challenge"))
             supported |= HybridSuspend;
-    } else {
+    }
+
+    /* There's a chance we're using ConsoleKit rather than ConsoleKit2 as the
+     * m_login1Interface, so check if we can suspend/hibernate with UPower < 0.99 */
+    if (supported == UnknownSuspendMethod) {
         if (m_upowerInterface->canSuspend() && m_upowerInterface->SuspendAllowed()) {
             qCDebug(POWERDEVIL) << "Can suspend";
             supported |= ToRam;

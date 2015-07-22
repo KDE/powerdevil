@@ -172,8 +172,15 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         qDBusRegisterMetaType<NamedDBusObjectPath>();
 
         // get the current session
-        QDBusInterface managerIface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus());
-        QDBusPendingReply<QDBusObjectPath> session = managerIface.asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
+        m_managerIface.reset(new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus()));
+
+        if (!m_managerIface.data()->isValid()) {
+            qCDebug(POWERDEVIL) << "Can't connect to systemd";
+            m_sdAvailable = false;
+            return;
+        }
+
+        QDBusPendingReply<QDBusObjectPath> session = m_managerIface.data()->asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
         session.waitForFinished();
 
         if (!session.isValid()) {
@@ -232,10 +239,15 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         m_ckAvailable = true;
 
         // Otherwise, let's ask ConsoleKit
-        QDBusInterface ckiface(CONSOLEKIT_SERVICE, "/org/freedesktop/ConsoleKit/Manager",
-                               "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus());
+        m_managerIface.reset(new QDBusInterface(CONSOLEKIT_SERVICE, CONSOLEKIT_MANAGER_PATH, CONSOLEKIT_MANAGER_IFACE, QDBusConnection::systemBus()));
 
-        QDBusPendingReply<QDBusObjectPath> sessionPath = ckiface.asyncCall("GetCurrentSession");
+        if (!m_managerIface.data()->isValid()) {
+            qCDebug(POWERDEVIL) << "Can't connect to ConsoleKit";
+            m_ckAvailable = false;
+            return;
+        }
+
+        QDBusPendingReply<QDBusObjectPath> sessionPath = m_managerIface.data()->asyncCall("GetCurrentSession");
 
         sessionPath.waitForFinished();
 
@@ -280,6 +292,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         activeSession.waitForFinished();
 
         onActiveSessionChanged(activeSession.value().path());
+
+        setupSystemdInhibition();
 
         qCDebug(POWERDEVIL) << "ConsoleKit support initialized";
     }
@@ -562,17 +576,20 @@ void PolicyAgent::setupSystemdInhibition()
     if (m_systemdInhibitFd.fileDescriptor() != -1)
         return;
 
-    // inhibit systemd handling of power/sleep/lid buttons
+    if (!m_managerIface)
+        return;
+
+    // inhibit systemd/ConsoleKit2 handling of power/sleep/lid buttons
     // http://www.freedesktop.org/wiki/Software/systemd/inhibit
-    QDBusInterface managerIface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus());
-    qCDebug(POWERDEVIL) << "fd passing available:" << bool(managerIface.connection().connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing);
+    // http://consolekit2.github.io/ConsoleKit2/#Manager.Inhibit
+    qCDebug(POWERDEVIL) << "fd passing available:" << bool(m_managerIface.data()->connection().connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing);
 
     QVariantList args;
     args << "handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch"; // what
     args << "PowerDevil"; // who
     args << "KDE handles power events"; // why
     args << "block"; // mode
-    QDBusPendingReply<QDBusUnixFileDescriptor> desc = managerIface.asyncCallWithArgumentList("Inhibit", args);
+    QDBusPendingReply<QDBusUnixFileDescriptor> desc = m_managerIface.data()->asyncCallWithArgumentList("Inhibit", args);
     desc.waitForFinished();
     if (desc.isValid()) {
         m_systemdInhibitFd = desc.value();

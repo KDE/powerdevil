@@ -40,6 +40,8 @@ class QDBusInterface;
 #define SYSTEMD_LOGIN1_SEAT_IFACE "org.freedesktop.login1.Seat"
 
 #define CONSOLEKIT_SERVICE "org.freedesktop.ConsoleKit"
+#define CONSOLEKIT_MANAGER_PATH "/org/freedesktop/ConsoleKit/Manager"
+#define CONSOLEKIT_MANAGER_IFACE "org.freedesktop.ConsoleKit.Manager"
 
 using InhibitionInfo = QPair<QString, QString>;
 
@@ -110,6 +112,9 @@ private:
     // This function serves solely for fd.o connector
     uint addInhibitionWithExplicitDBusService(uint types, const QString &appName,
                                               const QString &reason, const QString &service);
+
+    // used by systemd and ConsoleKit
+    QScopedPointer< QDBusInterface > m_managerIface;
 
     // systemd support
     QString getNamedPathProperty(const QString & path, const QString & iface, const QString & prop) const;
