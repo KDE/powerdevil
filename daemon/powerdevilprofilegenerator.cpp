@@ -109,42 +109,6 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         suspendSession.writeEntry< uint >("suspendType", ToRamMode);
     }
 
-
-    // Ok, now for aggressive powersave
-    KConfigGroup lowBatteryProfile(profilesConfig, "LowBattery");
-    lowBatteryProfile.writeEntry("icon", "battery-low");
-    // Less brightness.
-    {
-        KConfigGroup brightnessControl(&lowBatteryProfile, "BrightnessControl");
-        brightnessControl.writeEntry< int >("value", 30);
-    }
-    // We want to dim the screen after a while, definitely
-    {
-        KConfigGroup dimDisplay(&lowBatteryProfile, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", 60000);
-    }
-    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-    {
-        KConfigGroup handleButtonEvents(&lowBatteryProfile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
-        if (toRam) {
-            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
-        } else {
-            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
-        }
-    }
-    // We want to turn off the screen after another while
-    {
-        KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
-        dpmsControl.writeEntry< uint >("idleTime", 120);
-    }
-    // Last but not least, we want to suspend after a rather long period of inactivity
-    if (toRam) {
-        KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
-        suspendSession.writeEntry< uint >("idleTime", 300000);
-        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
-    }
-
     // Save and be happy
     profilesConfig->sync();
 }

@@ -105,7 +105,6 @@ void ActivityWidget::load()
 
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-charging"), i18n("PC running on AC power"), "AC");
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-060"), i18n("PC running on battery power"), "Battery");
-    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-low"), i18n("PC running on low battery"), "LowBattery");
 
     foreach (const QString &activity, m_activityConsumer->activities()) {
         if (activity == m_activity) {

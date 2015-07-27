@@ -219,8 +219,7 @@ void Core::loadProfile(bool force)
     // Are we mirroring an activity?
     if (activitiesConfig.group(activity).readEntry("mode", "None") == "ActLike" &&
         activitiesConfig.group(activity).readEntry("actLike", QString()) != "AC" &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != "Battery" &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != "LowBattery") {
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != "Battery") {
         // Yes, let's use that then
         activity = activitiesConfig.group(activity).readEntry("actLike", QString());
         qCDebug(POWERDEVIL) << "Activity is a mirror";
@@ -237,8 +236,7 @@ void Core::loadProfile(bool force)
         profileId = activity;
     } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
         if (activityConfig.readEntry("actLike", QString()) == "AC" ||
-            activityConfig.readEntry("actLike", QString()) == "Battery" ||
-            activityConfig.readEntry("actLike", QString()) == "LowBattery") {
+            activityConfig.readEntry("actLike", QString()) == "Battery") {
             // Same as above, but with an existing profile
             config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
             profileId = activityConfig.readEntry("actLike", QString());
@@ -250,15 +248,9 @@ void Core::loadProfile(bool force)
             qCDebug(POWERDEVIL) << "No batteries found, loading AC";
             profileId = "AC";
         } else {
-            // Compute the previous and current global percentage
-            const int percent = currentChargePercent();
-
             if (backend()->acAdapterState() == BackendInterface::Plugged) {
                 profileId = "AC";
                 qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
-            } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-                profileId = "LowBattery";
-                qCDebug(POWERDEVIL) << "Loading profile for low battery";
             } else {
                 profileId = "Battery";
                 qCDebug(POWERDEVIL) << "Loading profile for unplugged AC";

@@ -102,12 +102,6 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
     tabWidget->setTabIcon(1, QIcon::fromTheme("battery-060"));
 
-    editWidget = new ActionEditWidget("LowBattery", tabWidget);
-    m_editWidgets.insert("LowBattery", editWidget);
-    lowBatteryWidgetLayout->addWidget(editWidget);
-    connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(2, QIcon::fromTheme("battery-low"));
-
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
                                                            QDBusServiceWatcher::WatchForRegistration |
@@ -253,8 +247,6 @@ void EditPage::onServiceRegistered(const QString& service)
             const QString &currentProfile = reply.value();
             if (currentProfile == QLatin1String("Battery")) {
                 tabWidget->setCurrentIndex(1);
-            } else if (currentProfile == QLatin1String("LowBattery")) {
-                tabWidget->setCurrentIndex(2);
             }
         }
 

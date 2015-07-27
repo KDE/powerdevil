@@ -36,16 +36,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3">
-      <attribute name="title">
-       <string>On Low Battery</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <item>
-        <layout class="QGridLayout" name="lowBatteryWidgetLayout"/>
-       </item>
-      </layout>
-     </widget>
     </widget>
    </item>
   </layout>
