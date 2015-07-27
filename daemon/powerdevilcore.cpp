@@ -174,32 +174,6 @@ bool Core::isActionSupported(const QString& actionName)
     }
 }
 
-QString Core::checkBatteryStatus(bool notify)
-{
-    QString lastMessage;
-    // Any batteries below 50% of capacity?
-    for (QHash< QString, uint >::const_iterator i = m_backend->capacities().constBegin();
-         i != m_backend->capacities().constEnd(); ++i) {
-        if (i.value() < 50) {
-            // Notify, we have a broken battery.
-            if (m_loadedBatteriesUdi.size() == 1) {
-                lastMessage = i18n("Your battery capacity is %1%. This means your battery is broken and "
-                                   "needs a replacement. Please contact your hardware vendor for more details.",
-                                   i.value());
-            } else {
-                lastMessage = i18n("One of your batteries (ID %2) has a capacity of %1%. This means it is broken "
-                                   "and needs a replacement. Please contact your hardware vendor for more details.",
-                                   i.value(), i.key());
-            }
-            if (notify) {
-                emitRichNotification("brokenbattery", i18n("Broken Battery"), lastMessage);
-            }
-        }
-    }
-
-    return lastMessage;
-}
-
 void Core::refreshStatus()
 {
     /* The configuration could have changed if this function was called, so
@@ -733,9 +707,6 @@ void Core::onServiceRegistered(const QString &service)
     if (notificationsReady) {
         return;
     }
-
-    // Now emit all the notifications
-    checkBatteryStatus();
 
     // show warning about low batteries right on session startup, force it to show
     // by making sure the "old" percentage (that magic number) is always higher than the current one

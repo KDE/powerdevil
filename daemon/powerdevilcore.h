@@ -76,8 +76,6 @@ public Q_SLOTS:
     void refreshStatus();
     void reparseConfiguration();
 
-    QString checkBatteryStatus(bool notify = true);
-
     QString currentProfile() const;
     void loadProfile(bool force = false);
 
