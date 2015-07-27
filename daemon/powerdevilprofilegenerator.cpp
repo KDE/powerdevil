@@ -79,33 +79,9 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         dpmsControl.writeEntry< uint >("idleTime", 600);
     }
 
-    // Easy part done. Now, any batteries?
-    bool hasBattery = false;
-
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
-        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
-            hasBattery = true;
-            break;
-        }
-    }
-
-    if (hasBattery) {
-        // Then we want to handle brightness in performance.
-        {
-            KConfigGroup brightnessControl(&acProfile, "BrightnessControl");
-            brightnessControl.writeEntry< int >("value", 100);
-        }
-    }
-
     // Powersave
     KConfigGroup batteryProfile(profilesConfig, "Battery");
     batteryProfile.writeEntry("icon", "battery-060");
-    // Less brightness.
-    {
-        KConfigGroup brightnessControl(&batteryProfile, "BrightnessControl");
-        brightnessControl.writeEntry< int >("value", 60);
-    }
     // We want to dim the screen after a while, definitely
     {
         KConfigGroup dimDisplay(&batteryProfile, "DimDisplay");
