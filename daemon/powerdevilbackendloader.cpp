@@ -22,31 +22,14 @@
 #include "powerdevilbackendloader.h"
 #include "powerdevil_debug.h"
 
-#ifdef HAVE_UDEV
 #include "backends/upower/powerdevilupowerbackend.h"
-#endif
-
-#include <QDebug>
 
 namespace PowerDevil {
 namespace BackendLoader {
 
-BackendInterface* loadBackend(QObject *parent)
+BackendInterface *loadBackend(QObject *parent)
 {
-#ifdef HAVE_UDEV
-    // Check UPower first
-    qCDebug(POWERDEVIL) << "Loading UPower backend...";
-    if (PowerDevilUPowerBackend::isAvailable()) {
-        qCDebug(POWERDEVIL) << "Success!";
-        return new PowerDevilUPowerBackend(parent);
-    }
-
-    qCDebug(POWERDEVIL) << "Failed!";
-#endif
-
-    // Fail...
-    qCDebug(POWERDEVIL) << "Failed!";
-    return 0;
+    return new PowerDevilUPowerBackend(parent);
 }
 
 }
