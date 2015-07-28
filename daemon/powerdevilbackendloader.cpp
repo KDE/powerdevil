@@ -25,7 +25,6 @@
 #ifdef HAVE_UDEV
 #include "backends/upower/powerdevilupowerbackend.h"
 #endif
-#include "backends/hal/powerdevilhalbackend.h"
 
 #include <QDebug>
 
@@ -44,13 +43,6 @@ BackendInterface* loadBackend(QObject *parent)
 
     qCDebug(POWERDEVIL) << "Failed!";
 #endif
-
-    // If we are here, try HAL
-    qCDebug(POWERDEVIL) << "Loading HAL backend...";
-    if (PowerDevilHALBackend::isAvailable()) {
-        qCDebug(POWERDEVIL) << "Success!";
-        return new PowerDevilHALBackend(parent);
-    }
 
     // Fail...
     qCDebug(POWERDEVIL) << "Failed!";
