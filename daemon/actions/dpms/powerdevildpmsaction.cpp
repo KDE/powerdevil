@@ -149,10 +149,25 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
         return;
     }
 
+    ScopedCPointer<xcb_dpms_info_reply_t> infoReply(xcb_dpms_info_reply(QX11Info::connection(),
+        xcb_dpms_info(QX11Info::connection()),
+    nullptr));
+
+    if (!infoReply) {
+        qCWarning(POWERDEVIL) << "Failed to query DPMS state, cannot trigger";
+        return;
+    }
+
     const QString type = args.value(QStringLiteral("Type")).toString();
     int level = 0;
 
-    if (type == QLatin1String("TurnOff")) {
+    if (type == QLatin1String("ToggleOnOff")) {
+        if (infoReply->power_level < XCB_DPMS_DPMS_MODE_OFF) {
+            level = XCB_DPMS_DPMS_MODE_OFF;
+        } else {
+            level = XCB_DPMS_DPMS_MODE_ON;
+        }
+    } else if (type == QLatin1String("TurnOff")) {
         level = XCB_DPMS_DPMS_MODE_OFF;
     } else if (type == QLatin1String("Standby")) {
         level = XCB_DPMS_DPMS_MODE_STANDBY;
@@ -161,15 +176,6 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
     } else {
         // this leaves DPMS enabled but if it's meant to be disabled
         // then the timeouts will be zero and so effectively disabled
-        return;
-    }
-
-    ScopedCPointer<xcb_dpms_info_reply_t> infoReply(xcb_dpms_info_reply(QX11Info::connection(),
-        xcb_dpms_info(QX11Info::connection()),
-    nullptr));
-
-    if (!infoReply) {
-        qCWarning(POWERDEVIL) << "Failed to query DPMS state, cannot trigger" << level;
         return;
     }
 

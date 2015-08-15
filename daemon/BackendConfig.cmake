@@ -46,19 +46,7 @@ if (UDEV_FOUND)
     kauth_install_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/backends/upower/backlight_helper_actions.actions)
 endif ()
 
-########################## HAL Backend #####################################
-
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/backends/hal)
-
-set(powerdevilhalbackend_SRCS
-    ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
-    backends/hal/halsuspendjob.cpp
-    backends/hal/powerdevilhalbackend.cpp
-)
-
-set(powerdevilhalbackend_LIBS KF5::Solid)
-
 ########################## Daemon variables ################################
 
-set(POWERDEVIL_BACKEND_SRCS ${powerdevilupowerbackend_SRCS} ${powerdevilhalbackend_SRCS})
-set(POWERDEVIL_BACKEND_LIBS ${powerdevilupowerbackend_LIBS} ${powerdevilhalbackend_LIBS})
+set(POWERDEVIL_BACKEND_SRCS ${powerdevilupowerbackend_SRCS})
+set(POWERDEVIL_BACKEND_LIBS ${powerdevilupowerbackend_LIBS})

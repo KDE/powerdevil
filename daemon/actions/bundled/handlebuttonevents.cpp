@@ -150,6 +150,10 @@ void HandleButtonEvents::processAction(uint action)
             // Turn off screen
             triggerAction("DPMSControl", QStringLiteral("TurnOff"));
             break;
+        case SuspendSession::ToggleScreenOnOffMode:
+            // Toggle screen on/off
+            triggerAction("DPMSControl", QStringLiteral("ToggleOnOff"));
+            break;
         default:
             triggerAction("SuspendSession", action);
             break;

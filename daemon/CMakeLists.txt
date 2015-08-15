@@ -109,9 +109,7 @@ if (XCB_FOUND)
     target_link_libraries(kded_powerdevil Qt5::X11Extras)
 endif ()
 
-if (UDEV_FOUND)
-    target_link_libraries(kded_powerdevil ${UDEV_LIBS})
-endif ()
+target_link_libraries(kded_powerdevil ${UDEV_LIBS})
 
 install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR})
 install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -131,7 +129,6 @@ target_link_libraries(powerdevilui
         KF5::ConfigCore
 )
 
-set(HAVE_UDEV ${UDEV_FOUND})
 set(HAVE_XCB ${XCB_FOUND})
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
