@@ -294,10 +294,14 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
             qCDebug(POWERDEVIL) << "Can hibernate";
             supported |= ToDisk;
         }
+
+        if (supported != UnknownSuspendMethod) {
+            m_useUPowerSuspend = true;
+        }
     }
 
     // "resuming" signal
-    if (m_login1Interface) {
+    if (m_login1Interface && !m_useUPowerSuspend) {
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1Resuming(bool)));
     } else {
         connect(m_upowerInterface, SIGNAL(Resuming()), this, SIGNAL(resumeFromSuspend()));
@@ -457,7 +461,7 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
 
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
-    if (m_login1Interface) {
+    if (m_login1Interface && !m_useUPowerSuspend) {
         return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
     } else {
         return new UPowerSuspendJob(m_upowerInterface, method, supportedSuspendMethods());
