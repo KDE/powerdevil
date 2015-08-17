@@ -110,6 +110,7 @@ private:
 
     // login1 interface
     QWeakPointer<QDBusInterface> m_login1Interface;
+    bool m_useUPowerSuspend = false;
 
     // buttons
     bool m_lidIsPresent;
