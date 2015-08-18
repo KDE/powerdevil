@@ -81,7 +81,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
-        m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
+        m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
     }
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);

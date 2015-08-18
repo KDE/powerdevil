@@ -99,7 +99,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         foreach (QComboBox *box, boxes) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
             if (methods.contains(Solid::PowerManagement::SuspendState)) {
-                box->addItem(QIcon::fromTheme("system-suspend"), i18n("Sleep"), (uint)SuspendSession::ToRamMode);
+                box->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
             }
             if (methods.contains(Solid::PowerManagement::HibernateState)) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);

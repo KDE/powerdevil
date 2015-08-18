@@ -57,7 +57,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     KGlobalAccel *accel = KGlobalAccel::self();
 
     QAction *globalAction = actionCollection->addAction("Sleep");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Sleep"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Suspend"));
     accel->setGlobalShortcut(globalAction, Qt::Key_Sleep);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
 

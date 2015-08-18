@@ -93,7 +93,7 @@ void ActivityWidget::load()
 
     if (methods.contains(Solid::PowerManagement::SuspendState)) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
-                                       i18n("Sleep"), (uint)SuspendSession::ToRamMode);
+                                       i18n("Suspend"), (uint)SuspendSession::ToRamMode);
     }
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
