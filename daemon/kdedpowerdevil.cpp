@@ -37,8 +37,9 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 
-K_PLUGIN_FACTORY( PowerDevilFactory,
-                  registerPlugin<KDEDPowerDevil>(); )
+K_PLUGIN_FACTORY_WITH_JSON(PowerDevilFactory,
+                           "powerdevil.json",
+                           registerPlugin<KDEDPowerDevil>();)
 
 KDEDPowerDevil::KDEDPowerDevil(QObject* parent, const QVariantList &)
     : KDEDModule(parent)

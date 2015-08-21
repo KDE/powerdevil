@@ -96,6 +96,8 @@ qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.fr
 include(BackendConfig.cmake)
 
 add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRCS})
+set_target_properties(kded_powerdevil PROPERTIES OUTPUT_NAME powerdevil)
+kcoreaddons_desktop_to_json(kded_powerdevil powerdevil.desktop)
 
 target_link_libraries(kded_powerdevil
     ${POWERDEVIL_BACKEND_LIBS}
@@ -111,7 +113,7 @@ endif ()
 
 target_link_libraries(kded_powerdevil ${UDEV_LIBS})
 
-install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
 install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
@@ -133,4 +135,3 @@ set(HAVE_XCB ${XCB_FOUND})
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
 install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES powerdevil.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
