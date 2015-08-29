@@ -40,7 +40,7 @@ int ScreenBrightnessLogic::calculateSteps(int maxValue) const
         return maxValue;
     }
 
-    if (maxValue >= 100 || maxValue % 20 == 0 || maxValue >= 80 && maxValue % 4 == 0) {
+    if (maxValue >= 100 || maxValue % 20 == 0 || (maxValue >= 80 && maxValue % 4 == 0)) {
         // In this case all 20 steps are perfect.
         return 20;
     }
