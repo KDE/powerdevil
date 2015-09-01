@@ -20,14 +20,14 @@
 
 
 #include "powerdevildpmsaction.h"
+#include "abstractdpmshelper.h"
+#include "xcbdpmshelper.h"
 
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 
 #include <config-workspace.h>
-
-#include <kwinkscreenhelpereffect.h>
 
 #include <QX11Info>
 #include <QDebug>
@@ -36,22 +36,16 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
-#include <xcb/dpms.h>
-
 K_PLUGIN_FACTORY(PowerDevilDPMSActionFactory, registerPlugin<PowerDevilDPMSAction>(); )
 
 PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
     : Action(parent)
-    , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
+    , m_helper()
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
-    ScopedCPointer<xcb_dpms_capable_reply_t> capableReply(xcb_dpms_capable_reply(QX11Info::connection(),
-        xcb_dpms_capable(QX11Info::connection()),
-    nullptr));
-
-    if (capableReply && capableReply->capable) {
-        m_supported = true;
+    if (QX11Info::isPlatformX11()) {
+        m_helper.reset(new XcbDpmsHelper);
     }
 
     // Is the action being loaded outside the core?
@@ -73,27 +67,26 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
+PowerDevilDPMSAction::~PowerDevilDPMSAction() = default;
+
 bool PowerDevilDPMSAction::isSupported()
 {
-    return m_supported;
+    return !m_helper.isNull() && m_helper->isSupported();
 }
 
 void PowerDevilDPMSAction::onProfileUnload()
 {
-    using namespace PowerDevil;
-
-    if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
-        xcb_dpms_disable(QX11Info::connection());
-    } else {
-        qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
+    if (m_helper.isNull()) {
+        return;
     }
-
-    xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
+    m_helper->profileUnloaded();
 }
 
 void PowerDevilDPMSAction::onWakeupFromIdle()
 {
-    m_fadeEffect->stop();
+    if (!m_helper.isNull()) {
+        m_helper->stopFade();
+    }
     if (m_oldKeyboardBrightness > 0) {
         setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
         m_oldKeyboardBrightness = 0;
@@ -108,7 +101,9 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
     }
 
     if (msec == m_idleTime * 1000 - 5000) { // fade out screen
-        m_fadeEffect->start();
+        if (!m_helper.isNull()) {
+            m_helper->startFade();
+        }
     } else if (msec == m_idleTime * 1000) {
         const int brightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
         if (brightness > 0) {
@@ -127,19 +122,10 @@ void PowerDevilDPMSAction::setKeyboardBrightnessHelper(int brightness)
 
 void PowerDevilDPMSAction::onProfileLoad()
 {
-    using namespace PowerDevil;
-
-    if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
-        xcb_dpms_enable(QX11Info::connection());
-    } else {
-        qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
+    if (m_helper.isNull()) {
         return;
     }
-
-    // An unloaded action will have m_idleTime = 0:
-    // DPMS enabled with zeroed timeouts is effectively disabled.
-    // So onProfileLoad is always safe
-    xcb_dpms_set_timeouts(QX11Info::connection(), m_idleTime, m_idleTime * 1.5, m_idleTime * 2);
+    m_helper->profileLoaded(m_idleTime);
 }
 
 void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
@@ -149,41 +135,10 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
         return;
     }
 
-    ScopedCPointer<xcb_dpms_info_reply_t> infoReply(xcb_dpms_info_reply(QX11Info::connection(),
-        xcb_dpms_info(QX11Info::connection()),
-    nullptr));
-
-    if (!infoReply) {
-        qCWarning(POWERDEVIL) << "Failed to query DPMS state, cannot trigger";
+    if (m_helper.isNull()) {
         return;
     }
-
-    const QString type = args.value(QStringLiteral("Type")).toString();
-    int level = 0;
-
-    if (type == QLatin1String("ToggleOnOff")) {
-        if (infoReply->power_level < XCB_DPMS_DPMS_MODE_OFF) {
-            level = XCB_DPMS_DPMS_MODE_OFF;
-        } else {
-            level = XCB_DPMS_DPMS_MODE_ON;
-        }
-    } else if (type == QLatin1String("TurnOff")) {
-        level = XCB_DPMS_DPMS_MODE_OFF;
-    } else if (type == QLatin1String("Standby")) {
-        level = XCB_DPMS_DPMS_MODE_STANDBY;
-    } else if (type == QLatin1String("Suspend")) {
-        level = XCB_DPMS_DPMS_MODE_SUSPEND;
-    } else {
-        // this leaves DPMS enabled but if it's meant to be disabled
-        // then the timeouts will be zero and so effectively disabled
-        return;
-    }
-
-    if (!infoReply->state) {
-        xcb_dpms_enable(QX11Info::connection());
-    }
-
-    xcb_dpms_force_level(QX11Info::connection(), level);
+    m_helper->trigger(args.value(QStringLiteral("Type")).toString());
 }
 
 bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
@@ -214,9 +169,9 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
 
     if (m_inhibitScreen) {
         // Inhibition triggered: disable DPMS
-        qCDebug(POWERDEVIL) << "Disabling DPMS due to inhibition";
-        xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
-        xcb_dpms_disable(QX11Info::connection()); // wakes the screen - do we want this?
+        if (!m_helper.isNull()) {
+            m_helper->inhibited();
+        }
     } else {
         // Inhibition removed: let's start again
         onProfileLoad();

@@ -2,7 +2,13 @@ include_directories(${PowerDevil_SOURCE_DIR}/daemon
                     ${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_CURRENT_BINARY_DIR})
 
-set(powerdevildpmsaction_SRCS ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp powerdevildpmsaction.cpp ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp)
+set(powerdevildpmsaction_SRCS
+    ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
+    powerdevildpmsaction.cpp
+    abstractdpmshelper.cpp
+    xcbdpmshelper.cpp
+    ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
+)
 
 add_library(powerdevildpmsaction MODULE ${powerdevildpmsaction_SRCS})
 target_link_libraries(powerdevildpmsaction

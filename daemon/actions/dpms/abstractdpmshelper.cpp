@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
- *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
+ *   Copyright (C) 2015 by Martin Gräßlin <mgraesslin@kde.org>             *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,50 +16,28 @@
  *   Free Software Foundation, Inc.,                                       *
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
+#include "abstractdpmshelper.h"
+#include <QtGlobal>
 
+AbstractDpmsHelper::~AbstractDpmsHelper() = default;
 
-#ifndef POWERDEVILDPMSACTION_H
-#define POWERDEVILDPMSACTION_H
-
-#include <powerdevilaction.h>
-
-#include <QScopedPointer>
-
-class AbstractDpmsHelper;
-
-class PowerDevilDPMSAction : public PowerDevil::Action
+void AbstractDpmsHelper::startFade()
 {
-    Q_OBJECT
-    Q_DISABLE_COPY(PowerDevilDPMSAction)
+}
 
-public:
-    explicit PowerDevilDPMSAction(QObject *parent, const QVariantList &);
-    virtual ~PowerDevilDPMSAction();
+void AbstractDpmsHelper::stopFade()
+{
+}
 
-protected:
-    virtual void onProfileUnload();
-    virtual bool onUnloadAction();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap &args);
-    bool isSupported();
+void AbstractDpmsHelper::profileLoaded(int idleTime)
+{
+    Q_UNUSED(idleTime)
+}
 
-public:
-    virtual bool loadAction(const KConfigGroup &config);
+void AbstractDpmsHelper::profileUnloaded()
+{
+}
 
-private Q_SLOTS:
-    void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
-
-private:
-    void setKeyboardBrightnessHelper(int brightness);
-
-    int m_idleTime = 0;
-    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
-
-    int m_oldKeyboardBrightness = 0;
-    QScopedPointer<AbstractDpmsHelper> m_helper;
-
-};
-
-#endif // POWERDEVILDPMSACTION_H
+void AbstractDpmsHelper::inhibited()
+{
+}

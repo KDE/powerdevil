@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
- *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
+ *   Copyright (C) 2015 by Martin Gräßlin <mgraesslin@kde.org>             *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,49 +17,34 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
+#ifndef ABSTRACTDPMSHELPER_H
+#define ABSTRACTDPMSHELPER_H
 
-#ifndef POWERDEVILDPMSACTION_H
-#define POWERDEVILDPMSACTION_H
+class QString;
 
-#include <powerdevilaction.h>
-
-#include <QScopedPointer>
-
-class AbstractDpmsHelper;
-
-class PowerDevilDPMSAction : public PowerDevil::Action
+class AbstractDpmsHelper
 {
-    Q_OBJECT
-    Q_DISABLE_COPY(PowerDevilDPMSAction)
-
 public:
-    explicit PowerDevilDPMSAction(QObject *parent, const QVariantList &);
-    virtual ~PowerDevilDPMSAction();
+    virtual ~AbstractDpmsHelper();
+
+    virtual void startFade();
+    virtual void stopFade();
+    virtual void trigger(const QString &type) = 0;
+    virtual void profileLoaded(int idleTime);
+    virtual void profileUnloaded();
+    virtual void inhibited();
+
+    bool isSupported() const {
+        return m_supported;
+    }
 
 protected:
-    virtual void onProfileUnload();
-    virtual bool onUnloadAction();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap &args);
-    bool isSupported();
-
-public:
-    virtual bool loadAction(const KConfigGroup &config);
-
-private Q_SLOTS:
-    void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
+    void setSupported(bool supported) {
+        m_supported = supported;
+    }
 
 private:
-    void setKeyboardBrightnessHelper(int brightness);
-
-    int m_idleTime = 0;
-    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
-
-    int m_oldKeyboardBrightness = 0;
-    QScopedPointer<AbstractDpmsHelper> m_helper;
-
+    bool m_supported = false;
 };
 
-#endif // POWERDEVILDPMSACTION_H
+#endif
