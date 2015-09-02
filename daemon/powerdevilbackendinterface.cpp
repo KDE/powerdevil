@@ -172,10 +172,12 @@ void BackendInterface::setBatteryState(PowerDevil::BackendInterface::BatteryStat
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
 {
-    if (type == LidClose) {
+    if (type == LidClose && !d->isLidClosed) {
         d->isLidClosed = true;
-    } else if (type == LidOpen) {
+        emit lidClosedChanged(true);
+    } else if (type == LidOpen && d->isLidClosed) {
         d->isLidClosed = false;
+        emit lidClosedChanged(false);
     }
     emit buttonPressed(type);
 }

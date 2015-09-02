@@ -90,6 +90,7 @@ Q_SIGNALS:
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
     void batteryRemainingTimeChanged(qulonglong time);
+    void lidClosedChanged(bool closed);
 
 private:
     void registerActionTimeout(Action *action, int timeout);
@@ -144,6 +145,7 @@ private Q_SLOTS:
     void onCriticalBatteryTimerExpired();
     void onNotificationTimeout();
     void onServiceRegistered(const QString &service);
+    void onLidClosedChanged(bool closed);
 };
 
 }

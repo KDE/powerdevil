@@ -287,6 +287,13 @@ Q_SIGNALS:
      */
     void resumeFromSuspend();
 
+    /**
+     * This signal is emitted when the laptop lid is closed or opened
+     *
+     * @param closed Whether the lid is now closed or not
+     */
+    void lidClosedChanged(bool closed);
+
 protected:
     void setCapabilities(Capabilities capabilities);
 

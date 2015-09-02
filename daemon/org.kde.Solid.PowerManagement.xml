@@ -42,5 +42,8 @@
     <signal name="batteryRemainingTimeChanged">
       <arg type="t" direction="out" />
     </signal>
+    <signal name="lidClosedChanged">
+      <arg type="b" direction="out" />
+    </signal>
   </interface>
 </node>

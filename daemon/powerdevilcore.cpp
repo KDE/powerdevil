@@ -119,6 +119,8 @@ void Core::onBackendReady()
             this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
     connect(m_backend, SIGNAL(batteryRemainingTimeChanged(qulonglong)),
             this, SLOT(onBatteryRemainingTimeChanged(qulonglong)));
+    connect(m_backend, SIGNAL(lidClosedChanged(bool)),
+            this, SLOT(onLidClosedChanged(bool)));
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
@@ -649,6 +651,11 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
     if (!m_pendingResumeFromIdleActions.isEmpty()) {
         KIdleTime::instance()->catchNextResumeEvent();
     }
+}
+
+void Core::onLidClosedChanged(bool closed)
+{
+    emit lidClosedChanged(closed);
 }
 
 void Core::registerActionTimeout(Action* action, int timeout)
