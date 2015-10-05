@@ -33,7 +33,6 @@ public:
     virtual void profileLoaded(int idleTime);
     virtual void profileUnloaded();
     virtual void inhibited();
-    virtual void dpmsTimeout();
 
     bool isSupported() const {
         return m_supported;

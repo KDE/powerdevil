@@ -41,7 +41,3 @@ void AbstractDpmsHelper::profileUnloaded()
 void AbstractDpmsHelper::inhibited()
 {
 }
-
-void AbstractDpmsHelper::dpmsTimeout()
-{
-}
