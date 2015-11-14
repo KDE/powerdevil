@@ -415,11 +415,7 @@ void Core::onDeviceAdded(const QString& udi)
     qCDebug(POWERDEVIL) << "A new battery was detected";
 
     m_batteriesPercent[udi] = b->chargePercent();
-    if (b->chargeState() == Solid::Battery::NoCharge) {
-      m_batteriesCharged[udi] = true;
-    } else {
-      m_batteriesCharged[udi] = false;
-    }
+    m_batteriesCharged[udi] = (b->chargeState() == Solid::Battery::FullyCharged);
     m_loadedBatteriesUdi.append(udi);
 
     const int chargePercent = currentChargePercent();
@@ -581,21 +577,21 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
 void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 {
     bool previousCharged = true;
-    for (QHash<QString,bool>::const_iterator i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
+    for (auto i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
         if (!i.value()) {
             previousCharged = false;
             break;
         }
     }
 
-    m_batteriesCharged[udi] = (state == Solid::Battery::NoCharge);
+    m_batteriesCharged[udi] = (state == Solid::Battery::FullyCharged);
 
     if (m_backend->acAdapterState() != BackendInterface::Plugged) {
         return;
     }
 
     bool currentCharged = true;
-    for (QHash<QString,bool>::const_iterator i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
+    for (auto i = m_batteriesCharged.constBegin(); i != m_batteriesCharged.constEnd(); ++i) {
         if (!i.value()) {
             currentCharged = false;
             break;
