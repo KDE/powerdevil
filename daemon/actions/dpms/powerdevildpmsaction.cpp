@@ -22,6 +22,7 @@
 #include "powerdevildpmsaction.h"
 #include "abstractdpmshelper.h"
 #include "xcbdpmshelper.h"
+#include "waylanddpmshelper.h"
 
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
@@ -29,6 +30,7 @@
 
 #include <config-workspace.h>
 
+#include <QGuiApplication>
 #include <QX11Info>
 #include <QDebug>
 
@@ -46,6 +48,8 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
 
     if (QX11Info::isPlatformX11()) {
         m_helper.reset(new XcbDpmsHelper);
+    } else if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
+        m_helper.reset(new WaylandDpmsHelper);
     }
 
     // Is the action being loaded outside the core?
@@ -109,6 +113,9 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
         if (brightness > 0) {
             m_oldKeyboardBrightness = brightness;
             setKeyboardBrightnessHelper(0);
+        }
+        if (!m_helper.isNull()) {
+            m_helper->dpmsTimeout();
         }
     }
 }

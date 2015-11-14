@@ -7,6 +7,7 @@ set(powerdevildpmsaction_SRCS
     powerdevildpmsaction.cpp
     abstractdpmshelper.cpp
     xcbdpmshelper.cpp
+    waylanddpmshelper.cpp
     ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
 )
 
@@ -17,6 +18,7 @@ target_link_libraries(powerdevildpmsaction
         XCB::DPMS
         KF5::CoreAddons
         KF5::ConfigGui
+        KF5::WaylandClient
         Qt5::Widgets
         powerdevilcore)
 install(TARGETS powerdevildpmsaction DESTINATION ${PLUGIN_INSTALL_DIR})

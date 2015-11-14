@@ -17,35 +17,47 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef ABSTRACTDPMSHELPER_H
-#define ABSTRACTDPMSHELPER_H
+#ifndef WAYLANDDPMSHELPER_H
+#define WAYLANDDPMSHELPER_H
 
-class QString;
+#include "abstractdpmshelper.h"
 
-class AbstractDpmsHelper
+#include <KWayland/Client/dpms.h>
+
+#include <QObject>
+#include <QMap>
+
+namespace KWayland
 {
+namespace Client
+{
+
+class ConnectionThread;
+class Registry;
+
+}
+}
+
+class WaylandDpmsHelper : public QObject, public AbstractDpmsHelper
+{
+    Q_OBJECT
+
 public:
-    virtual ~AbstractDpmsHelper();
-
-    virtual void startFade();
-    virtual void stopFade();
-    virtual void trigger(const QString &type) = 0;
-    virtual void profileLoaded(int idleTime);
-    virtual void profileUnloaded();
-    virtual void inhibited();
-    virtual void dpmsTimeout();
-
-    bool isSupported() const {
-        return m_supported;
-    }
-
-protected:
-    void setSupported(bool supported) {
-        m_supported = supported;
-    }
+    WaylandDpmsHelper();
+    ~WaylandDpmsHelper() override;
+    void trigger(const QString &type) override;
+    void dpmsTimeout() override;
 
 private:
-    bool m_supported = false;
+    void init();
+    void initWithRegistry();
+    void initOutput(quint32 name, quint32 version);
+    void requestMode(KWayland::Client::Dpms::Mode mode);
+
+    KWayland::Client::ConnectionThread *m_connection = nullptr;
+    KWayland::Client::Registry *m_registry = nullptr;
+    KWayland::Client::DpmsManager *m_dpmsManager = nullptr;
+    QMap<KWayland::Client::Output*, KWayland::Client::Dpms*> m_dpms;
 };
 
 #endif
