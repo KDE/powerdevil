@@ -349,7 +349,13 @@ int PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::B
     }
 
     int currentBrightness = brightness(controlType);
-    if (currentBrightness != m_cachedBrightnessMap.value(controlType)) {
+    // m_cachedBrightnessMap is not being updated during animation, thus checking the m_cachedBrightnessMap
+    // value here doesn't make much sense, use the endValue from brightness() anyway.
+    // This prevents brightness key being ignored during the animation.
+    if (!(controlType == Screen &&
+          m_brightnessAnimation &&
+          m_brightnessAnimation->state() == QPropertyAnimation::Running) &&
+        currentBrightness != m_cachedBrightnessMap.value(controlType)) {
         m_cachedBrightnessMap[controlType] = currentBrightness;
         return currentBrightness;
     }
