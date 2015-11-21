@@ -43,6 +43,7 @@ K_PLUGIN_FACTORY_WITH_JSON(PowerDevilFactory,
 
 KDEDPowerDevil::KDEDPowerDevil(QObject* parent, const QVariantList &)
     : KDEDModule(parent)
+    , m_core(Q_NULLPTR)
 {
     QTimer::singleShot(0, this, SLOT(init()));
 }
@@ -65,9 +66,9 @@ void KDEDPowerDevil::init()
 //     aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
 //                         "http://drfav.wordpress.com");
 
-    if (QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.PowerManagement") ||
-        QDBusConnection::systemBus().interface()->isServiceRegistered("com.novell.powersave") ||
-        QDBusConnection::systemBus().interface()->isServiceRegistered("org.freedesktop.Policy.Power")) {
+    if (QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.PowerManagement")) ||
+        QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("com.novell.powersave")) ||
+        QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.Policy.Power"))) {
         qCCritical(POWERDEVIL) << "KDE Power Management system not initialized, another power manager has been detected";
         return;
     }
@@ -97,8 +98,8 @@ void KDEDPowerDevil::onCoreReady()
     new PowerManagementAdaptor(m_core);
     new PowerDevil::FdoConnector(m_core);
 
-    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement");
-    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement", m_core);
+    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement"));
+    QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement"), m_core);
 
     QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
 
@@ -107,8 +108,8 @@ void KDEDPowerDevil::onCoreReady()
     qDBusRegisterMetaType<InhibitionInfo>();
     new PowerManagementPolicyAgentAdaptor(PowerDevil::PolicyAgent::instance());
 
-    QDBusConnection::sessionBus().registerService("org.kde.Solid.PowerManagement.PolicyAgent");
-    QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement/PolicyAgent", PowerDevil::PolicyAgent::instance());
+    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
+    QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"), PowerDevil::PolicyAgent::instance());
 }
 
 #include "kdedpowerdevil.moc"

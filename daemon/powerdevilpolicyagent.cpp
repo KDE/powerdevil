@@ -94,6 +94,7 @@ PolicyAgent::PolicyAgent(QObject* parent)
     , m_busWatcher(new QDBusServiceWatcher(this))
     , m_sdWatcher(new QDBusServiceWatcher(this))
     , m_ckWatcher(new QDBusServiceWatcher(this))
+    , m_wasLastActiveSession(false)
 {
     Q_ASSERT(!s_globalPolicyAgent->q);
     s_globalPolicyAgent->q = this;
@@ -326,7 +327,7 @@ void PolicyAgent::onActiveSessionChanged(const QString & ifaceName, const QVaria
 
 void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
 {
-    if (activeSession.isEmpty() || activeSession == "/") {
+    if (activeSession.isEmpty() || activeSession == QLatin1String("/")) {
         qCDebug(POWERDEVIL) << "Switched to inactive session - leaving unchanged";
         return;
     } else if ((!m_sdSessionInterface.isNull() && activeSession == m_sdSessionInterface.data()->path()) ||

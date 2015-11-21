@@ -35,7 +35,7 @@ public:
 
     PowerDevil::Core *core;
 
-    QList< int > registeredIdleTimeouts;
+    QVector< int > registeredIdleTimeouts;
     PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies;
 };
 

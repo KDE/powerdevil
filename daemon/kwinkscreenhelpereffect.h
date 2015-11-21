@@ -71,7 +71,7 @@ private:
     QTimer m_abortTimer;
 
 #ifdef HAVE_XCB
-    xcb_atom_t m_atom;
+    xcb_atom_t m_atom = 0;
 #endif
 
 };

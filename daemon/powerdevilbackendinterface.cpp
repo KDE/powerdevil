@@ -29,12 +29,13 @@ namespace PowerDevil
 class BackendInterface::Private
 {
 public:
-    Private() : batteryRemainingTime(0), isReady(false), isError(false), isLidClosed(false), isLidPresent(false) {}
+    Private() : acAdapterState(UnknownAcAdapterState), batteryState(NoBatteryState), batteryRemainingTime(0),
+                isReady(false), isError(false), isLidClosed(false), isLidPresent(false) {}
     ~Private() {}
 
     AcAdapterState acAdapterState;
-    qulonglong batteryRemainingTime;
     BatteryState batteryState;
+    qulonglong batteryRemainingTime;
     QHash< BrightnessControlType, BrightnessLogic* > brightnessLogic;
     BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;

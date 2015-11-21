@@ -124,16 +124,16 @@ void BacklightHelper::initUsingSysctl()
      * device with brightness management, then.
      */
     QStringList types;
-    types << "lcd" << "out" << "crt" << "tv" << "ext";
+    types << QStringLiteral("lcd") << QStringLiteral("out") << QStringLiteral("crt") << QStringLiteral("tv") << QStringLiteral("ext");
     foreach (const QString &type, types) {
         for (int i = 0; m_sysctlDevice.isEmpty(); i++) {
-            QString device = QString("%1%2").arg(type, QString::number(i));
+            QString device = QStringLiteral("%1%2").arg(type, QString::number(i));
             // We don't care about the value, we only want the sysctl to be there.
-            if (!HAS_SYSCTL(qPrintable(QString("hw.acpi.video.%1.active").arg(device)))) {
+            if (!HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.active").arg(device)))) {
                 break;
             }
-            if (HAS_SYSCTL(qPrintable(QString("hw.acpi.video.%1.brightness").arg(device))) &&
-                HAS_SYSCTL(qPrintable(QString("hw.acpi.video.%1.levels").arg(device)))) {
+            if (HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(device))) &&
+                HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(device)))) {
                 m_sysctlDevice = device;
                 break;
             }
@@ -145,7 +145,7 @@ void BacklightHelper::initUsingSysctl()
     }
 
     size_t len;
-    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), NULL, &len, NULL, 0) != 0 ||
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), NULL, &len, NULL, 0) != 0 ||
         len == 0) {
         return;
     }
@@ -184,7 +184,7 @@ ActionReply BacklightHelper::brightness(const QVariantMap &args)
 
 #ifdef USE_SYSCTL
     size_t len = sizeof(int);
-    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, NULL, 0) != 0) {
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, NULL, 0) != 0) {
         reply = ActionReply::HelperErrorReply();
         return reply;
     }
@@ -242,12 +242,12 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
         d1 = d2;
     }
     size_t len = sizeof(int);
-    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), NULL, NULL, &actual_level, len) != 0) {
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), NULL, NULL, &actual_level, len) != 0) {
         reply = ActionReply::HelperErrorReply();
         return reply;
     }
 #else
-    QFile file(m_dirname + "/brightness");
+    QFile file(m_dirname + QLatin1String("/brightness"));
     if (!file.open(QIODevice::WriteOnly)) {
         reply = ActionReply::HelperErrorReply();
 //         reply.setErrorCode(ActionReply::ActionReply::UserCancelledError);
@@ -300,7 +300,7 @@ ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
 #ifdef USE_SYSCTL
     max_brightness = m_sysctlBrightnessLevels.last();
 #else
-    QFile file(m_dirname + "/max_brightness");
+    QFile file(m_dirname + QLatin1String("/max_brightness"));
     if (!file.open(QIODevice::ReadOnly)) {
         reply = ActionReply::HelperErrorReply();
 //         reply.setErrorCode(file.error());

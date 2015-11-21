@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"powerdevil\")
+add_definitions(-DTRANSLATION_DOMAIN=\"powerdevil\" -DQT_USE_QSTRINGBUILDER)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_CURRENT_BINARY_DIR})

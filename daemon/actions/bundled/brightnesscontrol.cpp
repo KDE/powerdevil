@@ -51,12 +51,12 @@ BrightnessControl::BrightnessControl(QObject* parent)
     KGlobalAccel *accel = KGlobalAccel::self();
     KActionCollection* actionCollection = new KActionCollection( this );
 
-    QAction* globalAction = actionCollection->addAction("Increase Screen Brightness");
+    QAction* globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
     accel->setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
 
-    globalAction = actionCollection->addAction("Decrease Screen Brightness");
+    globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
     accel->setGlobalShortcut(globalAction, Qt::Key_MonBrightnessDown);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
@@ -81,8 +81,8 @@ void BrightnessControl::onProfileLoad()
 {
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
-    if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
-         (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
+    if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
+         (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
         m_defaultValue > brightness()) {
 
         // We don't want to change anything here
@@ -94,8 +94,8 @@ void BrightnessControl::onProfileLoad()
         };
 
         // plugging in/out the AC is always explicit
-        if ((m_currentProfile == "AC" && m_lastProfile != "AC") ||
-            (m_currentProfile != "AC" && m_lastProfile == "AC")) {
+        if ((m_currentProfile == QLatin1String("AC") && m_lastProfile != QLatin1String("AC")) ||
+            (m_currentProfile != QLatin1String("AC") && m_lastProfile == QLatin1String("AC"))) {
             args["Explicit"] = true;
             args["Silent"] = true; // but we still don't want to show the OSD then
         }

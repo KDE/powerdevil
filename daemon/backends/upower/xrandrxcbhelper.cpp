@@ -26,6 +26,7 @@ bool XRandRXCBHelper::s_init = false;
 XRandRInfo XRandRXCBHelper::s_xrandrInfo;
 
 XRandRXCBHelper::XRandRXCBHelper() : QObject()
+    , m_window(0)
 {
     if (!s_init) {
         init();
@@ -93,7 +94,7 @@ void XRandRXCBHelper::init()
     s_xrandrInfo.eventType = s_xrandrInfo.eventBase + XCB_RANDR_NOTIFY;
     s_xrandrInfo.majorOpcode = reply->major_opcode;
 
-    QByteArray backlight("Backlight");
+    QByteArray backlight = QByteArrayLiteral("Backlight");
 
     /*This is KDE5... the world of opengl and wayland (almost), I don't think we really need to
     check the old BACKLIGHT atom*/

@@ -45,11 +45,14 @@
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
-    : BackendInterface(parent),
-      m_displayDevice(Q_NULLPTR),
-      m_brightnessControl(Q_NULLPTR),
-      m_kbdMaxBrightness(0),
-      m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
+    : BackendInterface(parent)
+    , m_displayDevice(Q_NULLPTR)
+    , m_brightnessControl(Q_NULLPTR)
+    , m_randrHelper(Q_NULLPTR)
+    , m_upowerInterface(Q_NULLPTR)
+    , m_kbdBacklight(Q_NULLPTR)
+    , m_kbdMaxBrightness(0)
+    , m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
 {
 
 }
@@ -269,17 +272,17 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     if (m_login1Interface) {
         QDBusPendingReply<QString> canSuspend = m_login1Interface.data()->asyncCall("CanSuspend");
         canSuspend.waitForFinished();
-        if (canSuspend.isValid() && (canSuspend.value() == "yes" || canSuspend.value() == "challenge"))
+        if (canSuspend.isValid() && (canSuspend.value() == QLatin1String("yes") || canSuspend.value() == QLatin1String("challenge")))
             supported |= ToRam;
 
         QDBusPendingReply<QString> canHibernate = m_login1Interface.data()->asyncCall("CanHibernate");
         canHibernate.waitForFinished();
-        if (canHibernate.isValid() && (canHibernate.value() == "yes" || canHibernate.value() == "challenge"))
+        if (canHibernate.isValid() && (canHibernate.value() == QLatin1String("yes") || canHibernate.value() == QLatin1String("challenge")))
             supported |= ToDisk;
 
         QDBusPendingReply<QString> canHybridSleep = m_login1Interface.data()->asyncCall("CanHybridSleep");
         canHybridSleep.waitForFinished();
-        if (canHybridSleep.isValid() && (canHybridSleep.value() == "yes" || canHybridSleep.value() == "challenge"))
+        if (canHybridSleep.isValid() && (canHybridSleep.value() == QLatin1String("yes") || canHybridSleep.value() == QLatin1String("challenge")))
             supported |= HybridSuspend;
     }
 

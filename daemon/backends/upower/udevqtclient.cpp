@@ -63,11 +63,11 @@ void ClientPrivate::setWatchedSubsystems(const QStringList &subsystemList)
 
     // apply our filters; an empty list means listen to everything
     Q_FOREACH (const QString& subsysDevtype, subsystemList) {
-        int ix = subsysDevtype.indexOf("/");
+        int ix = subsysDevtype.indexOf(u'/');
 
         if (ix > 0) {
-            QByteArray subsystem = subsysDevtype.left(ix).toLatin1();
-            QByteArray devType = subsysDevtype.mid(ix + 1).toLatin1();
+            QByteArray subsystem = subsysDevtype.leftRef(ix).toLatin1();
+            QByteArray devType = subsysDevtype.midRef(ix + 1).toLatin1();
             udev_monitor_filter_add_match_subsystem_devtype(newM, subsystem.constData(), devType.constData());
         } else {
             udev_monitor_filter_add_match_subsystem_devtype(newM, subsysDevtype.toLatin1().constData(), NULL);

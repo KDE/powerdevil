@@ -97,8 +97,8 @@ void KeyboardBrightnessControl::onProfileLoad()
 {
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
-    if (((m_currentProfile == "Battery" && m_lastProfile == "AC") ||
-         (m_currentProfile == "LowBattery" && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
+    if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
+         (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
         m_defaultValue > keyboardBrightness()) {
 
         // We don't want to change anything here
@@ -110,8 +110,8 @@ void KeyboardBrightnessControl::onProfileLoad()
         };
 
         // plugging in/out the AC is always explicit
-        if ((m_currentProfile == "AC" && m_lastProfile != "AC") ||
-            (m_currentProfile != "AC" && m_lastProfile == "AC")) {
+        if ((m_currentProfile == QLatin1String("AC") && m_lastProfile != QLatin1String("AC")) ||
+            (m_currentProfile != QLatin1String("AC") && m_lastProfile == QLatin1String("AC"))) {
             args["Explicit"] = true;
             args["Silent"] = true; // but we still don't want to show the OSD then
         }
