@@ -29,6 +29,8 @@
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
 
+#include <KIdleTime>
+
 #include "powerdevilpolicyagent.h"
 #include "powerdevil_debug.h"
 
@@ -334,6 +336,9 @@ void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
                (!m_ckSessionInterface.isNull() && activeSession == m_ckSessionInterface.data()->path())) {
         qCDebug(POWERDEVIL) << "Current session is now active";
         m_wasLastActiveSession = true;
+
+        // sessions usually don't switch themselves, prevents session from suspending when switching back to it after a while
+        KIdleTime::instance()->simulateUserActivity();
     } else {
         qCDebug(POWERDEVIL) << "Current session is now inactive";
         m_wasLastActiveSession = false;

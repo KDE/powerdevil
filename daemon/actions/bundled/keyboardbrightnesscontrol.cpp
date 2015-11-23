@@ -56,12 +56,12 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     KActionCollection* actionCollection = new KActionCollection( this );
     KGlobalAccel *accel = KGlobalAccel::self();
 
-    QAction *globalAction = actionCollection->addAction("Increase Keyboard Brightness");
+    QAction *globalAction = actionCollection->addAction(QLatin1String("Increase Keyboard Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessUp);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
 
-    globalAction = actionCollection->addAction("Decrease Keyboard Brightness");
+    globalAction = actionCollection->addAction(QLatin1String("Decrease Keyboard Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessDown);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
@@ -95,18 +95,18 @@ void KeyboardBrightnessControl::onIdleTimeout(int msec)
 
 void KeyboardBrightnessControl::onProfileLoad()
 {
+    const int absoluteKeyboardBrightnessValue = qRound(m_defaultValue / 100.0 * keyboardBrightnessMax());
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
     if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
          (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
-        m_defaultValue > keyboardBrightness()) {
+        absoluteKeyboardBrightnessValue > keyboardBrightness()) {
 
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
-    } else if (m_defaultValue > 0) {
-        const int absoluteValue = qRound(m_defaultValue / 100.0 * keyboardBrightnessMax());
+    } else if (absoluteKeyboardBrightnessValue > 0) {
         QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteValue)}
+            {QStringLiteral("Value"), QVariant::fromValue(absoluteKeyboardBrightnessValue)}
         };
 
         // plugging in/out the AC is always explicit

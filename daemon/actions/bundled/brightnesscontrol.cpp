@@ -79,18 +79,19 @@ void BrightnessControl::onIdleTimeout(int msec)
 
 void BrightnessControl::onProfileLoad()
 {
+    const int absoluteBrightnessValue = qRound(m_defaultValue / 100.0 * brightnessMax());
+
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
     if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
          (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
-        m_defaultValue > brightness()) {
+        absoluteBrightnessValue > brightness()) {
 
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
-    } else if (m_defaultValue >= 0) {
-        const int absoluteValue = qRound(m_defaultValue / 100.0 * brightnessMax());
+    } else if (absoluteBrightnessValue >= 0) {
         QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteValue)}
+            {QStringLiteral("Value"), QVariant::fromValue(absoluteBrightnessValue)}
         };
 
         // plugging in/out the AC is always explicit
