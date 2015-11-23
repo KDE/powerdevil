@@ -99,7 +99,7 @@ void KeyboardBrightnessControl::onProfileLoad()
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
     if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
-         (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == "AC" || m_lastProfile == "Battery"))) &&
+         (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == QLatin1String("AC") || m_lastProfile == QLatin1String("Battery")))) &&
         absoluteKeyboardBrightnessValue > keyboardBrightness()) {
 
         // We don't want to change anything here
