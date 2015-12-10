@@ -181,6 +181,7 @@ Comment[zh_TW]=用於警告通知
 [Context/stdnot]
 Name=Notification
 Name[ar]=تنبيه
+Name[ast]=Avisu
 Name[bs]=Obavještenje
 Name[ca]=Notificació
 Name[ca@valencia]=Notificació
