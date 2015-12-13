@@ -29,6 +29,15 @@ XRandrBrightness::XRandrBrightness()
     if (!QX11Info::isPlatformX11()) {
         return;
     }
+
+    xcb_prefetch_extension_data(QX11Info::connection(), &xcb_randr_id);
+    // this reply, for once, does not need to be managed by us
+    auto *extension = xcb_get_extension_data(QX11Info::connection(), &xcb_randr_id);
+    if (!extension || !extension->present) {
+        qCWarning(POWERDEVIL) << "XRandR extension not available";
+        return;
+    }
+
     ScopedCPointer<xcb_randr_query_version_reply_t> versionReply(xcb_randr_query_version_reply(QX11Info::connection(),
         xcb_randr_query_version(QX11Info::connection(), 1, 2),
     nullptr));
