@@ -29,8 +29,19 @@ XRandrBrightness::XRandrBrightness()
     if (!QX11Info::isPlatformX11()) {
         return;
     }
-    ScopedCPointer<xcb_randr_query_version_reply_t> versionReply(xcb_randr_query_version_reply(QX11Info::connection(),
-        xcb_randr_query_version(QX11Info::connection(), 1, 2),
+
+    auto *c = QX11Info::connection();
+
+    xcb_prefetch_extension_data(c, &xcb_randr_id);
+    // this reply, for once, does not need to be managed by us
+    auto *extension = xcb_get_extension_data(c, &xcb_randr_id);
+    if (!extension || !extension->present) {
+        qCWarning(POWERDEVIL) << "XRandR extension not available";
+        return;
+    }
+
+    ScopedCPointer<xcb_randr_query_version_reply_t> versionReply(xcb_randr_query_version_reply(c,
+        xcb_randr_query_version(c, 1, 2),
     nullptr));
 
     if (!versionReply) {
@@ -43,8 +54,8 @@ XRandrBrightness::XRandrBrightness()
         return;
     }
 
-    ScopedCPointer<xcb_intern_atom_reply_t> backlightReply(xcb_intern_atom_reply(QX11Info::connection(),
-        xcb_intern_atom (QX11Info::connection(), 1, strlen("Backlight"), "Backlight"),
+    ScopedCPointer<xcb_intern_atom_reply_t> backlightReply(xcb_intern_atom_reply(c,
+        xcb_intern_atom(c, 1, strlen("Backlight"), "Backlight"),
     nullptr));
 
     if (!backlightReply) {
@@ -59,7 +70,7 @@ XRandrBrightness::XRandrBrightness()
         return;
     }
 
-    xcb_screen_iterator_t iter = xcb_setup_roots_iterator(xcb_get_setup(QX11Info::connection()));
+    xcb_screen_iterator_t iter = xcb_setup_roots_iterator(xcb_get_setup(c));
     if (!iter.rem) {
         qCWarning(POWERDEVIL, "XCB Screen Roots Iterator rem was null");
         return;
@@ -68,8 +79,8 @@ XRandrBrightness::XRandrBrightness()
     xcb_screen_t *screen = iter.data;
     xcb_window_t root = screen->root;
 
-    m_resources.reset(xcb_randr_get_screen_resources_current_reply(QX11Info::connection(),
-        xcb_randr_get_screen_resources_current(QX11Info::connection(), root)
+    m_resources.reset(xcb_randr_get_screen_resources_current_reply(c,
+        xcb_randr_get_screen_resources_current(c, root)
     , nullptr));
 
     if (!m_resources) {
