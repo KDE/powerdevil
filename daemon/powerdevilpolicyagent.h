@@ -26,6 +26,7 @@
 #include <QHash>
 #include <QStringList>
 #include <QWeakPointer>
+#include <QVector>
 
 #include <QDBusContext>
 #include <QDBusUnixFileDescriptor>
@@ -133,6 +134,8 @@ private:
     QHash< uint, QPair< QString, QString > > m_cookieToAppName;
     QHash< uint, QString > m_cookieToBusService;
     QHash< RequiredPolicy, QList< uint > > m_typesToCookie;
+
+    QVector<int> m_pendingInhibitions;
 
     uint m_lastCookie;
 

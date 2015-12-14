@@ -28,6 +28,7 @@
 #include <QDBusPendingReply>
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
+#include <QTimer>
 
 #include <KIdleTime>
 
@@ -429,56 +430,55 @@ void PolicyAgent::finishSessionInterruption()
     m_sessionIsBeingInterrupted = false;
 }
 
-uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString& appName,
-                                                       const QString& reason, const QString& service)
+uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString &appName,
+                                                       const QString &reason, const QString &service)
 {
     ++m_lastCookie;
 
-    m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
+    const int cookie = m_lastCookie; // when the Timer below fires, m_lastCookie might be different already
 
-    if (!m_busWatcher.isNull() && !service.isEmpty()) {
-        m_cookieToBusService.insert(m_lastCookie, service);
-        m_busWatcher.data()->addWatchedService(service);
-    }
+    m_pendingInhibitions.append(cookie);
 
-    qCDebug(POWERDEVIL) << "Added inhibition from an explicit DBus service, " << service << ", with cookie " <<
-            m_lastCookie << " from " << appName << " with " << reason;
+    qCDebug(POWERDEVIL) << "Scheduling inhibition from" << service << appName << "with cookie"
+                        << cookie << "and reason" << reason;
 
-    addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
+    // wait 5s before actually enforcing the inhibition
+    // there might be short interruptions (such as receiving a message) where an app might automatically
+    // post an inhibition but we don't want the system to constantly wakeup because of this
+    QTimer::singleShot(5000, this, [=] {
+        qCDebug(POWERDEVIL) << "Enforcing inhibition from" << service << appName << "with cookie"
+                            << cookie << "and reason" << reason;
 
-    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
-
-    return m_lastCookie;
-}
-
-uint PolicyAgent::AddInhibition(uint types,
-                                const QString& appName,
-                                const QString& reason)
-{
-    ++m_lastCookie;
-
-    m_cookieToAppName.insert(m_lastCookie, qMakePair<QString, QString>(appName, reason));
-
-    // Retrieve the service, if we've been called from DBus
-    if (calledFromDBus() && !m_busWatcher.isNull()) {
-        if (!message().service().isEmpty()) {
-            qCDebug(POWERDEVIL) << "DBus service " << message().service() << " is requesting inhibition";
-            m_cookieToBusService.insert(m_lastCookie, message().service());
-            m_busWatcher.data()->addWatchedService(message().service());
+        if (!m_pendingInhibitions.contains(cookie)) {
+            qCDebug(POWERDEVIL) << "By the time we wanted to enforce the inhibition it was already gone; discarding it";
+            return;
         }
-    }
 
-    qCDebug(POWERDEVIL) << "Added inhibition with cookie " << m_lastCookie << " from " <<
-            appName << " with " << reason;
+        m_cookieToAppName.insert(cookie, qMakePair<QString, QString>(appName, reason));
 
-    addInhibitionTypeHelper(m_lastCookie, static_cast< PolicyAgent::RequiredPolicies >(types));
+        if (!m_busWatcher.isNull() && !service.isEmpty()) {
+            m_cookieToBusService.insert(cookie, service);
+            m_busWatcher.data()->addWatchedService(service);
+        }
 
-    emit InhibitionsChanged({ {qMakePair(appName, reason)} }, QStringList());
+        addInhibitionTypeHelper(cookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
-    return m_lastCookie;
+        emit InhibitionsChanged({ {qMakePair(appName, reason)} }, {});
+
+        m_pendingInhibitions.removeOne(cookie);
+    });
+
+    return cookie;
 }
 
-
+uint PolicyAgent::AddInhibition(uint types, const QString &appName, const QString &reason)
+{
+    if (calledFromDBus()) {
+        return addInhibitionWithExplicitDBusService(types, appName, reason, message().service());
+    } else {
+        return addInhibitionWithExplicitDBusService(types, appName, reason, QString());
+    }
+}
 
 void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPolicies types)
 {
@@ -518,7 +518,14 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 
 void PolicyAgent::ReleaseInhibition(uint cookie)
 {
-    qCDebug(POWERDEVIL) << "Released inhibition with cookie " << cookie;
+    qCDebug(POWERDEVIL) << "Releasing inhibition with cookie " << cookie;
+
+    if (m_pendingInhibitions.contains(cookie)) {
+        qCDebug(POWERDEVIL) << "It was only scheduled for inhibition but not enforced yet, just discarding it";
+        m_pendingInhibitions.removeOne(cookie);
+        return;
+    }
+
     emit InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
     m_cookieToAppName.remove(cookie);
 
