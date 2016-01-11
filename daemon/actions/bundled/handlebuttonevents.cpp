@@ -230,7 +230,7 @@ void HandleButtonEvents::checkOutputs()
     bool hasExternalMonitor = false;
 
     for(const KScreen::OutputPtr &output : m_screenConfiguration->outputs()) {
-        if (output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel) {
+        if (output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel && output->type() != KScreen::Output::Unknown) {
             hasExternalMonitor = true;
             break;
         }
