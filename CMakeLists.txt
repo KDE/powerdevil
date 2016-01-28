@@ -12,7 +12,7 @@ include(FeatureSummary)
 include(WriteBasicConfigVersionFile)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDECompilerSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 
 # require at least gcc 4.8
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
