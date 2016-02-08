@@ -109,7 +109,7 @@ private:
     QPropertyAnimation *m_brightnessAnimation = nullptr;
 
     // login1 interface
-    QWeakPointer<QDBusInterface> m_login1Interface;
+    QPointer<QDBusInterface> m_login1Interface;
     bool m_useUPowerSuspend = false;
 
     // buttons
