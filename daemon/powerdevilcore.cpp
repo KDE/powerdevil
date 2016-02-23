@@ -569,7 +569,7 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
     if (currentPercent < previousPercent) {
         if (emitBatteryChargePercentNotification(currentPercent, previousPercent)) {
             // Only refresh status if a notification has actually been emitted
-            refreshStatus();
+            loadProfile();
         }
     }
 }
@@ -600,7 +600,7 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 
     if (!previousCharged && currentCharged) {
         emitRichNotification("fullbattery", i18n("Charge Complete"), i18n("Your battery is now fully charged."));
-        refreshStatus();
+        loadProfile();
     }
 }
 
