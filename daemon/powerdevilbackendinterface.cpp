@@ -197,11 +197,6 @@ void BackendInterface::onBrightnessChanged(BrightnessControlType type, int value
     emit brightnessChanged(logic->info(), type);
 }
 
-void BackendInterface::setResumeFromSuspend()
-{
-    emit resumeFromSuspend();
-}
-
 BackendInterface::Capabilities BackendInterface::capabilities() const
 {
     return d->capabilities;

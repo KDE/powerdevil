@@ -306,9 +306,10 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
 
     // "resuming" signal
     if (m_login1Interface && !m_useUPowerSuspend) {
-        connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1Resuming(bool)));
+        connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
     } else {
-        connect(m_upowerInterface, SIGNAL(Resuming()), this, SIGNAL(resumeFromSuspend()));
+        connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Sleeping, this, &PowerDevilUPowerBackend::aboutToSuspend);
+        connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Resuming, this, &PowerDevilUPowerBackend::resumeFromSuspend);
     }
 
     // battery
@@ -638,9 +639,11 @@ void PowerDevilUPowerBackend::onDevicePropertiesChanged(const QString &ifaceName
     }
 }
 
-void PowerDevilUPowerBackend::slotLogin1Resuming(bool active)
+void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
 {
-    if (!active) {
+    if (active) {
+        emit aboutToSuspend();
+    } else {
         emit resumeFromSuspend();
     }
 }

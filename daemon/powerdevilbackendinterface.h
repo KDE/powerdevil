@@ -288,6 +288,11 @@ Q_SIGNALS:
     void resumeFromSuspend();
 
     /**
+     * This signal is emitted when the PC is about to suspend
+     */
+    void aboutToSuspend();
+
+    /**
      * This signal is emitted when the laptop lid is closed or opened
      *
      * @param closed Whether the lid is now closed or not
@@ -310,10 +315,6 @@ protected:
 
     // Steps logic
     int calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType type);
-
-protected slots:
-    // This function is actually here due to HAL
-    void setResumeFromSuspend();
 
 private:
     class Private;

@@ -80,7 +80,7 @@ private slots:
     void slotDeviceRemoved(const QDBusObjectPath & path);
     void slotDeviceChanged(const QString &);
     void slotPropertyChanged();
-    void slotLogin1Resuming(bool active);
+    void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int);
