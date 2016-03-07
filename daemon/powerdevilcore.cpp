@@ -237,20 +237,20 @@ void Core::loadProfile(bool force)
         config = activityConfig.group("SeparateSettings");
         qCDebug(POWERDEVIL) << "Activity is enforcing a different profile";
         profileId = activity;
-    } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
-        if (activityConfig.readEntry("actLike", QString()) == "AC" ||
-            activityConfig.readEntry("actLike", QString()) == "Battery" ||
-            activityConfig.readEntry("actLike", QString()) == "LowBattery") {
-            // Same as above, but with an existing profile
-            config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
-            profileId = activityConfig.readEntry("actLike", QString());
-            qCDebug(POWERDEVIL) << "Activity is mirroring a different profile";
-        }
     } else {
         // It doesn't, let's load the current state's profile
         if (m_loadedBatteriesUdi.isEmpty()) {
             qCDebug(POWERDEVIL) << "No batteries found, loading AC";
             profileId = "AC";
+        } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
+            if (activityConfig.readEntry("actLike", QString()) == "AC" ||
+                activityConfig.readEntry("actLike", QString()) == "Battery" ||
+                activityConfig.readEntry("actLike", QString()) == "LowBattery") {
+                // Same as above, but with an existing profile
+                config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
+                profileId = activityConfig.readEntry("actLike", QString());
+                qCDebug(POWERDEVIL) << "Activity is mirroring a different profile";
+            }
         } else {
             // Compute the previous and current global percentage
             const int percent = currentChargePercent();

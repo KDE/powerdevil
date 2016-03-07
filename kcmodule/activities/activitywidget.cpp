@@ -27,6 +27,8 @@
 #include <KConfigGroup>
 #include <KActivities/Consumer>
 #include <Solid/PowerManagement>
+#include <Solid/Battery>
+#include <Solid/Device>
 #include <actioneditwidget.h>
 #include <QLayout>
 
@@ -106,6 +108,18 @@ void ActivityWidget::load()
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-charging"), i18n("PC running on AC power"), "AC");
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-060"), i18n("PC running on battery power"), "Battery");
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-low"), i18n("PC running on low battery"), "LowBattery");
+
+    bool hasBattery = false;
+    foreach (const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
+            hasBattery = false;
+            break;
+        }
+    }
+
+    m_ui->actLikeRadio->setVisible(hasBattery);
+    m_ui->actLikeComboBox->setVisible(hasBattery);
 
     foreach (const QString &activity, m_activityConsumer->activities()) {
         if (activity == m_activity) {
