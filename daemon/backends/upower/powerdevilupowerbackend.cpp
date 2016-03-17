@@ -204,22 +204,22 @@ void PowerDevilUPowerBackend::init()
         Q_ASSERT(m_randrHelper);
         connect(m_randrHelper, &XRandRXCBHelper::brightnessChanged, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
         m_cachedBrightnessMap.insert(Screen, brightness(Screen));
+
+        const int duration = PowerDevilSettings::brightnessAnimationDuration();
+        if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
+            m_brightnessAnimation = new QPropertyAnimation(this);
+            m_brightnessAnimation->setTargetObject(this);
+            m_brightnessAnimation->setDuration(duration);
+            m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
+            connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+            connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
+        }
         emit brightnessSupportQueried(true);
     }
 }
 
 void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
 {
-    const int duration = PowerDevilSettings::brightnessAnimationDuration();
-    if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
-        m_brightnessAnimation = new QPropertyAnimation(this);
-        m_brightnessAnimation->setTargetObject(this);
-        m_brightnessAnimation->setDuration(duration);
-        m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
-        connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-        connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
-    }
-
     disconnect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
@@ -327,11 +327,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
 void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 {
     qCDebug(POWERDEVIL) << "Udev device changed" << m_syspath << device.sysfsPath();
-
-    if (m_brightnessAnimation && m_brightnessAnimation->state() != QPropertyAnimation::Stopped) {
-        return;
-    }
-
     if (device.sysfsPath() != m_syspath) {
         return;
     }
@@ -361,7 +356,9 @@ int PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::B
     // m_cachedBrightnessMap is not being updated during animation, thus checking the m_cachedBrightnessMap
     // value here doesn't make much sense, use the endValue from brightness() anyway.
     // This prevents brightness key being ignored during the animation.
-    if (!(controlType == Screen && m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) &&
+    if (!(controlType == Screen &&
+          m_brightnessAnimation &&
+          m_brightnessAnimation->state() == QPropertyAnimation::Running) &&
         currentBrightness != m_cachedBrightnessMap.value(controlType)) {
         m_cachedBrightnessMap[controlType] = currentBrightness;
         return currentBrightness;
@@ -383,10 +380,13 @@ int PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightness
     int result = 0;
 
     if (type == Screen) {
-        if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
-            result = m_brightnessAnimation->endValue().toInt();
-        } else if (m_brightnessControl->isSupported()) {
-            result = (int) m_brightnessControl->brightness();
+        if (m_brightnessControl->isSupported()) {
+            if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
+                result = m_brightnessAnimation->endValue().toInt();
+            } else {
+                //qCDebug(POWERDEVIL) << "Calling xrandr brightness";
+                result = (int) m_brightnessControl->brightness();
+            }
         } else {
             result = m_cachedBrightnessMap[Screen];
         }
@@ -423,16 +423,25 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
 {
     if (type == Screen) {
         qCDebug(POWERDEVIL) << "set screen brightness value: " << value;
-
-        if (m_brightnessAnimation) {
-            m_brightnessAnimation->stop();
-            disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-            m_brightnessAnimation->setStartValue(brightness());
-            m_brightnessAnimation->setEndValue(value);
-            connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-            m_brightnessAnimation->start();
+        if (m_brightnessControl->isSupported()) {
+            if (m_brightnessAnimation) {
+                m_brightnessAnimation->stop();
+                disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+                m_brightnessAnimation->setStartValue(brightness());
+                m_brightnessAnimation->setEndValue(value);
+                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+                m_brightnessAnimation->start();
+            } else {
+                m_brightnessControl->setBrightness(value);
+            }
         } else {
-            animationValueChanged(value);
+            //qCDebug(POWERDEVIL) << "Falling back to helper to set brightness";
+            KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
+            action.setHelperId(HELPER_ID);
+            action.addArgument("brightness", value);
+            KAuth::ExecuteJob *job = action.execute();
+            // we don't care about the result since executing the job sync is bad
+            job->start();
         }
     } else if (type == Keyboard) {
         qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
@@ -650,14 +659,5 @@ void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
 
 void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
 {
-    if (m_brightnessControl->isSupported()) {
-        m_brightnessControl->setBrightness(value.toInt());
-    } else {
-        KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
-        action.setHelperId(HELPER_ID);
-        action.addArgument("brightness", value.toInt());
-        KAuth::ExecuteJob *job = action.execute();
-        // we don't care about the result since executing the job sync is bad
-        job->start();
-    }
+    m_brightnessControl->setBrightness(value.toInt());
 }
