@@ -425,7 +425,7 @@ void Core::onDeviceAdded(const QString& udi)
     if (m_criticalBatteryTimer->isActive() && chargePercent > PowerDevilSettings::batteryCriticalLevel()) {
         m_criticalBatteryTimer->stop();
         emitRichNotification("criticalbattery",
-                             i18n("Additional Battery Added"),
+                             i18n("Extra Battery Added"),
                              i18n("All pending suspend actions have been canceled."));
     }
 }
