@@ -73,7 +73,7 @@ Q_SIGNALS:
     void aboutToSuspend();
     void resumingFromSuspend();
 
-private slots:
+private Q_SLOTS:
     void triggerSuspendSession(uint action);
 
 private:

@@ -108,20 +108,20 @@ ActivityPage::~ActivityPage()
 
 void ActivityPage::load()
 {
-    foreach (ActivityWidget *widget, m_activityWidgets) {
+    Q_FOREACH (ActivityWidget *widget, m_activityWidgets) {
         widget->load();
     }
 
-    emit changed(false);
+    Q_EMIT changed(false);
 }
 
 void ActivityPage::save()
 {
-    foreach (ActivityWidget *widget, m_activityWidgets) {
+    Q_FOREACH (ActivityWidget *widget, m_activityWidgets) {
         widget->save();
     }
 
-    emit changed(false);
+    Q_EMIT changed(false);
 
     // Ask to refresh status
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
@@ -181,7 +181,7 @@ void ActivityPage::populateTabs()
     }
 
     int index = 0;
-    foreach (const QString &activity, m_activityConsumer->activities()) {
+    Q_FOREACH (const QString &activity, m_activityConsumer->activities()) {
         KActivities::Info *info = new KActivities::Info(activity, this);
         const QString icon = info->icon();
         const QString name = info->name();

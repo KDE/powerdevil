@@ -50,7 +50,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     // Load all the services
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
 
-    foreach (const KService::Ptr &offer, offers) {
+    Q_FOREACH (const KService::Ptr &offer, offers) {
         // Does it have a runtime requirement?
         if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
             qCDebug(POWERDEVIL) << offer->name() << " has a runtime requirement";
@@ -136,7 +136,7 @@ void ActionEditWidget::load()
         m_actionsConfigHash[i.key()]->load();
     }
 
-    emit changed(false);
+    Q_EMIT changed(false);
 }
 
 void ActionEditWidget::save()
@@ -164,12 +164,12 @@ void ActionEditWidget::save()
     // After saving, reload the config to make sure we'll pick up changes.
     m_profilesConfig.data()->reparseConfiguration();
 
-    emit changed(false);
+    Q_EMIT changed(false);
 }
 
 void ActionEditWidget::onChanged()
 {
-    emit changed(true);
+    Q_EMIT changed(true);
 }
 
 QString ActionEditWidget::configName() const

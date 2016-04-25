@@ -31,7 +31,7 @@ class BacklightHelper: public QObject
 public:
     BacklightHelper(QObject *parent = nullptr);
 
-public slots:
+public Q_SLOTS:
     ActionReply brightness(const QVariantMap &args);
     ActionReply brightnessmax(const QVariantMap &args);
     ActionReply setbrightness(const QVariantMap &args);

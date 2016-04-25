@@ -110,7 +110,7 @@ void Core::onBackendReady()
                 this, SLOT(onDeviceRemoved(QString)));
 
         // Force the addition of already existent batteries
-        foreach (const Device &device, Device::listFromType(DeviceInterface::Battery, QString())) {
+        Q_FOREACH (const Device &device, Device::listFromType(DeviceInterface::Battery, QString())) {
             onDeviceAdded(device.udi());
         }
     }
@@ -162,7 +162,7 @@ void Core::onBackendReady()
     }
 
     // All systems up Houston, let's go!
-    emit coreReady();
+    Q_EMIT coreReady();
     refreshStatus();
 }
 
@@ -192,7 +192,7 @@ void Core::reparseConfiguration()
     m_profilesConfig->reparseConfiguration();
 
     // Config reloaded
-    emit configurationReloaded();
+    Q_EMIT configurationReloaded();
 }
 
 QString Core::currentProfile() const
@@ -318,7 +318,7 @@ void Core::loadProfile(bool force)
         }
 
         // Cool, now let's load the needed actions
-        foreach (const QString &actionName, config.groupList()) {
+        Q_FOREACH (const QString &actionName, config.groupList()) {
             Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
             if (action) {
                 action->onProfileLoad();
@@ -333,7 +333,7 @@ void Core::loadProfile(bool force)
 
         // We are now on a different profile
         m_currentProfile = profileId;
-        emit profileChanged(m_currentProfile);
+        Q_EMIT profileChanged(m_currentProfile);
     }
 
     // Now... any special behaviors we'd like to consider?
@@ -373,7 +373,7 @@ void Core::loadProfile(bool force)
 
     // If the lid is closed, retrigger the lid close signal
     if (m_backend->isLidClosed()) {
-        emit m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
+        Q_EMIT m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
     }
 }
 
@@ -625,7 +625,7 @@ void Core::onCriticalBatteryTimerExpired()
 
 void Core::onBatteryRemainingTimeChanged(qulonglong time)
 {
-    emit batteryRemainingTimeChanged(time);
+    Q_EMIT batteryRemainingTimeChanged(time);
 }
 
 void Core::onKIdleTimeoutReached(int identifier, int msec)
@@ -651,7 +651,7 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
 
 void Core::onLidClosedChanged(bool closed)
 {
-    emit lidClosedChanged(closed);
+    Q_EMIT lidClosedChanged(closed);
 }
 
 void Core::registerActionTimeout(Action* action, int timeout)
@@ -670,7 +670,7 @@ void Core::unregisterActionTimeouts(Action* action)
     // Clear all timeouts from the action
     QList< int > timeoutsToClean = m_registeredActionTimeouts[action];
 
-    foreach (int id, timeoutsToClean) {
+    Q_FOREACH (int id, timeoutsToClean) {
         KIdleTime::instance()->removeIdleTimeout(id);
     }
 

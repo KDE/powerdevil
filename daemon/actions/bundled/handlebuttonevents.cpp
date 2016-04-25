@@ -239,7 +239,7 @@ void HandleButtonEvents::checkOutputs()
     m_externalMonitorPresent = hasExternalMonitor;
 
     if (old_triggersLidAction != triggersLidAction()) {
-        emit triggersLidActionChanged(triggersLidAction());
+        Q_EMIT triggersLidActionChanged(triggersLidAction());
     }
 }
 

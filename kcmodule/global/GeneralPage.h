@@ -38,7 +38,7 @@ public:
     void save();
     virtual void defaults();
 
-private slots:
+private Q_SLOTS:
     void configureNotifications();
     void onServiceRegistered(const QString &service);
     void onServiceUnregistered(const QString &service);

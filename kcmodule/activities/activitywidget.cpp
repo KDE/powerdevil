@@ -121,7 +121,7 @@ void ActivityWidget::load()
     m_ui->actLikeRadio->setVisible(hasBattery);
     m_ui->actLikeComboBox->setVisible(hasBattery);
 
-    foreach (const QString &activity, m_activityConsumer->activities()) {
+    Q_FOREACH (const QString &activity, m_activityConsumer->activities()) {
         if (activity == m_activity) {
             continue;
         }
@@ -197,7 +197,7 @@ void ActivityWidget::save()
 
 void ActivityWidget::setChanged()
 {
-    emit changed(true);
+    Q_EMIT changed(true);
 }
 
 

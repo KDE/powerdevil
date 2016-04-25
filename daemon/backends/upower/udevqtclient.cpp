@@ -104,15 +104,15 @@ void ClientPrivate::_uq_monitorReadyRead(int fd)
 
     QByteArray action(udev_device_get_action(dev));
     if (action == "add") {
-        emit q->deviceAdded(device);
+        Q_EMIT q->deviceAdded(device);
     } else if (action == "remove") {
-        emit q->deviceRemoved(device);
+        Q_EMIT q->deviceRemoved(device);
     } else if (action == "change") {
-        emit q->deviceChanged(device);
+        Q_EMIT q->deviceChanged(device);
     } else if (action == "online") {
-        emit q->deviceOnlined(device);
+        Q_EMIT q->deviceOnlined(device);
     } else  if (action == "offline") {
-        emit q->deviceOfflined(device);
+        Q_EMIT q->deviceOfflined(device);
     } else {
         qCWarning(POWERDEVIL, "UdevQt: unhandled device action \"%s\"", action.constData());
     }

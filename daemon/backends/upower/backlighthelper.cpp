@@ -78,7 +78,7 @@ void BacklightHelper::initUsingBacklightType()
     QByteArray buffer;
     QStringList firmware, platform, raw;
 
-    foreach(const QString & interface, interfaces) {
+    Q_FOREACH(const QString & interface, interfaces) {
         file.setFileName(PREFIX + interface + "/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;
@@ -125,7 +125,7 @@ void BacklightHelper::initUsingSysctl()
      */
     QStringList types;
     types << QStringLiteral("lcd") << QStringLiteral("out") << QStringLiteral("crt") << QStringLiteral("tv") << QStringLiteral("ext");
-    foreach (const QString &type, types) {
+    Q_FOREACH (const QString &type, types) {
         for (int i = 0; m_sysctlDevice.isEmpty(); i++) {
             QString device = QStringLiteral("%1%2").arg(type, QString::number(i));
             // We don't care about the value, we only want the sysctl to be there.
@@ -226,7 +226,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
     int actual_level = -1;
     int d1 = 101;
     // Search for the nearest level.
-    foreach (int level, m_sysctlBrightnessLevels) {
+    Q_FOREACH (int level, m_sysctlBrightnessLevels) {
         int d2 = qAbs(level - actual_brightness);
         /*
          * The list is sorted, so we break when it starts diverging. There may be repeated values,

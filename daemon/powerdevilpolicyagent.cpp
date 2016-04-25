@@ -350,7 +350,7 @@ void PolicyAgent::onServiceUnregistered(const QString& serviceName)
 {
     if (m_cookieToBusService.values().contains(serviceName)) {
         // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
-        foreach (uint key, m_cookieToBusService.keys(serviceName)) {
+        Q_FOREACH (uint key, m_cookieToBusService.keys(serviceName)) {
             ReleaseInhibition(key);
         }
     }
@@ -463,7 +463,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
         addInhibitionTypeHelper(cookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
-        emit InhibitionsChanged({ {qMakePair(appName, reason)} }, {});
+        Q_EMIT InhibitionsChanged({ {qMakePair(appName, reason)} }, {});
 
         m_pendingInhibitions.removeOne(cookie);
     });
@@ -511,8 +511,8 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
     }
 
     if (notify) {
-        // Emit the signal - inhibition has changed
-        emit unavailablePoliciesChanged(unavailablePolicies());
+        // emit the signal - inhibition has changed
+        Q_EMIT unavailablePoliciesChanged(unavailablePolicies());
     }
 }
 
@@ -526,7 +526,7 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
         return;
     }
 
-    emit InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
+    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
     m_cookieToAppName.remove(cookie);
 
 
@@ -562,7 +562,7 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
 
     if (notify) {
         // Emit the signal - inhibition has changed
-        emit unavailablePoliciesChanged(unavailablePolicies());
+        Q_EMIT unavailablePoliciesChanged(unavailablePolicies());
     }
 }
 
@@ -579,7 +579,7 @@ bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicies*/ uint types)
 void PolicyAgent::releaseAllInhibitions()
 {
     QList< uint > allCookies = m_cookieToAppName.keys();
-    foreach (uint cookie, allCookies) {
+    Q_FOREACH (uint cookie, allCookies) {
         ReleaseInhibition(cookie);
     }
 }

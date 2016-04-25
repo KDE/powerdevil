@@ -44,7 +44,7 @@ bool KWinKScreenHelperEffect::start()
     m_isValid = checkValid();
     if (!m_isValid) {
         // emit fade out right away since the effect is not available
-        emit fadedOut();
+        Q_EMIT fadedOut();
         return false;
     }
 
@@ -144,7 +144,7 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
                 case 2:
                     m_state = FadedOutState;
                     if (m_running) {
-                        emit fadedOut();
+                        Q_EMIT fadedOut();
                     }
                     break;
                 case 3:
@@ -157,7 +157,7 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
                     m_running = false;
                 }
 
-                emit stateChanged(m_state);
+                Q_EMIT stateChanged(m_state);
             }
         }
     }

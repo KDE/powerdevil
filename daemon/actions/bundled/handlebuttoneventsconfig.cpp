@@ -96,7 +96,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
 
         QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
 
-        foreach (QComboBox *box, boxes) {
+        Q_FOREACH (QComboBox *box, boxes) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
             if (methods.contains(Solid::PowerManagement::SuspendState)) {
                 box->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
@@ -120,7 +120,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     bool lidFound = false;
     bool powerFound = true; // HACK This needs proper API!!
     // get a list of all devices that are Buttons
-/*    foreach (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
+/*    Q_FOREACH (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
         Solid::Button *button = device.as<Solid::Button>();
         if (button->type() == Solid::Button::LidButton) {
             lidFound = true;

@@ -38,6 +38,7 @@
 #include "actions/bundled/dimdisplay.h"
 #include "actions/bundled/runscript.h"
 #include "actions/bundled/handlebuttonevents.h"
+#include "actions/bundled/wirelesspowersaving.h"
 
 namespace PowerDevil
 {
@@ -89,7 +90,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     // Load all the actions
     KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
                                                               "[X-KDE-PowerDevil-Action-IsBundled] == FALSE");
-    foreach (KService::Ptr offer, offers) {
+    Q_FOREACH (KService::Ptr offer, offers) {
         QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
         qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
@@ -126,6 +127,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     m_actionPool.insert("DimDisplay", new BundledActions::DimDisplay(parent));
     m_actionPool.insert("RunScript", new BundledActions::RunScript(parent));
     m_actionPool.insert("HandleButtonEvents", new BundledActions::HandleButtonEvents(parent));
+    m_actionPool.insert("WirelessPowerSaving", new BundledActions::WirelessPowerSaving(parent));
 
     // Verify support
     QHash<QString,Action*>::iterator i = m_actionPool.begin();
@@ -143,7 +145,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     {
         KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
                                                                 "[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE");
-        foreach (KService::Ptr offer, offers) {
+        Q_FOREACH (KService::Ptr offer, offers) {
             QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
 
             if (m_actionPool.contains(actionId)) {
@@ -182,7 +184,7 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
 
 void ActionPool::unloadAllActiveActions()
 {
-    foreach (const QString &action, m_activeActions) {
+    Q_FOREACH (const QString &action, m_activeActions) {
         m_actionPool[action]->onProfileUnload();
         m_actionPool[action]->unloadAction();
     }

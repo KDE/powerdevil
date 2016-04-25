@@ -53,10 +53,10 @@ public:
 
     bool nativeEventFilter(const QByteArray &eventType, void *message, long *result) override;
 
-public slots:
+public Q_SLOTS:
     void stop();
 
-signals:
+Q_SIGNALS:
     void stateChanged(State state);
     void fadedOut();
 

@@ -43,7 +43,7 @@ public:
     virtual bool loadAction(const KConfigGroup& config);
     virtual bool isSupported();
 
-signals:
+Q_SIGNALS:
     void triggersLidActionChanged(bool triggers);
 
 protected:
@@ -53,11 +53,11 @@ protected:
     virtual void onIdleTimeout(int msec);
     virtual void onProfileLoad();
 
-public slots:
+public Q_SLOTS:
     int lidAction() const;
     bool triggersLidAction() const;
 
-private slots:
+private Q_SLOTS:
     void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void powerOffButtonTriggered();
     void suspendToRam();

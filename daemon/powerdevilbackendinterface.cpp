@@ -139,7 +139,7 @@ void BackendInterface::setLidPresent(bool present)
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
 {
     d->acAdapterState = state;
-    emit acAdapterStateChanged(state);
+    Q_EMIT acAdapterStateChanged(state);
 }
 
 void BackendInterface::setBackendHasError(const QString& errorDetails)
@@ -154,33 +154,33 @@ void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightn
     d->suspendMethods = supportedSuspendMethods;
     d->isReady = true;
 
-    emit backendReady();
+    Q_EMIT backendReady();
 }
 
 void BackendInterface::setBatteryRemainingTime(qulonglong time)
 {
     if (d->batteryRemainingTime != time) {
         d->batteryRemainingTime = time;
-        emit batteryRemainingTimeChanged(time);
+        Q_EMIT batteryRemainingTimeChanged(time);
     }
 }
 
 void BackendInterface::setBatteryState(PowerDevil::BackendInterface::BatteryState state)
 {
     d->batteryState = state;
-    emit batteryStateChanged(state);
+    Q_EMIT batteryStateChanged(state);
 }
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
 {
     if (type == LidClose && !d->isLidClosed) {
         d->isLidClosed = true;
-        emit lidClosedChanged(true);
+        Q_EMIT lidClosedChanged(true);
     } else if (type == LidOpen && d->isLidClosed) {
         d->isLidClosed = false;
-        emit lidClosedChanged(false);
+        Q_EMIT lidClosedChanged(false);
     }
-    emit buttonPressed(type);
+    Q_EMIT buttonPressed(type);
 }
 
 void BackendInterface::setCapacityForBattery(const QString& batteryId, uint percent)
@@ -194,7 +194,7 @@ void BackendInterface::onBrightnessChanged(BrightnessControlType type, int value
     logic->setValueMax(valueMax);
     logic->setValue(value);
 
-    emit brightnessChanged(logic->info(), type);
+    Q_EMIT brightnessChanged(logic->info(), type);
 }
 
 BackendInterface::Capabilities BackendInterface::capabilities() const

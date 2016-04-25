@@ -52,7 +52,7 @@ void ActionConfig::setConfigGroup(const KConfigGroup& group)
 
 void ActionConfig::setChanged()
 {
-    emit changed();
+    Q_EMIT changed();
 }
    
 }

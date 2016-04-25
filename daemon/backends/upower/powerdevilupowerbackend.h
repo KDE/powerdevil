@@ -72,7 +72,7 @@ private:
     void enumerateDevices();
     void addDevice(const QString &);
 
-private slots:
+private Q_SLOTS:
     void updateDeviceProps();
     void slotDeviceAdded(const QString &);
     void slotDeviceRemoved(const QString &);

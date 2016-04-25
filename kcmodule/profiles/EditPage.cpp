@@ -118,7 +118,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
 
     bool hasBattery = false;
-    foreach(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    Q_FOREACH(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
         if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
             hasBattery = true;
@@ -149,7 +149,7 @@ void EditPage::onChanged(bool value)
     m_profileEdited[editWidget->configName()] = value;
 
     if (value) {
-        emit changed(true);
+        Q_EMIT changed(true);
     }
 
     checkAndEmitChanged();
@@ -174,7 +174,7 @@ void EditPage::save()
 
     notifyDaemon();
 
-    emit changed(false);
+    Q_EMIT changed(false);
 }
 
 void EditPage::notifyDaemon()
@@ -230,7 +230,7 @@ void EditPage::checkAndEmitChanged()
         }
     }
 
-    emit changed(value);
+    Q_EMIT changed(value);
 }
 
 void EditPage::onServiceRegistered(const QString& service)

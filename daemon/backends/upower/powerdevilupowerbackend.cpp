@@ -158,7 +158,7 @@ void PowerDevilUPowerBackend::init()
             [this, brightnessJob]  {
                 if (brightnessJob->error()) {
                     qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
-                    emit brightnessSupportQueried(false);
+                    Q_EMIT brightnessSupportQueried(false);
                     return;
                 }
                 m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toFloat());
@@ -180,7 +180,7 @@ void PowerDevilUPowerBackend::init()
                         connect(syspathJob, &KJob::result, this,
                             [this, syspathJob] {
                                 if (syspathJob->error()) {
-                                    emit brightnessSupportQueried(false);
+                                    Q_EMIT brightnessSupportQueried(false);
                                     return;
                                 }
                                 m_syspath = syspathJob->data()["syspath"].toString();
@@ -188,7 +188,7 @@ void PowerDevilUPowerBackend::init()
 
                                 UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
                                 connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
-                                emit brightnessSupportQueried(true);
+                                Q_EMIT brightnessSupportQueried(true);
                             }
                         );
                         syspathJob->start();
@@ -214,7 +214,7 @@ void PowerDevilUPowerBackend::init()
             connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
             connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
         }
-        emit brightnessSupportQueried(true);
+        Q_EMIT brightnessSupportQueried(true);
     }
 }
 
@@ -313,7 +313,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     }
 
     // battery
-    foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
+    Q_FOREACH(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
         if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
             QString udi = upowerDevice->path();
             setCapacityForBattery(udi, qRound(upowerDevice->capacity()));  // acknowledge capacity
@@ -489,7 +489,7 @@ void PowerDevilUPowerBackend::enumerateDevices()
     m_onBattery = m_upowerInterface->onBattery();
 
     QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
-    foreach (const QDBusObjectPath & device, deviceList) {
+    Q_FOREACH (const QDBusObjectPath & device, deviceList) {
         addDevice(device.path());
     }
 
@@ -566,7 +566,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
         qreal energyFullTotal = 0.0;
         uint stateTotal = 0;
 
-        foreach(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
+        Q_FOREACH(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
             const uint type = upowerDevice->type();
             if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
                 const uint state = upowerDevice->state();
@@ -651,9 +651,9 @@ void PowerDevilUPowerBackend::onDevicePropertiesChanged(const QString &ifaceName
 void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
 {
     if (active) {
-        emit aboutToSuspend();
+        Q_EMIT aboutToSuspend();
     } else {
-        emit resumeFromSuspend();
+        Q_EMIT resumeFromSuspend();
     }
 }
 

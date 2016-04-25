@@ -46,7 +46,7 @@ public:
     void save();
     virtual void defaults();
 
-private slots:
+private Q_SLOTS:
     void onChanged(bool changed);
 
     void restoreDefaultProfiles();

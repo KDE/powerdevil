@@ -117,12 +117,12 @@ void FdoConnector::ForceUnInhibitAll()
 
 void FdoConnector::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newstate)
 {
-    emit PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Unplugged);
+    Q_EMIT PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Unplugged);
 }
 
 void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies)
 {
-    emit HasInhibitChanged(newpolicies & PowerDevil::PolicyAgent::InterruptSession);
+    Q_EMIT HasInhibitChanged(newpolicies & PowerDevil::PolicyAgent::InterruptSession);
 }
 
 void FdoConnector::triggerSuspendSession(uint action)
