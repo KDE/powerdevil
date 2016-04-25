@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=PowerDevil/Action
+# X-KDE-Library=powerdevilwirelesspowersavingaction
+Icon=preferences-system-network
+Name=Wireless power saving
+Comment=Turns off signal-transmitting devices
+X-KDE-PowerDevil-Action-ID=WirelessPowerSaving
+X-KDE-PowerDevil-Action-IsBundled=true
+X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevilwirelesspowersavingaction_config
+X-KDE-PowerDevil-Action-ConfigPriority=60
+X-KDE-PowerDevil-Action-HasRuntimeRequirement=true
+X-KDE-PowerDevil-Action-RegistersDBusInterface=true
