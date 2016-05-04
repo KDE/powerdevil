@@ -108,7 +108,7 @@ void GeneralPage::fillUi()
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
     }
-    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
+    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
 
     notificationsButton->setIcon(QIcon::fromTheme("preferences-desktop-notification"));
 

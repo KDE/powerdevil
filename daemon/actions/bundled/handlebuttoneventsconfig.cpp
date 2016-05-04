@@ -104,7 +104,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
             if (methods.contains(Solid::PowerManagement::HibernateState)) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
             }
-            box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+            box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
             box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
             if (box != m_lidCloseCombo) {
                 box->addItem(QIcon::fromTheme("system-log-out"), i18n("Prompt log out dialog"), (uint)SuspendSession::LogoutDialogMode);

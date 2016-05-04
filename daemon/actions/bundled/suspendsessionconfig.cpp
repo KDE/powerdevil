@@ -86,7 +86,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     if (methods.contains(Solid::PowerManagement::HibernateState)) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
     m_comboBox->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
 
     hlay->addWidget(m_idleTime);

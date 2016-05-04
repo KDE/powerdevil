@@ -101,7 +101,7 @@ void ActivityWidget::load()
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
                                        i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shutdown"), (uint)SuspendSession::ShutdownMode);
+    m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
 
     m_ui->actLikeComboBox->clear();
 
