@@ -424,6 +424,9 @@ void Core::onDeviceAdded(const QString& udi)
     // higher than the battery critical level. (See bug 329537)
     if (m_criticalBatteryTimer->isActive() && chargePercent > PowerDevilSettings::batteryCriticalLevel()) {
         m_criticalBatteryTimer->stop();
+        if (m_criticalBatteryNotification) {
+            m_criticalBatteryNotification->close();
+        }
         emitRichNotification("criticalbattery",
                              i18n("Extra Battery Added"),
                              i18n("All pending suspend actions have been canceled."));
@@ -539,6 +542,9 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
+            if (m_criticalBatteryNotification) {
+                m_criticalBatteryNotification->close();
+            }
             emitRichNotification("criticalbattery",
                              i18n("AC Adapter Plugged In"),
                              i18n("All pending suspend actions have been canceled."));
