@@ -94,19 +94,16 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_editWidgets.insert("AC", editWidget);
     acWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(0, QIcon::fromTheme("battery-charging"));
 
     editWidget = new ActionEditWidget("Battery", tabWidget);
     m_editWidgets.insert("Battery", editWidget);
     batteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(1, QIcon::fromTheme("battery-060"));
 
     editWidget = new ActionEditWidget("LowBattery", tabWidget);
     m_editWidgets.insert("LowBattery", editWidget);
     lowBatteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
-    tabWidget->setTabIcon(2, QIcon::fromTheme("battery-low"));
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
