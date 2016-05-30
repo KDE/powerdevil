@@ -427,7 +427,7 @@ void Core::onDeviceAdded(const QString& udi)
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
         }
-        emitRichNotification("criticalbattery",
+        emitRichNotification("pluggedin",
                              i18n("Extra Battery Added"),
                              i18n("All pending suspend actions have been canceled."));
     }
@@ -545,7 +545,7 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
             if (m_criticalBatteryNotification) {
                 m_criticalBatteryNotification->close();
             }
-            emitRichNotification("criticalbattery",
+            emitRichNotification("pluggedin",
                              i18n("AC Adapter Plugged In"),
                              i18n("All pending suspend actions have been canceled."));
         } else {
