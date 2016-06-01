@@ -109,7 +109,6 @@ private:
     friend class Action;
 
     BackendInterface *m_backend;
-    QStringList m_batteriesUdi;
 
     QDBusServiceWatcher *m_notificationsWatcher;
 
