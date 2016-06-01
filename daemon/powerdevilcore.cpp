@@ -777,10 +777,23 @@ void Core::onServiceRegistered(const QString &service)
         return;
     }
 
+    bool needsRefresh = false;
+
     // show warning about low batteries right on session startup, force it to show
     // by making sure the "old" percentage (that magic number) is always higher than the current one
     if (emitBatteryChargePercentNotification(currentChargePercent(), 1000)) {
-        // need to refresh status to prevent the notification from showing again when charge percentage changes
+        needsRefresh = true;
+    }
+
+    // now also emit notifications for all peripheral batteries
+    for (auto it = m_peripheralBatteriesPercent.constBegin(), end = m_peripheralBatteriesPercent.constEnd(); it != end; ++it) {
+        if (emitBatteryChargePercentNotification(it.value() /*currentPercent*/, 1000, it.key() /*udi*/)) {
+            needsRefresh = true;
+        }
+    }
+
+    // need to refresh status to prevent the notification from showing again when charge percentage changes
+    if (needsRefresh) {
         refreshStatus();
     }
 
