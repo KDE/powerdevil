@@ -111,6 +111,7 @@ private:
     BackendInterface *m_backend;
 
     QDBusServiceWatcher *m_notificationsWatcher;
+    bool m_notificationsReady = false;
 
     KSharedConfigPtr m_profilesConfig;
 

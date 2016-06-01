@@ -406,9 +406,12 @@ void Core::onDeviceAdded(const QString &udi)
     } else { // non-power supply batteries are treated separately
         m_peripheralBatteriesPercent[udi] = b->chargePercent();
 
-        // it would be nice if we could notify the user right away that the battery in the
-        // device he just plugged in is low but unfortunately sometimes the charge percentage
-        // isn't available right away or 0%, so we can't reliably do that
+        // notify the user about the empty mouse/keyboard when plugging it in; don't when
+        // notifications aren't ready yet so we avoid showing them ontop of ksplash;
+        // also we'll notify about all devices when notifications are ready anyway
+        if (m_notificationsReady) {
+            emitBatteryChargePercentNotification(b->chargePercent(), 1000 /* so current is always lower than previous */, udi);
+        }
     }
 
     // If a new battery has been added, let's clear some pending suspend actions if the new global batteries percentage is
@@ -474,6 +477,12 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
 
     if (b && !b->isPowerSupply()) {
+        // if you leave the device out of reach or it has not been initialized yet
+        // it won't be "there" and report 0%, don't show anything in this case
+        if (!b->isPresent()) {
+            return false;
+        }
+
         if (currentPercent <= PowerDevilSettings::peripheralBatteryLowLevel() &&
             previousPercent > PowerDevilSettings::peripheralBatteryLowLevel()) {
 
@@ -765,8 +774,7 @@ void Core::onServiceRegistered(const QString &service)
 {
     Q_UNUSED(service);
 
-    static bool notificationsReady = false;
-    if (notificationsReady) {
+    if (m_notificationsReady) {
         return;
     }
 
@@ -790,7 +798,7 @@ void Core::onServiceRegistered(const QString &service)
         refreshStatus();
     }
 
-    notificationsReady = true;
+    m_notificationsReady = true;
 
     if (m_notificationsWatcher) {
         delete m_notificationsWatcher;
