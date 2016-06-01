@@ -405,6 +405,10 @@ void Core::onDeviceAdded(const QString &udi)
         m_batteriesCharged[udi] = (b->chargeState() == Solid::Battery::FullyCharged);
     } else { // non-power supply batteries are treated separately
         m_peripheralBatteriesPercent[udi] = b->chargePercent();
+
+        // it would be nice if we could notify the user right away that the battery in the
+        // device he just plugged in is low but unfortunately sometimes the charge percentage
+        // isn't available right away or 0%, so we can't reliably do that
     }
 
     // If a new battery has been added, let's clear some pending suspend actions if the new global batteries percentage is
@@ -475,38 +479,27 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
 
             QString name = device.product();
             if (!device.vendor().isEmpty()) {
-                name.prepend(QLatin1Char(' ')).prepend(device.vendor());
+                name = i18nc("%1 is vendor name, %2 is product name", "%1 %2", device.vendor(), device.product());
             }
 
-            QString title = i18nc("battery of device with name %1 is low", "%1 Battery Low (%2% Remaining)", name, currentPercent);
+            const QString title = i18nc("battery of device with name %1 is low",
+                                        "%1 Battery Low (%2% Remaining)", name, currentPercent);
 
             QString msg;
             QString icon;
 
             switch(b->type()) {
             case Battery::MouseBattery:
-                if (title.isEmpty()) {
-                    title = i18n("Mouse Battery Low (%1% Remaining)", currentPercent);
-                }
-
                 msg = i18n("The battery in your mouse is low, and the device may turn itself off at any time. "
                            "Please replace or charge the battery as soon as possible.");
                 icon = QStringLiteral("input-mouse");
                 break;
             case Battery::KeyboardBattery:
-                if (title.isEmpty()) {
-                    title = i18n("Keyboard Battery Low (%1% Remaining)", currentPercent);
-                }
-
                 msg = i18n("The battery in your keyboard is low, and the device may turn itself off at any time. "
                            "Please replace or charge the battery as soon as possible.");
                 icon = QStringLiteral("input-keyboard");
                 break;
             default:
-                if (title.isEmpty()) {
-                    title = i18nc("The battery in an external device is low", "Device Battery Low (%1% Remaining)", currentPercent);
-                }
-
                 msg = i18n("The battery in a connected device is low, and the device may turn itself off at any time. "
                            "Please replace or charge the battery as soon as possible.");
                 icon = QStringLiteral("battery-caution");
