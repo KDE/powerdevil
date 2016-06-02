@@ -23,9 +23,10 @@
 #include "powermanagementadaptor.h"
 #include "powermanagementpolicyagentadaptor.h"
 
-#include "powerdevilbackendloader.h"
 #include "powerdevilcore.h"
 #include "powerdevil_debug.h"
+
+#include "backends/upower/powerdevilupowerbackend.h"
 
 #include <QTimer>
 #include <QDBusConnection>
@@ -78,7 +79,7 @@ void KDEDPowerDevil::init()
     connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));
 
     // Before doing anything, let's set up our backend
-    PowerDevil::BackendInterface *interface = PowerDevil::BackendLoader::loadBackend(m_core);
+    PowerDevil::BackendInterface *interface = new PowerDevilUPowerBackend(m_core);
 
     if (!interface) {
         // Ouch

@@ -83,7 +83,6 @@ endif ()
 set(kded_powerdevil_SRCS
     powerdevil_debug.cpp
     kdedpowerdevil.cpp
-    powerdevilbackendloader.cpp
     powerdevilfdoconnector.cpp
 )
 
