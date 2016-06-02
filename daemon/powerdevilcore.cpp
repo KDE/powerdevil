@@ -491,26 +491,30 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
                 name = i18nc("%1 is vendor name, %2 is product name", "%1 %2", device.vendor(), device.product());
             }
 
-            const QString title = i18nc("battery of device with name %1 is low",
-                                        "%1 Battery Low (%2% Remaining)", name, currentPercent);
-
+            QString title;
             QString msg;
             QString icon;
 
             switch(b->type()) {
             case Battery::MouseBattery:
-                msg = i18n("The battery in your mouse is low, and the device may turn itself off at any time. "
-                           "Please replace or charge the battery as soon as possible.");
+                title = i18n("Mouse Battery Low (%1% Remaining)", currentPercent);
+                msg = i18nc("Placeholder is device name",
+                            "The battery in your mouse (\"%1\") is low, and the device may turn itself off at any time. "
+                            "Please replace or charge the battery as soon as possible.", name);
                 icon = QStringLiteral("input-mouse");
                 break;
             case Battery::KeyboardBattery:
-                msg = i18n("The battery in your keyboard is low, and the device may turn itself off at any time. "
-                           "Please replace or charge the battery as soon as possible.");
+                title = i18n("Keyboard Battery Low (%1% Remaining)", currentPercent);
+                msg = i18nc("Placeholder is device name",
+                            "The battery in your keyboard (\"%1\") is low, and the device may turn itself off at any time. "
+                            "Please replace or charge the battery as soon as possible.", name);
                 icon = QStringLiteral("input-keyboard");
                 break;
             default:
-                msg = i18n("The battery in a connected device is low, and the device may turn itself off at any time. "
-                           "Please replace or charge the battery as soon as possible.");
+                title = i18nc("The battery in an external device", "Device Battery Low (%1% Remaining)", currentPercent);
+                msg = i18nc("Placeholder is device name",
+                            "The battery in a connected device (\"%1\") is low, and the device may turn itself off at any time. "
+                            "Please replace or charge the battery as soon as possible.", name);
                 icon = QStringLiteral("battery-caution");
                 break;
             }
