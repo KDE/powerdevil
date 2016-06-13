@@ -89,13 +89,15 @@ GeneralPage::~GeneralPage()
 
 void GeneralPage::fillUi()
 {
-    bool hasBattery = false;
+    bool hasPowerSupplyBattery = false;
+    bool hasPeripheralBattery = false;
 
-    Q_FOREACH(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    Q_FOREACH (const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if(b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
-            hasBattery = true;
-            break;
+        if (b->isPowerSupply()) {
+            hasPowerSupplyBattery = true;
+        } else {
+            hasPeripheralBattery = true;
         }
     }
 
@@ -118,13 +120,11 @@ void GeneralPage::fillUi()
 
     connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
     connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
+    connect(lowPeripheralSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
-    // Disable stuff, eventually
-    if (!hasBattery) {
-        batteryLevelsLabel->hide();
-
+    if (!hasPowerSupplyBattery) {
         BatteryCriticalLabel->hide();
         BatteryCriticalCombo->hide();
         lowLabel->hide();
@@ -132,12 +132,22 @@ void GeneralPage::fillUi()
         criticalLabel->hide();
         criticalSpin->hide();
     }
+
+    if (!hasPeripheralBattery) {
+        lowPeripheralLabel->hide();
+        lowPeripheralSpin->hide();
+    }
+
+    if (!hasPeripheralBattery && !hasPeripheralBattery) {
+        batteryLevelsLabel->hide();
+    }
 }
 
 void GeneralPage::load()
 {
     lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
     criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
+    lowPeripheralSpin->setValue(PowerDevilSettings::peripheralBatteryLowLevel());
 
     BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batteryCriticalAction()));
 }
@@ -151,6 +161,7 @@ void GeneralPage::save()
 {
     PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
     PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
+    PowerDevilSettings::setPeripheralBatteryLowLevel(lowPeripheralSpin->value());
 
     PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
 
