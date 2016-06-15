@@ -22,8 +22,31 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 endif()
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
-find_package(KF5 REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig Screen KDELibs4Support Wayland NetworkManagerQt BluezQt)
+find_package(KF5 REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig Screen KDELibs4Support Wayland)
 find_package(LibKWorkspace CONFIG REQUIRED)
+
+find_package(KF5BluezQt)
+set_package_properties(KF5BluezQt
+    PROPERTIES DESCRIPTION "Qt wrapper for BlueZ 5 DBus API"
+    TYPE OPTIONAL
+    PURPOSE "Support for wireless energy saving actions"
+)
+find_package(KF5NetworkManagerQt)
+set_package_properties(KF5NetworkManagerQt
+    PROPERTIES DESCRIPTION "Qt wrapper for NetworkManager API"
+    TYPE OPTIONAL
+    PURPOSE "Support for wireless energy saving actions"
+)
+
+set(HAVE_WIRELESS_SUPPORT FALSE)
+if(KF5NetworkManagerQt_FOUND AND KF5BluezQt_FOUND)
+    set(HAVE_WIRELESS_SUPPORT TRUE)
+endif()
+add_feature_info(
+    "Wireless power saving"
+    HAVE_WIRELESS_SUPPORT
+    "Support turning off signal-transmitting devices to save energy"
+)
 
 find_package(UDev REQUIRED)
 

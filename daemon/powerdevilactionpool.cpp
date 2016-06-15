@@ -24,6 +24,8 @@
 #include "powerdevilcore.h"
 #include "powerdevil_debug.h"
 
+#include <config-powerdevil.h>
+
 #include <KConfigGroup>
 #include <KServiceTypeTrader>
 #include <KPluginInfo>
@@ -38,7 +40,9 @@
 #include "actions/bundled/dimdisplay.h"
 #include "actions/bundled/runscript.h"
 #include "actions/bundled/handlebuttonevents.h"
+#ifdef HAVE_WIRELESS_SUPPORT
 #include "actions/bundled/wirelesspowersaving.h"
+#endif
 
 namespace PowerDevil
 {
@@ -127,7 +131,9 @@ void ActionPool::init(PowerDevil::Core *parent)
     m_actionPool.insert("DimDisplay", new BundledActions::DimDisplay(parent));
     m_actionPool.insert("RunScript", new BundledActions::RunScript(parent));
     m_actionPool.insert("HandleButtonEvents", new BundledActions::HandleButtonEvents(parent));
+#ifdef HAVE_WIRELESS_SUPPORT
     m_actionPool.insert("WirelessPowerSaving", new BundledActions::WirelessPowerSaving(parent));
+#endif
 
     // Verify support
     QHash<QString,Action*>::iterator i = m_actionPool.begin();
