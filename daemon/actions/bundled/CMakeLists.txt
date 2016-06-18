@@ -19,9 +19,8 @@ add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
 add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets KF5::Solid KF5::KDELibs4Support)
-if(HAVE_WIRELESS_SUPPORT)
-    add_powerdevil_bundled_action(wirelesspowersaving KF5::NetworkManagerQt KF5::BluezQt)
-endif()
+add_powerdevil_bundled_action(wirelesspowersaving KF5::NetworkManagerQt KF5::BluezQt)
+
 
 set(actionconfig_SRCS handlebuttoneventsconfig.cpp)
 qt5_add_dbus_interface(actionconfig_SRCS
