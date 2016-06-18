@@ -19,13 +19,8 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/dimdisplay.cpp
     actions/bundled/runscript.cpp
     actions/bundled/handlebuttonevents.cpp
+    actions/bundled/wirelesspowersaving.cpp
 )
-
-if(HAVE_WIRELESS_SUPPORT)
-    set(powerdevil_bundled_actions_SRCS ${powerdevil_bundled_actions_SRCS}
-        actions/bundled/wirelesspowersaving.cpp
-    )
-endif()
 
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
@@ -54,10 +49,8 @@ qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerMana
                      actions/bundled/handlebuttonevents.h PowerDevil::BundledActions::HandleButtonEvents)
 qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
                      actions/bundled/suspendsession.h PowerDevil::BundledActions::SuspendSession)
-if(HAVE_WIRELESS_SUPPORT)
-    qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
-                         actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
-endif()
+qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
+                     actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
@@ -77,15 +70,10 @@ target_link_libraries(powerdevilcore
     KF5::WidgetsAddons
     KF5::Notifications
     KF5::XmlGui
+    KF5::NetworkManagerQt
+    KF5::BluezQt
     PW::KWorkspace
 )
-
-if(HAVE_WIRELESS_SUPPORT)
-    target_link_libraries(powerdevilcore
-        KF5::NetworkManagerQt
-        KF5::BluezQt
-    )
-endif()
 
 if (XCB_FOUND) # kwin kscreen helper effect
     target_link_libraries(powerdevilcore Qt5::X11Extras XCB::XCB)
