@@ -653,6 +653,7 @@ IconName=battery-100
 [Event/lowperipheralbattery]
 Name=Peripheral Battery Low
 Name[ca]=Bateria baixa del perifèric
+Name[ca@valencia]=Bateria baixa del perifèric
 Name[da]=Lavt tilkoblingsbatteri
 Name[es]=Batería de periférico baja
 Name[nl]=Batterij in randapparaat op laag niveau
@@ -665,6 +666,7 @@ Name[x-test]=xxPeripheral Battery Lowxx
 Name[zh_CN]=外部设备电池电量低
 Comment=The battery in a connected device, such as mouse or keyboard, is low
 Comment[ca]=La bateria en un dispositiu connectat, com un ratolí o teclat, és baixa
+Comment[ca@valencia]=La bateria en un dispositiu connectat, com un ratolí o teclat, és baixa
 Comment[da]=Batteriet i en tilsluttet enhed, såsom mus eller tastatur er lavt
 Comment[es]=La batería de un dispositivo conectado, como un ratón o un teclado, está baja
 Comment[nl]=De batterij in een verbonden apparaat, zoals een muis of toetsenbord, is op een laag niveau
