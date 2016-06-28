@@ -34,6 +34,8 @@
 class QDBusServiceWatcher;
 class QDBusInterface;
 
+class OrgFreedesktopScreenSaverInterface;
+
 #define SYSTEMD_LOGIN1_SERVICE "org.freedesktop.login1"
 #define SYSTEMD_LOGIN1_PATH "/org/freedesktop/login1"
 #define SYSTEMD_LOGIN1_MANAGER_IFACE "org.freedesktop.login1.Manager"
@@ -109,6 +111,14 @@ private:
     void finishSessionInterruption();
 
     void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
+
+    // Screen locker integration
+    void onScreenLockerOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
+    QDBusServiceWatcher *m_screenLockerWatcher;
+
+    void onScreenLockerActiveChanged(bool active);
+    OrgFreedesktopScreenSaverInterface *m_screenLockerInterface = nullptr;
+    bool m_screenLockerActive = false;
 
     // This function serves solely for fd.o connector
     uint addInhibitionWithExplicitDBusService(uint types, const QString &appName,

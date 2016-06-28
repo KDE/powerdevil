@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
  *   Copyright (C) 2012 Lukáš Tinkl <ltinkl@redhat.com>                    *
+ *   Copyright (C) 2016 Kai Uwe Broulik <kde@privat.broulik.de>            *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -35,6 +36,8 @@
 #include "powerdevilpolicyagent.h"
 #include "powerdevil_debug.h"
 
+#include "screenlocker_interface.h"
+
 struct NamedDBusObjectPath
 {
     QString name;
@@ -66,6 +69,8 @@ Q_DECLARE_METATYPE(QList<InhibitionInfo>)
 namespace PowerDevil
 {
 
+static const QString SCREEN_LOCKER_SERVICE_NAME = QStringLiteral("org.freedesktop.ScreenSaver");
+
 class PolicyAgentHelper
 {
 public:
@@ -89,6 +94,7 @@ PolicyAgent *PolicyAgent::instance()
 
 PolicyAgent::PolicyAgent(QObject* parent)
     : QObject(parent)
+    , m_screenLockerWatcher(new QDBusServiceWatcher(this))
     , m_sdAvailable(false)
     , m_systemdInhibitFd(-1)
     , m_ckAvailable(false)
@@ -148,6 +154,29 @@ void PolicyAgent::init()
 
     connect(m_busWatcher.data(), SIGNAL(serviceUnregistered(QString)),
             this, SLOT(onServiceUnregistered(QString)));
+
+    // Setup the screen locker watcher and check whether the screen is currently locked
+    connect(m_screenLockerWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &PolicyAgent::onScreenLockerOwnerChanged);
+    m_screenLockerWatcher->setWatchMode(QDBusServiceWatcher::WatchForOwnerChange);
+    m_screenLockerWatcher->addWatchedService(SCREEN_LOCKER_SERVICE_NAME);
+
+    // async variant of QDBusConnectionInterface::serviceOwner ...
+    auto msg = QDBusMessage::createMethodCall(
+        QStringLiteral("org.freedesktop.DBus"),
+        QStringLiteral("/"),
+        QStringLiteral("org.freedesktop.DBus"),
+        QStringLiteral("GetNameOwner")
+    );
+    msg.setArguments({SCREEN_LOCKER_SERVICE_NAME});
+
+    auto *watcher = new QDBusPendingCallWatcher(QDBusConnection::sessionBus().asyncCall(msg), this);
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<QString> reply = *watcher;
+        if (!reply.isError()) {
+            onScreenLockerOwnerChanged(SCREEN_LOCKER_SERVICE_NAME, {}, reply.value());
+        }
+        watcher->deleteLater();
+    });
 }
 
 QString PolicyAgent::getNamedPathProperty(const QString &path, const QString &iface, const QString &prop) const
@@ -363,7 +392,8 @@ PolicyAgent::RequiredPolicies PolicyAgent::unavailablePolicies()
     if (!m_typesToCookie[ChangeProfile].isEmpty()) {
         retpolicies |= ChangeProfile;
     }
-    if (!m_typesToCookie[ChangeScreenSettings].isEmpty()) {
+    // when screen locker is active it makes no sense to keep the screen on
+    if (!m_screenLockerActive && !m_typesToCookie[ChangeScreenSettings].isEmpty()) {
         retpolicies |= ChangeScreenSettings;
     }
     if (!m_typesToCookie[InterruptSession].isEmpty()) {
@@ -428,6 +458,46 @@ void PolicyAgent::startSessionInterruption()
 void PolicyAgent::finishSessionInterruption()
 {
     m_sessionIsBeingInterrupted = false;
+}
+
+void PolicyAgent::onScreenLockerOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner)
+{
+    Q_UNUSED(oldOwner);
+    if (serviceName != SCREEN_LOCKER_SERVICE_NAME) {
+        return;
+    }
+
+    delete m_screenLockerInterface;
+    m_screenLockerInterface = nullptr;
+    m_screenLockerActive = false;
+
+    if (!newOwner.isEmpty()) {
+        m_screenLockerInterface = new OrgFreedesktopScreenSaverInterface(newOwner, QStringLiteral("/ScreenSaver"), QDBusConnection::sessionBus(), this);
+        connect(m_screenLockerInterface, &OrgFreedesktopScreenSaverInterface::ActiveChanged, this, &PolicyAgent::onScreenLockerActiveChanged);
+
+        auto *activeReplyWatcher = new QDBusPendingCallWatcher(m_screenLockerInterface->GetActive());
+        connect(activeReplyWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+            QDBusPendingReply<bool> reply = *watcher;
+            if (!reply.isError()) {
+                onScreenLockerActiveChanged(reply.value());
+            }
+            watcher->deleteLater();
+        });
+    }
+}
+
+void PolicyAgent::onScreenLockerActiveChanged(bool active)
+{
+    const auto oldPolicies = unavailablePolicies();
+
+    m_screenLockerActive = active;
+
+    const auto newPolicies = unavailablePolicies();
+
+    if (oldPolicies != newPolicies) {
+        qCDebug(POWERDEVIL) << "Screen saver active" << active << "- we have different inhibition policy now because of that";
+        Q_EMIT unavailablePoliciesChanged(newPolicies);
+    }
 }
 
 uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString &appName,

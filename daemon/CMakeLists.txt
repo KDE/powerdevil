@@ -59,6 +59,8 @@ if(HAVE_WIRELESS_SUPPORT)
                          actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
 endif()
 
+qt5_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
+
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
 
