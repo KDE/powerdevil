@@ -667,6 +667,7 @@ IconName=battery-100
 Name=Peripheral Battery Low
 Name[ca]=Bateria baixa del perifèric
 Name[ca@valencia]=Bateria baixa del perifèric
+Name[cs]=Periferní baterie je téměř vybitá
 Name[da]=Lavt tilkoblingsbatteri
 Name[de]=Akku-Ladestand angeschlossener Geräte niedrig
 Name[es]=Batería de periférico baja
