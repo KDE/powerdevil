@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#include "kdedpowerdevil.h"
+#include "powerdevilapp.h"
 
 #include "powerdevilfdoconnector.h"
 #include "powermanagementadaptor.h"
@@ -30,30 +30,25 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDebug>
-
 #include <QFileInfo>
 
+#include <KCrash>
+#include <KDBusService>
 #include <KAboutData>
-#include <KPluginFactory>
 #include <KSharedConfig>
 #include <KLocalizedString>
 
-K_PLUGIN_FACTORY_WITH_JSON(PowerDevilFactory,
-                           "powerdevil.json",
-                           registerPlugin<KDEDPowerDevil>();)
-
-KDEDPowerDevil::KDEDPowerDevil(QObject* parent, const QVariantList &)
-    : KDEDModule(parent)
+PowerDevilApp::PowerDevilApp(int &argc, char **argv)
+    : QGuiApplication(argc, argv)
     , m_core(Q_NULLPTR)
 {
-    QTimer::singleShot(0, this, SLOT(init()));
 }
 
-KDEDPowerDevil::~KDEDPowerDevil()
+PowerDevilApp::~PowerDevilApp()
 {
 }
 
-void KDEDPowerDevil::init()
+void PowerDevilApp::init()
 {
 //     KGlobal::insertCatalog("powerdevil");
 
@@ -118,7 +113,7 @@ void KDEDPowerDevil::init()
     m_core->loadCore(interface);
 }
 
-void KDEDPowerDevil::onCoreReady()
+void PowerDevilApp::onCoreReady()
 {
     qCDebug(POWERDEVIL) << "Core is ready, registering various services on the bus...";
     //DBus logic for the core
@@ -139,4 +134,18 @@ void KDEDPowerDevil::onCoreReady()
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"), PowerDevil::PolicyAgent::instance());
 }
 
-#include "kdedpowerdevil.moc"
+int main(int argc, char **argv)
+{
+    QGuiApplication::setDesktopSettingsAware(false);
+    PowerDevilApp app(argc, argv);
+
+    KDBusService service(KDBusService::Unique);
+    KCrash::setFlags(KCrash::AutoRestart);
+
+    app.setQuitOnLastWindowClosed(false);
+    app.init();
+
+    return app.exec();
+}
+
+#include "powerdevilapp.moc"

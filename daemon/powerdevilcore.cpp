@@ -64,6 +64,7 @@ Core::Core(QObject* parent)
 
 Core::~Core()
 {
+    qCDebug(POWERDEVIL) << "Core unloading";
     // Unload all actions before exiting, and clear the cache
     ActionPool::instance()->unloadAllActiveActions();
     ActionPool::instance()->clearCache();

@@ -43,6 +43,8 @@
 namespace PowerDevil {
 namespace BundledActions {
 
+static const QString s_globalAccelComponent = QStringLiteral("kded5");
+
 HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
     , m_screenConfiguration(nullptr)
@@ -58,16 +60,19 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
     QAction *globalAction = actionCollection->addAction("Sleep");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Suspend"));
+    globalAction->setProperty("componentName", s_globalAccelComponent);
     accel->setGlobalShortcut(globalAction, Qt::Key_Sleep);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
 
     globalAction = actionCollection->addAction("Hibernate");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
+    globalAction->setProperty("componentName", s_globalAccelComponent);
     accel->setGlobalShortcut(globalAction, Qt::Key_Hibernate);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
 
     globalAction = actionCollection->addAction("PowerOff");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Off"));
+    globalAction->setProperty("componentName", s_globalAccelComponent);
     accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 

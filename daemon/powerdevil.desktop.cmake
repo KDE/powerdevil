@@ -1,14 +1,10 @@
 [Desktop Entry]
 Type=Service
 Icon=preferences-system-power-management
-X-KDE-ServiceTypes=KDEDModule
-X-KDE-Library=powerdevil
 X-KDE-DBus-ModuleName=powerdevil
-X-KDE-Kded-autoload=true
-X-KDE-Kded-load-on-demand=false
-X-KDE-Kded-phase=1
-
 Name=Power Management
+Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
+OnlyShowIn=KDE;
 Name[ar]=إدارة الطاقة
 Name[ast]=Xestión d'enerxía
 Name[bs]=Upravljanje napajanjem

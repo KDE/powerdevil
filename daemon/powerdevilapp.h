@@ -17,11 +17,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef KDEDPOWERDEVIL_H
-#define KDEDPOWERDEVIL_H
+#ifndef POWERDEVILAPP_H
+#define POWERDEVILAPP_H
 
-#include <KDEDModule>
 #include <QVariantList>
+#include <QGuiApplication>
 
 namespace PowerDevil {
     class Core;
@@ -30,21 +30,22 @@ namespace PowerDevil {
 
 using InhibitionInfo = QPair<QString, QString>;
 
-class KDEDPowerDevil : public KDEDModule
+class PowerDevilApp : public QGuiApplication
 {
     Q_OBJECT
-    Q_DISABLE_COPY(KDEDPowerDevil)
+    Q_DISABLE_COPY(PowerDevilApp)
 
 public:
-    explicit KDEDPowerDevil(QObject* parent, const QVariantList &);
-    virtual ~KDEDPowerDevil();
+    explicit PowerDevilApp(int &argc, char **argv);
+    virtual ~PowerDevilApp();
+
+    void init();
 
 private Q_SLOTS:
-    void init();
     void onCoreReady();
 
 private:
     PowerDevil::Core *m_core;
 };
 
-#endif // KDEDPOWERDEVIL_H
+#endif // POWERDEVILAPP_H

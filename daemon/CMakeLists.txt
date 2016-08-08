@@ -94,30 +94,32 @@ if (XCB_FOUND) # kwin kscreen helper effect
 endif ()
 
 # target no.2 - powerdevil kded module
-set(kded_powerdevil_SRCS
+set(powerdevil_SRCS
     powerdevil_debug.cpp
-    kdedpowerdevil.cpp
+    powerdevilapp.cpp
     powerdevilfdoconnector.cpp
 )
 
 # DBus Adaptors
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS org.kde.Solid.PowerManagement.PolicyAgent.xml
+qt5_add_dbus_adaptor(powerdevil_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
+qt5_add_dbus_adaptor(powerdevil_SRCS org.kde.Solid.PowerManagement.PolicyAgent.xml
                                          powerdevilpolicyagent.h PowerDevil::PolicyAgent
                                          powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
 
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
-qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
+qt5_add_dbus_adaptor(powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt5_add_dbus_adaptor(powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 
 # Backends
 add_subdirectory(backends)
 
-add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS})
-set_target_properties(kded_powerdevil PROPERTIES OUTPUT_NAME powerdevil)
-kcoreaddons_desktop_to_json(kded_powerdevil powerdevil.desktop)
+add_executable(powerdevil ${powerdevil_SRCS})
+set_target_properties(powerdevil PROPERTIES OUTPUT_NAME org_kde_powerdevil)
+configure_file(powerdevil.desktop.cmake
+               ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop)
 
-target_link_libraries(kded_powerdevil
+target_link_libraries(powerdevil
+    KF5::Crash
     KF5::ConfigCore
     KF5::CoreAddons
     KF5::I18n
@@ -125,12 +127,14 @@ target_link_libraries(kded_powerdevil
     powerdevilcore
 )
 if (XCB_FOUND)
-    target_link_libraries(kded_powerdevil Qt5::X11Extras)
+    target_link_libraries(powerdevil Qt5::X11Extras)
 endif ()
 
-target_link_libraries(kded_powerdevil ${UDEV_LIBS})
+target_link_libraries(powerdevil ${UDEV_LIBS})
 
-install(TARGETS kded_powerdevil DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
+install(TARGETS powerdevil DESTINATION ${CMAKE_INSTALL_FULL_LIBEXECDIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
+        DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library

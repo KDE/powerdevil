@@ -43,6 +43,8 @@
 namespace PowerDevil {
 namespace BundledActions {
 
+static const QString s_globalAccelComponent = QStringLiteral("kded5");
+
 KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     : Action(parent)
 {
@@ -58,16 +60,19 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
 
     QAction *globalAction = actionCollection->addAction(QLatin1String("Increase Keyboard Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
+    globalAction->setProperty("componentName", s_globalAccelComponent);
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessUp);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
 
     globalAction = actionCollection->addAction(QLatin1String("Decrease Keyboard Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
+    globalAction->setProperty("componentName", s_globalAccelComponent);
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessDown);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
 
     globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
+    globalAction->setProperty("componentName", s_globalAccelComponent);
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardLightOnOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
 
