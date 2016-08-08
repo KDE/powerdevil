@@ -111,14 +111,13 @@ qt5_add_dbus_adaptor(kded_powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.fr
 
 
 # Backends
-include(BackendConfig.cmake)
+add_subdirectory(backends)
 
-add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS} ${POWERDEVIL_BACKEND_SRCS})
+add_library(kded_powerdevil MODULE ${kded_powerdevil_SRCS})
 set_target_properties(kded_powerdevil PROPERTIES OUTPUT_NAME powerdevil)
 kcoreaddons_desktop_to_json(kded_powerdevil powerdevil.desktop)
 
 target_link_libraries(kded_powerdevil
-    ${POWERDEVIL_BACKEND_LIBS}
     KF5::ConfigCore
     KF5::CoreAddons
     KF5::I18n

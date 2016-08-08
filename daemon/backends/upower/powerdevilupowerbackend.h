@@ -50,9 +50,10 @@ class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterfac
 {
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilUPowerBackend)
+    Q_PLUGIN_METADATA(IID "org.kde.powerdevil.upowerbackend");
 
 public:
-    explicit PowerDevilUPowerBackend(QObject* parent);
+    explicit PowerDevilUPowerBackend(QObject* parent = nullptr);
     virtual ~PowerDevilUPowerBackend();
 
     virtual void init();

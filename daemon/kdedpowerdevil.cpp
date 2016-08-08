@@ -26,12 +26,12 @@
 #include "powerdevilcore.h"
 #include "powerdevil_debug.h"
 
-#include "backends/upower/powerdevilupowerbackend.h"
-
 #include <QTimer>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDebug>
+
+#include <QFileInfo>
 
 #include <KAboutData>
 #include <KPluginFactory>
@@ -79,17 +79,43 @@ void KDEDPowerDevil::init()
     connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));
 
     // Before doing anything, let's set up our backend
-    PowerDevil::BackendInterface *interface = new PowerDevilUPowerBackend(m_core);
+    const QStringList paths = QCoreApplication::libraryPaths();
+    QFileInfoList fileInfos;
+    for (const QString &path : paths) {
+        QDir dir(path + QLatin1String("/kf5/powerdevil/"),
+            QStringLiteral("*"),
+            QDir::SortFlags(QDir::QDir::Name),
+            QDir::NoDotAndDotDot | QDir::Files);
+        fileInfos.append(dir.entryInfoList());
+    }
 
-    if (!interface) {
-        // Ouch
+    QFileInfo backendFileInfo;
+    Q_FOREACH (const QFileInfo &f, fileInfos) {
+        if (f.baseName().toLower() == QLatin1String("powerdevilupowerbackend")) {
+            backendFileInfo = f;
+            break;
+        }
+    }
+
+    QPluginLoader *loader = new QPluginLoader(backendFileInfo.filePath(), m_core);
+    QObject *instance = loader->instance();
+    if (!instance) {
+        qCDebug(POWERDEVIL) << loader->errorString();
         qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
         m_core->loadCore(0);
-    } else {
-        // Let's go!
-        qCDebug(POWERDEVIL) << "Backend loaded, loading core";
-        m_core->loadCore(interface);
+        return;
     }
+
+    auto interface = qobject_cast<PowerDevil::BackendInterface*>(instance);
+    if (!interface) {
+        qCDebug(POWERDEVIL) << "Failed to cast plugin instance to BackendInterface, check your plugin";
+        qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
+        m_core->loadCore(0);
+        return;
+    }
+
+    qCDebug(POWERDEVIL) << "Backend loaded, loading core";
+    m_core->loadCore(interface);
 }
 
 void KDEDPowerDevil::onCoreReady()
