@@ -158,6 +158,7 @@ void PowerDevilUPowerBackend::init()
             [this, brightnessJob]  {
                 if (brightnessJob->error()) {
                     qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
+                    qCDebug(POWERDEVIL) << brightnessJob->errorText();
                     Q_EMIT brightnessSupportQueried(false);
                     return;
                 }
@@ -170,6 +171,7 @@ void PowerDevilUPowerBackend::init()
                     [this, brightnessMaxJob] {
                         if (brightnessMaxJob->error()) {
                             qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
+                            qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
                         } else {
                             m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
                         }
@@ -180,6 +182,8 @@ void PowerDevilUPowerBackend::init()
                         connect(syspathJob, &KJob::result, this,
                             [this, syspathJob] {
                                 if (syspathJob->error()) {
+                                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
+                                    qCDebug(POWERDEVIL) << syspathJob->errorText();
                                     Q_EMIT brightnessSupportQueried(false);
                                     return;
                                 }
