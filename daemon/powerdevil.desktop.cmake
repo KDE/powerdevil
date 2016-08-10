@@ -3,8 +3,6 @@ Type=Service
 Icon=preferences-system-power-management
 X-KDE-DBus-ModuleName=powerdevil
 Name=Power Management
-Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
-OnlyShowIn=KDE;
 Name[ar]=إدارة الطاقة
 Name[ast]=Xestión d'enerxía
 Name[bs]=Upravljanje napajanjem
@@ -49,6 +47,8 @@ Name[uk]=Керування живленням
 Name[x-test]=xxPower Managementxx
 Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
+Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
+OnlyShowIn=KDE;
 
 Comment=Battery, Display and CPU power management and notification
 Comment[ar]=تنبيهات وإدارة طاقة المعالِج والعَرض والبطارية
