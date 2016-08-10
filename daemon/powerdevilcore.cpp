@@ -370,6 +370,11 @@ void Core::loadProfile(bool force)
             }
         }
     }
+
+    // If the lid is closed, retrigger the lid close signal
+    if (m_backend->isLidClosed()) {
+        Q_EMIT m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
+    }
 }
 
 void Core::onDeviceAdded(const QString &udi)
