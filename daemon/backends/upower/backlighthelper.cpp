@@ -96,7 +96,7 @@ void BacklightHelper::initUsingBacklightType()
     }
 
     QDir ledsDir(LED_SYSFS_PATH);
-    ledsDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    ledsDir.setFilter(QDir::Dirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
     ledsDir.setNameFilters({QStringLiteral("*lcd*"), QStringLiteral("*wled*")});
 
     QStringList ledInterfaces = ledsDir.entryList();
