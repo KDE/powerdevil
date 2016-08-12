@@ -39,7 +39,8 @@
 #define HAS_SYSCTL(n) (sysctlbyname(n, NULL, NULL, NULL, 0) == 0)
 #endif
 
-#define PREFIX "/sys/class/backlight/"
+#define BACKLIGHT_SYSFS_PATH "/sys/class/backlight/"
+#define LED_SYSFS_PATH "/sys/class/leds/"
 
 BacklightHelper::BacklightHelper(QObject *parent) : QObject(parent)
 {
@@ -64,22 +65,18 @@ void BacklightHelper::init()
 
 void BacklightHelper::initUsingBacklightType()
 {
-    QDir dir(PREFIX);
-    dir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
-    dir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
+    QDir backlightDir(BACKLIGHT_SYSFS_PATH);
+    backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    backlightDir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
 
-    QStringList interfaces = dir.entryList();
-
-    if (interfaces.isEmpty()) {
-        return;
-    }
+    QStringList interfaces = backlightDir.entryList();
 
     QFile file;
     QByteArray buffer;
-    QStringList firmware, platform, raw;
+    QStringList firmware, platform, raw, leds;
 
     Q_FOREACH(const QString & interface, interfaces) {
-        file.setFileName(PREFIX + interface + "/type");
+        file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;
         }
@@ -98,20 +95,32 @@ void BacklightHelper::initUsingBacklightType()
         file.close();
     }
 
+    QDir ledsDir(LED_SYSFS_PATH);
+    ledsDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    ledsDir.setNameFilters({QStringLiteral("*lcd*"), QStringLiteral("*wled*")});
+
+    QStringList ledInterfaces = ledsDir.entryList();
+
+    if (!ledInterfaces.isEmpty()) {
+        m_dirname = LED_SYSFS_PATH + ledInterfaces.constFirst();
+        return;
+    }
+
     if (!firmware.isEmpty()) {
-        m_dirname = PREFIX + firmware.first();
+        m_dirname = BACKLIGHT_SYSFS_PATH + firmware.constFirst();
         return;
     }
 
     if (!platform.isEmpty()) {
-        m_dirname = PREFIX + platform.first();
+        m_dirname = BACKLIGHT_SYSFS_PATH + platform.constFirst();
         return;
     }
 
     if (!raw.isEmpty()) {
-        m_dirname = PREFIX + raw.first();
+        m_dirname = BACKLIGHT_SYSFS_PATH + raw.constFirst();
         return;
     }
+
 }
 
 void BacklightHelper::initUsingSysctl()
