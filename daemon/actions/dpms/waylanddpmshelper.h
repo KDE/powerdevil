@@ -58,6 +58,8 @@ private:
     KWayland::Client::Registry *m_registry = nullptr;
     KWayland::Client::DpmsManager *m_dpmsManager = nullptr;
     QMap<KWayland::Client::Output*, KWayland::Client::Dpms*> m_dpms;
+
+    int m_oldScreenBrightness;
 };
 
 #endif

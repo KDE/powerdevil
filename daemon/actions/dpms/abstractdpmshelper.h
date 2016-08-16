@@ -20,6 +20,8 @@
 #ifndef ABSTRACTDPMSHELPER_H
 #define ABSTRACTDPMSHELPER_H
 
+#include <powerdevilbackendinterface.h>
+
 class QString;
 
 class AbstractDpmsHelper
@@ -38,14 +40,21 @@ public:
     bool isSupported() const {
         return m_supported;
     }
+    void setBackendInterface(PowerDevil::BackendInterface* backend) {
+        m_backend = backend;
+    }
 
 protected:
     void setSupported(bool supported) {
         m_supported = supported;
     }
+    PowerDevil::BackendInterface* backend() {
+        return m_backend;
+    }
 
 private:
     bool m_supported = false;
+    PowerDevil::BackendInterface* m_backend = nullptr;
 };
 
 #endif

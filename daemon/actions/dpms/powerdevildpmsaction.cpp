@@ -51,6 +51,7 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     } else if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
         m_helper.reset(new WaylandDpmsHelper);
     }
+    m_helper->setBackendInterface(backend());
 
     // Is the action being loaded outside the core?
     if (args.size() > 0) {

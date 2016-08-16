@@ -131,6 +131,20 @@ void WaylandDpmsHelper::initOutput(quint32 name, quint32 version)
     Dpms *dpms = nullptr;
     if (m_dpmsManager) {
         dpms = m_dpmsManager->getDpms(output, this);
+        connect(dpms, &Dpms::modeChanged, this,
+            [this, dpms] {
+                Dpms::Mode type = dpms->mode();
+                if (type == Dpms::Mode::On) {
+                    if (m_oldScreenBrightness > 0) {
+                        backend()->setBrightness(m_oldScreenBrightness, PowerDevil::BackendInterface::Screen);
+                        m_oldScreenBrightness = 0;
+                    }
+                } else {
+                    m_oldScreenBrightness = backend()->brightness(PowerDevil::BackendInterface::Screen);
+                    backend()->setBrightness(0, PowerDevil::BackendInterface::Screen);
+                }
+            }, Qt::QueuedConnection
+        );
     }
     m_dpms.insert(output, dpms);
 }
