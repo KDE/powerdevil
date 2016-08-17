@@ -118,6 +118,9 @@ private:
     bool m_lidIsClosed;
     bool m_onBattery;
 
+    // property if brightness control is leds subsystem
+    bool m_isLedBrightnessControl;
+
     //helper path
     QString m_syspath;
 };

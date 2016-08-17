@@ -52,7 +52,10 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     , m_upowerInterface(Q_NULLPTR)
     , m_kbdBacklight(Q_NULLPTR)
     , m_kbdMaxBrightness(0)
-    , m_lidIsPresent(false), m_lidIsClosed(false), m_onBattery(false)
+    , m_lidIsPresent(false)
+    , m_lidIsClosed(false)
+    , m_onBattery(false)
+    , m_isLedBrightnessControl(false)
 {
 
 }
@@ -190,8 +193,11 @@ void PowerDevilUPowerBackend::init()
                                 m_syspath = syspathJob->data()["syspath"].toString();
                                 m_syspath = QFileInfo(m_syspath).readLink();
 
-                                UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                                connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+                                m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
+                                if (!m_isLedBrightnessControl) {
+                                    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+                                    connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+                                }
                                 Q_EMIT brightnessSupportQueried(true);
                             }
                         );
@@ -446,6 +452,10 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
             KAuth::ExecuteJob *job = action.execute();
             // we don't care about the result since executing the job sync is bad
             job->start();
+            if (m_isLedBrightnessControl) {
+                m_cachedBrightnessMap[Screen] = value;
+                slotScreenBrightnessChanged();
+            }
         }
     } else if (type == Keyboard) {
         qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
@@ -461,7 +471,7 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
 
     int value = brightness(Screen);
     qCDebug(POWERDEVIL) << "Brightness changed!!";
-    if (value != m_cachedBrightnessMap[Screen]) {
+    if (value != m_cachedBrightnessMap[Screen] || m_isLedBrightnessControl) {
         m_cachedBrightnessMap[Screen] = value;
         onBrightnessChanged(Screen, value, brightnessMax(Screen));
     }
