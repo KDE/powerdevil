@@ -760,7 +760,7 @@ int Core::currentChargePercent() const
 void Core::onResumingFromIdle()
 {
     // Wake up the actions in which an idle action was triggered
-    QList< Action* >::iterator i = m_pendingResumeFromIdleActions.begin();
+    auto i = m_pendingResumeFromIdleActions.begin();
     while (i != m_pendingResumeFromIdleActions.end()) {
         (*i)->onWakeupFromIdle();
         i = m_pendingResumeFromIdleActions.erase(i);
