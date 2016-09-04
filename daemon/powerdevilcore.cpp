@@ -704,14 +704,12 @@ void Core::onBatteryRemainingTimeChanged(qulonglong time)
 void Core::onKIdleTimeoutReached(int identifier, int msec)
 {
     // Find which action(s) requested this idle timeout
-    for (QHash< Action*, QList< int > >::const_iterator i = m_registeredActionTimeouts.constBegin();
-         i != m_registeredActionTimeouts.constEnd(); ++i) {
+    for (auto i = m_registeredActionTimeouts.constBegin(), end = m_registeredActionTimeouts.constEnd(); i != end; ++i) {
         if (i.value().contains(identifier)) {
             i.key()->onIdleTimeout(msec);
+
             // And it will need to be awaken
-            if (!m_pendingResumeFromIdleActions.contains(i.key())) {
-                m_pendingResumeFromIdleActions.append(i.key());
-            }
+            m_pendingResumeFromIdleActions.insert(i.key());
             break;
         }
     }

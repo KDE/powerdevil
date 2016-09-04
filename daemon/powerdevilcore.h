@@ -23,8 +23,9 @@
 
 #include "powerdevilbackendinterface.h"
 
-#include <QStringList>
 #include <QPointer>
+#include <QSet>
+#include <QStringList>
 
 #include <KSharedConfig>
 
@@ -128,7 +129,7 @@ private:
 
     // Idle time management
     QHash< Action*, QList< int > > m_registeredActionTimeouts;
-    QList< Action* > m_pendingResumeFromIdleActions;
+    QSet<Action *> m_pendingResumeFromIdleActions;
     bool m_pendingWakeupEvent;
 
     // Activity inhibition management
