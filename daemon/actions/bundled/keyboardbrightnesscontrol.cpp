@@ -56,6 +56,7 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     connect(core()->backend(), &PowerDevil::BackendInterface::brightnessChanged, this, &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromBackend);
 
     KActionCollection* actionCollection = new KActionCollection( this );
+    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
     KGlobalAccel *accel = KGlobalAccel::self();
 
     QAction *globalAction = actionCollection->addAction(QLatin1String("Increase Keyboard Brightness"));

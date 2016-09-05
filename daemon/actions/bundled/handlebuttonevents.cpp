@@ -56,6 +56,8 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
             this, SLOT(onButtonPressed(PowerDevil::BackendInterface::ButtonType)));
 
     KActionCollection* actionCollection = new KActionCollection( this );
+    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
+
     KGlobalAccel *accel = KGlobalAccel::self();
 
     QAction *globalAction = actionCollection->addAction("Sleep");

@@ -52,6 +52,7 @@ BrightnessControl::BrightnessControl(QObject* parent)
 
     KGlobalAccel *accel = KGlobalAccel::self();
     KActionCollection* actionCollection = new KActionCollection( this );
+    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
 
     QAction* globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
