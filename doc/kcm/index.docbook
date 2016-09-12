@@ -12,11 +12,11 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2013-08-18</date>
-<releaseinfo>&kde; 4.11</releaseinfo>
+<date>2016-08-26</date>
+<releaseinfo>&plasma; 5.7</releaseinfo>
 
 <keywordset>
-<keyword>KDE</keyword>
+<keyword>Plasma</keyword>
 <keyword>System Settings</keyword>
 <keyword>powerdevil</keyword>
 <keyword>power management</keyword>
@@ -27,7 +27,7 @@
 <sect1 id="kcm_powerdevilconfig">
 <title>PowerDevil, a Power Management Daemon</title>
 
-<para>This module is a configuration tool for managing Power Management in &kde;. It is a configurator for the PowerDevil daemon, that you can start or stop from the <guilabel>Service Manager</guilabel> module. </para>
+<para>This module is a configuration tool for managing Power Management in &plasma;. It is a configurator for the PowerDevil daemon, that you can start or stop from the <guilabel>Background Services</guilabel> module in &systemsettings;.</para>
 
 <para>Through this module, you can define your computer's behavior in various situations, allowing you to save as much energy as possible.
 </para>
@@ -60,15 +60,15 @@ This page shows the actual energy saving settings. If a battery is detected you 
 <para>
 There are a lot of options you can configure for each profile:
 </para>
-<!--FIXME in 4.11/master additional Keyboard Backlight ??-->
+
 <variablelist>
-<varlistentry><term><guilabel>Screen Brightness</guilabel></term>
+<varlistentry><term><guilabel>Screen brightness</guilabel></term>
 <listitem>
 <para>Sets the screen's brightness using a slider.</para>
 </listitem>
 </varlistentry>
 
-<varlistentry><term><guilabel>Dim Screen</guilabel></term>
+<varlistentry><term><guilabel>Dim screen</guilabel></term>
 <listitem>
 <para>If checked, the display will be progressively dimmed, until reaching 
 brightness 0, in the amount of time you specify in the spin box.
@@ -78,18 +78,16 @@ brightness 0, in the amount of time you specify in the spin box.
 
 <varlistentry><term><guilabel>Screen Energy Saving</guilabel></term>
 <listitem>
-<para>Here you can define power saving for your monitor.
-The check box defines if DPMS support should be enabled or disabled. 
-If you choose to activate it, set the timeouts in the spin boxes below.
+<para>Here you can set the timeout for switch off in the spin box.
 </para>
 </listitem>
 </varlistentry>
 
-<varlistentry><term><guilabel>Suspend Session</guilabel></term>
+<varlistentry><term><guilabel>Suspend session</guilabel></term>
 <listitem>
 <para>Suspends the session after the selected time to the status 
-<guilabel>Sleep</guilabel>, <guilabel>Hibernate</guilabel>, 
-<guilabel>Shutdown</guilabel> or <guilabel>Lock screen</guilabel>.</para>
+<guilabel>Suspend</guilabel>, <guilabel>Shutdown</guilabel> or
+<guilabel>Lock screen</guilabel>.</para>
 </listitem>
 </varlistentry>
 
@@ -98,10 +96,18 @@ If you choose to activate it, set the timeouts in the spin boxes below.
 <para>Select actions to perform whenever the laptop lid is closed or a button is pressed.</para>
 </listitem>
 </varlistentry>
+
 <varlistentry><term><guilabel>Run Script</guilabel></term>
 <listitem>
 <para>Activate this option to run a custom script when a profile is loaded, unloaded
 or after a given amount of time.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry><term><guilabel>Wireless power saving</guilabel></term>
+<listitem>
+<para>Activate this option to set individual actions for Wi-Fi, Mobile broadband or Bluetooth connections.
 </para>
 </listitem>
 </varlistentry>
@@ -112,7 +118,7 @@ or after a given amount of time.
 <sect2 id="activity-setting">
 <title>Activity Settings</title>
 <para>Here you can configure the Power Management settings per activity. The settings for each activity can be configured on its own tab.</para>
-<para>
+
 <screenshot>
 <screeninfo>Activity Settings</screeninfo>
   <mediaobject>
@@ -127,8 +133,9 @@ or after a given amount of time.
     </caption>
   </mediaobject>
 </screenshot>
-</para>
+
 <variablelist>
+
 <varlistentry>
 <term>Don't use special settings</term>
 <listitem>
@@ -137,14 +144,7 @@ Use the settings defined on <guilabel>Energy Saving</guilabel> page.
 </para>
 </listitem>
 </varlistentry>
-<varlistentry>
-<term>Act like</term>
-<listitem>
-<para>
-Here you can choose a predefined profile from the drop-down box: <guimenuitem>PC running on AC power</guimenuitem>, <guimenuitem>PC running on battery power</guimenuitem> or <guimenuitem>PC running on low battery</guimenuitem>.
-</para>
-</listitem>
-</varlistentry>
+
 <varlistentry>
 <term>Define a special behavior</term>
 <listitem>
@@ -188,54 +188,43 @@ This option allows users to choose the detail power saving settings for a separa
 <para>These items are only displayed if a battery is detected.
 </para>
 <variablelist>
-<varlistentry><term><guilabel>Battery is at low level at</guilabel></term>
+<varlistentry><term><guilabel>Low level</guilabel></term>
 <listitem>
 <para>
 Here you can set the percentage after which the battery will be considered low.
 </para>
 </listitem>
 </varlistentry>
-<varlistentry><term><guilabel>Battery is at critical level at</guilabel></term>
+<varlistentry><term><guilabel>Critical level</guilabel></term>
 <listitem>
 <para>
 Here you can set the percentage after which the battery will be considered at critical level.
 </para>
 </listitem>
 </varlistentry>
-<varlistentry><term><guilabel>When battery is at critical level</guilabel></term>
+<varlistentry><term><guilabel>At critical level</guilabel></term>
 <listitem>
 <para>
 Defines the action that will be done when battery reaches the critical level.
 </para>
 </listitem>
 </varlistentry>
-</variablelist>
-</listitem>
-</varlistentry>
-<varlistentry><term><guilabel>Events</guilabel></term>
-<listitem>
-<variablelist>
-<varlistentry><term><guilabel>Lock screen on resume</guilabel></term>
+<varlistentry><term>Peripheral devices</term>
 <listitem>
 <para>
-When this box is checked, every time the PC gets suspended, the screen will be locked when resuming. You will be asked for a password when resuming from sleep state.</para>
-</listitem>
-</varlistentry>
-<varlistentry><term><guilabel>Never prevent an action on lid close</guilabel></term>
-<listitem>
-<para>
-When this option is selected, applications will not be allowed to inhibit sleep when the lid is closed.
+Defines the low level for peripheral devices &eg; a wireless mouse.
 </para>
 </listitem>
 </varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
 <varlistentry><term><guibutton>Configure Notifications</guibutton></term>
 <listitem>
 <para>
 If you want a deeper control over your notifications, you can refine them by clicking this button.
 </para>
-</listitem>
-</varlistentry>
-</variablelist>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -254,33 +243,25 @@ If you want a deeper control over your notifications, you can refine them by cli
 Here comes a list of keywords you can enter in &krunner; to perform PowerDevil related actions.
 </para>
 <variablelist>
-<varlistentry><term><guibutton>Power Profile</guibutton></term>
+<varlistentry><term><userinput>power profile</userinput></term>
 <listitem>
 <para>
 You can manually choose a profile using this keyword. All available profiles will be shown in form of &krunner; matches.
 </para>
 </listitem>
 </varlistentry>
-<!--no runner keyword  in 4.11 
-<varlistentry><term><guibutton>Power Scheme</guibutton></term>
-<listitem>
-<para>
-Lets you manually set the system powersaving scheme. Available schemes will be shown as &krunner; matches.
-</para>
-</listitem>
-</varlistentry>
--->
-<varlistentry><term><guibutton>Screen Brightness</guibutton></term>
+<varlistentry><term><userinput>screen brightness</userinput> or <userinput>dim screen</userinput></term>
 <listitem>
 <para>
 You can control screen brightness through this keyword. In this form, some &krunner; matches that let you do some common actions will be shown. If you enter a value after the keyword (&eg;: <userinput>Screen Brightness 50</userinput>), the brightness will be set to that value.
 </para>
 </listitem>
 </varlistentry>
-<varlistentry><term><guibutton>Suspend</guibutton></term>
+<varlistentry><term><userinput>suspend</userinput>, <userinput>sleep</userinput>, <userinput>hibernate</userinput>,
+<userinput>to ram</userinput> or <userinput>to disk</userinput></term>
 <listitem>
 <para>
-You can suspend your pc through this keyword. Available suspend methods will be shown as &krunner; matches.
+You can set your computer into a low power mode through these keywords. Available methods will be shown as &krunner; matches.
 </para>
 </listitem>
 </varlistentry>
@@ -288,19 +269,16 @@ You can suspend your pc through this keyword. Available suspend methods will be 
 </sect2>
 </sect1>
 </article>
-<!--FIXME in 4.11
-"Note this is a KRunner keyword"
-"power profile"
-"suspend"
-"sleep"
-"hibernate"
-"to disk"
-"to ram"
-"screen brightness"
-"dim screen"
-"power profile %1"
-"screen brightness %1"
-"dim screen %1"
+<!--FIXME in 5.7
+plasma-workspace/runners/powerdevil/
+PowerDevilRunner.cpp:55:    commands << i18nc("Note this is a KRunner keyword", "power profile")
+PowerDevilRunner.cpp:56:             << i18nc("Note this is a KRunner keyword", "suspend")
+PowerDevilRunner.cpp:57:             << i18nc("Note this is a KRunner keyword", "sleep")
+PowerDevilRunner.cpp:58:             << i18nc("Note this is a KRunner keyword", "hibernate")
+PowerDevilRunner.cpp:59:             << i18nc("Note this is a KRunner keyword", "to disk")
+PowerDevilRunner.cpp:60:             << i18nc("Note this is a KRunner keyword", "to ram")
+PowerDevilRunner.cpp:61:             << i18nc("Note this is a KRunner keyword", "screen brightness")
+PowerDevilRunner.cpp:62:             << i18nc("Note this is a KRunner keyword", "dim screen");
 -->
 
 <!--
