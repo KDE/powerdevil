@@ -198,7 +198,8 @@ void PowerDevilUPowerBackend::init()
                                     UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
                                     connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
                                 }
-                                Q_EMIT brightnessSupportQueried(true);
+
+                                Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
                             }
                         );
                         syspathJob->start();
