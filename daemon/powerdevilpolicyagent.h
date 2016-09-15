@@ -95,6 +95,7 @@ Q_SIGNALS:
     void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
+    void sessionActiveChanged(bool active);
 
 private Q_SLOTS:
     void onServiceUnregistered(const QString & serviceName);

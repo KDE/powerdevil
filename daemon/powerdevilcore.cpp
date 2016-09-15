@@ -139,6 +139,21 @@ void Core::onBackendReady()
         KIdleTime::instance()->simulateUserActivity();
     });
 
+    // Bug 354250: Simulate user activity when session becomes inactive,
+    // this keeps us from sending the computer to sleep when switching to an idle session.
+    // (this is just being lazy as it will result in us clearing everything
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::sessionActiveChanged, this, [this](bool active) {
+        if (active) {
+            // force reload profile so all actions re-register their idle timeouts
+            loadProfile(true /*force*/);
+        } else {
+            // Bug 354250: Keep us from sending the computer to sleep when switching
+            // to an idle session by removing all idle timeouts
+            KIdleTime::instance()->removeAllIdleTimeouts();
+            m_registeredActionTimeouts.clear();
+        }
+    });
+
     // Initialize the action pool, which will also load the needed startup actions.
     PowerDevil::ActionPool::instance()->init(this);
 

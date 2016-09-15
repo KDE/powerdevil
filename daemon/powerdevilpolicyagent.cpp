@@ -365,13 +365,16 @@ void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
     } else if ((!m_sdSessionInterface.isNull() && activeSession == m_sdSessionInterface.data()->path()) ||
                (!m_ckSessionInterface.isNull() && activeSession == m_ckSessionInterface.data()->path())) {
         qCDebug(POWERDEVIL) << "Current session is now active";
-        m_wasLastActiveSession = true;
-
-        // sessions usually don't switch themselves, prevents session from suspending when switching back to it after a while
-        KIdleTime::instance()->simulateUserActivity();
+        if (!m_wasLastActiveSession) {
+            m_wasLastActiveSession = true;
+            Q_EMIT sessionActiveChanged(true);
+        }
     } else {
         qCDebug(POWERDEVIL) << "Current session is now inactive";
-        m_wasLastActiveSession = false;
+        if (m_wasLastActiveSession) {
+            m_wasLastActiveSession = false;
+            Q_EMIT sessionActiveChanged(false);
+        }
     }
 }
 
