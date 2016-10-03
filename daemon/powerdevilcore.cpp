@@ -388,6 +388,8 @@ void Core::loadProfile(bool force)
     }
 
     // If the lid is closed, retrigger the lid close signal
+    // so that "switching profile then closing the lid" has the same result as
+    // "closing lid then switching profile".
     if (m_backend->isLidClosed()) {
         Q_EMIT m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
     }
