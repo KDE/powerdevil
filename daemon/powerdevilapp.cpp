@@ -46,6 +46,7 @@ PowerDevilApp::PowerDevilApp(int &argc, char **argv)
 
 PowerDevilApp::~PowerDevilApp()
 {
+    delete m_core;
 }
 
 void PowerDevilApp::init()
@@ -69,7 +70,9 @@ void PowerDevilApp::init()
         return;
     }
 
-    m_core = new PowerDevil::Core(this/*, KComponentData(aboutData)*/);
+    // not parenting Core to PowerDevilApp as it is the deleted too late on teardown
+    // where the X connection is already lost leading to a a crash (Bug 371127)
+    m_core = new PowerDevil::Core(nullptr/*, KComponentData(aboutData)*/);
 
     connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));
 
