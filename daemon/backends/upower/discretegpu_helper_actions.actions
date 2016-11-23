@@ -1,0 +1,9 @@
+[Domain]
+Name=KDE
+Icon=kde
+
+[org.kde.powerdevil.discretegpuhelper.hasdualgpu]
+Name=Check existence of discrete gpu
+Description=System policies prevent you from checking the existence of discrete gpu.
+Policy=yes
+PolicyInactive=no

@@ -88,6 +88,7 @@ public Q_SLOTS:
     bool isLidClosed() const;
     bool isLidPresent() const;
     bool isActionSupported(const QString &actionName);
+    bool hasDualGpu() const;
 
 Q_SIGNALS:
     void coreReady();
@@ -108,6 +109,8 @@ private:
     int currentChargePercent() const;
 
     friend class Action;
+
+    bool m_hasDualGpu;
 
     BackendInterface *m_backend;
 

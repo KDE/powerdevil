@@ -34,6 +34,8 @@
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
 
+#include <kauthexecutejob.h>
+#include <KAuthAction>
 #include <KIdleTime>
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -54,12 +56,25 @@ namespace PowerDevil
 
 Core::Core(QObject* parent)
     : QObject(parent)
+    , m_hasDualGpu(false)
     , m_backend(nullptr)
     , m_notificationsWatcher(nullptr)
     , m_criticalBatteryTimer(new QTimer(this))
     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
 {
+    KAuth::Action discreteGpuAction("org.kde.powerdevil.discretegpuhelper.hasdualgpu");
+    discreteGpuAction.setHelperId("org.kde.powerdevil.discretegpuhelper");
+    KAuth::ExecuteJob *discreteGpuJob = discreteGpuAction.execute();
+    connect(discreteGpuJob, &KJob::result, this, [this, discreteGpuJob]  {
+        if (discreteGpuJob->error()) {
+            qCWarning(POWERDEVIL) << "org.kde.powerdevil.discretegpuhelper.hasdualgpu failed";
+            qCDebug(POWERDEVIL) << discreteGpuJob->errorText();
+            return;
+        }
+        m_hasDualGpu = discreteGpuJob->data()["hasdualgpu"].toBool();
+    });
+    discreteGpuJob->start();
 }
 
 Core::~Core()
@@ -839,6 +854,11 @@ bool Core::isLidClosed() const
 bool Core::isLidPresent() const
 {
     return m_backend->isLidPresent();
+}
+
+bool Core::hasDualGpu() const
+{
+    return m_hasDualGpu;
 }
 
 qulonglong Core::batteryRemainingTime() const
