@@ -49,6 +49,18 @@ Icon=kde
 
 [org.kde.powerdevil.discretegpuhelper.hasdualgpu]
 Name=Check existence of discrete gpu
+Name[ca]=Comprova l'existència d'una GPU dedicada
+Name[nl]=Bestaaan van aparte GPU controleren
+Name[pt]=Verificar a existência de um GPU discreto
+Name[sv]=Kontrollera om diskret grafikprocessor finns
+Name[uk]=Перевірка наявності дискретного GPU
+Name[x-test]=xxCheck existence of discrete gpuxx
 Description=System policies prevent you from checking the existence of discrete gpu.
+Description[ca]=Les polítiques del sistema impedeixen que es comprovi l'existència d'una GPU dedicada.
+Description[nl]=Systeembeleid voorkwam dat u het bestaan van een aparte GPU kon controleren.
+Description[pt]=As políticas do sistema impedem-no de obter verificar a existência de um GPU discreto.
+Description[sv]=Systemets policy förhindrar att du kontrollerar om diskret grafikprocessor finns
+Description[uk]=Відповідно до загальносистемних правил, ви не можете отримувати даних щодо наявності дискретного графічного процесора (GPU).
+Description[x-test]=xxSystem policies prevent you from checking the existence of discrete gpu.xx
 Policy=yes
 PolicyInactive=no
