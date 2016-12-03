@@ -86,8 +86,8 @@ brightness 0, in the amount of time you specify in the spin box.
 <varlistentry><term><guilabel>Suspend session</guilabel></term>
 <listitem>
 <para>Suspends the session after the selected time to the status 
-<guilabel>Suspend</guilabel>, <guilabel>Shutdown</guilabel> or
-<guilabel>Lock screen</guilabel>.</para>
+<guilabel>Suspend</guilabel>, <guilabel>Hibernate</guilabel>,
+<guilabel>Shutdown</guilabel> or <guilabel>Lock screen</guilabel>.</para>
 </listitem>
 </varlistentry>
 
