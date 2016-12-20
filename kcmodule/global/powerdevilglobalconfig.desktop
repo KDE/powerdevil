@@ -13,7 +13,6 @@ X-KDE-Weight=99
 
 Name=Advanced Settings
 Name[ar]=الإعدادات المتقدمة
-Name[ast]=Axustes avanzaos
 Name[bs]=Napredne postavke
 Name[ca]=Arranjament avançat
 Name[ca@valencia]=Arranjament avançat
@@ -59,7 +58,6 @@ Name[zh_TW]=進階設定
 
 Comment=Advanced Power Management Settings
 Comment[ar]=إعدادات إدارة الطاقة المتقدمة
-Comment[ast]=Axustes de la xestión avanzada d'enerxía
 Comment[bs]=Postavke naprednog upravljanja napajanjem
 Comment[ca]=Arranjament avançat de gestió d'energia
 Comment[ca@valencia]=Arranjament avançat de gestió d'energia
@@ -105,7 +103,6 @@ Comment[zh_TW]=進階電源管理設定
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ar]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,
-X-KDE-Keywords[ast]=sistema,enerxía,xestión d'enerxía,portátil,batería,suspensión,AC, suspender, ivernar,invernación,rellumu,rindimientu,tapa
 X-KDE-Keywords[bs]=sistem, Napajanje, Upravljanje napajanjem, energija, laptop, baterija, suspenzija, AC, suspendiraj, hiberniranje, osvljetljenje, kapak
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
 X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa

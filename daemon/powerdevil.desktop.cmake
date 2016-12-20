@@ -4,7 +4,6 @@ Icon=preferences-system-power-management
 X-KDE-DBus-ModuleName=powerdevil
 Name=Power Management
 Name[ar]=إدارة الطاقة
-Name[ast]=Xestión d'enerxía
 Name[bs]=Upravljanje napajanjem
 Name[ca]=Gestió d'energia
 Name[ca@valencia]=Gestió d'energia
@@ -52,7 +51,6 @@ OnlyShowIn=KDE;
 
 Comment=Battery, Display and CPU power management and notification
 Comment[ar]=تنبيهات وإدارة طاقة المعالِج والعَرض والبطارية
-Comment[ast]=Xestión d'enexía y avisu de batería, pantalla y CPU
 Comment[bs]=Obavještavanje i upravljanje baterijom i napajanjem ekrana i procesora
 Comment[ca]=Gestió d'energia i notificació de la bateria, pantalla i CPU
 Comment[ca@valencia]=Gestió d'energia i notificació de la bateria, pantalla i CPU

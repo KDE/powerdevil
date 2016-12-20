@@ -13,7 +13,6 @@ X-KDE-Weight=3
 
 Name=Energy Saving
 Name[ar]=حِفظ الطاقة
-Name[ast]=Aforru d'enerxía
 Name[bs]=Štednja energije
 Name[ca]=Estalvi d'energia
 Name[ca@valencia]=Estalvi d'energia
@@ -60,7 +59,6 @@ Name[zh_TW]=省電模式
 
 Comment=Energy Saving
 Comment[ar]=حِفظ الطاقة
-Comment[ast]=Aforru d'enerxía
 Comment[bs]=Štednja energije
 Comment[ca]=Estalvi d'energia
 Comment[ca@valencia]=Estalvi d'energia
@@ -106,7 +104,6 @@ Comment[zh_TW]=省電模式
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid
 X-KDE-Keywords[ar]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,
-X-KDE-Keywords[ast]=sistema,enerxía,xestión d'enerxía,portátil,batería,suspensión,AC, suspender, ivernar,invernación,rellumu,rindimientu,tapa
 X-KDE-Keywords[bs]=sistem, Napajanje, Upravljanje napajanjem, energija, laptop, baterija, suspenzija, AC, suspendiraj, hiberniranje, osvljetljenje, kapak
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
 X-KDE-Keywords[ca@valencia]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa
