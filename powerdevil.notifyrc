@@ -687,6 +687,7 @@ Name[zh_TW]=週邊裝置電池電力偏低
 Comment=The battery in a connected device, such as mouse or keyboard, is low
 Comment[ca]=La bateria en un dispositiu connectat, com un ratolí o teclat, és baixa
 Comment[ca@valencia]=La bateria en un dispositiu connectat, com un ratolí o teclat, és baixa
+Comment[cs]=Baterie v připojeném zařízení jako je klávesnice nebo myš je téměř vybitá
 Comment[da]=Batteriet i en tilsluttet enhed, såsom mus eller tastatur er lavt
 Comment[de]=Der Akku-Ladestand in einem angeschlossenen Gerät wie zum Beispiel einer Maus oder einer Tastatur ist niedrig
 Comment[el]=Η μπαταρία σε μια συνδεδεμένη συσκευή, όπως ποντίκι ή πληκτρολόγιο, είναι σε χαμηλό επίπεδο
