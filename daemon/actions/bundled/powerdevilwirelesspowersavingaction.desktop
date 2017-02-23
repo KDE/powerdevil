@@ -5,6 +5,7 @@ X-KDE-ServiceTypes=PowerDevil/Action
 Icon=preferences-system-network
 Name=Wireless
 Name[ca]=Sense fils
+Name[ca@valencia]=Sense fils
 Name[cs]=Bezdrátové
 Name[el]=Ασύρματο
 Name[en_GB]=Wireless
