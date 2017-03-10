@@ -104,6 +104,9 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
             if (methods.contains(Solid::PowerManagement::HibernateState)) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
             }
+            if (methods.contains(Solid::PowerManagement::HybridSuspendState)) {
+                box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid suspend"), (uint)SuspendSession::SuspendHybridMode);
+            }
             box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
             box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
             if (box != m_lidCloseCombo) {
