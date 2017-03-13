@@ -63,7 +63,7 @@ private Q_SLOTS:
 private:
     KSharedConfig::Ptr m_profilesConfig;
     QHash< QString, bool > m_profileEdited;
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
+    ErrorOverlay *m_errorOverlay = nullptr;
     QHash< QString, ActionEditWidget* > m_editWidgets;
 };
 

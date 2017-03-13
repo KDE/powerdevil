@@ -75,10 +75,10 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     // Message widget
     m_messageWidget = new KMessageWidget(i18n("The activity service is running with bare functionalities.\n"
                                                           "Names and icons of the activities might not be available."));
-    m_messageWidget.data()->setMessageType(KMessageWidget::Warning);
-    m_messageWidget.data()->hide();
+    m_messageWidget->setMessageType(KMessageWidget::Warning);
+    m_messageWidget->hide();
 
-    lay->addWidget(m_messageWidget.data());
+    lay->addWidget(m_messageWidget);
     lay->addWidget(m_tabWidget);
     setLayout(lay);
 
@@ -142,7 +142,7 @@ void ActivityPage::onActivityServiceStatusChanged(KActivities::Consumer::Service
         case KActivities::Consumer::Unknown: // fall through
         case KActivities::Consumer::NotRunning:
             // Create error overlay, if not present
-            if (m_errorOverlay.isNull()) {
+            if (!m_errorOverlay) {
                 m_errorOverlay = new ErrorOverlay(this, i18n("The activity service is not running.\n"
                                                              "It is necessary to have the activity manager running "
                                                              "to configure activity-specific power management behavior."),
@@ -152,8 +152,9 @@ void ActivityPage::onActivityServiceStatusChanged(KActivities::Consumer::Service
         case KActivities::Consumer::Running:
             if (m_previousServiceStatus != KActivities::Consumer::Running) {
 
-                if (!m_errorOverlay.isNull()) {
-                    m_errorOverlay.data()->deleteLater();
+                if (m_errorOverlay) {
+                    m_errorOverlay->deleteLater();
+                    m_errorOverlay = nullptr;
                     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
                         onServiceRegistered("org.kde.Solid.PowerManagement");
                     } else {
@@ -164,8 +165,8 @@ void ActivityPage::onActivityServiceStatusChanged(KActivities::Consumer::Service
                 populateTabs();
             }
 
-            if (m_messageWidget.data()->isVisible()) {
-                m_messageWidget.data()->hide();
+            if (m_messageWidget->isVisible()) {
+                m_messageWidget->hide();
             }
 
             break;
@@ -223,8 +224,9 @@ void ActivityPage::onServiceRegistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (!m_errorOverlay.isNull()) {
-        m_errorOverlay.data()->deleteLater();
+    if (m_errorOverlay) {
+        m_errorOverlay->deleteLater();
+        m_errorOverlay = nullptr;
     }
 }
 
@@ -232,7 +234,7 @@ void ActivityPage::onServiceUnregistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (!m_errorOverlay.isNull()) {
+    if (m_errorOverlay) {
         return;
     }
 

@@ -44,7 +44,7 @@ private Q_SLOTS:
     void onServiceUnregistered(const QString &service);
 
 private:
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
+    ErrorOverlay *m_errorOverlay = nullptr;
 };
 
 #endif /* GENERALPAGE_H */

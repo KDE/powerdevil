@@ -187,8 +187,9 @@ void GeneralPage::onServiceRegistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (!m_errorOverlay.isNull()) {
-        m_errorOverlay.data()->deleteLater();
+    if (m_errorOverlay) {
+        m_errorOverlay->deleteLater();
+        m_errorOverlay = nullptr;
     }
 }
 
@@ -196,8 +197,8 @@ void GeneralPage::onServiceUnregistered(const QString& service)
 {
     Q_UNUSED(service);
 
-    if (!m_errorOverlay.isNull()) {
-        m_errorOverlay.data()->deleteLater();
+    if (m_errorOverlay) {
+        m_errorOverlay->deleteLater();
     }
 
     m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running.\n"

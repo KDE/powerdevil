@@ -57,8 +57,8 @@ private:
 
     KActivities::Consumer *m_activityConsumer;
     QList< ActivityWidget* > m_activityWidgets;
-    QWeakPointer< ErrorOverlay > m_errorOverlay;
-    QWeakPointer< KMessageWidget > m_messageWidget;
+    ErrorOverlay *m_errorOverlay = nullptr;
+    KMessageWidget *m_messageWidget = nullptr;
     KActivities::Consumer::ServiceStatus m_previousServiceStatus;
 };
 
