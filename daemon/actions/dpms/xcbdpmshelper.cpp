@@ -23,7 +23,6 @@
 #include <powerdevilpolicyagent.h>
 #include <powerdevil_debug.h>
 
-#include <config-workspace.h>
 #include <kwinkscreenhelpereffect.h>
 
 // Qt

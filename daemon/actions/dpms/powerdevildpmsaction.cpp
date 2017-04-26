@@ -28,8 +28,6 @@
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 
-#include <config-workspace.h>
-
 #include <QGuiApplication>
 #include <QX11Info>
 #include <QDebug>
