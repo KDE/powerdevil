@@ -76,6 +76,17 @@ void BacklightHelper::initUsingBacklightType()
     QStringList firmware, platform, raw, leds;
 
     Q_FOREACH(const QString & interface, interfaces) {
+        file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            continue;
+        }
+
+        buffer = file.readLine().trimmed();
+        file.close();
+        if (buffer == "disabled") {
+            continue;
+        }
+
         file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;
