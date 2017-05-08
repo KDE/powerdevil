@@ -247,6 +247,13 @@ void HandleButtonEvents::checkOutputs()
 
     if (old_triggersLidAction != triggersLidAction()) {
         Q_EMIT triggersLidActionChanged(triggersLidAction());
+
+        // when the lid is closed but we don't suspend because of an external monitor but we then
+        // unplug said monitor, re-trigger the lid action (Bug 379265)
+        if (triggersLidAction() && backend()->isLidClosed()) {
+            qCDebug(POWERDEVIL) << "External monitor that kept us from suspending is gone and lid is closed, re-triggering lid action";
+            onButtonPressed(BackendInterface::LidClose);
+        }
     }
 }
 
