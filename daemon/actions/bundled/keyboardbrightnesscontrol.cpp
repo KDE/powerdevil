@@ -128,7 +128,7 @@ void KeyboardBrightnessControl::onProfileLoad()
 
 void KeyboardBrightnessControl::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightness(args.value(QStringLiteral("Value")).toInt(), BackendInterface::Keyboard);
+    core()->setBrightness(args.value(QStringLiteral("Value")).toInt(), BackendInterface::Keyboard);
 
     if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
         BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);

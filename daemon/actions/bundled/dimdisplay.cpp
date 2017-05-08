@@ -22,6 +22,8 @@
 #include <powerdevilbackendinterface.h>
 #include <powerdevil_debug.h>
 
+#include "powerdevilcore.h"
+
 #include <QDebug>
 
 #include <KConfigGroup>
@@ -90,11 +92,11 @@ void DimDisplay::setBrightnessHelper(int screen, int keyboard)
 
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt(), BackendInterface::Screen);
+    core()->setBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt(), BackendInterface::Screen);
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
-        backend()->setBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt(), BackendInterface::Keyboard);
+        core()->setBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt(), BackendInterface::Keyboard);
     }
 }
 

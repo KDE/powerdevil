@@ -71,6 +71,8 @@ public:
 
     BackendInterface *backend();
 
+    void setBrightness(int value, BackendInterface::BrightnessControlType type = BackendInterface::Screen);
+
     // More...
 
 public Q_SLOTS:

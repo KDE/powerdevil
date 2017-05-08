@@ -137,7 +137,7 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
 {
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
-        backend()->setBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt(), PowerDevil::BackendInterface::Keyboard);
+        core()->setBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt(), PowerDevil::BackendInterface::Keyboard);
         return;
     }
 

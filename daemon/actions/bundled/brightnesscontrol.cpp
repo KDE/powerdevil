@@ -113,7 +113,7 @@ void BrightnessControl::triggerImpl(const QVariantMap &args)
 {
     const int value = args.value(QStringLiteral("Value")).toInt();
 
-    backend()->setBrightness(value);
+    core()->setBrightness(value);
     if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
         BrightnessOSDWidget::show(brightnessPercent(value));
     }

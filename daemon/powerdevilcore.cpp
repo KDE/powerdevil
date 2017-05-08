@@ -882,6 +882,11 @@ BackendInterface* Core::backend()
     return m_backend;
 }
 
+void Core::setBrightness(int brightness, BackendInterface::BrightnessControlType type)
+{
+    m_backend->setBrightness(brightness, type);
+}
+
 bool Core::isLidClosed() const
 {
     return m_backend->isLidClosed();
