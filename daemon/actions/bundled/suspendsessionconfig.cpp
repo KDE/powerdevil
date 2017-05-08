@@ -20,10 +20,10 @@
 
 #include "suspendsessionconfig.h"
 
-#include "powerdevilpowermanagement.h"
-
 #include <QHBoxLayout>
 #include <QSpinBox>
+
+#include <Solid/PowerManagement>
 
 #include <KComboBox>
 #include <KLocalizedString>
@@ -78,13 +78,15 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     m_idleTime->setValue(0);
     m_idleTime->setSuffix(i18n(" min"));
 
-    if (PowerManagement::instance()->canSuspend()) {
+    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
+
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
     }
-    if (PowerManagement::instance()->canHibernate()) {
+    if (methods.contains(Solid::PowerManagement::HibernateState)) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
-    if (PowerManagement::instance()->canHybridSuspend()) {
+    if (methods.contains(Solid::PowerManagement::HybridSuspendState)) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid suspend"), (uint)SuspendSession::SuspendHybridMode);
     }
     m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);

@@ -24,7 +24,6 @@
 
 #include <powerdevilactionconfig.h>
 #include <powerdevilprofilegenerator.h>
-#include <powerdevilpowermanagement.h>
 
 #include <powerdevil_debug.h>
 
@@ -51,6 +50,7 @@
 
 #include <Solid/Battery>
 #include <Solid/Device>
+#include <Solid/PowerManagement>
 
 K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                  registerPlugin<EditPage>();
@@ -79,9 +79,10 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
     if (m_profilesConfig->groupList().isEmpty()) {
         // Use the generator
+        QSet <Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
         PowerDevil::ProfileGenerator::generateProfiles(
-            PowerDevil::PowerManagement::instance()->canSuspend(),
-            PowerDevil::PowerManagement::instance()->canHibernate()
+            methods.contains(Solid::PowerManagement::SuspendState),
+            methods.contains(Solid::PowerManagement::HibernateState)
         );
         m_profilesConfig->reparseConfiguration();
     }
@@ -194,9 +195,10 @@ void EditPage::restoreDefaultProfiles()
                                                             "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
     if (ret == KMessageBox::Continue) {
         qCDebug(POWERDEVIL) << "Restoring defaults.";
+        QSet <Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
         PowerDevil::ProfileGenerator::generateProfiles(
-            PowerDevil::PowerManagement::instance()->canSuspend(),
-            PowerDevil::PowerManagement::instance()->canHibernate()
+            methods.contains(Solid::PowerManagement::SuspendState),
+            methods.contains(Solid::PowerManagement::HibernateState)
         );
 
         load();

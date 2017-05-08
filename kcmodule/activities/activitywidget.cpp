@@ -24,10 +24,9 @@
 
 #include "../daemon/actions/bundled/suspendsession.h"
 
-#include "powerdevilpowermanagement.h"
-
 #include <KConfigGroup>
 #include <KActivities/Consumer>
+#include <Solid/PowerManagement>
 #include <Solid/Battery>
 #include <Solid/Device>
 #include <actioneditwidget.h>
@@ -92,11 +91,13 @@ void ActivityWidget::load()
 
     using namespace PowerDevil::BundledActions;
 
-    if (PowerDevil::PowerManagement::instance()->canSuspend()) {
+    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
+
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
                                        i18n("Suspend"), (uint)SuspendSession::ToRamMode);
     }
-    if (PowerDevil::PowerManagement::instance()->canHibernate()) {
+    if (methods.contains(Solid::PowerManagement::HibernateState)) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
                                        i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }

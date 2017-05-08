@@ -24,11 +24,10 @@
 
 #include "actions/bundled/suspendsession.h"
 
-#include "powerdevilpowermanagement.h"
-
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
 #include <Solid/Battery>
+#include <Solid/PowerManagement>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
@@ -102,11 +101,13 @@ void GeneralPage::fillUi()
         }
     }
 
+    QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
+
     BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
-    if (PowerDevil::PowerManagement::instance()->canSuspend()) {
+    if (methods.contains(Solid::PowerManagement::SuspendState)) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
     }
-    if (PowerDevil::PowerManagement::instance()->canHibernate()) {
+    if (methods.contains(Solid::PowerManagement::HibernateState)) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
     }
     BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
