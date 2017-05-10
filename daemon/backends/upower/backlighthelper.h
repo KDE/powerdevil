@@ -52,6 +52,11 @@ private:
      */
     void initUsingSysctl();
 
+    /**
+     * Check for a raw backlight interface if it's enabled by drm driver
+     */
+    static bool isRawBacklightEnabled(const QString &interface);
+
     bool m_isSupported = false;
     QString m_dirname;
     QString m_sysctlDevice;
