@@ -154,6 +154,7 @@ private Q_SLOTS:
     void onNotificationTimeout();
     void onServiceRegistered(const QString &service);
     void onLidClosedChanged(bool closed);
+    void onAboutToSuspend();
 };
 
 }

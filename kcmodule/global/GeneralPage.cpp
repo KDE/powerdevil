@@ -124,6 +124,8 @@ void GeneralPage::fillUi()
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
+    connect(pausePlayersCheckBox, &QCheckBox::stateChanged, this, static_cast<void(KCModule::*)()>(&KCModule::changed));
+
     if (!hasPowerSupplyBattery) {
         BatteryCriticalLabel->hide();
         BatteryCriticalCombo->hide();
@@ -150,6 +152,8 @@ void GeneralPage::load()
     lowPeripheralSpin->setValue(PowerDevilSettings::peripheralBatteryLowLevel());
 
     BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batteryCriticalAction()));
+
+    pausePlayersCheckBox->setChecked(PowerDevilSettings::pausePlayersOnSuspend());
 }
 
 void GeneralPage::configureNotifications()
@@ -164,6 +168,8 @@ void GeneralPage::save()
     PowerDevilSettings::setPeripheralBatteryLowLevel(lowPeripheralSpin->value());
 
     PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
+
+    PowerDevilSettings::setPausePlayersOnSuspend(pausePlayersCheckBox->checkState() == Qt::Checked);
 
     PowerDevilSettings::self()->save();
 

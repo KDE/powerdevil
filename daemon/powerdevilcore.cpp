@@ -137,6 +137,8 @@ void Core::onBackendReady()
             this, SLOT(onBatteryRemainingTimeChanged(qulonglong)));
     connect(m_backend, SIGNAL(lidClosedChanged(bool)),
             this, SLOT(onLidClosedChanged(bool)));
+    connect(m_backend, &BackendInterface::aboutToSuspend,
+            this, &Core::onAboutToSuspend);
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
             this, SLOT(onKIdleTimeoutReached(int,int)));
     connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
@@ -755,6 +757,40 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
 void Core::onLidClosedChanged(bool closed)
 {
     Q_EMIT lidClosedChanged(closed);
+}
+
+void Core::onAboutToSuspend()
+{
+    if (PowerDevilSettings::pausePlayersOnSuspend()) {
+        qCDebug(POWERDEVIL) << "Pausing all media players before suspending";
+
+        QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(QStringLiteral("ListNames"));
+        QDBusPendingCallWatcher *callWatcher = new QDBusPendingCallWatcher(listNamesCall, this);
+        connect(callWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+            QDBusPendingReply<QStringList> reply = *watcher;
+            watcher->deleteLater();
+
+            if (reply.isError()) {
+                qCWarning(POWERDEVIL) << "Failed to fetch list of DBus service names for pausing players on suspend" << reply.error().message();
+                return;
+            }
+
+            const QStringList &services = reply.value();
+            for (const QString &serviceName : services) {
+                if (!serviceName.startsWith(QLatin1String("org.mpris.MediaPlayer2."))) {
+                    continue;
+                }
+
+                qCDebug(POWERDEVIL) << "Pausing media player with service name" << serviceName;
+
+                QDBusMessage pauseMsg = QDBusMessage::createMethodCall(serviceName,
+                                                                       QStringLiteral("/org/mpris/MediaPlayer2"),
+                                                                       QStringLiteral("org.mpris.MediaPlayer2.Player"),
+                                                                       QStringLiteral("Pause"));
+                QDBusConnection::sessionBus().asyncCall(pauseMsg);
+            }
+       });
+    }
 }
 
 void Core::registerActionTimeout(Action* action, int timeout)

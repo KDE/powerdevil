@@ -10,6 +10,9 @@
     <entry name="doNotInhibitOnLidClose" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="pausePlayersOnSuspend" type="Bool">
+      <default>true</default>
+    </entry>
   </group>
 
   <group name="Brightness">
