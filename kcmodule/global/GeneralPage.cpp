@@ -124,7 +124,7 @@ void GeneralPage::fillUi()
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
-    connect(pausePlayersCheckBox, &QCheckBox::stateChanged, this, static_cast<void(KCModule::*)()>(&KCModule::changed));
+    connect(pausePlayersCheckBox, SIGNAL(stateChanged(int)), SLOT(changed()));
 
     if (!hasPowerSupplyBattery) {
         BatteryCriticalLabel->hide();
