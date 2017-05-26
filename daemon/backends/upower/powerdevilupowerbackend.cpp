@@ -37,6 +37,7 @@
 #include <KAuthAction>
 
 #include "xrandrxcbhelper.h"
+#include "sysfsbrightness.h"
 #include "xrandrbrightness.h"
 #include "ddcutilbrightness.h"
 #include "upowersuspendjob.h"
