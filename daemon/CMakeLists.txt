@@ -130,8 +130,6 @@ if (XCB_FOUND)
     target_link_libraries(powerdevil Qt5::X11Extras)
 endif ()
 
-target_link_libraries(powerdevil ${UDEV_LIBS})
-
 install(TARGETS powerdevil DESTINATION ${CMAKE_INSTALL_FULL_LIBEXECDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
         DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})

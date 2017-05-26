@@ -41,7 +41,6 @@
 #include "ddcutilbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
-#include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
@@ -56,7 +55,6 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     , m_lidIsPresent(false)
     , m_lidIsClosed(false)
     , m_onBattery(false)
-    , m_isLedBrightnessControl(false)
 {
 
 }
@@ -197,12 +195,6 @@ void PowerDevilUPowerBackend::init()
                                     }
                                     m_syspath = syspathJob->data()["syspath"].toString();
                                     m_syspath = QFileInfo(m_syspath).readLink();
-
-                                    m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
-                                    if (!m_isLedBrightnessControl) {
-                                        UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                                        connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
-                                    }
 
                                     Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
                                 }
@@ -356,25 +348,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     setBackendIsReady(controls, supported);
 }
 
-void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
-{
-    qCDebug(POWERDEVIL) << "Udev device changed" << m_syspath << device.sysfsPath();
-    if (device.sysfsPath() != m_syspath) {
-        return;
-    }
-
-    int maxBrightness = device.sysfsProperty("max_brightness").toInt();
-    if (maxBrightness <= 0) {
-        return;
-    }
-    int newBrightness = device.sysfsProperty("brightness").toInt();
-
-    if (newBrightness != m_cachedBrightnessMap[Screen]) {
-        m_cachedBrightnessMap[Screen] = newBrightness;
-        onBrightnessChanged(Screen, newBrightness, maxBrightness);
-    }
-}
-
 int PowerDevilUPowerBackend::brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType)
 {
     BrightnessControlsList allControls = brightnessControlsAvailable();
@@ -493,10 +466,8 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
             KAuth::ExecuteJob *job = action.execute();
             // we don't care about the result since executing the job sync is bad
             job->start();
-            if (m_isLedBrightnessControl) {
-                m_cachedBrightnessMap[Screen] = value;
-                slotScreenBrightnessChanged();
-            }
+            m_cachedBrightnessMap[Screen] = value;
+            slotScreenBrightnessChanged();
         }
     } else if (type == Keyboard) {
         qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
@@ -511,7 +482,7 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
     }
 
     int value = brightness(Screen);
-    if (value != m_cachedBrightnessMap[Screen] || m_isLedBrightnessControl) {
+    if (value != m_cachedBrightnessMap[Screen]) {
         m_cachedBrightnessMap[Screen] = value;
         onBrightnessChanged(Screen, value, brightnessMax(Screen));
     }

@@ -10,8 +10,6 @@ set(powerdevilupowerbackend_SRCS
     upower/powerdevilupowerbackend.cpp
     upower/xrandrbrightness.cpp
     upower/xrandrxcbhelper.cpp
-    upower/udevqtclient.cpp
-    upower/udevqtdevice.cpp
     upower/ddcutilbrightness.cpp
 )
 
@@ -55,7 +53,6 @@ target_link_libraries(powerdevilupowerbackend
     KF5::CoreAddons
     KF5::DBusAddons
     KF5::I18n
-    ${UDEV_LIBS}
     ${X11_LIBRARIES}
     ${X11_Xrandr_LIB}
     ${XCB_XCB_LIBRARY}

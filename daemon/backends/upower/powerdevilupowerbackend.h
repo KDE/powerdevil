@@ -31,7 +31,6 @@
 #include "upower_device_interface.h"
 #include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"
-#include "udevqt.h"
 
 #define UPOWER_SERVICE "org.freedesktop.UPower"
 #define UPOWER_PATH "/org/freedesktop/UPower"
@@ -41,7 +40,6 @@
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 #define CONSOLEKIT2_SERVICE "org.freedesktop.ConsoleKit"
 
-class UdevHelper;
 class XRandRXCBHelper;
 class XRandrBrightness;
 class QPropertyAnimation;
@@ -83,7 +81,6 @@ private Q_SLOTS:
     void slotPropertyChanged();
     void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
-    void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int);
 
     void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
@@ -118,9 +115,6 @@ private:
     bool m_lidIsPresent;
     bool m_lidIsClosed;
     bool m_onBattery;
-
-    // property if brightness control is leds subsystem
-    bool m_isLedBrightnessControl;
 
     //helper path
     QString m_syspath;
