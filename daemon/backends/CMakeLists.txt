@@ -12,6 +12,7 @@ set(powerdevilupowerbackend_SRCS
     upower/xrandrxcbhelper.cpp
     upower/udevqtclient.cpp
     upower/udevqtdevice.cpp
+    upower/ddcutilbrightness.cpp
 )
 
 set_source_files_properties(
@@ -60,6 +61,7 @@ target_link_libraries(powerdevilupowerbackend
     ${XCB_XCB_LIBRARY}
     ${XCB_RANDR_LIBRARY}
     powerdevilcore
+    ddcutil
 )
 
 install(TARGETS powerdevilupowerbackend DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/powerdevil)

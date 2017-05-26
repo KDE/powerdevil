@@ -52,6 +52,17 @@ find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 
+find_package(DDCUtil)
+set_package_properties(DDCUtil
+    PROPERTIES DESCRIPTION "DDCUtil library support"
+    TYPE OPTIONAL
+    PURPOSE "Set monitor settings over DDC/CI channel"
+)
+
+if(DDCUTIL_FOUND)
+    add_definitions(-DWITH_DDCUTIL)
+endif()
+
 include_directories (
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon
