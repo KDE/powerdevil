@@ -26,14 +26,22 @@ class SysfsBrightness: public QObject
 {
     Q_OBJECT
 public:
-    //TODO: implement
-    SysfsBrightness() {};
-    //TODO: implement
-    bool isSupported() const {return false;};
-    //TODO: implement
-    long brightness() const {return 1;};
-    //TODO: implement
-    void brightnessMax(long value) {};
+    SysfsBrightness();
+    void detect();
+    bool isSupported() { return m_isSupported; };
+    long brightness() const {
+        return m_brightness;
+    };
+    long brightnessMax() {
+        return m_brightnessMax;
+    };
+
+private:
+    int m_brightness = 0;
+    int m_brightnessMax = 0;
+    QString m_syspath;
+    bool m_isLedBrightnessControl;
+    bool m_isSupported = false;
 };
 
 #endif /* end of include guard: SYSFSBRIGHTNESS_H */

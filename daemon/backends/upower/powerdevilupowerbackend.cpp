@@ -150,6 +150,10 @@ void PowerDevilUPowerBackend::init()
 
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
+
+    m_sysfsBrightnessControl = new SysfsBrightness();
+    m_sysfsBrightnessControl->detect();
+    qCDebug(POWERDEVIL) << "SYSFS BRIGHTNESS IS SUPPORTED" << m_sysfsBrightnessControl->isSupported();
     m_brightnessControl = new XRandrBrightness();
     if (!m_brightnessControl->isSupported()) {
         qCWarning(POWERDEVIL)<<"Xrandr not supported, trying ddc, helper";

@@ -11,6 +11,7 @@ set(powerdevilupowerbackend_SRCS
     upower/xrandrbrightness.cpp
     upower/xrandrxcbhelper.cpp
     upower/ddcutilbrightness.cpp
+    upower/sysfsbrightness.cpp
 )
 
 set_source_files_properties(

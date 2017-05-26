@@ -44,6 +44,8 @@ class XRandRXCBHelper;
 class XRandrBrightness;
 class QPropertyAnimation;
 class DDCutilBrightness;
+class SysfsBrightness;
+
 class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
     Q_OBJECT
@@ -99,6 +101,7 @@ private:
     XRandrBrightness         *m_brightnessControl;
     XRandRXCBHelper *m_randrHelper;
     DDCutilBrightness *m_ddcBrightnessControl;
+    SysfsBrightness *m_sysfsBrightnessControl;
 
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
