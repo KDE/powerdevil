@@ -56,32 +56,8 @@ void SysfsBrightness::detect()
                     } else {
                         m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
                     }
-
-                    KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
-                    syspathAction.setHelperId(HELPER_ID);
-                    KAuth::ExecuteJob* syspathJob = syspathAction.execute();
-                    connect(syspathJob, &KJob::result, this,
-                        [this, syspathJob] {
-                            if (syspathJob->error()) {
-                                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
-                                qCDebug(POWERDEVIL) << syspathJob->errorText();
-                                return;
-                            }
-                            m_syspath = syspathJob->data()["syspath"].toString();
-                            m_syspath = QFileInfo(m_syspath).readLink();
-
-                            m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
-                            //TODO: handle the brightness changing from other sources
-                            //if (!m_isLedBrightnessControl) {
-                            //    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                            //    connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
-                            //}
-
-                            m_isSupported = (m_brightnessMax > 0);
-                            return;
-                        }
-                    );
-                    syspathJob->exec();
+                    m_isSupported = (m_brightnessMax > 0);
+                    return;
                 }
             );
             brightnessMaxJob->exec();

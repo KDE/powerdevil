@@ -294,22 +294,6 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
     return reply;
 }
 
-ActionReply BacklightHelper::syspath(const QVariantMap &args)
-{
-    Q_UNUSED(args);
-
-    ActionReply reply;
-
-    if (!m_isSupported || m_dirname.isEmpty()) {
-        reply = ActionReply::HelperErrorReply();
-        return reply;
-    }
-
-    reply.addData("syspath", m_dirname);
-
-    return reply;
-}
-
 ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
 {
     Q_UNUSED(args);

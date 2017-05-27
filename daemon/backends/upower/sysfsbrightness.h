@@ -40,8 +40,6 @@ public:
 private:
     int m_brightness = 0;
     int m_brightnessMax = 0;
-    QString m_syspath;
-    bool m_isLedBrightnessControl;
     bool m_isSupported = false;
 };
 

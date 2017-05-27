@@ -119,8 +119,6 @@ private:
     bool m_lidIsClosed;
     bool m_onBattery;
 
-    //helper path
-    QString m_syspath;
 };
 
 #endif // POWERDEVILUPOWERBACKEND_H
