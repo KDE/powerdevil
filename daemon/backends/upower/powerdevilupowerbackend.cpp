@@ -153,58 +153,32 @@ void PowerDevilUPowerBackend::init()
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
 
     m_brightnessControl = new XRandrBrightness();
-    if (!m_brightnessControl->isSupported()) {
-        qCWarning(POWERDEVIL)<<"Xrandr not supported, trying ddc, helper";
-        m_ddcBrightnessControl = new DDCutilBrightness();
-        m_ddcBrightnessControl->detect();
-        if (!m_ddcBrightnessControl->isSupported()) {
-            qCDebug(POWERDEVIL) << "Falling back to helper to get brightness";
-            m_sysfsBrightnessControl = new SysfsBrightness();
-            m_sysfsBrightnessControl->detect();
 
+    m_ddcBrightnessControl = new DDCutilBrightness();
+    m_ddcBrightnessControl->detect();
 
-            //Q_EMIT brightnessSupportQueried(m_sysfsBrightnessControl->isSupported());
-            if (m_sysfsBrightnessControl->isSupported()) {
-                m_cachedBrightnessMap.insert(Screen, m_sysfsBrightnessControl->brightness());
-                m_brightnessMax = m_sysfsBrightnessControl->brightnessMax();
+    m_sysfsBrightnessControl = new SysfsBrightness();
+    m_sysfsBrightnessControl->detect();
 
-                const int duration = PowerDevilSettings::brightnessAnimationDuration();
-                if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
-                    m_brightnessAnimation = new QPropertyAnimation(this);
-                    m_brightnessAnimation->setTargetObject(this);
-                    m_brightnessAnimation->setDuration(duration);
-                    m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
-                    connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                    connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
-                }
-                Q_EMIT brightnessSupportQueried(true);
-            } else {
-                Q_EMIT brightnessSupportQueried(false);
-            }
-
-        }
-        else{
-            qCDebug(POWERDEVIL) << "Using DDCutillib";
-            m_cachedBrightnessMap.insert(Screen, brightness(Screen));
-
-            const int duration = PowerDevilSettings::brightnessAnimationDuration();
-            if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
-                m_brightnessAnimation = new QPropertyAnimation(this);
-                m_brightnessAnimation->setTargetObject(this);
-                m_brightnessAnimation->setDuration(duration);
-                m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
-                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
-            }
-            Q_EMIT brightnessSupportQueried(true);
-        }
-    } else {
-        qCDebug(POWERDEVIL) << "Using XRandR";
+    bool brightnessSupport = false;
+    if (m_brightnessControl->isSupported()) {
+        qCDebug(POWERDEVIL) << "Using XRandr interface for adjusting brightness";
         m_randrHelper = XRandRXCBHelper::self();
         Q_ASSERT(m_randrHelper);
         connect(m_randrHelper, &XRandRXCBHelper::brightnessChanged, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
+        brightnessSupport = true;
+    } else if (m_ddcBrightnessControl->isSupported()) {
+        qCDebug(POWERDEVIL) << "Using DDCutillib for adjusting brightness";
         m_cachedBrightnessMap.insert(Screen, brightness(Screen));
+        brightnessSupport = true;
+    } else if (m_sysfsBrightnessControl->isSupported()) {
+        qCDebug(POWERDEVIL) << "Using sysfs interface for adjusting brightness";
+        m_cachedBrightnessMap.insert(Screen, m_sysfsBrightnessControl->brightness());
+        m_brightnessMax = m_sysfsBrightnessControl->brightnessMax();
+        brightnessSupport = true;
+    }
 
+    if (brightnessSupport) {
         const int duration = PowerDevilSettings::brightnessAnimationDuration();
         if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
             m_brightnessAnimation = new QPropertyAnimation(this);
@@ -215,6 +189,8 @@ void PowerDevilUPowerBackend::init()
             connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
         }
         Q_EMIT brightnessSupportQueried(true);
+    } else {
+        Q_EMIT brightnessSupportQueried(false);
     }
 }
 
