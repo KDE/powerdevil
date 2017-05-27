@@ -64,6 +64,8 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
 PowerDevilUPowerBackend::~PowerDevilUPowerBackend()
 {
     delete m_brightnessControl;
+    delete m_ddcBrightnessControl;
+    delete m_sysfsBrightnessControl;
 }
 
 bool PowerDevilUPowerBackend::isAvailable()
