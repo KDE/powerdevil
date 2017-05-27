@@ -90,3 +90,12 @@ void SysfsBrightness::detect()
     brightnessJob->exec();
 }
 
+void SysfsBrightness::setBrightness(int value)
+{
+    KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
+    action.setHelperId(HELPER_ID);
+    action.addArgument("brightness", value);
+    KAuth::ExecuteJob *job = action.execute();
+    // we don't care about the result since executing the job sync is bad
+    job->start();
+}

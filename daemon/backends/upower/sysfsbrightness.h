@@ -29,12 +29,13 @@ public:
     SysfsBrightness();
     void detect();
     bool isSupported() { return m_isSupported; };
-    long brightness() const {
+    int brightness() const {
         return m_brightness;
     };
-    long brightnessMax() {
+    int brightnessMax() {
         return m_brightnessMax;
     };
+    void setBrightness(int value);
 
 private:
     int m_brightness = 0;

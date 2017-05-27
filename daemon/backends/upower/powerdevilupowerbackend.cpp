@@ -151,9 +151,6 @@ void PowerDevilUPowerBackend::init()
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
 
-    m_sysfsBrightnessControl = new SysfsBrightness();
-    m_sysfsBrightnessControl->detect();
-    qCDebug(POWERDEVIL) << "SYSFS BRIGHTNESS IS SUPPORTED" << m_sysfsBrightnessControl->isSupported();
     m_brightnessControl = new XRandrBrightness();
     if (!m_brightnessControl->isSupported()) {
         qCWarning(POWERDEVIL)<<"Xrandr not supported, trying ddc, helper";
@@ -161,56 +158,13 @@ void PowerDevilUPowerBackend::init()
         m_ddcBrightnessControl->detect();
         if (!m_ddcBrightnessControl->isSupported()) {
             qCDebug(POWERDEVIL) << "Falling back to helper to get brightness";
+            m_sysfsBrightnessControl = new SysfsBrightness();
+            m_sysfsBrightnessControl->detect();
 
-            KAuth::Action brightnessAction("org.kde.powerdevil.backlighthelper.brightness");
-            brightnessAction.setHelperId(HELPER_ID);
-            KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
-            connect(brightnessJob, &KJob::result, this,
-                [this, brightnessJob]  {
-                    if (brightnessJob->error()) {
-                        qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
-                        qCDebug(POWERDEVIL) << brightnessJob->errorText();
-                        Q_EMIT brightnessSupportQueried(false);
-                        return;
-                    }
-                    m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toFloat());
+            m_brightnessMax = m_sysfsBrightnessControl->brightnessMax();
+            m_cachedBrightnessMap.insert(Screen, m_sysfsBrightnessControl->brightness());
 
-                    KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
-                    brightnessMaxAction.setHelperId(HELPER_ID);
-                    KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
-                    connect(brightnessMaxJob, &KJob::result, this,
-                        [this, brightnessMaxJob] {
-                            if (brightnessMaxJob->error()) {
-                                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
-                                qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
-                            } else {
-                                m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
-                            }
-
-                            KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
-                            syspathAction.setHelperId(HELPER_ID);
-                            KAuth::ExecuteJob* syspathJob = syspathAction.execute();
-                            connect(syspathJob, &KJob::result, this,
-                                [this, syspathJob] {
-                                    if (syspathJob->error()) {
-                                        qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
-                                        qCDebug(POWERDEVIL) << syspathJob->errorText();
-                                        Q_EMIT brightnessSupportQueried(false);
-                                        return;
-                                    }
-                                    m_syspath = syspathJob->data()["syspath"].toString();
-                                    m_syspath = QFileInfo(m_syspath).readLink();
-
-                                    Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
-                                }
-                            );
-                            syspathJob->start();
-                        }
-                    );
-                    brightnessMaxJob->start();
-                }
-            );
-            brightnessJob->start();
+            Q_EMIT brightnessSupportQueried(m_sysfsBrightnessControl->isSupported());
         }
         else{
             qCDebug(POWERDEVIL) << "Using DDCutillib";
@@ -465,12 +419,7 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
             }
         } else {
             //qCDebug(POWERDEVIL) << "Falling back to helper to set brightness";
-            KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
-            action.setHelperId(HELPER_ID);
-            action.addArgument("brightness", value);
-            KAuth::ExecuteJob *job = action.execute();
-            // we don't care about the result since executing the job sync is bad
-            job->start();
+            m_sysfsBrightnessControl->setBrightness(value);
             m_cachedBrightnessMap[Screen] = value;
             slotScreenBrightnessChanged();
         }
