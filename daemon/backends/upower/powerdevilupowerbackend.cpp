@@ -161,10 +161,26 @@ void PowerDevilUPowerBackend::init()
             m_sysfsBrightnessControl = new SysfsBrightness();
             m_sysfsBrightnessControl->detect();
 
-            m_brightnessMax = m_sysfsBrightnessControl->brightnessMax();
-            m_cachedBrightnessMap.insert(Screen, m_sysfsBrightnessControl->brightness());
 
-            Q_EMIT brightnessSupportQueried(m_sysfsBrightnessControl->isSupported());
+            //Q_EMIT brightnessSupportQueried(m_sysfsBrightnessControl->isSupported());
+            if (m_sysfsBrightnessControl->isSupported()) {
+                m_cachedBrightnessMap.insert(Screen, m_sysfsBrightnessControl->brightness());
+                m_brightnessMax = m_sysfsBrightnessControl->brightnessMax();
+
+                const int duration = PowerDevilSettings::brightnessAnimationDuration();
+                if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
+                    m_brightnessAnimation = new QPropertyAnimation(this);
+                    m_brightnessAnimation->setTargetObject(this);
+                    m_brightnessAnimation->setDuration(duration);
+                    m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
+                    connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+                    connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
+                }
+                Q_EMIT brightnessSupportQueried(true);
+            } else {
+                Q_EMIT brightnessSupportQueried(false);
+            }
+
         }
         else{
             qCDebug(POWERDEVIL) << "Using DDCutillib";
@@ -357,8 +373,12 @@ int PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightness
             } else {
                 result = (int)m_ddcBrightnessControl->brightness();
             }
-        }else{
-            result = m_cachedBrightnessMap[Screen];
+        } else if (m_sysfsBrightnessControl->isSupported()) {
+            if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
+                result = m_brightnessAnimation->endValue().toInt();
+            } else {
+                result = m_sysfsBrightnessControl->brightness();
+            }
         }
         qCDebug(POWERDEVIL) << "Screen brightness value: " << result;
     } else if (type == Keyboard) {
@@ -417,11 +437,17 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
             } else {
                 m_ddcBrightnessControl->setBrightness((long)value);
             }
-        } else {
-            //qCDebug(POWERDEVIL) << "Falling back to helper to set brightness";
-            m_sysfsBrightnessControl->setBrightness(value);
-            m_cachedBrightnessMap[Screen] = value;
-            slotScreenBrightnessChanged();
+        } else if (m_sysfsBrightnessControl->isSupported()) {
+            if (m_brightnessAnimation) {
+                m_brightnessAnimation->stop();
+                disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+                m_brightnessAnimation->setStartValue(brightness());
+                m_brightnessAnimation->setEndValue(value);
+                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+                m_brightnessAnimation->start();
+            } else {
+                m_sysfsBrightnessControl->setBrightness((long)value);
+            }
         }
     } else if (type == Keyboard) {
         qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
@@ -640,10 +666,11 @@ void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
 {
     if (m_brightnessControl->isSupported()) {
         m_brightnessControl->setBrightness(value.toInt());
-    }else if (m_ddcBrightnessControl->isSupported()) {
+    } else if (m_ddcBrightnessControl->isSupported()) {
         m_ddcBrightnessControl->setBrightness(value.toInt());
-    }
-    else{
+    } else if (m_sysfsBrightnessControl->isSupported()) {
+        m_sysfsBrightnessControl->setBrightness(value.toInt());
+    } else {
         qCInfo(POWERDEVIL)<<"PowerDevilUPowerBackend::animationValueChanged: brightness control not supported";
     }
 }

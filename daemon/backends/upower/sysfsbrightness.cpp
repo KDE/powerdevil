@@ -74,4 +74,5 @@ void SysfsBrightness::setBrightness(int value)
     KAuth::ExecuteJob *job = action.execute();
     // we don't care about the result since executing the job sync is bad
     job->start();
+    m_brightness = value;
 }
