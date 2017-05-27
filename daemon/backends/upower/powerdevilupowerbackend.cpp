@@ -4,6 +4,7 @@
     Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
     Copyright (C) 2010-2013 Lukáš Tinkl <ltinkl@redhat.com>
     Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>
+    Copyright (C) 2016-17 Bhushan Shah <bshah@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
