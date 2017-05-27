@@ -361,22 +361,14 @@ int PowerDevilUPowerBackend::brightness(PowerDevil::BackendInterface::Brightness
     int result = 0;
 
     if (type == Screen) {
-        if (m_brightnessControl->isSupported()) {
-            if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
-                result = m_brightnessAnimation->endValue().toInt();
-            } else {
-                //qCDebug(POWERDEVIL) << "Calling xrandr brightness";
+        if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
+            result = m_brightnessAnimation->endValue().toInt();
+        } else {
+            //qCDebug(POWERDEVIL) << "Calling xrandr brightness";
+            if (m_brightnessControl->isSupported()) {
                 result = (int) m_brightnessControl->brightness();
-            }
-        } else if (m_ddcBrightnessControl->isSupported()){
-            if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
-                result = m_brightnessAnimation->endValue().toInt();
-            } else {
+            } else if (m_ddcBrightnessControl->isSupported()){
                 result = (int)m_ddcBrightnessControl->brightness();
-            }
-        } else if (m_sysfsBrightnessControl->isSupported()) {
-            if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
-                result = m_brightnessAnimation->endValue().toInt();
             } else {
                 result = m_sysfsBrightnessControl->brightness();
             }
@@ -416,37 +408,19 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
 {
     if (type == Screen) {
         qCDebug(POWERDEVIL) << "set screen brightness value: " << value;
-        if (m_brightnessControl->isSupported()) {
-            if (m_brightnessAnimation) {
-                m_brightnessAnimation->stop();
-                disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                m_brightnessAnimation->setStartValue(brightness());
-                m_brightnessAnimation->setEndValue(value);
-                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                m_brightnessAnimation->start();
-            } else {
+        if (m_brightnessAnimation) {
+            m_brightnessAnimation->stop();
+            disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+            m_brightnessAnimation->setStartValue(brightness());
+            m_brightnessAnimation->setEndValue(value);
+            connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+            m_brightnessAnimation->start();
+        } else {
+            if (m_brightnessControl->isSupported()) {
                 m_brightnessControl->setBrightness(value);
-            }
-        } else if (m_ddcBrightnessControl->isSupported()){
-            if (m_brightnessAnimation) {
-                m_brightnessAnimation->stop();
-                disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                m_brightnessAnimation->setStartValue(brightness());
-                m_brightnessAnimation->setEndValue(value);
-                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                m_brightnessAnimation->start();
-            } else {
+            } else if (m_ddcBrightnessControl->isSupported()) {
                 m_ddcBrightnessControl->setBrightness((long)value);
-            }
-        } else if (m_sysfsBrightnessControl->isSupported()) {
-            if (m_brightnessAnimation) {
-                m_brightnessAnimation->stop();
-                disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                m_brightnessAnimation->setStartValue(brightness());
-                m_brightnessAnimation->setEndValue(value);
-                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-                m_brightnessAnimation->start();
-            } else {
+            } else if (m_sysfsBrightnessControl->isSupported()) {
                 m_sysfsBrightnessControl->setBrightness((long)value);
             }
         }
