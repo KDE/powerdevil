@@ -59,7 +59,9 @@ target_link_libraries(powerdevilupowerbackend
     ${XCB_XCB_LIBRARY}
     ${XCB_RANDR_LIBRARY}
     powerdevilcore
-    ddcutil
 )
+if(DDCUTIL_FOUND)
+    target_link_libraries(powerdevilupowerbackend ${LIBDDCUTIL_LIBRARY})
+endif()
 
 install(TARGETS powerdevilupowerbackend DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/powerdevil)
