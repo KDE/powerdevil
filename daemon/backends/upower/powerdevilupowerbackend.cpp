@@ -163,6 +163,7 @@ void PowerDevilUPowerBackend::init()
     m_sysfsBrightnessControl->detect();
 
     bool brightnessSupport = false;
+    bool isUsingSysfsInterface = false;
     if (m_brightnessControl->isSupported()) {
         qCDebug(POWERDEVIL) << "Using XRandr interface for adjusting brightness";
         m_randrHelper = XRandRXCBHelper::self();
@@ -178,11 +179,12 @@ void PowerDevilUPowerBackend::init()
         m_cachedBrightnessMap.insert(Screen, m_sysfsBrightnessControl->brightness());
         m_brightnessMax = m_sysfsBrightnessControl->brightnessMax();
         brightnessSupport = true;
+        isUsingSysfsInterface = true;
     }
 
     if (brightnessSupport) {
         const int duration = PowerDevilSettings::brightnessAnimationDuration();
-        if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
+        if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold() && !isUsingSysfsInterface) {
             m_brightnessAnimation = new QPropertyAnimation(this);
             m_brightnessAnimation->setTargetObject(this);
             m_brightnessAnimation->setDuration(duration);
