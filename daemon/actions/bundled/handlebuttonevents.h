@@ -40,18 +40,18 @@ public:
     explicit HandleButtonEvents(QObject* parent);
     virtual ~HandleButtonEvents();
 
-    virtual bool loadAction(const KConfigGroup& config);
-    virtual bool isSupported();
+    bool loadAction(const KConfigGroup& config) Q_DECL_OVERRIDE;
+    bool isSupported() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void triggersLidActionChanged(bool triggers);
 
 protected:
-    virtual void triggerImpl(const QVariantMap& args);
-    virtual void onProfileUnload();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
+    void triggerImpl(const QVariantMap& args) Q_DECL_OVERRIDE;
+    void onProfileUnload() Q_DECL_OVERRIDE;
+    void onWakeupFromIdle() Q_DECL_OVERRIDE;
+    void onIdleTimeout(int msec) Q_DECL_OVERRIDE;
+    void onProfileLoad() Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
     int lidAction() const;

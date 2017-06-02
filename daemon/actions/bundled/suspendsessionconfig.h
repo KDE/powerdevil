@@ -37,9 +37,9 @@ public:
     SuspendSessionConfig(QObject* parent, const QVariantList&);
     virtual ~SuspendSessionConfig();
 
-    virtual void save();
-    virtual void load();
-    virtual QList< QPair< QString, QWidget* > > buildUi();
+    void save() Q_DECL_OVERRIDE;
+    void load() Q_DECL_OVERRIDE;
+    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
 
 private:
     QSpinBox *m_idleTime;

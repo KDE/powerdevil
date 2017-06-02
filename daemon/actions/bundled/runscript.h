@@ -37,14 +37,14 @@ public:
     virtual ~RunScript();
 
 protected:
-    virtual void onProfileUnload();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap& args);
+    void onProfileUnload() Q_DECL_OVERRIDE;
+    void onWakeupFromIdle() Q_DECL_OVERRIDE;
+    void onIdleTimeout(int msec) Q_DECL_OVERRIDE;
+    void onProfileLoad() Q_DECL_OVERRIDE;
+    void triggerImpl(const QVariantMap& args) Q_DECL_OVERRIDE;
 
 public:
-    virtual bool loadAction(const KConfigGroup& config);
+    bool loadAction(const KConfigGroup& config) Q_DECL_OVERRIDE;
 
 private:
     int m_scriptPhase;

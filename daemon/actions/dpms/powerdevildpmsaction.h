@@ -38,16 +38,16 @@ public:
     virtual ~PowerDevilDPMSAction();
 
 protected:
-    virtual void onProfileUnload();
-    virtual bool onUnloadAction();
-    virtual void onWakeupFromIdle();
-    virtual void onIdleTimeout(int msec);
-    virtual void onProfileLoad();
-    virtual void triggerImpl(const QVariantMap &args);
-    bool isSupported();
+    void onProfileUnload() Q_DECL_OVERRIDE;
+    bool onUnloadAction() Q_DECL_OVERRIDE;
+    void onWakeupFromIdle() Q_DECL_OVERRIDE;
+    void onIdleTimeout(int msec) Q_DECL_OVERRIDE;
+    void onProfileLoad() Q_DECL_OVERRIDE;
+    void triggerImpl(const QVariantMap &args) Q_DECL_OVERRIDE;
+    bool isSupported() Q_DECL_OVERRIDE;
 
 public:
-    virtual bool loadAction(const KConfigGroup &config);
+    bool loadAction(const KConfigGroup &config) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);

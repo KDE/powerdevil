@@ -41,9 +41,9 @@ public:
     virtual ~ActivityPage();
     void fillUi();
 
-    void load();
-    void save();
-    virtual void defaults();
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void onActivityServiceStatusChanged(KActivities::Consumer::ServiceStatus status);

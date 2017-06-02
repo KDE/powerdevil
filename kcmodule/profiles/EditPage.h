@@ -42,9 +42,9 @@ public:
     explicit EditPage(QWidget *parent, const QVariantList &args);
     virtual ~EditPage() = default;
 
-    void load();
-    void save();
-    virtual void defaults();
+    void load() Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
+    void defaults() Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void onChanged(bool changed);

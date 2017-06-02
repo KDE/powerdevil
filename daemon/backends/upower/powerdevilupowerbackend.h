@@ -56,15 +56,15 @@ public:
     explicit PowerDevilUPowerBackend(QObject* parent = nullptr);
     virtual ~PowerDevilUPowerBackend();
 
-    virtual void init();
+    void init() Q_DECL_OVERRIDE;
     static bool isAvailable();
 
-    virtual int brightness(BrightnessControlType type = Screen) const;
-    virtual int brightnessMax(BrightnessControlType type = Screen) const;
+    int brightness(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
+    int brightnessMax(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
 
-    virtual int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType);
-    virtual void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen);
-    virtual KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method);
+    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) Q_DECL_OVERRIDE;
+    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) Q_DECL_OVERRIDE;
+    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void brightnessSupportQueried(bool available);
