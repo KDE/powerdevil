@@ -63,22 +63,6 @@ void BacklightHelper::init()
     m_isSupported = true;
 }
 
-bool BacklightHelper::isRawBacklightEnabled(const QString &interface)
-{
-    QFile file(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
-
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        return false;
-    }
-
-    QByteArray buffer = file.readLine().trimmed();
-    if (buffer == "enabled") {
-        return true;
-    }
-
-    return false;
-}
-
 void BacklightHelper::initUsingBacklightType()
 {
     QDir backlightDir(BACKLIGHT_SYSFS_PATH);
@@ -103,9 +87,7 @@ void BacklightHelper::initUsingBacklightType()
         } else if(buffer == "platform") {
             platform.append(interface);
         } else if (buffer == "raw") {
-            if (isRawBacklightEnabled(interface)) {
-                raw.append(interface);
-            }
+            raw.append(interface);
         } else {
             qCWarning(POWERDEVIL) << "Interface type not handled" << buffer;
         }
