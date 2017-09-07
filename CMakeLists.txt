@@ -52,15 +52,15 @@ find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 
-find_package(DDCUtil)
-set_package_properties(DDCUtil
-    PROPERTIES DESCRIPTION "DDCUtil library support"
-    TYPE OPTIONAL
-    PURPOSE "Set monitor settings over DDC/CI channel"
-)
-
-if(DDCUTIL_FOUND)
-    add_definitions(-DWITH_DDCUTIL)
+if(WITH_DDCUTIL)
+  find_package(DDCUtil)
+  set_package_properties(DDCUtil
+      PROPERTIES DESCRIPTION "DDCUtil library support"
+      TYPE OPTIONAL
+      PURPOSE "Set monitor settings over DDC/CI channel"
+  )
+else()
+  add_feature_info("DDCUtil" "Off" "DDCUtil library support is disabled by default as recomemded by authors, add -DWITH_DDCUTIL=On to enable")
 endif()
 
 include_directories (
