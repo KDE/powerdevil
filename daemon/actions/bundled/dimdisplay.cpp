@@ -45,7 +45,9 @@ void DimDisplay::onWakeupFromIdle()
     if (!m_dimmed) {
         return;
     }
-    setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
+    // An active inhibition may not let us restore the brightness.
+    // Let's override it so that we don't leave the user with a dimmed screen.
+    setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness, true);
     m_dimmed = false;
 }
 
@@ -80,11 +82,12 @@ void DimDisplay::onProfileLoad()
     //
 }
 
-void DimDisplay::setBrightnessHelper(int screen, int keyboard)
+void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
 {
     trigger({
         {QStringLiteral("_ScreenBrightness"), QVariant::fromValue(screen)},
-        {QStringLiteral("_KeyboardBrightness"), QVariant::fromValue(keyboard)}
+        {QStringLiteral("_KeyboardBrightness"), QVariant::fromValue(keyboard)},
+        {QStringLiteral("Explicit"), QVariant::fromValue(force)}
     });
 }
 

@@ -48,7 +48,7 @@ public:
     bool loadAction(const KConfigGroup& config) Q_DECL_OVERRIDE;
 
 private:
-    void setBrightnessHelper(int screen, int keyboard);
+    void setBrightnessHelper(int screen, int keyboard, bool force = false);
 
     int m_dimOnIdleTime = 0;
 
