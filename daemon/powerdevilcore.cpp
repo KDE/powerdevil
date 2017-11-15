@@ -828,11 +828,10 @@ int Core::currentChargePercent() const
 void Core::onResumingFromIdle()
 {
     // Wake up the actions in which an idle action was triggered
-    auto i = m_pendingResumeFromIdleActions.begin();
-    while (i != m_pendingResumeFromIdleActions.end()) {
-        (*i)->onWakeupFromIdle();
-        i = m_pendingResumeFromIdleActions.erase(i);
-    }
+    std::for_each(m_pendingResumeFromIdleActions.cbegin(), m_pendingResumeFromIdleActions.cend(),
+        std::mem_fn(&PowerDevil::Action::onWakeupFromIdle));
+
+    m_pendingResumeFromIdleActions.clear();
 }
 
 void Core::onNotificationTimeout()
