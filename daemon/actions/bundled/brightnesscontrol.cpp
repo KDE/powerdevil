@@ -38,8 +38,6 @@
 namespace PowerDevil {
 namespace BundledActions {
 
-static const QString s_globalAccelComponent = QStringLiteral("kded5");
-
 BrightnessControl::BrightnessControl(QObject* parent)
     : Action(parent)
 {
@@ -55,13 +53,11 @@ BrightnessControl::BrightnessControl(QObject* parent)
 
     QAction* globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
-    globalAction->setProperty("componentName", s_globalAccelComponent);
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
 
     globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
-    globalAction->setProperty("componentName", s_globalAccelComponent);
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessDown);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
 }

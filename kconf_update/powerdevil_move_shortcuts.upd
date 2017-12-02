@@ -1,0 +1,12 @@
+Version=5
+Id=powerdevil_move_shortcuts
+File=kglobalshortcutsrc
+Group=kded5, org_kde_powerdevil
+Key=Hibernate
+Key=PowerOff
+Key=Sleep
+Key=Decrease Keyboard Brightness
+Key=Decrease Screen Brightness
+Key=Increase Keyboard Brightness
+Key=Increase Screen Brightness
+Key=Toggle Keyboard Backlight
