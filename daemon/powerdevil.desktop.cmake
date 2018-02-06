@@ -23,6 +23,7 @@ Name[hu]=Energiakezelés
 Name[ia]=Gestion de energia
 Name[id]=Pengelolaan Daya
 Name[it]=Gestione energetica
+Name[ja]=電源管理
 Name[ko]=전원 관리
 Name[lt]=Energijos valdymas
 Name[nb]=Strømstyring
