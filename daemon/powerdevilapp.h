@@ -46,6 +46,7 @@ private Q_SLOTS:
 
 private:
     PowerDevil::Core *m_core;
+    void migratePre512KeyboardShortcuts();
 };
 
 #endif // POWERDEVILAPP_H
