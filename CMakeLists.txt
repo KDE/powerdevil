@@ -75,8 +75,6 @@ add_definitions(-DQT_NO_KEYWORDS)
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
-add_subdirectory(kconf_update)
-
 
 install( FILES powerdevil.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR} )
 
