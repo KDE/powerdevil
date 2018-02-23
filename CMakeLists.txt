@@ -52,8 +52,9 @@ find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 
+option(WITH_DDCUTIL "DDCUtil library support" OFF)
 if(WITH_DDCUTIL)
-  find_package(DDCUtil)
+  find_package(DDCUtil REQUIRED)
   set_package_properties(DDCUtil
       PROPERTIES DESCRIPTION "DDCUtil library support"
       TYPE OPTIONAL
