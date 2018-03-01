@@ -30,6 +30,7 @@
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
+#include <QTabBar>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusReply>
