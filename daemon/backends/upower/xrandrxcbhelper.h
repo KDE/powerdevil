@@ -54,14 +54,14 @@ public:
         return s_instance;
     }
 
-    virtual bool nativeEventFilter(const QByteArray& eventType, void* message, long int* result) Q_DECL_OVERRIDE;
+    bool nativeEventFilter(const QByteArray& eventType, void* message, long int* result) override;
 
 Q_SIGNALS:
         void brightnessChanged();
 
 private:
     XRandRXCBHelper();
-    virtual ~XRandRXCBHelper();
+    ~XRandRXCBHelper() override;
     void init();
 
     inline bool isValid()

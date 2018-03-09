@@ -42,7 +42,7 @@ class Client : public QObject
     public:
         explicit Client(QObject *parent = nullptr);
         explicit Client(const QStringList &subsystemList, QObject *parent = nullptr);
-        ~Client();
+        ~Client() override;
 
         QStringList watchedSubsystems() const;
         void setWatchedSubsystems(const QStringList &subsystemList);

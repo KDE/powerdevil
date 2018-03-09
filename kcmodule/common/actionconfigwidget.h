@@ -33,7 +33,7 @@ class Q_DECL_EXPORT ActionConfigWidget : public QWidget
 Q_OBJECT
 public:
     explicit ActionConfigWidget(QWidget* parent);
-    ~ActionConfigWidget();
+    ~ActionConfigWidget() override;
 
     void addWidgets(QList<QPair <QString, QWidget*> > configMap);
 

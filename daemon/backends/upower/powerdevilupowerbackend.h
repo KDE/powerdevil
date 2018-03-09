@@ -54,17 +54,17 @@ class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterfac
 
 public:
     explicit PowerDevilUPowerBackend(QObject* parent = nullptr);
-    virtual ~PowerDevilUPowerBackend();
+    ~PowerDevilUPowerBackend() override;
 
-    void init() Q_DECL_OVERRIDE;
+    void init() override;
     static bool isAvailable();
 
-    int brightness(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
-    int brightnessMax(BrightnessControlType type = Screen) const Q_DECL_OVERRIDE;
+    int brightness(BrightnessControlType type = Screen) const override;
+    int brightnessMax(BrightnessControlType type = Screen) const override;
 
-    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) Q_DECL_OVERRIDE;
-    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) Q_DECL_OVERRIDE;
-    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) Q_DECL_OVERRIDE;
+    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) override;
+    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) override;
+    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) override;
 
 Q_SIGNALS:
     void brightnessSupportQueried(bool available);

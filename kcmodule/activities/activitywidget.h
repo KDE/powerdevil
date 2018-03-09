@@ -39,7 +39,7 @@ class ActivityWidget : public QWidget
     Q_OBJECT
 public:
     explicit ActivityWidget(const QString &activity, QWidget *parent = nullptr);
-    virtual ~ActivityWidget();
+    ~ActivityWidget() override;
 
 public Q_SLOTS:
     void load();

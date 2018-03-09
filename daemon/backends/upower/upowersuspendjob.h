@@ -36,9 +36,9 @@ public:
     UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterface,
                      PowerDevil::BackendInterface::SuspendMethod method,
                      PowerDevil::BackendInterface::SuspendMethods supported);
-    virtual ~UPowerSuspendJob();
+    ~UPowerSuspendJob() override;
 
-    void start() Q_DECL_OVERRIDE;
+    void start() override;
 
 private Q_SLOTS:
     void doStart();

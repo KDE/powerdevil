@@ -35,11 +35,11 @@ class SuspendSessionConfig : public PowerDevil::ActionConfig
     Q_DISABLE_COPY(SuspendSessionConfig)
 public:
     SuspendSessionConfig(QObject* parent, const QVariantList&);
-    virtual ~SuspendSessionConfig();
+    ~SuspendSessionConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     QSpinBox *m_idleTime;

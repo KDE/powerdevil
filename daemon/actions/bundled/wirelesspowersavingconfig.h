@@ -35,7 +35,7 @@ class WirelessPowerSavingConfig : public PowerDevil::ActionConfig
 
 public:
     WirelessPowerSavingConfig(QObject* parent, const QVariantList&);
-    virtual ~WirelessPowerSavingConfig();
+    ~WirelessPowerSavingConfig() override;
 
     void save() override;
     void load() override;

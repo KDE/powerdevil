@@ -43,7 +43,7 @@ public:
     };
 
     explicit WirelessPowerSaving(QObject* parent);
-    virtual ~WirelessPowerSaving() = default;
+    ~WirelessPowerSaving() override = default;
 
 protected:
     void onProfileUnload() override;

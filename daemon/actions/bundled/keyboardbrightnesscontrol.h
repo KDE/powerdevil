@@ -35,18 +35,18 @@ class KeyboardBrightnessControl : public PowerDevil::Action
 
 public:
     explicit KeyboardBrightnessControl(QObject* parent);
-    virtual ~KeyboardBrightnessControl() = default;
+    ~KeyboardBrightnessControl() override = default;
 
 protected:
-    void onProfileUnload() Q_DECL_OVERRIDE;
-    void onWakeupFromIdle() Q_DECL_OVERRIDE;
-    void onIdleTimeout(int msec) Q_DECL_OVERRIDE;
-    void onProfileLoad() Q_DECL_OVERRIDE;
-    void triggerImpl(const QVariantMap& args) Q_DECL_OVERRIDE;
-    bool isSupported() Q_DECL_OVERRIDE;
+    void onProfileUnload() override;
+    void onWakeupFromIdle() override;
+    void onIdleTimeout(int msec) override;
+    void onProfileLoad() override;
+    void triggerImpl(const QVariantMap& args) override;
+    bool isSupported() override;
 
 public:
-    bool loadAction(const KConfigGroup& config) Q_DECL_OVERRIDE;
+    bool loadAction(const KConfigGroup& config) override;
 
 public Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);

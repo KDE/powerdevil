@@ -69,7 +69,7 @@ public:
 
     static PolicyAgent *instance();
 
-    virtual ~PolicyAgent();
+    ~PolicyAgent() override;
 
     /**
      * This function performs a policy check on given policies, and returns a set of unsatisfiable policies,

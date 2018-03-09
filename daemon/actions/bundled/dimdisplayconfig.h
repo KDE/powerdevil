@@ -34,11 +34,11 @@ class DimDisplayConfig : public PowerDevil::ActionConfig
     Q_DISABLE_COPY(DimDisplayConfig)
 public:
     DimDisplayConfig(QObject *, const QVariantList&);
-    virtual ~DimDisplayConfig();
+    ~DimDisplayConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     QSpinBox *m_spinBox;

@@ -37,7 +37,7 @@ class Q_DECL_EXPORT BackendInterface : public QObject
 
 public:
     explicit BackendInterface(QObject* parent = nullptr);
-    virtual ~BackendInterface();
+    ~BackendInterface() override;
 
     /**
      * This enum type defines the different states of the system battery.

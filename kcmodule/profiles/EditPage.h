@@ -40,11 +40,11 @@ class EditPage : public KCModule, private Ui_profileEditPage
 
 public:
     explicit EditPage(QWidget *parent, const QVariantList &args);
-    virtual ~EditPage() = default;
+    ~EditPage() override = default;
 
-    void load() Q_DECL_OVERRIDE;
-    void save() Q_DECL_OVERRIDE;
-    void defaults() Q_DECL_OVERRIDE;
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private Q_SLOTS:
     void onChanged(bool changed);

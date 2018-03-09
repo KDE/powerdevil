@@ -35,11 +35,11 @@ class HandleButtonEventsConfig : public PowerDevil::ActionConfig
 
 public:
     HandleButtonEventsConfig(QObject* parent, const QVariantList&);
-    virtual ~HandleButtonEventsConfig();
+    ~HandleButtonEventsConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     QComboBox *m_lidCloseCombo;

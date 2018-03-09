@@ -34,11 +34,11 @@ class Q_DECL_EXPORT BrightnessControlConfig : public PowerDevil::ActionConfig
     Q_DISABLE_COPY(BrightnessControlConfig)
 public:
     BrightnessControlConfig(QObject*, const QVariantList&);
-    virtual ~BrightnessControlConfig();
+    ~BrightnessControlConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     QSlider *m_slider;

@@ -38,12 +38,12 @@ class ActivityPage : public KCModule
 
 public:
     ActivityPage(QWidget *parent, const QVariantList &args);
-    virtual ~ActivityPage();
+    ~ActivityPage() override;
     void fillUi();
 
-    void load() Q_DECL_OVERRIDE;
-    void save() Q_DECL_OVERRIDE;
-    void defaults() Q_DECL_OVERRIDE;
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private Q_SLOTS:
     void onActivityServiceStatusChanged(KActivities::Consumer::ServiceStatus status);

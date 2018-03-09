@@ -36,9 +36,9 @@ public:
     Login1SuspendJob(QDBusInterface *login1Interface,
                      PowerDevil::BackendInterface::SuspendMethod method,
                      PowerDevil::BackendInterface::SuspendMethods supported);
-    virtual ~Login1SuspendJob();
+    ~Login1SuspendJob() override;
 
-    void start() Q_DECL_OVERRIDE;
+    void start() override;
 
 private Q_SLOTS:
     void doStart();

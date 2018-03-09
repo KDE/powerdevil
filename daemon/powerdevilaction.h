@@ -113,7 +113,7 @@ public:
     /**
      * Default destructor
      */
-    virtual ~Action();
+    ~Action() override;
 
     /**
      * Reimplement this function when creating a new Action. This function is called whenever the action is loaded or

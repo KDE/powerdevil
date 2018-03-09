@@ -38,20 +38,20 @@ class HandleButtonEvents : public PowerDevil::Action
 
 public:
     explicit HandleButtonEvents(QObject* parent);
-    virtual ~HandleButtonEvents();
+    ~HandleButtonEvents() override;
 
-    bool loadAction(const KConfigGroup& config) Q_DECL_OVERRIDE;
-    bool isSupported() Q_DECL_OVERRIDE;
+    bool loadAction(const KConfigGroup& config) override;
+    bool isSupported() override;
 
 Q_SIGNALS:
     void triggersLidActionChanged(bool triggers);
 
 protected:
-    void triggerImpl(const QVariantMap& args) Q_DECL_OVERRIDE;
-    void onProfileUnload() Q_DECL_OVERRIDE;
-    void onWakeupFromIdle() Q_DECL_OVERRIDE;
-    void onIdleTimeout(int msec) Q_DECL_OVERRIDE;
-    void onProfileLoad() Q_DECL_OVERRIDE;
+    void triggerImpl(const QVariantMap& args) override;
+    void onProfileUnload() override;
+    void onWakeupFromIdle() override;
+    void onIdleTimeout(int msec) override;
+    void onProfileLoad() override;
 
 public Q_SLOTS:
     int lidAction() const;

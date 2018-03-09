@@ -37,11 +37,11 @@ class RunScriptConfig : public PowerDevil::ActionConfig
 
 public:
     RunScriptConfig(QObject* parent, const QVariantList&);
-    virtual ~RunScriptConfig();
+    ~RunScriptConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     KUrlRequester *m_urlRequester;

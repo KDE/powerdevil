@@ -38,7 +38,7 @@ class Q_DECL_EXPORT ActionEditWidget : public QWidget
     Q_OBJECT
 public:
     explicit ActionEditWidget(const QString &configName, QWidget *parent = nullptr);
-    virtual ~ActionEditWidget();
+    ~ActionEditWidget() override;
 
     QString configName() const;
 

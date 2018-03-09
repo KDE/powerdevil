@@ -37,7 +37,7 @@ class PowerDevilApp : public QGuiApplication
 
 public:
     explicit PowerDevilApp(int &argc, char **argv);
-    virtual ~PowerDevilApp();
+    ~PowerDevilApp() override;
 
     void init();
 

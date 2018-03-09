@@ -72,7 +72,7 @@ public:
     /**
      * Default destructor
      */
-    virtual ~ActionConfig();
+    ~ActionConfig() override;
 
     /**
      * @returns The KConfigGroup associated to this action, where data should be saved (and loaded)

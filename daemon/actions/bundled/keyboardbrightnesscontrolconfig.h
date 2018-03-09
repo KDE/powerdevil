@@ -34,11 +34,11 @@ class Q_DECL_EXPORT KeyboardBrightnessControlConfig : public PowerDevil::ActionC
     Q_DISABLE_COPY(KeyboardBrightnessControlConfig)
 public:
     KeyboardBrightnessControlConfig(QObject*, const QVariantList&);
-    virtual ~KeyboardBrightnessControlConfig();
+    ~KeyboardBrightnessControlConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     QSlider *m_slider;

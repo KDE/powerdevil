@@ -53,16 +53,16 @@ public:
     };
 
     explicit SuspendSession(QObject *parent);
-    virtual ~SuspendSession();
+    ~SuspendSession() override;
 
-    bool loadAction(const KConfigGroup& config) Q_DECL_OVERRIDE;
+    bool loadAction(const KConfigGroup& config) override;
     
 protected:
-    void onProfileUnload() Q_DECL_OVERRIDE;
-    void onWakeupFromIdle() Q_DECL_OVERRIDE;
-    void onIdleTimeout(int msec) Q_DECL_OVERRIDE;
-    void onProfileLoad() Q_DECL_OVERRIDE;
-    void triggerImpl(const QVariantMap& args) Q_DECL_OVERRIDE;
+    void onProfileUnload() override;
+    void onWakeupFromIdle() override;
+    void onIdleTimeout(int msec) override;
+    void onProfileLoad() override;
+    void triggerImpl(const QVariantMap& args) override;
 
 public Q_SLOTS:
     void suspendToRam();

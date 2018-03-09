@@ -30,11 +30,11 @@ class PowerDevilDPMSActionConfig : public PowerDevil::ActionConfig
     Q_DISABLE_COPY(PowerDevilDPMSActionConfig)
 public:
     PowerDevilDPMSActionConfig(QObject* parent, const QVariantList&);
-    virtual ~PowerDevilDPMSActionConfig();
+    ~PowerDevilDPMSActionConfig() override;
 
-    void save() Q_DECL_OVERRIDE;
-    void load() Q_DECL_OVERRIDE;
-    QList< QPair< QString, QWidget* > > buildUi() Q_DECL_OVERRIDE;
+    void save() override;
+    void load() override;
+    QList< QPair< QString, QWidget* > > buildUi() override;
 
 private:
     QSpinBox *m_spinBox;

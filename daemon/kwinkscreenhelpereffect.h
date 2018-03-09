@@ -40,7 +40,7 @@ class KWinKScreenHelperEffect : public QObject, public QAbstractNativeEventFilte
 
 public:
     explicit KWinKScreenHelperEffect(QObject *parent = nullptr);
-    virtual ~KWinKScreenHelperEffect();
+    ~KWinKScreenHelperEffect() override;
 
     enum State {
         NormalState,

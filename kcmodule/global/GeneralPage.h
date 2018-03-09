@@ -31,12 +31,12 @@ class GeneralPage : public KCModule, private Ui_generalPage
 
 public:
     GeneralPage(QWidget *parent, const QVariantList &args);
-    virtual ~GeneralPage();
+    ~GeneralPage() override;
     void fillUi();
 
-    void load() Q_DECL_OVERRIDE;
-    void save() Q_DECL_OVERRIDE;
-    void defaults() Q_DECL_OVERRIDE;
+    void load() override;
+    void save() override;
+    void defaults() override;
 
 private Q_SLOTS:
     void configureNotifications();

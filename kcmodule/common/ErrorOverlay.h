@@ -27,10 +27,10 @@ class Q_DECL_EXPORT ErrorOverlay : public QWidget
     Q_OBJECT
 public:
     explicit ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent = nullptr);
-    virtual ~ErrorOverlay();
+    ~ErrorOverlay() override;
 
 protected:
-    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
     void reposition();

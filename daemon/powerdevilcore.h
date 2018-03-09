@@ -57,7 +57,7 @@ class Q_DECL_EXPORT Core : public QObject
 
 public:
     explicit Core(QObject* parent);
-    virtual ~Core();
+    ~Core() override;
 
     void reloadProfile(int state);
 
