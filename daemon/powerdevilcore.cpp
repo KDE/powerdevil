@@ -487,22 +487,22 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
 {
     if (!iconname.isEmpty()) {
       KNotification::event(evid, message, QIcon::fromTheme(iconname).pixmap(48,48),
-                           0, KNotification::CloseOnTimeout, "powerdevil");
+                           nullptr, KNotification::CloseOnTimeout, "powerdevil");
     } else {
       KNotification::event(evid, message, QPixmap(),
-                           0, KNotification::CloseOnTimeout, "powerdevil");
+                           nullptr, KNotification::CloseOnTimeout, "powerdevil");
     }
 }
 
 void Core::emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName)
 {
-    KNotification::event(eventId, title, message, iconName, 0, KNotification::CloseOnTimeout, "powerdevil");
+    KNotification::event(eventId, title, message, iconName, nullptr, KNotification::CloseOnTimeout, "powerdevil");
 }
 
 void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
 {
     KNotification::event(evid, title, message, QPixmap(),
-                         0, KNotification::CloseOnTimeout, "powerdevil");
+                         nullptr, KNotification::CloseOnTimeout, "powerdevil");
 }
 
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi)

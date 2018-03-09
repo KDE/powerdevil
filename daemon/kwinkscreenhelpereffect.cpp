@@ -72,10 +72,10 @@ bool KWinKScreenHelperEffect::checkValid()
     if (QX11Info::isPlatformX11()) {
         QScopedPointer<xcb_list_properties_reply_t, QScopedPointerPodDeleter> propsReply(xcb_list_properties_reply(QX11Info::connection(),
             xcb_list_properties_unchecked(QX11Info::connection(), QX11Info::appRootWindow()),
-        NULL));
+        nullptr));
         QScopedPointer<xcb_intern_atom_reply_t, QScopedPointerPodDeleter> atomReply(xcb_intern_atom_reply(QX11Info::connection(),
             xcb_intern_atom_unchecked(QX11Info::connection(), false, 25, "_KDE_KWIN_KSCREEN_SUPPORT"),
-        NULL));
+        nullptr));
 
         if (propsReply.isNull() || atomReply.isNull()) {
             return false;
@@ -127,7 +127,7 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
                 }
 
                 auto cookie = xcb_get_property(QX11Info::connection(), false, QX11Info::appRootWindow(), m_atom, XCB_ATOM_CARDINAL, 0, 1);
-                QScopedPointer<xcb_get_property_reply_t, QScopedPointerPodDeleter> reply(xcb_get_property_reply(QX11Info::connection(), cookie, NULL));
+                QScopedPointer<xcb_get_property_reply_t, QScopedPointerPodDeleter> reply(xcb_get_property_reply(QX11Info::connection(), cookie, nullptr));
                 if (reply.isNull() || reply.data()->value_len != 1 || reply.data()->format != uint8_t(32)) {
                     return false;
                 }

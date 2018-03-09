@@ -58,7 +58,7 @@ K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                 )
 
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
-        : KCModule(0, parent, args)
+        : KCModule(nullptr, parent, args)
 {
     setButtons(Apply | Help | Default);
 

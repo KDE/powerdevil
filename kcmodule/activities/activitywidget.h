@@ -38,7 +38,7 @@ class ActivityWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ActivityWidget(const QString &activity, QWidget *parent = 0);
+    explicit ActivityWidget(const QString &activity, QWidget *parent = nullptr);
     virtual ~ActivityWidget();
 
 public Q_SLOTS:

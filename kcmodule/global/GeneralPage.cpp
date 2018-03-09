@@ -47,7 +47,7 @@ K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                 )
 
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
-        : KCModule(0, parent, args)
+        : KCModule(nullptr, parent, args)
 {
     setButtons(Apply | Help);
 

@@ -50,7 +50,7 @@ namespace PowerDevil
 class ActionPoolHelper
 {
 public:
-    ActionPoolHelper() : q(0) {}
+    ActionPoolHelper() : q(nullptr) {}
     ~ActionPoolHelper() {
         delete q;
     }
@@ -184,7 +184,7 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
         return retaction;
     } else {
         // Hmm... troubles in configuration. Np, let's just return 0 and let the core handle this
-        return 0;
+        return nullptr;
     }
 }
 

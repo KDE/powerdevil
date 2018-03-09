@@ -36,7 +36,7 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
-#define HAS_SYSCTL(n) (sysctlbyname(n, NULL, NULL, NULL, 0) == 0)
+#define HAS_SYSCTL(n) (sysctlbyname(n, nullptr, nullptr, nullptr, 0) == 0)
 #endif
 
 #define BACKLIGHT_SYSFS_PATH "/sys/class/backlight/"
@@ -154,7 +154,7 @@ void BacklightHelper::initUsingSysctl()
     }
 
     size_t len;
-    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), NULL, &len, NULL, 0) != 0 ||
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), nullptr, &len, nullptr, 0) != 0 ||
         len == 0) {
         return;
     }
@@ -162,7 +162,7 @@ void BacklightHelper::initUsingSysctl()
     if (!levels) {
         return;
     }
-    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), levels, &len, NULL, 0) != 0) {
+    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), levels, &len, nullptr, 0) != 0) {
         free(levels);
         return;
     }
@@ -193,7 +193,7 @@ ActionReply BacklightHelper::brightness(const QVariantMap &args)
 
 #ifdef USE_SYSCTL
     size_t len = sizeof(int);
-    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, NULL, 0) != 0) {
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, nullptr, 0) != 0) {
         reply = ActionReply::HelperErrorReply();
         return reply;
     }
@@ -251,7 +251,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
         d1 = d2;
     }
     size_t len = sizeof(int);
-    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), NULL, NULL, &actual_level, len) != 0) {
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), nullptr, nullptr, &actual_level, len) != 0) {
         reply = ActionReply::HelperErrorReply();
         return reply;
     }

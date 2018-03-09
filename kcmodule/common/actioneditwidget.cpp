@@ -44,7 +44,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 {
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
 
-    ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(0);
+    ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
     QMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
     // Load all the services

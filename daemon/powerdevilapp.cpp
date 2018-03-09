@@ -44,7 +44,7 @@
 
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
     : QGuiApplication(argc, argv)
-    , m_core(Q_NULLPTR)
+    , m_core(nullptr)
 {
     migratePre512KeyboardShortcuts();
 }
@@ -105,7 +105,7 @@ void PowerDevilApp::init()
     if (!instance) {
         qCDebug(POWERDEVIL) << loader->errorString();
         qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
-        m_core->loadCore(0);
+        m_core->loadCore(nullptr);
         return;
     }
 
@@ -113,7 +113,7 @@ void PowerDevilApp::init()
     if (!interface) {
         qCDebug(POWERDEVIL) << "Failed to cast plugin instance to BackendInterface, check your plugin";
         qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
-        m_core->loadCore(0);
+        m_core->loadCore(nullptr);
         return;
     }
 

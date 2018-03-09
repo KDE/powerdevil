@@ -26,7 +26,7 @@ class Q_DECL_EXPORT ErrorOverlay : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent = 0);
+    explicit ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent = nullptr);
     virtual ~ErrorOverlay();
 
 protected:

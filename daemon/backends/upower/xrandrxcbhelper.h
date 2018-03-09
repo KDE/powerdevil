@@ -43,11 +43,11 @@ class XRandRXCBHelper : public QObject, public QAbstractNativeEventFilter
 public:
     static inline XRandRXCBHelper* self()
     {
-        static XRandRXCBHelper* s_instance = 0;
+        static XRandRXCBHelper* s_instance = nullptr;
         if (!s_instance) {
             s_instance = new XRandRXCBHelper();
             if (!s_instance->isValid()) {
-                s_instance = 0;
+                s_instance = nullptr;
             }
         }
 
@@ -71,7 +71,7 @@ private:
 
     inline xcb_connection_t *conn()
     {
-        static xcb_connection_t *s_con = NULL;
+        static xcb_connection_t *s_con = nullptr;
         if (!s_con) {
             s_con = QX11Info::connection();
         }

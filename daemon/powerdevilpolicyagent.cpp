@@ -74,7 +74,7 @@ static const QString SCREEN_LOCKER_SERVICE_NAME = QStringLiteral("org.freedeskto
 class PolicyAgentHelper
 {
 public:
-    PolicyAgentHelper() : q(0) { }
+    PolicyAgentHelper() : q(nullptr) { }
     ~PolicyAgentHelper() {
         delete q;
     }

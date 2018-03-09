@@ -47,7 +47,7 @@ void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
     int row = m_gridLayout->rowCount();
     row++;
 
-    QCheckBox* currentSectionCheckbox = 0;
+    QCheckBox* currentSectionCheckbox = nullptr;
 
     QList<QPair<QString, QWidget*> >::const_iterator it;
     for (it = configMap.constBegin(); it != configMap.constEnd(); ++it) {

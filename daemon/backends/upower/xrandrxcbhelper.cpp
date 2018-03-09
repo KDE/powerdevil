@@ -101,7 +101,7 @@ void XRandRXCBHelper::init()
 //     QByteArray backlightCaps("BACKLIGHT");
 //     xcb_intern_atom(c, true, backlightCaps.length(), backlightCaps.constData());
     xcb_intern_atom_reply_t* atomReply =
-    xcb_intern_atom_reply(c, xcb_intern_atom(c, true, backlight.length(), backlight.constData()), NULL);
+    xcb_intern_atom_reply(c, xcb_intern_atom(c, true, backlight.length(), backlight.constData()), nullptr);
 
     //If backlight atom doesn't exist, means that no driver is actually supporting it
     if (!atomReply) {
@@ -115,7 +115,7 @@ void XRandRXCBHelper::init()
     xcb_create_window(c, XCB_COPY_FROM_PARENT, m_window,
                       rWindow,
                       0, 0, 1, 1, 0, XCB_COPY_FROM_PARENT,
-                      XCB_COPY_FROM_PARENT, 0, NULL);
+                      XCB_COPY_FROM_PARENT, 0, nullptr);
 
     xcb_randr_select_input(c, m_window, XCB_RANDR_NOTIFY_MASK_OUTPUT_PROPERTY);
     qApp->installNativeEventFilter(this);

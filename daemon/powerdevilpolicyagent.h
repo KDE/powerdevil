@@ -105,7 +105,7 @@ private Q_SLOTS:
     void onActiveSessionChanged(const QString &activeSession);
 
 private:
-    explicit PolicyAgent(QObject* parent = 0);
+    explicit PolicyAgent(QObject* parent = nullptr);
 
     void init();
     void startSessionInterruption();

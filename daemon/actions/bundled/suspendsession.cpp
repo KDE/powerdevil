@@ -130,7 +130,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 
     // Switch for real action
-    KJob *suspendJob = 0;
+    KJob *suspendJob = nullptr;
     switch ((Mode) (args["Type"].toUInt())) {
         case ToRamMode:
             Q_EMIT aboutToSuspend();

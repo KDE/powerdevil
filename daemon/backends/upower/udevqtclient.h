@@ -40,8 +40,8 @@ class Client : public QObject
     Q_PROPERTY(QStringList watchedSubsystems READ watchedSubsystems WRITE setWatchedSubsystems)
 
     public:
-        explicit Client(QObject *parent = 0);
-        explicit Client(const QStringList &subsystemList, QObject *parent = 0);
+        explicit Client(QObject *parent = nullptr);
+        explicit Client(const QStringList &subsystemList, QObject *parent = nullptr);
         ~Client();
 
         QStringList watchedSubsystems() const;
