@@ -60,7 +60,7 @@ class Device
         Device ancestorOfType(const QString &subsys, const QString &devtype) const;
 
     private:
-        Device(DevicePrivate *devPrivate);
+        explicit Device(DevicePrivate *devPrivate);
         friend class Client;
         friend class ClientPrivate;
 

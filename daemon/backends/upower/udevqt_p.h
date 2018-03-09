@@ -36,7 +36,7 @@ namespace UdevQt
 class DevicePrivate
 {
     public:
-        DevicePrivate(struct udev_device *udev_, bool ref = true);
+        explicit DevicePrivate(struct udev_device *udev_, bool ref = true);
         ~DevicePrivate();
         DevicePrivate &operator=(const DevicePrivate& other);
 
@@ -51,7 +51,7 @@ class ClientPrivate
     public:
         enum ListenToWhat { ListenToList, ListenToNone };
 
-        ClientPrivate(Client *q_);
+        explicit ClientPrivate(Client *q_);
         ~ClientPrivate();
 
         void init(const QStringList &subsystemList, ListenToWhat what);

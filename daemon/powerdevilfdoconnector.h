@@ -38,7 +38,7 @@ class FdoConnector : public QObject, protected QDBusContext
     Q_CLASSINFO("D-Bus Interface", "org.freedesktop.PowerManagement.Inhibit")
 
 public:
-    FdoConnector(PowerDevil::Core *parent);
+    explicit FdoConnector(PowerDevil::Core *parent);
 
     bool CanHibernate();
     bool CanSuspend();

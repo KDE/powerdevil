@@ -68,7 +68,7 @@ public:
     /**
      * Default constructor
      */
-    ActionConfig(QObject *parent);
+    explicit ActionConfig(QObject *parent);
     /**
      * Default destructor
      */
