@@ -4,7 +4,8 @@ project(PowerDevil)
 set(PROJECT_VERSION "5.12.80")
 set(PROJECT_VERSION_MAJOR 5)
 
-set(QT_MIN_VERSION "5.7.0")
+set(QT_MIN_VERSION "5.9.0")
+set(KF5_MIN_VERSION "5.42.0")
 
 find_package(ECM 1.2.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -23,16 +24,17 @@ if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 endif()
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
-find_package(KF5 REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig Screen KDELibs4Support Wayland)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig KDELibs4Support Wayland)
+find_package(KF5Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 
-find_package(KF5BluezQt)
+find_package(KF5BluezQt ${KF5_MIN_VERSION})
 set_package_properties(KF5BluezQt
     PROPERTIES DESCRIPTION "Qt wrapper for BlueZ 5 DBus API"
     TYPE OPTIONAL
     PURPOSE "Support for wireless energy saving actions"
 )
-find_package(KF5NetworkManagerQt)
+find_package(KF5NetworkManagerQt ${KF5_MIN_VERSION})
 set_package_properties(KF5NetworkManagerQt
     PROPERTIES DESCRIPTION "Qt wrapper for NetworkManager API"
     TYPE OPTIONAL
