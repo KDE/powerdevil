@@ -98,35 +98,35 @@ public:
     virtual int toggled() const;
 
     /**
-     * Retreive the current brightness value.
+     * Retrieve the current brightness value.
      *
      * @return Raw brightness value, from 0 to valueMax
      */
     int value() const;
 
     /**
-     * Retreive the maximum possible brightness value for this device.
+     * Retrieve the maximum possible brightness value for this device.
      *
      * @return Maximum possible brightness value
      */
     int valueMax() const;
 
     /**
-     * Retreive the brightness step that is closest to the current brightness value.
+     * Retrieve the brightness step that is closest to the current brightness value.
      *
      * @return Nearest brightness step
      */
     int step() const;
 
     /**
-     * Retreive the maximum possible brightness step for this instance
+     * Retrieve the maximum possible brightness step for this instance
      *
      * @return Maximum possible brightness step
      */
     int steps() const;
 
     /**
-     * Retreive the supplied brightness value expressed as a percentage from 0 to 100
+     * Retrieve the supplied brightness value expressed as a percentage from 0 to 100
      *
      * @param value Brightness value, from 0 to valueMax
      * @return The brightness percentage for the supplied value
@@ -134,7 +134,7 @@ public:
     float percentage(int value) const;
 
     /**
-     * Retreive a copy of the current brightness state
+     * Retrieve a copy of the current brightness state
      *
      * @return A struct that contains the current brightness state.
      */

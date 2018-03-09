@@ -152,7 +152,7 @@ bool DDCutilBrightness::isSupported() const
 long DDCutilBrightness::brightness()
 {
 #ifdef WITH_DDCUTIL
-    //we check wether the timer is running, this means we received new values but did not send them yet to the monitor
+    //we check whether the timer is running, this means we received new values but did not send them yet to the monitor
     //not checking that results in the brightness slider jump to the previous vqlue when changing.
     if(m_setBrightnessEventFilter.isActive()) {
         m_lastBrightnessKnown = m_tmpCurrentBrightness;
