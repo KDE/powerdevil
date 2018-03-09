@@ -30,9 +30,9 @@
 #include <QCheckBox>
 #include <QVBoxLayout>
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusPendingReply>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingReply>
 
 #include <KConfigGroup>
 #include <QDebug>

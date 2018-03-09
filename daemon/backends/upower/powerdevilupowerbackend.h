@@ -25,8 +25,8 @@
 
 #include <powerdevilbackendinterface.h>
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusInterface>
 
 #include "upower_device_interface.h"
 #include "upower_interface.h"

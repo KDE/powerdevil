@@ -19,7 +19,7 @@
 
 #include "ErrorOverlay.h"
 
-#include <QtCore/QEvent>
+#include <QEvent>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QIcon>

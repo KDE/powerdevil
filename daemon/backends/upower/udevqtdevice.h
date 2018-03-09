@@ -21,11 +21,11 @@
 #ifndef UDEVQTDEVICE_H
 #define UDEVQTDEVICE_H
 
-#include <QtCore/QObject>
-#include <QtCore/QList>
-#include <QtCore/QString>
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
+#include <QObject>
+#include <QList>
+#include <QString>
+#include <QStringList>
+#include <QVariant>
 
 namespace UdevQt
 {

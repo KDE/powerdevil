@@ -29,12 +29,12 @@
 #include <Solid/Battery>
 #include <Solid/PowerManagement>
 
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusConnectionInterface>
-#include <QtDBus/QDBusMetaType>
-#include <QtDBus/QDBusServiceWatcher>
+#include <QDBusMessage>
+#include <QDBusReply>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDBusMetaType>
+#include <QDBusServiceWatcher>
 
 #include <KNotifyConfigWidget>
 #include <KPluginFactory>

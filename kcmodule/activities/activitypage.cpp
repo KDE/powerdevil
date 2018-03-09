@@ -30,13 +30,13 @@
 #include <QScrollArea>
 #include <QVBoxLayout>
 
-#include <QtWidgets/QTabWidget>
+#include <QTabWidget>
 
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusConnectionInterface>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
-#include <QtDBus/QDBusServiceWatcher>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDBusMessage>
+#include <QDBusReply>
+#include <QDBusServiceWatcher>
 
 #include <KAboutData>
 #include <QDebug>
