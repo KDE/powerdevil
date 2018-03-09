@@ -66,4 +66,4 @@ if(DDCUTIL_FOUND)
     target_link_libraries(powerdevilupowerbackend ${LIBDDCUTIL_LIBRARY})
 endif()
 
-install(TARGETS powerdevilupowerbackend DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/powerdevil)
+install(TARGETS powerdevilupowerbackend DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/powerdevil)

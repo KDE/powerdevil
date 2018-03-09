@@ -132,10 +132,10 @@ endif ()
 
 target_link_libraries(powerdevil ${UDEV_LIBS})
 
-install(TARGETS powerdevil DESTINATION ${CMAKE_INSTALL_FULL_LIBEXECDIR})
+install(TARGETS powerdevil DESTINATION ${KDE_INSTALL_FULL_LIBEXECDIR})
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
         DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
-install(TARGETS powerdevilcore ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
 set(powerdevilui_SRCS
@@ -155,4 +155,4 @@ target_link_libraries(powerdevilui
 set(HAVE_XCB ${XCB_FOUND})
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
-install(TARGETS powerdevilui ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS powerdevilui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

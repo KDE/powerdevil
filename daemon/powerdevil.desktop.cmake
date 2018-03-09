@@ -48,7 +48,7 @@ Name[uk]=Керування живленням
 Name[x-test]=xxPower Managementxx
 Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
-Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
+Exec=@KDE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
 OnlyShowIn=KDE;
 
 Comment=Battery, Display and CPU power management and notification

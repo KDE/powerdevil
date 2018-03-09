@@ -21,5 +21,5 @@ target_link_libraries(kcm_powerdevilactivitiesconfig
      powerdevilconfigcommonprivate
 )
 
-install(TARGETS kcm_powerdevilactivitiesconfig  DESTINATION ${PLUGIN_INSTALL_DIR} )
-install( FILES powerdevilactivitiesconfig.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+install(TARGETS kcm_powerdevilactivitiesconfig  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
+install( FILES powerdevilactivitiesconfig.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
