@@ -42,6 +42,8 @@
 #include <KConfigGroup>
 #include <KGlobalAccel>
 
+#include <kworkspace.h>
+
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
     : QGuiApplication(argc, argv)
     , m_core(nullptr)
@@ -195,6 +197,7 @@ void PowerDevilApp::migratePre512KeyboardShortcuts()
 int main(int argc, char **argv)
 {
     QGuiApplication::setDesktopSettingsAware(false);
+    KWorkSpace::detectPlatform(argc, argv);
     PowerDevilApp app(argc, argv);
 
     KDBusService service(KDBusService::Unique);

@@ -50,6 +50,8 @@ add_feature_info(
     "Support turning off signal-transmitting devices to save energy"
 )
 
+find_package(LibKWorkspace ${PROJECT_VERSION} REQUIRED)
+
 find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)

@@ -124,6 +124,7 @@ target_link_libraries(powerdevil
     KF5::CoreAddons
     KF5::I18n
     KF5::DBusAddons
+    PW::KWorkspace
     powerdevilcore
 )
 if (XCB_FOUND)
