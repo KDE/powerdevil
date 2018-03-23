@@ -98,10 +98,10 @@ int FdoConnector::Inhibit(const QString &application, const QString &reason)
     // Inhibit here means we cannot interrupt the session.
     // If we've been called from DBus, use PolicyAgent's service watching system
     if (calledFromDBus()) {
-        return PolicyAgent::instance()->addInhibitionWithExplicitDBusService((uint)PolicyAgent::ChangeScreenSettings,
+        return PolicyAgent::instance()->addInhibitionWithExplicitDBusService((uint)PolicyAgent::InterruptSession,
                                                                              application, reason, message().service());
     } else {
-        return PolicyAgent::instance()->AddInhibition((uint)PolicyAgent::ChangeScreenSettings, application, reason);
+        return PolicyAgent::instance()->AddInhibition((uint)PolicyAgent::InterruptSession, application, reason);
     }
 }
 
