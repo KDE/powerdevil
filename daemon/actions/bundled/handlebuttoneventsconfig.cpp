@@ -23,8 +23,7 @@
 #include "suspendsession.h"
 #include "upower_interface.h"
 
-#include <Solid/Device>
-#include <Solid/PowerManagement>
+#include "powerdevilpowermanagement.h"
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -94,17 +93,15 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         QList<QComboBox *> boxes;
         boxes << m_lidCloseCombo << m_powerButtonCombo;
 
-        QSet< Solid::PowerManagement::SleepState > methods = Solid::PowerManagement::supportedSleepStates();
-
         Q_FOREACH (QComboBox *box, boxes) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
-            if (methods.contains(Solid::PowerManagement::SuspendState)) {
+            if (PowerManagement::instance()->canSuspend()) {
                 box->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
             }
-            if (methods.contains(Solid::PowerManagement::HibernateState)) {
+            if (PowerManagement::instance()->canHibernate()) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
             }
-            if (methods.contains(Solid::PowerManagement::HybridSuspendState)) {
+            if (PowerManagement::instance()->canHybridSuspend()) {
                 box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid suspend"), (uint)SuspendSession::SuspendHybridMode);
             }
             box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);

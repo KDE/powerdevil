@@ -15,9 +15,7 @@ kconfig_add_kcfg_files(kcm_powerdevil_activities_SRCS ../../PowerDevilSettings.k
 add_library(kcm_powerdevilactivitiesconfig MODULE ${kcm_powerdevil_activities_SRCS})
 
 target_link_libraries(kcm_powerdevilactivitiesconfig
-     KF5::Solid
      KF5::Activities
-     KF5::KDELibs4Support
      powerdevilconfigcommonprivate
 )
 

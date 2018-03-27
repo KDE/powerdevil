@@ -3,6 +3,7 @@ function(add_powerdevil_bundled_action _name)
     add_library(powerdevil${_name}action_config MODULE
                     ${actionconfig_SRCS})
     target_link_libraries(powerdevil${_name}action_config
+                        powerdevilcore
                         powerdevilui
                         Qt5::Widgets
                         KF5::CoreAddons
@@ -18,7 +19,7 @@ add_powerdevil_bundled_action(brightnesscontrol KF5::GlobalAccel)
 add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
-add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets KF5::Solid KF5::KDELibs4Support)
+add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets)
 if(HAVE_WIRELESS_SUPPORT)
     add_powerdevil_bundled_action(wirelesspowersaving KF5::NetworkManagerQt KF5::BluezQt)
 endif()
@@ -30,14 +31,13 @@ qt5_add_dbus_interface(actionconfig_SRCS
 add_library(powerdevilhandlebuttoneventsaction_config MODULE
                 ${actionconfig_SRCS})
 target_link_libraries(powerdevilhandlebuttoneventsaction_config
+                    powerdevilcore
                     powerdevilui
                     Qt5::Widgets
                     KF5::CoreAddons
                     KF5::I18n
                     KF5::ConfigGui
-                    KF5::Solid
                     KF5::XmlGui
-                    KF5::KDELibs4Support
                     )
 install(TARGETS powerdevilhandlebuttoneventsaction_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
 install(FILES powerdevilhandlebuttoneventsaction.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

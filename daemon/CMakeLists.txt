@@ -39,6 +39,7 @@ set(powerdevilcore_SRCS
     powerdevilbrightnesslogic.cpp
     powerdevilscreenbrightnesslogic.cpp
     powerdevilkeyboardbrightnesslogic.cpp
+    powerdevilpowermanagement.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
 )
@@ -106,8 +107,8 @@ qt5_add_dbus_adaptor(powerdevil_SRCS org.kde.Solid.PowerManagement.PolicyAgent.x
                                          powerdevilpolicyagent.h PowerDevil::PolicyAgent
                                          powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
 
-qt5_add_dbus_adaptor(powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
-qt5_add_dbus_adaptor(powerdevil_SRCS ${KDE4_DBUS_INTERFACES_DIR}/kf5_org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
+qt5_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt5_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 
 # Backends
