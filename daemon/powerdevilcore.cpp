@@ -108,9 +108,15 @@ void Core::onBackendReady()
 
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::CascadeConfig);
 
+    QStringList groups = m_profilesConfig->groupList();
+    // the "migration" key is for shortcuts migration in added by migratePre512KeyboardShortcuts
+    // and as such our configuration would never be considered empty, ignore it!
+    groups.removeOne(QStringLiteral("migration"));
+
     // Is it brand new?
-    if (m_profilesConfig->groupList().isEmpty()) {
+    if (groups.isEmpty()) {
         // Generate defaults
+        qCDebug(POWERDEVIL) << "Generating a default configuration";
         bool toRam = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
         bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
         ProfileGenerator::generateProfiles(toRam, toDisk);
