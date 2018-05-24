@@ -56,7 +56,7 @@ int BrightnessLogic::action(BrightnessKeyType type) const {
 int BrightnessLogic::increased() const
 {
     if (m_value == m_valueMax) {
-        return -1; // ignore, we are at the maximum
+        return m_valueMax; // we are at the maximum already
     }
 
     // Add 1 and round upwards to the nearest step
@@ -74,7 +74,7 @@ int BrightnessLogic::increased() const
 int BrightnessLogic::decreased() const
 {
     if (m_value == 0) {
-        return -1; // ignore, we are at the minimum
+        return 0; // we are at the minimum already
     }
 
     // Subtract 1 and round downwards to the nearest Step
