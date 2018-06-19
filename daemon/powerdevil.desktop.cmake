@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Service
 Icon=preferences-system-power-management
-X-KDE-DBus-ModuleName=powerdevil
 Name=Power Management
 Name[ar]=إدارة الطاقة
 Name[bs]=Upravljanje napajanjem
