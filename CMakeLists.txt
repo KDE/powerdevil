@@ -54,7 +54,7 @@ find_package(LibKWorkspace ${PROJECT_VERSION} REQUIRED)
 
 find_package(UDev REQUIRED)
 
-find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
+find_package(XCB REQUIRED COMPONENTS XCB DPMS)
 
 option(WITH_DDCUTIL "DDCUtil library support" OFF)
 if(WITH_DDCUTIL)

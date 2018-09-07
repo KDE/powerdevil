@@ -1,15 +1,12 @@
 ########################## UPower Backend #####################################
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/upower
-                    ${X11_INCLUDE_DIR}
-                    ${X11_Xrandr_INCLUDE_PATH})
+                    ${X11_INCLUDE_DIR})
 
 set(powerdevilupowerbackend_SRCS
     ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
     upower/upowersuspendjob.cpp
     upower/login1suspendjob.cpp
     upower/powerdevilupowerbackend.cpp
-    upower/xrandrbrightness.cpp
-    upower/xrandrxcbhelper.cpp
     upower/udevqtclient.cpp
     upower/udevqtdevice.cpp
     upower/ddcutilbrightness.cpp
@@ -57,9 +54,7 @@ target_link_libraries(powerdevilupowerbackend
     KF5::I18n
     ${UDEV_LIBS}
     ${X11_LIBRARIES}
-    ${X11_Xrandr_LIB}
     ${XCB_XCB_LIBRARY}
-    ${XCB_RANDR_LIBRARY}
     powerdevilcore
 )
 if(DDCUTIL_FOUND)
