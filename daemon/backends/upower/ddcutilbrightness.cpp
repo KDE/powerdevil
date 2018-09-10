@@ -38,8 +38,9 @@ void DDCutilBrightness::detect()
 
     qCDebug(POWERDEVIL) << "Check for monitors using ddca_get_displays()...";
     // Inquire about detected monitors.
-    DDCA_Display_Info_List * dlist = ddca_get_display_info_list();
-    qCDebug(POWERDEVIL) << "ddca_get_display_info_list() returned "<< dlist;
+    DDCA_Display_Info_List * dlist;
+    ddca_get_display_info_list2(false, &dlist);
+    qCDebug(POWERDEVIL) << "ddca_get_display_info_list2() returned "<< dlist;
     qCInfo(POWERDEVIL)  << "[DDCutilBrightness] " << dlist->ct << "display(s) were detected";
 
     for (int iDisp=0;iDisp<dlist->ct;iDisp++) {
@@ -59,10 +60,10 @@ void DDCutilBrightness::detect()
         qCDebug(POWERDEVIL) << "did="<<did_repr;
 
         qCDebug(POWERDEVIL) << "Create a display reference from the display identifier...";
-        rc = ddca_get_display_ref(did, &dref);
+        rc = ddca_create_display_ref(did, &dref);
 
         if (rc != 0) {
-            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddct_get_display_ref() returned "<<
+            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddca_create_display_ref() returned "<<
             rc<< " ("<<ddca_rc_name(rc) <<
             "): "<< ddca_rc_name(rc);
             continue;
@@ -74,7 +75,7 @@ void DDCutilBrightness::detect()
         qCDebug(POWERDEVIL) << "Open the display reference, creating a display handle...";
         rc = ddca_open_display(dref, &dh);
         if (rc != 0) {
-            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddct_open_display"<< rc;
+            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddca_open_display"<< rc;
             continue;
         }
 
@@ -159,16 +160,16 @@ long DDCutilBrightness::brightness()
     }
     else {  //FIXME: gets value for display 1
         DDCA_Status rc;
-        DDCA_Single_Vcp_Value *returnValue;
+        DDCA_Any_Vcp_Value *returnValue;
 
-        rc = ddca_get_vcp_value(m_displayHandleList.at(0),
+        rc = ddca_get_any_vcp_value_using_explicit_type(m_displayHandleList.at(0),
                                 m_descrToVcp_perDisp.at(0).value("Brightness"),
                                 DDCA_NON_TABLE_VCP_VALUE, &returnValue);
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightness]: ddca_get_vcp_value returned" << rc;
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightness]: ddca_get_any_vcp_value_using_explicit_type returned" << rc;
 
         //check rc to prevent crash on wake from idle and the monitor has gone to powersave mode
         if (rc == 0) {
-            m_lastBrightnessKnown = (long)returnValue->val.c.cur_val;
+            m_lastBrightnessKnown = (long)VALREC_CUR_VAL(returnValue);
         }
     }
     return m_lastBrightnessKnown;
@@ -181,16 +182,16 @@ long DDCutilBrightness::brightnessMax()
 {
 #ifdef WITH_DDCUTIL
     DDCA_Status rc;
-    DDCA_Single_Vcp_Value *returnValue;
+    DDCA_Any_Vcp_Value *returnValue;
 
-    rc = ddca_get_vcp_value(m_displayHandleList.at(0),
+    rc = ddca_get_any_vcp_value_using_explicit_type(m_displayHandleList.at(0),
                             m_descrToVcp_perDisp.at(0).value("Brightness"),
                             DDCA_NON_TABLE_VCP_VALUE, &returnValue);
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightnessMax]: ddca_get_vcp_value returned" << rc;
+    qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightnessMax]: ddca_get_any_vcp_value_using_explicit_type returned" << rc;
 
     //check rc to prevent crash on wake from idle and the monitor has gone to powersave mode
     if (rc == 0) {
-        m_lastMaxBrightnessKnown = (long)returnValue->val.c.max_val;
+        m_lastMaxBrightnessKnown = (long)VALREC_MAX_VAL(returnValue);
     }
 
     return m_lastMaxBrightnessKnown;
