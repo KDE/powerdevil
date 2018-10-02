@@ -90,7 +90,7 @@ Core* Action::core()
 
 void Action::trigger(const QVariantMap& args)
 {
-    if (args.contains("Explicit") && args["Explicit"].toBool()) {
+    if (args.contains(QLatin1String("Explicit")) && args[QLatin1String("Explicit")].toBool()) {
         // The action was explicitly triggered by the user, hence any policy check is bypassed.
         triggerImpl(args);
     } else {

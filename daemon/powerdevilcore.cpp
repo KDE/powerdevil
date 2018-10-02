@@ -63,8 +63,8 @@ Core::Core(QObject* parent)
     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
 {
-    KAuth::Action discreteGpuAction("org.kde.powerdevil.discretegpuhelper.hasdualgpu");
-    discreteGpuAction.setHelperId("org.kde.powerdevil.discretegpuhelper");
+    KAuth::Action discreteGpuAction(QStringLiteral("org.kde.powerdevil.discretegpuhelper.hasdualgpu"));
+    discreteGpuAction.setHelperId(QStringLiteral("org.kde.powerdevil.discretegpuhelper"));
     KAuth::ExecuteJob *discreteGpuJob = discreteGpuAction.execute();
     connect(discreteGpuJob, &KJob::result, this, [this, discreteGpuJob]  {
         if (discreteGpuJob->error()) {
@@ -72,7 +72,7 @@ Core::Core(QObject* parent)
             qCDebug(POWERDEVIL) << discreteGpuJob->errorText();
             return;
         }
-        m_hasDualGpu = discreteGpuJob->data()["hasdualgpu"].toBool();
+        m_hasDualGpu = discreteGpuJob->data()[QStringLiteral("hasdualgpu")].toBool();
     });
     discreteGpuJob->start();
 }
@@ -106,7 +106,7 @@ void Core::onBackendReady()
 {
     qCDebug(POWERDEVIL) << "Backend is ready, KDE Power Management system initialized";
 
-    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::CascadeConfig);
+    m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::CascadeConfig);
 
     QStringList groups = m_profilesConfig->groupList();
     // the "migration" key is for shortcuts migration in added by migratePre512KeyboardShortcuts
@@ -187,10 +187,10 @@ void Core::onBackendReady()
 
     // wait until the notification system is set up before firing notifications
     // to avoid them showing ontop of ksplash...
-    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.freedesktop.Notifications")) {
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.freedesktop.Notifications"))) {
         onServiceRegistered(QString());
     } else {
-        m_notificationsWatcher = new QDBusServiceWatcher("org.freedesktop.Notifications",
+        m_notificationsWatcher = new QDBusServiceWatcher(QStringLiteral("org.freedesktop.Notifications"),
                                                          QDBusConnection::sessionBus(),
                                                          QDBusServiceWatcher::WatchForRegistration,
                                                          this);
@@ -258,10 +258,10 @@ void Core::loadProfile(bool force)
     qCDebug(POWERDEVIL) << activitiesConfig.groupList() << activitiesConfig.keyList();
 
     // Are we mirroring an activity?
-    if (activitiesConfig.group(activity).readEntry("mode", "None") == "ActLike" &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != "AC" &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != "Battery" &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != "LowBattery") {
+    if (activitiesConfig.group(activity).readEntry("mode", "None") == QStringLiteral("ActLike") &&
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("AC") &&
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("Battery") &&
+        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("LowBattery")) {
         // Yes, let's use that then
         activity = activitiesConfig.group(activity).readEntry("actLike", QString());
         qCDebug(POWERDEVIL) << "Activity is a mirror";
@@ -271,7 +271,7 @@ void Core::loadProfile(bool force)
     qCDebug(POWERDEVIL) << activityConfig.groupList() << activityConfig.keyList();
 
     // See if this activity has priority
-    if (activityConfig.readEntry("mode", "None") == "SeparateSettings") {
+    if (activityConfig.readEntry("mode", "None") == QStringLiteral("SeparateSettings")) {
         // Prioritize this profile over anything
         config = activityConfig.group("SeparateSettings");
         qCDebug(POWERDEVIL) << "Activity is enforcing a different profile";
@@ -280,11 +280,11 @@ void Core::loadProfile(bool force)
         // It doesn't, let's load the current state's profile
         if (m_batteriesPercent.isEmpty()) {
             qCDebug(POWERDEVIL) << "No batteries found, loading AC";
-            profileId = "AC";
-        } else if (activityConfig.readEntry("mode", "None") == "ActLike") {
-            if (activityConfig.readEntry("actLike", QString()) == "AC" ||
-                activityConfig.readEntry("actLike", QString()) == "Battery" ||
-                activityConfig.readEntry("actLike", QString()) == "LowBattery") {
+            profileId = QStringLiteral("AC");
+        } else if (activityConfig.readEntry("mode", "None") == QStringLiteral("ActLike")) {
+            if (activityConfig.readEntry("actLike", QString()) == QStringLiteral("AC") ||
+                activityConfig.readEntry("actLike", QString()) == QStringLiteral("Battery") ||
+                activityConfig.readEntry("actLike", QString()) == QStringLiteral("LowBattery")) {
                 // Same as above, but with an existing profile
                 config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
                 profileId = activityConfig.readEntry("actLike", QString());
@@ -295,13 +295,13 @@ void Core::loadProfile(bool force)
             const int percent = currentChargePercent();
 
             if (backend()->acAdapterState() == BackendInterface::Plugged) {
-                profileId = "AC";
+                profileId = QStringLiteral("AC");
                 qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
             } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-                profileId = "LowBattery";
+                profileId = QStringLiteral("LowBattery");
                 qCDebug(POWERDEVIL) << "Loading profile for low battery";
             } else {
-                profileId = "Battery";
+                profileId = QStringLiteral("Battery");
                 qCDebug(POWERDEVIL) << "Loading profile for unplugged AC";
             }
         }
@@ -326,7 +326,7 @@ void Core::loadProfile(bool force)
     }
 
     if (!config.isValid()) {
-        emitNotification("powerdevilerror", i18n("The profile \"%1\" has been selected, "
+        emitNotification(QStringLiteral("powerdevilerror"), i18n("The profile \"%1\" has been selected, "
                          "but it does not exist.\nPlease check your PowerDevil configuration.",
                          profileId));
         return;
@@ -376,12 +376,12 @@ void Core::loadProfile(bool force)
     }
 
     // Now... any special behaviors we'd like to consider?
-    if (activityConfig.readEntry("mode", "None") == "SpecialBehavior") {
+    if (activityConfig.readEntry("mode", "None") == QStringLiteral("SpecialBehavior")) {
         qCDebug(POWERDEVIL) << "Activity has special behaviors";
         KConfigGroup behaviorGroup = activityConfig.group("SpecialBehavior");
         if (behaviorGroup.readEntry("performAction", false)) {
             // Let's override the configuration for this action at all times
-            ActionPool::instance()->loadAction("SuspendSession", behaviorGroup.group("ActionConfig"), this);
+            ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), behaviorGroup.group("ActionConfig"), this);
             qCDebug(POWERDEVIL) << "Activity overrides suspend session action";
         }
 
@@ -435,7 +435,7 @@ void Core::onDeviceAdded(const QString &udi)
 
     if (!connect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged) ||
         !connect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged)) {
-        emitNotification("powerdevilerror", i18n("Could not connect to battery interface.\n"
+        emitNotification(QStringLiteral("powerdevilerror"), i18n("Could not connect to battery interface.\n"
                          "Please check your system configuration"));
     }
 
@@ -462,7 +462,7 @@ void Core::onDeviceAdded(const QString &udi)
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
         }
-        emitRichNotification("pluggedin",
+        emitRichNotification(QStringLiteral("pluggedin"),
                              i18n("Extra Battery Added"),
                              i18n("All pending suspend actions have been canceled.")); // FIXME This wording is too technical
     }
@@ -493,22 +493,22 @@ void Core::emitNotification(const QString &evid, const QString &message, const Q
 {
     if (!iconname.isEmpty()) {
       KNotification::event(evid, message, QIcon::fromTheme(iconname).pixmap(48,48),
-                           nullptr, KNotification::CloseOnTimeout, "powerdevil");
+                           nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
     } else {
       KNotification::event(evid, message, QPixmap(),
-                           nullptr, KNotification::CloseOnTimeout, "powerdevil");
+                           nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
     }
 }
 
 void Core::emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName)
 {
-    KNotification::event(eventId, title, message, iconName, nullptr, KNotification::CloseOnTimeout, "powerdevil");
+    KNotification::event(eventId, title, message, iconName, nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
 }
 
 void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
 {
     KNotification::event(evid, title, message, QPixmap(),
-                         nullptr, KNotification::CloseOnTimeout, "powerdevil");
+                         nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
 }
 
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi)
@@ -560,7 +560,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
                 break;
             }
 
-            emitNotification("lowperipheralbattery", title, msg, icon);
+            emitNotification(QStringLiteral("lowperipheralbattery"), title, msg, icon);
 
             return true;
         }
@@ -578,7 +578,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return true;
     } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
                previousPercent > PowerDevilSettings::batteryLowLevel()) {
-        emitRichNotification("lowbattery", i18n("Battery Low (%1% Remaining)", currentPercent),
+        emitRichNotification(QStringLiteral("lowbattery"), i18n("Battery Low (%1% Remaining)", currentPercent),
                              i18n("Your battery is low. If you need to continue using your computer, either plug in your computer, or shut it down and then change the battery."));
         return true;
     }
@@ -588,7 +588,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
 void Core::handleCriticalBattery(int percent)
 {
     // no parent, but it won't leak, since it will be closed both in case of timeout or direct action
-    m_criticalBatteryNotification = new KNotification("criticalbattery", KNotification::Persistent, nullptr);
+    m_criticalBatteryNotification = new KNotification(QStringLiteral("criticalbattery"), KNotification::Persistent, nullptr);
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
 
@@ -638,20 +638,20 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
             if (m_criticalBatteryNotification) {
                 m_criticalBatteryNotification->close();
             }
-            emitRichNotification("pluggedin",
+            emitRichNotification(QStringLiteral("pluggedin"),
                              i18n("AC Adapter Plugged In"),
                              i18n("All pending suspend actions have been canceled."));
         } else {
-            emitRichNotification("pluggedin", i18n("Running on AC power"), i18n("The power adaptor has been plugged in."));
+            emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adaptor has been plugged in."));
         }
     } else if (state == BackendInterface::Unplugged) {
-        emitRichNotification("unplugged", i18n("Running on Battery Power"), i18n("The power adaptor has been unplugged."));
+        emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adaptor has been unplugged."));
     }
 }
 
 void Core::onBackendError(const QString& error)
 {
-    emitNotification("powerdevilerror", i18n("KDE Power Management System could not be initialized. "
+    emitNotification(QStringLiteral("powerdevilerror"), i18n("KDE Power Management System could not be initialized. "
                          "The backend reported the following error: %1\n"
                          "Please check your system configuration", error));
 }
@@ -712,7 +712,7 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
     }
 
     if (!previousCharged && currentCharged) {
-        emitRichNotification("fullbattery", i18n("Charge Complete"), i18n("Your battery is now fully charged."));
+        emitRichNotification(QStringLiteral("fullbattery"), i18n("Charge Complete"), i18n("Your battery is now fully charged."));
         loadProfile();
     }
 }
@@ -726,11 +726,11 @@ void Core::onCriticalBatteryTimerExpired()
     // Do that only if we're not on AC
     if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
         // We consider this as a very special button
-        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("HandleButtonEvents", KConfigGroup(), this);
+        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), KConfigGroup(), this);
         if (helperAction) {
             QVariantMap args;
-            args["Button"] = 32;
-            args["Type"] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
+            args[QStringLiteral("Button")] = 32;
+            args[QStringLiteral("Type")] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
             helperAction->trigger(args);
         }
     }

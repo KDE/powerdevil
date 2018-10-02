@@ -92,10 +92,10 @@ void ActionPool::clearCache()
 void ActionPool::init(PowerDevil::Core *parent)
 {
     // Load all the actions
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                              "[X-KDE-PowerDevil-Action-IsBundled] == FALSE");
+    KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
+                                                              QStringLiteral("[X-KDE-PowerDevil-Action-IsBundled] == FALSE"));
     Q_FOREACH (KService::Ptr offer, offers) {
-        QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
+        QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
         qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
 
@@ -125,14 +125,14 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 
     // Load bundled actions now
-    m_actionPool.insert("SuspendSession", new BundledActions::SuspendSession(parent));
-    m_actionPool.insert("BrightnessControl", new BundledActions::BrightnessControl(parent));
-    m_actionPool.insert("KeyboardBrightnessControl", new BundledActions::KeyboardBrightnessControl(parent));
-    m_actionPool.insert("DimDisplay", new BundledActions::DimDisplay(parent));
-    m_actionPool.insert("RunScript", new BundledActions::RunScript(parent));
-    m_actionPool.insert("HandleButtonEvents", new BundledActions::HandleButtonEvents(parent));
+    m_actionPool.insert(QStringLiteral("SuspendSession"), new BundledActions::SuspendSession(parent));
+    m_actionPool.insert(QStringLiteral("BrightnessControl"), new BundledActions::BrightnessControl(parent));
+    m_actionPool.insert(QStringLiteral("KeyboardBrightnessControl"), new BundledActions::KeyboardBrightnessControl(parent));
+    m_actionPool.insert(QStringLiteral("DimDisplay"), new BundledActions::DimDisplay(parent));
+    m_actionPool.insert(QStringLiteral("RunScript"), new BundledActions::RunScript(parent));
+    m_actionPool.insert(QStringLiteral("HandleButtonEvents"), new BundledActions::HandleButtonEvents(parent));
 #ifdef HAVE_WIRELESS_SUPPORT
-    m_actionPool.insert("WirelessPowerSaving", new BundledActions::WirelessPowerSaving(parent));
+    m_actionPool.insert(QStringLiteral("WirelessPowerSaving"), new BundledActions::WirelessPowerSaving(parent));
 #endif
 
     // Verify support
@@ -149,13 +149,13 @@ void ActionPool::init(PowerDevil::Core *parent)
 
     // Register DBus objects
     {
-        KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action",
-                                                                "[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE");
+        KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
+                                                                QStringLiteral("[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE"));
         Q_FOREACH (KService::Ptr offer, offers) {
-            QString actionId = offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString();
+            QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
             if (m_actionPool.contains(actionId)) {
-                QDBusConnection::sessionBus().registerObject("/org/kde/Solid/PowerManagement/Actions/" + actionId, m_actionPool[actionId]);
+                QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
             }
         }
     }

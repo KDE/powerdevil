@@ -301,7 +301,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
         }
 
         // Now let's obtain the seat
-        QDBusPendingReply< QDBusObjectPath > seatPath = m_ckSessionInterface.data()->asyncCall("GetSeatId");
+        QDBusPendingReply< QDBusObjectPath > seatPath = m_ckSessionInterface.data()->asyncCall(QStringLiteral("GetSeatId"));
         seatPath.waitForFinished();
 
         if (!seatPath.isValid() || seatPath.value().path().isEmpty()) {
@@ -336,11 +336,11 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 
 void PolicyAgent::onSessionHandlerUnregistered(const QString & serviceName)
 {
-    if (serviceName == SYSTEMD_LOGIN1_SERVICE) {
+    if (serviceName == QLatin1String(SYSTEMD_LOGIN1_SERVICE)) {
         m_sdAvailable = false;
         delete m_sdSessionInterface.data();
     }
-    else if (serviceName == CONSOLEKIT_SERVICE) {
+    else if (serviceName == QLatin1String(CONSOLEKIT_SERVICE)) {
         m_ckAvailable = false;
         delete m_ckSessionInterface.data();
     }
@@ -423,7 +423,7 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
         // No way to determine if we are on the current session, simply suppose we are
         qCDebug(POWERDEVIL) << "Can't contact ck";
     } else if (!m_ckSessionInterface.isNull()) {
-        QDBusPendingReply< bool > rp = m_ckSessionInterface.data()->asyncCall("IsActive");
+        QDBusPendingReply< bool > rp = m_ckSessionInterface.data()->asyncCall(QStringLiteral("IsActive"));
         rp.waitForFinished();
 
         if (!(rp.isValid() && rp.value()) && !m_wasLastActiveSession) {
@@ -671,11 +671,11 @@ void PolicyAgent::setupSystemdInhibition()
     qCDebug(POWERDEVIL) << "fd passing available:" << bool(m_managerIface.data()->connection().connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing);
 
     QVariantList args;
-    args << "handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch"; // what
-    args << "PowerDevil"; // who
-    args << "KDE handles power events"; // why
-    args << "block"; // mode
-    QDBusPendingReply<QDBusUnixFileDescriptor> desc = m_managerIface.data()->asyncCallWithArgumentList("Inhibit", args);
+    args << QStringLiteral("handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch"); // what
+    args << QStringLiteral("PowerDevil"); // who
+    args << QStringLiteral("KDE handles power events"); // why
+    args << QStringLiteral("block"); // mode
+    QDBusPendingReply<QDBusUnixFileDescriptor> desc = m_managerIface.data()->asyncCallWithArgumentList(QStringLiteral("Inhibit"), args);
     desc.waitForFinished();
     if (desc.isValid()) {
         m_systemdInhibitFd = desc.value();
