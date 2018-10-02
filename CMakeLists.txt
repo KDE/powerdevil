@@ -15,13 +15,6 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
-# require at least gcc 4.8
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    if ("${CMAKE_CXX_COMPILER_VERSION}" VERSION_LESS "4.8")
-        message(SEND_ERROR "Version ${CMAKE_CXX_COMPILER_VERSION} of the ${CMAKE_CXX_COMPILER_ID} C++ compiler is not supported. Please use version 4.8 or later.")
-    endif()
-endif()
-
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig Wayland DocTools Crash Notifications)
 find_package(KF5Screen CONFIG REQUIRED)
