@@ -350,7 +350,7 @@ void PolicyAgent::onActiveSessionChanged(const QString & ifaceName, const QVaria
 {
     const QString key = QLatin1String("ActiveSession");
 
-    if (ifaceName == SYSTEMD_LOGIN1_SEAT_IFACE && (changedProps.keys().contains(key) || invalidatedProps.contains(key))) {
+    if (ifaceName == SYSTEMD_LOGIN1_SEAT_IFACE && (changedProps.contains(key) || invalidatedProps.contains(key))) {
         m_activeSessionPath = getNamedPathProperty(m_sdSeatInterface.data()->path(), SYSTEMD_LOGIN1_SEAT_IFACE, key);
         qCDebug(POWERDEVIL) << "ACTIVE SESSION PATH CHANGED:" << m_activeSessionPath;
         onActiveSessionChanged(m_activeSessionPath);
@@ -380,10 +380,10 @@ void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
 
 void PolicyAgent::onServiceUnregistered(const QString& serviceName)
 {
-    if (m_cookieToBusService.values().contains(serviceName)) {
-        // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
-        Q_FOREACH (uint key, m_cookieToBusService.keys(serviceName)) {
-            ReleaseInhibition(key);
+    // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
+    for (auto it = m_cookieToBusService.constBegin(); it != m_cookieToBusService.constEnd(); ++it) {
+        if (it.value() == serviceName) {
+            ReleaseInhibition(it.key());
         }
     }
 }
