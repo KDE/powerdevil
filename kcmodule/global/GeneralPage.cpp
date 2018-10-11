@@ -139,7 +139,7 @@ void GeneralPage::fillUi()
         lowPeripheralSpin->hide();
     }
 
-    if (!hasPeripheralBattery && !hasPeripheralBattery) {
+    if (!hasPowerSupplyBattery && !hasPeripheralBattery) {
         batteryLevelsLabel->hide();
     }
 }
