@@ -341,7 +341,6 @@ void Core::loadProfile(bool force)
         if (m_pendingWakeupEvent) {
             // Fake activity at this stage, when no timeouts are registered
             onResumingFromIdle();
-            KIdleTime::instance()->simulateUserActivity();
             m_pendingWakeupEvent = false;
         }
     } else {
@@ -352,7 +351,6 @@ void Core::loadProfile(bool force)
         if (m_pendingWakeupEvent) {
             // Fake activity at this stage, when no timeouts are registered
             onResumingFromIdle();
-            KIdleTime::instance()->simulateUserActivity();
             m_pendingWakeupEvent = false;
         }
 
@@ -833,6 +831,7 @@ int Core::currentChargePercent() const
 
 void Core::onResumingFromIdle()
 {
+    KIdleTime::instance()->simulateUserActivity();
     // Wake up the actions in which an idle action was triggered
     std::for_each(m_pendingResumeFromIdleActions.cbegin(), m_pendingResumeFromIdleActions.cend(),
         std::mem_fn(&PowerDevil::Action::onWakeupFromIdle));

@@ -23,6 +23,7 @@
 #include <powerdevil_debug.h>
 
 #include <QDebug>
+#include <QTimer>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -46,8 +47,10 @@ void DimDisplay::onWakeupFromIdle()
         return;
     }
     // An active inhibition may not let us restore the brightness.
-    // Let's override it so that we don't leave the user with a dimmed screen.
-    setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness, true);
+    // We should wait a bit screen to wake-up from sleep
+    QTimer::singleShot(0, this, [this]() {
+        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness, true);
+    });
     m_dimmed = false;
 }
 
