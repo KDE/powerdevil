@@ -33,6 +33,7 @@
 #include <QFileInfo>
 #include <QAction>
 #include <QKeySequence>
+#include <QSessionManager>
 
 #include <KCrash>
 #include <KDBusService>
@@ -199,6 +200,12 @@ int main(int argc, char **argv)
     QGuiApplication::setDesktopSettingsAware(false);
     KWorkSpace::detectPlatform(argc, argv);
     PowerDevilApp app(argc, argv);
+
+    auto disableSessionManagement = [](QSessionManager &sm) {
+        sm.setRestartHint(QSessionManager::RestartNever);
+    };
+    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
+    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
 
     KDBusService service(KDBusService::Unique);
     KCrash::setFlags(KCrash::AutoRestart);
