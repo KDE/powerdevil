@@ -25,6 +25,7 @@
 
 #include "powerdevilcore.h"
 #include "powerdevil_debug.h"
+#include "powerdevil_version.h"
 
 #include <QTimer>
 #include <QDBusConnection>
@@ -59,17 +60,20 @@ PowerDevilApp::~PowerDevilApp()
 
 void PowerDevilApp::init()
 {
-//     KGlobal::insertCatalog("powerdevil");
+    KLocalizedString::setApplicationDomain("powerdevil");
 
-//     KAboutData aboutData("powerdevil", "powerdevil", ki18n("KDE Power Management System"),
-//                          PROJECT_VERSION, ki18n("KDE Power Management System is PowerDevil, an "
-//                                                    "advanced, modular and lightweight Power Management "
-//                                                    "daemon"),
-//                          KAboutData::License_GPL, ki18n("(c) 2010 MetalWorkers Co."),
-//                          KLocalizedString(), "http://www.kde.org");
-//
-//     aboutData.addAuthor(ki18n( "Dario Freddi" ), ki18n("Maintainer"), "drf@kde.org",
-//                         "http://drfav.wordpress.com");
+    KAboutData aboutData(QStringLiteral("powerdevil"), i18n("KDE Power Management System"), QStringLiteral(POWERDEVIL_VERSION_STRING),
+                         i18nc("@title", "PowerDevil, an advanced, modular and lightweight power management daemon"),
+                         KAboutLicense::GPL,
+                         i18nc("@info:credit", "(c) 2015-2019 Kai Uwe Broulik"));
+    aboutData.addAuthor(i18nc("@info:credit", "Kai Uwe Broulik"),
+                        i18nc("@info:credit", "Maintainer"),
+                        QStringLiteral("kde@privat.broulik.de"));
+    aboutData.addAuthor(i18nc("@info:credit", "Dario Freddi"),
+                        i18nc("@info:credit", "Previous maintainer"),
+                        QStringLiteral("drf@kde.org"));
+
+    KAboutData::setApplicationData(aboutData);
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.PowerManagement")) ||
         QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("com.novell.powersave")) ||
