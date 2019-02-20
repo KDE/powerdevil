@@ -76,7 +76,7 @@
        <item>
         <widget class="QCheckBox" name="noShutdownPCBox">
          <property name="text">
-          <string>Never suspend or shutdown the computer</string>
+          <string>Never shutdown the computer or let it go to sleep</string>
          </property>
         </widget>
        </item>

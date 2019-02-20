@@ -79,7 +79,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     m_idleTime->setSuffix(i18n(" min"));
 
     if (PowerManagement::instance()->canSuspend()) {
-        m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
+        m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
     }
     if (PowerManagement::instance()->canHibernate()) {
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);

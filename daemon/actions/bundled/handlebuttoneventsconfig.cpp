@@ -96,13 +96,13 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         Q_FOREACH (QComboBox *box, boxes) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
             if (PowerManagement::instance()->canSuspend()) {
-                box->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), (uint)SuspendSession::ToRamMode);
+                box->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
             }
             if (PowerManagement::instance()->canHibernate()) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
             }
             if (PowerManagement::instance()->canHybridSuspend()) {
-                box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid suspend"), (uint)SuspendSession::SuspendHybridMode);
+                box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), (uint)SuspendSession::SuspendHybridMode);
             }
             box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
             box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);

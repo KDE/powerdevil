@@ -86,7 +86,7 @@ brightness 0, in the amount of time you specify in the spin box.
 <varlistentry><term><guilabel>Suspend session</guilabel></term>
 <listitem>
 <para>Suspends the session after the selected time to the status 
-<guilabel>Suspend</guilabel>, <guilabel>Hibernate</guilabel>,
+<guilabel>Sleep</guilabel>, <guilabel>Hibernate</guilabel>,
 <guilabel>Shutdown</guilabel> or <guilabel>Lock screen</guilabel>.</para>
 </listitem>
 </varlistentry>
@@ -149,7 +149,7 @@ Use the settings defined on <guilabel>Energy Saving</guilabel> page.
 <term>Define a special behavior</term>
 <listitem>
 <para>
-If this option is chosen, a special behavior for activity can be chosen. If this is a presentation activity, you can check the <guilabel>Never shutdown the screen</guilabel> and <guilabel>Never suspend or shutdown the computer</guilabel> boxes. It is also possible to define the time interval for the computer to switch to a suspension mode for the power saving activities.
+If this option is chosen, a special behavior for activity can be chosen. If this is a presentation activity, you can check the <guilabel>Never shutdown the screen</guilabel> and <guilabel>Never shutdown the computer or let it go to sleep</guilabel> boxes. It is also possible to define the time interval for the computer to switch to a suspension mode for the power saving activities.
 </para>
 </listitem>
 </varlistentry>

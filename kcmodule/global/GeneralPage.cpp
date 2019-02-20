@@ -104,7 +104,7 @@ void GeneralPage::fillUi()
 
     BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
     if (PowerDevil::PowerManagement::instance()->canSuspend()) {
-        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"), i18n("Suspend"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
+        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
     }
     if (PowerDevil::PowerManagement::instance()->canHibernate()) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);

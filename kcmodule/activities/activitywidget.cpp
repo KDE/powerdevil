@@ -94,7 +94,7 @@ void ActivityWidget::load()
 
     if (PowerDevil::PowerManagement::instance()->canSuspend()) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
-                                       i18n("Suspend"), (uint)SuspendSession::ToRamMode);
+                                       i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
     }
     if (PowerDevil::PowerManagement::instance()->canHibernate()) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
