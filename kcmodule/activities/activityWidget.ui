@@ -16,7 +16,7 @@
      <item>
       <widget class="QRadioButton" name="noSettingsRadio">
        <property name="text">
-        <string>Don't use special settings</string>
+        <string>Do not use special settings</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -69,14 +69,14 @@
        <item>
         <widget class="QCheckBox" name="noShutdownScreenBox">
          <property name="text">
-          <string>Never shutdown the screen</string>
+          <string>Never turn off the screen</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="noShutdownPCBox">
          <property name="text">
-          <string>Never shutdown the computer or let it go to sleep</string>
+          <string>Never shut down the computer or let it go to sleep</string>
          </property>
         </widget>
        </item>
