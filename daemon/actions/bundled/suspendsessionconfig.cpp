@@ -85,7 +85,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
         m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
     }
     if (PowerManagement::instance()->canHybridSuspend()) {
-        m_comboBox->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid suspend"), (uint)SuspendSession::SuspendHybridMode);
+        m_comboBox->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), (uint)SuspendSession::SuspendHybridMode);
     }
     m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
     m_comboBox->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
