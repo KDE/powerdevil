@@ -381,7 +381,10 @@ void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
 void PolicyAgent::onServiceUnregistered(const QString& serviceName)
 {
     // Ouch - the application quit or crashed without releasing its inhibitions. Let's fix that.
-    for (auto it = m_cookieToBusService.constBegin(); it != m_cookieToBusService.constEnd(); ++it) {
+
+    // ReleaseInhibition removes the cookies from the hash, so we need to operate on a copy
+    const auto cookieToBusService = m_cookieToBusService;
+    for (auto it = cookieToBusService.constBegin(); it != cookieToBusService.constEnd(); ++it) {
         if (it.value() == serviceName) {
             ReleaseInhibition(it.key());
         }
