@@ -88,7 +88,7 @@ Core::~Core()
 void Core::loadCore(BackendInterface* backend)
 {
     if (!backend) {
-        onBackendError(i18n("No valid Power Management backend plugins are available. "
+        onBackendError(i18n("No valid Power Management backend plugins available. "
                             "A new installation might solve this problem."));
         return;
     }
@@ -104,7 +104,7 @@ void Core::loadCore(BackendInterface* backend)
 
 void Core::onBackendReady()
 {
-    qCDebug(POWERDEVIL) << "Backend is ready, KDE Power Management system initialized";
+    qCDebug(POWERDEVIL) << "Backend ready, KDE Power Management system initialized";
 
     m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::CascadeConfig);
 
@@ -253,7 +253,7 @@ void Core::loadProfile(bool force)
 
     // Check the activity in which we are in
     QString activity = m_activityConsumer->currentActivity();
-    qCDebug(POWERDEVIL) << "We are now into activity " << activity;
+    qCDebug(POWERDEVIL) << "Currently using activity " << activity;
     KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
     qCDebug(POWERDEVIL) << activitiesConfig.groupList() << activitiesConfig.keyList();
 
@@ -326,8 +326,8 @@ void Core::loadProfile(bool force)
     }
 
     if (!config.isValid()) {
-        emitNotification(QStringLiteral("powerdevilerror"), i18n("The profile \"%1\" has been selected, "
-                         "but it does not exist.\nPlease check your PowerDevil configuration.",
+        emitNotification(QStringLiteral("powerdevilerror"), i18n("Profile \"%1\" has been selected "
+                         "but does not exist.\nPlease check your PowerDevil configuration.",
                          profileId));
         return;
     }
@@ -364,7 +364,7 @@ void Core::loadProfile(bool force)
                 //TODO Maybe Remove from the configuration if unsupported
                 qCWarning(POWERDEVIL) << "The profile " << profileId <<  "tried to activate"
                                 << actionName << "a non-existent action. This is usually due to an installation problem,"
-                                " or to a configuration problem, or simply the action is not supported";
+                                " a configuration problem, or because the action is not supported";
             }
         }
 
@@ -380,16 +380,16 @@ void Core::loadProfile(bool force)
         if (behaviorGroup.readEntry("performAction", false)) {
             // Let's override the configuration for this action at all times
             ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), behaviorGroup.group("ActionConfig"), this);
-            qCDebug(POWERDEVIL) << "Activity overrides suspend session action";
+            qCDebug(POWERDEVIL) << "Activity overrides suspend session action"; // debug hence not sleep
         }
 
         if (behaviorGroup.readEntry("noSuspend", false)) {
-            qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition";
+            qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
             // Trigger a special inhibition - if we don't have one yet
             if (!m_sessionActivityInhibit.contains(activity)) {
                 int cookie =
                 PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession, i18n("Activity Manager"),
-                                                       i18n("This activity's policies prevent the system from suspending"));
+                                                       i18n("This activity's policies prevent the system from going to sleep"));
 
                 m_sessionActivityInhibit.insert(activity, cookie);
             }
@@ -462,7 +462,7 @@ void Core::onDeviceAdded(const QString &udi)
         }
         emitRichNotification(QStringLiteral("pluggedin"),
                              i18n("Extra Battery Added"),
-                             i18n("All pending suspend actions have been canceled.")); // FIXME This wording is too technical
+                             i18n("The computer will no longer go to sleep."));
     }
 }
 
@@ -538,22 +538,22 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
             case Battery::MouseBattery:
                 title = i18n("Mouse Battery Low (%1% Remaining)", currentPercent);
                 msg = i18nc("Placeholder is device name",
-                            "The battery in your mouse (\"%1\") is low, and the device may turn itself off at any time. "
-                            "Please replace or charge the battery as soon as possible.", name);
+                            "The battery in (\"%1\") is running low, and the device may turn off at any time. "
+                            "Please recharge or replace the battery.", name);
                 icon = QStringLiteral("input-mouse");
                 break;
             case Battery::KeyboardBattery:
                 title = i18n("Keyboard Battery Low (%1% Remaining)", currentPercent);
                 msg = i18nc("Placeholder is device name",
-                            "The battery in your keyboard (\"%1\") is low, and the device may turn itself off at any time. "
-                            "Please replace or charge the battery as soon as possible.", name);
+                            "The battery in (\"%1\") is running low, and the device may turn off at any time. "
+                            "Please recharge or replace the battery.", name);
                 icon = QStringLiteral("input-keyboard");
                 break;
             default:
                 title = i18nc("The battery in an external device", "Device Battery Low (%1% Remaining)", currentPercent);
                 msg = i18nc("Placeholder is device name",
-                            "The battery in a connected device (\"%1\") is low, and the device may turn itself off at any time. "
-                            "Please replace or charge the battery as soon as possible.", name);
+                            "The battery in (\"%1\") is running low, and the device may turn off at any time. "
+                            "Please recharge or replace the battery.", name);
                 icon = QStringLiteral("battery-caution");
                 break;
             }
@@ -577,7 +577,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
                previousPercent > PowerDevilSettings::batteryLowLevel()) {
         emitRichNotification(QStringLiteral("lowbattery"), i18n("Battery Low (%1% Remaining)", currentPercent),
-                             i18n("Your battery is low. If you need to continue using your computer, either plug in your computer, or shut it down and then change the battery."));
+                             i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
         return true;
     }
     return false;
@@ -590,7 +590,7 @@ void Core::handleCriticalBattery(int percent)
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
 
-    const QStringList actions = {i18nc("Cancel timeout that will automatically suspend system because of low battery", "Cancel")};
+    const QStringList actions = {i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel")};
 
     connect(m_criticalBatteryNotification.data(), &KNotification::action1Activated, this, [this] {
         m_criticalBatteryTimer->stop();
@@ -599,22 +599,22 @@ void Core::handleCriticalBattery(int percent)
 
     switch (PowerDevilSettings::batteryCriticalAction()) {
     case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
-        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, the computer will be halted in 60 seconds."));
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will shut down in 60 seconds."));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
     case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
-        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, the computer will be hibernated in 60 seconds."));
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will enter hibernation mode in 60 seconds."));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
     case PowerDevil::BundledActions::SuspendSession::ToRamMode:
-        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, the computer will be suspended in 60 seconds."));
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
     default:
-        m_criticalBatteryNotification->setText(i18n("Your battery level is critical, save your work as soon as possible."));
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Please save your work."));
         // no timer, no actions
         break;
     }
@@ -638,18 +638,18 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
             }
             emitRichNotification(QStringLiteral("pluggedin"),
                              i18n("AC Adapter Plugged In"),
-                             i18n("All pending suspend actions have been canceled."));
+                             i18n("The computer will no longer go to sleep."));
         } else {
-            emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adaptor has been plugged in."));
+            emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adapter has been plugged in."));
         }
     } else if (state == BackendInterface::Unplugged) {
-        emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adaptor has been unplugged."));
+        emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adapter has been unplugged."));
     }
 }
 
 void Core::onBackendError(const QString& error)
 {
-    emitNotification(QStringLiteral("powerdevilerror"), i18n("KDE Power Management System could not be initialized. "
+    emitNotification(QStringLiteral("powerdevilerror"), i18n("The KDE Power Management System could not be initialized. "
                          "The backend reported the following error: %1\n"
                          "Please check your system configuration", error));
 }
@@ -710,7 +710,7 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
     }
 
     if (!previousCharged && currentCharged) {
-        emitRichNotification(QStringLiteral("fullbattery"), i18n("Charge Complete"), i18n("Your battery is now fully charged."));
+        emitRichNotification(QStringLiteral("fullbattery"), i18n("Charging Complete"), i18n("Battery now fully charged."));
         loadProfile();
     }
 }
@@ -766,7 +766,7 @@ void Core::onLidClosedChanged(bool closed)
 void Core::onAboutToSuspend()
 {
     if (PowerDevilSettings::pausePlayersOnSuspend()) {
-        qCDebug(POWERDEVIL) << "Pausing all media players before suspending";
+        qCDebug(POWERDEVIL) << "Pausing all media players before sleep";
 
         QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(QStringLiteral("ListNames"));
         QDBusPendingCallWatcher *callWatcher = new QDBusPendingCallWatcher(listNamesCall, this);
@@ -775,7 +775,7 @@ void Core::onAboutToSuspend()
             watcher->deleteLater();
 
             if (reply.isError()) {
-                qCWarning(POWERDEVIL) << "Failed to fetch list of DBus service names for pausing players on suspend" << reply.error().message();
+                qCWarning(POWERDEVIL) << "Failed to fetch list of DBus service names for pausing players on entering sleep" << reply.error().message();
                 return;
             }
 
