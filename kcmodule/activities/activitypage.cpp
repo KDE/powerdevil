@@ -69,7 +69,6 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     setAboutData(about);*/
 
     // Build the UI
-    m_tabWidget = new QTabWidget();
     QVBoxLayout *lay = new QVBoxLayout();
 
     // Message widget
@@ -77,6 +76,10 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
                                                           "Names and icons of the activities might not be available."));
     m_messageWidget->setMessageType(KMessageWidget::Warning);
     m_messageWidget->hide();
+
+    // Tab widget (must set size here since tabs are loaded after initial layout size is calculated)
+    m_tabWidget = new QTabWidget();
+    m_tabWidget->setMinimumSize(676, 474);
 
     lay->addWidget(m_messageWidget);
     lay->addWidget(m_tabWidget);
