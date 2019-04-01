@@ -141,7 +141,6 @@ private:
 
 private Q_SLOTS:
     void onBackendReady();
-    void onBackendError(const QString &error);
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onBatteryChargePercentChanged(int,const QString&);
     void onBatteryChargeStateChanged(int,const QString&);

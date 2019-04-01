@@ -88,8 +88,6 @@ Core::~Core()
 void Core::loadCore(BackendInterface* backend)
 {
     if (!backend) {
-        onBackendError(i18n("No valid Power Management backend plugins available. "
-                            "A new installation might solve this problem."));
         return;
     }
 
@@ -98,7 +96,6 @@ void Core::loadCore(BackendInterface* backend)
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
     connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
-    connect(m_backend, SIGNAL(backendError(QString)), this, SLOT(onBackendError(QString)));
     m_backend->init();
 }
 
@@ -326,9 +323,7 @@ void Core::loadProfile(bool force)
     }
 
     if (!config.isValid()) {
-        emitNotification(QStringLiteral("powerdevilerror"), i18n("Profile \"%1\" has been selected "
-                         "but does not exist.\nPlease check your PowerDevil configuration.",
-                         profileId));
+        qCWarning(POWERDEVIL) << "Profile " << profileId << "has been selected but does not exist.";
         return;
     }
 
@@ -429,12 +424,6 @@ void Core::onDeviceAdded(const QString &udi)
 
     if (!b) {
         return;
-    }
-
-    if (!connect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged) ||
-        !connect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged)) {
-        emitNotification(QStringLiteral("powerdevilerror"), i18n("Could not connect to battery interface.\n"
-                         "Please check your system configuration"));
     }
 
     qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "was detected";
@@ -645,13 +634,6 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
     } else if (state == BackendInterface::Unplugged) {
         emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adapter has been unplugged."));
     }
-}
-
-void Core::onBackendError(const QString& error)
-{
-    emitNotification(QStringLiteral("powerdevilerror"), i18n("The KDE Power Management System could not be initialized. "
-                         "The backend reported the following error: %1\n"
-                         "Please check your system configuration", error));
 }
 
 void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
