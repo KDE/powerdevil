@@ -572,6 +572,7 @@ Contexts=warningnot
 Sound=Oxygen-Sys-App-Error-Critical.ogg
 Action=Sound|Popup
 IconName=dialog-warning
+Urgency=Critical
 
 [Event/fullbattery]
 Name=Charge Complete
