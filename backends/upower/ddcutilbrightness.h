@@ -49,9 +49,8 @@ private:
 #endif //ifdef WITH_DDCUTIL
     //Per display properties
     //destription mapped to vcp values for easy retrieval
-    QVector<QMap<QString, int> > m_descrToVcp_perDisp;
-    QVector<QMap<int, QMap<int, QString> > > m_vcpTovcpValueWithDescr_perDisp;
-
+    QVector<int> m_usedVcp;
+    QVector<QVector<uint16_t>> m_supportedVcp_perDisp;
 
     long  m_tmpCurrentBrightness;
     QTimer m_setBrightnessEventFilter;
