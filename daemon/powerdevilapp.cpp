@@ -62,7 +62,7 @@ void PowerDevilApp::init()
 {
     KLocalizedString::setApplicationDomain("powerdevil");
 
-    KAboutData aboutData(QStringLiteral("powerdevil"), i18n("KDE Power Management System"), QStringLiteral(POWERDEVIL_VERSION_STRING),
+    KAboutData aboutData(QStringLiteral("org_kde_powerdevil"), i18n("KDE Power Management System"), QStringLiteral(POWERDEVIL_VERSION_STRING),
                          i18nc("@title", "PowerDevil, an advanced, modular and lightweight power management daemon"),
                          KAboutLicense::GPL,
                          i18nc("@info:credit", "(c) 2015-2019 Kai Uwe Broulik"));
@@ -72,6 +72,7 @@ void PowerDevilApp::init()
     aboutData.addAuthor(i18nc("@info:credit", "Dario Freddi"),
                         i18nc("@info:credit", "Previous maintainer"),
                         QStringLiteral("drf@kde.org"));
+    aboutData.setProductName("Powerdevil");
 
     KAboutData::setApplicationData(aboutData);
 
