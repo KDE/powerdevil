@@ -41,7 +41,6 @@
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 #define CONSOLEKIT2_SERVICE "org.freedesktop.ConsoleKit"
 
-class UdevHelper;
 class XRandRXCBHelper;
 class XRandrBrightness;
 class QPropertyAnimation;

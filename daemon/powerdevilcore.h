@@ -34,7 +34,6 @@ namespace KActivities
     class Consumer;
 } // namespace KActivities
 
-class KDirWatch;
 class QDBusServiceWatcher;
 class QTimer;
 class KNotification;

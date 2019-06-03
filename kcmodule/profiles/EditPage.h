@@ -27,12 +27,9 @@
 
 class ActionEditWidget;
 namespace PowerDevil {
-class ActionConfig;
 }
 
 class ErrorOverlay;
-class QCheckBox;
-class KToolBar;
 
 class EditPage : public KCModule, private Ui_profileEditPage
 {

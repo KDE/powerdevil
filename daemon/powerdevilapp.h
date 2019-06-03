@@ -25,7 +25,6 @@
 
 namespace PowerDevil {
     class Core;
-    class BackendInterface;
 }
 
 using InhibitionInfo = QPair<QString, QString>;
