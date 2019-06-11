@@ -711,6 +711,7 @@ void Core::onCriticalBatteryTimerExpired()
             QVariantMap args;
             args[QStringLiteral("Button")] = 32;
             args[QStringLiteral("Type")] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
+            args[QStringLiteral("Explicit")] = true;
             helperAction->trigger(args);
         }
     }
