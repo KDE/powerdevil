@@ -426,6 +426,9 @@ void Core::onDeviceAdded(const QString &udi)
         return;
     }
 
+    connect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged);
+    connect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged);
+
     qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "was detected";
 
     if (b->isPowerSupply()) {
