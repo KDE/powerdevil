@@ -68,6 +68,11 @@ bool FdoConnector::CanHybridSuspend()
     return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::HybridSuspend;
 }
 
+bool FdoConnector::CanSuspendThenHibernate()
+{
+    return m_core->backend()->supportedSuspendMethods() & PowerDevil::BackendInterface::SuspendThenHibernate;
+}
+
 bool FdoConnector::GetPowerSaveStatus()
 {
     return m_core->backend()->acAdapterState() == PowerDevil::BackendInterface::Unplugged;

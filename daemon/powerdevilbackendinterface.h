@@ -77,8 +77,9 @@ public:
      * - Standby: Processes are stopped, some hardware is deactivated (ACPI S1)
      * - ToRam: Most devices are deactivated, only RAM is powered (ACPI S3)
      * - ToDisk: State of the machine is saved to disk, and it's powered down (ACPI S4)
+     * - SuspendThenHibernate: Same as ToRam, but after a delay it switches to ToDisk
      */
-    enum SuspendMethod{ UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8 };
+    enum SuspendMethod{ UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8, SuspendThenHibernate = 16 };
 
     /**
      * This type stores an OR combination of SuspendMethod values.

@@ -77,6 +77,7 @@ private Q_SLOTS:
     void triggerSuspendSession(uint action);
 
 private:
+    bool m_suspendThenHibernateEnabled = false;
     int m_idleTime = 0;
     uint m_autoType;
     QVariantMap m_savedArgs;

@@ -316,6 +316,11 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         canHybridSleep.waitForFinished();
         if (canHybridSleep.isValid() && (canHybridSleep.value() == QLatin1String("yes") || canHybridSleep.value() == QLatin1String("challenge")))
             supported |= HybridSuspend;
+
+        QDBusPendingReply<QString> canSuspendThenHibernate = m_login1Interface.data()->asyncCall("CanSuspendThenHibernate");
+        canSuspendThenHibernate.waitForFinished();
+        if (canSuspendThenHibernate.isValid() && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge")))
+            supported |= SuspendThenHibernate;
     }
 
     /* There's a chance we're using ConsoleKit rather than ConsoleKit2 as the

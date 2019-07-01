@@ -45,9 +45,11 @@ public:
     void setCanSuspend(bool set);
     void setCanHibernate(bool set);
     void setCanHybridSuspend(bool set);
+    void setCanSuspendThenHibernate(bool set);
 
     bool serviceRegistered;
     bool canSuspend;
+    bool canSuspendThenHibernate;
     bool canHibernate;
     bool canHybridSuspend;
     QScopedPointer<QDBusServiceWatcher> fdoPowerServiceWatcher;
@@ -60,6 +62,7 @@ private:
 PowerManagement::Private::Private(PowerManagement *q)
     : serviceRegistered(false)
     , canSuspend(false)
+    , canSuspendThenHibernate(false)
     , canHibernate(false)
     , canHybridSuspend(false)
     , fdoPowerServiceWatcher(new QDBusServiceWatcher(s_fdoPowerService, QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration | QDBusServiceWatcher::WatchForRegistration))
@@ -71,6 +74,7 @@ void PowerManagement::Private::update()
 {
     serviceRegistered = true;
     updateProperty(QStringLiteral("CanSuspend"), &Private::setCanSuspend);
+    updateProperty(QStringLiteral("CanSuspendThenHibernate"), &Private::setCanSuspendThenHibernate);
     updateProperty(QStringLiteral("CanHibernate"), &Private::setCanHibernate);
     updateProperty(QStringLiteral("CanHybridSuspend"), &Private::setCanHybridSuspend);
 }
@@ -107,6 +111,15 @@ void PowerManagement::Private::setCanSuspend(bool set)
     Q_EMIT q->canSuspendChanged();
 }
 
+void PowerManagement::Private::setCanSuspendThenHibernate(bool set)
+{
+    if (canSuspendThenHibernate == set) {
+        return;
+    }
+    canSuspendThenHibernate = set;
+    Q_EMIT q->canSuspendThenHibernateChanged();
+}
+
 void PowerManagement::Private::setCanHybridSuspend(bool set)
 {
     if (canHybridSuspend == set) {
@@ -132,6 +145,7 @@ PowerManagement::PowerManagement()
             d->setCanSuspend(false);
             d->setCanHibernate(false);
             d->setCanHybridSuspend(false);
+            d->setCanSuspendThenHibernate(false);
         }
     );
 
@@ -188,6 +202,21 @@ void PowerManagement::hybridSuspend()
     // FIXME: Whether there is a support of this mode?
 }
 
+void PowerManagement::suspendThenHibernate()
+{
+    if (!d->serviceRegistered) {
+        return;
+    }
+    if (!d->canSuspendThenHibernate) {
+        return;
+    }
+    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService,
+                                                          s_fdoPowerPath,
+                                                          s_fdoPowerService,
+                                                          QStringLiteral("SuspendThenHibernate"));
+    QDBusConnection::sessionBus().asyncCall(message);
+}
+
 bool PowerManagement::canSuspend() const
 {
     return d->canSuspend;
@@ -201,6 +230,11 @@ bool PowerManagement::canHibernate() const
 bool PowerManagement::canHybridSuspend() const
 {
     return d->canHybridSuspend;
+}
+
+bool PowerManagement::canSuspendThenHibernate() const
+{
+    return d->canSuspendThenHibernate;
 }
 
 } // namespace PowerDevil

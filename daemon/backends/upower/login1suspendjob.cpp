@@ -70,6 +70,9 @@ void Login1SuspendJob::doStart()
         case PowerDevil::BackendInterface::HybridSuspend:
             reply = m_login1Interface->asyncCallWithArgumentList("HybridSleep", args);
             break;
+        case PowerDevil::BackendInterface::SuspendThenHibernate:
+            reply = m_login1Interface->asyncCallWithArgumentList("SuspendThenHibernate", args);
+            break;
         default:
             qCDebug(POWERDEVIL) << "Unsupported suspend method";
             setError(1);

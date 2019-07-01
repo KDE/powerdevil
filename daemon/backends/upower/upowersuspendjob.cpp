@@ -64,7 +64,7 @@ void UPowerSuspendJob::doStart()
             m_upowerInterface->Hibernate();
             break;
         default:
-            qCDebug(POWERDEVIL) << "This backend doesn't support hybrid mode";
+            qCDebug(POWERDEVIL) << "This backend doesn't support hybrid mode or suspend then hibernate mode";
             setError(1);
             setErrorText(i18n("Unsupported suspend method"));
             break;

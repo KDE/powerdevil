@@ -134,7 +134,8 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     switch ((Mode) (args["Type"].toUInt())) {
         case ToRamMode:
             Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToRam);
+            suspendJob = backend()->suspend(m_suspendThenHibernateEnabled
+                ? PowerDevil::BackendInterface::SuspendThenHibernate : PowerDevil::BackendInterface::ToRam);
             break;
         case ToDiskMode:
             Q_EMIT aboutToSuspend();
@@ -170,16 +171,20 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 
 bool SuspendSession::loadAction(const KConfigGroup& config)
 {
-    if (config.isValid() && config.hasKey("idleTime") && config.hasKey("suspendType")) {
-        // Add the idle timeout
-        m_idleTime = config.readEntry<int>("idleTime", 0);
-        if (m_idleTime) {
-            registerIdleTimeout(m_idleTime - 5000);
-            registerIdleTimeout(m_idleTime);
+    if (config.isValid()) {
+        if (config.hasKey("idleTime") && config.hasKey("suspendType")) {
+            // Add the idle timeout
+            m_idleTime = config.readEntry<int>("idleTime", 0);
+            if (m_idleTime) {
+                registerIdleTimeout(m_idleTime - 5000);
+                registerIdleTimeout(m_idleTime);
+            }
+            m_autoType = config.readEntry<uint>("suspendType", 0);
         }
-        m_autoType = config.readEntry<uint>("suspendType", 0);
+        if (config.hasKey("suspendThenHibernate")) {
+            m_suspendThenHibernateEnabled = config.readEntry<bool>("suspendThenHibernate", false);
+        }
     }
-
     return true;
 }
 

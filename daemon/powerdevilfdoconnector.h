@@ -43,12 +43,14 @@ public:
     bool CanHibernate();
     bool CanSuspend();
     bool CanHybridSuspend();
+    bool CanSuspendThenHibernate();
 
     bool GetPowerSaveStatus();
 
     void Suspend();
     void Hibernate();
     void HybridSuspend();
+    void SuspendThenHibernate();
 
     bool HasInhibit();
 
@@ -60,6 +62,7 @@ Q_SIGNALS:
     void CanSuspendChanged(bool canSuspend);
     void CanHibernateChanged(bool canHibernate);
     void CanHybridSuspendChanged(bool canHybridSuspend);
+    void CanSuspendThenHibernateChanged(bool canSuspendThenHibernate);
     void PowerSaveStatusChanged(bool savePower);
 
     void HasInhibitChanged(bool hasInhibit);

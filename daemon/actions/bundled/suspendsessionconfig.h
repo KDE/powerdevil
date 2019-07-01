@@ -24,6 +24,7 @@
 #include <powerdevilactionconfig.h>
 
 class KComboBox;
+class QCheckBox;
 class QSpinBox;
 
 namespace PowerDevil {
@@ -43,6 +44,7 @@ public:
 
 private:
     QSpinBox *m_idleTime;
+    QCheckBox *m_suspendThenHibernateEnabled;
     KComboBox *m_comboBox;
 };
 
