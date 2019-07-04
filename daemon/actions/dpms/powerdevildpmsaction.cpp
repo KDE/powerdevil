@@ -28,11 +28,15 @@
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 
+#include <QAction>
 #include <QGuiApplication>
 #include <QX11Info>
 #include <QDebug>
 
+#include <KActionCollection>
 #include <KConfigGroup>
+#include <KGlobalAccel>
+#include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
 
@@ -67,6 +71,20 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
 
     // inhibitions persist over kded module unload/load
     m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
+
+    KGlobalAccel *accel = KGlobalAccel::self();
+
+    KActionCollection *actionCollection = new KActionCollection( this );
+    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
+
+    QAction *globalAction = actionCollection->addAction(QLatin1String("Turn Off Screen"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Turn Off Screen"));
+    accel->setGlobalShortcut(globalAction, QList<QKeySequence>());
+    connect(globalAction, &QAction::triggered, this, [this] {
+        if (m_helper) {
+            m_helper->trigger(QStringLiteral("TurnOff"));
+        }
+    });
 }
 
 PowerDevilDPMSAction::~PowerDevilDPMSAction() = default;

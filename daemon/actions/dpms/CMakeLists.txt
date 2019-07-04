@@ -18,6 +18,7 @@ target_link_libraries(powerdevildpmsaction
         XCB::DPMS
         KF5::CoreAddons
         KF5::ConfigGui
+        KF5::I18n
         KF5::WaylandClient
         Qt5::Widgets
         powerdevilcore)
