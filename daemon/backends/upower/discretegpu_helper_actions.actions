@@ -50,7 +50,7 @@ Icon=kde
 [org.kde.powerdevil.discretegpuhelper.hasdualgpu]
 Name=Check existence of discrete gpu
 Name[ca]=Comprova l'existència d'una GPU dedicada
-Name[ca@valencia]=Comprova l'existència d'una GPU dedicada
+Name[ca@valencia]=Comprova l'existència d'una GPU separada
 Name[cs]=Zkontrolovat přítomnost diskrétní GPU
 Name[da]=Tjek om diskret GPU findes
 Name[de]=Auf Vorhandensein einer eigenen GPU prüfen
@@ -89,7 +89,7 @@ Name[zh_CN]=检查独立 GPU 是否存在
 Name[zh_TW]=檢查是否有獨立顯示卡
 Description=System policies prevent you from checking the existence of discrete gpu.
 Description[ca]=Les polítiques del sistema impedeixen que es comprovi l'existència d'una GPU dedicada.
-Description[ca@valencia]=Les polítiques del sistema impedeixen que es comprovi l'existència d'una GPU dedicada.
+Description[ca@valencia]=Les polítiques del sistema impedeixen que es comprove l'existència d'una GPU separada.
 Description[cs]=Nastavení systému vám znemožňuje zkontrolovat existenci diskrétní GPU.
 Description[da]=Systempolitikker forhindrer dig i at tjek om diskret GPU findes.
 Description[de]=Das Vorhandensein einer eigenen GPU kann aufgrund einer Systemrichtlinie nicht geprüft werden.
