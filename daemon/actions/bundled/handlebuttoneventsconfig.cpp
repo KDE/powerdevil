@@ -137,7 +137,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     if (lidFound) {
         retlist.append(qMakePair<QString, QWidget *>(i18n("When laptop lid closed"), m_lidCloseCombo));
         // an empty label will make it treat the widget as title checkbox and left-align it
-        retlist.append(qMakePair<QString, QWidget *>(QLatin1Literal("NONE"), m_triggerLidActionWhenExternalMonitorPresent));
+        retlist.append(qMakePair<QString, QWidget *>(QLatin1String("NONE"), m_triggerLidActionWhenExternalMonitorPresent));
     } else {
         m_lidCloseCombo->deleteLater();
         m_lidCloseCombo = nullptr;

@@ -34,15 +34,15 @@ void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType ty
 {
     QString method;
     if (type == PowerDevil::BackendInterface::Keyboard) {
-        method = QLatin1Literal("keyboardBrightnessChanged");
+        method = QLatin1String("keyboardBrightnessChanged");
     } else {
-        method = QLatin1Literal("brightnessChanged");
+        method = QLatin1String("brightnessChanged");
     }
 
     QDBusMessage msg = QDBusMessage::createMethodCall(
-        QLatin1Literal("org.kde.plasmashell"),
-        QLatin1Literal("/org/kde/osdService"),
-        QLatin1Literal("org.kde.osdService"),
+        QLatin1String("org.kde.plasmashell"),
+        QLatin1String("/org/kde/osdService"),
+        QLatin1String("org.kde.osdService"),
         method
     );
 
