@@ -196,7 +196,7 @@ void PowerDevilUPowerBackend::init()
                                         return;
                                     }
                                     m_syspath = syspathJob->data()["syspath"].toString();
-                                    m_syspath = QFileInfo(m_syspath).readLink();
+                                    m_syspath = QFileInfo(m_syspath).symLinkTarget();
 
                                     m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
                                     if (!m_isLedBrightnessControl) {
