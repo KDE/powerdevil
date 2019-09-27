@@ -42,6 +42,7 @@ Name[sr@ijekavian]=Управљање напајањем
 Name[sr@ijekavianlatin]=Upravljanje napajanjem
 Name[sr@latin]=Upravljanje napajanjem
 Name[sv]=Strömhantering
+Name[tg]=Идоракунии барқ
 Name[tr]=Güç Yönetimi
 Name[uk]=Керування живленням
 Name[x-test]=xxPower Managementxx
