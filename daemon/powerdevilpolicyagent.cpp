@@ -654,8 +654,8 @@ bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicies*/ uint types)
 
 void PolicyAgent::releaseAllInhibitions()
 {
-    QList< uint > allCookies = m_cookieToAppName.keys();
-    Q_FOREACH (uint cookie, allCookies) {
+    const QList< uint > allCookies = m_cookieToAppName.keys();
+    for (uint cookie : allCookies) {
         ReleaseInhibition(cookie);
     }
 }

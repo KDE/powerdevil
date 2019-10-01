@@ -46,7 +46,8 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
     KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
 
     // And clear it
-    Q_FOREACH (const QString &group, profilesConfig->groupList()) {
+    const QStringList groupList = profilesConfig->groupList();
+    for (const QString &group : groupList) {
         // Don't delete activity-specific settings
         if (group != "Activities") {
             profilesConfig->deleteGroup(group);

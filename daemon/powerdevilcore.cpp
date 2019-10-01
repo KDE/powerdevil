@@ -129,7 +129,8 @@ void Core::onBackendReady()
                 this, SLOT(onDeviceRemoved(QString)));
 
         // Force the addition of already existent batteries
-        Q_FOREACH (const Device &device, Device::listFromType(DeviceInterface::Battery, QString())) {
+        const auto devices = Device::listFromType(DeviceInterface::Battery, QString());
+        for (const Device &device : devices) {
             onDeviceAdded(device.udi());
         }
     }
@@ -350,7 +351,8 @@ void Core::loadProfile(bool force)
         }
 
         // Cool, now let's load the needed actions
-        Q_FOREACH (const QString &actionName, config.groupList()) {
+        const auto groupList = config.groupList();
+        for (const QString &actionName : groupList) {
             Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
             if (action) {
                 action->onProfileLoad();
@@ -797,9 +799,9 @@ void Core::registerActionTimeout(Action* action, int timeout)
 void Core::unregisterActionTimeouts(Action* action)
 {
     // Clear all timeouts from the action
-    QList< int > timeoutsToClean = m_registeredActionTimeouts[action];
+    const QList< int > timeoutsToClean = m_registeredActionTimeouts[action];
 
-    Q_FOREACH (int id, timeoutsToClean) {
+    for (int id : timeoutsToClean) {
         KIdleTime::instance()->removeIdleTimeout(id);
     }
 

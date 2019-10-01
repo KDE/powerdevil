@@ -69,6 +69,7 @@ include_directories (
 )
 
 add_definitions(-DQT_NO_KEYWORDS)
+add_definitions(-DQT_NO_FOREACH)
 if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
    add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 endif()

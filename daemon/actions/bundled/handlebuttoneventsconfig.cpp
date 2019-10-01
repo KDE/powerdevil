@@ -93,7 +93,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
         QList<QComboBox *> boxes;
         boxes << m_lidCloseCombo << m_powerButtonCombo;
 
-        Q_FOREACH (QComboBox *box, boxes) {
+        for (QComboBox *box : qAsConst(boxes)) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
             if (PowerManagement::instance()->canSuspend()) {
                 box->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);

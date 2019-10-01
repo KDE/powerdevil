@@ -92,9 +92,9 @@ void ActionPool::clearCache()
 void ActionPool::init(PowerDevil::Core *parent)
 {
     // Load all the actions
-    KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
+    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
                                                               QStringLiteral("[X-KDE-PowerDevil-Action-IsBundled] == FALSE"));
-    Q_FOREACH (KService::Ptr offer, offers) {
+    for (const KService::Ptr offer : offers) {
         QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
         qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
@@ -149,9 +149,9 @@ void ActionPool::init(PowerDevil::Core *parent)
 
     // Register DBus objects
     {
-        KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
+        const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
                                                                 QStringLiteral("[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE"));
-        Q_FOREACH (KService::Ptr offer, offers) {
+        for (const KService::Ptr offer : offers) {
             QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
             if (m_actionPool.contains(actionId)) {
@@ -190,7 +190,7 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
 
 void ActionPool::unloadAllActiveActions()
 {
-    Q_FOREACH (const QString &action, m_activeActions) {
+    for (const QString &action : qAsConst(m_activeActions)) {
         m_actionPool[action]->onProfileUnload();
         m_actionPool[action]->unloadAction();
     }

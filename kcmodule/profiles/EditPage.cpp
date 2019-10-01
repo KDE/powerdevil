@@ -115,7 +115,8 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
 
     bool hasBattery = false;
-    Q_FOREACH(const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    const auto batteries = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
+    for(const Solid::Device &device : batteries) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
         if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
             hasBattery = true;

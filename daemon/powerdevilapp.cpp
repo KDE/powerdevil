@@ -101,7 +101,7 @@ void PowerDevilApp::init()
     }
 
     QFileInfo backendFileInfo;
-    Q_FOREACH (const QFileInfo &f, fileInfos) {
+    for (const QFileInfo &f : qAsConst(fileInfos)) {
         if (f.baseName().toLower() == QLatin1String("powerdevilupowerbackend")) {
             backendFileInfo = f;
             break;

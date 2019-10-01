@@ -48,9 +48,9 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     QMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
     // Load all the services
-    KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
+    const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
 
-    Q_FOREACH (const KService::Ptr &offer, offers) {
+    for (const KService::Ptr &offer : offers) {
         // Does it have a runtime requirement?
         if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
             qCDebug(POWERDEVIL) << offer->name() << " has a runtime requirement";

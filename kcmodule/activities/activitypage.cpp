@@ -111,7 +111,7 @@ ActivityPage::~ActivityPage()
 
 void ActivityPage::load()
 {
-    Q_FOREACH (ActivityWidget *widget, m_activityWidgets) {
+    for (ActivityWidget *widget : qAsConst(m_activityWidgets)) {
         widget->load();
     }
 
@@ -120,7 +120,7 @@ void ActivityPage::load()
 
 void ActivityPage::save()
 {
-    Q_FOREACH (ActivityWidget *widget, m_activityWidgets) {
+    for (ActivityWidget *widget : qAsConst(m_activityWidgets)) {
         widget->save();
     }
 
@@ -185,7 +185,8 @@ void ActivityPage::populateTabs()
     }
 
     int index = 0;
-    Q_FOREACH (const QString &activity, m_activityConsumer->activities()) {
+    const QStringList activities = m_activityConsumer->activities();
+    for (const QString &activity : activities) {
         KActivities::Info *info = new KActivities::Info(activity, this);
         const QString icon = info->icon();
         const QString name = info->name();

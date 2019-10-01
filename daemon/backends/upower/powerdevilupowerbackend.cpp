@@ -350,7 +350,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     }
 
     // battery
-    Q_FOREACH(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
+    for (const OrgFreedesktopUPowerDeviceInterface * upowerDevice : qAsConst(m_devices)) {
         if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
             QString udi = upowerDevice->path();
             setCapacityForBattery(udi, qRound(upowerDevice->capacity()));  // acknowledge capacity
@@ -547,8 +547,8 @@ void PowerDevilUPowerBackend::enumerateDevices()
     m_lidIsClosed = m_upowerInterface->lidIsClosed();
     m_onBattery = m_upowerInterface->onBattery();
 
-    QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
-    Q_FOREACH (const QDBusObjectPath & device, deviceList) {
+    const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
+    for (const QDBusObjectPath & device : deviceList) {
         addDevice(device.path());
     }
 
@@ -625,7 +625,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
         qreal energyFullTotal = 0.0;
         uint stateTotal = 0;
 
-        Q_FOREACH(OrgFreedesktopUPowerDeviceInterface * upowerDevice, m_devices) {
+        for (const OrgFreedesktopUPowerDeviceInterface * upowerDevice : qAsConst(m_devices)) {
             const uint type = upowerDevice->type();
             if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
                 const uint state = upowerDevice->state();

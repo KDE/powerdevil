@@ -109,7 +109,8 @@ void ActivityWidget::load()
     m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-low"), i18n("PC running on low battery"), "LowBattery");
 
     bool hasBattery = false;
-    Q_FOREACH (const Solid::Device &device, Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString())) {
+    const auto batteries = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
+    for (const Solid::Device &device : batteries) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
         if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
             hasBattery = false;
@@ -120,7 +121,8 @@ void ActivityWidget::load()
     m_ui->actLikeRadio->setVisible(hasBattery);
     m_ui->actLikeComboBox->setVisible(hasBattery);
 
-    Q_FOREACH (const QString &activity, m_activityConsumer->activities()) {
+    const QStringList activities = m_activityConsumer->activities();
+    for (const QString &activity : activities) {
         if (activity == m_activity) {
             continue;
         }

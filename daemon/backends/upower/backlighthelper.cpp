@@ -69,13 +69,13 @@ void BacklightHelper::initUsingBacklightType()
     backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
     backlightDir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
 
-    QStringList interfaces = backlightDir.entryList();
+    const QStringList interfaces = backlightDir.entryList();
 
     QFile file;
     QByteArray buffer;
     QStringList firmware, platform, raw, leds;
 
-    Q_FOREACH(const QString & interface, interfaces) {
+    for (const QString & interface : interfaces) {
         file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;

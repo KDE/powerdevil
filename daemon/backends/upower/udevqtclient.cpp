@@ -62,7 +62,7 @@ void ClientPrivate::setWatchedSubsystems(const QStringList &subsystemList)
     }
 
     // apply our filters; an empty list means listen to everything
-    Q_FOREACH (const QString& subsysDevtype, subsystemList) {
+    for (const QString& subsysDevtype : subsystemList) {
         int ix = subsysDevtype.indexOf(u'/');
 
         if (ix > 0) {
