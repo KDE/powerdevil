@@ -18,8 +18,8 @@
  ***************************************************************************/
 
 
-#ifndef POWERDEVIL_SCREENBRIGHNTESSLOGIC_H
-#define POWERDEVIL_SCREENBRIGHNTESSLOGIC_H
+#ifndef POWERDEVIL_SCREENBRIGHTNESSLOGIC_H
+#define POWERDEVIL_SCREENBRIGHTNESSLOGIC_H
 
 #include "powerdevilbrightnesslogic.h"
 
@@ -38,4 +38,4 @@ protected:
 
 }
 
-#endif // POWERDEVIL_SCREENBRIGHNTESSLOGIC_H
+#endif // POWERDEVIL_SCREENBRIGHTNESSLOGIC_H

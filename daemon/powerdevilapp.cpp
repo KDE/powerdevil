@@ -84,7 +84,7 @@ void PowerDevilApp::init()
     }
 
     // not parenting Core to PowerDevilApp as it is the deleted too late on teardown
-    // where the X connection is already lost leading to a a crash (Bug 371127)
+    // where the X connection is already lost leading to a crash (Bug 371127)
     m_core = new PowerDevil::Core(nullptr/*, KComponentData(aboutData)*/);
 
     connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));

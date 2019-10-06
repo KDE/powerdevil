@@ -60,7 +60,7 @@ if(HAVE_DDCUTIL)
         PURPOSE "Set monitor settings over DDC/CI channel"
     )
 else()
-    add_feature_info("DDCUtil" HAVE_DDCUTIL "DDCUtil library support is disabled by default as recomended by authors, add -DHAVE_DDCUTIL=On to enable")
+    add_feature_info("DDCUtil" HAVE_DDCUTIL "DDCUtil library support is disabled by default as recommended by authors, add -DHAVE_DDCUTIL=On to enable")
 endif()
 
 include_directories (

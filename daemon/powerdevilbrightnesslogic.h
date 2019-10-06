@@ -18,8 +18,8 @@
  ***************************************************************************/
 
 
-#ifndef POWERDEVIL_BRIGHNTESSLOGIC_H
-#define POWERDEVIL_BRIGHNTESSLOGIC_H
+#ifndef POWERDEVIL_BRIGHTNESSLOGIC_H
+#define POWERDEVIL_BRIGHTNESSLOGIC_H
 
 namespace PowerDevil {
 
@@ -181,4 +181,4 @@ private:
 
 }
 
-#endif // POWERDEVIL_BRIGHNTESSLOGIC_H
+#endif // POWERDEVIL_BRIGHTNESSLOGIC_H

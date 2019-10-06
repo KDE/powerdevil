@@ -18,8 +18,8 @@
  ***************************************************************************/
 
 
-#ifndef POWERDEVIL_KEYBOARDBRIGHNTESSLOGIC_H
-#define POWERDEVIL_KEYBOARDBRIGHNTESSLOGIC_H
+#ifndef POWERDEVIL_KEYBOARDBRIGHTNESSLOGIC_H
+#define POWERDEVIL_KEYBOARDBRIGHTNESSLOGIC_H
 
 #include "powerdevilbrightnesslogic.h"
 
@@ -35,4 +35,4 @@ protected:
 
 }
 
-#endif // POWERDEVIL_KEYBOARDBRIGHNTESSLOGIC_H
+#endif // POWERDEVIL_KEYBOARDBRIGHTNESSLOGIC_H
