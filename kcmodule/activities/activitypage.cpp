@@ -49,7 +49,6 @@
 K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
                  registerPlugin<ActivityPage>();
                 )
-K_EXPORT_PLUGIN(PowerDevilActivitiesKCMFactory("powerdevilactivitiesconfig","powerdevil"))
 
 ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     : KCModule(nullptr, parent, args)
