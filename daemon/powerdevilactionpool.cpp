@@ -28,7 +28,6 @@
 
 #include <KConfigGroup>
 #include <KServiceTypeTrader>
-#include <KPluginInfo>
 
 #include <QDBusConnection>
 #include <QDebug>
