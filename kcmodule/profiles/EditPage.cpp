@@ -46,7 +46,6 @@
 #include <KAboutData>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KServiceTypeTrader>
 #include <KLocalizedString>
 #include <KRun>
 
