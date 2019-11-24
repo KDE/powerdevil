@@ -40,7 +40,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KNotification>
-#include <KServiceTypeTrader>
 
 #include <KActivities/Consumer>
 
