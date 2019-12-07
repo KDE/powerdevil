@@ -4,6 +4,7 @@ X-KDE-ServiceTypes=PowerDevil/Action
 # X-KDE-Library=powerdevilrunscriptaction
 Icon=system-run
 Name=Run script
+Name[ast]=Executar un script
 Name[bs]=Pokreni skriptu
 Name[ca]=Executa un script
 Name[ca@valencia]=Executa un script
