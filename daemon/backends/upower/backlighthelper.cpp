@@ -26,6 +26,7 @@
 
 #include <KLocalizedString>
 
+#include <algorithm>
 #include <sys/utsname.h>
 
 #ifdef Q_OS_FREEBSD
@@ -173,7 +174,7 @@ void BacklightHelper::initUsingSysctl()
     }
     free(levels);
     // Sorting helps when finding max value and when scanning for the nearest level in setbrightness().
-    qSort(m_sysctlBrightnessLevels.begin(), m_sysctlBrightnessLevels.end());
+    std::sort(m_sysctlBrightnessLevels.begin(), m_sysctlBrightnessLevels.end());
 #endif
 }
 
