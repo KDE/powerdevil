@@ -58,6 +58,9 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
     KConfigGroup acProfile(profilesConfig, "AC");
     acProfile.writeEntry("icon", "battery-charging");
 
+    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
+    const Modes defaultPowerButtonAction = mobile ? LockScreenMode : LogoutDialogMode;
+
     // We want to dim the screen after a while, definitely
     {
         KConfigGroup dimDisplay(&acProfile, "DimDisplay");
@@ -66,7 +69,9 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     {
         KConfigGroup handleButtonEvents(&acProfile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
+
+        handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
+
         if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
@@ -91,7 +96,7 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     {
         KConfigGroup handleButtonEvents(&batteryProfile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
+        handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
         if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
@@ -127,7 +132,7 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     {
         KConfigGroup handleButtonEvents(&lowBatteryProfile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", LogoutDialogMode);
+        handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
         if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
