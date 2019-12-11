@@ -49,6 +49,7 @@ public:
      * - Critical: The battery is at its critical charge level
      */
     enum BatteryState{ NoBatteryState, Normal, Warning, Low, Critical };
+    Q_ENUM(BatteryState)
 
     /**
      * This enum type defines the different states of the AC adapter.
@@ -58,6 +59,7 @@ public:
      * - Unplugged: The AC adapter is unplugged
      */
     enum AcAdapterState{ UnknownAcAdapterState, Plugged, Unplugged };
+    Q_ENUM(AcAdapterState)
 
     /**
      * This enum type defines the types of system button events.
@@ -69,6 +71,7 @@ public:
      * - LidClose: A laptop lid close event
      */
     enum ButtonType{ UnknownButtonType, PowerButton, SleepButton, LidOpen, LidClose, HibernateButton };
+    Q_ENUM(ButtonType)
 
     /**
      * This enum type defines the different suspend methods.
@@ -80,6 +83,7 @@ public:
      * - SuspendThenHibernate: Same as ToRam, but after a delay it switches to ToDisk
      */
     enum SuspendMethod{ UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8, SuspendThenHibernate = 16 };
+    Q_ENUM(SuspendMethod)
 
     /**
      * This type stores an OR combination of SuspendMethod values.
@@ -94,6 +98,7 @@ public:
      * - Keyboard: Brightness control for a keyboard backlight
      */
     enum BrightnessControlType{ UnknownBrightnessControl = 0, Screen = 1, Keyboard = 2 };
+    Q_ENUM(BrightnessControlType)
 
     typedef QHash<QString, BrightnessControlType> BrightnessControlsList;
 
@@ -103,6 +108,7 @@ public:
      * - SignalResumeFromSuspend: The backend is able to stream the @c resumeFromSuspend signal accurately
      */
     enum Capability { NoCapabilities = 0, SignalResumeFromSuspend = 1 };
+    Q_ENUM(Capability)
 
     Q_DECLARE_FLAGS(Capabilities, Capability)
 
