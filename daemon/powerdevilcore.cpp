@@ -542,6 +542,13 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
                             "Please recharge or replace the battery.", name);
                 icon = QStringLiteral("input-keyboard");
                 break;
+            case Battery::BluetoothBattery:
+                title = i18n("Bluetooth Device Battery Low (%1% Remaining)", currentPercent);
+                msg = i18nc("Placeholder is device name",
+                            "The battery in Bluetooth device \"%1\" is running low, and the device may turn off at any time. "
+                            "Please recharge or replace the battery.", name);
+                icon = QStringLiteral("preferences-system-bluetooth");
+                break;
             default:
                 title = i18nc("The battery in an external device", "Device Battery Low (%1% Remaining)", currentPercent);
                 msg = i18nc("Placeholder is device name",
