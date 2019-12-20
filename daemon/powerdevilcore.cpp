@@ -511,7 +511,12 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     if (b && !b->isPowerSupply()) {
         // if you leave the device out of reach or it has not been initialized yet
         // it won't be "there" and report 0%, don't show anything in this case
-        if (!b->isPresent() || b->chargeState() != Battery::Discharging) {
+        if (!b->isPresent() || b->chargePercent() == 0) {
+            return false;
+        }
+
+        // Bluetooth devices don't report charge state, so it's "NoCharge" in all cases for them
+        if (b->chargeState() != Battery::Discharging && b->chargeState() != Battery::NoCharge) {
             return false;
         }
 
