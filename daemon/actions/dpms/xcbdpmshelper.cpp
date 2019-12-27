@@ -37,8 +37,17 @@ XcbDpmsHelper::XcbDpmsHelper()
     : AbstractDpmsHelper()
     , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
 {
-    ScopedCPointer<xcb_dpms_capable_reply_t> capableReply(xcb_dpms_capable_reply(QX11Info::connection(),
-        xcb_dpms_capable(QX11Info::connection()),
+    auto *c = QX11Info::connection();
+
+    xcb_prefetch_extension_data(c, &xcb_dpms_id);
+    auto *extension = xcb_get_extension_data(c, &xcb_dpms_id);
+    if (!extension || !extension->present) {
+        qCWarning(POWERDEVIL) << "DPMS extension not available";
+        return;
+    }
+
+    ScopedCPointer<xcb_dpms_capable_reply_t> capableReply(xcb_dpms_capable_reply(c,
+        xcb_dpms_capable(c),
     nullptr));
 
     if (capableReply && capableReply->capable) {
