@@ -669,8 +669,8 @@ void PolicyAgent::setupSystemdInhibition()
         return;
 
     // inhibit systemd/ConsoleKit2 handling of power/sleep/lid buttons
-    // http://www.freedesktop.org/wiki/Software/systemd/inhibit
-    // http://consolekit2.github.io/ConsoleKit2/#Manager.Inhibit
+    // https://www.freedesktop.org/wiki/Software/systemd/inhibit
+    // https://consolekit2.github.io/ConsoleKit2/#Manager.Inhibit
     qCDebug(POWERDEVIL) << "fd passing available:" << bool(m_managerIface.data()->connection().connectionCapabilities() & QDBusConnection::UnixFileDescriptorPassing);
 
     QVariantList args;
