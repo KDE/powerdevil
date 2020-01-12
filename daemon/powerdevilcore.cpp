@@ -38,7 +38,6 @@
 #include <KAuthAction>
 #include <KIdleTime>
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KNotification>
 
 #include <KActivities/Consumer>
@@ -478,17 +477,6 @@ void Core::onDeviceRemoved(const QString &udi)
     m_batteriesPercent.remove(udi);
     m_peripheralBatteriesPercent.remove(udi);
     m_batteriesCharged.remove(udi);
-}
-
-void Core::emitNotification(const QString &evid, const QString &message, const QString &iconname)
-{
-    if (!iconname.isEmpty()) {
-      KNotification::event(evid, message, QIcon::fromTheme(iconname).pixmap(48,48),
-                           nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
-    } else {
-      KNotification::event(evid, message, QPixmap(),
-                           nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
-    }
 }
 
 void Core::emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName)

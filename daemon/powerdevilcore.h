@@ -60,8 +60,6 @@ public:
 
     void reloadProfile(int state);
 
-    void emitNotification(const QString &evid, const QString &message = QString(),
-                          const QString &iconname = QString());
     void emitRichNotification(const QString &evid, const QString &title, const QString &message = QString());
 
     void emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName);
