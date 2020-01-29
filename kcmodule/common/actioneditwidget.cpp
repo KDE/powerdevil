@@ -45,7 +45,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
 
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
-    QMap< int, QList<QPair<QString, QWidget*> > > widgets;
+    QMultiMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
     // Load all the services
     const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
@@ -97,11 +97,11 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 
         QList<QPair<QString, QWidget*> > offerWidgets = actionConfig->buildUi();
         offerWidgets.prepend(qMakePair<QString,QWidget*>(QString(), checkbox));
-        widgets.insertMulti(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
+        widgets.insert(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
                             offerWidgets);
     }
 
-    for (QMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
+    for (QMultiMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
         actionConfigWidget->addWidgets(i.value());
     }
 
