@@ -236,7 +236,7 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
     int actual_level = -1;
     int d1 = 101;
     // Search for the nearest level.
-    Q_FOREACH (int level, m_sysctlBrightnessLevels) {
+    for (int level : m_sysctlBrightnessLevels) {
         int d2 = qAbs(level - actual_brightness);
         /*
          * The list is sorted, so we break when it starts diverging. There may be repeated values,
