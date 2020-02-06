@@ -60,6 +60,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void powerOffButtonTriggered();
+    void powerDownButtonTriggered();
     void suspendToRam();
     void suspendToDisk();
 

@@ -65,12 +65,13 @@ public:
      * This enum type defines the types of system button events.
      *
      * - UnknownButtonType: An unknown button
+     * - PowerDown: A power down pressed event, generally used to turn on or off the system. KWin emits on long power button presses.
      * - PowerButton: A power button pressed event, generally used to turn on or off the system
      * - SleepButton: A sleep button pressed event, generally used to make the system asleep
      * - LidOpen: A laptop lid open event
      * - LidClose: A laptop lid close event
      */
-    enum ButtonType{ UnknownButtonType, PowerButton, SleepButton, LidOpen, LidClose, HibernateButton };
+    enum ButtonType{ UnknownButtonType, PowerButton, PowerDownButton, SleepButton, LidOpen, LidClose, HibernateButton };
     Q_ENUM(ButtonType)
 
     /**

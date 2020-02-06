@@ -73,6 +73,11 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 
+    globalAction = actionCollection->addAction("PowerDown");
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Down"));
+    accel->setGlobalShortcut(globalAction, Qt::Key_PowerDown);
+    connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerDownButtonTriggered);
+
     connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID), &KScreen::ConfigOperation::finished,
             this, [this](KScreen::ConfigOperation *op) {
                 m_screenConfiguration = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
@@ -208,6 +213,11 @@ bool HandleButtonEvents::triggersLidAction() const
 void HandleButtonEvents::powerOffButtonTriggered()
 {
     onButtonPressed(BackendInterface::PowerButton);
+}
+
+void HandleButtonEvents::powerDownButtonTriggered()
+{
+    onButtonPressed(BackendInterface::PowerDownButton);
 }
 
 void HandleButtonEvents::suspendToDisk()

@@ -58,26 +58,29 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
     KConfigGroup acProfile(profilesConfig, "AC");
     acProfile.writeEntry("icon", "battery-charging");
 
-    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
-    const Modes defaultPowerButtonAction = mobile ? LockScreenMode : LogoutDialogMode;
-
     // We want to dim the screen after a while, definitely
     {
         KConfigGroup dimDisplay(&acProfile, "DimDisplay");
         dimDisplay.writeEntry< int >("idleTime", 300000);
     }
-    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
+
+    auto initLid = [toRam](KConfigGroup &profile)
     {
-        KConfigGroup handleButtonEvents(&acProfile, "HandleButtonEvents");
+        const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
+        const Modes defaultPowerButtonAction = mobile ? ToRamMode : LogoutDialogMode;
 
+        KConfigGroup handleButtonEvents(&profile, "HandleButtonEvents");
         handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
-
+        handleButtonEvents.writeEntry< uint >("powerDownAction", LogoutDialogMode);
         if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
             handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
         }
-    }
+    };
+
+    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
+    initLid(acProfile);
 
     // And we also want to turn off the screen after another while
     {
@@ -94,15 +97,8 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         dimDisplay.writeEntry< int >("idleTime", 120000);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-    {
-        KConfigGroup handleButtonEvents(&batteryProfile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
-        if (toRam) {
-            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
-        } else {
-            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
-        }
-    }
+    initLid(batteryProfile);
+
     // We want to turn off the screen after another while
     {
         KConfigGroup dpmsControl(&batteryProfile, "DPMSControl");
@@ -130,15 +126,8 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         dimDisplay.writeEntry< int >("idleTime", 60000);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-    {
-        KConfigGroup handleButtonEvents(&lowBatteryProfile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
-        if (toRam) {
-            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
-        } else {
-            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
-        }
-    }
+    initLid(lowBatteryProfile);
+
     // We want to turn off the screen after another while
     {
         KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
