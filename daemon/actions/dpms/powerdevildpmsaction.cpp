@@ -96,7 +96,7 @@ bool PowerDevilDPMSAction::isSupported()
 
 void PowerDevilDPMSAction::onProfileUnload()
 {
-    if (m_helper.isNull()) {
+    if (!isSupported()) {
         return;
     }
     m_helper->profileUnloaded();
@@ -104,7 +104,7 @@ void PowerDevilDPMSAction::onProfileUnload()
 
 void PowerDevilDPMSAction::onWakeupFromIdle()
 {
-    if (!m_helper.isNull()) {
+    if (isSupported()) {
         m_helper->stopFade();
     }
     if (m_oldKeyboardBrightness > 0) {
@@ -121,7 +121,7 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
     }
 
     if (msec == m_idleTime * 1000 - 5000) { // fade out screen
-        if (!m_helper.isNull()) {
+        if (isSupported()) {
             m_helper->startFade();
         }
     } else if (msec == m_idleTime * 1000) {
@@ -130,7 +130,7 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
             m_oldKeyboardBrightness = brightness;
             setKeyboardBrightnessHelper(0);
         }
-        if (!m_helper.isNull()) {
+        if (isSupported()) {
             m_helper->dpmsTimeout();
         }
     }
@@ -145,7 +145,7 @@ void PowerDevilDPMSAction::setKeyboardBrightnessHelper(int brightness)
 
 void PowerDevilDPMSAction::onProfileLoad()
 {
-    if (m_helper.isNull()) {
+    if (!isSupported()) {
         return;
     }
     m_helper->profileLoaded(m_idleTime);
@@ -159,7 +159,7 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
         return;
     }
 
-    if (m_helper.isNull()) {
+    if (!isSupported()) {
         return;
     }
     m_helper->trigger(args.value(QStringLiteral("Type")).toString());
@@ -193,7 +193,7 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
 
     if (m_inhibitScreen) {
         // Inhibition triggered: disable DPMS
-        if (!m_helper.isNull()) {
+        if (isSupported()) {
             m_helper->inhibited();
         }
     } else {
