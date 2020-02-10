@@ -135,7 +135,7 @@ void BacklightHelper::initUsingSysctl()
      */
     QStringList types;
     types << QStringLiteral("lcd") << QStringLiteral("out") << QStringLiteral("crt") << QStringLiteral("tv") << QStringLiteral("ext");
-    for (const QString & type : types) {
+    for (const QString &type : types) {
         for (int i = 0; m_sysctlDevice.isEmpty(); i++) {
             QString device = QStringLiteral("%1%2").arg(type, QString::number(i));
             // We don't care about the value, we only want the sysctl to be there.
