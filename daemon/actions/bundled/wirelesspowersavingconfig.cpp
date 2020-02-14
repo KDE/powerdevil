@@ -111,9 +111,14 @@ QList< QPair< QString, QWidget* > > WirelessPowerSavingConfig::buildUi()
     retlist.append(qMakePair< QString, QWidget* >(i18n("Mobile broadband"), m_wwanCombobox));
     retlist.append(qMakePair< QString, QWidget* >(i18n("Bluetooth"), m_btCombobox));
 
-    connect(m_wifiCombobox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &WirelessPowerSavingConfig::setChanged);
-    connect(m_wwanCombobox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &WirelessPowerSavingConfig::setChanged);
-    connect(m_btCombobox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &WirelessPowerSavingConfig::setChanged);
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+    const auto comboIndexChanged = QOverload<int, const QString&>::of(&QComboBox::currentIndexChanged);
+#else
+    const auto comboIndexChanged = QOverload<int>::of(&QComboBox::currentIndexChanged);
+#endif
+    connect(m_wifiCombobox, comboIndexChanged, this, &WirelessPowerSavingConfig::setChanged);
+    connect(m_wwanCombobox, comboIndexChanged, this, &WirelessPowerSavingConfig::setChanged);
+    connect(m_btCombobox, comboIndexChanged, this, &WirelessPowerSavingConfig::setChanged);
 
     return retlist;
 }
