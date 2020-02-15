@@ -41,7 +41,7 @@ RunScript::~RunScript()
 void RunScript::onProfileUnload()
 {
     if (m_scriptPhase == 1) {
-        QProcess::startDetached(m_scriptCommand);
+        QProcess::startDetached(m_scriptCommand, QStringList());
     }
 }
 
@@ -53,13 +53,13 @@ void RunScript::onWakeupFromIdle()
 void RunScript::onIdleTimeout(int msec)
 {
     Q_UNUSED(msec);
-    QProcess::startDetached(m_scriptCommand);
+    QProcess::startDetached(m_scriptCommand, QStringList());
 }
 
 void RunScript::onProfileLoad()
 {
     if (m_scriptPhase == 0) {
-        QProcess::startDetached(m_scriptCommand);
+        QProcess::startDetached(m_scriptCommand, QStringList());
     }
 }
 
