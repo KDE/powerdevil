@@ -74,7 +74,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 
     globalAction = actionCollection->addAction("PowerDown");
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Down"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut, used for long presses of the power button", "Power Down"));
     accel->setGlobalShortcut(globalAction, Qt::Key_PowerDown);
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerDownButtonTriggered);
 
