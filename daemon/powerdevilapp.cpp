@@ -203,16 +203,26 @@ void PowerDevilApp::migratePre512KeyboardShortcuts()
 int main(int argc, char **argv)
 {
     QGuiApplication::setDesktopSettingsAware(false);
+    QGuiApplication::setAttribute(Qt::AA_DisableSessionManager);
     KWorkSpace::detectPlatform(argc, argv);
     PowerDevilApp app(argc, argv);
 
-    auto disableSessionManagement = [](QSessionManager &sm) {
-        sm.setRestartHint(QSessionManager::RestartNever);
-    };
-    QObject::connect(&app, &QGuiApplication::commitDataRequest, disableSessionManagement);
-    QObject::connect(&app, &QGuiApplication::saveStateRequest, disableSessionManagement);
+    bool replace = false;
+    {
+        QCommandLineParser parser;
+        QCommandLineOption replaceOption({QStringLiteral("replace")}, i18n("Replace an existing instance"));
 
-    KDBusService service(KDBusService::Unique);
+        parser.addOption(replaceOption);
+
+        KAboutData aboutData = KAboutData::applicationData();
+        aboutData.setupCommandLine(&parser);
+
+        parser.process(app);
+        aboutData.processCommandLine(&parser);
+
+        replace = parser.isSet(replaceOption);
+    }
+    KDBusService service(KDBusService::Unique | KDBusService::StartupOption(replace ? KDBusService::Replace : 0));
     KCrash::setFlags(KCrash::AutoRestart);
 
     app.setQuitOnLastWindowClosed(false);
