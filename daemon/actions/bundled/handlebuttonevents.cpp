@@ -138,6 +138,9 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
         case BackendInterface::PowerButton:
             processAction(m_powerButtonAction);
             break;
+        case BackendInterface::PowerDownButton:
+            processAction(m_powerDownButtonAction);
+            break;
         case BackendInterface::SleepButton:
             processAction(m_sleepButtonAction);
             break;
@@ -194,6 +197,7 @@ bool HandleButtonEvents::loadAction(const KConfigGroup& config)
     m_lidAction = config.readEntry<uint>("lidAction", 0);
     m_triggerLidActionWhenExternalMonitorPresent = config.readEntry<bool>("triggerLidActionWhenExternalMonitorPresent", false);
     m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
+    m_powerDownButtonAction = config.readEntry<uint>("powerDownAction", 0);
 
     checkOutputs();
 

@@ -76,6 +76,7 @@ private:
     bool m_externalMonitorPresent = false;
 
     uint m_powerButtonAction = 0;
+    uint m_powerDownButtonAction = 0;
     uint m_sleepButtonAction = 1;
     uint m_hibernateButtonAction = 2;
 };
