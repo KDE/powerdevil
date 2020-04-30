@@ -228,6 +228,18 @@ void Core::reparseConfiguration()
 
     // Config reloaded
     Q_EMIT configurationReloaded();
+
+    // Check if critical threshold might have changed and cancel the timer if necessary.
+    if (m_criticalBatteryTimer->isActive() && currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
+        m_criticalBatteryTimer->stop();
+        if (m_criticalBatteryNotification) {
+            m_criticalBatteryNotification->close();
+        }
+    }
+
+    if (m_lowBatteryNotification && currentChargePercent() > PowerDevilSettings::batteryLowLevel()) {
+        m_lowBatteryNotification->close();
+    }
 }
 
 QString Core::currentProfile() const
@@ -447,6 +459,10 @@ void Core::onDeviceAdded(const QString &udi)
 
     // If a new battery has been added, let's clear some pending suspend actions if the new global batteries percentage is
     // higher than the battery critical level. (See bug 329537)
+    if (m_lowBatteryNotification && currentChargePercent() > PowerDevilSettings::batteryLowLevel()) {
+        m_lowBatteryNotification->close();
+    }
+
     if (m_criticalBatteryTimer->isActive() && currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
         m_criticalBatteryTimer->stop();
         if (m_criticalBatteryNotification) {
@@ -569,11 +585,24 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return true;
     } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
                previousPercent > PowerDevilSettings::batteryLowLevel()) {
-        emitRichNotification(QStringLiteral("lowbattery"), i18n("Battery Low (%1% Remaining)", currentPercent),
-                             i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
+        handleLowBattery(currentPercent);
         return true;
     }
     return false;
+}
+
+void Core::handleLowBattery(int percent)
+{
+    if (m_lowBatteryNotification) {
+        return;
+    }
+
+    m_lowBatteryNotification = new KNotification(QStringLiteral("lowbattery"), KNotification::Persistent, nullptr);
+    m_lowBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
+    m_lowBatteryNotification->setTitle(i18n("Battery Low (%1% Remaining)", percent));
+    m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
+    m_lowBatteryNotification->setUrgency(KNotification::CriticalUrgency);
+    m_lowBatteryNotification->sendEvent();
 }
 
 void Core::handleCriticalBattery(int percent)
@@ -624,6 +653,10 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
 
     if (state == BackendInterface::Plugged) {
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
+        if (m_lowBatteryNotification) {
+            m_lowBatteryNotification->close();
+        }
+
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
             if (m_criticalBatteryNotification) {

@@ -97,6 +97,7 @@ Q_SIGNALS:
 private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
+    void handleLowBattery(int percent);
     void handleCriticalBattery(int percent);
 
     /**
@@ -122,6 +123,7 @@ private:
     QHash<QString, int> m_peripheralBatteriesPercent;
     QHash<QString, bool> m_batteriesCharged;
 
+    QPointer<KNotification> m_lowBatteryNotification;
     QTimer *m_criticalBatteryTimer;
     QPointer<KNotification> m_criticalBatteryNotification;
 
