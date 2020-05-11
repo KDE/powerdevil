@@ -607,6 +607,10 @@ void Core::handleLowBattery(int percent)
 
 void Core::handleCriticalBattery(int percent)
 {
+    if (m_lowBatteryNotification) {
+        m_lowBatteryNotification->close();
+    }
+
     // no parent, but it won't leak, since it will be closed both in case of timeout or direct action
     m_criticalBatteryNotification = new KNotification(QStringLiteral("criticalbattery"), KNotification::Persistent, nullptr);
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
