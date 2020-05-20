@@ -3,7 +3,7 @@ include_directories(${PowerDevil_SOURCE_DIR}/daemon
                     ${CMAKE_CURRENT_BINARY_DIR})
 
 set(powerdevildpmsaction_SRCS
-    ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/../../powerdevil_debug.cpp
     powerdevildpmsaction.cpp
     abstractdpmshelper.cpp
     xcbdpmshelper.cpp

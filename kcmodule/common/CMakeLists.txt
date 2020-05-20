@@ -1,7 +1,7 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"libpowerdevilcommonconfig\")
 
 set( powerdevil_config_common_private_SRCS
-    ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
     actionconfigwidget.cpp
     actioneditwidget.cpp
     ErrorOverlay.cpp

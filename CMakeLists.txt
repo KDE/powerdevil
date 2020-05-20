@@ -11,6 +11,7 @@ find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ECMSetupVersion)
+include(ECMQtDeclareLoggingCategory)
 include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -76,6 +77,7 @@ add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
 
+install( FILES powerdevil.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 install( FILES powerdevil.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
 
 # add clang-format target for all our real source files

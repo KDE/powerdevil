@@ -1,7 +1,7 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilactivitiesconfig\")
 
 set( kcm_powerdevil_activities_SRCS
-     ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
+     ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
      activitypage.cpp
      activitywidget.cpp
      ../common/ErrorOverlay.cpp

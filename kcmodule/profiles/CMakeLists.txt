@@ -1,7 +1,7 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilprofilesconfig\")
 
 set( kcm_powerdevil_profiles_SRCS
-     ${PowerDevil_SOURCE_DIR}/daemon/powerdevil_debug.cpp
+     ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
      EditPage.cpp
      ${PowerDevil_SOURCE_DIR}/daemon/powerdevilprofilegenerator.cpp
 )
