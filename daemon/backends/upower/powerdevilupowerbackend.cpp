@@ -30,11 +30,12 @@
 #include <QDBusMessage>
 #include <QDebug>
 #include <QPropertyAnimation>
+#include <QTimer>
 
-#include <kauthexecutejob.h>
+#include <KAuthAction>
+#include <KAuthExecuteJob>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KAuthAction>
 
 #include "xrandrxcbhelper.h"
 #include "xrandrbrightness.h"
@@ -224,7 +225,7 @@ void PowerDevilUPowerBackend::init()
                 m_brightnessAnimation = new QPropertyAnimation(this);
                 m_brightnessAnimation->setTargetObject(this);
                 m_brightnessAnimation->setDuration(duration);
-                m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
+                m_brightnessAnimation->setEasingCurve(QEasingCurve::OutQuad);
                 connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
                 connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
             }
@@ -363,6 +364,11 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
 
 void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 {
+    // If we're currently in the process of changing brightness, ignore any such events
+    if (m_brightnessAnimationTimer && m_brightnessAnimationTimer->isActive()) {
+        return;
+    }
+
     qCDebug(POWERDEVIL) << "Udev device changed" << m_syspath << device.sysfsPath();
     if (device.sysfsPath() != m_syspath) {
         return;
@@ -492,16 +498,30 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
             }
         } else {
             //qCDebug(POWERDEVIL) << "Falling back to helper to set brightness";
+
             KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
             action.setHelperId(HELPER_ID);
             action.addArgument("brightness", value);
-            KAuth::ExecuteJob *job = action.execute();
-            // we don't care about the result since executing the job sync is bad
-            job->start();
-            if (m_isLedBrightnessControl) {
+            action.addArgument("animationDuration", PowerDevilSettings::brightnessAnimationDuration());
+            auto *job = action.execute();
+            connect(job, &KAuth::ExecuteJob::result, this, [this, job, value] {
+                if (job->error()) {
+                    qCWarning(POWERDEVIL) << "Failed to set screen brightness" << job->errorText();
+                    return;
+                }
+
+                // Immediately announce the new brightness to everyone while we still animate to it
                 m_cachedBrightnessMap[Screen] = value;
-                slotScreenBrightnessChanged();
-            }
+                onBrightnessChanged(Screen, value, brightnessMax(Screen));
+
+                // So we ignore any brightness changes during the animation
+                if (!m_brightnessAnimationTimer) {
+                    m_brightnessAnimationTimer = new QTimer(this);
+                    m_brightnessAnimationTimer->setSingleShot(true);
+                }
+                m_brightnessAnimationTimer->start(PowerDevilSettings::brightnessAnimationDuration());
+            });
+            job->start();
         }
     } else if (type == Keyboard) {
         qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
@@ -512,6 +532,10 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
 void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
 {
     if (m_brightnessAnimation && m_brightnessAnimation->state() != QPropertyAnimation::Stopped) {
+        return;
+    }
+
+    if (m_brightnessAnimationTimer && m_brightnessAnimationTimer->isActive()) {
         return;
     }
 

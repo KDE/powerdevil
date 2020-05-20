@@ -23,6 +23,7 @@
 
 #include <QDir>
 #include <QDebug>
+#include <QVariantAnimation>
 
 #include <KLocalizedString>
 
@@ -60,6 +61,11 @@ void BacklightHelper::init()
             return;
         }
     }
+
+    m_anim.setEasingCurve(QEasingCurve::InOutQuad);
+    connect(&m_anim, &QVariantAnimation::valueChanged, this, [this](const QVariant &value) {
+        writeBrightness(value.toInt());
+    });
 
     m_isSupported = true;
 }
@@ -181,30 +187,35 @@ void BacklightHelper::initUsingSysctl()
 ActionReply BacklightHelper::brightness(const QVariantMap &args)
 {
     Q_UNUSED(args);
+    const int brightness = readBrightness();
 
-    ActionReply reply;
-
-    if (!m_isSupported) {
-        reply = ActionReply::HelperErrorReply();
-        return reply;
+    if (brightness == -1) {
+        return ActionReply::HelperErrorReply();
     }
 
-    // current brightness
+    ActionReply reply;
+    reply.addData("brightness", brightness);
+    return reply;
+}
+
+int BacklightHelper::readBrightness() const
+{
+    if (!m_isSupported) {
+        return -1;
+    }
+
     int brightness;
 
 #ifdef USE_SYSCTL
     size_t len = sizeof(int);
     if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), &brightness, &len, nullptr, 0) != 0) {
-        reply = ActionReply::HelperErrorReply();
-        return reply;
+        return -1;
     }
 #else
     QFile file(m_dirname + "/brightness");
     if (!file.open(QIODevice::ReadOnly)) {
-        reply = ActionReply(ActionReply::HelperErrorType);
-        reply.setErrorDescription(i18n("Can't open file"));
         qCWarning(POWERDEVIL) << "reading brightness failed with error code " << file.error() << file.errorString();
-        return reply;
+        return -1;
     }
 
     QTextStream stream(&file);
@@ -212,26 +223,29 @@ ActionReply BacklightHelper::brightness(const QVariantMap &args)
     file.close();
 #endif
 
-    //qCDebug(POWERDEVIL) << "brightness:" << brightness;
-    reply.addData("brightness", brightness);
-    //qCDebug(POWERDEVIL) << "data contains:" << reply.data()["brightness"];
-
-    return reply;
+    return brightness;
 }
 
 ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
 {
-    ActionReply reply;
-
-    int actual_brightness = args.value(QStringLiteral("brightness")).toInt();
-
     if (!m_isSupported) {
-        reply = ActionReply::HelperErrorReply();
-        return reply;
+        return ActionReply::HelperErrorReply();
     }
 
-    //qCDebug(POWERDEVIL) << "setting brightness:" << actual_brightness;
+    const int brightness = args.value(QStringLiteral("brightness")).toInt();
+    const int animationDuration = args.value(QStringLiteral("animationDuration")).toInt();
 
+    m_anim.stop();
+    m_anim.setDuration(animationDuration);
+    m_anim.setStartValue(readBrightness());
+    m_anim.setEndValue(brightness);
+    m_anim.start();
+
+    return ActionReply::SuccessReply();
+}
+
+bool BacklightHelper::writeBrightness(int brightness) const
+{
 #ifdef USE_SYSCTL
     int actual_level = -1;
     int d1 = 101;
@@ -252,29 +266,24 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
         d1 = d2;
     }
     size_t len = sizeof(int);
-    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), nullptr, nullptr, &actual_level, len) != 0) {
-        reply = ActionReply::HelperErrorReply();
-        return reply;
-    }
+    return sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), nullptr, nullptr, &actual_level, len) == 0;
 #else
     QFile file(m_dirname + QLatin1String("/brightness"));
     if (!file.open(QIODevice::WriteOnly)) {
-        reply = ActionReply::HelperErrorReply();
-//         reply.setErrorCode(ActionReply::ActionReply::UserCancelledError);
         qCWarning(POWERDEVIL) << "writing brightness failed with error code " << file.error() << file.errorString();
-        return reply;
+        return false;
     }
 
-    int result = file.write(QByteArray::number(actual_brightness));
-    file.close();
-
-    if (result == -1) {
-        reply = ActionReply::HelperErrorReply();
-//         reply.setErrorCode(file.error());
+    const int bytesWritten = file.write(QByteArray::number(brightness));
+    if (bytesWritten == -1) {
         qCWarning(POWERDEVIL) << "writing brightness failed with error code " << file.error() << file.errorString();
+        return false;
     }
+
+    return true;
 #endif
-    return reply;
+
+    return false;
 }
 
 ActionReply BacklightHelper::syspath(const QVariantMap &args)

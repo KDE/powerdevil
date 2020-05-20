@@ -44,6 +44,7 @@
 class XRandRXCBHelper;
 class XRandrBrightness;
 class QPropertyAnimation;
+class QTimer;
 class DDCutilBrightness;
 class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
@@ -108,6 +109,8 @@ private:
     int m_brightnessMax = 0;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
+
+    QTimer *m_brightnessAnimationTimer = nullptr;
 
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;

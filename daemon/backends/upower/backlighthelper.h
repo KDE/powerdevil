@@ -21,6 +21,8 @@
 #define BACKLIGHTHELPER_H
 
 #include <QObject>
+#include <QVariantAnimation>
+
 #include <kauth.h>
 
 using namespace KAuth;
@@ -40,6 +42,9 @@ public Q_SLOTS:
 private:
     void init();
 
+    int readBrightness() const;
+    bool writeBrightness(int brightness) const;
+
     /**
      * The kernel offer from version 2.6.37 the type of the interface, and based on that
      * we can decide which interface is better for us, being the order
@@ -56,6 +61,8 @@ private:
     QString m_dirname;
     QString m_sysctlDevice;
     QList<int> m_sysctlBrightnessLevels;
+
+    QVariantAnimation m_anim;
 };
 
 #endif // BACKLIGHTHELPER_H
