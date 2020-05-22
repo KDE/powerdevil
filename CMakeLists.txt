@@ -55,7 +55,7 @@ find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 option(HAVE_DDCUTIL "DDCUtil library support" OFF)
 if(HAVE_DDCUTIL)
     find_package(DDCUtil REQUIRED)
-    add_compile_definitions(WITH_DDCUTIL)
+    add_definitions(-DWITH_DDCUTIL)
     set_package_properties(DDCUtil
         PROPERTIES DESCRIPTION "DDCUtil library support"
         TYPE OPTIONAL
