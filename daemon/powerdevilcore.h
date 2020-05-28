@@ -100,6 +100,8 @@ public Q_SLOTS:
     bool isLidPresent() const;
     bool isActionSupported(const QString &actionName);
     bool hasDualGpu() const;
+    int chargeStartThreshold() const;
+    int chargeStopThreshold() const;
 
     // service - dbus interface to ping when wakeup is done
     // path - dbus path on service
@@ -115,12 +117,16 @@ Q_SIGNALS:
     void configurationReloaded();
     void batteryRemainingTimeChanged(qulonglong time);
     void lidClosedChanged(bool closed);
+    void chargeStartThresholdChanged(int threshold);
+    void chargeStopThresholdChanged(int threshold);
 
 private:
     void registerActionTimeout(Action *action, int timeout);
     void unregisterActionTimeouts(Action *action);
     void handleLowBattery(int percent);
     void handleCriticalBattery(int percent);
+
+    void readChargeThreshold();
 
     /**
      * Computes the current global charge percentage.
@@ -131,6 +137,8 @@ private:
     friend class Action;
 
     bool m_hasDualGpu;
+    int m_chargeStartThreshold = 0;
+    int m_chargeStopThreshold = 100;
 
     BackendInterface *m_backend;
 

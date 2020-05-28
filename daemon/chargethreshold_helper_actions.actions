@@ -1,0 +1,15 @@
+[Domain]
+Name=KDE
+Icon=kde
+
+[org.kde.powerdevil.chargethresholdhelper.getthreshold]
+Name=Get current battery charge limit
+Description=System policies prevent you from getting the current battery charge limit.
+Policy=yes
+PolicyInactive=yes
+
+[org.kde.powerdevil.chargethresholdhelper.setthreshold]
+Name=Set battery charge limit
+Description=System policies prevent you from setting a battery charge limit.
+Policy=auth_admin
+Persistence=session

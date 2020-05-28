@@ -79,6 +79,8 @@ Core::Core(QObject* parent)
         m_hasDualGpu = discreteGpuJob->data()[QStringLiteral("hasdualgpu")].toBool();
     });
     discreteGpuJob->start();
+
+    readChargeThreshold();
 }
 
 Core::~Core()
@@ -268,6 +270,8 @@ void Core::reparseConfiguration()
     if (m_lowBatteryNotification && currentChargePercent() > PowerDevilSettings::batteryLowLevel()) {
         m_lowBatteryNotification->close();
     }
+
+    readChargeThreshold();
 }
 
 QString Core::currentProfile() const
@@ -933,6 +937,36 @@ void Core::onServiceRegistered(const QString &service)
     }
 }
 
+void Core::readChargeThreshold()
+{
+    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getthreshold"));
+    action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
+    KAuth::ExecuteJob *job = action.execute();
+    connect(job, &KJob::result, this, [this, job] {
+        if (job->error()) {
+            qCWarning(POWERDEVIL) << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed" << job->errorText();
+            return;
+        }
+
+        const auto data = job->data();
+
+        const int chargeStartThreshold = data.value(QStringLiteral("chargeStartThreshold")).toInt();
+        if (m_chargeStartThreshold != chargeStartThreshold) {
+            m_chargeStartThreshold = chargeStartThreshold;
+            Q_EMIT chargeStartThresholdChanged(chargeStartThreshold);
+        }
+
+        const int chargeStopThreshold = data.value(QStringLiteral("chargeStopThreshold")).toInt();
+        if (m_chargeStopThreshold != chargeStopThreshold) {
+            m_chargeStopThreshold = chargeStopThreshold;
+            Q_EMIT chargeStopThresholdChanged(chargeStopThreshold);
+        }
+
+        qCDebug(POWERDEVIL) << "Charge thresholds: start at" << chargeStartThreshold << "- stop at" << chargeStopThreshold;
+    });
+    job->start();
+}
+
 BackendInterface* Core::backend()
 {
     return m_backend;
@@ -951,6 +985,16 @@ bool Core::isLidPresent() const
 bool Core::hasDualGpu() const
 {
     return m_hasDualGpu;
+}
+
+int Core::chargeStartThreshold() const
+{
+    return m_chargeStartThreshold;
+}
+
+int Core::chargeStopThreshold() const
+{
+    return m_chargeStopThreshold;
 }
 
 uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, qint64 timeout)

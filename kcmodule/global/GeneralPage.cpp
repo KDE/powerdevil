@@ -43,6 +43,9 @@
 #include <KAboutData>
 #include <KLocalizedString>
 
+#include <KAuthAction>
+#include <KAuthExecuteJob>
+
 K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
                  registerPlugin<GeneralPage>();
                 )
@@ -124,6 +127,17 @@ void GeneralPage::fillUi()
 
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
+    connect(chargeStartThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::markAsChanged);
+    connect(chargeStopThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::markAsChanged);
+    connect(chargeStopThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] {
+        if (chargeStopThresholdSpin->value() > m_chargeStopThreshold) {
+            chargeStopThresholdMessage->animatedShow();
+        } else {
+            chargeStopThresholdMessage->animatedHide();
+        }
+    });
+    chargeStopThresholdMessage->hide();
+
     connect(pausePlayersCheckBox, SIGNAL(stateChanged(int)), SLOT(changed()));
 
     if (!hasPowerSupplyBattery) {
@@ -154,6 +168,26 @@ void GeneralPage::load()
     BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batteryCriticalAction()));
 
     pausePlayersCheckBox->setChecked(PowerDevilSettings::pausePlayersOnSuspend());
+
+    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getthreshold"));
+    action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
+    KAuth::ExecuteJob *job = action.execute();
+    job->exec();
+
+    if (!job->error()) {
+        const auto data = job->data();
+        m_chargeStartThreshold = data.value(QStringLiteral("chargeStartThreshold")).toInt();
+        chargeStartThresholdSpin->setValue(m_chargeStartThreshold);
+        m_chargeStopThreshold = data.value(QStringLiteral("chargeStopThreshold")).toInt();
+        chargeStopThresholdSpin->setValue(m_chargeStopThreshold);
+
+        setChargeThresholdSupported(true);
+    } else {
+        qDebug() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed" << job->errorText();
+        setChargeThresholdSupported(false);
+    }
+
+    Q_EMIT changed(false);
 }
 
 void GeneralPage::configureNotifications()
@@ -173,6 +207,22 @@ void GeneralPage::save()
 
     PowerDevilSettings::self()->save();
 
+    if (chargeStartThresholdSpin->value() != m_chargeStartThreshold
+            || chargeStopThresholdSpin->value() != m_chargeStopThreshold) {
+        KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.setthreshold"));
+        action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
+        action.setArguments({
+            {QStringLiteral("chargeStartThreshold"), chargeStartThresholdSpin->value()},
+            {QStringLiteral("chargeStopThreshold"), chargeStopThresholdSpin->value()}
+        });
+        KAuth::ExecuteJob *job = action.execute();
+        job->exec();
+        if (!job->error()) {
+            m_chargeStartThreshold = chargeStartThresholdSpin->value();
+            m_chargeStopThreshold = chargeStopThresholdSpin->value();
+        }
+    }
+
     // Notify Daemon
     QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                        "org.kde.Solid.PowerManagement", "refreshStatus");
@@ -187,6 +237,17 @@ void GeneralPage::save()
 void GeneralPage::defaults()
 {
     KCModule::defaults();
+}
+
+void GeneralPage::setChargeThresholdSupported(bool supported)
+{
+    batteryThresholdLabel->setVisible(supported);
+    batteryThresholdExplanation->setVisible(supported);
+
+    chargeStartThresholdLabel->setVisible(supported);
+    chargeStartThresholdSpin->setVisible(supported);
+    chargeStopThresholdLabel->setVisible(supported);
+    chargeStopThresholdSpin->setVisible(supported);
 }
 
 void GeneralPage::onServiceRegistered(const QString& service)

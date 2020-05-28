@@ -44,7 +44,12 @@ private Q_SLOTS:
     void onServiceUnregistered(const QString &service);
 
 private:
+    void setChargeThresholdSupported(bool supported);
+
     ErrorOverlay *m_errorOverlay = nullptr;
+
+    int m_chargeStartThreshold = 0;
+    int m_chargeStopThreshold = 100;
 };
 
 #endif /* GENERALPAGE_H */

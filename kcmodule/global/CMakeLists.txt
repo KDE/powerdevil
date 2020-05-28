@@ -12,6 +12,7 @@ kconfig_add_kcfg_files(kcm_powerdevil_global_SRCS ../../PowerDevilSettings.kcfgc
 add_library(kcm_powerdevilglobalconfig MODULE ${kcm_powerdevil_global_SRCS})
 
 target_link_libraries(kcm_powerdevilglobalconfig
+     KF5::AuthCore
      KF5::ConfigWidgets
      KF5::KIOWidgets
      KF5::NotifyConfig

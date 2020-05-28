@@ -28,6 +28,12 @@
     <method name="hasDualGpu">
       <arg type="b" direction="out" />
     </method>
+    <method name="chargeStartThreshold">
+      <arg type="i" direction="out" />
+    </method>
+    <method name="chargeStopThreshold">
+      <arg type="i" direction="out" />
+    </method>
 
     <!-- schedule system wakeup in future -->
     <!--
@@ -92,6 +98,12 @@
     </signal>
     <signal name="lidClosedChanged">
       <arg type="b" direction="out" />
+    </signal>
+    <signal name="chargeStartThresholdChanged">
+      <arg type="i" direction="out" />
+    </signal>
+    <signal name="chargeStopThresholdChanged">
+      <arg type="i" direction="out" />
     </signal>
   </interface>
 </node>
