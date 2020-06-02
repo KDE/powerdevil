@@ -251,7 +251,7 @@ bool BacklightHelper::writeBrightness(int brightness) const
     int d1 = 101;
     // Search for the nearest level.
     for (int level : m_sysctlBrightnessLevels) {
-        int d2 = qAbs(level - actual_brightness);
+        int d2 = qAbs(level - brightness);
         /*
          * The list is sorted, so we break when it starts diverging. There may be repeated values,
          * so we keep going on equal gap (e.g., value = 7.5, levels = 0 0 10 ...: we don't break at
