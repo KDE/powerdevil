@@ -765,7 +765,7 @@ Action=Sound|Popup
 IconName=battery-caution
 
 [Event/pluggedin]
-Name=AC adaptor plugged in
+Name=Power source connected
 Name[ar]=وُصِلَ محوِّل الكهرباء
 Name[bs]=AC adapter utaknut
 Name[ca]=Adaptador de CA endollat
@@ -811,7 +811,7 @@ Name[uk]=Увімкнено живлення від мережі
 Name[x-test]=xxAC adaptor plugged inxx
 Name[zh_CN]=已插入交流适配器
 Name[zh_TW]=AC 電源已插入
-Comment=The power adaptor has been plugged in
+Comment=The power source has been connected
 Comment[ar]=تم توصيل محوِّل الكهرباء
 Comment[bs]=Utaknut je adapter napajanja
 Comment[ca]=L'adaptador de corrent s'ha endollat
@@ -863,7 +863,7 @@ Action=None
 IconName=battery-charging-low
 
 [Event/unplugged]
-Name=AC adaptor unplugged
+Name=Power source disconnected
 Name[ar]=فُصِل محوِّل الكهرباء
 Name[bs]=AC adapter izvučen
 Name[ca]=Adaptador de CA desendollat
@@ -909,7 +909,7 @@ Name[uk]=Вимкнено живлення від мережі
 Name[x-test]=xxAC adaptor unpluggedxx
 Name[zh_CN]=已拔出交流适配器
 Name[zh_TW]=AC 電源已拔除
-Comment=The power adaptor has been unplugged
+Comment=The power source has been disconnected
 Comment[ar]=تم فصل محوِّل الكهرباء
 Comment[bs]=Izvučen je adapter  napajanja
 Comment[ca]=L'adaptador de corrent s'ha desendollat
