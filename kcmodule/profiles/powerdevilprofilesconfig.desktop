@@ -56,7 +56,6 @@ Name[sv]=Strömsparhantering
 Name[tg]=Сарфаи барқ
 Name[tr]=Güç Tasarrufu
 Name[uk]=Заощадження енергії
-Name[x-test]=xxEnergy Savingxx
 Name[zh_CN]=节能
 Name[zh_TW]=省電模式
 
@@ -104,7 +103,6 @@ Comment[sv]=Strömsparhantering
 Comment[tg]=Сарфаи барқ
 Comment[tr]=Güç Tasarrufu
 Comment[uk]=Заощадження енергії
-Comment[x-test]=xxEnergy Savingxx
 Comment[zh_CN]=节能
 Comment[zh_TW]=省電模式
 
@@ -147,6 +145,5 @@ X-KDE-Keywords[sr@latin]=system,power,power management,energy,laptop,battery,sus
 X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,viloläge,AC,gå till viloläge,dvala,ljusstyrka,prestanda,lock
 X-KDE-Keywords[tr]=sistem,güç,güç yönetimi,enerji,dizüstü,laptop,pil,askıya alma,uyutma,AC,fişte,parlaklık,performans,ışık
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки
-X-KDE-Keywords[x-test]=xxsystemxx,xxpowerxx,xxpower managementxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxhibernatexx,xxbrightnessxx,xxperformancexx,xxlidxx
 X-KDE-Keywords[zh_CN]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,系统,电源,电源管理,能源,笔记本,电池,休眠,睡眠,交流,亮度,性能
 X-KDE-Keywords[zh_TW]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

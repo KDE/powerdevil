@@ -46,7 +46,6 @@ Name[sv]=Kör skript
 Name[tg]=Иҷро кардани нақш
 Name[tr]=Betik çalıştır
 Name[uk]=Виконати скрипт
-Name[x-test]=xxRun scriptxx
 Name[zh_CN]=运行脚本
 Name[zh_TW]=執行文稿
 Comment=Runs a custom script
@@ -92,7 +91,6 @@ Comment[sv]=Kör ett eget skript
 Comment[tg]=Иҷро кардани нақши фармоишӣ
 Comment[tr]=Özel bir betik çalıştırır
 Comment[uk]=Запускає вказаний користувачем скрипт
-Comment[x-test]=xxRuns a custom scriptxx
 Comment[zh_CN]=运行自定义脚本
 Comment[zh_TW]=執行自訂文稿
 
