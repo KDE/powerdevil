@@ -47,7 +47,6 @@ Name[sv]=Skärmljusstyrka
 Name[tg]=Дурахшонии экран
 Name[tr]=Ekran parlaklığı
 Name[uk]=Яскравість екрана
-Name[x-test]=xxScreen brightnessxx
 Name[zh_CN]=屏幕亮度
 Name[zh_TW]=螢幕亮度
 Comment=Basic Controls for brightness
@@ -94,7 +93,6 @@ Comment[sr@latin]=Osnovne kontrole osvetljaja
 Comment[sv]=Grundkontroller för ljusstyrka
 Comment[tr]=Parlaklık için temel kontroller
 Comment[uk]=Базове керування яскравістю
-Comment[x-test]=xxBasic Controls for brightnessxx
 Comment[zh_CN]=亮度基本控制
 Comment[zh_TW]=基本亮度控制
 

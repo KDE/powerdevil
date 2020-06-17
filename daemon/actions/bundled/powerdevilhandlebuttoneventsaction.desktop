@@ -47,7 +47,6 @@ Name[sr@latin]=Rukovanje događajima dugmadi
 Name[sv]=Händelsehantering för knappar
 Name[tr]=Düğme işlevleri
 Name[uk]=Обробка натискань кнопок
-Name[x-test]=xxButton events handlingxx
 Name[zh_CN]=按键事件处理
 Name[zh_TW]=按鍵事件處理
 
@@ -95,7 +94,6 @@ Comment[sr@latin]=Izvršava radnju na svaki pritisak dugmeta
 Comment[sv]=Utför en åtgärd så fort en knapp trycks ner
 Comment[tr]=Bir düğmeye basıldığında bir işlem gerçekleştirir
 Comment[uk]=Виконання дій у відповідь на натискання кнопки
-Comment[x-test]=xxPerforms an action whenever a button is pressedxx
 Comment[zh_CN]=按键时执行一个动作
 Comment[zh_TW]=按鍵被按下時執行動作
 

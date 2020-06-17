@@ -45,7 +45,6 @@ Name[sr@latin]=Osvetljenje tastature
 Name[sv]=Bakgrundsbelysning på tangentbord
 Name[tr]=Klavye arka-ışığı
 Name[uk]=Підсвічування клавіатури
-Name[x-test]=xxKeyboard backlightxx
 Name[zh_CN]=键盘背光
 Name[zh_TW]=鍵盤背光
 Comment=Basic Controls for the keyboard backlight brightness
@@ -91,7 +90,6 @@ Comment[sr@latin]=Osnovne kontrole osvetljenja tastature
 Comment[sv]=Grundkontroller för ljusstyrka av tangentbordets bakgrundsbelysning
 Comment[tr]=Klavye arka ışığı parlaklığı için temel kontroller
 Comment[uk]=Базове керування яскравістю підсвічування клавіатури
-Comment[x-test]=xxBasic Controls for the keyboard backlight brightnessxx
 Comment[zh_CN]=键盘背光亮度基本控制
 Comment[zh_TW]=鍵盤背光亮度的基本控制
 
