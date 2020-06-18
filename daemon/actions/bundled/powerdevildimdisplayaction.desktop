@@ -45,6 +45,7 @@ Name[sr@latin]=Priguši ekran
 Name[sv]=Dämpa skärmen
 Name[tr]=Ekranı karart
 Name[uk]=Зменшення яскравості екрана
+Name[x-test]=xxDim screenxx
 Name[zh_CN]=暗淡屏幕
 Name[zh_TW]=將螢幕變暗
 Comment=Dims gradually the display on a time basis
@@ -90,6 +91,7 @@ Comment[sr@latin]=Postepeno prigušuje ekran na zadato vreme
 Comment[sv]=Dämpa bildskärmen gradvis baserat på tid
 Comment[tr]=Zamana bağlı olarak ekranı yavaşça karartır
 Comment[uk]=Поступове зменшення яскравості дисплея з часом
+Comment[x-test]=xxDims gradually the display on a time basisxx
 Comment[zh_CN]=在一定时间逐步变暗屏幕
 Comment[zh_TW]=依時間逐漸讓顯示變暗
 
