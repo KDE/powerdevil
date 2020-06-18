@@ -809,7 +809,7 @@ Comment[x-test]=xxThe power source has been connectedxx
 Comment[zh_CN]=电源已连接
 Contexts=stdnot
 Sound=Oxygen-Sys-App-Positive.ogg
-Action=None
+Action=Sound
 IconName=battery-charging-low
 
 [Event/unplugged]
