@@ -72,10 +72,7 @@ include_directories (
 
 add_definitions(-DQT_NO_KEYWORDS)
 add_definitions(-DQT_NO_FOREACH)
-<<<<<<< HEAD
 
-=======
->>>>>>> Plasma/5.18
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
