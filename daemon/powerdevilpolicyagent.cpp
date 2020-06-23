@@ -513,6 +513,11 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
     const int cookie = m_lastCookie; // when the Timer below fires, m_lastCookie might be different already
 
+    if (!m_busWatcher.isNull() && !service.isEmpty()) {
+        m_cookieToBusService.insert(cookie, service);
+        m_busWatcher.data()->addWatchedService(service);
+    }
+
     m_pendingInhibitions.append(cookie);
 
     qCDebug(POWERDEVIL) << "Scheduling inhibition from" << service << appName << "with cookie"
@@ -531,11 +536,6 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
         }
 
         m_cookieToAppName.insert(cookie, qMakePair<QString, QString>(appName, reason));
-
-        if (!m_busWatcher.isNull() && !service.isEmpty()) {
-            m_cookieToBusService.insert(cookie, service);
-            m_busWatcher.data()->addWatchedService(service);
-        }
 
         addInhibitionTypeHelper(cookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
@@ -596,21 +596,19 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
 {
     qCDebug(POWERDEVIL) << "Releasing inhibition with cookie " << cookie;
 
-    if (m_pendingInhibitions.contains(cookie)) {
-        qCDebug(POWERDEVIL) << "It was only scheduled for inhibition but not enforced yet, just discarding it";
-        m_pendingInhibitions.removeOne(cookie);
-        return;
-    }
-
-    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
-    m_cookieToAppName.remove(cookie);
-
-
     QString service = m_cookieToBusService.take(cookie);
     if (!m_busWatcher.isNull() && !service.isEmpty() && !m_cookieToBusService.key(service)) {
         // no cookies from service left
         m_busWatcher.data()->removeWatchedService(service);
     }
+
+    if (m_pendingInhibitions.removeOne(cookie)) {
+        qCDebug(POWERDEVIL) << "It was only scheduled for inhibition but not enforced yet, just discarding it";
+        return;
+    }
+
+    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), { {m_cookieToAppName.value(cookie).first} });
+    m_cookieToAppName.remove(cookie);
 
     // Look through all of the inhibition types
     bool notify = false;
