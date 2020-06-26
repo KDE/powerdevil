@@ -89,6 +89,7 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         auto timeout = mobile ? 60 : 600;
         KConfigGroup dpmsControl(&acProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", timeout);
+        dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
     }
 
     // Powersave
@@ -111,6 +112,7 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         auto timeout = mobile ? 60 : 300;
         KConfigGroup dpmsControl(&batteryProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", timeout);
+        dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
     }
 
     // Last but not least, we want to suspend after a rather long period of inactivity
@@ -148,6 +150,7 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         auto timeout = mobile ? 30 : 120;
         KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
         dpmsControl.writeEntry< uint >("idleTime", timeout);
+        dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
     }
 
     // Last but not least, we want to suspend after a rather long period of inactivity
