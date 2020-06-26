@@ -29,6 +29,9 @@
 #include <powerdevil_debug.h>
 
 #include <QAction>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
 #include <QGuiApplication>
 #include <QX11Info>
 #include <QDebug>
@@ -82,6 +85,9 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     accel->setGlobalShortcut(globalAction, QList<QKeySequence>());
     connect(globalAction, &QAction::triggered, this, [this] {
         if (m_helper) {
+            if (m_lockBeforeTurnOff) {
+                lockScreen();
+            }
             m_helper->trigger(QStringLiteral("TurnOff"));
         }
     });
@@ -162,6 +168,10 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
     if (!isSupported()) {
         return;
     }
+    QString type = args.value(QStringLiteral("Type")).toString();
+    if (m_lockBeforeTurnOff && (type == "TurnOff" || type == "ToggleOnOff")) {
+        lockScreen();
+    }
     m_helper->trigger(args.value(QStringLiteral("Type")).toString());
 }
 
@@ -172,6 +182,7 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
         registerIdleTimeout(m_idleTime * 1000);
         registerIdleTimeout(m_idleTime * 1000 - 5000); // start screen fade a bit earlier to alert user
     }
+    m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
 
     return true;
 }
@@ -201,6 +212,14 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
         onProfileLoad();
         qCDebug(POWERDEVIL) << "Restoring DPMS features after inhibition release";
     }
+}
+
+void PowerDevilDPMSAction::lockScreen()
+{
+    QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
+                                                                           "/ScreenSaver",
+                                                                           "org.freedesktop.ScreenSaver",
+                                                                           "Lock"));
 }
 
 #include "powerdevildpmsaction.moc"

@@ -61,6 +61,9 @@ private:
     int m_oldKeyboardBrightness = 0;
     QScopedPointer<AbstractDpmsHelper> m_helper;
 
+    bool m_lockBeforeTurnOff = false;
+    void lockScreen();
+
 };
 
 #endif // POWERDEVILDPMSACTION_H
