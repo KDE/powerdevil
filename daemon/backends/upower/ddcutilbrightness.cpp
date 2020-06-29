@@ -56,7 +56,6 @@ void DDCutilBrightness::detect()
         
         DDCA_Feature_List vcpList;
         ddca_get_feature_list_by_dref(DDCA_SUBSET_COLOR, dh, false, &vcpList);
-        qCDebug(POWERDEVIL) << "ddca_feature_list: "<< ddca_feature_list_string(&vcpList, "0x", ",");
         QVector<uint16_t> tmpVcpList;
         for (int iVcp = 0; iVcp < m_usedVcp.count(); ++iVcp) {
             DDCA_Non_Table_Vcp_Value returnValue;
