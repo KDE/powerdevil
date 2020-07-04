@@ -207,8 +207,7 @@ void GeneralPage::onServiceUnregistered(const QString& service)
         m_errorOverlay->deleteLater();
     }
 
-    m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running.\n"
-                                                 "This can be solved by starting or scheduling it inside \"Startup and Shutdown\""),
+    m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running."),
                                       this);
 }
 
