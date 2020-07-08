@@ -27,6 +27,13 @@
 #include <QSet>
 #include <QStringList>
 
+#include <QDBusMessage>
+#include <QDBusError>
+#include <QDBusContext>
+#include <QDBusObjectPath>
+
+#include <QSocketNotifier>
+
 #include <KSharedConfig>
 
 namespace KActivities
@@ -48,7 +55,14 @@ namespace PowerDevil
 class BackendInterface;
 class Action;
 
-class Q_DECL_EXPORT Core : public QObject
+struct WakeupInfo {
+    QString service;
+    QDBusObjectPath path;
+    int cookie;
+    qint64 timeout;
+};
+
+class Q_DECL_EXPORT Core : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(Core)
@@ -86,6 +100,14 @@ public Q_SLOTS:
     bool isLidPresent() const;
     bool isActionSupported(const QString &actionName);
     bool hasDualGpu() const;
+
+    // service - dbus interface to ping when wakeup is done
+    // path - dbus path on service
+    // cookie - data to pass back
+    // silent - true if silent wakeup is needed
+    uint scheduleWakeup(const QString &service, const QDBusObjectPath &path, qint64 timeout);
+    void wakeup();
+    void clearWakeup(int cookie);
 
 Q_SIGNALS:
     void coreReady();
@@ -134,6 +156,12 @@ private:
     QSet<Action *> m_pendingResumeFromIdleActions;
     bool m_pendingWakeupEvent;
 
+    // Scheduled wakeups and alarms
+    QList<WakeupInfo> m_scheduledWakeups;
+    int m_lastWakeupCookie = 0;
+    int m_timerFd = -1;
+    QSocketNotifier *m_timerFdSocketNotifier = nullptr;
+
     // Activity inhibition management
     QHash< QString, int > m_sessionActivityInhibit;
     QHash< QString, int > m_screenActivityInhibit;
@@ -153,6 +181,9 @@ private Q_SLOTS:
     void onServiceRegistered(const QString &service);
     void onLidClosedChanged(bool closed);
     void onAboutToSuspend();
+    // handlers for handling wakeup dbus call
+    void resetAndScheduleNextWakeup();
+    void timerfdEventHandler();
 };
 
 }
