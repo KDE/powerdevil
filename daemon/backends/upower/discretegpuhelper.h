@@ -21,7 +21,7 @@
 #define DISCRETEGPUHELPER_H
 
 #include <QObject>
-#include <kauth.h>
+#include <KAuth>
 
 using namespace KAuth;
 

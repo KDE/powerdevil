@@ -38,7 +38,7 @@
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
 
-#include <kglobalaccel.h>
+#include <KGlobalAccel>
 
 namespace PowerDevil {
 namespace BundledActions {

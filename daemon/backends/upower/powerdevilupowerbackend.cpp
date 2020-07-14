@@ -26,7 +26,7 @@
 #include <powerdevil_debug.h>
 #include <PowerDevilSettings.h>
 
-#include <qtextstream.h>
+#include <QTextStream>
 #include <QDBusMessage>
 #include <QDebug>
 #include <QPropertyAnimation>

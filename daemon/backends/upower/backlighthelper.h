@@ -23,7 +23,7 @@
 #include <QObject>
 #include <QVariantAnimation>
 
-#include <kauth.h>
+#include <KAuth>
 
 using namespace KAuth;
 

@@ -34,7 +34,7 @@
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
 
-#include <kauthexecutejob.h>
+#include <KAuthExecuteJob>
 #include <KAuthAction>
 #include <KIdleTime>
 #include <KLocalizedString>
