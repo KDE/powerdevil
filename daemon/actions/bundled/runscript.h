@@ -47,6 +47,7 @@ public:
     bool loadAction(const KConfigGroup& config) override;
 
 private:
+    void runCommand();
     int m_scriptPhase;
     QString m_scriptCommand;
 };
