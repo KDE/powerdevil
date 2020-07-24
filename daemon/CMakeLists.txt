@@ -144,6 +144,16 @@ endif ()
 target_link_libraries(powerdevil ${UDEV_LIBS})
 
 install(TARGETS powerdevil DESTINATION ${KDE_INSTALL_FULL_LIBEXECDIR})
+if (HAVE_LIBCAP)
+    install(
+    CODE "execute_process(
+            COMMAND
+                ${SETCAP_EXECUTABLE}
+                CAP_WAKE_ALARM=+ep
+                ${KDE_INSTALL_FULL_LIBEXECDIR}/org_kde_powerdevil)"
+    )
+endif()
+
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
         DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

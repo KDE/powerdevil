@@ -52,6 +52,13 @@ find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 
+find_package(Libcap)
+set_package_properties(Libcap PROPERTIES
+    TYPE OPTIONAL
+    PURPOSE "Needed for scheduled wakeup which can wake from suspend (CAP_WAKE_ALARM)"
+)
+set(HAVE_LIBCAP ${Libcap_FOUND})
+
 option(HAVE_DDCUTIL "DDCUtil library support" OFF)
 if(HAVE_DDCUTIL)
     find_package(DDCUtil REQUIRED)
