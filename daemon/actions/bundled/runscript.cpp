@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "runscript.h"
+#include "powerdevil_debug.h"
 
 #include <QProcess>
 
@@ -41,7 +42,7 @@ RunScript::~RunScript()
 void RunScript::onProfileUnload()
 {
     if (m_scriptPhase == 1) {
-        QProcess::startDetached(m_scriptCommand, QStringList());
+        runCommand();
     }
 }
 
@@ -53,13 +54,13 @@ void RunScript::onWakeupFromIdle()
 void RunScript::onIdleTimeout(int msec)
 {
     Q_UNUSED(msec);
-    QProcess::startDetached(m_scriptCommand, QStringList());
+    runCommand();
 }
 
 void RunScript::onProfileLoad()
 {
     if (m_scriptPhase == 0) {
-        QProcess::startDetached(m_scriptCommand, QStringList());
+        runCommand();
     }
 }
 
@@ -82,6 +83,30 @@ bool RunScript::loadAction(const KConfigGroup& config)
     }
 
     return true;
+}
+
+void RunScript::runCommand()
+{
+    bool success;
+
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+    QStringList args = QProcess::splitCommand(m_scriptCommand);
+    if (args.isEmpty()) {
+        qCWarning(POWERDEVIL) << "Empty command?";
+        return;
+    }
+
+    QProcess process;
+    process.setProgram(args.takeFirst());
+    process.setArguments(args);
+    success = process.startDetached();
+#else
+    success = QProcess::startDetached(m_scriptCommand);
+#endif
+
+    if (!success) {
+        qCWarning(POWERDEVIL) << "Failed to run" << m_scriptCommand;
+    }
 }
 
 }
