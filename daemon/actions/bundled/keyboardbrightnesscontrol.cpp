@@ -75,7 +75,9 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     // My laptop sets the keyboard brightness to zero when I close the lid and it suspends
     // this makes sure the keyboard brightness is restored when we wake up :)
     connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this] {
-        setKeyboardBrightnessSilent(keyboardBrightness());
+        if (m_lastKeyboardBrightness > -1) {
+            setKeyboardBrightnessSilent(m_lastKeyboardBrightness);
+        }
     });
 }
 
@@ -158,6 +160,7 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
+        m_lastKeyboardBrightness = info.value;
         Q_EMIT keyboardBrightnessChanged(info.value);
         Q_EMIT keyboardBrightnessMaxChanged(info.valueMax);
     }
