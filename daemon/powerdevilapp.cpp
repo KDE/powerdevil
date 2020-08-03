@@ -39,10 +39,7 @@
 #include <KCrash>
 #include <KDBusService>
 #include <KAboutData>
-#include <KSharedConfig>
 #include <KLocalizedString>
-#include <KConfigGroup>
-#include <KGlobalAccel>
 
 #include <kworkspace.h>
 
@@ -50,7 +47,7 @@ PowerDevilApp::PowerDevilApp(int &argc, char **argv)
     : QGuiApplication(argc, argv)
     , m_core(nullptr)
 {
-    migratePre512KeyboardShortcuts();
+
 }
 
 PowerDevilApp::~PowerDevilApp()
@@ -148,56 +145,6 @@ void PowerDevilApp::onCoreReady()
 
     QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"), PowerDevil::PolicyAgent::instance());
-}
-
-
-/*
- * 5.11 -> 5.12 migrated shortcuts from kded5 to the correct component name org_kde_powerdevil for good reasons
-however despite a kconfupdate script working correctly and moving the old keys,
-because kglobalaccel is running whilst we update it synced the old values, and then ignores the powerdevil copy
-on future loads
-
-this removes the old powermanagent entries in the kded5 component at powerdevil startup
-//which is at runtime where we can talk to kglobalaccel and then re-register ours
-
-this method can probably be deleted at some point in the future
-*/
-void PowerDevilApp::migratePre512KeyboardShortcuts()
-{
-    auto configGroup = KSharedConfig::openConfig("powermanagementprofilesrc")->group("migration");
-    if (!configGroup.hasKey("kdedShortcutMigration")) {
-        const QStringList actionIds({
-            "Decrease Keyboard Brightness",
-            "Decrease Screen Brightness",
-            "Hibernate",
-            "Increase Keyboard Brightness",
-            "Increase Screen Brightness",
-            "PowerOff",
-            "Sleep",
-            "Toggle Keyboard Backlight"
-        });
-        for (const QString &actionId: actionIds) {
-            QAction oldAction;
-            oldAction.setObjectName(actionId);
-            oldAction.setProperty("componentName", "kded5");
-
-            //claim the old shortcut so we can remove it..
-            KGlobalAccel::self()->setShortcut(&oldAction, QList<QKeySequence>(), KGlobalAccel::Autoloading);
-            auto shortcuts = KGlobalAccel::self()->shortcut(&oldAction);
-            KGlobalAccel::self()->removeAllShortcuts(&oldAction);
-
-            QAction newAction;
-            newAction.setObjectName(actionId);
-            newAction.setProperty("componentName", "org_kde_powerdevil");
-            if (!shortcuts.isEmpty()) {
-                //register with no autoloading to sync config, we then delete our QAction, and powerdevil will
-                //re-register as normal
-                KGlobalAccel::self()->setShortcut(&newAction, shortcuts, KGlobalAccel::NoAutoloading);
-            }
-        }
-    }
-    configGroup.writeEntry(QStringLiteral("kdedShortcutMigration"), true);
-    configGroup.sync();
 }
 
 int main(int argc, char **argv)
