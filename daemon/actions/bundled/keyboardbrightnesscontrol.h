@@ -71,6 +71,7 @@ private:
     int keyboardBrightnessPercent() const;
 
     int m_defaultValue = -1;
+    int m_lastKeyboardBrightness = -1;
     QString m_lastProfile;
     QString m_currentProfile;
 };
