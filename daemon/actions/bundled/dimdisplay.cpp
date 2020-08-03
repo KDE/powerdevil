@@ -49,7 +49,7 @@ void DimDisplay::onWakeupFromIdle()
     // An active inhibition may not let us restore the brightness.
     // We should wait a bit screen to wake-up from sleep
     QTimer::singleShot(0, this, [this]() {
-        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness, true);
+        setBrightnessHelper(m_oldScreenBrightness, true);
     });
     m_dimmed = false;
 }
@@ -71,7 +71,6 @@ void DimDisplay::onIdleTimeout(int msec)
         setBrightnessHelper(newBrightness, 0);
     } else if (msec == (m_dimOnIdleTime * 1 / 2)) {
         m_oldScreenBrightness = backend()->brightness();
-        m_oldKeyboardBrightness = backend()->brightness(BackendInterface::Keyboard);
 
         const int newBrightness = qRound(m_oldScreenBrightness / 2.0);
         setBrightnessHelper(newBrightness, 0);
@@ -85,11 +84,10 @@ void DimDisplay::onProfileLoad()
     //
 }
 
-void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
+void DimDisplay::setBrightnessHelper(int screen, bool force)
 {
     trigger({
         {QStringLiteral("_ScreenBrightness"), QVariant::fromValue(screen)},
-        {QStringLiteral("_KeyboardBrightness"), QVariant::fromValue(keyboard)},
         {QStringLiteral("Explicit"), QVariant::fromValue(force)}
     });
 }
@@ -97,11 +95,6 @@ void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
     backend()->setBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt(), BackendInterface::Screen);
-
-    // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
-    if (m_oldKeyboardBrightness > 0) {
-        backend()->setBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt(), BackendInterface::Keyboard);
-    }
 }
 
 bool DimDisplay::isSupported()

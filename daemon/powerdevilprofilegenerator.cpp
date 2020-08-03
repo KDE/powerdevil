@@ -62,8 +62,13 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
 
     // We want to dim the screen after a while, definitely
     {
+        const auto timeout = 300000;
         KConfigGroup dimDisplay(&acProfile, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", 300000);
+        dimDisplay.writeEntry< int >("idleTime", timeout);
+
+        // and also turn the keyboard backlight off after a while
+        KConfigGroup turnOffKeyboardBacklight(&acProfile, "TurnOffKeyboardBacklight");
+        turnOffKeyboardBacklight.writeEntry<int>("idleTime", timeout / 2);
     }
 
     auto initLid = [toRam, mobile](KConfigGroup &profile)
@@ -102,6 +107,11 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         auto timeout = mobile ? 30000 : 120000;
         KConfigGroup dimDisplay(&batteryProfile, "DimDisplay");
         dimDisplay.writeEntry< int >("idleTime", timeout);
+
+        // and also turn the keyboard backlight off after a while
+        KConfigGroup turnOffKeyboardBacklight(&batteryProfile, "TurnOffKeyboardBacklight");
+        // DimDisplay starts dimming at half the timeout already...
+        turnOffKeyboardBacklight.writeEntry<int>("idleTime", timeout / 2);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     initLid(batteryProfile);
@@ -140,6 +150,10 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
         auto timeout = mobile ? 30000 : 60000;
         KConfigGroup dimDisplay(&lowBatteryProfile, "DimDisplay");
         dimDisplay.writeEntry< int >("idleTime", timeout);
+
+        // and also turn the keyboard backlight off after a while
+        KConfigGroup turnOffKeyboardBacklight(&lowBatteryProfile, "TurnOffKeyboardBacklight");
+        turnOffKeyboardBacklight.writeEntry<int>("idleTime", timeout / 2);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     initLid(lowBatteryProfile);

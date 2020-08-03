@@ -37,6 +37,7 @@
 #include "actions/bundled/brightnesscontrol.h"
 #include "actions/bundled/keyboardbrightnesscontrol.h"
 #include "actions/bundled/dimdisplay.h"
+#include "actions/bundled/turnoffkeyboardbacklight.h"
 #include "actions/bundled/runscript.h"
 #include "actions/bundled/handlebuttonevents.h"
 #ifdef HAVE_WIRELESS_SUPPORT
@@ -128,6 +129,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     m_actionPool.insert(QStringLiteral("BrightnessControl"), new BundledActions::BrightnessControl(parent));
     m_actionPool.insert(QStringLiteral("KeyboardBrightnessControl"), new BundledActions::KeyboardBrightnessControl(parent));
     m_actionPool.insert(QStringLiteral("DimDisplay"), new BundledActions::DimDisplay(parent));
+    m_actionPool.insert(QStringLiteral("TurnOffKeyboardBacklight"), new BundledActions::TurnOffKeyboardBacklight(parent));
     m_actionPool.insert(QStringLiteral("RunScript"), new BundledActions::RunScript(parent));
     m_actionPool.insert(QStringLiteral("HandleButtonEvents"), new BundledActions::HandleButtonEvents(parent));
 #ifdef HAVE_WIRELESS_SUPPORT
