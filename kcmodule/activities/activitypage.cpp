@@ -78,7 +78,7 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
 
     // Tab widget (must set size here since tabs are loaded after initial layout size is calculated)
     m_tabWidget = new QTabWidget();
-    m_tabWidget->setMinimumSize(676, 474);
+    m_tabWidget->setMinimumSize(400, 200);
 
     lay->addWidget(m_messageWidget);
     lay->addWidget(m_tabWidget);
