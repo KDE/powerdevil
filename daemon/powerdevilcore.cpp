@@ -987,9 +987,13 @@ void Core::clearWakeup(int cookie)
     }
 
     // depending on cookie, remove it from scheduled wakeups
-    m_scheduledWakeups.erase(std::remove_if(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [cookie](WakeupInfo wakeup) {
+    auto erased = m_scheduledWakeups.erase(std::remove_if(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [cookie](WakeupInfo wakeup) {
         return wakeup.cookie == cookie;
     }));
+
+    if (erased == m_scheduledWakeups.end()) {
+        sendErrorReply(QDBusError::InvalidArgs, "Can not clear the invalid wakeup");
+    }
 
     // reset timerfd
     resetAndScheduleNextWakeup();
