@@ -993,6 +993,7 @@ void Core::clearWakeup(int cookie)
 
     if (erased == m_scheduledWakeups.end()) {
         sendErrorReply(QDBusError::InvalidArgs, "Can not clear the invalid wakeup");
+        return;
     }
 
     // reset timerfd
