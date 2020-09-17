@@ -157,7 +157,7 @@ if (HAVE_LIBCAP)
             COMMAND
                 ${SETCAP_EXECUTABLE}
                 CAP_WAKE_ALARM=+ep
-                ${KDE_INSTALL_FULL_LIBEXECDIR}/org_kde_powerdevil)"
+                \$ENV{DESTDIR}${KDE_INSTALL_FULL_LIBEXECDIR}/org_kde_powerdevil)"
     )
 endif()
 
