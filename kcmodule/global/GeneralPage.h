@@ -42,6 +42,7 @@ private Q_SLOTS:
     void configureNotifications();
     void onServiceRegistered(const QString &service);
     void onServiceUnregistered(const QString &service);
+    void onChargeStopThresholdChanged(int threshold);
 
 private:
     void setChargeThresholdSupported(bool supported);
