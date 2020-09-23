@@ -128,14 +128,7 @@ void GeneralPage::fillUi()
     connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
 
     connect(chargeStartThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::markAsChanged);
-    connect(chargeStopThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::markAsChanged);
-    connect(chargeStopThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] {
-        if (chargeStopThresholdSpin->value() > m_chargeStopThreshold) {
-            chargeStopThresholdMessage->animatedShow();
-        } else {
-            chargeStopThresholdMessage->animatedHide();
-        }
-    });
+    connect(chargeStopThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::onChargeStopThresholdChanged);
     chargeStopThresholdMessage->hide();
 
     connect(pausePlayersCheckBox, SIGNAL(stateChanged(int)), SLOT(changed()));
@@ -270,6 +263,25 @@ void GeneralPage::onServiceUnregistered(const QString& service)
 
     m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running."),
                                       this);
+}
+
+void GeneralPage::onChargeStopThresholdChanged(int threshold)
+{
+    if (threshold > m_chargeStopThreshold) {
+        // Only show message if there is actually a charging or fully charged battery
+        const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
+        for (const Solid::Device &device : devices) {
+            const Solid::Battery *b = qobject_cast<const Solid::Battery*>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+            if (b->chargeState() == Solid::Battery::Charging || b->chargeState() == Solid::Battery::FullyCharged) {
+                chargeStopThresholdMessage->animatedShow();
+                break;
+            }
+        }
+    } else if (chargeStopThresholdMessage->isVisible()) {
+        chargeStopThresholdMessage->animatedHide();
+    }
+
+    markAsChanged();
 }
 
 #include "GeneralPage.moc"
