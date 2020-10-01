@@ -1,5 +1,5 @@
 [Desktop Entry]
-Type=Service
+Type=Application
 Icon=preferences-system-power-management
 Name=Power Management
 Name[ar]=إدارة الطاقة
