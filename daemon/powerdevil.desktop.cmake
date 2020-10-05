@@ -50,6 +50,7 @@ Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 Exec=@KDE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
 OnlyShowIn=KDE;
+X-systemd-skip=true
 
 Comment=Battery, Display and CPU power management and notification
 Comment[ar]=تنبيهات وإدارة طاقة المعالِج والعَرض والبطارية

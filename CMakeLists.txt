@@ -12,6 +12,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
+include(ECMConfiguredInstall)
 include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
