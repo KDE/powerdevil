@@ -502,7 +502,9 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
             KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
             action.setHelperId(HELPER_ID);
             action.addArgument("brightness", value);
-            action.addArgument("animationDuration", PowerDevilSettings::brightnessAnimationDuration());
+            if (brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
+                action.addArgument("animationDuration", PowerDevilSettings::brightnessAnimationDuration());
+            }
             auto *job = action.execute();
             connect(job, &KAuth::ExecuteJob::result, this, [this, job, value] {
                 if (job->error()) {
