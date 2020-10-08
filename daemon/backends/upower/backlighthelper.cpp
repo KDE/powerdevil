@@ -236,6 +236,12 @@ ActionReply BacklightHelper::setbrightness(const QVariantMap &args)
     const int animationDuration = args.value(QStringLiteral("animationDuration")).toInt();
 
     m_anim.stop();
+
+    if (animationDuration <= 0) {
+        writeBrightness(brightness);
+        return ActionReply::SuccessReply();
+    }
+
     m_anim.setDuration(animationDuration);
     m_anim.setStartValue(readBrightness());
     m_anim.setEndValue(brightness);
