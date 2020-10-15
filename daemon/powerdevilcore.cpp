@@ -841,6 +841,13 @@ void Core::onAboutToSuspend()
                     continue;
                 }
 
+                if (serviceName.startsWith(QLatin1String("org.mpris.MediaPlayer2.kdeconnect.mpris_"))) {
+                    // This is actually a player on another device exposed by KDE Connect
+                    // We don't want to pause it
+                    // See https://bugs.kde.org/show_bug.cgi?id=427209
+                    continue;
+                }
+
                 qCDebug(POWERDEVIL) << "Pausing media player with service name" << serviceName;
 
                 QDBusMessage pauseMsg = QDBusMessage::createMethodCall(serviceName,
