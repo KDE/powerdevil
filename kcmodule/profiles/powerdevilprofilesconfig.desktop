@@ -1,5 +1,4 @@
 [Desktop Entry]
-Exec=kcmshell5 powerdevilprofilesconfig
 Icon=preferences-system-power-management
 Type=Service
 X-KDE-ServiceTypes=KCModule
