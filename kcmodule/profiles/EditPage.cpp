@@ -45,7 +45,6 @@
 #include <KMessageBox>
 #include <KAboutData>
 #include <KPluginFactory>
-#include <KSharedConfig>
 #include <KLocalizedString>
 #include <KRun>
 

@@ -23,7 +23,6 @@
 
 #include "brightnessosdwidget.h"
 
-#include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 

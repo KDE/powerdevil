@@ -40,7 +40,6 @@
 #include "ddcutilbrightness.h"
 #include "upowersuspendjob.h"
 #include "login1suspendjob.h"
-#include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 

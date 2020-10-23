@@ -21,7 +21,6 @@
 
 #include "wirelesspowersavingadaptor.h"
 
-#include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 
@@ -29,7 +28,6 @@
 
 #include <NetworkManagerQt/Manager>
 
-#include <BluezQt/Manager>
 
 namespace PowerDevil {
 namespace BundledActions {

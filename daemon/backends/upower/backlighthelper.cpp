@@ -23,7 +23,6 @@
 
 #include <QDir>
 #include <QDebug>
-#include <QVariantAnimation>
 
 #include <KLocalizedString>
 

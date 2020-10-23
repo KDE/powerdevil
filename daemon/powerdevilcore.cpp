@@ -23,7 +23,6 @@
 
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
-#include "powerdevilbackendinterface.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
 #include "powerdevil_debug.h"
