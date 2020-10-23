@@ -29,9 +29,8 @@ void AbstractDpmsHelper::stopFade()
 {
 }
 
-void AbstractDpmsHelper::profileLoaded(int idleTime)
+void AbstractDpmsHelper::profileLoaded()
 {
-    Q_UNUSED(idleTime)
 }
 
 void AbstractDpmsHelper::profileUnloaded()

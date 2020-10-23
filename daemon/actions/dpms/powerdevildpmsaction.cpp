@@ -154,7 +154,7 @@ void PowerDevilDPMSAction::onProfileLoad()
     if (!isSupported()) {
         return;
     }
-    m_helper->profileLoaded(m_idleTime);
+    m_helper->profileLoaded();
 }
 
 void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)

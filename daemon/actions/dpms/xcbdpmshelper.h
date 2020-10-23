@@ -35,11 +35,12 @@ public:
     ~XcbDpmsHelper() override;
 
     void trigger(const QString &type) override;
-    void profileLoaded(int idleTime) override;
+    void profileLoaded() override;
     void profileUnloaded() override;
     void startFade() override;
     void stopFade() override;
     void inhibited() override;
+    void dpmsTimeout() override;
 
 private:
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;

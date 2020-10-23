@@ -57,21 +57,10 @@ XcbDpmsHelper::XcbDpmsHelper()
 
 XcbDpmsHelper::~XcbDpmsHelper() = default;
 
-void XcbDpmsHelper::profileLoaded(int idleTime)
+void XcbDpmsHelper::profileLoaded()
 {
-    using namespace PowerDevil;
-
-    if (!(PolicyAgent::instance()->unavailablePolicies() & PolicyAgent::ChangeScreenSettings)) {
-        xcb_dpms_enable(QX11Info::connection());
-    } else {
-        qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
-        return;
-    }
-
-    // An unloaded action will have idleTime = 0:
-    // DPMS enabled with zeroed timeouts is effectively disabled.
-    // So onProfileLoad is always safe
-    xcb_dpms_set_timeouts(QX11Info::connection(), idleTime, idleTime * 1.5, idleTime * 2);
+    // Disable a default timeout, if any
+    xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
 }
 
 void XcbDpmsHelper::profileUnloaded()
@@ -83,8 +72,6 @@ void XcbDpmsHelper::profileUnloaded()
     } else {
         qCDebug(POWERDEVIL) << "Not performing DPMS action due to inhibition";
     }
-
-    xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
 }
 
 void XcbDpmsHelper::startFade()
@@ -99,8 +86,10 @@ void XcbDpmsHelper::stopFade()
 
 void XcbDpmsHelper::trigger(const QString &type)
 {
-    ScopedCPointer<xcb_dpms_info_reply_t> infoReply(xcb_dpms_info_reply(QX11Info::connection(),
-        xcb_dpms_info(QX11Info::connection()),
+    auto *c = QX11Info::connection();
+
+    ScopedCPointer<xcb_dpms_info_reply_t> infoReply(xcb_dpms_info_reply(c,
+        xcb_dpms_info(c),
     nullptr));
 
     if (!infoReply) {
@@ -128,15 +117,19 @@ void XcbDpmsHelper::trigger(const QString &type)
     }
 
     if (!infoReply->state) {
-        xcb_dpms_enable(QX11Info::connection());
+        xcb_dpms_enable(c);
     }
 
-    xcb_dpms_force_level(QX11Info::connection(), level);
+    xcb_dpms_force_level(c, level);
 }
 
 void XcbDpmsHelper::inhibited()
 {
     qCDebug(POWERDEVIL) << "Disabling DPMS due to inhibition";
-    xcb_dpms_set_timeouts(QX11Info::connection(), 0, 0, 0);
     xcb_dpms_disable(QX11Info::connection()); // wakes the screen - do we want this?
+}
+
+void XcbDpmsHelper::dpmsTimeout()
+{
+    trigger(QStringLiteral("TurnOff"));
 }

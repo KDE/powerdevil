@@ -30,7 +30,7 @@ public:
     virtual void startFade();
     virtual void stopFade();
     virtual void trigger(const QString &type) = 0;
-    virtual void profileLoaded(int idleTime);
+    virtual void profileLoaded();
     virtual void profileUnloaded();
     virtual void inhibited();
     virtual void dpmsTimeout();
