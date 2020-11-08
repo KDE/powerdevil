@@ -12,7 +12,7 @@ X-KDE-Weight=3
 
 Name=Energy Saving
 Name[ar]=حِفظ الطاقة
-Name[ast]=Aforru d'enexía
+Name[ast]=Aforru d'enerxía
 Name[bs]=Štednja energije
 Name[ca]=Estalvi d'energia
 Name[ca@valencia]=Estalvi d'energia
@@ -61,7 +61,7 @@ Name[zh_TW]=省電模式
 
 Comment=Energy Saving
 Comment[ar]=حِفظ الطاقة
-Comment[ast]=Aforru d'enexía
+Comment[ast]=Aforru enerxéticu
 Comment[bs]=Štednja energije
 Comment[ca]=Estalvi d'energia
 Comment[ca@valencia]=Estalvi d'energia

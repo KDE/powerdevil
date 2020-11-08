@@ -48,6 +48,7 @@ Name[x-test]=xxWirelessxx
 Name[zh_CN]=无线
 Name[zh_TW]=無線
 Comment=Turns off signal-transmitting devices
+Comment[ast]=Apaga los preseos que tresmitan señales
 Comment[ca]=Apaga els dispositius de transmissió de senyals
 Comment[ca@valencia]=Apaga els dispositius de transmissió de senyals
 Comment[da]=Slår enheder fra som sender signaler

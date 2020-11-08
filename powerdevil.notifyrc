@@ -1,6 +1,7 @@
 [Global]
 Name=Power Management
 Name[ar]=إدارة الطاقة
+Name[ast]=Xestión d'enerxía
 Name[bs]=Upravljanje napajanjem
 Name[ca]=Gestió d'energia
 Name[ca@valencia]=Gestió d'energia
@@ -99,6 +100,7 @@ Version=2
 [Context/warningnot]
 Name=Warning
 Name[ar]=تحذير
+Name[ast]=Alvertencia
 Name[bs]=Upozorenje
 Name[ca]=Avís
 Name[ca@valencia]=Avís
@@ -195,6 +197,7 @@ Comment[zh_TW]=用於警告通知
 [Context/stdnot]
 Name=Notification
 Name[ar]=تنبيه
+Name[ast]=Avisu
 Name[bs]=Obavještenje
 Name[ca]=Notificació
 Name[ca@valencia]=Notificació
@@ -292,6 +295,7 @@ Comment[zh_TW]=用於標準通知
 [Context/criticalnot]
 Name=Critical notification
 Name[ar]=تحذير حَرِج
+Name[ast]=Avisu críticu
 Name[bs]=Kritično obavještenje
 Name[ca]=Notificacions crítiques
 Name[ca@valencia]=Notificacions crítiques
