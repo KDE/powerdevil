@@ -161,7 +161,7 @@ void PowerDevilUPowerBackend::init()
                     Q_EMIT brightnessSupportQueried(false);
                     return;
                 }
-                m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toFloat());
+                m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toInt());
 
                 KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
                 brightnessMaxAction.setHelperId(HELPER_ID);
