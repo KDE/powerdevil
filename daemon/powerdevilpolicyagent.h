@@ -48,6 +48,22 @@ class OrgFreedesktopScreenSaverInterface;
 
 using InhibitionInfo = QPair<QString, QString>;
 
+struct LogindInhibition
+{
+    QString what;
+    QString who;
+    QString why;
+    QString mode;
+    uint pid;
+    uint uid;
+
+    bool operator==(const LogindInhibition &other) const
+    {
+        return what == other.what && who == other.who && why == other.why && mode == other.mode
+                && pid == other.pid && uid == other.uid;
+    }
+};
+
 namespace PowerDevil
 {
 
@@ -107,6 +123,8 @@ private Q_SLOTS:
     void onActiveSessionChanged(const QString & ifaceName, const QVariantMap & changedProps, const QStringList & invalidatedProps);
     void onActiveSessionChanged(const QString &activeSession);
 
+    void onManagerPropertyChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
+
 private:
     explicit PolicyAgent(QObject* parent = nullptr);
 
@@ -115,6 +133,8 @@ private:
     void finishSessionInterruption();
 
     void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
+
+    void checkLogindInhibitions();
 
     // Screen locker integration
     void onScreenLockerOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
@@ -148,6 +168,8 @@ private:
     QHash< uint, QPair< QString, QString > > m_cookieToAppName;
     QHash< uint, QString > m_cookieToBusService;
     QHash< RequiredPolicy, QList< uint > > m_typesToCookie;
+
+    QHash<uint, LogindInhibition> m_logindInhibitions;
 
     QVector<int> m_pendingInhibitions;
 

@@ -33,6 +33,9 @@
 
 #include <KIdleTime>
 
+#include <algorithm>
+#include <unistd.h>
+
 #include "powerdevilpolicyagent.h"
 #include "powerdevil_debug.h"
 
@@ -62,7 +65,25 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, NamedDBusObjectPa
     return argument;
 }
 
+QDBusArgument &operator<<(QDBusArgument &argument, const LogindInhibition &inhibition)
+{
+    argument.beginStructure();
+    argument << inhibition.what << inhibition.who << inhibition.why << inhibition.mode << inhibition.uid << inhibition.pid;
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, LogindInhibition &inhibition)
+{
+    argument.beginStructure();
+    argument >> inhibition.what >> inhibition.who >> inhibition.why >> inhibition.mode >> inhibition.uid >> inhibition.pid;
+    argument.endStructure();
+    return argument;
+}
+
 Q_DECLARE_METATYPE(NamedDBusObjectPath)
+Q_DECLARE_METATYPE(LogindInhibition)
+Q_DECLARE_METATYPE(QList<LogindInhibition>)
 Q_DECLARE_METATYPE(InhibitionInfo)
 Q_DECLARE_METATYPE(QList<InhibitionInfo>)
 
@@ -203,6 +224,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 
         qRegisterMetaType<NamedDBusObjectPath>();
         qDBusRegisterMetaType<NamedDBusObjectPath>();
+        qDBusRegisterMetaType<LogindInhibition>();
+        qDBusRegisterMetaType<QList<LogindInhibition>>();
 
         // get the current session
         m_managerIface.reset(new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus()));
@@ -265,7 +288,12 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
 
         onActiveSessionChanged(m_activeSessionPath);
 
+        // block logind from handling time-based inhibitions
         setupSystemdInhibition();
+        // and then track logind's ihibitions, too
+        QDBusConnection::systemBus().connect(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
+                                             SLOT(onManagerPropertyChanged(QString,QVariantMap,QStringList)));
+        checkLogindInhibitions();
 
         qCDebug(POWERDEVIL) << "systemd support initialized";
     } else if (serviceName == CONSOLEKIT_SERVICE) {
@@ -375,6 +403,84 @@ void PolicyAgent::onActiveSessionChanged(const QString& activeSession)
             m_wasLastActiveSession = false;
             Q_EMIT sessionActiveChanged(false);
         }
+    }
+}
+
+void PolicyAgent::checkLogindInhibitions()
+{
+    qCDebug(POWERDEVIL) << "Checking logind inhibitions";
+
+    QDBusPendingReply<QList<LogindInhibition>> reply = m_managerIface->asyncCall(QStringLiteral("ListInhibitors"));
+
+    auto *watcher = new QDBusPendingCallWatcher(reply, this);
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        QDBusPendingReply<QList<LogindInhibition>> reply = *watcher;
+        watcher->deleteLater();
+
+        if (reply.isError()) {
+            qCWarning(POWERDEVIL) << "Failed to ask logind for inhibitions" << reply.error().message();
+            return;
+        }
+
+        const auto activeInhibitions = reply.value();
+
+        // Add all inhibitions that we don't know already
+        for (const auto &activeInhibition : activeInhibitions) {
+            if (activeInhibition.mode != QLatin1String("block")) {
+                continue;
+            }
+
+            if (static_cast<pid_t>(activeInhibition.pid) == getpid()) {
+                continue;
+            }
+
+            const auto types = activeInhibition.what.split(QLatin1Char(':'));
+
+            RequiredPolicies policies{};
+
+            if (types.contains(QLatin1String("sleep"))) {
+                policies |= InterruptSession;
+            }
+            if (types.contains(QLatin1String("idle"))) {
+                policies |= ChangeScreenSettings;
+            }
+
+            if (!policies) {
+                continue;
+            }
+
+            const bool known = std::find(m_logindInhibitions.constBegin(),
+                                         m_logindInhibitions.constEnd(),
+                                         activeInhibition) != m_logindInhibitions.constEnd();
+            if (known) {
+                continue;
+            }
+
+            qCDebug(POWERDEVIL) << "Adding logind inhibition:" << activeInhibition.what << activeInhibition.who << activeInhibition.why
+                                << "from" << activeInhibition.pid << "of user" << activeInhibition.uid;
+            const uint cookie = AddInhibition(policies, activeInhibition.who, activeInhibition.why);
+            m_logindInhibitions.insert(cookie, activeInhibition);
+        }
+
+        // Remove all inhibitions that logind doesn't have anymore
+        for (auto it = m_logindInhibitions.begin(); it != m_logindInhibitions.end();) {
+            if (!activeInhibitions.contains(*it)) {
+                qCDebug(POWERDEVIL) << "Releasing logind inhibition:" << it->what << it->who << it->why << "from" << it->pid << "of user" << it->uid;
+                ReleaseInhibition(it.key());
+                it = m_logindInhibitions.erase(it);
+            } else {
+                ++it;
+            }
+        }
+    });
+}
+
+void PolicyAgent::onManagerPropertyChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
+{
+    const QString key = QStringLiteral("BlockInhibited");
+
+    if (ifaceName == SYSTEMD_LOGIN1_MANAGER_IFACE && (changedProps.contains(key) || invalidatedProps.contains(key))) {
+        checkLogindInhibitions();
     }
 }
 
