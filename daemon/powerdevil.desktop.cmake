@@ -50,6 +50,7 @@ Name[x-test]=xxPower Managementxx
 Name[zh_CN]=电源管理
 Name[zh_TW]=電源管理
 Exec=@KDE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
+NoDisplay=true
 OnlyShowIn=KDE;
 X-systemd-skip=true
 
