@@ -53,6 +53,7 @@ Exec=@KDE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
 NoDisplay=true
 OnlyShowIn=KDE;
 X-systemd-skip=true
+X-KDE-autostart-phase=0
 
 Comment=Battery, Display and CPU power management and notification
 Comment[ar]=تنبيهات وإدارة طاقة المعالِج والعَرض والبطارية
