@@ -409,6 +409,11 @@ PolicyAgent::RequiredPolicies PolicyAgent::unavailablePolicies()
     return retpolicies;
 }
 
+bool PolicyAgent::screenLockerActive() const
+{
+    return m_screenLockerActive;
+}
+
 PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::RequiredPolicies policies)
 {
     if (!m_sdAvailable) {
@@ -496,7 +501,10 @@ void PolicyAgent::onScreenLockerActiveChanged(bool active)
 {
     const auto oldPolicies = unavailablePolicies();
 
-    m_screenLockerActive = active;
+    if (m_screenLockerActive != active) {
+        m_screenLockerActive = active;
+        Q_EMIT screenLockerActiveChanged(active);
+    }
 
     const auto newPolicies = unavailablePolicies();
 

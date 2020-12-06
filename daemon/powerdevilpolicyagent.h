@@ -79,6 +79,8 @@ public:
 
     RequiredPolicies unavailablePolicies();
 
+    bool screenLockerActive() const;
+
     void setupSystemdInhibition();
 
 public Q_SLOTS:
@@ -96,6 +98,7 @@ Q_SIGNALS:
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
     void sessionActiveChanged(bool active);
+    void screenLockerActiveChanged(bool active);
 
 private Q_SLOTS:
     void onServiceUnregistered(const QString & serviceName);
