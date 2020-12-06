@@ -82,7 +82,12 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
 
     QAction *globalAction = actionCollection->addAction(QLatin1String("Turn Off Screen"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Turn Off Screen"));
-    accel->setGlobalShortcut(globalAction, QList<QKeySequence>());
+    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
+    if (!mobile) {
+        accel->setGlobalShortcut(globalAction, QList<QKeySequence>());
+    } else {
+        accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
+    }
     connect(globalAction, &QAction::triggered, this, [this] {
         if (m_helper) {
             if (m_lockBeforeTurnOff) {

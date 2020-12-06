@@ -47,6 +47,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
     , m_screenConfiguration(nullptr)
 {
+    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
     new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
@@ -70,7 +71,9 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
     globalAction = actionCollection->addAction("PowerOff");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Off"));
-    accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
+    if (!mobile) {
+        accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
+    }
     connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
 
     globalAction = actionCollection->addAction("PowerDown");
