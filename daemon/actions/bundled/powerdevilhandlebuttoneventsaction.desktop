@@ -6,6 +6,7 @@ Icon=system-suspend
 
 Name=Button events handling
 Name[ar]=التعامل مع أحداث ضغط الأزرار
+Name[az]=Güc düyməsinin fəaliyyəti
 Name[bs]=Rukovanje događajima dugmadi
 Name[ca]=Gestió dels esdeveniments del botó
 Name[ca@valencia]=Gestió dels esdeveniments del botó
@@ -55,6 +56,7 @@ Name[zh_TW]=按鍵事件處理
 Comment=Performs an action whenever a button is pressed
 Comment[ar]=تنفيذ حَدَث عند ضغط زِرّ
 Comment[ast]=Fai una aición siempres que se prima un botón
+Comment[az]=Düyməyə basıldıqda yerinə yetirin əməl
 Comment[bs]=Izvršava radnju na svaki pritisak dugmeta
 Comment[ca]=Porta a terme una acció quan es prem un botó
 Comment[ca@valencia]=Porta a terme una acció quan es prem un botó
