@@ -43,6 +43,7 @@
 #ifdef HAVE_WIRELESS_SUPPORT
 #include "actions/bundled/wirelesspowersaving.h"
 #endif
+#include "actions/bundled/powerprofile.h"
 
 namespace PowerDevil
 {
@@ -135,6 +136,7 @@ void ActionPool::init(PowerDevil::Core *parent)
 #ifdef HAVE_WIRELESS_SUPPORT
     m_actionPool.insert(QStringLiteral("WirelessPowerSaving"), new BundledActions::WirelessPowerSaving(parent));
 #endif
+    m_actionPool.insert(QStringLiteral("PowerProfile"), new BundledActions::PowerProfile(parent));
 
     // Verify support
     QHash<QString,Action*>::iterator i = m_actionPool.begin();

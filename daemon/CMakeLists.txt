@@ -19,7 +19,9 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/xcbdpmshelper.cpp
     actions/bundled/waylanddpmshelper.cpp
     ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
+    actions/bundled/powerprofile.cpp
 )
+
 
 if(HAVE_WIRELESS_SUPPORT)
     set(powerdevil_bundled_actions_SRCS ${powerdevil_bundled_actions_SRCS}
@@ -66,8 +68,14 @@ if(HAVE_WIRELESS_SUPPORT)
     qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
                          actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
 endif()
+qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.PowerProfile.xml
+                         actions/bundled/powerprofile.h PowerDevil::BundledActions::PowerProfile)
 
 qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
+
+qt5_add_dbus_interface(powerdevilcore_SRCS actions/bundled/org.freedesktop.DBus.Properties.xml properties_interface)
+
+qt5_add_dbus_interface(powerdevilcore_SRCS actions/bundled/net.hadess.PowerProfiles.xml power_profiles_interface)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)

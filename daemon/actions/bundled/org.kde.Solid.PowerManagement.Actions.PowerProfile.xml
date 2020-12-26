@@ -1,0 +1,26 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.Solid.PowerManagement.Actions.PowerProfile">
+    <method name="currentProfile">
+        <arg type="s" direction="out" />
+    </method>
+    <method name="profileChoices">
+        <arg type="as" direction="out" />
+    </method>
+    <method name="setProfile">
+      <arg type="s" direction="in"/>
+    </method>
+    <method name="performanceInhibitedReason">
+        <arg type="s" direction="out" />
+    </method>
+    <signal name="currentProfileChanged">
+      <arg type="s" direction="out" />
+    </signal>
+    <signal name="profileChoicesChanged">
+      <arg type="as" direction="out" />
+    </signal>
+    <signal name="performanceInhibitedReasonChanged">
+        <arg type="s" direction="out" />
+    </signal>
+  </interface>
+</node>
