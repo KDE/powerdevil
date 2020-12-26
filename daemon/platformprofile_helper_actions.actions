@@ -1,0 +1,21 @@
+[Domain]
+Name=KDE
+Icon=kde
+
+[org.kde.powerdevil.platformprofilehelper.getprofilechoices]
+Name=Get supported power management profiles
+Description=System policies prevent you from getting the supported powermanagement profiles.
+Policy=yes
+PolicyInactive=yes
+
+[org.kde.powerdevil.platformprofilehelper.getprofile]
+Name=Get current power management profile
+Description=System policies prevent you from getting the currently active power management profile.
+Policy=yes
+PolicyInactive=yes
+
+[org.kde.powerdevil.platformprofilehelper.setprofile]
+Name=Get current power management profile
+Description=System policies prevent you from getting the currently active power management profile.
+Policy=yes
+PolicyInactive=no

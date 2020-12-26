@@ -1,0 +1,14 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.Solid.PowerManagement.Actions.PlatformProfile">
+    <property name="currentProfile" type="s" access="read"/>
+    <property name="profileChoices" type="as" access="read"/>
+
+    <method name="setProfile">
+      <arg type="s" direction="in"/>
+    </method>
+    <signal name="currentProfileChanged">
+      <arg type="s" direction="out" />
+    </signal>
+  </interface>
+</node>

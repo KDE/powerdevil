@@ -23,6 +23,7 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/dimdisplay.cpp
     actions/bundled/runscript.cpp
     actions/bundled/handlebuttonevents.cpp
+    actions/bundled/platformprofile.cpp
 )
 
 if(HAVE_WIRELESS_SUPPORT)
@@ -69,6 +70,8 @@ if(HAVE_WIRELESS_SUPPORT)
     qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
                          actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
 endif()
+qt5_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.PlatformProfile.xml
+                         actions/bundled/platformprofile.h PowerDevil::BundledActions::PlatformProfile)
 
 qt5_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
 
@@ -126,6 +129,13 @@ target_link_libraries(chargethresholdhelper Qt5::Core KF5::AuthCore)
 install(TARGETS chargethresholdhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(chargethresholdhelper org.kde.powerdevil.chargethresholdhelper root)
 kauth_install_actions(org.kde.powerdevil.chargethresholdhelper chargethreshold_helper_actions.actions)
+
+# KAuth platform profile helper
+add_executable(platformprofilehelper platformprofilehelper powerdevil_debug.cpp ${platformprofilehelper_mocs})
+target_link_libraries(platformprofilehelper Qt5::Core KF5::AuthCore)
+install(TARGETS platformprofilehelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+kauth_install_helper_files(platformprofilehelper org.kde.powerdevil.platformprofilehelper root)
+kauth_install_actions(org.kde.powerdevil.platformprofilehelper platformprofile_helper_actions.actions)
 
 # Backends
 add_subdirectory(backends)
