@@ -52,7 +52,8 @@ ecm_qt_declare_logging_category(powerdevilcore_SRCS
    HEADER powerdevil_debug.h
    IDENTIFIER POWERDEVIL
    CATEGORY_NAME org.kde.powerdevil
-   DEFAULT_SEVERITY Warning)
+   DEFAULT_SEVERITY Warning
+   DESCRIPTION "Powerdevil" EXPORT POWERDEVIL)
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 

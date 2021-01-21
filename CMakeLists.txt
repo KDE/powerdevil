@@ -85,7 +85,11 @@ add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
 
-install( FILES powerdevil.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+ecm_qt_install_logging_categories(
+        EXPORT POWERDEVIL
+        FILE powerdevil.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+        )
 install( FILES powerdevil.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
 
 # add clang-format target for all our real source files
