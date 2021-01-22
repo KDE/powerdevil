@@ -11,6 +11,11 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=99
 
 Name=Advanced Power Settings
+Name[ca]=Arranjament avançat d'energia
+Name[es]=Preferencias de energía avanzadas
+Name[pt]=Configuração Avançada da Energia
+Name[sv]=Avancerade ströminställningar
+Name[x-test]=xxAdvanced Power Settingsxx
 
 Comment=Advanced Power Management Settings
 Comment[ar]=إعدادات إدارة الطاقة المتقدمة
