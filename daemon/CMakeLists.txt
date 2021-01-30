@@ -102,7 +102,7 @@ if(HAVE_WIRELESS_SUPPORT)
 endif()
 
 if (XCB_FOUND) # kwin kscreen helper effect
-    target_link_libraries(powerdevilcore Qt5::X11Extras XCB::XCB)
+    target_link_libraries(powerdevilcore Qt::X11Extras XCB::XCB)
 endif ()
 
 # target no.2 - powerdevil kded module
@@ -123,7 +123,7 @@ qt5_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.Inhibit.xml
 
 # KAuth charge threshold helper
 add_executable(chargethresholdhelper chargethresholdhelper.cpp powerdevil_debug.cpp ${chargethresholdhelper_mocs})
-target_link_libraries(chargethresholdhelper Qt5::Core KF5::AuthCore)
+target_link_libraries(chargethresholdhelper Qt::Core KF5::AuthCore)
 install(TARGETS chargethresholdhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(chargethresholdhelper org.kde.powerdevil.chargethresholdhelper root)
 kauth_install_actions(org.kde.powerdevil.chargethresholdhelper chargethreshold_helper_actions.actions)
@@ -146,7 +146,7 @@ target_link_libraries(powerdevil
     powerdevilcore
 )
 if (XCB_FOUND)
-    target_link_libraries(powerdevil Qt5::X11Extras)
+    target_link_libraries(powerdevil Qt::X11Extras)
 endif ()
 
 target_link_libraries(powerdevil ${UDEV_LIBS})
@@ -177,7 +177,7 @@ set_target_properties(powerdevilui PROPERTIES VERSION ${PROJECT_VERSION} SOVERSI
 # not exported, so just make the deps public
 target_link_libraries(powerdevilui
     PUBLIC
-        Qt5::Widgets
+        Qt::Widgets
         KF5::ConfigCore
 )
 

@@ -28,14 +28,14 @@ upower_kbdbacklight_interface)
 
 ## backlight helper executable
 add_executable(backlighthelper upower/backlighthelper.cpp ${CMAKE_CURRENT_BINARY_DIR}/../powerdevil_debug.cpp ${backlighthelper_mocs})
-target_link_libraries(backlighthelper Qt5::Core KF5::AuthCore KF5::I18n)
+target_link_libraries(backlighthelper Qt::Core KF5::AuthCore KF5::I18n)
 install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
 kauth_install_actions(org.kde.powerdevil.backlighthelper ${CMAKE_CURRENT_SOURCE_DIR}/upower/backlight_helper_actions.actions)
 
 ## discrete gpu helper executable
 add_executable(discretegpuhelper upower/discretegpuhelper.cpp ${CMAKE_CURRENT_BINARY_DIR}/../powerdevil_debug.cpp ${discretegpuhelper_mocs})
-target_link_libraries(discretegpuhelper Qt5::Core KF5::AuthCore)
+target_link_libraries(discretegpuhelper Qt::Core KF5::AuthCore)
 install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
 kauth_install_actions(org.kde.powerdevil.discretegpuhelper ${CMAKE_CURRENT_SOURCE_DIR}/upower/discretegpu_helper_actions.actions)
@@ -43,7 +43,7 @@ kauth_install_actions(org.kde.powerdevil.discretegpuhelper ${CMAKE_CURRENT_SOURC
 add_library(powerdevilupowerbackend ${powerdevilupowerbackend_SRCS})
 set_target_properties(powerdevilupowerbackend PROPERTIES PREFIX "")
 target_link_libraries(powerdevilupowerbackend
-    Qt5::Widgets
+    Qt::Widgets
     KF5::AuthCore
     KF5::ConfigCore
     KF5::CoreAddons

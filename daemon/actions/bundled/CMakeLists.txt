@@ -5,7 +5,7 @@ function(add_powerdevil_bundled_action _name)
     target_link_libraries(powerdevil${_name}action_config
                         powerdevilcore
                         powerdevilui
-                        Qt5::Widgets
+                        Qt::Widgets
                         KF5::CoreAddons
                         KF5::I18n
                         KF5::ConfigGui
@@ -33,7 +33,7 @@ add_library(powerdevilhandlebuttoneventsaction_config MODULE
 target_link_libraries(powerdevilhandlebuttoneventsaction_config
                     powerdevilcore
                     powerdevilui
-                    Qt5::Widgets
+                    Qt::Widgets
                     KF5::CoreAddons
                     KF5::I18n
                     KF5::ConfigGui

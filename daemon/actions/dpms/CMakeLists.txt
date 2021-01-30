@@ -13,14 +13,14 @@ set(powerdevildpmsaction_SRCS
 
 add_library(powerdevildpmsaction MODULE ${powerdevildpmsaction_SRCS})
 target_link_libraries(powerdevildpmsaction
-        Qt5::X11Extras
+        Qt::X11Extras
         XCB::XCB
         XCB::DPMS
         KF5::CoreAddons
         KF5::ConfigGui
         KF5::I18n
         KF5::WaylandClient
-        Qt5::Widgets
+        Qt::Widgets
         powerdevilcore)
 install(TARGETS powerdevildpmsaction DESTINATION ${KDE_INSTALL_PLUGINDIR})
 install(FILES powerdevildpmsaction.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
@@ -33,6 +33,6 @@ target_link_libraries(powerdevildpmsaction_config
                       KF5::CoreAddons
                       KF5::ConfigGui
                       KF5::I18n
-                      Qt5::Widgets
+                      Qt::Widgets
                       powerdevilui)
 install(TARGETS powerdevildpmsaction_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
