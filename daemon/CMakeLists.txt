@@ -5,15 +5,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 
 add_subdirectory(actions)
 
-set(POWERDEVIL_CORE_VERSION_MAJOR 2)
-set(POWERDEVIL_CORE_VERSION_MINOR 0)
-set(POWERDEVIL_CORE_VERSION_MICRO 0)
-set(POWERDEVIL_CORE_VERSION_STRING ${POWERDEVIL_CORE_VERSION_MAJOR}.${POWERDEVIL_CORE_VERSION_MINOR}.${POWERDEVIL_CORE_VERSION_MICRO})
-
-ecm_setup_version(${POWERDEVIL_CORE_VERSION_STRING} VARIABLE_PREFIX POWERDEVIL
-                  VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/powerdevil_version.h"
-)
-
 # Add bundled actions
 set(powerdevil_bundled_actions_SRCS
     powerdevil_debug.cpp
@@ -74,7 +65,7 @@ endif()
 qt5_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
-set_target_properties(powerdevilcore PROPERTIES VERSION ${POWERDEVIL_CORE_VERSION_STRING} SOVERSION ${POWERDEVIL_CORE_VERSION_MAJOR})
+set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
 
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore

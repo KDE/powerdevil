@@ -81,6 +81,10 @@ include_directories (
 add_definitions(-DQT_NO_KEYWORDS)
 add_definitions(-DQT_NO_FOREACH)
 
+ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX POWERDEVIL
+                  VERSION_HEADER "${CMAKE_BINARY_DIR}/powerdevil_version.h"
+)
+
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
