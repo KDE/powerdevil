@@ -80,3 +80,9 @@ Comment[zh_CN]=高级电源管理设置
 Comment[zh_TW]=進階電源管理設定
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,levels,critical,charge,charging,limit, charge limit, charging limit
+X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,nivells,crític,càrrega,carregant,límit,límit de càrrega,càrrega límit
+X-KDE-Keywords[nl]=systeem,energie,energiebeheer,laptop,batterij,accu,suspensie,AC,onderbreken,slapen,helderheid,prestaties,deksel,niveaus,kritisch,laden, wordt geladen,limiet,oplaadlimiet,limiet bij opladen
+X-KDE-Keywords[pt_BR]=sistema,energia,gerenciamento de energia,energia,portátil,laptop,notebook,bateria,suspensão,AC,suspender,hibernar,brilho,desempenho,tampa,níveis,crítico,carregar,carregamento,carregando,limite,limite de carga,limite decarregamento
+X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,viloläge,AC,gå till viloläge,dvala,ljusstyrka,prestanda,lock,aktivitet,aktiviteter,nivåer,kritisk,ladda,laddning,gräns,laddningsgräns
+X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,levels,critical,charge,charging,limit, charge limit, charging limit,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність,рівні,критичний,заряд,заряджання,межа,межа заряджання,обмеження
+X-KDE-Keywords[x-test]=xxsystemxx,xxpowerxx,xxpower managementxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxhibernatexx,xxbrightnessxx,xxperformancexx,xxlidxx,xxlevelsxx,xxcriticalxx,xxchargexx,xxchargingxx,xxlimitxx,xx charge limitxx,xx charging limitxx
