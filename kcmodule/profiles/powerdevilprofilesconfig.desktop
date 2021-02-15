@@ -112,8 +112,11 @@ Comment[zh_TW]=省電模式
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,screen
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa,pantalla
+X-KDE-Keywords[en_GB]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,screen
+X-KDE-Keywords[es]=sistema,energía,gestión de energía,portátil,laptop,batería,suspensión,AC,suspender,hibernar,brillo,rendimiento,tapa,pantalla
 X-KDE-Keywords[nl]=systeem,energie,energiebeheer,laptop,batterij,accu,suspension,AC,onderbreken,slapen,helderheid,prestaties,deksel,scherm
 X-KDE-Keywords[nn]=system,straum,straumstyring,energi,berbar,batteri,kvilemodus,AC,kvile,dvale,dvalemodus,lysstyrke,yting,lokk,skjerm
+X-KDE-Keywords[pl]=system,moc,zarządzanie energią,energia,laptop,bateria,wstrzymanie,AC,wstrzymaj,hibernuj,jasność,wydajność,pokrywka,ekran
 X-KDE-Keywords[pt]=sistema,energia,gestão de energia,portátil,bateria,suspensão,AC,suspender,hibernar,hibernação,brilho,performance,tampa,ecrã
 X-KDE-Keywords[pt_BR]=sistema,energia,gerenciamento de energia,energia,notebook,laptop,portátil,bateria,suspensão,AC,suspender,hibernar,brilho,desempenho,tampa,tela
 X-KDE-Keywords[sl]=sistem,energija,upravljanje z energijo,prenosnik,prenosni računalnik,baterija,akumulator,pripravljenost,mirovanje,električno omrežje,svetlost,zmogljivost,pokrov,zaslon
