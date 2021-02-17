@@ -111,6 +111,7 @@ Comment[zh_CN]=节能
 Comment[zh_TW]=省電模式
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,screen
+X-KDE-Keywords[az]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lidsistem,güc,enerjiyə nəzarət,noutbuk,batareyayuxu,dayanma,parlaqlıq,məhsuldarlıq,ekran
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa,pantalla
 X-KDE-Keywords[en_GB]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,screen
 X-KDE-Keywords[es]=sistema,energía,gestión de energía,portátil,laptop,batería,suspensión,AC,suspender,hibernar,brillo,rendimiento,tapa,pantalla

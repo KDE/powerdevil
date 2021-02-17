@@ -81,6 +81,7 @@ Comment[zh_CN]=高级电源管理设置
 Comment[zh_TW]=進階電源管理設定
 
 X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,levels,critical,charge,charging,limit, charge limit, charging limit
+X-KDE-Keywords[az]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities, enerji,güc.el.enerjisi,idarəetmə,dayanma,batareya,yuxu,parlaqlıq,iş keyfiyyəti,otaqlar,otaq,noutbuk,səviyyələr,kritik,limit,dolma limiti,doldurma limiti
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspendre,hibernació,lluminositat,rendiment,tapa,nivells,crític,càrrega,carregant,límit,límit de càrrega,càrrega límit
 X-KDE-Keywords[en_GB]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,levels,critical,charge,charging,limit, charge limit, charging limit
 X-KDE-Keywords[es]=sistema,energía,gestión de energía,portátil,laptop,batería,suspensión,AC,suspender,hibernar,brillo,rendimiento,tapa,niveles,crítica,carga,cargando,límite,limitar carga,límite de carga
