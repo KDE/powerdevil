@@ -1027,6 +1027,14 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
 void Core::wakeup()
 {
     onResumingFromIdle();
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("DPMSControl"), KConfigGroup(), this);
+    if (helperAction) {
+        QVariantMap args;
+        // we pass empty string as type because when empty type is passed,
+        // it turns screen on.
+        args[QStringLiteral("Type")] = "";
+        helperAction->trigger(args);
+    }
 }
 
 void Core::clearWakeup(int cookie)
