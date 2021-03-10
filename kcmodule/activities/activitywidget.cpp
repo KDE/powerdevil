@@ -49,7 +49,7 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
         QWidget *widget = m_ui->specialBehaviorLayout->itemAt(i)->widget();
         if (widget) {
             widget->setVisible(false);
-            connect(m_ui->specialBehaviorRadio, SIGNAL(toggled(bool)), widget, SLOT(setVisible(bool)));
+            connect(m_ui->specialBehaviorRadio, &QAbstractButton::toggled, widget, &QWidget::setVisible);
         } else {
             QLayout *layout = m_ui->specialBehaviorLayout->itemAt(i)->layout();
             if (layout) {
@@ -57,7 +57,7 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
                     QWidget *widget = layout->itemAt(j)->widget();
                     if (widget) {
                         widget->setVisible(false);
-                        connect(m_ui->specialBehaviorRadio, SIGNAL(toggled(bool)), widget, SLOT(setVisible(bool)));
+                        connect(m_ui->specialBehaviorRadio, &QAbstractButton::toggled, widget, &QWidget::setVisible);
                     }
                 }
             }
@@ -67,17 +67,17 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
     m_actionEditWidget->setVisible(false);
     m_actionEditWidget->load();
 
-    connect(m_ui->separateSettingsRadio, SIGNAL(toggled(bool)), m_actionEditWidget, SLOT(setVisible(bool)));
+    connect(m_ui->separateSettingsRadio, &QAbstractButton::toggled, m_actionEditWidget, &QWidget::setVisible);
 
-    connect(m_ui->actLikeRadio, SIGNAL(toggled(bool)), this, SLOT(setChanged()));
-    connect(m_ui->noSettingsRadio, SIGNAL(toggled(bool)), this, SLOT(setChanged()));
-    connect(m_ui->separateSettingsRadio, SIGNAL(toggled(bool)), this, SLOT(setChanged()));
-    connect(m_ui->specialBehaviorRadio, SIGNAL(toggled(bool)), this, SLOT(setChanged()));
+    connect(m_ui->actLikeRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
+    connect(m_ui->noSettingsRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
+    connect(m_ui->separateSettingsRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
+    connect(m_ui->specialBehaviorRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
     connect(m_ui->actLikeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_ui->alwaysActionBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_ui->alwaysAfterSpin, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 
-    connect(m_actionEditWidget, SIGNAL(changed(bool)), this, SIGNAL(changed(bool)));
+    connect(m_actionEditWidget, &ActionEditWidget::changed, this, &ActivityWidget::changed);
 }
 
 ActivityWidget::~ActivityWidget()

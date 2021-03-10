@@ -88,10 +88,10 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
             continue;
         }
 
-        connect(actionConfig, SIGNAL(changed()), this, SLOT(onChanged()));
+        connect(actionConfig, &PowerDevil::ActionConfig::changed, this, &ActionEditWidget::onChanged);
 
         QCheckBox *checkbox = new QCheckBox(offer->name());
-        connect(checkbox, SIGNAL(stateChanged(int)), this, SLOT(onChanged()));
+        connect(checkbox, &QCheckBox::stateChanged, this, &ActionEditWidget::onChanged);
         m_actionsHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), checkbox);
         m_actionsConfigHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), actionConfig);
 

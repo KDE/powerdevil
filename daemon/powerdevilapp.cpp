@@ -84,7 +84,7 @@ void PowerDevilApp::init()
     // where the X connection is already lost leading to a crash (Bug 371127)
     m_core = new PowerDevil::Core(nullptr/*, KComponentData(aboutData)*/);
 
-    connect(m_core, SIGNAL(coreReady()), this, SLOT(onCoreReady()));
+    connect(m_core, &PowerDevil::Core::coreReady, this, &PowerDevilApp::onCoreReady);
 
     // Before doing anything, let's set up our backend
     const QStringList paths = QCoreApplication::libraryPaths();

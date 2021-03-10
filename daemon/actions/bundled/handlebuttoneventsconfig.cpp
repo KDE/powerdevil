@@ -114,7 +114,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     }
 
     connect(m_lidCloseCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
-    connect(m_triggerLidActionWhenExternalMonitorPresent, SIGNAL(stateChanged(int)), this, SLOT(setChanged()));
+    connect(m_triggerLidActionWhenExternalMonitorPresent, &QCheckBox::stateChanged, this, &HandleButtonEventsConfig::setChanged);
     connect(m_powerButtonCombo, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
 
     bool lidFound = false;

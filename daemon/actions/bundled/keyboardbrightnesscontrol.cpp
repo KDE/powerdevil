@@ -59,17 +59,17 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     QAction *globalAction = actionCollection->addAction(QLatin1String("Increase Keyboard Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Keyboard Brightness"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessUp);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseKeyboardBrightness()));
+    connect(globalAction, &QAction::triggered, this, &KeyboardBrightnessControl::increaseKeyboardBrightness);
 
     globalAction = actionCollection->addAction(QLatin1String("Decrease Keyboard Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Keyboard Brightness"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessDown);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseKeyboardBrightness()));
+    connect(globalAction, &QAction::triggered, this, &KeyboardBrightnessControl::decreaseKeyboardBrightness);
 
     globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardLightOnOff);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(toggleKeyboardBacklight()));
+    connect(globalAction, &QAction::triggered, this, &KeyboardBrightnessControl::toggleKeyboardBacklight);
 
     // My laptop sets the keyboard brightness to zero when I close the lid and it suspends
     // this makes sure the keyboard brightness is restored when we wake up :)

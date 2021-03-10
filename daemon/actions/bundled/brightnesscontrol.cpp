@@ -53,12 +53,12 @@ BrightnessControl::BrightnessControl(QObject* parent)
     QAction* globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(increaseBrightness()));
+    connect(globalAction, &QAction::triggered, this, &BrightnessControl::increaseBrightness);
 
     globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessDown);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(decreaseBrightness()));
+    connect(globalAction, &QAction::triggered, this, &BrightnessControl::decreaseBrightness);
 }
 
 void BrightnessControl::onProfileUnload()

@@ -94,7 +94,7 @@ QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
 
     retlist.append(qMakePair< QString, QWidget* >(i18n("Run script"), tempWidget));
 
-    connect(m_urlRequester, SIGNAL(textChanged(QString)), this, SLOT(setChanged()));
+    connect(m_urlRequester, &KUrlRequester::textChanged, this, &RunScriptConfig::setChanged);
     connect(m_comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_idleTime, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 

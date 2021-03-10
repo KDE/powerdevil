@@ -91,17 +91,17 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     ActionEditWidget *editWidget = new ActionEditWidget("AC", tabWidget);
     m_editWidgets.insert("AC", editWidget);
     acWidgetLayout->addWidget(editWidget);
-    connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
+    connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
 
     editWidget = new ActionEditWidget("Battery", tabWidget);
     m_editWidgets.insert("Battery", editWidget);
     batteryWidgetLayout->addWidget(editWidget);
-    connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
+    connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
 
     editWidget = new ActionEditWidget("LowBattery", tabWidget);
     m_editWidgets.insert("LowBattery", editWidget);
     lowBatteryWidgetLayout->addWidget(editWidget);
-    connect(editWidget, SIGNAL(changed(bool)), this, SLOT(onChanged(bool)));
+    connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -109,8 +109,8 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
                                                            QDBusServiceWatcher::WatchForUnregistration,
                                                            this);
 
-    connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
-    connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
+    connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &EditPage::onServiceRegistered);
+    connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &EditPage::onServiceUnregistered);
 
     bool hasBattery = false;
     const auto batteries = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());

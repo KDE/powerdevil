@@ -113,7 +113,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     int comboBoxMaxWidth = 300;
     if (PowerManagement::instance()->canSuspendThenHibernate()) {
         m_suspendThenHibernateEnabled = new QCheckBox(i18n("While asleep, hibernate after a period of inactivity"));
-        connect(m_suspendThenHibernateEnabled, SIGNAL(stateChanged(int)), this, SLOT(setChanged()));
+        connect(m_suspendThenHibernateEnabled, &QCheckBox::stateChanged, this, &SuspendSessionConfig::setChanged);
         retlist.append(qMakePair< QString, QWidget* >(QLatin1String("NONE"), m_suspendThenHibernateEnabled));
         comboBoxMaxWidth = qMax(comboBoxMaxWidth, m_suspendThenHibernateEnabled->sizeHint().width());
         m_suspendThenHibernateEnabled->setMinimumWidth(300);

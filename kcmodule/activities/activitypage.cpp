@@ -93,8 +93,8 @@ ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
                                                            QDBusServiceWatcher::WatchForUnregistration,
                                                            this);
 
-    connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
-    connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
+    connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &ActivityPage::onServiceRegistered);
+    connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &ActivityPage::onServiceUnregistered);
 
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
         onServiceRegistered("org.kde.Solid.PowerManagement");

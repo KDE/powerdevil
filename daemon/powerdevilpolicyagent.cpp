@@ -145,10 +145,10 @@ void PolicyAgent::init()
                                      QDBusServiceWatcher::WatchForRegistration);
     m_sdWatcher.data()->addWatchedService(SYSTEMD_LOGIN1_SERVICE);
 
-    connect(m_sdWatcher.data(), SIGNAL(serviceRegistered(QString)),
-            this, SLOT(onSessionHandlerRegistered(QString)));
-    connect(m_sdWatcher.data(), SIGNAL(serviceUnregistered(QString)),
-            this, SLOT(onSessionHandlerUnregistered(QString)));
+    connect(m_sdWatcher.data(), &QDBusServiceWatcher::serviceRegistered,
+            this, &PolicyAgent::onSessionHandlerRegistered);
+    connect(m_sdWatcher.data(), &QDBusServiceWatcher::serviceUnregistered,
+            this, &PolicyAgent::onSessionHandlerUnregistered);
     // If it's up and running already, let's cache it
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(SYSTEMD_LOGIN1_SERVICE)) {
         onSessionHandlerRegistered(SYSTEMD_LOGIN1_SERVICE);
@@ -160,10 +160,10 @@ void PolicyAgent::init()
                                      QDBusServiceWatcher::WatchForRegistration);
     m_ckWatcher.data()->addWatchedService(CONSOLEKIT_SERVICE);
 
-    connect(m_ckWatcher.data(), SIGNAL(serviceRegistered(QString)),
-            this, SLOT(onSessionHandlerRegistered(QString)));
-    connect(m_ckWatcher.data(), SIGNAL(serviceUnregistered(QString)),
-            this, SLOT(onSessionHandlerUnregistered(QString)));
+    connect(m_ckWatcher.data(), &QDBusServiceWatcher::serviceRegistered,
+            this, &PolicyAgent::onSessionHandlerRegistered);
+    connect(m_ckWatcher.data(), &QDBusServiceWatcher::serviceUnregistered,
+            this, &PolicyAgent::onSessionHandlerUnregistered);
     // If it's up and running already, let's cache it
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT_SERVICE)) {
         onSessionHandlerRegistered(CONSOLEKIT_SERVICE);
@@ -173,8 +173,8 @@ void PolicyAgent::init()
     m_busWatcher.data()->setConnection(QDBusConnection::sessionBus());
     m_busWatcher.data()->setWatchMode(QDBusServiceWatcher::WatchForUnregistration);
 
-    connect(m_busWatcher.data(), SIGNAL(serviceUnregistered(QString)),
-            this, SLOT(onServiceUnregistered(QString)));
+    connect(m_busWatcher.data(), &QDBusServiceWatcher::serviceUnregistered,
+            this, &PolicyAgent::onServiceUnregistered);
 
     // Setup the screen locker watcher and check whether the screen is currently locked
     connect(m_screenLockerWatcher, &QDBusServiceWatcher::serviceOwnerChanged, this, &PolicyAgent::onScreenLockerOwnerChanged);

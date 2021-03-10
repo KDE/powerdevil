@@ -47,8 +47,8 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
     c.registerService("org.freedesktop.PowerManagement.Inhibit");
     c.registerObject("/org/freedesktop/PowerManagement/Inhibit", this);
 
-    connect(m_core->backend(), SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
-            this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
+    connect(m_core->backend(), &BackendInterface::acAdapterStateChanged,
+            this, &FdoConnector::onAcAdapterStateChanged);
     connect(PolicyAgent::instance(), SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
             this, SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
 }

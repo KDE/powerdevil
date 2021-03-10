@@ -51,8 +51,8 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
-    connect(backend(), SIGNAL(buttonPressed(PowerDevil::BackendInterface::ButtonType)),
-            this, SLOT(onButtonPressed(PowerDevil::BackendInterface::ButtonType)));
+    connect(backend(), &BackendInterface::buttonPressed,
+            this, &HandleButtonEvents::onButtonPressed);
 
     KActionCollection* actionCollection = new KActionCollection( this );
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -62,19 +62,19 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     QAction *globalAction = actionCollection->addAction("Sleep");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Suspend"));
     accel->setGlobalShortcut(globalAction, Qt::Key_Sleep);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToRam()));
+    connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::suspendToRam);
 
     globalAction = actionCollection->addAction("Hibernate");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
     accel->setGlobalShortcut(globalAction, Qt::Key_Hibernate);
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(suspendToDisk()));
+    connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::suspendToDisk);
 
     globalAction = actionCollection->addAction("PowerOff");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Off"));
     if (!mobile) {
         accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
     }
-    connect(globalAction, SIGNAL(triggered(bool)), SLOT(powerOffButtonTriggered()));
+    connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerOffButtonTriggered);
 
     globalAction = actionCollection->addAction("PowerDown");
     globalAction->setText(i18nc("@action:inmenu Global shortcut, used for long presses of the power button", "Power Down"));

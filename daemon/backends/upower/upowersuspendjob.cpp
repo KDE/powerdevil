@@ -38,7 +38,7 @@ UPowerSuspendJob::UPowerSuspendJob(OrgFreedesktopUPowerInterface *upowerInterfac
     m_method = method;
     m_supported = supported;
 
-    connect(m_upowerInterface, SIGNAL(Resuming()), this, SLOT(resumeDone()));
+    connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Resuming, this, &UPowerSuspendJob::resumeDone);
 }
 
 UPowerSuspendJob::~UPowerSuspendJob()
@@ -48,7 +48,7 @@ UPowerSuspendJob::~UPowerSuspendJob()
 
 void UPowerSuspendJob::start()
 {
-    QTimer::singleShot(0, this, SLOT(doStart()));
+    QTimer::singleShot(0, this, &UPowerSuspendJob::doStart);
 }
 
 void UPowerSuspendJob::doStart()

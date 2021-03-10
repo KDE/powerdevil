@@ -77,8 +77,8 @@ GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
                                                            QDBusServiceWatcher::WatchForUnregistration,
                                                            this);
 
-    connect(watcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
-    connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(onServiceUnregistered(QString)));
+    connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &GeneralPage::onServiceRegistered);
+    connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &GeneralPage::onServiceUnregistered);
 
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
         onServiceRegistered("org.kde.Solid.PowerManagement");
@@ -119,7 +119,7 @@ void GeneralPage::fillUi()
 
     // modified fields...
 
-    connect(notificationsButton, SIGNAL(clicked()), SLOT(configureNotifications()));
+    connect(notificationsButton, &QAbstractButton::clicked, this, &GeneralPage::configureNotifications);
 
     connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
     connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(changed()));

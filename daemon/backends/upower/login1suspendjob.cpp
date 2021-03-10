@@ -49,7 +49,7 @@ Login1SuspendJob::~Login1SuspendJob()
 
 void Login1SuspendJob::start()
 {
-    QTimer::singleShot(0, this, SLOT(doStart()));
+    QTimer::singleShot(0, this, &Login1SuspendJob::doStart);
 }
 
 void Login1SuspendJob::doStart()

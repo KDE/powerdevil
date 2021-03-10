@@ -83,9 +83,9 @@ bool PowerDevilUPowerBackend::isAvailable()
                     timer->setInterval(10000);
                     timer->setSingleShot(true);
 
-                    connect(QDBusConnection::systemBus().interface(), SIGNAL(serviceRegistered(QString)),
-                            &e, SLOT(quit()));
-                    connect(timer, SIGNAL(timeout()), &e, SLOT(quit()));
+                    connect(QDBusConnection::systemBus().interface(), &QDBusConnectionInterface::serviceRegistered,
+                            &e, &QEventLoop::quit);
+                    connect(timer, &QTimer::timeout, &e, &QEventLoop::quit);
 
                     timer->start();
 
@@ -192,7 +192,7 @@ void PowerDevilUPowerBackend::init()
                                 m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
                                 if (!m_isLedBrightnessControl) {
                                     UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                                    connect(client, SIGNAL(deviceChanged(UdevQt::Device)), SLOT(onDeviceChanged(UdevQt::Device)));
+                                    connect(client, &UdevQt::Client::deviceChanged, this, &PowerDevilUPowerBackend::onDeviceChanged);
                                 }
 
                                 Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
@@ -231,7 +231,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     // devices
     enumerateDevices();
 
-    connect(m_upowerInterface, SIGNAL(Changed()), this, SLOT(slotPropertyChanged()));
+    connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Changed, this, &PowerDevilUPowerBackend::slotPropertyChanged);
     // for UPower >= 0.99.0, missing Changed() signal
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
                                          SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
@@ -244,7 +244,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved",
                                          this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
 
-    connect(m_upowerInterface, SIGNAL(DeviceChanged(QString)), this, SLOT(slotDeviceChanged(QString)));
+    connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::DeviceChanged, this, &PowerDevilUPowerBackend::slotDeviceChanged);
     // for UPower >= 0.99.0, see slotDeviceAdded(const QString & device)
 
     // Brightness Controls available
@@ -267,7 +267,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
             controls.insert(QLatin1String("KBD"), Keyboard);
             m_cachedBrightnessMap.insert(Keyboard, brightness(Keyboard));
             qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedBrightnessMap.value(Keyboard);
-            connect(m_kbdBacklight, SIGNAL(BrightnessChanged(int)), this, SLOT(onKeyboardBrightnessChanged(int)));
+            connect(m_kbdBacklight, &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChanged, this, &PowerDevilUPowerBackend::onKeyboardBrightnessChanged);
         }
     }
 

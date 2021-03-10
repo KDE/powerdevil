@@ -100,7 +100,7 @@ void Core::loadCore(BackendInterface* backend)
 
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
-    connect(m_backend, SIGNAL(backendReady()), this, SLOT(onBackendReady()));
+    connect(m_backend, &BackendInterface::backendReady, this, &Core::onBackendReady);
     m_backend->init();
 }
 
@@ -128,10 +128,10 @@ void Core::onBackendReady()
     // Get the battery devices ready
     {
         using namespace Solid;
-        connect(DeviceNotifier::instance(), SIGNAL(deviceAdded(QString)),
-                this, SLOT(onDeviceAdded(QString)));
-        connect(DeviceNotifier::instance(), SIGNAL(deviceRemoved(QString)),
-                this, SLOT(onDeviceRemoved(QString)));
+        connect(DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
+                this, &Core::onDeviceAdded);
+        connect(DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
+                this, &Core::onDeviceRemoved);
 
         // Force the addition of already existent batteries
         const auto devices = Device::listFromType(DeviceInterface::Battery, QString());
@@ -140,18 +140,18 @@ void Core::onBackendReady()
         }
     }
 
-    connect(m_backend, SIGNAL(acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)),
-            this, SLOT(onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState)));
-    connect(m_backend, SIGNAL(batteryRemainingTimeChanged(qulonglong)),
-            this, SLOT(onBatteryRemainingTimeChanged(qulonglong)));
-    connect(m_backend, SIGNAL(lidClosedChanged(bool)),
-            this, SLOT(onLidClosedChanged(bool)));
+    connect(m_backend, &BackendInterface::acAdapterStateChanged,
+            this, &Core::onAcAdapterStateChanged);
+    connect(m_backend, &BackendInterface::batteryRemainingTimeChanged,
+            this, &Core::onBatteryRemainingTimeChanged);
+    connect(m_backend, &BackendInterface::lidClosedChanged,
+            this, &Core::onLidClosedChanged);
     connect(m_backend, &BackendInterface::aboutToSuspend,
             this, &Core::onAboutToSuspend);
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
             this, SLOT(onKIdleTimeoutReached(int,int)));
-    connect(KIdleTime::instance(), SIGNAL(resumingFromIdle()),
-            this, SLOT(onResumingFromIdle()));
+    connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle,
+            this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
         loadProfile();
     });
@@ -186,7 +186,7 @@ void Core::onBackendReady()
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
     m_criticalBatteryTimer->setInterval(60000);
-    connect(m_criticalBatteryTimer, SIGNAL(timeout()), this, SLOT(onCriticalBatteryTimerExpired()));
+    connect(m_criticalBatteryTimer, &QTimer::timeout, this, &Core::onCriticalBatteryTimerExpired);
 
     // wait until the notification system is set up before firing notifications
     // to avoid them showing ontop of ksplash...
@@ -197,10 +197,10 @@ void Core::onBackendReady()
                                                          QDBusConnection::sessionBus(),
                                                          QDBusServiceWatcher::WatchForRegistration,
                                                          this);
-        connect(m_notificationsWatcher, SIGNAL(serviceRegistered(QString)), this, SLOT(onServiceRegistered(QString)));
+        connect(m_notificationsWatcher, &QDBusServiceWatcher::serviceRegistered, this, &Core::onServiceRegistered);
 
         // ...but fire them after 30s nonetheless to ensure they've been shown
-        QTimer::singleShot(30000, this, SLOT(onNotificationTimeout()));
+        QTimer::singleShot(30000, this, &Core::onNotificationTimeout);
     }
 
 #ifdef Q_OS_LINUX
@@ -825,7 +825,7 @@ void Core::onAboutToSuspend()
 
         QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(QStringLiteral("ListNames"));
         QDBusPendingCallWatcher *callWatcher = new QDBusPendingCallWatcher(listNamesCall, this);
-        connect(callWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        connect(callWatcher, &QDBusPendingCallWatcher::finished, this, [](QDBusPendingCallWatcher *watcher) {
             QDBusPendingReply<QStringList> reply = *watcher;
             watcher->deleteLater();
 
