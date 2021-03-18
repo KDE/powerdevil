@@ -32,7 +32,7 @@ namespace ProfileGenerator
         LogoutDialogMode = 16,
         LockScreenMode = 32,
         TurnOffScreenMode = 64,
-        ToggleScreenOnOffMode = 128
+        ToggleScreenOnOffMode = 128,
     };
 
     void generateProfiles(bool isMobile, bool toRam, bool toDisk);

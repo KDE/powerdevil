@@ -46,7 +46,7 @@ public:
         NormalState,
         FadingOutState,
         FadedOutState,
-        FadingInState
+        FadingInState,
     };
 
     bool start();

@@ -80,7 +80,7 @@ public:
 
     enum class ChargeNotificationFlag {
         None,
-        NotifyWhenAcPluggedIn
+        NotifyWhenAcPluggedIn,
     };
     Q_DECLARE_FLAGS(ChargeNotificationFlags, ChargeNotificationFlag)
     Q_FLAG(ChargeNotificationFlags)
