@@ -27,9 +27,7 @@
 
 #include <optional>
 
-namespace PowerDevil {
-namespace BundledActions {
-
+namespace PowerDevil::BundledActions {
 class HandleButtonEvents : public PowerDevil::Action
 {
     Q_OBJECT
@@ -81,7 +79,5 @@ private:
 
     std::optional<int> m_oldKeyboardBrightness;
 };
-
-}
 
 }

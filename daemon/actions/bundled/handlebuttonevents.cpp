@@ -41,8 +41,7 @@
 #include <KGlobalAccel>
 #include <Kirigami/TabletModeWatcher>
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
     , m_screenConfiguration(nullptr)
@@ -294,5 +293,4 @@ void HandleButtonEvents::checkOutputs()
     }
 }
 
-}
 }

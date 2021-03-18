@@ -22,8 +22,7 @@
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 class BrightnessControl : public PowerDevil::Action
 {
@@ -69,7 +68,5 @@ private:
 
     int m_defaultValue = -1;
 };
-
-}
 
 }

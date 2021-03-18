@@ -26,8 +26,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::RunScript, "powerdevilrunscriptaction.json")
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 RunScript::RunScript(QObject *parent)
     : Action(parent)
 {
@@ -106,7 +105,6 @@ void RunScript::runCommand()
     }
 }
 
-}
 }
 
 #include "runscript.moc"

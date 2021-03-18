@@ -32,8 +32,7 @@
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::RunScriptConfig)
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 RunScriptConfig::RunScriptConfig(QObject* parent)
     : ActionConfig(parent)
@@ -102,7 +101,6 @@ void RunScriptConfig::onIndexChanged(const QString &text)
     m_idleTime->setEnabled(text == i18n("After"));
 }
 
-}
 }
 
 #include "runscriptconfig.moc"

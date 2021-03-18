@@ -30,8 +30,7 @@
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::KeyboardBrightnessControlConfig)
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent)
     : ActionConfig(parent)
@@ -76,8 +75,6 @@ QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
     return retlist;
 }
 
-
-}
 }
 
 #include "keyboardbrightnesscontrolconfig.moc"

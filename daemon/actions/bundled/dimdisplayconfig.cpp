@@ -30,8 +30,7 @@
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::DimDisplayConfig)
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 DimDisplayConfig::DimDisplayConfig(QObject *parent)
     : ActionConfig(parent)
@@ -73,7 +72,6 @@ QList< QPair< QString, QWidget* > > DimDisplayConfig::buildUi()
     return retlist;
 }
 
-}
 }
 
 #include "dimdisplayconfig.moc"

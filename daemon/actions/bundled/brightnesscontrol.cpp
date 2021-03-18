@@ -37,8 +37,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerdevilbrightnesscontrolaction.json")
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 BrightnessControl::BrightnessControl(QObject *parent)
     : Action(parent)
 {
@@ -224,5 +223,5 @@ int BrightnessControl::brightnessPercent(float value) const
 }
 
 }
-}
+
 #include "brightnesscontrol.moc"

@@ -34,8 +34,7 @@
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::HandleButtonEventsConfig)
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 HandleButtonEventsConfig::HandleButtonEventsConfig(QObject* parent)
     : ActionConfig(parent)
@@ -166,7 +165,6 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     return retlist;
 }
 
-}
 }
 
 #include "handlebuttoneventsconfig.moc"

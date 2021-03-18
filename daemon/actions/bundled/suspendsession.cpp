@@ -39,9 +39,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::SuspendSession, "powerdevilsuspendsessionaction.json")
 
-namespace PowerDevil
-{
-namespace BundledActions
+namespace PowerDevil::BundledActions
 {
 SuspendSession::SuspendSession(QObject *parent)
     : Action(parent)
@@ -210,6 +208,5 @@ void SuspendSession::triggerSuspendSession(uint action)
     });
 }
 
-}
 }
 #include "suspendsession.moc"

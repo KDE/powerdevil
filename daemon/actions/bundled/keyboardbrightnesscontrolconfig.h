@@ -24,8 +24,7 @@
 class QSlider;
 class QLabel;
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 class KeyboardBrightnessControlConfig : public PowerDevil::ActionConfig
 {
@@ -42,5 +41,4 @@ private:
     QLabel *m_text;
 };
 
-}
 }

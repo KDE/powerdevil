@@ -40,8 +40,7 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::KeyboardBrightnessControl, "powerdevilkeyboardbrightnesscontrolaction.json")
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     : Action(parent)
@@ -216,7 +215,6 @@ int KeyboardBrightnessControl::keyboardBrightnessPercent() const
 
     return qRound(keyboardBrightness() / maxBrightness * 100);
 }
+}
 
-}
-}
 #include "keyboardbrightnesscontrol.moc"

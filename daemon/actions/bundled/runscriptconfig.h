@@ -25,8 +25,7 @@ class QSpinBox;
 class KComboBox;
 class KUrlRequester;
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 class RunScriptConfig : public PowerDevil::ActionConfig
 {
@@ -47,5 +46,4 @@ private Q_SLOTS:
     void onIndexChanged(const QString&);
 };
 
-}
 }

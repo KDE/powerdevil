@@ -22,8 +22,7 @@
 #include <powerdevilaction.h>
 
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 class RunScript : public PowerDevil::Action
 {
@@ -48,7 +47,5 @@ private:
     int m_scriptPhase;
     QString m_scriptCommand;
 };
-
-}
 
 }

@@ -30,8 +30,7 @@
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::BrightnessControlConfig)
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil::BundledActions {
 
 BrightnessControlConfig::BrightnessControlConfig(QObject *parent)
     : ActionConfig(parent)
@@ -73,8 +72,6 @@ QList< QPair< QString, QWidget* > > BrightnessControlConfig::buildUi()
     return retlist;
 }
 
-
-}
 }
 
 #include "brightnesscontrolconfig.moc"
