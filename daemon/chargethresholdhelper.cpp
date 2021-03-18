@@ -152,7 +152,7 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
     ActionReply reply;
     reply.setData({
         {QStringLiteral("chargeStartThreshold"), startThreshold},
-        {QStringLiteral("chargeStopThreshold"), stopThreshold}
+        {QStringLiteral("chargeStopThreshold"), stopThreshold},
     });
     return reply;
 }

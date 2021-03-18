@@ -206,7 +206,7 @@ void SuspendSession::triggerSuspendSession(uint action)
 {
     trigger({
         {QStringLiteral("Type"), action},
-        {QStringLiteral("Explicit"), true}
+        {QStringLiteral("Explicit"), true},
     });
 }
 

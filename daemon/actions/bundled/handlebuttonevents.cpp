@@ -204,7 +204,7 @@ void HandleButtonEvents::triggerAction(const QString &action, const QVariant &ty
     if (helperAction) {
         helperAction->trigger({
             {QStringLiteral("Type"), type},
-            {QStringLiteral("Explicit"), true}
+            {QStringLiteral("Explicit"), true},
         });
     }
 }

@@ -189,7 +189,7 @@ void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
 {
     trigger({
         {QStringLiteral("Value"), QVariant::fromValue(percent)},
-        {QStringLiteral("Explicit"), true}
+        {QStringLiteral("Explicit"), true},
     });
 }
 
@@ -198,7 +198,7 @@ void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
     trigger({
         {QStringLiteral("Value"), QVariant::fromValue(percent)},
         {QStringLiteral("Explicit"), true},
-        {QStringLiteral("Silent"), true}
+        {QStringLiteral("Silent"), true},
     });
 }
 

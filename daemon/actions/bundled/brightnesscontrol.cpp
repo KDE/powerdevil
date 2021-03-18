@@ -105,7 +105,7 @@ void BrightnessControl::onProfileLoad(const QString &previousProfile, const QStr
         qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
     } else if (absoluteBrightnessValue >= 0) {
         QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteBrightnessValue)}
+            {QStringLiteral("Value"), QVariant::fromValue(absoluteBrightnessValue)},
         };
 
         // plugging in/out the AC is always explicit
@@ -163,7 +163,7 @@ void BrightnessControl::setBrightness(int value)
 {
     trigger({
         {QStringLiteral("Value"), QVariant::fromValue(value)},
-        {QStringLiteral("Explicit"), true}
+        {QStringLiteral("Explicit"), true},
     });
 }
 
@@ -172,7 +172,7 @@ void BrightnessControl::setBrightnessSilent(int value)
     trigger({
         {QStringLiteral("Value"), QVariant::fromValue(value)},
         {QStringLiteral("Explicit"), true},
-        {QStringLiteral("Silent"), true}
+        {QStringLiteral("Silent"), true},
     });
 }
 
