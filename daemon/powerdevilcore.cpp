@@ -476,7 +476,7 @@ void Core::onDeviceAdded(const QString &udi)
 
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
-            emitRichNotification(QStringLiteral("pluggedin"),
+            emitRichNotification(QStringLiteral("pluggedin"), //
                                  i18n("Extra Battery Added"),
                                  i18n("The computer will no longer go to sleep."));
         }
@@ -697,9 +697,9 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
 
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
-            emitRichNotification(QStringLiteral("pluggedin"),
-                             i18n("AC Adapter Plugged In"),
-                             i18n("The computer will no longer go to sleep."));
+            emitRichNotification(QStringLiteral("pluggedin"), //
+                                 i18n("AC Adapter Plugged In"),
+                                 i18n("The computer will no longer go to sleep."));
         } else {
             emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adapter has been plugged in."));
         }
