@@ -94,5 +94,5 @@ Comment[sv]=Använd KDE:s strömsparhantering via Upower-demon från freedesktop
 Comment[tr]=KDE Güç Yönetim Sistemini freedesktop.org upower servisi üzerinden kullan.
 Comment[uk]=Використання системи керування живленням KDE за допомогою фонової служби upower freedesktop.org
 Comment[x-test]=xxUse KDE Power Management system through freedesktop.org upower daemonxx
-Comment[zh_CN]=用 freedesktop.org upower 守护程序进行 KDE 电源管理
+Comment[zh_CN]=通过 freedesktop.org 的 upower 守护程序使用 KDE 电源管理系统
 Comment[zh_TW]=透過 freedesktop.org 的 upower 伺服程式使用 KDE 電源管理系統

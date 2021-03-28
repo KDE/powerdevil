@@ -33,6 +33,7 @@ Name[sl]=Napredne nastavitve moči
 Name[sv]=Avancerade ströminställningar
 Name[uk]=Додаткові параметри живлення
 Name[x-test]=xxAdvanced Power Settingsxx
+Name[zh_CN]=高级电源设置
 
 Comment=Advanced Power Management Settings
 Comment[ar]=إعدادات إدارة الطاقة المتقدمة
@@ -100,3 +101,4 @@ X-KDE-Keywords[sl]=sistem,energija,upravljanje z energijo,prenosnik,prenosni ra�
 X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,viloläge,AC,gå till viloläge,dvala,ljusstyrka,prestanda,lock,aktivitet,aktiviteter,nivåer,kritisk,ladda,laddning,gräns,laddningsgräns
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,levels,critical,charge,charging,limit, charge limit, charging limit,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність,рівні,критичний,заряд,заряджання,межа,межа заряджання,обмеження
 X-KDE-Keywords[x-test]=xxsystemxx,xxpowerxx,xxpower managementxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxhibernatexx,xxbrightnessxx,xxperformancexx,xxlidxx,xxlevelsxx,xxcriticalxx,xxchargexx,xxchargingxx,xxlimitxx,xx charge limitxx,xx charging limitxx
+X-KDE-Keywords[zh_CN]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,levels,critical,charge,charging,limit, charge limit, charging limit,系统,电源,电源管理,电力,笔记本电脑,电池,挂起,交流电,休眠,亮度,性能,上盖,电量,低电,充电,限制,充电限制
