@@ -98,7 +98,7 @@ Comment[tg]=Танзимоти унсурҳои идоракунии DPMS
 Comment[tr]=DPMS(Görüntü Güç Yönetimi Ayarları) tercilerini kontrol eder
 Comment[uk]=Керування параметрами DPMS
 Comment[x-test]=xxControls DPMS settingsxx
-Comment[zh_CN]=控制屏幕电源设置
+Comment[zh_CN]=控制屏幕电源管理设置
 Comment[zh_TW]=控制 DPMS 設定
 
 X-KDE-PowerDevil-Action-ID=DPMSControl

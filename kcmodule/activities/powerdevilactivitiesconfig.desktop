@@ -31,6 +31,7 @@ Name[sl]=Nastavitve moči dejavnosti
 Name[sv]=Ströminställningar för aktiviteter
 Name[uk]=Параметри живлення у просторі дій
 Name[x-test]=xxActivity Power Settingsxx
+Name[zh_CN]=活动电源设置
 
 Comment=Per-Activity Power Management
 Comment[ar]=إدارة طاقة ما قبل الأحداث
@@ -121,5 +122,5 @@ X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,vilo
 X-KDE-Keywords[tr]=sistem, güç, güç yönetimi, enerji, dizüstü, laptop, pil, askıya alma, uyutma, AC, parlaklık, performans, ışık, etkinlik, etkinlikler
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність
 X-KDE-Keywords[x-test]=xxsystemxx,xxpowerxx,xxpower managementxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxhibernatexx,xxbrightnessxx,xxperformancexx,xxlidxx,xxactivityxx,xxactivitiesxx
-X-KDE-Keywords[zh_CN]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,系统,电源,电源管理,能源,笔记本,电池,休眠,睡眠,交流,亮度,性能,活动
+X-KDE-Keywords[zh_CN]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities,系统,电源,电源管理,电量,笔记本,电池,休眠,睡眠,交流,亮度,性能,活动
 X-KDE-Keywords[zh_TW]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,activity,activities

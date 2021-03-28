@@ -49,7 +49,7 @@ Name[tg]=Камнуркунии экран
 Name[tr]=Ekranı karart
 Name[uk]=Зменшення яскравості екрана
 Name[x-test]=xxDim screenxx
-Name[zh_CN]=暗淡屏幕
+Name[zh_CN]=屏幕变暗
 Name[zh_TW]=將螢幕變暗
 Comment=Dims gradually the display on a time basis
 Comment[ar]=يعتِم الشاشة تدريجياً بناء على توقيت
@@ -97,7 +97,7 @@ Comment[tg]=Экранро андак дар асоси вақти муайян 
 Comment[tr]=Zamana bağlı olarak ekranı yavaşça karartır
 Comment[uk]=Поступове зменшення яскравості дисплея з часом
 Comment[x-test]=xxDims gradually the display on a time basisxx
-Comment[zh_CN]=在一定时间逐步变暗屏幕
+Comment[zh_CN]=在一定时间逐渐降低屏幕亮度
 Comment[zh_TW]=依時間逐漸讓顯示變暗
 
 X-KDE-PowerDevil-Action-ID=DimDisplay

@@ -31,6 +31,7 @@ Name[sl]=Napredne nastavitve moči
 Name[sv]=Avancerade ströminställningar
 Name[uk]=Додаткові параметри живлення
 Name[x-test]=xxAdvanced Power Settingsxx
+Name[zh_CN]=高级电源设置
 
 Comment=Advanced Power Management Settings
 Comment[ar]=إعدادات إدارة الطاقة المتقدمة
@@ -122,5 +123,5 @@ X-KDE-Keywords[sv]=system,kraft,krafthantering,energi,bärbar dator,batteri,vilo
 X-KDE-Keywords[tr]=sistem,güç,güç yönetimi,enerji,dizüstü,laptop,pil,askıya alma,uyutma,AC,fişte,parlaklık,performans,ışık
 X-KDE-Keywords[uk]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки
 X-KDE-Keywords[x-test]=xxsystemxx,xxpowerxx,xxpower managementxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxhibernatexx,xxbrightnessxx,xxperformancexx,xxlidxx
-X-KDE-Keywords[zh_CN]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,系统,电源,电源管理,能源,笔记本,电池,休眠,睡眠,交流,亮度,性能
+X-KDE-Keywords[zh_CN]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,系统,电源,电源管理,电量,笔记本,电池,休眠,睡眠,交流,亮度,性能
 X-KDE-Keywords[zh_TW]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid

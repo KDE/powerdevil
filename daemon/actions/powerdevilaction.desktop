@@ -47,7 +47,7 @@ Comment[tg]=Васеъшавии амали идоракунии барқ
 Comment[tr]=Güç Yönetimi Eylemi Eklentisi
 Comment[uk]=Розширення дій керування живленням
 Comment[x-test]=xxPower Management Action Extensionxx
-Comment[zh_CN]=电源管理动作扩展
+Comment[zh_CN]=电源管理操作扩展程序
 Comment[zh_TW]=電源管理動作延伸
 
 [PropertyDef::X-KDE-PowerDevil-Action-ID]
