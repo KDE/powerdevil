@@ -45,6 +45,8 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 #include <QDebug>
 
@@ -56,6 +58,33 @@
 
 namespace PowerDevil
 {
+WakeupInfo::WakeupInfo(const QString &service, const QDBusObjectPath &path, int cookie, qint64 timeout)
+    : service(service)
+    , path(path)
+    , cookie(cookie)
+    , timeout(timeout)
+{}
+WakeupInfo::WakeupInfo(const QString &config) {
+    if (config.isEmpty()) {
+        qCWarning(POWERDEVIL) << "try to construct WakeupInfo from empty config";
+    } else {
+        auto json = QJsonDocument::fromJson(config.toLatin1()).object();
+        service = json[QStringLiteral("service")].toString();
+        path = QDBusObjectPath(json[QStringLiteral("path")].toString());
+        cookie = json[QStringLiteral("cookie")].toInt();
+        timeout = json[QStringLiteral("timeout")].toString().toLongLong();
+    }
+}
+
+QString WakeupInfo::toConfig() const {
+    QJsonObject config;
+    config.insert(QStringLiteral("service"), service);
+    config.insert(QStringLiteral("path"), path.path());
+    config.insert(QStringLiteral("cookie"), cookie);
+    config.insert(QStringLiteral("timeout"), QString::number(timeout));
+
+    return QJsonDocument(config).toJson(QJsonDocument::Compact);
+}
 
 Core::Core(QObject* parent)
     : QObject(parent)
@@ -65,6 +94,7 @@ Core::Core(QObject* parent)
     , m_criticalBatteryTimer(new QTimer(this))
     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
+    , m_lastWakeupCookie(PowerDevilSettings::wakeupCookie())
 {
     KAuth::Action discreteGpuAction(QStringLiteral("org.kde.powerdevil.discretegpuhelper.hasdualgpu"));
     discreteGpuAction.setHelperId(QStringLiteral("org.kde.powerdevil.discretegpuhelper"));
@@ -80,6 +110,13 @@ Core::Core(QObject* parent)
     discreteGpuJob->start();
 
     readChargeThreshold();
+
+    auto wakeupList = PowerDevilSettings::wakeupList();
+    m_scheduledWakeups.reserve(wakeupList.size());
+    std::for_each(wakeupList.begin(), wakeupList.end(), [this](const QString &config){
+        m_scheduledWakeups.push_back(WakeupInfo(config));
+    });
+    resetAndScheduleNextWakeup();
 }
 
 Core::~Core()
@@ -1005,7 +1042,11 @@ int Core::chargeStopThreshold() const
 
 uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, qint64 timeout)
 {
-    ++m_lastWakeupCookie;
+    // avoid overflow
+    if (m_lastWakeupCookie < std::numeric_limits<int>::max())
+        ++m_lastWakeupCookie;
+    else
+        m_lastWakeupCookie = 1;
 
     int cookie = m_lastWakeupCookie;
     // if some one is trying to time travel, deny them
@@ -1096,6 +1137,14 @@ void Core::resetAndScheduleNextWakeup()
         timerfd_settime(m_timerFd, TFD_TIMER_ABSTIME, &spec, nullptr);
     }
     m_timerFdSocketNotifier->setEnabled(enableNotifier);
+
+    // sync config on disk
+    QStringList wakeupList;
+    wakeupList.reserve(m_scheduledWakeups.size());
+    std::for_each(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [&wakeupList](const WakeupInfo &info){
+        wakeupList.push_back(info.toConfig());
+    });
+    PowerDevilSettings::setWakeupList(wakeupList);
 #endif
 }
 
