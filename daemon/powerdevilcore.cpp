@@ -1145,6 +1145,7 @@ void Core::resetAndScheduleNextWakeup()
         wakeupList.push_back(info.toConfig());
     });
     PowerDevilSettings::setWakeupList(wakeupList);
+    PowerDevilSettings::self()->save();
 #endif
 }
 
