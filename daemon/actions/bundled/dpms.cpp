@@ -19,7 +19,7 @@
  ***************************************************************************/
 
 
-#include "powerdevildpmsaction.h"
+#include "dpms.h"
 #include "abstractdpmshelper.h"
 #include "xcbdpmshelper.h"
 #include "waylanddpmshelper.h"
@@ -43,9 +43,10 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
-K_PLUGIN_FACTORY(PowerDevilDPMSActionFactory, registerPlugin<PowerDevilDPMSAction>(); )
+namespace PowerDevil {
+namespace BundledActions {
 
-PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &args)
+DPMS::DPMS(QObject* parent)
     : Action(parent)
     , m_helper()
 {
@@ -57,20 +58,12 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
         m_helper.reset(new WaylandDpmsHelper);
     }
 
-    // Is the action being loaded outside the core?
-    if (args.size() > 0) {
-        if (args.first().toBool()) {
-            qCDebug(POWERDEVIL) << "Action loaded from outside the core, skipping early init";
-            return;
-        }
-    }
-
     // Pretend we're unloading profiles here, as if the action is not enabled, DPMS should be switched off.
     onProfileUnload();
 
     // Listen to the policy agent
     connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
-            this, &PowerDevilDPMSAction::onUnavailablePoliciesChanged);
+            this, &DPMS::onUnavailablePoliciesChanged);
 
     // inhibitions persist over kded module unload/load
     m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
@@ -98,14 +91,14 @@ PowerDevilDPMSAction::PowerDevilDPMSAction(QObject* parent, const QVariantList &
     });
 }
 
-PowerDevilDPMSAction::~PowerDevilDPMSAction() = default;
+DPMS::~DPMS() = default;
 
-bool PowerDevilDPMSAction::isSupported()
+bool DPMS::isSupported()
 {
     return !m_helper.isNull() && m_helper->isSupported();
 }
 
-void PowerDevilDPMSAction::onProfileUnload()
+void DPMS::onProfileUnload()
 {
     if (!isSupported()) {
         return;
@@ -113,7 +106,7 @@ void PowerDevilDPMSAction::onProfileUnload()
     m_helper->profileUnloaded();
 }
 
-void PowerDevilDPMSAction::onWakeupFromIdle()
+void DPMS::onWakeupFromIdle()
 {
     if (isSupported()) {
         m_helper->stopFade();
@@ -124,7 +117,7 @@ void PowerDevilDPMSAction::onWakeupFromIdle()
     }
 }
 
-void PowerDevilDPMSAction::onIdleTimeout(int msec)
+void DPMS::onIdleTimeout(int msec)
 {
     // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (m_inhibitScreen) {
@@ -147,14 +140,14 @@ void PowerDevilDPMSAction::onIdleTimeout(int msec)
     }
 }
 
-void PowerDevilDPMSAction::setKeyboardBrightnessHelper(int brightness)
+void DPMS::setKeyboardBrightnessHelper(int brightness)
 {
     trigger({
         {"KeyboardBrightness", QVariant::fromValue(brightness)}
     });
 }
 
-void PowerDevilDPMSAction::onProfileLoad()
+void DPMS::onProfileLoad()
 {
     if (!isSupported()) {
         return;
@@ -162,7 +155,7 @@ void PowerDevilDPMSAction::onProfileLoad()
     m_helper->profileLoaded();
 }
 
-void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
+void DPMS::triggerImpl(const QVariantMap& args)
 {
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
@@ -180,7 +173,7 @@ void PowerDevilDPMSAction::triggerImpl(const QVariantMap& args)
     m_helper->trigger(args.value(QStringLiteral("Type")).toString());
 }
 
-bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
+bool DPMS::loadAction(const KConfigGroup& config)
 {
     m_idleTime = config.readEntry<int>("idleTime", -1);
     if (m_idleTime > 0) {
@@ -192,13 +185,13 @@ bool PowerDevilDPMSAction::loadAction(const KConfigGroup& config)
     return true;
 }
 
-bool PowerDevilDPMSAction::onUnloadAction()
+bool DPMS::onUnloadAction()
 {
     m_idleTime = 0;
     return Action::onUnloadAction();
 }
 
-void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
+void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
 {
     // only take action if screen inhibit changed
     PowerDevil::PolicyAgent::RequiredPolicies oldPolicy = m_inhibitScreen;
@@ -219,7 +212,7 @@ void PowerDevilDPMSAction::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent:
     }
 }
 
-void PowerDevilDPMSAction::lockScreen()
+void DPMS::lockScreen()
 {
     QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
                                                                            "/ScreenSaver",
@@ -227,4 +220,5 @@ void PowerDevilDPMSAction::lockScreen()
                                                                            "Lock"));
 }
 
-#include "powerdevildpmsaction.moc"
+}
+}

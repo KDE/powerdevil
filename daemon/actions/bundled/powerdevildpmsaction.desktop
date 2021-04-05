@@ -1,7 +1,6 @@
 [Desktop Entry]
 Type=Service
 X-KDE-ServiceTypes=PowerDevil/Action
-X-KDE-Library=powerdevildpmsaction
 Icon=preferences-desktop-screensaver
 Name=Screen Energy Saving
 Name[ar]=حِفظ طاقة الشاشة
@@ -102,7 +101,7 @@ Comment[zh_CN]=控制屏幕电源管理设置
 Comment[zh_TW]=控制 DPMS 設定
 
 X-KDE-PowerDevil-Action-ID=DPMSControl
-X-KDE-PowerDevil-Action-IsBundled=false
+X-KDE-PowerDevil-Action-IsBundled=true
 X-KDE-PowerDevil-Action-ForceInstantLoad=true
 X-KDE-PowerDevil-Action-UIComponentLibrary=powerdevildpmsaction_config
 X-KDE-PowerDevil-Action-ConfigPriority=98

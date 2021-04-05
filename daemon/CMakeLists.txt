@@ -14,6 +14,11 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/dimdisplay.cpp
     actions/bundled/runscript.cpp
     actions/bundled/handlebuttonevents.cpp
+    actions/bundled/dpms.cpp
+    actions/bundled/abstractdpmshelper.cpp
+    actions/bundled/xcbdpmshelper.cpp
+    actions/bundled/waylanddpmshelper.cpp
+    ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
 )
 
 if(HAVE_WIRELESS_SUPPORT)
@@ -82,7 +87,9 @@ target_link_libraries(powerdevilcore
     KF5::WidgetsAddons
     KF5::Notifications
     KF5::XmlGui
+    KF5::WaylandClient
     PW::KWorkspace
+    XCB::DPMS
 )
 
 if(HAVE_WIRELESS_SUPPORT)

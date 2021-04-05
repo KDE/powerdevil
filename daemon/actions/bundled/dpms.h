@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>                      *
+ *   Copyright (C) 2015 by Kai Uwe Broulik <kde@privat.broulik.de>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,52 +18,58 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#include "powerdevildpmsactionconfig.h"
 
-#include <QSpinBox>
+#ifndef POWERDEVILDPMSACTION_H
+#define POWERDEVILDPMSACTION_H
 
-#include <KLocalizedString>
-#include <KPluginFactory>
-#include <KSharedConfig>
+#include <powerdevilaction.h>
 
-K_PLUGIN_FACTORY(PowerDevilDPMSConfigFactory, registerPlugin<PowerDevilDPMSActionConfig>();)
+#include <QScopedPointer>
 
-PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent, const QVariantList& )
-        : ActionConfig(parent)
+class AbstractDpmsHelper;
+
+namespace PowerDevil {
+namespace BundledActions {
+
+class DPMS : public PowerDevil::Action
 {
+    Q_OBJECT
+    Q_DISABLE_COPY(DPMS)
+
+public:
+    explicit DPMS(QObject *parent);
+    ~DPMS() override;
+
+protected:
+    void onProfileUnload() override;
+    bool onUnloadAction() override;
+    void onWakeupFromIdle() override;
+    void onIdleTimeout(int msec) override;
+    void onProfileLoad() override;
+    void triggerImpl(const QVariantMap &args) override;
+    bool isSupported() override;
+
+public:
+    bool loadAction(const KConfigGroup &config) override;
+
+private Q_SLOTS:
+    void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
+
+private:
+    void setKeyboardBrightnessHelper(int brightness);
+
+    int m_idleTime = 0;
+    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
+
+    int m_oldKeyboardBrightness = 0;
+    QScopedPointer<AbstractDpmsHelper> m_helper;
+
+    bool m_lockBeforeTurnOff = false;
+    void lockScreen();
+
+};
 
 }
-PowerDevilDPMSActionConfig::~PowerDevilDPMSActionConfig()
-{
 }
 
-void PowerDevilDPMSActionConfig::save()
-{
-    configGroup().writeEntry("idleTime", m_spinBox->value() * 60);
-
-    configGroup().sync();
-}
-
-void PowerDevilDPMSActionConfig::load()
-{
-    configGroup().config()->reparseConfiguration();
-    m_spinBox->setValue(configGroup().readEntry<int>("idleTime", 600) / 60);
-}
-
-QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
-{
-    QList< QPair< QString, QWidget* > > retlist;
-
-    m_spinBox = new QSpinBox;
-    m_spinBox->setMaximumWidth(150);
-    m_spinBox->setMinimum(1);
-    m_spinBox->setMaximum(360);
-    m_spinBox->setSuffix(i18n(" min"));
-    retlist.append(qMakePair< QString, QWidget* >(i18n("Switch off after"), m_spinBox));
-
-    connect(m_spinBox, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
-
-    return retlist;
-}
-
-#include "powerdevildpmsactionconfig.moc"
+#endif // POWERDEVILDPMSACTION_H
