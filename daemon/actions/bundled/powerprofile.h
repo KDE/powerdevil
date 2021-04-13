@@ -50,12 +50,16 @@ public:
     void setProfile(const QString &profile);
     QString performanceInhibitedReason() const;
     QString performanceDegradedReason() const;
+    QList<QVariantMap> profileHolds() const;
+    unsigned int holdProfile(const QString &profile, const QString &reason, const QString &applicationId) const;
+    void releaseProfile(unsigned int cookie) const;
 
 Q_SIGNALS:
     void currentProfileChanged(const QString &profile);
     void profileChoicesChanged(const QStringList &profiles);
     void performanceInhibitedReasonChanged(const QString &reason);
     void performanceDegradedReasonChanged(const QString &reason);
+    void profileHoldsChanged(const QList<QVariantMap> &holds);
 
 protected:
     void onProfileLoad() override;
@@ -76,6 +80,7 @@ private:
     QString m_currentProfile;
     QString m_performanceInhibitedReason;
     QString m_degradationReason;
+    QList<QVariantMap> m_profileHolds;
 
     QString m_configuredProfile;
 };

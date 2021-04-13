@@ -35,6 +35,7 @@ static const QString activeProfileProperty = QStringLiteral("ActiveProfile");
 static const QString profilesProperty = QStringLiteral("Profiles");
 static const QString performanceInhibitedProperty = QStringLiteral("PerformanceInhibited");
 static const QString performanceDegradedProperty = QStringLiteral("PerformanceDegraded");
+static const QString profileHoldsProperty = QStringLiteral("ActiveProfileHolds");
 
 static const QString ppdName = QStringLiteral("net.hadess.PowerProfiles");
 static const QString ppdPath = QStringLiteral("/net/hadess/PowerProfiles");
@@ -57,6 +58,7 @@ PowerProfile::PowerProfile(QObject *parent)
         }
         readProperties(reply.value());
     });
+    qDBusRegisterMetaType<QList<QVariantMap>>();
 }
 
 PowerProfile::~PowerProfile() = default;
@@ -120,6 +122,11 @@ QString PowerProfile::performanceInhibitedReason() const
     return m_performanceInhibitedReason;
 }
 
+QList<QVariantMap> PowerProfile::profileHolds() const
+{
+    return m_profileHolds;
+}
+
 void PowerProfile::setProfile(const QString &profile)
 {
     auto call = m_powerProfilesPropertiesInterface->Set(m_powerProfilesInterface->interface(), activeProfileProperty, QDBusVariant(profile));
@@ -136,6 +143,44 @@ void PowerProfile::setProfile(const QString &profile)
             }
         });
     }
+}
+
+unsigned int PowerProfile::holdProfile(const QString& profile, const QString& reason, const QString& applicationId) const
+{
+    if (!m_profileChoices.contains(profile)) {
+        sendErrorReply(QDBusError::InvalidArgs, QStringLiteral("%1 is not a valid profile").arg(profile));
+        return 0; // ignored by QtDBus
+    }
+    setDelayedReply(true);
+    const auto msg = message();
+    auto call = m_powerProfilesInterface->HoldProfile(profile, reason, applicationId);
+    auto watcher = new QDBusPendingCallWatcher(call);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [msg, watcher] {
+        watcher->deleteLater();
+        QDBusPendingReply<unsigned int> reply = *watcher;
+        if (reply.isError()) {
+            QDBusConnection::sessionBus().send(msg.createErrorReply(watcher->error()));
+        } else {
+            QDBusConnection::sessionBus().send(msg.createReply(reply.value()));
+        }
+    });
+    return 0; // ignored by QtDBus
+}
+
+void PowerDevil::BundledActions::PowerProfile::releaseProfile(unsigned int cookie) const
+{
+    setDelayedReply(true);
+    const auto msg = message();
+    auto call = m_powerProfilesInterface->ReleaseProfile(cookie);
+    auto watcher = new QDBusPendingCallWatcher(call);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [msg, watcher] {
+        watcher->deleteLater();
+        if (watcher->isError()) {
+            QDBusConnection::sessionBus().send(msg.createErrorReply(watcher->error()));
+        } else {
+            QDBusConnection::sessionBus().send(msg.createReply());
+        }
+    });
 }
 
 void PowerProfile::readProperties(const QVariantMap &properties)
@@ -157,6 +202,7 @@ void PowerProfile::readProperties(const QVariantMap &properties)
         Q_EMIT profileChoicesChanged(m_profileChoices);
     }
 
+
     if (properties.contains(performanceInhibitedProperty)) {
         m_performanceInhibitedReason = properties[performanceInhibitedProperty].toString();
         Q_EMIT performanceInhibitedReasonChanged(m_performanceInhibitedReason);
@@ -165,6 +211,11 @@ void PowerProfile::readProperties(const QVariantMap &properties)
     if (properties.contains(performanceDegradedProperty)) {
         m_degradationReason = properties[performanceDegradedProperty].toString();
         Q_EMIT performanceDegradedReasonChanged(m_degradationReason);
+    }
+
+    if (properties.contains(profileHoldsProperty)) {
+        properties[profileHoldsProperty].value<QDBusArgument>() >> m_profileHolds;
+        Q_EMIT profileHoldsChanged(m_profileHolds);
     }
 }
 
