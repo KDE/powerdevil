@@ -50,12 +50,16 @@ public:
     void setProfile(const QString &profile);
     QString performanceInhibitedReason() const;
     QString performanceDegradedReason() const;
+    QList<QVariantMap> profileHolds() const;
+    unsigned int holdProfile(const QString &profile, const QString &reason, const QString &applicationId);
+    void releaseProfile(unsigned int cookie);
 
 Q_SIGNALS:
     void currentProfileChanged(const QString &profile);
     void profileChoicesChanged(const QStringList &profiles);
     void performanceInhibitedReasonChanged(const QString &reason);
     void performanceDegradedReasonChanged(const QString &reason);
+    void profileHoldsChanged(const QList<QVariantMap> &holds);
 
 protected:
     void onProfileLoad() override;
@@ -69,6 +73,7 @@ private Q_SLOTS:
 
 private:
     void readProperties(const QVariantMap &properties);
+    void serviceUnregistered(const QString &name);
 
     NetHadessPowerProfilesInterface *m_powerProfilesInterface;
     OrgFreedesktopDBusPropertiesInterface *m_powerProfilesPropertiesInterface;
@@ -76,6 +81,9 @@ private:
     QString m_currentProfile;
     QString m_performanceInhibitedReason;
     QString m_degradationReason;
+    QList<QVariantMap> m_profileHolds;
+    QDBusServiceWatcher *m_holdWatcher;
+    QMultiMap<QString, unsigned int> m_holdMap;
 
     QString m_configuredProfile;
 };

@@ -8,7 +8,7 @@
         <arg type="as" direction="out" />
     </method>
     <method name="setProfile">
-      <arg type="s" direction="in"/>
+        <arg type="s" direction="in"/>
     </method>
     <method name="performanceInhibitedReason">
         <arg type="s" direction="out" />
@@ -16,17 +16,34 @@
     <method name="performanceDegradedReason">
         <arg type="s" direction="out" />
     </method>
+    <method name="profileHolds">
+        <arg type="aa{sv}" direction="out" />
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;QVariantMap&gt;"/>
+    </method>
+    <method name="holdProfile">
+        <arg name="profile" type="s" direction="in"/>
+        <arg name="reason" type="s" direction="in"/>
+        <arg name="application_id" type="s" direction="in" />
+        <arg name="cookie" type="u" direction="out"/>
+    </method>
+    <method name="releaseProfile">
+        <arg name="cookie" type="u" direction="in"/>
+    </method>
     <signal name="currentProfileChanged">
-      <arg type="s" direction="out" />
+        <arg type="s" direction="out" />
     </signal>
     <signal name="profileChoicesChanged">
-      <arg type="as" direction="out" />
+        <arg type="as" direction="out" />
     </signal>
     <signal name="performanceInhibitedReasonChanged">
         <arg type="s" direction="out" />
     </signal>
     <signal name="performanceDegradedReasonChanged">
         <arg type="s" direction="out" />
+    </signal>
+    <signal name="profileHoldsChanged">
+        <arg type="aa{sv}" direction="out" />
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;QVariantMap&gt;"/>
     </signal>
   </interface>
 </node>
