@@ -13,6 +13,9 @@
     <method name="performanceInhibitedReason">
         <arg type="s" direction="out" />
     </method>
+    <method name="performanceDegradedReason">
+        <arg type="s" direction="out" />
+    </method>
     <signal name="currentProfileChanged">
       <arg type="s" direction="out" />
     </signal>
@@ -20,6 +23,9 @@
       <arg type="as" direction="out" />
     </signal>
     <signal name="performanceInhibitedReasonChanged">
+        <arg type="s" direction="out" />
+    </signal>
+    <signal name="performanceDegradedReasonChanged">
         <arg type="s" direction="out" />
     </signal>
   </interface>

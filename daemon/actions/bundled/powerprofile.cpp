@@ -34,6 +34,7 @@ using namespace PowerDevil::BundledActions;
 static const QString activeProfileProperty = QStringLiteral("ActiveProfile");
 static const QString profilesProperty = QStringLiteral("Profiles");
 static const QString performanceInhibitedProperty = QStringLiteral("PerformanceInhibited");
+static const QString performanceDegradedProperty = QStringLiteral("PerformanceDegraded");
 
 static const QString ppdName = QStringLiteral("net.hadess.PowerProfiles");
 static const QString ppdPath = QStringLiteral("/net/hadess/PowerProfiles");
@@ -109,6 +110,11 @@ QString PowerProfile::currentProfile() const
     return m_currentProfile;
 }
 
+QString PowerProfile::performanceDegradedReason() const
+{
+    return m_degradationReason;
+}
+
 QString PowerProfile::performanceInhibitedReason() const
 {
     return m_performanceInhibitedReason;
@@ -154,6 +160,11 @@ void PowerProfile::readProperties(const QVariantMap &properties)
     if (properties.contains(performanceInhibitedProperty)) {
         m_performanceInhibitedReason = properties[performanceInhibitedProperty].toString();
         Q_EMIT performanceInhibitedReasonChanged(m_performanceInhibitedReason);
+    }
+
+    if (properties.contains(performanceDegradedProperty)) {
+        m_degradationReason = properties[performanceDegradedProperty].toString();
+        Q_EMIT performanceDegradedReasonChanged(m_degradationReason);
     }
 }
 
