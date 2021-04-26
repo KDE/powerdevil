@@ -49,11 +49,13 @@ public:
     QString currentProfile() const;
     void setProfile(const QString &profile);
     QString performanceInhibitedReason() const;
+    QString performanceDegradedReason() const;
 
 Q_SIGNALS:
     void currentProfileChanged(const QString &profile);
     void profileChoicesChanged(const QStringList &profiles);
     void performanceInhibitedReasonChanged(const QString &reason);
+    void performanceDegradedReasonChanged(const QString &reason);
 
 protected:
     void onProfileLoad() override;
@@ -73,6 +75,7 @@ private:
     QStringList m_profileChoices;
     QString m_currentProfile;
     QString m_performanceInhibitedReason;
+    QString m_degradationReason;
 
     QString m_configuredProfile;
 };
