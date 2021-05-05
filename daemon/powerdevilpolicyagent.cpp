@@ -236,7 +236,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString & serviceName)
             return;
         }
 
-        QDBusPendingReply<QDBusObjectPath> session = m_managerIface.data()->asyncCall(QLatin1String("GetSessionByPID"), (quint32) QCoreApplication::applicationPid());
+        QDBusPendingReply<QDBusObjectPath> session = m_managerIface.data()->asyncCall(QLatin1String("GetSession"), QLatin1String("auto"));
         session.waitForFinished();
 
         if (!session.isValid()) {
