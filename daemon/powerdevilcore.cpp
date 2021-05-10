@@ -45,8 +45,6 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
-#include <QJsonDocument>
-#include <QJsonObject>
 
 #include <QDebug>
 
@@ -64,26 +62,17 @@ WakeupInfo::WakeupInfo(const QString &service, const QDBusObjectPath &path, int 
     , cookie(cookie)
     , timeout(timeout)
 {}
-WakeupInfo::WakeupInfo(const QString &config) {
-    if (config.isEmpty()) {
-        qCWarning(POWERDEVIL) << "try to construct WakeupInfo from empty config";
-    } else {
-        auto json = QJsonDocument::fromJson(config.toLatin1()).object();
-        service = json[QStringLiteral("service")].toString();
-        path = QDBusObjectPath(json[QStringLiteral("path")].toString());
-        cookie = json[QStringLiteral("cookie")].toInt();
-        timeout = json[QStringLiteral("timeout")].toString().toLongLong();
-    }
+WakeupInfo::WakeupInfo(const KConfigGroup &config) {
+    service = config.readEntry(QStringLiteral("service"));
+    path = QDBusObjectPath(config.readEntry(QStringLiteral("path")));
+    cookie = config.readEntry(QStringLiteral("cookie")).toInt();
+    timeout = config.readEntry(QStringLiteral("timeout")).toLongLong();
 }
 
-QString WakeupInfo::toConfig() const {
-    QJsonObject config;
-    config.insert(QStringLiteral("service"), service);
-    config.insert(QStringLiteral("path"), path.path());
-    config.insert(QStringLiteral("cookie"), cookie);
-    config.insert(QStringLiteral("timeout"), QString::number(timeout));
-
-    return QJsonDocument(config).toJson(QJsonDocument::Compact);
+void WakeupInfo::save(KConfigGroup &config) const {
+    config.writeEntry(QStringLiteral("service"), service);
+    config.writeEntry(QStringLiteral("path"), path.path());
+    config.writeEntry(QStringLiteral("timeout"), timeout);
 }
 
 Core::Core(QObject* parent)
@@ -252,13 +241,17 @@ void Core::onBackendReady()
         qCDebug(POWERDEVIL) << "Unable to create a CLOCK_REALTIME timer, scheduled wakeups won't be available";
     }
 
-    auto wakeupList = PowerDevilSettings::wakeupList();
-    m_scheduledWakeups.reserve(wakeupList.size());
-    std::for_each(wakeupList.begin(), wakeupList.end(), [this](const QString &config){
-        m_scheduledWakeups.push_back(WakeupInfo(config));
-    });
     m_lastWakeupCookie = PowerDevilSettings::wakeupCookie();
-    resetAndScheduleNextWakeup();
+
+    KConfigGroup parent(PowerDevilSettings::self()->config(), QStringLiteral("Wakeup"));
+    auto children = parent.groupList();
+    for (const auto &child : children) {
+        auto config = parent.group(child);
+        if (config.hasKey(QStringLiteral("service")) &&
+                config.hasKey(QStringLiteral("path")) && config.hasKey(QStringLiteral("timeout"))) {
+            m_scheduledWakeups << WakeupInfo(config);
+        }
+    }
 #endif
 
     // All systems up Houston, let's go!
@@ -1140,13 +1133,15 @@ void Core::resetAndScheduleNextWakeup()
     m_timerFdSocketNotifier->setEnabled(enableNotifier);
 
     // sync config on disk
-    QStringList wakeupList;
-    wakeupList.reserve(m_scheduledWakeups.size());
-    for (const auto &wakeup : m_scheduledWakeups)
-        wakeupList.push_back(wakeup.toConfig());
-
-    PowerDevilSettings::setWakeupList(wakeupList);
-    PowerDevilSettings::self()->save();
+    KConfigGroup parent(PowerDevilSettings::self()->config(), QStringLiteral("Wakeup"));
+    auto subgroup = parent.group(QStringLiteral("0"));
+    auto index {0};
+    for (const auto &wakeup : qAsConst(m_scheduledWakeups)) {
+        wakeup.save(subgroup);
+        subgroup.sync();
+        subgroup = parent.group(QString::number(index));
+        index++;
+    }
 #endif
 }
 

@@ -39,11 +39,10 @@
     </entry>
   </group>
   
-  <group name="WakeupsManagement">
-      <entry name="WakeupList" type="StringList">
-      </entry>
+    <group name="WakeupsManagement">
       <entry name="WakeupCookie" type="Int">
           <default>0</default>
       </entry>
   </group>
+
 </kcfg>

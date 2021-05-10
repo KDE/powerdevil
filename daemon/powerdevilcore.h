@@ -57,8 +57,8 @@ class Action;
 
 struct WakeupInfo {
     WakeupInfo(const QString &service, const QDBusObjectPath &path, int cookie, qint64 timeout);
-    WakeupInfo(const QString &config);
-    QString toConfig() const;
+    explicit WakeupInfo(const KConfigGroup &config);
+    void save(KConfigGroup &config) const;
     QString service;
     QDBusObjectPath path;
     int cookie;
