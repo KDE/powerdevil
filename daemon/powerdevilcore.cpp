@@ -94,7 +94,6 @@ Core::Core(QObject* parent)
     , m_criticalBatteryTimer(new QTimer(this))
     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
-    , m_lastWakeupCookie(PowerDevilSettings::wakeupCookie())
 {
     KAuth::Action discreteGpuAction(QStringLiteral("org.kde.powerdevil.discretegpuhelper.hasdualgpu"));
     discreteGpuAction.setHelperId(QStringLiteral("org.kde.powerdevil.discretegpuhelper"));
@@ -110,13 +109,6 @@ Core::Core(QObject* parent)
     discreteGpuJob->start();
 
     readChargeThreshold();
-
-    auto wakeupList = PowerDevilSettings::wakeupList();
-    m_scheduledWakeups.reserve(wakeupList.size());
-    std::for_each(wakeupList.begin(), wakeupList.end(), [this](const QString &config){
-        m_scheduledWakeups.push_back(WakeupInfo(config));
-    });
-    resetAndScheduleNextWakeup();
 }
 
 Core::~Core()
@@ -260,6 +252,13 @@ void Core::onBackendReady()
         qCDebug(POWERDEVIL) << "Unable to create a CLOCK_REALTIME timer, scheduled wakeups won't be available";
     }
 
+    auto wakeupList = PowerDevilSettings::wakeupList();
+    m_scheduledWakeups.reserve(wakeupList.size());
+    std::for_each(wakeupList.begin(), wakeupList.end(), [this](const QString &config){
+        m_scheduledWakeups.push_back(WakeupInfo(config));
+    });
+    m_lastWakeupCookie = PowerDevilSettings::wakeupCookie();
+    resetAndScheduleNextWakeup();
 #endif
 
     // All systems up Houston, let's go!
@@ -1048,6 +1047,8 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
     else
         m_lastWakeupCookie = 1;
 
+    PowerDevilSettings::setWakeupCookie(m_lastWakeupCookie);
+    PowerDevilSettings::self()->save();
     int cookie = m_lastWakeupCookie;
     // if some one is trying to time travel, deny them
     if (timeout < QDateTime::currentSecsSinceEpoch()) {
@@ -1141,9 +1142,9 @@ void Core::resetAndScheduleNextWakeup()
     // sync config on disk
     QStringList wakeupList;
     wakeupList.reserve(m_scheduledWakeups.size());
-    std::for_each(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [&wakeupList](const WakeupInfo &info){
-        wakeupList.push_back(info.toConfig());
-    });
+    for (const auto &wakeup : m_scheduledWakeups)
+        wakeupList.push_back(wakeup.toConfig());
+
     PowerDevilSettings::setWakeupList(wakeupList);
     PowerDevilSettings::self()->save();
 #endif
