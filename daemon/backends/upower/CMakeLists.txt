@@ -13,15 +13,15 @@ dbus/org.freedesktop.UPower.xml
 dbus/org.freedesktop.UPower.Device.xml
 PROPERTIES NO_NAMESPACE TRUE)
 
-qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
+qt_add_dbus_interface(powerdevilupowerbackend_SRCS
 dbus/org.freedesktop.UPower.xml
 upower_interface)
 
-qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
+qt_add_dbus_interface(powerdevilupowerbackend_SRCS
 dbus/org.freedesktop.UPower.Device.xml
 upower_device_interface)
 
-qt5_add_dbus_interface(powerdevilupowerbackend_SRCS
+qt_add_dbus_interface(powerdevilupowerbackend_SRCS
 dbus/org.freedesktop.UPower.KbdBacklight.xml
 upower_kbdbacklight_interface)
 

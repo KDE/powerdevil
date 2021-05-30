@@ -26,7 +26,7 @@ if(HAVE_WIRELESS_SUPPORT)
 endif()
 
 set(actionconfig_SRCS handlebuttoneventsconfig.cpp)
-qt5_add_dbus_interface(actionconfig_SRCS
+qt_add_dbus_interface(actionconfig_SRCS
     ${CMAKE_SOURCE_DIR}/daemon/backends/upower/dbus/org.freedesktop.UPower.xml
     upower_interface)
 add_library(powerdevilhandlebuttoneventsaction_config MODULE
