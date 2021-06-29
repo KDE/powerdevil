@@ -11,6 +11,7 @@ X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50
 
 Name=Activity Power Settings
+Name[ar]=إعدادات الطاقة للنشاط
 Name[az]=Otaqlar üçün enerji ayarları
 Name[ca]=Arranjament d'energia d'activitat
 Name[cs]=Nastavení aktivit napájení
@@ -41,7 +42,7 @@ Name[x-test]=xxActivity Power Settingsxx
 Name[zh_CN]=活动电源设置
 
 Comment=Per-Activity Power Management
-Comment[ar]=إدارة طاقة ما قبل الأحداث
+Comment[ar]=إدارة طاقة لكل نشاط
 Comment[ast]=Xestión enerxética per actividá
 Comment[az]=Hər Otaq üçün enerjinin idarə edilməsi
 Comment[bs]=Upravljitej napajanjem po aktivnosti

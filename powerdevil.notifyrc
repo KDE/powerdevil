@@ -603,7 +603,7 @@ Urgency=Critical
 
 [Event/fullbattery]
 Name=Charge Complete
-Name[ar]=تمَّ الشحن
+Name[ar]=اكتمل الشحن
 Name[az]=Batareya doldu
 Name[bs]=Gotovo punjenje
 Name[ca]=Càrrega completada
@@ -703,6 +703,7 @@ IconName=battery-100
 
 [Event/lowperipheralbattery]
 Name=Peripheral Battery Low
+Name[ar]=البطارية الطرفية منخفضة
 Name[az]=Cihazın batareyası zəifdir
 Name[ca]=Bateria baixa del perifèric
 Name[ca@valencia]=Bateria baixa del perifèric
@@ -747,6 +748,7 @@ Name[x-test]=xxPeripheral Battery Lowxx
 Name[zh_CN]=外设电池电量低
 Name[zh_TW]=週邊裝置電池電力偏低
 Comment=The battery in a connected device, such as mouse or keyboard, is low
+Comment[ar]=انخفاض طاقة البطارية في الجهاز المتصل، مثل الفأرة أو لوحة المفاتيح
 Comment[az]=Siçan və ya Klaviatura kimi qoşulmuş cihazlardakı batareyası zəifdir
 Comment[ca]=La bateria en un dispositiu connectat, com un ratolí o teclat, és baixa
 Comment[ca@valencia]=La bateria en un dispositiu connectat, com un ratolí o el teclat, està baixa
@@ -797,6 +799,7 @@ IconName=battery-caution
 
 [Event/pluggedin]
 Name=Power source connected
+Name[ar]=وصل مصدر الطاقة
 Name[az]=Qida mənbəyinə qoşulub
 Name[ca]=Connectat a la corrent
 Name[cs]=Zdroj napájení je připojen
@@ -828,6 +831,7 @@ Name[uk]=Під'єднано джерело живлення
 Name[x-test]=xxPower source connectedxx
 Name[zh_CN]=电源已连接
 Comment=The power source has been connected
+Comment[ar]=وصل مصدر الطاقة
 Comment[az]=Elektrik qida mənbəyinə qoşuldu
 Comment[ca]=S'ha connectat a la corrent
 Comment[cs]=Zdroj napájení byl připojen
@@ -865,6 +869,7 @@ IconName=battery-charging-low
 
 [Event/unplugged]
 Name=Power source disconnected
+Name[ar]=قطع مصدر الطاقة
 Name[az]=Qida mənbəyindən ayrıldı
 Name[ca]=Desconnectat de la corrent
 Name[cs]=Zdroj napájení odpojen
@@ -896,6 +901,7 @@ Name[uk]=Від'єднано джерело живлення
 Name[x-test]=xxPower source disconnectedxx
 Name[zh_CN]=电源已断开连接
 Comment=The power source has been disconnected
+Comment[ar]=قطع مصدر الطاقة
 Comment[az]=Elektrik qida mənbəyindən ayrıldı
 Comment[ca]=S'ha desconnectat de la corrent
 Comment[cs]=Zdroj napájení byl odpojen

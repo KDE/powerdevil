@@ -53,6 +53,7 @@ Icon=kde
 
 [org.kde.powerdevil.backlighthelper.brightnessmax]
 Name=Get maximum brightness value
+Name[ar]=احصل على أقصى قيمة للسطوع
 Name[az]=Ən yüksək parlaqlıq əldə etmək
 Name[bs]=Dobij maksimalnu vrijednost osvjetljenja
 Name[ca]=Obtén el valor màxim de la lluminositat

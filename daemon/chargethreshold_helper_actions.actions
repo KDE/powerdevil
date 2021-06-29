@@ -53,6 +53,7 @@ Icon=kde
 
 [org.kde.powerdevil.chargethresholdhelper.getthreshold]
 Name=Get current battery charge limit
+Name[ar]=احصل على حد شحن البطارية الحالي
 Name[az]=Batareyanın dolması limitinin göstəricisini əldə etmək
 Name[ca]=Obtén el límit actual de càrrega de la bateria
 Name[da]=Hent batteriets aktuelle opladningsgrænse
@@ -83,6 +84,7 @@ Name[uk]=Отримання поточного рівня обмеження н�
 Name[x-test]=xxGet current battery charge limitxx
 Name[zh_CN]=获取当前电池充电上限
 Description=System policies prevent you from getting the current battery charge limit.
+Description[ar]=تمنعك سياسات النظام من الحصول على حد شحن البطارية الحالي.
 Description[az]=Sistemdəki qaydalar batareyanın dolması limitini əldə etməyə imkan vermir.
 Description[ca]=Les polítiques del sistema impedeixen que conegueu el límit actual de carrega de la bateria.
 Description[cs]=Nastavení systému vám znemožňuje získat limit nabíjení baterie.
@@ -118,6 +120,7 @@ PolicyInactive=yes
 
 [org.kde.powerdevil.chargethresholdhelper.setthreshold]
 Name=Set battery charge limit
+Name[ar]=ضع حداً لشحن البطارية
 Name[az]=Batareyanın dolması limitini təyin etmək
 Name[ca]=Estableix el límit actual de càrrega de la bateria
 Name[cs]=Nastavit limit nabíjení baterie
@@ -149,6 +152,7 @@ Name[uk]=Встановлення рівня обмеження на заряд�
 Name[x-test]=xxSet battery charge limitxx
 Name[zh_CN]=设置电池充电上限
 Description=System policies prevent you from setting a battery charge limit.
+Description[ar]=تمنعك سياسات النظام من وضع حدا لشحن البطارية
 Description[az]=Sistemdəki qaydalar batareyanın dolması limitini ayarlamağa imkan vermir.
 Description[ca]=Les polítiques del sistema impedeixen que establiu un límit de càrrega de la bateria.
 Description[cs]=Nastavení systému vám znemožňuje nastavit limit nabíjení baterie.

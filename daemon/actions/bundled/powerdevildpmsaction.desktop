@@ -52,6 +52,7 @@ Name[x-test]=xxScreen Energy Savingxx
 Name[zh_CN]=屏幕节能
 Name[zh_TW]=螢幕節能
 Comment=Controls DPMS settings
+Comment[ar]=تتحكم بإعدادات DPMS
 Comment[az]=DPMS ayarlarını idarə etmək
 Comment[bs]=Upravlja DPMS postavkama
 Comment[ca]=Controla l'arranjament del DPMS

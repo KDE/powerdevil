@@ -53,6 +53,7 @@ Icon=kde
 
 [org.kde.powerdevil.discretegpuhelper.hasdualgpu]
 Name=Check existence of discrete gpu
+Name[ar]=تأكد من وحدة معالجة الرسومات المنفصلة
 Name[az]=Diskret qrafik kartın varlığını yoxlamaq
 Name[ca]=Comprova l'existència d'una GPU dedicada
 Name[ca@valencia]=Comprova l'existència d'una GPU separada
@@ -96,6 +97,7 @@ Name[x-test]=xxCheck existence of discrete gpuxx
 Name[zh_CN]=检查是否存在独立 GPU
 Name[zh_TW]=檢查是否有獨立顯示卡
 Description=System policies prevent you from checking the existence of discrete gpu.
+Description[ar]=تمنعك سياسات النظام من التأكد من وحدة معالجة الرسومات المنفصلة.
 Description[az]=Sistemdəki qaydalar sikret qrafik prosessoru təyin etməyə imkan vermir.
 Description[ca]=Les polítiques del sistema impedeixen que es comprovi l'existència d'una GPU dedicada.
 Description[ca@valencia]=Les polítiques del sistema impedeixen que es comprove l'existència d'una GPU separada.

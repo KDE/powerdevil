@@ -5,6 +5,7 @@ X-KDE-Library=powerdevilupowerbackend
 InitialPreference=200
 Icon=preferences-system-power-management
 Name=UPower PowerDevil Backend
+Name[ar]=خلفية UPower بوردفل
 Name[az]=PowerDevil üçün UPower dəstək Modulu
 Name[bs]=UPower PowerDevil pozadina
 Name[ca]=Dorsal d'UPower per al PowerDevil
