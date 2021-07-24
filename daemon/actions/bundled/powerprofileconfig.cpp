@@ -57,6 +57,18 @@ void PowerProfileConfig::load()
     configGroup().config()->reparseConfiguration();
 
     const QString profile = configGroup().readEntry("profile", QString());
+    if (m_profileCombo) {
+        m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
+    }
+}
+
+QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
+{
+    m_profileCombo = new QComboBox;
+    // Uniform ComboBox width throughout all action config modules
+    m_profileCombo->setMinimumWidth(300);
+    m_profileCombo->setMaximumWidth(300);
+    connect(m_profileCombo, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &PowerProfileConfig::setChanged);
 
     QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
                                                       QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
@@ -64,7 +76,7 @@ void PowerProfileConfig::load()
                                                       QStringLiteral("profileChoices"));
 
     auto *watcher = new QDBusPendingCallWatcher(QDBusConnection::sessionBus().asyncCall(msg), this);
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, profile](QDBusPendingCallWatcher *watcher) {
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QStringList> reply = *watcher;
         watcher->deleteLater();
 
@@ -86,17 +98,10 @@ void PowerProfileConfig::load()
         for (const QString &choice : choices) {
             m_profileCombo->addItem(profileNames.value(choice, choice), choice);
         }
+        const QString profile = configGroup().readEntry("profile", QString());
         m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
     });
-}
 
-QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
-{
-    m_profileCombo = new QComboBox;
-    // Uniform ComboBox width throughout all action config modules
-    m_profileCombo->setMinimumWidth(300);
-    m_profileCombo->setMaximumWidth(300);
-    connect(m_profileCombo, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &PowerProfileConfig::setChanged);
 
     return {qMakePair<QString, QWidget *>(i18nc("Switch to power management profile", "Switch to:"), m_profileCombo)};
 }

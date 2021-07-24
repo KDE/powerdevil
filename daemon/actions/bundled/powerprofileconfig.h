@@ -41,7 +41,7 @@ public:
     QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
-    QComboBox *m_profileCombo;
+    QComboBox *m_profileCombo = nullptr;
 };
 
 } // namespace BundledActions
