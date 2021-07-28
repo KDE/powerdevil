@@ -98,8 +98,11 @@ QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
         for (const QString &choice : choices) {
             m_profileCombo->addItem(profileNames.value(choice, choice), choice);
         }
-        const QString profile = configGroup().readEntry("profile", QString());
-        m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
+
+        if (configGroup().isValid()) {
+            const QString profile = configGroup().readEntry("profile", QString());
+            m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
+        }
     });
 
 
