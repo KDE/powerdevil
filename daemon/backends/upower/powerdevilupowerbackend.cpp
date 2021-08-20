@@ -175,6 +175,12 @@ void PowerDevilUPowerBackend::init()
                             m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
                         }
 
+#ifdef Q_OS_FREEBSD
+                        // FreeBSD doesn't have the sysfs interface that the bits below expect;
+                        // the sysfs calls always fail, leading to brightnessSupportQueried(false) emission.
+                        // Skip that command and carry on with the information that we do have.
+                        Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
+#else
                         KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
                         syspathAction.setHelperId(HELPER_ID);
                         KAuth::ExecuteJob* syspathJob = syspathAction.execute();
@@ -199,6 +205,7 @@ void PowerDevilUPowerBackend::init()
                             }
                         );
                         syspathJob->start();
+#endif
                     }
                 );
                 brightnessMaxJob->start();
