@@ -110,7 +110,7 @@ Comment[x-test]=xxEnergy Savingxx
 Comment[zh_CN]=节能
 Comment[zh_TW]=省電模式
 
-X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lid,screen
+X-KDE-Keywords=system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,low battery,plug,unplug
 X-KDE-Keywords[ar]=نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,
 X-KDE-Keywords[az]=system,power,power management,energy,laptop,battery,suspension,AC,suspend,hibernate,brightness,performance,lidsistem,güc,enerjiyə nəzarət,noutbuk,batareyayuxu,dayanma,parlaqlıq,məhsuldarlıq,ekran
 X-KDE-Keywords[ca]=sistema,energia,gestió d'energia,corrent,portàtil,bateria,suspensió,AC,suspèn,hiberna,lluminositat,rendiment,tapa,pantalla
