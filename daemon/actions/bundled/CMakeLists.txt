@@ -12,7 +12,7 @@ function(add_powerdevil_bundled_action _name)
                         KF5::XmlGui
                         ${ARGN})
     install(TARGETS powerdevil${_name}action_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
-    install(FILES powerdevil${_name}action.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+    install(FILES powerdevil${_name}action.desktop DESTINATION ${KDE_INSTALL_DATADIR}/powerdevil/action)
 endfunction(add_powerdevil_bundled_action _name)
 
 add_powerdevil_bundled_action(brightnesscontrol KF5::GlobalAccel)

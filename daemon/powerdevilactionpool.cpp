@@ -27,7 +27,10 @@
 #include <config-powerdevil.h>
 
 #include <KConfigGroup>
-#include <KServiceTypeTrader>
+#include <KFileUtils>
+#include <KPluginFactory>
+#include <KPluginLoader>
+#include <KService>
 
 #include <QDBusConnection>
 #include <QDebug>
@@ -93,9 +96,15 @@ void ActionPool::clearCache()
 void ActionPool::init(PowerDevil::Core *parent)
 {
     // Load all the actions
-    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
-                                                              QStringLiteral("[X-KDE-PowerDevil-Action-IsBundled] == FALSE"));
-    for (const KService::Ptr offer : offers) {
+    const QStringList searchDirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("powerdevil/action"), QStandardPaths::LocateDirectory);
+    const QStringList offers = KFileUtils::findAllUniqueFiles(searchDirs, QStringList{QStringLiteral("*.desktop")});
+
+    for (const QString &offerFilePath : offers) {
+        const KService::Ptr offer{new KService(offerFilePath)};
+        if (offer->property(QStringLiteral("X-KDE-PowerDevil-Action-IsBundled"), QVariant::Bool).toBool()) {
+            continue;
+        }
         QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
         qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
@@ -151,15 +160,15 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 
     // Register DBus objects
-    {
-        const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
-                                                                QStringLiteral("[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE"));
-        for (const KService::Ptr offer : offers) {
-            QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
+    for (const QString &offerFilePath : offers) {
+        const KService::Ptr offer{new KService(offerFilePath)};
+        if (!offer->property(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), QVariant::Bool).toBool()) {
+            continue;
+        }
+        QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
-            if (m_actionPool.contains(actionId)) {
-                QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
-            }
+        if (m_actionPool.contains(actionId)) {
+            QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
         }
     }
 }

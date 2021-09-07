@@ -35,8 +35,11 @@
 #include <QDBusPendingReply>
 
 #include <KConfigGroup>
+#include <KDesktopFile>
+#include <KFileUtils>
+#include <KPluginFactory>
+#include <KPluginLoader>
 #include <QDebug>
-#include <KServiceTypeTrader>
 
 ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
@@ -48,22 +51,26 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     QMultiMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
     // Load all the services
-    const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
+    const QStringList searchDirs =
+        QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("powerdevil/action"), QStandardPaths::LocateDirectory);
+    const QStringList offers = KFileUtils::findAllUniqueFiles(searchDirs, QStringList{QStringLiteral("*.desktop")});
 
-    for (const KService::Ptr &offer : offers) {
+    for (const QString &offer : offers) {
+        KDesktopFile desktopFile(offer);
+        KConfigGroup cfg = desktopFile.desktopGroup();
         // Does it have a runtime requirement?
-        if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
-            qCDebug(POWERDEVIL) << offer->name() << " has a runtime requirement";
+        if (cfg.readEntry("X-KDE-PowerDevil-Action-HasRuntimeRequirement", false)) {
+            qCDebug(POWERDEVIL) << cfg.readEntry("Name") << " has a runtime requirement";
 
             QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                                "org.kde.Solid.PowerManagement", "isActionSupported");
-            call.setArguments(QVariantList() << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String));
+            call.setArguments(QVariantList() << cfg.readEntry("X-KDE-PowerDevil-Action-ID"));
             QDBusPendingReply< bool > reply = QDBusConnection::sessionBus().asyncCall(call);
             reply.waitForFinished();
 
             if (reply.isValid()) {
                 if (!reply.value()) {
-                    qCDebug(POWERDEVIL) << "The action " << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String) << " appears not to be supported by the core.";
+                    qCDebug(POWERDEVIL) << "The action " << cfg.readEntry("X-KDE-PowerDevil-Action-ID") << " appears not to be supported by the core.";
                     continue;
                 }
             } else {
@@ -72,33 +79,29 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         }
 
         //try to load the specified library
-        KPluginFactory *factory = KPluginLoader(offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
-                                                                QVariant::String).toString()).factory();
+        KPluginFactory *factory = KPluginLoader(cfg.readEntry("X-KDE-PowerDevil-Action-UIComponentLibrary")).factory();
 
         if (!factory) {
-            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
-                                                                       QVariant::String).toString();
+            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << cfg.readEntry("X-KDE-PowerDevil-Action-UIComponentLibrary");
             continue;
         }
 
         PowerDevil::ActionConfig *actionConfig = factory->create<PowerDevil::ActionConfig>();
         if (!actionConfig) {
-            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
-                                                                       QVariant::String).toString();
+            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << cfg.readEntry("X-KDE-PowerDevil-Action-UIComponentLibrary");
             continue;
         }
 
         connect(actionConfig, &PowerDevil::ActionConfig::changed, this, &ActionEditWidget::onChanged);
 
-        QCheckBox *checkbox = new QCheckBox(offer->name());
+        QCheckBox *checkbox = new QCheckBox(cfg.readEntry("Name"));
         connect(checkbox, &QCheckBox::stateChanged, this, &ActionEditWidget::onChanged);
-        m_actionsHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), checkbox);
-        m_actionsConfigHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), actionConfig);
+        m_actionsHash.insert(cfg.readEntry("X-KDE-PowerDevil-Action-ID"), checkbox);
+        m_actionsConfigHash.insert(cfg.readEntry("X-KDE-PowerDevil-Action-ID"), actionConfig);
 
         QList<QPair<QString, QWidget*> > offerWidgets = actionConfig->buildUi();
         offerWidgets.prepend(qMakePair<QString,QWidget*>(QString(), checkbox));
-        widgets.insert(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
-                            offerWidgets);
+        widgets.insert(100 - cfg.readEntry("X-KDE-PowerDevil-Action-ConfigPriority", 0), offerWidgets);
     }
 
     for (QMultiMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
