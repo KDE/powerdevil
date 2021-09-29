@@ -92,6 +92,7 @@ void ActivityWidget::load()
 
     using namespace PowerDevil::BundledActions;
 
+    m_ui->alwaysActionBox->clear();
     if (PowerDevil::PowerManagement::instance()->canSuspend()) {
         m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
                                        i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
