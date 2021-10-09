@@ -34,6 +34,7 @@
 #include <QDBusPendingCall>
 #include <QGuiApplication>
 #include <QX11Info>
+#include <QTimer>
 #include <QDebug>
 
 #include <KActionCollection>
@@ -212,12 +213,21 @@ void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicie
     }
 }
 
+static std::chrono::milliseconds dimAnimationTime()
+{
+    // See kscreen.kcfg from kwin
+    return std::chrono::milliseconds (KSharedConfig::openConfig("kwinrc")->group("Effect-Kscreen").readEntry("Duration", 250));
+}
+
 void DPMS::lockScreen()
 {
-    QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
-                                                                           "/ScreenSaver",
-                                                                           "org.freedesktop.ScreenSaver",
-                                                                           "Lock"));
+    // We need to delay locking until the screen has dimmed, otherwise it looks all clunky
+    QTimer::singleShot(dimAnimationTime(), [] {
+        QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
+                                                                            "/ScreenSaver",
+                                                                            "org.freedesktop.ScreenSaver",
+                                                                            "Lock"));
+    });
 }
 
 }
