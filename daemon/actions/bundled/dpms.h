@@ -24,9 +24,11 @@
 
 #include <powerdevilaction.h>
 
+
 #include <QScopedPointer>
 
 class AbstractDpmsHelper;
+class PowerDevilProfileSettings;
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -50,7 +52,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(PowerDevilProfileSettings *config) override;
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
