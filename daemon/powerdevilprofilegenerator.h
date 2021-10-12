@@ -20,23 +20,24 @@
 #ifndef POWERDEVIL_PROFILEGENERATOR_H
 #define POWERDEVIL_PROFILEGENERATOR_H
 
+#include <QString>
+
 namespace PowerDevil {
 
 namespace ProfileGenerator
 {
-    enum Modes {
-        NoneMode = 0,
-        ToRamMode = 1,
-        ToDiskMode = 2,
-        SuspendHybridMode = 4,
-        ShutdownMode = 8,
-        LogoutDialogMode = 16,
-        LockScreenMode = 32,
-        TurnOffScreenMode = 64,
-        ToggleScreenOnOffMode = 128
-    };
+    // the new style of settings. use this profileSettingsName() + "_AC" to open the AC profile.
+    Q_DECL_EXPORT QString profileSettingsBaseName();
+
+    // Original settings name - with multiple profiles per file.
+    QString oldProfileSettingsName();
 
     void generateProfiles(bool toRam, bool toDisk);
+
+    // True if ported, false if there's nothing to port.
+    bool portDeprecatedConfig(const QString& profileName, bool toRam, bool toDisk);
+
+    bool hasOldConfig(const QString& profileName);
 }
 
 }
