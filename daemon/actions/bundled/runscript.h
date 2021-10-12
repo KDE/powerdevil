@@ -44,7 +44,7 @@ protected:
     void triggerImpl(const QVariantMap& args) override;
 
 public:
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(PowerDevilProfileSettings *settings) override;
 
 private:
     void runCommand();

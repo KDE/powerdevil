@@ -22,7 +22,7 @@
 
 #include <QProcess>
 
-#include <KConfigGroup>
+#include <PowerDevilProfileSettings.h>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -69,17 +69,17 @@ void RunScript::triggerImpl(const QVariantMap& args)
     Q_UNUSED(args);
 }
 
-bool RunScript::loadAction(const KConfigGroup& config)
+bool RunScript::loadAction(PowerDevilProfileSettings *settings)
 {
-    if (config.hasKey("scriptCommand") && config.hasKey("scriptPhase")) {
-        m_scriptCommand = config.readEntry<QString>("scriptCommand", QString());
-        m_scriptPhase = config.readEntry<int>("scriptPhase", 0);
-        if (m_scriptPhase == 2) {
-            if (!config.hasKey("idleTime")) {
-                return false;
-            }
-            registerIdleTimeout(config.readEntry<int>("idleTime", 10000000));
+    m_scriptCommand = settings->runScriptCommand();
+    m_scriptPhase = settings->runScriptPhase();
+
+    if (m_scriptPhase == PowerDevilProfileSettings::EnumRunScriptPhase::After) {
+        int idleTime = settings->runScriptIdleTimeMsec();
+        if (idleTime == 0) {
+            return false;
         }
+        registerIdleTimeout(idleTime);
     }
 
     return true;
