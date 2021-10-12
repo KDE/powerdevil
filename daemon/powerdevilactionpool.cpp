@@ -93,6 +93,8 @@ void ActionPool::clearCache()
 
 void ActionPool::init(PowerDevil::Core *parent)
 {
+    //TODO:
+    // We removed all the non bundled actions, should we delete this code?
     // Load all the actions
     const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
                                                               QStringLiteral("[X-KDE-PowerDevil-Action-IsBundled] == FALSE"));
