@@ -1,5 +1,7 @@
+#pragma once
+
 /*
- * Copyright 2020 Kai Uwe Broulik <kde@broulik.de>
+ * Copyright 2021 Tomaz Canabrava <tcanabrava@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,31 +20,38 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#include <QObject>
 
-#include <powerdevilactionconfig.h>
-
-class QComboBox;
-
-namespace PowerDevil
-{
-namespace BundledActions
-{
-class PowerProfileConfig : public PowerDevil::ActionConfig
-{
+class PowerDevilEnums : public QObject {
     Q_OBJECT
-    Q_DISABLE_COPY(PowerProfileConfig)
+
 public:
-    PowerProfileConfig(QObject *parent, const QVariantList &args);
-    ~PowerProfileConfig() override;
+    PowerDevilEnums();
 
-    void save() override;
-    void load() override;
-    QList<QPair<QString, QWidget *>> buildUi() override;
+    enum PowerButtonMode {
+         NoneMode = 0,
+         ToRamMode = 1,
+         ToDiskMode = 2,
+         SuspendHybridMode = 4,
+         ShutdownMode = 8,
+         LogoutDialogMode = 16,
+         LockScreenMode = 32,
+         TurnOffScreenMode = 64,
+         ToggleScreenOnOffMode = 128
+    };
+    Q_ENUM(PowerButtonMode)
 
-private:
-    QComboBox *m_profileCombo = nullptr;
+    enum WirelessMode {
+        NoAction,
+        TurnOff,
+        TurnOn
+    };
+    Q_ENUM(WirelessMode)
+
+    enum RunScriptMode {
+        OnProfileLoad,
+        OnProfileUnload,
+        After
+    };
+    Q_ENUM(RunScriptMode)
 };
-
-} // namespace BundledActions
-} // namespace PowerDevil

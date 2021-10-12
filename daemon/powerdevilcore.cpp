@@ -46,6 +46,13 @@
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
 
+#include <PowerDevilProfileSettings.h>
+#include <PowerDevilCurrentProfile.h>
+#include <PowerDevilActivitySettings.h>
+
+#include "powerdevilprofilegenerator.h"
+#include "powerdevilpowermanagement.h"
+
 #include <QDebug>
 
 #include <algorithm>
@@ -79,6 +86,13 @@ Core::Core(QObject* parent)
     discreteGpuJob->start();
 
     readChargeThreshold();
+
+    auto interface = Kirigami::TabletModeWatcher::self();
+    PowerDevil::ProfileGenerator::generateProfiles(
+        interface->isTabletModeAvailable(),
+        PowerDevil::PowerManagement::instance()->canSuspend(),
+        PowerDevil::PowerManagement::instance()->canHibernate()
+    );
 }
 
 Core::~Core()
@@ -106,17 +120,11 @@ void Core::loadCore(BackendInterface* backend)
 void Core::onBackendReady()
 {
     qCDebug(POWERDEVIL) << "Backend ready, KDE Power Management system initialized";
-
-    m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::CascadeConfig);
-
-    QStringList groups = m_profilesConfig->groupList();
-    // the "migration" key is for shortcuts migration in added by migratePre512KeyboardShortcuts
-    // and as such our configuration would never be considered empty, ignore it!
-    groups.removeOne(QStringLiteral("migration"));
+    auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
+    // "powermanagementprofilesrc"
 
     // Is it brand new?
-    if (groups.isEmpty()) {
-        // Generate defaults
+    if (!currentProfileSettings->created()) {
         qCDebug(POWERDEVIL) << "Generating a default configuration";
         bool toRam = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
         bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
@@ -125,7 +133,7 @@ void Core::onBackendReady()
         const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletModeAvailable();
 
         ProfileGenerator::generateProfiles(mobile, toRam, toDisk);
-        m_profilesConfig->reparseConfiguration();
+        currentProfileSettings->setCreated(true);
     }
 
     // Get the battery devices ready
@@ -235,7 +243,7 @@ void Core::onBackendReady()
 
 bool Core::isActionSupported(const QString& actionName)
 {
-    Action *action = ActionPool::instance()->loadAction(actionName, KConfigGroup(), this);
+    Action *action = ActionPool::instance()->loadAction(actionName, nullptr, this);
     if (!action) {
         return false;
     } else {
@@ -256,7 +264,6 @@ void Core::refreshStatus()
 void Core::reparseConfiguration()
 {
     PowerDevilSettings::self()->load();
-    m_profilesConfig->reparseConfiguration();
 
     // Config reloaded
     Q_EMIT configurationReloaded();
@@ -283,77 +290,64 @@ QString Core::currentProfile() const
 
 void Core::loadProfile(bool force)
 {
-    QString profileId;
-
     // Policy check
     if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
         qCDebug(POWERDEVIL) << "Policy Agent prevention: on";
         return;
     }
 
-    KConfigGroup config;
-
-    // Check the activity in which we are in
     QString activity = m_activityConsumer->currentActivity();
-    qCDebug(POWERDEVIL) << "Currently using activity " << activity;
-    KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
-    qCDebug(POWERDEVIL) << "Activities with settings:" << activitiesConfig.groupList() << activitiesConfig.keyList();
 
-    // Are we mirroring an activity?
-    if (activitiesConfig.group(activity).readEntry("mode", "None") == QStringLiteral("ActLike") &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("AC") &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("Battery") &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("LowBattery")) {
-        // Yes, let's use that then
-        activity = activitiesConfig.group(activity).readEntry("actLike", QString());
-        qCDebug(POWERDEVIL) << "Activity is a mirror";
-    }
-
-    KConfigGroup activityConfig = activitiesConfig.group(activity);
-    qCDebug(POWERDEVIL) << "Settings for loaded activity:" << activity << activityConfig.groupList() << activityConfig.keyList();
-
-    // See if this activity has priority
-    if (activityConfig.readEntry("mode", "None") == QStringLiteral("SeparateSettings")) {
-        // Prioritize this profile over anything
-        config = activityConfig.group("SeparateSettings");
-        qCDebug(POWERDEVIL) << "Activity is enforcing a different profile";
-        profileId = activity;
-    } else {
-        // It doesn't, let's load the current state's profile
-        if (m_batteriesPercent.isEmpty()) {
-            qCDebug(POWERDEVIL) << "No batteries found, loading AC";
-            profileId = QStringLiteral("AC");
-        } else if (activityConfig.readEntry("mode", "None") == QStringLiteral("ActLike")) {
-            if (activityConfig.readEntry("actLike", QString()) == QStringLiteral("AC") ||
-                activityConfig.readEntry("actLike", QString()) == QStringLiteral("Battery") ||
-                activityConfig.readEntry("actLike", QString()) == QStringLiteral("LowBattery")) {
-                // Same as above, but with an existing profile
-                config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
-                profileId = activityConfig.readEntry("actLike", QString());
-                qCDebug(POWERDEVIL) << "Activity is mirroring a different profile";
-            }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    // Inner Functions. This Method is too big and confusing this is an attempt to make sense of it. //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    auto profileForBatteryLevel = [this]() -> QString {
+        const int percent = currentChargePercent();
+        if (backend()->acAdapterState() == BackendInterface::Plugged) {
+            return QStringLiteral("AC");
+        } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
+            return QStringLiteral("LowBattery");
         } else {
-            // Compute the previous and current global percentage
-            const int percent = currentChargePercent();
+            return QStringLiteral("Battery");
+        }
+    };
 
-            if (backend()->acAdapterState() == BackendInterface::Plugged) {
-                profileId = QStringLiteral("AC");
-                qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
-            } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-                profileId = QStringLiteral("LowBattery");
-                qCDebug(POWERDEVIL) << "Loading profile for low battery";
-            } else {
-                profileId = QStringLiteral("Battery");
-                qCDebug(POWERDEVIL) << "Loading profile for unplugged AC";
-            }
+    auto profileForActivity = [this, &activity, &profileForBatteryLevel](int mode) -> QString {
+        if (mode == PowerDevilActivitySettings::EnumMode::SeparateSettings) {
+            return activity;
         }
 
-        config = m_profilesConfig.data()->group(profileId);
-        qCDebug(POWERDEVIL) << "Activity is not forcing a profile";
-    }
+        auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
+        if (currentProfileSettings->currentProfileName().count()) {
+            return currentProfileSettings->currentProfileName();
+        }
 
-    // Release any special inhibitions
-    {
+        if (m_batteriesPercent.isEmpty()) {
+            qCDebug(POWERDEVIL) << "No batteries found, loading AC";
+            return QStringLiteral("AC");
+        }
+
+        switch(mode) {
+            case PowerDevilActivitySettings::EnumMode::AC:
+                return QStringLiteral("AC");
+            break;
+            case PowerDevilActivitySettings::EnumMode::Battery:
+                return  QStringLiteral("Battery");
+            break;
+            case PowerDevilActivitySettings::EnumMode::LowBattery:
+                return QStringLiteral("LowBattery");
+            break;
+            case PowerDevilActivitySettings::EnumMode::None:
+                return profileForBatteryLevel();
+            break;
+            default:
+                qCDebug(POWERDEVIL) << "Invalid profile, loading AC";
+                return QStringLiteral("AC");
+            break;
+        }
+    };
+
+    auto releaseInhibitions = [this] {
         QHash<QString,int>::iterator i = m_sessionActivityInhibit.begin();
         while (i != m_sessionActivityInhibit.end()) {
             PolicyAgent::instance()->ReleaseInhibition(i.value());
@@ -365,89 +359,82 @@ void Core::loadProfile(bool force)
             PolicyAgent::instance()->ReleaseInhibition(i.value());
             i = m_screenActivityInhibit.erase(i);
         }
-    }
+    };
 
-    if (!config.isValid()) {
-        qCWarning(POWERDEVIL) << "Profile " << profileId << "has been selected but does not exist.";
-        return;
-    }
-
-    // Check: do we need to change profile at all?
-    if (m_currentProfile == profileId && !force) {
-        // No, let's leave things as they are
-        qCDebug(POWERDEVIL) << "Skipping action reload routine as profile has not changed";
-
-        // Do we need to force a wakeup?
+    auto tryForceWakeup = [this] {
         if (m_pendingWakeupEvent) {
             // Fake activity at this stage, when no timeouts are registered
             onResumingFromIdle();
             m_pendingWakeupEvent = false;
         }
-    } else {
-        // First of all, let's clean the old actions. This will also call the onProfileUnload callback
-        ActionPool::instance()->unloadAllActiveActions();
+    };
 
-        // Do we need to force a wakeup?
-        if (m_pendingWakeupEvent) {
-            // Fake activity at this stage, when no timeouts are registered
-            onResumingFromIdle();
-            m_pendingWakeupEvent = false;
+    auto handleProfileSpecialBehaviors = [this, activity] (PowerDevilActivitySettings &activitySettings) {
+        if (!activitySettings.specialBehaviorEnabled()) {
+            return;
         }
 
-        // Cool, now let's load the needed actions
-        const auto groupList = config.groupList();
-        for (const QString &actionName : groupList) {
-            Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
-            if (action) {
-                action->onProfileLoad();
-            } else {
-                // Ouch, error. But let's just warn and move on anyway
-                //TODO Maybe Remove from the configuration if unsupported
-                qCWarning(POWERDEVIL) << "The profile " << profileId <<  "tried to activate"
-                                << actionName << "a non-existent action. This is usually due to an installation problem,"
-                                " a configuration problem, or because the action is not supported";
-            }
-        }
-
-        // We are now on a different profile
-        m_currentProfile = profileId;
-        Q_EMIT profileChanged(m_currentProfile);
-    }
-
-    // Now... any special behaviors we'd like to consider?
-    if (activityConfig.readEntry("mode", "None") == QStringLiteral("SpecialBehavior")) {
         qCDebug(POWERDEVIL) << "Activity has special behaviors";
-        KConfigGroup behaviorGroup = activityConfig.group("SpecialBehavior");
-        if (behaviorGroup.readEntry("performAction", false)) {
-            // Let's override the configuration for this action at all times
-            ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), behaviorGroup.group("ActionConfig"), this);
+        if (activitySettings.specialBehaviorPerformAction()) {
+            PowerDevilProfileSettings settings(activity);
+
+            ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), &settings, this);
             qCDebug(POWERDEVIL) << "Activity overrides suspend session action"; // debug hence not sleep
         }
 
-        if (behaviorGroup.readEntry("noSuspend", false)) {
+        if (activitySettings.specialBehaviorNoSuspend()) {
             qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
             // Trigger a special inhibition - if we don't have one yet
             if (!m_sessionActivityInhibit.contains(activity)) {
-                int cookie =
-                PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession, i18n("Activity Manager"),
-                                                       i18n("This activity's policies prevent the system from going to sleep"));
+                int cookie = PolicyAgent::instance()->AddInhibition(
+                    PolicyAgent::InterruptSession, i18n("Activity Manager"),
+                    i18n("This activity's policies prevent the system from going to sleep"));
 
                 m_sessionActivityInhibit.insert(activity, cookie);
             }
         }
 
-        if (behaviorGroup.readEntry("noScreenManagement", false)) {
+        if (activitySettings.specialBehaviorNoScreenManagement()) {
             qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
             // Trigger a special inhibition - if we don't have one yet
             if (!m_screenActivityInhibit.contains(activity)) {
-                int cookie =
-                PolicyAgent::instance()->AddInhibition(PolicyAgent::ChangeScreenSettings, i18n("Activity Manager"),
-                                                       i18n("This activity's policies prevent screen power management"));
-
+                int cookie = PolicyAgent::instance()->AddInhibition(
+                    PolicyAgent::ChangeScreenSettings,
+                    i18n("Activity Manager"),
+                    i18n("This activity's policies prevent screen power management"));
                 m_screenActivityInhibit.insert(activity, cookie);
             }
         }
+    };
+
+    PowerDevilActivitySettings activitySettings(QStringLiteral("powermanagementprofilesrc_") + activity);
+
+    QString profileId = profileForActivity(activitySettings.mode());
+
+    PowerDevilProfileSettings settings(profileId);
+
+    qCDebug(POWERDEVIL) << "Currently using activity " << activity;
+    qCDebug(POWERDEVIL) << "With Profile ID" << profileId;
+
+    releaseInhibitions();
+
+    // Check: do we need to change profile at all?
+    if (m_currentProfile == profileId && !force) {
+        // No, let's leave things as they are
+        qCDebug(POWERDEVIL) << "Skipping action reload routine as profile has not changed";
+        tryForceWakeup();
+    } else {
+        // First of all, let's clean the old actions. This will also call the onProfileUnload callback
+        ActionPool::instance()->unloadAllActiveActions();
+        tryForceWakeup();
+        ActionPool::instance()->loadActionsForProfile(&settings, profileId, this);
+        m_currentProfile = profileId;
+        auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
+        currentProfileSettings->setCurrentProfileName(m_currentProfile);
+        Q_EMIT profileChanged(m_currentProfile);
     }
+
+    handleProfileSpecialBehaviors(activitySettings);
 
     // If the lid is closed, retrigger the lid close signal
     // so that "switching profile then closing the lid" has the same result as
@@ -785,7 +772,7 @@ void Core::onCriticalBatteryTimerExpired()
     // Do that only if we're not on AC
     if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
         // We consider this as a very special button
-        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), KConfigGroup(), this);
+        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), nullptr, this);
         if (helperAction) {
             QVariantMap args;
             args[QStringLiteral("Button")] = 32;
@@ -1034,7 +1021,7 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
 void Core::wakeup()
 {
     onResumingFromIdle();
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("DPMSControl"), KConfigGroup(), this);
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("DPMSControl"), nullptr, this);
     if (helperAction) {
         QVariantMap args;
         // we pass empty string as type because when empty type is passed,
@@ -1080,7 +1067,7 @@ void Core::resetAndScheduleNextWakeup()
 
 #ifdef Q_OS_LINUX
     // first we sort the wakeup list
-    std::sort(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [](const WakeupInfo& lhs, const WakeupInfo& rhs) 
+    std::sort(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [](const WakeupInfo& lhs, const WakeupInfo& rhs)
     {
         return lhs.timeout < rhs.timeout;
     });

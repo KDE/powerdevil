@@ -31,9 +31,11 @@
 #include <QDebug>
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KGlobalAccel>
+
+#include <PowerDevilProfileSettings.h>
+
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -124,16 +126,16 @@ bool BrightnessControl::isSupported()
     return true;
 }
 
-bool BrightnessControl::loadAction(const KConfigGroup& config)
+bool BrightnessControl::loadAction(PowerDevilProfileSettings *config)
 {
     // Handle profile changes
     m_lastProfile = m_currentProfile;
-    m_currentProfile = config.parent().name();
+    m_currentProfile = config->profileName();
 
     qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << m_lastProfile;
 
-    if (config.hasKey("value")) {
-        m_defaultValue = config.readEntry<int>("value", 50);
+    if (config->manageBrightnessControl()) {
+        m_defaultValue = config->brightnessControl();
     }
 
     return true;

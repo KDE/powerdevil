@@ -145,8 +145,6 @@ private:
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;
 
-    KSharedConfigPtr m_profilesConfig;
-
     QString m_currentProfile;
 
     QHash<QString, int> m_batteriesPercent;

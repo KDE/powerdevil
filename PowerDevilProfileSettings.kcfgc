@@ -1,8 +1,7 @@
 # SPDX-FileCopyrightText: none
 # SPDX-License-Identifier: CC0-1.0
 
-ClassName=PowerDevilSettings
-File=PowerDevilSettings.kcfg
+ClassName=PowerDevilProfileSettings
+File=PowerDevilProfileSettings.kcfg
 Mutators=true
-Singleton=true
 Visibility=Q_DECL_EXPORT

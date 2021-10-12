@@ -22,16 +22,21 @@
 
 #include <KCModule>
 #include <KSharedConfig>
+#include <QVector>
 
-#include "ui_profileEditPage.h"
+#include <PowerDevilProfileSettings.h>
+
+#include <memory>
+#include <functional>
 
 class ActionEditWidget;
 namespace PowerDevil {
 }
 
+class QTabWidget;
 class ErrorOverlay;
 
-class EditPage : public KCModule, private Ui_profileEditPage
+class EditPage : public KCModule
 {
     Q_OBJECT
 
@@ -44,10 +49,6 @@ public:
     void defaults() override;
 
 private Q_SLOTS:
-    void onChanged(bool changed);
-
-    void restoreDefaultProfiles();
-
     void notifyDaemon();
 
     void openUrl(const QString &url);
@@ -55,13 +56,16 @@ private Q_SLOTS:
     void onServiceRegistered(const QString &service);
     void onServiceUnregistered(const QString &service);
 
-    void checkAndEmitChanged();
-
 private:
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, bool > m_profileEdited;
+    std::unique_ptr<PowerDevilProfileSettings> m_ACConfig;
+    std::unique_ptr<PowerDevilProfileSettings> m_BatteryConfig;
+    std::unique_ptr<PowerDevilProfileSettings> m_LowBatteryConfig;
+
     ErrorOverlay *m_errorOverlay = nullptr;
-    QHash< QString, ActionEditWidget* > m_editWidgets;
+    QVector<ActionEditWidget*> m_editWidgets;
+    QTabWidget *tabWidget = nullptr;
+
+    void forEachTab(std::function<void(ActionEditWidget*)> func);
 };
 
 #endif /* EDITPAGE_H */

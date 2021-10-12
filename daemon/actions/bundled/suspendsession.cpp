@@ -27,14 +27,15 @@
 
 #include <kwinkscreenhelpereffect.h>
 
-#include <KConfigGroup>
 #include <KIdleTime>
 #include <KLocalizedString>
 #include <KJob>
 
 #include <kworkspace.h>
 
+// TODO Merge those two?
 #include <PowerDevilSettings.h>
+#include <PowerDevilProfileSettings.h>
 
 namespace PowerDevil
 {
@@ -169,22 +170,22 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 }
 
-bool SuspendSession::loadAction(const KConfigGroup& config)
+bool SuspendSession::loadAction(PowerDevilProfileSettings *settings)
 {
-    if (config.isValid()) {
-        if (config.hasKey("idleTime") && config.hasKey("suspendType")) {
-            // Add the idle timeout
-            m_idleTime = config.readEntry<int>("idleTime", 0);
-            if (m_idleTime) {
-                registerIdleTimeout(m_idleTime - 5000);
-                registerIdleTimeout(m_idleTime);
-            }
-            m_autoType = config.readEntry<uint>("suspendType", 0);
-        }
-        if (config.hasKey("suspendThenHibernate")) {
-            m_suspendThenHibernateEnabled = config.readEntry<bool>("suspendThenHibernate", false);
-        }
+    if (!settings->manageSuspendSession()) {
+        return true;
     }
+
+    if (settings->suspendSessionIdleTimeMsec() > 0 && settings->suspendType() != PowerDevilEnums::PowerButtonMode::NoneMode) {
+        m_idleTime = settings->suspendSessionIdleTimeMsec();
+        registerIdleTimeout(m_idleTime - 5000);
+        registerIdleTimeout(m_idleTime);
+
+        m_autoType = settings->suspendType();
+    }
+
+    m_suspendThenHibernateEnabled = settings->suspendThenHibernate();
+
     return true;
 }
 

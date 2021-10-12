@@ -26,7 +26,7 @@
 #include <QObject>
 #include <QVariantMap>
 
-class KConfigGroup;
+class PowerDevilProfileSettings;
 
 namespace PowerDevil
 {
@@ -117,15 +117,15 @@ public:
 
     /**
      * Reimplement this function when creating a new Action. This function is called whenever the action is loaded or
-     * its configuration changes. It carries the KConfigGroup associated with your action and generated from your
-     * config interface.
+     * its configuration changes.
      *
      * @param config The action's configuration which should be loaded.
      * @returns Whether the action has been successfully loaded.
      *
      * @see ActionConfig
      */
-    virtual bool loadAction(const KConfigGroup &config) = 0;
+    virtual bool loadAction(PowerDevilProfileSettings *config) = 0;
+
     /**
      * Unloads the action. You usually shouldn't reimplement this function: reimplement onUnloadAction instead.
      *

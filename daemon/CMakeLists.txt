@@ -41,6 +41,7 @@ set(powerdevilcore_SRCS
     powerdevilscreenbrightnesslogic.cpp
     powerdevilkeyboardbrightnesslogic.cpp
     powerdevilpowermanagement.cpp
+    powerdevilenums.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
 )
@@ -98,6 +99,7 @@ target_link_libraries(powerdevilcore
     KF5::Kirigami2
     PW::KWorkspace
     XCB::DPMS
+    powerdevilsettings
 )
 
 if(HAVE_WIRELESS_SUPPORT)
@@ -173,9 +175,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
 install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
-set(powerdevilui_SRCS
-    powerdevilactionconfig.cpp
-)
 
 add_library(powerdevilui ${powerdevilui_SRCS})
 set_target_properties(powerdevilui PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
@@ -185,6 +184,7 @@ target_link_libraries(powerdevilui
     PUBLIC
         Qt::Widgets
         KF5::ConfigCore
+        powerdevilsettings
 )
 
 set(HAVE_XCB ${XCB_FOUND})

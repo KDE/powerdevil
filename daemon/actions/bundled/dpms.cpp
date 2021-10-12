@@ -38,12 +38,13 @@
 #include <QDebug>
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KGlobalAccel>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <TabletModeWatcher>
+
+#include <PowerDevilProfileSettings.h>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -178,15 +179,16 @@ void DPMS::triggerImpl(const QVariantMap& args)
     m_helper->trigger(args.value(QStringLiteral("Type")).toString());
 }
 
-bool DPMS::loadAction(const KConfigGroup& config)
+bool DPMS::loadAction(PowerDevilProfileSettings* config)
 {
-    m_idleTime = config.readEntry<int>("idleTime", -1);
+    // DPMS idle time is stored in seconds, not mseconds.
+    m_idleTime = config->dPMSidleTimeSec();
     if (m_idleTime > 0) {
         registerIdleTimeout(m_idleTime * 1000);
         registerIdleTimeout(m_idleTime * 1000 - 5000); // start screen fade a bit earlier to alert user
     }
-    m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
 
+    m_lockBeforeTurnOff = config->lockBeforeTurnOff();
     return true;
 }
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+
+    <kcfgfile>
+        <parameter name="profileGroup"/>
+    </kcfgfile>
+
+    <group name="Global">
+        <entry name="Icon" type="String">
+        </entry>
+        <!-- This is a hack. the profile name here is also the name of the powerdevilprofile_$ProfileName
+        but some PowerDevil actions need to store the current profile name. maybe this will be userfull in the future too.
+        -->
+        <entry name="ActivityName" type="String">
+        </entry>
+
+        <!-- If the value is SeparateSettings, another power profile settings will be created based
+        on this profile name. If it's AC, Battery or LowBattery, we will load those power profiles. -->
+        <entry name="Mode" type="Enum">
+            <choices>
+                <choice name="None" value="None"/>
+                <choice name="SeparateSettings" value="Separate Settings" />
+                <choice name="AC" value="AC" />
+                <choice name="Battery" value="Battery"/>
+                <choice name="LowBattery" value="Low Battery"/>
+            </choices>
+        </entry>
+    </group>
+
+    <group name="SpecialBehavior">
+        <entry name="SpecialBehaviorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="SpecialBehaviorNoSuspend" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="SpecialBehaviorPerformAction" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="SpecialBehaviorNoScreenManagement" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+
+</kcfg>

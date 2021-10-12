@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+
+    <kcfgfile name="powermanagementprofilesrc">
+        <parameter name="profileGroup"/>
+    </kcfgfile>
+
+    <!--
+        The original code used a variable defined as
+
+        const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
+
+    I can't define variables on the <default type="code"> entries, as this is passed directly as the values of the parameter (unless I create and execute a lambda) but the code is already hard to read without this.
+    -->
+    <include>powerdevilpowermanagement.h</include>
+    <include>powerdevilenums.h</include>
+
+    <group name="Global" parentGroupName="$(profileGroup)">
+        <entry name="Icon" type="String">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?
+                    QStringLiteral("battery-charging") :
+                profileGroup == QStringLiteral("Battery")    ?
+                    QStringLiteral("battery-060") :
+                profileGroup == QStringLiteral("LowBattery") ?
+                    QStringLiteral("battery-low") :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/
+                    QStringLiteral("battery-charging")
+            </default>
+        </entry>
+
+        <!-- This is a hack. the profile name here is also the name of the powerdevilprofile_$ProfileName
+        but some PowerDevil actions need to store the current profile name. maybe this will be userfull in the future too.
+        -->
+        <entry name="ProfileName" type="String">
+        </entry>
+    </group>
+
+    <group name="KeyboardBrightnessControl" parentGroupName="$(profileGroup)">
+        <entry name="ManageKeyboardBrightness" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="KeyboardBrightness" key="value" type="Int">
+            <default>50</default>
+        </entry>
+    </group>
+
+    <group name="HandleButtonEvents" parentGroupName="$(profileGroup)">
+        <entry name="ManageButtonEvents" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="powerButtonAction" type="Int">
+            <default type="code">
+                !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")
+                ? PowerDevilEnums::PowerButtonMode::ToggleScreenOnOffMode
+                : PowerDevilEnums::PowerButtonMode::LogoutDialogMode
+            </default>
+        </entry>
+        <entry name="powerDownAction" type="Int">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?
+                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode :
+                profileGroup == QStringLiteral("Battery")    ?
+                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode :
+                profileGroup == QStringLiteral("LowBattery") ?
+                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/
+                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode
+            </default>
+        </entry>
+        <entry name="lidAction" type="Int">
+            <default type="code">
+                PowerDevil::PowerManagement::instance()->canSuspend()
+                    ? PowerDevilEnums::PowerButtonMode::ToRamMode
+                    : PowerDevilEnums::PowerButtonMode::TurnOffScreenMode
+            </default>
+        </entry>
+        <entry name="triggerLidActionWhenExternalMonitorPresent" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+
+    <group name="SuspendSession" parentGroupName="$(profileGroup)">
+        <entry name="ManageSuspendSession" type="Bool">
+            <default type="code">
+                 profileGroup == QStringLiteral("AC") ? false :
+                profileGroup == QStringLiteral("Battery") ? PowerDevil::PowerManagement::instance()->canSuspend() :
+                profileGroup == QStringLiteral("LowBattery") ? PowerDevil::PowerManagement::instance()->canSuspend() :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/
+                    false
+            </default>
+        </entry>
+        <entry name="SuspendSessionIdleTimeMsec" key="idleTime" type="Int">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?   600000 :
+                profileGroup == QStringLiteral("Battery")    ?   300000 :
+                profileGroup == QStringLiteral("LowBattery") ?   300000 :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ 300000
+            </default>
+        </entry>
+        <entry name="suspendType" type="Enum">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?
+                    PowerDevilEnums::PowerButtonMode::ToRamMode :
+                profileGroup == QStringLiteral("Battery")    ?
+                    PowerDevilEnums::PowerButtonMode::ToRamMode :
+                profileGroup == QStringLiteral("LowBattery") ?
+                    PowerDevilEnums::PowerButtonMode::ToRamMode :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/
+                    PowerDevilEnums::PowerButtonMode::ToRamMode
+            </default>
+        </entry>
+        <entry name="suspendThenHibernate" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+
+    <group name="DimDisplay" parentGroupName="$(profileGroup)">
+        <entry name="ManageDimDisplay" type="Bool">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?   true :
+                profileGroup == QStringLiteral("Battery")    ?   true :
+                profileGroup == QStringLiteral("LowBattery") ?   true :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ true
+            </default>
+        </entry>
+        <entry name="DimDisplayIdleTimeMsec" key="idleTime" type="Int">
+            <default type="code">
+                /* This uses 300000 / 30000 / 30000 if in mobile mode,
+                 * I don't know how to handle that */
+                profileGroup == QStringLiteral("AC")         ?   300000 :
+                profileGroup == QStringLiteral("Battery")    ?   120000 :
+                profileGroup == QStringLiteral("LowBattery") ?   60000 :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ 300000
+            </default>
+        </entry>
+    </group>
+
+    <group name="KernelPowerProfile" parentGroupName="$(profileGroup)">
+        <entry name="ManageKernelPowerProfile" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="KernelPowerProfile" type="String" key="profile">
+        </entry>
+    </group>
+
+    <group name="DPMSControl" parentGroupName="$(profileGroup)">
+        <entry name="ManageDPMS" type="Bool">
+                profileGroup == QStringLiteral("AC")         ?   false :
+                profileGroup == QStringLiteral("Battery")    ?   false :
+                profileGroup == QStringLiteral("LowBattery") ?   true :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+        </entry>
+        <entry name="LockBeforeTurnOff" type="Bool">
+            <default type="code">
+                !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")
+            </default>
+        </entry>
+        <entry name="DPMSidleTimeSec" key="idleTime" type="Int">
+            <default>
+                /* This uses 60 / 60 / 30 if in mobile mode,
+                 * I don't know how to handle that */
+
+                profileGroup == QStringLiteral("AC")         ?   600 :
+                profileGroup == QStringLiteral("Battery")    ?   300 :
+                profileGroup == QStringLiteral("LowBattery") ?   120 :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+            </default>
+        </entry>
+    </group>
+
+    <group name="BrightnessControl" parentGroupName="$(profileGroup)">
+        <entry name="ManageBrightnessControl" type="Bool">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?   false :
+                profileGroup == QStringLiteral("Battery")    ?   false :
+                profileGroup == QStringLiteral("LowBattery") ?   true :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+            </default>
+        </entry>
+        <entry name="BrightnessControl"  key="value" type="Int">
+            <default type="code">
+                profileGroup == QStringLiteral("AC")         ?   0 :
+                profileGroup == QStringLiteral("Battery")    ?   0 :
+                profileGroup == QStringLiteral("LowBattery") ?   30 :
+                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+            </default>
+        </entry>
+    </group>
+
+    <group name="RunScript" parentGroupName="$(profileGroup)">
+        <entry name="ManageRunScript" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="RunScriptCommand" key="scriptCommand" type="String">
+        </entry>
+        <entry name="RunScriptPhase" key="scriptPhase" type="Enum">
+            <default>PowerDevilEnums::RunScriptMode::OnProfileLoad</default>
+        </entry>
+        <entry name="RunScriptIdleTimeMsec" key="idleTime" type="Int">
+            <default>10000000</default>
+        </entry>
+    </group>
+
+    <group name="WirelessPowerSaving" parentGroupName="$(profileGroup)">
+        <entry name="ManageWirelessPowerSaving" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="WifiPowerSaving" type="Int" key="wifiOption">
+            <default>PowerDevilEnums::WirelessMode::NoAction</default>
+        </entry>
+        <entry name="MobileBroadbandPowerSaving" type="Int" key="wwanOption">
+            <default>PowerDevilEnums::WirelessMode::NoAction</default>
+        </entry>
+        <entry name="BluetoothPowerSaving" type="Int" key="btOption">
+            <default>PowerDevilEnums::WirelessMode::NoAction</default>
+        </entry>
+    </group>
+</kcfg>
