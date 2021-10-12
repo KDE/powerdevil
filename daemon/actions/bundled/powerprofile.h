@@ -43,7 +43,7 @@ public:
     explicit PowerProfile(QObject *parent);
     ~PowerProfile() override;
 
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(PowerDevilProfileSettings *settings) override;
 
     QStringList profileChoices() const;
     QString currentProfile() const;
