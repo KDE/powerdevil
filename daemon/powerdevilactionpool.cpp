@@ -157,7 +157,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     {
         const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
                                                                 QStringLiteral("[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE"));
-        for (const KService::Ptr offer : offers) {
+        for (const KService::Ptr &offer : offers) {
             QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
 
             if (m_actionPool.contains(actionId)) {
