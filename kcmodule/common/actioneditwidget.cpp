@@ -187,7 +187,7 @@ void ActionEditWidget::initializeServices()
 
     // We need to query DBUs for the actions, those where usually set by the plugin but we removed plugins from here. Here's a
     // handwritten list.
-    for (const QString& actionId : {
+    for (const QString actionId : {
             "RunScript", "SuspendSession", "PowerProfile",
             "BrightnessControl", "KeyboardBrightnessControl", "DPMSControl",
             "HandleButtonEvents", "WirelessPowerSaving", "DimDisplay"})
