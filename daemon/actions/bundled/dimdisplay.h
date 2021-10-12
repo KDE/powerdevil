@@ -45,7 +45,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(PowerDevilProfileSettings *settings) override;
 
 private:
     void setBrightnessHelper(int screen, int keyboard, bool force = false);
