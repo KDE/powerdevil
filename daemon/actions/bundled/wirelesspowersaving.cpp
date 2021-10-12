@@ -151,11 +151,11 @@ bool WirelessPowerSaving::isSupported()
     return changeWifiAllowed || changeWwanAllowed;
 }
 
-bool WirelessPowerSaving::loadAction(const KConfigGroup& config)
+bool WirelessPowerSaving::loadAction(PowerDevilProfileSettings *settings)
 {
     // Handle profile changes
     m_lastProfile = m_currentProfile;
-    m_currentProfile = config.parent().name();
+    m_currentProfile = settings->profileName();
 
     qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << m_lastProfile;
 
@@ -163,18 +163,9 @@ bool WirelessPowerSaving::loadAction(const KConfigGroup& config)
     m_lastProfileWwanOption = m_currentProfileWwanOption;
     m_lastProfileBtOption = m_currentProfileBtOption;
 
-    if (config.hasKey("wifiOption")) {
-        m_currentProfileWifiOption = (PowerSavingOption)config.readEntry<uint>("wifiOption", 0);
-    }
-
-    if (config.hasKey("wwanOption")) {
-        m_currentProfileWwanOption = (PowerSavingOption)config.readEntry<uint>("wwanOption", 0);
-    }
-
-    if (config.hasKey("btOption")) {
-        m_currentProfileBtOption = (PowerSavingOption)config.readEntry<uint>("btOption", 0);
-    }
-
+    m_currentProfileWifiOption = (PowerSavingOption) settings->wifiPowerSaving();
+    m_currentProfileWwanOption = (PowerSavingOption)settings->mobileBroadbandPowerSaving();
+    m_currentProfileBtOption = (PowerSavingOption) settings->bluetoothPowerSaving();
 
     m_lastWifiState = NetworkManager::isWirelessEnabled();
     m_lastWwanState = NetworkManager::isWwanEnabled();
