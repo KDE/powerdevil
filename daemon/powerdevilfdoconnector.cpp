@@ -132,9 +132,10 @@ void FdoConnector::triggerSuspendSession(uint action)
 {
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", nullptr, m_core);
     if (helperAction) {
-        QVariantMap args;
-        args["Type"] = action;
-        args["Explicit"] = true;
+        QVariantMap args = {
+            {"Type", action},
+            {"Explicit", true}
+        };
         helperAction->trigger(args);
     }
 }
