@@ -29,8 +29,6 @@
 
 #include "actions/bundled/suspendsession.h"
 
-#include <KConfigGroup>
-
 namespace PowerDevil {
 
 FdoConnector::FdoConnector(PowerDevil::Core *parent)
@@ -132,7 +130,7 @@ void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::Require
 
 void FdoConnector::triggerSuspendSession(uint action)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), m_core);
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", nullptr, m_core);
     if (helperAction) {
         QVariantMap args;
         args["Type"] = action;
