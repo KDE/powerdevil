@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="powerdevilcurrentprofilerc"/>
+
+  <!-- this settings stores *which* profile we are supposed to load -->
+    <group name="Global">
+        <entry name="CurrentProfileName" type="String">
+        </entry>
+
+        <entry name="CurrentActivityName" type="String">
+        </entry>
+
+        <entry name="Created" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+</kcfg>

@@ -98,6 +98,7 @@ target_link_libraries(powerdevilcore
     KF5::WaylandClient
     PW::KWorkspace
     XCB::DPMS
+    powerdevilsettings
 )
 
 if(HAVE_WIRELESS_SUPPORT)
@@ -185,6 +186,7 @@ target_link_libraries(powerdevilui
     PUBLIC
         Qt::Widgets
         KF5::ConfigCore
+        powerdevilsettings
 )
 
 set(HAVE_XCB ${XCB_FOUND})

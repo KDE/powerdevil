@@ -82,6 +82,12 @@ include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon
 )
 
+#TODO: Move the generated config to this library, we are currently generating the same
+# code multiple times.
+kconfig_add_kcfg_files(powerdevilsettings_SRCS PowerDevilProfileSettings.kcfgc PowerDevilCurrentProfile.kcfgc PowerDevilActivitySettings.kcfgc)
+add_library(powerdevilsettings STATIC ${powerdevilsettings_SRCS})
+target_link_libraries(powerdevilsettings KF5::ConfigCore KF5::ConfigGui)
+
 add_definitions(-DQT_NO_KEYWORDS)
 add_definitions(-DQT_NO_FOREACH)
 
