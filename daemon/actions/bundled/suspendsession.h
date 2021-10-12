@@ -55,7 +55,7 @@ public:
     explicit SuspendSession(QObject *parent);
     ~SuspendSession() override;
 
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(PowerDevilProfileSettings *settings) override;
     
 protected:
     void onProfileUnload() override;
