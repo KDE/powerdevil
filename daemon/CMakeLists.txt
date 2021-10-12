@@ -174,9 +174,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
 install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
-set(powerdevilui_SRCS
-    powerdevilactionconfig.cpp
-)
 
 add_library(powerdevilui ${powerdevilui_SRCS})
 set_target_properties(powerdevilui PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
