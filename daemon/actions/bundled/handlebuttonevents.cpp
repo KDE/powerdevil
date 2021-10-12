@@ -40,6 +40,8 @@
 
 #include <KGlobalAccel>
 
+#include <PowerDevilProfileSettings.h>
+
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -175,7 +177,7 @@ void HandleButtonEvents::processAction(uint action)
 
 void HandleButtonEvents::triggerAction(const QString &action, const QVariant &type)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, KConfigGroup(), core());
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, nullptr, core());
     if (helperAction) {
         helperAction->trigger({
             {QStringLiteral("Type"), type},
@@ -194,13 +196,14 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
     }
 }
 
-bool HandleButtonEvents::loadAction(const KConfigGroup& config)
+bool HandleButtonEvents::loadAction(PowerDevilProfileSettings *settings)
 {
+
     // Read configs
-    m_lidAction = config.readEntry<uint>("lidAction", 0);
-    m_triggerLidActionWhenExternalMonitorPresent = config.readEntry<bool>("triggerLidActionWhenExternalMonitorPresent", false);
-    m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
-    m_powerDownButtonAction = config.readEntry<uint>("powerDownAction", 0);
+    m_lidAction = settings->lidAction();
+    m_triggerLidActionWhenExternalMonitorPresent = settings->triggerLidActionWhenExternalMonitorPresent();
+    m_powerButtonAction = settings->powerButtonAction();
+    m_powerDownButtonAction = settings->powerDownAction();
 
     checkOutputs();
 

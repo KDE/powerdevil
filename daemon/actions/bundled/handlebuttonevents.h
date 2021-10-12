@@ -40,7 +40,7 @@ public:
     explicit HandleButtonEvents(QObject* parent);
     ~HandleButtonEvents() override;
 
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(PowerDevilProfileSettings *settings) override;
     bool isSupported() override;
 
 Q_SIGNALS:
