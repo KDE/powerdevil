@@ -6,9 +6,6 @@ set( kcm_powerdevil_profiles_SRCS
      ${PowerDevil_SOURCE_DIR}/daemon/powerdevilprofilegenerator.cpp
 )
 
-ki18n_wrap_ui(kcm_powerdevil_profiles_SRCS
-    profileEditPage.ui)
-
 kconfig_add_kcfg_files(kcm_powerdevil_profiles_SRCS ../../PowerDevilSettings.kcfgc)
 
 add_library(kcm_powerdevilprofilesconfig MODULE ${kcm_powerdevil_profiles_SRCS})

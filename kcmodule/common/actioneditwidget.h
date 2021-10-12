@@ -23,7 +23,11 @@
 
 #include <QWidget>
 
-#include <KSharedConfig>
+#include <PowerDevilProfileSettings.h>
+
+namespace Ui {
+    class ActionEditWidget;
+}
 
 namespace PowerDevil
 {
@@ -40,26 +44,16 @@ public:
     explicit ActionEditWidget(const QString &configName, QWidget *parent = nullptr);
     ~ActionEditWidget() override;
 
-    QString configName() const;
-
-public Q_SLOTS:
     void load();
     void save();
 
-private Q_SLOTS:
-    void onChanged();
-
-Q_SIGNALS:
-    void changed(bool changed);
-
+    QString configName() const;
 private:
-    KConfigGroup configGroup();
+    void initializeServices();
 
-private:
     QString m_configName;
-    KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
+    PowerDevilProfileSettings m_profilesConfig;
+    std::unique_ptr<Ui::ActionEditWidget> ui;
 };
 
 #endif // ACTIONEDITWIDGET_H

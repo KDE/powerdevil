@@ -33,6 +33,7 @@
 #include <actioneditwidget.h>
 #include <QLayout>
 
+// Port TBT.
 ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
     : QWidget(parent)
     , m_ui(new Ui::ActivityWidget)
@@ -65,7 +66,9 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
     }
 
     m_actionEditWidget->setVisible(false);
-    m_actionEditWidget->load();
+    // TODO: Fix the actionEditWidget on an Activity.
+    // This needs to Add the widget to the ActivityPage together with the Configuration.
+    // m_actionEditWidget->load();
 
     connect(m_ui->separateSettingsRadio, &QAbstractButton::toggled, m_actionEditWidget, &QWidget::setVisible);
 
@@ -77,7 +80,9 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
     connect(m_ui->alwaysActionBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_ui->alwaysAfterSpin, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 
-    connect(m_actionEditWidget, &ActionEditWidget::changed, this, &ActivityWidget::changed);
+    // TODO: Fix the actionEditWidget on an Activity.
+    // This needs to Add the widget to the ActivityPage together with the Configuration.
+    //    connect(m_actionEditWidget, &ActionEditWidget::changed, this, &ActivityWidget::changed);
 }
 
 ActivityWidget::~ActivityWidget()
@@ -160,7 +165,9 @@ void ActivityWidget::load()
     } else if (config.readEntry("mode", QString()) == "SeparateSettings") {
         m_ui->separateSettingsRadio->setChecked(true);
 
-        m_actionEditWidget->load();
+        // TODO: Fix the actionEditWidget on an Activity.
+        // This needs to Add the widget to the ActivityPage together with the Configuration.
+        // m_actionEditWidget->load();
     }
 }
 
@@ -189,7 +196,10 @@ void ActivityWidget::save()
         behaviorGroup.sync();
     } else if (m_ui->separateSettingsRadio->isChecked()) {
         config.writeEntry("mode", "SeparateSettings");
-        m_actionEditWidget->save();
+
+        // TODO: Fix the actionEditWidget on an Activity.
+        // This needs to Add the widget to the ActivityPage together with the Configuration.
+        // m_actionEditWidget->save();
     } else {
         config.writeEntry("mode", "None");
     }

@@ -22,7 +22,6 @@
 #include "actioneditwidget.h"
 #include "ErrorOverlay.h"
 
-#include <powerdevilactionconfig.h>
 #include <powerdevilprofilegenerator.h>
 #include <powerdevilpowermanagement.h>
 
@@ -39,6 +38,8 @@
 #include <QDBusConnectionInterface>
 #include <QDBusMetaType>
 #include <QDBusServiceWatcher>
+#include <QTabWidget>
+#include <QHBoxLayout>
 
 #include <KConfigGroup>
 #include <QDebug>
@@ -46,6 +47,8 @@
 #include <KAboutData>
 #include <KPluginFactory>
 #include <KLocalizedString>
+#include <KLocalizedContext>
+
 #include <KRun>
 
 #include <Solid/Battery>
@@ -60,48 +63,33 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 {
     setButtons(Apply | Help | Default);
 
-//     KAboutData *about =
-//         new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
-//                        "", ki18n("A profile configurator for KDE Power Management System"),
-//                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-//                        ki18n("From this module, you can manage KDE Power Management System's power profiles, by tweaking "
-//                              "existing ones or creating new ones."));
-//
-//     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
-//                      "http://drfav.wordpress.com");
-//
-//     setAboutData(about);
-
-    setupUi(this);
-
-    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
-
-    if (m_profilesConfig->groupList().isEmpty()) {
-        // Use the generator
-        PowerDevil::ProfileGenerator::generateProfiles(
-            PowerDevil::PowerManagement::instance()->canSuspend(),
-            PowerDevil::PowerManagement::instance()->canHibernate()
-        );
-        m_profilesConfig->reparseConfiguration();
-    }
-
-    qCDebug(POWERDEVIL) << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
+    tabWidget = new QTabWidget();
+    auto hLayout = new QHBoxLayout();
+    setLayout(hLayout);
 
     // Create widgets for each profile
-    ActionEditWidget *editWidget = new ActionEditWidget("AC", tabWidget);
-    m_editWidgets.insert("AC", editWidget);
-    acWidgetLayout->addWidget(editWidget);
-    connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
+    m_ACConfig.reset(new PowerDevilProfileSettings(QStringLiteral("AC")));
 
-    editWidget = new ActionEditWidget("Battery", tabWidget);
-    m_editWidgets.insert("Battery", editWidget);
-    batteryWidgetLayout->addWidget(editWidget);
-    connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
+    m_BatteryConfig.reset(new PowerDevilProfileSettings(QStringLiteral("Battery")));
 
-    editWidget = new ActionEditWidget("LowBattery", tabWidget);
-    m_editWidgets.insert("LowBattery", editWidget);
-    lowBatteryWidgetLayout->addWidget(editWidget);
-    connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
+    m_LowBatteryConfig.reset(new PowerDevilProfileSettings(QStringLiteral("LowBattery")));
+
+    auto *acEditWidget = new ActionEditWidget("AC");
+    tabWidget->addTab(acEditWidget, i18nc("@tab: plugged into wired energy", "AC"));
+    m_editWidgets.append(acEditWidget);
+    addConfig(m_ACConfig.get(), acEditWidget);
+
+    auto *batteryEditWidget = new ActionEditWidget("Battery", tabWidget);
+    tabWidget->addTab(batteryEditWidget, i18nc("@tab: On battery", "Battery"));
+    m_editWidgets.append(batteryEditWidget);
+    addConfig(m_BatteryConfig.get(), batteryEditWidget);
+
+    auto *lowBatteryEditWidget = new ActionEditWidget("LowBattery", tabWidget);
+    tabWidget->addTab(lowBatteryEditWidget, i18nc("@tab: on low battery", "Low Battery"));
+    m_editWidgets.append(lowBatteryEditWidget);
+    addConfig(m_LowBatteryConfig.get(), lowBatteryEditWidget);
+
+    hLayout->addWidget(tabWidget);
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -142,35 +130,34 @@ void EditPage::onChanged(bool value)
         return;
     }
 
-    m_profileEdited[editWidget->configName()] = value;
-
     if (value) {
         Q_EMIT changed(true);
     }
+}
 
-    checkAndEmitChanged();
+void EditPage::forEachTab(std::function<void(ActionEditWidget*)> func)
+{
+    for (int i = 0; i < tabWidget->count(); i++) {
+        if (tabWidget->isTabEnabled(i)) {
+            auto actionWidgegt = qobject_cast<ActionEditWidget*>(tabWidget->widget(i));
+            if (actionWidgegt) {
+                func(actionWidgegt);
+            }
+        }
+    }
 }
 
 void EditPage::load()
 {
-    qCDebug(POWERDEVIL) << "Loading routine called";
-    for (QHash< QString, ActionEditWidget* >::const_iterator i = m_editWidgets.constBegin();
-         i != m_editWidgets.constEnd(); ++i) {
-        i.value()->load();
-
-        m_profileEdited[i.value()->configName()] = false;
-    }
+    KCModule::load();
+    forEachTab([](ActionEditWidget* widget) { widget->load(); });
 }
 
 void EditPage::save()
 {
-    for (auto it = m_editWidgets.constBegin(); it != m_editWidgets.constEnd(); ++it) {
-        (*it)->save();
-    }
-
     notifyDaemon();
-
-    Q_EMIT changed(false);
+    KCModule::save();
+    forEachTab([](ActionEditWidget* widget) { widget->save(); });
 }
 
 void EditPage::notifyDaemon()
@@ -185,26 +172,6 @@ void EditPage::notifyDaemon()
     );
 }
 
-void EditPage::restoreDefaultProfiles()
-{
-    // Confirm
-    int ret = KMessageBox::warningContinueCancel(this, i18n("The KDE Power Management System will now generate a set of defaults "
-                                                            "based on your computer's capabilities. This will also erase "
-                                                            "all existing modifications you made. "
-                                                            "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
-    if (ret == KMessageBox::Continue) {
-        qCDebug(POWERDEVIL) << "Restoring defaults.";
-        PowerDevil::ProfileGenerator::generateProfiles(
-            PowerDevil::PowerManagement::instance()->canSuspend(),
-            PowerDevil::PowerManagement::instance()->canHibernate()
-        );
-
-        load();
-
-        notifyDaemon();
-    }
-}
-
 void EditPage::openUrl(const QString &url)
 {
     new KRun(QUrl(url), this);
@@ -212,20 +179,8 @@ void EditPage::openUrl(const QString &url)
 
 void EditPage::defaults()
 {
-    restoreDefaultProfiles();
-}
-
-void EditPage::checkAndEmitChanged()
-{
-    bool value = false;
-    for (QHash< QString, bool >::const_iterator i = m_profileEdited.constBegin();
-         i != m_profileEdited.constEnd(); ++i) {
-        if (i.value()) {
-            value = i.value();
-        }
-    }
-
-    Q_EMIT changed(value);
+    KCModule::defaults();
+    notifyDaemon();
 }
 
 void EditPage::onServiceRegistered(const QString& service)
