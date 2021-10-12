@@ -8,18 +8,18 @@ add_subdirectory(actions)
 # Add bundled actions
 set(powerdevil_bundled_actions_SRCS
     powerdevil_debug.cpp
-    actions/bundled/suspendsession.cpp
-    actions/bundled/brightnesscontrol.cpp
-    actions/bundled/keyboardbrightnesscontrol.cpp
-    actions/bundled/dimdisplay.cpp
-    actions/bundled/runscript.cpp
-    actions/bundled/handlebuttonevents.cpp
-    actions/bundled/dpms.cpp
-    actions/bundled/abstractdpmshelper.cpp
-    actions/bundled/xcbdpmshelper.cpp
-    actions/bundled/waylanddpmshelper.cpp
     ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
+    actions/bundled/abstractdpmshelper.cpp
+    actions/bundled/brightnesscontrol.cpp
+    actions/bundled/dimdisplay.cpp
+    actions/bundled/dpms.cpp
+    actions/bundled/handlebuttonevents.cpp
+    actions/bundled/keyboardbrightnesscontrol.cpp
     actions/bundled/powerprofile.cpp
+    actions/bundled/runscript.cpp
+    actions/bundled/suspendsession.cpp
+    actions/bundled/waylanddpmshelper.cpp
+    actions/bundled/xcbdpmshelper.cpp
 )
 
 
