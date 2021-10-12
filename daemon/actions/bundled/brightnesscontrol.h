@@ -46,7 +46,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(PowerDevilProfileSettings *config) override;
 
 public Q_SLOTS:
     // DBus export
