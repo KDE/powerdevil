@@ -26,7 +26,6 @@
 
 #include <config-powerdevil.h>
 
-#include <KConfigGroup>
 #include <KServiceTypeTrader>
 
 #include <QDBusConnection>
@@ -44,6 +43,8 @@
 #include "actions/bundled/wirelesspowersaving.h"
 #endif
 #include "actions/bundled/powerprofile.h"
+
+#include <PowerDevilProfileSettings.h>
 
 namespace PowerDevil
 {
@@ -164,31 +165,48 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 }
 
-Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
+void ActionPool::loadActionsForProfile(PowerDevilProfileSettings* settings, const QString& profileId, PowerDevil::Core* parent)
+{
+    for (const QString &actionName : m_actionPool.keys()) {
+        Action *action = ActionPool::instance()->loadAction(actionName, settings, parent);
+        if (action) {
+            action->onProfileLoad();
+            continue;
+        }
+        qCWarning(POWERDEVIL)
+            << "The profile " << profileId <<  "tried to activate"
+            << actionName << "a non-existent action. This is usually due to an installation problem,"
+            << " a configuration problem, or because the action is not supported";
+    }
+}
+
+Action* ActionPool::loadAction(const QString& actionId, PowerDevilProfileSettings *settings, PowerDevil::Core *parent)
 {
     Q_UNUSED(parent);
     // Let's retrieve the action
-    if (m_actionPool.contains(actionId)) {
-        Action *retaction = m_actionPool[actionId];
+    for (auto action : m_actionPool.keys()) {
+        qDebug() << "ActionPool has" << action;
+    }
+    qDebug() << "And we have send" << actionId;
 
-        if (group.isValid()) {
-
-            if (m_activeActions.contains(actionId)) {
-                // We are reloading the action: let's unload it first then.
-                retaction->onProfileUnload();
-                retaction->unloadAction();
-                m_activeActions.removeOne(actionId);
-            }
-
-            retaction->loadAction(group);
-            m_activeActions.append(actionId);
-        }
-
-        return retaction;
-    } else {
-        // Hmm... troubles in configuration. Np, let's just return 0 and let the core handle this
+    if (!m_actionPool.contains(actionId)) {
         return nullptr;
     }
+    Action *retaction = m_actionPool[actionId];
+
+    if (settings) {
+        if (m_activeActions.contains(actionId)) {
+            // We are reloading the action: let's unload it first then.
+            retaction->onProfileUnload();
+            retaction->unloadAction();
+            m_activeActions.removeOne(actionId);
+        }
+
+        retaction->loadAction(settings);
+        m_activeActions.append(actionId);
+    }
+
+    return retaction;
 }
 
 void ActionPool::unloadAllActiveActions()

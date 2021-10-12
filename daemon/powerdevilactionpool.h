@@ -24,7 +24,8 @@
 #include <QHash>
 #include <QStringList>
 
-class KConfigGroup;
+class PowerDevilProfileSettings;
+
 namespace PowerDevil
 {
 
@@ -40,7 +41,9 @@ public:
 
     void init(PowerDevil::Core *parent);
 
-    Action *loadAction(const QString &actionId, const KConfigGroup &group, PowerDevil::Core *parent);
+    Action *loadAction(const QString &actionId, PowerDevilProfileSettings *settings, PowerDevil::Core *parent);
+
+    void loadActionsForProfile(PowerDevilProfileSettings *settings, const QString& profileId, PowerDevil::Core *parent);
 
     void unloadAllActiveActions();
 
