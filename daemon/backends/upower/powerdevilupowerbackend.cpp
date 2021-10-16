@@ -59,62 +59,6 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
 
 PowerDevilUPowerBackend::~PowerDevilUPowerBackend() = default;
 
-bool PowerDevilUPowerBackend::isAvailable()
-{
-    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
-        // Is it pending activation?
-        qCDebug(POWERDEVIL) << "UPower service, " << UPOWER_SERVICE << ", is not registered on the bus. Trying to find out if it is activated.";
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.DBus",
-                                                              "/org/freedesktop/DBus",
-                                                              "org.freedesktop.DBus",
-                                                              "ListActivatableNames");
-
-        QDBusPendingReply< QStringList > reply = QDBusConnection::systemBus().asyncCall(message);
-        reply.waitForFinished();
-
-        if (reply.isValid()) {
-            if (reply.value().contains(UPOWER_SERVICE)) {
-                qCDebug(POWERDEVIL) << "UPower was found, activating service...";
-                QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
-                if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
-                    // Wait for it
-                    QEventLoop e;
-                    QTimer *timer = new QTimer;
-                    timer->setInterval(10000);
-                    timer->setSingleShot(true);
-
-                    connect(QDBusConnection::systemBus().interface(), &QDBusConnectionInterface::serviceRegistered,
-                            &e, &QEventLoop::quit);
-                    connect(timer, &QTimer::timeout, &e, &QEventLoop::quit);
-
-                    timer->start();
-
-                    while (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
-                        e.exec();
-
-                        if (!timer->isActive()) {
-                            qCDebug(POWERDEVIL) << "Activation of UPower timed out. There is likely a problem with your configuration.";
-                            timer->deleteLater();
-                            return false;
-                        }
-                    }
-
-                    timer->deleteLater();
-                }
-                return true;
-            } else {
-                qCDebug(POWERDEVIL) << "UPower cannot be found on this system.";
-                return false;
-            }
-        } else {
-            qCWarning(POWERDEVIL) << "Could not request activatable names to DBus!";
-            return false;
-        }
-    } else {
-        return true;
-    }
-}
-
 void PowerDevilUPowerBackend::init()
 {
     // interfaces

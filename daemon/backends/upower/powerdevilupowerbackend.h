@@ -55,7 +55,6 @@ public:
     ~PowerDevilUPowerBackend() override;
 
     void init() override;
-    static bool isAvailable();
 
     int brightness(BrightnessControlType type = Screen) const override;
     int brightnessMax(BrightnessControlType type = Screen) const override;
