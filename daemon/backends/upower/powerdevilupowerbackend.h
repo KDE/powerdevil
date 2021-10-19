@@ -92,11 +92,11 @@ private:
 
     // upower devices
     QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
-    OrgFreedesktopUPowerDeviceInterface *m_displayDevice;
+    OrgFreedesktopUPowerDeviceInterface *m_displayDevice = nullptr;
 
     // brightness
     QMap<BrightnessControlType, int> m_cachedBrightnessMap;
-    DDCutilBrightness *m_ddcBrightnessControl;
+    DDCutilBrightness *m_ddcBrightnessControl = nullptr;
 
     OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;

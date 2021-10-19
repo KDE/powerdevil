@@ -48,16 +48,16 @@ protected:
 public:
     bool loadAction(const KConfigGroup& config) override;
 
+    int brightness() const;
+    int brightnessMax() const;
+    int brightnessSteps() const;
+
 public Q_SLOTS:
     // DBus export
     void increaseBrightness();
     void decreaseBrightness();
-    int brightness() const;
-    int brightnessMax() const;
     void setBrightness(int percent);
     void setBrightnessSilent(int percent);
-
-    int brightnessSteps() const;
 
 private Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);

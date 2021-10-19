@@ -48,6 +48,10 @@ protected:
 public:
     bool loadAction(const KConfigGroup& config) override;
 
+    int keyboardBrightness() const;
+    int keyboardBrightnessMax() const;
+    int keyboardBrightnessSteps() const;
+
 public Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
 
@@ -56,12 +60,8 @@ public Q_SLOTS:
     void decreaseKeyboardBrightness();
     void toggleKeyboardBacklight();
 
-    int keyboardBrightness() const;
-    int keyboardBrightnessMax() const;
     void setKeyboardBrightness(int value);
     void setKeyboardBrightnessSilent(int value);
-
-    int keyboardBrightnessSteps() const;
 
 Q_SIGNALS:
     void keyboardBrightnessChanged(int value);

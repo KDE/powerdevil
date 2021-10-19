@@ -56,7 +56,7 @@ K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
                 )
 
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
-        : KCModule(nullptr, parent, args)
+        : KCModule(parent, args)
 {
     setButtons(Apply | Help | Default);
 
@@ -85,7 +85,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         m_profilesConfig->reparseConfiguration();
     }
 
-    qCDebug(POWERDEVIL) << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
+    qCDebug(POWERDEVIL) << "loaded profiles" << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
 
     // Create widgets for each profile
     ActionEditWidget *editWidget = new ActionEditWidget("AC", tabWidget);
