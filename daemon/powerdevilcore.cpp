@@ -299,7 +299,7 @@ void Core::loadProfile(bool force)
     QString activity = m_activityConsumer->currentActivity();
     qCDebug(POWERDEVIL) << "Currently using activity " << activity;
     KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
-    qCDebug(POWERDEVIL) << activitiesConfig.groupList() << activitiesConfig.keyList();
+    qCDebug(POWERDEVIL) << "Activities with settings:" << activitiesConfig.groupList() << activitiesConfig.keyList();
 
     // Are we mirroring an activity?
     if (activitiesConfig.group(activity).readEntry("mode", "None") == QStringLiteral("ActLike") &&
@@ -312,7 +312,7 @@ void Core::loadProfile(bool force)
     }
 
     KConfigGroup activityConfig = activitiesConfig.group(activity);
-    qCDebug(POWERDEVIL) << activityConfig.groupList() << activityConfig.keyList();
+    qCDebug(POWERDEVIL) << "Settings for loaded activity:" << activity << activityConfig.groupList() << activityConfig.keyList();
 
     // See if this activity has priority
     if (activityConfig.readEntry("mode", "None") == QStringLiteral("SeparateSettings")) {
