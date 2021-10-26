@@ -33,7 +33,7 @@ class Q_DECL_EXPORT PowerManagement : public QObject
     Q_PROPERTY(bool canHybridSuspend READ canHybridSuspend NOTIFY canHybridSuspendChanged)
     Q_PROPERTY(bool canSuspendThenHibernate READ canSuspendThenHibernate NOTIFY canSuspendThenHibernateChanged)
 public:
-    virtual ~PowerManagement();
+    ~PowerManagement() override;
 
     bool canSuspend() const;
     bool canHibernate() const;
