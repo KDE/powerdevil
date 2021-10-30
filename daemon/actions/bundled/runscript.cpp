@@ -89,7 +89,6 @@ void RunScript::runCommand()
 {
     bool success;
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     QStringList args = QProcess::splitCommand(m_scriptCommand);
     if (args.isEmpty()) {
         qCWarning(POWERDEVIL) << "Empty command?";
@@ -100,9 +99,6 @@ void RunScript::runCommand()
     process.setProgram(args.takeFirst());
     process.setArguments(args);
     success = process.startDetached();
-#else
-    success = QProcess::startDetached(m_scriptCommand);
-#endif
 
     if (!success) {
         qCWarning(POWERDEVIL) << "Failed to run" << m_scriptCommand;
