@@ -259,7 +259,7 @@ void Core::reparseConfiguration()
     Q_EMIT configurationReloaded();
 
     // Check if critical threshold might have changed and cancel the timer if necessary.
-    if (m_criticalBatteryTimer->isActive() && currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
+    if (currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
         m_criticalBatteryTimer->stop();
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
@@ -494,14 +494,17 @@ void Core::onDeviceAdded(const QString &udi)
         m_lowBatteryNotification->close();
     }
 
-    if (m_criticalBatteryTimer->isActive() && currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
-        m_criticalBatteryTimer->stop();
+    if (currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
         }
-        emitRichNotification(QStringLiteral("pluggedin"),
-                             i18n("Extra Battery Added"),
-                             i18n("The computer will no longer go to sleep."));
+
+        if (m_criticalBatteryTimer->isActive()) {
+            m_criticalBatteryTimer->stop();
+            emitRichNotification(QStringLiteral("pluggedin"),
+                                 i18n("Extra Battery Added"),
+                                 i18n("The computer will no longer go to sleep."));
+        }
     }
 }
 
@@ -692,11 +695,12 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
             m_lowBatteryNotification->close();
         }
 
+        if (m_criticalBatteryNotification) {
+            m_criticalBatteryNotification->close();
+        }
+
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
-            if (m_criticalBatteryNotification) {
-                m_criticalBatteryNotification->close();
-            }
             emitRichNotification(QStringLiteral("pluggedin"),
                              i18n("AC Adapter Plugged In"),
                              i18n("The computer will no longer go to sleep."));
