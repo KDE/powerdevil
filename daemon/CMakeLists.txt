@@ -22,7 +22,6 @@ set(powerdevil_bundled_actions_SRCS
     actions/bundled/powerprofile.cpp
 )
 
-
 if(HAVE_WIRELESS_SUPPORT)
     set(powerdevil_bundled_actions_SRCS ${powerdevil_bundled_actions_SRCS}
         actions/bundled/wirelesspowersaving.cpp
@@ -96,6 +95,7 @@ target_link_libraries(powerdevilcore
     KF5::Notifications
     KF5::XmlGui
     KF5::WaylandClient
+    KF5::Kirigami2
     PW::KWorkspace
     XCB::DPMS
 )

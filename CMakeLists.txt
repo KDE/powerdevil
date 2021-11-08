@@ -24,7 +24,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus X11Extras)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig Wayland DocTools Crash Notifications)
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig Wayland DocTools Crash Notifications Kirigami2)
 find_package(KF5Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 

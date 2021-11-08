@@ -29,7 +29,7 @@
 
 namespace PowerDevil {
 
-void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
+void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
 {
     // Change critical action if default (hibernate) is unavailable
     if (!toDisk) {
@@ -41,8 +41,6 @@ void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
 
         PowerDevilSettings::self()->save();
     }
-
-    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
 
     // Ok, let's get our config file.
     KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);

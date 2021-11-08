@@ -39,6 +39,7 @@
 #include <KScreen/Output>
 
 #include <KGlobalAccel>
+#include <TabletModeWatcher>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -47,7 +48,6 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
     , m_screenConfiguration(nullptr)
 {
-    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
     new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
@@ -71,10 +71,16 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
     globalAction = actionCollection->addAction("PowerOff");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Off"));
-    if (!mobile) {
-        accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
-    }
-    connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerOffButtonTriggered);
+    auto powerButtonMode = [globalAction] (bool isTablet) {
+        if (!isTablet) {
+            KGlobalAccel::self()->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
+        } else {
+            KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
+        }
+    };
+    auto interface = Kirigami::TabletModeWatcher::self();
+    connect(interface, &Kirigami::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
+    powerButtonMode(interface->isTabletMode());
 
     globalAction = actionCollection->addAction("PowerDown");
     globalAction->setText(i18nc("@action:inmenu Global shortcut, used for long presses of the power button", "Power Down"));

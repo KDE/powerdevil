@@ -27,6 +27,7 @@
 #include <powerdevilpowermanagement.h>
 
 #include <powerdevil_debug.h>
+#include <TabletModeWatcher>
 
 #include <QCheckBox>
 #include <QFormLayout>
@@ -77,8 +78,10 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
 
     if (m_profilesConfig->groupList().isEmpty()) {
-        // Use the generator
+        auto interface = Kirigami::TabletModeWatcher::self();
+
         PowerDevil::ProfileGenerator::generateProfiles(
+            interface->isTabletModeAvailable(),
             PowerDevil::PowerManagement::instance()->canSuspend(),
             PowerDevil::PowerManagement::instance()->canHibernate()
         );
@@ -194,7 +197,10 @@ void EditPage::restoreDefaultProfiles()
                                                             "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
     if (ret == KMessageBox::Continue) {
         qCDebug(POWERDEVIL) << "Restoring defaults.";
+        auto interface = Kirigami::TabletModeWatcher::self();
+
         PowerDevil::ProfileGenerator::generateProfiles(
+            interface->isTabletModeAvailable(),
             PowerDevil::PowerManagement::instance()->canSuspend(),
             PowerDevil::PowerManagement::instance()->canHibernate()
         );

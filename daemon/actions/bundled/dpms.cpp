@@ -43,6 +43,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
+#include <TabletModeWatcher>
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -69,19 +70,11 @@ DPMS::DPMS(QObject* parent)
     // inhibitions persist over kded module unload/load
     m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 
-    KGlobalAccel *accel = KGlobalAccel::self();
-
     KActionCollection *actionCollection = new KActionCollection( this );
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
 
     QAction *globalAction = actionCollection->addAction(QLatin1String("Turn Off Screen"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Turn Off Screen"));
-    const bool mobile = !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE");
-    if (!mobile) {
-        accel->setGlobalShortcut(globalAction, QList<QKeySequence>());
-    } else {
-        accel->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
-    }
     connect(globalAction, &QAction::triggered, this, [this] {
         if (m_helper) {
             if (m_lockBeforeTurnOff) {
@@ -90,6 +83,17 @@ DPMS::DPMS(QObject* parent)
             m_helper->trigger(QStringLiteral("TurnOff"));
         }
     });
+
+    auto powerButtonMode = [globalAction] (bool isTablet) {
+        if (!isTablet) {
+            KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
+        } else {
+            KGlobalAccel::self()->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
+        }
+    };
+    auto interface = Kirigami::TabletModeWatcher::self();
+    connect(interface, &Kirigami::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
+    powerButtonMode(interface->isTabletMode());
 }
 
 DPMS::~DPMS() = default;

@@ -49,6 +49,7 @@
 #include <QDebug>
 
 #include <algorithm>
+#include <TabletModeWatcher>
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
@@ -121,7 +122,11 @@ void Core::onBackendReady()
         qCDebug(POWERDEVIL) << "Generating a default configuration";
         bool toRam = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
         bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
-        ProfileGenerator::generateProfiles(toRam, toDisk);
+
+        // These are generated profiles,
+        const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletModeAvailable();
+
+        ProfileGenerator::generateProfiles(mobile, toRam, toDisk);
         m_profilesConfig->reparseConfiguration();
     }
 

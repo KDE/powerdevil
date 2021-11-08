@@ -65,6 +65,7 @@ private:
     QScopedPointer<AbstractDpmsHelper> m_helper;
 
     bool m_lockBeforeTurnOff = false;
+    bool m_tabletMode = false;
     void lockScreen();
 
 };
