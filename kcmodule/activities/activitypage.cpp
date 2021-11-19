@@ -51,7 +51,7 @@ K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
                 )
 
 ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
-    : KCModule(nullptr, parent, args)
+    : KCModule(parent, args)
     , m_activityConsumer(new KActivities::Consumer(this))
 {
     setButtons(Apply | Help);
