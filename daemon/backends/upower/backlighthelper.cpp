@@ -85,6 +85,16 @@ void BacklightHelper::initUsingBacklightType()
     QStringList firmware, platform, raw, leds;
 
     for (const QString & interface : interfaces) {
+        QFile enabled(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
+        if (!enabled.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            continue;
+        }
+        if (enabled.readLine().trimmed() != "enabled") {
+            // this backlight device isn't connected to a display, so move on
+            // to the next one and see if it does.
+            continue;
+        }
+
         file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;
