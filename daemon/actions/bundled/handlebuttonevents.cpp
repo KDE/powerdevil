@@ -81,6 +81,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     auto interface = Kirigami::TabletModeWatcher::self();
     connect(interface, &Kirigami::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
     powerButtonMode(interface->isTabletMode());
+    connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerOffButtonTriggered);
 
     globalAction = actionCollection->addAction("PowerDown");
     globalAction->setText(i18nc("@action:inmenu Global shortcut, used for long presses of the power button", "Power Down"));
