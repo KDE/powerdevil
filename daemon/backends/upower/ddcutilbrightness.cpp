@@ -19,11 +19,14 @@
 
 #include <powerdevil_debug.h>
 #include "ddcutilbrightness.h"
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 DDCutilBrightness::DDCutilBrightness()
     : m_usedVcp({0x10})
 {
-    m_setBrightnessEventFilter.setInterval(100);
+    m_setBrightnessEventFilter.setInterval(100ms);
     m_setBrightnessEventFilter.setSingleShot(true);
     connect(&m_setBrightnessEventFilter, &QTimer::timeout, this, &DDCutilBrightness::setBrightnessAfterFilter);
 }

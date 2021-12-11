@@ -56,17 +56,17 @@ public:
 
 private:
     void updateProperty(const QString &dbusName, void (Private::*setter)(bool));
-    PowerManagement *q;
+    PowerManagement *const q;
 };
 
-PowerManagement::Private::Private(PowerManagement *q)
+PowerManagement::Private::Private(PowerManagement *qq)
     : serviceRegistered(false)
     , canSuspend(false)
     , canSuspendThenHibernate(false)
     , canHibernate(false)
     , canHybridSuspend(false)
     , fdoPowerServiceWatcher(new QDBusServiceWatcher(s_fdoPowerService, QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration | QDBusServiceWatcher::WatchForRegistration))
-    , q(q)
+    , q(qq)
 {
 }
 

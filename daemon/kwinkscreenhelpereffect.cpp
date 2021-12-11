@@ -21,6 +21,9 @@
 
 #include <QCoreApplication>
 #include <QX11Info>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 namespace PowerDevil
 {
@@ -28,7 +31,7 @@ namespace PowerDevil
 KWinKScreenHelperEffect::KWinKScreenHelperEffect(QObject *parent) : QObject(parent)
 {
     m_abortTimer.setSingleShot(true);
-    m_abortTimer.setInterval(11000);
+    m_abortTimer.setInterval(11s);
     connect(&m_abortTimer, &QTimer::timeout, this, &KWinKScreenHelperEffect::stop);
 
     qApp->installNativeEventFilter(this);

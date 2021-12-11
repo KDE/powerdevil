@@ -63,7 +63,7 @@ public Q_SLOTS:
     void setWirelessEnabled(bool enabled);
 
 private:
-    BluezQt::Manager *m_btManager;
+    BluezQt::Manager *const m_btManager;
 
     QString m_currentProfile;
     QString m_lastProfile;
@@ -79,9 +79,9 @@ private:
     PowerSavingOption m_lastProfileBtOption;
 
     // State of devices before we change that due to changed profile
-    bool m_lastWifiState;
-    bool m_lastWwanState;
-    bool m_lastBtState;
+    bool m_lastWifiState = false;
+    bool m_lastWwanState = false;
+    bool m_lastBtState = false;
 };
 
 }

@@ -40,9 +40,9 @@ void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType ty
     }
 
     QDBusMessage msg = QDBusMessage::createMethodCall(
-        QLatin1String("org.kde.plasmashell"),
-        QLatin1String("/org/kde/osdService"),
-        QLatin1String("org.kde.osdService"),
+        QStringLiteral("org.kde.plasmashell"),
+        QStringLiteral("/org/kde/osdService"),
+        QStringLiteral("org.kde.osdService"),
         method
     );
 

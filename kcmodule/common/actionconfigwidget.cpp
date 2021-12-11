@@ -42,7 +42,7 @@ ActionConfigWidget::ActionConfigWidget(QWidget* parent) : QWidget(parent)
 ActionConfigWidget::~ActionConfigWidget()
 {}
 
-void ActionConfigWidget::addWidgets(QList<QPair<QString, QWidget*> > configMap)
+void ActionConfigWidget::addWidgets(const QList<QPair<QString, QWidget*> > &configMap)
 {
     int row = m_gridLayout->rowCount();
     row++;

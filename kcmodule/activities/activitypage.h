@@ -53,9 +53,9 @@ private Q_SLOTS:
 private:
     void populateTabs();
 
-    QTabWidget *m_tabWidget;
+    QTabWidget *m_tabWidget = nullptr;
 
-    KActivities::Consumer *m_activityConsumer;
+    KActivities::Consumer *const m_activityConsumer;
     QList< ActivityWidget* > m_activityWidgets;
     ErrorOverlay *m_errorOverlay = nullptr;
     KMessageWidget *m_messageWidget = nullptr;

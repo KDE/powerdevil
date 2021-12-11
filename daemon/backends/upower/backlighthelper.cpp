@@ -206,7 +206,7 @@ ActionReply BacklightHelper::brightness(const QVariantMap &args)
     }
 
     ActionReply reply;
-    reply.addData("brightness", brightness);
+    reply.addData(QStringLiteral("brightness"), brightness);
     return reply;
 }
 
@@ -315,7 +315,7 @@ ActionReply BacklightHelper::syspath(const QVariantMap &args)
         return reply;
     }
 
-    reply.addData("syspath", m_dirname);
+    reply.addData(QStringLiteral("syspath"), m_dirname);
 
     return reply;
 }
@@ -357,7 +357,7 @@ ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
         return reply;
     }
 
-    reply.addData("brightnessmax", max_brightness);
+    reply.addData(QStringLiteral("brightnessmax"), max_brightness);
     //qCDebug(POWERDEVIL) << "data contains:" << reply.data()["brightnessmax"];
 
     return reply;

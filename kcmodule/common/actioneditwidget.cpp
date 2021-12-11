@@ -42,7 +42,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
     , m_configName(configName)
 {
-    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
+    m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::SimpleConfig | KConfig::CascadeConfig);
 
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
     QMultiMap< int, QList<QPair<QString, QWidget*> > > widgets;
@@ -52,7 +52,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 
     for (const KService::Ptr &offer : offers) {
         // Does it have a runtime requirement?
-        if (offer->property("X-KDE-PowerDevil-Action-HasRuntimeRequirement", QVariant::Bool).toBool()) {
+        if (offer->property(QStringLiteral("X-KDE-PowerDevil-Action-HasRuntimeRequirement"), QVariant::Bool).toBool()) {
             qCDebug(POWERDEVIL) << offer->name() << " has a runtime requirement";
 
             QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
@@ -83,7 +83,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 
         PowerDevil::ActionConfig *actionConfig = factory->create<PowerDevil::ActionConfig>();
         if (!actionConfig) {
-            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
+            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property(QStringLiteral("X-KDE-PowerDevil-Action-UIComponentLibrary"),
                                                                        QVariant::String).toString();
             continue;
         }

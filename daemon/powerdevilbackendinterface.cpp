@@ -147,7 +147,7 @@ void BackendInterface::setBackendHasError(const QString& errorDetails)
     Q_UNUSED(errorDetails)
 }
 
-void BackendInterface::setBackendIsReady(BrightnessControlsList availableBrightnessControls,
+void BackendInterface::setBackendIsReady(const BrightnessControlsList &availableBrightnessControls,
                                          BackendInterface::SuspendMethods supportedSuspendMethods)
 {
     d->brightnessControlsAvailable = availableBrightnessControls;

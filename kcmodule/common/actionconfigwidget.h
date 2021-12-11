@@ -35,7 +35,7 @@ public:
     explicit ActionConfigWidget(QWidget* parent);
     ~ActionConfigWidget() override;
 
-    void addWidgets(QList<QPair <QString, QWidget*> > configMap);
+    void addWidgets(const QList<QPair <QString, QWidget*> > &configMap);
 
 private:
     QGridLayout* m_gridLayout;

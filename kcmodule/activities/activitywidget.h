@@ -51,11 +51,11 @@ Q_SIGNALS:
     void changed(bool changed);
 
 private:
-    Ui::ActivityWidget *m_ui;
+    Ui::ActivityWidget *const m_ui;
     KSharedConfig::Ptr m_profilesConfig;
     QString m_activity;
-    KActivities::Consumer *m_activityConsumer;
-    ActionEditWidget* m_actionEditWidget;
+    KActivities::Consumer *const m_activityConsumer;
+    ActionEditWidget *const m_actionEditWidget;
 };
 
 #endif // ACTIVITYWIDGET_H

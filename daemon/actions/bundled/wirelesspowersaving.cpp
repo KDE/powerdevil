@@ -41,9 +41,6 @@ WirelessPowerSaving::WirelessPowerSaving(QObject* parent)
     , m_lastProfileWifiOption(BundledActions::WirelessPowerSaving::TurnOff)
     , m_lastProfileWwanOption(BundledActions::WirelessPowerSaving::TurnOff)
     , m_lastProfileBtOption(BundledActions::WirelessPowerSaving::TurnOff)
-    , m_lastWifiState(false)
-    , m_lastWwanState(false)
-    , m_lastBtState(false)
 {
     // DBus
     new WirelessPowerSavingAdaptor(this);

@@ -35,7 +35,7 @@ ActionReply DiscreteGpuHelper::hasdualgpu(const QVariantMap &args)
     Q_UNUSED(args);
 
     ActionReply reply;
-    reply.addData("hasdualgpu", QFile::exists(SWITCHEROO_SYSFS_PATH));
+    reply.addData(QStringLiteral("hasdualgpu"), QFile::exists(SWITCHEROO_SYSFS_PATH));
     // qCDebug(POWERDEVIL) << "data contains:" << reply.data()["hasdualgpu"];
 
     return reply;

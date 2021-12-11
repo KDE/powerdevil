@@ -318,7 +318,7 @@ protected:
 
     void setCapacityForBattery(const QString &batteryId, uint percent);
 
-    void setBackendIsReady(BrightnessControlsList availableBrightnessControls, SuspendMethods supportedSuspendMethods);
+    void setBackendIsReady(const BrightnessControlsList &availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic

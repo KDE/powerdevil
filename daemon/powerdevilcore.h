@@ -140,9 +140,9 @@ private:
     int m_chargeStartThreshold = 0;
     int m_chargeStopThreshold = 100;
 
-    BackendInterface *m_backend;
+    BackendInterface *m_backend = nullptr;
 
-    QDBusServiceWatcher *m_notificationsWatcher;
+    QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;
 
     KSharedConfigPtr m_profilesConfig;
@@ -154,10 +154,10 @@ private:
     QHash<QString, bool> m_batteriesCharged;
 
     QPointer<KNotification> m_lowBatteryNotification;
-    QTimer *m_criticalBatteryTimer;
+    QTimer *const m_criticalBatteryTimer;
     QPointer<KNotification> m_criticalBatteryNotification;
 
-    KActivities::Consumer *m_activityConsumer;
+    KActivities::Consumer *const m_activityConsumer;
 
     // Idle time management
     QHash< Action*, QList< int > > m_registeredActionTimeouts;
