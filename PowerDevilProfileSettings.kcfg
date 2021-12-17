@@ -23,8 +23,8 @@ SPDX-License-Identifier: CC0-1.0
     <include>powerdevilpowermanagement.h</include>
     <include>powerdevilenums.h</include>
 
-    <group name="Global" parentGroupName="$(profileGroup)">
-        <entry name="Icon" type="String">
+    <group name="$(profileGroup)" >
+        <entry name="Icon" type="String" key="icon" parentGroupName="">
             <default type="code">
                 profileGroup == QStringLiteral("AC")         ?
                     QStringLiteral("battery-charging") :
@@ -36,10 +36,12 @@ SPDX-License-Identifier: CC0-1.0
                     QStringLiteral("battery-charging")
             </default>
         </entry>
+    </group>
 
-        <!-- This is a hack. the profile name here is also the name of the powerdevilprofile_$ProfileName
-        but some PowerDevil actions need to store the current profile name. maybe this will be userfull in the future too.
-        -->
+    <!-- This is a hack. the profile name here is also the name of the powerdevilprofile_$ProfileName
+    but some PowerDevil actions need to store the current profile name. maybe this will be userfull in the future too.
+    -->
+    <group name="Global">
         <entry name="ProfileName" type="String">
         </entry>
     </group>
