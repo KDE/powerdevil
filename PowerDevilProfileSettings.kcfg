@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
     <include>powerdevilenums.h</include>
 
     <group name="$(profileGroup)" >
-        <entry name="Icon" type="String" key="icon" parentGroupName="">
+        <entry name="Icon" type="String" key="icon">
             <default type="code">
                 profileGroup == QStringLiteral("AC")         ?
                     QStringLiteral("battery-charging") :
