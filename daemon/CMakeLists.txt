@@ -192,4 +192,4 @@ configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powe
 
 install(TARGETS powerdevilui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 ecm_install_configured_files(INPUT plasma-powerdevil.service.in @ONLY DESTINATION
-        ${SYSTEMD_USER_UNIT_INSTALL_DIR})
+        ${KDE_INSTALL_SYSTEMDUSERUNITDIR})
