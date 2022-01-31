@@ -40,8 +40,12 @@
 #include <KDBusService>
 #include <KAboutData>
 #include <KLocalizedString>
+#include <KConfig>
+#include <KConfigGroup>
 
 #include <kworkspace.h>
+
+#include "PowerDevilProfileSettings.h"
 
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
     : QGuiApplication(argc, argv)
@@ -53,6 +57,64 @@ PowerDevilApp::PowerDevilApp(int &argc, char **argv)
 PowerDevilApp::~PowerDevilApp()
 {
     delete m_core;
+}
+
+static void migrateConfig() {
+    KSharedConfigPtr powerDevilConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"));
+
+    auto migrationInfo = powerDevilConfig->group("migration");
+    if (migrationInfo.hasKey("MigratedToKConfigXT")) {
+        qDebug() << "Configuration already migrated";
+        return;
+    }
+    migrationInfo.writeEntry("MigratedToKConfigXT", true);
+
+    // Top level groups are the groups that holds all the configuration.
+    for (const QString& profileConfig : powerDevilConfig->groupList()) {
+        // Important, oldConfig and newConfig are being read from the same file,
+        // so we can't write on the oldConfig at all. just read the data and move
+        // it to the newConfig when needed.
+
+        // This method is needed because the old configuration checked if
+        // a group existed to see if we should use it or not, but that's
+        // impossible on kconfigxt, the groups always exists.
+
+        // All the other keys use the same name as the previous configuration
+        powerDevilConfig->sync();
+        const auto oldConfig = powerDevilConfig->group(profileConfig);
+        PowerDevilProfileSettings newConfig(profileConfig);
+        qDebug() << "Porting" << profileConfig;
+
+        if (oldConfig.hasGroup(QStringLiteral("KeyboardBrightnessControl"))) {
+            newConfig.setManageKeyboardBrightness(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("HandleButtonEvents"))) {
+            newConfig.setManageButtonEvents(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("SuspendSession"))) {
+            newConfig.setManageSuspendSession(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("DimDisplay"))) {
+            newConfig.setManageDimDisplay(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("KernelPowerProfile"))) {
+            newConfig.setManageKernelPowerProfile(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("DPMSControl"))) {
+            qDebug() << "It has DPMSControl, setting to true";
+            newConfig.setManageDPMS(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("BrightnessControl"))) {
+            newConfig.setBrightnessControl(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("RunScript"))) {
+            newConfig.setManageRunScript(true);
+        }
+        if (oldConfig.hasGroup(QStringLiteral("WirelessPowerSaving"))) {
+            newConfig.setManageWirelessPowerSaving(true);
+        }
+        newConfig.save();
+    }
 }
 
 void PowerDevilApp::init()
@@ -79,6 +141,8 @@ void PowerDevilApp::init()
         qCCritical(POWERDEVIL) << "KDE Power Management system not initialized, another power manager has been detected";
         return;
     }
+
+    migrateConfig();
 
     // not parenting Core to PowerDevilApp as it is the deleted too late on teardown
     // where the X connection is already lost leading to a crash (Bug 371127)
