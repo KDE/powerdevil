@@ -71,16 +71,16 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 
 
         if (PM->canSuspend()) {
-            ui->kcfg_SuspendType->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), Enum::ToRamMode);
+            ui->kcfg_suspendType->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), Enum::ToRamMode);
         }
         if (PM->canHibernate()) {
-            ui->kcfg_SuspendType->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), Enum::ToDiskMode);
+            ui->kcfg_suspendType->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), Enum::ToDiskMode);
         }
         if (PM->canHybridSuspend()) {
-            ui->kcfg_SuspendType->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), Enum::SuspendHybridMode);
+            ui->kcfg_suspendType->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), Enum::SuspendHybridMode);
         }
-        ui->kcfg_SuspendType->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), Enum::ShutdownMode);
-        ui->kcfg_SuspendType->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), Enum::LockScreenMode);
+        ui->kcfg_suspendType->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), Enum::ShutdownMode);
+        ui->kcfg_suspendType->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), Enum::LockScreenMode);
     }
 
     {
@@ -97,7 +97,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         combo->addItem(QIcon(), i18n("Turn on"), Enum::TurnOn);
     }
 
-    for (QComboBox *box : {ui->kcfg_PowerButtonAction, ui->kcfg_LidAction}) {
+    for (QComboBox *box : {ui->kcfg_powerButtonAction, ui->kcfg_lidAction}) {
         using Enum = PowerDevilEnums::PowerButtonMode;
         box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), Enum::NoneMode);
 
@@ -117,7 +117,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), Enum::ShutdownMode);
         box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), Enum::LockScreenMode);
 
-        if (box != ui->kcfg_LidAction) {
+        if (box != ui->kcfg_lidAction) {
             box->addItem(QIcon::fromTheme("system-log-out"), i18n("Prompt log out dialog"), Enum::LogoutDialogMode);
         }
         box->addItem(QIcon::fromTheme("preferences-desktop-screensaver"), i18n("Turn off screen"), Enum::TurnOffScreenMode);
@@ -127,13 +127,13 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     auto upowerInterface = new OrgFreedesktopUPowerInterface("org.freedesktop.UPower", "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
 
     if (!upowerInterface->lidIsPresent()) {
-        ui->kcfg_LidAction->hide();
+        ui->kcfg_lidAction->hide();
         ui->laptopLidLabel->hide();
-        ui->kcfg_TriggerLidActionWhenExternalMonitorPresent->hide();
+        ui->kcfg_triggerLidActionWhenExternalMonitorPresent->hide();
     }
 
     if (!PM->canSuspendThenHibernate()) {
-        ui->kcfg_SuspendThenHibernate->hide();
+        ui->kcfg_suspendThenHibernate->hide();
     }
 
     connect(ui->suspendSessionIdleTimeMsec, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {

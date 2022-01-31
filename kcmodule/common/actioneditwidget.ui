@@ -237,7 +237,7 @@
     <widget class="QWidget" name="suspendSessionWdg" native="true">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="2" colspan="2">
-       <widget class="QCheckBox" name="kcfg_SuspendThenHibernate">
+       <widget class="QCheckBox" name="kcfg_suspendThenHibernate">
         <property name="text">
          <string>Hibernate after a few minutes</string>
         </property>
@@ -260,7 +260,7 @@
        </spacer>
       </item>
       <item row="0" column="2">
-       <widget class="QComboBox" name="kcfg_SuspendType"/>
+       <widget class="QComboBox" name="kcfg_suspendType"/>
       </item>
       <item row="0" column="1">
        <widget class="QLabel" name="label_2">
@@ -299,17 +299,17 @@
     <widget class="QWidget" name="buttonEventHandlingWdg" native="true">
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="1" column="2">
-       <widget class="QCheckBox" name="kcfg_TriggerLidActionWhenExternalMonitorPresent">
+       <widget class="QCheckBox" name="kcfg_triggerLidActionWhenExternalMonitorPresent">
         <property name="text">
          <string>Even when external monitor is connected</string>
         </property>
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QComboBox" name="kcfg_PowerButtonAction"/>
+       <widget class="QComboBox" name="kcfg_powerButtonAction"/>
       </item>
       <item row="0" column="2">
-       <widget class="QComboBox" name="kcfg_LidAction"/>
+       <widget class="QComboBox" name="kcfg_lidAction"/>
       </item>
       <item row="2" column="1">
        <widget class="QLabel" name="label_3">
