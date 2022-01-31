@@ -306,10 +306,10 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QComboBox" name="kcfg_powerButtonAction"/>
+       <widget class="QComboBox" name="powerButtonAction"/>
       </item>
       <item row="0" column="2">
-       <widget class="QComboBox" name="kcfg_lidAction"/>
+       <widget class="QComboBox" name="lidAction"/>
       </item>
       <item row="2" column="1">
        <widget class="QLabel" name="label_3">

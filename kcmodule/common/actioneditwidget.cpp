@@ -97,7 +97,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         combo->addItem(QIcon(), i18n("Turn on"), Enum::TurnOn);
     }
 
-    for (QComboBox *box : {ui->kcfg_powerButtonAction, ui->kcfg_lidAction}) {
+    for (QComboBox *box : {ui->powerButtonAction, ui->lidAction}) {
         using Enum = PowerDevilEnums::PowerButtonMode;
         box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), Enum::NoneMode);
 
@@ -113,11 +113,10 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
             box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), Enum::SuspendHybridMode);
         }
 
-
         box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), Enum::ShutdownMode);
         box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), Enum::LockScreenMode);
 
-        if (box != ui->kcfg_lidAction) {
+        if (box != ui->lidAction) {
             box->addItem(QIcon::fromTheme("system-log-out"), i18n("Prompt log out dialog"), Enum::LogoutDialogMode);
         }
         box->addItem(QIcon::fromTheme("preferences-desktop-screensaver"), i18n("Turn off screen"), Enum::TurnOffScreenMode);
@@ -127,7 +126,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     auto upowerInterface = new OrgFreedesktopUPowerInterface("org.freedesktop.UPower", "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
 
     if (!upowerInterface->lidIsPresent()) {
-        ui->kcfg_lidAction->hide();
+        ui->lidAction->hide();
         ui->laptopLidLabel->hide();
         ui->kcfg_triggerLidActionWhenExternalMonitorPresent->hide();
     }
@@ -135,6 +134,16 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     if (!PM->canSuspendThenHibernate()) {
         ui->kcfg_suspendThenHibernate->hide();
     }
+
+    connect(ui->lidAction, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int idx) {
+        m_profilesConfig.setLidAction(ui->lidAction->itemData(idx).toInt());
+        triggerStateRequest();
+    });
+
+    connect(ui->lidAction, QOverload<int>::of(&QComboBox::currentIndexChanged), this, [this](int idx) {
+        m_profilesConfig.setLidAction(ui->lidAction->itemData(idx).toInt());
+        triggerStateRequest();
+    });
 
     connect(ui->suspendSessionIdleTimeMsec, QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
         m_profilesConfig.setSuspendSessionIdleTimeMsec(minutesToMsec(value));
@@ -199,6 +208,19 @@ void ActionEditWidget::load()
     ui->kernelPowerProfile->setEnabled(ui->kcfg_ManageKernelPowerProfile->isChecked());
     ui->dpmsWdg->setEnabled(ui->kcfg_ManageDPMS->isChecked());
 
+    // strangely this is not loading correctly, even when it had the kcfg_
+    // on the name. so now we need to manually save, and load.
+    // and unluckly, QComboBox does not have a setCurrentByData
+    //
+    const int powerButtonActionValue = m_profilesConfig.powerButtonAction();
+    for (auto combo : { ui->powerButtonAction, ui->lidAction }) {
+        for (int i = 0; i < combo->count(); i++) {
+            if (combo->itemData(i).toInt() == powerButtonActionValue) {
+                combo->setCurrentIndex(i);
+                break;
+            }
+        }
+    }
 }
 
 QString ActionEditWidget::configName() const
