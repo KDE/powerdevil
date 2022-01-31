@@ -153,10 +153,12 @@ SPDX-License-Identifier: CC0-1.0
 
     <group name="DPMSControl" parentGroupName="$(profileGroup)">
         <entry name="ManageDPMS" type="Bool">
+            <default type="code">
                 profileGroup == QStringLiteral("AC")         ?   false :
                 profileGroup == QStringLiteral("Battery")    ?   false :
                 profileGroup == QStringLiteral("LowBattery") ?   true :
                 /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+            </default>
         </entry>
         <entry name="LockBeforeTurnOff" type="Bool">
             <default type="code">
