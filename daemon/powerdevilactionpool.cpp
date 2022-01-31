@@ -186,11 +186,6 @@ Action* ActionPool::loadAction(const QString& actionId, PowerDevilProfileSetting
 {
     Q_UNUSED(parent);
     // Let's retrieve the action
-    for (auto action : m_actionPool.keys()) {
-        qDebug() << "ActionPool has" << action;
-    }
-    qDebug() << "And we have send" << actionId;
-
     if (!m_actionPool.contains(actionId)) {
         return nullptr;
     }
