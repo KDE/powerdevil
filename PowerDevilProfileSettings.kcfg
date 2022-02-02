@@ -22,18 +22,11 @@ SPDX-License-Identifier: CC0-1.0
     -->
     <include>powerdevilpowermanagement.h</include>
     <include>powerdevilenums.h</include>
-
+    <include>powerdevildefaultprofilevalues.h</include>
     <group name="$(profileGroup)" >
         <entry name="Icon" type="String" key="icon">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?
-                    QStringLiteral("battery-charging") :
-                profileGroup == QStringLiteral("Battery")    ?
-                    QStringLiteral("battery-060") :
-                profileGroup == QStringLiteral("LowBattery") ?
-                    QStringLiteral("battery-low") :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/
-                    QStringLiteral("battery-charging")
+                PowerDevilProfileDefaults::defaultIcon(profileGroup);
             </default>
         </entry>
         <!-- This is a hack. the profile name here is also the name of the powerdevilprofile_$ProfileName
@@ -58,28 +51,17 @@ SPDX-License-Identifier: CC0-1.0
         </entry>
         <entry name="powerButtonAction" type="Int">
             <default type="code">
-                !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")
-                ? PowerDevilEnums::PowerButtonMode::ToggleScreenOnOffMode
-                : PowerDevilEnums::PowerButtonMode::LogoutDialogMode
+                PowerDevilProfileDefaults::defaultPowerButtonAction()
             </default>
         </entry>
         <entry name="powerDownAction" type="Int">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?
-                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode :
-                profileGroup == QStringLiteral("Battery")    ?
-                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode :
-                profileGroup == QStringLiteral("LowBattery") ?
-                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/
-                    PowerDevilEnums::PowerButtonMode::LogoutDialogMode
+                PowerDevilProfileDefaults::defaultPowerDownAction(profileGroup)
             </default>
         </entry>
         <entry name="lidAction" type="Int">
             <default type="code">
-                PowerDevil::PowerManagement::instance()->canSuspend()
-                    ? PowerDevilEnums::PowerButtonMode::ToRamMode
-                    : PowerDevilEnums::PowerButtonMode::TurnOffScreenMode
+                PowerDevilProfileDefaults::defaultLidAction()
             </default>
         </entry>
         <entry name="triggerLidActionWhenExternalMonitorPresent" type="Bool">
@@ -90,31 +72,17 @@ SPDX-License-Identifier: CC0-1.0
     <group name="SuspendSession" parentGroupName="$(profileGroup)">
         <entry name="ManageSuspendSession" type="Bool">
             <default type="code">
-                 profileGroup == QStringLiteral("AC") ? false :
-                profileGroup == QStringLiteral("Battery") ? PowerDevil::PowerManagement::instance()->canSuspend() :
-                profileGroup == QStringLiteral("LowBattery") ? PowerDevil::PowerManagement::instance()->canSuspend() :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/
-                    false
+                PowerDevilProfileDefaults::defaultManageSuspendSession(profileGroup)
             </default>
         </entry>
         <entry name="SuspendSessionIdleTimeMsec" key="idleTime" type="Int">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?   600000 :
-                profileGroup == QStringLiteral("Battery")    ?   300000 :
-                profileGroup == QStringLiteral("LowBattery") ?   300000 :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ 300000
+                PowerDevilProfileDefaults::defaultSuspendSessionIdleTimeMsec(profileGroup)
             </default>
         </entry>
         <entry name="suspendType" type="Enum">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?
-                    PowerDevilEnums::PowerButtonMode::ToRamMode :
-                profileGroup == QStringLiteral("Battery")    ?
-                    PowerDevilEnums::PowerButtonMode::ToRamMode :
-                profileGroup == QStringLiteral("LowBattery") ?
-                    PowerDevilEnums::PowerButtonMode::ToRamMode :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/
-                    PowerDevilEnums::PowerButtonMode::ToRamMode
+                PowerDevilProfileDefaults::defaultSuspendType(profileGroup)
             </default>
         </entry>
         <entry name="suspendThenHibernate" type="Bool">
@@ -125,20 +93,12 @@ SPDX-License-Identifier: CC0-1.0
     <group name="DimDisplay" parentGroupName="$(profileGroup)">
         <entry name="ManageDimDisplay" type="Bool">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?   true :
-                profileGroup == QStringLiteral("Battery")    ?   true :
-                profileGroup == QStringLiteral("LowBattery") ?   true :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ true
+                PowerDevilProfileDefaults::defaultManageDimDisplay(profileGroup)
             </default>
         </entry>
         <entry name="DimDisplayIdleTimeMsec" key="idleTime" type="Int">
             <default type="code">
-                /* This uses 300000 / 30000 / 30000 if in mobile mode,
-                 * I don't know how to handle that */
-                profileGroup == QStringLiteral("AC")         ?   300000 :
-                profileGroup == QStringLiteral("Battery")    ?   120000 :
-                profileGroup == QStringLiteral("LowBattery") ?   60000 :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ 300000
+                PowerDevilProfileDefaults::defaultDimDisplayIdleTimeMsec(profileGroup)
             </default>
         </entry>
     </group>
@@ -154,45 +114,30 @@ SPDX-License-Identifier: CC0-1.0
     <group name="DPMSControl" parentGroupName="$(profileGroup)">
         <entry name="ManageDPMS" type="Bool">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?   false :
-                profileGroup == QStringLiteral("Battery")    ?   false :
-                profileGroup == QStringLiteral("LowBattery") ?   true :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+                PowerDevilProfileDefaults::defaultManageDpms(profileGroup)
             </default>
         </entry>
         <entry name="LockBeforeTurnOff" type="Bool">
             <default type="code">
-                !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")
+                PowerDevilProfileDefaults::defaultLockBeforeTurnOff()
             </default>
         </entry>
         <entry name="dpmsIdleTimeSec" key="idleTime" type="Int">
             <default>
-                /* This uses 60 / 60 / 30 if in mobile mode,
-                 * I don't know how to handle that */
-
-                profileGroup == QStringLiteral("AC")         ?   600 :
-                profileGroup == QStringLiteral("Battery")    ?   300 :
-                profileGroup == QStringLiteral("LowBattery") ?   120 :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+                PowerDevilProfileDefaults::defaultDpmsIdleTimeSec(profileGroup)
             </default>
         </entry>
     </group>
 
     <group name="BrightnessControl" parentGroupName="$(profileGroup)">
         <entry name="ManageBrightnessControl" type="Bool">
-            <default type="code">
-                profileGroup == QStringLiteral("AC")         ?   false :
-                profileGroup == QStringLiteral("Battery")    ?   false :
-                profileGroup == QStringLiteral("LowBattery") ?   true :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+            <default type="code">\
+                PowerDevilProfileDefaults::defaultManageBrightnessControl(profileGroup)
             </default>
         </entry>
         <entry name="BrightnessControl"  key="value" type="Int">
             <default type="code">
-                profileGroup == QStringLiteral("AC")         ?   0 :
-                profileGroup == QStringLiteral("Battery")    ?   0 :
-                profileGroup == QStringLiteral("LowBattery") ?   30 :
-                /* profileGroup == QStringLiteral("AnyOther")   ?*/ false
+                PowerDevilProfileDefaults::defaultBrightnessControl(profileGroup)
             </default>
         </entry>
     </group>

@@ -44,6 +44,7 @@ set(powerdevilcore_SRCS
     powerdevilenums.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
+    powerdevildefaultprofilevalues.cpp
 )
 
 ecm_qt_declare_logging_category(powerdevilcore_SRCS
