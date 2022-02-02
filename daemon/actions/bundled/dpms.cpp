@@ -182,7 +182,7 @@ void DPMS::triggerImpl(const QVariantMap& args)
 bool DPMS::loadAction(PowerDevilProfileSettings* config)
 {
     // DPMS idle time is stored in seconds, not mseconds.
-    m_idleTime = config->dPMSidleTimeSec();
+    m_idleTime = config->dpmsIdleTimeSec();
     if (m_idleTime > 0) {
         registerIdleTimeout(m_idleTime * 1000);
         registerIdleTimeout(m_idleTime * 1000 - 5000); // start screen fade a bit earlier to alert user

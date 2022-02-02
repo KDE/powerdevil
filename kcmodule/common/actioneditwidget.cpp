@@ -156,7 +156,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     });
 
     connect(ui->dpmsDisplayIdleTimeSec,QOverload<int>::of(&QSpinBox::valueChanged), this, [this] (int value) {
-        m_profilesConfig.setDPMSidleTimeSec(minutesToSec(value));
+        m_profilesConfig.setDpmsIdleTimeSec(minutesToSec(value));
         triggerStateRequest();
     });
 
@@ -196,7 +196,7 @@ void ActionEditWidget::load()
         << "And after transforming to minutes:"
         << msecToMinutes(m_profilesConfig.dimDisplayIdleTimeMsec());
 
-    ui->dpmsDisplayIdleTimeSec->setValue(secToMinutes(m_profilesConfig.dPMSidleTimeSec()));
+    ui->dpmsDisplayIdleTimeSec->setValue(secToMinutes(m_profilesConfig.dpmsIdleTimeSec()));
 
     ui->screenBrightness->setEnabled(ui->kcfg_ManageBrightnessControl->isChecked());
     ui->keyboardBrightness->setEnabled(ui->kcfg_ManageKeyboardBrightness->isChecked());

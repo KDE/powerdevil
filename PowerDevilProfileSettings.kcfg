@@ -165,7 +165,7 @@ SPDX-License-Identifier: CC0-1.0
                 !qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_MOBILE")
             </default>
         </entry>
-        <entry name="DPMSidleTimeSec" key="idleTime" type="Int">
+        <entry name="dpmsIdleTimeSec" key="idleTime" type="Int">
             <default>
                 /* This uses 60 / 60 / 30 if in mobile mode,
                  * I don't know how to handle that */
