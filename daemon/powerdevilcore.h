@@ -22,6 +22,7 @@
 #define POWERDEVILCORE_H
 
 #include "powerdevilbackendinterface.h"
+#include <PowerDevilActivitySettings.h>
 
 #include <QPointer>
 #include <QSet>
@@ -80,7 +81,7 @@ public:
 
     bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi = QString());
 
-    BackendInterface *backend();
+    BackendInterface *backend() const;
 
     // More...
 
@@ -127,6 +128,16 @@ private:
     void handleCriticalBattery(int percent);
 
     void readChargeThreshold();
+
+    /* Those methods are called only in loadProfile, and should
+     * not be used elsewhere.
+     */
+    QString profileForBatteryLevel() const;
+    QString profileForActivity(const QString& activity, int mode) const;
+    void releaseInhibitions();
+    void tryForceWakeup();
+    void handleProfileSpecialBehaviors(const QString& activity, const PowerDevilActivitySettings& settings);
+    // End of loadProfile methods.
 
     /**
      * Computes the current global charge percentage.

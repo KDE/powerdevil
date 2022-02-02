@@ -48,7 +48,6 @@
 
 #include <PowerDevilProfileSettings.h>
 #include <PowerDevilCurrentProfile.h>
-#include <PowerDevilActivitySettings.h>
 
 #include "powerdevilprofilegenerator.h"
 #include "powerdevilpowermanagement.h"
@@ -288,6 +287,117 @@ QString Core::currentProfile() const
     return m_currentProfile;
 }
 
+QString Core::profileForBatteryLevel() const
+{
+    const int percent = currentChargePercent();
+    if (backend()->acAdapterState() == BackendInterface::Plugged) {
+        return QStringLiteral("AC");
+    } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
+        return QStringLiteral("LowBattery");
+    } else {
+        return QStringLiteral("Battery");
+    }
+}
+
+QString Core::profileForActivity(const QString& activity, int mode) const
+{
+    if (mode == PowerDevilActivitySettings::EnumMode::SeparateSettings) {
+        return activity;
+    }
+
+    auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
+    if (!currentProfileSettings->currentProfileName().isEmpty()) {
+        return currentProfileSettings->currentProfileName();
+    }
+
+    if (m_batteriesPercent.isEmpty()) {
+        qCDebug(POWERDEVIL) << "No batteries found, loading AC";
+        return QStringLiteral("AC");
+    }
+
+    switch(mode) {
+        case PowerDevilActivitySettings::EnumMode::AC:
+            return QStringLiteral("AC");
+        break;
+        case PowerDevilActivitySettings::EnumMode::Battery:
+            return  QStringLiteral("Battery");
+        break;
+        case PowerDevilActivitySettings::EnumMode::LowBattery:
+            return QStringLiteral("LowBattery");
+        break;
+        case PowerDevilActivitySettings::EnumMode::None:
+            return profileForBatteryLevel();
+        break;
+        default:
+            qCDebug(POWERDEVIL) << "Invalid profile, loading AC";
+            return QStringLiteral("AC");
+        break;
+    }
+}
+
+void Core::releaseInhibitions()
+{
+    QHash<QString,int>::iterator i = m_sessionActivityInhibit.begin();
+    while (i != m_sessionActivityInhibit.end()) {
+        PolicyAgent::instance()->ReleaseInhibition(i.value());
+        i = m_sessionActivityInhibit.erase(i);
+    }
+
+    i = m_screenActivityInhibit.begin();
+    while (i != m_screenActivityInhibit.end()) {
+        PolicyAgent::instance()->ReleaseInhibition(i.value());
+        i = m_screenActivityInhibit.erase(i);
+    }
+}
+
+void Core::tryForceWakeup()
+{
+    if (m_pendingWakeupEvent) {
+        // Fake activity at this stage, when no timeouts are registered
+        onResumingFromIdle();
+        m_pendingWakeupEvent = false;
+    }
+}
+
+void Core::handleProfileSpecialBehaviors(const QString& activity, const PowerDevilActivitySettings &activitySettings)
+{
+    if (!activitySettings.specialBehaviorEnabled()) {
+        return;
+    }
+
+    qCDebug(POWERDEVIL) << "Activity has special behaviors";
+    if (activitySettings.specialBehaviorPerformAction()) {
+        PowerDevilProfileSettings settings(activity);
+
+        ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), &settings, this);
+        qCDebug(POWERDEVIL) << "Activity overrides suspend session action"; // debug hence not sleep
+    }
+
+    if (activitySettings.specialBehaviorNoSuspend()) {
+        qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
+        // Trigger a special inhibition - if we don't have one yet
+        if (!m_sessionActivityInhibit.contains(activity)) {
+            int cookie = PolicyAgent::instance()->AddInhibition(
+                PolicyAgent::InterruptSession, i18n("Activity Manager"),
+                i18n("This activity's policies prevent the system from going to sleep"));
+
+            m_sessionActivityInhibit.insert(activity, cookie);
+        }
+    }
+
+    if (activitySettings.specialBehaviorNoScreenManagement()) {
+        qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
+        // Trigger a special inhibition - if we don't have one yet
+        if (!m_screenActivityInhibit.contains(activity)) {
+            int cookie = PolicyAgent::instance()->AddInhibition(
+                PolicyAgent::ChangeScreenSettings,
+                i18n("Activity Manager"),
+                i18n("This activity's policies prevent screen power management"));
+            m_screenActivityInhibit.insert(activity, cookie);
+        }
+    }
+}
+
 void Core::loadProfile(bool force)
 {
     // Policy check
@@ -298,118 +408,9 @@ void Core::loadProfile(bool force)
 
     QString activity = m_activityConsumer->currentActivity();
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
-    // Inner Functions. This Method is too big and confusing this is an attempt to make sense of it. //
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
-    auto profileForBatteryLevel = [this]() -> QString {
-        const int percent = currentChargePercent();
-        if (backend()->acAdapterState() == BackendInterface::Plugged) {
-            return QStringLiteral("AC");
-        } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-            return QStringLiteral("LowBattery");
-        } else {
-            return QStringLiteral("Battery");
-        }
-    };
-
-    auto profileForActivity = [this, &activity, &profileForBatteryLevel](int mode) -> QString {
-        if (mode == PowerDevilActivitySettings::EnumMode::SeparateSettings) {
-            return activity;
-        }
-
-        auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
-        if (!currentProfileSettings->currentProfileName().isEmpty()) {
-            return currentProfileSettings->currentProfileName();
-        }
-
-        if (m_batteriesPercent.isEmpty()) {
-            qCDebug(POWERDEVIL) << "No batteries found, loading AC";
-            return QStringLiteral("AC");
-        }
-
-        switch(mode) {
-            case PowerDevilActivitySettings::EnumMode::AC:
-                return QStringLiteral("AC");
-            break;
-            case PowerDevilActivitySettings::EnumMode::Battery:
-                return  QStringLiteral("Battery");
-            break;
-            case PowerDevilActivitySettings::EnumMode::LowBattery:
-                return QStringLiteral("LowBattery");
-            break;
-            case PowerDevilActivitySettings::EnumMode::None:
-                return profileForBatteryLevel();
-            break;
-            default:
-                qCDebug(POWERDEVIL) << "Invalid profile, loading AC";
-                return QStringLiteral("AC");
-            break;
-        }
-    };
-
-    auto releaseInhibitions = [this] {
-        QHash<QString,int>::iterator i = m_sessionActivityInhibit.begin();
-        while (i != m_sessionActivityInhibit.end()) {
-            PolicyAgent::instance()->ReleaseInhibition(i.value());
-            i = m_sessionActivityInhibit.erase(i);
-        }
-
-        i = m_screenActivityInhibit.begin();
-        while (i != m_screenActivityInhibit.end()) {
-            PolicyAgent::instance()->ReleaseInhibition(i.value());
-            i = m_screenActivityInhibit.erase(i);
-        }
-    };
-
-    auto tryForceWakeup = [this] {
-        if (m_pendingWakeupEvent) {
-            // Fake activity at this stage, when no timeouts are registered
-            onResumingFromIdle();
-            m_pendingWakeupEvent = false;
-        }
-    };
-
-    auto handleProfileSpecialBehaviors = [this, activity] (PowerDevilActivitySettings &activitySettings) {
-        if (!activitySettings.specialBehaviorEnabled()) {
-            return;
-        }
-
-        qCDebug(POWERDEVIL) << "Activity has special behaviors";
-        if (activitySettings.specialBehaviorPerformAction()) {
-            PowerDevilProfileSettings settings(activity);
-
-            ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), &settings, this);
-            qCDebug(POWERDEVIL) << "Activity overrides suspend session action"; // debug hence not sleep
-        }
-
-        if (activitySettings.specialBehaviorNoSuspend()) {
-            qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
-            // Trigger a special inhibition - if we don't have one yet
-            if (!m_sessionActivityInhibit.contains(activity)) {
-                int cookie = PolicyAgent::instance()->AddInhibition(
-                    PolicyAgent::InterruptSession, i18n("Activity Manager"),
-                    i18n("This activity's policies prevent the system from going to sleep"));
-
-                m_sessionActivityInhibit.insert(activity, cookie);
-            }
-        }
-
-        if (activitySettings.specialBehaviorNoScreenManagement()) {
-            qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
-            // Trigger a special inhibition - if we don't have one yet
-            if (!m_screenActivityInhibit.contains(activity)) {
-                int cookie = PolicyAgent::instance()->AddInhibition(
-                    PolicyAgent::ChangeScreenSettings,
-                    i18n("Activity Manager"),
-                    i18n("This activity's policies prevent screen power management"));
-                m_screenActivityInhibit.insert(activity, cookie);
-            }
-        }
-    };
-
     PowerDevilActivitySettings activitySettings(QStringLiteral("powermanagementprofilesrc_") + activity);
 
-    QString profileId = profileForActivity(activitySettings.mode());
+    QString profileId = profileForActivity(activity, activitySettings.mode());
 
     PowerDevilProfileSettings settings(profileId);
 
@@ -434,7 +435,7 @@ void Core::loadProfile(bool force)
         Q_EMIT profileChanged(m_currentProfile);
     }
 
-    handleProfileSpecialBehaviors(activitySettings);
+    handleProfileSpecialBehaviors(activity, activitySettings);
 
     // If the lid is closed, retrigger the lid close signal
     // so that "switching profile then closing the lid" has the same result as
@@ -967,7 +968,7 @@ void Core::readChargeThreshold()
     job->start();
 }
 
-BackendInterface* Core::backend()
+BackendInterface* Core::backend() const
 {
     return m_backend;
 }
