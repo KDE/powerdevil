@@ -171,14 +171,16 @@ void ActionPool::loadActionsForProfile(PowerDevilProfileSettings* settings, cons
 {
     for (const QString &actionName : m_actionPool.keys()) {
         Action *action = ActionPool::instance()->loadAction(actionName, settings, parent);
-        if (action) {
-            action->onProfileLoad();
+        if (!action) {
+            qCWarning(POWERDEVIL)
+                << "The profile " << profileId <<  "tried to activate"
+                << actionName << "a non-existent action. This is usually due to an installation problem,"
+                << " a configuration problem, or because the action is not supported";
+
             continue;
         }
-        qCWarning(POWERDEVIL)
-            << "The profile " << profileId <<  "tried to activate"
-            << actionName << "a non-existent action. This is usually due to an installation problem,"
-            << " a configuration problem, or because the action is not supported";
+
+        action->onProfileLoad();
     }
 }
 
