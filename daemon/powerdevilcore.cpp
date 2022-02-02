@@ -86,12 +86,15 @@ Core::Core(QObject* parent)
 
     readChargeThreshold();
 
-    auto interface = Kirigami::TabletModeWatcher::self();
-    PowerDevil::ProfileGenerator::generateProfiles(
-        interface->isTabletModeAvailable(),
-        PowerDevil::PowerManagement::instance()->canSuspend(),
-        PowerDevil::PowerManagement::instance()->canHibernate()
-    );
+    ProfileGenerator::GenerateProfileFlags flags;
+    if (PowerDevil::PowerManagement::instance()->canSuspend()) {
+        flags |= ProfileGenerator::TO_RAM;
+    }
+    if (PowerDevil::PowerManagement::instance()->canHibernate()) {
+        flags |= ProfileGenerator::TO_DISK;
+    }
+
+    PowerDevil::ProfileGenerator::generateProfiles(flags);
 }
 
 Core::~Core()
@@ -125,13 +128,16 @@ void Core::onBackendReady()
     // Is it brand new?
     if (!currentProfileSettings->created()) {
         qCDebug(POWERDEVIL) << "Generating a default configuration";
-        bool toRam = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
-        bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
 
-        // These are generated profiles,
-        const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletModeAvailable();
+        ProfileGenerator::GenerateProfileFlags flags;
+        if (m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam) {
+            flags |= ProfileGenerator::TO_RAM;
+        }
+        if (m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk) {
+            flags |= ProfileGenerator::TO_DISK;
+        }
 
-        ProfileGenerator::generateProfiles(mobile, toRam, toDisk);
+        ProfileGenerator::generateProfiles(flags);
         currentProfileSettings->setCreated(true);
     }
 

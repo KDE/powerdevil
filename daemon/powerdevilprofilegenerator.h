@@ -21,18 +21,27 @@
 #define POWERDEVIL_PROFILEGENERATOR_H
 
 #include <QString>
+#include <QFlags>
 
 namespace PowerDevil {
 
 namespace ProfileGenerator
 {
+    enum GenerateProfileFlag {
+        TO_RAM = 0x1,
+        TO_DISK = 0x2,
+        IS_MOBILE = 0x4
+    };
+    Q_DECLARE_FLAGS(GenerateProfileFlags, GenerateProfileFlag);
+    Q_DECLARE_OPERATORS_FOR_FLAGS(GenerateProfileFlags)
+
     // the new style of settings. use this profileSettingsName() + "_AC" to open the AC profile.
     Q_DECL_EXPORT QString profileSettingsBaseName();
 
     // Original settings name - with multiple profiles per file.
     QString oldProfileSettingsName();
 
-    void generateProfiles(bool isMobile, bool toRam, bool toDisk);
+    void generateProfiles(GenerateProfileFlags flags);
 
     // True if ported, false if there's nothing to port.
     bool portDeprecatedConfig(const QString& profileName, bool toRam, bool toDisk);

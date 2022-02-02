@@ -30,13 +30,11 @@
 namespace PowerDevil {
 namespace ProfileGenerator {
 
-void generateProfiles(bool mobile, bool toRam, bool toDisk)
+void generateProfiles(GenerateProfileFlags flags)
 {
-    Q_UNUSED(mobile);
-
     // Change critical action if default (hibernate) is unavailable
-    if (!toDisk) {
-        PowerDevilSettings::setBatteryCriticalAction(toRam ? 1 : 0);
+    if (! (flags & TO_DISK)) {
+        PowerDevilSettings::setBatteryCriticalAction( (flags & TO_RAM) ? 1 : 0);
         PowerDevilSettings::self()->save();
     }
 }
