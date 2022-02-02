@@ -318,7 +318,7 @@ void Core::loadProfile(bool force)
         }
 
         auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
-        if (currentProfileSettings->currentProfileName().count()) {
+        if (!currentProfileSettings->currentProfileName().isEmpty()) {
             return currentProfileSettings->currentProfileName();
         }
 
