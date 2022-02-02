@@ -64,7 +64,6 @@ static void migrateConfig() {
 
     auto migrationInfo = powerDevilConfig->group("migration");
     if (migrationInfo.hasKey("MigratedToKConfigXT")) {
-        qDebug() << "Configuration already migrated";
         return;
     }
     migrationInfo.writeEntry("MigratedToKConfigXT", true);
@@ -83,7 +82,6 @@ static void migrateConfig() {
         powerDevilConfig->sync();
         const auto oldConfig = powerDevilConfig->group(profileConfig);
         PowerDevilProfileSettings newConfig(profileConfig);
-        qDebug() << "Porting" << profileConfig;
 
         if (oldConfig.hasGroup(QStringLiteral("KeyboardBrightnessControl"))) {
             newConfig.setManageKeyboardBrightness(true);
@@ -101,7 +99,6 @@ static void migrateConfig() {
             newConfig.setManageKernelPowerProfile(true);
         }
         if (oldConfig.hasGroup(QStringLiteral("DPMSControl"))) {
-            qDebug() << "It has DPMSControl, setting to true";
             newConfig.setManageDPMS(true);
         }
         if (oldConfig.hasGroup(QStringLiteral("BrightnessControl"))) {
