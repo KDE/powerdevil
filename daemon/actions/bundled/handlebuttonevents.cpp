@@ -184,7 +184,8 @@ void HandleButtonEvents::processAction(uint action)
 
 void HandleButtonEvents::triggerAction(const QString &action, const QVariant &type)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, nullptr, core());
+    PowerDevilProfileSettings settings(m_currentProfile);
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, settings, core());
     if (helperAction) {
         helperAction->trigger({
             {QStringLiteral("Type"), type},
@@ -203,14 +204,14 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
     }
 }
 
-bool HandleButtonEvents::loadAction(PowerDevilProfileSettings *settings)
+bool HandleButtonEvents::loadAction(const PowerDevilProfileSettings &settings)
 {
-
     // Read configs
-    m_lidAction = settings->lidAction();
-    m_triggerLidActionWhenExternalMonitorPresent = settings->triggerLidActionWhenExternalMonitorPresent();
-    m_powerButtonAction = settings->powerButtonAction();
-    m_powerDownButtonAction = settings->powerDownAction();
+    m_currentProfile = settings.profileName();
+    m_lidAction = settings.lidAction();
+    m_triggerLidActionWhenExternalMonitorPresent = settings.triggerLidActionWhenExternalMonitorPresent();
+    m_powerButtonAction = settings.powerButtonAction();
+    m_powerDownButtonAction = settings.powerDownAction();
 
     checkOutputs();
 

@@ -115,11 +115,11 @@ bool DimDisplay::isSupported()
     return true;
 }
 
-bool DimDisplay::loadAction(PowerDevilProfileSettings *settings)
+bool DimDisplay::loadAction(const PowerDevilProfileSettings &settings)
 {
     qCDebug(POWERDEVIL);
-    if (settings->manageDimDisplay()) {
-        m_dimOnIdleTime = settings->dimDisplayIdleTimeMsec();
+    if (settings.manageDimDisplay()) {
+        m_dimOnIdleTime = settings.dimDisplayIdleTimeMsec();
         qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime;
         registerIdleTimeout(m_dimOnIdleTime * 3 / 4);
         registerIdleTimeout(m_dimOnIdleTime / 2);

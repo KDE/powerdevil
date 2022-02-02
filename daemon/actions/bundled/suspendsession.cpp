@@ -170,21 +170,21 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 }
 
-bool SuspendSession::loadAction(PowerDevilProfileSettings *settings)
+bool SuspendSession::loadAction(const PowerDevilProfileSettings &settings)
 {
-    if (!settings->manageSuspendSession()) {
+    if (!settings.manageSuspendSession()) {
         return true;
     }
 
-    if (settings->suspendSessionIdleTimeMsec() > 0 && settings->suspendType() != PowerDevilEnums::PowerButtonMode::NoneMode) {
-        m_idleTime = settings->suspendSessionIdleTimeMsec();
+    if (settings.suspendSessionIdleTimeMsec() > 0 && settings.suspendType() != PowerDevilEnums::PowerButtonMode::NoneMode) {
+        m_idleTime = settings.suspendSessionIdleTimeMsec();
         registerIdleTimeout(m_idleTime - 5000);
         registerIdleTimeout(m_idleTime);
 
-        m_autoType = settings->suspendType();
+        m_autoType = settings.suspendType();
     }
 
-    m_suspendThenHibernateEnabled = settings->suspendThenHibernate();
+    m_suspendThenHibernateEnabled = settings.suspendThenHibernate();
 
     return true;
 }

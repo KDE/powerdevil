@@ -46,7 +46,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(PowerDevilProfileSettings *config) override;
+    bool loadAction(const PowerDevilProfileSettings &config) override;
 
     int brightness() const;
     int brightnessMax() const;

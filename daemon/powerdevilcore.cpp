@@ -242,12 +242,15 @@ void Core::onBackendReady()
 
 bool Core::isActionSupported(const QString& actionName)
 {
-    Action *action = ActionPool::instance()->loadAction(actionName, nullptr, this);
+    // We just want to know if the action is supported, it doesn't matter
+    // what profile we are using.
+    PowerDevilProfileSettings settings(QStringLiteral("AC"));
+
+    Action *action = ActionPool::instance()->loadAction(actionName, settings, this);
     if (!action) {
         return false;
-    } else {
-        return action->isSupported();
     }
+    return action->isSupported();
 }
 
 void Core::refreshStatus()
@@ -369,7 +372,7 @@ void Core::handleProfileSpecialBehaviors(const QString& activity, const PowerDev
     if (activitySettings.specialBehaviorPerformAction()) {
         PowerDevilProfileSettings settings(activity);
 
-        ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), &settings, this);
+        ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), settings, this);
         qCDebug(POWERDEVIL) << "Activity overrides suspend session action"; // debug hence not sleep
     }
 
@@ -428,7 +431,7 @@ void Core::loadProfile(bool force)
         // First of all, let's clean the old actions. This will also call the onProfileUnload callback
         ActionPool::instance()->unloadAllActiveActions();
         tryForceWakeup();
-        ActionPool::instance()->loadActionsForProfile(&settings, profileId, this);
+        ActionPool::instance()->loadActionsForProfile(settings, profileId, this);
         m_currentProfile = profileId;
         auto *currentProfileSettings = PowerDevilCurrentProfileSettings::self();
         currentProfileSettings->setCurrentProfileName(m_currentProfile);
@@ -773,7 +776,8 @@ void Core::onCriticalBatteryTimerExpired()
     // Do that only if we're not on AC
     if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
         // We consider this as a very special button
-        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), nullptr, this);
+        PowerDevilProfileSettings settings(m_currentProfile);
+        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), settings, this);
         if (helperAction) {
             QVariantMap args;
             args[QStringLiteral("Button")] = 32;
@@ -1022,7 +1026,8 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
 void Core::wakeup()
 {
     onResumingFromIdle();
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("DPMSControl"), nullptr, this);
+    PowerDevilProfileSettings settings(m_currentProfile);
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("DPMSControl"), settings, this);
     if (helperAction) {
         QVariantMap args;
         // we pass empty string as type because when empty type is passed,

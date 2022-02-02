@@ -167,7 +167,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 }
 
-void ActionPool::loadActionsForProfile(PowerDevilProfileSettings* settings, const QString& profileId, PowerDevil::Core* parent)
+void ActionPool::loadActionsForProfile(const PowerDevilProfileSettings &settings, const QString& profileId, PowerDevil::Core* parent)
 {
     for (const QString &actionName : m_actionPool.keys()) {
         Action *action = ActionPool::instance()->loadAction(actionName, settings, parent);
@@ -184,7 +184,7 @@ void ActionPool::loadActionsForProfile(PowerDevilProfileSettings* settings, cons
     }
 }
 
-Action* ActionPool::loadAction(const QString& actionId, PowerDevilProfileSettings *settings, PowerDevil::Core *parent)
+Action* ActionPool::loadAction(const QString& actionId, const PowerDevilProfileSettings& settings, PowerDevil::Core *parent)
 {
     Q_UNUSED(parent);
     // Let's retrieve the action
@@ -193,17 +193,15 @@ Action* ActionPool::loadAction(const QString& actionId, PowerDevilProfileSetting
     }
     Action *retaction = m_actionPool[actionId];
 
-    if (settings) {
-        if (m_activeActions.contains(actionId)) {
-            // We are reloading the action: let's unload it first then.
-            retaction->onProfileUnload();
-            retaction->unloadAction();
-            m_activeActions.removeOne(actionId);
-        }
-
-        retaction->loadAction(settings);
-        m_activeActions.append(actionId);
+    if (m_activeActions.contains(actionId)) {
+        // We are reloading the action: let's unload it first then.
+        retaction->onProfileUnload();
+        retaction->unloadAction();
+        m_activeActions.removeOne(actionId);
     }
+
+    retaction->loadAction(settings);
+    m_activeActions.append(actionId);
 
     return retaction;
 }

@@ -124,7 +124,7 @@ public:
      *
      * @see ActionConfig
      */
-    virtual bool loadAction(PowerDevilProfileSettings *config) = 0;
+    virtual bool loadAction(const PowerDevilProfileSettings &config) = 0;
 
     /**
      * Unloads the action. You usually shouldn't reimplement this function: reimplement onUnloadAction instead.

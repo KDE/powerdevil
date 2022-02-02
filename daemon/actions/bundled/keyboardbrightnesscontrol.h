@@ -46,7 +46,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(PowerDevilProfileSettings *settings) override;
+    bool loadAction(const PowerDevilProfileSettings &settings) override;
 
     int keyboardBrightness() const;
     int keyboardBrightnessMax() const;

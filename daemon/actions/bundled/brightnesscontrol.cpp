@@ -126,16 +126,16 @@ bool BrightnessControl::isSupported()
     return true;
 }
 
-bool BrightnessControl::loadAction(PowerDevilProfileSettings *config)
+bool BrightnessControl::loadAction(const PowerDevilProfileSettings &config)
 {
     // Handle profile changes
     m_lastProfile = m_currentProfile;
-    m_currentProfile = config->profileName();
+    m_currentProfile = config.profileName();
 
     qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << m_lastProfile;
 
-    if (config->manageBrightnessControl()) {
-        m_defaultValue = config->brightnessControl();
+    if (config.manageBrightnessControl()) {
+        m_defaultValue = config.brightnessControl();
     }
 
     return true;

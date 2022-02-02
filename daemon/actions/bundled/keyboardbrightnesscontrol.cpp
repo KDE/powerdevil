@@ -142,16 +142,16 @@ bool KeyboardBrightnessControl::isSupported()
     return true;
 }
 
-bool KeyboardBrightnessControl::loadAction(PowerDevilProfileSettings *settings)
+bool KeyboardBrightnessControl::loadAction(const PowerDevilProfileSettings &settings)
 {
     // Handle profile changes
     m_lastProfile = m_currentProfile;
-    m_currentProfile = settings->profileName();
+    m_currentProfile = settings.profileName();
 
     qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << m_lastProfile;
 
-    if (settings->manageKeyboardBrightness()) {
-        m_defaultValue = settings->keyboardBrightness();
+    if (settings.manageKeyboardBrightness()) {
+        m_defaultValue = settings.keyboardBrightness();
     }
     return true;
 }

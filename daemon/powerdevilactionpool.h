@@ -41,9 +41,9 @@ public:
 
     void init(PowerDevil::Core *parent);
 
-    Action *loadAction(const QString &actionId, PowerDevilProfileSettings *settings, PowerDevil::Core *parent);
+    Action *loadAction(const QString &actionId, const PowerDevilProfileSettings &settings, PowerDevil::Core *parent);
 
-    void loadActionsForProfile(PowerDevilProfileSettings *settings, const QString& profileId, PowerDevil::Core *parent);
+    void loadActionsForProfile(const PowerDevilProfileSettings &settings, const QString& profileId, PowerDevil::Core *parent);
 
     void unloadAllActiveActions();
 

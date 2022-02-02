@@ -99,9 +99,9 @@ void PowerProfile::triggerImpl(const QVariantMap &args)
     Q_UNUSED(args);
 }
 
-bool PowerProfile::loadAction(PowerDevilProfileSettings *settings)
+bool PowerProfile::loadAction(const PowerDevilProfileSettings &settings)
 {
-    m_configuredProfile = settings->kernelPowerProfile();
+    m_configuredProfile = settings.kernelPowerProfile();
     return true;
 }
 

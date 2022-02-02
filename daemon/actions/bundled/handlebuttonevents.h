@@ -40,7 +40,7 @@ public:
     explicit HandleButtonEvents(QObject* parent);
     ~HandleButtonEvents() override;
 
-    bool loadAction(PowerDevilProfileSettings *settings) override;
+    bool loadAction(const PowerDevilProfileSettings &settings) override;
     bool isSupported() override;
 
 Q_SIGNALS:
@@ -79,6 +79,8 @@ private:
     uint m_powerDownButtonAction = 0;
     uint m_sleepButtonAction = 1;
     uint m_hibernateButtonAction = 2;
+
+    QString m_currentProfile;
 };
 
 }

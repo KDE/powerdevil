@@ -69,13 +69,13 @@ void RunScript::triggerImpl(const QVariantMap& args)
     Q_UNUSED(args);
 }
 
-bool RunScript::loadAction(PowerDevilProfileSettings *settings)
+bool RunScript::loadAction(const PowerDevilProfileSettings &settings)
 {
-    m_scriptCommand = settings->runScriptCommand();
-    m_scriptPhase = settings->runScriptPhase();
+    m_scriptCommand = settings.runScriptCommand();
+    m_scriptPhase = settings.runScriptPhase();
 
     if (m_scriptPhase == PowerDevilEnums::RunScriptMode::After) {
-        int idleTime = settings->runScriptIdleTimeMsec();
+        int idleTime = settings.runScriptIdleTimeMsec();
         if (idleTime == 0) {
             return false;
         }

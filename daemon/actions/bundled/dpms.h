@@ -52,7 +52,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(PowerDevilProfileSettings *config) override;
+    bool loadAction(const PowerDevilProfileSettings &config) override;
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
