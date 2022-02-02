@@ -230,8 +230,6 @@ QString ActionEditWidget::configName() const
 
 void ActionEditWidget::initializeServices()
 {
-
-    qDebug() << " -=-=-= ";
     // Maps power devil action names to widgets so we can easily disable those when
     // the action is not supported.
     auto widgets = std::map<QString, std::pair<QCheckBox*, QWidget*>> {
@@ -307,12 +305,7 @@ void ActionEditWidget::initializeServices()
             const QString profileName = profileNames.value(choice, choice);
             const QString profileKey = choice;
             ui->kernelPowerProfileCombo->addItem(profileName, profileKey);
-            qDebug() << "Loading" << choice << "profile";
         }
-
-        qDebug() << "Trying to find the following profile" <<
-m_profilesConfig.kernelPowerProfile();
-        qDebug() << "If that's not loaded, please poke me.";
 
         const int idx = ui->kernelPowerProfileCombo->
             findData(m_profilesConfig.kernelPowerProfile());
