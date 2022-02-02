@@ -152,9 +152,8 @@ void EditPage::forEachTab(std::function<void(ActionEditWidget*)> func)
 {
     for (int i = 0; i < tabWidget->count(); i++) {
         if (tabWidget->isTabEnabled(i)) {
-            auto actionWidgegt = qobject_cast<ActionEditWidget*>(tabWidget->widget(i));
-            if (actionWidgegt) {
-                func(actionWidgegt);
+            if (auto actionWidget = qobject_cast<ActionEditWidget*>(tabWidget->widget(i))) {
+                func(actionWidget);
             }
         }
     }

@@ -37,7 +37,7 @@ SPDX-License-Identifier: CC0-1.0
             </default>
         </entry>
         <!-- This is a hack. the profile name here is also the name of the powerdevilprofile_$ProfileName
-        but some PowerDevil actions need to store the current profile name. maybe this will be userfull in the future too.
+        but some PowerDevil actions need to store the current profile name. maybe this will be useful in the future too.
         -->
         <entry name="ProfileName" type="String">
         </entry>
