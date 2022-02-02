@@ -28,19 +28,18 @@
 
 #include <NetworkManagerQt/Manager>
 
-
 namespace PowerDevil {
 namespace BundledActions {
 
 WirelessPowerSaving::WirelessPowerSaving(QObject* parent)
     : Action(parent)
     , m_btManager(new BluezQt::Manager())
-    , m_currentProfileWifiOption(BundledActions::WirelessPowerSaving::TurnOff)
-    , m_currentProfileWwanOption(BundledActions::WirelessPowerSaving::TurnOff)
-    , m_currentProfileBtOption(BundledActions::WirelessPowerSaving::TurnOff)
-    , m_lastProfileWifiOption(BundledActions::WirelessPowerSaving::TurnOff)
-    , m_lastProfileWwanOption(BundledActions::WirelessPowerSaving::TurnOff)
-    , m_lastProfileBtOption(BundledActions::WirelessPowerSaving::TurnOff)
+    , m_currentProfileWifiOption(PowerDevilEnums::WirelessMode::TurnOff)
+    , m_currentProfileWwanOption(PowerDevilEnums::WirelessMode::TurnOff)
+    , m_currentProfileBtOption(PowerDevilEnums::WirelessMode::TurnOff)
+    , m_lastProfileWifiOption(PowerDevilEnums::WirelessMode::TurnOff)
+    , m_lastProfileWwanOption(PowerDevilEnums::WirelessMode::TurnOff)
+    , m_lastProfileBtOption(PowerDevilEnums::WirelessMode::TurnOff)
 {
     // DBus
     new WirelessPowerSavingAdaptor(this);
@@ -50,21 +49,21 @@ WirelessPowerSaving::WirelessPowerSaving(QObject* parent)
 
 void WirelessPowerSaving::onProfileUnload()
 {
-    if (m_lastWifiState && m_currentProfileWifiOption == BundledActions::WirelessPowerSaving::TurnOff) {
+    if (m_lastWifiState && m_currentProfileWifiOption == PowerDevilEnums::WirelessMode::TurnOff) {
         setWirelessEnabled(true);
-    } else if (!m_lastWifiState && m_currentProfileWifiOption == BundledActions::WirelessPowerSaving::TurnOn) {
+    } else if (!m_lastWifiState && m_currentProfileWifiOption == PowerDevilEnums::WirelessMode::TurnOn) {
         setWirelessEnabled(false);
     }
 
-    if (m_lastWwanState && m_currentProfileWwanOption == BundledActions::WirelessPowerSaving::TurnOff) {
+    if (m_lastWwanState && m_currentProfileWwanOption == PowerDevilEnums::WirelessMode::TurnOff) {
         setMobileBroadbandEnabled(true);
-    } else if (!m_lastWwanState && m_currentProfileWwanOption == BundledActions::WirelessPowerSaving::TurnOn) {
+    } else if (!m_lastWwanState && m_currentProfileWwanOption == PowerDevilEnums::WirelessMode::TurnOn) {
         setMobileBroadbandEnabled(false);
     }
 
-    if (m_lastBtState && m_currentProfileBtOption == BundledActions::WirelessPowerSaving::TurnOff) {
+    if (m_lastBtState && m_currentProfileBtOption == PowerDevilEnums::WirelessMode::TurnOff) {
         setBluetoothEnabled(true);
-    } else if (!m_lastBtState && m_currentProfileBtOption == BundledActions::WirelessPowerSaving::TurnOn) {
+    } else if (!m_lastBtState && m_currentProfileBtOption == PowerDevilEnums::WirelessMode::TurnOn) {
         setBluetoothEnabled(false);
     }
 }
@@ -86,9 +85,9 @@ void WirelessPowerSaving::onProfileLoad()
 
     if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
          (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == QLatin1String("AC") || m_lastProfile == QLatin1String("Battery")))) &&
-         (((m_lastProfileWifiOption == BundledActions::WirelessPowerSaving::TurnOff && m_currentProfileWifiOption == BundledActions::WirelessPowerSaving::TurnOn) || m_currentProfileWifiOption == NoAction) &&
-          ((m_lastProfileWwanOption == BundledActions::WirelessPowerSaving::TurnOff && m_currentProfileWwanOption == BundledActions::WirelessPowerSaving::TurnOn) || m_currentProfileWwanOption == NoAction) &&
-          ((m_lastProfileBtOption == BundledActions::WirelessPowerSaving::TurnOff && m_currentProfileBtOption == BundledActions::WirelessPowerSaving::TurnOn) || m_currentProfileBtOption == NoAction))) {
+         (((m_lastProfileWifiOption == PowerDevilEnums::WirelessMode::TurnOff && m_currentProfileWifiOption == PowerDevilEnums::WirelessMode::TurnOn) || m_currentProfileWifiOption == PowerDevilEnums::WirelessMode::NoAction) &&
+          ((m_lastProfileWwanOption == PowerDevilEnums::WirelessMode::TurnOff && m_currentProfileWwanOption == PowerDevilEnums::WirelessMode::TurnOn) || m_currentProfileWwanOption == PowerDevilEnums::WirelessMode::NoAction) &&
+          ((m_lastProfileBtOption == PowerDevilEnums::WirelessMode::TurnOff && m_currentProfileBtOption == PowerDevilEnums::WirelessMode::TurnOn) || m_currentProfileBtOption == PowerDevilEnums::WirelessMode::NoAction))) {
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing anything, the current profile is more conservative";
     } else {
@@ -104,25 +103,25 @@ void WirelessPowerSaving::onProfileLoad()
 
 void WirelessPowerSaving::triggerImpl(const QVariantMap& args)
 {
-    const PowerSavingOption wifiOption = (PowerSavingOption)args.value(QLatin1String("wifiOption")).toUInt();
-    const PowerSavingOption wwanOption = (PowerSavingOption)args.value(QLatin1String("wwanOption")).toUInt();
-    const PowerSavingOption btOption = (PowerSavingOption)args.value(QLatin1String("btOption")).toUInt();
+    const auto wifiOption = static_cast<PowerDevilEnums::WirelessMode>(args.value(QLatin1String("wifiOption")).toInt());
+    const auto wwanOption = static_cast<PowerDevilEnums::WirelessMode>(args.value(QLatin1String("wwanOption")).toInt());
+    const auto btOption = static_cast<PowerDevilEnums::WirelessMode>(args.value(QLatin1String("btOption")).toInt());
 
-    if (wifiOption == BundledActions::WirelessPowerSaving::TurnOff) {
+    if (wifiOption == PowerDevilEnums::WirelessMode::TurnOff) {
         setWirelessEnabled(false);
-    } else if (wifiOption == BundledActions::WirelessPowerSaving::TurnOn) {
+    } else if (wifiOption == PowerDevilEnums::WirelessMode::TurnOn) {
         setWirelessEnabled(true);
     }
 
-    if (wwanOption == BundledActions::WirelessPowerSaving::TurnOff) {
+    if (wwanOption == PowerDevilEnums::WirelessMode::TurnOff) {
         setMobileBroadbandEnabled(false);
-    } else if (wwanOption == BundledActions::WirelessPowerSaving::TurnOn) {
+    } else if (wwanOption == PowerDevilEnums::WirelessMode::TurnOn) {
         setMobileBroadbandEnabled(true);
     }
 
-    if (btOption == BundledActions::WirelessPowerSaving::TurnOff) {
+    if (btOption == PowerDevilEnums::WirelessMode::TurnOff) {
         setBluetoothEnabled(false);
-    } else if (btOption == BundledActions::WirelessPowerSaving::TurnOn) {
+    } else if (btOption == PowerDevilEnums::WirelessMode::TurnOn) {
         setBluetoothEnabled(true);
     }
 }
@@ -160,9 +159,9 @@ bool WirelessPowerSaving::loadAction(PowerDevilProfileSettings *settings)
     m_lastProfileWwanOption = m_currentProfileWwanOption;
     m_lastProfileBtOption = m_currentProfileBtOption;
 
-    m_currentProfileWifiOption = (PowerSavingOption) settings->wifiPowerSaving();
-    m_currentProfileWwanOption = (PowerSavingOption)settings->mobileBroadbandPowerSaving();
-    m_currentProfileBtOption = (PowerSavingOption) settings->bluetoothPowerSaving();
+    m_currentProfileWifiOption = static_cast<PowerDevilEnums::WirelessMode>(settings->wifiPowerSaving());
+    m_currentProfileWwanOption = static_cast<PowerDevilEnums::WirelessMode>(settings->mobileBroadbandPowerSaving());
+    m_currentProfileBtOption = static_cast<PowerDevilEnums::WirelessMode>(settings->bluetoothPowerSaving());
 
     m_lastWifiState = NetworkManager::isWirelessEnabled();
     m_lastWwanState = NetworkManager::isWwanEnabled();
