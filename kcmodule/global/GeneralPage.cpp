@@ -200,19 +200,19 @@ void GeneralPage::save()
 
     PowerDevilSettings::self()->save();
 
-    if (chargeStartThresholdSpin->value() != m_chargeStartThreshold
-            || chargeStopThresholdSpin->value() != m_chargeStopThreshold) {
+    if ((m_chargeStartThreshold != -1 && chargeStartThresholdSpin->value() != m_chargeStartThreshold) || (
+                m_chargeStopThreshold != -1 && chargeStopThresholdSpin->value() != m_chargeStopThreshold)) {
         KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.setthreshold"));
         action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
         action.setArguments({
-            {QStringLiteral("chargeStartThreshold"), chargeStartThresholdSpin->value()},
-            {QStringLiteral("chargeStopThreshold"), chargeStopThresholdSpin->value()}
+            {QStringLiteral("chargeStartThreshold"), m_chargeStartThreshold != -1 ? chargeStartThresholdSpin->value() : -1},
+            {QStringLiteral("chargeStopThreshold"), m_chargeStopThreshold != -1 ? chargeStopThresholdSpin->value() : -1}
         });
         KAuth::ExecuteJob *job = action.execute();
         job->exec();
         if (!job->error()) {
-            m_chargeStartThreshold = chargeStartThresholdSpin->value();
-            m_chargeStopThreshold = chargeStopThresholdSpin->value();
+            m_chargeStartThreshold = m_chargeStartThreshold != -1 ? chargeStartThresholdSpin->value() : -1;
+            m_chargeStopThreshold = m_chargeStopThreshold != -1 ? chargeStopThresholdSpin->value() : -1;
         }
     }
 
@@ -237,10 +237,11 @@ void GeneralPage::setChargeThresholdSupported(bool supported)
     batteryThresholdLabel->setVisible(supported);
     batteryThresholdExplanation->setVisible(supported);
 
-    chargeStartThresholdLabel->setVisible(supported);
-    chargeStartThresholdSpin->setVisible(supported);
-    chargeStopThresholdLabel->setVisible(supported);
-    chargeStopThresholdSpin->setVisible(supported);
+    chargeStartThresholdLabel->setVisible(supported && m_chargeStartThreshold != -1);
+    chargeStartThresholdSpin->setVisible(supported && m_chargeStartThreshold != -1);
+
+    chargeStopThresholdLabel->setVisible(supported && m_chargeStopThreshold != -1);
+    chargeStopThresholdSpin->setVisible(supported && m_chargeStopThreshold != -1);
 }
 
 void GeneralPage::onServiceRegistered(const QString& service)
