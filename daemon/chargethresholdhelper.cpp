@@ -54,7 +54,6 @@ static QVector<int> getThresholds(const QString &which)
     for (const QString &battery : batteries) {
         QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + battery + QLatin1Char('/') + which);
         if (!file.open(QIODevice::ReadOnly)) {
-            qWarning() << "Failed to open" << file.fileName() << "for reading";
             continue;
         }
 
@@ -101,20 +100,26 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
     auto startThresholds = getThresholds(s_chargeStartThreshold);
     auto stopThresholds = getThresholds(s_chargeEndThreshold);
 
-    if (startThresholds.isEmpty() || stopThresholds.isEmpty()) {
+    if (startThresholds.isEmpty() && stopThresholds.isEmpty()) {
         startThresholds = getThresholds(s_oldChargeStartThreshold);
         stopThresholds = getThresholds(s_oldChargeStopThreshold);
     }
 
-    if (startThresholds.isEmpty() || stopThresholds.isEmpty() || startThresholds.count() != stopThresholds.count()) {
+    if (startThresholds.isEmpty() && stopThresholds.isEmpty()) {
+        auto reply = ActionReply::HelperErrorReply();
+        reply.setErrorDescription(QStringLiteral("Charge thresholds not supported"));
+        return reply;
+    }
+
+    if (!startThresholds.isEmpty() && !stopThresholds.isEmpty() && startThresholds.count() != stopThresholds.count()) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Charge thresholds not supported"));
         return reply;
     }
 
     // In the rare case there are multiple batteries with varying charge thresholds, try to use something sensible
-    const int startThreshold = *std::max_element(startThresholds.begin(), startThresholds.end());
-    const int stopThreshold = *std::min_element(stopThresholds.begin(), stopThresholds.end());
+    const int startThreshold = !startThresholds.empty() ? *std::max_element(startThresholds.begin(), startThresholds.end()) : -1;
+    const int stopThreshold = !stopThresholds.empty() ? *std::min_element(stopThresholds.begin(), stopThresholds.end()) : -1;
 
     ActionReply reply;
     reply.setData({
@@ -126,26 +131,30 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
 
 ActionReply ChargeThresholdHelper::setthreshold(const QVariantMap &args)
 {
-    const int startThreshold = args.value(QStringLiteral("chargeStartThreshold")).toInt();
-    const int stopThreshold = args.value(QStringLiteral("chargeStopThreshold")).toInt();
+    bool hasStartThreshold;
+    const int startThreshold = args.value(QStringLiteral("chargeStartThreshold"), -1).toInt(&hasStartThreshold);
+    hasStartThreshold &= startThreshold != -1;
 
-    if (startThreshold < 0
-            || startThreshold > 100
-            || stopThreshold < 0
-            || stopThreshold > 100
-            || startThreshold > stopThreshold) {
+    bool hasStopThreshold;
+    const int stopThreshold = args.value(QStringLiteral("chargeStopThreshold"), -1).toInt(&hasStopThreshold);
+    hasStopThreshold &= stopThreshold != -1;
+
+    if ((hasStartThreshold && (startThreshold < 0|| startThreshold > 100))
+            || (hasStopThreshold && (stopThreshold < 0 || stopThreshold > 100))
+            || (hasStartThreshold && hasStopThreshold && startThreshold > stopThreshold)
+            || (!hasStartThreshold && !hasStopThreshold)) {
         auto reply = ActionReply::HelperErrorReply(); // is there an "invalid arguments" error?
         reply.setErrorDescription(QStringLiteral("Invalid thresholds provided"));
         return reply;
     }
 
-    if (!(setThresholds(s_chargeStartThreshold, startThreshold) || setThresholds(s_oldChargeStartThreshold, startThreshold))) {
+    if (hasStartThreshold && !(setThresholds(s_chargeStartThreshold, startThreshold) || setThresholds(s_oldChargeStartThreshold, startThreshold))) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Failed to write start charge threshold"));
         return reply;
     }
 
-    if (!(setThresholds(s_chargeEndThreshold, stopThreshold) || setThresholds(s_oldChargeStopThreshold, stopThreshold))) {
+    if (hasStopThreshold && !(setThresholds(s_chargeEndThreshold, stopThreshold) || setThresholds(s_oldChargeStopThreshold, stopThreshold))) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Failed to write stop charge threshold"));
         return reply;

@@ -964,13 +964,13 @@ void Core::readChargeThreshold()
         const auto data = job->data();
 
         const int chargeStartThreshold = data.value(QStringLiteral("chargeStartThreshold")).toInt();
-        if (m_chargeStartThreshold != chargeStartThreshold) {
+        if (chargeStartThreshold != -1 && m_chargeStartThreshold != chargeStartThreshold) {
             m_chargeStartThreshold = chargeStartThreshold;
             Q_EMIT chargeStartThresholdChanged(chargeStartThreshold);
         }
 
         const int chargeStopThreshold = data.value(QStringLiteral("chargeStopThreshold")).toInt();
-        if (m_chargeStopThreshold != chargeStopThreshold) {
+        if (chargeStopThreshold != -1 && m_chargeStopThreshold != chargeStopThreshold) {
             m_chargeStopThreshold = chargeStopThreshold;
             Q_EMIT chargeStopThresholdChanged(chargeStopThreshold);
         }
