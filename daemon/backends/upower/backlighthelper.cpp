@@ -74,45 +74,6 @@ void BacklightHelper::init()
 
 void BacklightHelper::initUsingBacklightType()
 {
-    QDir backlightDir(BACKLIGHT_SYSFS_PATH);
-    backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
-    backlightDir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
-
-    const QStringList interfaces = backlightDir.entryList();
-
-    QFile file;
-    QByteArray buffer;
-    QStringList firmware, platform, raw, leds;
-
-    for (const QString & interface : interfaces) {
-        QFile enabled(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
-        if (enabled.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            if (enabled.readLine().trimmed() != "enabled") {
-                // this backlight device isn't connected to a display, so move on
-                // to the next one and see if it does.
-                continue;
-            }
-        }
-
-        file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            continue;
-        }
-
-        buffer = file.readLine().trimmed();
-        if (buffer == "firmware") {
-            firmware.append(interface);
-        } else if(buffer == "platform") {
-            platform.append(interface);
-        } else if (buffer == "raw") {
-            raw.append(interface);
-        } else {
-            qCWarning(POWERDEVIL) << "Interface type not handled" << buffer;
-        }
-
-        file.close();
-    }
-
     QDir ledsDir(LED_SYSFS_PATH);
     ledsDir.setFilter(QDir::Dirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
     ledsDir.setNameFilters({QStringLiteral("*lcd*"), QStringLiteral("*wled*")});
@@ -124,6 +85,43 @@ void BacklightHelper::initUsingBacklightType()
         return;
     }
 
+    QDir backlightDir(BACKLIGHT_SYSFS_PATH);
+    backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    backlightDir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
+
+    const QStringList interfaces = backlightDir.entryList();
+
+    QFile file;
+    QByteArray buffer;
+    QStringList firmware, platform, raw;
+
+    for (const QString & interface : interfaces) {
+        file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            continue;
+        }
+
+        buffer = file.readLine().trimmed();
+        if (buffer == "firmware") {
+            firmware.append(interface);
+        } else if(buffer == "platform") {
+            platform.append(interface);
+        } else if (buffer == "raw") {
+            QFile enabled(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
+            if (enabled.open(QIODevice::ReadOnly | QIODevice::Text) && 
+                enabled.readLine().trimmed() == "enabled") {
+                // this backlight device is connected to a display, so append
+                // it to raw list
+                raw.append(interface);
+            }
+        } else {
+            qCWarning(POWERDEVIL) << "Interface type not handled" << buffer;
+        }
+
+        file.close();
+    }
+
+
     if (!firmware.isEmpty()) {
         m_dirname = BACKLIGHT_SYSFS_PATH + firmware.constFirst();
         return;
@@ -134,11 +132,25 @@ void BacklightHelper::initUsingBacklightType()
         return;
     }
 
+    if (raw.isEmpty()) {
+        // if no raw type backlight device found, let's fall back and try again
+        for (const QString &interface : interfaces) {
+            file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
+            if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                continue;
+            }
+
+            buffer = file.readLine().trimmed();
+            if (buffer == "raw") {
+                raw.append(interface);
+            }
+        }
+    }
+
     if (!raw.isEmpty()) {
         m_dirname = BACKLIGHT_SYSFS_PATH + raw.constFirst();
         return;
     }
-
 }
 
 void BacklightHelper::initUsingSysctl()
