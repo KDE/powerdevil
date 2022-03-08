@@ -110,7 +110,11 @@ void KWinKScreenHelperEffect::setEffectProperty(long value)
 #endif
 }
 
-bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, void *message, long int *result)
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, void *message, long *result)
+#else
+bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result)
+#endif
 {
     Q_UNUSED(result);
 
