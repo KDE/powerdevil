@@ -52,7 +52,7 @@ void BacklightHelper::init()
 {
     initUsingBacklightType();
 
-    if (m_dirname.isEmpty()) {
+    if (m_devices.isEmpty()) {
         initUsingSysctl();
 
         if (m_sysctlDevice.isEmpty() || m_sysctlBrightnessLevels.isEmpty()) {
@@ -72,7 +72,39 @@ void BacklightHelper::init()
     m_isSupported = true;
 }
 
-void BacklightHelper::initUsingBacklightType()
+int BacklightHelper::readFromDevice(const QString &device, const QString &property) const
+{
+    int value;
+    QFile file(device + "/" + property);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qCWarning(POWERDEVIL) << "reading from device " << device << "/" << property << " failed with error code " << file.error() << file.errorString();
+        return -1;
+    }
+
+    QTextStream stream(&file);
+    stream >> value;
+    file.close();
+    return value;
+}
+
+bool BacklightHelper::writeToDevice(const QString &device, int brightness) const
+{
+    QFile file(device + QLatin1String("/brightness"));
+    if (!file.open(QIODevice::WriteOnly)) {
+        qCWarning(POWERDEVIL) << "writing to device " << device << "/brightness failed with error code " << file.error() << file.errorString();
+        return false;
+    }
+
+    const int bytesWritten = file.write(QByteArray::number(brightness));
+    if (bytesWritten == -1) {
+        qCWarning(POWERDEVIL) << "writing to device " << device << "/brightness failed with error code " << file.error() << file.errorString();
+        return false;
+    }
+
+    return true;
+}
+
+QStringList BacklightHelper::getBacklightTypeDevices() const
 {
     QDir ledsDir(LED_SYSFS_PATH);
     ledsDir.setFilter(QDir::Dirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
@@ -81,21 +113,20 @@ void BacklightHelper::initUsingBacklightType()
     QStringList ledInterfaces = ledsDir.entryList();
 
     if (!ledInterfaces.isEmpty()) {
-        m_dirname = LED_SYSFS_PATH + ledInterfaces.constFirst();
-        return;
+        return ledInterfaces;
     }
 
     QDir backlightDir(BACKLIGHT_SYSFS_PATH);
     backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
-    backlightDir.setSorting(QDir::Name | QDir::Reversed);// Reverse is needed to priorize acpi_video1 over 0
+    backlightDir.setSorting(QDir::Name | QDir::Reversed); // Reverse is needed to priorize acpi_video1 over 0
 
     const QStringList interfaces = backlightDir.entryList();
 
     QFile file;
     QByteArray buffer;
-    QStringList firmware, platform, raw;
+    QStringList firmware, platform, rawEnabled, rawAll;
 
-    for (const QString & interface : interfaces) {
+    for (const QString &interface : interfaces) {
         file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;
@@ -103,16 +134,16 @@ void BacklightHelper::initUsingBacklightType()
 
         buffer = file.readLine().trimmed();
         if (buffer == "firmware") {
-            firmware.append(interface);
-        } else if(buffer == "platform") {
-            platform.append(interface);
+            firmware.append(BACKLIGHT_SYSFS_PATH + interface);
+        } else if (buffer == "platform") {
+            platform.append(BACKLIGHT_SYSFS_PATH + interface);
         } else if (buffer == "raw") {
             QFile enabled(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
-            if (enabled.open(QIODevice::ReadOnly | QIODevice::Text) && 
-                enabled.readLine().trimmed() == "enabled") {
+            rawAll.append(interface);
+            if (enabled.open(QIODevice::ReadOnly | QIODevice::Text) && enabled.readLine().trimmed() == "enabled") {
                 // this backlight device is connected to a display, so append
-                // it to raw list
-                raw.append(interface);
+                // it to rawEnabled list
+                rawEnabled.append(interface);
             }
         } else {
             qCWarning(POWERDEVIL) << "Interface type not handled" << buffer;
@@ -121,36 +152,32 @@ void BacklightHelper::initUsingBacklightType()
         file.close();
     }
 
+    if (!firmware.isEmpty())
+        return firmware;
 
-    if (!firmware.isEmpty()) {
-        m_dirname = BACKLIGHT_SYSFS_PATH + firmware.constFirst();
-        return;
+    if (!platform.isEmpty())
+        return platform;
+
+    if (!rawEnabled.isEmpty())
+        return rawEnabled;
+
+    if (!rawAll.isEmpty())
+        return rawAll;
+
+    return {};
+}
+
+void BacklightHelper::initUsingBacklightType()
+{
+    m_devices.clear();
+    QStringList devices = getBacklightTypeDevices();
+
+    for (const QString &interface : devices) {
+        int max_brightness = readFromDevice(BACKLIGHT_SYSFS_PATH + interface, "max_brightness");
+        m_devices.append(qMakePair(BACKLIGHT_SYSFS_PATH + interface, max_brightness));
     }
 
-    if (!platform.isEmpty()) {
-        m_dirname = BACKLIGHT_SYSFS_PATH + platform.constFirst();
-        return;
-    }
-
-    if (raw.isEmpty()) {
-        // if no raw type backlight device found, let's fall back and try again
-        for (const QString &interface : interfaces) {
-            file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
-            if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                continue;
-            }
-
-            buffer = file.readLine().trimmed();
-            if (buffer == "raw") {
-                raw.append(interface);
-            }
-        }
-    }
-
-    if (!raw.isEmpty()) {
-        m_dirname = BACKLIGHT_SYSFS_PATH + raw.constFirst();
-        return;
-    }
+    return;
 }
 
 void BacklightHelper::initUsingSysctl()
@@ -235,15 +262,7 @@ int BacklightHelper::readBrightness() const
         return -1;
     }
 #else
-    QFile file(m_dirname + "/brightness");
-    if (!file.open(QIODevice::ReadOnly)) {
-        qCWarning(POWERDEVIL) << "reading brightness failed with error code " << file.error() << file.errorString();
-        return -1;
-    }
-
-    QTextStream stream(&file);
-    stream >> brightness;
-    file.close();
+    brightness = readFromDevice(m_devices.constFirst().first, QLatin1String("brightness"));
 #endif
 
     return brightness;
@@ -297,16 +316,14 @@ bool BacklightHelper::writeBrightness(int brightness) const
     size_t len = sizeof(int);
     return sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(m_sysctlDevice)), nullptr, nullptr, &actual_level, len) == 0;
 #else
-    QFile file(m_dirname + QLatin1String("/brightness"));
-    if (!file.open(QIODevice::WriteOnly)) {
-        qCWarning(POWERDEVIL) << "writing brightness failed with error code " << file.error() << file.errorString();
-        return false;
-    }
 
-    const int bytesWritten = file.write(QByteArray::number(brightness));
-    if (bytesWritten == -1) {
-        qCWarning(POWERDEVIL) << "writing brightness failed with error code " << file.error() << file.errorString();
-        return false;
+    if (!m_devices.isEmpty()) {
+        int first_maxbrightness = m_devices.constFirst().second;
+        if (first_maxbrightness <= 0)
+            first_maxbrightness = 1;
+        for (const auto &device : m_devices) {
+            writeToDevice(device.first, brightness * device.second / first_maxbrightness);
+        }
     }
 
     return true;
@@ -321,12 +338,12 @@ ActionReply BacklightHelper::syspath(const QVariantMap &args)
 
     ActionReply reply;
 
-    if (!m_isSupported || m_dirname.isEmpty()) {
+    if (!m_isSupported || m_devices.isEmpty()) {
         reply = ActionReply::HelperErrorReply();
         return reply;
     }
 
-    reply.addData(QStringLiteral("syspath"), m_dirname);
+    reply.addData(QStringLiteral("syspath"), m_devices.constFirst().first);
 
     return reply;
 }
@@ -348,20 +365,8 @@ ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
 #ifdef USE_SYSCTL
     max_brightness = m_sysctlBrightnessLevels.last();
 #else
-    QFile file(m_dirname + QLatin1String("/max_brightness"));
-    if (!file.open(QIODevice::ReadOnly)) {
-        reply = ActionReply::HelperErrorReply();
-//         reply.setErrorCode(file.error());
-        qCWarning(POWERDEVIL) << "reading max brightness failed with error code " << file.error() << file.errorString();
-        return reply;
-    }
-
-    QTextStream stream(&file);
-    stream >> max_brightness;
-    file.close();
+    max_brightness = readFromDevice(m_devices.constFirst().first, QLatin1String("max_brightness"));
 #endif
-
-    //qCDebug(POWERDEVIL) << "max brightness:" << max_brightness;
 
     if (max_brightness <= 0) {
         reply = ActionReply::HelperErrorReply();
