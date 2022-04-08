@@ -24,6 +24,7 @@
 #include <powerdevilactionconfig.h>
 
 class QSlider;
+class QLabel;
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -42,6 +43,7 @@ public:
 
 private:
     QSlider *m_slider;
+    QLabel *m_text;
 };
 
 }

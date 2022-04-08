@@ -60,12 +60,17 @@ QList< QPair< QString, QWidget* > > BrightnessControlConfig::buildUi()
 {
     m_slider = new QSlider(Qt::Horizontal);
     m_slider->setRange(0, 100);
+    
+    m_text = new QLabel("0%");
+    connect(m_slider, &QSlider::valueChanged, m_text, [=](int percentage) {
+        m_text->setText(QString::number(percentage).append("%"));
+    });
 
     QWidget *tempWidget = new QWidget;
     QHBoxLayout *hlay = new QHBoxLayout;
     hlay->addWidget(m_slider);
+    hlay->addWidget(m_text);
     tempWidget->setLayout(hlay);
-
     QList< QPair< QString, QWidget* > > retlist;
     retlist.append(qMakePair< QString, QWidget* >(i18nc("Brightness level, label for the slider", "Level"), tempWidget));
 
