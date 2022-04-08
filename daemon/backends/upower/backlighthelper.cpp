@@ -139,11 +139,11 @@ QStringList BacklightHelper::getBacklightTypeDevices() const
             platform.append(BACKLIGHT_SYSFS_PATH + interface);
         } else if (buffer == "raw") {
             QFile enabled(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
-            rawAll.append(interface);
+            rawAll.append(BACKLIGHT_SYSFS_PATH + interface);
             if (enabled.open(QIODevice::ReadOnly | QIODevice::Text) && enabled.readLine().trimmed() == "enabled") {
                 // this backlight device is connected to a display, so append
                 // it to rawEnabled list
-                rawEnabled.append(interface);
+                rawEnabled.append(BACKLIGHT_SYSFS_PATH + interface);
             }
         } else {
             qCWarning(POWERDEVIL) << "Interface type not handled" << buffer;
@@ -173,8 +173,8 @@ void BacklightHelper::initUsingBacklightType()
     QStringList devices = getBacklightTypeDevices();
 
     for (const QString &interface : devices) {
-        int max_brightness = readFromDevice(BACKLIGHT_SYSFS_PATH + interface, "max_brightness");
-        m_devices.append(qMakePair(BACKLIGHT_SYSFS_PATH + interface, max_brightness));
+        int max_brightness = readFromDevice(interface, "max_brightness");
+        m_devices.append(qMakePair(interface, max_brightness));
     }
 
     return;
