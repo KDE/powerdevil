@@ -72,7 +72,7 @@ QList< QPair< QString, QWidget* > > BrightnessControlConfig::buildUi()
     hlay->addWidget(m_text);
     tempWidget->setLayout(hlay);
     QList< QPair< QString, QWidget* > > retlist;
-    retlist.append(qMakePair< QString, QWidget* >(i18nc("Brightness level, label for the slider", "Level"), tempWidget));
+    retlist.append(qMakePair(i18nc("Brightness level, label for the slider", "Level"), tempWidget));
 
     connect(m_slider, &QAbstractSlider::valueChanged, this, &BrightnessControlConfig::setChanged);
 

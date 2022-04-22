@@ -68,7 +68,7 @@ QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
     QList< QPair< QString, QWidget* > > retlist;
     m_urlRequester = new KUrlRequester();
     m_urlRequester->setMode(KFile::File | KFile::LocalOnly | KFile::ExistingOnly);
-    retlist.append(qMakePair< QString, QWidget* >(i18n("Script"), m_urlRequester));
+    retlist.append(qMakePair(i18n("Script"), m_urlRequester));
 
     QWidget *tempWidget = new QWidget;
     QHBoxLayout *hlay = new QHBoxLayout;
@@ -92,7 +92,7 @@ QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
 
     tempWidget->setLayout(hlay);
 
-    retlist.append(qMakePair< QString, QWidget* >(i18n("Run script"), tempWidget));
+    retlist.append(qMakePair(i18n("Run script"), tempWidget));
 
     connect(m_urlRequester, &KUrlRequester::textChanged, this, &RunScriptConfig::setChanged);
     connect(m_comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));

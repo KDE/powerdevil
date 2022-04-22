@@ -74,7 +74,7 @@ QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
     tempWidget->setLayout(hlay);
 
     QList< QPair< QString, QWidget* > > retlist;
-    retlist.append(qMakePair< QString, QWidget* >(i18nc("@label:slider Brightness level", "Level"), tempWidget));
+    retlist.append(qMakePair(i18nc("@label:slider Brightness level", "Level"), tempWidget));
 
     connect(m_slider, &QAbstractSlider::valueChanged, this, &KeyboardBrightnessControlConfig::setChanged);
 

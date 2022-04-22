@@ -71,7 +71,7 @@ QList< QPair< QString, QWidget* > > DimDisplayConfig::buildUi()
     hlay->addStretch();
 
     QList< QPair< QString, QWidget* > > retlist;
-    retlist.append(qMakePair< QString, QWidget* >(i18n("After"), tempWidget));
+    retlist.append(qMakePair(i18n("After"), tempWidget));
 
     connect(m_spinBox, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 

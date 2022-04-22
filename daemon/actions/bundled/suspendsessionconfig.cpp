@@ -105,7 +105,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     tempWidget->setLayout(hlay);
 
     QList< QPair< QString, QWidget* > > retlist;
-    retlist.append(qMakePair< QString, QWidget* >(i18n("Automatically"), tempWidget));
+    retlist.append(qMakePair(i18n("Automatically"), tempWidget));
 
     connect(m_comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_idleTime, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));

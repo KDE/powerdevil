@@ -649,7 +649,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
             return;
         }
 
-        m_cookieToAppName.insert(cookie, qMakePair<QString, QString>(appName, reason));
+        m_cookieToAppName.insert(cookie, qMakePair(appName, reason));
 
         addInhibitionTypeHelper(cookie, static_cast< PolicyAgent::RequiredPolicies >(types));
 
