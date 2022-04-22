@@ -66,8 +66,8 @@ void ClientPrivate::setWatchedSubsystems(const QStringList &subsystemList)
         int ix = subsysDevtype.indexOf(u'/');
 
         if (ix > 0) {
-            QByteArray subsystem = subsysDevtype.leftRef(ix).toLatin1();
-            QByteArray devType = subsysDevtype.midRef(ix + 1).toLatin1();
+            QByteArray subsystem = QStringView(subsysDevtype).left(ix).toLatin1();
+            QByteArray devType = QStringView(subsysDevtype).mid(ix + 1).toLatin1();
             udev_monitor_filter_add_match_subsystem_devtype(newM, subsystem.constData(), devType.constData());
         } else {
             udev_monitor_filter_add_match_subsystem_devtype(newM, subsysDevtype.toLatin1().constData(), nullptr);
