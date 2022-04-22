@@ -108,7 +108,12 @@ if(HAVE_WIRELESS_SUPPORT)
 endif()
 
 if (XCB_FOUND) # kwin kscreen helper effect
-    target_link_libraries(powerdevilcore Qt::X11Extras XCB::XCB)
+    target_link_libraries(powerdevilcore XCB::XCB)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        target_link_libraries(powerdevilcore Qt5::X11Extras)
+    else()
+       target_link_libraries(powerdevilcore Qt::GuiPrivate)
+    endif()
 endif ()
 
 # target no.2 - powerdevil kded module
@@ -152,7 +157,11 @@ target_link_libraries(powerdevil
     powerdevilcore
 )
 if (XCB_FOUND)
-    target_link_libraries(powerdevil Qt::X11Extras)
+    if (QT_MAJOR_VERSION EQUAL "5")
+        target_link_libraries(powerdevil Qt5::X11Extras)
+    else()
+        target_link_libraries(powerdevil Qt::GuiPrivate)
+    endif()
 endif ()
 
 target_link_libraries(powerdevil ${UDEV_LIBS})
