@@ -26,8 +26,6 @@
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
 
-#include <QDesktopWidget>
-
 #include <QAction>
 #include <QDebug>
 
