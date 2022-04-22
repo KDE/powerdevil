@@ -50,8 +50,6 @@ private Q_SLOTS:
 
     void notifyDaemon();
 
-    void openUrl(const QString &url);
-
     void onServiceRegistered(const QString &service);
     void onServiceUnregistered(const QString &service);
 

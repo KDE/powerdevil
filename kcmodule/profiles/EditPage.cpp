@@ -47,7 +47,6 @@
 #include <KAboutData>
 #include <KPluginFactory>
 #include <KLocalizedString>
-#include <KRun>
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -209,11 +208,6 @@ void EditPage::restoreDefaultProfiles()
 
         notifyDaemon();
     }
-}
-
-void EditPage::openUrl(const QString &url)
-{
-    new KRun(QUrl(url), this);
 }
 
 void EditPage::defaults()
