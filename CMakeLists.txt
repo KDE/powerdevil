@@ -101,7 +101,7 @@ ecm_qt_install_logging_categories(
         FILE powerdevil.categories
         DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
         )
-install( FILES powerdevil.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR} )
+install( FILES powerdevil.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR} )
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)

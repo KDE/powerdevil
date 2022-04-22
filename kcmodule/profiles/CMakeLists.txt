@@ -23,4 +23,4 @@ target_link_libraries(kcm_powerdevilprofilesconfig
 )
 
 install(TARGETS kcm_powerdevilprofilesconfig  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
-install( FILES powerdevilprofilesconfig.desktop  DESTINATION  ${KDE_INSTALL_KSERVICES5DIR} )
+install( FILES powerdevilprofilesconfig.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )

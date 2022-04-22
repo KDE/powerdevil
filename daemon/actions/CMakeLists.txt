@@ -1,3 +1,3 @@
-install(FILES powerdevilaction.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
+install(FILES powerdevilaction.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPESDIR})
 
 add_subdirectory(bundled)
