@@ -22,7 +22,7 @@
 
 #include <QObject>
 
-#include <KAuth>
+#include <KAuth/ActionReply>
 
 using namespace KAuth;
 

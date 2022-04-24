@@ -22,6 +22,8 @@
 
 #include <powerdevil_debug.h>
 
+#include <KAuth/HelperSupport>
+
 #include <algorithm>
 
 #include <QDir>
