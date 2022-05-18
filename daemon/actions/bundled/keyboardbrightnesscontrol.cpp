@@ -99,10 +99,15 @@ void KeyboardBrightnessControl::onIdleTimeout(int msec)
 void KeyboardBrightnessControl::onProfileLoad()
 {
     const int absoluteKeyboardBrightnessValue = qRound(m_defaultValue / 100.0 * keyboardBrightnessMax());
+
+    // The core switches its profile after all actions have been updated, so here core()->currentProfile() is still the old one
+    const auto previousProfile = core()->currentProfile();
+    qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << previousProfile;
+
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
-    if (((m_currentProfile == QLatin1String("Battery") && m_lastProfile == QLatin1String("AC")) ||
-         (m_currentProfile == QLatin1String("LowBattery") && (m_lastProfile == QLatin1String("AC") || m_lastProfile == QLatin1String("Battery")))) &&
+    if (((m_currentProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC")) ||
+         (m_currentProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery")))) &&
         absoluteKeyboardBrightnessValue > keyboardBrightness()) {
 
         // We don't want to change anything here
@@ -113,8 +118,8 @@ void KeyboardBrightnessControl::onProfileLoad()
         };
 
         // plugging in/out the AC is always explicit
-        if ((m_currentProfile == QLatin1String("AC") && m_lastProfile != QLatin1String("AC")) ||
-            (m_currentProfile != QLatin1String("AC") && m_lastProfile == QLatin1String("AC"))) {
+        if ((m_currentProfile == QLatin1String("AC") && previousProfile != QLatin1String("AC")) ||
+            (m_currentProfile != QLatin1String("AC") && previousProfile == QLatin1String("AC"))) {
             args["Explicit"] = true;
             args["Silent"] = true; // but we still don't want to show the OSD then
         }
@@ -145,10 +150,7 @@ bool KeyboardBrightnessControl::isSupported()
 bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 {
     // Handle profile changes
-    m_lastProfile = m_currentProfile;
     m_currentProfile = config.parent().name();
-
-    qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << m_lastProfile;
 
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);
