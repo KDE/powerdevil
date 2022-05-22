@@ -46,9 +46,7 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 
-K_PLUGIN_FACTORY(PowerDevilActivitiesKCMFactory,
-                 registerPlugin<ActivityPage>();
-                )
+K_PLUGIN_CLASS_WITH_JSON(ActivityPage, "kcm_powerdevilactivitiesconfig.json")
 
 ActivityPage::ActivityPage(QWidget *parent, const QVariantList &args)
     : KCModule(parent, args)

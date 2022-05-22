@@ -1,11 +1,10 @@
 [Desktop Entry]
 Icon=preferences-desktop-activities
-Type=Service
+Type=Application
+NoDisplay=true
+Exec=systemsettings kcm_powerdevilactivitiesconfig
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/powerdevil/index.html#activity-setting
-
-X-KDE-Library=kcm_powerdevilactivitiesconfig
-X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=50

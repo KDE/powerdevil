@@ -51,9 +51,7 @@
 #include <Solid/Battery>
 #include <Solid/Device>
 
-K_PLUGIN_FACTORY(PowerDevilProfilesKCMFactory,
-                 registerPlugin<EditPage>();
-                )
+K_PLUGIN_CLASS_WITH_JSON(EditPage, "kcm_powerdevilprofilesconfig.json")
 
 EditPage::EditPage(QWidget *parent, const QVariantList &args)
         : KCModule(parent, args)

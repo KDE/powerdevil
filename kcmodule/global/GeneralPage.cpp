@@ -52,9 +52,7 @@
 #include <KAuthExecuteJob>
 #endif
 
-K_PLUGIN_FACTORY(PowerDevilGeneralKCMFactory,
-                 registerPlugin<GeneralPage>();
-                )
+K_PLUGIN_CLASS_WITH_JSON(GeneralPage, "kcm_powerdevilglobalconfig.json")
 
 GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
         : KCModule(parent, args)

@@ -11,7 +11,8 @@ ki18n_wrap_ui(kcm_powerdevil_profiles_SRCS
 
 kconfig_add_kcfg_files(kcm_powerdevil_profiles_SRCS ../../PowerDevilSettings.kcfgc)
 
-add_library(kcm_powerdevilprofilesconfig MODULE ${kcm_powerdevil_profiles_SRCS})
+kcoreaddons_add_plugin(kcm_powerdevilprofilesconfig SOURCES ${kcm_powerdevil_profiles_SRCS} INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
+kcoreaddons_desktop_to_json(kcm_powerdevilprofilesconfig kcm_powerdevilprofilesconfig.desktop)
 
 target_link_libraries(kcm_powerdevilprofilesconfig
      KF5::KIOWidgets
@@ -22,5 +23,4 @@ target_link_libraries(kcm_powerdevilprofilesconfig
      powerdevilconfigcommonprivate
 )
 
-install(TARGETS kcm_powerdevilprofilesconfig  DESTINATION ${KDE_INSTALL_PLUGINDIR} )
-install( FILES powerdevilprofilesconfig.desktop  DESTINATION  ${KDE_INSTALL_KSERVICESDIR} )
+install(FILES kcm_powerdevilprofilesconfig.desktop DESTINATION ${KDE_INSTALL_APPDIR})

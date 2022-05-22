@@ -1,11 +1,10 @@
 [Desktop Entry]
 Icon=preferences-system-power-management
-Type=Service
+Type=Application
+NoDisplay=true
+Exec=systemsettings kcm_powerdevilprofilesconfig
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/powerdevil/index.html
-
-X-KDE-Library=kcm_powerdevilprofilesconfig
-X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=power-management
 X-KDE-Weight=3
