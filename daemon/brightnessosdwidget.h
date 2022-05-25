@@ -30,7 +30,7 @@
 namespace BrightnessOSDWidget
 {
 
-    void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
+    Q_DECL_EXPORT void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
 
 }
 

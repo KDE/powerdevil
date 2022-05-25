@@ -25,14 +25,15 @@
 #include <powerdevil_debug.h>
 
 #include <KConfigGroup>
+#include <KPluginFactory>
 
 #include <NetworkManagerQt/Manager>
 
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::WirelessPowerSaving, "powerdevilwirelesspowersavingaction.json")
 
 namespace PowerDevil {
 namespace BundledActions {
-
-WirelessPowerSaving::WirelessPowerSaving(QObject* parent)
+WirelessPowerSaving::WirelessPowerSaving(QObject *parent, const QVariantList &)
     : Action(parent)
     , m_btManager(new BluezQt::Manager())
     , m_currentProfileWifiOption(BundledActions::WirelessPowerSaving::TurnOff)
@@ -198,3 +199,4 @@ void WirelessPowerSaving::setWirelessEnabled(bool enabled)
 }
 
 }
+#include "wirelesspowersaving.moc"

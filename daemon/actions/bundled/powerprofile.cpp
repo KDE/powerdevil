@@ -28,8 +28,11 @@
 #include <powerdevil_debug.h>
 
 #include <KConfigGroup>
+#include <KPluginFactory>
 
 using namespace PowerDevil::BundledActions;
+
+K_PLUGIN_CLASS_WITH_JSON(PowerProfile, "powerdevilpowerprofileaction.json")
 
 static const QString activeProfileProperty = QStringLiteral("ActiveProfile");
 static const QString profilesProperty = QStringLiteral("Profiles");
@@ -40,7 +43,7 @@ static const QString profileHoldsProperty = QStringLiteral("ActiveProfileHolds")
 static const QString ppdName = QStringLiteral("net.hadess.PowerProfiles");
 static const QString ppdPath = QStringLiteral("/net/hadess/PowerProfiles");
 
-PowerProfile::PowerProfile(QObject *parent)
+PowerProfile::PowerProfile(QObject *parent, const QVariantList &)
     : Action(parent)
     , m_powerProfilesInterface(new NetHadessPowerProfilesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
     , m_powerProfilesPropertiesInterface(new OrgFreedesktopDBusPropertiesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
@@ -254,3 +257,5 @@ void PowerProfile::propertiesChanged(const QString &interface, const QVariantMap
     }
     readProperties(changed);
 }
+
+#include "powerprofile.moc"

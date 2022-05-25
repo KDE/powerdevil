@@ -42,7 +42,7 @@ public:
         TurnOn = 2
     };
 
-    explicit WirelessPowerSaving(QObject* parent);
+    explicit WirelessPowerSaving(QObject *parent, const QVariantList &);
     ~WirelessPowerSaving() override = default;
 
 protected:

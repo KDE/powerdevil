@@ -37,7 +37,7 @@ class HandleButtonEvents : public PowerDevil::Action
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.HandleButtonEvents")
 
 public:
-    explicit HandleButtonEvents(QObject* parent);
+    explicit HandleButtonEvents(QObject *parent, const QVariantList & = {});
     ~HandleButtonEvents() override;
 
     bool loadAction(const KConfigGroup& config) override;

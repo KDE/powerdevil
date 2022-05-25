@@ -29,21 +29,23 @@
 
 #include <KConfigGroup>
 #include <KIdleTime>
-#include <KLocalizedString>
 #include <KJob>
+#include <KLocalizedString>
+#include <KPluginFactory>
 
 #include <kworkspace.h>
 
 #include <PowerDevilSettings.h>
 
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::SuspendSession, "powerdevilsuspendsessionaction.json")
+
 namespace PowerDevil
 {
 namespace BundledActions
 {
-
-SuspendSession::SuspendSession(QObject* parent)
-    : Action(parent),
-      m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
+SuspendSession::SuspendSession(QObject *parent, const QVariantList &)
+    : Action(parent)
+    , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
 {
     // DBus
     new SuspendSessionAdaptor(this);
@@ -213,3 +215,4 @@ void SuspendSession::triggerSuspendSession(uint action)
 
 }
 }
+#include "suspendsession.moc"

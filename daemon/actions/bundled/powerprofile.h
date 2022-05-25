@@ -40,7 +40,7 @@ class PowerProfile : public PowerDevil::Action, protected QDBusContext
     Q_PROPERTY(QString currentProfile READ currentProfile NOTIFY currentProfileChanged)
 
 public:
-    explicit PowerProfile(QObject *parent);
+    explicit PowerProfile(QObject *parent, const QVariantList &);
     ~PowerProfile() override;
 
     bool loadAction(const KConfigGroup &config) override;

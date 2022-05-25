@@ -52,7 +52,7 @@ public:
         ToggleScreenOnOffMode = 128
     };
 
-    explicit SuspendSession(QObject *parent);
+    explicit SuspendSession(QObject *parent, const QVariantList &);
     ~SuspendSession() override;
 
     bool loadAction(const KConfigGroup& config) override;

@@ -31,12 +31,15 @@
 
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KLocalizedString>
 #include <KGlobalAccel>
+#include <KLocalizedString>
+#include <KPluginFactory>
+
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerdevilbrightnesscontrolaction.json")
+
 namespace PowerDevil {
 namespace BundledActions {
-
-BrightnessControl::BrightnessControl(QObject* parent)
+BrightnessControl::BrightnessControl(QObject *parent, const QVariantList &)
     : Action(parent)
 {
     // DBus
@@ -206,3 +209,4 @@ int BrightnessControl::brightnessPercent(float value) const
 
 }
 }
+#include "brightnesscontrol.moc"

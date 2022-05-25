@@ -8,25 +8,9 @@ add_subdirectory(actions)
 # Add bundled actions
 set(powerdevil_bundled_actions_SRCS
     powerdevil_debug.cpp
-    actions/bundled/suspendsession.cpp
-    actions/bundled/brightnesscontrol.cpp
-    actions/bundled/keyboardbrightnesscontrol.cpp
-    actions/bundled/dimdisplay.cpp
-    actions/bundled/runscript.cpp
-    actions/bundled/handlebuttonevents.cpp
-    actions/bundled/dpms.cpp
-    actions/bundled/abstractdpmshelper.cpp
-    actions/bundled/xcbdpmshelper.cpp
-    actions/bundled/waylanddpmshelper.cpp
+    #actions/bundled/handlebuttonevents.cpp
     ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
-    actions/bundled/powerprofile.cpp
 )
-
-if(HAVE_WIRELESS_SUPPORT)
-    set(powerdevil_bundled_actions_SRCS ${powerdevil_bundled_actions_SRCS}
-        actions/bundled/wirelesspowersaving.cpp
-    )
-endif()
 
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
@@ -45,7 +29,9 @@ set(powerdevilcore_SRCS
     kwinkscreenhelpereffect.cpp
 )
 
-ecm_qt_declare_logging_category(powerdevilcore_SRCS
+add_library(powerdevil_log_static STATIC)
+target_link_libraries(powerdevil_log_static Qt::Core)
+ecm_qt_declare_logging_category(powerdevil_log_static
    HEADER powerdevil_debug.h
    IDENTIFIER POWERDEVIL
    CATEGORY_NAME org.kde.powerdevil
@@ -55,26 +41,8 @@ ecm_qt_declare_logging_category(powerdevilcore_SRCS
 kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
 # Action DBus Adaptors
-qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
-                     actions/bundled/brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
-qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl.xml
-                     actions/bundled/keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
-qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.HandleButtonEvents.xml
-                     actions/bundled/handlebuttonevents.h PowerDevil::BundledActions::HandleButtonEvents)
-qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
-                     actions/bundled/suspendsession.h PowerDevil::BundledActions::SuspendSession)
-if(HAVE_WIRELESS_SUPPORT)
-    qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
-                         actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
-endif()
-qt_add_dbus_adaptor(powerdevilcore_SRCS actions/bundled/org.kde.Solid.PowerManagement.Actions.PowerProfile.xml
-                         actions/bundled/powerprofile.h PowerDevil::BundledActions::PowerProfile)
 
 qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
-
-qt_add_dbus_interface(powerdevilcore_SRCS actions/bundled/org.freedesktop.DBus.Properties.xml properties_interface)
-
-qt_add_dbus_interface(powerdevilcore_SRCS actions/bundled/net.hadess.PowerProfiles.xml power_profiles_interface)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
@@ -98,6 +66,7 @@ target_link_libraries(powerdevilcore
     KF5::Kirigami2
     PW::KWorkspace
     XCB::DPMS
+    powerdevil_log_static
 )
 
 if(HAVE_WIRELESS_SUPPORT)

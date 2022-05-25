@@ -20,14 +20,15 @@
 #include "runscript.h"
 #include "powerdevil_debug.h"
 
+#include <KConfigGroup>
+#include <KPluginFactory>
 #include <QProcess>
 
-#include <KConfigGroup>
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::RunScript, "powerdevilrunscriptaction.json")
 
 namespace PowerDevil {
 namespace BundledActions {
-
-RunScript::RunScript(QObject* parent)
+RunScript::RunScript(QObject *parent, const QVariantList &)
     : Action(parent)
 {
     // TODO: Which policy should we enforce here? Let's go for the less restrictive one
@@ -107,3 +108,5 @@ void RunScript::runCommand()
 
 }
 }
+
+#include "runscript.moc"

@@ -27,11 +27,14 @@
 
 #include <KConfigGroup>
 #include <KLocalizedString>
+#include <KPluginFactory>
+
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DimDisplay, "powerdevildimdisplayaction.json")
 
 namespace PowerDevil {
 namespace BundledActions {
 
-DimDisplay::DimDisplay(QObject* parent) : Action(parent)
+DimDisplay::DimDisplay(QObject* parent, const QVariantList &) : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
@@ -130,3 +133,5 @@ bool DimDisplay::loadAction(const KConfigGroup& config)
 
 }
 }
+
+#include "dimdisplay.moc"

@@ -35,9 +35,9 @@
 #include <QDBusPendingReply>
 
 #include <KConfigGroup>
-#include <QDebug>
 #include <KPluginFactory>
-#include <KServiceTypeTrader>
+#include <KPluginMetaData>
+#include <QDebug>
 
 ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
@@ -48,23 +48,23 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
     QMultiMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
-    // Load all the services
-    const KService::List offers = KServiceTypeTrader::self()->query("PowerDevil/Action", "(Type == 'Service')");
+    // Load all the plugins
+    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
 
-    for (const KService::Ptr &offer : offers) {
+    for (const KPluginMetaData &offer : offers) {
         // Does it have a runtime requirement?
-        if (offer->property(QStringLiteral("X-KDE-PowerDevil-Action-HasRuntimeRequirement"), QVariant::Bool).toBool()) {
-            qCDebug(POWERDEVIL) << offer->name() << " has a runtime requirement";
+        if (offer.value(QStringLiteral("X-KDE-PowerDevil-Action-HasRuntimeRequirement"), false)) {
+            qCDebug(POWERDEVIL) << offer.name() << " has a runtime requirement";
 
             QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
                                                                "org.kde.Solid.PowerManagement", "isActionSupported");
-            call.setArguments(QVariantList() << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String));
+            call.setArguments(QVariantList() << offer.value("X-KDE-PowerDevil-Action-ID"));
             QDBusPendingReply< bool > reply = QDBusConnection::sessionBus().asyncCall(call);
             reply.waitForFinished();
 
             if (reply.isValid()) {
                 if (!reply.value()) {
-                    qCDebug(POWERDEVIL) << "The action " << offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String) << " appears not to be supported by the core.";
+                    qCDebug(POWERDEVIL) << "The action " << offer.value("X-KDE-PowerDevil-Action-ID") << " appears not to be supported by the core.";
                     continue;
                 }
             } else {
@@ -73,33 +73,22 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         }
 
         //try to load the specified library
-        KPluginFactory *factory = KPluginLoader(offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
-                                                                QVariant::String).toString()).factory();
-
-        if (!factory) {
-            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property("X-KDE-PowerDevil-Action-UIComponentLibrary",
-                                                                       QVariant::String).toString();
-            continue;
-        }
-
-        PowerDevil::ActionConfig *actionConfig = factory->create<PowerDevil::ActionConfig>();
+        KPluginMetaData uiLib(QJsonObject(), offer.value(QStringLiteral("X-KDE-PowerDevil-Action-UIComponentLibrary")));
+        auto actionConfig = KPluginFactory::instantiatePlugin<PowerDevil::ActionConfig>(uiLib).plugin;
         if (!actionConfig) {
-            qCWarning(POWERDEVIL) << "KPluginFactory could not load the plugin:" << offer->property(QStringLiteral("X-KDE-PowerDevil-Action-UIComponentLibrary"),
-                                                                       QVariant::String).toString();
             continue;
         }
 
         connect(actionConfig, &PowerDevil::ActionConfig::changed, this, &ActionEditWidget::onChanged);
 
-        QCheckBox *checkbox = new QCheckBox(offer->name());
+        QCheckBox *checkbox = new QCheckBox(offer.name());
         connect(checkbox, &QCheckBox::stateChanged, this, &ActionEditWidget::onChanged);
-        m_actionsHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), checkbox);
-        m_actionsConfigHash.insert(offer->property("X-KDE-PowerDevil-Action-ID", QVariant::String).toString(), actionConfig);
+        m_actionsHash.insert(offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), checkbox);
+        m_actionsConfigHash.insert(offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), actionConfig);
 
         QList<QPair<QString, QWidget*> > offerWidgets = actionConfig->buildUi();
         offerWidgets.prepend(qMakePair<QString,QWidget*>(QString(), checkbox));
-        widgets.insert(100 - offer->property("X-KDE-PowerDevil-Action-ConfigPriority", QVariant::Int).toInt(),
-                            offerWidgets);
+        widgets.insert(100 - offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ConfigPriority"), 0), offerWidgets);
     }
 
     for (QMultiMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {

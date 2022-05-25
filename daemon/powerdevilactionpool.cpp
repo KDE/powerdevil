@@ -27,23 +27,10 @@
 #include <config-powerdevil.h>
 
 #include <KConfigGroup>
-#include <KServiceTypeTrader>
 
+#include <KPluginFactory>
 #include <QDBusConnection>
 #include <QDebug>
-
-// Bundled actions:
-#include "actions/bundled/suspendsession.h"
-#include "actions/bundled/brightnesscontrol.h"
-#include "actions/bundled/keyboardbrightnesscontrol.h"
-#include "actions/bundled/dimdisplay.h"
-#include "actions/bundled/runscript.h"
-#include "actions/bundled/handlebuttonevents.h"
-#include "actions/bundled/dpms.h"
-#if HAVE_WIRELESS_SUPPORT
-#include "actions/bundled/wirelesspowersaving.h"
-#endif
-#include "actions/bundled/powerprofile.h"
 
 namespace PowerDevil
 {
@@ -92,51 +79,12 @@ void ActionPool::clearCache()
 
 void ActionPool::init(PowerDevil::Core *parent)
 {
-    // Load all the actions
-    const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
-                                                              QStringLiteral("[X-KDE-PowerDevil-Action-IsBundled] == FALSE"));
-    for (const KService::Ptr &offer : offers) {
-        QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
-
-        qCDebug(POWERDEVIL) << "Got a valid offer for " << actionId;
-
-        if (!offer->showOnCurrentPlatform()) {
-            qCDebug(POWERDEVIL) << "Doesn't support the windowing system";
-            continue;
+    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
+    for (const KPluginMetaData &data : offers) {
+        if (auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, parent).plugin) {
+            m_actionPool.insert(data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), plugin);
         }
-
-        //try to load the specified library
-        PowerDevil::Action *retaction = offer->createInstance< PowerDevil::Action >(parent);
-
-        if (!retaction) {
-            // Troubles...
-            qCWarning(POWERDEVIL) << "failed to load" << offer->desktopEntryName();
-            continue;
-        }
-
-        // Is the action available and supported?
-        if (!retaction->isSupported()) {
-            // Skip that
-            retaction->deleteLater();
-            continue;
-        }
-
-        // Insert
-        m_actionPool.insert(actionId, retaction);
     }
-
-    // Load bundled actions now
-    m_actionPool.insert(QStringLiteral("SuspendSession"), new BundledActions::SuspendSession(parent));
-    m_actionPool.insert(QStringLiteral("BrightnessControl"), new BundledActions::BrightnessControl(parent));
-    m_actionPool.insert(QStringLiteral("KeyboardBrightnessControl"), new BundledActions::KeyboardBrightnessControl(parent));
-    m_actionPool.insert(QStringLiteral("DimDisplay"), new BundledActions::DimDisplay(parent));
-    m_actionPool.insert(QStringLiteral("RunScript"), new BundledActions::RunScript(parent));
-    m_actionPool.insert(QStringLiteral("HandleButtonEvents"), new BundledActions::HandleButtonEvents(parent));
-    m_actionPool.insert(QStringLiteral("DPMSControl"), new BundledActions::DPMS(parent));
-#if HAVE_WIRELESS_SUPPORT
-    m_actionPool.insert(QStringLiteral("WirelessPowerSaving"), new BundledActions::WirelessPowerSaving(parent));
-#endif
-    m_actionPool.insert(QStringLiteral("PowerProfile"), new BundledActions::PowerProfile(parent));
 
     // Verify support
     QHash<QString,Action*>::iterator i = m_actionPool.begin();
@@ -152,11 +100,11 @@ void ActionPool::init(PowerDevil::Core *parent)
 
     // Register DBus objects
     {
-        const KService::List offers = KServiceTypeTrader::self()->query(QStringLiteral("PowerDevil/Action"),
-                                                                QStringLiteral("[X-KDE-PowerDevil-Action-RegistersDBusInterface] == TRUE"));
-        for (const KService::Ptr &offer : offers) {
-            QString actionId = offer->property(QStringLiteral("X-KDE-PowerDevil-Action-ID"), QVariant::String).toString();
-
+        QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"), [](const KPluginMetaData &data) {
+            return data.value(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), false);
+        });
+        for (const KPluginMetaData &offer : offers) {
+            QString actionId = offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
             if (m_actionPool.contains(actionId)) {
                 QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
             }

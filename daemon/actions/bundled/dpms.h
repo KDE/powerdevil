@@ -37,7 +37,7 @@ class DPMS : public PowerDevil::Action
     Q_DISABLE_COPY(DPMS)
 
 public:
-    explicit DPMS(QObject *parent);
+    explicit DPMS(QObject *parent, const QVariantList &);
     ~DPMS() override;
 
 protected:

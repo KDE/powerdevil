@@ -49,10 +49,11 @@
 #include <KSharedConfig>
 #include <TabletModeWatcher>
 
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
+
 namespace PowerDevil {
 namespace BundledActions {
-
-DPMS::DPMS(QObject* parent)
+DPMS::DPMS(QObject *parent, const QVariantList &)
     : Action(parent)
     , m_helper()
 {
@@ -240,3 +241,4 @@ void DPMS::lockScreen()
 
 }
 }
+#include "dpms.moc"

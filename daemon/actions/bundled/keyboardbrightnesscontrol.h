@@ -34,7 +34,7 @@ class KeyboardBrightnessControl : public PowerDevil::Action
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl")
 
 public:
-    explicit KeyboardBrightnessControl(QObject* parent);
+    explicit KeyboardBrightnessControl(QObject* parent, const QVariantList &);
     ~KeyboardBrightnessControl() override = default;
 
 protected:

@@ -33,8 +33,7 @@
 
 namespace PowerDevil
 {
-
-class KWinKScreenHelperEffect : public QObject, public QAbstractNativeEventFilter
+class Q_DECL_EXPORT KWinKScreenHelperEffect : public QObject, public QAbstractNativeEventFilter
 {
     Q_OBJECT
 

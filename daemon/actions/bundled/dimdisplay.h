@@ -33,7 +33,7 @@ class DimDisplay : public PowerDevil::Action
     Q_DISABLE_COPY(DimDisplay)
 
 public:
-    explicit DimDisplay(QObject *parent);
+    explicit DimDisplay(QObject *parent, const QVariantList &);
     ~DimDisplay() override = default;
 
 protected:

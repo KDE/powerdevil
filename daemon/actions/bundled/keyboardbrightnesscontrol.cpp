@@ -31,16 +31,19 @@
 
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KLocalizedString>
 #include <KGlobalAccel>
+#include <KLocalizedString>
+#include <KPluginFactory>
 
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 
+K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::KeyboardBrightnessControl, "powerdevilkeyboardbrightnesscontrolaction.json")
+
 namespace PowerDevil {
 namespace BundledActions {
 
-KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
+KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent, const QVariantList &)
     : Action(parent)
 {
     // DBus
@@ -225,3 +228,4 @@ int KeyboardBrightnessControl::keyboardBrightnessPercent() const
 
 }
 }
+#include "keyboardbrightnesscontrol.moc"
