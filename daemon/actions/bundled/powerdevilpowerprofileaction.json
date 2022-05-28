@@ -80,7 +80,6 @@
     "X-KDE-PowerDevil-Action-ConfigPriority": 70,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "PowerProfile",
-    "X-KDE-PowerDevil-Action-IsBundled": true,
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true,
     "X-KDE-PowerDevil-Action-UIComponentLibrary": "powerdevilpowerprofileaction_config"
 }

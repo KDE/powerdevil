@@ -108,6 +108,5 @@
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 70,
     "X-KDE-PowerDevil-Action-ID": "RunScript",
-    "X-KDE-PowerDevil-Action-IsBundled": true,
     "X-KDE-PowerDevil-Action-UIComponentLibrary": "powerdevilrunscriptaction_config"
 }

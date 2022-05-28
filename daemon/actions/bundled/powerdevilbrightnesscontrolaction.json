@@ -108,7 +108,6 @@
     "X-KDE-PowerDevil-Action-ConfigPriority": 100,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "BrightnessControl",
-    "X-KDE-PowerDevil-Action-IsBundled": true,
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true,
     "X-KDE-PowerDevil-Action-UIComponentLibrary": "powerdevilbrightnesscontrolaction_config"
 }
