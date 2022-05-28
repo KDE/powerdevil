@@ -99,15 +99,10 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 
     // Register DBus objects
-    {
-        QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"), [](const KPluginMetaData &data) {
-            return data.value(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), false);
-        });
-        for (const KPluginMetaData &offer : offers) {
-            QString actionId = offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
-            if (m_actionPool.contains(actionId)) {
-                QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
-            }
+    for (const KPluginMetaData &offer : offers) {
+        QString actionId = offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
+        if (offer.value(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), false) && m_actionPool.contains(actionId)) {
+            QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
         }
     }
 }
