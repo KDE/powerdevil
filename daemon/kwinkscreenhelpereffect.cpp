@@ -75,7 +75,7 @@ void KWinKScreenHelperEffect::stop()
 
 bool KWinKScreenHelperEffect::checkValid()
 {
-#ifdef HAVE_XCB
+#if HAVE_XCB
     if (QX11Info::isPlatformX11()) {
         QScopedPointer<xcb_list_properties_reply_t, QScopedPointerPodDeleter> propsReply(xcb_list_properties_reply(QX11Info::connection(),
             xcb_list_properties_unchecked(QX11Info::connection(), QX11Info::appRootWindow()),
@@ -105,7 +105,7 @@ bool KWinKScreenHelperEffect::checkValid()
 
 void KWinKScreenHelperEffect::setEffectProperty(long value)
 {
-#ifdef HAVE_XCB
+#if HAVE_XCB
     if (m_isValid && QX11Info::isPlatformX11()) {
         xcb_change_property(QX11Info::connection(), XCB_PROP_MODE_REPLACE, QX11Info::appRootWindow(), m_atom, XCB_ATOM_CARDINAL, 32, 1, &value);
     }
@@ -126,7 +126,7 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
         return false;
     }
 
-#ifdef HAVE_XCB
+#if HAVE_XCB
     if (m_isValid && QX11Info::isPlatformX11()) {
         auto e = static_cast<xcb_generic_event_t *>(message);
         const uint8_t type = e->response_type & ~0x80;

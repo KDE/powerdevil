@@ -40,7 +40,7 @@
 #include "actions/bundled/runscript.h"
 #include "actions/bundled/handlebuttonevents.h"
 #include "actions/bundled/dpms.h"
-#ifdef HAVE_WIRELESS_SUPPORT
+#if HAVE_WIRELESS_SUPPORT
 #include "actions/bundled/wirelesspowersaving.h"
 #endif
 #include "actions/bundled/powerprofile.h"
@@ -133,7 +133,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     m_actionPool.insert(QStringLiteral("RunScript"), new BundledActions::RunScript(parent));
     m_actionPool.insert(QStringLiteral("HandleButtonEvents"), new BundledActions::HandleButtonEvents(parent));
     m_actionPool.insert(QStringLiteral("DPMSControl"), new BundledActions::DPMS(parent));
-#ifdef HAVE_WIRELESS_SUPPORT
+#if HAVE_WIRELESS_SUPPORT
     m_actionPool.insert(QStringLiteral("WirelessPowerSaving"), new BundledActions::WirelessPowerSaving(parent));
 #endif
     m_actionPool.insert(QStringLiteral("PowerProfile"), new BundledActions::PowerProfile(parent));
