@@ -109,13 +109,13 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
 
     if (startThresholds.isEmpty() && stopThresholds.isEmpty()) {
         auto reply = ActionReply::HelperErrorReply();
-        reply.setErrorDescription(QStringLiteral("Charge thresholds not supported"));
+        reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
         return reply;
     }
 
     if (!startThresholds.isEmpty() && !stopThresholds.isEmpty() && startThresholds.count() != stopThresholds.count()) {
         auto reply = ActionReply::HelperErrorReply();
-        reply.setErrorDescription(QStringLiteral("Charge thresholds not supported"));
+        reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
         return reply;
     }
 
