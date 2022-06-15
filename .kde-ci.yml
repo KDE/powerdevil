@@ -33,3 +33,5 @@ Dependencies:
   'require':
     'frameworks/bluez-qt': '@latest'
     'frameworks/networkmanager-qt': '@latest'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
