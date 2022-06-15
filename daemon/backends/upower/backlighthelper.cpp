@@ -27,6 +27,7 @@
 #include <KLocalizedString>
 
 #include <algorithm>
+#include <climits>
 #include <sys/utsname.h>
 
 #ifdef Q_OS_FREEBSD
@@ -318,11 +319,13 @@ bool BacklightHelper::writeBrightness(int brightness) const
 #else
 
     if (!m_devices.isEmpty()) {
-        int first_maxbrightness = m_devices.constFirst().second;
-        if (first_maxbrightness <= 0)
-            first_maxbrightness = 1;
+        const int first_maxbrightness = std::max(1, m_devices.constFirst().second);
         for (const auto &device : m_devices) {
-            writeToDevice(device.first, brightness * device.second / first_maxbrightness);
+            // Some monitor brightness values are ridiculously high, and can easily overflow during computation
+            const qint64 new_brightness_64 = static_cast<qint64>(brightness) * static_cast<qint64>(device.second) / static_cast<qint64>(first_maxbrightness);
+            // cautiously truncate it back
+            const int new_brightness = static_cast<int>(std::min(static_cast<qint64>(std::numeric_limits<int>::max()), new_brightness_64));
+            writeToDevice(device.first, new_brightness);
         }
     }
 
