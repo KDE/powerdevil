@@ -27,6 +27,7 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest'
     'frameworks/kxmlgui': '@latest'
     'frameworks/solid': '@latest'
+    'frameworks/kcmutils': '@latest' # kcmutils_generate_desktop_file
     'plasma/plasma-workspace': '@same'
 
 - 'on': ['Linux']
