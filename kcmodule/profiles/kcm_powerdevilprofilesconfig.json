@@ -102,12 +102,8 @@
         "Name[uk]": "Заощадження енергії",
         "Name[x-test]": "xxEnergy Savingxx",
         "Name[zh_CN]": "节能",
-        "Name[zh_TW]": "省電模式",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "省電模式"
     },
-    "NoDisplay": "true",
     "X-DocPath": "kcontrol/powerdevil/index.html",
     "X-KDE-Keywords": "system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,low battery,plug,unplug",
     "X-KDE-Keywords[ar]": "نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,",

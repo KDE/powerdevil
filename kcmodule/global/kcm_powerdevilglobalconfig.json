@@ -87,12 +87,8 @@
         "Name[tr]": "Gelişmiş Güç Ayarları",
         "Name[uk]": "Додаткові параметри живлення",
         "Name[x-test]": "xxAdvanced Power Settingsxx",
-        "Name[zh_CN]": "高级电源设置",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_CN]": "高级电源设置"
     },
-    "NoDiplay": "true",
     "X-DocPath": "kcontrol/powerdevil/index.html#advanced-settings",
     "X-KDE-Keywords": "system,power,power management,advanced,energy,laptop,battery,suspension,AC,suspend,hibernate,lid,charge,charging,limit,charge limit,charging limit,suspending,hibernating,discharge,discharging,turn off,battery levels,low battery,low level,critical level,power notifications",
     "X-KDE-Keywords[ar]": "نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,",
