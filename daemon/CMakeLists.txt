@@ -5,13 +5,6 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 
 add_subdirectory(actions)
 
-# Add bundled actions
-set(powerdevil_bundled_actions_SRCS
-    powerdevil_debug.cpp
-    #actions/bundled/handlebuttonevents.cpp
-    ${PowerDevil_SOURCE_DIR}/daemon/kwinkscreenhelpereffect.cpp
-)
-
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
     powerdevil_debug.cpp
@@ -44,7 +37,7 @@ kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 
 qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
 
-add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} ${powerdevil_bundled_actions_SRCS})
+add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} powerdevil_debug.cpp)
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
 
 # not exported, so just make the deps public
