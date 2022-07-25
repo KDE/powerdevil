@@ -132,6 +132,7 @@ private:
     void unregisterActionTimeouts(Action *action);
     void handleLowBattery(int percent);
     void handleCriticalBattery(int percent);
+    void updateBatteryNotifications(int percent);
 
     void readChargeThreshold();
 
