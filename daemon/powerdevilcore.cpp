@@ -649,7 +649,11 @@ void Core::handleLowBattery(int percent)
     m_lowBatteryNotification = new KNotification(QStringLiteral("lowbattery"), KNotification::Persistent, nullptr);
     m_lowBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     updateBatteryNotifications(percent); // sets title
-    m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
+    if (m_backend->acAdapterState() == BackendInterface::Plugged) {
+        m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, make sure that the power adapter is plugged in and that it provides enough power."));
+    } else {
+        m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
+    }
     m_lowBatteryNotification->setUrgency(KNotification::CriticalUrgency);
     m_lowBatteryNotification->sendEvent();
 }
