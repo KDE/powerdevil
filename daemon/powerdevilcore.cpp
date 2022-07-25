@@ -620,6 +620,9 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return false;
     }
 
+    // Make sure a notificaton that's kept open updates its percentage live.
+    updateBatteryNotifications(currentPercent);
+
     if (m_backend->acAdapterState() == BackendInterface::Plugged
             && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
         return false;
@@ -645,7 +648,7 @@ void Core::handleLowBattery(int percent)
 
     m_lowBatteryNotification = new KNotification(QStringLiteral("lowbattery"), KNotification::Persistent, nullptr);
     m_lowBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
-    m_lowBatteryNotification->setTitle(i18n("Battery Low (%1% Remaining)", percent));
+    updateBatteryNotifications(percent); // sets title
     m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
     m_lowBatteryNotification->setUrgency(KNotification::CriticalUrgency);
     m_lowBatteryNotification->sendEvent();
@@ -660,7 +663,7 @@ void Core::handleCriticalBattery(int percent)
     // no parent, but it won't leak, since it will be closed both in case of timeout or direct action
     m_criticalBatteryNotification = new KNotification(QStringLiteral("criticalbattery"), KNotification::Persistent, nullptr);
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
-    m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
+    updateBatteryNotifications(percent); // sets title
 
     const QStringList actions = {i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel")};
 
@@ -692,6 +695,17 @@ void Core::handleCriticalBattery(int percent)
     }
 
     m_criticalBatteryNotification->sendEvent();
+}
+
+void Core::updateBatteryNotifications(int percent)
+{
+    if (m_lowBatteryNotification) {
+        m_lowBatteryNotification->setTitle(i18n("Battery Low (%1% Remaining)", percent));
+    }
+
+    if (m_criticalBatteryNotification) {
+        m_criticalBatteryNotification->setTitle(i18n("Battery Critical (%1% Remaining)", percent));
+    }
 }
 
 void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
