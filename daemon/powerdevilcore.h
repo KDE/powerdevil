@@ -78,7 +78,14 @@ public:
 
     void emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName);
 
-    bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi = QString());
+    enum class ChargeNotificationFlag {
+        None,
+        NotifyWhenAcPluggedIn
+    };
+    Q_DECLARE_FLAGS(ChargeNotificationFlags, ChargeNotificationFlag)
+    Q_FLAG(ChargeNotificationFlags)
+
+    bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi = QString(), ChargeNotificationFlags flags = {});
 
     BackendInterface *backend();
 

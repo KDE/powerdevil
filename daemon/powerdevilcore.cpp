@@ -551,7 +551,7 @@ void Core::emitRichNotification(const QString &evid, const QString &title, const
                          nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
 }
 
-bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi)
+bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi, Core::ChargeNotificationFlags flags)
 {
     using namespace Solid;
     Device device(udi);
@@ -620,7 +620,8 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return false;
     }
 
-    if (m_backend->acAdapterState() == BackendInterface::Plugged) {
+    if (m_backend->acAdapterState() == BackendInterface::Plugged
+            && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
         return false;
     }
 
@@ -743,7 +744,8 @@ void Core::onBatteryChargePercentChanged(int percent, const QString &udi)
     m_batteriesPercent[udi] = percent;
 
     if (currentPercent < previousPercent) {
-        if (emitBatteryChargePercentNotification(currentPercent, previousPercent, udi)) {
+        // When battery drains while still plugged in, warn nevertheless.
+        if (emitBatteryChargePercentNotification(currentPercent, previousPercent, udi, ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
             // Only refresh status if a notification has actually been emitted
             loadProfile();
         }
