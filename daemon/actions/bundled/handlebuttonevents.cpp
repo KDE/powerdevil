@@ -41,6 +41,8 @@
 #include <KGlobalAccel>
 #include <TabletModeWatcher>
 
+#include <kworkspace.h>
+
 namespace PowerDevil {
 namespace BundledActions {
 HandleButtonEvents::HandleButtonEvents(QObject *parent, const QVariantList &)
@@ -135,6 +137,11 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
         case BackendInterface::LidClose:
             if (!triggersLidAction()) {
                 qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
+                return;
+            }
+
+            if (KWorkSpace::isShuttingDown()) {
+                qCWarning(POWERDEVIL) << "Lid action was suppressed because system is shutting down";
                 return;
             }
 
