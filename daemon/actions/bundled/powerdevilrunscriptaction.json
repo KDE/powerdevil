@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Runs a custom script",
+        "Description[ca]": "Executa un script personalitzat",
+        "Description[nl]": "Een eigen script uitvoeren",
+        "Description[pt]": "Executa um programa personalizado",
+        "Description[tr]": "Özel bir betik çalıştırır",
+        "Description[uk]": "Запускає вказаний користувачем скрипт",
+        "Description[x-test]": "xxRuns a custom scriptxx",
         "Icon": "system-run",
         "Name": "Run script",
         "Name[ar]": "شغل سكربت",

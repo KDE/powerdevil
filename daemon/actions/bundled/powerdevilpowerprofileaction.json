@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Apply a power management profile",
+        "Description[ca]": "Aplica un perfil de gestió d'energia",
+        "Description[nl]": "Een energiebeheerprofiel toepassen",
+        "Description[pt]": "Aplicar um perfil de gestão de energia",
+        "Description[tr]": "Bir güç yönetimi profili uygula",
+        "Description[uk]": "Застосувати профіль керування живленням",
+        "Description[x-test]": "xxApply a power management profilexx",
         "Icon": "preferences-system-power-management-profile",
         "Name": "Power management profile",
         "Name[ar]": "تشكيلة إدارة الطاقة",

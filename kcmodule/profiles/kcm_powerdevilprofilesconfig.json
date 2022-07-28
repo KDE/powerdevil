@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Energy Saving",
+        "Description[ca]": "Estalvi d'energia",
+        "Description[nl]": "Energiebesparing",
+        "Description[pt]": "Poupança de Energia",
+        "Description[tr]": "Güç Tasarrufu",
+        "Description[uk]": "Заощадження енергії",
+        "Description[x-test]": "xxEnergy Savingxx",
         "Icon": "preferences-system-power-management",
         "Name": "Energy Saving",
         "Name[ar]": "حِفظ الطاقة",

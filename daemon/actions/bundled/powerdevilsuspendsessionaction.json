@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Suspends the session",
+        "Description[ca]": "Suspèn la sessió",
+        "Description[nl]": "De sessie onderbreken",
+        "Description[pt]": "Suspende a sessão",
+        "Description[tr]": "Geçerli oturumu askıya alır",
+        "Description[uk]": "Призупиняє сеанс",
+        "Description[x-test]": "xxSuspends the sessionxx",
         "Icon": "system-shutdown",
         "Name": "Suspend session",
         "Name[ar]": "علِّق الحِلسة",

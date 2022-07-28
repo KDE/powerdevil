@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Per-Activity Power Management",
+        "Description[ca]": "Gestió d'energia per activitat",
+        "Description[nl]": "Energiebeheer per activiteit instellen",
+        "Description[pt]": "Gestão de Energia por Actividades",
+        "Description[tr]": "Etkinlik Başı Güç Yönetimi",
+        "Description[uk]": "Налаштування окремих параметрів керування живленням простору дій",
+        "Description[x-test]": "xxPer-Activity Power Managementxx",
         "Icon": "preferences-desktop-activities",
         "Name": "Activity Power Settings",
         "Name[ar]": "إعدادات الطاقة للنشاط",

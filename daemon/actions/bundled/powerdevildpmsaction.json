@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Controls DPMS settings",
+        "Description[ca]": "Controla l'arranjament del DPMS",
+        "Description[nl]": "DPMS-instellingen besturen",
+        "Description[pt]": "Controla as definições do DPMS",
+        "Description[tr]": "DPMS (Görüntü Güç Yönetimi Ayarları) ayarlarını denetler",
+        "Description[uk]": "Керування параметрами DPMS",
+        "Description[x-test]": "xxControls DPMS settingsxx",
         "Icon": "preferences-desktop-screensaver",
         "Name": "Screen Energy Saving",
         "Name[ar]": "حِفظ طاقة الشاشة",

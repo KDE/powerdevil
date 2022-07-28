@@ -1,6 +1,12 @@
 {
     "KPlugin": {
         "Description": "Turns off signal-transmitting devices",
+        "Description[ca]": "Apaga els dispositius de transmissió de senyals",
+        "Description[nl]": "Zet apparaten die een radiosignaal uitzenden uit",
+        "Description[pt]": "Desliga os dispositivos de transmissão de sinais",
+        "Description[tr]": "Sinyal ileten aygıtları kapatır",
+        "Description[uk]": "Вимкнути пристрої, що передають радіосигнал",
+        "Description[x-test]": "xxTurns off signal-transmitting devicesxx",
         "Icon": "preferences-system-network",
         "Name": "Wireless",
         "Name[ar]": "لاسلكي",
