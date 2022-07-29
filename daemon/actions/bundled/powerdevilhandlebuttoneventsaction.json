@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Performs an action whenever a button is pressed",
+        "Description[ca@valencia]": "Porta a terme una acció quan es prem un botó",
         "Description[ca]": "Porta a terme una acció quan es prem un botó",
         "Description[nl]": "Voer een actie uit als er een knop wordt ingedrukt",
         "Description[pt]": "Efectua uma dada acção quando se carrega num botão",
+        "Description[sl]": "Izvede dejanje ob kateremkoli pritisku na gumb",
+        "Description[ta]": "பட்டன் அழுத்தப்படும்போது ஓர் செயலை செய்யும்",
         "Description[tr]": "Bir düğmeye basıldığında bir işlem gerçekleştirir",
         "Description[uk]": "Виконання дій у відповідь на натискання кнопки",
         "Description[x-test]": "xxPerforms an action whenever a button is pressedxx",

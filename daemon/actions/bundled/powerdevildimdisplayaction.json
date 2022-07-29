@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Dims gradually the display on a time basis",
+        "Description[ca@valencia]": "Atenua gradualment la pantalla en funció del temps",
         "Description[ca]": "Atenua gradualment la pantalla en funció del temps",
         "Description[nl]": "Dimt geleidelijk het beeldscherm op basis van tijd",
         "Description[pt]": "Escurece gradualmente o ecrã ao longo de algum tempo",
+        "Description[sl]": "Postopoma potemni zaslon glede na čas",
+        "Description[ta]": "நேரத்தின் அடிப்படையில் திரையை படிப்படியாக மங்கசெய்யும்",
         "Description[tr]": "Zamana bağlı olarak ekranı yavaşça karartır",
         "Description[uk]": "Поступове зменшення яскравості дисплея з часом",
         "Description[x-test]": "xxDims gradually the display on a time basisxx",

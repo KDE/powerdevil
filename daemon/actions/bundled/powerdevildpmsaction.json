@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Controls DPMS settings",
+        "Description[ca@valencia]": "Controla la configuració de DPMS",
         "Description[ca]": "Controla l'arranjament del DPMS",
         "Description[nl]": "DPMS-instellingen besturen",
         "Description[pt]": "Controla as definições do DPMS",
+        "Description[sl]": "Nadzira nastavitve upravljanja z energijo zaslona",
+        "Description[ta]": "DPMS அமைப்புகளை கட்டுப்படுத்தும்",
         "Description[tr]": "DPMS (Görüntü Güç Yönetimi Ayarları) ayarlarını denetler",
         "Description[uk]": "Керування параметрами DPMS",
         "Description[x-test]": "xxControls DPMS settingsxx",

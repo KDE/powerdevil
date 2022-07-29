@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Basic Controls for brightness",
+        "Description[ca@valencia]": "Controls bàsics per a la lluminositat",
         "Description[ca]": "Controls bàsics per a la lluminositat",
         "Description[nl]": "Basisbesturing voor helderheid",
         "Description[pt]": "Controlos básicos do brilho",
+        "Description[sl]": "Osnovni nadzor svetlosti",
+        "Description[ta]": "திரையின் பிரகாசத்திற்கான அடிப்படை இயக்கிகள்",
         "Description[tr]": "Parlaklık için temel denetimler",
         "Description[uk]": "Базове керування яскравістю",
         "Description[x-test]": "xxBasic Controls for brightnessxx",

@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Energy Saving",
+        "Description[ca@valencia]": "Estalvi d'energia",
         "Description[ca]": "Estalvi d'energia",
         "Description[nl]": "Energiebesparing",
         "Description[pt]": "Poupança de Energia",
+        "Description[sl]": "Varčevanje z energijo",
+        "Description[ta]": "ஆற்றல் சேமிப்பு",
         "Description[tr]": "Güç Tasarrufu",
         "Description[uk]": "Заощадження енергії",
         "Description[x-test]": "xxEnergy Savingxx",

@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Turns off signal-transmitting devices",
+        "Description[ca@valencia]": "Apaga els dispositius de transmissió de senyals",
         "Description[ca]": "Apaga els dispositius de transmissió de senyals",
         "Description[nl]": "Zet apparaten die een radiosignaal uitzenden uit",
         "Description[pt]": "Desliga os dispositivos de transmissão de sinais",
+        "Description[sl]": "Izklopi naprave, ki oddajajo signal",
+        "Description[ta]": "அருகலை சாதனங்களை முடக்கும்",
         "Description[tr]": "Sinyal ileten aygıtları kapatır",
         "Description[uk]": "Вимкнути пристрої, що передають радіосигнал",
         "Description[x-test]": "xxTurns off signal-transmitting devicesxx",

@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Per-Activity Power Management",
+        "Description[ca@valencia]": "Gestió d'energia per activitat",
         "Description[ca]": "Gestió d'energia per activitat",
         "Description[nl]": "Energiebeheer per activiteit instellen",
         "Description[pt]": "Gestão de Energia por Actividades",
+        "Description[sl]": "Upravljanje z energijo glede na dejavnost",
+        "Description[ta]": "தனிப்பட்ட செயல்பாடுகளுக்கான ஆற்றல் மேலாண் அமைப்புகள்",
         "Description[tr]": "Etkinlik Başı Güç Yönetimi",
         "Description[uk]": "Налаштування окремих параметрів керування живленням простору дій",
         "Description[x-test]": "xxPer-Activity Power Managementxx",

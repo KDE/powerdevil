@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Suspends the session",
+        "Description[ca@valencia]": "Suspén la sessió",
         "Description[ca]": "Suspèn la sessió",
         "Description[nl]": "De sessie onderbreken",
         "Description[pt]": "Suspende a sessão",
+        "Description[sl]": "Prestavi sejo v pripravljenost",
+        "Description[ta]": "அமர்வை உறங்கசெய்யும்",
         "Description[tr]": "Geçerli oturumu askıya alır",
         "Description[uk]": "Призупиняє сеанс",
         "Description[x-test]": "xxSuspends the sessionxx",

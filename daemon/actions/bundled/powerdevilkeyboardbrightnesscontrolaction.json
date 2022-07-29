@@ -1,9 +1,12 @@
 {
     "KPlugin": {
         "Description": "Basic Controls for the keyboard backlight brightness",
+        "Description[ca@valencia]": "Controls bàsics per a la lluminositat de la retroil·luminació del teclat",
         "Description[ca]": "Controls bàsics per a la lluminositat de la retroil·luminació del teclat",
         "Description[nl]": "Basisbesturing voor helderheid van de toetsenbordverlichting",
         "Description[pt]": "Controlos básicos para o brilho traseiro do teclado",
+        "Description[sl]": "Osnovni nadzor svetlost osvetlitve tipkovnice",
+        "Description[ta]": "விசைப்பலகைக்கு பின்னுள்ள விளக்கின் ஒளியளவை மாற்ற உதவும்",
         "Description[tr]": "Klavye arka ışığı parlaklığı için temel denetimler",
         "Description[uk]": "Базове керування яскравістю підсвічування клавіатури",
         "Description[x-test]": "xxBasic Controls for the keyboard backlight brightnessxx",
