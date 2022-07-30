@@ -49,7 +49,6 @@ class Core;
  * entries:
  *
  * @code
- * X-KDE-ServiceTypes=PowerDevil/Action
  * X-KDE-PowerDevil-Action-ID=YourActionID
  * X-KDE-PowerDevil-Action-UIComponentLibrary=myactionplugin_config
  * X-KDE-PowerDevil-Action-ConfigPriority=98

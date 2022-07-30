@@ -70,10 +70,7 @@
         "Name[uk]": "Бездротова",
         "Name[x-test]": "xxWirelessxx",
         "Name[zh_CN]": "无线",
-        "Name[zh_TW]": "無線",
-        "ServiceTypes": [
-            "PowerDevil/Action"
-        ]
+        "Name[zh_TW]": "無線"
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 60,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,

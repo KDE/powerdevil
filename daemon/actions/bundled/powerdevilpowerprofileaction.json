@@ -59,10 +59,7 @@
         "Name[tr]": "Güç yönetimi profili",
         "Name[uk]": "Профіль керування живленням",
         "Name[x-test]": "xxPower management profilexx",
-        "Name[zh_CN]": "电源管理配置方案",
-        "ServiceTypes": [
-            "PowerDevil/Action"
-        ]
+        "Name[zh_CN]": "电源管理配置方案"
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 70,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,

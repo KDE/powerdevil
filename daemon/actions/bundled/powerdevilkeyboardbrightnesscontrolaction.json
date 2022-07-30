@@ -72,10 +72,7 @@
         "Name[uk]": "Підсвічування клавіатури",
         "Name[x-test]": "xxKeyboard backlightxx",
         "Name[zh_CN]": "键盘背光",
-        "Name[zh_TW]": "鍵盤背光",
-        "ServiceTypes": [
-            "PowerDevil/Action"
-        ]
+        "Name[zh_TW]": "鍵盤背光"
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 100,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,

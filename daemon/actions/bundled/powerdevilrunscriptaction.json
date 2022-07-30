@@ -74,10 +74,7 @@
         "Name[uk]": "Виконати скрипт",
         "Name[x-test]": "xxRun scriptxx",
         "Name[zh_CN]": "运行脚本",
-        "Name[zh_TW]": "執行文稿",
-        "ServiceTypes": [
-            "PowerDevil/Action"
-        ]
+        "Name[zh_TW]": "執行文稿"
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 70,
     "X-KDE-PowerDevil-Action-ID": "RunScript",

@@ -73,10 +73,7 @@
         "Name[uk]": "Яскравість екрана",
         "Name[x-test]": "xxScreen brightnessxx",
         "Name[zh_CN]": "屏幕亮度",
-        "Name[zh_TW]": "螢幕亮度",
-        "ServiceTypes": [
-            "PowerDevil/Action"
-        ]
+        "Name[zh_TW]": "螢幕亮度"
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 100,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
