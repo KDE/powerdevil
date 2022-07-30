@@ -47,7 +47,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <TabletModeWatcher>
+#include <Kirigami/TabletModeWatcher>
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 

@@ -27,7 +27,7 @@
 #include <powerdevilpowermanagement.h>
 
 #include <powerdevil_debug.h>
-#include <TabletModeWatcher>
+#include <Kirigami/TabletModeWatcher>
 
 #include <QCheckBox>
 #include <QFormLayout>

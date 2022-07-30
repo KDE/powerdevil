@@ -57,7 +57,7 @@
 #include <QDebug>
 
 #include <algorithm>
-#include <TabletModeWatcher>
+#include <Kirigami/TabletModeWatcher>
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>

@@ -39,7 +39,7 @@
 #include <KScreen/Output>
 
 #include <KGlobalAccel>
-#include <TabletModeWatcher>
+#include <Kirigami/TabletModeWatcher>
 
 namespace PowerDevil {
 namespace BundledActions {
