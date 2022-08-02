@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Performs an action whenever a button is pressed",
+        "Description[bg]": "Извършва действие при натискане на бутон",
         "Description[ca@valencia]": "Porta a terme una acció quan es prem un botó",
         "Description[ca]": "Porta a terme una acció quan es prem un botó",
         "Description[es]": "Realiza una acción cada vez que se pulsa un botón",

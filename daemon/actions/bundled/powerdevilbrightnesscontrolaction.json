@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Basic Controls for brightness",
+        "Description[bg]": "Основни контроли за яркост",
         "Description[ca@valencia]": "Controls bàsics per a la lluminositat",
         "Description[ca]": "Controls bàsics per a la lluminositat",
         "Description[es]": "Control básico del brillo",

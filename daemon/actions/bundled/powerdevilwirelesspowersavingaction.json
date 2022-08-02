@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Turns off signal-transmitting devices",
+        "Description[bg]": "Изключва безжичните устройства",
         "Description[ca@valencia]": "Apaga els dispositius de transmissió de senyals",
         "Description[ca]": "Apaga els dispositius de transmissió de senyals",
         "Description[es]": "Apaga los dispositivos que emiten señales",

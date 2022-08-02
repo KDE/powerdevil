@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Per-Activity Power Management",
+        "Description[bg]": "Управление на захранването по дейност",
         "Description[ca@valencia]": "Gestió d'energia per activitat",
         "Description[ca]": "Gestió d'energia per activitat",
         "Description[es]": "Gestión de energía por actividad",

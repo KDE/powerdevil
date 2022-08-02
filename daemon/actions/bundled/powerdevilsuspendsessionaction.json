@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Suspends the session",
+        "Description[bg]": "Спира сесията",
         "Description[ca@valencia]": "Suspén la sessió",
         "Description[ca]": "Suspèn la sessió",
         "Description[es]": "Suspende la sesión",

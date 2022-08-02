@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Apply a power management profile",
+        "Description[bg]": "Прилагане на профил на управление на захранването",
         "Description[ca@valencia]": "Aplica un perfil de gestió d'energia",
         "Description[ca]": "Aplica un perfil de gestió d'energia",
         "Description[es]": "Aplicar un perfil de gestión de energía",
