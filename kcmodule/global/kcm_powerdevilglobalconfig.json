@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Advanced Power Management Settings",
+        "Description[ar]": "إعدادات إدارة الطاقة المتقدمة",
         "Description[bg]": "Разширени настройки за управление на захранването",
         "Description[ca@valencia]": "Configuració avançada de gestió d'energia",
         "Description[ca]": "Arranjament avançat de gestió d'energia",

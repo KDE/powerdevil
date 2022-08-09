@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Runs a custom script",
+        "Description[ar]": "تشغل سكربت مخصص",
         "Description[bg]": "Изпълнява персонализиран скрипт",
         "Description[ca@valencia]": "Executa un script personalitzat",
         "Description[ca]": "Executa un script personalitzat",

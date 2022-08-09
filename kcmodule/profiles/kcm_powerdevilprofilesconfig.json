@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Energy Saving",
+        "Description[ar]": "حِفظ الطاقة",
         "Description[bg]": "Пестене на енергия",
         "Description[ca@valencia]": "Estalvi d'energia",
         "Description[ca]": "Estalvi d'energia",

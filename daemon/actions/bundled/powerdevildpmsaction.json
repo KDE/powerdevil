@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Controls DPMS settings",
+        "Description[ar]": "تتحكم بإعدادات DPMS",
         "Description[bg]": "Контролира настройките на DPMS",
         "Description[ca@valencia]": "Controla la configuració de DPMS",
         "Description[ca]": "Controla l'arranjament del DPMS",
