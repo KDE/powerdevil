@@ -10,6 +10,7 @@
         "Description[eu]": "Ekintza bat gauzatzen du botoi bat sakatzen den bakoitzean",
         "Description[fr]": "Effectue une action à chaque fois qu'un bouton est pressé",
         "Description[it]": "Esegue un'azione se viene premuto un pulsante",
+        "Description[ko]": "단추가 눌렸을 때 동작을 실행합니다",
         "Description[nl]": "Voer een actie uit als er een knop wordt ingedrukt",
         "Description[pl]": "Wykonuje działanie przy każdorazowym naciśnięciu przycisku",
         "Description[pt]": "Efectua uma dada acção quando se carrega num botão",
