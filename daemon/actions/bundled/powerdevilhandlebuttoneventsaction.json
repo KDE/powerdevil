@@ -8,6 +8,7 @@
         "Description[en_GB]": "Performs an action whenever a button is pressed",
         "Description[es]": "Realiza una acción cada vez que se pulsa un botón",
         "Description[eu]": "Ekintza bat gauzatzen du botoi bat sakatzen den bakoitzean",
+        "Description[fi]": "Käynnistää painiketta painettaessa toiminnon",
         "Description[fr]": "Effectue une action à chaque fois qu'un bouton est pressé",
         "Description[it]": "Esegue un'azione se viene premuto un pulsante",
         "Description[ko]": "단추가 눌렸을 때 동작을 실행합니다",
