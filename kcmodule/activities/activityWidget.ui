@@ -135,7 +135,7 @@
      <item>
       <widget class="QRadioButton" name="separateSettingsRadio">
        <property name="text">
-        <string>Use separate settings (advanced users only)</string>
+        <string>Use separate settings</string>
        </property>
       </widget>
      </item>
