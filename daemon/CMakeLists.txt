@@ -7,6 +7,7 @@ add_subdirectory(actions)
 
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
+    brightnessvalue.cpp
     powerdevil_debug.cpp
     powerdevilaction.cpp
     powerdevilactionpool.cpp

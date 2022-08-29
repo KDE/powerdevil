@@ -80,7 +80,7 @@ void BrightnessControl::onIdleTimeout(int msec)
 
 void BrightnessControl::onProfileLoad()
 {
-    const int absoluteBrightnessValue = qRound(m_defaultValue / 100.0 * brightnessMax());
+    const PerceivedBrightness absoluteBrightnessValue(qRound(m_defaultValue / 100.0 * brightnessMax()));
 
     // The core switches its profile after all actions have been updated, so here core()->currentProfile() is still the old one
     const auto previousProfile = core()->currentProfile();
@@ -94,9 +94,9 @@ void BrightnessControl::onProfileLoad()
 
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
-    } else if (absoluteBrightnessValue >= 0) {
+    } else if (absoluteBrightnessValue >= 0_pb) {
         QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteBrightnessValue)}
+            {QStringLiteral("Value"), (int)absoluteBrightnessValue}
         };
 
         // plugging in/out the AC is always explicit
@@ -112,9 +112,9 @@ void BrightnessControl::onProfileLoad()
 
 void BrightnessControl::triggerImpl(const QVariantMap &args)
 {
-    const int value = args.value(QStringLiteral("Value")).toInt();
+    const PerceivedBrightness value(args.value(QStringLiteral("Value")).toInt());
 
-    backend()->setBrightness(value);
+    backend()->setBrightness(value, BackendInterface::BrightnessControlType::Screen);
     if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
         BrightnessOSDWidget::show(brightnessPercent(value));
     }
@@ -145,25 +145,30 @@ bool BrightnessControl::loadAction(const KConfigGroup& config)
 void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Screen) {
-        Q_EMIT brightnessChanged(info.value);
+        Q_EMIT brightnessChanged((int)PerceivedBrightness(info.value, brightnessMax()));
         Q_EMIT brightnessMaxChanged(info.valueMax);
     }
 }
 
+PerceivedBrightness BrightnessControl::perceivedBrightness() const
+{
+    return backend()->perceivedBrightness(BackendInterface::Screen);
+}
+
 int BrightnessControl::brightness() const
 {
-    return backend()->brightness();
+    return (int)backend()->perceivedBrightness(BackendInterface::Screen);
 }
 
 int BrightnessControl::brightnessMax() const
 {
-    return backend()->brightnessMax();
+    return backend()->brightnessMax(BackendInterface::Screen);
 }
 
 void BrightnessControl::setBrightness(int value)
 {
     trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(value)},
+        {QStringLiteral("Value"), value},
         {QStringLiteral("Explicit"), true}
     });
 }
@@ -171,7 +176,7 @@ void BrightnessControl::setBrightness(int value)
 void BrightnessControl::setBrightnessSilent(int value)
 {
     trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(value)},
+        {QStringLiteral("Value"), value},
         {QStringLiteral("Explicit"), true},
         {QStringLiteral("Silent"), true}
     });
@@ -179,33 +184,33 @@ void BrightnessControl::setBrightnessSilent(int value)
 
 void BrightnessControl::increaseBrightness()
 {
-    const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::Increase);
-    if (newBrightness > -1) {
+    const PerceivedBrightness newBrightness = PerceivedBrightness(backend()->brightnessKeyPressed(BrightnessLogic::Increase, BackendInterface::Screen), brightnessMax());
+    if (newBrightness >= 0_pb) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }
 }
 
 void BrightnessControl::decreaseBrightness()
 {
-    const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::Decrease);
-    if (newBrightness > -1) {
+    const PerceivedBrightness newBrightness = PerceivedBrightness(backend()->brightnessKeyPressed(BrightnessLogic::Decrease, BackendInterface::Screen), brightnessMax());
+    if (newBrightness >= 0_pb) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }
 }
 
 int BrightnessControl::brightnessSteps() const
 {
-    return backend()->brightnessSteps();
+    return (int)backend()->brightnessSteps(BackendInterface::Screen);
 }
 
-int BrightnessControl::brightnessPercent(float value) const
+PerceivedBrightness BrightnessControl::brightnessPercent(PerceivedBrightness value) const
 {
     const float maxBrightness = brightnessMax();
     if (maxBrightness <= 0) {
-        return 0;
+        return 0_pb;
     }
 
-    return qRound(value / maxBrightness * 100);
+    return PerceivedBrightness(qRound((int)value / maxBrightness * 100));
 }
 
 }

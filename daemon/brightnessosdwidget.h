@@ -29,8 +29,12 @@
 
 namespace BrightnessOSDWidget
 {
-
-    Q_DECL_EXPORT void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
+    /**
+     * Displays the given brightness in the osd widget.
+     *
+     * @param percentage [0, 100] percentage of perceived brightness
+     */
+    Q_DECL_EXPORT void show(PerceivedBrightness percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
 
 }
 

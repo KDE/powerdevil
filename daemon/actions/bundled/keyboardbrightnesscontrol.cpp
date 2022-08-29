@@ -76,7 +76,7 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent, const QVar
     // this makes sure the keyboard brightness is restored when we wake up :)
     connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this] {
         if (m_lastKeyboardBrightness > -1) {
-            setKeyboardBrightnessSilent(m_lastKeyboardBrightness);
+            setKeyboardBrightnessSilent((int)m_lastKeyboardBrightness);
         }
     });
 }
@@ -98,7 +98,7 @@ void KeyboardBrightnessControl::onIdleTimeout(int msec)
 
 void KeyboardBrightnessControl::onProfileLoad()
 {
-    const int absoluteKeyboardBrightnessValue = qRound(m_defaultValue / 100.0 * keyboardBrightnessMax());
+    const PerceivedBrightness absoluteKeyboardBrightnessValue = PerceivedBrightness(qRound((int)m_defaultValue / 100.0 * keyboardBrightnessMax()));
 
     // The core switches its profile after all actions have been updated, so here core()->currentProfile() is still the old one
     const auto previousProfile = core()->currentProfile();
@@ -112,9 +112,9 @@ void KeyboardBrightnessControl::onProfileLoad()
 
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
-    } else if (absoluteKeyboardBrightnessValue > 0) {
+    } else if ((int)absoluteKeyboardBrightnessValue > 0) {
         QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteKeyboardBrightnessValue)}
+            {QStringLiteral("Value"), (int)absoluteKeyboardBrightnessValue}
         };
 
         // plugging in/out the AC is always explicit
@@ -130,7 +130,9 @@ void KeyboardBrightnessControl::onProfileLoad()
 
 void KeyboardBrightnessControl::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightness(args.value(QStringLiteral("Value")).toInt(), BackendInterface::Keyboard);
+    PerceivedBrightness value(args.value(QStringLiteral("Value")).toInt());
+
+    backend()->setBrightness(value, BackendInterface::Keyboard);
 
     if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
         BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
@@ -153,7 +155,7 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
     m_currentProfile = config.parent().name();
 
     if (config.hasKey("value")) {
-        m_defaultValue = config.readEntry<int>("value", 50);
+        m_defaultValue = PerceivedBrightness(config.readEntry<int>("value", 50));
     }
 
     return true;
@@ -162,8 +164,8 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
 void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
 {
     if (type == BackendInterface::Keyboard) {
-        m_lastKeyboardBrightness = info.value;
-        Q_EMIT keyboardBrightnessChanged(info.value);
+        m_lastKeyboardBrightness = PerceivedBrightness(info.value, keyboardBrightnessMax());
+        Q_EMIT keyboardBrightnessChanged((int)PerceivedBrightness(info.value, keyboardBrightnessMax()));
         Q_EMIT keyboardBrightnessMaxChanged(info.valueMax);
     }
 }
@@ -186,9 +188,14 @@ void KeyboardBrightnessControl::toggleKeyboardBacklight()
     BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
+PerceivedBrightness KeyboardBrightnessControl::perceivedKeyboardBrightness() const
+{
+    return backend()->perceivedBrightness(BackendInterface::Keyboard);
+}
+
 int KeyboardBrightnessControl::keyboardBrightness() const
 {
-    return backend()->brightness(BackendInterface::Keyboard);
+    return (int)backend()->perceivedBrightness(BackendInterface::Keyboard);
 }
 
 int KeyboardBrightnessControl::keyboardBrightnessMax() const
@@ -196,18 +203,18 @@ int KeyboardBrightnessControl::keyboardBrightnessMax() const
     return backend()->brightnessMax(BackendInterface::Keyboard);
 }
 
-void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
+void KeyboardBrightnessControl::setKeyboardBrightness(int value)
 {
     trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(percent)},
+        {QStringLiteral("Value"), value},
         {QStringLiteral("Explicit"), true}
     });
 }
 
-void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
+void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int value)
 {
     trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(percent)},
+        {QStringLiteral("Value"), value},
         {QStringLiteral("Explicit"), true},
         {QStringLiteral("Silent"), true}
     });
@@ -215,17 +222,17 @@ void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
 
 int KeyboardBrightnessControl::keyboardBrightnessSteps() const
 {
-    return backend()->brightnessSteps(BackendInterface::Keyboard);
+    return (int)backend()->brightnessSteps(BackendInterface::Keyboard);
 }
 
-int KeyboardBrightnessControl::keyboardBrightnessPercent() const
+PerceivedBrightness KeyboardBrightnessControl::keyboardBrightnessPercent() const
 {
     const float maxBrightness = keyboardBrightnessMax();
     if (maxBrightness <= 0) {
-        return 0;
+        return 0_pb;
     }
 
-    return qRound(keyboardBrightness() / maxBrightness * 100);
+    return PerceivedBrightness(qRound((int)perceivedKeyboardBrightness() / maxBrightness * 100));
 }
 
 }

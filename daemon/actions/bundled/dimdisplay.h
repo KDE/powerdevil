@@ -22,7 +22,7 @@
 #define POWERDEVIL_BUNDLEDACTIONS_DIMDISPLAY_H
 
 #include <powerdevilaction.h>
-
+#include "brightnessvalue.h"
 
 namespace PowerDevil {
 namespace BundledActions {
@@ -48,12 +48,12 @@ public:
     bool loadAction(const KConfigGroup& config) override;
 
 private:
-    void setBrightnessHelper(int screen, int keyboard, bool force = false);
+    void setBrightnessHelper(PerceivedBrightness screen, PerceivedBrightness keyboard, bool force = false);
 
     int m_dimOnIdleTime = 0;
 
-    int m_oldScreenBrightness = 0;
-    int m_oldKeyboardBrightness = 0;
+    PerceivedBrightness m_oldScreenBrightness = 0_pb;
+    PerceivedBrightness m_oldKeyboardBrightness = 0_pb;
 
     bool m_dimmed = false;
 };

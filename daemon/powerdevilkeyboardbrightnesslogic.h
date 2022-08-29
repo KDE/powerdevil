@@ -29,7 +29,7 @@ class KeyboardBrightnessLogic : public BrightnessLogic
 {
 
 protected:
-    int calculateSteps(int valueMax) const override;
+    Step calculateSteps(PerceivedBrightness valueMax) const override;
 
 };
 

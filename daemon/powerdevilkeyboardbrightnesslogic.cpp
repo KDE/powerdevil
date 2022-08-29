@@ -24,8 +24,9 @@
 namespace PowerDevil
 {
 
-int KeyboardBrightnessLogic::calculateSteps(int maxValue) const
+BrightnessLogic::Step KeyboardBrightnessLogic::calculateSteps(PerceivedBrightness max) const
 {
+    int maxValue = (int)max;
     // We assume that a generally good number of steps for keyboard brightness is about 5.
 
     if (maxValue <= 7) {

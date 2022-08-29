@@ -178,10 +178,11 @@ public:
     /**
      * Gets the device brightness value.
      *
-     * @param device the name of the device that you would like to control
+     * @param type the type of the device that you would like to control
      * @return the brightness of the device, as an integer from 0 to brightnessValueMax
      */
-    virtual int brightness(BrightnessControlType type = Screen) const;
+    virtual ActualBrightness brightness(BrightnessControlType type) const;
+    virtual PerceivedBrightness perceivedBrightness(BrightnessControlType) const;
 
     /**
      * Gets the maximum device brightness value.
@@ -189,7 +190,7 @@ public:
      * @param device the name of the device that you would like to control
      * @return the maximum brightness of the device
      */
-    virtual int brightnessMax(BrightnessControlType type = Screen) const;
+    virtual int brightnessMax(BrightnessControlType type) const;
 
     /**
      * Gets the maximum device brightness step.
@@ -197,7 +198,7 @@ public:
      * @param device the name of the device that you would like to control
      * @return the maximum brightness of the device
      */
-    virtual int brightnessSteps(BrightnessControlType type = Screen) const;
+    virtual BrightnessLogic::Step brightnessSteps(BrightnessControlType type) const;
 
     /**
      * @returns whether the lid is closed or not.
@@ -213,11 +214,13 @@ public:
     /**
      * Sets the device brightness value.
      *
-     * @param brightnessValue the desired device brightness, as an integer from 0 to brightnessValueMax
+     * @param value the desired percieved device brightness, as an integer from 0 to
+     * brightnessValueMax.
      * @param device the name of the device that you would like to control
      * @return true if the brightness change succeeded, false otherwise
      */
-    virtual void setBrightness(int value, BrightnessControlType type = Screen) = 0;
+    virtual void setBrightness(ActualBrightness value, BrightnessControlType type) = 0;
+    virtual void setBrightness(PerceivedBrightness value, BrightnessControlType type) = 0;
 
     /**
      * Should be called when the user presses a brightness key.
@@ -226,7 +229,7 @@ public:
      * @return the new brightness value, or -1 if it could not be changed or determined
      * @see PowerDevil::BrightnessLogic::BrightnessKeyType
      */
-    virtual int brightnessKeyPressed(BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
+    virtual ActualBrightness brightnessKeyPressed(BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) = 0;
 
     /**
      * Retrieves the capacities of the installed batteries in percentage.
@@ -310,7 +313,7 @@ Q_SIGNALS:
 protected:
     void setCapabilities(Capabilities capabilities);
 
-    void onBrightnessChanged(BrightnessControlType device, int value, int valueMax);
+    void onBrightnessChanged(BrightnessControlType device, ActualBrightness value, int valueMax);
     void setBatteryRemainingTime(qulonglong time);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
@@ -321,8 +324,11 @@ protected:
     void setBackendIsReady(const BrightnessControlsList &availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
 
-    // Steps logic
-    int calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType keyType);
+    /**
+     * Calculates the next actual brightness value after taking a step that is perceived as linear.
+     * @param current Current brightness value, can be any int.
+     */
+    ActualBrightness calculateNextStep(ActualBrightness current, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType keyType) const;
 
 private:
     class Private;

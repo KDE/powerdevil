@@ -56,11 +56,12 @@ public:
 
     void init() override;
 
-    int brightness(BrightnessControlType type = Screen) const override;
-    int brightnessMax(BrightnessControlType type = Screen) const override;
+    ActualBrightness brightness(BrightnessControlType type) const override;
+    int brightnessMax(BrightnessControlType type) const override;
 
-    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) override;
-    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) override;
+    ActualBrightness brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) override;
+    void setBrightness(ActualBrightness value, PowerDevil::BackendInterface::BrightnessControlType type) override;
+    void setBrightness(PerceivedBrightness value, PowerDevil::BackendInterface::BrightnessControlType type) override;
     KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) override;
 
 Q_SIGNALS:
@@ -81,12 +82,15 @@ private Q_SLOTS:
     void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
-    void onKeyboardBrightnessChanged(int);
+    void onKeyboardBrightnessChanged(ActualBrightness);
 
     void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
     void onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
+    /**
+     * Emits perceived brightness value for screen
+     */
     void animationValueChanged(const QVariant &value);
     void initWithBrightness(bool brightnessSupport);
 
@@ -95,7 +99,7 @@ private:
     OrgFreedesktopUPowerDeviceInterface *m_displayDevice = nullptr;
 
     // brightness
-    QMap<BrightnessControlType, int> m_cachedBrightnessMap;
+    QMap<BrightnessControlType, ActualBrightness> m_cachedBrightnessMap;
     DDCutilBrightness *m_ddcBrightnessControl = nullptr;
 
     OrgFreedesktopUPowerInterface *m_upowerInterface;
@@ -103,6 +107,9 @@ private:
     int m_kbdMaxBrightness;
     int m_brightnessMax = 0;
 
+    // Runs on PERCEIVED brightness values, not actual ones
+    // There is unfortunately no way to enforce this at
+    // compile time
     QPropertyAnimation *m_brightnessAnimation = nullptr;
 
     QTimer *m_brightnessAnimationTimer = nullptr;

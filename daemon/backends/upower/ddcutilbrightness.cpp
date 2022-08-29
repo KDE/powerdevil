@@ -93,7 +93,7 @@ bool DDCutilBrightness::isSupported() const
 #endif
 }
 
-long DDCutilBrightness::brightness()
+ActualBrightness DDCutilBrightness::brightness()
 {
 #ifdef WITH_DDCUTIL
     //we check whether the timer is running, this means we received new values but did not send them yet to the monitor
@@ -115,7 +115,7 @@ long DDCutilBrightness::brightness()
     }
     return m_lastBrightnessKnown;
 #else
-    return 0;
+    return ActualBrightness(0);
 #endif
 }
 
@@ -140,10 +140,10 @@ long DDCutilBrightness::brightnessMax()
 #endif
 }
 
-void DDCutilBrightness::setBrightness(long value)
+void DDCutilBrightness::setBrightness(ActualBrightness value)
 {
     m_tmpCurrentBrightness = value;
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: saving brightness value: " << value;
+    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: saving brightness value: " << (QString)value;
     m_setBrightnessEventFilter.start();
 }
 

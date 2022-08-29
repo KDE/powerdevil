@@ -21,6 +21,8 @@
 #ifndef POWERDEVIL_BRIGHTNESSLOGIC_H
 #define POWERDEVIL_BRIGHTNESSLOGIC_H
 
+#include "brightnessvalue.h"
+
 namespace PowerDevil {
 
 class BrightnessLogic
@@ -40,23 +42,29 @@ public:
     enum BrightnessKeyType { Increase, Decrease, Toggle };
 
     /**
+     * A brightness step value.
+     * Not to be confused with a brightness value.
+     */
+    typedef int Step;
+
+    /**
      * This struct contains information about current brightness state for a single device
      */
     struct BrightnessInfo {
-        /** The raw brightness value, from 0 to valueMax */
-        int value;
+        /** The brightness value, from 0 to valueMax */
+        ActualBrightness value;
         /** The maximum possible brightness value for this device */
         int valueMax;
         /** The maximum possible brightness step for this device */
-        int steps;
+        Step steps;
     };
 
     /**
      * Sets the current brightness value.
      *
-     * @param value Raw brightness value
+     * @param value Perceived brightness value
      */
-    void setValue(int value);
+    void setValue(PerceivedBrightness value);
 
     /**
      * Sets the maximum brightness value.
@@ -71,7 +79,7 @@ public:
      * @param type The action type of the key that was pressed.
      * @return The brightness value that the action should set, or -1 if nothing should be done
      */
-    int action(BrightnessKeyType type) const;
+    PerceivedBrightness action(BrightnessKeyType type) const;
 
     /**
      * Calculates the brightness value of the closest step upwards.
@@ -79,7 +87,7 @@ public:
      *
      * @return The brightness value of the closest step upwards
      */
-    virtual int increased() const;
+    virtual PerceivedBrightness increased() const;
 
     /**
      * Calculates the brightness value of the closest step downwards.
@@ -87,7 +95,7 @@ public:
      *
      * @return The brightness value of the closest step downwards
      */
-    virtual int decreased() const;
+    virtual PerceivedBrightness decreased() const;
 
     /**
      * Calculates the brightness value of the toggled state.
@@ -95,14 +103,14 @@ public:
      *
      * @return The brightness value that should be set, or -1 if nothing should be done
      */
-    virtual int toggled() const;
+    virtual PerceivedBrightness toggled() const;
 
     /**
      * Retrieve the current brightness value.
      *
      * @return Raw brightness value, from 0 to valueMax
      */
-    int value() const;
+    PerceivedBrightness value() const;
 
     /**
      * Retrieve the maximum possible brightness value for this device.
@@ -113,17 +121,18 @@ public:
 
     /**
      * Retrieve the brightness step that is closest to the current brightness value.
+     * Assumes that m_value satisfies [0, maxValue] and that m_maxValue and m_numSteps are > 0
      *
-     * @return Nearest brightness step
+     * @return Nearest brightness step [0, max step] uses true rounding
      */
-    int step() const;
+    Step closestStep() const;
 
     /**
      * Retrieve the maximum possible brightness step for this instance
      *
      * @return Maximum possible brightness step
      */
-    int steps() const;
+    Step steps() const;
 
     /**
      * Retrieve the supplied brightness value expressed as a percentage from 0 to 100
@@ -131,7 +140,7 @@ public:
      * @param value Brightness value, from 0 to valueMax
      * @return The brightness percentage for the supplied value
      */
-    float percentage(int value) const;
+    float percentage(PerceivedBrightness value) const;
 
     /**
      * Retrieve a copy of the current brightness state
@@ -141,20 +150,19 @@ public:
     const BrightnessInfo info() const;
 
     /**
-     * Convert brightness step to raw brightness value
+     * Convert brightness step to raw brightness value.
      *
      * @param step Brightness step, from 0 to steps
-     * @return Brightness value that corresponds to the given step
+     * @return Brightness value that corresponds to the given step.
+     * Constrains output to [0, maxBrightness]
      */
-    int stepToValue(int step) const;
+    PerceivedBrightness stepToValue(Step step) const;
 
     /**
-     * Convert raw brightness value to brightness step
-     *
-     * @param value Brightness value, from 0 to valueMax
-     * @return Brightness step that is nearest to the given brightness value
+     * @param value Brightness value
+     * @return Brightness step closest to the given value that safisfies [0, brightness max]
      */
-    int valueToStep(int value) const;
+    Step valueToStep(PerceivedBrightness value) const;
 
 protected:
 
@@ -169,14 +177,14 @@ protected:
      * This function does not depend on anything except the argument.
      *
      * @param valueMax the maximum brightness value for which we want to calculate the number of steps
-     * @return the optimal maximum step number
+     * @return The highest brightness Step value.
      */
-    virtual int calculateSteps(int valueMax) const = 0;
+    virtual Step calculateSteps(PerceivedBrightness valueMax) const = 0;
 
 private:
-    int m_value = -1;
-    int m_valueMax = -1;
-    int m_steps = -1;
+    PerceivedBrightness m_value = PerceivedBrightness(-1);
+    PerceivedBrightness m_valueMax = PerceivedBrightness(-1);
+    Step m_maxStep = 0;
 };
 
 }

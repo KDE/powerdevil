@@ -29,10 +29,10 @@ class ScreenBrightnessLogic : public BrightnessLogic
 {
 
 public:
-    int toggled() const override;
+    PerceivedBrightness toggled() const override;
 
 protected:
-    int calculateSteps(int valueMax) const override;
+    Step calculateSteps(PerceivedBrightness valueMax) const override;
 
 };
 

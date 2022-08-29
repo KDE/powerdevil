@@ -42,14 +42,26 @@ protected:
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
     void onProfileLoad() override;
+    /**
+     * @arg Value perceived brightness int on [0, max brightness]
+     */
     void triggerImpl(const QVariantMap& args) override;
     bool isSupported() override;
 
 public:
     bool loadAction(const KConfigGroup& config) override;
 
+    PerceivedBrightness perceivedKeyboardBrightness() const;
+    /**
+     * @returns Perceived brightness of the keyboard
+     * on [0, brightnessMax]
+     */
     int keyboardBrightness() const;
     int keyboardBrightnessMax() const;
+    /**
+     * @returns The highest brightness step allowed.
+     * Does not return the highest value.
+     */
     int keyboardBrightnessSteps() const;
 
 public Q_SLOTS:
@@ -60,18 +72,31 @@ public Q_SLOTS:
     void decreaseKeyboardBrightness();
     void toggleKeyboardBacklight();
 
+    /**
+     * Sets the keyboard brightness
+     * @param value is a perceived brightness value
+     * on [0, max brightness]
+     */
     void setKeyboardBrightness(int value);
     void setKeyboardBrightnessSilent(int value);
 
 Q_SIGNALS:
-    void keyboardBrightnessChanged(int value);
+    /**
+     * Emits the current perceived brightness value
+     */
+    void keyboardBrightnessChanged(int perceivedValue);
     void keyboardBrightnessMaxChanged(int valueMax);
 
 private:
-    int keyboardBrightnessPercent() const;
+    /**
+     * @returns Perceived keyboard brightness as a
+     * [0, 100] int percent of max brightness.
+     */
+    PerceivedBrightness keyboardBrightnessPercent() const;
 
-    int m_defaultValue = -1;
-    int m_lastKeyboardBrightness = -1;
+    PerceivedBrightness m_defaultValue = PerceivedBrightness(-1);
+    PerceivedBrightness m_lastKeyboardBrightness = PerceivedBrightness(-1);
+    QString m_lastProfile;
     QString m_currentProfile;
 };
 

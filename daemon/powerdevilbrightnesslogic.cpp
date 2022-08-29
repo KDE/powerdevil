@@ -27,7 +27,7 @@ BrightnessLogic::BrightnessLogic()
 {
 }
 
-void BrightnessLogic::setValue(int value)
+void BrightnessLogic::setValue(PerceivedBrightness value)
 {
     m_value = value;
 }
@@ -35,12 +35,12 @@ void BrightnessLogic::setValue(int value)
 void BrightnessLogic::setValueMax(int valueMax)
 {
     if (valueMax != m_valueMax) {
-        m_valueMax = valueMax;
-        m_steps = calculateSteps(valueMax);
+        m_valueMax = PerceivedBrightness(valueMax);
+        m_maxStep = calculateSteps(PerceivedBrightness(valueMax));
     }
 }
 
-int BrightnessLogic::action(BrightnessKeyType type) const {
+PerceivedBrightness BrightnessLogic::action(BrightnessKeyType type) const {
     switch (type) {
     case Increase:
         return increased();
@@ -49,87 +49,99 @@ int BrightnessLogic::action(BrightnessKeyType type) const {
     case Toggle:
         return toggled();
     }
-
-    return -1; // We shouldn't get here
+    Q_UNREACHABLE();
 }
 
-int BrightnessLogic::increased() const
+PerceivedBrightness BrightnessLogic::increased() const
 {
-    if (m_value == m_valueMax) {
+    if (m_value >= m_valueMax) {
         return m_valueMax; // we are at the maximum already
     }
 
-    // Add 1 and round upwards to the nearest step
-    int step = m_steps - (m_valueMax - m_value - 1) * m_steps / m_valueMax;
+    ActualBrightness current = ActualBrightness(m_value, (int)m_valueMax);
 
-    if (m_valueMax > 100 && qRound(percentage(stepToValue(step))) <= qRound(percentage(m_value))) {
-        // When no visible change was made, add 1 step.
-        // This can happen only if valueMax > 100, else 1 >= 1%.
+    // Jump to the next whole step
+    Step step = m_value < stepToValue(closestStep()) ? closestStep() : closestStep() + 1;
+    // Because we're using integers and converting between perceived and Actual
+    // brightness values is continuous, we check here that the actual brightness
+    // value has changed and increase it if it hasn't
+    if ((int)current >= (int)ActualBrightness(stepToValue(step), (int)m_valueMax)) {
         step++;
     }
 
     return stepToValue(step);
 }
 
-int BrightnessLogic::decreased() const
+PerceivedBrightness BrightnessLogic::decreased() const
 {
-    if (m_value == 0) {
-        return 0; // we are at the minimum already
+    if (m_value <= 0_pb) {
+        return 0_pb; // we are at the minimum already
     }
 
-    // Subtract 1 and round downwards to the nearest Step
-    int step = (m_value - 1) * m_steps / m_valueMax;
+    ActualBrightness current = ActualBrightness(m_value, (int)m_valueMax);
 
-    if (m_valueMax > 100 && qRound(percentage(stepToValue(step))) >= qRound(percentage(m_value))) {
-        // When no visible change was made, subtract 1 step.
-        // This can happen only if valueMax > 100, else 1 >= 1%.
+    // Jump to the next whole step
+    Step step = m_value > stepToValue(closestStep()) ? closestStep() : closestStep() - 1;
+    // Because we're using integers and converting between perceived and Actual
+    // brightness values is continuous, we check here that the actual brightness
+    // value has changed and decrease it if it hasn't
+    if ((int)current <= (int)ActualBrightness(stepToValue(step), (int)m_valueMax)) {
         step--;
     }
 
     return stepToValue(step);
 }
 
-int BrightnessLogic::toggled() const
+PerceivedBrightness BrightnessLogic::toggled() const
 {
     // If it's not minimum, set to minimum, if it's minimum, set to maximum
-    return m_value > 0 ? 0 : m_valueMax;
+    return m_value > 0_pb ? 0_pb : m_valueMax;
 }
 
-int BrightnessLogic::value() const
+PerceivedBrightness BrightnessLogic::value() const
 {
     return m_value;
 }
 
 int BrightnessLogic::valueMax() const
 {
-    return m_valueMax;
+    return (int)m_valueMax;
 }
 
-int BrightnessLogic::steps() const
+BrightnessLogic::Step BrightnessLogic::closestStep() const
 {
-    return m_steps;
+    Q_ASSERT((int)m_value >= 0 && m_value <= m_valueMax);
+    Q_ASSERT((int)m_valueMax >= 0);
+    Q_ASSERT(m_maxStep >= 0);
+    double brightness = (double)(int)m_value / (int)m_valueMax;
+    return std::clamp(std::round(brightness * m_maxStep), 0.0, (double)m_maxStep);
 }
 
-float BrightnessLogic::percentage(int value) const
+BrightnessLogic::Step BrightnessLogic::steps() const
 {
-    return value * 100.0 / m_valueMax;
+    return m_maxStep;
+}
+
+float BrightnessLogic::percentage(PerceivedBrightness value) const
+{
+    return (int)value * 100.0 / (int)m_valueMax;
 }
 
 const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const
 {
     return BrightnessInfo{
-        m_value, m_valueMax, m_steps
+        ActualBrightness(m_value, (int)m_valueMax), (int)m_valueMax, m_maxStep
     };
 }
 
-int BrightnessLogic::stepToValue(int step) const
+PerceivedBrightness BrightnessLogic::stepToValue(Step step) const
 {
-    return qBound(0, qRound(step * 1.0 * m_valueMax / m_steps), m_valueMax);
+    return PerceivedBrightness(qBound(0, qRound((step * 1.0 / m_maxStep) * (int)m_valueMax), (int)m_valueMax));
 }
 
-int BrightnessLogic::valueToStep(int value) const
+BrightnessLogic::Step BrightnessLogic::valueToStep(PerceivedBrightness value) const
 {
-    return qBound(0, qRound(value * 1.0 * m_steps / m_valueMax), m_steps);
+    return Step(qBound(0, qRound((int)value * 1.0 * m_maxStep / (int)m_valueMax), m_maxStep));
 }
 
 }

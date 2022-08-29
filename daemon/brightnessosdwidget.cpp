@@ -30,7 +30,7 @@
 namespace BrightnessOSDWidget
 {
 
-void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type)
+void show(PerceivedBrightness percentage, PowerDevil::BackendInterface::BrightnessControlType type)
 {
     QString method;
     if (type == PowerDevil::BackendInterface::Keyboard) {
@@ -46,7 +46,7 @@ void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType ty
         method
     );
 
-    msg << percentage;
+    msg << (int)percentage;
 
     QDBusConnection::sessionBus().asyncCall(msg);
 }

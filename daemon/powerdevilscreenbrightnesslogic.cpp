@@ -24,14 +24,15 @@
 namespace PowerDevil
 {
 
-int ScreenBrightnessLogic::toggled() const
+PerceivedBrightness ScreenBrightnessLogic::toggled() const
 {
     // ignore, we won't toggle the display off
-    return -1;
+    return PerceivedBrightness(-1);
 }
 
-int ScreenBrightnessLogic::calculateSteps(int maxValue) const
+BrightnessLogic::Step ScreenBrightnessLogic::calculateSteps(PerceivedBrightness max) const
 {
+    int maxValue = (int)max;
     // We assume that the preferred number of steps for screen brightness is 20, but we don't want more.
 
     if (maxValue <= 20) {

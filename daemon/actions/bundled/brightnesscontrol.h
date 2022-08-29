@@ -48,26 +48,48 @@ protected:
 public:
     bool loadAction(const KConfigGroup& config) override;
 
+    PerceivedBrightness perceivedBrightness() const;
+    /**
+     * @returns Perceived screen brightness
+     * as a value on the scale [0, maxBrightness]
+     */
     int brightness() const;
+    /**
+     * @returns The highest screen brightness value.
+     */
     int brightnessMax() const;
+    /**
+     * @returns The highest screen brightness step.
+     */
     int brightnessSteps() const;
 
 public Q_SLOTS:
     // DBus export
     void increaseBrightness();
     void decreaseBrightness();
-    void setBrightness(int percent);
-    void setBrightnessSilent(int percent);
+    /**
+     * Sets the perceived brightness on
+     * the scale [0, max brightness]
+     */
+    void setBrightness(int value);
+    void setBrightnessSilent(int value);
 
 private Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
 
 Q_SIGNALS:
-    void brightnessChanged(int value);
+    /**
+     * Emits perceived brightness of screen
+     */
+    void brightnessChanged(int perceivedValue);
     void brightnessMaxChanged(int valueMax);
 
 private:
-    int brightnessPercent(float value) const;
+    /**
+     * @returns [0, 100] value as a proportion of max brightness.
+     * If max brightness is <= 0, returns 0.
+     */
+    PerceivedBrightness brightnessPercent(PerceivedBrightness value) const;
 
     int m_defaultValue = -1;
     QString m_currentProfile;
