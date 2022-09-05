@@ -525,14 +525,16 @@ void Core::onDeviceRemoved(const QString &udi)
     Device device(udi);
     Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
 
-    disconnect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged);
-    disconnect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged);
-
-    qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "has been removed";
+    if (b) {
+        disconnect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged);
+        disconnect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged);
+    }
 
     m_batteriesPercent.remove(udi);
     m_peripheralBatteriesPercent.remove(udi);
     m_batteriesCharged.remove(udi);
+
+    qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "has been removed";
 }
 
 void Core::emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName)
