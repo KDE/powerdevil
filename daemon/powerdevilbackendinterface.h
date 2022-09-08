@@ -322,7 +322,7 @@ protected:
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic
-    int calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType type);
+    int calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType keyType);
 
 private:
     class Private;

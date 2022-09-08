@@ -207,9 +207,9 @@ void BackendInterface::setCapabilities(BackendInterface::Capabilities capabiliti
     d->capabilities = capabilities;
 }
 
-int BackendInterface::calculateNextStep(int value, int valueMax, BrightnessControlType type, BrightnessLogic::BrightnessKeyType keyType)
+int BackendInterface::calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType keyType)
 {
-    BrightnessLogic *logic = d->brightnessLogic.value(type);
+    BrightnessLogic *logic = d->brightnessLogic.value(controlType);
     logic->setValueMax(valueMax);
     logic->setValue(value);
 
