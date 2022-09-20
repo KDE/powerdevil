@@ -1079,6 +1079,14 @@ void Core::clearWakeup(int cookie)
     resetAndScheduleNextWakeup();
 }
 
+void Core::triggerAction(const QString &name, const QVariantMap &args)
+{
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(name, KConfigGroup(), this);
+    if (helperAction) {
+        helperAction->trigger(args);
+    }
+}
+
 qulonglong Core::batteryRemainingTime() const
 {
     return m_backend->batteryRemainingTime();

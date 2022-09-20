@@ -79,6 +79,12 @@
       <arg type="i" direction="in" />
     </method>
 
+    <method name="triggerAction">
+      <arg type="s" direction="in" name="name" />
+      <arg type="a{sv}" direction="in" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.In1" value="QVariantMap" />
+    </method>
+
     <!--<method name="turnOffScreen" />-->
 
     <!--<method name="getSupportedSuspendMethods">

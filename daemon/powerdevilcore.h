@@ -117,6 +117,7 @@ public Q_SLOTS:
     uint scheduleWakeup(const QString &service, const QDBusObjectPath &path, qint64 timeout);
     void wakeup();
     void clearWakeup(int cookie);
+    void triggerAction(const QString &name, const QVariantMap &args);
 
 Q_SIGNALS:
     void coreReady();
