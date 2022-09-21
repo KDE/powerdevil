@@ -24,6 +24,7 @@
         "Description[tr]": "DPMS (Görüntü Güç Yönetimi Ayarları) ayarlarını denetler",
         "Description[uk]": "Керування параметрами DPMS",
         "Description[x-test]": "xxControls DPMS settingsxx",
+        "Description[zh_CN]": "控制屏幕电源管理设置",
         "Icon": "preferences-desktop-screensaver",
         "Name": "Screen Energy Saving",
         "Name[ar]": "حِفظ طاقة الشاشة",

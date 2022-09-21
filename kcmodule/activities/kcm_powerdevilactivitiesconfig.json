@@ -24,6 +24,7 @@
         "Description[tr]": "Etkinlik Başı Güç Yönetimi",
         "Description[uk]": "Налаштування окремих параметрів керування живленням простору дій",
         "Description[x-test]": "xxPer-Activity Power Managementxx",
+        "Description[zh_CN]": "每个活动的电源管理",
         "Icon": "preferences-desktop-activities",
         "Name": "Activity Power Settings",
         "Name[ar]": "إعدادات الطاقة للنشاط",

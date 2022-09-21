@@ -24,6 +24,7 @@
         "Description[tr]": "Sinyal ileten aygıtları kapatır",
         "Description[uk]": "Вимкнути пристрої, що передають радіосигнал",
         "Description[x-test]": "xxTurns off signal-transmitting devicesxx",
+        "Description[zh_CN]": "关闭信号收发设备",
         "Icon": "preferences-system-network",
         "Name": "Wireless",
         "Name[ar]": "لاسلكي",

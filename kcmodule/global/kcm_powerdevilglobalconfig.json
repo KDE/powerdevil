@@ -24,6 +24,7 @@
         "Description[tr]": "Gelişmiş Güç Yönetimi Ayarları",
         "Description[uk]": "Налаштування додаткових параметрів керування живленням",
         "Description[x-test]": "xxAdvanced Power Management Settingsxx",
+        "Description[zh_CN]": "高级电源管理设置",
         "Icon": "preferences-other",
         "Name": "Advanced Power Settings",
         "Name[ar]": "إعدادات الطاقة المتقدمة",

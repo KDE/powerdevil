@@ -24,6 +24,7 @@
         "Description[tr]": "Özel bir betik çalıştırır",
         "Description[uk]": "Запускає вказаний користувачем скрипт",
         "Description[x-test]": "xxRuns a custom scriptxx",
+        "Description[zh_CN]": "运行自定义脚本",
         "Icon": "system-run",
         "Name": "Run script",
         "Name[ar]": "شغل سكربت",
