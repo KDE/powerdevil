@@ -24,6 +24,7 @@
         "Description[tr]": "Güç Tasarrufu",
         "Description[uk]": "Заощадження енергії",
         "Description[x-test]": "xxEnergy Savingxx",
+        "Description[zh_CN]": "节能",
         "Icon": "preferences-system-power-management",
         "Name": "Energy Saving",
         "Name[ar]": "حِفظ الطاقة",

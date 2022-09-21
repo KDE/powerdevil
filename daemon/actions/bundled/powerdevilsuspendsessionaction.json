@@ -24,6 +24,7 @@
         "Description[tr]": "Geçerli oturumu askıya alır",
         "Description[uk]": "Призупиняє сеанс",
         "Description[x-test]": "xxSuspends the sessionxx",
+        "Description[zh_CN]": "挂起会话",
         "Icon": "system-shutdown",
         "Name": "Suspend session",
         "Name[ar]": "علِّق الحِلسة",

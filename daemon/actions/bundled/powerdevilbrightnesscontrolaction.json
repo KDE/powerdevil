@@ -24,6 +24,7 @@
         "Description[tr]": "Parlaklık için temel denetimler",
         "Description[uk]": "Базове керування яскравістю",
         "Description[x-test]": "xxBasic Controls for brightnessxx",
+        "Description[zh_CN]": "亮度基本控制",
         "Icon": "preferences-system-power-management",
         "Name": "Screen brightness",
         "Name[ar]": "سطوع الشاشة",

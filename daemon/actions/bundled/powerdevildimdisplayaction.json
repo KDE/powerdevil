@@ -24,6 +24,7 @@
         "Description[tr]": "Zamana bağlı olarak ekranı yavaşça karartır",
         "Description[uk]": "Поступове зменшення яскравості дисплея з часом",
         "Description[x-test]": "xxDims gradually the display on a time basisxx",
+        "Description[zh_CN]": "按照设置的时间逐渐降低屏幕亮度",
         "Icon": "preferences-desktop-display",
         "Name": "Dim screen",
         "Name[ar]": "أعتِم الشاشة",

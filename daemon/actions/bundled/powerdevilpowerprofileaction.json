@@ -24,6 +24,7 @@
         "Description[tr]": "Bir güç yönetimi profili uygula",
         "Description[uk]": "Застосувати профіль керування живленням",
         "Description[x-test]": "xxApply a power management profilexx",
+        "Description[zh_CN]": "应用电源管理配置方案",
         "Icon": "preferences-system-power-management-profile",
         "Name": "Power management profile",
         "Name[ar]": "تشكيلة إدارة الطاقة",
