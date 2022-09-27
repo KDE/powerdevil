@@ -1,5 +1,6 @@
 {
     "KPlugin": {
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_powerdevil",
         "Description": "Advanced Power Management Settings",
         "Description[ar]": "إعدادات إدارة الطاقة المتقدمة",
         "Description[bg]": "Разширени настройки за управление на захранването",

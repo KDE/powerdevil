@@ -1,5 +1,6 @@
 {
     "KPlugin": {
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_powerdevil",
         "Description": "Energy Saving",
         "Description[ar]": "حِفظ الطاقة",
         "Description[bg]": "Пестене на енергия",
