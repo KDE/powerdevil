@@ -1,0 +1,124 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jean Cayron <jean.cayron@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"PO-Revision-Date: 2010-12-24 18:14+0100\n"
+"Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
+"Language-Team: Walloon <linux@walon.org>\n"
+"Language: wa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Djan Cayron"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "jean.cayron@gmail.com"
+
+#: EditPage.cpp:191
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+
+#: EditPage.cpp:194
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Rapexhî les profils prémetous"
+
+#: EditPage.cpp:271
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr ""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Apontiaedje des profils d' enerdjeye"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "On meteu a pont des profils pol Sistinme di manaedjmint di l' enerdjeye "
+#~ "da KDE"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "©, 2010 Dario Freddi"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Mintneu"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Dinez on no å novea profil s' i vs plait :"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Li no do novea profil"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Tapez cial li no do profil ki vs ahivez"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Tapez s' i vs plait on no po c' profil ci :"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Agabuer des profils di manaedjmint di l' enerdjeye"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Egabuer des profils di manaedjmint di l' enerdjeye"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Li profil do moumint n' a nén stî schapé.\n"
+#~ "El voloz schaper ?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Schaper profil"
+
+#~ msgid "New Profile"
+#~ msgstr "Novea profil"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Disfacer profil"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Agabuer des profils"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Egabuer des profils"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Candjî l' profil"

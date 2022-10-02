@@ -1,0 +1,507 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"PO-Revision-Date: 2022-09-06 16:01+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Temuri Doghonadze"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Temuri.doghonadze@gmail.com"
+
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#, kde-format
+msgctxt "Name for powerdevil shortcuts category"
+msgid "Power Management"
+msgstr "ენერგიის მართვა"
+
+#: actions/bundled/brightnesscontrol.cpp:56
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "ეკრანის სიკაშკაშის გაზრდა"
+
+#: actions/bundled/brightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "ეკრანის სიკაშკაშის შემცირება"
+
+#: actions/bundled/brightnesscontrolconfig.cpp:75
+#, kde-format
+msgctxt "Brightness level, label for the slider"
+msgid "Level"
+msgstr "დონე"
+
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/runscriptconfig.cpp:82
+#: actions/bundled/suspendsessionconfig.cpp:86
+#, kde-format
+msgid " min"
+msgstr " წთ"
+
+#: actions/bundled/dimdisplayconfig.cpp:74
+#: actions/bundled/runscriptconfig.cpp:85
+#: actions/bundled/runscriptconfig.cpp:106
+#, kde-format
+msgid "After"
+msgstr "შემდეგ"
+
+#: actions/bundled/dpms.cpp:82
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Turn Off Screen"
+msgstr "ეკრანის გამორთვა"
+
+#: actions/bundled/dpmsconfig.cpp:61
+#, kde-format
+msgid "Switch off after"
+msgstr "გამორთვის დაყოვნება"
+
+#: actions/bundled/handlebuttonevents.cpp:62
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Suspend"
+msgstr "ძილი"
+
+#: actions/bundled/handlebuttonevents.cpp:67
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Hibernate"
+msgstr "პროგრამული ძილი"
+
+#: actions/bundled/handlebuttonevents.cpp:72
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Power Off"
+msgstr "გამორთვა"
+
+#: actions/bundled/handlebuttonevents.cpp:86
+#, kde-format
+msgctxt ""
+"@action:inmenu Global shortcut, used for long presses of the power button"
+msgid "Power Down"
+msgstr "გამორთვა"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#, kde-format
+msgctxt "Execute action on lid close even when external monitor is connected"
+msgid "Even when an external monitor is connected"
+msgstr "მაშინაც კი, როცა გარე ეკრანია მიერთებული"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#, kde-format
+msgid "Do nothing"
+msgstr "არაფრის გაკეთება"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "ძილი"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
+#, kde-format
+msgid "Hibernate"
+msgstr "პროგრამული ძილი"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:96
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "ჰიბრიდული ძილი"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:107
+#: actions/bundled/suspendsessionconfig.cpp:98
+#, kde-format
+msgid "Shut down"
+msgstr "გამორთვა"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:99
+#, kde-format
+msgid "Lock screen"
+msgstr "ეკრანის დაბლოკვა"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#, kde-format
+msgid "Prompt log out dialog"
+msgstr "გამოსვლის ფანჯრის ჩვენება"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#, kde-format
+msgid "Turn off screen"
+msgstr "ეკრანის გამორთვა"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#, kde-format
+msgid "When laptop lid closed"
+msgstr "როცა ლეპტოპი დახურულია"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#, kde-format
+msgid "When power button pressed"
+msgstr "როცა ჩართვის ღილაკს დააწვებით"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Keyboard Brightness"
+msgstr "კლავიატურის სიკაშკაშის გაზრდა"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Keyboard Brightness"
+msgstr "კლავიატურის სიკაშკაშის შემცირება"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Toggle Keyboard Backlight"
+msgstr "Toggle Keyboard გადართვა"
+
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#, kde-format
+msgctxt "@label:slider Brightness level"
+msgid "Level"
+msgstr "დონე"
+
+#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/wirelesspowersavingconfig.cpp:75
+#: actions/bundled/wirelesspowersavingconfig.cpp:80
+#: actions/bundled/wirelesspowersavingconfig.cpp:85
+#, kde-format
+msgid "Leave unchanged"
+msgstr "შეუცვლელად დატოვება"
+
+#: actions/bundled/powerprofileconfig.cpp:92
+#, kde-format
+msgid "Power Save"
+msgstr "ენერგიის შენახვა"
+
+#: actions/bundled/powerprofileconfig.cpp:93
+#, kde-format
+msgid "Balanced"
+msgstr "საშუალო"
+
+#: actions/bundled/powerprofileconfig.cpp:94
+#, kde-format
+msgid "Performance"
+msgstr "წარმადობა"
+
+#: actions/bundled/powerprofileconfig.cpp:109
+#, kde-format
+msgctxt "Switch to power management profile"
+msgid "Switch to:"
+msgstr "გადართვა:"
+
+#: actions/bundled/runscriptconfig.cpp:71
+#, kde-format
+msgid "Script"
+msgstr "სკრიპტი"
+
+#: actions/bundled/runscriptconfig.cpp:83
+#, kde-format
+msgid "On Profile Load"
+msgstr "პროფილის ჩატვირთვისას"
+
+#: actions/bundled/runscriptconfig.cpp:84
+#, kde-format
+msgid "On Profile Unload"
+msgstr "პროფილის გამოტვირთვისას"
+
+#: actions/bundled/runscriptconfig.cpp:95
+#, kde-format
+msgid "Run script"
+msgstr "სკრიპტის გაშვება"
+
+#: actions/bundled/suspendsessionconfig.cpp:87
+#, kde-format
+msgid "after "
+msgstr "დროის შემდეგ "
+
+#: actions/bundled/suspendsessionconfig.cpp:108
+#, kde-format
+msgid "Automatically"
+msgstr "ავტომატურად"
+
+#: actions/bundled/suspendsessionconfig.cpp:115
+#, kde-format
+msgid "While asleep, hibernate after a period of inactivity"
+msgstr "ძილისას, დისკზე დაძინება გარკვეული დროის არააქტიურობის შემდეგ"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:76
+#: actions/bundled/wirelesspowersavingconfig.cpp:81
+#: actions/bundled/wirelesspowersavingconfig.cpp:86
+#, kde-format
+msgid "Turn off"
+msgstr "გამორთვა"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:77
+#: actions/bundled/wirelesspowersavingconfig.cpp:82
+#: actions/bundled/wirelesspowersavingconfig.cpp:87
+#, kde-format
+msgid "Turn on"
+msgstr "ჩართვა"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:110
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:111
+#, kde-format
+msgid "Mobile broadband"
+msgstr "მობილური ინტერნეტი"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:112
+#, kde-format
+msgid "Bluetooth"
+msgstr "ლურჯკბილა"
+
+#: backends/upower/login1suspendjob.cpp:79
+#: backends/upower/upowersuspendjob.cpp:69
+#, kde-format
+msgid "Unsupported suspend method"
+msgstr "დაძინების მხარდაუჭერელი მეთოდი"
+
+#: powerdevilapp.cpp:62
+#, kde-format
+msgid "KDE Power Management System"
+msgstr "KDE-ის კვების მართვის სისტემა"
+
+#: powerdevilapp.cpp:63
+#, kde-format
+msgctxt "@title"
+msgid ""
+"PowerDevil, an advanced, modular and lightweight power management daemon"
+msgstr "PowerDevil, მოდულური და მსუბუქი დემონი კვების სამართავად"
+
+#: powerdevilapp.cpp:65
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "(c) 2015-2019 Kai Uwe Broulik, ყველა უფლება დაცულია"
+
+#: powerdevilapp.cpp:66
+#, kde-format
+msgctxt "@info:credit"
+msgid "Kai Uwe Broulik"
+msgstr "კაი უვე ბროულიკი"
+
+#: powerdevilapp.cpp:67
+#, kde-format
+msgctxt "@info:credit"
+msgid "Maintainer"
+msgstr "წამყვანი პროგრამისტი"
+
+#: powerdevilapp.cpp:69
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dario Freddi"
+msgstr "Dario Freddi"
+
+#: powerdevilapp.cpp:70
+#, kde-format
+msgctxt "@info:credit"
+msgid "Previous maintainer"
+msgstr "წინა ხელმძღვანელი"
+
+#: powerdevilapp.cpp:160
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "გაშვებული ასლის ჩანაცვლება"
+
+#: powerdevilcore.cpp:435 powerdevilcore.cpp:447
+#, kde-format
+msgid "Activity Manager"
+msgstr "აქტივობების მმართველის ჩვენება"
+
+#: powerdevilcore.cpp:436
+#, kde-format
+msgid "This activity's policies prevent the system from going to sleep"
+msgstr "აქტივობის წესები ხელს უშლის სისტემას, დაიძინოს"
+
+#: powerdevilcore.cpp:448
+#, kde-format
+msgid "This activity's policies prevent screen power management"
+msgstr "აქტივობის წესები ხელს უშლის ეკრანის კვების მართვას"
+
+#: powerdevilcore.cpp:511
+#, kde-format
+msgid "Extra Battery Added"
+msgstr "დამატებულია დამატებითი ელემენტი"
+
+#: powerdevilcore.cpp:512 powerdevilcore.cpp:722
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "კომპიუტერი აღარ დაიძინებს."
+
+#: powerdevilcore.cpp:572
+#, kde-format
+msgctxt "%1 is vendor name, %2 is product name"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: powerdevilcore.cpp:575
+#, kde-format
+msgctxt "The battery in an external device"
+msgid "Device Battery Low (%1% Remaining)"
+msgstr "მოწყობილობის ელემენტი დასატებია (დარჩენილია %1%)"
+
+#: powerdevilcore.cpp:577
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in \"%1\" is running low, and the device may turn off at any "
+"time. Please recharge or replace the battery."
+msgstr ""
+"ელემენტი \"%1\"-ში დასატენია და მოწყობილობა ნებისმიერ დროს შეიძლება "
+"გამოირთოს. გთხოვთ დამუხტოთ ან გამოცვალოთ ელემენტი."
+
+#: powerdevilcore.cpp:583
+#, kde-format
+msgid "Mouse Battery Low (%1% Remaining)"
+msgstr "თაგუნას ელემენტი დასატენია (დარჩენილია %1%)"
+
+#: powerdevilcore.cpp:587
+#, kde-format
+msgid "Keyboard Battery Low (%1% Remaining)"
+msgstr "კლავიატურის ელემენტი დასატენია (დარჩენილია %1%)"
+
+#: powerdevilcore.cpp:591
+#, kde-format
+msgid "Bluetooth Device Battery Low (%1% Remaining)"
+msgstr "BT მოწყობილობის ელემენტი დასატენია (დარჩენილია %1%)"
+
+#: powerdevilcore.cpp:593
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in Bluetooth device \"%1\" is running low, and the device may "
+"turn off at any time. Please recharge or replace the battery."
+msgstr ""
+"ელემენტი BT მოწყობილობაში (\"%1\") დასატენია და მოწყობილობა ნებისმიერ დროს "
+"შეიძლება გამოირთოს. საჭიროა ელემენტის გამოცვლა ან დატენვა."
+
+#: powerdevilcore.cpp:639
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, make sure that the "
+"power adapter is plugged in and that it provides enough power."
+msgstr ""
+"ელემენტი დასატენია - კომპიუტერის გამოყენების გასაგრძელებლად დარწმუნდით, რომ "
+"კვება შეერთებულია და მას საკმარისი სიმძლავრე მიეწოდება."
+
+#: powerdevilcore.cpp:641
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, plug it in or shut it "
+"down and change the battery."
+msgstr ""
+"ელემენტი დასატენია - კომპიუტერის გამოყენების გასაგრძელებლად შეაერთეთ ის ან "
+"გამორთეთ და დამუხტეთ ელემენტი."
+
+#: powerdevilcore.cpp:658
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "_გაუქმება"
+
+#: powerdevilcore.cpp:667
+#, kde-format
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში "
+"გამოირთვება."
+
+#: powerdevilcore.cpp:672
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი დისკზე პროგრამულ "
+"ძილში 60 წამში გადავა."
+
+#: powerdevilcore.cpp:677
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში დაიძინებს."
+
+#: powerdevilcore.cpp:682
+#, kde-format
+msgid "Battery level critical. Please save your work."
+msgstr "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. შეინახეთ თქვენი ნაშრომი."
+
+#: powerdevilcore.cpp:693
+#, kde-format
+msgid "Battery Low (%1% Remaining)"
+msgstr "ელემენტის დასატენია (დარჩენილია %1%)"
+
+#: powerdevilcore.cpp:697
+#, kde-format
+msgid "Battery Critical (%1% Remaining)"
+msgstr "ელემენტის მუხტის დონე კრიტიკულია (დარჩენილია %1%)"
+
+#: powerdevilcore.cpp:721
+#, kde-format
+msgid "AC Adapter Plugged In"
+msgstr "დამტენი შეერთბულია"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "Running on AC power"
+msgstr "იყენებს დენის წყაროს"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "The power adapter has been plugged in."
+msgstr "დამტენის კაბელი შეერთებულია."
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "Running on Battery Power"
+msgstr "იყენებს ელემენტის კვებას"
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "The power adapter has been unplugged."
+msgstr "დამტენის კაბელი გამოერთებულია."
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Charging Complete"
+msgstr "დატენვა დასრულდა"
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Battery now fully charged."
+msgstr "ელემენტი სრულად დაიტენა."

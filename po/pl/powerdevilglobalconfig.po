@@ -1,0 +1,235 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"PO-Revision-Date: 2021-05-30 07:02+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 20.12.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#: GeneralPage.cpp:108
+#, kde-format
+msgid "Do nothing"
+msgstr "Nic nie rób"
+
+#: GeneralPage.cpp:110
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Uśpij"
+
+#: GeneralPage.cpp:113
+#, kde-format
+msgid "Hibernate"
+msgstr "Hibernuj"
+
+#: GeneralPage.cpp:115
+#, kde-format
+msgid "Shut down"
+msgstr "Wyłącz"
+
+#: GeneralPage.cpp:264
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Wygląda na to, że usług zarządzania energią nie jest uruchomiona."
+
+#. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
+#: generalPage.ui:22
+#, kde-format
+msgid "<b>Battery Levels                     </b>"
+msgstr "<b>Poziomy baterii                     </b>"
+
+#. i18n: ectx: property (text), widget (QLabel, lowLabel)
+#: generalPage.ui:29
+#, kde-format
+msgid "&Low level:"
+msgstr "&Niski poziom:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
+#: generalPage.ui:39
+#, kde-format
+msgid "Low battery level"
+msgstr "Niski poziom baterii"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
+#: generalPage.ui:42
+#, kde-format
+msgid "Battery will be considered low when it reaches this level"
+msgstr ""
+"Poziom naładowania baterii zostanie uznany za niski, gdy osiągnie tę wartość"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowPeripheralSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStartThresholdSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStopThresholdSpin)
+#: generalPage.ui:45 generalPage.ui:71 generalPage.ui:114 generalPage.ui:167
+#: generalPage.ui:230
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, criticalLabel)
+#: generalPage.ui:55
+#, kde-format
+msgid "&Critical level:"
+msgstr "Kryty&czny poziom:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:65
+#, kde-format
+msgid "Critical battery level"
+msgstr "Krytyczny poziom baterii"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:68
+#, kde-format
+msgid "Battery will be considered critical when it reaches this level"
+msgstr ""
+"Poziom naładowania baterii zostanie uznany za krytyczny, gdy osiągnie on tę "
+"wartość"
+
+#. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
+#: generalPage.ui:81
+#, kde-format
+msgid "A&t critical level:"
+msgstr "Przy poziomie kry&tycznym:"
+
+#. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
+#: generalPage.ui:107
+#, kde-format
+msgid "Low level for peripheral devices:"
+msgstr "Niski poziom dla urządzeń zewnętrznych:"
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
+#: generalPage.ui:130
+#, kde-format
+msgid "Charge Limit"
+msgstr "Granica ładunku"
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
+#: generalPage.ui:137
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>Keeping the battery charged 100% over a prolonged "
+"period of time may accelerate deterioration of battery health. By limiting "
+"the maximum battery charge you can help extend the battery lifespan.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Utrzymywanie baterii naładowanej na 100% przez dłuższy "
+"czas może spowodować pogorszenie jej ogólnego stanu. Ograniczając największy "
+"możliwy ładunek baterii możesz wydłużyć jej czas przydatności.</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
+#: generalPage.ui:147
+#, kde-format
+msgid ""
+"You might have to disconnect and re-connect the power source to start "
+"charging the battery again."
+msgstr ""
+"Możliwe, że będzie trzeba odłączyć i podłączyć źródło prądu, aby ponownie "
+"zacząć ładować baterię."
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
+#: generalPage.ui:157
+#, kde-format
+msgid "Start charging only once below:"
+msgstr "Zacznij ładowanie tylko raz poniżej:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
+#: generalPage.ui:164
+#, kde-format
+msgid "Always charge when plugged in"
+msgstr "Zawsze ładuj, gdy podłączony"
+
+#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
+#: generalPage.ui:177
+#, kde-format
+msgid "Pause media players when suspending:"
+msgstr "Wstrzymaj odtwarzacze multimedialne przy usypianiu:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
+#: generalPage.ui:184
+#, kde-format
+msgid "Enabled"
+msgstr "Włączone"
+
+#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
+#: generalPage.ui:203
+#, kde-format
+msgid "Configure Notifications…"
+msgstr "Ustawienia powiadomień..."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: generalPage.ui:216
+#, kde-format
+msgid "Other Settings"
+msgstr "Inne ustawienia"
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
+#: generalPage.ui:223
+#, kde-format
+msgid "Stop charging at:"
+msgstr "Zatrzymaj ładowanie przy:"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Wygląda na to, że usługa zarządzania energią nie jest uruchomiona.\n"
+#~ "Może to być rozwiązane przez uruchomienie planowania wewnątrz "
+#~ "\"Uruchamianie i wyłączanie\""
+
+#~ msgid "Suspend"
+#~ msgstr "Uśpij"
+
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Zdarzenia</b>"
+
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr ""
+#~ "Gdy zostanie wybrana ta opcja, to programy nie będą miały możliwości "
+#~ "wejścia w stan uśpienia, gdy pokrywa zostanie zamknięta"
+
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Nigdy nie zapobiegaj działaniu po zamknięciu pokrywy"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Blokuje ekran po wybudzeniu z uśpienia"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "Po powrocie ze stanu uśpienia pojawi się pytanie o hasło"
+
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "Zablo&kuj ekran przy wznawianiu pracy"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "Niski poziom baterii przy"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "Gdy bateria jest na poziomie krytycznym"

@@ -1,0 +1,651 @@
+# Translation of powerdevil.po to Ukrainian
+# Copyright (C) 2008-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"PO-Revision-Date: 2022-09-03 08:41+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#, kde-format
+msgctxt "Name for powerdevil shortcuts category"
+msgid "Power Management"
+msgstr "Керування живленням"
+
+#: actions/bundled/brightnesscontrol.cpp:56
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Підвищити яскравість екрана"
+
+#: actions/bundled/brightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Знизити яскравість екрана"
+
+#: actions/bundled/brightnesscontrolconfig.cpp:75
+#, kde-format
+msgctxt "Brightness level, label for the slider"
+msgid "Level"
+msgstr "Рівень"
+
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/runscriptconfig.cpp:82
+#: actions/bundled/suspendsessionconfig.cpp:86
+#, kde-format
+msgid " min"
+msgstr " хв"
+
+#: actions/bundled/dimdisplayconfig.cpp:74
+#: actions/bundled/runscriptconfig.cpp:85
+#: actions/bundled/runscriptconfig.cpp:106
+#, kde-format
+msgid "After"
+msgstr "Після"
+
+#: actions/bundled/dpms.cpp:82
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Turn Off Screen"
+msgstr "Вимкнути екран"
+
+#: actions/bundled/dpmsconfig.cpp:61
+#, kde-format
+msgid "Switch off after"
+msgstr "Вимикати за"
+
+#: actions/bundled/handlebuttonevents.cpp:62
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Suspend"
+msgstr "Призупинити"
+
+#: actions/bundled/handlebuttonevents.cpp:67
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Hibernate"
+msgstr "Приспати"
+
+#: actions/bundled/handlebuttonevents.cpp:72
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Power Off"
+msgstr "Вимкнути"
+
+#: actions/bundled/handlebuttonevents.cpp:86
+#, kde-format
+msgctxt ""
+"@action:inmenu Global shortcut, used for long presses of the power button"
+msgid "Power Down"
+msgstr "Вимикання живлення"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#, kde-format
+msgctxt "Execute action on lid close even when external monitor is connected"
+msgid "Even when an external monitor is connected"
+msgstr "Навіть якщо з’єднано зовнішній монітор"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#, kde-format
+msgid "Do nothing"
+msgstr "Нічого не робити"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Призупинити"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
+#, kde-format
+msgid "Hibernate"
+msgstr "Приспати"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:96
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Гібридне присипляння"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:107
+#: actions/bundled/suspendsessionconfig.cpp:98
+#, kde-format
+msgid "Shut down"
+msgstr "Вимкнути"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:99
+#, kde-format
+msgid "Lock screen"
+msgstr "Заблокувати екран"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#, kde-format
+msgid "Prompt log out dialog"
+msgstr "Відкрити діалогове вікно виходу"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#, kde-format
+msgid "Turn off screen"
+msgstr "Вимкнути екран"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#, kde-format
+msgid "When laptop lid closed"
+msgstr "Якщо закрито кришку ноутбука"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#, kde-format
+msgid "When power button pressed"
+msgstr "Якщо натиснуто кнопку вимикання"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Keyboard Brightness"
+msgstr "Підвищити яскравість підсвічування клавіатури"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Keyboard Brightness"
+msgstr "Знизити яскравість підсвічування клавіатури"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Toggle Keyboard Backlight"
+msgstr "Увімкнути або вимкнути підсвічування клавіатури"
+
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#, kde-format
+msgctxt "@label:slider Brightness level"
+msgid "Level"
+msgstr "Рівень"
+
+#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/wirelesspowersavingconfig.cpp:75
+#: actions/bundled/wirelesspowersavingconfig.cpp:80
+#: actions/bundled/wirelesspowersavingconfig.cpp:85
+#, kde-format
+msgid "Leave unchanged"
+msgstr "Залишити без змін"
+
+#: actions/bundled/powerprofileconfig.cpp:92
+#, kde-format
+msgid "Power Save"
+msgstr "Заощадження енергії"
+
+#: actions/bundled/powerprofileconfig.cpp:93
+#, kde-format
+msgid "Balanced"
+msgstr "Збалансований"
+
+#: actions/bundled/powerprofileconfig.cpp:94
+#, kde-format
+msgid "Performance"
+msgstr "Швидкодія"
+
+#: actions/bundled/powerprofileconfig.cpp:109
+#, kde-format
+msgctxt "Switch to power management profile"
+msgid "Switch to:"
+msgstr "Перемкнутися на:"
+
+#: actions/bundled/runscriptconfig.cpp:71
+#, kde-format
+msgid "Script"
+msgstr "Скрипт"
+
+#: actions/bundled/runscriptconfig.cpp:83
+#, kde-format
+msgid "On Profile Load"
+msgstr "При завантаженні профілю"
+
+#: actions/bundled/runscriptconfig.cpp:84
+#, kde-format
+msgid "On Profile Unload"
+msgstr "При вивантаженні профілю"
+
+#: actions/bundled/runscriptconfig.cpp:95
+#, kde-format
+msgid "Run script"
+msgstr "Виконати скрипт"
+
+#: actions/bundled/suspendsessionconfig.cpp:87
+#, kde-format
+msgid "after "
+msgstr "після"
+
+#: actions/bundled/suspendsessionconfig.cpp:108
+#, kde-format
+msgid "Automatically"
+msgstr "Автоматично"
+
+#: actions/bundled/suspendsessionconfig.cpp:115
+#, kde-format
+msgid "While asleep, hibernate after a period of inactivity"
+msgstr ""
+"У стані призупинення присипляти систему, якщо не відбувалося дій вказаний "
+"період часу"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:76
+#: actions/bundled/wirelesspowersavingconfig.cpp:81
+#: actions/bundled/wirelesspowersavingconfig.cpp:86
+#, kde-format
+msgid "Turn off"
+msgstr "Вимкнути"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:77
+#: actions/bundled/wirelesspowersavingconfig.cpp:82
+#: actions/bundled/wirelesspowersavingconfig.cpp:87
+#, kde-format
+msgid "Turn on"
+msgstr "Увімкнути"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:110
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:111
+#, kde-format
+msgid "Mobile broadband"
+msgstr "Мобільна радіомережа"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:112
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: backends/upower/login1suspendjob.cpp:79
+#: backends/upower/upowersuspendjob.cpp:69
+#, kde-format
+msgid "Unsupported suspend method"
+msgstr "Метод переходу в режиму сну, що не підтримується"
+
+#: powerdevilapp.cpp:62
+#, kde-format
+msgid "KDE Power Management System"
+msgstr "Система керування живленням KDE"
+
+#: powerdevilapp.cpp:63
+#, kde-format
+msgctxt "@title"
+msgid ""
+"PowerDevil, an advanced, modular and lightweight power management daemon"
+msgstr ""
+"PowerDevil — модульна фонова служба для керування живленням із широкими "
+"можливостями, але без значного навантаження на систему"
+
+#: powerdevilapp.cpp:65
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© Kai Uwe Broulik, 2019–2019"
+
+#: powerdevilapp.cpp:66
+#, kde-format
+msgctxt "@info:credit"
+msgid "Kai Uwe Broulik"
+msgstr "Kai Uwe Broulik"
+
+#: powerdevilapp.cpp:67
+#, kde-format
+msgctxt "@info:credit"
+msgid "Maintainer"
+msgstr "Супровідник"
+
+#: powerdevilapp.cpp:69
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dario Freddi"
+msgstr "Dario Freddi"
+
+#: powerdevilapp.cpp:70
+#, kde-format
+msgctxt "@info:credit"
+msgid "Previous maintainer"
+msgstr "Колишній супровідник"
+
+#: powerdevilapp.cpp:160
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Замінити наявний екземпляр"
+
+#: powerdevilcore.cpp:435 powerdevilcore.cpp:447
+#, kde-format
+msgid "Activity Manager"
+msgstr "Керування просторами дій"
+
+#: powerdevilcore.cpp:436
+#, kde-format
+msgid "This activity's policies prevent the system from going to sleep"
+msgstr ""
+"Правила простору дій забороняють переведення системи у режим присипляння"
+
+#: powerdevilcore.cpp:448
+#, kde-format
+msgid "This activity's policies prevent screen power management"
+msgstr "Правила простору дій забороняють керування живленням екрана"
+
+#: powerdevilcore.cpp:511
+#, kde-format
+msgid "Extra Battery Added"
+msgstr "Додано додатковий акумулятор"
+
+#: powerdevilcore.cpp:512 powerdevilcore.cpp:722
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Комп'ютер надалі не переходитиме до режиму сну."
+
+#: powerdevilcore.cpp:572
+#, kde-format
+msgctxt "%1 is vendor name, %2 is product name"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: powerdevilcore.cpp:575
+#, kde-format
+msgctxt "The battery in an external device"
+msgid "Device Battery Low (%1% Remaining)"
+msgstr "Низький рівень заряду акумулятора пристрою (лишилося %1%)"
+
+#: powerdevilcore.cpp:577
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in \"%1\" is running low, and the device may turn off at any "
+"time. Please recharge or replace the battery."
+msgstr ""
+"Заряд акумулятора у «%1» майже вичерпано, пристрій може припинити роботу "
+"дуже скоро. Будь ласка, замініть або перезарядіть джерело живлення якомога "
+"скоріше."
+
+#: powerdevilcore.cpp:583
+#, kde-format
+msgid "Mouse Battery Low (%1% Remaining)"
+msgstr "Низький рівень заряду акумулятора миші (лишилося %1%)"
+
+#: powerdevilcore.cpp:587
+#, kde-format
+msgid "Keyboard Battery Low (%1% Remaining)"
+msgstr "Низький рівень заряду акумулятора клавіатури (лишилося %1%)"
+
+#: powerdevilcore.cpp:591
+#, kde-format
+msgid "Bluetooth Device Battery Low (%1% Remaining)"
+msgstr "Низький рівень заряду акумулятора пристрою Bluetooth (лишилося %1%)"
+
+#: powerdevilcore.cpp:593
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in Bluetooth device \"%1\" is running low, and the device may "
+"turn off at any time. Please recharge or replace the battery."
+msgstr ""
+"Заряд акумулятора у пристрої Bluetooth «%1» майже вичерпано, пристрій може "
+"припинити роботу дуже скоро. Будь ласка, замініть або перезарядіть джерело "
+"живлення якомога скоріше."
+
+#: powerdevilcore.cpp:639
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, make sure that the "
+"power adapter is plugged in and that it provides enough power."
+msgstr ""
+"Низький рівень заряду акумулятора. Якщо ви хочете продовжувати користуватися "
+"вашим комп’ютером, з'єднайте його із адаптером живлення і переконайтеся, що "
+"джерело живлення дає достатню напругу."
+
+#: powerdevilcore.cpp:641
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, plug it in or shut it "
+"down and change the battery."
+msgstr ""
+"Низький рівень заряду акумулятора. Якщо ви хочете продовжувати користуватися "
+"вашим комп’ютером, увімкніть його до мережі живлення або вимкніть і замініть "
+"акумулятор."
+
+#: powerdevilcore.cpp:658
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: powerdevilcore.cpp:667
+#, kde-format
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
+"вимкнено за 60 секунд."
+
+#: powerdevilcore.cpp:672
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
+"приспано за 60 секунд."
+
+#: powerdevilcore.cpp:677
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
+"вимкнено за 60 секунд."
+
+#: powerdevilcore.cpp:682
+#, kde-format
+msgid "Battery level critical. Please save your work."
+msgstr ""
+"Акумулятори вашого комп’ютера розряджено до критичного рівня, якомога швидше "
+"збережіть результати роботи!"
+
+#: powerdevilcore.cpp:693
+#, kde-format
+msgid "Battery Low (%1% Remaining)"
+msgstr "Низький рівень заряду акумулятора (лишилося %1%)"
+
+#: powerdevilcore.cpp:697
+#, kde-format
+msgid "Battery Critical (%1% Remaining)"
+msgstr "Критичний рівень заряду акумулятора (лишилося %1%)"
+
+#: powerdevilcore.cpp:721
+#, kde-format
+msgid "AC Adapter Plugged In"
+msgstr "З’єднано з джерелом зовнішнього живлення"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "Running on AC power"
+msgstr "Працюємо від мережі живлення"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "The power adapter has been plugged in."
+msgstr "Було увімкнено живлення від мережі."
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "Running on Battery Power"
+msgstr "Працюємо від акумулятора"
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "The power adapter has been unplugged."
+msgstr "Було вимкнено живлення від мережі."
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Charging Complete"
+msgstr "Заряджання завершено"
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Battery now fully charged."
+msgstr "Акумулятор повністю заряджено."
+
+#~ msgid "Can't open file"
+#~ msgstr "Не вдалося відкрити файл"
+
+#~ msgid ""
+#~ "No valid Power Management backend plugins available. A new installation "
+#~ "might solve this problem."
+#~ msgstr ""
+#~ "Не виявлено доступних серверів керування живленням. Повторне їх "
+#~ "встановлення може вирішити цю проблему."
+
+#~ msgid ""
+#~ "Profile \"%1\" has been selected but does not exist.\n"
+#~ "Please check your PowerDevil configuration."
+#~ msgstr ""
+#~ "Було обрано профіль «%1», але такого профілю не існує.\n"
+#~ "Будь ласка, перевірте ваші налаштування PowerDevil."
+
+#~ msgid ""
+#~ "Could not connect to battery interface.\n"
+#~ "Please check your system configuration"
+#~ msgstr ""
+#~ "Не вдалося з’єднатися з інтерфейсом акумуляторів.\n"
+#~ "Будь ласка, перевірте ваші налаштування системи"
+
+#~ msgid ""
+#~ "The KDE Power Management System could not be initialized. The backend "
+#~ "reported the following error: %1\n"
+#~ "Please check your system configuration"
+#~ msgstr ""
+#~ "Не вдалося ініціалізувати систему керування живленням KDE. Сервером "
+#~ "надіслано таке повідомлення про помилку: %1\n"
+#~ "Будь ласка, виправте налаштування вашої системи."
+
+#~ msgid "All pending suspend actions have been canceled."
+#~ msgstr "Всі дії з призупинки з черги було скасовано."
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in your keyboard (\"%1\") is low, and the device may turn "
+#~ "itself off at any time. Please replace or charge the battery as soon as "
+#~ "possible."
+#~ msgstr ""
+#~ "Заряд акумулятора у вашій клавіатурі («%1») майже вичерпано, пристрій "
+#~ "може припинити роботу дуже скоро. Будь ласка, замініть або перезарядіть "
+#~ "джерело живлення якомога скоріше."
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in a connected device (\"%1\") is low, and the device may "
+#~ "turn itself off at any time. Please replace or charge the battery as soon "
+#~ "as possible."
+#~ msgstr ""
+#~ "Заряд акумулятора у з’єднаному з комп’ютером пристрої («%1») майже "
+#~ "вичерпано, пристрій може припинити роботу дуже скоро. Будь ласка, "
+#~ "замініть або перезарядіть джерело живлення якомога скоріше."
+
+#~ msgid ""
+#~ "Your battery level is critical, the computer will be suspended in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер "
+#~ "буде переведено до режиму призупинення роботи за 60 секунд."
+
+#~ msgid "Hybrid suspend"
+#~ msgstr "Гібридне присипляння"
+
+#~ msgid "Suspend"
+#~ msgstr "Призупинити"
+
+#~ msgctxt "@action:inmenu Global shortcut"
+#~ msgid "Sleep"
+#~ msgstr "Призупинити"
+
+#~ msgid ""
+#~ "Your battery capacity is %1%. This means your battery is broken and needs "
+#~ "a replacement. Please contact your hardware vendor for more details."
+#~ msgstr ""
+#~ "Можлива місткість акумулятора знизилася до значення %1%. Це означає, що "
+#~ "акумулятор пошкоджено, його варто замінити. Будь ласка, зверніться до "
+#~ "довідкових даних виробника, щоб дізнатися більше."
+
+#~ msgid ""
+#~ "One of your batteries (ID %2) has a capacity of %1%. This means it is "
+#~ "broken and needs a replacement. Please contact your hardware vendor for "
+#~ "more details."
+#~ msgstr ""
+#~ "Можлива місткість одного з акумуляторів (ідентифікатор %2) знизилася до "
+#~ "значення %1%. Це означає, що акумулятор пошкоджено, його варто замінити. "
+#~ "Будь ласка, зверніться до довідкових даних виробника, щоб дізнатися "
+#~ "більше."
+
+#~ msgid "Broken Battery"
+#~ msgstr "Акумулятор пошкоджено"
+
+#~ msgid ""
+#~ "Your battery might have been recalled by %1. Usually, when vendors recall "
+#~ "the hardware, it is because of factory defects which are usually eligible "
+#~ "for a free repair or substitution. Please check <a href=\"%2\">%1's "
+#~ "website</a> to verify if your battery is faulted."
+#~ msgstr ""
+#~ "Акумулятор було відкликано з ринку %1. Зазвичай причиною відкликання "
+#~ "обладнання є виявлення виробничих дефектів. Дефектне обладнання зазвичай "
+#~ "можна безкоштовно відремонтувати або замінити. Будь ласка, зверніться до "
+#~ "<a href=\"%2\">сайта %1</a>, щоб переконатися, що ваше обладнання справді "
+#~ "є дефектним."
+
+#~ msgid ""
+#~ "One of your batteries (ID %3) might have been recalled by %1. Usually, "
+#~ "when vendors recall the hardware, it is because of factory defects which "
+#~ "are usually eligible for a free repair or substitution. Please check <a "
+#~ "href=\"%2\">%1's website</a> to verify if your battery is faulted."
+#~ msgstr ""
+#~ "Один з акумуляторів (ідентифікатор %3) було відкликано з ринку %1. "
+#~ "Зазвичай причиною відкликання обладнання є виявлення виробничих дефектів. "
+#~ "Дефектне обладнання зазвичай можна безкоштовно відремонтувати або "
+#~ "замінити. Будь ласка, зверніться до <a href=\"%2\">сайта %1</a>, щоб "
+#~ "переконатися, що ваше обладнання справді є дефектним."
+
+#~ msgid "Check Your Battery"
+#~ msgstr "Перевірте акумулятор"
+
+#~ msgid ""
+#~ "Your Power Profiles have been updated to be used with the new KDE Power "
+#~ "Management System. You can tweak them or generate a new set of defaults "
+#~ "from System Settings."
+#~ msgstr ""
+#~ "Ваші профілі керування живленням було оновлено для використання у новій "
+#~ "системі керування живленням KDE. Ви можете змінити їх параметри або "
+#~ "створити новий набір типових профілів за допомогою «Системних параметрів»."

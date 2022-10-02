@@ -1,0 +1,144 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
+#
+# Kishore G <kishore96@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"PO-Revision-Date: 2022-08-23 19:40+0530\n"
+"Last-Translator: Kishore G <kishore96@gmail.com>\n"
+"Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.07.90\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "கோ. கிஷோர்"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Kde-l10n-ta@kde.org"
+
+#: activitypage.cpp:72
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"செயல்பாடுகளுக்கான பின்னணி சேவை, அடிப்படை அம்சங்களுடன் மட்டும் இயங்குகிறது.\n"
+"செயல்பாடுகளின் பெயர்கள் மற்றும் சின்னங்கள் இங்கு காட்டப்படாமல் இருக்கலாம்."
+
+#: activitypage.cpp:146
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"செயல்பாடுகளுக்கான பின்னணி சேவை இயங்கவில்லை.\n"
+"தனிப்பட்ட செயல்பாடுகளுக்கான ஆற்றல் மேலாண் நடத்தையை அமைக்க, இச்சேவை இயங்கிக்கொண்டிருக்க "
+"வேண்டும்."
+
+#: activitypage.cpp:242
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "ஆற்றல் மேலாண்மைக்கான பின்னணி சேவை இயங்குவது போல் தெரியவில்லை."
+
+#: activitywidget.cpp:98
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "தூங்கு"
+
+#: activitywidget.cpp:102
+#, kde-format
+msgid "Hibernate"
+msgstr "ஆழுறங்கு"
+
+#: activitywidget.cpp:104
+#, kde-format
+msgid "Shut down"
+msgstr "கணினியை நிறுத்து"
+
+#: activitywidget.cpp:108
+#, kde-format
+msgid "PC running on AC power"
+msgstr "மின்னூற்றில் செருகப்பட்டிருக்கும்போது"
+
+#: activitywidget.cpp:109
+#, kde-format
+msgid "PC running on battery power"
+msgstr "மின்கல ஆற்றலில் இயங்கும்போது"
+
+#: activitywidget.cpp:110
+#, kde-format
+msgid "PC running on low battery"
+msgstr "மின்கல ஆற்றல் குறைவாயுள்ளபோது"
+
+#: activitywidget.cpp:139
+#, kde-format
+msgctxt "This is meant to be: Act like activity %1"
+msgid "Activity \"%1\""
+msgstr "செயல்பாடு \"%1\""
+
+#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Do not use special settings"
+msgstr "தனிப்பட்ட அமைப்புகள் வேண்டாம்"
+
+#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
+#: activityWidget.ui:31
+#, kde-format
+msgid "Act like"
+msgstr "இதைபோல் நடந்துகொள்:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
+#: activityWidget.ui:60
+#, kde-format
+msgid "Define a special behavior"
+msgstr "தனிப்பட்ட நடத்தையை வரையறு"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
+#: activityWidget.ui:72
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "திரையை ஒருபோதும் அணைக்காதே"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
+#: activityWidget.ui:79
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "கணினியை நிறுத்தாதே, மேலும் தூங்க விடாதே"
+
+#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
+#: activityWidget.ui:91
+#, kde-format
+msgid "Always"
+msgstr "எப்போதும்"
+
+#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
+#: activityWidget.ui:101
+#, kde-format
+msgid "after"
+msgstr ""
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
+#: activityWidget.ui:108
+#, kde-format
+msgid " min"
+msgstr " நிமிடம்"
+
+#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
+#: activityWidget.ui:138
+#, kde-format
+msgid "Use separate settings"
+msgstr "தனிப்பட்ட அமைப்புகளைப் பயன்படுத்து"

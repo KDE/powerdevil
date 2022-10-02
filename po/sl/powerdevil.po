@@ -1,0 +1,662 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrej Mernik <andrejm@ubuntu.si>, 2014, 2015, 2016, 2017.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"PO-Revision-Date: 2022-09-04 08:11+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Generator: Lokalize 22.04.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Andrej Vernekar,Jure Repinc,Andrej Žnidaršič,Klemen Košir,Andrej Mernik,"
+"Matjaž Jeran"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"andrej.vernekar@moj.net,jlp@holodeck1.com,andrej.znidarsic@ubuntu.com,klemen."
+"kosir@gmx.com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
+
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#, kde-format
+msgctxt "Name for powerdevil shortcuts category"
+msgid "Power Management"
+msgstr "Upravljanje z energijo"
+
+#: actions/bundled/brightnesscontrol.cpp:56
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Povečaj svetlost zaslona"
+
+#: actions/bundled/brightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Zmanjšaj svetlost zaslona"
+
+#: actions/bundled/brightnesscontrolconfig.cpp:75
+#, kde-format
+msgctxt "Brightness level, label for the slider"
+msgid "Level"
+msgstr "Svetlost"
+
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/runscriptconfig.cpp:82
+#: actions/bundled/suspendsessionconfig.cpp:86
+#, kde-format
+msgid " min"
+msgstr " min"
+
+#: actions/bundled/dimdisplayconfig.cpp:74
+#: actions/bundled/runscriptconfig.cpp:85
+#: actions/bundled/runscriptconfig.cpp:106
+#, kde-format
+msgid "After"
+msgstr "Po"
+
+#: actions/bundled/dpms.cpp:82
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Turn Off Screen"
+msgstr "Izklopi zaslon"
+
+#: actions/bundled/dpmsconfig.cpp:61
+#, kde-format
+msgid "Switch off after"
+msgstr "Izklopi po"
+
+#: actions/bundled/handlebuttonevents.cpp:62
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Suspend"
+msgstr "V pripravljenost"
+
+#: actions/bundled/handlebuttonevents.cpp:67
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Hibernate"
+msgstr "V mirovanje"
+
+#: actions/bundled/handlebuttonevents.cpp:72
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Power Off"
+msgstr "Izklopi"
+
+#: actions/bundled/handlebuttonevents.cpp:86
+#, kde-format
+msgctxt ""
+"@action:inmenu Global shortcut, used for long presses of the power button"
+msgid "Power Down"
+msgstr "V izklapljanje"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#, kde-format
+msgctxt "Execute action on lid close even when external monitor is connected"
+msgid "Even when an external monitor is connected"
+msgstr "Tudi, če je povezan zunanji zaslon"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#, kde-format
+msgid "Do nothing"
+msgstr "Ne naredi nič"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "V pripravljenosti"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
+#, kde-format
+msgid "Hibernate"
+msgstr "V mirovanje"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:96
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Hibridna pripravljenost"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:107
+#: actions/bundled/suspendsessionconfig.cpp:98
+#, kde-format
+msgid "Shut down"
+msgstr "Izklopi"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:99
+#, kde-format
+msgid "Lock screen"
+msgstr "Zakleni zaslon"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#, kde-format
+msgid "Prompt log out dialog"
+msgstr "Prikaži pogovorno okno za odjavo"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#, kde-format
+msgid "Turn off screen"
+msgstr "Izklopi zaslon"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#, kde-format
+msgid "When laptop lid closed"
+msgstr "Ko je prenosnik zaprt"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#, kde-format
+msgid "When power button pressed"
+msgstr "Ko se pritisne gumb za izklop"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Keyboard Brightness"
+msgstr "Povečaj svetlost tipkovnice"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Keyboard Brightness"
+msgstr "Zmanjšaj svetlost tipkovnice"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Toggle Keyboard Backlight"
+msgstr "Preklopi osvetlitev tipkovnice"
+
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#, kde-format
+msgctxt "@label:slider Brightness level"
+msgid "Level"
+msgstr "Stopnja"
+
+#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/wirelesspowersavingconfig.cpp:75
+#: actions/bundled/wirelesspowersavingconfig.cpp:80
+#: actions/bundled/wirelesspowersavingconfig.cpp:85
+#, kde-format
+msgid "Leave unchanged"
+msgstr "Pusti nespremenjeno"
+
+#: actions/bundled/powerprofileconfig.cpp:92
+#, kde-format
+msgid "Power Save"
+msgstr "Ohranjaj energijo"
+
+#: actions/bundled/powerprofileconfig.cpp:93
+#, kde-format
+msgid "Balanced"
+msgstr "Uravnoteženo"
+
+#: actions/bundled/powerprofileconfig.cpp:94
+#, kde-format
+msgid "Performance"
+msgstr "Zmogljivost"
+
+#: actions/bundled/powerprofileconfig.cpp:109
+#, kde-format
+msgctxt "Switch to power management profile"
+msgid "Switch to:"
+msgstr "Preklopi na:"
+
+#: actions/bundled/runscriptconfig.cpp:71
+#, kde-format
+msgid "Script"
+msgstr "Skript"
+
+#: actions/bundled/runscriptconfig.cpp:83
+#, kde-format
+msgid "On Profile Load"
+msgstr "Ko se profil naloži"
+
+#: actions/bundled/runscriptconfig.cpp:84
+#, kde-format
+msgid "On Profile Unload"
+msgstr "Ko se profil odstrani"
+
+#: actions/bundled/runscriptconfig.cpp:95
+#, kde-format
+msgid "Run script"
+msgstr "Zaženi skript"
+
+#: actions/bundled/suspendsessionconfig.cpp:87
+#, kde-format
+msgid "after "
+msgstr "po "
+
+#: actions/bundled/suspendsessionconfig.cpp:108
+#, kde-format
+msgid "Automatically"
+msgstr "Avtomatsko"
+
+#: actions/bundled/suspendsessionconfig.cpp:115
+#, kde-format
+msgid "While asleep, hibernate after a period of inactivity"
+msgstr ""
+"Ko je v mirovanju, naj gre po določenem času nedejavnosti v stanje "
+"pripravljenosti"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:76
+#: actions/bundled/wirelesspowersavingconfig.cpp:81
+#: actions/bundled/wirelesspowersavingconfig.cpp:86
+#, kde-format
+msgid "Turn off"
+msgstr "Izklopi"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:77
+#: actions/bundled/wirelesspowersavingconfig.cpp:82
+#: actions/bundled/wirelesspowersavingconfig.cpp:87
+#, kde-format
+msgid "Turn on"
+msgstr "Vklopi"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:110
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:111
+#, kde-format
+msgid "Mobile broadband"
+msgstr "Mobilno širokopasovno"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:112
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: backends/upower/login1suspendjob.cpp:79
+#: backends/upower/upowersuspendjob.cpp:69
+#, kde-format
+msgid "Unsupported suspend method"
+msgstr "Nepodprta metoda za prehod v pripravljenost"
+
+#: powerdevilapp.cpp:62
+#, kde-format
+msgid "KDE Power Management System"
+msgstr "Upravljanje z energijo KDE"
+
+#: powerdevilapp.cpp:63
+#, kde-format
+msgctxt "@title"
+msgid ""
+"PowerDevil, an advanced, modular and lightweight power management daemon"
+msgstr ""
+"PowerDevil, napredni, modularni in lahek program upravljanja energije v "
+"ozadju"
+
+#: powerdevilapp.cpp:65
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "(c) 2015-2019 Kai Uwe Broulik"
+
+#: powerdevilapp.cpp:66
+#, kde-format
+msgctxt "@info:credit"
+msgid "Kai Uwe Broulik"
+msgstr "Kai Uwe Broulik"
+
+#: powerdevilapp.cpp:67
+#, kde-format
+msgctxt "@info:credit"
+msgid "Maintainer"
+msgstr "Vzdrževalec"
+
+#: powerdevilapp.cpp:69
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dario Freddi"
+msgstr "Dario Freddi"
+
+#: powerdevilapp.cpp:70
+#, kde-format
+msgctxt "@info:credit"
+msgid "Previous maintainer"
+msgstr "Prejšnji vzdrževalec"
+
+#: powerdevilapp.cpp:160
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Zamenjaj obstoječi pojavek"
+
+#: powerdevilcore.cpp:435 powerdevilcore.cpp:447
+#, kde-format
+msgid "Activity Manager"
+msgstr "Upravljalnik dejavnosti"
+
+#: powerdevilcore.cpp:436
+#, kde-format
+msgid "This activity's policies prevent the system from going to sleep"
+msgstr "Politike te dejavnosti sistemu onemogočajo prehod v pripravljenost"
+
+#: powerdevilcore.cpp:448
+#, kde-format
+msgid "This activity's policies prevent screen power management"
+msgstr ""
+"Politike te dejavnosti sistemu onemogočajo upravljanje z energijo zaslona"
+
+#: powerdevilcore.cpp:511
+#, kde-format
+msgid "Extra Battery Added"
+msgstr "Dodana dodatna baterija"
+
+#: powerdevilcore.cpp:512 powerdevilcore.cpp:722
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Računalnik ne bo več šel v pripravljenost."
+
+#: powerdevilcore.cpp:572
+#, kde-format
+msgctxt "%1 is vendor name, %2 is product name"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: powerdevilcore.cpp:575
+#, kde-format
+msgctxt "The battery in an external device"
+msgid "Device Battery Low (%1% Remaining)"
+msgstr "Nizka raven baterije naprave (%1% preostalo)"
+
+#: powerdevilcore.cpp:577
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in \"%1\" is running low, and the device may turn off at any "
+"time. Please recharge or replace the battery."
+msgstr ""
+"Baterija v \"%1\" je skoraj prazna, zato se lahko naprava kadarkoli izklopi. "
+"Prosim ponovno napolnite ali zamenjajte baterijo."
+
+#: powerdevilcore.cpp:583
+#, kde-format
+msgid "Mouse Battery Low (%1% Remaining)"
+msgstr "Nizka raven baterije miške (%1 % preostalo)"
+
+#: powerdevilcore.cpp:587
+#, kde-format
+msgid "Keyboard Battery Low (%1% Remaining)"
+msgstr "Nizka raven baterije tipkovnice (%1 % preostalo)"
+
+#: powerdevilcore.cpp:591
+#, kde-format
+msgid "Bluetooth Device Battery Low (%1% Remaining)"
+msgstr "Nizka raven baterije Bluetooth (%1% preostalo)"
+
+#: powerdevilcore.cpp:593
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in Bluetooth device \"%1\" is running low, and the device may "
+"turn off at any time. Please recharge or replace the battery."
+msgstr ""
+"Baterija vaše Bloetooth napraje (\"%1\") je skoraj prazna, zato se lahko "
+"kadarkoli izklopi. Prosim onovno napolnite ali zamenjajte baterijo."
+
+#: powerdevilcore.cpp:639
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, make sure that the "
+"power adapter is plugged in and that it provides enough power."
+msgstr ""
+"Baterija je skoraj prazna - da bi še naprej uporabljali vaš računalnik, se "
+"prepričajte, da je priključen na električno napajanje in da vtičnica nudi "
+"dovolj napajanja."
+
+#: powerdevilcore.cpp:641
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, plug it in or shut it "
+"down and change the battery."
+msgstr ""
+"Baterija je skoraj prazna. Če že morate računalnik še naprej uporabljati, ga "
+"priključite na električno napajanje ali pa izklopite in zamenjajte baterijo."
+
+#: powerdevilcore.cpp:658
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Preklic"
+
+#: powerdevilcore.cpp:667
+#, kde-format
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Baterija je dosegla kritično raven. Vaš računalnik se bo čez 60 sekund "
+"izklopil."
+
+#: powerdevilcore.cpp:672
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
+"mirovanje."
+
+#: powerdevilcore.cpp:677
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
+"stanje pripravljenosti."
+
+#: powerdevilcore.cpp:682
+#, kde-format
+msgid "Battery level critical. Please save your work."
+msgstr "Baterija je dosegla kritično raven. Prosim shranite svoje delo."
+
+#: powerdevilcore.cpp:693
+#, kde-format
+msgid "Battery Low (%1% Remaining)"
+msgstr "Nizka raven baterije (%1% preostalo)"
+
+#: powerdevilcore.cpp:697
+#, kde-format
+msgid "Battery Critical (%1% Remaining)"
+msgstr "Kritična raven baterije (%1% preostalo)"
+
+#: powerdevilcore.cpp:721
+#, kde-format
+msgid "AC Adapter Plugged In"
+msgstr "Za napajanje se uporablja električno omrežje"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "Running on AC power"
+msgstr "Priključen na električno napajanje"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "The power adapter has been plugged in."
+msgstr "Priključeno je bilo napajanje iz električnega omrežja."
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "Running on Battery Power"
+msgstr "Za napajanje se uporablja baterija"
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "The power adapter has been unplugged."
+msgstr "Napajanje iz električnega omrežja je bilo prekinjeno."
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Charging Complete"
+msgstr "Polnjenje je zaključeno"
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Battery now fully charged."
+msgstr "Baterija je sedaj povsem polna."
+
+#~ msgid "Can't open file"
+#~ msgstr "Ni mogoče odpreti datoteke"
+
+#, fuzzy
+#~| msgid ""
+#~| "No valid Power Management backend plugins are available. A new "
+#~| "installation might solve this problem."
+#~ msgid ""
+#~ "No valid Power Management backend plugins available. A new installation "
+#~ "might solve this problem."
+#~ msgstr ""
+#~ "Na voljo ni nobenega veljavnega vstavka za upravljanje z energijo. "
+#~ "Ponovna namestitev bi morda lahko razrešila to težavo."
+
+#, fuzzy
+#~| msgid ""
+#~| "The profile \"%1\" has been selected, but it does not exist.\n"
+#~| "Please check your PowerDevil configuration."
+#~ msgid ""
+#~ "Profile \"%1\" has been selected but does not exist.\n"
+#~ "Please check your PowerDevil configuration."
+#~ msgstr ""
+#~ "Izbran je bil profil »%1«, ki pa ne obstaja.\n"
+#~ "Preverite nastavitve programa PowerDevil."
+
+#~ msgid ""
+#~ "Could not connect to battery interface.\n"
+#~ "Please check your system configuration"
+#~ msgstr ""
+#~ "Ni se bilo mogoče povezati z vmesnikom za baterijo.\n"
+#~ "Preverite nastavitve sistema"
+
+#, fuzzy
+#~| msgid ""
+#~| "KDE Power Management System could not be initialized. The backend "
+#~| "reported the following error: %1\n"
+#~| "Please check your system configuration"
+#~ msgid ""
+#~ "The KDE Power Management System could not be initialized. The backend "
+#~ "reported the following error: %1\n"
+#~ "Please check your system configuration"
+#~ msgstr ""
+#~ "Začetnih nastavitev KDE-jevega sistema za upravljanje z energijo ni bilo "
+#~ "mogoče nastaviti. Zaledje je sporočilo naslednjo napako: %1\n"
+#~ "Preverite nastavitve sistema."
+
+#~ msgid "All pending suspend actions have been canceled."
+#~ msgstr "Vsa čakajoča dejanja prehoda v pripravljenost so bila preklicana."
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in your keyboard (\"%1\") is low, and the device may turn "
+#~ "itself off at any time. Please replace or charge the battery as soon as "
+#~ "possible."
+#~ msgstr ""
+#~ "Baterija vaše tipkovnice (»%1«) ima nizko raven napolnjenosti, zato se "
+#~ "lahko slednja kadarkoli izklopi. Zamenjajte ali napolnite baterijo takoj, "
+#~ "ko bo mogoče."
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in a connected device (\"%1\") is low, and the device may "
+#~ "turn itself off at any time. Please replace or charge the battery as soon "
+#~ "as possible."
+#~ msgstr ""
+#~ "Baterija povezane naprave (»%1«) ima nizko raven napolnjenosti, zato se "
+#~ "lahko slednja kadarkoli izklopi. Zamenjajte ali napolnite baterijo takoj, "
+#~ "ko bo mogoče."
+
+#~ msgid ""
+#~ "Your battery level is critical, the computer will be suspended in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
+#~ "pripravljenost."
+
+#~ msgid "Hybrid suspend"
+#~ msgstr "Hibridna pripravljenost"
+
+#~ msgid "Suspend"
+#~ msgstr "V pripravljenost"
+
+#~ msgctxt "@action:inmenu Global shortcut"
+#~ msgid "Sleep"
+#~ msgstr "V pripravljenost"
+
+#~ msgid ""
+#~ "Your battery capacity is %1%. This means your battery is broken and needs "
+#~ "a replacement. Please contact your hardware vendor for more details."
+#~ msgstr ""
+#~ "Zmogljivost vaše baterije je %1 %. To pomeni, da je baterija pokvarjena "
+#~ "in jo je potrebno zamenjati. Za podrobnosti se obrnite na proizvajalca "
+#~ "računalnika."
+
+#~ msgid ""
+#~ "One of your batteries (ID %2) has a capacity of %1%. This means it is "
+#~ "broken and needs a replacement. Please contact your hardware vendor for "
+#~ "more details."
+#~ msgstr ""
+#~ "Zmogljivost ene izmed vaših baterij (ID %2) je %1 %. To pomeni, da je "
+#~ "baterija pokvarjena in jo je potrebno zamenjati. Za podrobnosti se "
+#~ "obrnite na proizvajalca računalnika."
+
+#~ msgid "Broken Battery"
+#~ msgstr "Pokvarjena baterija"
+
+#~ msgid ""
+#~ "Your battery might have been recalled by %1. Usually, when vendors recall "
+#~ "the hardware, it is because of factory defects which are usually eligible "
+#~ "for a free repair or substitution. Please check <a href=\"%2\">%1's "
+#~ "website</a> to verify if your battery is faulted."
+#~ msgstr ""
+#~ "Vašo baterijo je %1 morda odpoklical. Proizvajalci izdelek običajno "
+#~ "odpokličejo zaradi tovarniških napak, kar pomeni, da ste običajno "
+#~ "upravičeni do brezplačnega popravila ali zamenjave. Da preverite, ali ima "
+#~ "vaša baterija napako, si oglejte <a href=\"%2\">spletno stran "
+#~ "proizvajalca %1</a>."
+
+#~ msgid ""
+#~ "One of your batteries (ID %3) might have been recalled by %1. Usually, "
+#~ "when vendors recall the hardware, it is because of factory defects which "
+#~ "are usually eligible for a free repair or substitution. Please check <a "
+#~ "href=\"%2\">%1's website</a> to verify if your battery is faulted."
+#~ msgstr ""
+#~ "Eno izmed vaših baterij (ID %3) je %1 morda odpoklical. Proizvajalci "
+#~ "izdelek običajno odpokličejo zaradi tovarniških napak, kar pomeni, da ste "
+#~ "običajno upravičeni do brezplačnega popravila ali zamenjave. Da "
+#~ "preverite, ali ima vaša baterija napako, si oglejte <a href="
+#~ "\"%2\">spletno stran proizvajalca %1</a>."
+
+#~ msgid "Check Your Battery"
+#~ msgstr "Preverite baterijo"
+
+#~ msgid ""
+#~ "Your Power Profiles have been updated to be used with the new KDE Power "
+#~ "Management System. You can tweak them or generate a new set of defaults "
+#~ "from System Settings."
+#~ msgstr ""
+#~ "Vaši energijski profili so bili posodobljeni za uporabo s KDE-jevim novim "
+#~ "sistemom za upravljanje z energijo. V Sistemskih nastavitvah jih lahko "
+#~ "prilagodite ali pa ustvarite nov nabor privzetih profilov."

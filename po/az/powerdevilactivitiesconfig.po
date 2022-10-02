@@ -1,0 +1,145 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
+#
+# Kheyyam Gojayev <xxmn77@gmail.com>, 2020, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"PO-Revision-Date: 2022-07-03 14:23+0400\n"
+"Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
+"Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Xəyyam Qocayev"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xxmn77@gmail.com"
+
+#: activitypage.cpp:72
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"Aktiv fəaliyyət xidməti ən az funksiya ilə işə düşür.\n"
+"Otağın adı və niçanı əlçatmaz ola bilər."
+
+#: activitypage.cpp:146
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"Otaq xidməti başladılmayıb.\n"
+"Hər otaq üçün enerjiyə nəzarət xidmətinin işə düşməsi üçün bu xidmət "
+"başladılmalıdır."
+
+#: activitypage.cpp:242
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Enerjiyə Nəzarət Xidmətinin işləmədiyi görünür."
+
+#: activitywidget.cpp:98
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Yuxu"
+
+#: activitywidget.cpp:102
+#, kde-format
+msgid "Hibernate"
+msgstr "Gözləmə"
+
+#: activitywidget.cpp:104
+#, kde-format
+msgid "Shut down"
+msgstr "Söndürmək"
+
+#: activitywidget.cpp:108
+#, kde-format
+msgid "PC running on AC power"
+msgstr "Komputer elektrik şəbəkəsindən qidalanır"
+
+#: activitywidget.cpp:109
+#, kde-format
+msgid "PC running on battery power"
+msgstr "Komputer batareyadan qidalanır"
+
+#: activitywidget.cpp:110
+#, kde-format
+msgid "PC running on low battery"
+msgstr "Komputer zəif batareya ilə işləyir"
+
+#: activitywidget.cpp:139
+#, kde-format
+msgctxt "This is meant to be: Act like activity %1"
+msgid "Activity \"%1\""
+msgstr "İş otağı \"%1\""
+
+#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Do not use special settings"
+msgstr "Xüsusi ayarlardan istifadə etməmək"
+
+#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
+#: activityWidget.ui:31
+#, kde-format
+msgid "Act like"
+msgstr "Bu qaydada hərəkət etmək"
+
+#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
+#: activityWidget.ui:60
+#, kde-format
+msgid "Define a special behavior"
+msgstr "Xüsusi davranış təyin etmək"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
+#: activityWidget.ui:72
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "Ekranı heç zaman söndürməmək"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
+#: activityWidget.ui:79
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "Komputeri heç zaman sönməsin və yuxu rejiminə keçməsin"
+
+#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
+#: activityWidget.ui:91
+#, kde-format
+msgid "Always"
+msgstr "Həmişə"
+
+#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
+#: activityWidget.ui:101
+#, kde-format
+msgid "after"
+msgstr "sonra"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
+#: activityWidget.ui:108
+#, kde-format
+msgid " min"
+msgstr " dəq"
+
+#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
+#: activityWidget.ui:138
+#, fuzzy, kde-format
+#| msgid "Use separate settings (advanced users only)"
+msgid "Use separate settings"
+msgstr "Ayrı ayarları istifadə etmək (yalnız təcrübəli istifadəçilər üçün)"

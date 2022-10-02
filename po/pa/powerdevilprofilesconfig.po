@@ -1,0 +1,140 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# A S Alam <aalam@users.sf.net>, 2010, 2011, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"PO-Revision-Date: 2020-10-10 22:20-0700\n"
+"Last-Translator: A S Alam <aalam.yellow@gmail.com>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 19.12.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: EditPage.cpp:191
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"KDE ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਸਿਸਟਮ ਹੁਣ ਤੁਹਾਡੀ ਕੰਪਿਊਟਰ ਦੀ ਸਮੱਰਥਾ ਮੁਤਾਬਕ ਡਿਫਾਲਟ ਸੈੱਟ ਤਿਆਰ ਕਰੇਗਾ। ਇਸ "
+"ਨਾਲ ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਸਾਫ਼ ਕਰ ਦਿੱਤੇ ਜਾਣਗੇ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#: EditPage.cpp:194
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "ਡਿਫਾਲਟ ਪਰੋਫਾਈਲ ਰੀ-ਸਟੋਰ ਕਰੋ["
+
+#: EditPage.cpp:271
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "AC ਉੱਤੇ"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "ਬੈਟਰੀ ਉੱਤੇ"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "ਘੱਟ ਬੈਟਰੀ"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "ਪਾਵਰ ਮੈਨੇਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।\n"
+#~ "ਇਸ ਨੂੰ ਸ਼ੁਰੂ ਕਰਕੇ ਜਾਂ \"ਸਟਾਰਟਅੱਪ ਅਤੇ ਸੱਟਡਾਊਨ\" ਵਿੱਚ ਸੈਡਿਊਲ ਕਰਕੇ ਹੱਲ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "ਪਾਵਰ ਪਰੋਫਾਈਲ ਸੰਰਚਨਾ"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "KDE ਪਾਵਰ ਪਰਬੰਧ ਸਿਸਟਮ ਲਈ ਪਰੋਫਾਈਲ ਸੰਰਚਨਾ"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "ਇਹ ਮੋਡੀਊਲ ਨਾਲ ਤੁਸੀਂ KDE ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਸਿਸਟਮ ਦੇ ਪਾਵਰ ਪਰੋਫਾਈਲ ਦਾ ਪਰਬੰਧ ਕਰ ਸਕਦੇ ਹੋ, ਕਿਸੇ "
+#~ "ਨੂੰ ਸੋਧ ਸਕਦੇ ਹੋ ਜਾਂ ਨਵੇਂ ਵੀ ਬਣਾ ਸਕਦੇ ਹੋ।ਸਕਦੇ ਹੋ ਜਾਂ ਨਵੇਂ ਵੀ ਬਣਾ ਸਕਦੇ ਹਓਇਹ ਮੋਡੀਊਲ ਨਾਲ ਤੁਸੀਂ "
+#~ "KDE ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਸਿਸਟਮ ਦੇ ਪਾਵਰ ਪਰੋਫਾਈਲ ਦਾ ਪਰਬੰਧ ਕਰ ਸਕਦੇ ਹੋ, ਇੱਕ ਜਾਂ ਵੱਇਹ ਮੋਡੀਊਲ ਲਈ, ਤੁ"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "ਡਾਈਰੋ ਫਰਿੱਡੀ"
+
+#~ msgid "Maintainer"
+#~ msgstr "ਪਰਬੰਧਕ"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "ਨਵੇਂ ਪਰੋਫਾਈਲ ਲਈ ਇੱਕ ਨਾਂ ਦਿਓ ਜੀ:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "ਨਵੇਂ ਪਰੋਫਾਈਲ ਲਈ ਨਾਂ"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "ਬਣਾਉਣ ਵਾਲੇ ਪਰੋਫਾਈਲ ਲਈ ਨਾਂ ਇੱਥੇ ਦਿਓ"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "ਇਸ ਪਰੋਫਾਈਲ ਲਈ ਇੱਕ ਨਾਂ ਦਿਓ ਜੀ:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "ਪਾਵਰ ਪਰਬੰਧ ਪਰੋਫਾਈਲ ਇੰਪੋਰਟ"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "ਪਾਵਰ ਪਰਬੰਧ ਪਰੋਫਾਈਲ ਐਕਸਪੋਰਟ"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "ਮੌਜੂਦਾ ਪਰੋਫਾਈਲ ਸੰਭਾਲਿਆ ਨਹੀਂ ਗਿਆ ਹੈ।\n"
+#~ "ਕੀ ਤੁਸੀਂ ਸੰਭਾਲਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Save Profile"
+#~ msgstr "ਪਰੋਫਾਈਲ ਸੰਭਾਲੋ"
+
+#~ msgid "New Profile"
+#~ msgstr "ਨਵਾਂ ਪਰੋਫਾਈਲ"
+
+#~ msgid "Delete Profile"
+#~ msgstr "ਪਰੋਫਾਈਲ ਹਟਾਓ"
+
+#~ msgid "Import Profiles"
+#~ msgstr "ਪਰੋਫਾਈਲ ਇੰਪੋਰਟ"
+
+#~ msgid "Export Profiles"
+#~ msgstr "ਪਰੋਫਾਈਲ ਐਕਸਪੋਰਟ"
+
+#~ msgid "Edit Profile"
+#~ msgstr "ਪਰੋਫਾਈਲ ਸੋਧ"

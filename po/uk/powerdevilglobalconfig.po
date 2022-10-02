@@ -1,0 +1,233 @@
+# Translation of powerdevilglobalconfig.po to Ukrainian
+# Copyright (C) 2010-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilglobalconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"PO-Revision-Date: 2021-05-26 08:58+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: GeneralPage.cpp:108
+#, kde-format
+msgid "Do nothing"
+msgstr "Нічого не робити"
+
+#: GeneralPage.cpp:110
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Призупинити"
+
+#: GeneralPage.cpp:113
+#, kde-format
+msgid "Hibernate"
+msgstr "Приспати"
+
+#: GeneralPage.cpp:115
+#, kde-format
+msgid "Shut down"
+msgstr "Вимкнути"
+
+#: GeneralPage.cpp:264
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Здається, службу керування живленням не запущено."
+
+#. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
+#: generalPage.ui:22
+#, kde-format
+msgid "<b>Battery Levels                     </b>"
+msgstr "<b>Заряд акумуляторів</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, lowLabel)
+#: generalPage.ui:29
+#, kde-format
+msgid "&Low level:"
+msgstr "&Низький рівень:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
+#: generalPage.ui:39
+#, kde-format
+msgid "Low battery level"
+msgstr "Рівень низького заряду"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
+#: generalPage.ui:42
+#, kde-format
+msgid "Battery will be considered low when it reaches this level"
+msgstr ""
+"Вважатиметься, що рівень заряду акумулятора низький, коли він досягне цього "
+"рівня"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowPeripheralSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStartThresholdSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStopThresholdSpin)
+#: generalPage.ui:45 generalPage.ui:71 generalPage.ui:114 generalPage.ui:167
+#: generalPage.ui:230
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, criticalLabel)
+#: generalPage.ui:55
+#, kde-format
+msgid "&Critical level:"
+msgstr "&Критичний рівень:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:65
+#, kde-format
+msgid "Critical battery level"
+msgstr "Критичний рівень заряду"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:68
+#, kde-format
+msgid "Battery will be considered critical when it reaches this level"
+msgstr ""
+"Вважатиметься, що рівень заряду акумулятора критично низький, коли він "
+"досягне цього рівня"
+
+#. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
+#: generalPage.ui:81
+#, kde-format
+msgid "A&t critical level:"
+msgstr "З&а критичного рівня:"
+
+#. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
+#: generalPage.ui:107
+#, kde-format
+msgid "Low level for peripheral devices:"
+msgstr "Низький рівень для периферійних пристроїв:"
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
+#: generalPage.ui:130
+#, kde-format
+msgid "Charge Limit"
+msgstr "Обмеження заряджання"
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
+#: generalPage.ui:137
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>Keeping the battery charged 100% over a prolonged "
+"period of time may accelerate deterioration of battery health. By limiting "
+"the maximum battery charge you can help extend the battery lifespan.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Підтримання заряду акумулятора на рів 100% протягом "
+"тривалого часу може прискорити деградацію акумулятора. Обмеживши "
+"максимальний заряд акумулятора, ви можете продовжити його строк експлуатації."
+"</p></body></html>"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
+#: generalPage.ui:147
+#, kde-format
+msgid ""
+"You might have to disconnect and re-connect the power source to start "
+"charging the battery again."
+msgstr ""
+"Ймовірно, вам слід від'єднати акумулятор від джерела живлення і з'єднати "
+"його знову, щоб розпочати заряджання акумулятора знову."
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
+#: generalPage.ui:157
+#, kde-format
+msgid "Start charging only once below:"
+msgstr "Почати заряджання, лише коли нижче за:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
+#: generalPage.ui:164
+#, kde-format
+msgid "Always charge when plugged in"
+msgstr "Завжди заряджати, якщо увімкнено у мережу"
+
+#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
+#: generalPage.ui:177
+#, kde-format
+msgid "Pause media players when suspending:"
+msgstr "Призупинення відтворення при призупиненні роботи системи:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
+#: generalPage.ui:184
+#, kde-format
+msgid "Enabled"
+msgstr "Увімкнено"
+
+#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
+#: generalPage.ui:203
+#, kde-format
+msgid "Configure Notifications…"
+msgstr "Налаштувати сповіщення…"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: generalPage.ui:216
+#, kde-format
+msgid "Other Settings"
+msgstr "Інші параметри"
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
+#: generalPage.ui:223
+#, kde-format
+msgid "Stop charging at:"
+msgstr "Припиняти заряджання на:"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Здається, службу керування живленням не запущено.\n"
+#~ "Цю проблему можна вирішити запуском служби або додаванням служби до "
+#~ "списку запуску у модулі «Запуск і вихід»"
+
+#~ msgid "Suspend"
+#~ msgstr "Призупинити"
+
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Події</b>"
+
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr ""
+#~ "Якщо позначено цей пункт, програми не зможуть забороняти системі "
+#~ "переходити у стан сну після складання ноутбука"
+
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Не перешкоджати присиплянню після складання"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Блокує екран після пробудження системи від сну"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr ""
+#~ "Під час повернення комп’ютера зі стану сну вам слід буде ввести пароль"
+
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "За&блокувати екран після відновлення"

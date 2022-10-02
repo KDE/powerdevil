@@ -1,0 +1,143 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Serdar Soytetir, 2010, 2012.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"PO-Revision-Date: 2022-03-12 19:09+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Serdar Soytetir"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tulliana@gmail.com"
+
+#: EditPage.cpp:191
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"KDE Güç Yönetimi Sistemi şimdi bilgisayarınızın yeteneklerine göre öntanımlı "
+"profilleri oluşturacak ve yapmış olduğunuz değişiklikleri silecektir. "
+"Sürdürmek istediğinize emin misiniz?"
+
+#: EditPage.cpp:194
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Öntanımlı Profilleri Geri Yükle"
+
+#: EditPage.cpp:271
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Güç Yönetimi Hizmeki çalışıyor gibi görünmüyor."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "Fişe Takılıyken"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "Pille Çalışırken"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "Düşük Pil ile Çalışırken"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Güç Yönetimi Sistemi çalışmıyor gibi görünüyor.\n"
+#~ "Bu durum Sistem Ayarlarındaki \"Başlatma ve Kapatma\" ayarlarından "
+#~ "başlatılarak ya da zamanlama ayarlanarak çözülebilir"
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Güç Profili Yapılandırmaları"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "KDE Güç Yönetimi Sistemi için bir profil yapılandırma aracı"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Bu modülden KDE Güç Yönetimi Sisteminin güç profillerini "
+#~ "yönetebilirsiniz. Var olan profillere ince ayar yapabilirsiniz veya yeni "
+#~ "profiller oluşturabilirsiniz. yariiniz"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Projeyi Yürüten"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Lütfen yeni profil için bir isim girin:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Yeni profilin adı"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Oluşturduğunuz profilin adını buraya girin"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Lütfen bu profil için bir isim girin:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Güç Yönetimi Profillerini İçeriye Aktar"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Güç Yönetimi Profillerini Dışarıya Aktar"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Geçerli profil kaydedilmedi.\n"
+#~ " Kaydetmek istiyor musunuz?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Profili Kaydet"
+
+#~ msgid "New Profile"
+#~ msgstr "Yeni Profil"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Profili Sil"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Profilleri İçeriye Aktar"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Profilleri Dışarıya Aktar"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Profili Düzenle"

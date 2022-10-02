@@ -1,0 +1,154 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
+#
+# enolp <enolp@softastur.org>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"PO-Revision-Date: 2020-02-27 19:44+0100\n"
+"Last-Translator: enolp <enolp@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"Language: ast\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.12.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Softastur"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alministradores@softastur.org"
+
+#: activitypage.cpp:72
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"El serviciu d'actividaes ta executándose coles funcionalidaes mínimes.\n"
+"Los nomes ya iconos de les actividaes quiciabes nun tean disponibles."
+
+#: activitypage.cpp:146
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"El serviciu d'actividaes nun ta n'execución.\n"
+"Ye preciso que lu tengas n'execución pa configurar el comportamientu de la "
+"xestión enerxética d'actividaes específiques."
+
+#: activitypage.cpp:242
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#: activitywidget.cpp:98
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Dormir"
+
+#: activitywidget.cpp:102
+#, kde-format
+msgid "Hibernate"
+msgstr "Ivernar"
+
+#: activitywidget.cpp:104
+#, kde-format
+msgid "Shut down"
+msgstr "Apagar"
+
+#: activitywidget.cpp:108
+#, kde-format
+msgid "PC running on AC power"
+msgstr ""
+
+#: activitywidget.cpp:109
+#, kde-format
+msgid "PC running on battery power"
+msgstr ""
+
+#: activitywidget.cpp:110
+#, kde-format
+msgid "PC running on low battery"
+msgstr ""
+
+#: activitywidget.cpp:139
+#, kde-format
+msgctxt "This is meant to be: Act like activity %1"
+msgid "Activity \"%1\""
+msgstr "Actividá «%1»"
+
+#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Do not use special settings"
+msgstr "Nun usar axustes especiales"
+
+#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
+#: activityWidget.ui:31
+#, kde-format
+msgid "Act like"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
+#: activityWidget.ui:60
+#, kde-format
+msgid "Define a special behavior"
+msgstr "Definir un comportamientu especial"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
+#: activityWidget.ui:72
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "Enxamás apagar la pantalla"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
+#: activityWidget.ui:79
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "Enxamás apagar l'ordenador o dexar que se duerma"
+
+#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
+#: activityWidget.ui:91
+#, kde-format
+msgid "Always"
+msgstr "Siempres"
+
+#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
+#: activityWidget.ui:101
+#, kde-format
+msgid "after"
+msgstr "dempués de"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
+#: activityWidget.ui:108
+#, kde-format
+msgid " min"
+msgstr " min"
+
+#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
+#: activityWidget.ui:138
+#, fuzzy, kde-format
+#| msgid "Use separate settings (advanced users only)"
+msgid "Use separate settings"
+msgstr "Usar axustes separtaos (namás usuarios avanzaos)"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "El serviciu de la xestión enerxética nun paez tar n'execución.\n"
+#~ "Esto pue solucionase aniciándolu o programándolu dientro d'« Aniciu y "
+#~ "apagáu»"

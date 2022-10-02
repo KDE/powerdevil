@@ -1,0 +1,260 @@
+# Bosnian translation for kdebase-workspace
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the kdebase-workspace package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdebase-workspace\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"PO-Revision-Date: 2013-10-18 20:27+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 16807)\n"
+"X-Launchpad-Export-Date: 2013-10-19 05:21+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Samir Ribić"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "samir.ribic@etf.unsa.ba"
+
+#: GeneralPage.cpp:108
+#, kde-format
+msgid "Do nothing"
+msgstr "Ne radi ništa"
+
+#: GeneralPage.cpp:110
+#, fuzzy, kde-format
+#| msgid "Sleep"
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Spavaj"
+
+#: GeneralPage.cpp:113
+#, kde-format
+msgid "Hibernate"
+msgstr "Hibernacija"
+
+#: GeneralPage.cpp:115
+#, fuzzy, kde-format
+#| msgid "Shutdown"
+msgid "Shut down"
+msgstr "Gašenje"
+
+#: GeneralPage.cpp:264
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
+#: generalPage.ui:22
+#, fuzzy, kde-format
+#| msgid "<b>Battery levels</b>"
+msgid "<b>Battery Levels                     </b>"
+msgstr "<b>Nivoi baterije</b>"
+
+#. i18n: ectx: property (text), widget (QLabel, lowLabel)
+#: generalPage.ui:29
+#, fuzzy, kde-format
+#| msgid "Low battery level"
+msgid "&Low level:"
+msgstr "Nizak nivo baterije"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
+#: generalPage.ui:39
+#, kde-format
+msgid "Low battery level"
+msgstr "Nizak nivo baterije"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
+#: generalPage.ui:42
+#, kde-format
+msgid "Battery will be considered low when it reaches this level"
+msgstr "Uzima se da je baterija nisko kada dosegne ovaj nivo."
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowPeripheralSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStartThresholdSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStopThresholdSpin)
+#: generalPage.ui:45 generalPage.ui:71 generalPage.ui:114 generalPage.ui:167
+#: generalPage.ui:230
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, criticalLabel)
+#: generalPage.ui:55
+#, fuzzy, kde-format
+#| msgid "Critical battery level"
+msgid "&Critical level:"
+msgstr "Kritični nivo baterije"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:65
+#, kde-format
+msgid "Critical battery level"
+msgstr "Kritični nivo baterije"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:68
+#, kde-format
+msgid "Battery will be considered critical when it reaches this level"
+msgstr "Uzima se da je baterija kritična kada dosegne ovaj nivo."
+
+#. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
+#: generalPage.ui:81
+#, fuzzy, kde-format
+#| msgid "Battery is at critical level at"
+msgid "A&t critical level:"
+msgstr "Baterija je kritična na"
+
+#. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
+#: generalPage.ui:107
+#, kde-format
+msgid "Low level for peripheral devices:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
+#: generalPage.ui:130
+#, kde-format
+msgid "Charge Limit"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
+#: generalPage.ui:137
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>Keeping the battery charged 100% over a prolonged "
+"period of time may accelerate deterioration of battery health. By limiting "
+"the maximum battery charge you can help extend the battery lifespan.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
+#: generalPage.ui:147
+#, kde-format
+msgid ""
+"You might have to disconnect and re-connect the power source to start "
+"charging the battery again."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
+#: generalPage.ui:157
+#, kde-format
+msgid "Start charging only once below:"
+msgstr ""
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
+#: generalPage.ui:164
+#, kde-format
+msgid "Always charge when plugged in"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
+#: generalPage.ui:177
+#, kde-format
+msgid "Pause media players when suspending:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
+#: generalPage.ui:184
+#, kde-format
+msgid "Enabled"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
+#: generalPage.ui:203
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
+msgid "Configure Notifications…"
+msgstr "Podesi obavještenja..."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: generalPage.ui:216
+#, kde-format
+msgid "Other Settings"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
+#: generalPage.ui:223
+#, kde-format
+msgid "Stop charging at:"
+msgstr ""
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Usluga upravljanja napajanjem izgleda da ne radi\n"
+#~ "To se može riješiti pokretanjem ili raspoređivanjem unutar \"Pokretanje i "
+#~ "gašenje\""
+
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Događaji</b>"
+
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr ""
+#~ "Kada je ova opcija odabrana, aplikacijama neće biti dopušteni da spriječe "
+#~ "spavanje pri zatvaranju poklopca"
+
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Ne sprečavaj akciju pri zatvaranju poklopca"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Zaključava ekran pri buđenju iz suspenzije."
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "Biće vam zatražena lozinka pri vraćanju iz stanja spavanja."
+
+#, fuzzy
+#~| msgid "Lock screen on resume"
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "Zaključaj ekran po nastavljanju"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "Baterija je nisko na"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "Kada je baterija na kritičnom nivou"
+
+#~ msgid "Global Power Management Configuration"
+#~ msgstr "Konfiguracija opšteg upravljanja napajanjem"
+
+#~ msgid ""
+#~ "A global power management configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "Konfiguracija opšteg upravljanja napajanjem za KDE Power Management System"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can configure the main Power Management daemon, "
+#~ "assign profiles to states, and do some advanced fine tuning on battery "
+#~ "handling"
+#~ msgstr ""
+#~ "Iz ovog modula, možete da konfigurišete glavni demon za upravljanje "
+#~ "napajanjem, dodijelite profili stanjima, kao i neka napredna fino "
+#~ "podešavanje na rukovanju baterijom."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Održava"

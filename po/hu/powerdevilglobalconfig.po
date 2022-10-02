@@ -1,0 +1,309 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011, 2012, 2014, 2015, 2019.
+# Kiszel Kristóf <kiszel.kristof@gmail.com>, 2017, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"PO-Revision-Date: 2021-09-02 08:58+0200\n"
+"Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kiszel.kristof@gmail.com"
+
+#: GeneralPage.cpp:108
+#, kde-format
+msgid "Do nothing"
+msgstr "Ne tegyen semmit"
+
+#: GeneralPage.cpp:110
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Alvó állapot"
+
+#: GeneralPage.cpp:113
+#, kde-format
+msgid "Hibernate"
+msgstr "Hibernálás"
+
+#: GeneralPage.cpp:115
+#, kde-format
+msgid "Shut down"
+msgstr "Leállítás"
+
+#: GeneralPage.cpp:264
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Az energiakezelő szolgáltatás úgy tűnik, nem fut."
+
+#. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
+#: generalPage.ui:22
+#, kde-format
+msgid "<b>Battery Levels                     </b>"
+msgstr "<b>Akkumulátorszintek                     </b>"
+
+#. i18n: ectx: property (text), widget (QLabel, lowLabel)
+#: generalPage.ui:29
+#, kde-format
+msgid "&Low level:"
+msgstr "A&lacsony szint:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
+#: generalPage.ui:39
+#, kde-format
+msgid "Low battery level"
+msgstr "Alacsony akkumulátorszint"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
+#: generalPage.ui:42
+#, kde-format
+msgid "Battery will be considered low when it reaches this level"
+msgstr ""
+"Az akkumulátor alacsony szintűvé lesz nyilvánítva ha eléri ezt a szintet"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowPeripheralSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStartThresholdSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStopThresholdSpin)
+#: generalPage.ui:45 generalPage.ui:71 generalPage.ui:114 generalPage.ui:167
+#: generalPage.ui:230
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, criticalLabel)
+#: generalPage.ui:55
+#, kde-format
+msgid "&Critical level:"
+msgstr "&Kritikus szint:"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:65
+#, kde-format
+msgid "Critical battery level"
+msgstr "Kritikus akkumulátorszint"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:68
+#, kde-format
+msgid "Battery will be considered critical when it reaches this level"
+msgstr ""
+"Az akkumulátor kritikus állapotúvá lesz nyilvánítva, ha eléri ezt a szintet"
+
+#. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
+#: generalPage.ui:81
+#, kde-format
+msgid "A&t critical level:"
+msgstr "Kri&tikus szinten:"
+
+#. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
+#: generalPage.ui:107
+#, kde-format
+msgid "Low level for peripheral devices:"
+msgstr "Csatlakoztatott eszközök alacsony szintjénél:"
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
+#: generalPage.ui:130
+#, kde-format
+msgid "Charge Limit"
+msgstr "Töltési korlát"
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
+#: generalPage.ui:137
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>Keeping the battery charged 100% over a prolonged "
+"period of time may accelerate deterioration of battery health. By limiting "
+"the maximum battery charge you can help extend the battery lifespan.</p></"
+"body></html>"
+msgstr ""
+"<html><head/><body><p>Az akkumulátor töltöttségének hosszabb ideig 100%-on "
+"tartása felgyorsathatja az állapotának romlását. A töltöttségi szint "
+"korlátozásával növelheti az akkumulátor élettartamát.</p></body></html>"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
+#: generalPage.ui:147
+#, kde-format
+msgid ""
+"You might have to disconnect and re-connect the power source to start "
+"charging the battery again."
+msgstr ""
+"Előfordulhat, hogy ki kell húznia és újra csatlakoztatnia az áramforrást az "
+"akkumulátor töltésének elindításához."
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
+#: generalPage.ui:157
+#, kde-format
+msgid "Start charging only once below:"
+msgstr "Töltés akkor, ha ez alá esik:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
+#: generalPage.ui:164
+#, kde-format
+msgid "Always charge when plugged in"
+msgstr "Mindig töltse, ha csatlakoztatva van"
+
+#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
+#: generalPage.ui:177
+#, kde-format
+msgid "Pause media players when suspending:"
+msgstr "Médialejátszók leállítása felfüggesztéskor:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
+#: generalPage.ui:184
+#, kde-format
+msgid "Enabled"
+msgstr "Bekapcsolva"
+
+#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
+#: generalPage.ui:203
+#, kde-format
+msgid "Configure Notifications…"
+msgstr "Az értesítések beállítása…"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: generalPage.ui:216
+#, kde-format
+msgid "Other Settings"
+msgstr "Egyéb beállítások"
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
+#: generalPage.ui:223
+#, kde-format
+msgid "Stop charging at:"
+msgstr "Töltés leállítása:"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Úgy tűnik, hogy az energiakezelő szolgáltatás nem fut.\n"
+#~ "Ez megoldható a szolgáltatás elindításával vagy ütemezésével a "
+#~ "Rendszerbeállítások „Indulás és leállítás” moduljában."
+
+#~ msgid "Suspend"
+#~ msgstr "Felfüggesztés"
+
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Események</b>"
+
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr ""
+#~ "Ha ez a beállítás ki van jelölve, az alkalmazások nem akadályozhatják meg "
+#~ "a felfüggesztést a fedél lezárásakor"
+
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Soha ne akadályozzon meg egy műveletet a fedél lezárásakor"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Képernyő zárolása felfüggesztésből való visszatéréskor"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr ""
+#~ "A program kérni fogja a jelszót, mikor visszatér felfüggesztett állapotból"
+
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "&Képernyő zárolása folytatáskor"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "Alacsony akkumulátorszint:"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "Ha az akkumulátorszint kritikus"
+
+#~ msgid "Global Power Management Configuration"
+#~ msgstr "Globális energiakezelési beállítások"
+
+#~ msgid ""
+#~ "A global power management configurator for KDE Power Management System"
+#~ msgstr "Globális energiakezelés-beállító a KDE Energiakezelő rendszeréhez"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(C) Dario Freddi, 2010."
+
+#~ msgid ""
+#~ "From this module, you can configure the main Power Management daemon, "
+#~ "assign profiles to states, and do some advanced fine tuning on battery "
+#~ "handling"
+#~ msgstr ""
+#~ "Ebben a modulban beállíthatja a fő energiakezelő szolgáltatás, profilokat "
+#~ "rendelhet állapotokhoz, és elvégezhet néhány speciális beállítást az "
+#~ "akkumulátorkezelésen."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Karbantartó"
+
+#~ msgid "Settings and Profile"
+#~ msgstr "Beállítások és profilok"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Profile Assignment</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Profilkiosztás</span></p></body></html>"
+
+#~ msgid "When AC Adaptor is plugged in"
+#~ msgstr "Mikor a hálózati csatlakozó csatlakoztatva van"
+
+#~ msgid "When AC Adaptor is unplugged"
+#~ msgstr "Mikor a hálózati csatlakozó nincs csatlakoztatva"
+
+#~ msgid "When battery is at warning level"
+#~ msgstr "Ha az akkumulátor eléri a figyelmeztetési szintet"
+
+#~ msgid "When battery remaining is critical"
+#~ msgstr "Ha a lemerülés kritikus szintű"
+
+#~ msgid "Battery is at warning level at"
+#~ msgstr "Figyelmeztetési szint:"
+
+#~ msgid "Warning battery level"
+#~ msgstr "Figyelmeztetési szint"
+
+#~ msgid ""
+#~ "Battery will be considered at warning level when it reaches this level"
+#~ msgstr ""
+#~ "Az akkumulátor figyelmeztetsi szintűvé lesz nyilvánítva ha eléri ezt a "
+#~ "szintet"

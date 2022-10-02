@@ -1,0 +1,642 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"PO-Revision-Date: 2022-09-23 09:15+0200\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 22.04.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#, kde-format
+msgctxt "Name for powerdevil shortcuts category"
+msgid "Power Management"
+msgstr "Zarządzanie energią"
+
+#: actions/bundled/brightnesscontrol.cpp:56
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Zwiększ jasność ekranu"
+
+#: actions/bundled/brightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Zmniejsz jasność ekranu"
+
+#: actions/bundled/brightnesscontrolconfig.cpp:75
+#, kde-format
+msgctxt "Brightness level, label for the slider"
+msgid "Level"
+msgstr "Poziom"
+
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/runscriptconfig.cpp:82
+#: actions/bundled/suspendsessionconfig.cpp:86
+#, kde-format
+msgid " min"
+msgstr " min"
+
+#: actions/bundled/dimdisplayconfig.cpp:74
+#: actions/bundled/runscriptconfig.cpp:85
+#: actions/bundled/runscriptconfig.cpp:106
+#, kde-format
+msgid "After"
+msgstr "Po"
+
+#: actions/bundled/dpms.cpp:82
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Turn Off Screen"
+msgstr "Wyłącz ekran"
+
+#: actions/bundled/dpmsconfig.cpp:61
+#, kde-format
+msgid "Switch off after"
+msgstr "Wyłącz po"
+
+#: actions/bundled/handlebuttonevents.cpp:62
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Suspend"
+msgstr "Uśpij"
+
+#: actions/bundled/handlebuttonevents.cpp:67
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Hibernate"
+msgstr "Hibernuj"
+
+#: actions/bundled/handlebuttonevents.cpp:72
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Power Off"
+msgstr "Wyłącz"
+
+#: actions/bundled/handlebuttonevents.cpp:86
+#, kde-format
+msgctxt ""
+"@action:inmenu Global shortcut, used for long presses of the power button"
+msgid "Power Down"
+msgstr "Wyłącz"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#, kde-format
+msgctxt "Execute action on lid close even when external monitor is connected"
+msgid "Even when an external monitor is connected"
+msgstr "Nawet wtedy, gdy podłączony jest zewnętrzny monitor"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#, kde-format
+msgid "Do nothing"
+msgstr "Nic nie rób"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Uśpij"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
+#, kde-format
+msgid "Hibernate"
+msgstr "Hibernuj"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:96
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Hybrydowe uśpienie"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:107
+#: actions/bundled/suspendsessionconfig.cpp:98
+#, kde-format
+msgid "Shut down"
+msgstr "Wyłącz"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:99
+#, kde-format
+msgid "Lock screen"
+msgstr "Zablokuj ekran"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#, kde-format
+msgid "Prompt log out dialog"
+msgstr "Zapytaj czy wylogować"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#, kde-format
+msgid "Turn off screen"
+msgstr "Wyłącz ekran"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#, kde-format
+msgid "When laptop lid closed"
+msgstr "Po zamknięciu pokrywy laptopa"
+
+#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#, kde-format
+msgid "When power button pressed"
+msgstr "Po naciśnięciu przycisku włączania"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Keyboard Brightness"
+msgstr "Zwiększ jasność klawiatury"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Keyboard Brightness"
+msgstr "Zmniejsz jasność klawiatury"
+
+#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Toggle Keyboard Backlight"
+msgstr "Przełącz podświetlenie klawiatury"
+
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#, kde-format
+msgctxt "@label:slider Brightness level"
+msgid "Level"
+msgstr "Poziom"
+
+#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/wirelesspowersavingconfig.cpp:75
+#: actions/bundled/wirelesspowersavingconfig.cpp:80
+#: actions/bundled/wirelesspowersavingconfig.cpp:85
+#, kde-format
+msgid "Leave unchanged"
+msgstr "Pozostaw bez zmian"
+
+#: actions/bundled/powerprofileconfig.cpp:92
+#, kde-format
+msgid "Power Save"
+msgstr "Oszczędzanie energii"
+
+#: actions/bundled/powerprofileconfig.cpp:93
+#, kde-format
+msgid "Balanced"
+msgstr "Zrównoważony"
+
+#: actions/bundled/powerprofileconfig.cpp:94
+#, kde-format
+msgid "Performance"
+msgstr "Wydajność"
+
+#: actions/bundled/powerprofileconfig.cpp:109
+#, kde-format
+msgctxt "Switch to power management profile"
+msgid "Switch to:"
+msgstr "Przełącz na:"
+
+#: actions/bundled/runscriptconfig.cpp:71
+#, kde-format
+msgid "Script"
+msgstr "Skrypt"
+
+#: actions/bundled/runscriptconfig.cpp:83
+#, kde-format
+msgid "On Profile Load"
+msgstr "Przy wczytaniu profilu"
+
+#: actions/bundled/runscriptconfig.cpp:84
+#, kde-format
+msgid "On Profile Unload"
+msgstr "Przy usuwaniu profilu"
+
+#: actions/bundled/runscriptconfig.cpp:95
+#, kde-format
+msgid "Run script"
+msgstr "Wykonaj skrypt"
+
+#: actions/bundled/suspendsessionconfig.cpp:87
+#, kde-format
+msgid "after "
+msgstr "po "
+
+#: actions/bundled/suspendsessionconfig.cpp:108
+#, kde-format
+msgid "Automatically"
+msgstr "Samoczynnie"
+
+#: actions/bundled/suspendsessionconfig.cpp:115
+#, kde-format
+msgid "While asleep, hibernate after a period of inactivity"
+msgstr "Gdy w uśpieniu, to zahibernuj po okresie bezczynności"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:76
+#: actions/bundled/wirelesspowersavingconfig.cpp:81
+#: actions/bundled/wirelesspowersavingconfig.cpp:86
+#, kde-format
+msgid "Turn off"
+msgstr "Wyłącz"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:77
+#: actions/bundled/wirelesspowersavingconfig.cpp:82
+#: actions/bundled/wirelesspowersavingconfig.cpp:87
+#, kde-format
+msgid "Turn on"
+msgstr "Włącz"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:110
+#, kde-format
+msgid "Wi-Fi"
+msgstr "Wi-Fi"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:111
+#, kde-format
+msgid "Mobile broadband"
+msgstr "Komórkowe szerokopasmowe"
+
+#: actions/bundled/wirelesspowersavingconfig.cpp:112
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: backends/upower/login1suspendjob.cpp:79
+#: backends/upower/upowersuspendjob.cpp:69
+#, kde-format
+msgid "Unsupported suspend method"
+msgstr "Nieobsługiwana metoda zatrzymywania"
+
+#: powerdevilapp.cpp:62
+#, kde-format
+msgid "KDE Power Management System"
+msgstr "System zarządzania energią w KDE"
+
+#: powerdevilapp.cpp:63
+#, kde-format
+msgctxt "@title"
+msgid ""
+"PowerDevil, an advanced, modular and lightweight power management daemon"
+msgstr "PowerDevil, zaawansowana, modułowa i lekka usługa zarządzania energią"
+
+#: powerdevilapp.cpp:65
+#, kde-format
+msgctxt "@info:credit"
+msgid "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "(c) 2015-2019 Kai Uwe Broulik"
+
+#: powerdevilapp.cpp:66
+#, kde-format
+msgctxt "@info:credit"
+msgid "Kai Uwe Broulik"
+msgstr "Kai Uwe Broulik"
+
+#: powerdevilapp.cpp:67
+#, kde-format
+msgctxt "@info:credit"
+msgid "Maintainer"
+msgstr "Opiekun"
+
+#: powerdevilapp.cpp:69
+#, kde-format
+msgctxt "@info:credit"
+msgid "Dario Freddi"
+msgstr "Dario Freddi"
+
+#: powerdevilapp.cpp:70
+#, kde-format
+msgctxt "@info:credit"
+msgid "Previous maintainer"
+msgstr "Poprzedni opiekun"
+
+#: powerdevilapp.cpp:160
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Zastąp istniejące wystąpienie"
+
+#: powerdevilcore.cpp:435 powerdevilcore.cpp:447
+#, kde-format
+msgid "Activity Manager"
+msgstr "Zarządzanie działaniami"
+
+#: powerdevilcore.cpp:436
+#, kde-format
+msgid "This activity's policies prevent the system from going to sleep"
+msgstr "Zasady tych działań zapobiegają przejściu systemu w stan uśpienia"
+
+#: powerdevilcore.cpp:448
+#, kde-format
+msgid "This activity's policies prevent screen power management"
+msgstr "Zasady tych działań zapobiegają zarządzaniu energią ekranu"
+
+#: powerdevilcore.cpp:511
+#, kde-format
+msgid "Extra Battery Added"
+msgstr "Dodano dodatkową baterię"
+
+#: powerdevilcore.cpp:512 powerdevilcore.cpp:722
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Komputer nie przejdzie już w stan uśpienia."
+
+#: powerdevilcore.cpp:572
+#, kde-format
+msgctxt "%1 is vendor name, %2 is product name"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: powerdevilcore.cpp:575
+#, kde-format
+msgctxt "The battery in an external device"
+msgid "Device Battery Low (%1% Remaining)"
+msgstr "Bateria urządzenia na niskim poziomie (Pozostało %1%)"
+
+#: powerdevilcore.cpp:577
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in \"%1\" is running low, and the device may turn off at any "
+"time. Please recharge or replace the battery."
+msgstr ""
+"Bateria w \"%1\" jest na niskim poziomie i urządzenie może się wyłączyć samo "
+"w każdej chwili. Wymień baterię lub ją naładuj."
+
+#: powerdevilcore.cpp:583
+#, kde-format
+msgid "Mouse Battery Low (%1% Remaining)"
+msgstr "Bateria myszy na niskim poziomie (Pozostało %1%)"
+
+#: powerdevilcore.cpp:587
+#, kde-format
+msgid "Keyboard Battery Low (%1% Remaining)"
+msgstr "Bateria klawiatury na niskim poziomie (Pozostało %1%)"
+
+#: powerdevilcore.cpp:591
+#, kde-format
+msgid "Bluetooth Device Battery Low (%1% Remaining)"
+msgstr "Bateria urządzenia Bluetooth na niskim poziomie (Pozostało %1%)"
+
+#: powerdevilcore.cpp:593
+#, kde-format
+msgctxt "Placeholder is device name"
+msgid ""
+"The battery in Bluetooth device \"%1\" is running low, and the device may "
+"turn off at any time. Please recharge or replace the battery."
+msgstr ""
+"Bateria urządzenia Bluetooth w (\"%1\") jest na niskim poziomie i urządzenie "
+"może się samo wyłączyć w każdej chwili. Wymień baterię lub ją naładuj."
+
+#: powerdevilcore.cpp:639
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, make sure that the "
+"power adapter is plugged in and that it provides enough power."
+msgstr ""
+"Bateria jest prawie rozładowana - aby móc dalej używać komputera, upewnij "
+"się, ze zasilacz jest podłączony i dostarcza wystarczająco mocy."
+
+#: powerdevilcore.cpp:641
+#, kde-format
+msgid ""
+"Battery running low - to continue using your computer, plug it in or shut it "
+"down and change the battery."
+msgstr ""
+"Bateria jest prawie rozładowana -  aby móc dalej używać komputera, podłącz "
+"go do zasilania lub wyłącz i wymień baterię na naładowaną."
+
+#: powerdevilcore.cpp:658
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: powerdevilcore.cpp:667
+#, kde-format
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Bateria jest rozładowana. Komputer zostanie wyłączony się za 60 sekund."
+
+#: powerdevilcore.cpp:672
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Bateria jest rozładowana. Komputer zostanie zahibernowany za 60 sekund."
+
+#: powerdevilcore.cpp:677
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr "Bateria jest rozładowana. Komputer zostanie uśpiony za 60 sekund."
+
+#: powerdevilcore.cpp:682
+#, kde-format
+msgid "Battery level critical. Please save your work."
+msgstr "Bateria jest rozładowana. Zapisz wyniki swojej pracy."
+
+#: powerdevilcore.cpp:693
+#, kde-format
+msgid "Battery Low (%1% Remaining)"
+msgstr "Bateria na niskim poziomie (Pozostało %1%)"
+
+#: powerdevilcore.cpp:697
+#, kde-format
+msgid "Battery Critical (%1% Remaining)"
+msgstr "Bateria jest rozładowana (Pozostało %1%)"
+
+#: powerdevilcore.cpp:721
+#, kde-format
+msgid "AC Adapter Plugged In"
+msgstr "Podłączono zasilacz sieciowy"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "Running on AC power"
+msgstr "Zasilany z sieci"
+
+#: powerdevilcore.cpp:724
+#, kde-format
+msgid "The power adapter has been plugged in."
+msgstr "Podłączono zasilacz sieciowy."
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "Running on Battery Power"
+msgstr "Zasilany z baterii"
+
+#: powerdevilcore.cpp:727
+#, kde-format
+msgid "The power adapter has been unplugged."
+msgstr "Odłączono zasilacz sieciowy."
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Charging Complete"
+msgstr "Ukończono ładowanie"
+
+#: powerdevilcore.cpp:788
+#, kde-format
+msgid "Battery now fully charged."
+msgstr "Bateria jest teraz w pełni naładowana."
+
+#~ msgid "Can't open file"
+#~ msgstr "Nie można otworzyć pliku"
+
+#, fuzzy
+#~| msgid ""
+#~| "No valid Power Management backend plugins are available. A new "
+#~| "installation might solve this problem."
+#~ msgid ""
+#~ "No valid Power Management backend plugins available. A new installation "
+#~ "might solve this problem."
+#~ msgstr ""
+#~ "Brak dostępnych i nadających się wtyczek silnika zarządzania energią. "
+#~ "Nowa instalacja może rozwiązać problem."
+
+#, fuzzy
+#~| msgid ""
+#~| "The profile \"%1\" has been selected, but it does not exist.\n"
+#~| "Please check your PowerDevil configuration."
+#~ msgid ""
+#~ "Profile \"%1\" has been selected but does not exist.\n"
+#~ "Please check your PowerDevil configuration."
+#~ msgstr ""
+#~ "Został wybrany profil \"%1\", który nie istnieje.\n"
+#~ "Proszę sprawdzić ustawienia PowerDevil."
+
+#~ msgid ""
+#~ "Could not connect to battery interface.\n"
+#~ "Please check your system configuration"
+#~ msgstr ""
+#~ "Nie można połączyć z interfejsem baterii.\n"
+#~ "Proszę sprawdzić ustawienia systemu"
+
+#, fuzzy
+#~| msgid ""
+#~| "KDE Power Management System could not be initialized. The backend "
+#~| "reported the following error: %1\n"
+#~| "Please check your system configuration"
+#~ msgid ""
+#~ "The KDE Power Management System could not be initialized. The backend "
+#~ "reported the following error: %1\n"
+#~ "Please check your system configuration"
+#~ msgstr ""
+#~ "System zarządzania energią KDE nie mógł zostać zainicjowany. Silnik "
+#~ "zgłosił następujący błąd: %1\n"
+#~ "Proszę sprawdzić swoje ustawienia systemu"
+
+#~ msgid "All pending suspend actions have been canceled."
+#~ msgstr "Porzucono wszystkie oczekujące działania wstrzymania."
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in your keyboard (\"%1\") is low, and the device may turn "
+#~ "itself off at any time. Please replace or charge the battery as soon as "
+#~ "possible."
+#~ msgstr ""
+#~ "Bateria w twojej klawiaturze (\"%1\") jest na niskim poziomie i może się "
+#~ "wyłączyć sama w każdej chwili. Wymień ją lub naładuj, gdy to możliwe."
+
+#~ msgctxt "Placeholder is device name"
+#~ msgid ""
+#~ "The battery in a connected device (\"%1\") is low, and the device may "
+#~ "turn itself off at any time. Please replace or charge the battery as soon "
+#~ "as possible."
+#~ msgstr ""
+#~ "Bateria w podłączonym urządzeniu (\"%1\") jest na niskim poziomie i może "
+#~ "się wyłączyć samo w każdej chwili. Wymień ją lub naładuj, gdy to możliwe."
+
+#~ msgid ""
+#~ "Your battery level is critical, the computer will be suspended in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Poziom naładowania baterii jest krytyczny, stan systemu będzie zapisany "
+#~ "do pamięci, a komputer wyłączony za 60 sekund."
+
+#~ msgid "Hybrid suspend"
+#~ msgstr "Hybrydowe uśpienie"
+
+#~ msgid "Suspend"
+#~ msgstr "Uśpij"
+
+#~ msgctxt "@action:inmenu Global shortcut"
+#~ msgid "Sleep"
+#~ msgstr "Uśpij"
+
+#~ msgid ""
+#~ "Your battery capacity is %1%. This means your battery is broken and needs "
+#~ "a replacement. Please contact your hardware vendor for more details."
+#~ msgstr ""
+#~ "Pojemność twojej baterii to %1%. Oznacza to, że twoja bateria jest "
+#~ "wyeksploatowana i musi być wymieniona. Proszę się zwrócić do sprzedawcy "
+#~ "sprzętu po więcej szczegółów."
+
+#~ msgid ""
+#~ "One of your batteries (ID %2) has a capacity of %1%. This means it is "
+#~ "broken and needs a replacement. Please contact your hardware vendor for "
+#~ "more details."
+#~ msgstr ""
+#~ "Jedna z baterii (ID %2) ma pojemność %1%. Oznacza to, że jest "
+#~ "wyeksploatowana i musi być wymieniona. Proszę się zwrócić do sprzedawcy "
+#~ "sprzętu po więcej szczegółów."
+
+#~ msgid "Broken Battery"
+#~ msgstr "Bateria zepsuta"
+
+#~ msgid ""
+#~ "Your battery might have been recalled by %1. Usually, when vendors recall "
+#~ "the hardware, it is because of factory defects which are usually eligible "
+#~ "for a free repair or substitution. Please check <a href=\"%2\">%1's "
+#~ "website</a> to verify if your battery is faulted."
+#~ msgstr ""
+#~ "Twoja bateria mogła zostać wycofana przez %1. Zazwyczaj, sprzedawcy "
+#~ "wycofują sprzęt, ze względu na usterki fabryczne, które zazwyczaj nadają "
+#~ "się do darmowej naprawy lub wymiany. Proszę zajrzeć na <a href="
+#~ "\"%2\">stronę %1</a>, aby sprawdzić czy twoja bateria ma usterkę."
+
+#~ msgid ""
+#~ "One of your batteries (ID %3) might have been recalled by %1. Usually, "
+#~ "when vendors recall the hardware, it is because of factory defects which "
+#~ "are usually eligible for a free repair or substitution. Please check <a "
+#~ "href=\"%2\">%1's website</a> to verify if your battery is faulted."
+#~ msgstr ""
+#~ "Jedna z baterii (ID %3) mogła zostać wycofana przez %1. Zazwyczaj, "
+#~ "sprzedawcy wycofują sprzęt, ze względu na usterki fabryczne, które "
+#~ "zazwyczaj nadają się do darmowej naprawy lub wymiany. Proszę zajrzeć na "
+#~ "<a href=\"%2\">stronę %1</a>, aby sprawdzić czy twoja bateria ma usterkę."
+
+#~ msgid "Check Your Battery"
+#~ msgstr "Sprawdź swoją baterię"
+
+#~ msgid ""
+#~ "Your Power Profiles have been updated to be used with the new KDE Power "
+#~ "Management System. You can tweak them or generate a new set of defaults "
+#~ "from System Settings."
+#~ msgstr ""
+#~ "Twoje profile energii zostały uaktualnione do użytku z nowym systemem "
+#~ "zarządzania energią KDE. Możesz je dostroić lub wygenerować nowy zestaw "
+#~ "domyślnych z ustawień systemowych."

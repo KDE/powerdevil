@@ -1,0 +1,183 @@
+# translation of powerdevilactivitiesconfig.po to Low Saxon
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Manfred Wiese <m.j.wiese@web.de>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"PO-Revision-Date: 2011-12-15 08:38+0100\n"
+"Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Manfred Wiese"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "m.j.wiese@web.de"
+
+#: activitypage.cpp:72
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"De Aktivitetendeenst löppt mit Grundfunkschonen.\n"
+"Villicht warrt Naams oder Lüttbiller nich wiest."
+
+#: activitypage.cpp:146
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"De Aktivitetendeenst löppt nich.\n"
+"Ahn em laat sik keen aktivitetenbaseert Stroomkuntrull-Instellen fastleggen"
+
+#: activitypage.cpp:242
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#: activitywidget.cpp:98
+#, fuzzy, kde-format
+#| msgid "Sleep"
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "Utsetten"
+
+#: activitywidget.cpp:102
+#, kde-format
+msgid "Hibernate"
+msgstr "Op Ies leggen"
+
+#: activitywidget.cpp:104
+#, fuzzy, kde-format
+#| msgid "Shutdown"
+msgid "Shut down"
+msgstr "Utmaken"
+
+#: activitywidget.cpp:108
+#, kde-format
+msgid "PC running on AC power"
+msgstr "Reekner löppt mit Stroom ut de Steekdoos"
+
+#: activitywidget.cpp:109
+#, kde-format
+msgid "PC running on battery power"
+msgstr "Reekner löppt op Batteriestroom"
+
+#: activitywidget.cpp:110
+#, kde-format
+msgid "PC running on low battery"
+msgstr "Reekner löppt op \"siet\" Batteriestroom"
+
+#: activitywidget.cpp:139
+#, kde-format
+msgctxt "This is meant to be: Act like activity %1"
+msgid "Activity \"%1\""
+msgstr "Aktiviteet \"%1\""
+
+#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#: activityWidget.ui:19
+#, fuzzy, kde-format
+#| msgid "Don't use special settings"
+msgid "Do not use special settings"
+msgstr "Keen besünner Instellen bruken"
+
+#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
+#: activityWidget.ui:31
+#, kde-format
+msgid "Act like"
+msgstr "Bedregen as"
+
+#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
+#: activityWidget.ui:60
+#, kde-format
+msgid "Define a special behavior"
+msgstr "Besünner Bedregen fastleggen"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
+#: activityWidget.ui:72
+#, fuzzy, kde-format
+#| msgid "Never shutdown the screen"
+msgid "Never turn off the screen"
+msgstr "Den Schirm nienich utmaken"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
+#: activityWidget.ui:79
+#, fuzzy, kde-format
+#| msgid "Never shutdown the screen"
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "Den Schirm nienich utmaken"
+
+#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
+#: activityWidget.ui:91
+#, kde-format
+msgid "Always"
+msgstr "Jümmers"
+
+#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
+#: activityWidget.ui:101
+#, kde-format
+msgid "after"
+msgstr "na"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
+#: activityWidget.ui:108
+#, kde-format
+msgid " min"
+msgstr " Min."
+
+#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
+#: activityWidget.ui:138
+#, fuzzy, kde-format
+#| msgid "Use separate settings (advanced users only)"
+msgid "Use separate settings"
+msgstr "Egen Instellen bruken (bloots för Brukers mit mehr Könen)"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "As dat lett löppt dat Stroomkuntrullsysteem nich.\n"
+#~ "Dat lett sik över \"An- un Utmaken\" instellen."
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "Den Reekner nienich infreren oder utmaken"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "Aktiviteten-Stroomkuntrullsysteem instellen"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr "En Aktiviteten-Instellprogramm för dat KDE-Stroomkuntrullsysteem"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "© 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can fine tune power management settings for each of "
+#~ "your activities."
+#~ msgstr ""
+#~ "Mit dit Moduul laat sik verwiederte Stroomkuntrullinstellen för elk vun "
+#~ "Dien Aktiviteten fastleggen."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Pleger"

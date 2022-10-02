@@ -1,0 +1,163 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Chetan Khona <chetan@kompkin.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"PO-Revision-Date: 2013-02-23 17:39+0530\n"
+"Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "चेतन खोना"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "chetan@kompkin.com"
+
+#: activitypage.cpp:72
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+
+#: activitypage.cpp:146
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+
+#: activitypage.cpp:242
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#: activitywidget.cpp:98
+#, fuzzy, kde-format
+#| msgid "Sleep"
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "झोप"
+
+#: activitywidget.cpp:102
+#, kde-format
+msgid "Hibernate"
+msgstr "हायबरनेट"
+
+#: activitywidget.cpp:104
+#, fuzzy, kde-format
+#| msgid "Shutdown"
+msgid "Shut down"
+msgstr "बंद करा"
+
+#: activitywidget.cpp:108
+#, kde-format
+msgid "PC running on AC power"
+msgstr "संगणक AC वीजेवर चालू आहे"
+
+#: activitywidget.cpp:109
+#, kde-format
+msgid "PC running on battery power"
+msgstr "संगणक बॅटरी वीजेवर चालू आहे"
+
+#: activitywidget.cpp:110
+#, kde-format
+msgid "PC running on low battery"
+msgstr "संगणक कमी बॅटरी वीजेवर चालू आहे"
+
+#: activitywidget.cpp:139
+#, kde-format
+msgctxt "This is meant to be: Act like activity %1"
+msgid "Activity \"%1\""
+msgstr "कार्यपध्दती \"%1\""
+
+#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#: activityWidget.ui:19
+#, fuzzy, kde-format
+#| msgid "Don't use special settings"
+msgid "Do not use special settings"
+msgstr "विशिष्ठ संयोजना वापरु नका"
+
+#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
+#: activityWidget.ui:31
+#, kde-format
+msgid "Act like"
+msgstr "या सारखे वागा"
+
+#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
+#: activityWidget.ui:60
+#, kde-format
+msgid "Define a special behavior"
+msgstr "विशिष्ठ वर्तन ठरवा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
+#: activityWidget.ui:72
+#, fuzzy, kde-format
+#| msgid "Never shutdown the screen"
+msgid "Never turn off the screen"
+msgstr "स्क्रीन कधीही बंद करू नका"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
+#: activityWidget.ui:79
+#, fuzzy, kde-format
+#| msgid "Never shutdown the screen"
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "स्क्रीन कधीही बंद करू नका"
+
+#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
+#: activityWidget.ui:91
+#, kde-format
+msgid "Always"
+msgstr "नेहमी"
+
+#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
+#: activityWidget.ui:101
+#, kde-format
+msgid "after"
+msgstr "नंतर"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
+#: activityWidget.ui:108
+#, kde-format
+msgid " min"
+msgstr " मिनिटे"
+
+#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
+#: activityWidget.ui:138
+#, fuzzy, kde-format
+#| msgid "Use separate settings (advanced users only)"
+msgid "Use separate settings"
+msgstr "वेगवेगळी संयोजना वापरा (फक्त प्रगत वापरकर्त्यांकरिता)"
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "संगणक कधीही बंद करू नका"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "कार्यपध्दती वीज व्यवस्थापन संयोजना"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr "केडीई वीज व्यवस्थापन प्रणालीकरिता प्रत्येक कार्यपध्दतीकरिता संयोजक"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 दारिओ फ्रेड्डी"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "दारिओ फ्रेड्डी"
+
+#~ msgid "Maintainer"
+#~ msgstr "पालक"

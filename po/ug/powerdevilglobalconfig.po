@@ -1,0 +1,284 @@
+# Uyghur translation for powerdevilglobalconfig.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sahran <sahran.ug@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilglobalconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"PO-Revision-Date: 2013-09-08 07:05+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+
+#: GeneralPage.cpp:108
+#, kde-format
+msgid "Do nothing"
+msgstr "ھېچقانداق قىلما"
+
+#: GeneralPage.cpp:110
+#, fuzzy, kde-format
+#| msgid "Sleep"
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "ئۇخلات"
+
+#: GeneralPage.cpp:113
+#, kde-format
+msgid "Hibernate"
+msgstr "ئۈچەك"
+
+#: GeneralPage.cpp:115
+#, fuzzy, kde-format
+#| msgid "Shutdown"
+msgid "Shut down"
+msgstr "تاقا"
+
+#: GeneralPage.cpp:264
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
+#: generalPage.ui:22
+#, kde-format
+msgid "<b>Battery Levels                     </b>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, lowLabel)
+#: generalPage.ui:29
+#, fuzzy, kde-format
+#| msgid "Low battery level"
+msgid "&Low level:"
+msgstr "توكدان توكى تۆۋەن سەۋىيەدە"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
+#: generalPage.ui:39
+#, kde-format
+msgid "Low battery level"
+msgstr "توكدان توكى تۆۋەن سەۋىيەدە"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
+#: generalPage.ui:42
+#, kde-format
+msgid "Battery will be considered low when it reaches this level"
+msgstr "توكدان توكى بۇ سەۋىيىگە يەتكەندە توك تۆۋەن دەپ قارىلىدۇ"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, lowPeripheralSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStartThresholdSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStopThresholdSpin)
+#: generalPage.ui:45 generalPage.ui:71 generalPage.ui:114 generalPage.ui:167
+#: generalPage.ui:230
+#, no-c-format, kde-format
+msgid "%"
+msgstr "%"
+
+#. i18n: ectx: property (text), widget (QLabel, criticalLabel)
+#: generalPage.ui:55
+#, fuzzy, kde-format
+#| msgid "Critical battery level"
+msgid "&Critical level:"
+msgstr "توك بەك تۆۋەن سەۋىيەدە"
+
+#. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:65
+#, kde-format
+msgid "Critical battery level"
+msgstr "توك بەك تۆۋەن سەۋىيەدە"
+
+#. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
+#: generalPage.ui:68
+#, kde-format
+msgid "Battery will be considered critical when it reaches this level"
+msgstr "توكدان توكى بۇ سەۋىيىگە يەتكەندە توك بەك تۆۋەن دەپ قارىلىدۇ"
+
+#. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
+#: generalPage.ui:81
+#, fuzzy, kde-format
+#| msgid "Battery is at critical level at"
+msgid "A&t critical level:"
+msgstr "توكداندىكى توك بەك تۆۋەن سەۋىيەدە"
+
+#. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
+#: generalPage.ui:107
+#, kde-format
+msgid "Low level for peripheral devices:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
+#: generalPage.ui:130
+#, kde-format
+msgid "Charge Limit"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
+#: generalPage.ui:137
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>Keeping the battery charged 100% over a prolonged "
+"period of time may accelerate deterioration of battery health. By limiting "
+"the maximum battery charge you can help extend the battery lifespan.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
+#: generalPage.ui:147
+#, kde-format
+msgid ""
+"You might have to disconnect and re-connect the power source to start "
+"charging the battery again."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
+#: generalPage.ui:157
+#, kde-format
+msgid "Start charging only once below:"
+msgstr ""
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
+#: generalPage.ui:164
+#, kde-format
+msgid "Always charge when plugged in"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
+#: generalPage.ui:177
+#, kde-format
+msgid "Pause media players when suspending:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
+#: generalPage.ui:184
+#, kde-format
+msgid "Enabled"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
+#: generalPage.ui:203
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
+msgid "Configure Notifications…"
+msgstr "ئۇقتۇرۇشلارنى سەپلە"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: generalPage.ui:216
+#, fuzzy, kde-format
+#| msgid "Advanced Battery Settings"
+msgid "Other Settings"
+msgstr "ئالىي توكدان تەڭشىكى"
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
+#: generalPage.ui:223
+#, kde-format
+msgid "Stop charging at:"
+msgstr ""
+
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>ھادىسە</b>"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "توڭلاپ قالغان ھالەتتىن ئەسلىگە كەلگەندە ئېكراننى قۇلۇپلا"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "ئۇيقۇ ھالەتتىن ئەسلىگە كەلتۈرۈپ داۋاملاشتۇرغاندا ئىم سورايدۇ"
+
+#, fuzzy
+#~| msgid "Lock screen on resume"
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "ئەسلىگە كەلگەندە ئېكراننى قۇلۇپلا"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "توكداندىكى توك تۆۋەن سەۋىيەدە"
+
+#~ msgid "Global Power Management Configuration"
+#~ msgstr "ئۇمۇمىيەت توك مەنبە باشقۇرۇش سەپلىمىسى"
+
+#~ msgid ""
+#~ "A global power management configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "KDE توك مەنبە باشقۇرۇش سىستېمىسىنىڭ ئۇمۇمىيەت توك مەنبە باشقۇرۇشنى "
+#~ "سەپلىگۈچ"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c)، 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can configure the main Power Management daemon, "
+#~ "assign profiles to states, and do some advanced fine tuning on battery "
+#~ "handling"
+#~ msgstr ""
+#~ "بۇ بۆلەك ئارقىلىق توك مەنبە باشقۇرۇش مۇئەككەلنى سەپلەپ، ھالەت سەپلىمىسىنى "
+#~ "بەلگىلەپ ھەمدە توكدانغا نىسبەتەن ئالىي تەڭشەش ئېلىپ بارالايسىز"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "مەسئۇل كىشى"
+
+#~ msgid "Settings and Profile"
+#~ msgstr "تەڭشەك ۋە سەپلىمە ھۆججەت"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Profile Assignment</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html dir=rtl><head><meta name=\"qrichtext\" content=\"1\" /><style type="
+#~ "\"text/css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'UKIJ Tuz Tom, Sans Serif'; "
+#~ "font-size:9pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Profile Assignment</span></p></body></html>"
+
+#~ msgid "When AC Adaptor is plugged in"
+#~ msgstr "ئۆزگىرىشچان توك مەنبەسىنى چاتقاندا"
+
+#~ msgid "When AC Adaptor is unplugged"
+#~ msgstr "ئۆزگىرىشچان توك مەنبەسىنى ئۈزگەندە"
+
+#~ msgid "When battery is at warning level"
+#~ msgstr "توكداندىكى توك ئاگاھلاندۇرۇش سەۋىيەسىدە قالغاندا"
+
+#~ msgid "When battery remaining is critical"
+#~ msgstr "توكداندا توك بەك ئاز قالغاندا"
+
+#~ msgid "Battery is at warning level at"
+#~ msgstr "توكداندىكى توك ئاگاھلاندۇرۇش سەۋىيەسىدە"
+
+#~ msgid "Warning battery level"
+#~ msgstr "ئاگاھلاندۇرىدىغان توكدان سەۋىيىسى"
+
+#~ msgid ""
+#~ "Battery will be considered at warning level when it reaches this level"
+#~ msgstr ""
+#~ "توكدان توكى بۇ سەۋىيىگە يەتكەندە ئاگاھلاندۇرۇش سەۋىيىسى دەپ قارىلىدۇ"

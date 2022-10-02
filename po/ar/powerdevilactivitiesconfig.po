@@ -1,0 +1,179 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Abdelrahman Osama <it@abdelos.com>, 2012.
+# Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2012, 2014.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"PO-Revision-Date: 2022-08-23 19:37+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+"X-Project-Style: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "عبدالرحمن أسامة,عبدالرحيم الفاخوري"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "it@abdelos.com,abdilra7eem@yahoo.com"
+
+#: activitypage.cpp:72
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"خدمة النشاط تعمل بوظائف ضئيلة.\n"
+"أسماء و أيقونات الأنشطة قد لا تكون متاحة."
+
+#: activitypage.cpp:146
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"خدمة النشاط لا تعمل.\n"
+"يجب تشغيل مدير النشاط حتى تستطيع ضبط نشاط خاص بسلوك إدارة الطاقة."
+
+#: activitypage.cpp:242
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "يبدو أن خدمة إدارة الطاقة لا تعمل."
+
+#: activitywidget.cpp:98
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr "نَم"
+
+#: activitywidget.cpp:102
+#, kde-format
+msgid "Hibernate"
+msgstr "أسبِت"
+
+#: activitywidget.cpp:104
+#, kde-format
+msgid "Shut down"
+msgstr "أطفئ"
+
+#: activitywidget.cpp:108
+#, kde-format
+msgid "PC running on AC power"
+msgstr "الحاسوب يعمل على الطاقة الاعتيادية"
+
+#: activitywidget.cpp:109
+#, kde-format
+msgid "PC running on battery power"
+msgstr "الحاسوب يعمل على طاقة البطارية"
+
+#: activitywidget.cpp:110
+#, kde-format
+msgid "PC running on low battery"
+msgstr "الحاسوب يعمل على بطارية ضعيفة"
+
+#: activitywidget.cpp:139
+#, kde-format
+msgctxt "This is meant to be: Act like activity %1"
+msgid "Activity \"%1\""
+msgstr "النشاط \"%1\""
+
+#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Do not use special settings"
+msgstr "لا تستخدم إعدادات خاصة"
+
+#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
+#: activityWidget.ui:31
+#, kde-format
+msgid "Act like"
+msgstr "تصرف هكذا"
+
+#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
+#: activityWidget.ui:60
+#, kde-format
+msgid "Define a special behavior"
+msgstr "عرف سلوكًا خاصًّا"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
+#: activityWidget.ui:72
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "لا تقم بإطفاء الشاشة أبدا"
+
+#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
+#: activityWidget.ui:79
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "لا تطفئ الحاسوب أو تتركه ينام أبدا"
+
+#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
+#: activityWidget.ui:91
+#, kde-format
+msgid "Always"
+msgstr "دائما"
+
+#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
+#: activityWidget.ui:101
+#, kde-format
+msgid "after"
+msgstr "بعد"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
+#: activityWidget.ui:108
+#, kde-format
+msgid " min"
+msgstr "دقيقة"
+
+#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
+#: activityWidget.ui:138
+#, kde-format
+msgid "Use separate settings"
+msgstr "استخدم إعدادات منفصلة"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "يبدو أن خدمة إدارة الطاقة لا تعمل.\n"
+#~ "يمكن حل تلك المشكلة عن طريق بدء الخدمة أو جدولتها من خلال خيارات \"بدء "
+#~ "التشغيل و الإطفاء\" ."
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "لا تقم بتعليق أو إطفاء الحاسوب أبدا"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "ضبط إدارة الطاقة للأنشطة"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr "مضبط نظام أدارة الطاقة لكدي لكل نشاط"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 داريو فريدي"
+
+#~ msgid ""
+#~ "From this module, you can fine tune power management settings for each of "
+#~ "your activities."
+#~ msgstr ""
+#~ "من خلال هذه الوحدة تستطيع ضبط إعدادات إدارة الطاقة لكل من أنشطتك بدقة."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "داريو فريدي"
+
+#~ msgid "Maintainer"
+#~ msgstr "المشرف"
