@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2012, 2015, 2016, 2019, 2020.
+# Shinjo Park <kde@peremen.name>, 2012, 2015, 2016, 2019, 2020, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-20 00:47+0000\n"
-"PO-Revision-Date: 2020-09-05 23:26+0200\n"
+"PO-Revision-Date: 2022-10-03 15:25+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language-Team: Korean <kde-i18n-doc@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -138,10 +138,9 @@ msgstr " 분"
 
 #. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
 #: activityWidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Use separate settings (advanced users only)"
+#, kde-format
 msgid "Use separate settings"
-msgstr "개별 설정 사용 (고급 사용자용)"
+msgstr "개별 설정 사용"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

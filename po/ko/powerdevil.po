@@ -5,9 +5,9 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-03 00:46+0000\n"
-"PO-Revision-Date: 2022-08-09 13:28+0200\n"
+"PO-Revision-Date: 2022-10-03 15:25+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language-Team: Korean <kde-i18n-doc@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -372,18 +372,14 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "장치 배터리 부족(%1% 남음)"
 
 #: powerdevilcore.cpp:577
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"(\"%1\")의 배터리가 부족하여 언제든지 저절로 꺼질 수 있습니다. 배터리를 재충"
-"전하거나 교체하십시오."
+"\"%1\"의 배터리가 부족하여 언제든지 저절로 꺼질 수 있습니다. 배터리를 재충전"
+"하거나 교체하십시오."
 
 #: powerdevilcore.cpp:583
 #, kde-format
