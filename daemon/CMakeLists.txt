@@ -23,6 +23,7 @@ set(powerdevilcore_SRCS
 )
 
 add_library(powerdevil_log_static STATIC)
+set_property(TARGET powerdevil_log_static PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_link_libraries(powerdevil_log_static Qt::Core)
 ecm_qt_declare_logging_category(powerdevil_log_static
    HEADER powerdevil_debug.h
