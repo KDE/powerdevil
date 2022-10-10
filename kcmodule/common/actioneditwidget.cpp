@@ -42,9 +42,8 @@
 ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     : QWidget(parent)
     , m_configName(configName)
+    , m_profilesConfig(KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::SimpleConfig | KConfig::CascadeConfig))
 {
-    m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::SimpleConfig | KConfig::CascadeConfig);
-
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
     QMultiMap< int, QList<QPair<QString, QWidget*> > > widgets;
 
