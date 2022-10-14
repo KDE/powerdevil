@@ -90,7 +90,7 @@ void PowerDevilApp::init()
     const QStringList paths = QCoreApplication::libraryPaths();
     QFileInfoList fileInfos;
     for (const QString &path : paths) {
-        QDir dir(path + QLatin1String("/kf5/powerdevil/"),
+        QDir dir(path + QStringLiteral("/kf" QT_STRINGIFY(QT_VERSION_MAJOR) "/powerdevil/"),
             QStringLiteral("*"),
             QDir::SortFlags(QDir::QDir::Name),
             QDir::NoDotAndDotDot | QDir::Files);
