@@ -49,12 +49,7 @@ target_dbus_files(powerdevil_suspendsessionaction org.kde.Solid.PowerManagement.
                      suspendsession.h PowerDevil::BundledActions::SuspendSession)
 
 add_powerdevil_bundled_action(dpms)
-target_Sources(powerdevil_dpmsaction PRIVATE
-    abstractdpmshelper.cpp
-    xcbdpmshelper.cpp
-    waylanddpmshelper.cpp
-)
-
+target_link_libraries(powerdevil_dpmsaction KF5::ScreenDpms)
 
 set(handlebuttons_SRCS handlebuttonevents.cpp)
 qt_add_dbus_adaptor(handlebuttons_SRCS org.kde.Solid.PowerManagement.Actions.HandleButtonEvents.xml handlebuttonevents.h PowerDevil::BundledActions::HandleButtonEvents)

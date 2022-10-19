@@ -20,13 +20,12 @@
 
 
 #include "dpms.h"
-#include "abstractdpmshelper.h"
-#include "xcbdpmshelper.h"
-#include "waylanddpmshelper.h"
+#include <KScreenDpms/Dpms>
 
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 #include <powerdevil_debug.h>
+#include <kwinkscreenhelpereffect.h>
 
 #include <QAction>
 #include <QDBusConnection>
@@ -55,18 +54,16 @@ namespace PowerDevil {
 namespace BundledActions {
 DPMS::DPMS(QObject *parent, const QVariantList &)
     : Action(parent)
-    , m_helper()
+    , m_dpms(new KScreen::Dpms)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
+    // On Wayland, KWin takes care of performing the effect properly
     if (QX11Info::isPlatformX11()) {
-        m_helper.reset(new XcbDpmsHelper);
-    } else if (QGuiApplication::platformName().startsWith(QLatin1String("wayland"), Qt::CaseInsensitive)) {
-        m_helper.reset(new WaylandDpmsHelper);
+        auto fadeEffect = new PowerDevil::KWinKScreenHelperEffect(this);
+        connect(this, &DPMS::startFade, fadeEffect, &PowerDevil::KWinKScreenHelperEffect::start);
+        connect(this, &DPMS::stopFade, fadeEffect, &PowerDevil::KWinKScreenHelperEffect::stop);
     }
-
-    // Pretend we're unloading profiles here, as if the action is not enabled, DPMS should be switched off.
-    onProfileUnload();
 
     // Listen to the policy agent
     connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
@@ -81,12 +78,10 @@ DPMS::DPMS(QObject *parent, const QVariantList &)
     QAction *globalAction = actionCollection->addAction(QLatin1String("Turn Off Screen"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Turn Off Screen"));
     connect(globalAction, &QAction::triggered, this, [this] {
-        if (m_helper) {
-            if (m_lockBeforeTurnOff) {
-                lockScreen();
-            }
-            m_helper->trigger(QStringLiteral("TurnOff"));
+        if (m_lockBeforeTurnOff) {
+            lockScreen();
         }
+        m_dpms->switchMode(KScreen::Dpms::Off);
     });
 
     auto powerButtonMode = [globalAction] (bool isTablet) {
@@ -105,21 +100,13 @@ DPMS::~DPMS() = default;
 
 bool DPMS::isSupported()
 {
-    return !m_helper.isNull() && m_helper->isSupported();
-}
-
-void DPMS::onProfileUnload()
-{
-    if (!isSupported()) {
-        return;
-    }
-    m_helper->profileUnloaded();
+    return m_dpms->isSupported();
 }
 
 void DPMS::onWakeupFromIdle()
 {
     if (isSupported()) {
-        m_helper->stopFade();
+        Q_EMIT stopFade();
     }
     if (m_oldKeyboardBrightness > 0) {
         setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
@@ -136,7 +123,7 @@ void DPMS::onIdleTimeout(int msec)
 
     if (msec == m_idleTime * 1000 - 5000) { // fade out screen
         if (isSupported()) {
-            m_helper->startFade();
+            Q_EMIT startFade();
         }
     } else if (msec == m_idleTime * 1000) {
         const int brightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
@@ -145,7 +132,7 @@ void DPMS::onIdleTimeout(int msec)
             setKeyboardBrightnessHelper(0);
         }
         if (isSupported()) {
-            m_helper->dpmsTimeout();
+            m_dpms->switchMode(KScreen::Dpms::Off);
         }
     }
 }
@@ -155,14 +142,6 @@ void DPMS::setKeyboardBrightnessHelper(int brightness)
     trigger({
         {"KeyboardBrightness", QVariant::fromValue(brightness)}
     });
-}
-
-void DPMS::onProfileLoad()
-{
-    if (!isSupported()) {
-        return;
-    }
-    m_helper->profileLoaded();
 }
 
 void DPMS::triggerImpl(const QVariantMap& args)
@@ -180,7 +159,19 @@ void DPMS::triggerImpl(const QVariantMap& args)
     if (m_lockBeforeTurnOff && (type == "TurnOff" || type == "ToggleOnOff")) {
         lockScreen();
     }
-    m_helper->trigger(args.value(QStringLiteral("Type")).toString());
+    KScreen::Dpms::Mode level = KScreen::Dpms::Mode::On;
+    if (type == QLatin1String("ToggleOnOff")) {
+        level = KScreen::Dpms::Toggle;
+    } else if (type == QLatin1String("TurnOff")) {
+        level = KScreen::Dpms::Off;
+    } else if (type == QLatin1String("Standby")) {
+        level = KScreen::Dpms::Standby;
+    } else if (type == QLatin1String("Suspend")) {
+        level = KScreen::Dpms::Suspend;
+    } else {
+        level = KScreen::Dpms::On;
+    }
+    m_dpms->switchMode(level);
 }
 
 bool DPMS::loadAction(const KConfigGroup& config)
@@ -203,23 +194,7 @@ bool DPMS::onUnloadAction()
 
 void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
 {
-    // only take action if screen inhibit changed
-    PowerDevil::PolicyAgent::RequiredPolicies oldPolicy = m_inhibitScreen;
     m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
-    if (oldPolicy == m_inhibitScreen) {
-        return;
-    }
-
-    if (m_inhibitScreen) {
-        // Inhibition triggered: disable DPMS
-        if (isSupported()) {
-            m_helper->inhibited();
-        }
-    } else {
-        // Inhibition removed: let's start again
-        onProfileLoad();
-        qCDebug(POWERDEVIL) << "Restoring DPMS features after inhibition release";
-    }
 }
 
 static std::chrono::milliseconds dimAnimationTime()

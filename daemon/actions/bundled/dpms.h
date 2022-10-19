@@ -28,6 +28,10 @@
 
 class AbstractDpmsHelper;
 
+namespace KScreen {
+    class Dpms;
+}
+
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -40,12 +44,16 @@ public:
     explicit DPMS(QObject *parent, const QVariantList &);
     ~DPMS() override;
 
+Q_SIGNALS:
+    void startFade();
+    void stopFade();
+
 protected:
-    void onProfileUnload() override;
+    void onProfileUnload() override {}
     bool onUnloadAction() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
-    void onProfileLoad() override;
+    void onProfileLoad() override {}
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 
@@ -62,7 +70,7 @@ private:
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
     int m_oldKeyboardBrightness = 0;
-    QScopedPointer<AbstractDpmsHelper> m_helper;
+    QScopedPointer<KScreen::Dpms> m_dpms;
 
     bool m_lockBeforeTurnOff = false;
     void lockScreen();
