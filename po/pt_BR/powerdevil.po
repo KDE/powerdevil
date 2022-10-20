@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-03 00:46+0000\n"
-"PO-Revision-Date: 2022-08-19 15:22-0300\n"
+"PO-Revision-Date: 2022-10-19 15:00-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -378,17 +378,13 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Bateria do dispositivo fraca (%1% restantes)"
 
 #: powerdevilcore.cpp:577
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"A bateria de (\"%1\") está fraca e o dispositivo pode se desligar a qualquer "
+"A bateria no \"%1\" está fraca e o dispositivo pode se desligar a qualquer "
 "momento. Recarregue ou substitua a bateria."
 
 #: powerdevilcore.cpp:583
