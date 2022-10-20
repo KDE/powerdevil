@@ -3,7 +3,6 @@ Type=Application
 Icon=preferences-system-power-management
 Name=Power Management
 Name[ar]=إدارة الطاقة
-Name[ast]=Xestión d'enerxía
 Name[az]=Enerjiyə Nəzarət
 Name[bg]=Управление на захранването
 Name[bs]=Upravljanje napajanjem

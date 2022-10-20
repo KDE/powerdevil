@@ -1,7 +1,6 @@
 [Global]
 Name=Power Management
 Name[ar]=إدارة الطاقة
-Name[ast]=Xestión d'enerxía
 Name[az]=Enerjiyə Nəzarət
 Name[bg]=Управление на захранването
 Name[bs]=Upravljanje napajanjem
@@ -108,7 +107,6 @@ Version=2
 [Context/warningnot]
 Name=Warning
 Name[ar]=تحذير
-Name[ast]=Alvertencia
 Name[az]=Xəbərdarlıq
 Name[bg]=Предупреждение
 Name[bs]=Upozorenje
@@ -213,7 +211,6 @@ Comment[zh_TW]=用於警告通知
 [Context/stdnot]
 Name=Notification
 Name[ar]=تنبيه
-Name[ast]=Avisu
 Name[az]=Bildiriş
 Name[bg]=Известия
 Name[bs]=Obavještenje
@@ -319,7 +316,6 @@ Comment[zh_TW]=用於標準通知
 [Context/criticalnot]
 Name=Critical notification
 Name[ar]=تحذير حَرِج
-Name[ast]=Avisu críticu
 Name[az]=Kritik bildirişlər
 Name[bg]=Критични известия
 Name[bs]=Kritično obavještenje
