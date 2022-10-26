@@ -68,7 +68,7 @@ QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
     // Uniform ComboBox width throughout all action config modules
     m_profileCombo->setMinimumWidth(300);
     m_profileCombo->setMaximumWidth(300);
-    connect(m_profileCombo, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &PowerProfileConfig::setChanged);
+    connect(m_profileCombo, QOverload<int>::of(&QComboBox::activated), this, &PowerProfileConfig::setChanged);
 
     QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
                                                       QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
