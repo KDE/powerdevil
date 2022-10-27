@@ -135,7 +135,7 @@ bool WirelessPowerSaving::isSupported()
      * can be used for this, but it seems to be private class
      */
 
-    NMStringMap permissions = NetworkManager::permissions();
+    static NMStringMap permissions = NetworkManager::permissions();
     bool changeWifiAllowed = false;
     bool changeWwanAllowed = false;
     for (auto it = permissions.constBegin(); it != permissions.constEnd(); ++it) {

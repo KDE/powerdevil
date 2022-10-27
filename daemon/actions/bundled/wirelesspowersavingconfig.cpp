@@ -97,7 +97,7 @@ QList< QPair< QString, QWidget* > > WirelessPowerSavingConfig::buildUi()
     m_btCombobox->setMaximumWidth(comboBoxMaxWidth);
 
     // Disable comboboxes for actions which are not allowed
-    NMStringMap permissions = NetworkManager::permissions();
+    static NMStringMap permissions = NetworkManager::permissions();
     for (auto it = permissions.constBegin(); it != permissions.constEnd(); ++it) {
         if (it.key() == QLatin1String("org.freedesktop.NetworkManager.enable-disable-wifi")) {
             m_wifiCombobox->setEnabled(it.value() == QLatin1String("yes"));
