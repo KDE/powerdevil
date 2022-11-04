@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"POT-Creation-Date: 2022-11-04 00:47+0000\n"
 "PO-Revision-Date: 2019-08-04 18:46-0700\n"
 "Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -32,7 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ybando@k6.dion.ne.jp,ftake@geeko.jp"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:76
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -72,7 +72,7 @@ msgstr " 分"
 msgid "After"
 msgstr "後で"
 
-#: actions/bundled/dpms.cpp:82
+#: actions/bundled/dpms.cpp:79
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"

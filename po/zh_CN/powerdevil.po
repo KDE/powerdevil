@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"POT-Creation-Date: 2022-11-04 00:47+0000\n"
 "PO-Revision-Date: 2022-10-30 07:48\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org,i@guoyunhe.me, tysontan@tysontan.com"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:76
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -67,7 +67,7 @@ msgstr " 分钟"
 msgid "After"
 msgstr "如果空闲"
 
-#: actions/bundled/dpms.cpp:82
+#: actions/bundled/dpms.cpp:79
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"

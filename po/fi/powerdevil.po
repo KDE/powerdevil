@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-03 00:46+0000\n"
+"POT-Creation-Date: 2022-11-04 00:47+0000\n"
 "PO-Revision-Date: 2022-10-28 22:01+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -36,7 +36,7 @@ msgstr ""
 "karvonen.jorma@gmail.com, lasse.liehu@gmail.com, translator@legisign.org, "
 "teemu.rytilahti@kde-fi.org"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:79
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:76
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -76,7 +76,7 @@ msgstr " min"
 msgid "After"
 msgstr "Viiveellä"
 
-#: actions/bundled/dpms.cpp:82
+#: actions/bundled/dpms.cpp:79
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
