@@ -60,6 +60,8 @@ find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
 
+find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
+
 find_package(Libcap)
 set_package_properties(Libcap PROPERTIES
     TYPE OPTIONAL

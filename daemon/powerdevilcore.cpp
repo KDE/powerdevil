@@ -886,9 +886,7 @@ void Core::registerActionTimeout(Action* action, int timeout)
     int identifier = KIdleTime::instance()->addIdleTimeout(timeout);
 
     // Add the identifier to the action hash
-    QList< int > timeouts = m_registeredActionTimeouts[action];
-    timeouts.append(identifier);
-    m_registeredActionTimeouts[action] = timeouts;
+    m_registeredActionTimeouts[action].append(identifier);
 }
 
 void Core::unregisterActionTimeouts(Action* action)

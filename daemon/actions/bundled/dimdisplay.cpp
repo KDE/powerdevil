@@ -29,6 +29,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include "screensaver_interface.h"
+
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DimDisplay, "powerdevildimdisplayaction.json")
 
 namespace PowerDevil {
@@ -67,7 +69,9 @@ void DimDisplay::onIdleTimeout(int msec)
         return;
     }
 
-    if (msec == m_dimOnIdleTime) {
+    OrgFreedesktopScreenSaverInterface iface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/ScreenSaver"), QDBusConnection::sessionBus());
+
+    if (msec == m_dimOnIdleTime || (!iface.GetActive() && msec >= (m_dimOnIdleTime * 1 / 2))) {
         setBrightnessHelper(0, 0);
     } else if (msec == (m_dimOnIdleTime * 3 / 4)) {
         const int newBrightness = qRound(m_oldScreenBrightness / 8.0);

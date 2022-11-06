@@ -41,7 +41,9 @@ add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 target_dbus_files(powerdevil_keyboardbrightnesscontrolaction org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl.xml
                      keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
 
+qt_add_dbus_interface(dimdisplay_SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface)
 add_powerdevil_bundled_action(dimdisplay)
+target_sources(powerdevil_dimdisplayaction PRIVATE ${dimdisplay_SRCS})
 add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
 
 add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets)
