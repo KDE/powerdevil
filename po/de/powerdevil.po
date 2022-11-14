@@ -5,20 +5,21 @@
 # Moritz Baumann <flamingmo@online.de>, 2010.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010, 2011.
 # Kai Uwe Broulik <KaiUweBroulik2@hotmail.com>, 2011.
+# Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-04 00:47+0000\n"
-"PO-Revision-Date: 2022-04-15 04:59+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2022-11-10 20:41+0100\n"
+"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -380,11 +381,7 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Akku-Ladestand des Geräts niedrig (%1 % geladen)"
 
 #: powerdevilcore.cpp:577
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
@@ -420,17 +417,14 @@ msgstr ""
 "Akku."
 
 #: powerdevilcore.cpp:639
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr ""
 "Der Ladestatus Ihres Akkus ist niedrig. Möchten Sie den Rechner weiter "
-"verwenden, schließen Sie entweder das Netzteil an oder fahren Sie ihn "
-"herunter und wechseln Sie den Akku."
+"verwenden, stellen Sie sicher, dass das Netzteil angeschlossen ist und genug "
+"Leistung liefert."
 
 #: powerdevilcore.cpp:641
 #, kde-format
