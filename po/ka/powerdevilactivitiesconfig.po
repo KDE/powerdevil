@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-20 00:47+0000\n"
-"PO-Revision-Date: 2022-09-06 14:29+0200\n"
+"PO-Revision-Date: 2022-11-16 08:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -34,6 +34,8 @@ msgid ""
 "The activity service is running with bare functionalities.\n"
 "Names and icons of the activities might not be available."
 msgstr ""
+"აქტივობის სერვისი შიშველი ფუნქციონალით მუშაობს.\n"
+"აქტივობების სახელები და ხატულები შეიძლება ხელმისაწვდომი არ იყოს."
 
 #: activitypage.cpp:146
 #, kde-format
@@ -42,6 +44,9 @@ msgid ""
 "It is necessary to have the activity manager running to configure activity-"
 "specific power management behavior."
 msgstr ""
+"აქტივობის სერვისი გაშვებული არაა.\n"
+"კვების მართვის ქცევის აქტივობის მორგებისთვის აქტივობის მმართველის "
+"გაშვებულობა აუცილებელ პირობას წარმოადგენს."
 
 #: activitypage.cpp:242
 #, kde-format
