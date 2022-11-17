@@ -26,6 +26,26 @@
 namespace PowerDevil
 {
 
+using RemainingTimeHistoryList = std::vector<qulonglong>;
+
+/**
+ * Filter data along one dimension using exponential moving average.
+ */
+qulonglong emafilter(const RemainingTimeHistoryList &input)
+{
+    if (input.empty()) {
+        return 0;
+    }
+
+    constexpr double weight = 0.05;
+    qulonglong current = input[0];
+    for (qulonglong n : input) {
+        current = current * (1 - weight) + n * weight;
+    }
+
+    return current;
+}
+
 class BackendInterface::Private
 {
 public:
@@ -38,12 +58,15 @@ public:
         , isLidClosed(false)
         , isLidPresent(false)
     {
+        remainingTimeHistoryRecords.reserve(64);
     }
     ~Private() {}
 
     AcAdapterState acAdapterState;
     BatteryState batteryState;
     qulonglong batteryRemainingTime;
+    qulonglong smoothedBatteryRemainingTime = 0;
+    RemainingTimeHistoryList remainingTimeHistoryRecords;
     QHash< BrightnessControlType, BrightnessLogic* > brightnessLogic;
     BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;
@@ -79,6 +102,11 @@ BackendInterface::AcAdapterState BackendInterface::acAdapterState() const
 qulonglong BackendInterface::batteryRemainingTime() const
 {
     return d->batteryRemainingTime;
+}
+
+qulonglong BackendInterface::smoothedBatteryRemainingTime() const
+{
+    return d->smoothedBatteryRemainingTime;
 }
 
 BackendInterface::BatteryState BackendInterface::batteryState() const
@@ -148,6 +176,11 @@ void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapter
 {
     d->acAdapterState = state;
     Q_EMIT acAdapterStateChanged(state);
+
+    // AC state has been refreshed, so clear the history records
+    d->remainingTimeHistoryRecords.clear();
+    d->smoothedBatteryRemainingTime = 0;
+    Q_EMIT smoothedBatteryRemainingTimeChanged(0);
 }
 
 void BackendInterface::setBackendHasError(const QString& errorDetails)
@@ -170,6 +203,31 @@ void BackendInterface::setBatteryRemainingTime(qulonglong time)
     if (d->batteryRemainingTime != time) {
         d->batteryRemainingTime = time;
         Q_EMIT batteryRemainingTimeChanged(time);
+    }
+
+    if (d->acAdapterState == Plugged) {
+        if (d->smoothedBatteryRemainingTime != time) {
+            d->smoothedBatteryRemainingTime = time;
+            Q_EMIT smoothedBatteryRemainingTimeChanged(time);
+        }
+        return;
+    }
+
+    const qulonglong oldValue = d->smoothedBatteryRemainingTime;
+    if (time > 0) {
+        if (d->remainingTimeHistoryRecords.size() == 64) {
+            d->remainingTimeHistoryRecords.erase(d->remainingTimeHistoryRecords.begin());
+        }
+        d->remainingTimeHistoryRecords.emplace_back(time);
+
+        d->smoothedBatteryRemainingTime = emafilter(d->remainingTimeHistoryRecords);
+    } else {
+        // Don't let those samples pollute the history
+        d->smoothedBatteryRemainingTime = time;
+    }
+
+    if (oldValue != d->smoothedBatteryRemainingTime) {
+        Q_EMIT smoothedBatteryRemainingTimeChanged(d->smoothedBatteryRemainingTime);
     }
 }
 

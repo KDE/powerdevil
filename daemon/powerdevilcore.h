@@ -102,6 +102,7 @@ public Q_SLOTS:
     void loadProfile(bool force = false);
 
     qulonglong batteryRemainingTime() const;
+    qulonglong smoothedBatteryRemainingTime() const;
 
     bool isLidClosed() const;
     bool isLidPresent() const;
@@ -123,6 +124,7 @@ Q_SIGNALS:
     void profileChanged(const QString &newProfile);
     void configurationReloaded();
     void batteryRemainingTimeChanged(qulonglong time);
+    void smoothedBatteryRemainingTimeChanged(qulonglong time);
     void lidClosedChanged(bool closed);
     void chargeStartThresholdChanged(int threshold);
     void chargeStopThresholdChanged(int threshold);
@@ -189,6 +191,7 @@ private Q_SLOTS:
     void onBatteryChargePercentChanged(int,const QString&);
     void onBatteryChargeStateChanged(int,const QString&);
     void onBatteryRemainingTimeChanged(qulonglong);
+    void onSmoothedBatteryRemainingTimeChanged(qulonglong);
     void onKIdleTimeoutReached(int,int);
     void onResumingFromIdle();
     void onDeviceAdded(const QString &udi);

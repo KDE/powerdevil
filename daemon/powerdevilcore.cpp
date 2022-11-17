@@ -150,6 +150,7 @@ void Core::onBackendReady()
             this, &Core::onAcAdapterStateChanged);
     connect(m_backend, &BackendInterface::batteryRemainingTimeChanged,
             this, &Core::onBatteryRemainingTimeChanged);
+    connect(m_backend, &BackendInterface::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_backend, &BackendInterface::lidClosedChanged,
             this, &Core::onLidClosedChanged);
     connect(m_backend, &BackendInterface::aboutToSuspend,
@@ -826,6 +827,11 @@ void Core::onBatteryRemainingTimeChanged(qulonglong time)
     Q_EMIT batteryRemainingTimeChanged(time);
 }
 
+void Core::onSmoothedBatteryRemainingTimeChanged(qulonglong time)
+{
+    Q_EMIT smoothedBatteryRemainingTimeChanged(time);
+}
+
 void Core::onKIdleTimeoutReached(int identifier, int msec)
 {
     // Find which action(s) requested this idle timeout
@@ -1093,6 +1099,11 @@ void Core::clearWakeup(int cookie)
 qulonglong Core::batteryRemainingTime() const
 {
     return m_backend->batteryRemainingTime();
+}
+
+qulonglong Core::smoothedBatteryRemainingTime() const
+{
+    return m_backend->smoothedBatteryRemainingTime();
 }
 
 uint Core::backendCapabilities()

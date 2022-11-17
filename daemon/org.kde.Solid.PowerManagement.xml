@@ -15,6 +15,9 @@
     <method name="batteryRemainingTime">
       <arg type="t" direction="out" />
     </method>
+    <method name="smoothedBatteryRemainingTime">
+      <arg type="t" direction="out" />
+    </method>
     <method name="isLidClosed">
         <arg type="b" direction="out" />
     </method>
@@ -94,6 +97,9 @@
     <signal name="configurationReloaded">
     </signal>
     <signal name="batteryRemainingTimeChanged">
+      <arg type="t" direction="out" />
+    </signal>
+    <signal name="smoothedBatteryRemainingTimeChanged">
       <arg type="t" direction="out" />
     </signal>
     <signal name="lidClosedChanged">

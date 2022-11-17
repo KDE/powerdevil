@@ -144,6 +144,14 @@ public:
     qulonglong batteryRemainingTime() const;
 
     /**
+     * Retrieves the current estimated remaining time of the system batteries,
+     * with exponential moving average filter applied to the history records.
+     *
+     * @return the current global estimated remaining time in milliseconds
+     */
+    qulonglong smoothedBatteryRemainingTime() const;
+
+    /**
      * Retrieves the current state of the system AC adapter.
      *
      * @return the current AC adapter state
@@ -274,6 +282,13 @@ Q_SIGNALS:
      * @param time the new remaining time
      */
     void batteryRemainingTimeChanged(qulonglong time);
+
+    /**
+     * This signal is emitted when the estimated battery remaining time changes.
+     *
+     * @param time the new remaining time
+     */
+    void smoothedBatteryRemainingTimeChanged(qulonglong time);
 
     /**
      * This signal is emitted when the backend is ready to be used
