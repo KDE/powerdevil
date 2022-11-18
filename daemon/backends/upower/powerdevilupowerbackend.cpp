@@ -166,7 +166,6 @@ void PowerDevilUPowerBackend::init()
             m_brightnessAnimation = new QPropertyAnimation(this);
             m_brightnessAnimation->setTargetObject(this);
             m_brightnessAnimation->setDuration(duration);
-            m_brightnessAnimation->setEasingCurve(QEasingCurve::InOutQuad);
             connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
             connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
         }
@@ -393,6 +392,7 @@ void PowerDevilUPowerBackend::setBrightness(int value, PowerDevil::BackendInterf
                 disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
                 m_brightnessAnimation->setStartValue(brightness());
                 m_brightnessAnimation->setEndValue(value);
+                m_brightnessAnimation->setEasingCurve(brightness() < value ? QEasingCurve::OutQuad : QEasingCurve::InQuad);
                 connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
                 m_brightnessAnimation->start();
             } else {
