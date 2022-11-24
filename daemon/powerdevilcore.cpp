@@ -655,9 +655,12 @@ void Core::handleCriticalBattery(int percent)
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     updateBatteryNotifications(percent); // sets title
 
-    const QStringList actions = {i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel")};
+    QStringList actions = {i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel")};
 
     connect(m_criticalBatteryNotification.data(), &KNotification::action1Activated, this, [this] {
+        triggerCriticalBatteryAction();
+    });
+    connect(m_criticalBatteryNotification.data(), &KNotification::action2Activated, this, [this] {
         m_criticalBatteryTimer->stop();
         m_criticalBatteryNotification->close();
     });
@@ -665,16 +668,19 @@ void Core::handleCriticalBattery(int percent)
     switch (PowerDevilSettings::batteryCriticalAction()) {
     case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will shut down in 60 seconds."));
+        actions.prepend(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
     case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will enter hibernation mode in 60 seconds."));
+        actions.prepend(i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
     case PowerDevil::BundledActions::SuspendSession::ToRamMode:
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
+        actions.prepend(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
@@ -798,15 +804,20 @@ void Core::onCriticalBatteryTimerExpired()
 
     // Do that only if we're not on AC
     if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
-        // We consider this as a very special button
-        PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), KConfigGroup(), this);
-        if (helperAction) {
-            QVariantMap args;
-            args[QStringLiteral("Button")] = 32;
-            args[QStringLiteral("Type")] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
-            args[QStringLiteral("Explicit")] = true;
-            helperAction->trigger(args);
-        }
+       triggerCriticalBatteryAction();
+    }
+}
+
+void Core::triggerCriticalBatteryAction()
+{
+    // We consider this as a very special button
+    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), KConfigGroup(), this);
+    if (helperAction) {
+        QVariantMap args;
+        args[QStringLiteral("Button")] = 32;
+        args[QStringLiteral("Type")] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
+        args[QStringLiteral("Explicit")] = true;
+        helperAction->trigger(args);
     }
 }
 

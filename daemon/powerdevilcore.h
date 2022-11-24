@@ -133,6 +133,7 @@ private:
     void handleLowBattery(int percent);
     void handleCriticalBattery(int percent);
     void updateBatteryNotifications(int percent);
+    void triggerCriticalBatteryAction();
 
     void readChargeThreshold();
 
