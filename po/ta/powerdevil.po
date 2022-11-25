@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:47+0000\n"
+"POT-Creation-Date: 2022-11-25 00:49+0000\n"
 "PO-Revision-Date: 2022-09-06 19:45+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -356,7 +356,7 @@ msgstr "திரை ஆற்றல் மேலாண்மையை இந்
 msgid "Extra Battery Added"
 msgstr "கூடுதல் மின்கலம் சேர்க்கப்பட்டது"
 
-#: powerdevilcore.cpp:512 powerdevilcore.cpp:722
+#: powerdevilcore.cpp:512 powerdevilcore.cpp:728
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "கணினி இனிமேல் தூங்காது."
@@ -434,12 +434,20 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:670
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "மின்கல நிலை நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் நிற்கும்."
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:671
+#, fuzzy, kde-format
+#| msgid "Shut down"
+msgctxt ""
+"@action:button Shut down without waiting for the battery critical timer"
+msgid "Shut Down Now"
+msgstr "கணினியை நிறுத்து"
+
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -447,56 +455,74 @@ msgid ""
 msgstr "மின்கல நிலை நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் ஆழுறக்கத்தில் நுழையும்."
 
 #: powerdevilcore.cpp:677
+#, fuzzy, kde-format
+#| msgid "Hibernate"
+msgctxt ""
+"@action:button Enter hibernation mode without waiting for the battery "
+"critical timer"
+msgid "Hibernate Now"
+msgstr "ஆழுறங்கு"
+
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "மின்கல நிலை நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் உறங்கும்."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:683
+#, fuzzy, kde-format
+#| msgctxt "Suspend to RAM"
+#| msgid "Sleep"
+msgctxt ""
+"@action:button Suspend to ram without waiting for the battery critical timer"
+msgid "Sleep Now"
+msgstr "தூங்கு"
+
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "மின்கல நிலை நெருக்கடியாக உள்ளது. தயவுசெய்து உங்கள் ஆவணங்களை சேமியுங்கள்."
 
-#: powerdevilcore.cpp:693
+#: powerdevilcore.cpp:699
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "மின்கலம் குறைவாயுள்ளது (மீதம் %1%)"
 
-#: powerdevilcore.cpp:697
+#: powerdevilcore.cpp:703
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "மின்கல நெருக்கடி (மீதம் %1%)"
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:727
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "மின் செருகி சொருகப்பட்டுள்ளது"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:730
 #, kde-format
 msgid "Running on AC power"
 msgstr "மின்னூற்றின் ஆற்றலில் இயங்குகிறது"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:730
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "மின் செருகி சொருகப்பட்டுள்ளது."
 
-#: powerdevilcore.cpp:727
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "மின்கல ஆற்றலில் இயங்குகிறது"
 
-#: powerdevilcore.cpp:727
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "மின் செருகி கழற்றப்பட்டுள்ளது."
 
-#: powerdevilcore.cpp:788
+#: powerdevilcore.cpp:794
 #, kde-format
 msgid "Charging Complete"
 msgstr "ஆற்றலேற்றம் முடிந்த‍து"
 
-#: powerdevilcore.cpp:788
+#: powerdevilcore.cpp:794
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "மின்கலத்தில் ஆற்றல் முழுதாக ஏறியுள்ளது."

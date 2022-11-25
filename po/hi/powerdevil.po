@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4 - powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-04 00:47+0000\n"
+"POT-Creation-Date: 2022-11-25 00:49+0000\n"
 "PO-Revision-Date: 2021-07-10 10:57+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -376,7 +376,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "बैटरी का गंभीर स्तर"
 
-#: powerdevilcore.cpp:512 powerdevilcore.cpp:722
+#: powerdevilcore.cpp:512 powerdevilcore.cpp:728
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
@@ -449,7 +449,7 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:670
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, the PC will be halted in %1 "
@@ -459,7 +459,15 @@ msgstr ""
 "आपकी बैटरी का स्तर गंभीर हो गया है. पीसी %1 सेकंड में हाल्ट हो जाएगा. इस प्रक्रिया को "
 "रोकने के लिए यहाँ क्लिक करें."
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:671
+#, fuzzy, kde-format
+#| msgid "Shutdown"
+msgctxt ""
+"@action:button Shut down without waiting for the battery critical timer"
+msgid "Shut Down Now"
+msgstr "बन्दकरें"
+
+#: powerdevilcore.cpp:676
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, the PC will be halted in %1 "
@@ -472,6 +480,14 @@ msgstr ""
 "रोकने के लिए यहाँ क्लिक करें."
 
 #: powerdevilcore.cpp:677
+#, kde-format
+msgctxt ""
+"@action:button Enter hibernation mode without waiting for the battery "
+"critical timer"
+msgid "Hibernate Now"
+msgstr ""
+
+#: powerdevilcore.cpp:682
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, the PC will be halted in %1 "
@@ -481,7 +497,14 @@ msgstr ""
 "आपकी बैटरी का स्तर गंभीर हो गया है. पीसी %1 सेकंड में हाल्ट हो जाएगा. इस प्रक्रिया को "
 "रोकने के लिए यहाँ क्लिक करें."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:683
+#, kde-format
+msgctxt ""
+"@action:button Suspend to ram without waiting for the battery critical timer"
+msgid "Sleep Now"
+msgstr ""
+
+#: powerdevilcore.cpp:688
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, save your work as soon as "
@@ -489,51 +512,51 @@ msgstr ""
 msgid "Battery level critical. Please save your work."
 msgstr "आपकी बैटरी का स्तर गंभीर हो गया है. अपना कार्य जितनी जल्दी हो सके सहेज लें!"
 
-#: powerdevilcore.cpp:693
+#: powerdevilcore.cpp:699
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:697
+#: powerdevilcore.cpp:703
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:721
+#: powerdevilcore.cpp:727
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "जब पावर एडॉप्टर प्लग में लगाया गया हो"
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:730
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:724
+#: powerdevilcore.cpp:730
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
 msgid "The power adapter has been plugged in."
 msgstr "पावर एडॉप्टर प्लग में लगा दिया गया"
 
-#: powerdevilcore.cpp:727
+#: powerdevilcore.cpp:733
 #, fuzzy, kde-format
 #| msgid "When on battery Power"
 msgid "Running on Battery Power"
 msgstr "जब बैटरी पावर पर हो"
 
-#: powerdevilcore.cpp:727
+#: powerdevilcore.cpp:733
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
 msgid "The power adapter has been unplugged."
 msgstr "पावर एडॉप्टर प्लग से निकाल दिया गया"
 
-#: powerdevilcore.cpp:788
+#: powerdevilcore.cpp:794
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:788
+#: powerdevilcore.cpp:794
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
