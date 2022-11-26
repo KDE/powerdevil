@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-03 12:56+0200\n"
+"PO-Revision-Date: 2022-11-25 13:57+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -449,12 +449,11 @@ msgstr ""
 "La bateria ha arribat al nivell crític. L'ordinador s'aturarà en 60 segons."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Atura"
+msgstr "Atura ara"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -466,13 +465,12 @@ msgstr ""
 "hibernació en 60 segons."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hiberna"
+msgstr "Hiberna ara"
 
 #: powerdevilcore.cpp:682
 #, kde-format
@@ -482,13 +480,11 @@ msgstr ""
 "segons."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Suspèn"
+msgstr "Suspèn ara"
 
 #: powerdevilcore.cpp:688
 #, kde-format

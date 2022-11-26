@@ -1,6 +1,5 @@
 # Translation for powerdevil.po to Euskara/Basque (eu).
-# Copyright (C) 2008-2018, Free Software Foundation.
-# Copyright (C) 2019-2022, This file is copyright:
+# Copyright (C) 2008-2022, This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
@@ -13,14 +12,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-03 09:13+0200\n"
+"PO-Revision-Date: 2022-11-25 20:03+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -447,12 +446,11 @@ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Bateria maila larria. Zure ordenagailua 60 segundo barru itzaliko da."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Itzali"
+msgstr "Itzali orain"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -463,13 +461,12 @@ msgstr ""
 "Bateria maila larria. Zure ordenagailua 60 segundo barru hibernatuko da."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hibernatu"
+msgstr "Hibernatu orain"
 
 #: powerdevilcore.cpp:682
 #, kde-format
@@ -478,13 +475,11 @@ msgstr ""
 "Bateria maila larria. Zure ordenagailuak 60 segundo barru lokartuko da."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Egin lo"
+msgstr "Egin lo orain"
 
 #: powerdevilcore.cpp:688
 #, kde-format

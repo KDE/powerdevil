@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-04 12:36+0200\n"
+"PO-Revision-Date: 2022-11-26 00:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.11.80\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -121,7 +121,7 @@ msgstr "No hacer nada"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "Dormir"
+msgstr "Reposo"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:102
 #: actions/bundled/suspendsessionconfig.cpp:93
@@ -133,7 +133,7 @@ msgstr "Hibernar"
 #: actions/bundled/suspendsessionconfig.cpp:96
 #, kde-format
 msgid "Hybrid sleep"
-msgstr "Dormir híbrido"
+msgstr "Reposo híbrido"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:107
 #: actions/bundled/suspendsessionconfig.cpp:98
@@ -253,7 +253,7 @@ msgstr "Automáticamente"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
-msgstr "Cuando esté activo, hibernar tras un periodo de inactividad"
+msgstr "Cuando no esté en reposo, hibernar tras un periodo de inactividad"
 
 #: actions/bundled/wirelesspowersavingconfig.cpp:76
 #: actions/bundled/wirelesspowersavingconfig.cpp:81
@@ -346,7 +346,7 @@ msgstr "Gestor de actividades"
 #: powerdevilcore.cpp:436
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr "Las políticas de esta actividad impiden que el sistema duerma"
+msgstr "Las políticas de esta actividad impiden que el sistema entre en reposo"
 
 #: powerdevilcore.cpp:448
 #, kde-format
@@ -362,7 +362,7 @@ msgstr "Batería adicional añadida"
 #: powerdevilcore.cpp:512 powerdevilcore.cpp:728
 #, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr "El equipo ya no se pondrá a dormir."
+msgstr "El equipo ya no entrará en reposo."
 
 #: powerdevilcore.cpp:572
 #, kde-format
@@ -445,12 +445,11 @@ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "El nivel de batería es crítico. El equipo se apagará en 60 segundos."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Apagar"
+msgstr "Apagar ahora"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -462,28 +461,25 @@ msgstr ""
 "60 segundos."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hibernar"
+msgstr "Hibernar ahora"
 
 #: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"El nivel de batería es crítico. El equipo se pondrá a dormir en 60 segundos."
+"El nivel de batería es crítico. El equipo entrará en reposo en 60 segundos."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Dormir"
+msgstr "Entrar en reposo ahora"
 
 #: powerdevilcore.cpp:688
 #, kde-format
