@@ -42,6 +42,7 @@ void DDCutilBrightness::detect()
     ddca_get_display_info_list2(true, &dlist);
     qCInfo(POWERDEVIL)  << "[DDCutilBrightness] " << dlist->ct << "display(s) were detected";
 
+    m_displayHandleList.clear();
     for (int iDisp = 0; iDisp < dlist->ct; ++iDisp) {
         DDCA_Display_Handle dh = nullptr;  // initialize to avoid clang analyzer warning
 
@@ -100,7 +101,7 @@ long DDCutilBrightness::brightness()
     //not checking that results in the brightness slider jump to the previous value when changing.
     if (m_setBrightnessEventFilter.isActive()) {
         m_lastBrightnessKnown = m_tmpCurrentBrightness;
-    } else {  //FIXME: gets value for display 1
+    } else {  //FIXME: gets value only for first display
         DDCA_Status rc;
         DDCA_Non_Table_Vcp_Value returnValue;
 
@@ -150,20 +151,22 @@ void DDCutilBrightness::setBrightness(long value)
 void DDCutilBrightness::setBrightnessAfterFilter()
 {
 #ifdef WITH_DDCUTIL
+    bool with_errors = false;
     DDCA_Status rc;
     for (int iDisp = 0; iDisp < m_displayHandleList.count(); ++iDisp) {          //FIXME: we set the same brightness to all monitors, plugin architecture needed
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setting brightness "<<m_tmpCurrentBrightness;
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setting brightness " << m_tmpCurrentBrightness;
         uint8_t newsh = (uint16_t)m_tmpCurrentBrightness >> 8;
         uint8_t newsl = (uint16_t)m_tmpCurrentBrightness & 0x00ff;
-        rc = ddca_set_non_table_vcp_value(m_displayHandleList.at(iDisp), 0x10,
-                                           newsh, newsl);
-
+        rc = ddca_set_non_table_vcp_value(m_displayHandleList.at(iDisp), 0x10, newsh, newsl);
         if (rc < 0) {
-            qCWarning(POWERDEVIL) << "[DDCutilBrightness::setBrightness] failed, trying to detect()";
-            detect();
-        } else {
-            m_lastBrightnessKnown = m_tmpCurrentBrightness;
+            with_errors = true;
         }
+    }
+    if (with_errors) {
+        qCWarning(POWERDEVIL) << "[DDCutilBrightness::setBrightness] failed, trying to detect()";
+        detect();
+    } else {
+        m_lastBrightnessKnown = m_tmpCurrentBrightness;
     }
 #else
     return;
