@@ -95,6 +95,7 @@ ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX POWERDEVIL
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
+kdoctools_install(po)
 
 ecm_qt_install_logging_categories(
         EXPORT POWERDEVIL
