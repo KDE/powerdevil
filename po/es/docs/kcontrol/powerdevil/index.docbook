@@ -141,7 +141,7 @@
 <listitem>
 <para
 >Suspende la sesión tras el tiempo seleccionado al estado <guilabel
->Dormir</guilabel
+>Reposo</guilabel
 >, <guilabel
 >Hibernar</guilabel
 >, <guilabel
@@ -233,7 +233,7 @@
 >Si se escoge esta opción, se puede elegir un comportamiento especial para la actividad. Si se trata de una actividad de presentación, se pueden marcar las casillas <guilabel
 >No apagar nunca la pantalla</guilabel
 > y <guilabel
->No apagar nunca el equipo ni permitir que duerma</guilabel
+>No apagar nunca el equipo ni permitir que entre en reposo</guilabel
 >. También se puede definir el intervalo de tiempo para que el equipo cambie a un modo de suspensión para las actividades de ahorro de energía. </para>
 </listitem>
 </varlistentry>
@@ -384,7 +384,7 @@
 ><userinput
 >suspender</userinput
 >, <userinput
->dormir</userinput
+>reposo</userinput
 >, <userinput
 >hibernar</userinput
 >, <userinput

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-04 08:11+0200\n"
+"PO-Revision-Date: 2022-11-26 08:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,7 +58,7 @@ msgstr "Zmanjšaj svetlost zaslona"
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
-msgstr "Svetlost"
+msgstr "Raven"
 
 #: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
 #: actions/bundled/runscriptconfig.cpp:82
@@ -89,13 +89,13 @@ msgstr "Izklopi po"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
-msgstr "V pripravljenost"
+msgstr "V suspenz"
 
 #: actions/bundled/handlebuttonevents.cpp:67
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
-msgstr "V mirovanje"
+msgstr "V hibernacijo"
 
 #: actions/bundled/handlebuttonevents.cpp:72
 #, kde-format
@@ -126,19 +126,19 @@ msgstr "Ne naredi nič"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "V pripravljenosti"
+msgstr "Spanje"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:102
 #: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Hibernate"
-msgstr "V mirovanje"
+msgstr "V hibernacijo"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:105
 #: actions/bundled/suspendsessionconfig.cpp:96
 #, kde-format
 msgid "Hybrid sleep"
-msgstr "Hibridna pripravljenost"
+msgstr "Hibridno spanje"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:107
 #: actions/bundled/suspendsessionconfig.cpp:98
@@ -259,8 +259,7 @@ msgstr "Avtomatsko"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
-"Ko je v mirovanju, naj gre po določenem času nedejavnosti v stanje "
-"pripravljenosti"
+"Ko je v spanju, naj gre po določenem času nedejavnosti v stanje hibernacije"
 
 #: actions/bundled/wirelesspowersavingconfig.cpp:76
 #: actions/bundled/wirelesspowersavingconfig.cpp:81
@@ -295,7 +294,7 @@ msgstr "Bluetooth"
 #: backends/upower/upowersuspendjob.cpp:69
 #, kde-format
 msgid "Unsupported suspend method"
-msgstr "Nepodprta metoda za prehod v pripravljenost"
+msgstr "Nepodprta metoda za prehod v suspenz"
 
 #: powerdevilapp.cpp:62
 #, kde-format
@@ -354,7 +353,7 @@ msgstr "Upravljalnik dejavnosti"
 #: powerdevilcore.cpp:436
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr "Politike te dejavnosti sistemu onemogočajo prehod v pripravljenost"
+msgstr "Politike te dejavnosti sistemu onemogočajo prehod v spanje"
 
 #: powerdevilcore.cpp:448
 #, kde-format
@@ -370,7 +369,7 @@ msgstr "Dodana dodatna baterija"
 #: powerdevilcore.cpp:512 powerdevilcore.cpp:728
 #, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr "Računalnik ne bo več šel v pripravljenost."
+msgstr "Računalnik ne bo več šel v spanje ."
 
 #: powerdevilcore.cpp:572
 #, kde-format
@@ -417,7 +416,7 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 "Baterija vaše Bloetooth napraje (\"%1\") je skoraj prazna, zato se lahko "
-"kadarkoli izklopi. Prosim onovno napolnite ali zamenjajte baterijo."
+"kadarkoli izklopi. Prosim ponovno napolnite ali zamenjajte baterijo."
 
 #: powerdevilcore.cpp:639
 #, kde-format
@@ -454,12 +453,11 @@ msgstr ""
 "izklopil."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Izklopi"
+msgstr "Izklopi zdaj"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -468,32 +466,29 @@ msgid ""
 "seconds."
 msgstr ""
 "Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"mirovanje."
+"hibernacijo."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "V mirovanje"
+msgstr "V hibernacijo zdaj"
 
 #: powerdevilcore.cpp:682
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"stanje pripravljenosti."
+"stanje spanja."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "V pripravljenosti"
+msgstr "Zaspi zdaj"
 
 #: powerdevilcore.cpp:688
 #, kde-format

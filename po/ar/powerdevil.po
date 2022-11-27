@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-04 21:17+0400\n"
+"PO-Revision-Date: 2022-11-26 10:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -443,12 +443,11 @@ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "بلغت البطارية المستوى الحرج، سيطفئ الحاسوب في  ٦٠ ثانية."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "أطفئ"
+msgstr "أطفئ الآن"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -458,13 +457,12 @@ msgid ""
 msgstr "بلغت البطارية المستوى الحرج، سيُسبت الحاسوب في ٦٠ ثانية."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "أسبت"
+msgstr "أسبت الآن"
 
 #: powerdevilcore.cpp:682
 #, kde-format
@@ -472,13 +470,11 @@ msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "بلغت البطارية المستوى الحرج، سينام الحاسوب في ٦٠ ثانية."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "نَم"
+msgstr "نَم الآن"
 
 #: powerdevilcore.cpp:688
 #, kde-format

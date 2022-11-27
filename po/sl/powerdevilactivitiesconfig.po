@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-20 00:47+0000\n"
-"PO-Revision-Date: 2022-08-21 06:55+0200\n"
+"PO-Revision-Date: 2022-11-26 08:14+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -64,7 +64,7 @@ msgstr "V pripravljenosti"
 #: activitywidget.cpp:102
 #, kde-format
 msgid "Hibernate"
-msgstr "V mirovanje"
+msgstr "V hibernacijo"
 
 #: activitywidget.cpp:104
 #, kde-format
@@ -90,7 +90,7 @@ msgstr "Računalnik deluje na nizki ravni baterije"
 #, kde-format
 msgctxt "This is meant to be: Act like activity %1"
 msgid "Activity \"%1\""
-msgstr "Dejavnost »%1«"
+msgstr "Dejavnost \"%1\""
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
@@ -120,8 +120,7 @@ msgstr "Nikoli ne izklopi zaslona"
 #: activityWidget.ui:79
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
-msgstr ""
-"Nikoli ne izklopi računalnika ali dovoli da gre v stanje pripravljenosti"
+msgstr "Nikoli ne izklopi računalnika ali dovoli da gre v stanje spanja"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
 #: activityWidget.ui:91

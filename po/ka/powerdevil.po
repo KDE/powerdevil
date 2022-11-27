@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-06 16:01+0200\n"
+"PO-Revision-Date: 2022-11-26 07:48+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -442,12 +442,11 @@ msgstr ""
 "გამოირთვება."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "გამორთვა"
+msgstr "ახლავე გამორთვა"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -459,13 +458,12 @@ msgstr ""
 "ძილში 60 წამში გადავა."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "პროგრამული ძილი"
+msgstr "პროგრამული ძილი ახლავე"
 
 #: powerdevilcore.cpp:682
 #, kde-format
@@ -474,13 +472,11 @@ msgstr ""
 "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში დაიძინებს."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "ძილი"
+msgstr "ძილი ახლავე"
 
 #: powerdevilcore.cpp:688
 #, kde-format
