@@ -90,7 +90,8 @@ void ActionPool::init(PowerDevil::Core *parent)
     QHash<QString,Action*>::iterator i = m_actionPool.begin();
     while (i != m_actionPool.end()) {
         Action *action = i.value();
-        if (!action->isSupported()) {
+        // workaround: DPMSControl isSupported property init is async in case of Wayland
+        if (!action->isSupported() && (i.key() != QStringLiteral("DPMSControl"))) {
             i = m_actionPool.erase(i);
             action->deleteLater();
         } else {
