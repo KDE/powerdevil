@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-25 00:49+0000\n"
-"PO-Revision-Date: 2022-09-04 10:49+0200\n"
+"PO-Revision-Date: 2022-12-04 07:49+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.11.90\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -456,12 +456,11 @@ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Batterie critique. Votre ordinateur s'éteindra dans 60 secondes."
 
 #: powerdevilcore.cpp:671
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Éteindre"
+msgstr "Éteindre maintenant"
 
 #: powerdevilcore.cpp:676
 #, kde-format
@@ -472,13 +471,12 @@ msgstr ""
 "Batterie critique. Votre ordinateur passera en hibernation dans 60 secondes."
 
 #: powerdevilcore.cpp:677
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "En hibernation"
+msgstr "Mettre en hibernation maintenant"
 
 #: powerdevilcore.cpp:682
 #, kde-format
@@ -487,13 +485,11 @@ msgstr ""
 "Batterie critique. Votre ordinateur sera mis en veille dans 60 secondes."
 
 #: powerdevilcore.cpp:683
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Veille"
+msgstr "Mettre en veille maintenant"
 
 # unreviewed-context
 #: powerdevilcore.cpp:688
