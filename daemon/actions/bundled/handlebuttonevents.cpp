@@ -95,6 +95,17 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent, const QVariantList &)
                 KScreen::ConfigMonitor::instance()->addConfig(m_screenConfiguration);
                 connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &HandleButtonEvents::checkOutputs);
     });
+
+    if (!backend()->isLidClosed()) {
+        m_oldKeyboardBrightness = backend()->brightness(BackendInterface::Keyboard);
+    }
+    connect(backend(), &PowerDevil::BackendInterface::brightnessChanged, this, [this](const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type) {
+        // By the time the lid close is processed, the backend brightness will already be updated.
+        // That's why we track the brightness here as long as the lid is open.
+        if (type == BackendInterface::Keyboard && !backend()->isLidClosed()) {
+            m_oldKeyboardBrightness = brightnessInfo.value;
+        }
+    });
 }
 
 HandleButtonEvents::~HandleButtonEvents()
@@ -133,6 +144,10 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 {
     switch (type) {
         case BackendInterface::LidClose:
+            if (m_oldKeyboardBrightness.has_value()) {
+                backend()->setBrightness(0, BackendInterface::Keyboard);
+            }
+
             if (!triggersLidAction()) {
                 qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
                 return;
@@ -141,6 +156,12 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
             processAction(m_lidAction);
             break;
         case BackendInterface::LidOpen:
+            // When we restore the keyboard brightness before waking up, we shouldn't conflict
+            // with dimdisplay or dpms also messing with the keyboard.
+            if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
+                backend()->setBrightness(m_oldKeyboardBrightness.value(), BackendInterface::Keyboard);
+            }
+
             // In this case, let's send a wakeup event
             KIdleTime::instance()->simulateUserActivity();
             break;

@@ -27,6 +27,8 @@
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
+#include <optional>
+
 namespace PowerDevil {
 namespace BundledActions {
 
@@ -79,6 +81,8 @@ private:
     uint m_powerDownButtonAction = 0;
     uint m_sleepButtonAction = 1;
     uint m_hibernateButtonAction = 2;
+
+    std::optional<int> m_oldKeyboardBrightness;
 };
 
 }
