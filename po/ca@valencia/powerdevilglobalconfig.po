@@ -149,7 +149,7 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
-"Potser cal desconnectar i tornar a connectar la font d'alimentació per "
+"Potser cal desconnectar i tornar a connectar la font d'alimentació per a "
 "tornar a iniciar la càrrega de la bateria."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
