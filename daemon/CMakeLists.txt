@@ -56,7 +56,6 @@ target_link_libraries(powerdevilcore
     KF5::WidgetsAddons
     KF5::Notifications
     KF5::XmlGui
-    KF5::WaylandClient
     KF5::Kirigami2
     PW::KWorkspace
     XCB::DPMS

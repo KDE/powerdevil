@@ -22,7 +22,6 @@ Dependencies:
     'frameworks/knotifications': '@latest'
     'frameworks/knotifyconfig': '@latest'
     'frameworks/kservice': '@latest'
-    'frameworks/kwayland': '@latest'
     'frameworks/kwidgetsaddons': '@latest'
     'frameworks/kwindowsystem': '@latest'
     'frameworks/kxmlgui': '@latest'
