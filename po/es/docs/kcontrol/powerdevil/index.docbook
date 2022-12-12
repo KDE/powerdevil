@@ -52,9 +52,7 @@
 >PowerDevil, un demonio gestor de energía</title>
 
 <para
->Este módulo es una herramienta de configuración para administrar el gestor de energía en &plasma;. Este es un configurador para el demonio de PowerDevil, que se puede iniciar o detener desde el módulo de <guilabel
->Servicios en segundo plano</guilabel
-> de las &systemsettings;.</para>
+>Este módulo es una herramienta de configuración para administrar el gestor de energía en &plasma;. Sirve para configurar para el demonio de PowerDevil.</para>
 
 <para
 >A través de este módulo puede definir el comportamiento de su equipo en varias situaciones, permitiéndole ahorrar toda la energía que sea posible. </para>

@@ -38,9 +38,7 @@
 >PowerDevil, een energiebeheerdaemon</title>
 
 <para
->Deze module is een configuratiehulpmiddel voor het beheer van Energiebeheer in &plasma;. Het configureert de PowerDevil-daemon, die u kunt starten of stoppen vanuit de module <guilabel
->Achtergronservices</guilabel
-> in &systemsettings;.</para>
+>Deze module is een configuratiehulpmiddel voor het beheer van Energiebeheer in &plasma;. Het configureert de PowerDevil-daemon.</para>
 
 <para
 >Met deze module kunt u het gedrag van uw computer in verschillende situaties definiëren, waarmee u zo veel als mogelijk energie kunt besparen. </para>
