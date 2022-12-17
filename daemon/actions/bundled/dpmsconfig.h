@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVILDPMSACTIONCONFIG_H
-#define POWERDEVILDPMSACTIONCONFIG_H
+#pragma once
 
 #include <powerdevilactionconfig.h>
 
@@ -39,5 +37,3 @@ public:
 private:
     QSpinBox *m_spinBox;
 };
-
-#endif // POWERDEVILDPMSACTIONCONFIG_H

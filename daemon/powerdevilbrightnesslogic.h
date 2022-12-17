@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVIL_BRIGHTNESSLOGIC_H
-#define POWERDEVIL_BRIGHTNESSLOGIC_H
+#pragma once
 
 namespace PowerDevil {
 
@@ -180,5 +178,3 @@ private:
 };
 
 }
-
-#endif // POWERDEVIL_BRIGHTNESSLOGIC_H

@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef ERROROVERLAY_H
-#define ERROROVERLAY_H
+#pragma once
 
 #include <QWidget>
 
@@ -38,5 +37,3 @@ private:
 private:
     QWidget *m_BaseWidget;
 };
-
-#endif // ERROROVERLAY_H

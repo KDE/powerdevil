@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef EDITPAGE_H
-#define EDITPAGE_H
+#pragma once
 
 #include <KCModule>
 #include <KSharedConfig>
@@ -61,5 +60,3 @@ private:
     ErrorOverlay *m_errorOverlay = nullptr;
     QHash< QString, ActionEditWidget* > m_editWidgets;
 };
-
-#endif /* EDITPAGE_H */

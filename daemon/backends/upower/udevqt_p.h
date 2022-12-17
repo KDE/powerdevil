@@ -18,8 +18,7 @@
     License along with this library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef UDEVQT_P_H
-#define UDEVQT_P_H
+#pragma once
 
 extern "C"
 {
@@ -78,5 +77,3 @@ inline QStringList listFromListEntry(struct udev_list_entry *list)
 }
 
 }
-
-#endif

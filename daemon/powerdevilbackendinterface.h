@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVIL_BACKENDINTERFACE_H
-#define POWERDEVIL_BACKENDINTERFACE_H
+#pragma once
 
 #include <QObject>
 #include <QHash>
@@ -341,5 +339,3 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::Capabilities)
 Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::SuspendMethods)
-
-#endif // POWERDEVIL_BACKENDINTERFACE_H

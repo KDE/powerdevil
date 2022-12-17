@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef POWERDEVILAPP_H
-#define POWERDEVILAPP_H
+#pragma once
 
 #include <QVariantList>
 #include <QGuiApplication>
@@ -46,5 +45,3 @@ private Q_SLOTS:
 private:
     PowerDevil::Core *m_core;
 };
-
-#endif // POWERDEVILAPP_H

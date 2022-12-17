@@ -1,7 +1,4 @@
-#ifndef UDEVQT_H
-#define UDEVQT_H
+#pragma once
 
 #include "udevqtclient.h"
 #include "udevqtdevice.h"
-
-#endif

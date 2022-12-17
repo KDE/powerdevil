@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef ACTIONCONFIG_H
-#define ACTIONCONFIG_H
+#pragma once
 
 #include <QMainWindow>
 #include <QWidget>
@@ -40,5 +39,3 @@ public:
 private:
     QGridLayout* m_gridLayout;
 };
-
-#endif // ActionConfigWidget_H

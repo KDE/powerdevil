@@ -20,8 +20,7 @@
 
 */
 
-#ifndef POWERDEVILUPOWERBACKEND_H
-#define POWERDEVILUPOWERBACKEND_H
+#pragma once
 
 #include <powerdevilbackendinterface.h>
 
@@ -117,5 +116,3 @@ private:
     //helper path
     QString m_syspath;
 };
-
-#endif // POWERDEVILUPOWERBACKEND_H

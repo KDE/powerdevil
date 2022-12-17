@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef ACTIVITYPAGE_H
-#define ACTIVITYPAGE_H
+#pragma once
 
 #include <KCModule>
 
@@ -60,5 +59,3 @@ private:
     KMessageWidget *m_messageWidget = nullptr;
     KActivities::Consumer::ServiceStatus m_previousServiceStatus;
 };
-
-#endif // ACTIVITYPAGE_H

@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef GENERALPAGE_H
-#define GENERALPAGE_H
+#pragma once
 
 #include <KCModule>
 
@@ -52,5 +51,3 @@ private:
     int m_chargeStartThreshold = 0;
     int m_chargeStopThreshold = 100;
 };
-
-#endif /* GENERALPAGE_H */

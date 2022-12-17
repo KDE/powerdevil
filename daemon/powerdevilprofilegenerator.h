@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef POWERDEVIL_PROFILEGENERATOR_H
-#define POWERDEVIL_PROFILEGENERATOR_H
+#pragma once
 
 namespace PowerDevil {
 
@@ -40,5 +39,3 @@ namespace ProfileGenerator
 }
 
 }
-
-#endif // POWERDEVIL_PROFILEGENERATOR_H

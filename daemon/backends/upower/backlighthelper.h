@@ -17,8 +17,7 @@
  *
  */
 
-#ifndef BACKLIGHTHELPER_H
-#define BACKLIGHTHELPER_H
+#pragma once
 
 #include <QObject>
 #include <QVariantAnimation>
@@ -70,5 +69,3 @@ private:
 
     QVariantAnimation m_anim;
 };
-
-#endif // BACKLIGHTHELPER_H

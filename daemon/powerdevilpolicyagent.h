@@ -18,9 +18,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVIL_POWERDEVILPOLICYAGENT_H
-#define POWERDEVIL_POWERDEVILPOLICYAGENT_H
+#pragma once
 
 #include <QObject>
 #include <QHash>
@@ -186,5 +184,3 @@ private:
 };
 
 }
-
-#endif // POWERDEVIL_POWERDEVILPOLICYAGENT_H

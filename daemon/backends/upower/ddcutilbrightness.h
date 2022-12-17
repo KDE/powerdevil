@@ -17,8 +17,7 @@
  *
  */
 
-#ifndef DDCUTILBRIGHTNESS_H
-#define DDCUTILBRIGHTNESS_H
+#pragma once
 
 #include <QObject>
 #include <QVector>
@@ -58,5 +57,3 @@ private:
     int m_lastBrightnessKnown;
     int m_lastMaxBrightnessKnown;
 };
-
-#endif //DDCUTILBRIGHTNESS_H

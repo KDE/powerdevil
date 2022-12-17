@@ -18,8 +18,7 @@
     License along with this library. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef UDEVQTCLIENT_H
-#define UDEVQTCLIENT_H
+#pragma once
 
 #include <QObject>
 #include <QList>
@@ -68,5 +67,3 @@ class Client : public QObject
 };
 
 }
-
-#endif

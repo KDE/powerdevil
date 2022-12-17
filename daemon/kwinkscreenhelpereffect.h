@@ -17,8 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef KWINKSCREENHELPEREFFECT_H
-#define KWINKSCREENHELPEREFFECT_H
+#pragma once
 
 #include <config-powerdevil.h>
 
@@ -76,5 +75,3 @@ private:
 };
 
 } // namespace PowerDevil
-
-#endif // KWINKSCREENHELPEREFFECT_H

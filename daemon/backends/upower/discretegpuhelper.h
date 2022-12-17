@@ -17,8 +17,7 @@
  *
  */
 
-#ifndef DISCRETEGPUHELPER_H
-#define DISCRETEGPUHELPER_H
+#pragma once
 
 #include <QObject>
 #include <kauth_version.h>
@@ -37,6 +36,3 @@ public Q_SLOTS:
     ActionReply hasdualgpu(const QVariantMap &args);
 
 };
-
-#endif // DISCRETEGPUHELPER_H
-

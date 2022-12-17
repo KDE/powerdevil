@@ -19,8 +19,7 @@
 
 */
 
-#ifndef LOGIN1SUSPENDJOB_H
-#define LOGIN1SUSPENDJOB_H
+#pragma once
 
 #include <QDBusInterface>
 #include <QDBusPendingCallWatcher>
@@ -50,5 +49,3 @@ private:
     PowerDevil::BackendInterface::SuspendMethod m_method;
     PowerDevil::BackendInterface::SuspendMethods m_supported;
 };
-
-#endif //LOGIN1SUSPENDJOB_H

@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef ACTIONEDITWIDGET_H
-#define ACTIONEDITWIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -61,5 +59,3 @@ private:
     QHash< QString, QCheckBox* > m_actionsHash;
     QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
 };
-
-#endif // ACTIONEDITWIDGET_H

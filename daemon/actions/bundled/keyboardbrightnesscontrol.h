@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROL_H
-#define POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROL_H
+#pragma once
 
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
@@ -78,5 +76,3 @@ private:
 }
 
 }
-
-#endif // POWERDEVIL_BUNDLEDACTIONS_KEYBOARDBRIGHTNESSCONTROL_H

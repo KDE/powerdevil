@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVIL_POWERDEVILACTIONCONFIG_H
-#define POWERDEVIL_POWERDEVILACTIONCONFIG_H
+#pragma once
 
 #include <QWidget>
 
@@ -130,5 +128,3 @@ private:
 };
 
 }
-
-#endif // POWERDEVIL_POWERDEVILACTIONCONFIG_H

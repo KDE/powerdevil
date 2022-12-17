@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef ACTIVITYWIDGET_H
-#define ACTIVITYWIDGET_H
+#pragma once
 
 #include <QWidget>
 #include <KSharedConfig>
@@ -55,5 +53,3 @@ private:
     QString m_activity;
     KActivities::Consumer *const m_activityConsumer;
 };
-
-#endif // ACTIVITYWIDGET_H

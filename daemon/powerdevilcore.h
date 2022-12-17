@@ -17,9 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
-#ifndef POWERDEVILCORE_H
-#define POWERDEVILCORE_H
+#pragma once
 
 #include "powerdevilbackendinterface.h"
 
@@ -207,5 +205,3 @@ private Q_SLOTS:
 };
 
 }
-
-#endif // POWERDEVILCORE_H
