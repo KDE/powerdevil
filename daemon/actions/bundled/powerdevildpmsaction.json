@@ -29,6 +29,7 @@
         "Description[uk]": "Керування параметрами DPMS",
         "Description[x-test]": "xxControls DPMS settingsxx",
         "Description[zh_CN]": "控制屏幕电源管理设置",
+        "Description[zh_TW]": "控制 DPMS 設定",
         "Icon": "preferences-desktop-screensaver",
         "Name": "Screen Energy Saving",
         "Name[ar]": "حِفظ طاقة الشاشة",

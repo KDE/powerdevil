@@ -29,6 +29,7 @@
         "Description[uk]": "Базове керування яскравістю підсвічування клавіатури",
         "Description[x-test]": "xxBasic Controls for the keyboard backlight brightnessxx",
         "Description[zh_CN]": "键盘背光亮度基本控制",
+        "Description[zh_TW]": "鍵盤背光亮度的基本控制",
         "Icon": "input-keyboard",
         "Name": "Keyboard backlight",
         "Name[ar]": "الإضاءة الخلفيّة للوحة المفاتيح",

@@ -30,6 +30,7 @@
         "Description[uk]": "Налаштування окремих параметрів керування живленням простору дій",
         "Description[x-test]": "xxPer-Activity Power Managementxx",
         "Description[zh_CN]": "每个活动的电源管理",
+        "Description[zh_TW]": "個別活動的電源管理",
         "Icon": "preferences-desktop-activities",
         "Name": "Activity Power Settings",
         "Name[ar]": "إعدادات الطاقة للنشاط",
@@ -68,7 +69,8 @@
         "Name[tr]": "Etkinlik Güç Ayarları",
         "Name[uk]": "Параметри живлення у просторі дій",
         "Name[x-test]": "xxActivity Power Settingsxx",
-        "Name[zh_CN]": "活动电源设置"
+        "Name[zh_CN]": "活动电源设置",
+        "Name[zh_TW]": "活動電源設定"
     },
     "X-DocPath": "kcontrol/powerdevil/index.html#activity-setting",
     "X-KDE-Keywords": "system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,low battery,plug,unplug,activity,activities,workspaces,workspace,special behavior",

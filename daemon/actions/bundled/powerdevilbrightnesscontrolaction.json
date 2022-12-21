@@ -29,6 +29,7 @@
         "Description[uk]": "Базове керування яскравістю",
         "Description[x-test]": "xxBasic Controls for brightnessxx",
         "Description[zh_CN]": "亮度基本控制",
+        "Description[zh_TW]": "基本亮度控制",
         "Icon": "preferences-system-power-management",
         "Name": "Screen brightness",
         "Name[ar]": "سطوع الشاشة",

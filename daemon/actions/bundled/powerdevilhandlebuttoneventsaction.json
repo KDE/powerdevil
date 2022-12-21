@@ -29,6 +29,7 @@
         "Description[uk]": "Виконання дій у відповідь на натискання кнопки",
         "Description[x-test]": "xxPerforms an action whenever a button is pressedxx",
         "Description[zh_CN]": "按键时执行操作",
+        "Description[zh_TW]": "按鍵被按下時執行動作",
         "Icon": "system-suspend",
         "Name": "Button events handling",
         "Name[ar]": "التعامل مع أحداث ضغط الأزرار",
