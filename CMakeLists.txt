@@ -22,6 +22,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
+include(ECMDeprecationSettings)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
 if (QT_MAJOR_VERSION EQUAL "5")
@@ -90,6 +91,9 @@ add_definitions(-DQT_NO_FOREACH)
 
 ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX POWERDEVIL
                   VERSION_HEADER "${CMAKE_BINARY_DIR}/powerdevil_version.h"
+)
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.101
 )
 
 add_subdirectory(daemon)
