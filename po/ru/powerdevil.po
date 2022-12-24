@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-09 00:48+0000\n"
-"PO-Revision-Date: 2022-10-02 19:47+0300\n"
+"PO-Revision-Date: 2022-12-23 10:04+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -458,12 +458,11 @@ msgstr ""
 "Уровень заряда батареи критический. Компьютер будет выключен через 60 секунд."
 
 #: powerdevilcore.cpp:672
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Выключить компьютер"
+msgstr "Выключить"
 
 #: powerdevilcore.cpp:677
 #, kde-format
@@ -476,13 +475,12 @@ msgstr ""
 
 # shutdown-method --aspotashev
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Перейти в спящий режим"
+msgstr "Спящий режим"
 
 #: powerdevilcore.cpp:683
 #, kde-format
@@ -493,13 +491,11 @@ msgstr ""
 
 # shutdown-method --aspotashev
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Перейти в ждущий режим"
+msgstr "Ждущий режим"
 
 #: powerdevilcore.cpp:689
 #, kde-format
