@@ -45,7 +45,25 @@ ChargeThresholdHelper::ChargeThresholdHelper(QObject *parent)
 
 static QStringList getBatteries()
 {
-    return QDir(s_powerSupplySysFsPath).entryList({QStringLiteral("BAT*")}, QDir::Dirs);
+    const QStringList power_supplies = QDir(s_powerSupplySysFsPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    QStringList batteries;
+
+    for (const QString &psu : power_supplies) {
+        QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + psu + QLatin1String("/type"));
+        if (!file.open(QIODevice::ReadOnly)) {
+            continue;
+        }
+
+        QString psu_type;
+        QTextStream stream(&file);
+        stream >> psu_type;
+
+        if (psu_type.trimmed() == QLatin1String("Battery")) {
+            batteries.append(psu);
+        }
+    }
+
+    return batteries;
 }
 
 static QVector<int> getThresholds(const QString &which)
