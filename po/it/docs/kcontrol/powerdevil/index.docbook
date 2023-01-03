@@ -52,9 +52,7 @@
 >PowerDevil, un demone per la gestione energetica</title>
 
 <para
->Questo modulo è uno strumento di configurazione per la gestione energetica in &plasma;. È un configuratore del demone PowerDevil, che puoi avviare o fermare dal modulo <guilabel
->Servizi in background</guilabel
-> in &systemsettings;.</para>
+>Questo modulo è uno strumento di configurazione per la gestione energetica in &plasma; È un configuratore del demone PowerDevil.</para>
 
 <para
 >Con questo modulo, puoi definire il comportamento del computer in varie situazioni, permettendo di risparmiare più energia possibile. </para>
