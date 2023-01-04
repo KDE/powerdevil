@@ -3,7 +3,7 @@
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
-# Vit Pelcak <vpelcak@suse.cz>, 2021.
+# Vit Pelcak <vit@pelcak.org>, 2021.
 #
 msgid ""
 msgstr ""
@@ -439,12 +439,11 @@ msgstr ""
 "Vaše baterie dosáhla kritické úrovně. Počítač bude vypnut za 60 sekund."
 
 #: powerdevilcore.cpp:672
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Vypnout"
+msgstr ""
 
 #: powerdevilcore.cpp:677
 #, kde-format
@@ -455,13 +454,12 @@ msgstr ""
 "Vaše baterie dosáhla kritické úrovně. Počítač bude hibernován za 60 sekund."
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hibernovat"
+msgstr ""
 
 #: powerdevilcore.cpp:683
 #, kde-format
@@ -469,13 +467,11 @@ msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Vaše baterie dosáhla kritické úrovně. Počítač bude uspán za 60 sekund."
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Uspat"
+msgstr ""
 
 #: powerdevilcore.cpp:689
 #, kde-format
