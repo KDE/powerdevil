@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Dims gradually the display on a time basis",
         "Description[ar]": "يعتِم الشاشة تدريجياً بناء على توقيت",
+        "Description[be]": "Паступова зацямняе дысплэй у залежнасці ад часу",
         "Description[bg]": "Постепенно затъмнява дисплея за определен период от време",
         "Description[ca@valencia]": "Atenua gradualment la pantalla en funció del temps",
         "Description[ca]": "Atenua gradualment la pantalla en funció del temps",
@@ -34,6 +35,7 @@
         "Name": "Dim screen",
         "Name[ar]": "أعتِم الشاشة",
         "Name[az]": "Ekranın qaralması",
+        "Name[be]": "Зацямненне экрана",
         "Name[bg]": "Затъмняване на екрана",
         "Name[bs]": "Priguši ekran",
         "Name[ca@valencia]": "Enfosquiment de la pantalla",

@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Apply a power management profile",
         "Description[ar]": "طبّق تشكيلة إدارة الطاقة",
+        "Description[be]": "Ужыванне профілю кіравання сілкаваннем",
         "Description[bg]": "Прилагане на профил на управление на захранването",
         "Description[ca@valencia]": "Aplica un perfil de gestió d'energia",
         "Description[ca]": "Aplica un perfil de gestió d'energia",
@@ -34,6 +35,7 @@
         "Name": "Power management profile",
         "Name[ar]": "تشكيلة إدارة الطاقة",
         "Name[az]": "Enerjinin idarəsi profili",
+        "Name[be]": "Профіль кіравання сілкаваннем",
         "Name[bg]": "Профил на управление на захранването",
         "Name[ca@valencia]": "Perfil de la gestió d'energia",
         "Name[ca]": "Perfil de gestió d'energia",

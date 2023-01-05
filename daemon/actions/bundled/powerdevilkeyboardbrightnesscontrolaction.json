@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Basic Controls for the keyboard backlight brightness",
         "Description[ar]": "تحكم بسيط بالإضاءة الخلفية للوحة المفاتيح",
+        "Description[be]": "Базавае кіраванне яркасцю падсвятлення клавіятуры",
         "Description[bg]": "Основни контроли за яркостта на подсветката на клавиатурата",
         "Description[ca@valencia]": "Controls bàsics per a la lluminositat de la retroil·luminació del teclat",
         "Description[ca]": "Controls bàsics per a la lluminositat de la retroil·luminació del teclat",
@@ -34,6 +35,7 @@
         "Name": "Keyboard backlight",
         "Name[ar]": "الإضاءة الخلفيّة للوحة المفاتيح",
         "Name[az]": "Klaviatura işıqlanması",
+        "Name[be]": "Падсвятленне клавіятуры",
         "Name[bg]": "Подсветка на клавиатурата",
         "Name[bs]": "Pozadinsko osvjetljenje tastature",
         "Name[ca@valencia]": "Retroil·luminació del teclat",

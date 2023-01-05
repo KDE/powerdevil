@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Controls DPMS settings",
         "Description[ar]": "تتحكم بإعدادات DPMS",
+        "Description[be]": "Налады кіравання DPMS",
         "Description[bg]": "Контролира настройките на DPMS",
         "Description[ca@valencia]": "Controla la configuració de DPMS",
         "Description[ca]": "Controla la configuració del DPMS",
@@ -34,6 +35,7 @@
         "Name": "Screen Energy Saving",
         "Name[ar]": "حِفظ طاقة الشاشة",
         "Name[az]": "Ekranın enerji qənaəti",
+        "Name[be]": "Энергазберагальны рэжым экрана",
         "Name[bg]": "Енергоспестяване на екрана",
         "Name[bs]": "Štednja energije ekrana",
         "Name[ca@valencia]": "Estalvi d'energia de la pantalla",
