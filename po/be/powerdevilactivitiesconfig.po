@@ -1,33 +1,35 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2011, 2013, 2014, 2019, 2020, 2023.
-# Lukáš Tinkl <lukas@kde.org>, 2012.
-# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
-#
+# Zmicier <zmicerturok@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-20 00:47+0000\n"
-"PO-Revision-Date: 2023-01-04 09:15+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
-"Language: cs\n"
+"PO-Revision-Date: 2022-12-30 16:31\n"
+"Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
+"Language-Team: Belarusian\n"
+"Language: be_BY\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Generator: Lokalize 22.12.0\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
+"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Language: be\n"
+"X-Crowdin-File: /main/be/powerdevil/powerdevilactivitiesconfig.po\n"
+"X-Crowdin-File-ID: 8984\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Antikruk"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "nashtlumach@gmail.com"
 
 #: activitypage.cpp:72
 #, kde-format
@@ -35,8 +37,8 @@ msgid ""
 "The activity service is running with bare functionalities.\n"
 "Names and icons of the activities might not be available."
 msgstr ""
-"Běžící servis aktivit má spuštěny pouze nejzákladnější funkce.\n"
-"Jména a ikony aktivit nemusejí být dostupná."
+"Служба пакояў працуе з базавымі функцыямі.\n"
+"Назвы і значкі пакояў могуць быць недаступнымі."
 
 #: activitypage.cpp:146
 #, kde-format
@@ -45,102 +47,103 @@ msgid ""
 "It is necessary to have the activity manager running to configure activity-"
 "specific power management behavior."
 msgstr ""
-"Servis aktivit neběží.\n"
-"Bez tohoto servisu nelze měnit chování správy napájení pro jednotlivé "
-"aktivity."
+"Служба пакояў не працуе.\n"
+"Неабходна, каб кіраўнік пакояў быў запушчаны, каб наладзіць асобнае "
+"кіраванне сілкаваннем для кожнага пакоя."
 
 #: activitypage.cpp:242
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Služba pro správu napájení, zdá se, neběží."
+msgstr "Выглядае, што служба кіравання сілкаваннем на запушчаная."
 
 #: activitywidget.cpp:98
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "Uspat"
+msgstr "Прыпыніць у RAM"
 
 #: activitywidget.cpp:102
 #, kde-format
 msgid "Hibernate"
-msgstr "Hibernovat"
+msgstr "Перавесці ў рэжым сну"
 
 #: activitywidget.cpp:104
 #, kde-format
 msgid "Shut down"
-msgstr "Vypnout"
+msgstr "Выключыць"
 
 #: activitywidget.cpp:108
 #, kde-format
 msgid "PC running on AC power"
-msgstr "Počítač je napájen ze sítě"
+msgstr "Камп'ютар сілкуецца ад электрасеткі"
 
 #: activitywidget.cpp:109
 #, kde-format
 msgid "PC running on battery power"
-msgstr "Počítač je napájen z baterie"
+msgstr "Камп'ютар сілкуецца ад батарэі"
 
 #: activitywidget.cpp:110
 #, kde-format
 msgid "PC running on low battery"
-msgstr "Počítač je napájen téměř vybitou baterií"
+msgstr "Камп'ютар сілкуецца ад батарэі з нізкім узроўнем зараду"
 
 #: activitywidget.cpp:139
 #, kde-format
 msgctxt "This is meant to be: Act like activity %1"
 msgid "Activity \"%1\""
-msgstr "Aktivita \"%1\""
+msgstr "Пакой \"%1\""
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
 msgid "Do not use special settings"
-msgstr "Nepoužívat speciální nastavení"
+msgstr "Не выкарыстоўваць адмысловыя налады"
 
 #. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
 #: activityWidget.ui:31
 #, kde-format
 msgid "Act like"
-msgstr "Chovat se jako"
+msgstr "Паводзіны"
 
 #. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
 #: activityWidget.ui:60
 #, kde-format
 msgid "Define a special behavior"
-msgstr "Definice speciálního chování"
+msgstr "Вызначыць адмысловыя паводзіны"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
 #: activityWidget.ui:72
 #, kde-format
 msgid "Never turn off the screen"
-msgstr "Nikdy nevypínat obrazovku"
+msgstr "Ніколі не выключаць экран"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
 #: activityWidget.ui:79
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
-msgstr "Nikdy neuspávat nebo nevypínat počítač"
+msgstr ""
+"Ніколі не выключаць камп'ютар і не дазваляць яму пераходзіць у рэжым сну"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
 #: activityWidget.ui:91
 #, kde-format
 msgid "Always"
-msgstr "Vždy"
+msgstr "Заўсёды"
 
 #. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
 #: activityWidget.ui:101
 #, kde-format
 msgid "after"
-msgstr "po"
+msgstr "праз"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
 #: activityWidget.ui:108
 #, kde-format
 msgid " min"
-msgstr " min"
+msgstr " хв"
 
 #. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
 #: activityWidget.ui:138
 #, kde-format
 msgid "Use separate settings"
-msgstr "Použít oddělená nastavení"
+msgstr "Выкарыстоўваць асобныя налады"
