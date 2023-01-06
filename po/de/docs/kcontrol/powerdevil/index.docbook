@@ -2,186 +2,113 @@
 <!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
 "dtd/kdedbx45.dtd" [
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % German "INCLUDE">
+  <!ENTITY % English "INCLUDE">
 ]>
 <article id="powerdevil" lang="&language;">
 <articleinfo>
-<title
->Energieverwaltung</title>
+<title>Power Management</title>
 <authorgroup>
-<author
->&Dario.Freddi;&Dario.Freddi.mail;</author>
-<othercredit role="translator"
-><firstname
->Burkhard</firstname
-><surname
->Lück</surname
-><affiliation
-><address
-><email
->lueck@hube-lueck.de</email
-></address
-></affiliation
-><contrib
->Übersetzung</contrib
-></othercredit
-> 
+<author>&Dario.Freddi;&Dario.Freddi.mail;</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date
->2016-08-26</date>
-<releaseinfo
->&plasma; 5.7</releaseinfo>
+<date>2016-08-26</date>
+<releaseinfo>&plasma; 5.7</releaseinfo>
 
 <keywordset>
-<keyword
->Plasma</keyword>
-<keyword
->Systemeinstellungen</keyword>
-<keyword
->PowerDevil</keyword>
-<keyword
->Energieverwaltung</keyword>
-<keyword
->Notebook-Stromversorgung</keyword>
+<keyword>Plasma</keyword>
+<keyword>System Settings</keyword>
+<keyword>powerdevil</keyword>
+<keyword>power management</keyword>
+<keyword>laptop power</keyword>
 </keywordset>
 </articleinfo>
 
 <sect1 id="kcm_powerdevilconfig">
-<title
->PowerDevil, ein Energieverwaltungsdienst</title>
+<title>PowerDevil, a Power Management Daemon</title>
 
-<para
->Dieses Modul erlaubt die Einrichtung der Energieverwaltung für &plasma;. Damit wird der PowerDevil-Dienst eingestellt, der im Modul <guilabel
->Hintergrunddienste</guilabel
-> gestartet oder gestoppt werden kann. </para>
+<para>This module is a configuration tool for managing Power Management in &plasma;. It is a configurator for the PowerDevil daemon.</para>
 
-<para
->In diesem Modul kann das Verhalten des Rechners für verschiedene Situationen festgelegt werden, um möglichst viel Energie zu sparen.  </para>
+<para>Through this module, you can define your computer's behavior in various situations, allowing you to save as much energy as possible.
+</para>
 
-<para
->PowerDevil funktioniert nur mit Solid und ist in die Arbeitsumgebung integriert. Es läuft im Hintergrund und macht sich nur durch die Benachrichtigungen bemerkbar. PowerDevil überprüft zuerst die Fähigkeiten des Systems, nur Einstellungen für diese Fähigkeiten werden angeboten. </para>
+<para>Powerdevil works with Solid only and it's integrated in your desktop. You won't even notice it is running, apart from notifications. Moreover, Powerdevil checks your system capabilities first, so you'll see only options available for your system in this module.
+</para>
 
-<note
-><para
->PowerDevil fragt nicht fortlaufend das System ab und verbraucht dadurch Energie beim Versuch, sie einzusparen.</para
-></note>
+<note><para>Note that PowerDevil does not poll your system. This means that it will not waste energy while trying to save it, as some other power managers do.</para></note>
 <sect2 id="energy-saving-setting">
-<title
->Einstellungen für Energiesparmodus</title>
-<para
->Diese Seite die aktuellen Einstellungen zum Energiesparen. Wenn ein Akku vorhanden ist, werden drei Karteikarten mit den Einstellungen für die Profile <guilabel
->Am Netzkabel</guilabel
->, <guilabel
->Im Akkubetrieb</guilabel
-> und <guilabel
->Im Akkubetrieb bei niedrigem Ladestand</guilabel
-> angezeigt. </para>
+<title>Energy Saving Settings</title>
+<para>
+This page shows the actual energy saving settings. If a battery is detected you have three tabs with different settings for <guilabel>On AC Power</guilabel>, <guilabel>On Battery</guilabel> and <guilabel>On Low Battery</guilabel> profiles.
+</para>
 <para>
 <screenshot>
-<screeninfo
->Einstellungen für Energiesparmodus</screeninfo>
+<screeninfo>Energy Saving Settings</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="energy.png" format="PNG"/>
     </imageobject>
     <textobject>
-      <phrase
->Einstellungen für Energiesparmodus</phrase>
+      <phrase>Energy Saving Settings</phrase>
     </textobject>
     <caption>
-      <para
->Einstellungen für Energiesparmodus</para>
+      <para>Energy Saving Settings</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
-<para
->Es gibt viele Einstellungen für jedes Profil: </para>
+<para>
+There are a lot of options you can configure for each profile:
+</para>
 
 <variablelist>
-<varlistentry
-><term
-><guilabel
->Bildschirmhelligkeit</guilabel
-></term>
+<varlistentry><term><guilabel>Screen brightness</guilabel></term>
 <listitem>
-<para
->Einstellung der Helligkeit des Bildschirms mit dem Schieberegler.</para>
+<para>Sets the screen's brightness using a slider.</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Bildschirm abdunkeln</guilabel
-></term>
+<varlistentry><term><guilabel>Dim screen</guilabel></term>
 <listitem>
-<para
->Ist diese Einstellung aktiv, wird der Bildschirm im Zeitraum. der im Drehfeld eingetragen ist, abgedunkelt. </para>
+<para>If checked, the display will be progressively dimmed, until reaching 
+brightness 0, in the amount of time you specify in the spin box.
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Bildschirm-Energieverwaltung</guilabel
-></term>
+<varlistentry><term><guilabel>Screen Energy Saving</guilabel></term>
 <listitem>
-<para
->Hier stellen Sie die Zeit bis zum Ausschalten im Drehfeld ein. </para>
+<para>Here you can set the timeout for switch off in the spin box.
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Sitzung in den Standby-Modus versetzen</guilabel
-></term>
+<varlistentry><term><guilabel>Suspend session</guilabel></term>
 <listitem>
-<para
->Ändert den Status der Sitzung nach der angegebenen Zeit in <guilabel
->Standby-Modus</guilabel
->, <guilabel
->Ruhezustand</guilabel
->, <guilabel
->Herunterfahren</guilabel
-> oder <guilabel
->Bildschirm sperren</guilabel
->.</para>
+<para>Suspends the session after the selected time to the status 
+<guilabel>Sleep</guilabel>, <guilabel>Hibernate</guilabel>,
+<guilabel>Shutdown</guilabel> or <guilabel>Lock screen</guilabel>.</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Knopf-Ereignisbehandlung</guilabel
-></term>
+<varlistentry><term><guilabel>Button events handling</guilabel></term>
 <listitem>
-<para
->Wählen Sie die Aktion aus, die beim Herunterklappen des Bildschirms oder Drücken des Ausschalt-Knopfes ausgeführt wird.</para>
+<para>Select actions to perform whenever the laptop lid is closed or a button is pressed.</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Skript ausführen</guilabel
-></term>
+<varlistentry><term><guilabel>Run Script</guilabel></term>
 <listitem>
-<para
->Aktivieren Sie diese Einstellung, um ein benutzerdefiniertes Skript beim Laden oder Entladen eines Profils oder nach einer vorgegebenen Zeitspanne auszuführen. </para>
+<para>Activate this option to run a custom script when a profile is loaded, unloaded
+or after a given amount of time.
+</para>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Energiesparmodus für Drahtlosgeräte</guilabel
-></term>
+<varlistentry><term><guilabel>Wireless power saving</guilabel></term>
 <listitem>
-<para
->Aktivieren Sie dies Einstellung um einzelne Aktionen für Wi-Fi, Mobiles Breitband oder Bluetooth festzulegen. </para>
+<para>Activate this option to set individual actions for Wi-Fi, Mobile broadband or Bluetooth connections.
+</para>
 </listitem>
 </varlistentry>
 
@@ -189,25 +116,20 @@
 </sect2>
 
 <sect2 id="activity-setting">
-<title
->Aktivitäten-Einstellungen</title>
-<para
->Auf dieser Seite können Energieprofile für jede Aktivität eingerichtet werden. Für jede Aktivität gibt es eine eigene Karteikarte für die Einstellung des Energieprofils dieser Aktivität.</para>
+<title>Activity Settings</title>
+<para>Here you can configure the Power Management settings per activity. The settings for each activity can be configured on its own tab.</para>
 
 <screenshot>
-<screeninfo
->Aktivitäten-Einstellungen</screeninfo>
+<screeninfo>Activity Settings</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="activity.png" format="PNG"/>
     </imageobject>
     <textobject>
-      <phrase
->Aktivitäten-Einstellungen</phrase>
+      <phrase>Activity Settings</phrase>
     </textobject>
     <caption>
-      <para
->Aktivitäten-Einstellungen</para>
+      <para>Activity Settings</para>
     </caption>
   </mediaobject>
 </screenshot>
@@ -215,123 +137,94 @@
 <variablelist>
 
 <varlistentry>
-<term
->Keine besonderen Einstellungen verwenden</term>
+<term>Don't use special settings</term>
 <listitem>
-<para
->Verwendet die Einstellungen, die auf der Seite <guilabel
->Energiesparen</guilabel
-> definiert sind. </para>
+<para>
+Use the settings defined on <guilabel>Energy Saving</guilabel> page.
+</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term
->Besonderes Verhalten definieren</term>
+<term>Define a special behavior</term>
 <listitem>
-<para
->Ist diese Einstellung aktiv, kann ein besonderes Verhalten für Aktivitäten ausgewählt werden.  Für eine Präsentation können Sie <guilabel
->Den Bildschirm nie ausschalten</guilabel
-> und <guilabel
->Den Rechner nie in den Ruhezustand versetzen oder herunterfahren</guilabel
-> auswählen. Es ist auch möglich, die Zeit für das Herunterfahren des Rechners für die Energiesparfunktionen von Profilen zu definieren. </para>
+<para>
+If this option is chosen, a special behavior for activity can be chosen. If this is a presentation activity, you can check the <guilabel>Never shutdown the screen</guilabel> and <guilabel>Never shutdown the computer or let it go to sleep</guilabel> boxes. It is also possible to define the time interval for the computer to switch to a suspension mode for the power saving activities.
+</para>
 </listitem>
 </varlistentry>
 <varlistentry>
-<term
->Unterschiedliche Einstellungen verwenden (nur für erfahrene Benutzer)</term>
+<term>Use separate settings (advanced users only)</term>
 <listitem>
-<para
->Mit dieser Einstellung kann der Benutzer detaillierte Einstellungen zum Energiesparen für eine einzelne Aktivität wählen. Diese Einstellungen entsprechen den Einstellungen auf der Seite <link linkend="energy-saving-setting"
->Energiesparen</link
->. </para>
+<para>
+This option allows users to choose the detail power saving settings for a separate activity. The settings are similar to the settings from the <link linkend="energy-saving-setting">Energy Saving page</link>.
+</para>
 </listitem>
 </varlistentry>
 </variablelist>
 </sect2>
 
 <sect2 id="advanced-settings">
-<title
->Erweiterte Einstellungen</title>
+<title>Advanced Settings</title>
 <para>
 <screenshot>
-<screeninfo
->Erweiterte Einstellungen</screeninfo>
+<screeninfo>Advanced Settings</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="advanced.png" format="PNG"/>
     </imageobject>
     <textobject>
-      <phrase
->Erweiterte Einstellungen</phrase>
+      <phrase>Advanced Settings</phrase>
     </textobject>
     <caption>
-      <para
->Erweiterte Einstellungen</para>
+      <para>Advanced Settings</para>
     </caption>
   </mediaobject>
 </screenshot>
 </para>
 <variablelist>
-<varlistentry
-><term
-><guilabel
->Akku-Ladestände</guilabel
-></term>
+<varlistentry><term><guilabel>Battery levels</guilabel></term>
 <listitem>
-<para
->Diese Einträge werden nur angezeigt, wenn ein Akku vorhanden ist und erkannt wurde. </para>
+<para>These items are only displayed if a battery is detected.
+</para>
 <variablelist>
-<varlistentry
-><term
-><guilabel
->Niedriger Ladestand</guilabel
-></term>
+<varlistentry><term><guilabel>Low level</guilabel></term>
 <listitem>
-<para
->Einstellung für den Prozentwert des niedrigen Ladezustands des Akkus. </para>
+<para>
+Here you can set the percentage after which the battery will be considered low.
+</para>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
-><guilabel
->Kritischer Ladestand</guilabel
-></term>
+<varlistentry><term><guilabel>Critical level</guilabel></term>
 <listitem>
-<para
->Einstellung für den Prozentwert des kritischen Ladezustands des Akkus. </para>
+<para>
+Here you can set the percentage after which the battery will be considered at critical level.
+</para>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
-><guilabel
->Bei kritischem Ladestand</guilabel
-></term>
+<varlistentry><term><guilabel>At critical level</guilabel></term>
 <listitem>
-<para
->Wählen Sie aus, welche Aktion beim kritischen Akku-Ladestand ausgeführt wird. </para>
+<para>
+Defines the action that will be done when battery reaches the critical level.
+</para>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
->Angeschlossene Geräte</term>
+<varlistentry><term>Peripheral devices</term>
 <listitem>
-<para
->Definiert den niedriger Ladestand für angeschlossene Geräte wie &eg; eine Funk-Maus. </para>
+<para>
+Defines the low level for peripheral devices &eg; a wireless mouse.
+</para>
 </listitem>
 </varlistentry>
 </variablelist>
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guibutton
->Benachrichtigungen festlegen</guibutton
-></term>
+<varlistentry><term><guibutton>Configure Notifications</guibutton></term>
 <listitem>
-<para
->Möchten Sie die Einstellungen für Benachrichtigungen noch genauer anpassen, klicken Sie auf diesen Kopf. </para>
+<para>
+If you want a deeper control over your notifications, you can refine them by clicking this button.
+</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -340,61 +233,36 @@
 </sect1>
 
 <sect1 id="powerdevilrunner">
-<title
->PowerDevil in &krunner; ausführen</title>
+<title>PowerDevil Runner</title>
 
-<para
->PowerDevil kann auch in &krunner; (<keycombo action="simul"
->&Alt;<keycap
->F2</keycap
-></keycombo
->) ausgeführt werden. Damit ist das Ändern von Profilen, der Helligkeit des Bildschirms, der Prozesssortaktung und anderer Werte schnell und direkt möglich. In &krunner; gibt es mehrere Schlüsselwörter zum Zugriff auf diese Funktionen. </para>
+<para>PowerDevil can be manually controlled through &krunner; (<keycombo action="simul">&Alt;<keycap>F2</keycap></keycombo>). This makes changing profile, brightness, governor and more much easier and faster. The runner has various keywords you can enter to access its functions
+</para>
 <sect2 id="runnerwords">
-<title
->Schlüsselwörter für &krunner;</title>
-<para
->Folgende Schlüsselwörter sind als Eingabe in &krunner; für Aktionen von PowerDevil möglich: </para>
+<title>Runner Keywords</title>
+<para>
+Here comes a list of keywords you can enter in &krunner; to perform PowerDevil related actions.
+</para>
 <variablelist>
-<varlistentry
-><term
-><userinput
->Energieprofil</userinput
-></term>
+<varlistentry><term><userinput>power profile</userinput></term>
 <listitem>
-<para
->Mit dieser Option kann manuell ein Energieprofil eingestellt werden. Alle vorhandenen Profile werden beim Eintippen als Treffer in &krunner; angezeigt. </para>
+<para>
+You can manually choose a profile using this keyword. All available profiles will be shown in form of &krunner; matches.
+</para>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
-><userinput
->Bildschirm-Helligkeit</userinput
-> oder <userinput
->Bildschirm abdunkeln</userinput
-></term>
+<varlistentry><term><userinput>screen brightness</userinput> or <userinput>dim screen</userinput></term>
 <listitem>
-<para
->Mit diesem Schlüsselwort wird die Helligkeit des Bildschirms eingestellt. Nach Eingabe dieses Schlüsselworts werden in &krunner; mögliche Werte angezeigt. Wenn Sie &eg; <userinput
->Bildschirm-Helligkeit 50</userinput
-> eingeben, wird die Helligkeit für den Bildschirm auf diesen Wert gesetzt. </para>
+<para>
+You can control screen brightness through this keyword. In this form, some &krunner; matches that let you do some common actions will be shown. If you enter a value after the keyword (&eg;: <userinput>Screen Brightness 50</userinput>), the brightness will be set to that value.
+</para>
 </listitem>
 </varlistentry>
-<varlistentry
-><term
-><userinput
->Standby-Modus</userinput
->, <userinput
->Standby</userinput
->, <userinput
->Ruhezustand</userinput
->, <userinput
->im Speicher</userinput
-> oder <userinput
->auf Festplatte</userinput
-></term>
+<varlistentry><term><userinput>suspend</userinput>, <userinput>sleep</userinput>, <userinput>hibernate</userinput>,
+<userinput>to ram</userinput> or <userinput>to disk</userinput></term>
 <listitem>
-<para
->Mit diesen Schlüsselwörtern wird der Rechner in einen Energiesparmodus-Modus versetzt. Alle möglichen Ruhezustände werden in &krunner; angezeigt. </para>
+<para>
+You can set your computer into a low power mode through these keywords. Available methods will be shown as &krunner; matches.
+</para>
 </listitem>
 </varlistentry>
 </variablelist>
