@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-09 00:48+0000\n"
-"PO-Revision-Date: 2023-01-02 07:12\n"
+"PO-Revision-Date: 2023-01-12 10:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -438,7 +438,7 @@ msgstr "电池电量危急，电脑将在 60 秒后关机。"
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr ""
+msgstr "立即关机"
 
 #: powerdevilcore.cpp:677
 #, kde-format
@@ -453,7 +453,7 @@ msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr ""
+msgstr "立即休眠"
 
 #: powerdevilcore.cpp:683
 #, kde-format
@@ -465,7 +465,7 @@ msgstr "电池电量危急，电脑将在 60 秒后睡眠。"
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr ""
+msgstr "立即睡眠"
 
 #: powerdevilcore.cpp:689
 #, kde-format
