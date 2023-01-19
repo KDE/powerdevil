@@ -1082,12 +1082,14 @@ void Core::clearWakeup(int cookie)
         return;
     }
 
+    int oldListSize = m_scheduledWakeups.size();
+
     // depending on cookie, remove it from scheduled wakeups
-    auto erased = m_scheduledWakeups.erase(std::remove_if(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [cookie](WakeupInfo wakeup) {
+    m_scheduledWakeups.erase(std::remove_if(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [cookie](WakeupInfo wakeup) {
         return wakeup.cookie == cookie;
     }));
 
-    if (erased == m_scheduledWakeups.end()) {
+    if (oldListSize == m_scheduledWakeups.size()) {
         sendErrorReply(QDBusError::InvalidArgs, "Can not clear the invalid wakeup");
         return;
     }
