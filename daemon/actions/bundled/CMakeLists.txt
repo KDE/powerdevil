@@ -70,7 +70,7 @@ endif()
 kcoreaddons_add_plugin(powerdevil_handlebuttoneventsaction SOURCES powerdevilhandlebuttonevents_plugin.cpp ${handlebuttons_SRCS} INSTALL_NAMESPACE "powerdevil/action")
 target_link_libraries(powerdevil_handlebuttoneventsaction PRIVATE powerdevilcore)
 
-set(actionconfig_SRCS handlebuttoneventsconfig.cpp)
+set(actionconfig_SRCS handlebuttoneventsconfig.cpp handlebuttoneventsconfig.h)
 qt_add_dbus_interface(actionconfig_SRCS
     ${CMAKE_SOURCE_DIR}/daemon/backends/upower/dbus/org.freedesktop.UPower.xml
     upower_interface)

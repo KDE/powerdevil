@@ -2,9 +2,9 @@ add_definitions(-DTRANSLATION_DOMAIN=\"libpowerdevilcommonconfig\")
 
 set( powerdevil_config_common_private_SRCS
     ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
-    actionconfigwidget.cpp
-    actioneditwidget.cpp
-    ErrorOverlay.cpp
+    actionconfigwidget.cpp actionconfigwidget.h
+    actioneditwidget.cpp actioneditwidget.h
+    ErrorOverlay.cpp ErrorOverlay.h
 )
 
 add_library(powerdevilconfigcommonprivate SHARED ${powerdevil_config_common_private_SRCS})

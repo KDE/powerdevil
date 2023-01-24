@@ -2,9 +2,9 @@ add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilactivitiesconfig\")
 
 set( kcm_powerdevil_activities_SRCS
      ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
-     activitypage.cpp
-     activitywidget.cpp
-     ../common/ErrorOverlay.cpp
+     activitypage.cpp activitypage.h
+     activitywidget.cpp activitywidget.h
+     ../common/ErrorOverlay.cpp ../common/ErrorOverlay.h
 )
 
 ki18n_wrap_ui(kcm_powerdevil_activities_SRCS
