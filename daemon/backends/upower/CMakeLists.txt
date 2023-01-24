@@ -1,11 +1,11 @@
 set(powerdevilupowerbackend_SRCS
     ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp
-    upowersuspendjob.cpp upowersuspendjob.h
-    login1suspendjob.cpp login1suspendjob.h
-    powerdevilupowerbackend.cpp powerdevilupowerbackend.h
-    udevqtclient.cpp udevqtclient.h
-    udevqtdevice.cpp udevqtdevice.h
-    ddcutilbrightness.cpp ddcutilbrightness.h
+    upowersuspendjob.cpp
+    login1suspendjob.cpp
+    powerdevilupowerbackend.cpp
+    udevqtclient.cpp
+    udevqtdevice.cpp
+    ddcutilbrightness.cpp
 )
 
 set_source_files_properties(
@@ -26,14 +26,14 @@ dbus/org.freedesktop.UPower.KbdBacklight.xml
 upower_kbdbacklight_interface)
 
 ## backlight helper executable
-add_executable(backlighthelper backlighthelper.cpp backlighthelper.h ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+add_executable(backlighthelper backlighthelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 target_link_libraries(backlighthelper Qt::Core KF5::AuthCore KF5::I18n)
 install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
 kauth_install_actions(org.kde.powerdevil.backlighthelper backlight_helper_actions.actions)
 
 ## discrete gpu helper executable
-add_executable(discretegpuhelper discretegpuhelper.cpp discretegpuhelper.h ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+add_executable(discretegpuhelper discretegpuhelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 target_link_libraries(discretegpuhelper Qt::Core KF5::AuthCore)
 install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)

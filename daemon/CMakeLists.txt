@@ -8,18 +8,18 @@ add_subdirectory(actions)
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
     powerdevil_debug.cpp
-    powerdevilaction.cpp powerdevilaction.h
-    powerdevilactionpool.cpp powerdevilactionpool.h
-    powerdevilbackendinterface.cpp powerdevilbackendinterface.h
+    powerdevilaction.cpp
+    powerdevilactionpool.cpp
+    powerdevilbackendinterface.cpp
     powerdevilcore.cpp
     powerdevilpolicyagent.cpp
-    powerdevilprofilegenerator.cpp powerdevilprofilegenerator.h
-    powerdevilbrightnesslogic.cpp powerdevilbrightnesslogic.h
-    powerdevilscreenbrightnesslogic.cpp powerdevilscreenbrightnesslogic.h
-    powerdevilkeyboardbrightnesslogic.cpp powerdevilkeyboardbrightnesslogic.h
-    powerdevilpowermanagement.cpp powerdevilpowermanagement.h
-    brightnessosdwidget.cpp brightnessosdwidget.h
-    kwinkscreenhelpereffect.cpp kwinkscreenhelpereffect.h
+    powerdevilprofilegenerator.cpp
+    powerdevilbrightnesslogic.cpp
+    powerdevilscreenbrightnesslogic.cpp
+    powerdevilkeyboardbrightnesslogic.cpp
+    powerdevilpowermanagement.cpp
+    brightnessosdwidget.cpp
+    kwinkscreenhelpereffect.cpp
 )
 
 add_library(powerdevil_log_static STATIC)
@@ -81,7 +81,7 @@ endif ()
 # target no.2 - powerdevil kded module
 set(powerdevil_SRCS
     powerdevil_debug.cpp
-    powerdevilapp.cpp powerdevilapp.h
+    powerdevilapp.cpp
     powerdevilfdoconnector.cpp
 )
 
@@ -95,7 +95,7 @@ qt_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.xml powerdev
 qt_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 # KAuth charge threshold helper
-add_executable(chargethresholdhelper chargethresholdhelper.cpp chargethresholdhelper.h powerdevil_debug.cpp ${chargethresholdhelper_mocs})
+add_executable(chargethresholdhelper chargethresholdhelper.cpp powerdevil_debug.cpp ${chargethresholdhelper_mocs})
 target_link_libraries(chargethresholdhelper Qt::Core KF5::AuthCore)
 install(TARGETS chargethresholdhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(chargethresholdhelper org.kde.powerdevil.chargethresholdhelper root)
@@ -145,7 +145,7 @@ install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
 set(powerdevilui_SRCS
-    powerdevilactionconfig.cpp powerdevilactionconfig.h
+    powerdevilactionconfig.cpp
 )
 
 add_library(powerdevilui ${powerdevilui_SRCS})
