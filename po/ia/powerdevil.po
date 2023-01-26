@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2013, 2019, 2020, 2021.
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2013, 2019, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-09 00:48+0000\n"
-"PO-Revision-Date: 2021-12-20 12:58+0100\n"
+"PO-Revision-Date: 2023-01-25 15:10+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -374,17 +374,13 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Batteria de dispositivo basse (Remanente %1%)"
 
 #: powerdevilcore.cpp:578
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"Le batteria in (\"%1\") es basse, e le dispositivo pote extinguer se in "
+"Le batteria in \"%1\" es basse, e le dispositivo pote extinguer se in "
 "qualquer momento. Pro favor recarga o reimplacia le batteria."
 
 #: powerdevilcore.cpp:584
@@ -414,16 +410,13 @@ msgstr ""
 "batteria."
 
 #: powerdevilcore.cpp:640
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr ""
-"Batteria es basse. Si tu necessita continuar a usar tu computator, o tu "
-"connecte tu computator, o tu extingue lo e post cambia le batteria."
+"Batteria es basse - pro continuar a usar tu computator,  assecura te quele "
+"adaptator de energia es connectite e que illo forni assatis energia."
 
 #: powerdevilcore.cpp:642
 #, kde-format
@@ -449,12 +442,11 @@ msgstr ""
 "Nivello de batteria critic. Tu computator essera stoppate in 60 secundas."
 
 #: powerdevilcore.cpp:672
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Stoppa (shut down)"
+msgstr "Stoppa (shut down) Nunc"
 
 #: powerdevilcore.cpp:677
 #, kde-format
@@ -466,13 +458,12 @@ msgstr ""
 "hybernation in 60 secundas."
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hiberna"
+msgstr "Hiberna Nunc"
 
 #: powerdevilcore.cpp:683
 #, kde-format
@@ -482,13 +473,11 @@ msgstr ""
 "secundas."
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Dormi"
+msgstr "Dormi nunc"
 
 #: powerdevilcore.cpp:689
 #, kde-format
