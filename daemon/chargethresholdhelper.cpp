@@ -49,7 +49,8 @@ static QStringList getBatteries()
     QStringList batteries;
 
     for (const QString &psu : power_supplies) {
-        QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + psu + QLatin1String("/type"));
+        QDir psuDir(s_powerSupplySysFsPath + QLatin1Char('/') + psu);
+        QFile file(psuDir.filePath("type"));
         if (!file.open(QIODevice::ReadOnly)) {
             continue;
         }
@@ -58,9 +59,19 @@ static QStringList getBatteries()
         QTextStream stream(&file);
         stream >> psu_type;
 
-        if (psu_type.trimmed() == QLatin1String("Battery")) {
-            batteries.append(psu);
+        if (psu_type.trimmed() != QLatin1String("Battery")) {
+            continue; // Not a battery, skip
         }
+
+        if (!(psuDir.exists(s_chargeStartThreshold) || psuDir.exists(s_oldChargeStartThreshold))) {
+            continue; // No charge start threshold, skip
+        }
+
+        if (!(psuDir.exists(s_chargeEndThreshold) || psuDir.exists(s_oldChargeStopThreshold))) {
+            continue; // No charge stop threshold, skip
+        }
+
+        batteries.append(psu);
     }
 
     return batteries;
