@@ -37,7 +37,7 @@ msgstr "txemaq@gmail.com"
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Gestió d'energia"
+msgstr "Gestió de l'energia"
 
 #: actions/bundled/brightnesscontrol.cpp:56
 #, kde-format
@@ -296,14 +296,15 @@ msgstr "Mètode de suspensió no admés"
 #: powerdevilapp.cpp:62
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "Sistema de gestió d'energia de KDE"
+msgstr "Sistema de gestió de l'energia de KDE"
 
 #: powerdevilapp.cpp:63
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr "«PowerDevil», un dimoni avançat, modular i lleuger de gestió d'energia"
+msgstr ""
+"«PowerDevil», un dimoni avançat, modular i lleuger de gestió de l'energia"
 
 #: powerdevilapp.cpp:65
 #, kde-format
@@ -353,7 +354,8 @@ msgstr "Estes polítiques d'activitat eviten la suspensió del sistema"
 #: powerdevilcore.cpp:449
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr "Estes polítiques d'activitat eviten la gestió d'energia de la pantalla"
+msgstr ""
+"Estes polítiques d'activitat eviten la gestió de l'energia de la pantalla"
 
 #: powerdevilcore.cpp:512
 #, kde-format

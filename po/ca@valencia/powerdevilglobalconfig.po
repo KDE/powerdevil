@@ -55,7 +55,7 @@ msgstr "Para"
 #: GeneralPage.cpp:264
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Pareix que el servei de gestió d'energia no s'està executant."
+msgstr "Pareix que el servei de gestió de l'energia no s'està executant."
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
