@@ -37,7 +37,7 @@ msgid ""
 "your computer's capabilities. This will also erase all existing "
 "modifications you made. Are you sure you want to continue?"
 msgstr ""
-"El sistema de gestió d'energia de KDE ara generarà un conjunt de valors "
+"El sistema de gestió de l'energia de KDE ara generarà un conjunt de valors "
 "predeterminats basats en les característiques de l'ordinador. Açò també "
 "esborrarà totes les modificacions que hàgeu efectuat. Segur que voleu "
 "continuar?"
@@ -50,7 +50,7 @@ msgstr "Restaura els perfils predeterminats"
 #: EditPage.cpp:271
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Pareix que el servei de gestió d'energia no s'està executant."
+msgstr "Pareix que el servei de gestió de l'energia no s'està executant."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: profileEditPage.ui:21

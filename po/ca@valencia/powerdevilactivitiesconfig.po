@@ -49,12 +49,12 @@ msgid ""
 msgstr ""
 "El servei de l'activitat no s'està executant.\n"
 "Cal tindre el gestor d'activitat executant-se per a configurar el "
-"comportament de gestió d'energia específic de l'activitat."
+"comportament de gestió de l'energia específic de l'activitat."
 
 #: activitypage.cpp:242
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Pareix que el servei de gestió d'energia no s'està executant."
+msgstr "Pareix que el servei de gestió de l'energia no s'està executant."
 
 #: activitywidget.cpp:98
 #, kde-format
