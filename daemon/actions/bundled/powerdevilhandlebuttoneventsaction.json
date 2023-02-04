@@ -6,6 +6,7 @@
         "Description[bg]": "Извършва действие при натискане на бутон",
         "Description[ca@valencia]": "Porta a terme una acció quan es prem un botó",
         "Description[ca]": "Porta a terme una acció quan es prem un botó",
+        "Description[cs]": "Vykoná akci kdykoli je tlačítko stisknuto",
         "Description[de]": "Führt eine Aktion aus, sobald ein Knopf gedrückt wird",
         "Description[en_GB]": "Performs an action whenever a button is pressed",
         "Description[es]": "Realiza una acción cada vez que se pulsa un botón",
