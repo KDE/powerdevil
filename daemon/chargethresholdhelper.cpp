@@ -63,12 +63,9 @@ static QStringList getBatteries()
             continue; // Not a battery, skip
         }
 
-        if (!(psuDir.exists(s_chargeStartThreshold) || psuDir.exists(s_oldChargeStartThreshold))) {
-            continue; // No charge start threshold, skip
-        }
-
-        if (!(psuDir.exists(s_chargeEndThreshold) || psuDir.exists(s_oldChargeStopThreshold))) {
-            continue; // No charge stop threshold, skip
+        if (!psuDir.exists(s_chargeStartThreshold) && !psuDir.exists(s_oldChargeStartThreshold)
+            && !psuDir.exists(s_chargeEndThreshold) && !psuDir.exists(s_oldChargeStopThreshold)) {
+            continue; // No charge thresholds, skip
         }
 
         batteries.append(psu);
