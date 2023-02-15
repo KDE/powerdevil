@@ -52,9 +52,7 @@
 >PowerDevil, ein Energieverwaltungsdienst</title>
 
 <para
->Dieses Modul erlaubt die Einrichtung der Energieverwaltung für &plasma;. Damit wird der PowerDevil-Dienst eingestellt, der im Modul <guilabel
->Hintergrunddienste</guilabel
-> gestartet oder gestoppt werden kann. </para>
+>Dieses Modul erlaubt die Einrichtung der Energieverwaltung für &plasma;. Damit wird der PowerDevil-Dienst eingestellt.</para>
 
 <para
 >In diesem Modul kann das Verhalten des Rechners für verschiedene Situationen festgelegt werden, um möglichst viel Energie zu sparen.  </para>
