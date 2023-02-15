@@ -1,4 +1,4 @@
-/*a
+/*
  * Copyright 2020 Kai Uwe Broulik <kde@broulik.de>
  *
  * This program is free software; you can redistribute it and/or
