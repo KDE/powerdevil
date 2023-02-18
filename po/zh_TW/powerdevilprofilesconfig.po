@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011.
 #
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-21 00:46+0000\n"
-"PO-Revision-Date: 2011-11-09 13:22+0800\n"
-"Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
-"Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2023-02-18 01:40+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -46,7 +47,7 @@ msgstr "回復預設值"
 #: EditPage.cpp:271
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr ""
+msgstr "電源管理服務似乎並非執行中。"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: profileEditPage.ui:21

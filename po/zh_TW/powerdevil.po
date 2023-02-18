@@ -7,20 +7,20 @@
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010.
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-09 00:48+0000\n"
-"PO-Revision-Date: 2022-07-10 17:48+0900\n"
+"PO-Revision-Date: 2023-02-18 01:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -45,13 +45,13 @@ msgstr "電源管理"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "遞增螢幕亮度"
+msgstr "提高螢幕亮度"
 
 #: actions/bundled/brightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr "遞減螢幕亮度"
+msgstr "降低螢幕亮度"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
@@ -204,28 +204,25 @@ msgid "Leave unchanged"
 msgstr "保持不變"
 
 #: actions/bundled/powerprofileconfig.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Power Off"
+#, kde-format
 msgid "Power Save"
-msgstr "關閉電源"
+msgstr "省電"
 
 #: actions/bundled/powerprofileconfig.cpp:93
 #, kde-format
 msgid "Balanced"
-msgstr ""
+msgstr "平衡"
 
 #: actions/bundled/powerprofileconfig.cpp:94
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "效能"
 
 #: actions/bundled/powerprofileconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
-msgstr "多久後關閉電源："
+msgstr "切換到："
 
 #: actions/bundled/runscriptconfig.cpp:71
 #, kde-format
@@ -382,17 +379,12 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "裝置電池電力偏低（剩 %1%）"
 
 #: powerdevilcore.cpp:578
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
-msgstr ""
-"(\"%1\") 裝置中的電池電量偏低，裝置隨時可能關閉。請盡快更換電池或充電。"
+msgstr "裝置 \"%1\" 中的電池電量偏低，裝置隨時可能關閉。請盡快更換電池或充電。"
 
 #: powerdevilcore.cpp:584
 #, kde-format
@@ -419,14 +411,11 @@ msgstr ""
 "「%1」藍牙裝置中的電池電量偏低，裝置隨時可能關閉。請盡快更換電池或充電。"
 
 #: powerdevilcore.cpp:640
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
-msgstr "電池電量偏低 - 若要繼續使用您的電腦，請插入市電或是關機更換電池。"
+msgstr "電池電量偏低 - 若要繼續使用您的電腦，請插入市電並確保它提供足夠電力。"
 
 #: powerdevilcore.cpp:642
 #, kde-format
@@ -449,12 +438,11 @@ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "電池電力嚴重不足，電腦將在 60 秒內關機。"
 
 #: powerdevilcore.cpp:672
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "關機"
+msgstr "現在關機"
 
 #: powerdevilcore.cpp:677
 #, kde-format
@@ -464,13 +452,12 @@ msgid ""
 msgstr "電池電力嚴重不足，電腦將在 60 秒內進入休眠模式。"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "休眠"
+msgstr "現在休眠"
 
 #: powerdevilcore.cpp:683
 #, kde-format
@@ -478,13 +465,11 @@ msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "電池電力嚴重不足，電腦將在 60 秒內進入睡眠模式。"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgctxt "Suspend to RAM"
-#| msgid "Sleep"
+#, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "睡眠"
+msgstr "現在睡眠"
 
 #: powerdevilcore.cpp:689
 #, kde-format
