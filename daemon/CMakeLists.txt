@@ -62,13 +62,6 @@ target_link_libraries(powerdevilcore
     powerdevil_log_static
 )
 
-if(HAVE_WIRELESS_SUPPORT)
-    target_link_libraries(powerdevilcore
-        KF5::NetworkManagerQt
-        KF5::BluezQt
-    )
-endif()
-
 if (XCB_FOUND) # kwin kscreen helper effect
     target_link_libraries(powerdevilcore XCB::XCB)
     if (QT_MAJOR_VERSION EQUAL "5")
