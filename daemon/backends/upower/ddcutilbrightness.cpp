@@ -31,6 +31,16 @@ DDCutilBrightness::DDCutilBrightness()
     connect(&m_setBrightnessEventFilter, &QTimer::timeout, this, &DDCutilBrightness::setBrightnessAfterFilter);
 }
 
+DDCutilBrightness::~DDCutilBrightness()
+{
+#ifdef WITH_DDCUTIL
+    for (const DDCA_Display_Handle displayHandle : std::as_const(m_displayHandleList)) {
+        ddca_close_display(displayHandle);
+    }
+    m_displayHandleList.clear();
+#endif
+}
+
 void DDCutilBrightness::detect()
 {
 #ifdef WITH_DDCUTIL
@@ -42,6 +52,9 @@ void DDCutilBrightness::detect()
     ddca_get_display_info_list2(true, &dlist);
     qCInfo(POWERDEVIL)  << "[DDCutilBrightness] " << dlist->ct << "display(s) were detected";
 
+    for (const DDCA_Display_Handle displayHandle : std::as_const(m_displayHandleList)) {
+        ddca_close_display(displayHandle);
+    }
     m_displayHandleList.clear();
     for (int iDisp = 0; iDisp < dlist->ct; ++iDisp) {
         DDCA_Display_Handle dh = nullptr;  // initialize to avoid clang analyzer warning

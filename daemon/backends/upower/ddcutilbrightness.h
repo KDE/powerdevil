@@ -33,6 +33,7 @@ class DDCutilBrightness: public QObject
     Q_OBJECT
 public:
     DDCutilBrightness();
+    ~DDCutilBrightness();
     void detect();
     bool isSupported() const;
     long brightness();
