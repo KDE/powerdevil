@@ -44,7 +44,7 @@ find_library(LIBDDCUTIL_LIBRARY NAMES libddcutil.so
 include(FindPackageHandleStandardArgs)
 # handle the QUIETLY and REQUIRED arguments and set LIBDDCUTIL_FOUND to TRUE
 # if all listed variables are TRUE
-find_package_handle_standard_args(ddcutil  DEFAULT_MSG
+find_package_handle_standard_args(DDCUtil DEFAULT_MSG
                                   LIBDDCUTIL_LIBRARY LIBDDCUTIL_INCLUDE_DIR)
 
 mark_as_advanced(LIBDDCUTIL_INCLUDE_DIR LIBDDCUTIL_LIBRARY )
