@@ -6,10 +6,10 @@ function(add_powerdevil_bundled_action _name)
                         powerdevilcore
                         powerdevilui
                         Qt::Widgets
-                        KF5::CoreAddons
-                        KF5::I18n
-                        KF5::ConfigGui
-                        KF5::XmlGui
+                        KF6::CoreAddons
+                        KF6::I18n
+                        KF6::ConfigGui
+                        KF6::XmlGui
                         ${ARGN})
     # Build the config module
     set(actionconfig_SRCS ${_name}config.cpp)
@@ -19,10 +19,10 @@ function(add_powerdevil_bundled_action _name)
                         powerdevilcore
                         powerdevilui
                         Qt::Widgets
-                        KF5::CoreAddons
-                        KF5::I18n
-                        KF5::ConfigGui
-                        KF5::XmlGui
+                        KF6::CoreAddons
+                        KF6::I18n
+                        KF6::ConfigGui
+                        KF6::XmlGui
                         ${ARGN})
     install(TARGETS powerdevil${_name}action_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endfunction(add_powerdevil_bundled_action _name)
@@ -33,7 +33,7 @@ function(target_dbus_files _target)
     target_sources(${_target} PRIVATE ${dbus_SRCS})
 endfunction()
 
-add_powerdevil_bundled_action(brightnesscontrol KF5::GlobalAccel)
+add_powerdevil_bundled_action(brightnesscontrol KF6::GlobalAccel)
 target_dbus_files(powerdevil_brightnesscontrolaction  org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
                      brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
 
@@ -42,14 +42,14 @@ target_dbus_files(powerdevil_keyboardbrightnesscontrolaction org.kde.Solid.Power
                      keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
 
 add_powerdevil_bundled_action(dimdisplay)
-add_powerdevil_bundled_action(runscript KF5::KIOCore KF5::KIOWidgets)
+add_powerdevil_bundled_action(runscript KF6::KIOCore KF6::KIOWidgets)
 
-add_powerdevil_bundled_action(suspendsession KF5::KIOCore KF5::KIOWidgets)
+add_powerdevil_bundled_action(suspendsession KF6::KIOCore KF6::KIOWidgets)
 target_dbus_files(powerdevil_suspendsessionaction org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
                      suspendsession.h PowerDevil::BundledActions::SuspendSession)
 
 add_powerdevil_bundled_action(dpms)
-target_link_libraries(powerdevil_dpmsaction KF5::ScreenDpms)
+target_link_libraries(powerdevil_dpmsaction KF6::ScreenDpms)
 
 set(handlebuttons_SRCS handlebuttonevents.cpp)
 qt_add_dbus_adaptor(handlebuttons_SRCS org.kde.Solid.PowerManagement.Actions.HandleButtonEvents.xml handlebuttonevents.h PowerDevil::BundledActions::HandleButtonEvents)
@@ -62,7 +62,7 @@ qt_add_dbus_interface(powerprofile_dbus_SRCS net.hadess.PowerProfiles.xml power_
 target_sources(powerdevil_powerprofileaction PRIVATE ${powerprofile_dbus_SRCS} ${handlebuttons_SRCS})
 
 if(HAVE_WIRELESS_SUPPORT)
-    add_powerdevil_bundled_action(wirelesspowersaving KF5::NetworkManagerQt KF5::BluezQt)
+    add_powerdevil_bundled_action(wirelesspowersaving KF6::NetworkManagerQt KF6::BluezQt)
     target_dbus_files(powerdevil_wirelesspowersavingaction org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
                          actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
 endif()
@@ -80,9 +80,9 @@ target_link_libraries(powerdevilhandlebuttoneventsaction_config
                     powerdevilcore
                     powerdevilui
                     Qt::Widgets
-                    KF5::CoreAddons
-                    KF5::I18n
-                    KF5::ConfigGui
-                    KF5::XmlGui
+                    KF6::CoreAddons
+                    KF6::I18n
+                    KF6::ConfigGui
+                    KF6::XmlGui
                     )
 install(TARGETS powerdevilhandlebuttoneventsaction_config DESTINATION ${KDE_INSTALL_PLUGINDIR})

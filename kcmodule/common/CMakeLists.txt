@@ -14,8 +14,8 @@ target_link_libraries(powerdevilconfigcommonprivate
     PUBLIC
         powerdevilcore
         powerdevilui
-        KF5::I18n
-        KF5::Service
+        KF6::I18n
+        KF6::Service
 )
 
 set_target_properties(powerdevilconfigcommonprivate PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})

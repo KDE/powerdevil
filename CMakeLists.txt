@@ -5,13 +5,13 @@ set(PROJECT_VERSION "5.27.80")
 set(PROJECT_VERSION_MAJOR 5)
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.102.0")
+set(KF6_MIN_VERSION "5.102.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ECMSetupVersion)
@@ -28,25 +28,25 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS 
 if (QT_MAJOR_VERSION EQUAL "5")
     find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED X11Extras)
 endif()
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig DocTools Crash Notifications Kirigami2 KCMUtils)
-find_package(KF5Screen CONFIG REQUIRED)
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig DocTools Crash Notifications Kirigami2 KCMUtils)
+find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 
-find_package(KF5BluezQt ${KF5_MIN_VERSION})
-set_package_properties(KF5BluezQt
+find_package(KF6BluezQt ${KF6_MIN_VERSION})
+set_package_properties(KF6BluezQt
     PROPERTIES DESCRIPTION "Qt wrapper for BlueZ 5 DBus API"
     TYPE OPTIONAL
     PURPOSE "Support for wireless energy saving actions"
 )
-find_package(KF5NetworkManagerQt ${KF5_MIN_VERSION})
-set_package_properties(KF5NetworkManagerQt
+find_package(KF6NetworkManagerQt ${KF6_MIN_VERSION})
+set_package_properties(KF6NetworkManagerQt
     PROPERTIES DESCRIPTION "Qt wrapper for NetworkManager API"
     TYPE OPTIONAL
     PURPOSE "Support for wireless energy saving actions"
 )
 
 set(HAVE_WIRELESS_SUPPORT FALSE)
-if(KF5NetworkManagerQt_FOUND AND KF5BluezQt_FOUND)
+if(KF6NetworkManagerQt_FOUND AND KF6BluezQt_FOUND)
     set(HAVE_WIRELESS_SUPPORT TRUE)
 endif()
 add_feature_info(

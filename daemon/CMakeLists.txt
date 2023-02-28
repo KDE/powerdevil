@@ -43,20 +43,20 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVER
 
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
-    KF5::Activities
-    KF5::ConfigCore
-    KF5::ConfigGui
-    KF5::DBusAddons
-    KF5::I18n
-    KF5::Solid
-    KF5::IdleTime
-    KF5::GlobalAccel
-    KF5::Screen
-    KF5::Service
-    KF5::WidgetsAddons
-    KF5::Notifications
-    KF5::XmlGui
-    KF5::Kirigami2
+    KF6::Activities
+    KF6::ConfigCore
+    KF6::ConfigGui
+    KF6::DBusAddons
+    KF6::I18n
+    KF6::Solid
+    KF6::IdleTime
+    KF6::GlobalAccel
+    KF6::Screen
+    KF6::Service
+    KF6::WidgetsAddons
+    KF6::Notifications
+    KF6::XmlGui
+    KF6::Kirigami2
     PW::KWorkspace
     XCB::DPMS
     powerdevil_log_static
@@ -89,7 +89,7 @@ qt_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.Inhibit.xml 
 
 # KAuth charge threshold helper
 add_executable(chargethresholdhelper chargethresholdhelper.cpp powerdevil_debug.cpp ${chargethresholdhelper_mocs})
-target_link_libraries(chargethresholdhelper Qt::Core KF5::AuthCore)
+target_link_libraries(chargethresholdhelper Qt::Core KF6::AuthCore)
 install(TARGETS chargethresholdhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(chargethresholdhelper org.kde.powerdevil.chargethresholdhelper root)
 kauth_install_actions(org.kde.powerdevil.chargethresholdhelper chargethreshold_helper_actions.actions)
@@ -103,11 +103,11 @@ configure_file(powerdevil.desktop.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop)
 
 target_link_libraries(powerdevil
-    KF5::Crash
-    KF5::ConfigCore
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::DBusAddons
+    KF6::Crash
+    KF6::ConfigCore
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::DBusAddons
     PW::KWorkspace
     powerdevilcore
 )
@@ -148,7 +148,7 @@ set_target_properties(powerdevilui PROPERTIES VERSION ${PROJECT_VERSION} SOVERSI
 target_link_libraries(powerdevilui
     PUBLIC
         Qt::Widgets
-        KF5::ConfigCore
+        KF6::ConfigCore
 )
 
 set(HAVE_XCB ${XCB_FOUND})

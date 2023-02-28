@@ -13,9 +13,9 @@ kcoreaddons_add_plugin(kcm_powerdevilglobalconfig SOURCES ${kcm_powerdevil_globa
 kcmutils_generate_desktop_file(kcm_powerdevilglobalconfig)
 
 target_link_libraries(kcm_powerdevilglobalconfig
-     KF5::AuthCore
-     KF5::ConfigWidgets
-     KF5::KIOWidgets
-     KF5::NotifyConfig
+     KF6::AuthCore
+     KF6::ConfigWidgets
+     KF6::KIOWidgets
+     KF6::NotifyConfig
      powerdevilconfigcommonprivate
 )

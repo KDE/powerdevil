@@ -15,10 +15,10 @@ kcoreaddons_add_plugin(kcm_powerdevilprofilesconfig SOURCES ${kcm_powerdevil_pro
 kcmutils_generate_desktop_file(kcm_powerdevilprofilesconfig)
 
 target_link_libraries(kcm_powerdevilprofilesconfig
-     KF5::KIOWidgets
-     KF5::ConfigGui
-     KF5::ConfigWidgets
-     KF5::Kirigami2
+     KF6::KIOWidgets
+     KF6::ConfigGui
+     KF6::ConfigWidgets
+     KF6::Kirigami2
      powerdevilui
      powerdevilconfigcommonprivate
 )
