@@ -173,6 +173,7 @@ int main(int argc, char **argv)
     KCrash::setFlags(KCrash::AutoRestart);
 
     app.setQuitOnLastWindowClosed(false);
+    app.setQuitLockEnabled(false);
     app.init();
 
     return app.exec();
