@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-11-10 03:33+0100\n"
+"POT-Creation-Date: 2022-08-20 00:47+0000\n"
 "PO-Revision-Date: 2016-05-06 16:01+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: activitypage.cpp:74
+#: activitypage.cpp:72
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Сервис активности ради са минимум функционалности.\n"
 "Имена и иконице активности можда неће бити доступни."
 
-#: activitypage.cpp:148
+#: activitypage.cpp:146
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -49,54 +49,49 @@ msgstr ""
 "Неопходно је да менаџер активности буде у погону да би се подесило понашање "
 "управљања напајањем према активности."
 
-#: activitypage.cpp:244
+#: activitypage.cpp:242
 #, kde-format
-msgid ""
-"The Power Management Service appears not to be running.\n"
-"This can be solved by starting or scheduling it inside \"Startup and Shutdown"
-"\""
+msgid "The Power Management Service appears not to be running."
 msgstr ""
-"Изгледа да сервис управљања напајањем није у погону.\n"
-"Покрените га (или га распоредите) кроз „Подизање и гашење“."
 
-#: activitywidget.cpp:97
+#: activitywidget.cpp:98
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
 # >> @item
-#: activitywidget.cpp:101
+#: activitywidget.cpp:102
 #, kde-format
 msgid "Hibernate"
 msgstr "хибернација"
 
 # >> @item
-#: activitywidget.cpp:103
+#: activitywidget.cpp:104
 #, kde-format
 msgid "Shut down"
 msgstr "гашење"
 
 # >> @item
-#: activitywidget.cpp:107
+#: activitywidget.cpp:108
 #, kde-format
 msgid "PC running on AC power"
 msgstr "рачунар ради на струји"
 
 # >> @item
-#: activitywidget.cpp:108
+#: activitywidget.cpp:109
 #, kde-format
 msgid "PC running on battery power"
 msgstr "рачунар ради на батерији"
 
 # >> @item
-#: activitywidget.cpp:109
+#: activitywidget.cpp:110
 #, kde-format
 msgid "PC running on low battery"
 msgstr "рачунар ради на ниској батерији"
 
 # >> @item
-#: activitywidget.cpp:138
+#: activitywidget.cpp:139
 #, kde-format
 msgctxt "This is meant to be: Act like activity %1"
 msgid "Activity \"%1\""
@@ -155,6 +150,15 @@ msgstr " мин."
 
 #. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
 #: activityWidget.ui:138
-#, kde-format
-msgid "Use separate settings (advanced users only)"
+#, fuzzy, kde-format
+#| msgid "Use separate settings (advanced users only)"
+msgid "Use separate settings"
 msgstr "Засебне поставке (само за напредне кориснике)"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Изгледа да сервис управљања напајањем није у погону.\n"
+#~ "Покрените га (или га распоредите) кроз „Подизање и гашење“."

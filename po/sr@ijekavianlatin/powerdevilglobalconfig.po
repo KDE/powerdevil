@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-10-02 03:35+0200\n"
+"POT-Creation-Date: 2022-08-17 00:47+0000\n"
 "PO-Revision-Date: 2017-09-28 17:58+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -31,39 +31,33 @@ msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
 # >> @item:inlistbox
-#: GeneralPage.cpp:106
+#: GeneralPage.cpp:108
 #, kde-format
 msgid "Do nothing"
 msgstr "ne radi ništa"
 
-#: GeneralPage.cpp:108
+#: GeneralPage.cpp:110
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
 # >> @item:inlistbox
-#: GeneralPage.cpp:111
+#: GeneralPage.cpp:113
 #, kde-format
 msgid "Hibernate"
 msgstr "u hibernaciju"
 
 # >> @item:inlistbox
-#: GeneralPage.cpp:113
+#: GeneralPage.cpp:115
 #, kde-format
 msgid "Shut down"
 msgstr "ugasi"
 
-#: GeneralPage.cpp:210
+#: GeneralPage.cpp:264
 #, kde-format
-msgid ""
-"The Power Management Service appears not to be running.\n"
-"This can be solved by starting or scheduling it inside \"Startup and Shutdown"
-"\""
+msgid "The Power Management Service appears not to be running."
 msgstr ""
-"Izgleda da servis za upravljanje napajanjem nije u pogonu.\n"
-"Ovo se može rešiti tako što se pokrene ili rasporedi pod „Podizanje i "
-"gašenje“."
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
@@ -78,13 +72,13 @@ msgid "&Low level:"
 msgstr "&Nizak nivo:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
-#: generalPage.ui:45
+#: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
 msgstr "Nizak nivo baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
-#: generalPage.ui:48
+#: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
 msgstr "Uzima se da je baterija nisko kada dosegne ovaj nivo."
@@ -92,55 +86,116 @@ msgstr "Uzima se da je baterija nisko kada dosegne ovaj nivo."
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowPeripheralSpin)
-#: generalPage.ui:51 generalPage.ui:83 generalPage.ui:158
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStartThresholdSpin)
+#. i18n: ectx: property (suffix), widget (QSpinBox, chargeStopThresholdSpin)
+#: generalPage.ui:45 generalPage.ui:71 generalPage.ui:114 generalPage.ui:167
+#: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
 msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
-#: generalPage.ui:61
+#: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
 msgstr "&Kritičan nivo:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
-#: generalPage.ui:77
+#: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
 msgstr "Kritičan nivo baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
-#: generalPage.ui:80
+#: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
 msgstr "Uzima se da je baterija kritična kada dosegne ovaj nivo."
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
-#: generalPage.ui:93
+#: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
 msgstr "&Pri kritičnom nivou:"
 
-#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
-#: generalPage.ui:144
-#, kde-format
-msgid "Configure Notifications..."
-msgstr "Podesi obavještenja..."
-
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
-#: generalPage.ui:151
+#: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
 msgstr "Nizak nivo za periferne uređaje:"
 
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
+#: generalPage.ui:130
+#, kde-format
+msgid "Charge Limit"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
+#: generalPage.ui:137
+#, no-c-format, kde-format
+msgid ""
+"<html><head/><body><p>Keeping the battery charged 100% over a prolonged "
+"period of time may accelerate deterioration of battery health. By limiting "
+"the maximum battery charge you can help extend the battery lifespan.</p></"
+"body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
+#: generalPage.ui:147
+#, kde-format
+msgid ""
+"You might have to disconnect and re-connect the power source to start "
+"charging the battery again."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
+#: generalPage.ui:157
+#, kde-format
+msgid "Start charging only once below:"
+msgstr ""
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
+#: generalPage.ui:164
+#, kde-format
+msgid "Always charge when plugged in"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
+#: generalPage.ui:177
+#, kde-format
+msgid "Pause media players when suspending:"
+msgstr "Pauziraj medija plejere pri suspendovanju:"
+
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
-#: generalPage.ui:168
+#: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
 msgstr "aktivno"
 
-#. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
-#: generalPage.ui:175
+#. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
+#: generalPage.ui:203
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
+msgid "Configure Notifications…"
+msgstr "Podesi obavještenja..."
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: generalPage.ui:216
 #, kde-format
-msgid "Pause media players when suspending:"
-msgstr "Pauziraj medija plejere pri suspendovanju:"
+msgid "Other Settings"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
+#: generalPage.ui:223
+#, kde-format
+msgid "Stop charging at:"
+msgstr ""
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Izgleda da servis za upravljanje napajanjem nije u pogonu.\n"
+#~ "Ovo se može rešiti tako što se pokrene ili rasporedi pod „Podizanje i "
+#~ "gašenje“."

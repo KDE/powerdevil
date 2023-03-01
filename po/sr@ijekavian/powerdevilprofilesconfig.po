@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-11-25 03:33+0100\n"
+"POT-Creation-Date: 2022-06-21 00:46+0000\n"
 "PO-Revision-Date: 2017-09-28 17:58+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: EditPage.cpp:192
+#: EditPage.cpp:191
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -42,20 +42,15 @@ msgstr ""
 "постојеће измене које сте начинили. Желите ли заиста да наставите?"
 
 # >> @title:window
-#: EditPage.cpp:195
+#: EditPage.cpp:194
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Обнављање подразумијеваних профила"
 
-#: EditPage.cpp:274
+#: EditPage.cpp:271
 #, kde-format
-msgid ""
-"The Power Management Service appears not to be running.\n"
-"This can be solved by starting or scheduling it inside \"Startup and Shutdown"
-"\""
+msgid "The Power Management Service appears not to be running."
 msgstr ""
-"Изгледа да сервис за управљање напајањем није у погону.\n"
-"Ово се може решити тако што се покрене или распореди под „Подизање и гашење“."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: profileEditPage.ui:21
@@ -74,3 +69,12 @@ msgstr "На батерији"
 #, kde-format
 msgid "On Low Battery"
 msgstr "На ниској батерији"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Изгледа да сервис за управљање напајањем није у погону.\n"
+#~ "Ово се може решити тако што се покрене или распореди под „Подизање и "
+#~ "гашење“."
