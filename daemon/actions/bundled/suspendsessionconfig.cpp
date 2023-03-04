@@ -68,7 +68,7 @@ void SuspendSessionConfig::load()
     uint suspendType = configGroup().readEntry< uint >("suspendType", 0);
     m_comboBox->setCurrentIndex(m_comboBox->findData(suspendType));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
-    if (m_suspendThenHibernateEnabled != nullptr && m_suspendThenHibernateEnabled) {
+    if (m_suspendThenHibernateEnabled != nullptr) {
         m_suspendThenHibernateEnabled->setChecked(configGroup().readEntry<bool>("suspendThenHibernate", false));
     }
 }
