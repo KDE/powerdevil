@@ -232,7 +232,7 @@ msgstr "أوقف الشحن عند:"
 
 #~ msgid ""
 #~ "A global power management configurator for KDE Power Management System"
-#~ msgstr "مضبط إدارة الطاقة العام لنظام إدارة الطاقة في كدي"
+#~ msgstr "مضبط إدارة الطاقة العام لنظام إدارة الطاقة في كِيدِي"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "(c), 2010 داريو فريدي"

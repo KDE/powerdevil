@@ -36,7 +36,7 @@ msgid ""
 "your computer's capabilities. This will also erase all existing "
 "modifications you made. Are you sure you want to continue?"
 msgstr ""
-"نظام مراقب الطاقة لكدي سيولّد مجموعة من الافتراضيات بناءً على إمكانيات "
+"نظام مراقب الطاقة لكِيدِي سيولّد مجموعة من الافتراضيات بناءً على إمكانيات "
 "الحاسوب. هذا سيمحي أيضًا التعديلات التي فعلتها. هل تود الاستمرار؟"
 
 #: EditPage.cpp:194
@@ -80,7 +80,7 @@ msgstr "على بطارية ضعيفة"
 #~ msgstr "ضبط أوضاع الطاقة"
 
 #~ msgid "A profile configurator for KDE Power Management System"
-#~ msgstr "مضبط الأوضاع لنظام إدارة الطاقة في كدي"
+#~ msgstr "مضبط الأوضاع لنظام إدارة الطاقة في كِيدِي"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "(c) , 2010 داريو فريدي"
@@ -89,8 +89,8 @@ msgstr "على بطارية ضعيفة"
 #~ "From this module, you can manage KDE Power Management System's power "
 #~ "profiles, by tweaking existing ones or creating new ones."
 #~ msgstr ""
-#~ "من خلال هذه الوحدة تستطيع إدارة أوضاع الطاقة في نظام إدارة الطاقة بكدي عن "
-#~ "طريق التعديل في الأوضاع الموجودة بالفعل أو عن طريق إنشاء أوضاع جديدة."
+#~ "من خلال هذه الوحدة تستطيع إدارة أوضاع الطاقة في نظام إدارة الطاقة بكِيدِي "
+#~ "عن طريق التعديل في الأوضاع الموجودة بالفعل أو عن طريق إنشاء أوضاع جديدة."
 
 #~ msgid "Dario Freddi"
 #~ msgstr "داريو فردي"

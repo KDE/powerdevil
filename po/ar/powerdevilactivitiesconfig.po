@@ -161,7 +161,7 @@ msgstr "استخدم إعدادات منفصلة"
 #~ msgstr "ضبط إدارة الطاقة للأنشطة"
 
 #~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr "مضبط نظام أدارة الطاقة لكدي لكل نشاط"
+#~ msgstr "مضبط نظام أدارة الطاقة لكِيدِي لكل نشاط"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "(c), 2010 داريو فريدي"
