@@ -36,4 +36,5 @@ public:
 
 private:
     QSpinBox *m_spinBox;
+    QSpinBox *m_spinBox2;
 };

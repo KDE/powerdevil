@@ -65,6 +65,7 @@ private:
     void setKeyboardBrightnessHelper(int brightness);
 
     int m_idleTime = 0;
+    int m_idleTimeWhileLocked = 0;
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
     int m_oldKeyboardBrightness = 0;

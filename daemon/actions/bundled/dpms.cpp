@@ -117,6 +117,20 @@ void DPMS::onIdleTimeout(int msec)
         return;
     }
 
+    // Only run if we are in the lock screen
+    if (PowerDevil::PolicyAgent::instance()->screenLockerActive() &&
+        msec == m_idleTimeWhileLocked * 1000) {
+        const int brightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
+        if (brightness > 0) {
+            m_oldKeyboardBrightness = brightness;
+            setKeyboardBrightnessHelper(0);
+        }
+        if (isSupported()) {
+            m_dpms->switchMode(KScreen::Dpms::Off);
+        }
+        return;
+    }
+
     if (msec == m_idleTime * 1000 - 5000) { // fade out screen
         if (isSupported()) {
             Q_EMIT startFade();
@@ -177,6 +191,10 @@ bool DPMS::loadAction(const KConfigGroup& config)
         registerIdleTimeout(m_idleTime * 1000);
         registerIdleTimeout(m_idleTime * 1000 - 5000); // start screen fade a bit earlier to alert user
     }
+    m_idleTimeWhileLocked = config.readEntry<int>("idleTimeWhileLocked", -1);
+    if (m_idleTimeWhileLocked > 0) {
+        registerIdleTimeout(m_idleTimeWhileLocked * 1000);
+    }
     m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
 
     return true;
@@ -185,6 +203,7 @@ bool DPMS::loadAction(const KConfigGroup& config)
 bool DPMS::onUnloadAction()
 {
     m_idleTime = 0;
+    m_idleTimeWhileLocked = 0;
     return Action::onUnloadAction();
 }
 
