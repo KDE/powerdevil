@@ -295,7 +295,7 @@ msgstr "طريقة تعليق غير مدعومة"
 #: powerdevilapp.cpp:62
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "أداة لإدارة الطاقة في كدي"
+msgstr "أداة لإدارة الطاقة في كِيدِي"
 
 #: powerdevilapp.cpp:63
 #, kde-format
@@ -552,7 +552,7 @@ msgstr "بطاريتك الآن مشحونة كليًّا."
 #~ "The KDE Power Management System could not be initialized. The backend "
 #~ "reported the following error: %1\n"
 #~ "Please check your system configuration"
-#~ msgstr "تعذّر بدء نظام إجارة طاقة كدي. "
+#~ msgstr "تعذّر بدء نظام إجارة طاقة كِيدِي. "
 
 #~ msgid "All pending suspend actions have been canceled."
 #~ msgstr "جميع الأحداث المعلّقة قد أُلغيت."
@@ -622,7 +622,7 @@ msgstr "بطاريتك الآن مشحونة كليًّا."
 #~ "Management System. You can tweak them or generate a new set of defaults "
 #~ "from System Settings."
 #~ msgstr ""
-#~ "لقد تم تحديث الأوضاع لديك لتُستخدَم مع نظام إدارة طاقة كدي الجديد. يمكنك "
+#~ "لقد تم تحديث الأوضاع لديك لتُستخدَم مع نظام إدارة طاقة كِيدِي الجديد. يمكنك "
 #~ "تضبيطها أو إنشاء مجموعة مبدئيّة جديدة من إعدادات النظام."
 
 #, fuzzy
@@ -669,7 +669,7 @@ msgstr "بطاريتك الآن مشحونة كليًّا."
 #~ "%2"
 
 #~ msgid "A Power Management tool for KDE4"
-#~ msgstr "أداة لإدارة الطاقة في كدي 4"
+#~ msgstr "أداة لإدارة الطاقة في كِيدِي 4"
 
 #~ msgid "(c) 2008 Dario Freddi"
 #~ msgstr "(c) 2008 Dario Freddi"
@@ -822,7 +822,7 @@ msgstr "بطاريتك الآن مشحونة كليًّا."
 #~ "PowerDevil, just click \"Apply\", and you are done.</p>"
 #~ msgstr ""
 #~ "<h1>ضبط عفريت-الطاقة</h1> <p>هذه الوحدة تمكنك من ضبط عفريت-الطاقة. عفريت-"
-#~ "الطاقة هو عفريت (لذا هو يعمل في الخلفية) يبدأ  ببدئ الكيدي.</p> <p>عفريت-"
+#~ "الطاقة هو عفريت (لذا هو يعمل في الخلفية) يبدأ  ببدئ الكِيدِي.</p> <p>عفريت-"
 #~ "الطاقة له مستويين من التشكيل: واحد عام ، يكون مطبقا دائما ، و واحد حسب "
 #~ "الحاجة ، مما يمكنك من ضبط سلوك خاص في كل حالة. يمكنك أيضا النظر إلى قدرات "
 #~ "جهاز في اللسان الأخير. لتبدأ قم بإعداد الخيارات في اللسانيين الأولين. ثم "
