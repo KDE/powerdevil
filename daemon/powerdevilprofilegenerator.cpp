@@ -90,6 +90,16 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
     }
 
+    // Even on AC power, suspend after a rather long period of inactivity. Energy
+    // is precious!
+    if (toRam) {
+        // on mobile, 7 minutes, on laptop 15 minutes
+        auto timeout = mobile ? 420000 : 900000;
+        KConfigGroup suspendSession(&acProfile, "SuspendSession");
+        suspendSession.writeEntry< uint >("idleTime", timeout);
+        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+    }
+
     // Powersave
     KConfigGroup batteryProfile(profilesConfig, "Battery");
     batteryProfile.writeEntry("icon", "battery-060");
@@ -113,7 +123,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
     }
 
-    // Last but not least, we want to suspend after a rather long period of inactivity
+    // Last but not least, we want to suspend after some inactivity
     if (toRam) {
         // on mobile, 5 minute, on laptop 10 minutes
         auto timeout = mobile ? 300000 : 600000;
