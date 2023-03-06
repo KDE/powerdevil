@@ -78,7 +78,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
         auto interface = Kirigami::TabletModeWatcher::self();
 
         PowerDevil::ProfileGenerator::generateProfiles(
-            interface->isTabletModeAvailable(),
+            interface->isTabletMode(),
             PowerDevil::PowerManagement::instance()->canSuspend(),
             PowerDevil::PowerManagement::instance()->canHibernate()
         );
@@ -197,7 +197,7 @@ void EditPage::restoreDefaultProfiles()
         auto interface = Kirigami::TabletModeWatcher::self();
 
         PowerDevil::ProfileGenerator::generateProfiles(
-            interface->isTabletModeAvailable(),
+            interface->isTabletMode(),
             PowerDevil::PowerManagement::instance()->canSuspend(),
             PowerDevil::PowerManagement::instance()->canHibernate()
         );

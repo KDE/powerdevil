@@ -125,7 +125,7 @@ void Core::onBackendReady()
         bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
 
         // These are generated profiles,
-        const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletModeAvailable();
+        const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
 
         ProfileGenerator::generateProfiles(mobile, toRam, toDisk);
         m_profilesConfig->reparseConfiguration();
