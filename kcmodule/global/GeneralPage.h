@@ -30,7 +30,7 @@ class GeneralPage : public KCModule, private Ui_generalPage
     Q_OBJECT
 
 public:
-    GeneralPage(QWidget *parent, const QVariantList &args);
+    GeneralPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~GeneralPage() override;
     void fillUi();
 

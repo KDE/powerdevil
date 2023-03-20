@@ -32,7 +32,6 @@ ActionConfig::ActionConfig(QObject *parent)
     : QObject(parent)
     , d(new Private)
 {
-
 }
 
 ActionConfig::~ActionConfig()
@@ -45,7 +44,7 @@ KConfigGroup ActionConfig::configGroup() const
     return d->config;
 }
 
-void ActionConfig::setConfigGroup(const KConfigGroup& group)
+void ActionConfig::setConfigGroup(const KConfigGroup &group)
 {
     d->config = group;
 }
@@ -54,5 +53,5 @@ void ActionConfig::setChanged()
 {
     Q_EMIT changed();
 }
-   
+
 }

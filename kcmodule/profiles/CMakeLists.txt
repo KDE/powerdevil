@@ -17,7 +17,7 @@ kcmutils_generate_desktop_file(kcm_powerdevilprofilesconfig)
 target_link_libraries(kcm_powerdevilprofilesconfig
      KF6::KIOWidgets
      KF6::ConfigGui
-     KF6::ConfigWidgets
+     KF6::KCMUtils
      KF6::Kirigami2
      powerdevilui
      powerdevilconfigcommonprivate

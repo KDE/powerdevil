@@ -17,7 +17,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #ifndef ACTIVITYPAGE_H
 #define ACTIVITYPAGE_H
 
@@ -37,7 +36,7 @@ class ActivityPage : public KCModule
     Q_OBJECT
 
 public:
-    ActivityPage(QWidget *parent, const QVariantList &args);
+    ActivityPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
     ~ActivityPage() override;
     void fillUi();
 
@@ -56,7 +55,7 @@ private:
     QTabWidget *m_tabWidget = nullptr;
 
     KActivities::Consumer *const m_activityConsumer;
-    QList< ActivityWidget* > m_activityWidgets;
+    QList<ActivityWidget *> m_activityWidgets;
     ErrorOverlay *m_errorOverlay = nullptr;
     KMessageWidget *m_messageWidget = nullptr;
     KActivities::Consumer::ServiceStatus m_previousServiceStatus;

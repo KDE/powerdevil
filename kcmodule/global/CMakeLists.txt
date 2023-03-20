@@ -14,7 +14,7 @@ kcmutils_generate_desktop_file(kcm_powerdevilglobalconfig)
 
 target_link_libraries(kcm_powerdevilglobalconfig
      KF6::AuthCore
-     KF6::ConfigWidgets
+     KF6::KCMUtils
      KF6::KIOWidgets
      KF6::NotifyConfig
      powerdevilconfigcommonprivate

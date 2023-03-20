@@ -53,24 +53,12 @@
 
 K_PLUGIN_CLASS_WITH_JSON(EditPage, "kcm_powerdevilprofilesconfig.json")
 
-EditPage::EditPage(QWidget *parent, const QVariantList &args)
-        : KCModule(parent, args)
+EditPage::EditPage(QObject *parent, const KPluginMetaData&data, const QVariantList &args)
+    : KCModule(parent, data, args)
 {
     setButtons(Apply | Help | Default);
 
-//     KAboutData *about =
-//         new KAboutData("powerdevilprofilesconfig", "powerdevilprofilesconfig", ki18n("Power Profiles Configuration"),
-//                        "", ki18n("A profile configurator for KDE Power Management System"),
-//                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-//                        ki18n("From this module, you can manage KDE Power Management System's power profiles, by tweaking "
-//                              "existing ones or creating new ones."));
-//
-//     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
-//                      "http://drfav.wordpress.com");
-//
-//     setAboutData(about);
-
-    setupUi(this);
+    setupUi(widget());
 
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
 
@@ -145,7 +133,7 @@ void EditPage::onChanged(bool value)
     m_profileEdited[editWidget->configName()] = value;
 
     if (value) {
-        Q_EMIT changed(true);
+        setNeedsSave(true);
     }
 
     checkAndEmitChanged();
@@ -170,7 +158,7 @@ void EditPage::save()
 
     notifyDaemon();
 
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void EditPage::notifyDaemon()
@@ -188,10 +176,12 @@ void EditPage::notifyDaemon()
 void EditPage::restoreDefaultProfiles()
 {
     // Confirm
-    int ret = KMessageBox::warningContinueCancel(this, i18n("The KDE Power Management System will now generate a set of defaults "
-                                                            "based on your computer's capabilities. This will also erase "
-                                                            "all existing modifications you made. "
-                                                            "Are you sure you want to continue?"), i18n("Restore Default Profiles"));
+    int ret = KMessageBox::warningContinueCancel(widget(),
+                                                 i18n("The KDE Power Management System will now generate a set of defaults "
+                                                      "based on your computer's capabilities. This will also erase "
+                                                      "all existing modifications you made. "
+                                                      "Are you sure you want to continue?"),
+                                                 i18n("Restore Default Profiles"));
     if (ret == KMessageBox::Continue) {
         qCDebug(POWERDEVIL) << "Restoring defaults.";
         auto interface = Kirigami::TabletModeWatcher::self();
@@ -223,7 +213,7 @@ void EditPage::checkAndEmitChanged()
         }
     }
 
-    Q_EMIT changed(value);
+    setNeedsSave(value);
 }
 
 void EditPage::onServiceRegistered(const QString& service)
@@ -268,8 +258,7 @@ void EditPage::onServiceUnregistered(const QString& service)
         m_errorOverlay->deleteLater();
     }
 
-    m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running."),
-                                      this);
+    m_errorOverlay = new ErrorOverlay(widget(), i18n("The Power Management Service appears not to be running."), widget());
 }
 
 #include "EditPage.moc"

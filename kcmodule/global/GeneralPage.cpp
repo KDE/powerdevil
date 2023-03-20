@@ -26,54 +26,41 @@
 
 #include "powerdevilpowermanagement.h"
 
+#include <Solid/Battery>
 #include <Solid/Device>
 #include <Solid/DeviceInterface>
-#include <Solid/Battery>
 
-#include <QDBusMessage>
-#include <QDBusReply>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDBusMessage>
 #include <QDBusMetaType>
+#include <QDBusReply>
 #include <QDBusServiceWatcher>
 
+#include <KAboutData>
+#include <KLocalizedString>
 #include <KNotifyConfigWidget>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KAboutData>
-#include <KLocalizedString>
 
-#include <kauth_version.h>
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
+#include <kauth_version.h>
 
 K_PLUGIN_CLASS_WITH_JSON(GeneralPage, "kcm_powerdevilglobalconfig.json")
 
-GeneralPage::GeneralPage(QWidget *parent, const QVariantList &args)
-        : KCModule(parent, args)
+GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
+    : KCModule(parent, data, args)
 {
     setButtons(Apply | Help);
 
-//     KAboutData *about =
-//         new KAboutData("powerdevilglobalconfig", "powerdevilglobalconfig", ki18n("Global Power Management Configuration"),
-//                        "", ki18n("A global power management configurator for KDE Power Management System"),
-//                        KAboutData::License_GPL, ki18n("(c), 2010 Dario Freddi"),
-//                        ki18n("From this module, you can configure the main Power Management daemon, assign profiles to "
-//                              "states, and do some advanced fine tuning on battery handling"));
-//
-//     about->addAuthor(ki18n("Dario Freddi"), ki18n("Maintainer") , "drf@kde.org",
-//                      "http://drfav.wordpress.com");
-//
-//     setAboutData(about);
-
-    setupUi(this);
+    setupUi(widget());
 
     fillUi();
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
-                                                           QDBusServiceWatcher::WatchForRegistration |
-                                                           QDBusServiceWatcher::WatchForUnregistration,
+                                                           QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration,
                                                            this);
 
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &GeneralPage::onServiceRegistered);
@@ -97,7 +84,7 @@ void GeneralPage::fillUi()
 
     const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
     for (const Solid::Device &device : devices) {
-        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
         if (b->isPowerSupply()) {
             hasPowerSupplyBattery = true;
         } else {
@@ -107,7 +94,9 @@ void GeneralPage::fillUi()
 
     BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
     if (PowerDevil::PowerManagement::instance()->canSuspend()) {
-        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), PowerDevil::BundledActions::SuspendSession::ToRamMode);
+        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"),
+                                      i18nc("Suspend to RAM", "Sleep"),
+                                      PowerDevil::BundledActions::SuspendSession::ToRamMode);
     }
     if (PowerDevil::PowerManagement::instance()->canHibernate()) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
@@ -120,17 +109,17 @@ void GeneralPage::fillUi()
 
     connect(notificationsButton, &QAbstractButton::clicked, this, &GeneralPage::configureNotifications);
 
-    connect(lowSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
-    connect(criticalSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
-    connect(lowPeripheralSpin, SIGNAL(valueChanged(int)), SLOT(changed()));
+    connect(lowSpin, &QSpinBox::valueChanged, this, &KCModule::markAsChanged);
+    connect(criticalSpin, &QSpinBox::valueChanged, this, &KCModule::markAsChanged);
+    connect(lowPeripheralSpin, &QSpinBox::valueChanged, this, &KCModule::markAsChanged);
 
-    connect(BatteryCriticalCombo, SIGNAL(currentIndexChanged(int)), SLOT(changed()));
+    connect(BatteryCriticalCombo, &QComboBox::currentIndexChanged, this, &KCModule::markAsChanged);
 
     connect(chargeStartThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::markAsChanged);
     connect(chargeStopThresholdSpin, QOverload<int>::of(&QSpinBox::valueChanged), this, &GeneralPage::onChargeStopThresholdChanged);
     chargeStopThresholdMessage->hide();
 
-    connect(pausePlayersCheckBox, SIGNAL(stateChanged(int)), SLOT(changed()));
+    connect(pausePlayersCheckBox, &QCheckBox::stateChanged, this, &KCModule::markAsChanged);
 
     if (!hasPowerSupplyBattery) {
         BatteryCriticalLabel->hide();
@@ -179,12 +168,12 @@ void GeneralPage::load()
         setChargeThresholdSupported(false);
     }
 
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void GeneralPage::configureNotifications()
 {
-    KNotifyConfigWidget::configure(this, "powerdevil");
+    KNotifyConfigWidget::configure(widget(), "powerdevil");
 }
 
 void GeneralPage::save()
@@ -199,14 +188,12 @@ void GeneralPage::save()
 
     PowerDevilSettings::self()->save();
 
-    if ((m_chargeStartThreshold != -1 && chargeStartThresholdSpin->value() != m_chargeStartThreshold) || (
-                m_chargeStopThreshold != -1 && chargeStopThresholdSpin->value() != m_chargeStopThreshold)) {
+    if ((m_chargeStartThreshold != -1 && chargeStartThresholdSpin->value() != m_chargeStartThreshold)
+        || (m_chargeStopThreshold != -1 && chargeStopThresholdSpin->value() != m_chargeStopThreshold)) {
         KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.setthreshold"));
         action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
-        action.setArguments({
-            {QStringLiteral("chargeStartThreshold"), m_chargeStartThreshold != -1 ? chargeStartThresholdSpin->value() : -1},
-            {QStringLiteral("chargeStopThreshold"), m_chargeStopThreshold != -1 ? chargeStopThresholdSpin->value() : -1}
-        });
+        action.setArguments({{QStringLiteral("chargeStartThreshold"), m_chargeStartThreshold != -1 ? chargeStartThresholdSpin->value() : -1},
+                             {QStringLiteral("chargeStopThreshold"), m_chargeStopThreshold != -1 ? chargeStopThresholdSpin->value() : -1}});
         KAuth::ExecuteJob *job = action.execute();
         job->exec();
         if (!job->error()) {
@@ -216,14 +203,14 @@ void GeneralPage::save()
     }
 
     // Notify Daemon
-    QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                       "org.kde.Solid.PowerManagement", "refreshStatus");
+    QDBusMessage call =
+        QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement", "org.kde.Solid.PowerManagement", "refreshStatus");
 
     // Perform call
     QDBusConnection::sessionBus().asyncCall(call);
 
     // And now we are set with no change
-    Q_EMIT changed(false);
+    setNeedsSave(false);
 }
 
 void GeneralPage::defaults()
@@ -243,7 +230,7 @@ void GeneralPage::setChargeThresholdSupported(bool supported)
     chargeStopThresholdSpin->setVisible(supported && m_chargeStopThreshold != -1);
 }
 
-void GeneralPage::onServiceRegistered(const QString& service)
+void GeneralPage::onServiceRegistered(const QString &service)
 {
     Q_UNUSED(service);
 
@@ -253,7 +240,7 @@ void GeneralPage::onServiceRegistered(const QString& service)
     }
 }
 
-void GeneralPage::onServiceUnregistered(const QString& service)
+void GeneralPage::onServiceUnregistered(const QString &service)
 {
     Q_UNUSED(service);
 
@@ -261,8 +248,7 @@ void GeneralPage::onServiceUnregistered(const QString& service)
         m_errorOverlay->deleteLater();
     }
 
-    m_errorOverlay = new ErrorOverlay(this, i18n("The Power Management Service appears not to be running."),
-                                      this);
+    m_errorOverlay = new ErrorOverlay(widget(), i18n("The Power Management Service appears not to be running."), widget());
 }
 
 void GeneralPage::onChargeStopThresholdChanged(int threshold)
@@ -271,7 +257,7 @@ void GeneralPage::onChargeStopThresholdChanged(int threshold)
         // Only show message if there is actually a charging or fully charged battery
         const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
         for (const Solid::Device &device : devices) {
-            const Solid::Battery *b = qobject_cast<const Solid::Battery*>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+            const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
             if (b->chargeState() == Solid::Battery::Charging || b->chargeState() == Solid::Battery::FullyCharged) {
                 chargeStopThresholdMessage->animatedShow();
                 break;

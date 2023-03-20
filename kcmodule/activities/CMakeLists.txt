@@ -16,5 +16,6 @@ kcoreaddons_add_plugin(kcm_powerdevilactivitiesconfig SOURCES ${kcm_powerdevil_a
 kcmutils_generate_desktop_file(kcm_powerdevilactivitiesconfig)
 target_link_libraries(kcm_powerdevilactivitiesconfig
      KF6::Activities
+     KF6::KCMUtils
      powerdevilconfigcommonprivate
 )
