@@ -68,11 +68,3 @@ msgstr "Amb la bateria"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Amb la bateria baixa"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Sembla que el servei de gestió d'energia no s'està executant.\n"
-#~ "Això es pot solucionar engegant o planificant-lo des d'«Inici i aturada»."

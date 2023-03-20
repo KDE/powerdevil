@@ -193,36 +193,3 @@ msgstr "Altres opcions"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Atura la càrrega al:"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Sembla que el servei de gestió d'energia no s'està executant.\n"
-#~ "Això es pot solucionar engegant o planificant-lo des d'«Inici i aturada»."
-
-#~ msgid "Suspend"
-#~ msgstr "Suspèn"
-
-#~ msgid "<b>Events</b>"
-#~ msgstr "<b>Esdeveniments</b>"
-
-#~ msgid ""
-#~ "When this option is selected, applications will not be allowed to inhibit "
-#~ "sleep when the lid is closed"
-#~ msgstr ""
-#~ "Quan aquesta opció està seleccionada, les aplicacions no poden inhibir "
-#~ "l'entrada en dormir quan es tanqui la tapa"
-
-#~ msgid "Never prevent an action on lid close"
-#~ msgstr "No impedeixis mai cap acció en tancar la tapa"
-
-#~ msgid "Locks screen when waking up from suspension"
-#~ msgstr "Bloqueja la pantalla en sortir de l'estat de suspensió"
-
-#~ msgid "You will be asked for a password when resuming from sleep state"
-#~ msgstr "Se us demanarà la contrasenya en reprendre des de l'estat de dormir"
-
-#~ msgid "Loc&k screen on resume"
-#~ msgstr "Blo&queja la pantalla en reprendre"
