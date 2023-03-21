@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2021-04-25 09:22-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@users.sf.net"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -36,7 +36,7 @@ msgstr ""
 "ਐਕਟਿਵ ਸਰਵਿਸ ਮੁੱਢਲੀਆਂ ਕਿਰਿਆਵਾਂ ਨਾਲ ਚੱਲ ਰਿਹਾ ਹੈ।\n"
 "ਸਰਗਰਮੀਆਂ ਦੇ ਨਾਂ ਤੇ ਆਈਕਾਨ ਉਪਲਬਧ ਨਹੀ ਵੀ ਹੋ ਸਕਦੇ ਹਨ।"
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "ਸਰਗਰਮੀ ਸੇਵਾ ਚੱਲ ਨਹੀ ਹੈ।\n"
 "ਸਰਗਰਮੀ-ਸੰਬੰਧੀ ਊਰਜਾ ਇੰਤਜ਼ਾਮ ਰਵੱੱਈਏ ਦੀ ਸੰਰਚਨਾ ਵਾਸਤੇ ਸਰਗਰਮੀ ਮੈਨੇਜਰ ਚੱਲਦਾ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।"
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2022-08-20 08:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -39,7 +39,7 @@ msgstr ""
 "Ця служба просторів дій працює у режимі обмежених можливостей.\n"
 "Можливо, не буде показано назви і піктограми просторів дій."
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -50,7 +50,7 @@ msgstr ""
 "Для окремого налаштування керування живленням у просторах дій потрібно "
 "запустити керування просторами дій."
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Здається, службу керування живленням не запущено."

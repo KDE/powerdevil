@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2021-06-02 10:11-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -29,28 +29,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
 
-#: GeneralPage.cpp:108
+#: GeneralPage.cpp:95
 #, kde-format
 msgid "Do nothing"
 msgstr "Não fazer nada"
 
-#: GeneralPage.cpp:110
+#: GeneralPage.cpp:98
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Suspender"
 
-#: GeneralPage.cpp:113
+#: GeneralPage.cpp:102
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: GeneralPage.cpp:115
+#: GeneralPage.cpp:104
 #, kde-format
 msgid "Shut down"
 msgstr "Desligar"
 
-#: GeneralPage.cpp:264
+#: GeneralPage.cpp:251
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "O serviço de gerenciamento de energia parece não estar em execução."

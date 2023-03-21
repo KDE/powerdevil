@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2011-12-28 12:28-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -27,14 +27,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kscanne@gmail.com"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
 "Names and icons of the activities might not be available."
 msgstr ""
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -42,7 +42,7 @@ msgid ""
 "specific power management behavior."
 msgstr ""
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

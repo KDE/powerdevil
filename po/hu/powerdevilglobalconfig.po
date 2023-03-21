@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2021-09-02 08:58+0200\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -28,28 +28,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kiszel.kristof@gmail.com"
 
-#: GeneralPage.cpp:108
+#: GeneralPage.cpp:95
 #, kde-format
 msgid "Do nothing"
 msgstr "Ne tegyen semmit"
 
-#: GeneralPage.cpp:110
+#: GeneralPage.cpp:98
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Alvó állapot"
 
-#: GeneralPage.cpp:113
+#: GeneralPage.cpp:102
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernálás"
 
-#: GeneralPage.cpp:115
+#: GeneralPage.cpp:104
 #, kde-format
 msgid "Shut down"
 msgstr "Leállítás"
 
-#: GeneralPage.cpp:264
+#: GeneralPage.cpp:251
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Az energiakezelő szolgáltatás úgy tűnik, nem fut."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2011-08-24 09:54+0300\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "maris.kde@gmail.com"
 
-#: EditPage.cpp:191
+#: EditPage.cpp:180
 #, fuzzy, kde-format
 #| msgid ""
 #| "The KDE Power Management System will now generate a set of default "
@@ -44,12 +44,12 @@ msgstr ""
 "kam par pamatu tiks ņemtas šī datora iespējas. Vienlaikus šī darbība "
 "izdzēsīs visus eksistējošos profilus. Vai vēlaties turpināt?"
 
-#: EditPage.cpp:194
+#: EditPage.cpp:184
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Atjaunot noklusējuma profilus"
 
-#: EditPage.cpp:271
+#: EditPage.cpp:261
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

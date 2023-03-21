@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "nashtlumach@gmail.com"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -40,7 +40,7 @@ msgstr ""
 "Служба пакояў працуе з базавымі функцыямі.\n"
 "Назвы і значкі пакояў могуць быць недаступнымі."
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Неабходна, каб кіраўнік пакояў быў запушчаны, каб наладзіць асобнае "
 "кіраванне сілкаваннем для кожнага пакоя."
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Выглядае, што служба кіравання сілкаваннем на запушчаная."

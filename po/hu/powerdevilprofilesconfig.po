@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2020-12-26 11:09+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kiszel.kristof@gmail.com"
 
-#: EditPage.cpp:191
+#: EditPage.cpp:180
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -38,12 +38,12 @@ msgstr ""
 "számítógép képességei alapján. Ez törli az összes meglévő módosítását. "
 "Biztosan folytatja?"
 
-#: EditPage.cpp:194
+#: EditPage.cpp:184
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Alapértelmezett profilok visszaállítása"
 
-#: EditPage.cpp:271
+#: EditPage.cpp:261
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Az energiakezelő szolgáltatás úgy tűnik, nem fut."

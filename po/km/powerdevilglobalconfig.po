@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2012-06-14 13:57+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -30,30 +30,30 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: GeneralPage.cpp:108
+#: GeneralPage.cpp:95
 #, kde-format
 msgid "Do nothing"
 msgstr "មិន​ធ្វើ​ទាំងអស់"
 
-#: GeneralPage.cpp:110
+#: GeneralPage.cpp:98
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "ដេក"
 
-#: GeneralPage.cpp:113
+#: GeneralPage.cpp:102
 #, kde-format
 msgid "Hibernate"
 msgstr "សម្ងំ"
 
-#: GeneralPage.cpp:115
+#: GeneralPage.cpp:104
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgid "Shut down"
 msgstr "បិទ"
 
-#: GeneralPage.cpp:264
+#: GeneralPage.cpp:251
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

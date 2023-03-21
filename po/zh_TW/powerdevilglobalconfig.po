@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-17 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2023-02-18 01:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -30,28 +30,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw, s8321414@gmail.com, mail@kisaragi-hiu.com"
 
-#: GeneralPage.cpp:108
+#: GeneralPage.cpp:95
 #, kde-format
 msgid "Do nothing"
 msgstr "不做任何事"
 
-#: GeneralPage.cpp:110
+#: GeneralPage.cpp:98
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "睡眠"
 
-#: GeneralPage.cpp:113
+#: GeneralPage.cpp:102
 #, kde-format
 msgid "Hibernate"
 msgstr "休眠"
 
-#: GeneralPage.cpp:115
+#: GeneralPage.cpp:104
 #, kde-format
 msgid "Shut down"
 msgstr "關機"
 
-#: GeneralPage.cpp:264
+#: GeneralPage.cpp:251
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "電源管理服務似乎並非執行中。"

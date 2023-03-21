@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2022-08-20 15:29+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,7 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus,hizpol@ej-gv.es"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Jarduera-zerbitzua oinarrizko funtzionaltasunekin exekutatzen ari da.\n"
 "Baliteke jarduera-izenak eta -ikonoak erabilgarri ez egotea."
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -52,7 +52,7 @@ msgstr ""
 "Jarduera-kudeatzailea exekutatzen egotea beharrezkoa da, jardueren "
 "berariazko energia-kudeaketa jokabidea konfiguratzeko."
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Ematen du energia kudeatzeko zerbitzua ez dagoela martxan."

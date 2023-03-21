@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2021-10-23 23:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: EditPage.cpp:191
+#: EditPage.cpp:180
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -41,12 +41,12 @@ msgstr ""
 "defecte basats en les característiques de l'ordinador. Això també esborrarà "
 "totes les modificacions que hàgiu efectuat. Esteu segur que voleu continuar?"
 
-#: EditPage.cpp:194
+#: EditPage.cpp:184
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Restaura els perfils per defecte"
 
-#: EditPage.cpp:271
+#: EditPage.cpp:261
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Sembla que el servei de gestió d'energia no s'està executant."

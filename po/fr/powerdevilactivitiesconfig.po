@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2022-08-20 18:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -34,7 +34,7 @@ msgid "Your emails"
 msgstr ""
 "grossard@kde.org, vpinon@kde.org, sdepiets@gmail.com, xavier.besnard@neuf.fr"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Le service des activités fonctionne avec les fonctionnalités essentielles.\n"
 "Les noms et icônes des activités ne seront peut-être pas disponibles."
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -55,7 +55,7 @@ msgstr ""
 "pour configurer le comportement du gestionnaire d'énergie spécifique aux "
 "activités."
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Le service de gestion de l'énergie ne semble pas être lancé."

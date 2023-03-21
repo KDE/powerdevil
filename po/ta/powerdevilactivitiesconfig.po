@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2022-08-23 19:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -36,7 +36,7 @@ msgstr ""
 "செயல்பாடுகளுக்கான பின்னணி சேவை, அடிப்படை அம்சங்களுடன் மட்டும் இயங்குகிறது.\n"
 "செயல்பாடுகளின் பெயர்கள் மற்றும் சின்னங்கள் இங்கு காட்டப்படாமல் இருக்கலாம்."
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -47,7 +47,7 @@ msgstr ""
 "தனிப்பட்ட செயல்பாடுகளுக்கான ஆற்றல் மேலாண் நடத்தையை அமைக்க, இச்சேவை இயங்கிக்கொண்டிருக்க "
 "வேண்டும்."
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ஆற்றல் மேலாண்மைக்கான பின்னணி சேவை இயங்குவது போல் தெரியவில்லை."

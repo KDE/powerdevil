@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-08-20 00:47+0000\n"
+"POT-Creation-Date: 2023-03-21 02:30+0000\n"
 "PO-Revision-Date: 2022-11-19 01:53+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -32,7 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dgvirtual@akl.lt, <>"
 
-#: activitypage.cpp:72
+#: activitypage.cpp:59
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Veiklų tarnyba veikia ribotu funkcionalumu.\n"
 "Veiklų pavadinimai ir piktogramos gali būti neprieinami."
 
-#: activitypage.cpp:146
+#: activitypage.cpp:132
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -52,7 +52,7 @@ msgstr ""
 "Jei norite konfigūruoti nuo veiklų priklausančią energijos valdymo elgseną, "
 "yra būtina, kad veiklų tvarkytuvė veiktų."
 
-#: activitypage.cpp:242
+#: activitypage.cpp:227
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Atrodo, kad energijos valdymo tarnyba neveikia."
