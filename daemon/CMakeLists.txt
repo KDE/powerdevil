@@ -44,6 +44,7 @@ set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVER
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
     KF6::Activities
+    KF6::AuthCore
     KF6::ConfigCore
     KF6::ConfigGui
     KF6::DBusAddons
