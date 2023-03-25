@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-09 00:48+0000\n"
-"PO-Revision-Date: 2023-03-11 16:17+0300\n"
+"PO-Revision-Date: 2023-03-24 14:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -196,7 +196,7 @@ msgstr "Düzey"
 #: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
-msgstr "Değiştirmeden bırak"
+msgstr "Aynı bırak"
 
 #: actions/bundled/powerprofileconfig.cpp:92
 #, kde-format
