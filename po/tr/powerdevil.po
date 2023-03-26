@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:12+0000\n"
-"PO-Revision-Date: 2023-03-24 14:08+0300\n"
+"PO-Revision-Date: 2023-03-25 16:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -66,7 +66,7 @@ msgstr " dk"
 #: actions/bundled/runscriptconfig.cpp:106
 #, kde-format
 msgid "After"
-msgstr "Sonra"
+msgstr "Süre"
 
 #: actions/bundled/dpms.cpp:79
 #, kde-format
