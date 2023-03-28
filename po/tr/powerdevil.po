@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-15 02:12+0000\n"
-"PO-Revision-Date: 2023-03-25 16:29+0300\n"
+"PO-Revision-Date: 2023-03-27 18:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -77,7 +77,7 @@ msgstr "Ekranı Kapat"
 #: actions/bundled/dpmsconfig.cpp:61
 #, kde-format
 msgid "Switch off after"
-msgstr "Bu kadar süre geçince kapat"
+msgstr "Şu süre sonunda kapat:"
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
@@ -126,7 +126,7 @@ msgstr "Uyut"
 #: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Hibernate"
-msgstr "Hazırda Beklet"
+msgstr "Hazırda beklet"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:105
 #: actions/bundled/suspendsessionconfig.cpp:96
@@ -276,7 +276,7 @@ msgstr "Wi-Fi"
 #: actions/bundled/wirelesspowersavingconfig.cpp:111
 #, kde-format
 msgid "Mobile broadband"
-msgstr "Taşınabilir genişbant"
+msgstr "Taşınabilir geniş bant"
 
 #: actions/bundled/wirelesspowersavingconfig.cpp:112
 #, kde-format
@@ -494,12 +494,12 @@ msgstr "Pil Kritik (%​%1 Kaldı)"
 #: powerdevilcore.cpp:728
 #, kde-format
 msgid "AC Adapter Plugged In"
-msgstr "Prize Takıldı"
+msgstr "Bağdaştırıcı Takılı"
 
 #: powerdevilcore.cpp:731
 #, kde-format
 msgid "Running on AC power"
-msgstr "Prizde Çalışıyor"
+msgstr "Fişe Takılı"
 
 #: powerdevilcore.cpp:731
 #, kde-format
@@ -509,7 +509,7 @@ msgstr "Güç bağdaştırıcı takılı."
 #: powerdevilcore.cpp:734
 #, kde-format
 msgid "Running on Battery Power"
-msgstr "Pilde Çalışıyor"
+msgstr "Pille Çalışıyor"
 
 #: powerdevilcore.cpp:734
 #, kde-format
@@ -519,9 +519,9 @@ msgstr "Güç bağdaştırıcı takılı değil."
 #: powerdevilcore.cpp:795
 #, kde-format
 msgid "Charging Complete"
-msgstr "Şarj Doldu"
+msgstr "Şarj Bitti"
 
 #: powerdevilcore.cpp:795
 #, kde-format
 msgid "Battery now fully charged."
-msgstr "Piliniz tamamen şarj edildi."
+msgstr "Piliniz tümüyle şarj edildi."
