@@ -26,24 +26,20 @@
 
 #include "powerdevilpowermanagement.h"
 
-#include <KConfigGroup>
 #include <KActivities/Consumer>
+#include <KConfigGroup>
+#include <QLayout>
 #include <Solid/Battery>
 #include <Solid/Device>
-#include <actioneditwidget.h>
-#include <QLayout>
 
-ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
+ActivityWidget::ActivityWidget(const QString &activity, QWidget *parent)
     : QWidget(parent)
     , m_ui(new Ui::ActivityWidget)
     , m_profilesConfig(KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig))
     , m_activity(activity)
     , m_activityConsumer(new KActivities::Consumer(this))
-    , m_actionEditWidget(new ActionEditWidget(QString("Activities/%1/SeparateSettings").arg(activity)))
 {
     m_ui->setupUi(this);
-
-    m_ui->separateSettingsLayout->addWidget(m_actionEditWidget);
 
     for (int i = 0; i < m_ui->specialBehaviorLayout->count(); ++i) {
         QWidget *widget = m_ui->specialBehaviorLayout->itemAt(i)->widget();
@@ -64,20 +60,10 @@ ActivityWidget::ActivityWidget(const QString& activity, QWidget* parent)
         }
     }
 
-    m_actionEditWidget->setVisible(false);
-    m_actionEditWidget->load();
-
-    connect(m_ui->separateSettingsRadio, &QAbstractButton::toggled, m_actionEditWidget, &QWidget::setVisible);
-
-    connect(m_ui->actLikeRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
     connect(m_ui->noSettingsRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
-    connect(m_ui->separateSettingsRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
     connect(m_ui->specialBehaviorRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
-    connect(m_ui->actLikeComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_ui->alwaysActionBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
     connect(m_ui->alwaysAfterSpin, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
-
-    connect(m_actionEditWidget, &ActionEditWidget::changed, this, &ActivityWidget::changed);
 }
 
 ActivityWidget::~ActivityWidget()
@@ -103,50 +89,8 @@ void ActivityWidget::load()
     }
     m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
 
-    m_ui->actLikeComboBox->clear();
-
-    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-charging"), i18n("PC running on AC power"), "AC");
-    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-060"), i18n("PC running on battery power"), "Battery");
-    m_ui->actLikeComboBox->addItem(QIcon::fromTheme("battery-low"), i18n("PC running on low battery"), "LowBattery");
-
-    bool hasBattery = false;
-    const auto batteries = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
-    for (const Solid::Device &device : batteries) {
-        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
-            hasBattery = false;
-            break;
-        }
-    }
-
-    m_ui->actLikeRadio->setVisible(hasBattery);
-    m_ui->actLikeComboBox->setVisible(hasBattery);
-
-    const QStringList activities = m_activityConsumer->activities();
-    for (const QString &activity : activities) {
-        if (activity == m_activity) {
-            continue;
-        }
-
-        if (activitiesGroup.group(activity).readEntry("mode", "None") == "None" ||
-            activitiesGroup.group(activity).readEntry("mode", "None") == "ActLike") {
-            continue;
-        }
-
-        KActivities::Info *info = new KActivities::Info(activity, this);
-        QString icon = info->icon();
-        QString name = i18nc("This is meant to be: Act like activity %1",
-                             "Activity \"%1\"", info->name());
-
-        m_ui->actLikeComboBox->addItem(QIcon::fromTheme(icon), name, activity);
-    }
-
     // Proper loading routine
-
-    if (config.readEntry("mode", QString()) == "ActLike") {
-        m_ui->actLikeRadio->setChecked(true);
-        m_ui->actLikeComboBox->setCurrentIndex(m_ui->actLikeComboBox->findData(config.readEntry("actLike", QString())));
-    } else if (config.readEntry("mode", QString()) == "SpecialBehavior") {
+    if (config.readEntry("mode", QString()) == "SpecialBehavior") {
         m_ui->specialBehaviorRadio->setChecked(true);
         KConfigGroup behaviorGroup = config.group("SpecialBehavior");
 
@@ -157,10 +101,6 @@ void ActivityWidget::load()
         KConfigGroup actionConfig = behaviorGroup.group("ActionConfig");
         m_ui->alwaysActionBox->setCurrentIndex(m_ui->alwaysActionBox->findData(actionConfig.readEntry("suspendType", 0)));
         m_ui->alwaysAfterSpin->setValue(actionConfig.readEntry("idleTime", 600000) / 60 / 1000);
-    } else if (config.readEntry("mode", QString()) == "SeparateSettings") {
-        m_ui->separateSettingsRadio->setChecked(true);
-
-        m_actionEditWidget->load();
     }
 }
 
@@ -169,10 +109,7 @@ void ActivityWidget::save()
     KConfigGroup activitiesGroup(m_profilesConfig, "Activities");
     KConfigGroup config = activitiesGroup.group(m_activity);
 
-    if (m_ui->actLikeRadio->isChecked()) {
-        config.writeEntry("mode", "ActLike");
-        config.writeEntry("actLike", m_ui->actLikeComboBox->itemData(m_ui->actLikeComboBox->currentIndex()).toString());
-    } else if (m_ui->specialBehaviorRadio->isChecked()) {
+    if (m_ui->specialBehaviorRadio->isChecked()) {
         config.writeEntry("mode", "SpecialBehavior");
 
         KConfigGroup behaviorGroup = config.group("SpecialBehavior");
@@ -187,9 +124,6 @@ void ActivityWidget::save()
 
         actionConfig.sync();
         behaviorGroup.sync();
-    } else if (m_ui->separateSettingsRadio->isChecked()) {
-        config.writeEntry("mode", "SeparateSettings");
-        m_actionEditWidget->save();
     } else {
         config.writeEntry("mode", "None");
     }

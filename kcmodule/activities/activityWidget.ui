@@ -24,37 +24,6 @@
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QRadioButton" name="actLikeRadio">
-         <property name="text">
-          <string>Act like</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="actLikeComboBox">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item>
       <widget class="QRadioButton" name="specialBehaviorRadio">
        <property name="text">
         <string>Define a special behavior</string>
@@ -132,20 +101,6 @@
        </item>
       </layout>
      </item>
-     <item>
-      <widget class="QRadioButton" name="separateSettingsRadio">
-       <property name="text">
-        <string>Use separate settings</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="separateSettingsLayout">
-       <property name="leftMargin">
-        <number>30</number>
-       </property>
-      </layout>
-     </item>
     </layout>
    </item>
    <item>
@@ -164,22 +119,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>actLikeRadio</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>actLikeComboBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>44</x>
-     <y>66</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>133</x>
-     <y>66</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

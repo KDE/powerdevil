@@ -24,7 +24,6 @@
 #include <QWidget>
 #include <KSharedConfig>
 
-class ActionEditWidget;
 namespace KActivities
 {
 class Consumer;
@@ -55,7 +54,6 @@ private:
     KSharedConfig::Ptr m_profilesConfig;
     QString m_activity;
     KActivities::Consumer *const m_activityConsumer;
-    ActionEditWidget *const m_actionEditWidget;
 };
 
 #endif // ACTIVITYWIDGET_H

@@ -303,62 +303,35 @@ void Core::loadProfile(bool force)
     KConfigGroup activitiesConfig(m_profilesConfig, "Activities");
     qCDebug(POWERDEVIL) << "Activities with settings:" << activitiesConfig.groupList() << activitiesConfig.keyList();
 
-    // Are we mirroring an activity?
-    if (activitiesConfig.group(activity).readEntry("mode", "None") == QStringLiteral("ActLike") &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("AC") &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("Battery") &&
-        activitiesConfig.group(activity).readEntry("actLike", QString()) != QStringLiteral("LowBattery")) {
-        // Yes, let's use that then
-        activity = activitiesConfig.group(activity).readEntry("actLike", QString());
-        qCDebug(POWERDEVIL) << "Activity is a mirror";
-    }
-
     KConfigGroup activityConfig = activitiesConfig.group(activity);
     qCDebug(POWERDEVIL) << "Settings for loaded activity:" << activity << activityConfig.groupList() << activityConfig.keyList();
 
-    // See if this activity has priority
-    if (activityConfig.readEntry("mode", "None") == QStringLiteral("SeparateSettings")) {
-        // Prioritize this profile over anything
-        config = activityConfig.group("SeparateSettings");
-        qCDebug(POWERDEVIL) << "Activity is enforcing a different profile";
-        profileId = activity;
+    // let's load the current state's profile
+    if (m_batteriesPercent.isEmpty()) {
+        qCDebug(POWERDEVIL) << "No batteries found, loading AC";
+        profileId = QStringLiteral("AC");
     } else {
-        // It doesn't, let's load the current state's profile
-        if (m_batteriesPercent.isEmpty()) {
-            qCDebug(POWERDEVIL) << "No batteries found, loading AC";
+        // Compute the previous and current global percentage
+        const int percent = currentChargePercent();
+
+        if (backend()->acAdapterState() == BackendInterface::Plugged) {
             profileId = QStringLiteral("AC");
-        } else if (activityConfig.readEntry("mode", "None") == QStringLiteral("ActLike")) {
-            if (activityConfig.readEntry("actLike", QString()) == QStringLiteral("AC") ||
-                activityConfig.readEntry("actLike", QString()) == QStringLiteral("Battery") ||
-                activityConfig.readEntry("actLike", QString()) == QStringLiteral("LowBattery")) {
-                // Same as above, but with an existing profile
-                config = m_profilesConfig.data()->group(activityConfig.readEntry("actLike", QString()));
-                profileId = activityConfig.readEntry("actLike", QString());
-                qCDebug(POWERDEVIL) << "Activity is mirroring a different profile";
-            }
+            qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
+        } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
+            profileId = QStringLiteral("LowBattery");
+            qCDebug(POWERDEVIL) << "Loading profile for low battery";
         } else {
-            // Compute the previous and current global percentage
-            const int percent = currentChargePercent();
-
-            if (backend()->acAdapterState() == BackendInterface::Plugged) {
-                profileId = QStringLiteral("AC");
-                qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
-            } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
-                profileId = QStringLiteral("LowBattery");
-                qCDebug(POWERDEVIL) << "Loading profile for low battery";
-            } else {
-                profileId = QStringLiteral("Battery");
-                qCDebug(POWERDEVIL) << "Loading profile for unplugged AC";
-            }
+            profileId = QStringLiteral("Battery");
+            qCDebug(POWERDEVIL) << "Loading profile for unplugged AC";
         }
-
-        config = m_profilesConfig.data()->group(profileId);
-        qCDebug(POWERDEVIL) << "Activity is not forcing a profile";
     }
+
+    config = m_profilesConfig.data()->group(profileId);
+    qCDebug(POWERDEVIL) << "Activity is not forcing a profile";
 
     // Release any special inhibitions
     {
-        QHash<QString,int>::iterator i = m_sessionActivityInhibit.begin();
+        QHash<QString, int>::iterator i = m_sessionActivityInhibit.begin();
         while (i != m_sessionActivityInhibit.end()) {
             PolicyAgent::instance()->ReleaseInhibition(i.value());
             i = m_sessionActivityInhibit.erase(i);
