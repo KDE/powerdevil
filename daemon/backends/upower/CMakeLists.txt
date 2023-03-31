@@ -1,6 +1,5 @@
 set(powerdevilupowerbackend_SRCS
     ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp
-    upowersuspendjob.cpp
     login1suspendjob.cpp
     powerdevilupowerbackend.cpp
     udevqtclient.cpp
@@ -9,21 +8,25 @@ set(powerdevilupowerbackend_SRCS
 )
 
 set_source_files_properties(
-dbus/org.freedesktop.UPower.xml
-dbus/org.freedesktop.UPower.Device.xml
-PROPERTIES NO_NAMESPACE TRUE)
+    dbus/org.freedesktop.UPower.xml
+    dbus/org.freedesktop.UPower.Device.xml
+    PROPERTIES NO_NAMESPACE TRUE
+)
 
 qt_add_dbus_interface(powerdevilupowerbackend_SRCS
-dbus/org.freedesktop.UPower.xml
-upower_interface)
+    dbus/org.freedesktop.UPower.xml
+    upower_interface
+)
 
 qt_add_dbus_interface(powerdevilupowerbackend_SRCS
-dbus/org.freedesktop.UPower.Device.xml
-upower_device_interface)
+    dbus/org.freedesktop.UPower.Device.xml
+    upower_device_interface
+)
 
 qt_add_dbus_interface(powerdevilupowerbackend_SRCS
-dbus/org.freedesktop.UPower.KbdBacklight.xml
-upower_kbdbacklight_interface)
+    dbus/org.freedesktop.UPower.KbdBacklight.xml
+    upower_kbdbacklight_interface
+)
 
 ## backlight helper executable
 add_executable(backlighthelper backlighthelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)

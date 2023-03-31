@@ -72,11 +72,8 @@ private:
 
 private Q_SLOTS:
     void updateDeviceProps();
-    void slotDeviceAdded(const QString &);
-    void slotDeviceRemoved(const QString &);
     void slotDeviceAdded(const QDBusObjectPath & path);
     void slotDeviceRemoved(const QDBusObjectPath & path);
-    void slotDeviceChanged(const QString &);
     void slotPropertyChanged();
     void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
@@ -109,7 +106,6 @@ private:
 
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;
-    bool m_useUPowerSuspend = false;
 
     // buttons
     bool m_lidIsPresent;

@@ -51,10 +51,91 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
       </doc:doc>
     </method>
 
+    <method name="GetDisplayDevice">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+      <arg name="device" direction="out" type="o">
+        <doc:doc><doc:summary>An object path for the "display device.</doc:summary></doc:doc>
+      </arg>
+
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Get the object to the "display device", a composite device that represents the
+            status icon to show in desktop environments. You can also access the object directly
+            as its path is guaranteed to be /org/freedesktop/UPower/devices/DisplayDevice.
+            The following standard org.freedesktop.UPower.Device
+            properties will be defined (only <doc:ref type="property" to="Source:IsPresent">IsPresent</doc:ref> takes a special meaning):
+            <doc:list>
+              <doc:item>
+                <doc:term>Type</doc:term><doc:definition>the type of the display device, UPS or Battery. Note that this value can change, as opposed to real devices.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>State</doc:term><doc:definition>the power state of the display device, such as Charging or Discharging.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>Percentage</doc:term><doc:definition>the amount of energy left on the device.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>Energy</doc:term><doc:definition>Amount of energy (measured in Wh) currently available in the power source.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>EnergyFull</doc:term><doc:definition>Amount of energy (measured in Wh) in the power source when it's considered full.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>EnergyRate</doc:term><doc:definition>Amount of energy being drained from the source, measured in W. If positive, the source is being discharged, if negative it's being charged.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>TimeToEmpty</doc:term><doc:definition>Number of seconds until the power source is considered empty.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>TimeToFull</doc:term><doc:definition>Number of seconds until the power source is considered full.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>IsPresent</doc:term><doc:definition>Whether a status icon using this information should be presented.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>IconName</doc:term><doc:definition>An icon name representing the device state.</doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>WarningLevel</doc:term><doc:definition>The same as the overall <doc:ref type="property" to="Source:WarningLevel">WarningLevel</doc:ref></doc:definition>
+              </doc:item>
+            </doc:list>
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </method>
+
+    <method name="GetCriticalAction">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+      <arg name="action" direction="out" type="s">
+        <doc:doc><doc:summary>A string representing the critical action configured and available.</doc:summary></doc:doc>
+      </arg>
+
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            When the system's power supply is critical (critically low batteries or UPS),
+            the system will take this action. Possible values are:
+            <doc:list>
+              <doc:item>
+                <doc:term>HybridSleep</doc:term>
+              </doc:item>
+              <doc:item>
+                <doc:term>Hibernate</doc:term>
+              </doc:item>
+              <doc:item>
+                <doc:term>PowerOff</doc:term>
+              </doc:item>
+            </doc:list>
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </method>
+
     <!-- ************************************************************ -->
 
     <signal name="DeviceAdded">
-      <arg name="device" type="s">
+      <arg name="device" type="o">
         <doc:doc><doc:summary>Object path of device that was added.</doc:summary></doc:doc>
       </arg>
 
@@ -70,7 +151,7 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
     <!-- ************************************************************ -->
 
     <signal name="DeviceRemoved">
-      <arg name="device" type="s">
+      <arg name="device" type="o">
         <doc:doc><doc:summary>Object path of device that was removed.</doc:summary></doc:doc>
       </arg>
 
@@ -85,257 +166,15 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
 
     <!-- ************************************************************ -->
 
-    <signal name="DeviceChanged">
-      <arg name="device" type="s">
-        <doc:doc><doc:summary>Object path of device that was changed.</doc:summary></doc:doc>
-      </arg>
-
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            Emitted when a device changed.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </signal>
-
-    <!-- ************************************************************ -->
-
-    <signal name="Changed">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            Emitted when one or more properties on the object changes.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </signal>
-
-    <!-- ************************************************************ -->
-
-    <signal name="Sleeping">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            This signal is sent when the session is about to be suspended or
-            hibernated.
-          </doc:para>
-          <doc:para>
-            This signal is DEPRECATED. Use NotifySleep() instead.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </signal>
-
-    <!-- ************************************************************ -->
-
-    <signal name="NotifySleep">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            This signal is sent when the session is about to be suspended or
-            hibernated.
-            Session and system programs have one second to do anything required
-            before the sleep action is taken (such as sending out Avahi or
-            Jabber messages).
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-      <arg name="action" direction="out" type="s">
-        <doc:doc>
-          <doc:summary>
-            The sleep action type, e.g. <doc:tt>suspend</doc:tt>,
-            <doc:tt>hibernate</doc:tt> or <doc:tt>hybrid</doc:tt>.
-          </doc:summary>
-        </doc:doc>
-      </arg>
-    </signal>
-
-    <!-- ************************************************************ -->
-
-    <signal name="Resuming">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            This signal is sent when the session has just returned from
-            Suspend() or Hibernate().
-          </doc:para>
-          <doc:para>
-            This signal is DEPRECATED. Use NotifyResume() instead.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </signal>
-
-    <!-- ************************************************************ -->
-
-    <signal name="NotifyResume">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            This signal is sent when the session has just returned from
-            Suspend() or Hibernate().
-            Session and system programs can then do anything required (such as
-            sending out Avahi or Jabber messages).
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-      <arg name="action" direction="out" type="s">
-        <doc:doc>
-          <doc:summary>
-            The sleep action type, e.g. <doc:tt>suspend</doc:tt>,
-            <doc:tt>hibernate</doc:tt> or <doc:tt>hybrid</doc:tt>.
-          </doc:summary>
-        </doc:doc>
-      </arg>
-    </signal>
-
-    <!-- ************************************************************ -->
-
-    <method name="AboutToSleep">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            This method tells UPower that the Suspend() or Hibernate() method
-            is about to be called.
-            This allows UPower to emit the Suspending signal whilst
-            session activities are happening that have to be done before the
-            suspend process is started.
-          </doc:para>
-          <doc:para>
-            This method would typically be called by the session power
-            management daemon, before it locks the screen and waits for the
-            screen to fade to black.
-            The session power management component would then call Suspend() or
-            Hibernate() when these syncronous tasks have completed.
-          </doc:para>
-          <doc:para>
-            If this method is not called than nothing bad will happen and
-            Suspend() or Hibernate() will block for the required second.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-      <arg name="action" direction="in" type="s">
-        <doc:doc>
-          <doc:summary>
-            The sleep action type, e.g. <doc:tt>suspend</doc:tt> or
-            <doc:tt>hibernate</doc:tt>.
-          </doc:summary>
-        </doc:doc>
-      </arg>
-    </method>
-
-    <!-- ************************************************************ -->
-
-    <method name="Suspend">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            Suspends the computer into a low power state.
-            System state is not preserved if the power is lost.
-          </doc:para>
-          <doc:para>
-            If AboutToRequestSleep() has not been called then UPower will send
-            the Sleeping() signal and block for one second.
-          </doc:para>
-          <doc:para>
-            If AboutToRequestSleep() has been called less than one second
-            before this method is called then UPower will block for the
-            remaining time to complete one second of delay.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </method>
-
-    <!-- ************************************************************ -->
-
-    <method name="SuspendAllowed">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-      <arg name="allowed" direction="out" type="b">
-        <doc:doc><doc:summary>TRUE if allowed, otherwise FALSE</doc:summary></doc:doc>
-      </arg>
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            Check if the caller has (or can get) the PolicyKit privilege to call
-            <doc:ref type="method" to="Power.Suspend">Suspend</doc:ref>.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </method>
-
-    <!-- ************************************************************ -->
-
-    <method name="Hibernate">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            Hibernates the computer into a low power state.
-            System state is preserved if the power is lost.
-          </doc:para>
-          <doc:para>
-            If AboutToRequestSleep() has not been called then UPower will send
-            the Sleeping() signal and block for one second.
-          </doc:para>
-          <doc:para>
-            If AboutToRequestSleep() has been called less than one second
-            before this method is called then UPower will block for the
-            remaining time to complete one second of delay.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </method>
-
-    <!-- ************************************************************ -->
-
-    <method name="HibernateAllowed">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-      <arg name="allowed" direction="out" type="b">
-        <doc:doc><doc:summary>TRUE if allowed, otherwise FALSE</doc:summary></doc:doc>
-      </arg>
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            Check if the caller has (or can get) the PolicyKit privilege to call
-            <doc:ref type="method" to="Power.Hibernate">Hibernate</doc:ref>.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </method>
-
-    <!-- ************************************************************ -->
-
     <property name="DaemonVersion" type="s" access="read">
       <doc:doc><doc:description><doc:para>
             Version of the running daemon, e.g. <doc:tt>002</doc:tt>.
       </doc:para></doc:description></doc:doc>
     </property>
 
-    <property name="CanSuspend" type="b" access="read">
-      <doc:doc><doc:description><doc:para>
-            Whether the system is able to suspend.
-      </doc:para></doc:description></doc:doc>
-    </property>
-
-    <property name="CanHibernate" type="b" access="read">
-      <doc:doc><doc:description><doc:para>
-            Whether the system is able to hibernate.
-      </doc:para></doc:description></doc:doc>
-    </property>
-
     <property name="OnBattery" type="b" access="read">
       <doc:doc><doc:description><doc:para>
             Indicates whether the system is running on battery power.
-            This property is provided for convenience.
-      </doc:para></doc:description></doc:doc>
-    </property>
-
-    <property name="OnLowBattery" type="b" access="read">
-      <doc:doc><doc:description><doc:para>
-            Indicates whether the system is running on battery power and if the battery is critically low.
             This property is provided for convenience.
       </doc:para></doc:description></doc:doc>
     </property>
@@ -355,36 +194,6 @@ method return sender=:1.386 -> dest=:1.451 reply_serial=2
         <doc:description>
           <doc:para>
             If the system has a lid device.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </property>
-
-    <property name="LidForceSleep" type="b" access="read">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            If the system really has to sleep when the lid is closed.
-            Some laptops actually melt (!) if the lid is closed and the
-            computer keeps running. We blacklist those, and do something
-            sane for the other machines.
-          </doc:para>
-          <doc:para>
-            This allows us to set the default session policy to not
-            suspend on lid close if the laptop is docked, and be sure
-            the machine is not going to melt.
-          </doc:para>
-        </doc:description>
-      </doc:doc>
-    </property>
-
-    <property name="IsDocked" type="b" access="read">
-      <doc:doc>
-        <doc:description>
-          <doc:para>
-            If the system is currently docked.
-            Note: the "is-docked" value is the result of a heuristic,
-            which may involve testing the display output.
           </doc:para>
         </doc:description>
       </doc:doc>
