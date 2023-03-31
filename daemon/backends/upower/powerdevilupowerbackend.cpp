@@ -39,7 +39,6 @@
 #include <KSharedConfig>
 
 #include "ddcutilbrightness.h"
-#include "upowersuspendjob.h"
 #include "login1suspendjob.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
@@ -182,21 +181,13 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     // devices
     enumerateDevices();
 
-    connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Changed, this, &PowerDevilUPowerBackend::slotPropertyChanged);
-    // for UPower >= 0.99.0, missing Changed() signal
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
                                          SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
 
-    connect(m_upowerInterface, SIGNAL(DeviceAdded(QString)), this, SLOT(slotDeviceAdded(QString)));
-    connect(m_upowerInterface, SIGNAL(DeviceRemoved(QString)), this, SLOT(slotDeviceRemoved(QString)));
-    // for UPower >= 0.99.0, changed signature :o/
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceAdded",
                                          this, SLOT(slotDeviceAdded(QDBusObjectPath)));
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved",
                                          this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
-
-    connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::DeviceChanged, this, &PowerDevilUPowerBackend::slotDeviceChanged);
-    // for UPower >= 0.99.0, see slotDeviceAdded(const QString & device)
 
     // Brightness Controls available
     BrightnessControlsList controls;
@@ -246,30 +237,9 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
             supported |= SuspendThenHibernate;
     }
 
-    /* There's a chance we're using ConsoleKit rather than ConsoleKit2 as the
-     * m_login1Interface, so check if we can suspend/hibernate with UPower < 0.99 */
-    if (supported == UnknownSuspendMethod) {
-        if (m_upowerInterface->canSuspend() && m_upowerInterface->SuspendAllowed()) {
-            qCDebug(POWERDEVIL) << "Can suspend";
-            supported |= ToRam;
-        }
-
-        if (m_upowerInterface->canHibernate() && m_upowerInterface->HibernateAllowed()) {
-            qCDebug(POWERDEVIL) << "Can hibernate";
-            supported |= ToDisk;
-        }
-
-        if (supported != UnknownSuspendMethod) {
-            m_useUPowerSuspend = true;
-        }
-    }
-
     // "resuming" signal
-    if (m_login1Interface && !m_useUPowerSuspend) {
+    if (m_login1Interface) {
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
-    } else {
-        connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Sleeping, this, &PowerDevilUPowerBackend::aboutToSuspend);
-        connect(m_upowerInterface, &OrgFreedesktopUPowerInterface::Resuming, this, &PowerDevilUPowerBackend::resumeFromSuspend);
     }
 
     // battery
@@ -459,11 +429,10 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
 
 KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
-    if (m_login1Interface && !m_useUPowerSuspend) {
+    if (m_login1Interface) {
         return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
-    } else {
-        return new UPowerSuspendJob(m_upowerInterface, method, supportedSuspendMethods());
     }
+    return nullptr;
 }
 
 void PowerDevilUPowerBackend::enumerateDevices()
@@ -500,38 +469,22 @@ void PowerDevilUPowerBackend::addDevice(const QString & device)
             new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, device, QDBusConnection::systemBus(), this);
     m_devices.insert(device, upowerDevice);
 
-    // for UPower >= 0.99.0 which doesn't emit the DeviceChanged(QString) signal
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, device, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
                                          SLOT(onDevicePropertiesChanged(QString,QVariantMap,QStringList)));
 }
 
-void PowerDevilUPowerBackend::slotDeviceAdded(const QString & device)
-{
-    addDevice(device);
-    updateDeviceProps();
-}
-
-void PowerDevilUPowerBackend::slotDeviceRemoved(const QString & device)
-{
-    OrgFreedesktopUPowerDeviceInterface * upowerDevice = m_devices.take(device);
-
-    delete upowerDevice;
-
-    updateDeviceProps();
-}
-
 void PowerDevilUPowerBackend::slotDeviceAdded(const QDBusObjectPath &path)
 {
-    slotDeviceAdded(path.path());
+    addDevice(path.path());
+    updateDeviceProps();
 }
 
 void PowerDevilUPowerBackend::slotDeviceRemoved(const QDBusObjectPath &path)
 {
-    slotDeviceRemoved(path.path());
-}
+    OrgFreedesktopUPowerDeviceInterface * upowerDevice = m_devices.take(path.path());
 
-void PowerDevilUPowerBackend::slotDeviceChanged(const QString & /*device*/)
-{
+    delete upowerDevice;
+
     updateDeviceProps();
 }
 

@@ -146,7 +146,7 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
             Refreshes the data collected from the power source.
           </doc:para>
         </doc:description>
-        <doc:permission>Callers need the org.freedesktop.upower.refresh-power-source authorization</doc:permission>
+        <doc:permission>Callers will need to make sure that the daemon was started in debug mode</doc:permission>
         <doc:errors>
           <doc:error name="&ERROR_GENERAL;">if an error occured while refreshing</doc:error>
         </doc:errors>
@@ -154,15 +154,100 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
     </method>
 
     <!-- ************************************************************ -->
-    <signal name="Changed">
+    <!--
+    <method name="GetHistory">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+      <arg name="type" direction="in" type="s">
+        <doc:doc><doc:summary>The type of history.
+        Valid types are <doc:tt>rate</doc:tt> or <doc:tt>charge</doc:tt>.</doc:summary></doc:doc>
+      </arg>
+      <arg name="timespan" direction="in" type="u">
+        <doc:doc><doc:summary>The amount of data to return in seconds, or 0 for all.</doc:summary></doc:doc>
+      </arg>
+      <arg name="resolution" direction="in" type="u">
+        <doc:doc>
+          <doc:summary>
+            The approximate number of points to return.
+            A higher resolution is more accurate, at the expense of plotting speed.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="data" direction="out" type="a(udu)">
+        <doc:doc><doc:summary>
+            The history data for the power device, if the device supports history.
+            Data is ordered from the earliest in time, to the newest data point.
+            Each element contains the following members:
+            <doc:list>
+              <doc:item>
+                <doc:term>time</doc:term>
+                <doc:definition>
+                  The time value in seconds from the <doc:tt>gettimeofday()</doc:tt> method.
+                </doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>value</doc:term>
+                <doc:definition>
+                  The data value, for instance the rate in W or the charge in %.
+                </doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>state</doc:term>
+                <doc:definition>
+                  The state of the device, for instance <doc:tt>charging</doc:tt> or
+                  <doc:tt>discharging</doc:tt>.
+                </doc:definition>
+              </doc:item>
+            </doc:list>
+        </doc:summary></doc:doc>
+      </arg>
       <doc:doc>
         <doc:description>
           <doc:para>
-            Some value on the power source changed.
+            Gets history for the power device that is persistent across reboots.
           </doc:para>
         </doc:description>
       </doc:doc>
-    </signal>
+    </method>
+    -->
+
+    <!-- ************************************************************ -->
+    <!--
+    <method name="GetStatistics">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
+      <arg name="type" direction="in" type="s">
+        <doc:doc><doc:summary>The mode for the statistics.
+        Valid types are <doc:tt>charging</doc:tt> or <doc:tt>discharging</doc:tt>.</doc:summary></doc:doc>
+      </arg>
+      <arg name="data" direction="out" type="a(dd)">
+        <doc:doc><doc:summary>
+            The statistics data for the power device.
+            Each element contains the following members:
+            <doc:list>
+              <doc:item>
+                <doc:term>value</doc:term>
+                <doc:definition>
+                  The value of the percentage point, usually in seconds
+                </doc:definition>
+              </doc:item>
+              <doc:item>
+                <doc:term>accuracy</doc:term>
+                <doc:definition>
+                  The accuracy of the prediction in percent.
+                </doc:definition>
+              </doc:item>
+            </doc:list>
+        </doc:summary></doc:doc>
+      </arg>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Gets statistics for the power device that may be interesting
+            to show on a graph in the session.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </method>
+    -->
 
     <!-- ************************************************************ -->
     <property name="NativePath" type="s" access="read">
@@ -255,6 +340,12 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
               <doc:term>8</doc:term><doc:definition>Phone</doc:definition>
             </doc:item>
           </doc:list>
+          <doc:para>
+            If the value is set to "Battery", you will need to verify that the
+            property <doc:ref type="property" to="Source:PowerSupply">power-supply</doc:ref>
+            has the value "true" before considering it as a laptop battery. Otherwise it
+            will likely be the battery for a device of an unknown type.
+          </doc:para>
         </doc:description>
       </doc:doc>
     </property>
@@ -390,6 +481,27 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
       </doc:doc>
     </property>
 
+    <property name="ChargeCycles" type="i" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            The number of charge cycles as defined by the TCO certification, or -1 if
+            that value is unknown or not applicable.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <property name="Luminosity" type="d" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Luminosity being recorded by the meter.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
     <property name="TimeToEmpty" type="x" access="read">
       <doc:doc>
         <doc:description>
@@ -435,6 +547,23 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
             properties will be unset while this property is set.
           </doc:para><doc:para>
             This property is only valid if the property
+            <doc:ref type="property" to="Source:Type">type</doc:ref>
+            has the value "battery".
+          </doc:para>
+          <doc:para>
+            The percentage will be an approximation if the <doc:ref type="property" to="BatteryLevel">battery level</doc:ref>
+            is set to something other than None. The percentage is kept for compatibility reasons.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <property name="Temperature" type="d" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            The temperature of the device in degrees Celsius. This property is
+            only valid if the property
             <doc:ref type="property" to="Source:Type">type</doc:ref>
             has the value "battery".
           </doc:para>
@@ -569,45 +698,80 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
       </doc:doc>
     </property>
 
-    <property name="RecallNotice" type="b" access="read">
+    <property name="WarningLevel" type="u" access="read">
       <doc:doc>
         <doc:description>
           <doc:para>
-            If the device may have been recalled by the vendor due to a suspected
-            fault.
-            This key does not imply the device is faulty, only that it approximatly
-            matches the description from the vendor of units that were recalled.
+            Warning level of the battery:
           </doc:para>
+          <doc:list>
+            <doc:item>
+              <doc:term>0</doc:term><doc:definition>Unknown</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>1</doc:term><doc:definition>None</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>2</doc:term><doc:definition>Discharging (only for UPSes)</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>3</doc:term><doc:definition>Low</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>4</doc:term><doc:definition>Critical</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>5</doc:term><doc:definition>Action</doc:definition>
+            </doc:item>
+          </doc:list>
         </doc:description>
       </doc:doc>
     </property>
 
-    <property name="RecallVendor" type="s" access="read">
+    <property name="BatteryLevel" type="u" access="read">
       <doc:doc>
         <doc:description>
           <doc:para>
-            The vendor that is handling the hardware recall.
+            The level of the battery for devices which do not report a percentage but rather a coarse battery level. If the value
+            is None, then the device does not support coarse battery reporting, and the percentage should be used instead.
           </doc:para>
-          <doc:para>
-            This property is only valid if the property recall-notice is true.
-          </doc:para>
+          <doc:list>
+            <doc:item>
+              <doc:term>0</doc:term><doc:definition>Unknown</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>1</doc:term><doc:definition>None (the battery does not use a coarse level of battery reporting)</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>3</doc:term><doc:definition>Low</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>4</doc:term><doc:definition>Critical</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>6</doc:term><doc:definition>Normal</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>7</doc:term><doc:definition>High</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>8</doc:term><doc:definition>Full</doc:definition>
+            </doc:item>
+          </doc:list>
         </doc:description>
       </doc:doc>
     </property>
 
-    <property name="RecallUrl" type="s" access="read">
+    <property name="IconName" type="s" access="read">
       <doc:doc>
         <doc:description>
           <doc:para>
-            The URL to visit about the hardware recall.
-          </doc:para>
-          <doc:para>
-            This property is only valid if the property recall-notice is true.
+            <p>An icon name, following the <a href="http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">Icon Naming Specification</a></p>
+            <p>Note that the icons might not match end-user expectations in terms of presentation relative to the amount of battery left or perceived to be left. It is recommended that front-ends use the BatteryLevel property first, if available, followed by the Percentage, to present a more realistic battery level to the user.</p>
           </doc:para>
         </doc:description>
       </doc:doc>
     </property>
-
   </interface>
 
 </node>

@@ -8,7 +8,7 @@
     <doc:doc>
       <doc:description>
         <doc:para>
-          org.freedesktop.UPower.KbdBacklight is a DBus interface implimented
+          org.freedesktop.UPower.KbdBacklight is a DBus interface implemented
           by UPower.
 	  It allows the keyboard backlight (if present) to be controlled.
         </doc:para>
@@ -91,6 +91,34 @@
         <doc:description>
           <doc:para>
 	    The keyboard backlight brightness level has changed.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </signal>
+
+    <signal name="BrightnessChangedWithSource">
+      <arg name="value" direction="out" type="i">
+        <doc:doc>
+          <doc:summary>
+            The new brightness value of the keyboard backlight.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="source" direction="out" type="s">
+        <doc:doc>
+          <doc:summary>
+            Source of the keyboard backlight brightness change, either
+            "external" if SetBrightness was called, or "internal" if the
+            hardware changed the keyboard brightness itself (automatically or
+            through a firmware-handled hotkey being pressed).
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+	    The keyboard backlight brightness level has changed including
+	    information about the source of the change.
           </doc:para>
         </doc:description>
       </doc:doc>
