@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-04-05 02:19+0000\n"
 "PO-Revision-Date: 2023-02-24 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -52,42 +52,21 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "电源管理服务尚未运行。"
 
-#: activitywidget.cpp:98
+#: activitywidget.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "睡眠"
 
-#: activitywidget.cpp:102
+#: activitywidget.cpp:88
 #, kde-format
 msgid "Hibernate"
 msgstr "休眠"
 
-#: activitywidget.cpp:104
+#: activitywidget.cpp:90
 #, kde-format
 msgid "Shut down"
 msgstr "关机"
-
-#: activitywidget.cpp:108
-#, kde-format
-msgid "PC running on AC power"
-msgstr "电脑正在使用交流电"
-
-#: activitywidget.cpp:109
-#, kde-format
-msgid "PC running on battery power"
-msgstr "电脑正在使用电池"
-
-#: activitywidget.cpp:110
-#, kde-format
-msgid "PC running on low battery"
-msgstr "电脑的电池电量低"
-
-#: activitywidget.cpp:139
-#, kde-format
-msgctxt "This is meant to be: Act like activity %1"
-msgid "Activity \"%1\""
-msgstr "活动“%1”"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
@@ -95,50 +74,57 @@ msgstr "活动“%1”"
 msgid "Do not use special settings"
 msgstr "不使用特殊设置"
 
-#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
-#: activityWidget.ui:31
-#, kde-format
-msgid "Act like"
-msgstr "行为类似"
-
 #. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:60
+#: activityWidget.ui:29
 #, kde-format
 msgid "Define a special behavior"
 msgstr "定义特殊行为"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:72
+#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "永不关闭屏幕"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:79
+#: activityWidget.ui:48
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "永不关闭计算机或睡眠"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:91
+#: activityWidget.ui:60
 #, kde-format
 msgid "Always"
 msgstr "总是"
 
 #. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:101
+#: activityWidget.ui:70
 #, kde-format
 msgid "after"
 msgstr "如果空闲"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:108
+#: activityWidget.ui:77
 #, kde-format
 msgid " min"
 msgstr " 分钟"
 
-#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
-#: activityWidget.ui:138
-#, kde-format
-msgid "Use separate settings"
-msgstr "使用独立的设置"
+#~ msgid "PC running on AC power"
+#~ msgstr "电脑正在使用交流电"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "电脑正在使用电池"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "电脑的电池电量低"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "活动“%1”"
+
+#~ msgid "Act like"
+#~ msgstr "行为类似"
+
+#~ msgid "Use separate settings"
+#~ msgstr "使用独立的设置"

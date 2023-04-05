@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-04-05 02:19+0000\n"
 "PO-Revision-Date: 2011-12-09 03:11+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -52,44 +52,23 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#: activitywidget.cpp:98
+#: activitywidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Қалғу"
 
-#: activitywidget.cpp:102
+#: activitywidget.cpp:88
 #, kde-format
 msgid "Hibernate"
 msgstr "Ұйықтау"
 
-#: activitywidget.cpp:104
+#: activitywidget.cpp:90
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgid "Shut down"
 msgstr "Сөндіру"
-
-#: activitywidget.cpp:108
-#, kde-format
-msgid "PC running on AC power"
-msgstr "Компьютер токтан істеп тұр"
-
-#: activitywidget.cpp:109
-#, kde-format
-msgid "PC running on battery power"
-msgstr "Компьютер батареядан істеп тұр"
-
-#: activitywidget.cpp:110
-#, kde-format
-msgid "PC running on low battery"
-msgstr "Қуаты аз батареядан істеп тұр"
-
-#: activitywidget.cpp:139
-#, kde-format
-msgctxt "This is meant to be: Act like activity %1"
-msgid "Activity \"%1\""
-msgstr "\"%1\" белсенділігіндей"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
@@ -98,56 +77,64 @@ msgstr "\"%1\" белсенділігіндей"
 msgid "Do not use special settings"
 msgstr "Арнаулы баптауы қолданбайды"
 
-#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
-#: activityWidget.ui:31
-#, kde-format
-msgid "Act like"
-msgstr "Бұл"
-
 #. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:60
+#: activityWidget.ui:29
 #, kde-format
 msgid "Define a special behavior"
 msgstr "Әрнаулы тәртібін орнату"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:72
+#: activityWidget.ui:41
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never turn off the screen"
 msgstr "Экраны ешқашан сөндірілмесін"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:79
+#: activityWidget.ui:48
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Экраны ешқашан сөндірілмесін"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:91
+#: activityWidget.ui:60
 #, kde-format
 msgid "Always"
 msgstr "Әрқашан"
 
 #. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:101
+#: activityWidget.ui:70
 #, kde-format
 msgid "after"
 msgstr "-"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:108
+#: activityWidget.ui:77
 #, kde-format
 msgid " min"
 msgstr " мин. кейін"
 
-#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
-#: activityWidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Use separate settings (advanced users only)"
-msgid "Use separate settings"
-msgstr "Параметрлері бөлек (тек тәжірибелілер үшін)"
+#~ msgid "PC running on AC power"
+#~ msgstr "Компьютер токтан істеп тұр"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "Компьютер батареядан істеп тұр"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "Қуаты аз батареядан істеп тұр"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "\"%1\" белсенділігіндей"
+
+#~ msgid "Act like"
+#~ msgstr "Бұл"
+
+#, fuzzy
+#~| msgid "Use separate settings (advanced users only)"
+#~ msgid "Use separate settings"
+#~ msgstr "Параметрлері бөлек (тек тәжірибелілер үшін)"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

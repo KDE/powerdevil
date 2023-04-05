@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-04-05 02:19+0000\n"
 "PO-Revision-Date: 2022-08-25 20:40+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -54,42 +54,21 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Изглежда, че услугата за управление на захранването не работи."
 
-#: activitywidget.cpp:98
+#: activitywidget.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Приспиване"
 
-#: activitywidget.cpp:102
+#: activitywidget.cpp:88
 #, kde-format
 msgid "Hibernate"
 msgstr "Хибернация"
 
-#: activitywidget.cpp:104
+#: activitywidget.cpp:90
 #, kde-format
 msgid "Shut down"
 msgstr "Изключване"
-
-#: activitywidget.cpp:108
-#, kde-format
-msgid "PC running on AC power"
-msgstr "Компютърът работи на захранване от ел. мрежа"
-
-#: activitywidget.cpp:109
-#, kde-format
-msgid "PC running on battery power"
-msgstr "Компютърът работи на захранване от батерията"
-
-#: activitywidget.cpp:110
-#, kde-format
-msgid "PC running on low battery"
-msgstr "Компютърът работи с ниско ниво на батерията"
-
-#: activitywidget.cpp:139
-#, kde-format
-msgctxt "This is meant to be: Act like activity %1"
-msgid "Activity \"%1\""
-msgstr "Дейност \"%1\""
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
@@ -97,50 +76,57 @@ msgstr "Дейност \"%1\""
 msgid "Do not use special settings"
 msgstr "Без използване на специални настройки"
 
-#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
-#: activityWidget.ui:31
-#, kde-format
-msgid "Act like"
-msgstr "Действие като"
-
 #. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:60
+#: activityWidget.ui:29
 #, kde-format
 msgid "Define a special behavior"
 msgstr "Задаване на специално поведение"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:72
+#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Екранът никога да не се изключва"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:79
+#: activityWidget.ui:48
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Компютърът никога да не се изключва и приспива"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:91
+#: activityWidget.ui:60
 #, kde-format
 msgid "Always"
 msgstr "Винаги"
 
 #. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:101
+#: activityWidget.ui:70
 #, kde-format
 msgid "after"
 msgstr "след"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:108
+#: activityWidget.ui:77
 #, kde-format
 msgid " min"
 msgstr "мин"
 
-#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
-#: activityWidget.ui:138
-#, kde-format
-msgid "Use separate settings"
-msgstr "Използване на отделни настройки"
+#~ msgid "PC running on AC power"
+#~ msgstr "Компютърът работи на захранване от ел. мрежа"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "Компютърът работи на захранване от батерията"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "Компютърът работи с ниско ниво на батерията"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "Дейност \"%1\""
+
+#~ msgid "Act like"
+#~ msgstr "Действие като"
+
+#~ msgid "Use separate settings"
+#~ msgstr "Използване на отделни настройки"

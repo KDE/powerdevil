@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-04-05 02:19+0000\n"
 "PO-Revision-Date: 2019-03-06 19:35+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -55,42 +55,21 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#: activitywidget.cpp:98
+#: activitywidget.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Durmir"
 
-#: activitywidget.cpp:102
+#: activitywidget.cpp:88
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: activitywidget.cpp:104
+#: activitywidget.cpp:90
 #, kde-format
 msgid "Shut down"
 msgstr "Apagar"
-
-#: activitywidget.cpp:108
-#, kde-format
-msgid "PC running on AC power"
-msgstr "PC enchufado"
-
-#: activitywidget.cpp:109
-#, kde-format
-msgid "PC running on battery power"
-msgstr "PC gastando as baterías"
-
-#: activitywidget.cpp:110
-#, kde-format
-msgid "PC running on low battery"
-msgstr "PC con pouca batería"
-
-#: activitywidget.cpp:139
-#, kde-format
-msgctxt "This is meant to be: Act like activity %1"
-msgid "Activity \"%1\""
-msgstr "Actividade «%1»"
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
@@ -98,54 +77,62 @@ msgstr "Actividade «%1»"
 msgid "Do not use special settings"
 msgstr "Non usar configuracións especiais"
 
-#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
-#: activityWidget.ui:31
-#, kde-format
-msgid "Act like"
-msgstr "Comportarse como"
-
 #. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:60
+#: activityWidget.ui:29
 #, kde-format
 msgid "Define a special behavior"
 msgstr "Definir un comportamento especial"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:72
+#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Non apagar nunca a pantalla"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:79
+#: activityWidget.ui:48
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Non apagar nunca o computador ou deixar que durma"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:91
+#: activityWidget.ui:60
 #, kde-format
 msgid "Always"
 msgstr "Sempre"
 
 #. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:101
+#: activityWidget.ui:70
 #, kde-format
 msgid "after"
 msgstr "despois de"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:108
+#: activityWidget.ui:77
 #, kde-format
 msgid " min"
 msgstr " min"
 
-#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
-#: activityWidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Use separate settings (advanced users only)"
-msgid "Use separate settings"
-msgstr "Usar configuracións por separado (só usuarios avanzados)"
+#~ msgid "PC running on AC power"
+#~ msgstr "PC enchufado"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "PC gastando as baterías"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "PC con pouca batería"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "Actividade «%1»"
+
+#~ msgid "Act like"
+#~ msgstr "Comportarse como"
+
+#, fuzzy
+#~| msgid "Use separate settings (advanced users only)"
+#~ msgid "Use separate settings"
+#~ msgstr "Usar configuracións por separado (só usuarios avanzados)"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

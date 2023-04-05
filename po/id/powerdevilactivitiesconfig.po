@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-04-05 02:19+0000\n"
 "PO-Revision-Date: 2022-03-25 22:22+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -53,42 +53,21 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Layanan Pengelolaan Daya yang muncul belum berjalan."
 
-#: activitywidget.cpp:98
+#: activitywidget.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Tidur"
 
-#: activitywidget.cpp:102
+#: activitywidget.cpp:88
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernasi"
 
-#: activitywidget.cpp:104
+#: activitywidget.cpp:90
 #, kde-format
 msgid "Shut down"
 msgstr "Matikan"
-
-#: activitywidget.cpp:108
-#, kde-format
-msgid "PC running on AC power"
-msgstr "PC berjalan pada daya AC"
-
-#: activitywidget.cpp:109
-#, kde-format
-msgid "PC running on battery power"
-msgstr "PC berjalan pada daya baterai"
-
-#: activitywidget.cpp:110
-#, kde-format
-msgid "PC running on low battery"
-msgstr "PC berjalan pada baterai lemah"
-
-#: activitywidget.cpp:139
-#, kde-format
-msgctxt "This is meant to be: Act like activity %1"
-msgid "Activity \"%1\""
-msgstr "Aktivitas \"%1\""
 
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
@@ -96,54 +75,62 @@ msgstr "Aktivitas \"%1\""
 msgid "Do not use special settings"
 msgstr "Jangan gunakan pengaturan spesial"
 
-#. i18n: ectx: property (text), widget (QRadioButton, actLikeRadio)
-#: activityWidget.ui:31
-#, kde-format
-msgid "Act like"
-msgstr "Tindakan"
-
 #. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:60
+#: activityWidget.ui:29
 #, kde-format
 msgid "Define a special behavior"
 msgstr "Batasi sebuah perilaku spesial"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:72
+#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Jangan pernah memadamkan layar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:79
+#: activityWidget.ui:48
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Jangan pernah mematikan komputer atau membiarkannya tertidur"
 
 #. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:91
+#: activityWidget.ui:60
 #, kde-format
 msgid "Always"
 msgstr "Selalu"
 
 #. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:101
+#: activityWidget.ui:70
 #, kde-format
 msgid "after"
 msgstr "setelah"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:108
+#: activityWidget.ui:77
 #, kde-format
 msgid " min"
 msgstr " mnt"
 
-#. i18n: ectx: property (text), widget (QRadioButton, separateSettingsRadio)
-#: activityWidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Use separate settings (advanced users only)"
-msgid "Use separate settings"
-msgstr "Gunakan pengaturan terpisah (hanya penggunaan tingkat lanjut)"
+#~ msgid "PC running on AC power"
+#~ msgstr "PC berjalan pada daya AC"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "PC berjalan pada daya baterai"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "PC berjalan pada baterai lemah"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "Aktivitas \"%1\""
+
+#~ msgid "Act like"
+#~ msgstr "Tindakan"
+
+#, fuzzy
+#~| msgid "Use separate settings (advanced users only)"
+#~ msgid "Use separate settings"
+#~ msgstr "Gunakan pengaturan terpisah (hanya penggunaan tingkat lanjut)"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
