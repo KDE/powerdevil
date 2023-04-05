@@ -56,7 +56,6 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
 
     // Let's start: AC profile before anything else
     KConfigGroup acProfile(profilesConfig, "AC");
-    acProfile.writeEntry("icon", "battery-charging");
 
     // We want to dim the screen after a while, definitely
     {
@@ -102,7 +101,6 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
 
     // Powersave
     KConfigGroup batteryProfile(profilesConfig, "Battery");
-    batteryProfile.writeEntry("icon", "battery-060");
     // We want to dim the screen after a while, definitely
     {
         // on mobile 30 seconds, on desktop 2 minutes
@@ -135,7 +133,6 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
 
     // Ok, now for aggressive powersave
     KConfigGroup lowBatteryProfile(profilesConfig, "LowBattery");
-    lowBatteryProfile.writeEntry("icon", "battery-low");
     // Less brightness.
     {
         KConfigGroup brightnessControl(&lowBatteryProfile, "BrightnessControl");
