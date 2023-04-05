@@ -395,11 +395,6 @@ void Core::loadProfile(bool force)
     if (activityConfig.readEntry("mode", "None") == QStringLiteral("SpecialBehavior")) {
         qCDebug(POWERDEVIL) << "Activity has special behaviors";
         KConfigGroup behaviorGroup = activityConfig.group("SpecialBehavior");
-        if (behaviorGroup.readEntry("performAction", false)) {
-            // Let's override the configuration for this action at all times
-            ActionPool::instance()->loadAction(QStringLiteral("SuspendSession"), behaviorGroup.group("ActionConfig"), this);
-            qCDebug(POWERDEVIL) << "Activity overrides suspend session action"; // debug hence not sleep
-        }
 
         if (behaviorGroup.readEntry("noSuspend", false)) {
             qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep

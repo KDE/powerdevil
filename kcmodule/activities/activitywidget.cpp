@@ -22,10 +22,6 @@
 
 #include "ui_activityWidget.h"
 
-#include "../daemon/actions/bundled/suspendsession.h"
-
-#include "powerdevilpowermanagement.h"
-
 #include <KActivities/Consumer>
 #include <KConfigGroup>
 #include <QLayout>
@@ -62,8 +58,6 @@ ActivityWidget::ActivityWidget(const QString &activity, QWidget *parent)
 
     connect(m_ui->noSettingsRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
     connect(m_ui->specialBehaviorRadio, &QAbstractButton::toggled, this, &ActivityWidget::setChanged);
-    connect(m_ui->alwaysActionBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
-    connect(m_ui->alwaysAfterSpin, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
 }
 
 ActivityWidget::~ActivityWidget()
@@ -76,19 +70,6 @@ void ActivityWidget::load()
     KConfigGroup activitiesGroup(m_profilesConfig, "Activities");
     KConfigGroup config = activitiesGroup.group(m_activity);
 
-    using namespace PowerDevil::BundledActions;
-
-    m_ui->alwaysActionBox->clear();
-    if (PowerDevil::PowerManagement::instance()->canSuspend()) {
-        m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend"),
-                                       i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
-    }
-    if (PowerDevil::PowerManagement::instance()->canHibernate()) {
-        m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-suspend-hibernate"),
-                                       i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
-    }
-    m_ui->alwaysActionBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
-
     // Proper loading routine
     if (config.readEntry("mode", QString()) == "SpecialBehavior") {
         m_ui->specialBehaviorRadio->setChecked(true);
@@ -96,11 +77,6 @@ void ActivityWidget::load()
 
         m_ui->noShutdownPCBox->setChecked(behaviorGroup.readEntry("noSuspend", false));
         m_ui->noShutdownScreenBox->setChecked(behaviorGroup.readEntry("noScreenManagement", false));
-        m_ui->alwaysBox->setChecked(behaviorGroup.readEntry("performAction", false));
-
-        KConfigGroup actionConfig = behaviorGroup.group("ActionConfig");
-        m_ui->alwaysActionBox->setCurrentIndex(m_ui->alwaysActionBox->findData(actionConfig.readEntry("suspendType", 0)));
-        m_ui->alwaysAfterSpin->setValue(actionConfig.readEntry("idleTime", 600000) / 60 / 1000);
     }
 }
 
@@ -116,13 +92,7 @@ void ActivityWidget::save()
 
         behaviorGroup.writeEntry("noSuspend", m_ui->noShutdownPCBox->isChecked());
         behaviorGroup.writeEntry("noScreenManagement", m_ui->noShutdownScreenBox->isChecked());
-        behaviorGroup.writeEntry("performAction", m_ui->alwaysBox->isChecked());
 
-        KConfigGroup actionConfig = behaviorGroup.group("ActionConfig");
-        actionConfig.writeEntry("suspendType", m_ui->alwaysActionBox->itemData(m_ui->alwaysActionBox->currentIndex()));
-        actionConfig.writeEntry("idleTime", m_ui->alwaysAfterSpin->value() * 60 * 1000);
-
-        actionConfig.sync();
         behaviorGroup.sync();
     } else {
         config.writeEntry("mode", "None");
