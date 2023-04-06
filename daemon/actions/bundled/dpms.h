@@ -51,7 +51,7 @@ protected:
     bool onUnloadAction() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
-    void onProfileLoad() override {}
+    void onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/) override {}
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 

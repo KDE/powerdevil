@@ -190,7 +190,7 @@ protected Q_SLOTS:
      * loadAction: in fact a profile can be reloaded without having the action change its configuration.
      * If your action should do something as soon as a profile switches, it should be done inside this function.
      */
-    virtual void onProfileLoad() = 0;
+    virtual void onProfileLoad(const QString &previousProfile, const QString &newProfile) = 0;
     /**
      * This slot is triggered whenever an idle timeout registered with registerIdleTimeout is reached.
      *

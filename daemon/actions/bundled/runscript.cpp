@@ -58,7 +58,7 @@ void RunScript::onIdleTimeout(int msec)
     runCommand();
 }
 
-void RunScript::onProfileLoad()
+void RunScript::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
 {
     if (m_scriptPhase == 0) {
         runCommand();

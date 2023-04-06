@@ -376,7 +376,7 @@ void Core::loadProfile(bool force)
         for (const QString &actionName : groupList) {
             Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
             if (action) {
-                action->onProfileLoad();
+                action->onProfileLoad(m_currentProfile, profileId);
             } else {
                 // Ouch, error. But let's just warn and move on anyway
                 //TODO Maybe Remove from the configuration if unsupported

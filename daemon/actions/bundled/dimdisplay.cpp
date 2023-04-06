@@ -83,7 +83,7 @@ void DimDisplay::onIdleTimeout(int msec)
     m_dimmed = true;
 }
 
-void DimDisplay::onProfileLoad()
+void DimDisplay::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
 {
     //
 }

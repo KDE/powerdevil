@@ -102,7 +102,7 @@ void SuspendSession::onIdleTimeout(int msec)
     trigger(args);
 }
 
-void SuspendSession::onProfileLoad()
+void SuspendSession::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
 {
     // Nothing to do
 }

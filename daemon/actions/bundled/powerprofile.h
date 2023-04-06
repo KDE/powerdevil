@@ -62,7 +62,7 @@ Q_SIGNALS:
     void profileHoldsChanged(const QList<QVariantMap> &holds);
 
 protected:
-    void onProfileLoad() override;
+    void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
     void onProfileUnload() override;

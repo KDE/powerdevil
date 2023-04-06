@@ -78,18 +78,14 @@ void BrightnessControl::onIdleTimeout(int msec)
     Q_UNUSED(msec);
 }
 
-void BrightnessControl::onProfileLoad()
+void BrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)
 {
     const int absoluteBrightnessValue = qRound(m_defaultValue / 100.0 * brightnessMax());
 
-    // The core switches its profile after all actions have been updated, so here core()->currentProfile() is still the old one
-    const auto previousProfile = core()->currentProfile();
-    qCDebug(POWERDEVIL) << "Profiles: " << m_currentProfile << previousProfile;
-
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
-    if (((m_currentProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC")) ||
-         (m_currentProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery")))) &&
+    if (((newProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC")) ||
+         (newProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery")))) &&
         absoluteBrightnessValue > brightness()) {
 
         // We don't want to change anything here
@@ -100,8 +96,8 @@ void BrightnessControl::onProfileLoad()
         };
 
         // plugging in/out the AC is always explicit
-        if ((previousProfile == QLatin1String("AC") && m_currentProfile != QLatin1String("AC")) ||
-            (previousProfile != QLatin1String("AC") && m_currentProfile == QLatin1String("AC"))) {
+        if ((previousProfile == QLatin1String("AC") && newProfile != QLatin1String("AC")) ||
+            (previousProfile != QLatin1String("AC") && newProfile == QLatin1String("AC"))) {
             args["Explicit"] = true;
             args["Silent"] = true; // but we still don't want to show the OSD then
         }
@@ -132,9 +128,6 @@ bool BrightnessControl::isSupported()
 
 bool BrightnessControl::loadAction(const KConfigGroup& config)
 {
-    // Handle profile changes
-    m_currentProfile = config.parent().name();
-
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);
     }

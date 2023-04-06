@@ -77,7 +77,7 @@ PowerProfile::PowerProfile(QObject *parent, const QVariantList &)
 
 PowerProfile::~PowerProfile() = default;
 
-void PowerProfile::onProfileLoad()
+void PowerProfile::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
 {
     if (!m_configuredProfile.isEmpty()) {
         setProfile(m_configuredProfile);

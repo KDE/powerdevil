@@ -135,7 +135,7 @@ void HandleButtonEvents::onIdleTimeout(int msec)
     Q_UNUSED(msec)
 }
 
-void HandleButtonEvents::onProfileLoad()
+void HandleButtonEvents::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
 {
     //
 }
