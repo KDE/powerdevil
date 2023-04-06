@@ -29,9 +29,5 @@ Dependencies:
     'frameworks/kcmutils': '@latest-kf6' # kcmutils_generate_desktop_file
     'plasma/plasma-workspace': '@same'
 
-- 'on': ['Linux']
-  'require':
-    'frameworks/bluez-qt': '@latest-kf6'
-    'frameworks/networkmanager-qt': '@latest-kf6'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']

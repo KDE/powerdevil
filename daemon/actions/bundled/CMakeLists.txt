@@ -61,12 +61,6 @@ qt_add_dbus_interface(powerprofile_dbus_SRCS org.freedesktop.DBus.Properties.xml
 qt_add_dbus_interface(powerprofile_dbus_SRCS net.hadess.PowerProfiles.xml power_profiles_interface)
 target_sources(powerdevil_powerprofileaction PRIVATE ${powerprofile_dbus_SRCS} ${handlebuttons_SRCS})
 
-if(HAVE_WIRELESS_SUPPORT)
-    add_powerdevil_bundled_action(wirelesspowersaving KF6::NetworkManagerQt KF6::BluezQt)
-    target_dbus_files(powerdevil_wirelesspowersavingaction org.kde.Solid.PowerManagement.Actions.WirelessPowerSaving.xml
-                         actions/bundled/wirelesspowersaving.h PowerDevil::BundledActions::WirelessPowerSaving)
-endif()
-
 kcoreaddons_add_plugin(powerdevil_handlebuttoneventsaction SOURCES powerdevilhandlebuttonevents_plugin.cpp ${handlebuttons_SRCS} INSTALL_NAMESPACE "powerdevil/action")
 target_link_libraries(powerdevil_handlebuttoneventsaction PRIVATE powerdevilcore)
 

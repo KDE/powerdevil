@@ -29,29 +29,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime
 find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 
-find_package(KF6BluezQt ${KF6_MIN_VERSION})
-set_package_properties(KF6BluezQt
-    PROPERTIES DESCRIPTION "Qt wrapper for BlueZ 5 DBus API"
-    TYPE OPTIONAL
-    PURPOSE "Support for wireless energy saving actions"
-)
-find_package(KF6NetworkManagerQt ${KF6_MIN_VERSION})
-set_package_properties(KF6NetworkManagerQt
-    PROPERTIES DESCRIPTION "Qt wrapper for NetworkManager API"
-    TYPE OPTIONAL
-    PURPOSE "Support for wireless energy saving actions"
-)
-
-set(HAVE_WIRELESS_SUPPORT FALSE)
-if(KF6NetworkManagerQt_FOUND AND KF6BluezQt_FOUND)
-    set(HAVE_WIRELESS_SUPPORT TRUE)
-endif()
-add_feature_info(
-    "Wireless power saving"
-    HAVE_WIRELESS_SUPPORT
-    "Support turning off signal-transmitting devices to save energy"
-)
-
 find_package(LibKWorkspace ${PROJECT_VERSION} REQUIRED)
 
 find_package(UDev REQUIRED)

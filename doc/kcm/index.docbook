@@ -105,13 +105,6 @@ or after a given amount of time.
 </listitem>
 </varlistentry>
 
-<varlistentry><term><guilabel>Wireless power saving</guilabel></term>
-<listitem>
-<para>Activate this option to set individual actions for Wi-Fi, Mobile broadband or Bluetooth connections.
-</para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
