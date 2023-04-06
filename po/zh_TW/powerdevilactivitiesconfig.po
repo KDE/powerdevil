@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-12-21 04:24+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -54,22 +54,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "電源管理服務看起來並非執行中。"
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "睡眠"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "休眠"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "關機"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -94,23 +78,24 @@ msgstr "永不關閉螢幕"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "永不關閉電腦或讓電腦進入睡眠模式"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "總是"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "睡眠"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "多久之後："
+#~ msgid "Hibernate"
+#~ msgstr "休眠"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " 分鐘"
+#~ msgid "Shut down"
+#~ msgstr "關機"
+
+#~ msgid "Always"
+#~ msgstr "總是"
+
+#~ msgid "after"
+#~ msgstr "多久之後："
+
+#~ msgid " min"
+#~ msgstr " 分鐘"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "PC 接市電電源"

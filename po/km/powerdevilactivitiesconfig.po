@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2012-06-14 14:12+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -55,24 +55,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#: activitywidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "ដេក"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "សង្ងំ"
-
-#: activitywidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "បិទ"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, fuzzy, kde-format
@@ -100,23 +82,28 @@ msgstr "កុំ​បិទ​អេក្រង់"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "កុំ​បិទ​អេក្រង់"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "ជា​និច្ច"
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "ដេក"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "បន្ទាប់ពី"
+#~ msgid "Hibernate"
+#~ msgstr "សង្ងំ"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " នាទី"
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "បិទ"
+
+#~ msgid "Always"
+#~ msgstr "ជា​និច្ច"
+
+#~ msgid "after"
+#~ msgstr "បន្ទាប់ពី"
+
+#~ msgid " min"
+#~ msgstr " នាទី"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "កុំព្យូទ័រ​ដំណើរការ​ដោយ​ប្រើ​ថាមពល AC"

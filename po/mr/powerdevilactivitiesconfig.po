@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -47,24 +47,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#: activitywidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "झोप"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "हायबरनेट"
-
-#: activitywidget.cpp:90
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "बंद करा"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, fuzzy, kde-format
@@ -92,23 +74,28 @@ msgstr "स्क्रीन कधीही बंद करू नका"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "स्क्रीन कधीही बंद करू नका"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "नेहमी"
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "झोप"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "नंतर"
+#~ msgid "Hibernate"
+#~ msgstr "हायबरनेट"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " मिनिटे"
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "बंद करा"
+
+#~ msgid "Always"
+#~ msgstr "नेहमी"
+
+#~ msgid "after"
+#~ msgstr "नंतर"
+
+#~ msgid " min"
+#~ msgstr " मिनिटे"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "संगणक AC वीजेवर चालू आहे"

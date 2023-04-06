@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-08-25 20:40+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -54,22 +54,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Изглежда, че услугата за управление на захранването не работи."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Приспиване"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "Хибернация"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "Изключване"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -94,23 +78,24 @@ msgstr "Екранът никога да не се изключва"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Компютърът никога да не се изключва и приспива"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Винаги"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Приспиване"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "след"
+#~ msgid "Hibernate"
+#~ msgstr "Хибернация"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr "мин"
+#~ msgid "Shut down"
+#~ msgstr "Изключване"
+
+#~ msgid "Always"
+#~ msgstr "Винаги"
+
+#~ msgid "after"
+#~ msgstr "след"
+
+#~ msgid " min"
+#~ msgstr "мин"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "Компютърът работи на захранване от ел. мрежа"

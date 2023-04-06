@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2016-05-06 16:01+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -54,24 +54,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr ""
-
-# >> @item
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "hibernacija"
-
-# >> @item
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "gašenje"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, fuzzy, kde-format
@@ -99,23 +81,22 @@ msgstr "Nikad ne gasi ekran"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Nikad ne suspenduj niti gasi računar"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Uvek"
+# >> @item
+#~ msgid "Hibernate"
+#~ msgstr "hibernacija"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "posle"
+# >> @item
+#~ msgid "Shut down"
+#~ msgstr "gašenje"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " min."
+#~ msgid "Always"
+#~ msgstr "Uvek"
+
+#~ msgid "after"
+#~ msgstr "posle"
+
+#~ msgid " min"
+#~ msgstr " min."
 
 # >> @item
 #~ msgid "PC running on AC power"

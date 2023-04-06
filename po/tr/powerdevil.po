@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2023-03-27 18:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -335,44 +335,44 @@ msgstr "Projeyi yürüten önceki geliştirici"
 msgid "Replace an existing instance"
 msgstr "Mevcut bir örneği değiştir"
 
-#: powerdevilcore.cpp:409 powerdevilcore.cpp:421
+#: powerdevilcore.cpp:404 powerdevilcore.cpp:416
 #, kde-format
 msgid "Activity Manager"
 msgstr "Etkinlik Yöneticisi"
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:405
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Bu etkinliğin politikaları sistemin uykuya geçmesini engeller"
 
-#: powerdevilcore.cpp:422
+#: powerdevilcore.cpp:417
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Bu etkinliğin kuralları ekran güç yönetimini engeller"
 
-#: powerdevilcore.cpp:485
+#: powerdevilcore.cpp:480
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Ek Pil Eklendi"
 
-#: powerdevilcore.cpp:486 powerdevilcore.cpp:702
+#: powerdevilcore.cpp:481 powerdevilcore.cpp:697
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Bilgisayar artık uyku kipine geçmeyecek."
 
-#: powerdevilcore.cpp:546
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:549
+#: powerdevilcore.cpp:544
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Aygıt Pili Düşük (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:546
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -382,22 +382,22 @@ msgstr ""
 "\"%1\" içindeki pil azalıyor ve aygıt kısa süre içinde kapanabilir. Lütfen "
 "pili şarj edin veya değiştirin."
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:552
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Fare Pili Düşük (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:556
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Klavye Pili Düşük (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:565
+#: powerdevilcore.cpp:560
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth Aygıtı Pili Düşük (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:567
+#: powerdevilcore.cpp:562
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -407,7 +407,7 @@ msgstr ""
 "\"%1\" Bluetooth aygıtının pili azalıyor ve aygıt her an kapanabilir. Lütfen "
 "pili şarj edin veya değiştirin."
 
-#: powerdevilcore.cpp:613
+#: powerdevilcore.cpp:608
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -416,7 +416,7 @@ msgstr ""
 "Pil azalıyor - bilgisayarınızı kullanmayı sürdürmek için güç bağdaştırıcının "
 "prize takılı olduğundan ve yeterli gücü sağladığından emin olun."
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:610
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -425,7 +425,7 @@ msgstr ""
 "Pil azalıyor - bilgisayarınızı kullanmayı sürdürmek için prize takın veya "
 "kapatın ve pili değiştirin."
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:627
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -433,19 +433,19 @@ msgctxt ""
 msgid "Cancel"
 msgstr "İptal"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:639
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Pil düzeyi kritik. Bilgisayarınız 60 saniye içinde kapanacak."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:640
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Şimdi Kapat"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -454,7 +454,7 @@ msgstr ""
 "Pil düzeyi kritik. Bilgisayarınız 60 saniye içinde hazırda bekletme kipine "
 "girecek."
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:646
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -462,65 +462,65 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Şimdi Hazırda Beklet"
 
-#: powerdevilcore.cpp:656
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Pil düzeyi kritik. Bilgisayarınız 60 saniye içinde uyku kipine geçecek."
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:652
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Şimdi Uyut"
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:657
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "Pil düzeyi kritik. Lütfen çalışmanızı kaydedin."
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:668
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Pil Düşük (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Pil Kritik (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:701
+#: powerdevilcore.cpp:696
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Bağdaştırıcı Takılı"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:699
 #, kde-format
 msgid "Running on AC power"
 msgstr "Fişe Takılı"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:699
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Güç bağdaştırıcı takılı."
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:702
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Pille Çalışıyor"
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:702
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Güç bağdaştırıcı takılı değil."
 
-#: powerdevilcore.cpp:768
+#: powerdevilcore.cpp:763
 #, kde-format
 msgid "Charging Complete"
 msgstr "Şarj Bitti"
 
-#: powerdevilcore.cpp:768
+#: powerdevilcore.cpp:763
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Piliniz tümüyle şarj edildi."

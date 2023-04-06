@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2023-03-25 20:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -53,22 +53,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "La Potenca Administra Servo ŝajnas ne funkcii."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Dormi"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernate"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "Fermi"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -93,23 +77,24 @@ msgstr "Neniam malŝalti la ekranon"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Neniam malŝalti la komputilon aŭ lasi ĝin dormi"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Ĉiam"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Dormi"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "post"
+#~ msgid "Hibernate"
+#~ msgstr "Hibernate"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr "min"
+#~ msgid "Shut down"
+#~ msgstr "Fermi"
+
+#~ msgid "Always"
+#~ msgstr "Ĉiam"
+
+#~ msgid "after"
+#~ msgstr "post"
+
+#~ msgid " min"
+#~ msgstr "min"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "Komputilo funkcianta per AC-potenco"

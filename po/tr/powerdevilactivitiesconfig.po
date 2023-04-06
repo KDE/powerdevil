@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-08-20 12:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -54,22 +54,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Güç Yönetimi Hizmeti çalışıyor gibi görünmüyor."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Uyut"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "Hazırda Beklet"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "Kapat"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -94,23 +78,24 @@ msgstr "Ekranı asla kapatma"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Bilgisayarı asla kapatma veya uyumasına izin verme"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Her Zaman"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Uyut"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "sonra:"
+#~ msgid "Hibernate"
+#~ msgstr "Hazırda Beklet"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " dk"
+#~ msgid "Shut down"
+#~ msgstr "Kapat"
+
+#~ msgid "Always"
+#~ msgstr "Her Zaman"
+
+#~ msgid "after"
+#~ msgstr "sonra:"
+
+#~ msgid " min"
+#~ msgstr " dk"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "Bilgisayar adaptör ile çalışıyor"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-11-16 08:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -53,22 +53,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "კვების მართვის სერვისი მგონი გაშვებული არაა."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "ძილი"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "პროგრამული ძილი"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "გამორთვა"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -93,23 +77,24 @@ msgstr "არასდროს გამორთო ეკრანი"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "არასდროს გამორთო კომპიუტერი ან დააძინო ის"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "ყოველთვის"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "ძილი"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "მითითებულ დროის შემდეგ"
+#~ msgid "Hibernate"
+#~ msgstr "პროგრამული ძილი"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " წთ"
+#~ msgid "Shut down"
+#~ msgstr "გამორთვა"
+
+#~ msgid "Always"
+#~ msgstr "ყოველთვის"
+
+#~ msgid "after"
+#~ msgstr "მითითებულ დროის შემდეგ"
+
+#~ msgid " min"
+#~ msgstr " წთ"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "PC, შეერთებული დენის წყაროში"

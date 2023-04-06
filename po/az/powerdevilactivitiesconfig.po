@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-07-03 14:23+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -52,22 +52,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Enerjiyə Nəzarət Xidmətinin işləmədiyi görünür."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Yuxu"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "Gözləmə"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "Söndürmək"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -92,23 +76,24 @@ msgstr "Ekranı heç zaman söndürməmək"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Komputeri heç zaman sönməsin və yuxu rejiminə keçməsin"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Həmişə"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Yuxu"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "sonra"
+#~ msgid "Hibernate"
+#~ msgstr "Gözləmə"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " dəq"
+#~ msgid "Shut down"
+#~ msgstr "Söndürmək"
+
+#~ msgid "Always"
+#~ msgstr "Həmişə"
+
+#~ msgid "after"
+#~ msgstr "sonra"
+
+#~ msgid " min"
+#~ msgstr " dəq"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "Komputer elektrik şəbəkəsindən qidalanır"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-03-25 22:22+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -53,22 +53,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Layanan Pengelolaan Daya yang muncul belum berjalan."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Tidur"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernasi"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "Matikan"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -93,23 +77,24 @@ msgstr "Jangan pernah memadamkan layar"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Jangan pernah mematikan komputer atau membiarkannya tertidur"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Selalu"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Tidur"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "setelah"
+#~ msgid "Hibernate"
+#~ msgstr "Hibernasi"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " mnt"
+#~ msgid "Shut down"
+#~ msgstr "Matikan"
+
+#~ msgid "Always"
+#~ msgstr "Selalu"
+
+#~ msgid "after"
+#~ msgstr "setelah"
+
+#~ msgid " min"
+#~ msgstr " mnt"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "PC berjalan pada daya AC"

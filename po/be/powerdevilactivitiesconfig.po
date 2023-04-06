@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-05 02:19+0000\n"
+"POT-Creation-Date: 2023-04-06 02:04+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -56,22 +56,6 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Выглядае, што служба кіравання сілкаваннем на запушчаная."
 
-#: activitywidget.cpp:84
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Прыпыніць у RAM"
-
-#: activitywidget.cpp:88
-#, kde-format
-msgid "Hibernate"
-msgstr "Перавесці ў рэжым сну"
-
-#: activitywidget.cpp:90
-#, kde-format
-msgid "Shut down"
-msgstr "Выключыць"
-
 #. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
 #: activityWidget.ui:19
 #, kde-format
@@ -97,23 +81,24 @@ msgid "Never shut down the computer or let it go to sleep"
 msgstr ""
 "Ніколі не выключаць камп'ютар і не дазваляць яму пераходзіць у рэжым сну"
 
-#. i18n: ectx: property (text), widget (QCheckBox, alwaysBox)
-#: activityWidget.ui:60
-#, kde-format
-msgid "Always"
-msgstr "Заўсёды"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Прыпыніць у RAM"
 
-#. i18n: ectx: property (text), widget (QLabel, alwaysAfterLabel)
-#: activityWidget.ui:70
-#, kde-format
-msgid "after"
-msgstr "праз"
+#~ msgid "Hibernate"
+#~ msgstr "Перавесці ў рэжым сну"
 
-#. i18n: ectx: property (suffix), widget (QSpinBox, alwaysAfterSpin)
-#: activityWidget.ui:77
-#, kde-format
-msgid " min"
-msgstr " хв"
+#~ msgid "Shut down"
+#~ msgstr "Выключыць"
+
+#~ msgid "Always"
+#~ msgstr "Заўсёды"
+
+#~ msgid "after"
+#~ msgstr "праз"
+
+#~ msgid " min"
+#~ msgstr " хв"
 
 #~ msgid "PC running on AC power"
 #~ msgstr "Камп'ютар сілкуецца ад электрасеткі"
