@@ -218,16 +218,6 @@
 >No aturis mai la pantalla</guilabel
 > i <guilabel
 >No aturis mai l'ordinador o permetis que se suspengui</guilabel
->. També és possible definir l'interval de temps perquè l'ordinador canviï a un mode de suspensió segons les activitats d'estalvi d'energia. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Usa un arranjament separat (només usuaris avançats)</term>
-<listitem>
-<para
->Aquesta opció permet als usuaris escollir els detalls de la configuració d'estalvi d'energia per a una activitat separada. La configuració és similar a la configuració de la pàgina <link linkend="energy-saving-setting"
->Estalvi d'energia</link
 >. </para>
 </listitem>
 </varlistentry>
