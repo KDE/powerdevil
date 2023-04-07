@@ -20,12 +20,8 @@
 #include "kwinkscreenhelpereffect.h"
 
 #include <QCoreApplication>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QX11Info>
-#else
-#include <private/qtx11extras_p.h>
-#endif
 #include <chrono>
+#include <private/qtx11extras_p.h>
 
 using namespace std::chrono_literals;
 
@@ -114,11 +110,7 @@ void KWinKScreenHelperEffect::setEffectProperty(long value)
 #endif
 }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, void *message, long *result)
-#else
 bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, void *message, qintptr *result)
-#endif
 {
     Q_UNUSED(result);
 
