@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-04-08 02:19+0000\n"
 "PO-Revision-Date: 2022-11-26 08:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -34,7 +34,7 @@ msgstr ""
 "andrej.vernekar@moj.net,jlp@holodeck1.com,andrej.znidarsic@ubuntu.com,klemen."
 "kosir@gmx.com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:76
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -74,7 +74,7 @@ msgstr " min"
 msgid "After"
 msgstr "Po"
 
-#: actions/bundled/dpms.cpp:79
+#: actions/bundled/dpms.cpp:75
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"

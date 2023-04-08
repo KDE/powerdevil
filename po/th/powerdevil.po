@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-04-08 02:19+0000\n"
 "PO-Revision-Date: 2010-12-18 14:04+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "narachai@gmail.com, donga.nb@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:76
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, fuzzy, kde-format
@@ -75,7 +75,7 @@ msgstr " นาที"
 msgid "After"
 msgstr "หลังจาก"
 
-#: actions/bundled/dpms.cpp:79
+#: actions/bundled/dpms.cpp:75
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"

@@ -232,16 +232,6 @@
 >No apagar nunca la pantalla</guilabel
 > y <guilabel
 >No apagar nunca el equipo ni permitir que entre en reposo</guilabel
->. También se puede definir el intervalo de tiempo para que el equipo cambie a un modo de suspensión para las actividades de ahorro de energía. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Usar preferencias separadas (solo para usuarios avanzados)</term>
-<listitem>
-<para
->Esta opción permite que el usuario pueda escoger con detalle los ajustes de ahorro de energía para una determinada actividad. Las preferencias son similares a las de la <link linkend="energy-saving-setting"
->página de ahorro de energía</link
 >. </para>
 </listitem>
 </varlistentry>

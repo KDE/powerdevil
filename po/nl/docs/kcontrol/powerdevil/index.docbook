@@ -218,16 +218,6 @@
 >Nooit het scherm uitschakelen</guilabel
 > en <guilabel
 >Nooit de computer afsluiten of laten slapen</guilabel
->. Het is ook mogelijk het tijdsinterval voor de computer te definiëren om naar een onderbrekingsmodus om te schakelen voor de energiebesparingsactiviteiten. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Gescheiden instellingen gebruiken (alleen gebruikers met ervaring)</term>
-<listitem>
-<para
->Deze optie stelt gebruikers in staat om de details van energiebesparing in te stellen voor een aparte activiteit. De instellingen zijn te vergelijken met de instellingen uit de <link linkend="energy-saving-setting"
->pagina Energiebesparing</link
 >. </para>
 </listitem>
 </varlistentry>
