@@ -41,6 +41,7 @@
 #include <KIdleTime>
 #include <KLocalizedString>
 #include <KNotification>
+#include <KRuntimePlatform>
 
 #include <KActivities/Consumer>
 
@@ -52,7 +53,6 @@
 #include <QDebug>
 
 #include <algorithm>
-#include <Kirigami/TabletModeWatcher>
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
@@ -125,9 +125,7 @@ void Core::onBackendReady()
         bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
 
         // These are generated profiles,
-        const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
-
-        ProfileGenerator::generateProfiles(mobile, toRam, toDisk);
+        ProfileGenerator::generateProfiles(toRam, toDisk);
         m_profilesConfig->reparseConfiguration();
     }
 

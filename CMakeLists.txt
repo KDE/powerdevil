@@ -25,7 +25,7 @@ include(KDEClangFormat)
 include(ECMDeprecationSettings)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
-find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig DocTools Crash Notifications Kirigami2 KCMUtils)
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig DocTools Crash Notifications KCMUtils)
 find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 

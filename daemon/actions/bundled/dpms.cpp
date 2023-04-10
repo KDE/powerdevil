@@ -41,8 +41,8 @@
 #include <KGlobalAccel>
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <KRuntimePlatform>
 #include <KSharedConfig>
-#include <Kirigami/TabletModeWatcher>
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 
@@ -80,16 +80,13 @@ DPMS::DPMS(QObject *parent, const QVariantList &)
         m_dpms->switchMode(KScreen::Dpms::Off);
     });
 
-    auto powerButtonMode = [globalAction] (bool isTablet) {
-        if (!isTablet) {
-            KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
-        } else {
-            KGlobalAccel::self()->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
-        }
-    };
-    auto interface = Kirigami::TabletModeWatcher::self();
-    connect(interface, &Kirigami::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
-    powerButtonMode(interface->isTabletMode());
+    const bool mobile = KRuntimePlatform::runtimePlatform().contains(QLatin1String("phone"));
+
+    if (mobile) {
+        KGlobalAccel::self()->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
+    } else {
+        KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
+    }
 }
 
 DPMS::~DPMS() = default;

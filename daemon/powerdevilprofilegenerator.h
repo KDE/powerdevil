@@ -36,7 +36,7 @@ namespace ProfileGenerator
         ToggleScreenOnOffMode = 128
     };
 
-    void generateProfiles(bool isMobile, bool toRam, bool toDisk);
+    void generateProfiles(bool toRam, bool toDisk);
 }
 
 }

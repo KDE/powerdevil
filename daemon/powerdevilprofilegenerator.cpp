@@ -25,12 +25,15 @@
 #include <Solid/Battery>
 
 #include <KConfigGroup>
+#include <KRuntimePlatform>
 #include <KSharedConfig>
 
 namespace PowerDevil {
 
-void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
+void ProfileGenerator::generateProfiles(bool toRam, bool toDisk)
 {
+    const bool mobile = KRuntimePlatform::runtimePlatform().contains(QLatin1String("phone"));
+
     // Change critical action if default (hibernate) is unavailable
     if (!toDisk) {
         if (!toRam) {
