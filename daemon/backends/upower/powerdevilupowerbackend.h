@@ -74,7 +74,6 @@ private Q_SLOTS:
     void updateDeviceProps();
     void slotDeviceAdded(const QDBusObjectPath & path);
     void slotDeviceRemoved(const QDBusObjectPath & path);
-    void slotPropertyChanged();
     void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);

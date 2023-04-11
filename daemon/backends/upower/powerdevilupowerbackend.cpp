@@ -540,39 +540,34 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     setBatteryRemainingTime(remainingTime * 1000);
 }
 
-void PowerDevilUPowerBackend::slotPropertyChanged()
-{
-    // check for lid button changes
-    if (m_lidIsPresent) {
-        const bool lidIsClosed = m_upowerInterface->lidIsClosed();
-        if (lidIsClosed != m_lidIsClosed) {
-            if (lidIsClosed)
-                setButtonPressed(LidClose);
-            else
-                setButtonPressed(LidOpen);
-        }
-        m_lidIsClosed = lidIsClosed;
-    }
-
-    // check for AC adapter changes
-    const bool onBattery = m_upowerInterface->onBattery();
-    if (m_onBattery != onBattery) {
-        if (onBattery)
-            setAcAdapterState(Unplugged);
-        else
-            setAcAdapterState(Plugged);
-    }
-
-    m_onBattery = onBattery;
-}
-
 void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
 {
-    Q_UNUSED(changedProps);
-    Q_UNUSED(invalidatedProps);
+    if (ifaceName != UPOWER_IFACE) {
+        return;
+    }
 
-    if (ifaceName == UPOWER_IFACE) {
-        slotPropertyChanged(); // TODO maybe process the 2 properties separately?
+    if (m_lidIsPresent) {
+        bool lidIsClosed = m_lidIsClosed;
+        if (changedProps.contains(QStringLiteral("LidIsClosed"))) {
+            lidIsClosed = changedProps[QStringLiteral("LidIsClosed")].toBool();
+        } else if (invalidatedProps.contains(QStringLiteral("LidIsClosed"))) {
+            lidIsClosed = m_upowerInterface->lidIsClosed();
+        }
+        if (lidIsClosed != m_lidIsClosed) {
+            setButtonPressed(lidIsClosed ? LidClose : LidOpen);
+            m_lidIsClosed = lidIsClosed;
+        }
+    }
+
+    bool onBattery = m_onBattery;
+    if (changedProps.contains(QStringLiteral("OnBattery"))) {
+        onBattery = changedProps[QStringLiteral("OnBattery")].toBool();
+    } else if (invalidatedProps.contains(QStringLiteral("OnBattery"))) {
+        onBattery = m_upowerInterface->onBattery();
+    }
+    if (onBattery != m_onBattery) {
+        setAcAdapterState(onBattery ? Unplugged : Plugged);
+        m_onBattery = onBattery;
     }
 }
 
