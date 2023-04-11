@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2009-12-28 19:26+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -199,9 +199,6 @@ msgid "Level"
 msgstr ""
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr ""
@@ -264,37 +261,6 @@ msgstr ""
 #: actions/bundled/suspendsessionconfig.cpp:114
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
-msgstr ""
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, fuzzy, kde-format
-#| msgid "Turn Off Screen"
-msgid "Turn off"
-msgstr "තිරය වාදමන්න"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, fuzzy, kde-format
-#| msgid "Turn Off Screen"
-msgid "Turn on"
-msgstr "තිරය වාදමන්න"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr ""
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr ""
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
 msgstr ""
 
 #: backends/upower/login1suspendjob.cpp:79
@@ -555,6 +521,16 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Turn Off Screen"
+#~ msgid "Turn off"
+#~ msgstr "තිරය වාදමන්න"
+
+#, fuzzy
+#~| msgid "Turn Off Screen"
+#~ msgid "Turn on"
+#~ msgstr "තිරය වාදමන්න"
 
 #, fuzzy
 #~| msgid ""

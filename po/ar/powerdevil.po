@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-11-26 10:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -194,9 +194,6 @@ msgid "Level"
 msgstr "المستوى"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "اتركه بدون تغيير"
@@ -256,35 +253,6 @@ msgstr "آليا"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "أثناء النوم ، اسبت بعد فترة من عدم النشاط"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "أغلق"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "شغّل"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "واي فاي"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "شبكة هاتف محمول"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "بلوتوث"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -524,6 +492,21 @@ msgstr "اكتمل الشحن"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "بطاريتك الآن مشحونة كليًّا."
+
+#~ msgid "Turn off"
+#~ msgstr "أغلق"
+
+#~ msgid "Turn on"
+#~ msgstr "شغّل"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "واي فاي"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "شبكة هاتف محمول"
+
+#~ msgid "Bluetooth"
+#~ msgstr "بلوتوث"
 
 #~ msgid "Can't open file"
 #~ msgstr "تعذّر فتح الملف"

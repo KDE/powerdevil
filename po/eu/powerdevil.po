@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-11-25 20:03+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -195,9 +195,6 @@ msgid "Level"
 msgstr "Maila"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Utzi aldatzeke"
@@ -257,35 +254,6 @@ msgstr "Automatikoki"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Lo dagoela, hibernatu jarduerarik gabeko denbora tarte bat igarota"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "Itzali"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "Piztu"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "Wi-Fi"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "Mugikorraren banda-zabala"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -529,6 +497,21 @@ msgstr "Zamatzea osatu da"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Bateria erabat zamatuta dago orain."
+
+#~ msgid "Turn off"
+#~ msgstr "Itzali"
+
+#~ msgid "Turn on"
+#~ msgstr "Piztu"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "Wi-Fi"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "Mugikorraren banda-zabala"
+
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth"
 
 #~ msgid "Can't open file"
 #~ msgstr "Ezin da fitxategia ireki"

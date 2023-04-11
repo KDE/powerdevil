@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-11-26 08:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -197,9 +197,6 @@ msgid "Level"
 msgstr "Stopnja"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Pusti nespremenjeno"
@@ -260,35 +257,6 @@ msgstr "Avtomatsko"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
 "Ko je v spanju, naj gre po določenem času nedejavnosti v stanje hibernacije"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "Izklopi"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "Vklopi"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "Wi-Fi"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "Mobilno širokopasovno"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -538,6 +506,21 @@ msgstr "Polnjenje je zaključeno"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterija je sedaj povsem polna."
+
+#~ msgid "Turn off"
+#~ msgstr "Izklopi"
+
+#~ msgid "Turn on"
+#~ msgstr "Vklopi"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "Wi-Fi"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "Mobilno širokopasovno"
+
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth"
 
 #~ msgid "Can't open file"
 #~ msgstr "Ni mogoče odpreti datoteke"

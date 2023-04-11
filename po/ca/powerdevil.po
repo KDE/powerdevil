@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-11-25 13:57+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -195,9 +195,6 @@ msgid "Level"
 msgstr "Nivell"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Deixa sense canviar"
@@ -257,35 +254,6 @@ msgstr "Automàticament"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Estant adormit, hiberna després d'un període d'inactivitat"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "Apaga"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "Engega"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "Wi-Fi"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "Banda ampla per mòbil"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -534,3 +502,18 @@ msgstr "Càrrega completada"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La bateria ara està completament carregada."
+
+#~ msgid "Turn off"
+#~ msgstr "Apaga"
+
+#~ msgid "Turn on"
+#~ msgstr "Engega"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "Wi-Fi"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "Banda ampla per mòbil"
+
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth"

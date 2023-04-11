@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-01-03 11:10-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -193,9 +193,6 @@ msgid "Level"
 msgstr "ਲੈਵਲ"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "ਨਾ-ਬਦਲੇ ਨੂੰ ਛੱਡੋ"
@@ -255,35 +252,6 @@ msgstr "ਆਪਣੇ-ਆਪ"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "ਜਦੋਂ ਸਲੀਪ ਹੋਵੇ ਤਾਂ ਨਾ-ਸਰਗਰਮੀ ਦੇ ਸਮੇਂ ਬਾਅਦ ਹਾਈਬਰਨੇਟ ਕਰੋ"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "ਬੰਦ ਕਰੋ"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "ਚਾਲੂ ਕਰੋ"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "ਵਾਈ-ਫਾਈ"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "ਮੋਬਾਇਲ ਬਰਾਡਬੈਂਡ"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "ਬਲਿਊਟੁੱਥ"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -534,6 +502,21 @@ msgstr "ਚਾਰਜ ਕਰਨਾ ਪੂਰਾ"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ਬੈਟਰੀ ਹੁਣ ਪੂਰੀ ਚਾਰਜ ਹੋ ਚੁੱਕੀ ਹੈ।"
+
+#~ msgid "Turn off"
+#~ msgstr "ਬੰਦ ਕਰੋ"
+
+#~ msgid "Turn on"
+#~ msgstr "ਚਾਲੂ ਕਰੋ"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "ਵਾਈ-ਫਾਈ"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "ਮੋਬਾਇਲ ਬਰਾਡਬੈਂਡ"
+
+#~ msgid "Bluetooth"
+#~ msgstr "ਬਲਿਊਟੁੱਥ"
 
 #~ msgid "Can't open file"
 #~ msgstr "ਫਾਈਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ"

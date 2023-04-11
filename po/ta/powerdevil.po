@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-12-01 19:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -190,9 +190,6 @@ msgid "Level"
 msgstr "நிலை"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "மாற்றாதே"
@@ -253,35 +250,6 @@ msgstr "தானாக"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "குறிப்பிட்ட நேரம் உறங்கியபின் ஆழுறக்கத்தில் நுழை"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "முடக்கு"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "இயக்கு"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "அருகலை"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "கைபேசி பிராட்பேண்டு"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "ஊடலை"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -521,3 +489,18 @@ msgstr "ஆற்றலேற்றம் முடிந்த‍து"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "மின்கலத்தில் ஆற்றல் முழுதாக ஏறியுள்ளது."
+
+#~ msgid "Turn off"
+#~ msgstr "முடக்கு"
+
+#~ msgid "Turn on"
+#~ msgstr "இயக்கு"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "அருகலை"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "கைபேசி பிராட்பேண்டு"
+
+#~ msgid "Bluetooth"
+#~ msgstr "ஊடலை"

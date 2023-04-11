@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -207,9 +207,6 @@ msgstr "Ниво"
 
 # >> @item:inlistbox
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "остави како је"
@@ -276,40 +273,6 @@ msgstr ""
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
-
-# >> @item:inlistbox
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "искључи"
-
-# >> @item:inlistbox
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "укључи"
-
-# >> @item
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "бежична"
-
-# >> @item
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "мобилна широкопојасна"
-
-# >> @item
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "блутут"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -590,3 +553,23 @@ msgstr "Пуњење довршено"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Батерија је сада потпуно напуњена."
+
+# >> @item:inlistbox
+#~ msgid "Turn off"
+#~ msgstr "искључи"
+
+# >> @item:inlistbox
+#~ msgid "Turn on"
+#~ msgstr "укључи"
+
+# >> @item
+#~ msgid "Wi-Fi"
+#~ msgstr "бежична"
+
+# >> @item
+#~ msgid "Mobile broadband"
+#~ msgstr "мобилна широкопојасна"
+
+# >> @item
+#~ msgid "Bluetooth"
+#~ msgstr "блутут"

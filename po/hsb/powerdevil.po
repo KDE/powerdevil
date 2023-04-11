@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2008-11-06 22:08+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -190,9 +190,6 @@ msgid "Level"
 msgstr "Stopjeń"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Nic změnić"
@@ -252,35 +249,6 @@ msgstr "Awtomatisce"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Hdyž spinkam, přeńdu do zymskeho spara po času bjez aktiwity"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "Hasnyć"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "Zaswěćić"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "Wifi"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "Mobilny broadband"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
 
 #: backends/upower/login1suspendjob.cpp:79
 #, kde-format
@@ -533,6 +501,21 @@ msgstr "Donabity"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku je nětko cyle połny."
+
+#~ msgid "Turn off"
+#~ msgstr "Hasnyć"
+
+#~ msgid "Turn on"
+#~ msgstr "Zaswěćić"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "Wifi"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "Mobilny broadband"
+
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth"
 
 #, fuzzy
 #~| msgctxt "Comment"

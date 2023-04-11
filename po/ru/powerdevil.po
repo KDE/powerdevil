@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-08 02:19+0000\n"
+"POT-Creation-Date: 2023-04-11 02:55+0000\n"
 "PO-Revision-Date: 2022-12-23 10:04+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -205,9 +205,6 @@ msgid "Level"
 msgstr "Уровень"
 
 #: actions/bundled/powerprofileconfig.cpp:84
-#: actions/bundled/wirelesspowersavingconfig.cpp:75
-#: actions/bundled/wirelesspowersavingconfig.cpp:80
-#: actions/bundled/wirelesspowersavingconfig.cpp:85
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Оставить без изменения"
@@ -267,35 +264,6 @@ msgstr "Автоматически"
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Переходить из ждущего в спящий режим при бездействии"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:76
-#: actions/bundled/wirelesspowersavingconfig.cpp:81
-#: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, kde-format
-msgid "Turn off"
-msgstr "Выключить"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:77
-#: actions/bundled/wirelesspowersavingconfig.cpp:82
-#: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, kde-format
-msgid "Turn on"
-msgstr "Включить"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:110
-#, kde-format
-msgid "Wi-Fi"
-msgstr "Wi-Fi:"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:111
-#, kde-format
-msgid "Mobile broadband"
-msgstr "Мобильный Интернет:"
-
-#: actions/bundled/wirelesspowersavingconfig.cpp:112
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth:"
 
 # shutdown-method
 #: backends/upower/login1suspendjob.cpp:79
@@ -547,6 +515,21 @@ msgstr "Батарея полностью заряжена"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарея теперь полностью заряжена"
+
+#~ msgid "Turn off"
+#~ msgstr "Выключить"
+
+#~ msgid "Turn on"
+#~ msgstr "Включить"
+
+#~ msgid "Wi-Fi"
+#~ msgstr "Wi-Fi:"
+
+#~ msgid "Mobile broadband"
+#~ msgstr "Мобильный Интернет:"
+
+#~ msgid "Bluetooth"
+#~ msgstr "Bluetooth:"
 
 #~ msgid "Can't open file"
 #~ msgstr "Не удалось открыть файл"
