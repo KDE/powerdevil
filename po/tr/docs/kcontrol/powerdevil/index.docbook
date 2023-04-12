@@ -172,17 +172,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Kablosuz güç tasarrufu</guilabel
-></term>
-<listitem>
-<para
->Wi-Fi, taşınabilir geniş bant veya Bluetooth bağlantıları için ayrı eylemler ayarlamak üzere bu seçeneği etkinleştirin. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
