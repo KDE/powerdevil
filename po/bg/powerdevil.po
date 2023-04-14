@@ -497,18 +497,3 @@ msgstr "Зареждането завърши"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батерията сега е напълно заредена."
-
-#~ msgid "Turn off"
-#~ msgstr "Изключване"
-
-#~ msgid "Turn on"
-#~ msgstr "Включване"
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wi-Fi"
-
-#~ msgid "Mobile broadband"
-#~ msgstr "Мобилна широколентова връзка"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
