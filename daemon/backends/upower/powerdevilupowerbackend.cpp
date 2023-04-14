@@ -178,9 +178,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
 
-    // devices
-    enumerateDevices();
-
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
                                          SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
 
@@ -188,6 +185,9 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
                                          this, SLOT(slotDeviceAdded(QDBusObjectPath)));
     QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved",
                                          this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
+
+    // devices
+    enumerateDevices();
 
     // Brightness Controls available
     BrightnessControlsList controls;
@@ -444,6 +444,9 @@ void PowerDevilUPowerBackend::enumerateDevices()
 
     const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
     for (const QDBusObjectPath & device : deviceList) {
+        if (m_devices.contains(device.path())) {
+            continue;
+        }
         addDevice(device.path());
     }
 
