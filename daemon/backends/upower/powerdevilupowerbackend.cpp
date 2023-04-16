@@ -242,14 +242,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
     }
 
-    // battery
-    for (const OrgFreedesktopUPowerDeviceInterface * upowerDevice : qAsConst(m_devices)) {
-        if (upowerDevice->type() == 2 && upowerDevice->powerSupply()) {
-            QString udi = upowerDevice->path();
-            setCapacityForBattery(udi, qRound(upowerDevice->capacity()));  // acknowledge capacity
-        }
-    }
-
     // backend ready
     setBackendIsReady(controls, supported);
 }

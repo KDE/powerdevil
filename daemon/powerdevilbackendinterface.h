@@ -236,13 +236,6 @@ public:
      */
     virtual int brightnessKeyPressed(BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType = Screen) = 0;
 
-    /**
-     * Retrieves the capacities of the installed batteries in percentage.
-     *
-     * @returns A dictionary with the battery's capacity percentage mapped to the battery uuid.
-     */
-    QHash<QString, uint> capacities() const;
-
 Q_SIGNALS:
     /**
      * This signal is emitted when the AC adapter is plugged or unplugged.
@@ -330,8 +323,6 @@ protected:
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
-
-    void setCapacityForBattery(const QString &batteryId, uint percent);
 
     void setBackendIsReady(const BrightnessControlsList &availableBrightnessControls, SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);

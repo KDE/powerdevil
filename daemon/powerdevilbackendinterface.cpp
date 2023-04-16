@@ -76,7 +76,6 @@ public:
     bool isError;
     bool isLidClosed;
     bool isLidPresent;
-    QHash< QString, uint > capacities;
 };
 
 BackendInterface::BackendInterface(QObject* parent)
@@ -145,11 +144,6 @@ int BackendInterface::brightnessSteps(BackendInterface::BrightnessControlType ty
 BackendInterface::BrightnessControlsList BackendInterface::brightnessControlsAvailable() const
 {
     return d->brightnessControlsAvailable;
-}
-
-QHash< QString, uint > BackendInterface::capacities() const
-{
-    return d->capacities;
 }
 
 BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() const
@@ -247,11 +241,6 @@ void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType
         Q_EMIT lidClosedChanged(false);
     }
     Q_EMIT buttonPressed(type);
-}
-
-void BackendInterface::setCapacityForBattery(const QString& batteryId, uint percent)
-{
-    d->capacities.insert(batteryId, percent);
 }
 
 void BackendInterface::onBrightnessChanged(BrightnessControlType type, int value, int valueMax)
