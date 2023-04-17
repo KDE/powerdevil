@@ -318,6 +318,7 @@ protected:
 
     void onBrightnessChanged(BrightnessControlType device, int value, int valueMax);
     void setBatteryRemainingTime(qulonglong time);
+    void setSmoothedBatteryRemainingTime(double energyRateTotal, double energyTotal);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);

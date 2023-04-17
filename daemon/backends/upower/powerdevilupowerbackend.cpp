@@ -486,6 +486,8 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QDBusObjectPath &path)
 void PowerDevilUPowerBackend::updateDeviceProps()
 {
     qlonglong remainingTime = 0;
+    qreal energyTotal = 0.0;
+    qreal energyRateTotal = 0.0;
 
     if (m_displayDevice && m_displayDevice->isPresent()) {
         const uint state = m_displayDevice->state();
@@ -493,9 +495,10 @@ void PowerDevilUPowerBackend::updateDeviceProps()
             remainingTime = m_displayDevice->timeToFull();
         else if (state == 2) //discharging
             remainingTime = m_displayDevice->timeToEmpty();
+
+        energyTotal = m_displayDevice->energy();
+        energyRateTotal = m_displayDevice->energyRate();
     } else {
-        qreal energyTotal = 0.0;
-        qreal energyRateTotal = 0.0;
         qreal energyFullTotal = 0.0;
         uint stateTotal = 0;
 
@@ -533,6 +536,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     }
 
     setBatteryRemainingTime(remainingTime * 1000);
+    setSmoothedBatteryRemainingTime(energyRateTotal, energyTotal);
 }
 
 void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)

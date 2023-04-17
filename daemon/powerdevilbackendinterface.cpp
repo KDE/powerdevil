@@ -26,20 +26,20 @@
 namespace PowerDevil
 {
 
-using RemainingTimeHistoryList = std::vector<qulonglong>;
+using EnergyRateHistoryList = std::vector<double>;
 
 /**
  * Filter data along one dimension using exponential moving average.
  */
-qulonglong emafilter(const RemainingTimeHistoryList &input)
+qulonglong emafilter(const EnergyRateHistoryList &input)
 {
     if (input.empty()) {
         return 0;
     }
 
     constexpr double weight = 0.05;
-    qulonglong current = input[0];
-    for (qulonglong n : input) {
+    double current = input[0];
+    for (double n : input) {
         current = current * (1 - weight) + n * weight;
     }
 
@@ -58,7 +58,7 @@ public:
         , isLidClosed(false)
         , isLidPresent(false)
     {
-        remainingTimeHistoryRecords.reserve(64);
+        energyRateHistoryRecords.reserve(64);
     }
     ~Private() {}
 
@@ -66,7 +66,7 @@ public:
     BatteryState batteryState;
     qulonglong batteryRemainingTime;
     qulonglong smoothedBatteryRemainingTime = 0;
-    RemainingTimeHistoryList remainingTimeHistoryRecords;
+    EnergyRateHistoryList energyRateHistoryRecords;
     QHash< BrightnessControlType, BrightnessLogic* > brightnessLogic;
     BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;
@@ -172,7 +172,7 @@ void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapter
     Q_EMIT acAdapterStateChanged(state);
 
     // AC state has been refreshed, so clear the history records
-    d->remainingTimeHistoryRecords.clear();
+    d->energyRateHistoryRecords.clear();
     d->smoothedBatteryRemainingTime = 0;
     Q_EMIT smoothedBatteryRemainingTimeChanged(0);
 }
@@ -204,20 +204,26 @@ void BackendInterface::setBatteryRemainingTime(qulonglong time)
             d->smoothedBatteryRemainingTime = time;
             Q_EMIT smoothedBatteryRemainingTimeChanged(time);
         }
+    }
+}
+
+void BackendInterface::setSmoothedBatteryRemainingTime(double energyRateTotal, double energyTotal)
+{
+    if (d->acAdapterState == Plugged) {
         return;
     }
 
     const qulonglong oldValue = d->smoothedBatteryRemainingTime;
-    if (time > 0) {
-        if (d->remainingTimeHistoryRecords.size() == 64) {
-            d->remainingTimeHistoryRecords.erase(d->remainingTimeHistoryRecords.begin());
+    if (energyRateTotal > 0) {
+        if (d->energyRateHistoryRecords.size() == 64) {
+            d->energyRateHistoryRecords.erase(d->energyRateHistoryRecords.begin());
         }
-        d->remainingTimeHistoryRecords.emplace_back(time);
-
-        d->smoothedBatteryRemainingTime = emafilter(d->remainingTimeHistoryRecords);
+        d->energyRateHistoryRecords.emplace_back(energyRateTotal);
+        const double smoothedEnergyRateTotal = emafilter(d->energyRateHistoryRecords);
+        d->smoothedBatteryRemainingTime = energyTotal / smoothedEnergyRateTotal * 1000 * 3600;
     } else {
         // Don't let those samples pollute the history
-        d->smoothedBatteryRemainingTime = time;
+        d->smoothedBatteryRemainingTime = d->batteryRemainingTime;
     }
 
     if (oldValue != d->smoothedBatteryRemainingTime) {
