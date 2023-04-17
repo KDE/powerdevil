@@ -78,34 +78,3 @@ msgstr ""
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr ""
-
-#~ msgid "Hibernate"
-#~ msgstr "Dvalemodus"
-
-#~ msgid "Shut down"
-#~ msgstr "Slå av"
-
-#~ msgid "Always"
-#~ msgstr "Alltid"
-
-#~ msgid "after"
-#~ msgstr "etter"
-
-#~ msgid " min"
-#~ msgstr " min"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "PC som kjører på nettstrøm"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "PC som kjører på batteri"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "PC med lavt batterinivå"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Aktivitet «%1»"
-
-#~ msgid "Act like"
-#~ msgstr "Bruk som"

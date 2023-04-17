@@ -499,18 +499,3 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
-
-#~ msgid "Turn off"
-#~ msgstr "Slå av"
-
-#~ msgid "Turn on"
-#~ msgstr "Slå på"
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wi-Fi"
-
-#~ msgid "Mobile broadband"
-#~ msgstr "Mobilt breiband"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"

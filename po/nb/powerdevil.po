@@ -488,18 +488,3 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
-
-#~ msgid "Turn off"
-#~ msgstr "Slå av"
-
-#~ msgid "Turn on"
-#~ msgstr "Slå på"
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wi-Fi"
-
-#~ msgid "Mobile broadband"
-#~ msgstr "Mobilt bredbånd"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"
