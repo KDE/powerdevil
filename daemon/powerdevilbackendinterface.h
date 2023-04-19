@@ -38,18 +38,6 @@ public:
     ~BackendInterface() override;
 
     /**
-     * This enum type defines the different states of the system battery.
-     *
-     * - NoBatteryState: No battery available
-     * - Normal: The battery is at its normal charge level
-     * - Warning: The battery is at its warning charge level
-     * - Low: The battery is at its low charge level
-     * - Critical: The battery is at its critical charge level
-     */
-    enum BatteryState{ NoBatteryState, Normal, Warning, Low, Critical };
-    Q_ENUM(BatteryState)
-
-    /**
      * This enum type defines the different states of the AC adapter.
      *
      * - UnknownAcAdapterState: The AC adapter has an unknown state
@@ -125,14 +113,6 @@ public:
      * @see PowerDevil::BackendInterface::Capability
      */
     Capabilities capabilities() const;
-
-    /**
-     * Retrieves the current state of the system battery.
-     *
-     * @return the current battery state
-     * @see PowerDevil::BackendInterface::BatteryState
-     */
-    BatteryState batteryState() const;
 
     /**
      * Retrieves the current estimated remaining time of the system batteries
@@ -244,14 +224,6 @@ Q_SIGNALS:
     void acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newState);
 
     /**
-     * This signal is emitted when the system battery state changed.
-     *
-     * @param newState the new state of the system battery, it's one of the
-     * type @see PowerDevil::BackendInterface::BatteryState
-     */
-    void batteryStateChanged(PowerDevil::BackendInterface::BatteryState newState);
-
-    /**
      * This signal is emitted when a button has been pressed.
      *
      * @param buttonType the pressed button type, it's one of the
@@ -319,7 +291,6 @@ protected:
     void onBrightnessChanged(BrightnessControlType device, int value, int valueMax);
     void setBatteryRemainingTime(qulonglong time);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
-    void setBatteryState(PowerDevil::BackendInterface::BatteryState state);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
 
     void setBackendIsReady(const BrightnessControlsList &availableBrightnessControls, SuspendMethods supportedSuspendMethods);
