@@ -51,7 +51,6 @@ class BackendInterface::Private
 public:
     Private()
         : acAdapterState(UnknownAcAdapterState)
-        , batteryState(NoBatteryState)
         , batteryRemainingTime(0)
         , isReady(false)
         , isError(false)
@@ -63,7 +62,6 @@ public:
     ~Private() {}
 
     AcAdapterState acAdapterState;
-    BatteryState batteryState;
     qulonglong batteryRemainingTime;
     qulonglong smoothedBatteryRemainingTime = 0;
     RemainingTimeHistoryList remainingTimeHistoryRecords;
@@ -107,11 +105,6 @@ qulonglong BackendInterface::batteryRemainingTime() const
 qulonglong BackendInterface::smoothedBatteryRemainingTime() const
 {
     return d->smoothedBatteryRemainingTime;
-}
-
-BackendInterface::BatteryState BackendInterface::batteryState() const
-{
-    return d->batteryState;
 }
 
 void BackendInterface::setBrightness(int brightness, BackendInterface::BrightnessControlType type)
@@ -229,12 +222,6 @@ void BackendInterface::setBatteryRemainingTime(qulonglong time)
     if (oldValue != d->smoothedBatteryRemainingTime) {
         Q_EMIT smoothedBatteryRemainingTimeChanged(d->smoothedBatteryRemainingTime);
     }
-}
-
-void BackendInterface::setBatteryState(PowerDevil::BackendInterface::BatteryState state)
-{
-    d->batteryState = state;
-    Q_EMIT batteryStateChanged(state);
 }
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
