@@ -26,22 +26,13 @@
 namespace PowerDevil
 {
 
-using RemainingTimeHistoryList = std::vector<qulonglong>;
-
 /**
  * Filter data along one dimension using exponential moving average.
  */
-qulonglong emafilter(const RemainingTimeHistoryList &input)
+double emafilter(const double last, const double update)
 {
-    if (input.empty()) {
-        return 0;
-    }
-
     constexpr double weight = 0.05;
-    qulonglong current = input[0];
-    for (qulonglong n : input) {
-        current = current * (1 - weight) + n * weight;
-    }
+    double current = last * (1 - weight) + update * weight;
 
     return current;
 }
@@ -57,14 +48,17 @@ public:
         , isLidClosed(false)
         , isLidPresent(false)
     {
-        remainingTimeHistoryRecords.reserve(64);
     }
     ~Private() {}
 
     AcAdapterState acAdapterState;
+
     qulonglong batteryRemainingTime;
     qulonglong smoothedBatteryRemainingTime = 0;
-    RemainingTimeHistoryList remainingTimeHistoryRecords;
+    double batteryEnergyFull = 0;
+    double batteryEnergy = 0;
+    double smoothedBatteryDischargeRate = 0;
+
     QHash< BrightnessControlType, BrightnessLogic* > brightnessLogic;
     BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;
@@ -169,11 +163,6 @@ void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapter
 {
     d->acAdapterState = state;
     Q_EMIT acAdapterStateChanged(state);
-
-    // AC state has been refreshed, so clear the history records
-    d->remainingTimeHistoryRecords.clear();
-    d->smoothedBatteryRemainingTime = 0;
-    Q_EMIT smoothedBatteryRemainingTimeChanged(0);
 }
 
 void BackendInterface::setBackendHasError(const QString& errorDetails)
@@ -191,14 +180,35 @@ void BackendInterface::setBackendIsReady(const BrightnessControlsList &available
     Q_EMIT backendReady();
 }
 
-void BackendInterface::setBatteryRemainingTime(qulonglong time)
+void BackendInterface::setBatteryEnergyFull(const double energy)
 {
+    d->batteryEnergyFull = energy;
+}
+
+void BackendInterface::setBatteryEnergy(const double energy)
+{
+    d->batteryEnergy = energy;
+}
+
+void BackendInterface::setBatteryRate(const double rate)
+{
+    // remaining time in milliseconds
+    qulonglong time = 0;
+
+    if (rate > 0) {
+        // Energy and rate are in Watt*hours resp. Watt
+        time = 3600 * 1000 * (d->batteryEnergyFull - d->batteryEnergy) / rate;
+    } else if (rate < 0) {
+        time = 3600 * 1000 * (0.0 - d->batteryEnergy) / rate;
+    }
+
     if (d->batteryRemainingTime != time) {
         d->batteryRemainingTime = time;
         Q_EMIT batteryRemainingTimeChanged(time);
     }
 
-    if (d->acAdapterState == Plugged) {
+    // Charging or full
+    if ((rate > 0) || (time == 0)) {
         if (d->smoothedBatteryRemainingTime != time) {
             d->smoothedBatteryRemainingTime = time;
             Q_EMIT smoothedBatteryRemainingTimeChanged(time);
@@ -206,20 +216,17 @@ void BackendInterface::setBatteryRemainingTime(qulonglong time)
         return;
     }
 
-    const qulonglong oldValue = d->smoothedBatteryRemainingTime;
-    if (time > 0) {
-        if (d->remainingTimeHistoryRecords.size() == 64) {
-            d->remainingTimeHistoryRecords.erase(d->remainingTimeHistoryRecords.begin());
-        }
-        d->remainingTimeHistoryRecords.emplace_back(time);
-
-        d->smoothedBatteryRemainingTime = emafilter(d->remainingTimeHistoryRecords);
+    double oldRate = d->smoothedBatteryDischargeRate;
+    if (oldRate == 0) {
+        d->smoothedBatteryDischargeRate = rate;
     } else {
-        // Don't let those samples pollute the history
-        d->smoothedBatteryRemainingTime = time;
+        d->smoothedBatteryDischargeRate = emafilter(oldRate, rate);
     }
 
-    if (oldValue != d->smoothedBatteryRemainingTime) {
+    time = 3600 * 1000 * (0.0 - d->batteryEnergy) / d->smoothedBatteryDischargeRate;
+
+    if (d->smoothedBatteryRemainingTime != time) {
+        d->smoothedBatteryRemainingTime = time;
         Q_EMIT smoothedBatteryRemainingTimeChanged(d->smoothedBatteryRemainingTime);
     }
 }

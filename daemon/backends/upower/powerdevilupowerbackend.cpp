@@ -493,54 +493,44 @@ void PowerDevilUPowerBackend::slotDeviceRemoved(const QDBusObjectPath &path)
 
 void PowerDevilUPowerBackend::updateDeviceProps()
 {
-    qlonglong remainingTime = 0;
+    double energyTotal = 0.0;
+    double energyRateTotal = 0.0;
+    double energyFullTotal = 0.0;
 
     if (m_displayDevice && m_displayDevice->isPresent()) {
         const uint state = m_displayDevice->state();
-        if (state == 1) // charging
-            remainingTime = m_displayDevice->timeToFull();
-        else if (state == 2) //discharging
-            remainingTime = m_displayDevice->timeToEmpty();
-    } else {
-        qreal energyTotal = 0.0;
-        qreal energyRateTotal = 0.0;
-        qreal energyFullTotal = 0.0;
-        uint stateTotal = 0;
+        energyTotal = m_displayDevice->energy();
+        energyFullTotal = m_displayDevice->energyFull();
 
+        if (state == 1) { // charging
+            energyRateTotal = m_displayDevice->energyRate();
+        } else if (state == 2) { //discharging
+            energyRateTotal = -1.0 * m_displayDevice->energyRate();
+        }
+    } else {
         for (const OrgFreedesktopUPowerDeviceInterface * upowerDevice : qAsConst(m_devices)) {
             const uint type = upowerDevice->type();
             if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
                 const uint state = upowerDevice->state();
                 energyFullTotal += upowerDevice->energyFull();
                 energyTotal += upowerDevice->energy();
-                energyRateTotal += upowerDevice->energyRate();
 
-                if (state == 1) { // total is charging
-                    stateTotal = 1;
-                } else if (state == 2 && stateTotal != 1) { // total is discharging
-                    stateTotal = 2;
-                } else if (state == 4 && stateTotal != 0) { // total is fully-charged
-                    stateTotal = 4;
+                if (state == 4) { // fully charged
+                    continue;
                 }
 
                 if (state == 1) { // charging
-                    remainingTime += upowerDevice->timeToFull();
+                    energyRateTotal += upowerDevice->energyRate();
                 } else if (state == 2) { // discharging
-                    remainingTime += upowerDevice->timeToEmpty();
+                    energyRateTotal -= upowerDevice->energyRate();
                 }
-            }
-        }
-
-        if (energyRateTotal > 0) {
-            if (stateTotal == 1) { // charging
-                remainingTime = 3600 * ((energyFullTotal - energyTotal) / energyRateTotal);
-            } else if (stateTotal == 2) { // discharging
-                remainingTime = 3600 * (energyTotal / energyRateTotal);
             }
         }
     }
 
-    setBatteryRemainingTime(remainingTime * 1000);
+    setBatteryEnergy(energyTotal);
+    setBatteryEnergyFull(energyFullTotal);
+    setBatteryRate(energyRateTotal);
 }
 
 void PowerDevilUPowerBackend::slotPropertyChanged()
