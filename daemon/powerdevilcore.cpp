@@ -517,11 +517,14 @@ void Core::emitRichNotification(const QString &evid, const QString &title, const
 
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi, Core::ChargeNotificationFlags flags)
 {
-    using namespace Solid;
-    Device device(udi);
-    Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
+    if (m_peripheralBatteriesPercent.contains(udi)) {
+        using namespace Solid;
+        Device device(udi);
+        Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
+        if (!b) {
+            return false;
+        }
 
-    if (b && !b->isPowerSupply()) {
         // if you leave the device out of reach or it has not been initialized yet
         // it won't be "there" and report 0%, don't show anything in this case
         if (!b->isPresent() || b->chargePercent() == 0) {
