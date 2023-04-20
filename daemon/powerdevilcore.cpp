@@ -518,6 +518,12 @@ void Core::emitRichNotification(const QString &evid, const QString &title, const
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi, Core::ChargeNotificationFlags flags)
 {
     if (m_peripheralBatteriesPercent.contains(udi)) {
+        // Show the notification just once on each normal->low transition
+        if (currentPercent > PowerDevilSettings::peripheralBatteryLowLevel() ||
+            previousPercent <= PowerDevilSettings::peripheralBatteryLowLevel()) {
+            return false;
+        }
+
         using namespace Solid;
         Device device(udi);
         Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
@@ -536,9 +542,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
             return false;
         }
 
-        if (currentPercent <= PowerDevilSettings::peripheralBatteryLowLevel() &&
-            previousPercent > PowerDevilSettings::peripheralBatteryLowLevel()) {
-
+        {
             QString name = device.product();
             if (!device.vendor().isEmpty()) {
                 name = i18nc("%1 is vendor name, %2 is product name", "%1 %2", device.vendor(), device.product());
@@ -571,11 +575,9 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
             }
 
             emitNotification(QStringLiteral("lowperipheralbattery"), title, msg, icon);
-
-            return true;
         }
 
-        return false;
+        return true;
     }
 
     // Make sure a notificaton that's kept open updates its percentage live.
