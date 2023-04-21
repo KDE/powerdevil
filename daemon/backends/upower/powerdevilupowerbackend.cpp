@@ -488,11 +488,13 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     double energyTotal = 0.0;
     double energyRateTotal = 0.0;
     double energyFullTotal = 0.0;
+    qulonglong timestamp = 0;
 
     if (m_displayDevice && m_displayDevice->isPresent()) {
         const uint state = m_displayDevice->state();
         energyTotal = m_displayDevice->energy();
         energyFullTotal = m_displayDevice->energyFull();
+        timestamp = m_displayDevice->updateTime();
 
         if (state == 1) { // charging
             energyRateTotal = m_displayDevice->energyRate();
@@ -511,6 +513,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
                     continue;
                 }
 
+                timestamp = std::max(timestamp, upowerDevice->updateTime());
                 if (state == 1) { // charging
                     energyRateTotal += upowerDevice->energyRate();
                 } else if (state == 2) { // discharging
@@ -522,7 +525,7 @@ void PowerDevilUPowerBackend::updateDeviceProps()
 
     setBatteryEnergy(energyTotal);
     setBatteryEnergyFull(energyFullTotal);
-    setBatteryRate(energyRateTotal);
+    setBatteryRate(energyRateTotal, timestamp);
 }
 
 void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)

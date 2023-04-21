@@ -29,9 +29,8 @@ namespace PowerDevil
 /**
  * Filter data along one dimension using exponential moving average.
  */
-double emafilter(const double last, const double update)
+double emafilter(const double last, const double update, double weight)
 {
-    constexpr double weight = 0.05;
     double current = last * (1 - weight) + update * weight;
 
     return current;
@@ -55,6 +54,7 @@ public:
 
     qulonglong batteryRemainingTime;
     qulonglong smoothedBatteryRemainingTime = 0;
+    qulonglong lastRateTimestamp = 0;
     double batteryEnergyFull = 0;
     double batteryEnergy = 0;
     double smoothedBatteryDischargeRate = 0;
@@ -184,7 +184,7 @@ void BackendInterface::setBatteryEnergy(const double energy)
     d->batteryEnergy = energy;
 }
 
-void BackendInterface::setBatteryRate(const double rate)
+void BackendInterface::setBatteryRate(const double rate, qulonglong timestamp)
 {
     // remaining time in milliseconds
     qulonglong time = 0;
@@ -214,7 +214,11 @@ void BackendInterface::setBatteryRate(const double rate)
     if (oldRate == 0) {
         d->smoothedBatteryDischargeRate = rate;
     } else {
-        d->smoothedBatteryDischargeRate = emafilter(oldRate, rate);
+        // To have a time constant independent from the update frequency
+        // the weight must be scaled
+        double weight = 0.005 * std::min<qulonglong>(60, timestamp - d->lastRateTimestamp);
+        d->lastRateTimestamp = timestamp;
+        d->smoothedBatteryDischargeRate = emafilter(oldRate, rate, weight);
     }
 
     time = 3600 * 1000 * (0.0 - d->batteryEnergy) / d->smoothedBatteryDischargeRate;
