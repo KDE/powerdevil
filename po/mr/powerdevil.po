@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-09 00:48+0000\n"
+"POT-Creation-Date: 2023-04-21 02:52+0000\n"
 "PO-Revision-Date: 2014-10-28 10:28+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -299,7 +299,6 @@ msgid "Bluetooth"
 msgstr ""
 
 #: backends/upower/login1suspendjob.cpp:79
-#: backends/upower/upowersuspendjob.cpp:69
 #, kde-format
 msgid "Unsupported suspend method"
 msgstr "असमर्थीत अकार्यक्षम पद्धत"

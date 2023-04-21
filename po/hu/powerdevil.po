@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-09 00:48+0000\n"
+"POT-Creation-Date: 2023-04-21 02:52+0000\n"
 "PO-Revision-Date: 2021-09-02 08:58+0200\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -286,7 +286,6 @@ msgid "Bluetooth"
 msgstr "Bluetooth"
 
 #: backends/upower/login1suspendjob.cpp:79
-#: backends/upower/upowersuspendjob.cpp:69
 #, kde-format
 msgid "Unsupported suspend method"
 msgstr "Nem támogatott felfüggesztési módok"
