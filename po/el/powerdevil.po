@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 02:55+0000\n"
+"POT-Creation-Date: 2023-04-21 02:18+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -332,24 +332,24 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Προστέθηκε επιπλέον μπαταρία"
 
-#: powerdevilcore.cpp:481 powerdevilcore.cpp:697
+#: powerdevilcore.cpp:481 powerdevilcore.cpp:702
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Ο υπολογιστής δεν θα εισέρχεται πλέον σε κοίμηση."
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:548
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:551
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας συσκευής (απομένει %1%)"
 
-#: powerdevilcore.cpp:546
+#: powerdevilcore.cpp:553
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -363,22 +363,22 @@ msgstr ""
 "Η ισχύς της μπαταρίας στο (\"%1\") είναι χαμηλή και η συσκευή ενδέχεται να "
 "απενεργοποιηθεί οποιαδήποτε στιγμή. Φορτίστε ή αντικαταστήστε τη μπαταρία."
 
-#: powerdevilcore.cpp:552
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας ποντικιού (απομένει %1%)"
 
-#: powerdevilcore.cpp:556
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας πληκτρολογίου (απομένει %1%)"
 
-#: powerdevilcore.cpp:560
+#: powerdevilcore.cpp:567
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας συσκευής bluetooth (απομένει %1%)"
 
-#: powerdevilcore.cpp:562
+#: powerdevilcore.cpp:569
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -389,7 +389,7 @@ msgstr ""
 "συσκευή ενδέχεται να απενεργοποιηθεί οποιαδήποτε στιγμή. Φορτίστε ή "
 "αντικαταστήστε ή φορτίστε τη μπαταρία."
 
-#: powerdevilcore.cpp:608
+#: powerdevilcore.cpp:613
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -402,7 +402,7 @@ msgstr ""
 "υπολογιστή σας, συνδέστε τον στο ρεύμα ή απενεργοποιήστε τον και αλλάξτε τη "
 "μπαταρία."
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -412,7 +412,7 @@ msgstr ""
 "υπολογιστή σας, συνδέστε τον στο ρεύμα ή απενεργοποιήστε τον και αλλάξτε τη "
 "μπαταρία."
 
-#: powerdevilcore.cpp:627
+#: powerdevilcore.cpp:632
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -420,14 +420,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα κλείσει σε 60 "
 "δευτερόλεπτα."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -435,7 +435,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Τερματισμός"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -444,7 +444,7 @@ msgstr ""
 "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κατάσταση "
 "νάρκης σε 60 δευτερόλεπτα."
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:651
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -453,14 +453,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Νάρκη"
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:656
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κοίμηση σε "
 "60 δευτερόλεπτα."
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:657
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -469,52 +469,52 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Κοίμηση"
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:662
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "Το επίπεδο της μπαταρίας είναι κρίσιμο. Αποθηκεύστε την εργασία σας."
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Ισχύς μπαταρίας χαμηλή (%1% απομένει)"
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Ισχύς μπαταρίας κρίσιμη (%1% απομένει)"
 
-#: powerdevilcore.cpp:696
+#: powerdevilcore.cpp:701
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Ο μετασχηματιστής AC είναι συνδεδεμένος"
 
-#: powerdevilcore.cpp:699
+#: powerdevilcore.cpp:704
 #, kde-format
 msgid "Running on AC power"
 msgstr "Εκτελείται με ισχύ εναλλασσόμενου ρεύματος"
 
-#: powerdevilcore.cpp:699
+#: powerdevilcore.cpp:704
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Ο φορτιστής ρεύματος συνδέθηκε."
 
-#: powerdevilcore.cpp:702
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Εκτελείται με την ισχύ της μπαταρίας"
 
-#: powerdevilcore.cpp:702
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Ο φορτιστής ρεύματος αποσυνδέθηκε."
 
-#: powerdevilcore.cpp:763
+#: powerdevilcore.cpp:768
 #, kde-format
 msgid "Charging Complete"
 msgstr "Φόρτιση πλήρης"
 
-#: powerdevilcore.cpp:763
+#: powerdevilcore.cpp:768
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμένη."

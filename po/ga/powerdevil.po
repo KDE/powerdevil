@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-11 02:55+0000\n"
+"POT-Creation-Date: 2023-04-21 02:18+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -346,26 +346,26 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Leibhéal criticiúil cadhnra"
 
-#: powerdevilcore.cpp:481 powerdevilcore.cpp:697
+#: powerdevilcore.cpp:481 powerdevilcore.cpp:702
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
 msgid "The computer will no longer go to sleep."
 msgstr "Stadfaidh an ríomhaire i gceann 1 soicind."
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:548
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:551
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:546
+#: powerdevilcore.cpp:553
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -373,22 +373,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:552
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:556
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:560
+#: powerdevilcore.cpp:567
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:562
+#: powerdevilcore.cpp:569
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -396,21 +396,21 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:608
+#: powerdevilcore.cpp:613
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
 "down and change the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:627
+#: powerdevilcore.cpp:632
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -420,7 +420,7 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cealaigh"
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:644
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
@@ -429,7 +429,7 @@ msgstr ""
 "Shroich do chadhnra leibhéal criticiúil. Stadfaidh do ríomhaire i gceann 30 "
 "soicind."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -437,7 +437,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Múch"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:650
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 30 "
@@ -449,7 +449,7 @@ msgstr ""
 "Shroich do chadhnra leibhéal criticiúil. Geimhreoidh do ríomhaire i gceann "
 "30 soicind."
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:651
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -458,7 +458,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Geimhrigh"
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:656
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
@@ -467,7 +467,7 @@ msgstr ""
 "Shroich do chadhnra leibhéal criticiúil. Stadfaidh do ríomhaire i gceann 30 "
 "soicind."
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:657
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -475,7 +475,7 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Codail"
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:662
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
 msgid "Battery level critical. Please save your work."
@@ -483,49 +483,49 @@ msgstr ""
 "Shroich do chadhnra leibhéal criticiúil: sábháil do chuid oibre chomh luath "
 "agus is féidir."
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:696
+#: powerdevilcore.cpp:701
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Cuibheoir SA Plugáilte Isteach"
 
-#: powerdevilcore.cpp:699
+#: powerdevilcore.cpp:704
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:699
+#: powerdevilcore.cpp:704
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "Tá an cuibheoir cumhachta plugáilte isteach."
 
-#: powerdevilcore.cpp:702
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Ar Chumhacht Chadhnra"
 
-#: powerdevilcore.cpp:702
+#: powerdevilcore.cpp:707
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "Bhí an cuibheoir cumhachta díphlugáilte."
 
-#: powerdevilcore.cpp:763
+#: powerdevilcore.cpp:768
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:763
+#: powerdevilcore.cpp:768
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
