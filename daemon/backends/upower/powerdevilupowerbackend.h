@@ -27,7 +27,10 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 
-#include "upower_device_interface.h"
+#include <map>
+#include <memory>
+
+#include "upowerdevice.h"
 #include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"
 #include "udevqt.h"
@@ -81,15 +84,14 @@ private Q_SLOTS:
     void onKeyboardBrightnessChanged(int);
 
     void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
-    void onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
     void animationValueChanged(const QVariant &value);
     void initWithBrightness(bool brightnessSupport);
 
     // upower devices
-    QMap<QString, OrgFreedesktopUPowerDeviceInterface *> m_devices;
-    OrgFreedesktopUPowerDeviceInterface *m_displayDevice = nullptr;
+    std::map<QString, std::unique_ptr<UPowerDevice>> m_devices;
+    std::unique_ptr<UPowerDevice> m_displayDevice = nullptr;
 
     // brightness
     QMap<BrightnessControlType, int> m_cachedBrightnessMap;

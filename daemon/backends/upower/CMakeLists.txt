@@ -4,6 +4,7 @@ set(powerdevilupowerbackend_SRCS
     powerdevilupowerbackend.cpp
     udevqtclient.cpp
     udevqtdevice.cpp
+    upowerdevice.cpp
     ddcutilbrightness.cpp
 )
 
@@ -16,11 +17,6 @@ set_source_files_properties(
 qt_add_dbus_interface(powerdevilupowerbackend_SRCS
     dbus/org.freedesktop.UPower.xml
     upower_interface
-)
-
-qt_add_dbus_interface(powerdevilupowerbackend_SRCS
-    dbus/org.freedesktop.UPower.Device.xml
-    upower_device_interface
 )
 
 qt_add_dbus_interface(powerdevilupowerbackend_SRCS

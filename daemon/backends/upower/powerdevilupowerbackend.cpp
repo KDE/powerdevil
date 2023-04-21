@@ -40,6 +40,7 @@
 
 #include "ddcutilbrightness.h"
 #include "login1suspendjob.h"
+#include "upowerdevice.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
@@ -434,19 +435,22 @@ void PowerDevilUPowerBackend::enumerateDevices()
     m_lidIsClosed = m_upowerInterface->lidIsClosed();
     m_onBattery = m_upowerInterface->onBattery();
 
-    const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
-    for (const QDBusObjectPath & device : deviceList) {
-        if (m_devices.contains(device.path())) {
-            continue;
-        }
-        addDevice(device.path());
-    }
-
     QDBusReply<QDBusObjectPath> reply = m_upowerInterface->call("GetDisplayDevice");
     if (reply.isValid()) {
         const QString path = reply.value().path();
         if (!path.isEmpty() && path != QStringLiteral("/")) {
-            m_displayDevice = new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, path, QDBusConnection::systemBus(), this);
+            m_displayDevice = std::make_unique<UPowerDevice>(path);
+            connect(m_displayDevice.get(), &UPowerDevice::propertiesChanged, this, &PowerDevilUPowerBackend::updateDeviceProps);
+        }
+    }
+
+    if (!m_displayDevice) {
+        const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
+        for (const QDBusObjectPath & device : deviceList) {
+            if (m_devices.count(device.path())) {
+                continue;
+            }
+            addDevice(device.path());
         }
     }
 
@@ -460,12 +464,14 @@ void PowerDevilUPowerBackend::enumerateDevices()
 
 void PowerDevilUPowerBackend::addDevice(const QString & device)
 {
-    OrgFreedesktopUPowerDeviceInterface * upowerDevice =
-            new OrgFreedesktopUPowerDeviceInterface(UPOWER_SERVICE, device, QDBusConnection::systemBus(), this);
-    m_devices.insert(device, upowerDevice);
+    if (m_displayDevice) {
+        return;
+    }
 
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, device, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
-                                         SLOT(onDevicePropertiesChanged(QString,QVariantMap,QStringList)));
+    auto upowerDevice = std::make_unique<UPowerDevice>(device);
+    connect(upowerDevice.get(), &UPowerDevice::propertiesChanged, this, &PowerDevilUPowerBackend::updateDeviceProps);
+
+    m_devices[device] = std::move(upowerDevice);
 }
 
 void PowerDevilUPowerBackend::slotDeviceAdded(const QDBusObjectPath &path)
@@ -476,10 +482,7 @@ void PowerDevilUPowerBackend::slotDeviceAdded(const QDBusObjectPath &path)
 
 void PowerDevilUPowerBackend::slotDeviceRemoved(const QDBusObjectPath &path)
 {
-    OrgFreedesktopUPowerDeviceInterface * upowerDevice = m_devices.take(path.path());
-
-    delete upowerDevice;
-
+    m_devices.erase(path.path());
     updateDeviceProps();
 }
 
@@ -490,33 +493,40 @@ void PowerDevilUPowerBackend::updateDeviceProps()
     double energyFullTotal = 0.0;
     qulonglong timestamp = 0;
 
-    if (m_displayDevice && m_displayDevice->isPresent()) {
-        const uint state = m_displayDevice->state();
+    if (m_displayDevice) {
+        if (!m_displayDevice->isPresent()) {
+	    // No Battery/Ups, nothing to report
+	    return;
+	}
+        const auto state = m_displayDevice->state();
         energyTotal = m_displayDevice->energy();
         energyFullTotal = m_displayDevice->energyFull();
         timestamp = m_displayDevice->updateTime();
 
-        if (state == 1) { // charging
+        if (state == UPowerDevice::State::Charging) {
             energyRateTotal = m_displayDevice->energyRate();
-        } else if (state == 2) { //discharging
+        } else if (state == UPowerDevice::State::Discharging) {
             energyRateTotal = -1.0 * m_displayDevice->energyRate();
         }
     } else {
-        for (const OrgFreedesktopUPowerDeviceInterface * upowerDevice : qAsConst(m_devices)) {
-            const uint type = upowerDevice->type();
-            if (( type == 2 || type == 3) && upowerDevice->powerSupply()) {
-                const uint state = upowerDevice->state();
+        for (const auto& [key, upowerDevice] : m_devices) {
+            if (!upowerDevice->isPowerSupply()) {
+                continue;
+	    }
+            const auto type = upowerDevice->type();
+            if (type == UPowerDevice::Type::Battery || type == UPowerDevice::Type::Ups) {
+                const auto state = upowerDevice->state();
                 energyFullTotal += upowerDevice->energyFull();
                 energyTotal += upowerDevice->energy();
 
-                if (state == 4) { // fully charged
+                if (state == UPowerDevice::State::FullyCharged) {
                     continue;
                 }
 
                 timestamp = std::max(timestamp, upowerDevice->updateTime());
-                if (state == 1) { // charging
+                if (state == UPowerDevice::State::Charging) {
                     energyRateTotal += upowerDevice->energyRate();
-                } else if (state == 2) { // discharging
+                } else if (state == UPowerDevice::State::Discharging) {
                     energyRateTotal -= upowerDevice->energyRate();
                 }
             }
@@ -556,16 +566,6 @@ void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, cons
     if (onBattery != m_onBattery) {
         setAcAdapterState(onBattery ? Unplugged : Plugged);
         m_onBattery = onBattery;
-    }
-}
-
-void PowerDevilUPowerBackend::onDevicePropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
-{
-    Q_UNUSED(changedProps);
-    Q_UNUSED(invalidatedProps);
-
-    if (ifaceName == UPOWER_IFACE_DEVICE) {
-        updateDeviceProps(); // TODO maybe process the properties separately?
     }
 }
 
