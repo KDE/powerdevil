@@ -43,6 +43,9 @@ kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelpe
 kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_actions.actions)
 
 add_library(powerdevilupowerbackend ${powerdevilupowerbackend_SRCS})
+
+generate_export_header(powerdevilupowerbackend)
+
 set_target_properties(powerdevilupowerbackend PROPERTIES PREFIX "")
 target_link_libraries(powerdevilupowerbackend
     Qt::Widgets

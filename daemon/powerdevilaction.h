@@ -24,6 +24,8 @@
 #include <QObject>
 #include <QVariantMap>
 
+#include "powerdevilcore_export.h"
+
 class KConfigGroup;
 
 namespace PowerDevil
@@ -96,7 +98,7 @@ class Core;
  *
  * @since 4.6
  */
-class Q_DECL_EXPORT Action : public QObject
+class POWERDEVILCORE_EXPORT Action : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Action)

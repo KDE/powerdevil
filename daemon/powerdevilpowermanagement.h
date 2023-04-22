@@ -22,9 +22,11 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QObject>
 
+#include "powerdevilcore_export.h"
+
 namespace PowerDevil {
 
-class Q_DECL_EXPORT PowerManagement : public QObject
+class POWERDEVILCORE_EXPORT PowerManagement : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool canSuspend READ canSuspend NOTIFY canSuspendChanged)

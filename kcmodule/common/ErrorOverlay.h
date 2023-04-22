@@ -21,7 +21,9 @@
 
 #include <QWidget>
 
-class Q_DECL_EXPORT ErrorOverlay : public QWidget
+#include "powerdevilconfigcommonprivate_export.h"
+
+class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT ErrorOverlay : public QWidget
 {
     Q_OBJECT
 public:

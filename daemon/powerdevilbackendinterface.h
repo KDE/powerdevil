@@ -24,11 +24,13 @@
 
 #include "powerdevilbrightnesslogic.h"
 
+#include "powerdevilcore_export.h"
+
 class KJob;
 
 namespace PowerDevil {
 
-class Q_DECL_EXPORT BackendInterface : public QObject
+class POWERDEVILCORE_EXPORT BackendInterface : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(BackendInterface)

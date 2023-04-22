@@ -2,4 +2,5 @@ ClassName=PowerDevilSettings
 File=PowerDevilSettings.kcfg
 Mutators=true
 Singleton=true
-Visibility=Q_DECL_EXPORT
+Visibility=POWERDEVILCORE_EXPORT
+IncludeFiles=powerdevilcore_export.h

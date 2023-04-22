@@ -30,9 +30,11 @@
 #include <xcb/xcb.h>
 #endif
 
+#include "powerdevilcore_export.h"
+
 namespace PowerDevil
 {
-class Q_DECL_EXPORT KWinKScreenHelperEffect : public QObject, public QAbstractNativeEventFilter
+class POWERDEVILCORE_EXPORT KWinKScreenHelperEffect : public QObject, public QAbstractNativeEventFilter
 {
     Q_OBJECT
 

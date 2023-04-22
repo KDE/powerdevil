@@ -29,6 +29,8 @@
 #include <QDBusContext>
 #include <QDBusUnixFileDescriptor>
 
+#include "powerdevilcore_export.h"
+
 class QDBusServiceWatcher;
 class QDBusInterface;
 
@@ -65,7 +67,7 @@ struct LogindInhibition
 namespace PowerDevil
 {
 
-class Q_DECL_EXPORT PolicyAgent : public QObject, protected QDBusContext
+class POWERDEVILCORE_EXPORT PolicyAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(PolicyAgent)

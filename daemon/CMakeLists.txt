@@ -41,6 +41,8 @@ qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screen
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} powerdevil_debug.cpp)
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
 
+generate_export_header(powerdevilcore)
+
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
     KF6::Activities

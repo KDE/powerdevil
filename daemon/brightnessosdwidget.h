@@ -26,9 +26,11 @@
 
 #include "powerdevilbackendinterface.h"
 
+#include "powerdevilcore_export.h"
+
 namespace BrightnessOSDWidget
 {
 
-    Q_DECL_EXPORT void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
+    POWERDEVILCORE_EXPORT void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
 
 }

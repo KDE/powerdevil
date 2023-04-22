@@ -9,6 +9,8 @@ set( powerdevil_config_common_private_SRCS
 
 add_library(powerdevilconfigcommonprivate SHARED ${powerdevil_config_common_private_SRCS})
 
+generate_export_header(powerdevilconfigcommonprivate)
+
 # not exported, so just make the links public
 target_link_libraries(powerdevilconfigcommonprivate
     PUBLIC

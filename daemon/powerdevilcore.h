@@ -34,6 +34,8 @@
 
 #include <KSharedConfig>
 
+#include "powerdevilcore_export.h"
+
 namespace KActivities
 {
     class Consumer;
@@ -60,7 +62,7 @@ struct WakeupInfo {
     qint64 timeout;
 };
 
-class Q_DECL_EXPORT Core : public QObject, protected QDBusContext
+class POWERDEVILCORE_EXPORT Core : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(Core)

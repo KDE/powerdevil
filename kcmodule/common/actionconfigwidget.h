@@ -26,8 +26,9 @@
 #include <QMap>
 #include <QString>
 
+#include "powerdevilconfigcommonprivate_export.h"
 
-class Q_DECL_EXPORT ActionConfigWidget : public QWidget
+class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT ActionConfigWidget : public QWidget
 {
 Q_OBJECT
 public:

@@ -23,6 +23,8 @@
 
 #include <KSharedConfig>
 
+#include "powerdevilconfigcommonprivate_export.h"
+
 namespace PowerDevil
 {
 class ActionConfig;
@@ -31,7 +33,7 @@ class ActionConfig;
 class QCheckBox;
 class KConfigGroup;
 
-class Q_DECL_EXPORT ActionEditWidget : public QWidget
+class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT ActionEditWidget : public QWidget
 {
     Q_OBJECT
 public:

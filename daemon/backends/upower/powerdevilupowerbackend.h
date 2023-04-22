@@ -32,6 +32,8 @@
 #include "upower_kbdbacklight_interface.h"
 #include "udevqt.h"
 
+#include "powerdevilupowerbackend_export.h"
+
 #define UPOWER_SERVICE "org.freedesktop.UPower"
 #define UPOWER_PATH "/org/freedesktop/UPower"
 #define UPOWER_IFACE "org.freedesktop.UPower"
@@ -43,7 +45,7 @@
 class QPropertyAnimation;
 class QTimer;
 class DDCutilBrightness;
-class Q_DECL_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
+class POWERDEVILUPOWERBACKEND_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilUPowerBackend)
