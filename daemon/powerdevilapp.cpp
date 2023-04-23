@@ -74,7 +74,6 @@ void PowerDevilApp::init()
     KAboutData::setApplicationData(aboutData);
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.PowerManagement")) ||
-        QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("com.novell.powersave")) ||
         QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.Policy.Power"))) {
         qCCritical(POWERDEVIL) << "KDE Power Management system not initialized, another power manager has been detected";
         return;
