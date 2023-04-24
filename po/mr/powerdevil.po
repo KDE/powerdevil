@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:18+0000\n"
+"POT-Creation-Date: 2023-04-24 02:40+0000\n"
 "PO-Revision-Date: 2014-10-28 10:28+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -319,7 +319,7 @@ msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "पालक"
 
-#: powerdevilapp.cpp:160
+#: powerdevilapp.cpp:159
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

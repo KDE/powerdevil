@@ -172,17 +172,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Risparmio energetico wireless</guilabel
-></term>
-<listitem>
-<para
->Attiva questa opzione per impostare azioni individuali per connessioni Wi-Fi, mobili a banda larga o Bluetooth. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
@@ -232,16 +221,6 @@
 >Non spegnere mai lo schermo</guilabel
 > e <guilabel
 >Non spegnere mai il computer o lasciare che vada in sospensione</guilabel
->. È anche possibile definire il tempo dopo cui il computer andrà in sospensione per le attività di risparmio energetico. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Usa impostazioni separate (solo utenti avanzati)</term>
-<listitem>
-<para
->Questa opzione permette agli utenti di scegliere le importazioni dettagliate di risparmio energetico per un'attività particolare. Le impostazioni sono simili a quelle della <link linkend="energy-saving-setting"
->pagina del risparmio energetico</link
 >. </para>
 </listitem>
 </varlistentry>
