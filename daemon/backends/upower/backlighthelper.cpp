@@ -114,7 +114,11 @@ QStringList BacklightHelper::getBacklightTypeDevices() const
     QStringList ledInterfaces = ledsDir.entryList();
 
     if (!ledInterfaces.isEmpty()) {
-        return ledInterfaces;
+        QStringList output;
+        for (const QString &interface : ledInterfaces) {
+            output.append(LED_SYSFS_PATH + interface);
+        }
+        return output;
     }
 
     QDir backlightDir(BACKLIGHT_SYSFS_PATH);
