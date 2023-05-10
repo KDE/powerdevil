@@ -67,10 +67,10 @@ void DDCutilBrightness::detect()
         qCDebug(POWERDEVIL) << "Opening the display reference, creating a display handle...";
         rc = ddca_open_display2(dlist->info[iDisp].dref, true, &dh);
         if (rc != 0) {
-            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddct_open_display"<< rc;
+            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddca_open_display2" << rc;
             continue;
         }
-        
+
         DDCA_Feature_List vcpList;
         ddca_get_feature_list_by_dref(DDCA_SUBSET_COLOR, dh, false, &vcpList);
         QVector<uint16_t> tmpVcpList;
