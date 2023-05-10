@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-24 02:40+0000\n"
-"PO-Revision-Date: 2023-05-01 23:38+0200\n"
+"PO-Revision-Date: 2023-05-09 23:58+0200\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: \n"
 "Language: ast\n"
@@ -187,7 +187,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
-msgstr ""
+msgstr "Nivel"
 
 #: actions/bundled/powerprofileconfig.cpp:84
 #, kde-format
@@ -197,17 +197,17 @@ msgstr ""
 #: actions/bundled/powerprofileconfig.cpp:92
 #, kde-format
 msgid "Power Save"
-msgstr ""
+msgstr "Aforru d'enerxía"
 
 #: actions/bundled/powerprofileconfig.cpp:93
 #, kde-format
 msgid "Balanced"
-msgstr ""
+msgstr "Equilibriu"
 
 #: actions/bundled/powerprofileconfig.cpp:94
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "Rindimientu"
 
 #: actions/bundled/powerprofileconfig.cpp:109
 #, kde-format
@@ -331,7 +331,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilcore.cpp:551
 #, kde-format
