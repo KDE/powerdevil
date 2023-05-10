@@ -39,7 +39,7 @@ PowerDevilDPMSActionConfig::~PowerDevilDPMSActionConfig()
 void PowerDevilDPMSActionConfig::save()
 {
     configGroup().writeEntry("idleTime", m_spinBox->value() * 60);
-    configGroup().writeEntry("idleTimeWhileLocked", m_spinBox2->value());
+    configGroup().writeEntry("idleTimeoutWhenLocked", m_spinIdleTimeoutLocked->value());
 
     configGroup().sync();
 }
@@ -48,7 +48,7 @@ void PowerDevilDPMSActionConfig::load()
 {
     configGroup().config()->reparseConfiguration();
     m_spinBox->setValue(configGroup().readEntry<int>("idleTime", 600) / 60);
-    m_spinBox2->setValue(configGroup().readEntry<int>("idleTimeWhileLocked", 30));
+    m_spinIdleTimeoutLocked->setValue(configGroup().readEntry<int>("idleTimeoutWhenLocked", 60));
 }
 
 QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
@@ -62,16 +62,16 @@ QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
     m_spinBox->setSuffix(i18n(" min"));
     retlist.append(qMakePair< QString, QWidget* >(i18n("Switch off after"), m_spinBox));
 
-    connect(m_spinBox, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
+    connect(m_spinBox, &QSpinBox::valueChanged, this, &PowerDevilDPMSActionConfig::setChanged);
 
-    m_spinBox2 = new QSpinBox;
-    m_spinBox2->setMaximumWidth(150);
-    m_spinBox2->setMinimum(0);
-    m_spinBox2->setMaximum(360);
-    m_spinBox2->setSuffix(i18n(" sec"));
-    retlist.append(qMakePair< QString, QWidget* >(i18n("Switch off while locked"), m_spinBox2));
+    m_spinIdleTimeoutLocked = new QSpinBox;
+    m_spinIdleTimeoutLocked->setMaximumWidth(150);
+    m_spinIdleTimeoutLocked->setMinimum(0);
+    m_spinIdleTimeoutLocked->setMaximum(360);
+    m_spinIdleTimeoutLocked->setSuffix(i18n(" sec"));
+    retlist.append(qMakePair<QString, QWidget *>(i18n("When screen is locked, switch off after"), m_spinIdleTimeoutLocked));
 
-    connect(m_spinBox2, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));
+    connect(m_spinIdleTimeoutLocked, &QSpinBox::valueChanged, this, &PowerDevilDPMSActionConfig::setChanged);
 
     return retlist;
 }

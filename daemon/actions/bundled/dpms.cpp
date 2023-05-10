@@ -62,11 +62,14 @@ DPMS::DPMS(QObject *parent, const QVariantList &)
     }
 
     // Listen to the policy agent
-    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
+    auto policyAgent = PowerDevil::PolicyAgent::instance();
+    connect(policyAgent, &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
             this, &DPMS::onUnavailablePoliciesChanged);
 
+    connect(policyAgent, &PowerDevil::PolicyAgent::screenLockerActiveChanged, this, &DPMS::onScreenLockerActiveChanged);
+
     // inhibitions persist over kded module unload/load
-    m_inhibitScreen = PowerDevil::PolicyAgent::instance()->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
+    m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 
     KActionCollection *actionCollection = new KActionCollection( this );
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -117,28 +120,18 @@ void DPMS::onIdleTimeout(int msec)
         return;
     }
 
-    // Only run if we are in the lock screen
-    if (PowerDevil::PolicyAgent::instance()->screenLockerActive() &&
-        msec == m_idleTimeWhileLocked * 1000) {
-        const int brightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
-        if (brightness > 0) {
-            m_oldKeyboardBrightness = brightness;
-            setKeyboardBrightnessHelper(0);
-        }
-        if (isSupported()) {
-            m_dpms->switchMode(KScreen::Dpms::Off);
-        }
-        return;
-    }
+    if (msec == m_idleTime * 1000 - 5000
+        || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && msec == m_idleTimeoutWhenLocked * 1000 - 5000)) { // fade out screen
 
-    if (msec == m_idleTime * 1000 - 5000) { // fade out screen
         if (isSupported()) {
+            // only used in X11
             Q_EMIT startFade();
         }
-    } else if (msec == m_idleTime * 1000) {
-        const int brightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
-        if (brightness > 0) {
-            m_oldKeyboardBrightness = brightness;
+
+    } else if (msec == m_idleTime * 1000 || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && msec == m_idleTimeoutWhenLocked * 1000)) {
+        const int keyboardBrightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
+        if (keyboardBrightness > 0) {
+            m_oldKeyboardBrightness = keyboardBrightness;
             setKeyboardBrightnessHelper(0);
         }
         if (isSupported()) {
@@ -187,29 +180,44 @@ void DPMS::triggerImpl(const QVariantMap& args)
 bool DPMS::loadAction(const KConfigGroup& config)
 {
     m_idleTime = config.readEntry<int>("idleTime", -1);
-    if (m_idleTime > 0) {
-        registerIdleTimeout(m_idleTime * 1000);
-        registerIdleTimeout(m_idleTime * 1000 - 5000); // start screen fade a bit earlier to alert user
-    }
-    m_idleTimeWhileLocked = config.readEntry<int>("idleTimeWhileLocked", -1);
-    if (m_idleTimeWhileLocked > 0) {
-        registerIdleTimeout(m_idleTimeWhileLocked * 1000);
-    }
     m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
+
+    m_idleTimeoutWhenLocked = config.readEntry<int>("idleTimeoutWhenLocked", 60);
+
+    registerDpmsOffOnIdleTimeout(m_idleTime);
 
     return true;
 }
 
 bool DPMS::onUnloadAction()
 {
-    m_idleTime = 0;
-    m_idleTimeWhileLocked = 0;
     return Action::onUnloadAction();
 }
 
 void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
 {
     m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
+}
+
+void PowerDevil::BundledActions::DPMS::registerDpmsOffOnIdleTimeout(int timeoutMsecs)
+{
+    if (timeoutMsecs > 0) {
+        registerIdleTimeout(timeoutMsecs * 1000);
+        registerIdleTimeout(timeoutMsecs * 1000 - 5000); // start screen fade a bit earlier to alert user
+    }
+}
+
+void DPMS::onScreenLockerActiveChanged(bool active)
+{
+    unloadAction();
+
+    if (active) {
+        // in lockscreen
+        registerDpmsOffOnIdleTimeout(m_idleTimeoutWhenLocked);
+    } else {
+        // restoring normal idleTimeout
+        registerDpmsOffOnIdleTimeout(m_idleTime);
+    }
 }
 
 static std::chrono::milliseconds dimAnimationTime()
@@ -221,7 +229,7 @@ static std::chrono::milliseconds dimAnimationTime()
 void DPMS::lockScreen()
 {
     // We need to delay locking until the screen has dimmed, otherwise it looks all clunky
-    QTimer::singleShot(dimAnimationTime(), [] {
+    QTimer::singleShot(dimAnimationTime(), this, [] {
         QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
                                                                             "/ScreenSaver",
                                                                             "org.freedesktop.ScreenSaver",

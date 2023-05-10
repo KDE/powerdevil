@@ -60,12 +60,14 @@ public:
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
+    void onScreenLockerActiveChanged(bool active);
 
 private:
     void setKeyboardBrightnessHelper(int brightness);
+    void registerDpmsOffOnIdleTimeout(int timeoutMsecs);
 
-    int m_idleTime = 0;
-    int m_idleTimeWhileLocked = 0;
+    int m_idleTime = -1;
+    int m_idleTimeoutWhenLocked = -1;
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
     int m_oldKeyboardBrightness = 0;
