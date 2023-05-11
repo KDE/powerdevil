@@ -34,8 +34,16 @@ public:
      * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
      * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
      * - Toggle: Key to toggle backlight (Qt::Key_KeyboardBacklightOnOff)
+     * - IncreaseSmall: Key to increase brightness by 1% (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp + Qt::ShiftModifier)
+     * - DecreaseSmall: Key to decrease brightness by 1% (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown + Qt::ShiftModifier)
      */
-    enum BrightnessKeyType { Increase, Decrease, Toggle };
+    enum BrightnessKeyType {
+        Increase,
+        Decrease,
+        Toggle,
+        IncreaseSmall,
+        DecreaseSmall,
+    };
 
     /**
      * This struct contains information about current brightness state for a single device
@@ -94,6 +102,22 @@ public:
      * @return The brightness value that should be set, or -1 if nothing should be done
      */
     virtual int toggled() const;
+
+    /**
+     * Calculates the brightness value of the closest step upwards.
+     * (Closest step that is higher than current brightness value).
+     *
+     * @return The brightness value of the closest step upwards
+     */
+    virtual int increasedSmall() const;
+
+    /**
+     * Calculates the brightness value of the closest step downwards.
+     * (Closest step that is lower than current brightness value).
+     *
+     * @return The brightness value of the closest step downwards
+     */
+    virtual int decreasedSmall() const;
 
     /**
      * Retrieve the current brightness value.

@@ -57,10 +57,20 @@ BrightnessControl::BrightnessControl(QObject *parent, const QVariantList &)
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
     connect(globalAction, &QAction::triggered, this, &BrightnessControl::increaseBrightness);
 
+    globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness Small"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness by 1%"));
+    KGlobalAccel::setGlobalShortcut(globalAction, Qt::ShiftModifier | Qt::Key_MonBrightnessUp);
+    connect(globalAction, &QAction::triggered, this, &BrightnessControl::increaseBrightnessSmall);
+
     globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessDown);
     connect(globalAction, &QAction::triggered, this, &BrightnessControl::decreaseBrightness);
+
+    globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness Small"));
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness by 1%"));
+    KGlobalAccel::setGlobalShortcut(globalAction, Qt::ShiftModifier | Qt::Key_MonBrightnessDown);
+    connect(globalAction, &QAction::triggered, this, &BrightnessControl::decreaseBrightnessSmall);
 }
 
 void BrightnessControl::onProfileUnload()
@@ -178,9 +188,25 @@ void BrightnessControl::increaseBrightness()
     }
 }
 
+void BrightnessControl::increaseBrightnessSmall()
+{
+    const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::IncreaseSmall);
+    if (newBrightness > -1) {
+        BrightnessOSDWidget::show(brightnessPercent(newBrightness));
+    }
+}
+
 void BrightnessControl::decreaseBrightness()
 {
     const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::Decrease);
+    if (newBrightness > -1) {
+        BrightnessOSDWidget::show(brightnessPercent(newBrightness));
+    }
+}
+
+void BrightnessControl::decreaseBrightnessSmall()
+{
+    const int newBrightness = backend()->brightnessKeyPressed(BrightnessLogic::DecreaseSmall);
     if (newBrightness > -1) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }

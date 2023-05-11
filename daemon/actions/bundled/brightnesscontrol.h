@@ -53,7 +53,9 @@ public:
 public Q_SLOTS:
     // DBus export
     void increaseBrightness();
+    void increaseBrightnessSmall();
     void decreaseBrightness();
+    void decreaseBrightnessSmall();
     void setBrightness(int percent);
     void setBrightnessSilent(int percent);
 

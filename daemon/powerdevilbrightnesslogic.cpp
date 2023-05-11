@@ -48,6 +48,10 @@ int BrightnessLogic::action(BrightnessKeyType type) const {
         return decreased();
     case Toggle:
         return toggled();
+    case IncreaseSmall:
+        return increasedSmall();
+    case DecreaseSmall:
+        return decreasedSmall();
     }
 
     return -1; // We shouldn't get here
@@ -71,6 +75,12 @@ int BrightnessLogic::increased() const
     return stepToValue(step);
 }
 
+int BrightnessLogic::increasedSmall() const
+{
+    const double newPercent = (std::round(m_value * 100 / double(m_valueMax)) + 1) / 100.0;
+    return std::min<int>(m_valueMax, std::round(m_valueMax * newPercent));
+}
+
 int BrightnessLogic::decreased() const
 {
     if (m_value == 0) {
@@ -87,6 +97,12 @@ int BrightnessLogic::decreased() const
     }
 
     return stepToValue(step);
+}
+
+int BrightnessLogic::decreasedSmall() const
+{
+    const double newPercent = (std::round(m_value * 100 / double(m_valueMax)) - 1) / 100.0;
+    return std::max<int>(0, std::round(m_valueMax * newPercent));
 }
 
 int BrightnessLogic::toggled() const
