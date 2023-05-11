@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: potwerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 02:40+0000\n"
+"POT-Creation-Date: 2023-05-11 02:04+0000\n"
 "PO-Revision-Date: 2010-06-01 18:58+0530\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: American English <kde-translation@bengalinux.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "deepayan@bengalinux.org"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, fuzzy, kde-format
@@ -58,7 +58,7 @@ msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr ""
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
 #: actions/bundled/runscriptconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:86
 #, fuzzy, kde-format
@@ -73,17 +73,29 @@ msgstr "মিনিট"
 msgid "After"
 msgstr ""
 
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:78
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr ""
 
-#: actions/bundled/dpmsconfig.cpp:61
+#: actions/bundled/dpmsconfig.cpp:63
 #, fuzzy, kde-format
 #| msgid "&Power off after"
 msgid "Switch off after"
 msgstr "এতক্ষণ পরে &বন্ধ করে দাও"
+
+#: actions/bundled/dpmsconfig.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "As in \"seconds\""
+#| msgid "sec"
+msgid " sec"
+msgstr "সেকণ্ড"
+
+#: actions/bundled/dpmsconfig.cpp:72
+#, kde-format
+msgid "When screen is locked, switch off after"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, fuzzy, kde-format
@@ -1007,12 +1019,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Before doing a suspend action, wait"
 #~ msgstr "একটি করার পূর্বে ক্রিয়া নিলম্বন করো, অপেক্ষা করো"
-
-#, fuzzy
-#~| msgctxt "As in \"seconds\""
-#~| msgid "sec"
-#~ msgid " sec"
-#~ msgstr "সেকণ্ড"
 
 #, fuzzy
 #~| msgid "Do nothing"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 02:40+0000\n"
+"POT-Creation-Date: 2023-05-11 02:04+0000\n"
 "PO-Revision-Date: 2021-07-26 12:52+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sergiu@cip.md"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -56,7 +56,7 @@ msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Nivel"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
 #: actions/bundled/runscriptconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
@@ -70,16 +70,26 @@ msgstr " min"
 msgid "After"
 msgstr "După"
 
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:78
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Deconectează ecranul"
 
-#: actions/bundled/dpmsconfig.cpp:61
+#: actions/bundled/dpmsconfig.cpp:63
 #, kde-format
 msgid "Switch off after"
 msgstr "Deconectare după"
+
+#: actions/bundled/dpmsconfig.cpp:71
+#, kde-format
+msgid " sec"
+msgstr " sec"
+
+#: actions/bundled/dpmsconfig.cpp:72
+#, kde-format
+msgid "When screen is locked, switch off after"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
@@ -1084,9 +1094,6 @@ msgstr "Acumulatorul este complet încărcat."
 
 #~ msgid "Before doing a suspend action, wait"
 #~ msgstr "Înainte de efectuarea unei acțiuni de suspendare, așteaptă"
-
-#~ msgid " sec"
-#~ msgstr " sec"
 
 #~ msgid "Do not wait"
 #~ msgstr "Nu aștepta"

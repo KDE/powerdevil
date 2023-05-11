@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 02:40+0000\n"
+"POT-Creation-Date: 2023-05-11 02:04+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -56,7 +56,7 @@ msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Ниво"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
 #: actions/bundled/runscriptconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
@@ -72,17 +72,27 @@ msgid "After"
 msgstr "после"
 
 # >> @item:inlistbox
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:78
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "угаси екран"
 
-#: actions/bundled/dpmsconfig.cpp:61
+#: actions/bundled/dpmsconfig.cpp:63
 #, kde-format
 msgid "Switch off after"
 msgstr "Угаси после"
+
+#: actions/bundled/dpmsconfig.cpp:71
+#, kde-format
+msgid " sec"
+msgstr ""
+
+#: actions/bundled/dpmsconfig.cpp:72
+#, kde-format
+msgid "When screen is locked, switch off after"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 02:40+0000\n"
+"POT-Creation-Date: 2023-05-11 02:04+0000\n"
 "PO-Revision-Date: 2008-11-06 22:08+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ewerner@uni-leipzig.de"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, kde-format
@@ -53,7 +53,7 @@ msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Stopjeń"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
 #: actions/bundled/runscriptconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
@@ -67,16 +67,29 @@ msgstr "mjeń."
 msgid "After"
 msgstr "Po"
 
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:78
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Wobrazowku hasnyć"
 
-#: actions/bundled/dpmsconfig.cpp:61
+#: actions/bundled/dpmsconfig.cpp:63
 #, kde-format
 msgid "Switch off after"
 msgstr "Hasnyć po"
+
+#: actions/bundled/dpmsconfig.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "@item:intext"
+#| msgid "1 second"
+#| msgid_plural "%1 seconds"
+msgid " sec"
+msgstr "%1 sekunda"
+
+#: actions/bundled/dpmsconfig.cpp:72
+#, kde-format
+msgid "When screen is locked, switch off after"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
@@ -555,13 +568,6 @@ msgstr "Aku je nětko cyle połny."
 #~| msgid "File Management"
 #~ msgid "Profile Assignment"
 #~ msgstr "Datajowy manager"
-
-#, fuzzy
-#~| msgctxt "@item:intext"
-#~| msgid "1 second"
-#~| msgid_plural "%1 seconds"
-#~ msgid " sec"
-#~ msgstr "%1 sekunda"
 
 #~ msgid "Actions"
 #~ msgstr "Akcije"

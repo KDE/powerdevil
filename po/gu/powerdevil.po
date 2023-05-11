@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 02:40+0000\n"
+"POT-Creation-Date: 2023-05-11 02:04+0000\n"
 "PO-Revision-Date: 2010-06-22 16:52+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "swkothar@redhat.com, kartik.mistry@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, fuzzy, kde-format
@@ -60,7 +60,7 @@ msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "સ્તર"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
 #: actions/bundled/runscriptconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
@@ -74,17 +74,29 @@ msgstr " મિનિટ"
 msgid "After"
 msgstr "પછી"
 
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:78
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "સ્ક્રિન બંધ કરો"
 
-#: actions/bundled/dpmsconfig.cpp:61
+#: actions/bundled/dpmsconfig.cpp:63
 #, kde-format
 msgid "Switch off after"
 msgstr "પાવર બંધ કરો"
+
+#: actions/bundled/dpmsconfig.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "As in \"seconds\""
+#| msgid " sec"
+msgid " sec"
+msgstr " સેક"
+
+#: actions/bundled/dpmsconfig.cpp:72
+#, kde-format
+msgid "When screen is locked, switch off after"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, fuzzy, kde-format
@@ -830,12 +842,6 @@ msgstr ""
 
 #~ msgid "Before doing a suspend action, wait"
 #~ msgstr "સસ્પેન્ડ ક્રિયા કરતાં પહેલાં, રાહ જુઓ"
-
-#, fuzzy
-#~| msgctxt "As in \"seconds\""
-#~| msgid " sec"
-#~ msgid " sec"
-#~ msgstr " સેક"
 
 #~ msgid "Do not wait"
 #~ msgstr "રાહ ન જુઓ"

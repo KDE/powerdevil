@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 02:40+0000\n"
+"POT-Creation-Date: 2023-05-11 02:04+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:72
+#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
 #, fuzzy, kde-format
@@ -53,7 +53,7 @@ msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr ""
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
+#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
 #: actions/bundled/runscriptconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
@@ -67,16 +67,26 @@ msgstr " മിനിറ്റ്"
 msgid "After"
 msgstr ""
 
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:78
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "സ്ക്രീന്‍ കെടുത്തുക"
 
-#: actions/bundled/dpmsconfig.cpp:61
+#: actions/bundled/dpmsconfig.cpp:63
 #, fuzzy, kde-format
 msgid "Switch off after"
 msgstr "എത്ര സമയത്തിനു് ശേഷം &നിര്‍ത്തി വയ്ക്കാം"
+
+#: actions/bundled/dpmsconfig.cpp:71
+#, fuzzy, kde-format
+msgid " sec"
+msgstr "സെക്കന്റുകള്‍"
+
+#: actions/bundled/dpmsconfig.cpp:72
+#, kde-format
+msgid "When screen is locked, switch off after"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, fuzzy, kde-format
@@ -894,10 +904,6 @@ msgstr ""
 
 #~ msgid "Before doing a suspend action, wait"
 #~ msgstr "മയങ്ങുന്നതിനു് മുമ്പു് എത്ര സമയം കാത്തിരിയ്ക്കണം"
-
-#, fuzzy
-#~ msgid " sec"
-#~ msgstr "സെക്കന്റുകള്‍"
 
 #~ msgid "Do not wait"
 #~ msgstr "കാത്തുനില്‍ക്കേണ്ട"
