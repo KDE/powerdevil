@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-11 02:04+0000\n"
-"PO-Revision-Date: 2022-11-25 09:40+0200\n"
+"PO-Revision-Date: 2023-05-11 07:07+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -84,12 +84,12 @@ msgstr "Вимикати за"
 #: actions/bundled/dpmsconfig.cpp:71
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " сек"
 
 #: actions/bundled/dpmsconfig.cpp:72
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "Коли екран заблоковано, вимикати за"
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
