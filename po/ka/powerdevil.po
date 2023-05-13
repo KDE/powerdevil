@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-11 02:04+0000\n"
-"PO-Revision-Date: 2023-02-03 16:21+0100\n"
+"PO-Revision-Date: 2023-05-12 05:35+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -82,12 +82,12 @@ msgstr "გამორთვის დაყოვნება"
 #: actions/bundled/dpmsconfig.cpp:71
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " წმ"
 
 #: actions/bundled/dpmsconfig.cpp:72
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "როცა ეკრანი დაბლოკილია, მისი გამორთვა"
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
