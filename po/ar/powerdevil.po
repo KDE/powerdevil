@@ -417,7 +417,7 @@ msgstr "ألغِ"
 #: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "بلغت البطارية المستوى الحرج، سيطفئ الحاسوب في  ٦٠ ثانية."
+msgstr "بلغت البطارية المستوى الحرج، سيطفئ الحاسوب في  60 ثانية."
 
 #: powerdevilcore.cpp:645
 #, kde-format
@@ -431,7 +431,7 @@ msgstr "أطفئ الآن"
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr "بلغت البطارية المستوى الحرج، سيُسبت الحاسوب في ٦٠ ثانية."
+msgstr "بلغت البطارية المستوى الحرج، سيُسبت الحاسوب في 60 ثانية."
 
 #: powerdevilcore.cpp:651
 #, kde-format
@@ -444,7 +444,7 @@ msgstr "أسبت الآن"
 #: powerdevilcore.cpp:656
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "بلغت البطارية المستوى الحرج، سينام الحاسوب في ٦٠ ثانية."
+msgstr "بلغت البطارية المستوى الحرج، سينام الحاسوب في 60 ثانية."
 
 #: powerdevilcore.cpp:657
 #, kde-format
