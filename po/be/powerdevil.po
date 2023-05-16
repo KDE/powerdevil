@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 02:04+0000\n"
+"POT-Creation-Date: 2023-05-16 02:15+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -46,9 +46,25 @@ msgid "Increase Screen Brightness"
 msgstr "Павялічыць яркасць экрана"
 
 #: actions/bundled/brightnesscontrol.cpp:61
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Павялічыць яркасць экрана"
+
+#: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
+msgstr "Паменшыць яркасць экрана"
+
+#: actions/bundled/brightnesscontrol.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
 msgstr "Паменшыць яркасць экрана"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75

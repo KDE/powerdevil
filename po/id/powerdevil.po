@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 02:04+0000\n"
+"POT-Creation-Date: 2023-05-16 02:15+0000\n"
 "PO-Revision-Date: 2023-02-18 15:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -45,9 +45,25 @@ msgid "Increase Screen Brightness"
 msgstr "Tambahi Kecerahan Layar"
 
 #: actions/bundled/brightnesscontrol.cpp:61
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Tambahi Kecerahan Layar"
+
+#: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
+msgstr "Kurangi Kecerahan Layar"
+
+#: actions/bundled/brightnesscontrol.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
 msgstr "Kurangi Kecerahan Layar"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75

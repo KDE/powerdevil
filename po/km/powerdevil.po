@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 02:04+0000\n"
+"POT-Creation-Date: 2023-05-16 02:15+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -50,9 +50,25 @@ msgstr "បង្កើន​ពន្លឺ​អេក្រង់"
 #: actions/bundled/brightnesscontrol.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "បង្កើន​ពន្លឺ​អេក្រង់"
+
+#: actions/bundled/brightnesscontrol.cpp:66
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
 #| msgid "Decrease Screen Brightness"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
+msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
+
+#: actions/bundled/brightnesscontrol.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
 msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75

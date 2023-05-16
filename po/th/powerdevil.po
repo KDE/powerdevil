@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 02:04+0000\n"
+"POT-Creation-Date: 2023-05-16 02:15+0000\n"
 "PO-Revision-Date: 2010-12-18 14:04+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -50,9 +50,25 @@ msgstr "เพิ่มความสว่างของหน้าจอ"
 #: actions/bundled/brightnesscontrol.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "เพิ่มความสว่างของหน้าจอ"
+
+#: actions/bundled/brightnesscontrol.cpp:66
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
 #| msgid "Decrease Screen Brightness"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
+msgstr "ลดความสว่างของหน้าจอ"
+
+#: actions/bundled/brightnesscontrol.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
 msgstr "ลดความสว่างของหน้าจอ"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75

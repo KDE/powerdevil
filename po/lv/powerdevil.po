@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-11 02:04+0000\n"
+"POT-Creation-Date: 2023-05-16 02:15+0000\n"
 "PO-Revision-Date: 2012-01-07 08:18+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -52,9 +52,25 @@ msgstr "Palielināt ekrāna spilgtumu"
 #: actions/bundled/brightnesscontrol.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Palielināt ekrāna spilgtumu"
+
+#: actions/bundled/brightnesscontrol.cpp:66
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
 #| msgid "Decrease Screen Brightness"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
+msgstr "Samazināt ekrāna spilgtumu"
+
+#: actions/bundled/brightnesscontrol.cpp:71
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
 msgstr "Samazināt ekrāna spilgtumu"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
