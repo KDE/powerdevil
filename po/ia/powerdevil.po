@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 02:15+0000\n"
-"PO-Revision-Date: 2023-05-11 10:28+0200\n"
+"PO-Revision-Date: 2023-05-16 22:10+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,12 +42,10 @@ msgid "Increase Screen Brightness"
 msgstr "Augmenta Intensitate de illumination de schermo"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Augmenta Intensitate de illumination de schermo"
+msgstr "Augmenta Brillantia de schermo per 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
@@ -56,12 +54,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Diminue Intensitate de illumination de schermo"
 
 #: actions/bundled/brightnesscontrol.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Diminue Intensitate de illumination de schermo"
+msgstr "Diminue brillantia de schermo per 1%"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
