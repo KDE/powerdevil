@@ -83,8 +83,9 @@ QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
     m_comboBox->addItem(i18n("On Profile Load"));
     m_comboBox->addItem(i18n("On Profile Unload"));
     m_comboBox->addItem(i18n("After"));
-    connect(m_comboBox, SIGNAL(currentIndexChanged(QString)),
-            this, SLOT(onIndexChanged(QString)));
+    connect(m_comboBox, &KComboBox::currentIndexChanged, this, [this](int index) {
+        onIndexChanged(m_comboBox->itemText(index));
+    });
 
     hlay->addWidget(m_comboBox);
     hlay->addWidget(m_idleTime);
