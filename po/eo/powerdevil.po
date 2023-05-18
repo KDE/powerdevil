@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 02:15+0000\n"
-"PO-Revision-Date: 2023-03-25 20:30+0100\n"
+"PO-Revision-Date: 2023-05-17 07:19+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -43,12 +43,10 @@ msgid "Increase Screen Brightness"
 msgstr "Pliigi Ekranan Brilon"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Pliigi Ekranan Brilon"
+msgstr "Pliigi Ekranan Brilon je 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
@@ -57,12 +55,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Malpliigi Ekran Brilon"
 
 #: actions/bundled/brightnesscontrol.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Malpliigi Ekran Brilon"
+msgstr "Malpliigi Ekran Brilon je 1%"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
@@ -98,12 +94,12 @@ msgstr "Malŝalti post"
 #: actions/bundled/dpmsconfig.cpp:71
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " sek"
 
 #: actions/bundled/dpmsconfig.cpp:72
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "Kiam ekrano estas ŝlosita, malŝalti post "
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
@@ -516,18 +512,3 @@ msgstr "Ŝargado Kompleta"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterio nun plene ŝargita."
-
-#~ msgid "Turn off"
-#~ msgstr "Malŝalti"
-
-#~ msgid "Turn on"
-#~ msgstr "Ŝalti"
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wifi"
-
-#~ msgid "Mobile broadband"
-#~ msgstr "Poŝtelefona larĝa bando"
-
-#~ msgid "Bluetooth"
-#~ msgstr "Bluetooth"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-16 02:15+0000\n"
-"PO-Revision-Date: 2023-05-12 05:35+0200\n"
+"PO-Revision-Date: 2023-05-17 04:38+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -43,12 +43,10 @@ msgid "Increase Screen Brightness"
 msgstr "ეკრანის სიკაშკაშის გაზრდა"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "ეკრანის სიკაშკაშის გაზრდა"
+msgstr "ეკრანის სიკაშკაშის გაზრდა 1%-ით"
 
 #: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
@@ -57,12 +55,10 @@ msgid "Decrease Screen Brightness"
 msgstr "ეკრანის სიკაშკაშის შემცირება"
 
 #: actions/bundled/brightnesscontrol.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "ეკრანის სიკაშკაშის შემცირება"
+msgstr "ეკრანის სიკაშკაშის შემცირება 1%-ით"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
