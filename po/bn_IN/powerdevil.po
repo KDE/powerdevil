@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:15+0000\n"
+"POT-Creation-Date: 2023-05-19 02:03+0000\n"
 "PO-Revision-Date: 2008-12-30 15:12+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
 "Language-Team: Bengali INDIA <fedora-trans-bn_IN@redhat.com>\n"
@@ -77,7 +77,7 @@ msgstr "মিনিট"
 
 #: actions/bundled/dimdisplayconfig.cpp:74
 #: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "After"
 msgstr ""
@@ -267,7 +267,7 @@ msgstr "নতুন প্রোফাইল"
 msgid "On Profile Unload"
 msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:95
+#: actions/bundled/runscriptconfig.cpp:96
 #, kde-format
 msgid "Run script"
 msgstr ""

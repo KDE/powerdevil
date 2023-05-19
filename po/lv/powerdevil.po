@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:15+0000\n"
+"POT-Creation-Date: 2023-05-19 02:03+0000\n"
 "PO-Revision-Date: 2012-01-07 08:18+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -88,7 +88,7 @@ msgstr " min"
 
 #: actions/bundled/dimdisplayconfig.cpp:74
 #: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "After"
 msgstr "Pēc"
@@ -278,7 +278,7 @@ msgstr "Ielādējot profilu"
 msgid "On Profile Unload"
 msgstr "Izlādējot profilu"
 
-#: actions/bundled/runscriptconfig.cpp:95
+#: actions/bundled/runscriptconfig.cpp:96
 #, kde-format
 msgid "Run script"
 msgstr "Palaist skriptu"

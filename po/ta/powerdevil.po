@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:15+0000\n"
+"POT-Creation-Date: 2023-05-19 02:03+0000\n"
 "PO-Revision-Date: 2023-05-14 15:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -78,7 +78,7 @@ msgstr " நிமிடம்"
 
 #: actions/bundled/dimdisplayconfig.cpp:74
 #: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "After"
 msgstr "இதற்கு பின்:"
@@ -256,7 +256,7 @@ msgstr "பயன்முறை இயக்கப்படும்போத�
 msgid "On Profile Unload"
 msgstr "பயன்முறை முடக்கப்படும்போது"
 
-#: actions/bundled/runscriptconfig.cpp:95
+#: actions/bundled/runscriptconfig.cpp:96
 #, kde-format
 msgid "Run script"
 msgstr "சிறுநிரலை இயக்கு"

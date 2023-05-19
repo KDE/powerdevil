@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-16 02:15+0000\n"
+"POT-Creation-Date: 2023-05-19 02:03+0000\n"
 "PO-Revision-Date: 2023-02-02 14:35+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -83,7 +83,7 @@ msgstr " min"
 
 #: actions/bundled/dimdisplayconfig.cpp:74
 #: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "After"
 msgstr "Po"
@@ -261,7 +261,7 @@ msgstr "Při načtení profilu"
 msgid "On Profile Unload"
 msgstr "Při ukončení profilu"
 
-#: actions/bundled/runscriptconfig.cpp:95
+#: actions/bundled/runscriptconfig.cpp:96
 #, kde-format
 msgid "Run script"
 msgstr "Spustit skript"
