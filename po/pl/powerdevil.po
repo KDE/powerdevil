@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-19 02:03+0000\n"
-"PO-Revision-Date: 2023-05-13 08:00+0200\n"
+"PO-Revision-Date: 2023-05-20 08:20+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -43,12 +43,10 @@ msgid "Increase Screen Brightness"
 msgstr "Zwiększ jasność ekranu"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Zwiększ jasność ekranu"
+msgstr "Zwiększ jasność ekranu o 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
@@ -57,12 +55,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Zmniejsz jasność ekranu"
 
 #: actions/bundled/brightnesscontrol.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Zmniejsz jasność ekranu"
+msgstr "Zmniejsz jasność ekranu o 1%"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
