@@ -88,92 +88,87 @@ void PowerDevilUPowerBackend::init()
 
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
     m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
-    qCDebug(POWERDEVIL)<<"Trying ddc, helper for brightness controls";
     m_ddcBrightnessControl = new DDCutilBrightness();
-    m_ddcBrightnessControl->detect();
-    if (!m_ddcBrightnessControl->isSupported()) {
-        qCDebug(POWERDEVIL) << "Falling back to helper to get brightness";
 
-        KAuth::Action brightnessAction("org.kde.powerdevil.backlighthelper.brightness");
-        brightnessAction.setHelperId(HELPER_ID);
-        KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
-        connect(brightnessJob, &KJob::result, this,
-            [this, brightnessJob]  {
-                if (brightnessJob->error()) {
-                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
-                    qCDebug(POWERDEVIL) << brightnessJob->errorText();
+    qCDebug(POWERDEVIL) << "Trying Backlight Helper first...";
+    KAuth::Action brightnessAction("org.kde.powerdevil.backlighthelper.brightness");
+    brightnessAction.setHelperId(HELPER_ID);
+    KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
+    connect(brightnessJob, &KJob::result, this, [this, brightnessJob] {
+        if (brightnessJob->error()) {
+            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
+            qCDebug(POWERDEVIL) << brightnessJob->errorText();
+            Q_EMIT brightnessSupportQueried(false);
+            return;
+        }
+        m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toFloat());
+
+        KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
+        brightnessMaxAction.setHelperId(HELPER_ID);
+        KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
+        connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob] {
+            if (brightnessMaxJob->error()) {
+                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
+                qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
+            } else {
+                m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
+            }
+
+#ifdef Q_OS_FREEBSD
+            // FreeBSD doesn't have the sysfs interface that the bits below expect;
+            // the sysfs calls always fail, leading to brightnessSupportQueried(false) emission.
+            // Skip that command and carry on with the information that we do have.
+            Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
+#else
+            KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
+            syspathAction.setHelperId(HELPER_ID);
+            KAuth::ExecuteJob* syspathJob = syspathAction.execute();
+            connect(syspathJob, &KJob::result, this, [this, syspathJob] {
+                if (syspathJob->error()) {
+                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
+                    qCDebug(POWERDEVIL) << syspathJob->errorText();
                     Q_EMIT brightnessSupportQueried(false);
                     return;
                 }
-                m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toFloat());
+                m_syspath = syspathJob->data()["syspath"].toString();
+                m_syspath = QFileInfo(m_syspath).symLinkTarget();
 
-                KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
-                brightnessMaxAction.setHelperId(HELPER_ID);
-                KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
-                connect(brightnessMaxJob, &KJob::result, this,
-                    [this, brightnessMaxJob] {
-                        if (brightnessMaxJob->error()) {
-                            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
-                            qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
-                        } else {
-                            m_brightnessMax = brightnessMaxJob->data()["brightnessmax"].toInt();
-                        }
+                m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
+                if (!m_isLedBrightnessControl) {
+                    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
+                    connect(client, &UdevQt::Client::deviceChanged, this, &PowerDevilUPowerBackend::onDeviceChanged);
+                }
 
-#ifdef Q_OS_FREEBSD
-                        // FreeBSD doesn't have the sysfs interface that the bits below expect;
-                        // the sysfs calls always fail, leading to brightnessSupportQueried(false) emission.
-                        // Skip that command and carry on with the information that we do have.
-                        Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
-#else
-                        KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
-                        syspathAction.setHelperId(HELPER_ID);
-                        KAuth::ExecuteJob* syspathJob = syspathAction.execute();
-                        connect(syspathJob, &KJob::result, this,
-                            [this, syspathJob] {
-                                if (syspathJob->error()) {
-                                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
-                                    qCDebug(POWERDEVIL) << syspathJob->errorText();
-                                    Q_EMIT brightnessSupportQueried(false);
-                                    return;
-                                }
-                                m_syspath = syspathJob->data()["syspath"].toString();
-                                m_syspath = QFileInfo(m_syspath).symLinkTarget();
-
-                                m_isLedBrightnessControl = m_syspath.contains(QLatin1String("/leds/"));
-                                if (!m_isLedBrightnessControl) {
-                                    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                                    connect(client, &UdevQt::Client::deviceChanged, this, &PowerDevilUPowerBackend::onDeviceChanged);
-                                }
-
-                                Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
-                            }
-                        );
-                        syspathJob->start();
+                Q_EMIT brightnessSupportQueried(m_brightnessMax > 0);
+            });
+            syspathJob->start();
 #endif
-                    }
-                );
-                brightnessMaxJob->start();
-            }
-        );
-        brightnessJob->start();
-    } else {
-        qCDebug(POWERDEVIL) << "Using DDCutillib";
-        m_cachedBrightnessMap.insert(Screen, brightness(Screen));
-
-        const int duration = PowerDevilSettings::brightnessAnimationDuration();
-        if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
-            m_brightnessAnimation = new QPropertyAnimation(this);
-            m_brightnessAnimation->setTargetObject(this);
-            m_brightnessAnimation->setDuration(duration);
-            connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
-            connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
-        }
-        Q_EMIT brightnessSupportQueried(true);
-    }
+        });
+        brightnessMaxJob->start();
+    });
+    brightnessJob->start();
 }
 
 void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
 {
+    if (!screenBrightnessAvailable) {
+        qCDebug(POWERDEVIL) << "Brightness Helper have failed. Trying DDC Helper for brightness controls...";
+        m_ddcBrightnessControl->detect();
+        if (m_ddcBrightnessControl->isSupported()) {
+            qCDebug(POWERDEVIL) << "Using DDCutillib";
+            m_cachedBrightnessMap.insert(Screen, brightness(Screen));
+            const int duration = PowerDevilSettings::brightnessAnimationDuration();
+            if (duration > 0 && brightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
+                m_brightnessAnimation = new QPropertyAnimation(this);
+                m_brightnessAnimation->setTargetObject(this);
+                m_brightnessAnimation->setDuration(duration);
+                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
+                connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
+            }
+            screenBrightnessAvailable = true;
+        }
+    }
+
     disconnect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
