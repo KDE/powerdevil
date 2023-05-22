@@ -640,7 +640,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
     // wait 5s before actually enforcing the inhibition
     // there might be short interruptions (such as receiving a message) where an app might automatically
     // post an inhibition but we don't want the system to constantly wakeup because of this
-    QTimer::singleShot(5000, this, [=] {
+    QTimer::singleShot(5000, this, [this, cookie, service, reason, appName, types] {
         qCDebug(POWERDEVIL) << "Enforcing inhibition from" << service << appName << "with cookie"
                             << cookie << "and reason" << reason;
 

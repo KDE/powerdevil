@@ -63,7 +63,7 @@ QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
     m_slider->setRange(0, 100);
     
     m_text = new QLabel("0%");
-    connect(m_slider, &QSlider::valueChanged, m_text, [=](int percentage) {
+    connect(m_slider, &QSlider::valueChanged, m_text, [this](int percentage) {
         m_text->setText(QString::number(percentage).append("%"));
     });
 
