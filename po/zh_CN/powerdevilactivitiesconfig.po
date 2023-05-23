@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-06 02:04+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/powerdevil/powerdevilactivitiesconfig."
+"X-Crowdin-File: /kf6-trunk/messages/powerdevil/powerdevilactivitiesconfig."
 "pot\n"
-"X-Crowdin-File-ID: 4708\n"
+"X-Crowdin-File-ID: 43237\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -75,41 +75,3 @@ msgstr "永不关闭屏幕"
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "永不关闭计算机或睡眠"
-
-#~ msgctxt "Suspend to RAM"
-#~ msgid "Sleep"
-#~ msgstr "睡眠"
-
-#~ msgid "Hibernate"
-#~ msgstr "休眠"
-
-#~ msgid "Shut down"
-#~ msgstr "关机"
-
-#~ msgid "Always"
-#~ msgstr "总是"
-
-#~ msgid "after"
-#~ msgstr "如果空闲"
-
-#~ msgid " min"
-#~ msgstr " 分钟"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "电脑正在使用交流电"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "电脑正在使用电池"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "电脑的电池电量低"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "活动“%1”"
-
-#~ msgid "Act like"
-#~ msgstr "行为类似"
-
-#~ msgid "Use separate settings"
-#~ msgstr "使用独立的设置"

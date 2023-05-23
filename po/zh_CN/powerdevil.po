@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-19 02:03+0000\n"
-"PO-Revision-Date: 2023-02-24 12:44\n"
+"PO-Revision-Date: 2023-05-22 13:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/powerdevil/powerdevil.pot\n"
-"X-Crowdin-File-ID: 4296\n"
+"X-Crowdin-File: /kf6-trunk/messages/powerdevil/powerdevil.pot\n"
+"X-Crowdin-File-ID: 43709\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -42,12 +42,10 @@ msgid "Increase Screen Brightness"
 msgstr "提高屏幕亮度"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "提高屏幕亮度"
+msgstr "提高屏幕亮度 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
@@ -56,12 +54,10 @@ msgid "Decrease Screen Brightness"
 msgstr "降低屏幕亮度"
 
 #: actions/bundled/brightnesscontrol.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "降低屏幕亮度"
+msgstr "降低屏幕亮度 1%"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
@@ -97,12 +93,12 @@ msgstr "关闭前等待时间"
 #: actions/bundled/dpmsconfig.cpp:71
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " 秒"
 
 #: actions/bundled/dpmsconfig.cpp:72
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "屏幕被锁定时，经过此时间后息屏"
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
@@ -509,18 +505,3 @@ msgstr "充电完成"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "电池已经充满。"
-
-#~ msgid "Turn off"
-#~ msgstr "关闭"
-
-#~ msgid "Turn on"
-#~ msgstr "启用"
-
-#~ msgid "Wi-Fi"
-#~ msgstr "Wi-Fi"
-
-#~ msgid "Mobile broadband"
-#~ msgstr "移动宽带"
-
-#~ msgid "Bluetooth"
-#~ msgstr "蓝牙"
