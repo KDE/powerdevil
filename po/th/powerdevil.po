@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:52+0000\n"
+"POT-Creation-Date: 2023-05-23 04:00+0000\n"
 "PO-Revision-Date: 2010-12-18 14:04+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -391,26 +391,26 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "แบตเตอรี่ใกล้หมด"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:729
+#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
 msgid "The computer will no longer go to sleep."
 msgstr "เครื่องจะปิดการทำงานในอีก %1 วินาที"
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:580
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:583
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:578
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -418,22 +418,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:591
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:592
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:594
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -441,21 +441,21 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
 "down and change the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:659
+#: powerdevilcore.cpp:664
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -465,14 +465,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:676
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะถูกปิด ในอีก 30 วินาที"
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -480,7 +480,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "ปิดเครื่อง"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 30 "
@@ -490,7 +490,7 @@ msgid ""
 "seconds."
 msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะจำศีล ในอีก 30 วินาที"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:683
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -499,14 +499,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "จำศีล"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:688
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะถูกปิด ในอีก 30 วินาที"
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:689
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -514,57 +514,57 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "พักเครื่อง"
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:694
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
 msgid "Battery level critical. Please save your work."
 msgstr "ประจุแบตเตอรี่ใกล้หมดแล้ว: กรุณารีบบันทึกงานต่าง ๆ ของคุณด่วนที่สุด"
 
-#: powerdevilcore.cpp:700
+#: powerdevilcore.cpp:705
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:709
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:728
+#: powerdevilcore.cpp:733
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "เมื่อมีการเสียบตัวแปลงไฟเข้ามา"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "เสียบตัวแปลงไฟแล้ว"
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "When on battery power"
 msgid "Running on Battery Power"
 msgstr "เมื่อใช้พลังงานจากแบตเตอรี"
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "ตัวแปลงไฟถูกถอดออก"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""

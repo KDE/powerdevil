@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:52+0000\n"
+"POT-Creation-Date: 2023-05-23 04:00+0000\n"
 "PO-Revision-Date: 2022-12-15 11:32-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -359,24 +359,24 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Bateria extra adicionada"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:729
+#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "O computador não entrará mais em suspensão."
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:580
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:583
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Bateria do dispositivo fraca (%1% restantes)"
 
-#: powerdevilcore.cpp:578
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -386,22 +386,22 @@ msgstr ""
 "A bateria no \"%1\" está fraca e o dispositivo pode se desligar a qualquer "
 "momento. Recarregue ou substitua a bateria."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:591
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Bateria do mouse fraca (%1% restantes)"
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Bateria do teclado fraca (%1% restantes)"
 
-#: powerdevilcore.cpp:592
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bateria do dispositivo Bluetooth fraca (%1% restantes)"
 
-#: powerdevilcore.cpp:594
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -411,7 +411,7 @@ msgstr ""
 "A bateria do dispositivo Bluetooth \"%1\" está fraca e o dispositivo pode se "
 "desligar a qualquer momento. Recarregue ou substitua a bateria."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -421,7 +421,7 @@ msgstr ""
 "certifique-se de que o adaptador de energia está conectado e que fornece "
 "energia o suficiente."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -430,7 +430,7 @@ msgstr ""
 "A bateria está com pouca carga. Para continuar usando o computador, conecte-"
 "o a uma fonte de energia ou desligue-o e troque a bateria."
 
-#: powerdevilcore.cpp:659
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -438,21 +438,21 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "O nível de carga da sua bateria está crítico. Seu computador será desligado "
 "em 60 segundos."
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Desligar agora"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -461,7 +461,7 @@ msgstr ""
 "O nível de carga da sua bateria está crítico. Seu computador entrará em modo "
 "de hibernação em 60 segundos."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:683
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -469,66 +469,66 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernar agora"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "O nível de carga da sua bateria está crítico. Seu computador entrará em modo "
 "de suspensão em 60 segundos."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:689
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Suspender agora"
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:694
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "O nível de carga da sua bateria está crítico. Salve seu trabalho."
 
-#: powerdevilcore.cpp:700
+#: powerdevilcore.cpp:705
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria fraca (%1% restantes)"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:709
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria em nível crítico (%1% restantes)"
 
-#: powerdevilcore.cpp:728
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptador de energia conectado"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on AC power"
 msgstr "Conectado ao adaptador de energia"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "O adaptador de energia foi conectado."
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Usando a bateria"
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "O adaptador de energia foi desconectado."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Carga completa"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "A bateria está com carga completa."

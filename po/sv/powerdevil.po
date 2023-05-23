@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:52+0000\n"
+"POT-Creation-Date: 2023-05-23 04:00+0000\n"
 "PO-Revision-Date: 2022-09-24 15:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -357,24 +357,24 @@ msgstr "Aktivitetens policy förhindrar att strömsparhantering av bildskärmen"
 msgid "Extra Battery Added"
 msgstr "Extrabatteri tillagt"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:729
+#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Datorn kommer inte längre gå till viloläge."
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:580
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:583
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Dåligt enhetsbatteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:578
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -384,22 +384,22 @@ msgstr ""
 "Batteriet i \"%1\" är dåligt, och enheten kan stängas av när som helst. "
 "Ladda eller ersätt batteriet så snart som möjligt."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:591
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Dåligt musbatteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Dåligt tangentbordsbatteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:592
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Dåligt batteri för Blåtandsenhet (%1 % återstår)"
 
-#: powerdevilcore.cpp:594
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -409,7 +409,7 @@ msgstr ""
 "Batteriet i Blåtandsenheten \"%1\" är dåligt, och enheten kan stängas av när "
 "som helst. Ladda eller ersätt batteriet så snart som möjligt."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -418,7 +418,7 @@ msgstr ""
 "Batteriet har nått låg nivå. För att fortsätta använda datorn, säkerställ "
 "att strömadaptern är inkopplad och att den ger tillräckligt med ström."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -427,7 +427,7 @@ msgstr ""
 "Batteriet har nått låg nivå. För att fortsätta använda datorn, koppla "
 "antingen in den, eller stäng av den och ladda batteriet."
 
-#: powerdevilcore.cpp:659
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -435,12 +435,12 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Batterinivå kritisk. Datorn kommer att stängas av om 60 sekunder."
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -448,14 +448,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Stäng av"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr "Batterinivå kritisk. Datorn kommer att gå i dvala av om 60 sekunder."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:683
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -464,13 +464,13 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Dvala"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Batterinivå kritisk. Datorn kommer att gå till viloläge om 60 sekunder."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:689
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -479,52 +479,52 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Viloläge"
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:694
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "Batterinivå kritisk. Spara ditt arbete."
 
-#: powerdevilcore.cpp:700
+#: powerdevilcore.cpp:705
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Dåligt batteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:709
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritiskt batteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:728
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Nätadapter inkopplad"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on AC power"
 msgstr "Använder nätström"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Nätadaptern har kopplats in."
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Använder batteriström"
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Nätadaptern har kopplats bort."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laddning klar"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet är nu fulladdat."

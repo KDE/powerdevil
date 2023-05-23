@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:52+0000\n"
+"POT-Creation-Date: 2023-05-23 04:00+0000\n"
 "PO-Revision-Date: 2023-02-08 11:40+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -355,24 +355,24 @@ msgstr "აქტივობის წესები ხელს უშლი
 msgid "Extra Battery Added"
 msgstr "დამატებულია დამატებითი ელემენტი"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:729
+#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "კომპიუტერი აღარ დაიძინებს."
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:580
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:583
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "მოწყობილობის ელემენტი დასატებია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:578
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -382,22 +382,22 @@ msgstr ""
 "ელემენტი \"%1\"-ში დასატენია და მოწყობილობა ნებისმიერ დროს შეიძლება "
 "გამოირთოს. გთხოვთ დამუხტოთ ან გამოცვალოთ ელემენტი."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:591
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "თაგუნას ელემენტი დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "კლავიატურის ელემენტი დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:592
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "BT მოწყობილობის ელემენტი დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:594
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -407,7 +407,7 @@ msgstr ""
 "ელემენტი BT მოწყობილობაში (\"%1\") დასატენია და მოწყობილობა ნებისმიერ დროს "
 "შეიძლება გამოირთოს. საჭიროა ელემენტის გამოცვლა ან დატენვა."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -416,7 +416,7 @@ msgstr ""
 "ელემენტი დასატენია - კომპიუტერის გამოყენების გასაგრძელებლად დარწმუნდით, რომ "
 "კვება შეერთებულია და მას საკმარისი სიმძლავრე მიეწოდება."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -425,7 +425,7 @@ msgstr ""
 "ელემენტი დასატენია - კომპიუტერის გამოყენების გასაგრძელებლად შეაერთეთ ის ან "
 "გამორთეთ და დამუხტეთ ელემენტი."
 
-#: powerdevilcore.cpp:659
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -433,21 +433,21 @@ msgctxt ""
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში "
 "გამოირთვება."
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "ახლავე გამორთვა"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -456,7 +456,7 @@ msgstr ""
 "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი დისკზე პროგრამულ "
 "ძილში 60 წამში გადავა."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:683
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -464,65 +464,65 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "პროგრამული ძილი ახლავე"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში დაიძინებს."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:689
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "ძილი ახლავე"
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:694
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. შეინახეთ თქვენი ნაშრომი."
 
-#: powerdevilcore.cpp:700
+#: powerdevilcore.cpp:705
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "ელემენტის დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:709
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "ელემენტის მუხტის დონე კრიტიკულია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:728
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "დამტენი შეერთბულია"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on AC power"
 msgstr "იყენებს დენის წყაროს"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "დამტენის კაბელი შეერთებულია."
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "იყენებს ელემენტის კვებას"
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "დამტენის კაბელი გამოერთებულია."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "დატენვა დასრულდა"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ელემენტი სრულად დაიტენა."

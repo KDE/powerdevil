@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-21 02:52+0000\n"
+"POT-Creation-Date: 2023-05-23 04:00+0000\n"
 "PO-Revision-Date: 2022-12-12 19:31+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -361,24 +361,24 @@ msgstr "Šios veiklos politika neleidžia valdyti ekrano energijos"
 msgid "Extra Battery Added"
 msgstr "Pridėtas papildomas akumuliatorius"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:729
+#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Kompiuteris daugiau nebebus pristabdytas."
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:580
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:583
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Baigia išsikrauti įrenginio akumuliatorius (liko %1%)"
 
-#: powerdevilcore.cpp:578
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -388,22 +388,22 @@ msgstr ""
 "Baigia išsikrauti akumuliatorius, esantis „%1“, ir įrenginys gali bet kuriuo "
 "metu išsijungti. Įkraukite įrenginį arba pakeiskite jo akumuliatorių."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:591
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Baigia išsikrauti pelės akumuliatorius (liko %1%)"
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Baigia išsikrauti klaviatūros akumuliatorius (liko %1%)"
 
-#: powerdevilcore.cpp:592
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Baigia išsikrauti Bluetooth įrenginio akumuliatorius (liko %1%)"
 
-#: powerdevilcore.cpp:594
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -414,7 +414,7 @@ msgstr ""
 "įrenginys gali bet kuriuo metu išsijungti. Įkraukite įrenginį arba "
 "pakeiskite jo akumuliatorių."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -424,7 +424,7 @@ msgstr ""
 "įsitikinkite, kad jis prijungtas prie elektros maitinimo šaltinio ir, kad "
 "maitinimo šaltinis tiekia pakankamai energijos."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -434,7 +434,7 @@ msgstr ""
 "prijunkite jį prie maitinimo šaltinio arba išjunkite jį ir pakeiskite jo "
 "akumuliatorių."
 
-#: powerdevilcore.cpp:659
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -442,20 +442,20 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Kritinis akumuliatoriaus lygis. Po 60 sekundžių jūsų kompiuteris išsijungs."
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:677
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Išjungti kompiuterį dabar"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -464,7 +464,7 @@ msgstr ""
 "Kritinis akumuliatoriaus lygis. Po 60 sekundžių jūsų kompiuteris bus "
 "užmigdytas."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:683
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -472,66 +472,66 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Užmigdyti dabar"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Kritinis akumuliatoriaus lygis. Po 60 sekundžių jūsų kompiuteris bus "
 "pristabdytas."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:689
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Pristabdyti dabar"
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:694
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "Kritinis akumuliatoriaus lygis. Įrašykite visus savo darbus."
 
-#: powerdevilcore.cpp:700
+#: powerdevilcore.cpp:705
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baigia išsikrauti akumuliatorius (liko %1%)"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:709
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritinis akumuliatoriaus lygis (liko %1%)"
 
-#: powerdevilcore.cpp:728
+#: powerdevilcore.cpp:733
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Prijungtas kintamosios srovės adapteris"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Running on AC power"
 msgstr "Kompiuteris veikia naudodamas išorinį maitinimą"
 
-#: powerdevilcore.cpp:731
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Prijungtas maitinimo adapteris."
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Kompiuteris veikia naudodamas akumuliatoriaus maitinimą"
 
-#: powerdevilcore.cpp:734
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Maitinimo adapteris atjungtas."
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Charging Complete"
 msgstr "Įkrovimas užbaigtas"
 
-#: powerdevilcore.cpp:795
+#: powerdevilcore.cpp:800
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Dabar, jūsų akumuliatorius yra pilnai įkrautas."
