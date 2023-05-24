@@ -172,17 +172,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Заощадження енергії на бездротовому зв’язку</guilabel
-></term>
-<listitem>
-<para
->Виберіть цей варіант, щоб визначити окремі дії для з’єднань Wi-Fi, мобільної широкосмугової мережі або Bluetooth. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
