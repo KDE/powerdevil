@@ -47,8 +47,6 @@ msgstr "Auk lysstyrken på skjermen"
 
 #: actions/bundled/brightnesscontrol.cpp:61
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Auk lysstyrken på skjermen"
@@ -61,8 +59,6 @@ msgstr "Reduser lysstyrken på skjermen"
 
 #: actions/bundled/brightnesscontrol.cpp:71
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Reduser lysstyrken på skjermen"
