@@ -2,20 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yasen Pramatarov <yasen@lindeas.com>, 2011, 2014.
-# Mincho Kondarev <mkondarev@yahoo.de>, 2022.
+# Mincho Kondarev <mkondarev@yahoo.de>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-19 02:03+0000\n"
-"PO-Revision-Date: 2022-12-01 23:58+0100\n"
+"PO-Revision-Date: 2023-05-16 23:21+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -44,12 +44,10 @@ msgid "Increase Screen Brightness"
 msgstr "Увеличаване яркостта на екрана"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Увеличаване яркостта на екрана"
+msgstr "Увеличаване яркостта на екрана 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:66
 #, kde-format
@@ -58,12 +56,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Намаляване яркостта на екрана"
 
 #: actions/bundled/brightnesscontrol.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Намаляване яркостта на екрана"
+msgstr "Намаляване яркостта на екрана 1%"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
@@ -99,12 +95,12 @@ msgstr "Изключване след"
 #: actions/bundled/dpmsconfig.cpp:71
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " сек"
 
 #: actions/bundled/dpmsconfig.cpp:72
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "Когато екранът е заключен да се изключва след"
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
