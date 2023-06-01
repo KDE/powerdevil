@@ -26,9 +26,6 @@ using namespace std::chrono_literals;
 DDCutilBrightness::DDCutilBrightness()
     : m_usedVcp({0x10})
 {
-    m_setBrightnessEventFilter.setInterval(100ms);
-    m_setBrightnessEventFilter.setSingleShot(true);
-    connect(&m_setBrightnessEventFilter, &QTimer::timeout, this, &DDCutilBrightness::setBrightnessAfterFilter);
 }
 
 DDCutilBrightness::~DDCutilBrightness()
@@ -110,23 +107,21 @@ bool DDCutilBrightness::isSupported() const
 long DDCutilBrightness::brightness()
 {
 #ifdef WITH_DDCUTIL
-    //we check whether the timer is running, this means we received new values but did not send them yet to the monitor
-    //not checking that results in the brightness slider jump to the previous value when changing.
-    if (m_setBrightnessEventFilter.isActive()) {
-        m_lastBrightnessKnown = m_tmpCurrentBrightness;
-    } else {  //FIXME: gets value only for first display
-        DDCA_Status rc;
-        DDCA_Non_Table_Vcp_Value returnValue;
+    //FIXME: gets value only for first display
+    DDCA_Non_Table_Vcp_Value returnValue;
+    DDCA_Status rc;
 
-        rc = ddca_get_non_table_vcp_value(m_displayHandleList.at(0),
-                                0x10, &returnValue);
+    rc = ddca_get_non_table_vcp_value(m_displayHandleList.at(0),
+                            0x10, &returnValue);
+    qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightness]: ddca_get_vcp_value returned" << rc;
+
+    //check rc to prevent crash on wake from idle and the monitor has gone to powersave mode
+    if ((rc = ddca_get_non_table_vcp_value(m_displayHandleList.at(0), 0x10, &returnValue))) {
         qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightness]: ddca_get_vcp_value returned" << rc;
-
-        //check rc to prevent crash on wake from idle and the monitor has gone to powersave mode
-        if (rc == 0) {
-            m_lastBrightnessKnown = (long)(returnValue.sh <<8|returnValue.sl);
-        }
+    } else {
+        m_lastBrightnessKnown = (uint16_t)(returnValue.sh << 8 | returnValue.sl);
     }
+
     return m_lastBrightnessKnown;
 #else
     return 0;
@@ -154,34 +149,15 @@ long DDCutilBrightness::brightnessMax()
 #endif
 }
 
-void DDCutilBrightness::setBrightness(long value)
-{
-    m_tmpCurrentBrightness = value;
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: saving brightness value: " << value;
-    m_setBrightnessEventFilter.start();
-}
-
-void DDCutilBrightness::setBrightnessAfterFilter()
+void DDCutilBrightness::setBrightness(int value)
 {
 #ifdef WITH_DDCUTIL
-    bool with_errors = false;
+    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setting brightness value:" << value;
+    uint8_t newsh = value >> 8 & 0xff;
+    uint8_t newsl = value & 0xff;
     DDCA_Status rc;
-    for (int iDisp = 0; iDisp < m_displayHandleList.count(); ++iDisp) {          //FIXME: we set the same brightness to all monitors, plugin architecture needed
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setting brightness " << m_tmpCurrentBrightness;
-        uint8_t newsh = (uint16_t)m_tmpCurrentBrightness >> 8;
-        uint8_t newsl = (uint16_t)m_tmpCurrentBrightness & 0x00ff;
-        rc = ddca_set_non_table_vcp_value(m_displayHandleList.at(iDisp), 0x10, newsh, newsl);
-        if (rc < 0) {
-            with_errors = true;
-        }
+    if ((rc = ddca_set_non_table_vcp_value(m_displayHandleList.constFirst(), 0x10, newsh, newsl))) {
+        qCWarning(POWERDEVIL) << "[DDCutilBrightness::setBrightness] failed:" << rc;
     }
-    if (with_errors) {
-        qCWarning(POWERDEVIL) << "[DDCutilBrightness::setBrightness] failed, trying to detect()";
-        detect();
-    } else {
-        m_lastBrightnessKnown = m_tmpCurrentBrightness;
-    }
-#else
-    return;
 #endif
 }

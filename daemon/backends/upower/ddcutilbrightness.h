@@ -21,7 +21,6 @@
 
 #include <QObject>
 #include <QVector>
-#include <QTimer>
 
 #ifdef WITH_DDCUTIL
 #include <ddcutil_c_api.h>
@@ -37,10 +36,7 @@ public:
     bool isSupported() const;
     long brightness();
     long brightnessMax();
-    void setBrightness(long value);
-
-private Q_SLOTS:
-    void setBrightnessAfterFilter();
+    void setBrightness(int value);
 
 private:
 #ifdef WITH_DDCUTIL
@@ -52,8 +48,6 @@ private:
     QVector<int> m_usedVcp;
     QVector<QVector<uint16_t>> m_supportedVcp_perDisp;
 
-    long  m_tmpCurrentBrightness;
-    QTimer m_setBrightnessEventFilter;
     int m_lastBrightnessKnown;
     int m_lastMaxBrightnessKnown;
 };
