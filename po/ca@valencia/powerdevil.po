@@ -43,13 +43,13 @@ msgstr "Gestió de l'energia"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "Augmenta la lluminositat de la pantalla"
+msgstr "Augmenta la brillantor de la pantalla"
 
 #: actions/bundled/brightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr "Disminuïx la lluminositat de la pantalla"
+msgstr "Disminuïx la brillantor de la pantalla"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
@@ -174,13 +174,13 @@ msgstr "Quan es prema el botó d'encesa/apagat"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr "Augmenta la lluminositat del teclat"
+msgstr "Augmenta la brillantor del teclat"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:66
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr "Reduïx la lluminositat del teclat"
+msgstr "Reduïx la brillantor del teclat"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:71
 #, kde-format
