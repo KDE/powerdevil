@@ -169,7 +169,7 @@ public:
      * @param device the name of the device that you would like to control
      * @return the brightness of the device, as an integer from 0 to brightnessValueMax
      */
-    virtual int brightness(BrightnessControlType type = Screen) const;
+    virtual int brightness(BrightnessControlType type = Screen) const = 0;
 
     /**
      * Gets the maximum device brightness value.
@@ -177,7 +177,7 @@ public:
      * @param device the name of the device that you would like to control
      * @return the maximum brightness of the device
      */
-    virtual int brightnessMax(BrightnessControlType type = Screen) const;
+    virtual int brightnessMax(BrightnessControlType type = Screen) const = 0;
 
     /**
      * Gets the maximum device brightness step.

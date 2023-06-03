@@ -100,27 +100,6 @@ qulonglong BackendInterface::smoothedBatteryRemainingTime() const
     return d->smoothedBatteryRemainingTime;
 }
 
-void BackendInterface::setBrightness(int brightness, BackendInterface::BrightnessControlType type)
-{
-    if (type == Screen) {
-        qCDebug(POWERDEVIL) << "set screen brightness: " << brightness;
-    } else {
-        qCDebug(POWERDEVIL) << "set kbd backlight: " << brightness;
-    }
-
-    d->brightnessLogic.value(type)->setValue(brightness);
-}
-
-int BackendInterface::brightness(BackendInterface::BrightnessControlType type) const
-{
-    return d->brightnessLogic.value(type)->value();
-}
-
-int BackendInterface::brightnessMax(BackendInterface::BrightnessControlType type) const
-{
-    return d->brightnessLogic.value(type)->valueMax();
-}
-
 int BackendInterface::brightnessSteps(BackendInterface::BrightnessControlType type) const
 {
     BrightnessLogic *logic = d->brightnessLogic.value(type);
