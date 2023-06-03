@@ -60,7 +60,7 @@ public Q_SLOTS:
     void setBrightnessSilent(int percent);
 
 private Q_SLOTS:
-    void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
+    void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
 Q_SIGNALS:
     void brightnessChanged(int value);

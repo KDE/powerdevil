@@ -100,10 +100,17 @@ qulonglong BackendInterface::smoothedBatteryRemainingTime() const
     return d->smoothedBatteryRemainingTime;
 }
 
-int BackendInterface::brightnessSteps(BackendInterface::BrightnessControlType type) const
+int BackendInterface::screenBrightnessSteps() const
 {
-    BrightnessLogic *logic = d->brightnessLogic.value(type);
-    logic->setValueMax(brightnessMax(type));
+    BrightnessLogic *logic = d->brightnessLogic.value(Screen);
+    logic->setValueMax(screenBrightnessMax());
+    return logic->steps();
+}
+
+int BackendInterface::keyboardBrightnessSteps() const
+{
+    BrightnessLogic *logic = d->brightnessLogic.value(Keyboard);
+    logic->setValueMax(keyboardBrightnessMax());
     return logic->steps();
 }
 
@@ -220,13 +227,22 @@ void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType
     Q_EMIT buttonPressed(type);
 }
 
-void BackendInterface::onBrightnessChanged(BrightnessControlType type, int value, int valueMax)
+void BackendInterface::onScreenBrightnessChanged(int value, int valueMax)
 {
-    BrightnessLogic *logic = d->brightnessLogic.value(type);
+    BrightnessLogic *logic = d->brightnessLogic.value(Screen);
     logic->setValueMax(valueMax);
     logic->setValue(value);
 
-    Q_EMIT brightnessChanged(logic->info(), type);
+    Q_EMIT screenBrightnessChanged(logic->info());
+}
+
+void BackendInterface::onKeyboardBrightnessChanged(int value, int valueMax)
+{
+    BrightnessLogic *logic = d->brightnessLogic.value(Keyboard);
+    logic->setValueMax(valueMax);
+    logic->setValue(value);
+
+    Q_EMIT keyboardBrightnessChanged(logic->info());
 }
 
 BackendInterface::Capabilities BackendInterface::capabilities() const

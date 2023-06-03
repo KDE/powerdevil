@@ -51,7 +51,10 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent, const QVar
 
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
-    connect(core()->backend(), &PowerDevil::BackendInterface::brightnessChanged, this, &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromBackend);
+    connect(core()->backend(),
+            &PowerDevil::BackendInterface::keyboardBrightnessChanged,
+            this,
+            &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromBackend);
 
     KActionCollection* actionCollection = new KActionCollection( this );
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -126,7 +129,7 @@ void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, co
 
 void KeyboardBrightnessControl::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightness(args.value(QStringLiteral("Value")).toInt(), BackendInterface::Keyboard);
+    backend()->setKeyboardBrightness(args.value(QStringLiteral("Value")).toInt());
 
     if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
         BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
@@ -152,41 +155,39 @@ bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
     return true;
 }
 
-void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info, BackendInterface::BrightnessControlType type)
+void KeyboardBrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info)
 {
-    if (type == BackendInterface::Keyboard) {
-        m_lastKeyboardBrightness = info.value;
-        Q_EMIT keyboardBrightnessChanged(info.value);
-        Q_EMIT keyboardBrightnessMaxChanged(info.valueMax);
-    }
+    m_lastKeyboardBrightness = info.value;
+    Q_EMIT keyboardBrightnessChanged(info.value);
+    Q_EMIT keyboardBrightnessMaxChanged(info.valueMax);
 }
 
 void KeyboardBrightnessControl::increaseKeyboardBrightness()
 {
-    backend()->brightnessKeyPressed(BrightnessLogic::Increase, BackendInterface::Keyboard);
+    backend()->keyboardBrightnessKeyPressed(BrightnessLogic::Increase);
     BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 {
-    backend()->brightnessKeyPressed(BrightnessLogic::Decrease, BackendInterface::Keyboard);
+    backend()->keyboardBrightnessKeyPressed(BrightnessLogic::Decrease);
     BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
-    backend()->brightnessKeyPressed(BrightnessLogic::Toggle, BackendInterface::Keyboard);
+    backend()->keyboardBrightnessKeyPressed(BrightnessLogic::Toggle);
     BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 int KeyboardBrightnessControl::keyboardBrightness() const
 {
-    return backend()->brightness(BackendInterface::Keyboard);
+    return backend()->keyboardBrightness();
 }
 
 int KeyboardBrightnessControl::keyboardBrightnessMax() const
 {
-    return backend()->brightnessMax(BackendInterface::Keyboard);
+    return backend()->keyboardBrightnessMax();
 }
 
 void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
@@ -208,7 +209,7 @@ void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
 
 int KeyboardBrightnessControl::keyboardBrightnessSteps() const
 {
-    return backend()->brightnessSteps(BackendInterface::Keyboard);
+    return backend()->keyboardBrightnessSteps();
 }
 
 int KeyboardBrightnessControl::keyboardBrightnessPercent() const

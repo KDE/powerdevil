@@ -51,7 +51,7 @@ public:
     int keyboardBrightnessSteps() const;
 
 public Q_SLOTS:
-    void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo, BackendInterface::BrightnessControlType type);
+    void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
     // DBus export
     void increaseKeyboardBrightness();

@@ -129,7 +129,7 @@ void DPMS::onIdleTimeout(int msec)
         }
 
     } else if (msec == m_idleTime * 1000 || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && msec == m_idleTimeoutWhenLocked * 1000)) {
-        const int keyboardBrightness = backend()->brightness(PowerDevil::BackendInterface::Keyboard);
+        const int keyboardBrightness = backend()->keyboardBrightness();
         if (keyboardBrightness > 0) {
             m_oldKeyboardBrightness = keyboardBrightness;
             setKeyboardBrightnessHelper(0);
@@ -151,7 +151,7 @@ void DPMS::triggerImpl(const QVariantMap& args)
 {
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
-        backend()->setBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt(), PowerDevil::BackendInterface::Keyboard);
+        backend()->setKeyboardBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
         return;
     }
 

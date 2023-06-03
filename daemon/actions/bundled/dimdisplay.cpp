@@ -59,7 +59,7 @@ void DimDisplay::onWakeupFromIdle()
 
 void DimDisplay::onIdleTimeout(int msec)
 {
-    if (backend()->brightness() == 0) {
+    if (backend()->screenBrightness() == 0) {
         //Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
         //backlight won't switch on later.
@@ -73,8 +73,8 @@ void DimDisplay::onIdleTimeout(int msec)
         const int newBrightness = qRound(m_oldScreenBrightness / 8.0);
         setBrightnessHelper(newBrightness, 0);
     } else if (msec == (m_dimOnIdleTime * 1 / 2)) {
-        m_oldScreenBrightness = backend()->brightness();
-        m_oldKeyboardBrightness = backend()->brightness(BackendInterface::Keyboard);
+        m_oldScreenBrightness = backend()->screenBrightness();
+        m_oldKeyboardBrightness = backend()->keyboardBrightness();
 
         const int newBrightness = qRound(m_oldScreenBrightness / 2.0);
         setBrightnessHelper(newBrightness, 0);
@@ -99,11 +99,11 @@ void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
 
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
-    backend()->setBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt(), BackendInterface::Screen);
+    backend()->setScreenBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt());
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
-        backend()->setBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt(), BackendInterface::Keyboard);
+        backend()->setKeyboardBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt());
     }
 }
 

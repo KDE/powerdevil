@@ -60,12 +60,17 @@ public:
 
     void init() override;
 
-    int brightness(BrightnessControlType type = Screen) const override;
-    int brightnessMax(BrightnessControlType type = Screen) const override;
+    int screenBrightness() const override;
+    int screenBrightnessMax() const override;
+    void setScreenBrightness(int value) override;
 
-    int brightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type, BrightnessControlType controlType) override;
-    void setBrightness(int value, PowerDevil::BackendInterface::BrightnessControlType type = Screen) override;
-    KJob* suspend(PowerDevil::BackendInterface::SuspendMethod method) override;
+    int keyboardBrightness() const override;
+    int keyboardBrightnessMax() const override;
+    void setKeyboardBrightness(int value) override;
+
+    int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
+    int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
+    KJob *suspend(PowerDevil::BackendInterface::SuspendMethod method) override;
 
 Q_SIGNALS:
     void brightnessSupportQueried(bool available);
