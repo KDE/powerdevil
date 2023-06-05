@@ -332,7 +332,7 @@ int PowerDevilUPowerBackend::screenBrightness() const
         if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
             result = m_brightnessAnimation->endValue().toInt();
         } else {
-            result = (int)m_ddcBrightnessControl->brightness();
+            result = m_ddcBrightnessControl->brightness(m_ddcBrightnessControl->displayIds().constFirst());
         }
     } else {
         result = m_cachedScreenBrightness;
@@ -346,7 +346,7 @@ int PowerDevilUPowerBackend::screenBrightnessMax() const
     int result = 0;
 
     if (m_ddcBrightnessControl->isSupported()) {
-        result = (int)m_ddcBrightnessControl->brightnessMax();
+        result = m_ddcBrightnessControl->brightnessMax(m_ddcBrightnessControl->displayIds().constFirst());
     } else {
         result = m_brightnessMax;
     }
@@ -376,7 +376,7 @@ void PowerDevilUPowerBackend::setScreenBrightness(int value)
             connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
             m_brightnessAnimation->start();
         } else {
-            m_ddcBrightnessControl->setBrightness((long)value);
+            m_ddcBrightnessControl->setBrightness(m_ddcBrightnessControl->displayIds().constFirst(), value);
         }
     } else {
         KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
@@ -600,7 +600,7 @@ void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
 void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
 {
     if (m_ddcBrightnessControl->isSupported()) {
-        m_ddcBrightnessControl->setBrightness(value.toInt());
+        m_ddcBrightnessControl->setBrightness(m_ddcBrightnessControl->displayIds().constFirst(), value.toInt());
     } else {
         qCInfo(POWERDEVIL)<<"PowerDevilUPowerBackend::animationValueChanged: brightness control not supported";
     }

@@ -89,6 +89,11 @@ void DDCutilBrightness::detect()
 #endif
 }
 
+QStringList DDCutilBrightness::displayIds() const
+{
+    return m_displayIds;
+}
+
 bool DDCutilBrightness::isSupported() const
 {
 #ifdef WITH_DDCUTIL
@@ -98,21 +103,30 @@ bool DDCutilBrightness::isSupported() const
 #endif
 }
 
-int DDCutilBrightness::brightness()
+int DDCutilBrightness::brightness(const QString &displayId)
 {
-    auto const &displayId = m_displayIds.constFirst();
+    if (!m_displayIds.contains(displayId)) {
+        return -1;
+    }
+
     return m_displays[displayId]->brightness();
 }
 
-int DDCutilBrightness::brightnessMax()
+int DDCutilBrightness::brightnessMax(const QString &displayId)
 {
-    auto const &displayId = m_displayIds.constFirst();
+    if (!m_displayIds.contains(displayId)) {
+        return -1;
+    }
+
     return m_displays[displayId]->maxBrightness();
 }
 
-void DDCutilBrightness::setBrightness(int value)
+void DDCutilBrightness::setBrightness(const QString &displayId, int value)
 {
-    auto const &displayId = m_displayIds.constFirst();
+    if (!m_displayIds.contains(displayId)) {
+        return;
+    }
+
     qCDebug(POWERDEVIL) << "setBrightness: displayId:" << displayId << "brightness:" << value;
     m_displays[displayId]->setBrightness(value);
 }

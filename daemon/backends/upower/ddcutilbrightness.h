@@ -37,10 +37,11 @@ public:
     ~DDCutilBrightness();
 
     void detect();
+    QStringList displayIds() const;
     bool isSupported() const;
-    int brightness();
-    int brightnessMax();
-    void setBrightness(int value);
+    int brightness(const QString &displayId);
+    int brightnessMax(const QString &displayId);
+    void setBrightness(const QString &displayId, int value);
 
 private:
 #ifdef WITH_DDCUTIL
