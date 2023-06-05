@@ -30,67 +30,61 @@ DDCutilBrightness::DDCutilBrightness()
 
 DDCutilBrightness::~DDCutilBrightness()
 {
-#ifdef WITH_DDCUTIL
-    for (const DDCA_Display_Handle displayHandle : std::as_const(m_displayHandleList)) {
-        ddca_close_display(displayHandle);
+    for (auto &display : m_displays) {
+        delete display;
     }
-    m_displayHandleList.clear();
-#endif
+    m_displays.clear();
 }
 
 void DDCutilBrightness::detect()
 {
 #ifdef WITH_DDCUTIL
-    DDCA_Status rc;
-
     qCDebug(POWERDEVIL) << "Check for monitors using ddca_get_displays()...";
     // Inquire about detected monitors.
-    DDCA_Display_Info_List * dlist = nullptr;
-    ddca_get_display_info_list2(true, &dlist);
-    qCInfo(POWERDEVIL)  << "[DDCutilBrightness] " << dlist->ct << "display(s) were detected";
+    DDCA_Display_Info_List *displays = nullptr;
+    ddca_get_display_info_list2(true, &displays);
+    qCInfo(POWERDEVIL)  << "[DDCutilBrightness]" << displays->ct << "display(s) were detected";
 
-    for (const DDCA_Display_Handle displayHandle : std::as_const(m_displayHandleList)) {
-        ddca_close_display(displayHandle);
-    }
-    m_displayHandleList.clear();
-    for (int iDisp = 0; iDisp < dlist->ct; ++iDisp) {
-        DDCA_Display_Handle dh = nullptr;  // initialize to avoid clang analyzer warning
-
-        qCDebug(POWERDEVIL) << "Create a Display Identifier for display"<<iDisp <<
-        " : "<< dlist->info[iDisp].model_name;
-
-        m_displayInfoList.append(dlist->info[iDisp]);
+    for (auto &displayInfo : std::span(displays->info, displays->ct)) {
+        DDCA_Display_Handle displayHandle = nullptr;
+        DDCA_Status rc;
 
         qCDebug(POWERDEVIL) << "Opening the display reference, creating a display handle...";
-        rc = ddca_open_display2(dlist->info[iDisp].dref, true, &dh);
-        if (rc != 0) {
+        if ((rc = ddca_open_display2(displayInfo.dref, true, &displayHandle))) {
             qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddca_open_display2" << rc;
             continue;
         }
 
-        DDCA_Feature_List vcpList;
-        ddca_get_feature_list_by_dref(DDCA_SUBSET_COLOR, dh, false, &vcpList);
-        QVector<uint16_t> tmpVcpList;
-        for (int iVcp = 0; iVcp < m_usedVcp.count(); ++iVcp) {
-            DDCA_Non_Table_Vcp_Value returnValue;
-            rc = ddca_get_non_table_vcp_value(dh,m_usedVcp.value(iVcp), &returnValue);
-
-            if (rc < 0) {
-                qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor does not seem to support " << m_usedVcp[iVcp];
+        QList<uint16_t> supportedFeatures;
+        for (int usedVcpIndex = 0; usedVcpIndex < m_usedVcp.count(); ++usedVcpIndex) {
+            DDCA_Non_Table_Vcp_Value value;
+            if ((rc = ddca_get_non_table_vcp_value(displayHandle, m_usedVcp.value(usedVcpIndex), &value))) {
+                qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor does not seem to support" << m_usedVcp[usedVcpIndex];
             } else {
-                qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor supports " << m_usedVcp[iVcp];
-                tmpVcpList.append(m_usedVcp.value(iVcp));
+                qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor supports" << m_usedVcp[usedVcpIndex];
+                supportedFeatures.append(m_usedVcp.value(usedVcpIndex));
             }
         }
-        //we only store displays that actually support the features we want.
-        if (tmpVcpList.contains(0x10)) {
+
+        if (supportedFeatures.contains(0x10)) {
             qCDebug(POWERDEVIL) << "Display supports Brightness, adding handle to list";
-            m_displayHandleList.append(dh);
-            m_supportedVcp_perDisp.value(iDisp).append(tmpVcpList);
+            QString displayId = generateDisplayId(displayInfo);
+            qCDebug(POWERDEVIL) << "Create a Display Identifier:" << displayId << "for display:" << displayInfo.model_name;
+
+            if (displayId.isEmpty()) {
+                qCWarning(POWERDEVIL) << "Cannot generate ID for display with model name:" << displayInfo.model_name;
+                continue;
+            }
+
+            m_displays[displayId] = new DDCutilDisplay(displayInfo, displayHandle);
+            m_displayIds += displayId;
+            continue;
         }
+        ddca_close_display(displayHandle);
     }
+    ddca_free_display_info_list(displays);
 #else
-    qCInfo(POWERDEVIL)  << "[DDCutilBrightness] compiled without DDC/CI support";
+    qCInfo(POWERDEVIL) << "[DDCutilBrightness] compiled without DDC/CI support";
     return;
 #endif
 }
@@ -98,66 +92,43 @@ void DDCutilBrightness::detect()
 bool DDCutilBrightness::isSupported() const
 {
 #ifdef WITH_DDCUTIL
-    return !m_displayHandleList.isEmpty();
+    return !m_displayIds.isEmpty();
 #else
     return false;
 #endif
 }
 
-long DDCutilBrightness::brightness()
+int DDCutilBrightness::brightness()
 {
-#ifdef WITH_DDCUTIL
-    //FIXME: gets value only for first display
-    DDCA_Non_Table_Vcp_Value returnValue;
-    DDCA_Status rc;
-
-    rc = ddca_get_non_table_vcp_value(m_displayHandleList.at(0),
-                            0x10, &returnValue);
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightness]: ddca_get_vcp_value returned" << rc;
-
-    //check rc to prevent crash on wake from idle and the monitor has gone to powersave mode
-    if ((rc = ddca_get_non_table_vcp_value(m_displayHandleList.at(0), 0x10, &returnValue))) {
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightness]: ddca_get_vcp_value returned" << rc;
-    } else {
-        m_lastBrightnessKnown = (uint16_t)(returnValue.sh << 8 | returnValue.sl);
-    }
-
-    return m_lastBrightnessKnown;
-#else
-    return 0;
-#endif
+    auto const &displayId = m_displayIds.constFirst();
+    return m_displays[displayId]->brightness();
 }
 
-long DDCutilBrightness::brightnessMax()
+int DDCutilBrightness::brightnessMax()
 {
-#ifdef WITH_DDCUTIL
-    DDCA_Status rc;
-    DDCA_Non_Table_Vcp_Value returnValue;
-
-    rc = ddca_get_non_table_vcp_value(m_displayHandleList.at(0)
-                                    , 0x10, &returnValue);
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness::brightnessMax]: ddca_get_vcp_value returned" << rc;
-
-    //check rc to prevent crash on wake from idle and the monitor has gone to powersave mode
-    if (rc == 0) {
-        m_lastMaxBrightnessKnown = (long)(returnValue.mh <<8|returnValue.ml);
-    }
-
-    return m_lastMaxBrightnessKnown;
-#else
-    return 100.0;
-#endif
+    auto const &displayId = m_displayIds.constFirst();
+    return m_displays[displayId]->maxBrightness();
 }
 
 void DDCutilBrightness::setBrightness(int value)
 {
-#ifdef WITH_DDCUTIL
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setting brightness value:" << value;
-    uint8_t newsh = value >> 8 & 0xff;
-    uint8_t newsl = value & 0xff;
-    DDCA_Status rc;
-    if ((rc = ddca_set_non_table_vcp_value(m_displayHandleList.constFirst(), 0x10, newsh, newsl))) {
-        qCWarning(POWERDEVIL) << "[DDCutilBrightness::setBrightness] failed:" << rc;
-    }
-#endif
+    auto const &displayId = m_displayIds.constFirst();
+    qCDebug(POWERDEVIL) << "setBrightness: displayId:" << displayId << "brightness:" << value;
+    m_displays[displayId]->setBrightness(value);
 }
+
+#ifdef WITH_DDCUTIL
+QString DDCutilBrightness::generateDisplayId(const DDCA_Display_Info &displayInfo) const
+{
+    switch (displayInfo.path.io_mode) {
+    case DDCA_IO_I2C:
+        return QString("i2c:%1").arg(displayInfo.path.path.i2c_busno);
+    case DDCA_IO_USB:
+        return QString("usb:%1").arg(displayInfo.path.path.hiddev_devno);
+    case DDCA_IO_ADL:
+        return QString("adl:%1:%2").arg(displayInfo.path.path.adlno.iAdapterIndex, displayInfo.path.path.adlno.iDisplayIndex);;
+    }
+    return QString();
+}
+#endif
+

@@ -6,6 +6,7 @@ set(powerdevilupowerbackend_SRCS
     udevqtdevice.cpp
     upowerdevice.cpp
     ddcutilbrightness.cpp
+    ddcutildisplay.cpp
 )
 
 set_source_files_properties(

@@ -1,5 +1,5 @@
 /*  This file is part of the KDE project
- *    Copyright (C) 2017 Dorian Vogel <dorianvogel@gmail.com>
+ *    Copyright (C) 2023 Quang Ngô <ngoquang2708@gmail.com>
  *
  *    This library is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU Library General Public
@@ -19,37 +19,34 @@
 
 #pragma once
 
-#include <QHash>
-#include <QList>
 #include <QObject>
+#include <QReadWriteLock>
 
 #ifdef WITH_DDCUTIL
 #include <ddcutil_c_api.h>
+#include <ddcutil_status_codes.h>
 #endif
 
-#include "ddcutildisplay.h"
-
-class DDCutilBrightness: public QObject
+class DDCutilDisplay : public QObject
 {
     Q_OBJECT
 public:
-    DDCutilBrightness();
-    ~DDCutilBrightness();
+#ifdef WITH_DDCUTIL
+    DDCutilDisplay(DDCA_Display_Info, DDCA_Display_Handle);
+#endif
+    ~DDCutilDisplay();
 
-    void detect();
-    bool isSupported() const;
+    QString label() const;
     int brightness();
-    int brightnessMax();
+    int maxBrightness();
     void setBrightness(int value);
 
 private:
 #ifdef WITH_DDCUTIL
-    QString generateDisplayId(const DDCA_Display_Info &displayInfo) const;
+    DDCA_Display_Info m_displayInfo;
+    DDCA_Display_Handle m_displayHandle;
 #endif
-
-private:
-    QList<uint16_t> m_usedVcp;
-
-    QStringList m_displayIds;
-    QHash<QString, DDCutilDisplay *> m_displays;
+    QReadWriteLock m_lock;
+    int m_brightness;
+    int m_maxBrightness;
 };
