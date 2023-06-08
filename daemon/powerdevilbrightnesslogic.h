@@ -120,27 +120,6 @@ public:
     virtual int decreasedSmall() const;
 
     /**
-     * Retrieve the current brightness value.
-     *
-     * @return Raw brightness value, from 0 to valueMax
-     */
-    int value() const;
-
-    /**
-     * Retrieve the maximum possible brightness value for this device.
-     *
-     * @return Maximum possible brightness value
-     */
-    int valueMax() const;
-
-    /**
-     * Retrieve the brightness step that is closest to the current brightness value.
-     *
-     * @return Nearest brightness step
-     */
-    int step() const;
-
-    /**
      * Retrieve the maximum possible brightness step for this instance
      *
      * @return Maximum possible brightness step
@@ -169,14 +148,6 @@ public:
      * @return Brightness value that corresponds to the given step
      */
     int stepToValue(int step) const;
-
-    /**
-     * Convert raw brightness value to brightness step
-     *
-     * @param value Brightness value, from 0 to valueMax
-     * @return Brightness step that is nearest to the given brightness value
-     */
-    int valueToStep(int value) const;
 
 protected:
 

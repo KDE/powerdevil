@@ -111,16 +111,6 @@ int BrightnessLogic::toggled() const
     return m_value > 0 ? 0 : m_valueMax;
 }
 
-int BrightnessLogic::value() const
-{
-    return m_value;
-}
-
-int BrightnessLogic::valueMax() const
-{
-    return m_valueMax;
-}
-
 int BrightnessLogic::steps() const
 {
     return m_steps;
@@ -141,11 +131,6 @@ const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const
 int BrightnessLogic::stepToValue(int step) const
 {
     return qBound(0, qRound(step * 1.0 * m_valueMax / m_steps), m_valueMax);
-}
-
-int BrightnessLogic::valueToStep(int value) const
-{
-    return qBound(0, qRound(value * 1.0 * m_steps / m_valueMax), m_steps);
 }
 
 }
