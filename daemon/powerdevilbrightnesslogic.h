@@ -85,7 +85,7 @@ public:
      *
      * @return The brightness value of the closest step upwards
      */
-    virtual int increased() const;
+    int increased() const;
 
     /**
      * Calculates the brightness value of the closest step downwards.
@@ -93,7 +93,7 @@ public:
      *
      * @return The brightness value of the closest step downwards
      */
-    virtual int decreased() const;
+    int decreased() const;
 
     /**
      * Calculates the brightness value of the toggled state.
@@ -109,7 +109,7 @@ public:
      *
      * @return The brightness value of the closest step upwards
      */
-    virtual int increasedSmall() const;
+    int increasedSmall() const;
 
     /**
      * Calculates the brightness value of the closest step downwards.
@@ -117,7 +117,7 @@ public:
      *
      * @return The brightness value of the closest step downwards
      */
-    virtual int decreasedSmall() const;
+    int decreasedSmall() const;
 
     /**
      * Retrieve the maximum possible brightness step for this instance
