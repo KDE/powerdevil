@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Marce Villarino <mvillarino@gmail.com>, 2014.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2019, 2023.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-06-21 00:46+0000\n"
-"PO-Revision-Date: 2019-07-28 12:20+0200\n"
+"PO-Revision-Date: 2023-06-07 09:43+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.04.1\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -47,7 +47,7 @@ msgstr "Restaurar os perfís predefinidos"
 #: EditPage.cpp:271
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr ""
+msgstr "Parece que o servizo de xestión da enerxía non se está a executar."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: profileEditPage.ui:21
