@@ -286,7 +286,7 @@ int PowerDevilUPowerBackend::screenBrightnessKeyPressed(PowerDevil::BrightnessLo
     }
 
     int maxBrightness = screenBrightnessMax();
-    int newBrightness = calculateNextStep(currentBrightness, maxBrightness, Screen, type);
+    int newBrightness = calculateNextScreenBrightnessStep(currentBrightness, maxBrightness, type);
 
     if (newBrightness < 0) {
         return -1;
@@ -314,7 +314,7 @@ int PowerDevilUPowerBackend::keyboardBrightnessKeyPressed(PowerDevil::Brightness
     }
 
     int maxBrightness = keyboardBrightnessMax();
-    int newBrightness = calculateNextStep(currentBrightness, maxBrightness, Keyboard, type);
+    int newBrightness = calculateNextKeyboardBrightnessStep(currentBrightness, maxBrightness, type);
 
     if (newBrightness < 0) {
         return -1;

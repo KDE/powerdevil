@@ -287,7 +287,8 @@ protected:
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic
-    int calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType keyType);
+    int calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
+    int calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
 
 private:
     class Private;

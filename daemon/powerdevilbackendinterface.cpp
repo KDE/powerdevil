@@ -248,19 +248,20 @@ void BackendInterface::setCapabilities(BackendInterface::Capabilities capabiliti
     d->capabilities = capabilities;
 }
 
-int BackendInterface::calculateNextStep(int value, int valueMax, BrightnessControlType controlType, BrightnessLogic::BrightnessKeyType keyType)
+int BackendInterface::calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType)
 {
-    if (controlType == Keyboard) {
-        d->keyboardBrightnessLogic.setValueMax(valueMax);
-        d->keyboardBrightnessLogic.setValue(value);
-
-        return d->keyboardBrightnessLogic.action(keyType);
-    }
-
     d->screenBrightnessLogic.setValueMax(valueMax);
     d->screenBrightnessLogic.setValue(value);
 
     return d->screenBrightnessLogic.action(keyType);
+}
+
+int BackendInterface::calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType)
+{
+    d->keyboardBrightnessLogic.setValueMax(valueMax);
+    d->keyboardBrightnessLogic.setValue(value);
+
+    return d->keyboardBrightnessLogic.action(keyType);
 }
 
 }
