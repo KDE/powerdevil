@@ -99,7 +99,9 @@ private:
     std::unique_ptr<UPowerDevice> m_displayDevice = nullptr;
 
     // brightness
-    QMap<BrightnessControlType, int> m_cachedBrightnessMap;
+    int m_cachedScreenBrightness;
+    int m_cachedKeyboardBrightness;
+
     DDCutilBrightness *m_ddcBrightnessControl = nullptr;
 
     OrgFreedesktopUPowerInterface *m_upowerInterface;

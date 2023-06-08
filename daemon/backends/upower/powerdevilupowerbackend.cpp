@@ -47,6 +47,8 @@
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     : BackendInterface(parent)
     , m_displayDevice(nullptr)
+    , m_cachedScreenBrightness(0)
+    , m_cachedKeyboardBrightness(0)
     , m_upowerInterface(nullptr)
     , m_kbdBacklight(nullptr)
     , m_kbdMaxBrightness(0)
@@ -102,7 +104,7 @@ void PowerDevilUPowerBackend::init()
             Q_EMIT brightnessSupportQueried(false);
             return;
         }
-        m_cachedBrightnessMap.insert(Screen, brightnessJob->data()["brightness"].toFloat());
+        m_cachedScreenBrightness = brightnessJob->data()["brightness"].toFloat();
 
         KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
         brightnessMaxAction.setHelperId(HELPER_ID);
@@ -157,7 +159,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         m_ddcBrightnessControl->detect();
         if (m_ddcBrightnessControl->isSupported()) {
             qCDebug(POWERDEVIL) << "Using DDCutillib";
-            m_cachedBrightnessMap.insert(Screen, screenBrightness());
+            m_cachedScreenBrightness = screenBrightness();
             const int duration = PowerDevilSettings::brightnessAnimationDuration();
             if (duration > 0 && screenBrightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
                 m_brightnessAnimation = new QPropertyAnimation(this);
@@ -189,7 +191,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     BrightnessControlsList controls;
     if (screenBrightnessAvailable) {
         controls.insert(QLatin1String("LVDS1"), Screen);
-        qCDebug(POWERDEVIL) << "current screen brightness value: " << m_cachedBrightnessMap.value(Screen);
+        qCDebug(POWERDEVIL) << "current screen brightness value: " << m_cachedScreenBrightness;
     }
 
     m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
@@ -203,8 +205,8 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
         if (m_kbdMaxBrightness) {
             controls.insert(QLatin1String("KBD"), Keyboard);
-            m_cachedBrightnessMap.insert(Keyboard, keyboardBrightness());
-            qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedBrightnessMap.value(Keyboard);
+            m_cachedKeyboardBrightness = keyboardBrightness();
+            qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedKeyboardBrightness;
             connect(m_kbdBacklight, &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChanged, this, &PowerDevilUPowerBackend::onKeyboardBrightnessChanged);
         }
     }
@@ -260,8 +262,8 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
     }
     int newBrightness = device.sysfsProperty("brightness").toInt();
 
-    if (newBrightness != m_cachedBrightnessMap[Screen]) {
-        m_cachedBrightnessMap[Screen] = newBrightness;
+    if (newBrightness != m_cachedScreenBrightness) {
+        m_cachedScreenBrightness = newBrightness;
         onScreenBrightnessChanged(newBrightness, maxBrightness);
     }
 }
@@ -278,8 +280,8 @@ int PowerDevilUPowerBackend::screenBrightnessKeyPressed(PowerDevil::BrightnessLo
     // m_cachedBrightnessMap is not being updated during animation, thus checking the m_cachedBrightnessMap
     // value here doesn't make much sense, use the endValue from brightness() anyway.
     // This prevents brightness key being ignored during the animation.
-    if (!(m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) && currentBrightness != m_cachedBrightnessMap.value(Screen)) {
-        m_cachedBrightnessMap[Screen] = currentBrightness;
+    if (!(m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) && currentBrightness != m_cachedScreenBrightness) {
+        m_cachedScreenBrightness = currentBrightness;
         return currentBrightness;
     }
 
@@ -306,8 +308,8 @@ int PowerDevilUPowerBackend::keyboardBrightnessKeyPressed(PowerDevil::Brightness
     // m_cachedBrightnessMap is not being updated during animation, thus checking the m_cachedBrightnessMap
     // value here doesn't make much sense, use the endValue from brightness() anyway.
     // This prevents brightness key being ignored during the animation.
-    if (currentBrightness != m_cachedBrightnessMap.value(Keyboard)) {
-        m_cachedBrightnessMap[Keyboard] = currentBrightness;
+    if (currentBrightness != m_cachedKeyboardBrightness) {
+        m_cachedKeyboardBrightness = currentBrightness;
         return currentBrightness;
     }
 
@@ -333,7 +335,7 @@ int PowerDevilUPowerBackend::screenBrightness() const
             result = (int)m_ddcBrightnessControl->brightness();
         }
     } else {
-        result = m_cachedBrightnessMap[Screen];
+        result = m_cachedScreenBrightness;
     }
     qCDebug(POWERDEVIL) << "Screen brightness value: " << result;
     return result;
@@ -391,7 +393,7 @@ void PowerDevilUPowerBackend::setScreenBrightness(int value)
             }
 
             // Immediately announce the new brightness to everyone while we still animate to it
-            m_cachedBrightnessMap[Screen] = value;
+            m_cachedScreenBrightness = value;
             onScreenBrightnessChanged(value, screenBrightnessMax());
 
             // So we ignore any brightness changes during the animation
@@ -422,8 +424,8 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
     }
 
     int value = screenBrightness();
-    if (value != m_cachedBrightnessMap[Screen] || m_isLedBrightnessControl) {
-        m_cachedBrightnessMap[Screen] = value;
+    if (value != m_cachedScreenBrightness || m_isLedBrightnessControl) {
+        m_cachedScreenBrightness = value;
         onScreenBrightnessChanged(value, screenBrightnessMax());
     }
 }
@@ -431,8 +433,8 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
 void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
 {
     qCDebug(POWERDEVIL) << "Keyboard brightness changed!!";
-    if (value != m_cachedBrightnessMap[Keyboard]) {
-        m_cachedBrightnessMap[Keyboard] = value;
+    if (value != m_cachedKeyboardBrightness) {
+        m_cachedKeyboardBrightness = value;
         BackendInterface::onKeyboardBrightnessChanged(value, keyboardBrightnessMax());
     }
 }
