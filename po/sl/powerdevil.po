@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-19 02:03+0000\n"
+"POT-Creation-Date: 2023-06-09 02:14+0000\n"
 "PO-Revision-Date: 2023-05-16 07:54+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -34,33 +34,33 @@ msgstr ""
 "andrej.vernekar@moj.net,jlp@holodeck1.com,andrej.znidarsic@ubuntu.com,klemen."
 "kosir@gmx.com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
+#: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
-#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:60
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Upravljanje z energijo"
 
-#: actions/bundled/brightnesscontrol.cpp:56
+#: actions/bundled/brightnesscontrol.cpp:59
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Povečaj svetlost zaslona"
 
-#: actions/bundled/brightnesscontrol.cpp:61
+#: actions/bundled/brightnesscontrol.cpp:64
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Povečaj svetlost zaslona za 1%"
 
-#: actions/bundled/brightnesscontrol.cpp:66
+#: actions/bundled/brightnesscontrol.cpp:69
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Zmanjšaj svetlost zaslona"
 
-#: actions/bundled/brightnesscontrol.cpp:71
+#: actions/bundled/brightnesscontrol.cpp:74
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
@@ -194,19 +194,19 @@ msgstr "Ko je prenosnik zaprt"
 msgid "When power button pressed"
 msgstr "Ko se pritisne gumb za izklop"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#: actions/bundled/keyboardbrightnesscontrol.cpp:64
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Povečaj svetlost tipkovnice"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#: actions/bundled/keyboardbrightnesscontrol.cpp:69
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Zmanjšaj svetlost tipkovnice"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#: actions/bundled/keyboardbrightnesscontrol.cpp:74
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-19 02:03+0000\n"
+"POT-Creation-Date: 2023-06-09 02:14+0000\n"
 "PO-Revision-Date: 2023-01-15 12:18+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -31,33 +31,33 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "eirbir@gmail.com,karl@huftis.org"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
+#: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
-#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:60
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Straumstyring"
 
-#: actions/bundled/brightnesscontrol.cpp:56
+#: actions/bundled/brightnesscontrol.cpp:59
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Auk lysstyrken på skjermen"
 
-#: actions/bundled/brightnesscontrol.cpp:61
+#: actions/bundled/brightnesscontrol.cpp:64
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Auk lysstyrken på skjermen"
 
-#: actions/bundled/brightnesscontrol.cpp:66
+#: actions/bundled/brightnesscontrol.cpp:69
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Reduser lysstyrken på skjermen"
 
-#: actions/bundled/brightnesscontrol.cpp:71
+#: actions/bundled/brightnesscontrol.cpp:74
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
@@ -191,19 +191,19 @@ msgstr "Når lokket vert lukka"
 msgid "When power button pressed"
 msgstr "Ved trykk på straumknappen"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#: actions/bundled/keyboardbrightnesscontrol.cpp:64
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Auk lysstyrken på tastaturet"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#: actions/bundled/keyboardbrightnesscontrol.cpp:69
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Reduser lysstyrken på tastaturet"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#: actions/bundled/keyboardbrightnesscontrol.cpp:74
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"

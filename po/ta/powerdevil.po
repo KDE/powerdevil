@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-19 02:03+0000\n"
+"POT-Creation-Date: 2023-06-09 02:14+0000\n"
 "PO-Revision-Date: 2023-05-21 14:10+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,33 +27,33 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:75
+#: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
 #: actions/bundled/handlebuttonevents.cpp:57
-#: actions/bundled/keyboardbrightnesscontrol.cpp:57
+#: actions/bundled/keyboardbrightnesscontrol.cpp:60
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "ஆற்றல் மேலாண்மை"
 
-#: actions/bundled/brightnesscontrol.cpp:56
+#: actions/bundled/brightnesscontrol.cpp:59
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "திரையின் பிரகாசத்தை கூட்டு"
 
-#: actions/bundled/brightnesscontrol.cpp:61
+#: actions/bundled/brightnesscontrol.cpp:64
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "திரையின் பிரகாசத்தை 1% கூட்டு"
 
-#: actions/bundled/brightnesscontrol.cpp:66
+#: actions/bundled/brightnesscontrol.cpp:69
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "திரையின் பிரகாசத்தை குறை"
 
-#: actions/bundled/brightnesscontrol.cpp:71
+#: actions/bundled/brightnesscontrol.cpp:74
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
@@ -187,19 +187,19 @@ msgstr "மடிக்கணினியின் மூடி மூடப்�
 msgid "When power button pressed"
 msgstr "ஆற்றல் பட்டன் அழுத்தப்படும்போது"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:61
+#: actions/bundled/keyboardbrightnesscontrol.cpp:64
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "விசைப்பலகையின் பிரகாசத்தை கூட்டு"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:66
+#: actions/bundled/keyboardbrightnesscontrol.cpp:69
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "விசைப்பலகையின் பிரகாசத்தை குறை"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:71
+#: actions/bundled/keyboardbrightnesscontrol.cpp:74
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
