@@ -29,10 +29,8 @@ namespace BundledActions {
 class DimDisplayConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(DimDisplayConfig)
 public:
     DimDisplayConfig(QObject *);
-    ~DimDisplayConfig() override;
 
     void save() override;
     void load() override;

@@ -71,10 +71,7 @@ SuspendSession::SuspendSession(QObject *parent)
     });
 }
 
-SuspendSession::~SuspendSession()
-{
-
-}
+SuspendSession::~SuspendSession() = default;
 
 void SuspendSession::onProfileUnload()
 {

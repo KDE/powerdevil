@@ -28,12 +28,10 @@ namespace BundledActions {
 class BrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(BrightnessControl)
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.BrightnessControl")
 
 public:
     explicit BrightnessControl(QObject *parent);
-    ~BrightnessControl() override = default;
 
 protected:
     void onProfileUnload() override;

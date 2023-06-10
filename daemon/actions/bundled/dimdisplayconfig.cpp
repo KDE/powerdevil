@@ -39,11 +39,6 @@ DimDisplayConfig::DimDisplayConfig(QObject *parent)
 
 }
 
-DimDisplayConfig::~DimDisplayConfig()
-{
-
-}
-
 void DimDisplayConfig::save()
 {
     configGroup().writeEntry("idleTime", m_spinBox->value() * 60 * 1000);

@@ -30,11 +30,9 @@ namespace BundledActions {
 class HandleButtonEventsConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(HandleButtonEventsConfig)
 
 public:
     HandleButtonEventsConfig(QObject* parent);
-    ~HandleButtonEventsConfig() override;
 
     void save() override;
     void load() override;

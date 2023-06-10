@@ -28,11 +28,8 @@ namespace BundledActions {
 class DimDisplay : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(DimDisplay)
-
 public:
     explicit DimDisplay(QObject *parent);
-    ~DimDisplay() override = default;
 
 protected:
     void onProfileUnload() override;

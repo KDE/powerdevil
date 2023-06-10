@@ -41,8 +41,6 @@ PowerProfileConfig::PowerProfileConfig(QObject *parent)
 {
 }
 
-PowerProfileConfig::~PowerProfileConfig() = default;
-
 void PowerProfileConfig::save()
 {
     const QString profile = m_profileCombo->currentData().toString();

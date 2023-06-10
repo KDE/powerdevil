@@ -33,7 +33,6 @@ namespace BundledActions
 class PowerProfile : public PowerDevil::Action, protected QDBusContext
 {
     Q_OBJECT
-    Q_DISABLE_COPY(PowerProfile)
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.PowerProfile")
 
     Q_PROPERTY(QStringList profileChoices READ profileChoices NOTIFY profileChoicesChanged)

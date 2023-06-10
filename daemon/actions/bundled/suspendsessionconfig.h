@@ -31,10 +31,8 @@ namespace BundledActions {
 class SuspendSessionConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(SuspendSessionConfig)
 public:
     SuspendSessionConfig(QObject* parent);
-    ~SuspendSessionConfig() override;
 
     void save() override;
     void load() override;

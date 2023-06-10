@@ -30,10 +30,6 @@ K_PLUGIN_CLASS(PowerDevilDPMSActionConfig)
 PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent)
         : ActionConfig(parent)
 {
-
-}
-PowerDevilDPMSActionConfig::~PowerDevilDPMSActionConfig()
-{
 }
 
 void PowerDevilDPMSActionConfig::save()

@@ -41,11 +41,6 @@ RunScriptConfig::RunScriptConfig(QObject* parent)
 
 }
 
-RunScriptConfig::~RunScriptConfig()
-{
-
-}
-
 void RunScriptConfig::save()
 {
     configGroup().writeEntry("scriptCommand", m_urlRequester->text());

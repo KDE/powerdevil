@@ -36,7 +36,6 @@ namespace BundledActions {
 class DPMS : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(DPMS)
 
 public:
     explicit DPMS(QObject *parent);

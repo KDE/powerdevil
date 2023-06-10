@@ -31,11 +31,8 @@ namespace BundledActions {
 class RunScriptConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(RunScriptConfig)
-
 public:
     RunScriptConfig(QObject* parent);
-    ~RunScriptConfig() override;
 
     void save() override;
     void load() override;

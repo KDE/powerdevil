@@ -31,10 +31,8 @@ namespace BundledActions
 class PowerProfileConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(PowerProfileConfig)
 public:
     PowerProfileConfig(QObject *parent);
-    ~PowerProfileConfig() override;
 
     void save() override;
     void load() override;

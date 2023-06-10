@@ -34,7 +34,6 @@ namespace BundledActions
 class SuspendSession : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(SuspendSession)
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.SuspendSession")
 
 public:

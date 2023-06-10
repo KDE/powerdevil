@@ -33,7 +33,6 @@ namespace BundledActions {
 class HandleButtonEvents : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(HandleButtonEvents)
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.HandleButtonEvents")
 
 public:

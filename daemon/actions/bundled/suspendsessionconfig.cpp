@@ -43,12 +43,6 @@ SuspendSessionConfig::SuspendSessionConfig(QObject* parent)
         : ActionConfig(parent),
           m_suspendThenHibernateEnabled(nullptr)
 {
-
-}
-
-SuspendSessionConfig::~SuspendSessionConfig()
-{
-
 }
 
 void SuspendSessionConfig::save()

@@ -39,11 +39,6 @@ KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent
 
 }
 
-KeyboardBrightnessControlConfig::~KeyboardBrightnessControlConfig()
-{
-
-}
-
 void KeyboardBrightnessControlConfig::save()
 {
     configGroup().writeEntry("value", m_slider->value());

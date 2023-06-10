@@ -36,12 +36,6 @@ namespace BundledActions {
 BrightnessControlConfig::BrightnessControlConfig(QObject *parent)
     : ActionConfig(parent)
 {
-
-}
-
-BrightnessControlConfig::~BrightnessControlConfig()
-{
-
 }
 
 void BrightnessControlConfig::save()

@@ -43,12 +43,6 @@ HandleButtonEventsConfig::HandleButtonEventsConfig(QObject* parent)
 
 }
 
-HandleButtonEventsConfig::~HandleButtonEventsConfig()
-{
-
-}
-
-
 void HandleButtonEventsConfig::save()
 {
     if (m_lidCloseCombo) {

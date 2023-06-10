@@ -27,13 +27,11 @@ class QLabel;
 namespace PowerDevil {
 namespace BundledActions {
 
-class Q_DECL_EXPORT BrightnessControlConfig : public PowerDevil::ActionConfig
+class BrightnessControlConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
-    Q_DISABLE_COPY(BrightnessControlConfig)
 public:
     BrightnessControlConfig(QObject*);
-    ~BrightnessControlConfig() override;
 
     void save() override;
     void load() override;

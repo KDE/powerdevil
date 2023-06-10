@@ -36,7 +36,6 @@ class EditPage : public KCModule, private Ui_profileEditPage
 
 public:
     explicit EditPage(QObject *parent, const KPluginMetaData &data);
-    ~EditPage() override = default;
 
     void load() override;
     void save() override;

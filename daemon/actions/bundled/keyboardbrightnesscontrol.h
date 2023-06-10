@@ -28,12 +28,10 @@ namespace BundledActions {
 class KeyboardBrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(KeyboardBrightnessControl)
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl")
 
 public:
     explicit KeyboardBrightnessControl(QObject* parent);
-    ~KeyboardBrightnessControl() override = default;
 
 protected:
     void onProfileUnload() override;

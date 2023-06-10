@@ -28,7 +28,6 @@ namespace BundledActions {
 class RunScript : public PowerDevil::Action
 {
     Q_OBJECT
-    Q_DISABLE_COPY(RunScript)
 
 public:
     explicit RunScript(QObject *parent);
