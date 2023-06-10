@@ -30,7 +30,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
-K_PLUGIN_FACTORY(PowerDevilRunScriptConfigFactory, registerPlugin<PowerDevil::BundledActions::RunScriptConfig>(); )
+K_PLUGIN_CLASS(PowerDevil::BundledActions::RunScriptConfig)
 
 namespace PowerDevil {
 namespace BundledActions {

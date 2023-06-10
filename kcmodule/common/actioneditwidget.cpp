@@ -71,9 +71,12 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
             }
         }
 
-        //try to load the specified library
-        KPluginMetaData uiLib(QJsonObject(), offer.value(QStringLiteral("X-KDE-PowerDevil-Action-UIComponentLibrary")));
-        auto actionConfig = KPluginFactory::instantiatePlugin<PowerDevil::ActionConfig>(uiLib).plugin;
+        PowerDevil::ActionConfig *actionConfig = nullptr;
+        // try to load the library derived from plugin id
+        KPluginMetaData uiLib(QLatin1String("powerdevil/action/kcm/") + offer.pluginId() + QLatin1String("_config"), KPluginMetaData::AllowEmptyMetaData);
+        if (uiLib.isValid()) {
+            actionConfig = KPluginFactory::instantiatePlugin<PowerDevil::ActionConfig>(uiLib).plugin;
+        }
         if (!actionConfig) {
             continue;
         }

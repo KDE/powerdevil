@@ -32,7 +32,7 @@
 #include <QCheckBox>
 #include <QIcon>
 
-K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevil::BundledActions::HandleButtonEventsConfig>(); )
+K_PLUGIN_CLASS(PowerDevil::BundledActions::HandleButtonEventsConfig)
 
 namespace PowerDevil {
 namespace BundledActions {

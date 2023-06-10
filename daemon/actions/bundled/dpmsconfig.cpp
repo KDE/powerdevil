@@ -25,7 +25,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
-K_PLUGIN_FACTORY(PowerDevilDPMSConfigFactory, registerPlugin<PowerDevilDPMSActionConfig>();)
+K_PLUGIN_CLASS(PowerDevilDPMSActionConfig)
 
 PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent)
         : ActionConfig(parent)

@@ -32,7 +32,7 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 
-K_PLUGIN_FACTORY(PowerDevilPowerProfileConfigFactory, registerPlugin<PowerDevil::BundledActions::PowerProfileConfig>();)
+K_PLUGIN_CLASS(PowerDevil::BundledActions::PowerProfileConfig)
 
 using namespace PowerDevil::BundledActions;
 

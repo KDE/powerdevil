@@ -28,7 +28,7 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 
-K_PLUGIN_FACTORY(PowerDevilDimDisplayConfigFactory, registerPlugin<PowerDevil::BundledActions::DimDisplayConfig>(); )
+K_PLUGIN_CLASS(PowerDevil::BundledActions::DimDisplayConfig)
 
 namespace PowerDevil {
 namespace BundledActions {

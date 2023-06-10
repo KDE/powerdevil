@@ -9,22 +9,17 @@ function(add_powerdevil_bundled_action _name)
                         KF6::CoreAddons
                         KF6::I18n
                         KF6::ConfigGui
-                        KF6::XmlGui
                         ${ARGN})
     # Build the config module
-    set(actionconfig_SRCS ${_name}config.cpp)
-    add_library(powerdevil${_name}action_config MODULE
-                    ${actionconfig_SRCS})
-    target_link_libraries(powerdevil${_name}action_config
+    kcoreaddons_add_plugin(powerdevil_${_name}action_config SOURCES ${_name}config.cpp INSTALL_NAMESPACE "powerdevil/action/kcm")
+    target_link_libraries(powerdevil_${_name}action_config
                         powerdevilcore
                         powerdevilui
                         Qt::Widgets
                         KF6::CoreAddons
                         KF6::I18n
                         KF6::ConfigGui
-                        KF6::XmlGui
                         ${ARGN})
-    install(TARGETS powerdevil${_name}action_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endfunction(add_powerdevil_bundled_action _name)
 
 function(target_dbus_files _target)
@@ -68,15 +63,13 @@ set(actionconfig_SRCS handlebuttoneventsconfig.cpp)
 qt_add_dbus_interface(actionconfig_SRCS
     ${CMAKE_SOURCE_DIR}/daemon/backends/upower/dbus/org.freedesktop.UPower.xml
     upower_interface)
-add_library(powerdevilhandlebuttoneventsaction_config MODULE
-                ${actionconfig_SRCS})
-target_link_libraries(powerdevilhandlebuttoneventsaction_config
-                    powerdevilcore
-                    powerdevilui
-                    Qt::Widgets
-                    KF6::CoreAddons
-                    KF6::I18n
-                    KF6::ConfigGui
-                    KF6::XmlGui
-                    )
-install(TARGETS powerdevilhandlebuttoneventsaction_config DESTINATION ${KDE_INSTALL_PLUGINDIR})
+kcoreaddons_add_plugin(powerdevil_handlebuttoneventsaction_config SOURCES ${actionconfig_SRCS} INSTALL_NAMESPACE "powerdevil/action/kcm")
+target_link_libraries(powerdevil_handlebuttoneventsaction_config
+    powerdevilcore
+    powerdevilui
+    Qt::Widgets
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::ConfigGui
+    KF6::XmlGui
+)

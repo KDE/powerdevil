@@ -93,6 +93,5 @@
     },
     "X-KDE-PowerDevil-Action-ConfigPriority": 90,
     "X-KDE-PowerDevil-Action-ID": "SuspendSession",
-    "X-KDE-PowerDevil-Action-RegistersDBusInterface": true,
-    "X-KDE-PowerDevil-Action-UIComponentLibrary": "powerdevilsuspendsessionaction_config"
+    "X-KDE-PowerDevil-Action-RegistersDBusInterface": true
 }
