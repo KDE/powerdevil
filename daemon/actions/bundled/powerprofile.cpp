@@ -43,7 +43,7 @@ static const QString profileHoldsProperty = QStringLiteral("ActiveProfileHolds")
 static const QString ppdName = QStringLiteral("net.hadess.PowerProfiles");
 static const QString ppdPath = QStringLiteral("/net/hadess/PowerProfiles");
 
-PowerProfile::PowerProfile(QObject *parent, const QVariantList &)
+PowerProfile::PowerProfile(QObject *parent)
     : Action(parent)
     , m_powerProfilesInterface(new NetHadessPowerProfilesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
     , m_powerProfilesPropertiesInterface(new OrgFreedesktopDBusPropertiesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))

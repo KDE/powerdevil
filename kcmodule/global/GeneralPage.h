@@ -29,7 +29,7 @@ class GeneralPage : public KCModule, private Ui_generalPage
     Q_OBJECT
 
 public:
-    GeneralPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+    GeneralPage(QObject *parent, const KPluginMetaData &data);
     ~GeneralPage() override;
     void fillUi();
 

@@ -34,7 +34,7 @@ K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DimDisplay, "powerdevildimd
 namespace PowerDevil {
 namespace BundledActions {
 
-DimDisplay::DimDisplay(QObject* parent, const QVariantList &) : Action(parent)
+DimDisplay::DimDisplay(QObject* parent) : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }

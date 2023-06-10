@@ -33,7 +33,7 @@ class HandleButtonEventsConfig : public PowerDevil::ActionConfig
     Q_DISABLE_COPY(HandleButtonEventsConfig)
 
 public:
-    HandleButtonEventsConfig(QObject* parent, const QVariantList&);
+    HandleButtonEventsConfig(QObject* parent);
     ~HandleButtonEventsConfig() override;
 
     void save() override;

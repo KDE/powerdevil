@@ -28,7 +28,7 @@ K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::RunScript, "powerdevilrunsc
 
 namespace PowerDevil {
 namespace BundledActions {
-RunScript::RunScript(QObject *parent, const QVariantList &)
+RunScript::RunScript(QObject *parent)
     : Action(parent)
 {
     // TODO: Which policy should we enforce here? Let's go for the less restrictive one

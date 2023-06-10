@@ -27,7 +27,7 @@
 
 K_PLUGIN_FACTORY(PowerDevilDPMSConfigFactory, registerPlugin<PowerDevilDPMSActionConfig>();)
 
-PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent, const QVariantList& )
+PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent)
         : ActionConfig(parent)
 {
 

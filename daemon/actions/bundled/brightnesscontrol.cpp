@@ -39,7 +39,7 @@ K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerde
 
 namespace PowerDevil {
 namespace BundledActions {
-BrightnessControl::BrightnessControl(QObject *parent, const QVariantList &)
+BrightnessControl::BrightnessControl(QObject *parent)
     : Action(parent)
 {
     // DBus

@@ -33,7 +33,7 @@ K_PLUGIN_FACTORY(PowerDevilBrightnessControlConfigFactory, registerPlugin<PowerD
 namespace PowerDevil {
 namespace BundledActions {
 
-BrightnessControlConfig::BrightnessControlConfig(QObject *parent, const QVariantList& )
+BrightnessControlConfig::BrightnessControlConfig(QObject *parent)
     : ActionConfig(parent)
 {
 

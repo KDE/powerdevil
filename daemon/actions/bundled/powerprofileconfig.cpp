@@ -36,10 +36,9 @@ K_PLUGIN_FACTORY(PowerDevilPowerProfileConfigFactory, registerPlugin<PowerDevil:
 
 using namespace PowerDevil::BundledActions;
 
-PowerProfileConfig::PowerProfileConfig(QObject *parent, const QVariantList &args)
+PowerProfileConfig::PowerProfileConfig(QObject *parent)
     : ActionConfig(parent)
 {
-    Q_UNUSED(args)
 }
 
 PowerProfileConfig::~PowerProfileConfig() = default;
@@ -104,7 +103,6 @@ QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
             m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
         }
     });
-
 
     return {qMakePair<QString, QWidget *>(i18nc("Switch to power management profile", "Switch to:"), m_profileCombo)};
 }

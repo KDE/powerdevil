@@ -27,7 +27,7 @@ class PowerDevilDPMSActionConfig : public PowerDevil::ActionConfig
     Q_OBJECT
     Q_DISABLE_COPY(PowerDevilDPMSActionConfig)
 public:
-    PowerDevilDPMSActionConfig(QObject* parent, const QVariantList&);
+    PowerDevilDPMSActionConfig(QObject* parent);
     ~PowerDevilDPMSActionConfig() override;
 
     void save() override;

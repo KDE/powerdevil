@@ -35,7 +35,7 @@ class ActivityPage : public KCModule
     Q_OBJECT
 
 public:
-    ActivityPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+    ActivityPage(QObject *parent, const KPluginMetaData &data);
     ~ActivityPage() override;
     void fillUi();
 

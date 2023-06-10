@@ -34,7 +34,7 @@ class RunScriptConfig : public PowerDevil::ActionConfig
     Q_DISABLE_COPY(RunScriptConfig)
 
 public:
-    RunScriptConfig(QObject* parent, const QVariantList&);
+    RunScriptConfig(QObject* parent);
     ~RunScriptConfig() override;
 
     void save() override;

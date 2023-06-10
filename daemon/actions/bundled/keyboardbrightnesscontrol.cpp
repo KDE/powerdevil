@@ -43,7 +43,7 @@ K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::KeyboardBrightnessControl, 
 namespace PowerDevil {
 namespace BundledActions {
 
-KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent, const QVariantList &)
+KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
     : Action(parent)
 {
     // DBus

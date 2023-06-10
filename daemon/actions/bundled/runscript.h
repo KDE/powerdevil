@@ -31,7 +31,7 @@ class RunScript : public PowerDevil::Action
     Q_DISABLE_COPY(RunScript)
 
 public:
-    explicit RunScript(QObject *parent, const QVariantList &);
+    explicit RunScript(QObject *parent);
     ~RunScript() override;
 
 protected:

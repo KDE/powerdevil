@@ -53,8 +53,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(EditPage, "kcm_powerdevilprofilesconfig.json")
 
-EditPage::EditPage(QObject *parent, const KPluginMetaData&data, const QVariantList &args)
-    : KCModule(parent, data, args)
+EditPage::EditPage(QObject *parent, const KPluginMetaData&data)
+    : KCModule(parent, data)
 {
     setButtons(Apply | Help | Default);
 

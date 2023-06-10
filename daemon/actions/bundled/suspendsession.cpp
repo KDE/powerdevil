@@ -43,7 +43,7 @@ namespace PowerDevil
 {
 namespace BundledActions
 {
-SuspendSession::SuspendSession(QObject *parent, const QVariantList &)
+SuspendSession::SuspendSession(QObject *parent)
     : Action(parent)
     , m_fadeEffect(new PowerDevil::KWinKScreenHelperEffect())
 {

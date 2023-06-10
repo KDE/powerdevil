@@ -32,7 +32,7 @@ class Q_DECL_EXPORT KeyboardBrightnessControlConfig : public PowerDevil::ActionC
     Q_OBJECT
     Q_DISABLE_COPY(KeyboardBrightnessControlConfig)
 public:
-    KeyboardBrightnessControlConfig(QObject*, const QVariantList&);
+    KeyboardBrightnessControlConfig(QObject*);
     ~KeyboardBrightnessControlConfig() override;
 
     void save() override;

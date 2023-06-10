@@ -37,7 +37,7 @@ K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevi
 namespace PowerDevil {
 namespace BundledActions {
 
-HandleButtonEventsConfig::HandleButtonEventsConfig(QObject* parent, const QVariantList& )
+HandleButtonEventsConfig::HandleButtonEventsConfig(QObject* parent)
     : ActionConfig(parent)
 {
 

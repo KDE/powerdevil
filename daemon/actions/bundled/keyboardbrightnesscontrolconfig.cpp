@@ -33,7 +33,7 @@ K_PLUGIN_FACTORY(PowerDevilKeyboardBrightnessControlConfigFactory, registerPlugi
 namespace PowerDevil {
 namespace BundledActions {
 
-KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent, const QVariantList& )
+KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent)
     : ActionConfig(parent)
 {
 

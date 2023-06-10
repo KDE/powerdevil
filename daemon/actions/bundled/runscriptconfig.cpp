@@ -35,7 +35,7 @@ K_PLUGIN_FACTORY(PowerDevilRunScriptConfigFactory, registerPlugin<PowerDevil::Bu
 namespace PowerDevil {
 namespace BundledActions {
 
-RunScriptConfig::RunScriptConfig(QObject* parent, const QVariantList&)
+RunScriptConfig::RunScriptConfig(QObject* parent)
     : ActionConfig(parent)
 {
 

@@ -33,7 +33,7 @@ K_PLUGIN_FACTORY(PowerDevilDimDisplayConfigFactory, registerPlugin<PowerDevil::B
 namespace PowerDevil {
 namespace BundledActions {
 
-DimDisplayConfig::DimDisplayConfig(QObject *parent, const QVariantList& )
+DimDisplayConfig::DimDisplayConfig(QObject *parent)
     : ActionConfig(parent)
 {
 

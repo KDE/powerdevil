@@ -49,8 +49,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(GeneralPage, "kcm_powerdevilglobalconfig.json")
 
-GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KCModule(parent, data, args)
+GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
 {
     setButtons(Apply | Help);
 

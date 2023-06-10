@@ -39,7 +39,7 @@ K_PLUGIN_FACTORY(PowerDevilSuspendSessionConfigFactory, registerPlugin<PowerDevi
 namespace PowerDevil {
 namespace BundledActions {
 
-SuspendSessionConfig::SuspendSessionConfig(QObject* parent, const QVariantList&)
+SuspendSessionConfig::SuspendSessionConfig(QObject* parent)
         : ActionConfig(parent),
           m_suspendThenHibernateEnabled(nullptr)
 {

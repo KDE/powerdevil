@@ -31,7 +31,7 @@ class DimDisplayConfig : public PowerDevil::ActionConfig
     Q_OBJECT
     Q_DISABLE_COPY(DimDisplayConfig)
 public:
-    DimDisplayConfig(QObject *, const QVariantList&);
+    DimDisplayConfig(QObject *);
     ~DimDisplayConfig() override;
 
     void save() override;

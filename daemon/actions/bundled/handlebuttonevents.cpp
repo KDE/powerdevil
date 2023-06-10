@@ -43,7 +43,7 @@
 
 namespace PowerDevil {
 namespace BundledActions {
-HandleButtonEvents::HandleButtonEvents(QObject *parent, const QVariantList &)
+HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
     , m_screenConfiguration(nullptr)
 {

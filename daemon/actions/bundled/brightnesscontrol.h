@@ -32,7 +32,7 @@ class BrightnessControl : public PowerDevil::Action
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.BrightnessControl")
 
 public:
-    explicit BrightnessControl(QObject *parent, const QVariantList &);
+    explicit BrightnessControl(QObject *parent);
     ~BrightnessControl() override = default;
 
 protected:

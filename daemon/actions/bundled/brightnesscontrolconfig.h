@@ -32,7 +32,7 @@ class Q_DECL_EXPORT BrightnessControlConfig : public PowerDevil::ActionConfig
     Q_OBJECT
     Q_DISABLE_COPY(BrightnessControlConfig)
 public:
-    BrightnessControlConfig(QObject*, const QVariantList&);
+    BrightnessControlConfig(QObject*);
     ~BrightnessControlConfig() override;
 
     void save() override;

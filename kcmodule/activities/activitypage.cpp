@@ -47,8 +47,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(ActivityPage, "kcm_powerdevilactivitiesconfig.json")
 
-ActivityPage::ActivityPage(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : KCModule(parent, data, args)
+ActivityPage::ActivityPage(QObject *parent, const KPluginMetaData &data)
+    : KCModule(parent, data)
     , m_activityConsumer(new KActivities::Consumer(this))
 {
     setButtons(Apply | Help);

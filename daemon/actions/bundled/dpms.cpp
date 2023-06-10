@@ -48,7 +48,7 @@ K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction
 
 namespace PowerDevil {
 namespace BundledActions {
-DPMS::DPMS(QObject *parent, const QVariantList &)
+DPMS::DPMS(QObject *parent)
     : Action(parent)
     , m_dpms(new KScreen::Dpms)
 {
