@@ -63,10 +63,12 @@ public:
     int screenBrightness() const override;
     int screenBrightnessMax() const override;
     void setScreenBrightness(int value) override;
+    bool screenBrightnessAvailable() const override;
 
     int keyboardBrightness() const override;
     int keyboardBrightnessMax() const override;
     void setKeyboardBrightness(int value) override;
+    bool keyboardBrightnessAvailable() const override;
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
     int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
@@ -101,6 +103,7 @@ private:
     // brightness
     int m_cachedScreenBrightness;
     int m_cachedKeyboardBrightness;
+    bool m_screenBrightnessAvailable = false;
 
     DDCutilBrightness *m_ddcBrightnessControl = nullptr;
 
@@ -108,6 +111,7 @@ private:
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
     int m_kbdMaxBrightness;
     int m_brightnessMax = 0;
+    bool m_keyboardBrightnessAvailable = false;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
 

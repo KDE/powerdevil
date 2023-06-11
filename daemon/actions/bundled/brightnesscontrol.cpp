@@ -131,12 +131,7 @@ void BrightnessControl::triggerImpl(const QVariantMap &args)
 
 bool BrightnessControl::isSupported()
 {
-    BackendInterface::BrightnessControlsList controls = backend()->brightnessControlsAvailable();
-    if (controls.key(BackendInterface::Screen).isEmpty()) {
-        return false;
-    }
-
-    return true;
+    return backend()->screenBrightnessAvailable();
 }
 
 bool BrightnessControl::loadAction(const KConfigGroup& config)

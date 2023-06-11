@@ -109,12 +109,7 @@ void DimDisplay::triggerImpl(const QVariantMap &args)
 
 bool DimDisplay::isSupported()
 {
-    BackendInterface::BrightnessControlsList controls = backend()->brightnessControlsAvailable();
-    if (controls.key(BackendInterface::Screen).isEmpty()) {
-        return false;
-    }
-
-    return true;
+    return backend()->screenBrightnessAvailable();
 }
 
 bool DimDisplay::loadAction(const KConfigGroup& config)

@@ -61,7 +61,6 @@ public:
 
     ScreenBrightnessLogic screenBrightnessLogic;
     KeyboardBrightnessLogic keyboardBrightnessLogic;
-    BrightnessControlsList brightnessControlsAvailable;
     Capabilities capabilities;
     SuspendMethods suspendMethods;
     QString errorString;
@@ -109,11 +108,6 @@ int BackendInterface::keyboardBrightnessSteps() const
     return d->keyboardBrightnessLogic.steps();
 }
 
-BackendInterface::BrightnessControlsList BackendInterface::brightnessControlsAvailable() const
-{
-    return d->brightnessControlsAvailable;
-}
-
 BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() const
 {
     return d->suspendMethods;
@@ -145,10 +139,8 @@ void BackendInterface::setBackendHasError(const QString& errorDetails)
     Q_UNUSED(errorDetails)
 }
 
-void BackendInterface::setBackendIsReady(const BrightnessControlsList &availableBrightnessControls,
-                                         BackendInterface::SuspendMethods supportedSuspendMethods)
+void BackendInterface::setBackendIsReady(BackendInterface::SuspendMethods supportedSuspendMethods)
 {
-    d->brightnessControlsAvailable = availableBrightnessControls;
     d->suspendMethods = supportedSuspendMethods;
     d->isReady = true;
 

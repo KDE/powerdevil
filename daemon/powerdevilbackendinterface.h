@@ -89,8 +89,6 @@ public:
     enum BrightnessControlType{ UnknownBrightnessControl = 0, Screen = 1, Keyboard = 2 };
     Q_ENUM(BrightnessControlType)
 
-    typedef QHash<QString, BrightnessControlType> BrightnessControlsList;
-
     /**
      * This enum defines capabilities of the backend
      *
@@ -157,13 +155,6 @@ public:
     virtual KJob *suspend(SuspendMethod method) = 0;
 
     /**
-     * Checks if brightness controls are enabled on this system.
-     *
-     * @return a list of the devices available to control
-     */
-    BrightnessControlsList brightnessControlsAvailable() const;
-
-    /**
      * Gets the screen brightness value.
      *
      * @return the brightness of the screen, as an integer from 0 to brightnessValueMax
@@ -184,6 +175,8 @@ public:
 
     virtual int screenBrightnessKeyPressed(BrightnessLogic::BrightnessKeyType type) = 0;
 
+    virtual bool screenBrightnessAvailable() const = 0;
+
     virtual int keyboardBrightness() const = 0;
 
     virtual int keyboardBrightnessMax() const = 0;
@@ -193,6 +186,8 @@ public:
     virtual void setKeyboardBrightness(int value) = 0;
 
     virtual int keyboardBrightnessKeyPressed(BrightnessLogic::BrightnessKeyType type) = 0;
+
+    virtual bool keyboardBrightnessAvailable() const = 0;
 
     /**
      * @returns whether the lid is closed or not.
@@ -283,7 +278,7 @@ protected:
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
 
-    void setBackendIsReady(const BrightnessControlsList &availableBrightnessControls, SuspendMethods supportedSuspendMethods);
+    void setBackendIsReady(SuspendMethods supportedSuspendMethods);
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic

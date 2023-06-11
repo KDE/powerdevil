@@ -188,9 +188,8 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     enumerateDevices();
 
     // Brightness Controls available
-    BrightnessControlsList controls;
     if (screenBrightnessAvailable) {
-        controls.insert(QLatin1String("LVDS1"), Screen);
+        m_screenBrightnessAvailable = true;
         qCDebug(POWERDEVIL) << "current screen brightness value: " << m_cachedScreenBrightness;
     }
 
@@ -201,10 +200,10 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         rep.waitForFinished();
         if (rep.isValid()) {
             m_kbdMaxBrightness = rep.value();
+            m_keyboardBrightnessAvailable = true;
         }
         // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
         if (m_kbdMaxBrightness) {
-            controls.insert(QLatin1String("KBD"), Keyboard);
             m_cachedKeyboardBrightness = keyboardBrightness();
             qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedKeyboardBrightness;
             connect(m_kbdBacklight, &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChanged, this, &PowerDevilUPowerBackend::onKeyboardBrightnessChanged);
@@ -241,7 +240,7 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     }
 
     // backend ready
-    setBackendIsReady(controls, supported);
+    setBackendIsReady(supported);
 }
 
 void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
@@ -270,9 +269,7 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 
 int PowerDevilUPowerBackend::screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
 {
-    BrightnessControlsList allControls = brightnessControlsAvailable();
-
-    if (allControls.key(BackendInterface::Screen).isEmpty()) {
+    if (m_screenBrightnessAvailable) {
         return -1; // ignore as we are not able to determine the brightness level
     }
 
@@ -298,9 +295,7 @@ int PowerDevilUPowerBackend::screenBrightnessKeyPressed(PowerDevil::BrightnessLo
 
 int PowerDevilUPowerBackend::keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
 {
-    BrightnessControlsList allControls = brightnessControlsAvailable();
-
-    if (allControls.key(BackendInterface::Keyboard).isEmpty()) {
+    if (!m_keyboardBrightnessAvailable) {
         return -1; // ignore as we are not able to determine the brightness level
     }
 
@@ -407,10 +402,20 @@ void PowerDevilUPowerBackend::setScreenBrightness(int value)
     }
 }
 
+bool PowerDevilUPowerBackend::screenBrightnessAvailable() const
+{
+    return m_screenBrightnessAvailable;
+}
+
 void PowerDevilUPowerBackend::setKeyboardBrightness(int value)
 {
     qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
     m_kbdBacklight->SetBrightness(value);
+}
+
+bool PowerDevilUPowerBackend::keyboardBrightnessAvailable() const
+{
+    return m_keyboardBrightnessAvailable;
 }
 
 void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
