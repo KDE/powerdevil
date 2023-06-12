@@ -29,10 +29,6 @@ DDCutilBrightness::DDCutilBrightness()
 
 DDCutilBrightness::~DDCutilBrightness()
 {
-    for (auto &display : m_displays) {
-        delete display;
-    }
-    m_displays.clear();
 }
 
 void DDCutilBrightness::detect()
@@ -54,11 +50,10 @@ void DDCutilBrightness::detect()
             continue;
         }
 
-        auto display = new DDCutilDisplay(displayInfo, displayHandle);
+        auto display = std::make_unique<DDCutilDisplay>(displayInfo, displayHandle);
 
         if (!display->supportsBrightness()) {
             qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor does not seem to support brightness control";
-            delete display;
             continue;
         }
 
@@ -68,11 +63,10 @@ void DDCutilBrightness::detect()
 
         if (displayId.isEmpty()) {
             qCWarning(POWERDEVIL) << "Cannot generate ID for display with model name:" << displayInfo.model_name;
-            delete display;
             continue;
         }
 
-        m_displays[displayId] = display;
+        m_displays[displayId] = std::move(display);
         m_displayIds += displayId;
     }
     ddca_free_display_info_list(displays);

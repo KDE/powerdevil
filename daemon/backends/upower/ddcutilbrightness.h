@@ -29,6 +29,8 @@
 
 #include "ddcutildisplay.h"
 
+#include <unordered_map>
+
 class DDCutilBrightness: public QObject
 {
     Q_OBJECT
@@ -50,5 +52,5 @@ private:
 
 private:
     QStringList m_displayIds;
-    QHash<QString, DDCutilDisplay *> m_displays;
+    std::unordered_map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
 };
