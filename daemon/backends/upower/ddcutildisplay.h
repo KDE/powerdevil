@@ -40,6 +40,7 @@ public:
     int brightness();
     int maxBrightness();
     void setBrightness(int value);
+    bool supportsBrightness() const;
 
 private:
 #ifdef WITH_DDCUTIL
@@ -49,4 +50,5 @@ private:
     QReadWriteLock m_lock;
     int m_brightness;
     int m_maxBrightness;
+    bool m_supportsBrightness;
 };

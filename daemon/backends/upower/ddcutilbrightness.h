@@ -49,8 +49,6 @@ private:
 #endif
 
 private:
-    QList<uint16_t> m_usedVcp;
-
     QStringList m_displayIds;
     QHash<QString, DDCutilDisplay *> m_displays;
 };

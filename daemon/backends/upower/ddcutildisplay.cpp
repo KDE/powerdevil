@@ -22,12 +22,12 @@
 #define BRIGHTNESS_VCP_FEATURE_CODE 0x10
 
 #ifdef WITH_DDCUTIL
-DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo,
-                               DDCA_Display_Handle displayHandle)
+DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo, DDCA_Display_Handle displayHandle)
     : m_displayInfo(displayInfo)
     , m_displayHandle(displayHandle)
     , m_brightness(-1)
     , m_maxBrightness(-1)
+    , m_supportsBrightness(false)
 {
     Q_ASSERT(displayHandle);
 
@@ -36,6 +36,7 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo,
     if (ddca_get_non_table_vcp_value(m_displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, &value) == DDCRC_OK) {
         m_brightness = value.sh << 8 | value.sl;
         m_maxBrightness = value.mh << 8 | value.ml;
+        m_supportsBrightness = true;
     }
 }
 #endif
@@ -82,4 +83,9 @@ void DDCutilDisplay::setBrightness(int value)
         m_brightness = value;
     }
 #endif
+}
+
+bool DDCutilDisplay::supportsBrightness() const
+{
+    return m_supportsBrightness;
 }

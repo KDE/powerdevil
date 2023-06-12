@@ -24,7 +24,6 @@
 using namespace std::chrono_literals;
 
 DDCutilBrightness::DDCutilBrightness()
-    : m_usedVcp({0x10})
 {
 }
 
@@ -55,32 +54,26 @@ void DDCutilBrightness::detect()
             continue;
         }
 
-        QList<uint16_t> supportedFeatures;
-        for (int usedVcpIndex = 0; usedVcpIndex < m_usedVcp.count(); ++usedVcpIndex) {
-            DDCA_Non_Table_Vcp_Value value;
-            if ((rc = ddca_get_non_table_vcp_value(displayHandle, m_usedVcp.value(usedVcpIndex), &value))) {
-                qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor does not seem to support" << m_usedVcp[usedVcpIndex];
-            } else {
-                qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor supports" << m_usedVcp[usedVcpIndex];
-                supportedFeatures.append(m_usedVcp.value(usedVcpIndex));
-            }
-        }
+        auto display = new DDCutilDisplay(displayInfo, displayHandle);
 
-        if (supportedFeatures.contains(0x10)) {
-            qCDebug(POWERDEVIL) << "Display supports Brightness, adding handle to list";
-            QString displayId = generateDisplayId(displayInfo);
-            qCDebug(POWERDEVIL) << "Create a Display Identifier:" << displayId << "for display:" << displayInfo.model_name;
-
-            if (displayId.isEmpty()) {
-                qCWarning(POWERDEVIL) << "Cannot generate ID for display with model name:" << displayInfo.model_name;
-                continue;
-            }
-
-            m_displays[displayId] = new DDCutilDisplay(displayInfo, displayHandle);
-            m_displayIds += displayId;
+        if (!display->supportsBrightness()) {
+            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor does not seem to support brightness control";
+            delete display;
             continue;
         }
-        ddca_close_display(displayHandle);
+
+        qCDebug(POWERDEVIL) << "Display supports Brightness, adding handle to list";
+        QString displayId = generateDisplayId(displayInfo);
+        qCDebug(POWERDEVIL) << "Create a Display Identifier:" << displayId << "for display:" << displayInfo.model_name;
+
+        if (displayId.isEmpty()) {
+            qCWarning(POWERDEVIL) << "Cannot generate ID for display with model name:" << displayInfo.model_name;
+            delete display;
+            continue;
+        }
+
+        m_displays[displayId] = display;
+        m_displayIds += displayId;
     }
     ddca_free_display_info_list(displays);
 #else
