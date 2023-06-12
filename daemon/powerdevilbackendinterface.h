@@ -23,6 +23,8 @@
 #include <QHash>
 
 #include "powerdevilbrightnesslogic.h"
+#include "powerdevilscreenbrightnesslogic.h"
+#include "powerdevilkeyboardbrightnesslogic.h"
 
 #include "powerdevilcore_export.h"
 
@@ -169,7 +171,7 @@ public:
      */
     virtual int screenBrightnessMax() const = 0;
 
-    int screenBrightnessSteps() const;
+    int screenBrightnessSteps();
 
     virtual void setScreenBrightness(int value) = 0;
 
@@ -181,7 +183,7 @@ public:
 
     virtual int keyboardBrightnessMax() const = 0;
 
-    int keyboardBrightnessSteps() const;
+    int keyboardBrightnessSteps();
 
     virtual void setKeyboardBrightness(int value) = 0;
 
@@ -286,8 +288,22 @@ protected:
     int calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
 
 private:
-    class Private;
-    Private * const d;
+    AcAdapterState m_acAdapterState = UnknownAcAdapterState;
+
+    qulonglong m_batteryRemainingTime = 0;
+    qulonglong m_smoothedBatteryRemainingTime = 0;
+    qulonglong m_lastRateTimestamp = 0;
+    double m_batteryEnergyFull = 0;
+    double m_batteryEnergy = 0;
+    double m_smoothedBatteryDischargeRate = 0;
+
+    ScreenBrightnessLogic m_screenBrightnessLogic;
+    KeyboardBrightnessLogic m_keyboardBrightnessLogic;
+    Capabilities m_capabilities;
+    SuspendMethods m_suspendMethods;
+    QString m_errorString;
+    bool m_isLidClosed = false;
+    bool m_isLidPresent = false;
 
     friend class Core;
 };

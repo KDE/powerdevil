@@ -18,8 +18,6 @@
  ***************************************************************************/
 
 #include "powerdevilbackendinterface.h"
-#include "powerdevilscreenbrightnesslogic.h"
-#include "powerdevilkeyboardbrightnesslogic.h"
 #include "powerdevil_debug.h"
 #include <QDebug>
 
@@ -36,97 +34,65 @@ double emafilter(const double last, const double update, double weight)
     return current;
 }
 
-class BackendInterface::Private
-{
-public:
-    Private()
-        : acAdapterState(UnknownAcAdapterState)
-        , batteryRemainingTime(0)
-        , isLidClosed(false)
-        , isLidPresent(false)
-    {
-    }
-    ~Private() {}
-
-    AcAdapterState acAdapterState;
-
-    qulonglong batteryRemainingTime;
-    qulonglong smoothedBatteryRemainingTime = 0;
-    qulonglong lastRateTimestamp = 0;
-    double batteryEnergyFull = 0;
-    double batteryEnergy = 0;
-    double smoothedBatteryDischargeRate = 0;
-
-    ScreenBrightnessLogic screenBrightnessLogic;
-    KeyboardBrightnessLogic keyboardBrightnessLogic;
-    Capabilities capabilities;
-    SuspendMethods suspendMethods;
-    QString errorString;
-    bool isLidClosed;
-    bool isLidPresent;
-};
-
 BackendInterface::BackendInterface(QObject* parent)
     : QObject(parent)
-    , d(new Private)
 {
 }
 
 BackendInterface::~BackendInterface()
 {
-    delete d;
 }
 
 BackendInterface::AcAdapterState BackendInterface::acAdapterState() const
 {
-    return d->acAdapterState;
+    return m_acAdapterState;
 }
 
 qulonglong BackendInterface::batteryRemainingTime() const
 {
-    return d->batteryRemainingTime;
+    return m_batteryRemainingTime;
 }
 
 qulonglong BackendInterface::smoothedBatteryRemainingTime() const
 {
-    return d->smoothedBatteryRemainingTime;
+    return m_smoothedBatteryRemainingTime;
 }
 
-int BackendInterface::screenBrightnessSteps() const
+int BackendInterface::screenBrightnessSteps()
 {
-    d->screenBrightnessLogic.setValueMax(screenBrightnessMax());
-    return d->screenBrightnessLogic.steps();
+    m_screenBrightnessLogic.setValueMax(screenBrightnessMax());
+    return m_screenBrightnessLogic.steps();
 }
 
-int BackendInterface::keyboardBrightnessSteps() const
+int BackendInterface::keyboardBrightnessSteps()
 {
-    d->keyboardBrightnessLogic.setValueMax(keyboardBrightnessMax());
-    return d->keyboardBrightnessLogic.steps();
+    m_keyboardBrightnessLogic.setValueMax(keyboardBrightnessMax());
+    return m_keyboardBrightnessLogic.steps();
 }
 
 BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() const
 {
-    return d->suspendMethods;
+    return m_suspendMethods;
 }
 
 bool BackendInterface::isLidClosed() const
 {
-    return d->isLidClosed;
+    return m_isLidClosed;
 }
 
 bool BackendInterface::isLidPresent() const
 {
-    return d->isLidPresent;
+    return m_isLidPresent;
 }
 
 void BackendInterface::setLidPresent(bool present)
 {
-    d->isLidPresent = present;
+    m_isLidPresent = present;
 }
 
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
 {
-    d->acAdapterState = state;
+    m_acAdapterState = state;
     Q_EMIT acAdapterStateChanged(state);
 }
 
@@ -137,19 +103,19 @@ void BackendInterface::setBackendHasError(const QString& errorDetails)
 
 void BackendInterface::setBackendIsReady(BackendInterface::SuspendMethods supportedSuspendMethods)
 {
-    d->suspendMethods = supportedSuspendMethods;
+    m_suspendMethods = supportedSuspendMethods;
 
     Q_EMIT backendReady();
 }
 
 void BackendInterface::setBatteryEnergyFull(const double energy)
 {
-    d->batteryEnergyFull = energy;
+    m_batteryEnergyFull = energy;
 }
 
 void BackendInterface::setBatteryEnergy(const double energy)
 {
-    d->batteryEnergy = energy;
+    m_batteryEnergy = energy;
 }
 
 void BackendInterface::setBatteryRate(const double rate, qulonglong timestamp)
@@ -159,51 +125,51 @@ void BackendInterface::setBatteryRate(const double rate, qulonglong timestamp)
 
     if (rate > 0) {
         // Energy and rate are in Watt*hours resp. Watt
-        time = 3600 * 1000 * (d->batteryEnergyFull - d->batteryEnergy) / rate;
+        time = 3600 * 1000 * (m_batteryEnergyFull - m_batteryEnergy) / rate;
     } else if (rate < 0) {
-        time = 3600 * 1000 * (0.0 - d->batteryEnergy) / rate;
+        time = 3600 * 1000 * (0.0 - m_batteryEnergy) / rate;
     }
 
-    if (d->batteryRemainingTime != time) {
-        d->batteryRemainingTime = time;
+    if (m_batteryRemainingTime != time) {
+        m_batteryRemainingTime = time;
         Q_EMIT batteryRemainingTimeChanged(time);
     }
 
     // Charging or full
     if ((rate > 0) || (time == 0)) {
-        if (d->smoothedBatteryRemainingTime != time) {
-            d->smoothedBatteryRemainingTime = time;
+        if (m_smoothedBatteryRemainingTime != time) {
+            m_smoothedBatteryRemainingTime = time;
             Q_EMIT smoothedBatteryRemainingTimeChanged(time);
         }
         return;
     }
 
-    double oldRate = d->smoothedBatteryDischargeRate;
+    double oldRate = m_smoothedBatteryDischargeRate;
     if (oldRate == 0) {
-        d->smoothedBatteryDischargeRate = rate;
+        m_smoothedBatteryDischargeRate = rate;
     } else {
         // To have a time constant independent from the update frequency
         // the weight must be scaled
-        double weight = 0.005 * std::min<qulonglong>(60, timestamp - d->lastRateTimestamp);
-        d->lastRateTimestamp = timestamp;
-        d->smoothedBatteryDischargeRate = emafilter(oldRate, rate, weight);
+        double weight = 0.005 * std::min<qulonglong>(60, timestamp - m_lastRateTimestamp);
+        m_lastRateTimestamp = timestamp;
+        m_smoothedBatteryDischargeRate = emafilter(oldRate, rate, weight);
     }
 
-    time = 3600 * 1000 * (0.0 - d->batteryEnergy) / d->smoothedBatteryDischargeRate;
+    time = 3600 * 1000 * (0.0 - m_batteryEnergy) / m_smoothedBatteryDischargeRate;
 
-    if (d->smoothedBatteryRemainingTime != time) {
-        d->smoothedBatteryRemainingTime = time;
-        Q_EMIT smoothedBatteryRemainingTimeChanged(d->smoothedBatteryRemainingTime);
+    if (m_smoothedBatteryRemainingTime != time) {
+        m_smoothedBatteryRemainingTime = time;
+        Q_EMIT smoothedBatteryRemainingTimeChanged(m_smoothedBatteryRemainingTime);
     }
 }
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
 {
-    if (type == LidClose && !d->isLidClosed) {
-        d->isLidClosed = true;
+    if (type == LidClose && !m_isLidClosed) {
+        m_isLidClosed = true;
         Q_EMIT lidClosedChanged(true);
-    } else if (type == LidOpen && d->isLidClosed) {
-        d->isLidClosed = false;
+    } else if (type == LidOpen && m_isLidClosed) {
+        m_isLidClosed = false;
         Q_EMIT lidClosedChanged(false);
     }
     Q_EMIT buttonPressed(type);
@@ -211,44 +177,44 @@ void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType
 
 void BackendInterface::onScreenBrightnessChanged(int value, int valueMax)
 {
-    d->screenBrightnessLogic.setValueMax(valueMax);
-    d->screenBrightnessLogic.setValue(value);
+    m_screenBrightnessLogic.setValueMax(valueMax);
+    m_screenBrightnessLogic.setValue(value);
 
-    Q_EMIT screenBrightnessChanged(d->screenBrightnessLogic.info());
+    Q_EMIT screenBrightnessChanged(m_screenBrightnessLogic.info());
 }
 
 void BackendInterface::onKeyboardBrightnessChanged(int value, int valueMax)
 {
-    d->keyboardBrightnessLogic.setValueMax(valueMax);
-    d->keyboardBrightnessLogic.setValue(value);
+    m_keyboardBrightnessLogic.setValueMax(valueMax);
+    m_keyboardBrightnessLogic.setValue(value);
 
-    Q_EMIT keyboardBrightnessChanged(d->keyboardBrightnessLogic.info());
+    Q_EMIT keyboardBrightnessChanged(m_keyboardBrightnessLogic.info());
 }
 
 BackendInterface::Capabilities BackendInterface::capabilities() const
 {
-    return d->capabilities;
+    return m_capabilities;
 }
 
 void BackendInterface::setCapabilities(BackendInterface::Capabilities capabilities)
 {
-    d->capabilities = capabilities;
+    m_capabilities = capabilities;
 }
 
 int BackendInterface::calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType)
 {
-    d->screenBrightnessLogic.setValueMax(valueMax);
-    d->screenBrightnessLogic.setValue(value);
+    m_screenBrightnessLogic.setValueMax(valueMax);
+    m_screenBrightnessLogic.setValue(value);
 
-    return d->screenBrightnessLogic.action(keyType);
+    return m_screenBrightnessLogic.action(keyType);
 }
 
 int BackendInterface::calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType)
 {
-    d->keyboardBrightnessLogic.setValueMax(valueMax);
-    d->keyboardBrightnessLogic.setValue(value);
+    m_keyboardBrightnessLogic.setValueMax(valueMax);
+    m_keyboardBrightnessLogic.setValue(value);
 
-    return d->keyboardBrightnessLogic.action(keyType);
+    return m_keyboardBrightnessLogic.action(keyType);
 }
 
 }
