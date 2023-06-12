@@ -42,8 +42,6 @@ public:
     Private()
         : acAdapterState(UnknownAcAdapterState)
         , batteryRemainingTime(0)
-        , isReady(false)
-        , isError(false)
         , isLidClosed(false)
         , isLidPresent(false)
     {
@@ -64,8 +62,6 @@ public:
     Capabilities capabilities;
     SuspendMethods suspendMethods;
     QString errorString;
-    bool isReady;
-    bool isError;
     bool isLidClosed;
     bool isLidPresent;
 };
@@ -142,7 +138,6 @@ void BackendInterface::setBackendHasError(const QString& errorDetails)
 void BackendInterface::setBackendIsReady(BackendInterface::SuspendMethods supportedSuspendMethods)
 {
     d->suspendMethods = supportedSuspendMethods;
-    d->isReady = true;
 
     Q_EMIT backendReady();
 }
