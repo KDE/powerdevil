@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-13 02:11+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -68,22 +68,22 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Μείωση λαμπρότητας οθόνης"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:75
+#: actions/bundled/brightnesscontrolconfig.cpp:69
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Επίπεδο"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
-#: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:59 actions/bundled/dpmsconfig.cpp:58
+#: actions/bundled/runscriptconfig.cpp:77
+#: actions/bundled/suspendsessionconfig.cpp:80
 #, kde-format
 msgid " min"
 msgstr " λεπ"
 
-#: actions/bundled/dimdisplayconfig.cpp:74
-#: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:107
+#: actions/bundled/dimdisplayconfig.cpp:69
+#: actions/bundled/runscriptconfig.cpp:80
+#: actions/bundled/runscriptconfig.cpp:102
 #, kde-format
 msgid "After"
 msgstr "Μετά από"
@@ -94,17 +94,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Κλείσιμο οθόνης"
 
-#: actions/bundled/dpmsconfig.cpp:63
+#: actions/bundled/dpmsconfig.cpp:59
 #, kde-format
 msgid "Switch off after"
 msgstr "Σβήσιμο μετά από"
 
-#: actions/bundled/dpmsconfig.cpp:71
+#: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
 msgstr " δευτ"
 
-#: actions/bundled/dpmsconfig.cpp:72
+#: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -134,64 +134,64 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Τερματισμός"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:81
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Ακόμα κι αν έχει συνδεθεί εξωτερική οθόνη"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Do nothing"
 msgstr "Καμία ενέργεια"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Κοίμηση"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/handlebuttoneventsconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
 msgid "Hibernate"
 msgstr "Νάρκη"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Υβριδική κοίμηση"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Shut down"
 msgstr "Τερματισμός"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Lock screen"
 msgstr "Κλείδωμα οθόνης"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Διάλογος προτροπής αποσύνδεσης"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#: actions/bundled/handlebuttoneventsconfig.cpp:106
 #, kde-format
 msgid "Turn off screen"
 msgstr "Κλείσιμο οθόνης"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Όταν το καπάκι του φορητού είναι κλειστό"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Όταν πιεστεί το κουμπί λειτουργίας"
@@ -214,69 +214,69 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Εναλλαγή φωτισμού πληκτρολογίου"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:72
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Επίπεδο"
 
-#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/powerprofileconfig.cpp:81
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Μένει ανεπηρέαστο"
 
-#: actions/bundled/powerprofileconfig.cpp:92
+#: actions/bundled/powerprofileconfig.cpp:89
 #, kde-format
 msgid "Power Save"
 msgstr "Εξοικονόμηση ισχύος"
 
-#: actions/bundled/powerprofileconfig.cpp:93
+#: actions/bundled/powerprofileconfig.cpp:90
 #, kde-format
 msgid "Balanced"
 msgstr "Ισορροπημένο"
 
-#: actions/bundled/powerprofileconfig.cpp:94
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgid "Performance"
 msgstr "Επιδόσεις"
 
-#: actions/bundled/powerprofileconfig.cpp:109
+#: actions/bundled/powerprofileconfig.cpp:105
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Εναλλαγή σε:"
 
-#: actions/bundled/runscriptconfig.cpp:71
+#: actions/bundled/runscriptconfig.cpp:66
 #, kde-format
 msgid "Script"
 msgstr "Σενάριο"
 
-#: actions/bundled/runscriptconfig.cpp:83
+#: actions/bundled/runscriptconfig.cpp:78
 #, kde-format
 msgid "On Profile Load"
 msgstr "Κατά τη φόρτωση του προφίλ"
 
-#: actions/bundled/runscriptconfig.cpp:84
+#: actions/bundled/runscriptconfig.cpp:79
 #, kde-format
 msgid "On Profile Unload"
 msgstr "Κατά την εκφόρτωση του προφίλ"
 
-#: actions/bundled/runscriptconfig.cpp:96
+#: actions/bundled/runscriptconfig.cpp:91
 #, kde-format
 msgid "Run script"
 msgstr "Εκτέλεση σεναρίου"
 
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, kde-format
 msgid "after "
 msgstr "μετά από "
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Automatically"
 msgstr "Αυτόματα"
 
-#: actions/bundled/suspendsessionconfig.cpp:114
+#: actions/bundled/suspendsessionconfig.cpp:108
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Όταν είναι σε κοίμηση να μπει σε νάρκη μετά από μια περίοδο αδράνειας"

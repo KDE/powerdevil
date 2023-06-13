@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-13 02:11+0000\n"
 "PO-Revision-Date: 2021-07-22 11:40+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -63,22 +63,22 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Ekranın Parlaqlığını Azaltmaq"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:75
+#: actions/bundled/brightnesscontrolconfig.cpp:69
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Səviyyə"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
-#: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:59 actions/bundled/dpmsconfig.cpp:58
+#: actions/bundled/runscriptconfig.cpp:77
+#: actions/bundled/suspendsessionconfig.cpp:80
 #, kde-format
 msgid " min"
 msgstr " dəq"
 
-#: actions/bundled/dimdisplayconfig.cpp:74
-#: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:107
+#: actions/bundled/dimdisplayconfig.cpp:69
+#: actions/bundled/runscriptconfig.cpp:80
+#: actions/bundled/runscriptconfig.cpp:102
 #, kde-format
 msgid "After"
 msgstr "Sonra"
@@ -89,17 +89,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Ekranı söndürmək"
 
-#: actions/bundled/dpmsconfig.cpp:63
+#: actions/bundled/dpmsconfig.cpp:59
 #, kde-format
 msgid "Switch off after"
 msgstr "Sönmə vaxtı"
 
-#: actions/bundled/dpmsconfig.cpp:71
+#: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
 msgstr ""
 
-#: actions/bundled/dpmsconfig.cpp:72
+#: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -129,64 +129,64 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Qida mənbəyini ayırmaq"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:81
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Hətta xarici monitor qoşulduqda belə"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Do nothing"
 msgstr "Heç nə etməmək"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Gözləmə rejimi"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/handlebuttoneventsconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
 msgid "Hibernate"
 msgstr "Yuxu rejimi"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Qarışıq rejim"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Shut down"
 msgstr "Söndürün"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Lock screen"
 msgstr "Ekranı kilidləmək"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Çıxışı təsdiq etmə dialoqu"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#: actions/bundled/handlebuttoneventsconfig.cpp:106
 #, kde-format
 msgid "Turn off screen"
 msgstr "Ekranı söndürmək"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Noutbukun qapağı bağlandıqda"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Güc düyməsinə basdıqda"
@@ -209,69 +209,69 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Klaviatura işıqlarını söndürmək/açın"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:72
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Səviyyə"
 
-#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/powerprofileconfig.cpp:81
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Dəyişdirmədən çıxmaq"
 
-#: actions/bundled/powerprofileconfig.cpp:92
+#: actions/bundled/powerprofileconfig.cpp:89
 #, kde-format
 msgid "Power Save"
 msgstr "Enerjiyə qənaət"
 
-#: actions/bundled/powerprofileconfig.cpp:93
+#: actions/bundled/powerprofileconfig.cpp:90
 #, kde-format
 msgid "Balanced"
 msgstr "Tarazlaşdırılmış"
 
-#: actions/bundled/powerprofileconfig.cpp:94
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgid "Performance"
 msgstr "Məhsuldar"
 
-#: actions/bundled/powerprofileconfig.cpp:109
+#: actions/bundled/powerprofileconfig.cpp:105
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Dəyişin:"
 
-#: actions/bundled/runscriptconfig.cpp:71
+#: actions/bundled/runscriptconfig.cpp:66
 #, kde-format
 msgid "Script"
 msgstr "Skript"
 
-#: actions/bundled/runscriptconfig.cpp:83
+#: actions/bundled/runscriptconfig.cpp:78
 #, kde-format
 msgid "On Profile Load"
 msgstr "Profil yükləndikdə"
 
-#: actions/bundled/runscriptconfig.cpp:84
+#: actions/bundled/runscriptconfig.cpp:79
 #, kde-format
 msgid "On Profile Unload"
 msgstr "Profildən çıxıldıqda"
 
-#: actions/bundled/runscriptconfig.cpp:96
+#: actions/bundled/runscriptconfig.cpp:91
 #, kde-format
 msgid "Run script"
 msgstr "Skripti başlatmaq"
 
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, kde-format
 msgid "after "
 msgstr "sonra "
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Automatically"
 msgstr "Avtomatik"
 
-#: actions/bundled/suspendsessionconfig.cpp:114
+#: actions/bundled/suspendsessionconfig.cpp:108
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Boşdayanma zamanı gözləmə rejimindən yuxu rejiminə keçmək"

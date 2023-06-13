@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-13 02:11+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -66,23 +66,23 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Смањи освјетљај екрана"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:75
+#: actions/bundled/brightnesscontrolconfig.cpp:69
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Ниво"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
-#: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:59 actions/bundled/dpmsconfig.cpp:58
+#: actions/bundled/runscriptconfig.cpp:77
+#: actions/bundled/suspendsessionconfig.cpp:80
 #, kde-format
 msgid " min"
 msgstr " мин."
 
 # >> @item:inlistbox
-#: actions/bundled/dimdisplayconfig.cpp:74
-#: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:107
+#: actions/bundled/dimdisplayconfig.cpp:69
+#: actions/bundled/runscriptconfig.cpp:80
+#: actions/bundled/runscriptconfig.cpp:102
 #, kde-format
 msgid "After"
 msgstr "послије"
@@ -95,17 +95,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "угаси екран"
 
-#: actions/bundled/dpmsconfig.cpp:63
+#: actions/bundled/dpmsconfig.cpp:59
 #, kde-format
 msgid "Switch off after"
 msgstr "Угаси послије"
 
-#: actions/bundled/dpmsconfig.cpp:71
+#: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
 msgstr ""
 
-#: actions/bundled/dpmsconfig.cpp:72
+#: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -137,72 +137,72 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Угаси"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:81
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Чак и кад је прикључен спољашњи монитор"
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Do nothing"
 msgstr "не ради ништа"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/handlebuttoneventsconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
 msgid "Hibernate"
 msgstr "у хибернацију"
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, fuzzy, kde-format
 #| msgid "Hybrid suspend"
 msgid "Hybrid sleep"
 msgstr "у хибридну хибернацију"
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Shut down"
 msgstr "угаси"
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Lock screen"
 msgstr "закључај екран"
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "покажи одјавни дијалог"
 
 # >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#: actions/bundled/handlebuttoneventsconfig.cpp:106
 #, kde-format
 msgid "Turn off screen"
 msgstr "угаси екран"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Када се спусти поклопац"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Када се притисне дугме напајања"
@@ -225,77 +225,77 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Обрни осветљење тастатуре"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:72
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Ниво"
 
 # >> @item:inlistbox
-#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/powerprofileconfig.cpp:81
 #, kde-format
 msgid "Leave unchanged"
 msgstr "остави како је"
 
-#: actions/bundled/powerprofileconfig.cpp:92
+#: actions/bundled/powerprofileconfig.cpp:89
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Power Off"
 msgid "Power Save"
 msgstr "Угаси"
 
-#: actions/bundled/powerprofileconfig.cpp:93
+#: actions/bundled/powerprofileconfig.cpp:90
 #, kde-format
 msgid "Balanced"
 msgstr ""
 
-#: actions/bundled/powerprofileconfig.cpp:94
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgid "Performance"
 msgstr ""
 
-#: actions/bundled/powerprofileconfig.cpp:109
+#: actions/bundled/powerprofileconfig.cpp:105
 #, fuzzy, kde-format
 #| msgid "Switch off after"
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Угаси послије"
 
-#: actions/bundled/runscriptconfig.cpp:71
+#: actions/bundled/runscriptconfig.cpp:66
 #, kde-format
 msgid "Script"
 msgstr "Скрипта"
 
 # >> @item:inlistbox
-#: actions/bundled/runscriptconfig.cpp:83
+#: actions/bundled/runscriptconfig.cpp:78
 #, kde-format
 msgid "On Profile Load"
 msgstr "при учитавању профила"
 
 # >> @item:inlistbox
-#: actions/bundled/runscriptconfig.cpp:84
+#: actions/bundled/runscriptconfig.cpp:79
 #, kde-format
 msgid "On Profile Unload"
 msgstr "при укидању профила"
 
-#: actions/bundled/runscriptconfig.cpp:96
+#: actions/bundled/runscriptconfig.cpp:91
 #, kde-format
 msgid "Run script"
 msgstr "Изврши скрипту"
 
 # >> @item:inlistbox
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, fuzzy, kde-format
 #| msgid "After"
 msgid "after "
 msgstr "послије"
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Automatically"
 msgstr ""
 
-#: actions/bundled/suspendsessionconfig.cpp:114
+#: actions/bundled/suspendsessionconfig.cpp:108
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""

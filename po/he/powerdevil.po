@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-13 02:11+0000\n"
 "PO-Revision-Date: 2017-05-16 06:57-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -63,22 +63,22 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "הנמך בהירות מסך"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:75
+#: actions/bundled/brightnesscontrolconfig.cpp:69
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "רמה"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
-#: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:59 actions/bundled/dpmsconfig.cpp:58
+#: actions/bundled/runscriptconfig.cpp:77
+#: actions/bundled/suspendsessionconfig.cpp:80
 #, kde-format
 msgid " min"
 msgstr " דקות"
 
-#: actions/bundled/dimdisplayconfig.cpp:74
-#: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:107
+#: actions/bundled/dimdisplayconfig.cpp:69
+#: actions/bundled/runscriptconfig.cpp:80
+#: actions/bundled/runscriptconfig.cpp:102
 #, kde-format
 msgid "After"
 msgstr "אחרי"
@@ -90,17 +90,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "כיבוי מסך"
 
-#: actions/bundled/dpmsconfig.cpp:63
+#: actions/bundled/dpmsconfig.cpp:59
 #, kde-format
 msgid "Switch off after"
 msgstr "כיבוי לאחר"
 
-#: actions/bundled/dpmsconfig.cpp:71
+#: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
 msgstr ""
 
-#: actions/bundled/dpmsconfig.cpp:72
+#: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -132,64 +132,64 @@ msgctxt ""
 msgid "Power Down"
 msgstr "כיבוי"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:81
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "אפילו שמסך חיצוני מחובר"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Do nothing"
 msgstr "אל תעשה דבר"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/handlebuttoneventsconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
 msgid "Hibernate"
 msgstr "השהייה לכונן"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "Hybrid sleep"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Shut down"
 msgstr "כיבוי"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Lock screen"
 msgstr "נעל מסך"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "הצג חלון יציאה מהמערכת"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#: actions/bundled/handlebuttoneventsconfig.cpp:106
 #, kde-format
 msgid "Turn off screen"
 msgstr "כיבוי מסך"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "כאשר מכסה המחשב סגור"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "כאשר כפתור ההפעלה נלחץ"
@@ -212,73 +212,73 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "הפעל או כבה אור מקלדת"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:72
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "רמה"
 
-#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/powerprofileconfig.cpp:81
 #, kde-format
 msgid "Leave unchanged"
 msgstr "השאר ללא שינויים"
 
-#: actions/bundled/powerprofileconfig.cpp:92
+#: actions/bundled/powerprofileconfig.cpp:89
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Power Off"
 msgid "Power Save"
 msgstr "כיבוי"
 
-#: actions/bundled/powerprofileconfig.cpp:93
+#: actions/bundled/powerprofileconfig.cpp:90
 #, kde-format
 msgid "Balanced"
 msgstr ""
 
-#: actions/bundled/powerprofileconfig.cpp:94
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgid "Performance"
 msgstr ""
 
-#: actions/bundled/powerprofileconfig.cpp:109
+#: actions/bundled/powerprofileconfig.cpp:105
 #, fuzzy, kde-format
 #| msgid "Switch off after"
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "כיבוי לאחר"
 
-#: actions/bundled/runscriptconfig.cpp:71
+#: actions/bundled/runscriptconfig.cpp:66
 #, kde-format
 msgid "Script"
 msgstr "תסריט"
 
-#: actions/bundled/runscriptconfig.cpp:83
+#: actions/bundled/runscriptconfig.cpp:78
 #, kde-format
 msgid "On Profile Load"
 msgstr "בטעינת הפרופיל"
 
-#: actions/bundled/runscriptconfig.cpp:84
+#: actions/bundled/runscriptconfig.cpp:79
 #, kde-format
 msgid "On Profile Unload"
 msgstr "בביטול הפרופיל"
 
-#: actions/bundled/runscriptconfig.cpp:96
+#: actions/bundled/runscriptconfig.cpp:91
 #, kde-format
 msgid "Run script"
 msgstr "הרץ סקריפט"
 
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, fuzzy, kde-format
 #| msgid "After"
 msgid "after "
 msgstr "אחרי"
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Automatically"
 msgstr ""
 
-#: actions/bundled/suspendsessionconfig.cpp:114
+#: actions/bundled/suspendsessionconfig.cpp:108
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""

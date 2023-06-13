@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-09 02:14+0000\n"
+"POT-Creation-Date: 2023-06-13 02:11+0000\n"
 "PO-Revision-Date: 2022-11-28 16:25+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -69,22 +69,22 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Diminuir o Brilho do Ecrã"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:75
+#: actions/bundled/brightnesscontrolconfig.cpp:69
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Nível"
 
-#: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:62
-#: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:59 actions/bundled/dpmsconfig.cpp:58
+#: actions/bundled/runscriptconfig.cpp:77
+#: actions/bundled/suspendsessionconfig.cpp:80
 #, kde-format
 msgid " min"
 msgstr " min"
 
-#: actions/bundled/dimdisplayconfig.cpp:74
-#: actions/bundled/runscriptconfig.cpp:85
-#: actions/bundled/runscriptconfig.cpp:107
+#: actions/bundled/dimdisplayconfig.cpp:69
+#: actions/bundled/runscriptconfig.cpp:80
+#: actions/bundled/runscriptconfig.cpp:102
 #, kde-format
 msgid "After"
 msgstr "Depois"
@@ -95,17 +95,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Desligar o Ecrã"
 
-#: actions/bundled/dpmsconfig.cpp:63
+#: actions/bundled/dpmsconfig.cpp:59
 #, kde-format
 msgid "Switch off after"
 msgstr "Desligar ao fim de"
 
-#: actions/bundled/dpmsconfig.cpp:71
+#: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
 msgstr ""
 
-#: actions/bundled/dpmsconfig.cpp:72
+#: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -135,64 +135,64 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Desligar"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:81
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Mesmo quando está ligado a um monitor externo"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Do nothing"
 msgstr "Não fazer nada"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:84
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Suspender"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/handlebuttoneventsconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Suspensão híbrida"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Shut down"
 msgstr "Desligar"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/handlebuttoneventsconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgid "Lock screen"
 msgstr "Bloquear o ecrã"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:110
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Mostrar a janela de encerramento"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:112
+#: actions/bundled/handlebuttoneventsconfig.cpp:106
 #, kde-format
 msgid "Turn off screen"
 msgstr "Desligar o ecrã"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:138
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Quando fechar o tampo do portátil"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:149
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Quando carregar no botão de energia"
@@ -215,69 +215,69 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Comutar a Luz Traseira do Teclado"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:72
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Nível"
 
-#: actions/bundled/powerprofileconfig.cpp:84
+#: actions/bundled/powerprofileconfig.cpp:81
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Deixar inalterado"
 
-#: actions/bundled/powerprofileconfig.cpp:92
+#: actions/bundled/powerprofileconfig.cpp:89
 #, kde-format
 msgid "Power Save"
 msgstr "Poupança de Energia"
 
-#: actions/bundled/powerprofileconfig.cpp:93
+#: actions/bundled/powerprofileconfig.cpp:90
 #, kde-format
 msgid "Balanced"
 msgstr "Balanceado"
 
-#: actions/bundled/powerprofileconfig.cpp:94
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgid "Performance"
 msgstr "Performance"
 
-#: actions/bundled/powerprofileconfig.cpp:109
+#: actions/bundled/powerprofileconfig.cpp:105
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Mudar para:"
 
-#: actions/bundled/runscriptconfig.cpp:71
+#: actions/bundled/runscriptconfig.cpp:66
 #, kde-format
 msgid "Script"
 msgstr "Programa"
 
-#: actions/bundled/runscriptconfig.cpp:83
+#: actions/bundled/runscriptconfig.cpp:78
 #, kde-format
 msgid "On Profile Load"
 msgstr "Ao Carregar o Perfil"
 
-#: actions/bundled/runscriptconfig.cpp:84
+#: actions/bundled/runscriptconfig.cpp:79
 #, kde-format
 msgid "On Profile Unload"
 msgstr "Ao Fechar o Perfil"
 
-#: actions/bundled/runscriptconfig.cpp:96
+#: actions/bundled/runscriptconfig.cpp:91
 #, kde-format
 msgid "Run script"
 msgstr "Executar um programa"
 
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, kde-format
 msgid "after "
 msgstr "após "
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Automatically"
 msgstr "Automaticamente"
 
-#: actions/bundled/suspendsessionconfig.cpp:114
+#: actions/bundled/suspendsessionconfig.cpp:108
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Enquanto suspenso, hibernar ao fim de um período de inactividade"
