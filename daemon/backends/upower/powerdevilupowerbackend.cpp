@@ -269,7 +269,7 @@ void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
 
 int PowerDevilUPowerBackend::screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
 {
-    if (m_screenBrightnessAvailable) {
+    if (!m_screenBrightnessAvailable) {
         return -1; // ignore as we are not able to determine the brightness level
     }
 
