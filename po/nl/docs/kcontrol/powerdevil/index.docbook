@@ -158,17 +158,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Energiebesparing van draadloos</guilabel
-></term>
-<listitem>
-<para
->Activeer deze optie om individuele acties voor verbindingen met Wi-Fi, Mobiel breedband of Bluetooth. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
