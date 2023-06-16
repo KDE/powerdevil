@@ -86,7 +86,7 @@
 
     <!--<method name="getSupportedSuspendMethods">
       <arg type="a{sv}" direction="out" />
-      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap" />
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QVariantMap" />
     </method>-->
 
     <!--<signal name="DPMSconfigUpdated">
