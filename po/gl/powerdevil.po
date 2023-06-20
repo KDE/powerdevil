@@ -154,7 +154,7 @@ msgstr "Bloquear a pantalla"
 #: actions/bundled/handlebuttoneventsconfig.cpp:110
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr "Mostrar o diálogo de saída"
+msgstr "Amosar o diálogo de saída"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:112
 #, kde-format
