@@ -20,6 +20,7 @@
 #include <powerdevil_debug.h>
 #include "ddcutilbrightness.h"
 #include <chrono>
+#include <span>
 
 using namespace std::chrono_literals;
 
