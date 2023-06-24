@@ -242,7 +242,7 @@ msgstr "Ao descargar un perfil"
 #: actions/bundled/runscriptconfig.cpp:95
 #, kde-format
 msgid "Run script"
-msgstr "Executar un script"
+msgstr "Executar un guión"
 
 #: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
