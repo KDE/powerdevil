@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-13 02:11+0000\n"
-"PO-Revision-Date: 2023-03-06 13:47+0200\n"
+"PO-Revision-Date: 2023-05-28 16:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:22:38+0000\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -51,12 +51,10 @@ msgid "Increase Screen Brightness"
 msgstr "Lisää näytön kirkkautta"
 
 #: actions/bundled/brightnesscontrol.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Lisää näytön kirkkautta"
+msgstr "Lisää näytön kirkkautta 1 %"
 
 #: actions/bundled/brightnesscontrol.cpp:69
 #, kde-format
@@ -65,12 +63,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Vähennä näytön kirkkautta"
 
 #: actions/bundled/brightnesscontrol.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Vähennä näytön kirkkautta"
+msgstr "Vähennä näytön kirkkautta 1 %"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:69
 #, kde-format
@@ -106,12 +102,12 @@ msgstr "Sammuta viiveellä"
 #: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " s"
 
 #: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "Näytön ollessa lukittu sammuta ajassa"
 
 #: actions/bundled/handlebuttonevents.cpp:62
 #, kde-format
