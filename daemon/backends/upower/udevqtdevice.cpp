@@ -23,8 +23,8 @@
 
 #include <QByteArray>
 
-namespace UdevQt {
-
+namespace UdevQt
+{
 DevicePrivate::DevicePrivate(struct udev_device *udev_, bool ref)
     : udev(udev_)
 {
@@ -258,8 +258,7 @@ Device Device::ancestorOfType(const QString &subsys, const QString &devtype) con
     if (!d)
         return Device();
 
-    struct udev_device *p = udev_device_get_parent_with_subsystem_devtype(d->udev,
-                                subsys.toLatin1().constData(), devtype.toLatin1().constData());
+    struct udev_device *p = udev_device_get_parent_with_subsystem_devtype(d->udev, subsys.toLatin1().constData(), devtype.toLatin1().constData());
 
     if (!p)
         return Device();

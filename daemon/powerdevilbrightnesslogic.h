@@ -19,11 +19,10 @@
 
 #pragma once
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 class BrightnessLogic
 {
-
 public:
     BrightnessLogic();
     virtual ~BrightnessLogic() = default;
@@ -150,7 +149,6 @@ public:
     int stepToValue(int step) const;
 
 protected:
-
     /**
      * Calculate the optimal number of brightness steps.
      *

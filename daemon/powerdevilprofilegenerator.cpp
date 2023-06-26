@@ -21,14 +21,14 @@
 
 #include <PowerDevilSettings.h>
 
-#include <Solid/Device>
 #include <Solid/Battery>
+#include <Solid/Device>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
 {
     // Change critical action if default (hibernate) is unavailable
@@ -60,20 +60,19 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     // We want to dim the screen after a while, definitely
     {
         KConfigGroup dimDisplay(&acProfile, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", 300000);
+        dimDisplay.writeEntry<int>("idleTime", 300000);
     }
 
-    auto initLid = [toRam, mobile](KConfigGroup &profile)
-    {
+    auto initLid = [toRam, mobile](KConfigGroup &profile) {
         const Modes defaultPowerButtonAction = mobile ? ToggleScreenOnOffMode : LogoutDialogMode;
 
         KConfigGroup handleButtonEvents(&profile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
-        handleButtonEvents.writeEntry< uint >("powerDownAction", LogoutDialogMode);
+        handleButtonEvents.writeEntry<uint>("powerButtonAction", defaultPowerButtonAction);
+        handleButtonEvents.writeEntry<uint>("powerDownAction", LogoutDialogMode);
         if (toRam) {
-            handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
+            handleButtonEvents.writeEntry<uint>("lidAction", ToRamMode);
         } else {
-            handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
+            handleButtonEvents.writeEntry<uint>("lidAction", TurnOffScreenMode);
         }
     };
 
@@ -85,8 +84,8 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // on mobile, 1 minute, on desktop 10 minutes
         auto timeout = mobile ? 60 : 600;
         KConfigGroup dpmsControl(&acProfile, "DPMSControl");
-        dpmsControl.writeEntry< uint >("idleTime", timeout);
-        dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
+        dpmsControl.writeEntry<uint>("idleTime", timeout);
+        dpmsControl.writeEntry<uint>("lockBeforeTurnOff", mobile);
     }
 
     // Even on AC power, suspend after a rather long period of inactivity. Energy
@@ -95,8 +94,8 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // on mobile, 7 minutes, on laptop 15 minutes
         auto timeout = mobile ? 420000 : 900000;
         KConfigGroup suspendSession(&acProfile, "SuspendSession");
-        suspendSession.writeEntry< uint >("idleTime", timeout);
-        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+        suspendSession.writeEntry<uint>("idleTime", timeout);
+        suspendSession.writeEntry<uint>("suspendType", ToRamMode);
     }
 
     // Powersave
@@ -107,7 +106,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // config is in the miliseconds
         auto timeout = mobile ? 30000 : 120000;
         KConfigGroup dimDisplay(&batteryProfile, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", timeout);
+        dimDisplay.writeEntry<int>("idleTime", timeout);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     initLid(batteryProfile);
@@ -117,8 +116,8 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // on mobile, 1 minute, on laptop 5 minutes
         auto timeout = mobile ? 60 : 300;
         KConfigGroup dpmsControl(&batteryProfile, "DPMSControl");
-        dpmsControl.writeEntry< uint >("idleTime", timeout);
-        dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
+        dpmsControl.writeEntry<uint>("idleTime", timeout);
+        dpmsControl.writeEntry<uint>("lockBeforeTurnOff", mobile);
     }
 
     // Last but not least, we want to suspend after some inactivity
@@ -126,17 +125,16 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // on mobile, 5 minute, on laptop 10 minutes
         auto timeout = mobile ? 300000 : 600000;
         KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
-        suspendSession.writeEntry< uint >("idleTime", timeout);
-        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+        suspendSession.writeEntry<uint>("idleTime", timeout);
+        suspendSession.writeEntry<uint>("suspendType", ToRamMode);
     }
-
 
     // Ok, now for aggressive powersave
     KConfigGroup lowBatteryProfile(profilesConfig, "LowBattery");
     // Less brightness.
     {
         KConfigGroup brightnessControl(&lowBatteryProfile, "BrightnessControl");
-        brightnessControl.writeEntry< int >("value", 30);
+        brightnessControl.writeEntry<int>("value", 30);
     }
     // We want to dim the screen after a while, definitely
     {
@@ -144,7 +142,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // config is in the miliseconds
         auto timeout = mobile ? 30000 : 60000;
         KConfigGroup dimDisplay(&lowBatteryProfile, "DimDisplay");
-        dimDisplay.writeEntry< int >("idleTime", timeout);
+        dimDisplay.writeEntry<int>("idleTime", timeout);
     }
     // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
     initLid(lowBatteryProfile);
@@ -154,8 +152,8 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // on mobile, half minute, on laptop 2 minutes
         auto timeout = mobile ? 30 : 120;
         KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
-        dpmsControl.writeEntry< uint >("idleTime", timeout);
-        dpmsControl.writeEntry< uint >("lockBeforeTurnOff", mobile);
+        dpmsControl.writeEntry<uint>("idleTime", timeout);
+        dpmsControl.writeEntry<uint>("lockBeforeTurnOff", mobile);
     }
 
     // Last but not least, we want to suspend after a rather long period of inactivity
@@ -164,8 +162,8 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     if (toRam) {
         // config is in the miliseconds
         KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
-        suspendSession.writeEntry< uint >("idleTime", 300000);
-        suspendSession.writeEntry< uint >("suspendType", ToRamMode);
+        suspendSession.writeEntry<uint>("idleTime", 300000);
+        suspendSession.writeEntry<uint>("suspendType", ToRamMode);
     }
 
     // Save and be happy

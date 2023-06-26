@@ -26,10 +26,13 @@
 #include <QSocketNotifier>
 #include <qplatformdefs.h>
 
-namespace UdevQt {
-
+namespace UdevQt
+{
 ClientPrivate::ClientPrivate(Client *q_)
-    : udev(nullptr), monitor(nullptr), q(q_), monitorNotifier(nullptr)
+    : udev(nullptr)
+    , monitor(nullptr)
+    , q(q_)
+    , monitorNotifier(nullptr)
 {
 }
 
@@ -62,7 +65,7 @@ void ClientPrivate::setWatchedSubsystems(const QStringList &subsystemList)
     }
 
     // apply our filters; an empty list means listen to everything
-    for (const QString& subsysDevtype : subsystemList) {
+    for (const QString &subsysDevtype : subsystemList) {
         int ix = subsysDevtype.indexOf(u'/');
 
         if (ix > 0) {
@@ -111,7 +114,7 @@ void ClientPrivate::_uq_monitorReadyRead(int fd)
         Q_EMIT q->deviceChanged(device);
     } else if (action == "online") {
         Q_EMIT q->deviceOnlined(device);
-    } else  if (action == "offline") {
+    } else if (action == "offline") {
         Q_EMIT q->deviceOfflined(device);
     } else {
         qCWarning(POWERDEVIL, "UdevQt: unhandled device action \"%s\"", action.constData());
@@ -125,9 +128,9 @@ DeviceList ClientPrivate::deviceListFromEnumerate(struct udev_enumerate *en)
 
     udev_enumerate_scan_devices(en);
     list = udev_enumerate_get_list_entry(en);
-    udev_list_entry_foreach(entry, list) {
-        struct udev_device *ud = udev_device_new_from_syspath(udev_enumerate_get_udev(en),
-                                        udev_list_entry_get_name(entry));
+    udev_list_entry_foreach(entry, list)
+    {
+        struct udev_device *ud = udev_device_new_from_syspath(udev_enumerate_get_udev(en), udev_list_entry_get_name(entry));
 
         if (!ud)
             continue;
@@ -140,7 +143,6 @@ DeviceList ClientPrivate::deviceListFromEnumerate(struct udev_enumerate *en)
     return ret;
 }
 
-
 Client::Client(QObject *parent)
     : QObject(parent)
     , d(new ClientPrivate(this))
@@ -148,7 +150,7 @@ Client::Client(QObject *parent)
     d->init(QStringList(), ClientPrivate::ListenToNone);
 }
 
-Client::Client(const QStringList& subsystemList, QObject *parent)
+Client::Client(const QStringList &subsystemList, QObject *parent)
     : QObject(parent)
     , d(new ClientPrivate(this))
 {
@@ -243,9 +245,7 @@ Device Client::deviceBySysfsPath(const QString &sysfsPath)
 
 Device Client::deviceBySubsystemAndName(const QString &subsystem, const QString &name)
 {
-    struct udev_device *ud = udev_device_new_from_subsystem_sysname(d->udev,
-                                    subsystem.toLatin1().constData(),
-                                    name.toLatin1().constData());
+    struct udev_device *ud = udev_device_new_from_subsystem_sysname(d->udev, subsystem.toLatin1().constData(), name.toLatin1().constData());
 
     if (!ud)
         return Device();

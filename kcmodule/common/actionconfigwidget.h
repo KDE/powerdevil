@@ -30,13 +30,13 @@
 
 class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT ActionConfigWidget : public QWidget
 {
-Q_OBJECT
+    Q_OBJECT
 public:
-    explicit ActionConfigWidget(QWidget* parent);
+    explicit ActionConfigWidget(QWidget *parent);
     ~ActionConfigWidget() override;
 
-    void addWidgets(const QList<QPair <QString, QWidget*> > &configMap);
+    void addWidgets(const QList<QPair<QString, QWidget *>> &configMap);
 
 private:
-    QGridLayout* m_gridLayout;
+    QGridLayout *m_gridLayout;
 };

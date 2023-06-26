@@ -26,13 +26,15 @@
 
 class AbstractDpmsHelper;
 
-namespace KScreen {
-    class Dpms;
+namespace KScreen
+{
+class Dpms;
 }
 
-namespace PowerDevil {
-namespace BundledActions {
-
+namespace PowerDevil
+{
+namespace BundledActions
+{
 class DPMS : public PowerDevil::Action
 {
     Q_OBJECT
@@ -46,11 +48,15 @@ Q_SIGNALS:
     void stopFade();
 
 protected:
-    void onProfileUnload() override {}
+    void onProfileUnload() override
+    {
+    }
     bool onUnloadAction() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
-    void onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/) override {}
+    void onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/) override
+    {
+    }
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 
@@ -74,7 +80,6 @@ private:
 
     bool m_lockBeforeTurnOff = false;
     void lockScreen();
-
 };
 
 }

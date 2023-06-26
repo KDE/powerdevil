@@ -17,7 +17,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "actioneditwidget.h"
 
 #include "actionconfigwidget.h"
@@ -45,7 +44,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     , m_profilesConfig(KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::SimpleConfig | KConfig::CascadeConfig))
 {
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
-    QMultiMap< int, QList<QPair<QString, QWidget*> > > widgets;
+    QMultiMap<int, QList<QPair<QString, QWidget *>>> widgets;
 
     // Load all the plugins
     const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
@@ -55,10 +54,12 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         if (offer.value(QStringLiteral("X-KDE-PowerDevil-Action-HasRuntimeRequirement"), false)) {
             qCDebug(POWERDEVIL) << offer.name() << " has a runtime requirement";
 
-            QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement",
-                                                               "org.kde.Solid.PowerManagement", "isActionSupported");
+            QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement",
+                                                               "/org/kde/Solid/PowerManagement",
+                                                               "org.kde.Solid.PowerManagement",
+                                                               "isActionSupported");
             call.setArguments(QVariantList() << offer.value("X-KDE-PowerDevil-Action-ID"));
-            QDBusPendingReply< bool > reply = QDBusConnection::sessionBus().asyncCall(call);
+            QDBusPendingReply<bool> reply = QDBusConnection::sessionBus().asyncCall(call);
             reply.waitForFinished();
 
             if (reply.isValid()) {
@@ -88,12 +89,12 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         m_actionsHash.insert(offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), checkbox);
         m_actionsConfigHash.insert(offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), actionConfig);
 
-        QList<QPair<QString, QWidget*> > offerWidgets = actionConfig->buildUi();
-        offerWidgets.prepend(qMakePair<QString,QWidget*>(QString(), checkbox));
+        QList<QPair<QString, QWidget *>> offerWidgets = actionConfig->buildUi();
+        offerWidgets.prepend(qMakePair<QString, QWidget *>(QString(), checkbox));
         widgets.insert(100 - offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ConfigPriority"), 0), offerWidgets);
     }
 
-    for (QMultiMap< int, QList<QPair<QString, QWidget*> > >::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
+    for (QMultiMap<int, QList<QPair<QString, QWidget *>>>::const_iterator i = widgets.constBegin(); i != widgets.constEnd(); ++i) {
         actionConfigWidget->addWidgets(i.value());
     }
 
@@ -105,7 +106,6 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
 
 ActionEditWidget::~ActionEditWidget()
 {
-
 }
 
 void ActionEditWidget::load()
@@ -120,7 +120,7 @@ void ActionEditWidget::load()
     qCDebug(POWERDEVIL) << "Ok, KConfigGroup ready" << group.entryMap().keys();
 
     // Iterate over the possible actions
-    for (QHash< QString, QCheckBox* >::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
+    for (QHash<QString, QCheckBox *>::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
         i.value()->setChecked(group.groupList().contains(i.key()));
 
         KConfigGroup actionGroup = group.group(i.key());
@@ -141,7 +141,7 @@ void ActionEditWidget::save()
     }
 
     // Iterate over the possible actions
-    for (QHash< QString, QCheckBox* >::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
+    for (QHash<QString, QCheckBox *>::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
         if (i.value()->isChecked()) {
             // Perform the actual save
             m_actionsConfigHash[i.key()]->save();

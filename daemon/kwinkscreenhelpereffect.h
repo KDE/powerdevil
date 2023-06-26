@@ -73,7 +73,6 @@ private:
 #if HAVE_XCB
     xcb_atom_t m_atom = 0;
 #endif
-
 };
 
 } // namespace PowerDevil

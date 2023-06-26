@@ -30,10 +30,10 @@
 #include <map>
 #include <memory>
 
-#include "upowerdevice.h"
+#include "udevqt.h"
 #include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"
-#include "udevqt.h"
+#include "upowerdevice.h"
 
 #include "powerdevilupowerbackend_export.h"
 
@@ -55,7 +55,7 @@ class POWERDEVILUPOWERBACKEND_EXPORT PowerDevilUPowerBackend : public PowerDevil
     Q_PLUGIN_METADATA(IID "org.kde.powerdevil.upowerbackend");
 
 public:
-    explicit PowerDevilUPowerBackend(QObject* parent = nullptr);
+    explicit PowerDevilUPowerBackend(QObject *parent = nullptr);
     ~PowerDevilUPowerBackend() override;
 
     void init() override;
@@ -83,8 +83,8 @@ private:
 
 private Q_SLOTS:
     void updateDeviceProps();
-    void slotDeviceAdded(const QDBusObjectPath & path);
-    void slotDeviceRemoved(const QDBusObjectPath & path);
+    void slotDeviceAdded(const QDBusObjectPath &path);
+    void slotDeviceRemoved(const QDBusObjectPath &path);
     void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
@@ -128,6 +128,6 @@ private:
     // property if brightness control is leds subsystem
     bool m_isLedBrightnessControl;
 
-    //helper path
+    // helper path
     QString m_syspath;
 };

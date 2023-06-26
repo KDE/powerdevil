@@ -23,7 +23,6 @@
 
 namespace PowerDevil
 {
-
 /**
  * Filter data along one dimension using exponential moving average.
  */
@@ -34,7 +33,7 @@ double emafilter(const double last, const double update, double weight)
     return current;
 }
 
-BackendInterface::BackendInterface(QObject* parent)
+BackendInterface::BackendInterface(QObject *parent)
     : QObject(parent)
 {
 }
@@ -96,7 +95,7 @@ void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapter
     Q_EMIT acAdapterStateChanged(state);
 }
 
-void BackendInterface::setBackendHasError(const QString& errorDetails)
+void BackendInterface::setBackendHasError(const QString &errorDetails)
 {
     Q_UNUSED(errorDetails)
 }

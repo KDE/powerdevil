@@ -19,31 +19,34 @@
 
 #include "powerdevilaction.h"
 
-#include "powerdevilcore.h"
 #include "powerdevil_debug.h"
+#include "powerdevilcore.h"
 
 #include <QDebug>
 
 namespace PowerDevil
 {
-
 class Action::Private
 {
 public:
-    Private() {}
-    ~Private() {}
+    Private()
+    {
+    }
+    ~Private()
+    {
+    }
 
     PowerDevil::Core *core;
 
-    QVector< int > registeredIdleTimeouts;
+    QVector<int> registeredIdleTimeouts;
     PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies;
 };
 
-Action::Action(QObject* parent)
-        : QObject(parent)
-        , d(new Private)
+Action::Action(QObject *parent)
+    : QObject(parent)
+    , d(new Private)
 {
-    d->core = qobject_cast<PowerDevil::Core*>(parent);
+    d->core = qobject_cast<PowerDevil::Core *>(parent);
 }
 
 Action::~Action()
@@ -78,17 +81,17 @@ bool Action::isSupported()
     return true;
 }
 
-BackendInterface* Action::backend() const
+BackendInterface *Action::backend() const
 {
     return d->core->backend();
 }
 
-Core* Action::core()
+Core *Action::core()
 {
     return d->core;
 }
 
-void Action::trigger(const QVariantMap& args)
+void Action::trigger(const QVariantMap &args)
 {
     if (args.contains(QStringLiteral("Explicit")) && args[QStringLiteral("Explicit")].toBool()) {
         // The action was explicitly triggered by the user, hence any policy check is bypassed.

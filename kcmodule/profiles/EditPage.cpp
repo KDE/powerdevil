@@ -19,41 +19,41 @@
 
 #include "EditPage.h"
 
-#include "actioneditwidget.h"
 #include "ErrorOverlay.h"
+#include "actioneditwidget.h"
 
 #include <powerdevilactionconfig.h>
-#include <powerdevilprofilegenerator.h>
 #include <powerdevilpowermanagement.h>
+#include <powerdevilprofilegenerator.h>
 
-#include <powerdevil_debug.h>
 #include <Kirigami/TabletModeWatcher>
+#include <powerdevil_debug.h>
 
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QTabBar>
 
-#include <QDBusMessage>
-#include <QDBusReply>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDBusMessage>
 #include <QDBusMetaType>
+#include <QDBusReply>
 #include <QDBusServiceWatcher>
 
-#include <KConfigGroup>
-#include <QDebug>
-#include <KMessageBox>
 #include <KAboutData>
-#include <KPluginFactory>
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KMessageBox>
+#include <KPluginFactory>
+#include <QDebug>
 
 #include <Solid/Battery>
 #include <Solid/Device>
 
 K_PLUGIN_CLASS_WITH_JSON(EditPage, "kcm_powerdevilprofilesconfig.json")
 
-EditPage::EditPage(QObject *parent, const KPluginMetaData&data)
+EditPage::EditPage(QObject *parent, const KPluginMetaData &data)
     : KCModule(parent, data)
 {
     setButtons(Apply | Help | Default);
@@ -65,11 +65,9 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData&data)
     if (m_profilesConfig->groupList().isEmpty()) {
         auto interface = Kirigami::TabletModeWatcher::self();
 
-        PowerDevil::ProfileGenerator::generateProfiles(
-            interface->isTabletMode(),
-            PowerDevil::PowerManagement::instance()->canSuspend(),
-            PowerDevil::PowerManagement::instance()->canHibernate()
-        );
+        PowerDevil::ProfileGenerator::generateProfiles(interface->isTabletMode(),
+                                                       PowerDevil::PowerManagement::instance()->canSuspend(),
+                                                       PowerDevil::PowerManagement::instance()->canHibernate());
         m_profilesConfig->reparseConfiguration();
     }
 
@@ -93,8 +91,7 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData&data)
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
-                                                           QDBusServiceWatcher::WatchForRegistration |
-                                                           QDBusServiceWatcher::WatchForUnregistration,
+                                                           QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration,
                                                            this);
 
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &EditPage::onServiceRegistered);
@@ -102,8 +99,8 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData&data)
 
     bool hasBattery = false;
     const auto batteries = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
-    for(const Solid::Device &device : batteries) {
-        const Solid::Battery *b = qobject_cast<const Solid::Battery*> (device.asDeviceInterface(Solid::DeviceInterface::Battery));
+    for (const Solid::Device &device : batteries) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
         if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
             hasBattery = true;
             break;
@@ -125,7 +122,7 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData&data)
 
 void EditPage::onChanged(bool value)
 {
-    ActionEditWidget *editWidget = qobject_cast< ActionEditWidget* >(sender());
+    ActionEditWidget *editWidget = qobject_cast<ActionEditWidget *>(sender());
     if (!editWidget) {
         return;
     }
@@ -142,8 +139,7 @@ void EditPage::onChanged(bool value)
 void EditPage::load()
 {
     qCDebug(POWERDEVIL) << "Loading routine called";
-    for (QHash< QString, ActionEditWidget* >::const_iterator i = m_editWidgets.constBegin();
-         i != m_editWidgets.constEnd(); ++i) {
+    for (QHash<QString, ActionEditWidget *>::const_iterator i = m_editWidgets.constBegin(); i != m_editWidgets.constEnd(); ++i) {
         i.value()->load();
 
         m_profileEdited[i.value()->configName()] = false;
@@ -163,14 +159,10 @@ void EditPage::save()
 
 void EditPage::notifyDaemon()
 {
-    QDBusConnection::sessionBus().asyncCall(
-        QDBusMessage::createMethodCall(
-            QStringLiteral("org.kde.Solid.PowerManagement"),
-            QStringLiteral("/org/kde/Solid/PowerManagement"),
-            QStringLiteral("org.kde.Solid.PowerManagement"),
-            QStringLiteral("refreshStatus")
-        )
-    );
+    QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                           QStringLiteral("/org/kde/Solid/PowerManagement"),
+                                                                           QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                           QStringLiteral("refreshStatus")));
 }
 
 void EditPage::restoreDefaultProfiles()
@@ -186,11 +178,9 @@ void EditPage::restoreDefaultProfiles()
         qCDebug(POWERDEVIL) << "Restoring defaults.";
         auto interface = Kirigami::TabletModeWatcher::self();
 
-        PowerDevil::ProfileGenerator::generateProfiles(
-            interface->isTabletMode(),
-            PowerDevil::PowerManagement::instance()->canSuspend(),
-            PowerDevil::PowerManagement::instance()->canHibernate()
-        );
+        PowerDevil::ProfileGenerator::generateProfiles(interface->isTabletMode(),
+                                                       PowerDevil::PowerManagement::instance()->canSuspend(),
+                                                       PowerDevil::PowerManagement::instance()->canHibernate());
 
         load();
 
@@ -206,8 +196,7 @@ void EditPage::defaults()
 void EditPage::checkAndEmitChanged()
 {
     bool value = false;
-    for (QHash< QString, bool >::const_iterator i = m_profileEdited.constBegin();
-         i != m_profileEdited.constEnd(); ++i) {
+    for (QHash<QString, bool>::const_iterator i = m_profileEdited.constBegin(); i != m_profileEdited.constEnd(); ++i) {
         if (i.value()) {
             value = i.value();
         }
@@ -216,18 +205,16 @@ void EditPage::checkAndEmitChanged()
     setNeedsSave(value);
 }
 
-void EditPage::onServiceRegistered(const QString& service)
+void EditPage::onServiceRegistered(const QString &service)
 {
     Q_UNUSED(service);
 
-    QDBusPendingCallWatcher *currentProfileWatcher = new QDBusPendingCallWatcher(QDBusConnection::sessionBus().asyncCall(
-        QDBusMessage::createMethodCall(
-            QStringLiteral("org.kde.Solid.PowerManagement"),
-            QStringLiteral("/org/kde/Solid/PowerManagement"),
-            QStringLiteral("org.kde.Solid.PowerManagement"),
-            QStringLiteral("currentProfile")
-        )
-    ), this);
+    QDBusPendingCallWatcher *currentProfileWatcher =
+        new QDBusPendingCallWatcher(QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                                                           QStringLiteral("/org/kde/Solid/PowerManagement"),
+                                                                                                           QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                                                                           QStringLiteral("currentProfile"))),
+                                    this);
 
     QObject::connect(currentProfileWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         QDBusPendingReply<QString> reply = *watcher;
@@ -250,7 +237,7 @@ void EditPage::onServiceRegistered(const QString& service)
     }
 }
 
-void EditPage::onServiceUnregistered(const QString& service)
+void EditPage::onServiceUnregistered(const QString &service)
 {
     Q_UNUSED(service);
 

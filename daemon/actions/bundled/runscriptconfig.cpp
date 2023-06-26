@@ -17,27 +17,25 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "runscriptconfig.h"
 
 #include <QHBoxLayout>
 #include <QSpinBox>
 
+#include <KComboBox>
 #include <KConfig>
 #include <KLocalizedString>
-#include <KUrlRequester>
-#include <KComboBox>
 #include <KPluginFactory>
 #include <KSharedConfig>
+#include <KUrlRequester>
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::RunScriptConfig)
 
-namespace PowerDevil::BundledActions {
-
-RunScriptConfig::RunScriptConfig(QObject* parent)
+namespace PowerDevil::BundledActions
+{
+RunScriptConfig::RunScriptConfig(QObject *parent)
     : ActionConfig(parent)
 {
-
 }
 
 void RunScriptConfig::save()
@@ -57,9 +55,9 @@ void RunScriptConfig::load()
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
 }
 
-QList< QPair< QString, QWidget* > > RunScriptConfig::buildUi()
+QList<QPair<QString, QWidget *>> RunScriptConfig::buildUi()
 {
-    QList< QPair< QString, QWidget* > > retlist;
+    QList<QPair<QString, QWidget *>> retlist;
     m_urlRequester = new KUrlRequester();
     m_urlRequester->setMode(KFile::File | KFile::LocalOnly | KFile::ExistingOnly);
     retlist.append(qMakePair(i18n("Script"), m_urlRequester));

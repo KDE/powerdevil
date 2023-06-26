@@ -19,10 +19,10 @@
 
 #pragma once
 
-#include <QObject>
-#include <kauth_version.h>
 #include <KAuth/ActionReply>
 #include <KAuth/HelperSupport>
+#include <QObject>
+#include <kauth_version.h>
 
 using namespace KAuth;
 
@@ -34,5 +34,4 @@ public:
 
 public Q_SLOTS:
     ActionReply hasdualgpu(const QVariantMap &args);
-
 };

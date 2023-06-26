@@ -19,11 +19,12 @@
 
 #pragma once
 
-#include <QVariantList>
 #include <QGuiApplication>
+#include <QVariantList>
 
-namespace PowerDevil {
-    class Core;
+namespace PowerDevil
+{
+class Core;
 }
 
 using InhibitionInfo = QPair<QString, QString>;

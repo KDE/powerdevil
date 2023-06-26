@@ -21,14 +21,12 @@
 
 #include "powerdevilbrightnesslogic.h"
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 class KeyboardBrightnessLogic : public BrightnessLogic
 {
-
 protected:
     int calculateSteps(int valueMax) const override;
-
 };
 
 }

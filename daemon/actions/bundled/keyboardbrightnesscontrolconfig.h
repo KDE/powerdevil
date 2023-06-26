@@ -24,17 +24,17 @@
 class QSlider;
 class QLabel;
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 class KeyboardBrightnessControlConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
 public:
-    KeyboardBrightnessControlConfig(QObject*);
+    KeyboardBrightnessControlConfig(QObject *);
 
     void save() override;
     void load() override;
-    QList< QPair< QString, QWidget* > > buildUi() override;
+    QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     QSlider *m_slider;

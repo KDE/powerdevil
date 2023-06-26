@@ -22,7 +22,6 @@
 
 namespace PowerDevil
 {
-
 BrightnessLogic::BrightnessLogic()
 {
 }
@@ -40,7 +39,8 @@ void BrightnessLogic::setValueMax(int valueMax)
     }
 }
 
-int BrightnessLogic::action(BrightnessKeyType type) const {
+int BrightnessLogic::action(BrightnessKeyType type) const
+{
     switch (type) {
     case Increase:
         return increased();
@@ -123,9 +123,7 @@ float BrightnessLogic::percentage(int value) const
 
 const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const
 {
-    return BrightnessInfo{
-        m_value, m_valueMax, m_steps
-    };
+    return BrightnessInfo{m_value, m_valueMax, m_steps};
 }
 
 int BrightnessLogic::stepToValue(int step) const

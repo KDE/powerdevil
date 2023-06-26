@@ -20,10 +20,10 @@
 
 #pragma once
 
-#include <QObject>
 #include <QHash>
-#include <QStringList>
+#include <QObject>
 #include <QPointer>
+#include <QStringList>
 #include <QVector>
 
 #include <QDBusContext>
@@ -48,8 +48,7 @@ class OrgFreedesktopScreenSaverInterface;
 
 using InhibitionInfo = QPair<QString, QString>;
 
-struct LogindInhibition
-{
+struct LogindInhibition {
     QString what;
     QString who;
     QString why;
@@ -59,14 +58,12 @@ struct LogindInhibition
 
     bool operator==(const LogindInhibition &other) const
     {
-        return what == other.what && who == other.who && why == other.why && mode == other.mode
-                && pid == other.pid && uid == other.uid;
+        return what == other.what && who == other.who && why == other.why && mode == other.mode && pid == other.pid && uid == other.uid;
     }
 };
 
 namespace PowerDevil
 {
-
 class POWERDEVILCORE_EXPORT PolicyAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
@@ -117,16 +114,16 @@ Q_SIGNALS:
     void screenLockerActiveChanged(bool active);
 
 private Q_SLOTS:
-    void onServiceUnregistered(const QString & serviceName);
-    void onSessionHandlerRegistered(const QString & serviceName);
-    void onSessionHandlerUnregistered(const QString & serviceName);
-    void onActiveSessionChanged(const QString & ifaceName, const QVariantMap & changedProps, const QStringList & invalidatedProps);
+    void onServiceUnregistered(const QString &serviceName);
+    void onSessionHandlerRegistered(const QString &serviceName);
+    void onSessionHandlerUnregistered(const QString &serviceName);
+    void onActiveSessionChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
     void onActiveSessionChanged(const QString &activeSession);
 
     void onManagerPropertyChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
-    explicit PolicyAgent(QObject* parent = nullptr);
+    explicit PolicyAgent(QObject *parent = nullptr);
 
     void init();
     void startSessionInterruption();
@@ -145,29 +142,28 @@ private:
     bool m_screenLockerActive = false;
 
     // This function serves solely for fd.o connector
-    uint addInhibitionWithExplicitDBusService(uint types, const QString &appName,
-                                              const QString &reason, const QString &service);
+    uint addInhibitionWithExplicitDBusService(uint types, const QString &appName, const QString &reason, const QString &service);
 
     // used by systemd and ConsoleKit
-    QScopedPointer< QDBusInterface > m_managerIface;
+    QScopedPointer<QDBusInterface> m_managerIface;
 
     // systemd support
-    QString getNamedPathProperty(const QString & path, const QString & iface, const QString & prop) const;
+    QString getNamedPathProperty(const QString &path, const QString &iface, const QString &prop) const;
     bool m_sdAvailable;
     QString m_activeSessionPath;
-    QPointer< QDBusInterface > m_sdSessionInterface;
-    QPointer< QDBusInterface > m_sdSeatInterface;
+    QPointer<QDBusInterface> m_sdSessionInterface;
+    QPointer<QDBusInterface> m_sdSeatInterface;
     QDBusUnixFileDescriptor m_systemdInhibitFd;
 
     // ConsoleKit support
     bool m_ckAvailable;
-    QPointer< QDBusInterface > m_ckSessionInterface;
-    QPointer< QDBusInterface > m_ckSeatInterface;
+    QPointer<QDBusInterface> m_ckSessionInterface;
+    QPointer<QDBusInterface> m_ckSeatInterface;
     bool m_sessionIsBeingInterrupted;
 
-    QHash< uint, QPair< QString, QString > > m_cookieToAppName;
-    QHash< uint, QString > m_cookieToBusService;
-    QHash< RequiredPolicy, QList< uint > > m_typesToCookie;
+    QHash<uint, QPair<QString, QString>> m_cookieToAppName;
+    QHash<uint, QString> m_cookieToBusService;
+    QHash<RequiredPolicy, QList<uint>> m_typesToCookie;
 
     QHash<uint, LogindInhibition> m_logindInhibitions;
 
@@ -175,9 +171,9 @@ private:
 
     uint m_lastCookie;
 
-    QPointer< QDBusServiceWatcher > m_busWatcher;
-    QPointer< QDBusServiceWatcher > m_sdWatcher;
-    QPointer< QDBusServiceWatcher > m_ckWatcher;
+    QPointer<QDBusServiceWatcher> m_busWatcher;
+    QPointer<QDBusServiceWatcher> m_sdWatcher;
+    QPointer<QDBusServiceWatcher> m_ckWatcher;
 
     bool m_wasLastActiveSession;
 

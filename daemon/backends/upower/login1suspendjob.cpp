@@ -23,17 +23,18 @@
 
 #include <powerdevil_debug.h>
 
-#include <QDBusReply>
 #include <QDBusMessage>
-#include <QTimer>
+#include <QDBusReply>
 #include <QDebug>
+#include <QTimer>
 
 #include <KLocalizedString>
 
 Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
                                    PowerDevil::BackendInterface::SuspendMethod method,
                                    PowerDevil::BackendInterface::SuspendMethods supported)
-    : KJob(), m_login1Interface(login1Interface)
+    : KJob()
+    , m_login1Interface(login1Interface)
 {
     qCDebug(POWERDEVIL) << "Starting Login1 suspend job";
     m_method = method;
@@ -44,7 +45,6 @@ Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
 
 Login1SuspendJob::~Login1SuspendJob()
 {
-
 }
 
 void Login1SuspendJob::start()
@@ -60,7 +60,7 @@ void Login1SuspendJob::doStart()
 
         QDBusPendingReply<void> reply;
 
-        switch(m_method) {
+        switch (m_method) {
         case PowerDevil::BackendInterface::ToRam:
             reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Suspend"), args);
             break;

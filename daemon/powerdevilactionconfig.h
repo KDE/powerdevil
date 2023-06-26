@@ -25,8 +25,8 @@
 
 #include "powerdevilcore_export.h"
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 /**
  * @brief The base class for Action's config interfaces
  *
@@ -93,7 +93,7 @@ public:
      *
      * @returns A list of QString, QWidget pairs representing your Action's configuration UI
      */
-    virtual QList< QPair< QString, QWidget* > > buildUi() = 0;
+    virtual QList<QPair<QString, QWidget *>> buildUi() = 0;
 
     /**
      * This function gets called whenever the parent module requires to load a specific configuration. This
@@ -126,7 +126,7 @@ Q_SIGNALS:
 
 private:
     class Private;
-    Private * const d;
+    Private *const d;
 };
 
 }

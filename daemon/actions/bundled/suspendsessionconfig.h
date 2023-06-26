@@ -25,17 +25,17 @@ class KComboBox;
 class QCheckBox;
 class QSpinBox;
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 class SuspendSessionConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
 public:
-    SuspendSessionConfig(QObject* parent);
+    SuspendSessionConfig(QObject *parent);
 
     void save() override;
     void load() override;
-    QList< QPair< QString, QWidget* > > buildUi() override;
+    QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     QSpinBox *m_idleTime;
@@ -44,4 +44,3 @@ private:
 };
 
 }
-

@@ -23,15 +23,15 @@
 
 #include "suspendsession.h"
 
-#include <powerdevilactionpool.h>
 #include <powerdevil_debug.h>
+#include <powerdevilactionpool.h>
 
 #include <QAction>
 
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KLocalizedString>
 #include <KIdleTime>
+#include <KLocalizedString>
 
 #include <KScreen/Config>
 #include <KScreen/ConfigMonitor>
@@ -41,7 +41,8 @@
 #include <KGlobalAccel>
 #include <Kirigami/TabletModeWatcher>
 
-namespace PowerDevil::BundledActions {
+namespace PowerDevil::BundledActions
+{
 HandleButtonEvents::HandleButtonEvents(QObject *parent)
     : Action(parent)
     , m_screenConfiguration(nullptr)
@@ -49,10 +50,9 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
-    connect(backend(), &BackendInterface::buttonPressed,
-            this, &HandleButtonEvents::onButtonPressed);
+    connect(backend(), &BackendInterface::buttonPressed, this, &HandleButtonEvents::onButtonPressed);
 
-    KActionCollection* actionCollection = new KActionCollection( this );
+    KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
 
     KGlobalAccel *accel = KGlobalAccel::self();
@@ -69,7 +69,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
     globalAction = actionCollection->addAction("PowerOff");
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Off"));
-    auto powerButtonMode = [globalAction] (bool isTablet) {
+    auto powerButtonMode = [globalAction](bool isTablet) {
         if (!isTablet) {
             KGlobalAccel::self()->setGlobalShortcut(globalAction, Qt::Key_PowerOff);
         } else {
@@ -86,14 +86,16 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     accel->setGlobalShortcut(globalAction, Qt::Key_PowerDown);
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerDownButtonTriggered);
 
-    connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID), &KScreen::ConfigOperation::finished,
-            this, [this](KScreen::ConfigOperation *op) {
+    connect(new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoEDID),
+            &KScreen::ConfigOperation::finished,
+            this,
+            [this](KScreen::ConfigOperation *op) {
                 m_screenConfiguration = qobject_cast<KScreen::GetConfigOperation *>(op)->config();
                 checkOutputs();
 
                 KScreen::ConfigMonitor::instance()->addConfig(m_screenConfiguration);
                 connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &HandleButtonEvents::checkOutputs);
-    });
+            });
 
     if (!backend()->isLidClosed()) {
         m_oldKeyboardBrightness = backend()->keyboardBrightness();
@@ -107,12 +109,11 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
 HandleButtonEvents::~HandleButtonEvents()
 {
-
 }
 
 bool HandleButtonEvents::isSupported()
 {
-    //we handles keyboard shortcuts in our button handling, users always have a keyboard
+    // we handles keyboard shortcuts in our button handling, users always have a keyboard
     return true;
 }
 
@@ -132,7 +133,7 @@ void HandleButtonEvents::onIdleTimeout(int msec)
     Q_UNUSED(msec)
 }
 
-void HandleButtonEvents::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
+void HandleButtonEvents::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
 {
     //
 }
@@ -140,42 +141,42 @@ void HandleButtonEvents::onProfileLoad(const QString &/*previousProfile*/, const
 void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 {
     switch (type) {
-        case BackendInterface::LidClose:
-            if (m_oldKeyboardBrightness.has_value()) {
-                backend()->setKeyboardBrightness(0);
-            }
+    case BackendInterface::LidClose:
+        if (m_oldKeyboardBrightness.has_value()) {
+            backend()->setKeyboardBrightness(0);
+        }
 
-            if (!triggersLidAction()) {
-                qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
-                return;
-            }
+        if (!triggersLidAction()) {
+            qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
+            return;
+        }
 
-            processAction(m_lidAction);
-            break;
-        case BackendInterface::LidOpen:
-            // When we restore the keyboard brightness before waking up, we shouldn't conflict
-            // with dimdisplay or dpms also messing with the keyboard.
-            if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
-                backend()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
-            }
+        processAction(m_lidAction);
+        break;
+    case BackendInterface::LidOpen:
+        // When we restore the keyboard brightness before waking up, we shouldn't conflict
+        // with dimdisplay or dpms also messing with the keyboard.
+        if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
+            backend()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
+        }
 
-            // In this case, let's send a wakeup event
-            KIdleTime::instance()->simulateUserActivity();
-            break;
-        case BackendInterface::PowerButton:
-            processAction(m_powerButtonAction);
-            break;
-        case BackendInterface::PowerDownButton:
-            processAction(m_powerDownButtonAction);
-            break;
-        case BackendInterface::SleepButton:
-            processAction(m_sleepButtonAction);
-            break;
-        case BackendInterface::HibernateButton:
-            processAction(m_hibernateButtonAction);
-            break;
-        default:
-            break;
+        // In this case, let's send a wakeup event
+        KIdleTime::instance()->simulateUserActivity();
+        break;
+    case BackendInterface::PowerButton:
+        processAction(m_powerButtonAction);
+        break;
+    case BackendInterface::PowerDownButton:
+        processAction(m_powerDownButtonAction);
+        break;
+    case BackendInterface::SleepButton:
+        processAction(m_sleepButtonAction);
+        break;
+    case BackendInterface::HibernateButton:
+        processAction(m_hibernateButtonAction);
+        break;
+    default:
+        break;
     }
 }
 
@@ -183,17 +184,17 @@ void HandleButtonEvents::processAction(uint action)
 {
     // Basically, we simply trigger other actions :)
     switch (static_cast<SuspendSession::Mode>(action)) {
-        case SuspendSession::TurnOffScreenMode:
-            // Turn off screen
-            triggerAction("DPMSControl", QStringLiteral("TurnOff"));
-            break;
-        case SuspendSession::ToggleScreenOnOffMode:
-            // Toggle screen on/off
-            triggerAction("DPMSControl", QStringLiteral("ToggleOnOff"));
-            break;
-        default:
-            triggerAction("SuspendSession", action);
-            break;
+    case SuspendSession::TurnOffScreenMode:
+        // Turn off screen
+        triggerAction("DPMSControl", QStringLiteral("TurnOff"));
+        break;
+    case SuspendSession::ToggleScreenOnOffMode:
+        // Toggle screen on/off
+        triggerAction("DPMSControl", QStringLiteral("ToggleOnOff"));
+        break;
+    default:
+        triggerAction("SuspendSession", action);
+        break;
     }
 }
 
@@ -208,7 +209,7 @@ void HandleButtonEvents::triggerAction(const QString &action, const QVariant &ty
     }
 }
 
-void HandleButtonEvents::triggerImpl(const QVariantMap& args)
+void HandleButtonEvents::triggerImpl(const QVariantMap &args)
 {
     // For now, let's just accept the phantomatic "32" button. It is also always explicit
     if (args["Button"].toInt() == 32) {
@@ -218,7 +219,7 @@ void HandleButtonEvents::triggerImpl(const QVariantMap& args)
     }
 }
 
-bool HandleButtonEvents::loadAction(const KConfigGroup& config)
+bool HandleButtonEvents::loadAction(const KConfigGroup &config)
 {
     // Read configs
     m_lidAction = config.readEntry<uint>("lidAction", 0);
@@ -272,7 +273,7 @@ void HandleButtonEvents::checkOutputs()
 
     bool hasExternalMonitor = false;
 
-    for(const KScreen::OutputPtr &output : m_screenConfiguration->outputs()) {
+    for (const KScreen::OutputPtr &output : m_screenConfiguration->outputs()) {
         if (output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel && output->type() != KScreen::Output::Unknown) {
             hasExternalMonitor = true;
             break;

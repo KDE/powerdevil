@@ -21,8 +21,8 @@
 
 #include <powerdevil_debug.h>
 
-#include <QDir>
 #include <QDebug>
+#include <QDir>
 
 #include <KLocalizedString>
 
@@ -35,8 +35,8 @@
 #endif
 
 #ifdef USE_SYSCTL
-#include <sys/types.h>
 #include <sys/sysctl.h>
+#include <sys/types.h>
 
 #define HAS_SYSCTL(n) (sysctlbyname(n, nullptr, nullptr, nullptr, 0) == 0)
 #endif
@@ -44,7 +44,8 @@
 #define BACKLIGHT_SYSFS_PATH "/sys/class/backlight/"
 #define LED_SYSFS_PATH "/sys/class/leds/"
 
-BacklightHelper::BacklightHelper(QObject *parent) : QObject(parent)
+BacklightHelper::BacklightHelper(QObject *parent)
+    : QObject(parent)
 {
     init();
 }
@@ -203,8 +204,8 @@ void BacklightHelper::initUsingSysctl()
             if (!HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.active").arg(device)))) {
                 break;
             }
-            if (HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(device))) &&
-                HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(device)))) {
+            if (HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.brightness").arg(device)))
+                && HAS_SYSCTL(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(device)))) {
                 m_sysctlDevice = device;
                 break;
             }
@@ -216,8 +217,7 @@ void BacklightHelper::initUsingSysctl()
     }
 
     size_t len;
-    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), nullptr, &len, nullptr, 0) != 0 ||
-        len == 0) {
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), nullptr, &len, nullptr, 0) != 0 || len == 0) {
         return;
     }
     int *levels = (int *)malloc(len);
@@ -381,7 +381,7 @@ ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
     }
 
     reply.addData(QStringLiteral("brightnessmax"), max_brightness);
-    //qCDebug(POWERDEVIL) << "data contains:" << reply.data()["brightnessmax"];
+    // qCDebug(POWERDEVIL) << "data contains:" << reply.data()["brightnessmax"];
 
     return reply;
 }

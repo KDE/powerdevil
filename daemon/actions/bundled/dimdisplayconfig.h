@@ -23,8 +23,8 @@
 
 class QSpinBox;
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 class DimDisplayConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
@@ -33,7 +33,7 @@ public:
 
     void save() override;
     void load() override;
-    QList< QPair< QString, QWidget* > > buildUi() override;
+    QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     QSpinBox *m_spinBox;

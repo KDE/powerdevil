@@ -19,26 +19,26 @@
 
 #pragma once
 
-#include <QObject>
 #include <QHash>
+#include <QObject>
 
 #include "powerdevilbrightnesslogic.h"
-#include "powerdevilscreenbrightnesslogic.h"
 #include "powerdevilkeyboardbrightnesslogic.h"
+#include "powerdevilscreenbrightnesslogic.h"
 
 #include "powerdevilcore_export.h"
 
 class KJob;
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 class POWERDEVILCORE_EXPORT BackendInterface : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(BackendInterface)
 
 public:
-    explicit BackendInterface(QObject* parent = nullptr);
+    explicit BackendInterface(QObject *parent = nullptr);
     ~BackendInterface() override;
 
     /**
@@ -48,7 +48,7 @@ public:
      * - Plugged: The AC adapter is plugged
      * - Unplugged: The AC adapter is unplugged
      */
-    enum AcAdapterState{ UnknownAcAdapterState, Plugged, Unplugged };
+    enum AcAdapterState { UnknownAcAdapterState, Plugged, Unplugged };
     Q_ENUM(AcAdapterState)
 
     /**
@@ -61,7 +61,7 @@ public:
      * - LidOpen: A laptop lid open event
      * - LidClose: A laptop lid close event
      */
-    enum ButtonType{ UnknownButtonType, PowerButton, PowerDownButton, SleepButton, LidOpen, LidClose, HibernateButton };
+    enum ButtonType { UnknownButtonType, PowerButton, PowerDownButton, SleepButton, LidOpen, LidClose, HibernateButton };
     Q_ENUM(ButtonType)
 
     /**
@@ -73,7 +73,7 @@ public:
      * - ToDisk: State of the machine is saved to disk, and it's powered down (ACPI S4)
      * - SuspendThenHibernate: Same as ToRam, but after a delay it switches to ToDisk
      */
-    enum SuspendMethod{ UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8, SuspendThenHibernate = 16 };
+    enum SuspendMethod { UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8, SuspendThenHibernate = 16 };
     Q_ENUM(SuspendMethod)
 
     /**
@@ -88,7 +88,7 @@ public:
      * - Screen: Brightness control for a monitor or laptop panel
      * - Keyboard: Brightness control for a keyboard backlight
      */
-    enum BrightnessControlType{ UnknownBrightnessControl = 0, Screen = 1, Keyboard = 2 };
+    enum BrightnessControlType { UnknownBrightnessControl = 0, Screen = 1, Keyboard = 2 };
     Q_ENUM(BrightnessControlType)
 
     /**

@@ -21,7 +21,6 @@
 
 namespace PowerDevil
 {
-
 class ActionConfig::Private
 {
 public:

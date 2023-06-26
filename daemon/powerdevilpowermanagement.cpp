@@ -24,8 +24,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 static const QString s_fdoPowerService = QStringLiteral("org.freedesktop.PowerManagement");
 static const QString s_fdoPowerPath = QStringLiteral("/org/freedesktop/PowerManagement");
 
@@ -33,7 +33,10 @@ class PowerManagementInstance : public PowerManagement
 {
     Q_OBJECT
 public:
-    explicit PowerManagementInstance() : PowerManagement() {}
+    explicit PowerManagementInstance()
+        : PowerManagement()
+    {
+    }
 };
 Q_GLOBAL_STATIC(PowerManagementInstance, s_instance)
 
@@ -65,7 +68,9 @@ PowerManagement::Private::Private(PowerManagement *qq)
     , canSuspendThenHibernate(false)
     , canHibernate(false)
     , canHybridSuspend(false)
-    , fdoPowerServiceWatcher(new QDBusServiceWatcher(s_fdoPowerService, QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration | QDBusServiceWatcher::WatchForRegistration))
+    , fdoPowerServiceWatcher(new QDBusServiceWatcher(s_fdoPowerService,
+                                                     QDBusConnection::sessionBus(),
+                                                     QDBusServiceWatcher::WatchForUnregistration | QDBusServiceWatcher::WatchForRegistration))
     , q(qq)
 {
 }
@@ -81,10 +86,7 @@ void PowerManagement::Private::update()
 
 void PowerManagement::Private::updateProperty(const QString &dbusName, void (Private::*setter)(bool))
 {
-    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService,
-                                                          s_fdoPowerPath,
-                                                          s_fdoPowerService,
-                                                          dbusName);
+    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService, s_fdoPowerPath, s_fdoPowerService, dbusName);
     QDBusReply<bool> reply = QDBusConnection::sessionBus().call(message);
     if (!reply.isValid()) {
         return;
@@ -138,16 +140,16 @@ PowerManagement::PowerManagement()
     : QObject()
     , d(new Private(this))
 {
-    connect(d->fdoPowerServiceWatcher.data(), &QDBusServiceWatcher::serviceRegistered, this, [this] { d->update(); });
-    connect(d->fdoPowerServiceWatcher.data(), &QDBusServiceWatcher::serviceUnregistered, this,
-        [this] {
-            d->serviceRegistered = false;
-            d->setCanSuspend(false);
-            d->setCanHibernate(false);
-            d->setCanHybridSuspend(false);
-            d->setCanSuspendThenHibernate(false);
-        }
-    );
+    connect(d->fdoPowerServiceWatcher.data(), &QDBusServiceWatcher::serviceRegistered, this, [this] {
+        d->update();
+    });
+    connect(d->fdoPowerServiceWatcher.data(), &QDBusServiceWatcher::serviceUnregistered, this, [this] {
+        d->serviceRegistered = false;
+        d->setCanSuspend(false);
+        d->setCanHibernate(false);
+        d->setCanHybridSuspend(false);
+        d->setCanSuspendThenHibernate(false);
+    });
 
     // check whether the service is registered
     QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.DBus"),
@@ -175,10 +177,7 @@ void PowerManagement::suspend()
     if (!d->canSuspend) {
         return;
     }
-    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService,
-                                                          s_fdoPowerPath,
-                                                          s_fdoPowerService,
-                                                          QStringLiteral("Suspend"));
+    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService, s_fdoPowerPath, s_fdoPowerService, QStringLiteral("Suspend"));
     QDBusConnection::sessionBus().asyncCall(message);
 }
 
@@ -190,10 +189,7 @@ void PowerManagement::hibernate()
     if (!d->canHibernate) {
         return;
     }
-    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService,
-                                                          s_fdoPowerPath,
-                                                          s_fdoPowerService,
-                                                          QStringLiteral("Hibernate"));
+    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService, s_fdoPowerPath, s_fdoPowerService, QStringLiteral("Hibernate"));
     QDBusConnection::sessionBus().asyncCall(message);
 }
 
@@ -210,10 +206,7 @@ void PowerManagement::suspendThenHibernate()
     if (!d->canSuspendThenHibernate) {
         return;
     }
-    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService,
-                                                          s_fdoPowerPath,
-                                                          s_fdoPowerService,
-                                                          QStringLiteral("SuspendThenHibernate"));
+    QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService, s_fdoPowerPath, s_fdoPowerService, QStringLiteral("SuspendThenHibernate"));
     QDBusConnection::sessionBus().asyncCall(message);
 }
 

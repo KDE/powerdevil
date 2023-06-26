@@ -31,7 +31,7 @@
 
 #include <unordered_map>
 
-class DDCutilBrightness: public QObject
+class DDCutilBrightness : public QObject
 {
     Q_OBJECT
 public:

@@ -25,9 +25,9 @@
 #include <QSet>
 #include <QStringList>
 
-#include <QDBusMessage>
-#include <QDBusError>
 #include <QDBusContext>
+#include <QDBusError>
+#include <QDBusMessage>
 #include <QDBusObjectPath>
 
 #include <QSocketNotifier>
@@ -38,20 +38,20 @@
 
 namespace KActivities
 {
-    class Consumer;
+class Consumer;
 } // namespace KActivities
 
 class QDBusServiceWatcher;
 class QTimer;
 class KNotification;
 
-namespace Solid {
+namespace Solid
+{
 class Battery;
 }
 
 namespace PowerDevil
 {
-
 class BackendInterface;
 class Action;
 
@@ -69,7 +69,7 @@ class POWERDEVILCORE_EXPORT Core : public QObject, protected QDBusContext
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement")
 
 public:
-    explicit Core(QObject* parent);
+    explicit Core(QObject *parent);
     ~Core() override;
 
     void reloadProfile(int state);
@@ -171,7 +171,7 @@ private:
     KActivities::Consumer *const m_activityConsumer;
 
     // Idle time management
-    QHash< Action*, QList< int > > m_registeredActionTimeouts;
+    QHash<Action *, QList<int>> m_registeredActionTimeouts;
     QSet<Action *> m_pendingResumeFromIdleActions;
     bool m_pendingWakeupEvent;
 
@@ -182,17 +182,17 @@ private:
     QSocketNotifier *m_timerFdSocketNotifier = nullptr;
 
     // Activity inhibition management
-    QHash< QString, int > m_sessionActivityInhibit;
-    QHash< QString, int > m_screenActivityInhibit;
+    QHash<QString, int> m_sessionActivityInhibit;
+    QHash<QString, int> m_screenActivityInhibit;
 
 private Q_SLOTS:
     void onBackendReady();
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
-    void onBatteryChargePercentChanged(int,const QString&);
-    void onBatteryChargeStateChanged(int,const QString&);
+    void onBatteryChargePercentChanged(int, const QString &);
+    void onBatteryChargeStateChanged(int, const QString &);
     void onBatteryRemainingTimeChanged(qulonglong);
     void onSmoothedBatteryRemainingTimeChanged(qulonglong);
-    void onKIdleTimeoutReached(int,int);
+    void onKIdleTimeoutReached(int, int);
     void onResumingFromIdle();
     void onDeviceAdded(const QString &udi);
     void onDeviceRemoved(const QString &udi);

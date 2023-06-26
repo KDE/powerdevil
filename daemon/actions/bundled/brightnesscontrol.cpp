@@ -23,8 +23,8 @@
 
 #include "brightnesscontroladaptor.h"
 
-#include <powerdevilcore.h>
 #include <powerdevil_debug.h>
+#include <powerdevilcore.h>
 
 #include <QAction>
 #include <QDebug>
@@ -37,7 +37,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerdevilbrightnesscontrolaction.json")
 
-namespace PowerDevil::BundledActions {
+namespace PowerDevil::BundledActions
+{
 BrightnessControl::BrightnessControl(QObject *parent)
     : Action(parent)
 {
@@ -51,10 +52,10 @@ BrightnessControl::BrightnessControl(QObject *parent)
             this,
             &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromBackend);
 
-    KActionCollection* actionCollection = new KActionCollection( this );
+    KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
 
-    QAction* globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
+    QAction *globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
     KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
     connect(globalAction, &QAction::triggered, this, &BrightnessControl::increaseBrightness);
@@ -96,10 +97,9 @@ void BrightnessControl::onProfileLoad(const QString &previousProfile, const QStr
 
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
-    if (((newProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC")) ||
-         (newProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery")))) &&
-        absoluteBrightnessValue > brightness()) {
-
+    if (((newProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC"))
+         || (newProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery"))))
+        && absoluteBrightnessValue > brightness()) {
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
     } else if (absoluteBrightnessValue >= 0) {
@@ -108,8 +108,8 @@ void BrightnessControl::onProfileLoad(const QString &previousProfile, const QStr
         };
 
         // plugging in/out the AC is always explicit
-        if ((previousProfile == QLatin1String("AC") && newProfile != QLatin1String("AC")) ||
-            (previousProfile != QLatin1String("AC") && newProfile == QLatin1String("AC"))) {
+        if ((previousProfile == QLatin1String("AC") && newProfile != QLatin1String("AC"))
+            || (previousProfile != QLatin1String("AC") && newProfile == QLatin1String("AC"))) {
             args["Explicit"] = true;
             args["Silent"] = true; // but we still don't want to show the OSD then
         }
@@ -133,7 +133,7 @@ bool BrightnessControl::isSupported()
     return backend()->screenBrightnessAvailable();
 }
 
-bool BrightnessControl::loadAction(const KConfigGroup& config)
+bool BrightnessControl::loadAction(const KConfigGroup &config)
 {
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);

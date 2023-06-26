@@ -23,7 +23,6 @@
 
 namespace PowerDevil
 {
-
 int ScreenBrightnessLogic::toggled() const
 {
     // ignore, we won't toggle the display off

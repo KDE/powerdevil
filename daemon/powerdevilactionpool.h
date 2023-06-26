@@ -27,7 +27,6 @@
 class KConfigGroup;
 namespace PowerDevil
 {
-
 class Core;
 class Action;
 
@@ -49,7 +48,7 @@ public:
 private:
     ActionPool();
 
-    QHash< QString, Action* > m_actionPool;
+    QHash<QString, Action *> m_actionPool;
     QStringList m_activeActions;
 };
 

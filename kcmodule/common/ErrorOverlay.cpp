@@ -20,15 +20,15 @@
 #include "ErrorOverlay.h"
 
 #include <QEvent>
+#include <QIcon>
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QIcon>
 
 #include <KLocalizedString>
 
-ErrorOverlay::ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent) :
-    QWidget(parent ? parent : baseWidget->window()),
-    m_BaseWidget(baseWidget)
+ErrorOverlay::ErrorOverlay(QWidget *baseWidget, const QString &details, QWidget *parent)
+    : QWidget(parent ? parent : baseWidget->window())
+    , m_BaseWidget(baseWidget)
 {
     // Build the UI
     QVBoxLayout *layout = new QVBoxLayout;
@@ -96,12 +96,11 @@ void ErrorOverlay::reposition()
     resize(m_BaseWidget->size());
 }
 
-bool ErrorOverlay::eventFilter(QObject * object, QEvent * event)
+bool ErrorOverlay::eventFilter(QObject *object, QEvent *event)
 {
-    if (object == m_BaseWidget &&
-        (event->type() == QEvent::Move || event->type() == QEvent::Resize ||
-        event->type() == QEvent::Show || event->type() == QEvent::Hide ||
-        event->type() == QEvent::ParentChange)) {
+    if (object == m_BaseWidget
+        && (event->type() == QEvent::Move || event->type() == QEvent::Resize || event->type() == QEvent::Show || event->type() == QEvent::Hide
+            || event->type() == QEvent::ParentChange)) {
         reposition();
     }
     return QWidget::eventFilter(object, event);

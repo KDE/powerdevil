@@ -22,8 +22,8 @@
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 class BrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
@@ -37,11 +37,11 @@ protected:
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
-    void triggerImpl(const QVariantMap& args) override;
+    void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 
 public:
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(const KConfigGroup &config) override;
 
     int brightness() const;
     int brightnessMax() const;

@@ -27,7 +27,8 @@
 
 #include <optional>
 
-namespace PowerDevil::BundledActions {
+namespace PowerDevil::BundledActions
+{
 class HandleButtonEvents : public PowerDevil::Action
 {
     Q_OBJECT
@@ -37,14 +38,14 @@ public:
     explicit HandleButtonEvents(QObject *parent);
     ~HandleButtonEvents() override;
 
-    bool loadAction(const KConfigGroup& config) override;
+    bool loadAction(const KConfigGroup &config) override;
     bool isSupported() override;
 
 Q_SIGNALS:
     void triggersLidActionChanged(bool triggers);
 
 protected:
-    void triggerImpl(const QVariantMap& args) override;
+    void triggerImpl(const QVariantMap &args) override;
     void onProfileUnload() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;

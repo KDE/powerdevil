@@ -63,8 +63,8 @@ static QStringList getBatteries()
             continue; // Not a battery, skip
         }
 
-        if (!psuDir.exists(s_chargeStartThreshold) && !psuDir.exists(s_oldChargeStartThreshold)
-            && !psuDir.exists(s_chargeEndThreshold) && !psuDir.exists(s_oldChargeStopThreshold)) {
+        if (!psuDir.exists(s_chargeStartThreshold) && !psuDir.exists(s_oldChargeStartThreshold) && !psuDir.exists(s_chargeEndThreshold)
+            && !psuDir.exists(s_oldChargeStopThreshold)) {
             continue; // No charge thresholds, skip
         }
 
@@ -167,10 +167,8 @@ ActionReply ChargeThresholdHelper::setthreshold(const QVariantMap &args)
     const int stopThreshold = args.value(QStringLiteral("chargeStopThreshold"), -1).toInt(&hasStopThreshold);
     hasStopThreshold &= stopThreshold != -1;
 
-    if ((hasStartThreshold && (startThreshold < 0|| startThreshold > 100))
-            || (hasStopThreshold && (stopThreshold < 0 || stopThreshold > 100))
-            || (hasStartThreshold && hasStopThreshold && startThreshold > stopThreshold)
-            || (!hasStartThreshold && !hasStopThreshold)) {
+    if ((hasStartThreshold && (startThreshold < 0 || startThreshold > 100)) || (hasStopThreshold && (stopThreshold < 0 || stopThreshold > 100))
+        || (hasStartThreshold && hasStopThreshold && startThreshold > stopThreshold) || (!hasStartThreshold && !hasStopThreshold)) {
         auto reply = ActionReply::HelperErrorReply(); // is there an "invalid arguments" error?
         reply.setErrorDescription(QStringLiteral("Invalid thresholds provided"));
         return reply;

@@ -17,7 +17,7 @@ class UPowerDevice : public QObject
     Q_OBJECT
 
 public:
-    explicit UPowerDevice(const QString& dbusObjectPath);
+    explicit UPowerDevice(const QString &dbusObjectPath);
     UPowerDevice() = delete;
     ~UPowerDevice() = default;
 
@@ -27,21 +27,45 @@ public:
         Discharging = 2,
         FullyCharged = 4,
     };
-    State state() const { return m_state; }
+    State state() const
+    {
+        return m_state;
+    }
 
     enum class Type {
         Unknown = 0,
         Battery = 2,
         Ups = 3,
     };
-    Type type() const { return m_type; }
-    bool isPowerSupply() const { return m_isPowerSupply; }
-    bool isPresent() const { return m_isPresent; }
+    Type type() const
+    {
+        return m_type;
+    }
+    bool isPowerSupply() const
+    {
+        return m_isPowerSupply;
+    }
+    bool isPresent() const
+    {
+        return m_isPresent;
+    }
 
-    double energy() const { return m_energy; }
-    double energyFull() const { return m_energyFull; }
-    double energyRate() const { return m_energyRate; }
-    qulonglong updateTime() const { return m_updateTime; }
+    double energy() const
+    {
+        return m_energy;
+    }
+    double energyFull() const
+    {
+        return m_energyFull;
+    }
+    double energyRate() const
+    {
+        return m_energyRate;
+    }
+    qulonglong updateTime() const
+    {
+        return m_updateTime;
+    }
 
 private:
     State m_state = State::Unknown;

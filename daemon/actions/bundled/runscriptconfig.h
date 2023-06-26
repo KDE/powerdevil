@@ -25,17 +25,17 @@ class QSpinBox;
 class KComboBox;
 class KUrlRequester;
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 class RunScriptConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
 public:
-    RunScriptConfig(QObject* parent);
+    RunScriptConfig(QObject *parent);
 
     void save() override;
     void load() override;
-    QList< QPair< QString, QWidget* > > buildUi() override;
+    QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     KUrlRequester *m_urlRequester;
@@ -43,7 +43,7 @@ private:
     QSpinBox *m_idleTime;
 
 private Q_SLOTS:
-    void onIndexChanged(const QString&);
+    void onIndexChanged(const QString &);
 };
 
 }

@@ -17,7 +17,6 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "suspendsessionconfig.h"
 
 #include "powerdevilpowermanagement.h"
@@ -25,31 +24,30 @@
 #include <QHBoxLayout>
 #include <QSpinBox>
 
+#include "suspendsession.h"
 #include <KComboBox>
+#include <KConfig>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <QCheckBox>
 #include <QIcon>
-#include <KConfig>
-#include "suspendsession.h"
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::SuspendSessionConfig)
 
-namespace PowerDevil::BundledActions {
-
-SuspendSessionConfig::SuspendSessionConfig(QObject* parent)
-        : ActionConfig(parent),
-          m_suspendThenHibernateEnabled(nullptr)
+namespace PowerDevil::BundledActions
+{
+SuspendSessionConfig::SuspendSessionConfig(QObject *parent)
+    : ActionConfig(parent)
+    , m_suspendThenHibernateEnabled(nullptr)
 {
 }
 
 void SuspendSessionConfig::save()
 {
-    configGroup().writeEntry< uint >("suspendType", m_comboBox->itemData(m_comboBox->currentIndex()).toUInt());
+    configGroup().writeEntry<uint>("suspendType", m_comboBox->itemData(m_comboBox->currentIndex()).toUInt());
     configGroup().writeEntry("idleTime", m_idleTime->value() * 60 * 1000);
-    configGroup().writeEntry<bool>("suspendThenHibernate", m_suspendThenHibernateEnabled != nullptr &&
-        m_suspendThenHibernateEnabled->isChecked());
+    configGroup().writeEntry<bool>("suspendThenHibernate", m_suspendThenHibernateEnabled != nullptr && m_suspendThenHibernateEnabled->isChecked());
 
     configGroup().sync();
 }
@@ -58,7 +56,7 @@ void SuspendSessionConfig::load()
 {
     configGroup().config()->reparseConfiguration();
 
-    uint suspendType = configGroup().readEntry< uint >("suspendType", 0);
+    uint suspendType = configGroup().readEntry<uint>("suspendType", 0);
     m_comboBox->setCurrentIndex(m_comboBox->findData(suspendType));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
     if (m_suspendThenHibernateEnabled != nullptr) {
@@ -66,7 +64,7 @@ void SuspendSessionConfig::load()
     }
 }
 
-QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
+QList<QPair<QString, QWidget *>> SuspendSessionConfig::buildUi()
 {
     QWidget *tempWidget = new QWidget;
     QHBoxLayout *hlay = new QHBoxLayout;
@@ -97,7 +95,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
 
     tempWidget->setLayout(hlay);
 
-    QList< QPair< QString, QWidget* > > retlist;
+    QList<QPair<QString, QWidget *>> retlist;
     retlist.append(qMakePair(i18n("Automatically"), tempWidget));
 
     connect(m_comboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(setChanged()));
@@ -106,7 +104,7 @@ QList< QPair< QString, QWidget* > > SuspendSessionConfig::buildUi()
     if (PowerManagement::instance()->canSuspendThenHibernate()) {
         m_suspendThenHibernateEnabled = new QCheckBox(i18n("While asleep, hibernate after a period of inactivity"));
         connect(m_suspendThenHibernateEnabled, &QCheckBox::stateChanged, this, &SuspendSessionConfig::setChanged);
-        retlist.append(qMakePair< QString, QWidget* >(QLatin1String("NONE"), m_suspendThenHibernateEnabled));
+        retlist.append(qMakePair<QString, QWidget *>(QLatin1String("NONE"), m_suspendThenHibernateEnabled));
         int comboBoxMaxWidth = 300;
         comboBoxMaxWidth = qMax(comboBoxMaxWidth, m_suspendThenHibernateEnabled->sizeHint().width());
         m_suspendThenHibernateEnabled->setMinimumWidth(300);

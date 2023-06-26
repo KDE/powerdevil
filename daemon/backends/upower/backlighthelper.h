@@ -22,13 +22,13 @@
 #include <QObject>
 #include <QVariantAnimation>
 
-#include <kauth_version.h>
 #include <KAuth/ActionReply>
 #include <KAuth/HelperSupport>
+#include <kauth_version.h>
 
 using namespace KAuth;
 
-class BacklightHelper: public QObject
+class BacklightHelper : public QObject
 {
     Q_OBJECT
 public:

@@ -24,8 +24,8 @@ License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "powerdevilcore_export.h"
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 class POWERDEVILCORE_EXPORT PowerManagement : public QObject
 {
     Q_OBJECT

@@ -24,18 +24,17 @@
 #include <QSpinBox>
 
 #include <KConfig>
+#include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KLocalizedString>
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::DimDisplayConfig)
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 DimDisplayConfig::DimDisplayConfig(QObject *parent)
     : ActionConfig(parent)
 {
-
 }
 
 void DimDisplayConfig::save()
@@ -49,7 +48,7 @@ void DimDisplayConfig::load()
     m_spinBox->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
 }
 
-QList< QPair< QString, QWidget* > > DimDisplayConfig::buildUi()
+QList<QPair<QString, QWidget *>> DimDisplayConfig::buildUi()
 {
     m_spinBox = new QSpinBox;
     m_spinBox->setMaximumWidth(150);
@@ -64,7 +63,7 @@ QList< QPair< QString, QWidget* > > DimDisplayConfig::buildUi()
     hlay->addWidget(m_spinBox);
     hlay->addStretch();
 
-    QList< QPair< QString, QWidget* > > retlist;
+    QList<QPair<QString, QWidget *>> retlist;
     retlist.append(qMakePair(i18n("After"), tempWidget));
 
     connect(m_spinBox, SIGNAL(valueChanged(int)), this, SLOT(setChanged()));

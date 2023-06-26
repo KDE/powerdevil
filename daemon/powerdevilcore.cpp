@@ -21,11 +21,11 @@
 
 #include "PowerDevilSettings.h"
 
+#include "powerdevil_debug.h"
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
-#include "powerdevil_debug.h"
 
 #include "actions/bundled/suspendsession.h"
 
@@ -33,10 +33,9 @@
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
 
-
-#include <kauth_version.h>
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
+#include <kauth_version.h>
 
 #include <KIdleTime>
 #include <KLocalizedString>
@@ -44,15 +43,15 @@
 
 #include <KActivities/Consumer>
 
-#include <QTimer>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
+#include <QTimer>
 
 #include <QDebug>
 
-#include <algorithm>
 #include <Kirigami/TabletModeWatcher>
+#include <algorithm>
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
@@ -60,8 +59,7 @@
 
 namespace PowerDevil
 {
-
-Core::Core(QObject* parent)
+Core::Core(QObject *parent)
     : QObject(parent)
     , m_hasDualGpu(false)
     , m_criticalBatteryTimer(new QTimer(this))
@@ -71,7 +69,7 @@ Core::Core(QObject* parent)
     KAuth::Action discreteGpuAction(QStringLiteral("org.kde.powerdevil.discretegpuhelper.hasdualgpu"));
     discreteGpuAction.setHelperId(QStringLiteral("org.kde.powerdevil.discretegpuhelper"));
     KAuth::ExecuteJob *discreteGpuJob = discreteGpuAction.execute();
-    connect(discreteGpuJob, &KJob::result, this, [this, discreteGpuJob]  {
+    connect(discreteGpuJob, &KJob::result, this, [this, discreteGpuJob] {
         if (discreteGpuJob->error()) {
             qCWarning(POWERDEVIL) << "org.kde.powerdevil.discretegpuhelper.hasdualgpu failed";
             qCDebug(POWERDEVIL) << discreteGpuJob->errorText();
@@ -92,7 +90,7 @@ Core::~Core()
     ActionPool::instance()->clearCache();
 }
 
-void Core::loadCore(BackendInterface* backend)
+void Core::loadCore(BackendInterface *backend)
 {
     if (!backend) {
         return;
@@ -134,10 +132,8 @@ void Core::onBackendReady()
     // Get the battery devices ready
     {
         using namespace Solid;
-        connect(DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded,
-                this, &Core::onDeviceAdded);
-        connect(DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved,
-                this, &Core::onDeviceRemoved);
+        connect(DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceAdded, this, &Core::onDeviceAdded);
+        connect(DeviceNotifier::instance(), &Solid::DeviceNotifier::deviceRemoved, this, &Core::onDeviceRemoved);
 
         // Force the addition of already existent batteries
         const auto devices = Device::listFromType(DeviceInterface::Battery, QString());
@@ -146,19 +142,13 @@ void Core::onBackendReady()
         }
     }
 
-    connect(m_backend, &BackendInterface::acAdapterStateChanged,
-            this, &Core::onAcAdapterStateChanged);
-    connect(m_backend, &BackendInterface::batteryRemainingTimeChanged,
-            this, &Core::onBatteryRemainingTimeChanged);
+    connect(m_backend, &BackendInterface::acAdapterStateChanged, this, &Core::onAcAdapterStateChanged);
+    connect(m_backend, &BackendInterface::batteryRemainingTimeChanged, this, &Core::onBatteryRemainingTimeChanged);
     connect(m_backend, &BackendInterface::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
-    connect(m_backend, &BackendInterface::lidClosedChanged,
-            this, &Core::onLidClosedChanged);
-    connect(m_backend, &BackendInterface::aboutToSuspend,
-            this, &Core::onAboutToSuspend);
-    connect(KIdleTime::instance(), SIGNAL(timeoutReached(int,int)),
-            this, SLOT(onKIdleTimeoutReached(int,int)));
-    connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle,
-            this, &Core::onResumingFromIdle);
+    connect(m_backend, &BackendInterface::lidClosedChanged, this, &Core::onLidClosedChanged);
+    connect(m_backend, &BackendInterface::aboutToSuspend, this, &Core::onAboutToSuspend);
+    connect(KIdleTime::instance(), SIGNAL(timeoutReached(int, int)), this, SLOT(onKIdleTimeoutReached(int, int)));
+    connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
         loadProfile();
     });
@@ -166,11 +156,13 @@ void Core::onBackendReady()
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init();
     // When inhibitions change, simulate user activity, see Bug 315438
-    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::unavailablePoliciesChanged, this,
+    connect(PowerDevil::PolicyAgent::instance(),
+            &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
+            this,
             [](PowerDevil::PolicyAgent::RequiredPolicies newPolicies) {
-        Q_UNUSED(newPolicies);
-        KIdleTime::instance()->simulateUserActivity();
-    });
+                Q_UNUSED(newPolicies);
+                KIdleTime::instance()->simulateUserActivity();
+            });
 
     // Bug 354250: Simulate user activity when session becomes inactive,
     // this keeps us from sending the computer to sleep when switching to an idle session.
@@ -217,7 +209,8 @@ void Core::onBackendReady()
 
     // if that fails due to privilges maybe, try normal timerfd
     if (m_timerFd == -1) {
-        qCDebug(POWERDEVIL) << "Unable to create a CLOCK_REALTIME_ALARM timer, trying CLOCK_REALTIME\n This would mean that wakeup requests won't wake device from suspend";
+        qCDebug(POWERDEVIL)
+            << "Unable to create a CLOCK_REALTIME_ALARM timer, trying CLOCK_REALTIME\n This would mean that wakeup requests won't wake device from suspend";
         m_timerFd = timerfd_create(CLOCK_REALTIME, TFD_CLOEXEC);
     }
 
@@ -237,7 +230,7 @@ void Core::onBackendReady()
     refreshStatus();
 }
 
-bool Core::isActionSupported(const QString& actionName)
+bool Core::isActionSupported(const QString &actionName)
 {
     Action *action = ActionPool::instance()->loadAction(actionName, KConfigGroup(), this);
     if (!action) {
@@ -379,10 +372,10 @@ void Core::loadProfile(bool force)
                 action->onProfileLoad(m_currentProfile, profileId);
             } else {
                 // Ouch, error. But let's just warn and move on anyway
-                //TODO Maybe Remove from the configuration if unsupported
-                qCWarning(POWERDEVIL) << "The profile " << profileId <<  "tried to activate"
-                                << actionName << "a non-existent action. This is usually due to an installation problem,"
-                                " a configuration problem, or because the action is not supported";
+                // TODO Maybe Remove from the configuration if unsupported
+                qCWarning(POWERDEVIL) << "The profile " << profileId << "tried to activate" << actionName
+                                      << "a non-existent action. This is usually due to an installation problem,"
+                                         " a configuration problem, or because the action is not supported";
             }
         }
 
@@ -400,9 +393,9 @@ void Core::loadProfile(bool force)
             qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
             // Trigger a special inhibition - if we don't have one yet
             if (!m_sessionActivityInhibit.contains(activity)) {
-                int cookie =
-                PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession, i18n("Activity Manager"),
-                                                       i18n("This activity's policies prevent the system from going to sleep"));
+                int cookie = PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession,
+                                                                    i18n("Activity Manager"),
+                                                                    i18n("This activity's policies prevent the system from going to sleep"));
 
                 m_sessionActivityInhibit.insert(activity, cookie);
             }
@@ -412,9 +405,9 @@ void Core::loadProfile(bool force)
             qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
             // Trigger a special inhibition - if we don't have one yet
             if (!m_screenActivityInhibit.contains(activity)) {
-                int cookie =
-                PolicyAgent::instance()->AddInhibition(PolicyAgent::ChangeScreenSettings, i18n("Activity Manager"),
-                                                       i18n("This activity's policies prevent screen power management"));
+                int cookie = PolicyAgent::instance()->AddInhibition(PolicyAgent::ChangeScreenSettings,
+                                                                    i18n("Activity Manager"),
+                                                                    i18n("This activity's policies prevent screen power management"));
 
                 m_screenActivityInhibit.insert(activity, cookie);
             }
@@ -511,16 +504,14 @@ void Core::emitNotification(const QString &eventId, const QString &title, const 
 
 void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
 {
-    KNotification::event(evid, title, message, QPixmap(),
-                         nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
+    KNotification::event(evid, title, message, QPixmap(), nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
 }
 
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi, Core::ChargeNotificationFlags flags)
 {
     if (m_peripheralBatteriesPercent.contains(udi)) {
         // Show the notification just once on each normal->low transition
-        if (currentPercent > PowerDevilSettings::peripheralBatteryLowLevel() ||
-            previousPercent <= PowerDevilSettings::peripheralBatteryLowLevel()) {
+        if (currentPercent > PowerDevilSettings::peripheralBatteryLowLevel() || previousPercent <= PowerDevilSettings::peripheralBatteryLowLevel()) {
             return false;
         }
 
@@ -550,11 +541,12 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
 
             QString title = i18nc("The battery in an external device", "Device Battery Low (%1% Remaining)", currentPercent);
             QString msg = i18nc("Placeholder is device name",
-                                      "The battery in \"%1\" is running low, and the device may turn off at any time. "
-                                      "Please recharge or replace the battery.", name);
+                                "The battery in \"%1\" is running low, and the device may turn off at any time. "
+                                "Please recharge or replace the battery.",
+                                name);
             QString icon = QStringLiteral("battery-caution");
 
-            switch(b->type()) {
+            switch (b->type()) {
             case Battery::MouseBattery:
                 title = i18n("Mouse Battery Low (%1% Remaining)", currentPercent);
                 icon = QStringLiteral("input-mouse");
@@ -567,7 +559,8 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
                 title = i18n("Bluetooth Device Battery Low (%1% Remaining)", currentPercent);
                 msg = i18nc("Placeholder is device name",
                             "The battery in Bluetooth device \"%1\" is running low, and the device may turn off at any time. "
-                            "Please recharge or replace the battery.", name);
+                            "Please recharge or replace the battery.",
+                            name);
                 icon = QStringLiteral("preferences-system-bluetooth");
                 break;
             default:
@@ -583,17 +576,14 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     // Make sure a notificaton that's kept open updates its percentage live.
     updateBatteryNotifications(currentPercent);
 
-    if (m_backend->acAdapterState() == BackendInterface::Plugged
-            && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
+    if (m_backend->acAdapterState() == BackendInterface::Plugged && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
         return false;
     }
 
-    if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() &&
-        previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
+    if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() && previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
         handleCriticalBattery(currentPercent);
         return true;
-    } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() &&
-               previousPercent > PowerDevilSettings::batteryLowLevel()) {
+    } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() && previousPercent > PowerDevilSettings::batteryLowLevel()) {
         handleLowBattery(currentPercent);
         return true;
     }
@@ -610,7 +600,8 @@ void Core::handleLowBattery(int percent)
     m_lowBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     updateBatteryNotifications(percent); // sets title
     if (m_backend->acAdapterState() == BackendInterface::Plugged) {
-        m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, make sure that the power adapter is plugged in and that it provides enough power."));
+        m_lowBatteryNotification->setText(
+            i18n("Battery running low - to continue using your computer, make sure that the power adapter is plugged in and that it provides enough power."));
     } else {
         m_lowBatteryNotification->setText(i18n("Battery running low - to continue using your computer, plug it in or shut it down and change the battery."));
     }
@@ -778,7 +769,7 @@ void Core::onCriticalBatteryTimerExpired()
 
     // Do that only if we're not on AC
     if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
-       triggerCriticalBatteryAction();
+        triggerCriticalBatteryAction();
     }
 }
 
@@ -866,25 +857,25 @@ void Core::onAboutToSuspend()
                                                                        QStringLiteral("Pause"));
                 QDBusConnection::sessionBus().asyncCall(pauseMsg);
             }
-       });
+        });
     }
 }
 
-void Core::registerActionTimeout(Action* action, int timeout)
+void Core::registerActionTimeout(Action *action, int timeout)
 {
     // Register the timeout with KIdleTime
     int identifier = KIdleTime::instance()->addIdleTimeout(timeout);
 
     // Add the identifier to the action hash
-    QList< int > timeouts = m_registeredActionTimeouts[action];
+    QList<int> timeouts = m_registeredActionTimeouts[action];
     timeouts.append(identifier);
     m_registeredActionTimeouts[action] = timeouts;
 }
 
-void Core::unregisterActionTimeouts(Action* action)
+void Core::unregisterActionTimeouts(Action *action)
 {
     // Clear all timeouts from the action
-    const QList< int > timeoutsToClean = m_registeredActionTimeouts[action];
+    const QList<int> timeoutsToClean = m_registeredActionTimeouts[action];
 
     for (int id : timeoutsToClean) {
         KIdleTime::instance()->removeIdleTimeout(id);
@@ -906,8 +897,7 @@ void Core::onResumingFromIdle()
 {
     KIdleTime::instance()->simulateUserActivity();
     // Wake up the actions in which an idle action was triggered
-    std::for_each(m_pendingResumeFromIdleActions.cbegin(), m_pendingResumeFromIdleActions.cend(),
-        std::mem_fn(&PowerDevil::Action::onWakeupFromIdle));
+    std::for_each(m_pendingResumeFromIdleActions.cbegin(), m_pendingResumeFromIdleActions.cend(), std::mem_fn(&PowerDevil::Action::onWakeupFromIdle));
 
     m_pendingResumeFromIdleActions.clear();
 }
@@ -984,7 +974,7 @@ void Core::readChargeThreshold()
     job->start();
 }
 
-BackendInterface* Core::backend()
+BackendInterface *Core::backend()
 {
     return m_backend;
 }
@@ -1026,7 +1016,7 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
 #ifndef Q_OS_LINUX
         sendErrorReply(QDBusError::NotSupported, "Scheduled wakeups are available only on Linux platforms");
 #else
-        WakeupInfo wakeup{ service, path, cookie, timeout };
+        WakeupInfo wakeup{service, path, cookie, timeout};
         m_scheduledWakeups << wakeup;
         qCDebug(POWERDEVIL) << "Received request to wakeup at " << QDateTime::fromSecsSinceEpoch(timeout);
         resetAndScheduleNextWakeup();
@@ -1058,9 +1048,12 @@ void Core::clearWakeup(int cookie)
     int oldListSize = m_scheduledWakeups.size();
 
     // depending on cookie, remove it from scheduled wakeups
-    m_scheduledWakeups.erase(std::remove_if(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [cookie](WakeupInfo wakeup) {
-        return wakeup.cookie == cookie;
-    }), m_scheduledWakeups.end());
+    m_scheduledWakeups.erase(std::remove_if(m_scheduledWakeups.begin(),
+                                            m_scheduledWakeups.end(),
+                                            [cookie](WakeupInfo wakeup) {
+                                                return wakeup.cookie == cookie;
+                                            }),
+                             m_scheduledWakeups.end());
 
     if (oldListSize == m_scheduledWakeups.size()) {
         sendErrorReply(QDBusError::InvalidArgs, "Can not clear the invalid wakeup");
@@ -1088,11 +1081,9 @@ uint Core::backendCapabilities()
 
 void Core::resetAndScheduleNextWakeup()
 {
-
 #ifdef Q_OS_LINUX
     // first we sort the wakeup list
-    std::sort(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [](const WakeupInfo& lhs, const WakeupInfo& rhs) 
-    {
+    std::sort(m_scheduledWakeups.begin(), m_scheduledWakeups.end(), [](const WakeupInfo &lhs, const WakeupInfo &rhs) {
         return lhs.timeout < rhs.timeout;
     });
 
@@ -1101,7 +1092,7 @@ void Core::resetAndScheduleNextWakeup()
     timespec nextWakeup;
     bool enableNotifier = false;
     // if we don't have any wakeups left, we call it a day and stop timer_fd
-    if(m_scheduledWakeups.isEmpty()) {
+    if (m_scheduledWakeups.isEmpty()) {
         nextWakeup = {0, 0};
     } else {
         // now pick the first timeout from the list
@@ -1138,8 +1129,10 @@ void Core::timerfdEventHandler()
 
     // Now current wakeup needs to be processed
     // prepare message for sending back to the consumer
-    QDBusMessage msg = QDBusMessage::createMethodCall(currentWakeup.service, currentWakeup.path.path(),
-                                                      QStringLiteral("org.kde.PowerManagement"), QStringLiteral("wakeupCallback"));
+    QDBusMessage msg = QDBusMessage::createMethodCall(currentWakeup.service,
+                                                      currentWakeup.path.path(),
+                                                      QStringLiteral("org.kde.PowerManagement"),
+                                                      QStringLiteral("wakeupCallback"));
     msg << currentWakeup.cookie;
     // send it away
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);

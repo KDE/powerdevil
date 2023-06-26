@@ -19,23 +19,23 @@
 
 #pragma once
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 namespace ProfileGenerator
 {
-    enum Modes {
-        NoneMode = 0,
-        ToRamMode = 1,
-        ToDiskMode = 2,
-        SuspendHybridMode = 4,
-        ShutdownMode = 8,
-        LogoutDialogMode = 16,
-        LockScreenMode = 32,
-        TurnOffScreenMode = 64,
-        ToggleScreenOnOffMode = 128,
-    };
+enum Modes {
+    NoneMode = 0,
+    ToRamMode = 1,
+    ToDiskMode = 2,
+    SuspendHybridMode = 4,
+    ShutdownMode = 8,
+    LogoutDialogMode = 16,
+    LockScreenMode = 32,
+    TurnOffScreenMode = 64,
+    ToggleScreenOnOffMode = 128,
+};
 
-    void generateProfiles(bool isMobile, bool toRam, bool toDisk);
+void generateProfiles(bool isMobile, bool toRam, bool toDisk);
 }
 
 }

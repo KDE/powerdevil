@@ -19,8 +19,8 @@
 
 #include "dimdisplay.h"
 
-#include <powerdevilbackendinterface.h>
 #include <powerdevil_debug.h>
+#include <powerdevilbackendinterface.h>
 
 #include <QDebug>
 #include <QTimer>
@@ -31,16 +31,16 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DimDisplay, "powerdevildimdisplayaction.json")
 
-namespace PowerDevil::BundledActions {
-
-DimDisplay::DimDisplay(QObject* parent) : Action(parent)
+namespace PowerDevil::BundledActions
+{
+DimDisplay::DimDisplay(QObject *parent)
+    : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
 void DimDisplay::onProfileUnload()
 {
-
 }
 
 void DimDisplay::onWakeupFromIdle()
@@ -59,10 +59,10 @@ void DimDisplay::onWakeupFromIdle()
 void DimDisplay::onIdleTimeout(int msec)
 {
     if (backend()->screenBrightness() == 0) {
-        //Some drivers report brightness == 0 when display is off because of DPMS
+        // Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
-        //backlight won't switch on later.
-        //Furthermore, we can't dim if brightness is 0 already.
+        // backlight won't switch on later.
+        // Furthermore, we can't dim if brightness is 0 already.
         return;
     }
 
@@ -82,7 +82,7 @@ void DimDisplay::onIdleTimeout(int msec)
     m_dimmed = true;
 }
 
-void DimDisplay::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
+void DimDisplay::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
 {
     //
 }
@@ -111,7 +111,7 @@ bool DimDisplay::isSupported()
     return backend()->screenBrightnessAvailable();
 }
 
-bool DimDisplay::loadAction(const KConfigGroup& config)
+bool DimDisplay::loadAction(const KConfigGroup &config)
 {
     qCDebug(POWERDEVIL);
     if (config.hasKey("idleTime")) {

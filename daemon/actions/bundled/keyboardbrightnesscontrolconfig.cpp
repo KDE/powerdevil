@@ -24,18 +24,17 @@
 #include <QSlider>
 
 #include <KConfig>
+#include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <KLocalizedString>
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::KeyboardBrightnessControlConfig)
 
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent)
     : ActionConfig(parent)
 {
-
 }
 
 void KeyboardBrightnessControlConfig::save()
@@ -50,12 +49,11 @@ void KeyboardBrightnessControlConfig::load()
     m_slider->setValue(configGroup().readEntry<int>("value", 50));
 }
 
-QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
+QList<QPair<QString, QWidget *>> KeyboardBrightnessControlConfig::buildUi()
 {
-
     m_slider = new QSlider(Qt::Horizontal);
     m_slider->setRange(0, 100);
-    
+
     m_text = new QLabel("0%");
     connect(m_slider, &QSlider::valueChanged, m_text, [this](int percentage) {
         m_text->setText(QString::number(percentage).append("%"));
@@ -67,7 +65,7 @@ QList< QPair< QString, QWidget* > > KeyboardBrightnessControlConfig::buildUi()
     hlay->addWidget(m_text);
     tempWidget->setLayout(hlay);
 
-    QList< QPair< QString, QWidget* > > retlist;
+    QList<QPair<QString, QWidget *>> retlist;
     retlist.append(qMakePair(i18nc("@label:slider Brightness level", "Level"), tempWidget));
 
     connect(m_slider, &QAbstractSlider::valueChanged, this, &KeyboardBrightnessControlConfig::setChanged);

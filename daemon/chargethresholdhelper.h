@@ -35,5 +35,4 @@ public:
 public Q_SLOTS:
     ActionReply getthreshold(const QVariantMap &args);
     ActionReply setthreshold(const QVariantMap &args);
-
 };

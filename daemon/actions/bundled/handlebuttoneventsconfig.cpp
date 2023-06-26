@@ -28,18 +28,17 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
-#include <QComboBox>
 #include <QCheckBox>
+#include <QComboBox>
 #include <QIcon>
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::HandleButtonEventsConfig)
 
-namespace PowerDevil::BundledActions {
-
-HandleButtonEventsConfig::HandleButtonEventsConfig(QObject* parent)
+namespace PowerDevil::BundledActions
+{
+HandleButtonEventsConfig::HandleButtonEventsConfig(QObject *parent)
     : ActionConfig(parent)
 {
-
 }
 
 void HandleButtonEventsConfig::save()
@@ -72,13 +71,12 @@ void HandleButtonEventsConfig::load()
     }
 }
 
-QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
+QList<QPair<QString, QWidget *>> HandleButtonEventsConfig::buildUi()
 {
     // Create the boxes
     m_lidCloseCombo = new QComboBox;
-    m_triggerLidActionWhenExternalMonitorPresent = new QCheckBox(
-                i18nc("Execute action on lid close even when external monitor is connected", "Even when an external monitor is connected")
-    );
+    m_triggerLidActionWhenExternalMonitorPresent =
+        new QCheckBox(i18nc("Execute action on lid close even when external monitor is connected", "Even when an external monitor is connected"));
     m_powerButtonCombo = new QComboBox;
 
     // Fill the boxes with options!
@@ -113,19 +111,19 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     bool lidFound = false;
     bool powerFound = true; // HACK This needs proper API!!
     // get a list of all devices that are Buttons
-/*    Q_FOREACH (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
-        Solid::Button *button = device.as<Solid::Button>();
-        if (button->type() == Solid::Button::LidButton) {
-            lidFound = true;
-        } else if (button->type() == Solid::Button::PowerButton) {
-            powerFound = true;
-        }
-    }*/
+    /*    Q_FOREACH (Solid::Device device, Solid::Device::listFromType(Solid::DeviceInterface::Button, QString())) {
+            Solid::Button *button = device.as<Solid::Button>();
+            if (button->type() == Solid::Button::LidButton) {
+                lidFound = true;
+            } else if (button->type() == Solid::Button::PowerButton) {
+                powerFound = true;
+            }
+        }*/
 
     auto m_upowerInterface = new OrgFreedesktopUPowerInterface("org.freedesktop.UPower", "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
 
     lidFound = m_upowerInterface->lidIsPresent();
-    QList< QPair< QString, QWidget* > > retlist;
+    QList<QPair<QString, QWidget *>> retlist;
 
     if (lidFound) {
         retlist.append(qMakePair<QString, QWidget *>(i18n("When laptop lid closed"), m_lidCloseCombo));
@@ -139,7 +137,7 @@ QList< QPair< QString, QWidget* > > HandleButtonEventsConfig::buildUi()
     }
 
     if (powerFound) {
-        retlist.append(qMakePair< QString, QWidget* >(i18n("When power button pressed"), m_powerButtonCombo));
+        retlist.append(qMakePair<QString, QWidget *>(i18n("When power button pressed"), m_powerButtonCombo));
     } else {
         m_powerButtonCombo->deleteLater();
         m_powerButtonCombo = nullptr;

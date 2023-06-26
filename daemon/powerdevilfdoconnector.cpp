@@ -31,10 +31,11 @@
 
 #include <KConfigGroup>
 
-namespace PowerDevil {
-
+namespace PowerDevil
+{
 FdoConnector::FdoConnector(PowerDevil::Core *parent)
-        : QObject(parent), m_core(parent)
+    : QObject(parent)
+    , m_core(parent)
 {
     new PowerManagementFdoAdaptor(this);
     new PowerManagementInhibitAdaptor(this);
@@ -47,10 +48,11 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
     c.registerService("org.freedesktop.PowerManagement.Inhibit");
     c.registerObject("/org/freedesktop/PowerManagement/Inhibit", this);
 
-    connect(m_core->backend(), &BackendInterface::acAdapterStateChanged,
-            this, &FdoConnector::onAcAdapterStateChanged);
-    connect(PolicyAgent::instance(), SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
-            this, SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
+    connect(m_core->backend(), &BackendInterface::acAdapterStateChanged, this, &FdoConnector::onAcAdapterStateChanged);
+    connect(PolicyAgent::instance(),
+            SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
+            this,
+            SLOT(onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)));
 }
 
 bool FdoConnector::CanHibernate()
@@ -103,8 +105,7 @@ int FdoConnector::Inhibit(const QString &application, const QString &reason)
     // Inhibit here means we cannot interrupt the session.
     // If we've been called from DBus, use PolicyAgent's service watching system
     if (calledFromDBus()) {
-        return PolicyAgent::instance()->addInhibitionWithExplicitDBusService((uint)PolicyAgent::InterruptSession,
-                                                                             application, reason, message().service());
+        return PolicyAgent::instance()->addInhibitionWithExplicitDBusService((uint)PolicyAgent::InterruptSession, application, reason, message().service());
     } else {
         return PolicyAgent::instance()->AddInhibition((uint)PolicyAgent::InterruptSession, application, reason);
     }

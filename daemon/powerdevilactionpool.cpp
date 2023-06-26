@@ -17,12 +17,11 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "powerdevilactionpool.h"
 
+#include "powerdevil_debug.h"
 #include "powerdevilaction.h"
 #include "powerdevilcore.h"
-#include "powerdevil_debug.h"
 
 #include <config-powerdevil.h>
 
@@ -34,12 +33,15 @@
 
 namespace PowerDevil
 {
-
 class ActionPoolHelper
 {
 public:
-    ActionPoolHelper() : q(nullptr) {}
-    ~ActionPoolHelper() {
+    ActionPoolHelper()
+        : q(nullptr)
+    {
+    }
+    ~ActionPoolHelper()
+    {
         delete q;
     }
     ActionPool *q;
@@ -69,7 +71,7 @@ ActionPool::~ActionPool()
 
 void ActionPool::clearCache()
 {
-    QHash< QString, Action* >::iterator i = m_actionPool.begin();
+    QHash<QString, Action *>::iterator i = m_actionPool.begin();
     while (i != m_actionPool.end()) {
         // Delete the associated action and erase
         i.value()->deleteLater();
@@ -87,7 +89,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 
     // Verify support
-    QHash<QString,Action*>::iterator i = m_actionPool.begin();
+    QHash<QString, Action *>::iterator i = m_actionPool.begin();
     while (i != m_actionPool.end()) {
         Action *action = i.value();
         if (!action->isSupported()) {
@@ -107,7 +109,7 @@ void ActionPool::init(PowerDevil::Core *parent)
     }
 }
 
-Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& group, PowerDevil::Core *parent)
+Action *ActionPool::loadAction(const QString &actionId, const KConfigGroup &group, PowerDevil::Core *parent)
 {
     Q_UNUSED(parent);
     // Let's retrieve the action
@@ -115,7 +117,6 @@ Action* ActionPool::loadAction(const QString& actionId, const KConfigGroup& grou
         Action *retaction = m_actionPool[actionId];
 
         if (group.isValid()) {
-
             if (m_activeActions.contains(actionId)) {
                 // We are reloading the action: let's unload it first then.
                 retaction->onProfileUnload();

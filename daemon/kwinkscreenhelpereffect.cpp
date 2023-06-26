@@ -27,8 +27,8 @@ using namespace std::chrono_literals;
 
 namespace PowerDevil
 {
-
-KWinKScreenHelperEffect::KWinKScreenHelperEffect(QObject *parent) : QObject(parent)
+KWinKScreenHelperEffect::KWinKScreenHelperEffect(QObject *parent)
+    : QObject(parent)
 {
     m_abortTimer.setSingleShot(true);
     m_abortTimer.setInterval(11s);
@@ -73,12 +73,10 @@ bool KWinKScreenHelperEffect::checkValid()
 {
 #if HAVE_XCB
     if (QX11Info::isPlatformX11()) {
-        QScopedPointer<xcb_list_properties_reply_t, QScopedPointerPodDeleter> propsReply(xcb_list_properties_reply(QX11Info::connection(),
-            xcb_list_properties_unchecked(QX11Info::connection(), QX11Info::appRootWindow()),
-        nullptr));
-        QScopedPointer<xcb_intern_atom_reply_t, QScopedPointerPodDeleter> atomReply(xcb_intern_atom_reply(QX11Info::connection(),
-            xcb_intern_atom_unchecked(QX11Info::connection(), false, 25, "_KDE_KWIN_KSCREEN_SUPPORT"),
-        nullptr));
+        QScopedPointer<xcb_list_properties_reply_t, QScopedPointerPodDeleter> propsReply(
+            xcb_list_properties_reply(QX11Info::connection(), xcb_list_properties_unchecked(QX11Info::connection(), QX11Info::appRootWindow()), nullptr));
+        QScopedPointer<xcb_intern_atom_reply_t, QScopedPointerPodDeleter> atomReply(
+            xcb_intern_atom_reply(QX11Info::connection(), xcb_intern_atom_unchecked(QX11Info::connection(), false, 25, "_KDE_KWIN_KSCREEN_SUPPORT"), nullptr));
 
         if (propsReply.isNull() || atomReply.isNull()) {
             return false;
@@ -140,7 +138,7 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
                     return false;
                 }
 
-                switch(*data) {
+                switch (*data) {
                 case 1:
                     m_state = FadingOutState;
                     break;

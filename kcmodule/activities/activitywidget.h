@@ -19,15 +19,16 @@
 
 #pragma once
 
-#include <QWidget>
 #include <KSharedConfig>
+#include <QWidget>
 
 namespace KActivities
 {
 class Consumer;
 } // namespace KActivities
 
-namespace Ui {
+namespace Ui
+{
 class ActivityWidget;
 }
 

@@ -26,7 +26,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::RunScript, "powerdevilrunscriptaction.json")
 
-namespace PowerDevil::BundledActions {
+namespace PowerDevil::BundledActions
+{
 RunScript::RunScript(QObject *parent)
     : Action(parent)
 {
@@ -36,7 +37,6 @@ RunScript::RunScript(QObject *parent)
 
 RunScript::~RunScript()
 {
-
 }
 
 void RunScript::onProfileUnload()
@@ -57,19 +57,19 @@ void RunScript::onIdleTimeout(int msec)
     runCommand();
 }
 
-void RunScript::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
+void RunScript::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
 {
     if (m_scriptPhase == 0) {
         runCommand();
     }
 }
 
-void RunScript::triggerImpl(const QVariantMap& args)
+void RunScript::triggerImpl(const QVariantMap &args)
 {
     Q_UNUSED(args);
 }
 
-bool RunScript::loadAction(const KConfigGroup& config)
+bool RunScript::loadAction(const KConfigGroup &config)
 {
     if (config.hasKey("scriptCommand") && config.hasKey("scriptPhase")) {
         m_scriptCommand = config.readEntry<QString>("scriptCommand", QString());

@@ -25,7 +25,8 @@
 #include "ui_profileEditPage.h"
 
 class ActionEditWidget;
-namespace PowerDevil {
+namespace PowerDevil
+{
 }
 
 class ErrorOverlay;
@@ -55,7 +56,7 @@ private Q_SLOTS:
 
 private:
     KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, bool > m_profileEdited;
+    QHash<QString, bool> m_profileEdited;
     ErrorOverlay *m_errorOverlay = nullptr;
-    QHash< QString, ActionEditWidget* > m_editWidgets;
+    QHash<QString, ActionEditWidget *> m_editWidgets;
 };

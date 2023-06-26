@@ -18,14 +18,13 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-
 #include "dpms.h"
 #include <KScreenDpms/Dpms>
 
+#include <kwinkscreenhelpereffect.h>
+#include <powerdevil_debug.h>
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
-#include <powerdevil_debug.h>
-#include <kwinkscreenhelpereffect.h>
 
 #include <QAction>
 #include <QDBusConnection>
@@ -46,8 +45,10 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 
-namespace PowerDevil {
-namespace BundledActions {
+namespace PowerDevil
+{
+namespace BundledActions
+{
 DPMS::DPMS(QObject *parent)
     : Action(parent)
     , m_dpms(new KScreen::Dpms)
@@ -63,15 +64,14 @@ DPMS::DPMS(QObject *parent)
 
     // Listen to the policy agent
     auto policyAgent = PowerDevil::PolicyAgent::instance();
-    connect(policyAgent, &PowerDevil::PolicyAgent::unavailablePoliciesChanged,
-            this, &DPMS::onUnavailablePoliciesChanged);
+    connect(policyAgent, &PowerDevil::PolicyAgent::unavailablePoliciesChanged, this, &DPMS::onUnavailablePoliciesChanged);
 
     connect(policyAgent, &PowerDevil::PolicyAgent::screenLockerActiveChanged, this, &DPMS::onScreenLockerActiveChanged);
 
     // inhibitions persist over kded module unload/load
     m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 
-    KActionCollection *actionCollection = new KActionCollection( this );
+    KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
 
     QAction *globalAction = actionCollection->addAction(QLatin1String("Turn Off Screen"));
@@ -83,7 +83,7 @@ DPMS::DPMS(QObject *parent)
         m_dpms->switchMode(KScreen::Dpms::Off);
     });
 
-    auto powerButtonMode = [globalAction] (bool isTablet) {
+    auto powerButtonMode = [globalAction](bool isTablet) {
         if (!isTablet) {
             KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
         } else {
@@ -142,12 +142,10 @@ void DPMS::onIdleTimeout(int msec)
 
 void DPMS::setKeyboardBrightnessHelper(int brightness)
 {
-    trigger({
-        {"KeyboardBrightness", QVariant::fromValue(brightness)}
-    });
+    trigger({{"KeyboardBrightness", QVariant::fromValue(brightness)}});
 }
 
-void DPMS::triggerImpl(const QVariantMap& args)
+void DPMS::triggerImpl(const QVariantMap &args)
 {
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
@@ -177,7 +175,7 @@ void DPMS::triggerImpl(const QVariantMap& args)
     m_dpms->switchMode(level);
 }
 
-bool DPMS::loadAction(const KConfigGroup& config)
+bool DPMS::loadAction(const KConfigGroup &config)
 {
     m_idleTime = config.readEntry<int>("idleTime", -1);
     m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
@@ -223,17 +221,15 @@ void DPMS::onScreenLockerActiveChanged(bool active)
 static std::chrono::milliseconds dimAnimationTime()
 {
     // See kscreen.kcfg from kwin
-    return std::chrono::milliseconds (KSharedConfig::openConfig("kwinrc")->group("Effect-Kscreen").readEntry("Duration", 250));
+    return std::chrono::milliseconds(KSharedConfig::openConfig("kwinrc")->group("Effect-Kscreen").readEntry("Duration", 250));
 }
 
 void DPMS::lockScreen()
 {
     // We need to delay locking until the screen has dimmed, otherwise it looks all clunky
     QTimer::singleShot(dimAnimationTime(), this, [] {
-        QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
-                                                                            "/ScreenSaver",
-                                                                            "org.freedesktop.ScreenSaver",
-                                                                            "Lock"));
+        QDBusConnection::sessionBus().asyncCall(
+            QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock"));
     });
 }
 

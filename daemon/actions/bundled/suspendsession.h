@@ -25,12 +25,10 @@
 
 namespace PowerDevil
 {
-
 class KWinKScreenHelperEffect;
 
 namespace BundledActions
 {
-
 class SuspendSession : public PowerDevil::Action
 {
     Q_OBJECT
@@ -52,14 +50,14 @@ public:
     explicit SuspendSession(QObject *parent);
     ~SuspendSession() override;
 
-    bool loadAction(const KConfigGroup& config) override;
-    
+    bool loadAction(const KConfigGroup &config) override;
+
 protected:
     void onProfileUnload() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(int msec) override;
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
-    void triggerImpl(const QVariantMap& args) override;
+    void triggerImpl(const QVariantMap &args) override;
 
 public Q_SLOTS:
     void suspendToRam();
@@ -79,7 +77,6 @@ private:
     uint m_autoType;
     QVariantMap m_savedArgs;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
-
 };
 
 }

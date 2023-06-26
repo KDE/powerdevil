@@ -23,8 +23,8 @@
 
 #include "brightnessosdwidget.h"
 
-#include <powerdevilcore.h>
 #include <powerdevil_debug.h>
+#include <powerdevilcore.h>
 
 #include <QAction>
 #include <QDebug>
@@ -40,9 +40,9 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::KeyboardBrightnessControl, "powerdevilkeyboardbrightnesscontrolaction.json")
 
-namespace PowerDevil::BundledActions {
-
-KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
+namespace PowerDevil::BundledActions
+{
+KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
     : Action(parent)
 {
     // DBus
@@ -55,7 +55,7 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject* parent)
             this,
             &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromBackend);
 
-    KActionCollection* actionCollection = new KActionCollection( this );
+    KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
     KGlobalAccel *accel = KGlobalAccel::self();
 
@@ -104,20 +104,17 @@ void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, co
 
     // if the current profile is more conservative than the previous one and the
     // current brightness is lower than the new profile
-    if (((newProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC")) ||
-         (newProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery")))) &&
-        absoluteKeyboardBrightnessValue > keyboardBrightness()) {
-
+    if (((newProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC"))
+         || (newProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery"))))
+        && absoluteKeyboardBrightnessValue > keyboardBrightness()) {
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else if (absoluteKeyboardBrightnessValue > 0) {
-        QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteKeyboardBrightnessValue)}
-        };
+        QVariantMap args{{QStringLiteral("Value"), QVariant::fromValue(absoluteKeyboardBrightnessValue)}};
 
         // plugging in/out the AC is always explicit
-        if ((newProfile == QLatin1String("AC") && previousProfile != QLatin1String("AC")) ||
-            (newProfile != QLatin1String("AC") && previousProfile == QLatin1String("AC"))) {
+        if ((newProfile == QLatin1String("AC") && previousProfile != QLatin1String("AC"))
+            || (newProfile != QLatin1String("AC") && previousProfile == QLatin1String("AC"))) {
             args["Explicit"] = true;
             args["Silent"] = true; // but we still don't want to show the OSD then
         }
@@ -140,7 +137,7 @@ bool KeyboardBrightnessControl::isSupported()
     return backend()->keyboardBrightnessAvailable();
 }
 
-bool KeyboardBrightnessControl::loadAction(const KConfigGroup& config)
+bool KeyboardBrightnessControl::loadAction(const KConfigGroup &config)
 {
     if (config.hasKey("value")) {
         m_defaultValue = config.readEntry<int>("value", 50);

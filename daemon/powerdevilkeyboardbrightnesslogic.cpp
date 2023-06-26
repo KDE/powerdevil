@@ -23,14 +23,13 @@
 
 namespace PowerDevil
 {
-
 int KeyboardBrightnessLogic::calculateSteps(int maxValue) const
 {
     // We assume that a generally good number of steps for keyboard brightness is about 5.
 
     if (maxValue <= 7) {
         // Too few steps, return the number of actual steps.
-       return maxValue;
+        return maxValue;
     }
 
     if (maxValue % 5 == 0 || maxValue >= 80) {
@@ -48,7 +47,7 @@ int KeyboardBrightnessLogic::calculateSteps(int maxValue) const
         return 3;
 
     // 29 different maxValue values between 11 and 79 are left at this point.
-    //qCDebug(POWERDEVIL) << "maxValue" << maxValue;
+    // qCDebug(POWERDEVIL) << "maxValue" << maxValue;
 
     // Give up and return 5, there is nothing much we can do here.
     return 5;

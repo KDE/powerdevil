@@ -42,4 +42,3 @@ ActionReply DiscreteGpuHelper::hasdualgpu(const QVariantMap &args)
 }
 
 KAUTH_HELPER_MAIN("org.kde.powerdevil.discretegpuhelper", DiscreteGpuHelper)
-

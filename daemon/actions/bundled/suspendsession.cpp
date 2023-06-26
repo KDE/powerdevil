@@ -83,9 +83,7 @@ void SuspendSession::onWakeupFromIdle()
 
 void SuspendSession::onIdleTimeout(int msec)
 {
-    QVariantMap args{
-        {QStringLiteral("Type"), m_autoType}
-    };
+    QVariantMap args{{QStringLiteral("Type"), m_autoType}};
 
     // we fade the screen to black 5 seconds prior to suspending to alert the user
     if (msec == m_idleTime - 5000) {
@@ -97,7 +95,7 @@ void SuspendSession::onIdleTimeout(int msec)
     trigger(args);
 }
 
-void SuspendSession::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
+void SuspendSession::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
 {
     // Nothing to do
 }
@@ -128,36 +126,34 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 
     // Switch for real action
     KJob *suspendJob = nullptr;
-    switch ((Mode) (args["Type"].toUInt())) {
-        case ToRamMode:
-            Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(m_suspendThenHibernateEnabled
-                ? PowerDevil::BackendInterface::SuspendThenHibernate : PowerDevil::BackendInterface::ToRam);
-            break;
-        case ToDiskMode:
-            Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
-            break;
-        case SuspendHybridMode:
-            Q_EMIT aboutToSuspend();
-            suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
-            break;
-        case ShutdownMode:
-            KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
-            break;
-        case LogoutDialogMode:
-            KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
-            break;
-        case LockScreenMode: {
-            // TODO should probably go through the backend (logind perhaps) eventually
-            QDBusConnection::sessionBus().asyncCall(QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver",
-                                                                                   "/ScreenSaver",
-                                                                                   "org.freedesktop.ScreenSaver",
-                                                                                   "Lock"));
-            break;
-        }
-        default:
-            break;
+    switch ((Mode)(args["Type"].toUInt())) {
+    case ToRamMode:
+        Q_EMIT aboutToSuspend();
+        suspendJob =
+            backend()->suspend(m_suspendThenHibernateEnabled ? PowerDevil::BackendInterface::SuspendThenHibernate : PowerDevil::BackendInterface::ToRam);
+        break;
+    case ToDiskMode:
+        Q_EMIT aboutToSuspend();
+        suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
+        break;
+    case SuspendHybridMode:
+        Q_EMIT aboutToSuspend();
+        suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
+        break;
+    case ShutdownMode:
+        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
+        break;
+    case LogoutDialogMode:
+        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
+        break;
+    case LockScreenMode: {
+        // TODO should probably go through the backend (logind perhaps) eventually
+        QDBusConnection::sessionBus().asyncCall(
+            QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock"));
+        break;
+    }
+    default:
+        break;
     }
 
     if (suspendJob) {
@@ -166,7 +162,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 }
 
-bool SuspendSession::loadAction(const KConfigGroup& config)
+bool SuspendSession::loadAction(const KConfigGroup &config)
 {
     if (config.isValid()) {
         if (config.hasKey("idleTime") && config.hasKey("suspendType")) {

@@ -24,18 +24,18 @@
 
 class QComboBox;
 class QCheckBox;
-namespace PowerDevil::BundledActions {
-
+namespace PowerDevil::BundledActions
+{
 class HandleButtonEventsConfig : public PowerDevil::ActionConfig
 {
     Q_OBJECT
 
 public:
-    HandleButtonEventsConfig(QObject* parent);
+    HandleButtonEventsConfig(QObject *parent);
 
     void save() override;
     void load() override;
-    QList< QPair< QString, QWidget* > > buildUi() override;
+    QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     QComboBox *m_lidCloseCombo;

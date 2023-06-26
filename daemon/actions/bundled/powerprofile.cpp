@@ -53,7 +53,7 @@ PowerProfile::PowerProfile(QObject *parent)
 
     connect(m_holdWatcher, &QDBusServiceWatcher::serviceUnregistered, this, &PowerProfile::serviceUnregistered);
     connect(m_powerProfilesPropertiesInterface, &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged, this, &PowerProfile::propertiesChanged);
-    connect(m_powerProfilesInterface, &NetHadessPowerProfilesInterface::ProfileReleased, this, [this] (unsigned int cookie) {
+    connect(m_powerProfilesInterface, &NetHadessPowerProfilesInterface::ProfileReleased, this, [this](unsigned int cookie) {
         auto it = std::find(m_holdMap.begin(), m_holdMap.end(), cookie);
         if (it != m_holdMap.end()) {
             if (m_holdMap.count(it.key()) == 1) {
@@ -77,7 +77,7 @@ PowerProfile::PowerProfile(QObject *parent)
 
 PowerProfile::~PowerProfile() = default;
 
-void PowerProfile::onProfileLoad(const QString &/*previousProfile*/, const QString &/*newProfile*/)
+void PowerProfile::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
 {
     if (!m_configuredProfile.isEmpty()) {
         setProfile(m_configuredProfile);
@@ -159,7 +159,7 @@ void PowerProfile::setProfile(const QString &profile)
     }
 }
 
-unsigned int PowerProfile::holdProfile(const QString& profile, const QString& reason, const QString& applicationId)
+unsigned int PowerProfile::holdProfile(const QString &profile, const QString &reason, const QString &applicationId)
 {
     if (!m_profileChoices.contains(profile)) {
         sendErrorReply(QDBusError::InvalidArgs, QStringLiteral("%1 is not a valid profile").arg(profile));
@@ -231,7 +231,6 @@ void PowerProfile::readProperties(const QVariantMap &properties)
         }
         Q_EMIT profileChoicesChanged(m_profileChoices);
     }
-
 
     if (properties.contains(performanceInhibitedProperty)) {
         m_performanceInhibitedReason = properties[performanceInhibitedProperty].toString();

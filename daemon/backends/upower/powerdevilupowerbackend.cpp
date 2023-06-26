@@ -23,20 +23,20 @@
 
 #include "powerdevilupowerbackend.h"
 
-#include <powerdevil_debug.h>
 #include <PowerDevilSettings.h>
+#include <powerdevil_debug.h>
 
-#include <QTextStream>
 #include <QDBusMessage>
 #include <QDebug>
 #include <QPropertyAnimation>
+#include <QTextStream>
 #include <QTimer>
 
-#include <kauth_version.h>
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
 #include <KPluginFactory>
 #include <KSharedConfig>
+#include <kauth_version.h>
 
 #include "ddcutilbrightness.h"
 #include "login1suspendjob.h"
@@ -44,7 +44,7 @@
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
-PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
+PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject *parent)
     : BackendInterface(parent)
     , m_displayDevice(nullptr)
     , m_cachedScreenBrightness(0)
@@ -57,7 +57,6 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject* parent)
     , m_onBattery(false)
     , m_isLedBrightnessControl(false)
 {
-
 }
 
 PowerDevilUPowerBackend::~PowerDevilUPowerBackend() = default;
@@ -86,7 +85,11 @@ void PowerDevilUPowerBackend::init()
 
     // if login1 isn't available, try using the same interface with ConsoleKit2
     if (!m_login1Interface && QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT2_SERVICE)) {
-        m_login1Interface = new QDBusInterface(CONSOLEKIT2_SERVICE, "/org/freedesktop/ConsoleKit/Manager", "org.freedesktop.ConsoleKit.Manager", QDBusConnection::systemBus(), this);
+        m_login1Interface = new QDBusInterface(CONSOLEKIT2_SERVICE,
+                                               "/org/freedesktop/ConsoleKit/Manager",
+                                               "org.freedesktop.ConsoleKit.Manager",
+                                               QDBusConnection::systemBus(),
+                                               this);
     }
 
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
@@ -176,13 +179,15 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     // Capabilities
     setCapabilities(SignalResumeFromSuspend);
 
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, "org.freedesktop.DBus.Properties", "PropertiesChanged", this,
-                                         SLOT(onPropertiesChanged(QString,QVariantMap,QStringList)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE,
+                                         UPOWER_PATH,
+                                         "org.freedesktop.DBus.Properties",
+                                         "PropertiesChanged",
+                                         this,
+                                         SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
 
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceAdded",
-                                         this, SLOT(slotDeviceAdded(QDBusObjectPath)));
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved",
-                                         this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceAdded", this, SLOT(slotDeviceAdded(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved", this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
 
     // devices
     enumerateDevices();
@@ -230,7 +235,8 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
 
         QDBusPendingReply<QString> canSuspendThenHibernate = m_login1Interface.data()->asyncCall("CanSuspendThenHibernate");
         canSuspendThenHibernate.waitForFinished();
-        if (canSuspendThenHibernate.isValid() && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge")))
+        if (canSuspendThenHibernate.isValid()
+            && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge")))
             supported |= SuspendThenHibernate;
     }
 
@@ -444,7 +450,7 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
     }
 }
 
-KJob* PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
+KJob *PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
 {
     if (m_login1Interface) {
         return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
@@ -470,7 +476,7 @@ void PowerDevilUPowerBackend::enumerateDevices()
 
     if (!m_displayDevice) {
         const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
-        for (const QDBusObjectPath & device : deviceList) {
+        for (const QDBusObjectPath &device : deviceList) {
             if (m_devices.count(device.path())) {
                 continue;
             }
@@ -486,7 +492,7 @@ void PowerDevilUPowerBackend::enumerateDevices()
         setAcAdapterState(Plugged);
 }
 
-void PowerDevilUPowerBackend::addDevice(const QString & device)
+void PowerDevilUPowerBackend::addDevice(const QString &device)
 {
     if (m_displayDevice) {
         return;
@@ -519,9 +525,9 @@ void PowerDevilUPowerBackend::updateDeviceProps()
 
     if (m_displayDevice) {
         if (!m_displayDevice->isPresent()) {
-	    // No Battery/Ups, nothing to report
-	    return;
-	}
+            // No Battery/Ups, nothing to report
+            return;
+        }
         const auto state = m_displayDevice->state();
         energyTotal = m_displayDevice->energy();
         energyFullTotal = m_displayDevice->energyFull();
@@ -533,10 +539,10 @@ void PowerDevilUPowerBackend::updateDeviceProps()
             energyRateTotal = -1.0 * m_displayDevice->energyRate();
         }
     } else {
-        for (const auto& [key, upowerDevice] : m_devices) {
+        for (const auto &[key, upowerDevice] : m_devices) {
             if (!upowerDevice->isPowerSupply()) {
                 continue;
-	    }
+            }
             const auto type = upowerDevice->type();
             if (type == UPowerDevice::Type::Battery || type == UPowerDevice::Type::Ups) {
                 const auto state = upowerDevice->state();
@@ -607,7 +613,7 @@ void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
     if (m_ddcBrightnessControl->isSupported()) {
         m_ddcBrightnessControl->setBrightness(m_ddcBrightnessControl->displayIds().constFirst(), value.toInt());
     } else {
-        qCInfo(POWERDEVIL)<<"PowerDevilUPowerBackend::animationValueChanged: brightness control not supported";
+        qCInfo(POWERDEVIL) << "PowerDevilUPowerBackend::animationValueChanged: brightness control not supported";
     }
 }
 

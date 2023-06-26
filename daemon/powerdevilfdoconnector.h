@@ -25,7 +25,8 @@
 #include "powerdevilbackendinterface.h"
 #include "powerdevilpolicyagent.h"
 
-namespace PowerDevil {
+namespace PowerDevil
+{
 class Core;
 
 class FdoConnector : public QObject, protected QDBusContext

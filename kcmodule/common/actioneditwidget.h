@@ -58,6 +58,6 @@ private:
 private:
     QString m_configName;
     KSharedConfig::Ptr m_profilesConfig;
-    QHash< QString, QCheckBox* > m_actionsHash;
-    QHash< QString, PowerDevil::ActionConfig* > m_actionsConfigHash;
+    QHash<QString, QCheckBox *> m_actionsHash;
+    QHash<QString, PowerDevil::ActionConfig *> m_actionsConfigHash;
 };

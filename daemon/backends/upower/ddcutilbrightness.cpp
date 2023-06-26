@@ -17,9 +17,9 @@
  *
  */
 
-#include <powerdevil_debug.h>
 #include "ddcutilbrightness.h"
 #include <chrono>
+#include <powerdevil_debug.h>
 #include <span>
 
 using namespace std::chrono_literals;
@@ -39,7 +39,7 @@ void DDCutilBrightness::detect()
     // Inquire about detected monitors.
     DDCA_Display_Info_List *displays = nullptr;
     ddca_get_display_info_list2(true, &displays);
-    qCInfo(POWERDEVIL)  << "[DDCutilBrightness]" << displays->ct << "display(s) were detected";
+    qCInfo(POWERDEVIL) << "[DDCutilBrightness]" << displays->ct << "display(s) were detected";
 
     for (auto &displayInfo : std::span(displays->info, displays->ct)) {
         DDCA_Display_Handle displayHandle = nullptr;
@@ -128,9 +128,9 @@ QString DDCutilBrightness::generateDisplayId(const DDCA_Display_Info &displayInf
     case DDCA_IO_USB:
         return QString("usb:%1").arg(displayInfo.path.path.hiddev_devno);
     case DDCA_IO_ADL:
-        return QString("adl:%1:%2").arg(displayInfo.path.path.adlno.iAdapterIndex, displayInfo.path.path.adlno.iDisplayIndex);;
+        return QString("adl:%1:%2").arg(displayInfo.path.path.adlno.iAdapterIndex, displayInfo.path.path.adlno.iDisplayIndex);
+        ;
     }
     return QString();
 }
 #endif
-

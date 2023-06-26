@@ -27,8 +27,8 @@
 
 K_PLUGIN_CLASS(PowerDevilDPMSActionConfig)
 
-PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject* parent)
-        : ActionConfig(parent)
+PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject *parent)
+    : ActionConfig(parent)
 {
 }
 
@@ -47,16 +47,16 @@ void PowerDevilDPMSActionConfig::load()
     m_spinIdleTimeoutLocked->setValue(configGroup().readEntry<int>("idleTimeoutWhenLocked", 60));
 }
 
-QList< QPair< QString, QWidget* > > PowerDevilDPMSActionConfig::buildUi()
+QList<QPair<QString, QWidget *>> PowerDevilDPMSActionConfig::buildUi()
 {
-    QList< QPair< QString, QWidget* > > retlist;
+    QList<QPair<QString, QWidget *>> retlist;
 
     m_spinBox = new QSpinBox;
     m_spinBox->setMaximumWidth(150);
     m_spinBox->setMinimum(1);
     m_spinBox->setMaximum(360);
     m_spinBox->setSuffix(i18n(" min"));
-    retlist.append(qMakePair< QString, QWidget* >(i18n("Switch off after"), m_spinBox));
+    retlist.append(qMakePair<QString, QWidget *>(i18n("Switch off after"), m_spinBox));
 
     connect(m_spinBox, &QSpinBox::valueChanged, this, &PowerDevilDPMSActionConfig::setChanged);
 
