@@ -148,8 +148,8 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
         break;
     case LockScreenMode: {
         // TODO should probably go through the backend (logind perhaps) eventually
-        QDBusConnection::sessionBus().asyncCall(
-            QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock"));
+        const QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock");
+        QDBusConnection::sessionBus().asyncCall(msg);
         break;
     }
     default:

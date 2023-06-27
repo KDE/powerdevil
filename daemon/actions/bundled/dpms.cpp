@@ -228,8 +228,8 @@ void DPMS::lockScreen()
 {
     // We need to delay locking until the screen has dimmed, otherwise it looks all clunky
     QTimer::singleShot(dimAnimationTime(), this, [] {
-        QDBusConnection::sessionBus().asyncCall(
-            QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock"));
+        const QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock");
+        QDBusConnection::sessionBus().asyncCall(msg);
     });
 }
 

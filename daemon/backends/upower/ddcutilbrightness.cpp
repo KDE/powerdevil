@@ -129,7 +129,6 @@ QString DDCutilBrightness::generateDisplayId(const DDCA_Display_Info &displayInf
         return QString("usb:%1").arg(displayInfo.path.path.hiddev_devno);
     case DDCA_IO_ADL:
         return QString("adl:%1:%2").arg(displayInfo.path.path.adlno.iAdapterIndex, displayInfo.path.path.adlno.iDisplayIndex);
-        ;
     }
     return QString();
 }
