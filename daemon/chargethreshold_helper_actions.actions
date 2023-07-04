@@ -115,6 +115,7 @@ Description[sl]=Avtenticirajte se, da bi videli največjo raven napolnjenosti ba
 Description[tr]=Geçerli pil şarj sınırını görmek için kimliğinizi doğrulayın.
 Description[uk]=Пройдіть розпізнавання для перегляду поточного рівня заряду акумулятора.
 Description[x-test]=xxAuthenticate to see the current battery charge limit.xx
+Description[zh_CN]=请进行身份验证以查看当前电池充电限制。
 Policy=yes
 PolicyInactive=yes
 
@@ -178,5 +179,6 @@ Description[sl]=Avtenticirajte se, da bi nastavili omejitev polnenja baterije.
 Description[tr]=Pil şarj sınırını ayarlamak için kimliğinizi doğrulayın.
 Description[uk]=Пройдіть розпізнавання для встановлення обмеження рівня заряду акумулятора.
 Description[x-test]=xxAuthenticate to set the battery charge limit.xx
+Description[zh_CN]=请进行身份验证以设置电池充电限制。
 Policy=auth_admin
 Persistence=session
