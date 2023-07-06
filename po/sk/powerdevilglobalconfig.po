@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-07-06 02:53+0000\n"
 "PO-Revision-Date: 2021-11-15 17:31+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -49,7 +49,7 @@ msgstr "Hibernovať"
 msgid "Shut down"
 msgstr "Vypnúť"
 
-#: GeneralPage.cpp:251
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Zdá sa, že služba správy napájania nie je spustená."

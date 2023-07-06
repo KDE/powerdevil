@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-13 02:11+0000\n"
+"POT-Creation-Date: 2023-07-06 02:53+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -33,8 +33,8 @@ msgid "Your emails"
 msgstr "manolis@koppermind.homelinux.org, dglent@gmail.com"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:57
-#: actions/bundled/keyboardbrightnesscontrol.cpp:60
+#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -68,22 +68,22 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Μείωση λαμπρότητας οθόνης"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:69
+#: actions/bundled/brightnesscontrolconfig.cpp:68
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Επίπεδο"
 
-#: actions/bundled/dimdisplayconfig.cpp:59 actions/bundled/dpmsconfig.cpp:58
-#: actions/bundled/runscriptconfig.cpp:77
-#: actions/bundled/suspendsessionconfig.cpp:80
+#: actions/bundled/dimdisplayconfig.cpp:57 actions/bundled/dpmsconfig.cpp:58
+#: actions/bundled/runscriptconfig.cpp:74
+#: actions/bundled/suspendsessionconfig.cpp:77
 #, kde-format
 msgid " min"
 msgstr " λεπ"
 
-#: actions/bundled/dimdisplayconfig.cpp:69
-#: actions/bundled/runscriptconfig.cpp:80
-#: actions/bundled/runscriptconfig.cpp:102
+#: actions/bundled/dimdisplayconfig.cpp:67
+#: actions/bundled/runscriptconfig.cpp:77
+#: actions/bundled/runscriptconfig.cpp:99
 #, kde-format
 msgid "After"
 msgstr "Μετά από"
@@ -109,112 +109,112 @@ msgstr " δευτ"
 msgid "When screen is locked, switch off after"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:62
+#: actions/bundled/handlebuttonevents.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "Αναστολή"
 
-#: actions/bundled/handlebuttonevents.cpp:67
+#: actions/bundled/handlebuttonevents.cpp:66
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Νάρκη"
 
-#: actions/bundled/handlebuttonevents.cpp:72
+#: actions/bundled/handlebuttonevents.cpp:71
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "Τερματισμός"
 
-#: actions/bundled/handlebuttonevents.cpp:86
+#: actions/bundled/handlebuttonevents.cpp:85
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
 msgstr "Τερματισμός"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:79
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Ακόμα κι αν έχει συνδεθεί εξωτερική οθόνη"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/handlebuttoneventsconfig.cpp:88
 #, kde-format
 msgid "Do nothing"
 msgstr "Καμία ενέργεια"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:90
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Κοίμηση"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:84
 #, kde-format
 msgid "Hibernate"
 msgstr "Νάρκη"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:87
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Υβριδική κοίμηση"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#: actions/bundled/suspendsessionconfig.cpp:92
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Shut down"
 msgstr "Τερματισμός"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/handlebuttoneventsconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "Lock screen"
 msgstr "Κλείδωμα οθόνης"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:104
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Διάλογος προτροπής αποσύνδεσης"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:106
+#: actions/bundled/handlebuttoneventsconfig.cpp:103
 #, kde-format
 msgid "Turn off screen"
 msgstr "Κλείσιμο οθόνης"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
+#: actions/bundled/handlebuttoneventsconfig.cpp:129
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Όταν το καπάκι του φορητού είναι κλειστό"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
+#: actions/bundled/handlebuttoneventsconfig.cpp:140
 #, kde-format
 msgid "When power button pressed"
 msgstr "Όταν πιεστεί το κουμπί λειτουργίας"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:64
+#: actions/bundled/keyboardbrightnesscontrol.cpp:63
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Αύξηση λαμπρότητας οθόνης"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:69
+#: actions/bundled/keyboardbrightnesscontrol.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Μείωση λαμπρότητας οθόνης"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:74
+#: actions/bundled/keyboardbrightnesscontrol.cpp:73
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Εναλλαγή φωτισμού πληκτρολογίου"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:72
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:69
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
@@ -246,37 +246,37 @@ msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Εναλλαγή σε:"
 
-#: actions/bundled/runscriptconfig.cpp:66
+#: actions/bundled/runscriptconfig.cpp:63
 #, kde-format
 msgid "Script"
 msgstr "Σενάριο"
 
-#: actions/bundled/runscriptconfig.cpp:78
+#: actions/bundled/runscriptconfig.cpp:75
 #, kde-format
 msgid "On Profile Load"
 msgstr "Κατά τη φόρτωση του προφίλ"
 
-#: actions/bundled/runscriptconfig.cpp:79
+#: actions/bundled/runscriptconfig.cpp:76
 #, kde-format
 msgid "On Profile Unload"
 msgstr "Κατά την εκφόρτωση του προφίλ"
 
-#: actions/bundled/runscriptconfig.cpp:91
+#: actions/bundled/runscriptconfig.cpp:88
 #, kde-format
 msgid "Run script"
 msgstr "Εκτέλεση σεναρίου"
 
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "after "
 msgstr "μετά από "
 
-#: actions/bundled/suspendsessionconfig.cpp:102
+#: actions/bundled/suspendsessionconfig.cpp:99
 #, kde-format
 msgid "Automatically"
 msgstr "Αυτόματα"
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:105
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Όταν είναι σε κοίμηση να μπει σε νάρκη μετά από μια περίοδο αδράνειας"
@@ -291,7 +291,7 @@ msgstr "Μη υποστηριζόμενη μέθοδος αναστολής"
 msgid "KDE Power Management System"
 msgstr "Σύστημα διαχείρισης ισχύος του KDE"
 
-#: powerdevilapp.cpp:63
+#: powerdevilapp.cpp:64
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -300,13 +300,13 @@ msgstr ""
 "PowerDevil, ένα προηγμένο, αρθρωτό και ελαφρύ εργαλείο παρασκηνίου για τη "
 "διαχείριση ισχύος"
 
-#: powerdevilapp.cpp:65
+#: powerdevilapp.cpp:66
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:67
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
@@ -318,64 +318,64 @@ msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Συντηρητής"
 
-#: powerdevilapp.cpp:69
+#: powerdevilapp.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:70
+#: powerdevilapp.cpp:68
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Προηγούμενος συντηρητής"
 
-#: powerdevilapp.cpp:159
+#: powerdevilapp.cpp:153
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Αντικατάσταση ενός στιγμιοτύπου"
 
-#: powerdevilcore.cpp:404 powerdevilcore.cpp:416
+#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
 #, kde-format
 msgid "Activity Manager"
 msgstr "Διαχειριστής δραστηριοτήτων"
 
-#: powerdevilcore.cpp:405
+#: powerdevilcore.cpp:398
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
 "Η πολιτική αυτής της δραστηριότητας αποτρέπει την κοίμηση του συστήματος"
 
-#: powerdevilcore.cpp:417
+#: powerdevilcore.cpp:410
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Η πολιτική αυτής της δραστηριότητας αποτρέπει τη διαχείριση ενέργειας για "
 "την οθόνη"
 
-#: powerdevilcore.cpp:480
+#: powerdevilcore.cpp:473
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Προστέθηκε επιπλέον μπαταρία"
 
-#: powerdevilcore.cpp:481 powerdevilcore.cpp:702
+#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Ο υπολογιστής δεν θα εισέρχεται πλέον σε κοίμηση."
 
-#: powerdevilcore.cpp:548
+#: powerdevilcore.cpp:539
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας συσκευής (απομένει %1%)"
 
-#: powerdevilcore.cpp:553
+#: powerdevilcore.cpp:544
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -389,22 +389,22 @@ msgstr ""
 "Η ισχύς της μπαταρίας στο (\"%1\") είναι χαμηλή και η συσκευή ενδέχεται να "
 "απενεργοποιηθεί οποιαδήποτε στιγμή. Φορτίστε ή αντικαταστήστε τη μπαταρία."
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:551
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας ποντικιού (απομένει %1%)"
 
-#: powerdevilcore.cpp:563
+#: powerdevilcore.cpp:555
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας πληκτρολογίου (απομένει %1%)"
 
-#: powerdevilcore.cpp:567
+#: powerdevilcore.cpp:559
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας συσκευής bluetooth (απομένει %1%)"
 
-#: powerdevilcore.cpp:569
+#: powerdevilcore.cpp:561
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -415,7 +415,7 @@ msgstr ""
 "συσκευή ενδέχεται να απενεργοποιηθεί οποιαδήποτε στιγμή. Φορτίστε ή "
 "αντικαταστήστε ή φορτίστε τη μπαταρία."
 
-#: powerdevilcore.cpp:613
+#: powerdevilcore.cpp:604
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -428,7 +428,7 @@ msgstr ""
 "υπολογιστή σας, συνδέστε τον στο ρεύμα ή απενεργοποιήστε τον και αλλάξτε τη "
 "μπαταρία."
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:606
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -438,7 +438,7 @@ msgstr ""
 "υπολογιστή σας, συνδέστε τον στο ρεύμα ή απενεργοποιήστε τον και αλλάξτε τη "
 "μπαταρία."
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -446,14 +446,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:635
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα κλείσει σε 60 "
 "δευτερόλεπτα."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -461,7 +461,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Τερματισμός"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:641
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -470,7 +470,7 @@ msgstr ""
 "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κατάσταση "
 "νάρκης σε 60 δευτερόλεπτα."
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:642
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -479,14 +479,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Νάρκη"
 
-#: powerdevilcore.cpp:656
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κοίμηση σε "
 "60 δευτερόλεπτα."
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:648
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -495,52 +495,52 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Κοίμηση"
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:653
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "Το επίπεδο της μπαταρίας είναι κρίσιμο. Αποθηκεύστε την εργασία σας."
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:664
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Ισχύς μπαταρίας χαμηλή (%1% απομένει)"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:668
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Ισχύς μπαταρίας κρίσιμη (%1% απομένει)"
 
-#: powerdevilcore.cpp:701
+#: powerdevilcore.cpp:692
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Ο μετασχηματιστής AC είναι συνδεδεμένος"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:695
 #, kde-format
 msgid "Running on AC power"
 msgstr "Εκτελείται με ισχύ εναλλασσόμενου ρεύματος"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:695
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Ο φορτιστής ρεύματος συνδέθηκε."
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:698
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Εκτελείται με την ισχύ της μπαταρίας"
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:698
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Ο φορτιστής ρεύματος αποσυνδέθηκε."
 
-#: powerdevilcore.cpp:768
+#: powerdevilcore.cpp:759
 #, kde-format
 msgid "Charging Complete"
 msgstr "Φόρτιση πλήρης"
 
-#: powerdevilcore.cpp:768
+#: powerdevilcore.cpp:759
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμένη."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-21 02:30+0000\n"
+"POT-Creation-Date: 2023-07-06 02:53+0000\n"
 "PO-Revision-Date: 2023-02-18 01:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw"
 
-#: EditPage.cpp:180
+#: EditPage.cpp:172
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -39,12 +39,12 @@ msgstr ""
 "KDE 電源管理系統會根據您的電腦的能力產生一組預設設定。它也會將所有現有的設定"
 "檔刪除。您確定要繼續嗎？"
 
-#: EditPage.cpp:184
+#: EditPage.cpp:176
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "回復預設值"
 
-#: EditPage.cpp:261
+#: EditPage.cpp:248
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "電源管理服務似乎並非執行中。"
