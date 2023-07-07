@@ -58,6 +58,7 @@ Icon=kde
 
 [org.kde.powerdevil.discretegpuhelper.hasdualgpu]
 Name=Check for existence of discrete GPU
+Name[ar]=تأكد من وجود وحدة معالجة الرسومات المنفصلة
 Name[bg]=Проверка за наличност на отделен графичен процесор
 Name[ca]=Comprova l'existència d'una GPU dedicada
 Name[ca@valencia]=Comprova l'existència d'una GPU dedicada
@@ -76,6 +77,7 @@ Name[uk]=Перевірка наявності дискретного GPU
 Name[x-test]=xxCheck for existence of discrete GPUxx
 Name[zh_CN]=检查是否存在独立 GPU
 Description=Authenticate to check for the existence of a discrete GPU.
+Description[ar]=الاستيثاق للتأكد من وحدة معالجة الرسومات المنفصلة.
 Description[bg]=Удостоверете се, за да проверите за наличие на отделен графичен процесор.
 Description[ca]=Autenticació per a comprovar l'existència d'una GPU dedicada.
 Description[ca@valencia]=Autenticació per a comprovar l'existència d'una GPU dedicada.
