@@ -148,6 +148,17 @@ public:
      */
     int stepToValue(int step) const;
 
+    /**
+     * Retrieve the minimum practical brightness value for this device. Defaults
+     * to 0, but should be overridden in subclasses to be a higher value for device
+     * types where a higher minimum value brightness makes sense. For example,
+     * for screens where a value of 0 sometimes turns off the backlight completely,
+     * which is not wanted there.
+     *
+     * @return Minimum practical brightness value
+     */
+    virtual int valueMin() const;
+
 protected:
     /**
      * Calculate the optimal number of brightness steps.
@@ -164,9 +175,10 @@ protected:
      */
     virtual int calculateSteps(int valueMax) const = 0;
 
+    int m_valueMax = -1;
+
 private:
     int m_value = -1;
-    int m_valueMax = -1;
     int m_steps = -1;
 };
 

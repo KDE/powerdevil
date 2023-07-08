@@ -83,8 +83,8 @@ int BrightnessLogic::increasedSmall() const
 
 int BrightnessLogic::decreased() const
 {
-    if (m_value == 0) {
-        return 0; // we are at the minimum already
+    if (m_value == valueMin()) {
+        return valueMin(); // we are at the minimum already
     }
 
     // Subtract 1 and round downwards to the nearest Step
@@ -102,13 +102,18 @@ int BrightnessLogic::decreased() const
 int BrightnessLogic::decreasedSmall() const
 {
     const double newPercent = (std::round(m_value * 100 / double(m_valueMax)) - 1) / 100.0;
-    return std::max<int>(0, std::round(m_valueMax * newPercent));
+    return std::max<int>(valueMin(), std::round(m_valueMax * newPercent));
 }
 
 int BrightnessLogic::toggled() const
 {
     // If it's not minimum, set to minimum, if it's minimum, set to maximum
     return m_value > 0 ? 0 : m_valueMax;
+}
+
+int BrightnessLogic::valueMin() const
+{
+    return 0;
 }
 
 int BrightnessLogic::steps() const
@@ -128,7 +133,7 @@ const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const
 
 int BrightnessLogic::stepToValue(int step) const
 {
-    return qBound(0, qRound(step * 1.0 * m_valueMax / m_steps), m_valueMax);
+    return qBound(valueMin(), qRound(step * 1.0 * m_valueMax / m_steps), m_valueMax);
 }
 
 }

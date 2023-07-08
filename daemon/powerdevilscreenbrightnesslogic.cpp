@@ -29,6 +29,17 @@ int ScreenBrightnessLogic::toggled() const
     return -1;
 }
 
+int ScreenBrightnessLogic::valueMin() const
+{
+    // If the hardware exposes only a very small number of brightness steps,
+    // make 0 the minimum. Otherwise 1, because when the maximum is higher than
+    // 100, a value of 0 generally disables the backlight entirely. Keep this in
+    // sync with the logic in
+    // plasma-workspace:applets/batterymonitor/package/contents/ui/main.qml,
+    // which does the same thing.
+    return m_valueMax > 100 ? 1 : 0;
+}
+
 int ScreenBrightnessLogic::calculateSteps(int maxValue) const
 {
     // We assume that the preferred number of steps for screen brightness is 20, but we don't want more.
