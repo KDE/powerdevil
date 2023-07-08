@@ -29,6 +29,12 @@ int ScreenBrightnessLogic::toggled() const
     return -1;
 }
 
+int ScreenBrightnessLogic::valueMin() const
+{
+    // 0 can turn off the backlight with some drivers
+    return 1;
+}
+
 int ScreenBrightnessLogic::calculateSteps(int maxValue) const
 {
     // We assume that the preferred number of steps for screen brightness is 20, but we don't want more.
