@@ -17,6 +17,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include(ECMSetupVersion)
 include(ECMQtDeclareLoggingCategory)
 include(ECMConfiguredInstall)
+include(ECMGenerateDBusServiceFile)
 include(FeatureSummary)
 include(GenerateExportHeader)
 include(KDEInstallDirs)
@@ -54,6 +55,14 @@ if(DDCUtil_FOUND)
     )
 endif()
 
+find_package(LayerShellQt)
+set_package_properties(LayerShellQt PROPERTIES
+    DESCRIPTION "Layer shell Qt bindings"
+    URL "https://invent.kde.org/plasma/layer-shell-qt"
+    PURPOSE "Required for the power profile selection osd"
+    TYPE REQUIRED
+)
+
 include_directories (
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon
@@ -73,6 +82,7 @@ add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
 kdoctools_install(po)
+add_subdirectory(osd)
 
 ecm_qt_install_logging_categories(
         EXPORT POWERDEVIL

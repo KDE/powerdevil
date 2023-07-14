@@ -26,6 +26,7 @@
 #include "powerdevil_debug.h"
 #include "powerdevil_version.h"
 #include "powerdevilcore.h"
+#include "../osd/osd.h"
 
 #include <QAction>
 #include <QDBusConnection>
@@ -41,7 +42,11 @@
 #include <KDBusService>
 #include <KLocalizedString>
 
+#include <KActionCollection>
+#include <KGlobalAccel>
+
 #include <kworkspace.h>
+#include <qnamespace.h>
 
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
     : QGuiApplication(argc, argv)
@@ -138,6 +143,12 @@ void PowerDevilApp::onCoreReady()
 
     QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"), PowerDevil::PolicyAgent::instance());
+
+    KActionCollection *coll = new KActionCollection(this);
+    QAction *action = coll->addAction(QStringLiteral("powerProfile"));
+    action->setText(i18n("Switch Power Profile"));
+    KGlobalAccel::self()->setGlobalShortcut(action, QList<QKeySequence>{Qt::Key_Battery, Qt::MetaModifier | Qt::Key_B});
+    connect(action, &QAction::triggered, this, &PowerDevilApp::showOsd);
 }
 
 int main(int argc, char **argv)
@@ -170,4 +181,12 @@ int main(int argc, char **argv)
     app.init();
 
     return app.exec();
+}
+
+void PowerDevilApp::showOsd() {
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.powerdevil.powerProfileOsdService"),
+                                                          QStringLiteral("/org/kde/powerdevil/powerProfileOsdService"),
+                                                          QStringLiteral("org.kde.powerdevil.powerProfileOsdService"),
+                                                          QStringLiteral("showOsd"));
+    QDBusConnection::sessionBus().asyncCall(message);
 }
