@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2016-04-08 22:57+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
@@ -280,49 +280,54 @@ msgstr ""
 msgid "Unsupported suspend method"
 msgstr ""
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, fuzzy, kde-format
 msgid "KDE Power Management System"
 msgstr "Sýslað með sýnisnið"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Umsjónarmaður"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr ""
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Umsjónarmaður"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+msgid "Switch Power Profile"
+msgstr "Vista snið"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
@@ -537,10 +542,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Capabilities"
 #~ msgstr "Geta"
-
-#, fuzzy
-#~ msgid "Save Profile"
-#~ msgstr "Vista snið"
 
 #, fuzzy
 #~ msgid "New Profile"

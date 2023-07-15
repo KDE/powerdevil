@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2021-07-26 12:52+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -284,12 +284,12 @@ msgstr "În timpul somnului, hibernează după o perioadă de inactivitate"
 msgid "Unsupported suspend method"
 msgstr "Metodă de suspendare nesusținută"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Sistemul KDE de gestiune a alimentării"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -297,37 +297,43 @@ msgid ""
 msgstr ""
 "PowerDevil, un demon avansat, modular și ușor de gestiune a alimentării"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Responsabil"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Responsabil anterior"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil Profiles"
+msgid "Switch Power Profile"
+msgstr "Importă profiluri PowerDevil"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Înlocuiește o instanță existentă"
@@ -917,9 +923,6 @@ msgstr "Acumulatorul este complet încărcat."
 
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "Introduceți o denumire pentru acest profil:"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "Importă profiluri PowerDevil"
 
 #~ msgid "Export PowerDevil Profiles"
 #~ msgstr "Exportă profiluri PowerDevil"

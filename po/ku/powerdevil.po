@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2008-12-31 04:01+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -295,53 +295,59 @@ msgstr ""
 msgid "Unsupported suspend method"
 msgstr "Azîneyên sekinandinê yên tên piştgirî dan"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, fuzzy, kde-format
 #| msgid "A Power Management tool for KDE4"
 msgid "KDE Power Management System"
 msgstr "Amûra Rêveberê Hêzê ji bo KDE4"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Kesê miqet"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Kesê miqet"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil profiles"
+msgid "Switch Power Profile"
+msgstr "Profîlên PowerDevil bîne hundir"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
@@ -910,11 +916,6 @@ msgstr ""
 #~| msgid "Please enter a name for this profile"
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "Jê kerema xwe navekî ji bo vê profîlê binivîse"
-
-#, fuzzy
-#~| msgid "Import PowerDevil profiles"
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "Profîlên PowerDevil bîne hundir"
 
 #, fuzzy
 #~| msgid "Export PowerDevil profiles"

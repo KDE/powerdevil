@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2021-07-27 16:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -282,49 +282,55 @@ msgstr "Počas spánku, hibernovať po období nečinnosti"
 msgid "Unsupported suspend method"
 msgstr "Nepodporovaná metóda uspania"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Systém správy napájania pre KDE"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil, pokročilý, modulárny a ľahký daemon správy napájania"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Správca"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Predchádzajúci správca"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Switch off after"
+msgid "Switch Power Profile"
+msgstr "Vypnúť po"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Nahradiť existujúcu inštanciu"

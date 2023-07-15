@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2023-06-01 10:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -281,49 +281,55 @@ msgstr "أثناء النوم ، اسبت بعد فترة من عدم النشا
 msgid "Unsupported suspend method"
 msgstr "طريقة تعليق غير مدعومة"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "أداة لإدارة الطاقة في كِيدِي"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil ، برنامج خفي لإدارة الطاقة متقدم ، معياري وخفيف الوزن"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "المشرف"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "المصين السّابق"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil Profiles"
+msgid "Switch Power Profile"
+msgstr "استورد تشكيلات عفريت-الطاقة"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "استبدل نسخة موجودة"
@@ -887,9 +893,6 @@ msgstr "بطاريتك الآن مشحونة كليًّا."
 
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "أدخل اسما لهذه التشكيلة:"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "استورد تشكيلات عفريت-الطاقة"
 
 #~ msgid "Export PowerDevil Profiles"
 #~ msgstr "صدر تشكيلات عفريت-الطاقة"

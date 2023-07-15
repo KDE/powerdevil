@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -286,12 +286,12 @@ msgstr "Όταν είναι σε κοίμηση να μπει σε νάρκη μ
 msgid "Unsupported suspend method"
 msgstr "Μη υποστηριζόμενη μέθοδος αναστολής"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Σύστημα διαχείρισης ισχύος του KDE"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -300,37 +300,44 @@ msgstr ""
 "PowerDevil, ένα προηγμένο, αρθρωτό και ελαφρύ εργαλείο παρασκηνίου για τη "
 "διαχείριση ισχύος"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Συντηρητής"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Προηγούμενος συντηρητής"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgctxt "Note this is a KRunner keyword"
+#| msgid "power profile"
+msgid "Switch Power Profile"
+msgstr "προφίλ ενέργειας"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Αντικατάσταση ενός στιγμιοτύπου"
@@ -1621,10 +1628,6 @@ msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμέν�
 #~ "πρέπει να απενεργοποιήσετε όλους τους άλλους διαχειριστές ενέργειας στις "
 #~ "ρυθμίσεις του συστήματος. Αυτό το μήνυμα δε θα ξαναεμφανιστεί από τη "
 #~ "στιγμή της απενεργοποίησής τους."
-
-#~ msgctxt "Note this is a KRunner keyword"
-#~ msgid "power profile"
-#~ msgstr "προφίλ ενέργειας"
 
 #~ msgctxt "Note this is a KRunner keyword"
 #~ msgid "power governor"

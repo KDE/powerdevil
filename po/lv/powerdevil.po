@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2012-01-07 08:18+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -304,13 +304,13 @@ msgstr ""
 msgid "Unsupported suspend method"
 msgstr "Neatbalstīta apstādināšanas metode"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, fuzzy, kde-format
 #| msgid "KDE Power Management System"
 msgid "KDE Power Management System"
 msgstr "KDE4 energokontroles sistēma"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE Power Management System is PowerDevil, an advanced, modular and "
@@ -322,40 +322,46 @@ msgstr ""
 "KDE energokontroles sistēma ir PowerDevil, uzlabots, modulārs un vienkāršs "
 "enegokontroles dēmons"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Uzturētājs"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Uzturētājs"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Switch off after"
+msgid "Switch Power Profile"
+msgstr "Izslēgt pēc"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

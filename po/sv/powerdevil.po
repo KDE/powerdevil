@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2022-09-24 15:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -283,12 +283,12 @@ msgstr "I viloläge, gå till dvala efter en period utan aktivitet"
 msgid "Unsupported suspend method"
 msgstr "Vilolägesmetod som inte stöds"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE:s strömsparhanteringssystem"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -296,37 +296,43 @@ msgid ""
 msgstr ""
 "Powerdevil, en avancerad, modulär och lättviktig demon för strömsparhantering"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Underhåll"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Tidigare underhåll"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil Profiles"
+msgid "Switch Power Profile"
+msgstr "Importera Powerdevil-profiler"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ersätt en befintlig instans"
@@ -903,9 +909,6 @@ msgstr "Batteriet är nu fulladdat."
 
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "Ange ett namn på den här profilen:"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "Importera Powerdevil-profiler"
 
 #~ msgid "Export PowerDevil Profiles"
 #~ msgstr "Exportera Powerdevil-profiler"

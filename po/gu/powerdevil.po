@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2010-06-22 16:52+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -306,52 +306,58 @@ msgstr ""
 msgid "Unsupported suspend method"
 msgstr "ન આધારિત સસ્પેન્ડ રીતો"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE પાવર વ્યવસ્થાપન સાધન"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "જાળવનાર"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "ડેરિયો ફ્રેડ્ડી"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "જાળવનાર"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil Profiles"
+msgid "Switch Power Profile"
+msgstr "PowerDevil પ્રોફાઇલો આયાત કરો"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
@@ -730,9 +736,6 @@ msgstr ""
 
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "મહેરબાની કરીને આ પ્રોફાઇલ માટે નામ દાખલ કરો:"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "PowerDevil પ્રોફાઇલો આયાત કરો"
 
 #~ msgid "Export PowerDevil Profiles"
 #~ msgstr "PowerDevil પ્રોફાઇલો નિકાસ કરો"

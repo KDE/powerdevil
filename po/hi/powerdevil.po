@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4 - powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2021-07-10 10:57+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -295,53 +295,59 @@ msgstr ""
 msgid "Unsupported suspend method"
 msgstr "समर्थित निलंबन विधियाँ"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, fuzzy, kde-format
 #| msgid "A Power Management tool for KDE4"
 msgid "KDE Power Management System"
 msgstr "केडीई4 के लिए पावर प्रबंधन औजार"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "मेंटेनर"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "डेरियो फ्रेदी"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "मेंटेनर"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil profiles"
+msgid "Switch Power Profile"
+msgstr "पावरडेविल प्रोफ़ाइल आयात करें"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
@@ -793,11 +799,6 @@ msgstr ""
 #~| msgid "Please enter a name for this profile"
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "इस प्रोफ़ाइल के लिए एक नाम भरें"
-
-#, fuzzy
-#~| msgid "Import PowerDevil profiles"
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "पावरडेविल प्रोफ़ाइल आयात करें"
 
 #, fuzzy
 #~| msgid "Export PowerDevil profiles"

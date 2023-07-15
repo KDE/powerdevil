@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -278,49 +278,55 @@ msgstr ""
 msgid "Unsupported suspend method"
 msgstr "പിന്തുണയുള്ള മയങ്ങുന്നതിനുള്ള രീതികള്‍"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, fuzzy, kde-format
 msgid "KDE Power Management System"
 msgstr "കെഡിഇ4 നു് വേണ്ടിയുള്ള വൈദ്യുതി നടത്തിപ്പിനുള്ള പണിയായുധം"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "പരിപാലകന്‍"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "ഡാരിയോ ഫ്രെഡ്ഡി"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "പരിപാലകന്‍"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil Profiles"
+msgid "Switch Power Profile"
+msgstr "പവര്‍ഡെവിള്‍ പ്രൊഫൈലുകള്‍ പുറത്തുനിന്നെടുക്കുക"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
@@ -746,9 +752,6 @@ msgstr ""
 
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "ദയവായി ഈ പ്രൊഫൈലിനൊരു പേരു് നല്‍കുക:"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "പവര്‍ഡെവിള്‍ പ്രൊഫൈലുകള്‍ പുറത്തുനിന്നെടുക്കുക"
 
 #~ msgid "Export PowerDevil Profiles"
 #~ msgstr "പവര്‍ഡെവിള്‍ പ്രൊഫൈലുകള്‍ പുറത്തുവയ്ക്കുക"

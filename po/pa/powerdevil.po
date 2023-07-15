@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-07-15 02:06+0000\n"
 "PO-Revision-Date: 2022-01-03 11:10-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -284,49 +284,55 @@ msgstr "ਜਦੋਂ ਸਲੀਪ ਹੋਵੇ ਤਾਂ ਨਾ-ਸਰਗਰਮ�
 msgid "Unsupported suspend method"
 msgstr "ਗ਼ੈਰ-ਸਹਾਇਕ ਸਸਪੈਂਡ ਢੰਗ"
 
-#: powerdevilapp.cpp:62
+#: powerdevilapp.cpp:67
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE ਪਾਵਰ ਪਰਬੰਧਕ ਸਿਸਟਮ"
 
-#: powerdevilapp.cpp:64
+#: powerdevilapp.cpp:69
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "ਪਾਵਰਡਿਵੀਲ ਹੈ, ਇੱਕ ਤਨਕੀਕੀ, ਮੋਡੂਲਰ ਅਤੇ ਹਲਕਾ ਪਾਵਰ ਪਰਬੰਧਕੀ ਡੈਮਨ ਹੈ"
 
-#: powerdevilapp.cpp:66
+#: powerdevilapp.cpp:71
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "ਕੋਈ ਉਵੇ ਬਰੋਉਲਿਕ"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:72
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "ਡਾਈਰੋ ਫਰਿੱਡੀ"
 
-#: powerdevilapp.cpp:68
+#: powerdevilapp.cpp:73
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "ਪੁਰਾਣਾ ਪਰਬੰਧਕ"
 
-#: powerdevilapp.cpp:153
+#: powerdevilapp.cpp:149
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil Profiles"
+msgid "Switch Power Profile"
+msgstr "ਪਾਵਰ-ਡੀਵਿਲ ਪਰੋਫਾਈਲ ਇੰਪੋਰਟ"
+
+#: powerdevilapp.cpp:164
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
@@ -879,9 +885,6 @@ msgstr "ਬੈਟਰੀ ਹੁਣ ਪੂਰੀ ਚਾਰਜ ਹੋ ਚੁੱਕ�
 
 #~ msgid "Please enter a name for this profile:"
 #~ msgstr "ਇਸ ਪਰੋਫਾਈਲ ਲਈ ਇੱਕ ਨਾਂ ਦਿਓ ਜੀ:"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "ਪਾਵਰ-ਡੀਵਿਲ ਪਰੋਫਾਈਲ ਇੰਪੋਰਟ"
 
 #~ msgid "Export PowerDevil Profiles"
 #~ msgstr "ਪਾਵਰ-ਡੀਵਿਲ ਪਰੋਫਾਈਲ ਐਕਸਪੋਰਟ"
