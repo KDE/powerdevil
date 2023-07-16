@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-15 02:06+0000\n"
-"PO-Revision-Date: 2023-06-02 22:11+0200\n"
+"PO-Revision-Date: 2023-07-15 21:06+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -240,7 +240,7 @@ msgstr "Errendimendua"
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
-msgstr "Aldatu honetara:"
+msgstr "Trukatu honetara:"
 
 #: actions/bundled/runscriptconfig.cpp:63
 #, kde-format
@@ -326,10 +326,9 @@ msgid "Previous maintainer"
 msgstr "Aurreko mantentzailea"
 
 #: powerdevilapp.cpp:149
-#, fuzzy, kde-format
-#| msgid "Import PowerDevil Profiles"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Inportatu PowerDevil profilak"
+msgstr "Trukatu energia profila"
 
 #: powerdevilapp.cpp:164
 #, kde-format

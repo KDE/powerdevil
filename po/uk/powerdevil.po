@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-15 02:06+0000\n"
-"PO-Revision-Date: 2023-05-16 09:34+0300\n"
+"PO-Revision-Date: 2023-07-15 08:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -327,10 +327,9 @@ msgid "Previous maintainer"
 msgstr "Колишній супровідник"
 
 #: powerdevilapp.cpp:149
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Вимикати за"
+msgstr "Перемкнути профіль живлення"
 
 #: powerdevilapp.cpp:164
 #, kde-format

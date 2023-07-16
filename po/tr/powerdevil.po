@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-15 02:06+0000\n"
-"PO-Revision-Date: 2023-05-24 01:36+0300\n"
+"PO-Revision-Date: 2023-07-15 13:57+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -321,10 +321,9 @@ msgid "Previous maintainer"
 msgstr "Projeyi yürüten önceki geliştirici"
 
 #: powerdevilapp.cpp:149
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Şu süre sonunda kapat:"
+msgstr "Güç Profilini Değiştir"
 
 #: powerdevilapp.cpp:164
 #, kde-format

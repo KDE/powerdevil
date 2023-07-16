@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-15 02:06+0000\n"
-"PO-Revision-Date: 2023-05-17 07:19+0100\n"
+"PO-Revision-Date: 2023-07-15 08:33+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -321,10 +321,9 @@ msgid "Previous maintainer"
 msgstr "Antaŭa prizorganto"
 
 #: powerdevilapp.cpp:149
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Malŝalti post"
+msgstr "Ŝanĝi Potencoprofilon"
 
 #: powerdevilapp.cpp:164
 #, kde-format
