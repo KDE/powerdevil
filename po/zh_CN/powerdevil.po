@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-15 02:06+0000\n"
-"PO-Revision-Date: 2023-07-03 11:36\n"
+"PO-Revision-Date: 2023-07-18 11:08\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -320,10 +320,9 @@ msgid "Previous maintainer"
 msgstr "前任维护人员"
 
 #: powerdevilapp.cpp:149
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "关闭前等待时间"
+msgstr "切换电源方案"
 
 #: powerdevilapp.cpp:164
 #, kde-format
