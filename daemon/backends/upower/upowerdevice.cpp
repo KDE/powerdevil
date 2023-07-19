@@ -84,3 +84,5 @@ bool UPowerDevice::updateProperties(const QVariantMap &properties)
 
     return updated;
 }
+
+#include "moc_upowerdevice.cpp"

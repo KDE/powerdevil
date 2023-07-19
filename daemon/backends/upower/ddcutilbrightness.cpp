@@ -133,3 +133,5 @@ QString DDCutilBrightness::generateDisplayId(const DDCA_Display_Info &displayInf
     return QString();
 }
 #endif
+
+#include "moc_ddcutilbrightness.cpp"

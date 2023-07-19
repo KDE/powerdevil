@@ -190,3 +190,5 @@ ActionReply ChargeThresholdHelper::setthreshold(const QVariantMap &args)
 }
 
 KAUTH_HELPER_MAIN("org.kde.powerdevil.chargethresholdhelper", ChargeThresholdHelper)
+
+#include "moc_chargethresholdhelper.cpp"

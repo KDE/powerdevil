@@ -295,3 +295,5 @@ void HandleButtonEvents::checkOutputs()
 }
 
 }
+
+#include "moc_handlebuttonevents.cpp"

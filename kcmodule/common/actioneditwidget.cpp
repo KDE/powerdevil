@@ -188,3 +188,5 @@ KConfigGroup ActionEditWidget::configGroup()
         return retgroup;
     }
 }
+
+#include "moc_actioneditwidget.cpp"

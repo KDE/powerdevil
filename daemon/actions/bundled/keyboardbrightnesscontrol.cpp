@@ -215,3 +215,5 @@ int KeyboardBrightnessControl::keyboardBrightnessPercent() const
 }
 
 #include "keyboardbrightnesscontrol.moc"
+
+#include "moc_keyboardbrightnesscontrol.cpp"

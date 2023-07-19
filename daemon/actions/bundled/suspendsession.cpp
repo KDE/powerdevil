@@ -206,3 +206,5 @@ void SuspendSession::triggerSuspendSession(uint action)
 
 }
 #include "suspendsession.moc"
+
+#include "moc_suspendsession.cpp"

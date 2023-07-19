@@ -25,3 +25,5 @@ QVector<OsdAction> OsdAction::availableActions()
         {QStringLiteral("performance"), i18ndc("powerdevil", "power profile", "Maximum Performance Mode"), QStringLiteral("battery-profile-performance")},
     };
 }
+
+#include "moc_osdaction.cpp"

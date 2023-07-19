@@ -117,3 +117,5 @@ QList<QPair<QString, QWidget *>> SuspendSessionConfig::buildUi()
 }
 
 #include "suspendsessionconfig.moc"
+
+#include "moc_suspendsessionconfig.cpp"

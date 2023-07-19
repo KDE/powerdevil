@@ -143,3 +143,5 @@ void FdoConnector::triggerSuspendSession(uint action)
 }
 
 }
+
+#include "moc_powerdevilfdoconnector.cpp"

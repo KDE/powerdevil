@@ -74,3 +74,5 @@ QList<QPair<QString, QWidget *>> DimDisplayConfig::buildUi()
 }
 
 #include "dimdisplayconfig.moc"
+
+#include "moc_dimdisplayconfig.cpp"

@@ -249,3 +249,5 @@ void EditPage::onServiceUnregistered(const QString &service)
 }
 
 #include "EditPage.moc"
+
+#include "moc_EditPage.cpp"

@@ -190,3 +190,5 @@ void PowerDevilApp::showOsd() {
                                                           QStringLiteral("showOsd"));
     QDBusConnection::sessionBus().asyncCall(message);
 }
+
+#include "moc_powerdevilapp.cpp"

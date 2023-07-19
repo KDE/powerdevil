@@ -170,3 +170,5 @@ bool KWinKScreenHelperEffect::nativeEventFilter(const QByteArray &eventType, voi
 }
 
 } // namespace PowerDevil
+
+#include "moc_kwinkscreenhelpereffect.cpp"

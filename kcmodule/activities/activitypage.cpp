@@ -228,3 +228,5 @@ void ActivityPage::onServiceUnregistered(const QString &service)
 }
 
 #include "activitypage.moc"
+
+#include "moc_activitypage.cpp"

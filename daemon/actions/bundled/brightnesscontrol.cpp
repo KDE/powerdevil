@@ -225,3 +225,5 @@ int BrightnessControl::brightnessPercent(float value) const
 }
 
 #include "brightnesscontrol.moc"
+
+#include "moc_brightnesscontrol.cpp"

@@ -273,3 +273,5 @@ void GeneralPage::onChargeStopThresholdChanged(int threshold)
 }
 
 #include "GeneralPage.moc"
+
+#include "moc_GeneralPage.cpp"

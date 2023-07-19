@@ -108,3 +108,5 @@ void RunScript::runCommand()
 }
 
 #include "runscript.moc"
+
+#include "moc_runscript.cpp"

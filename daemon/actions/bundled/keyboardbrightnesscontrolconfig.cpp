@@ -76,3 +76,5 @@ QList<QPair<QString, QWidget *>> KeyboardBrightnessControlConfig::buildUi()
 }
 
 #include "keyboardbrightnesscontrolconfig.moc"
+
+#include "moc_keyboardbrightnesscontrolconfig.cpp"

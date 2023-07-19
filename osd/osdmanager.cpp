@@ -84,3 +84,5 @@ void OsdManager::applyProfile(QString profile) {
 }
 
 }
+
+#include "moc_osdmanager.cpp"

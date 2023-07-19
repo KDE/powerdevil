@@ -73,3 +73,5 @@ QList<QPair<QString, QWidget *>> PowerDevilDPMSActionConfig::buildUi()
 }
 
 #include "dpmsconfig.moc"
+
+#include "moc_dpmsconfig.cpp"

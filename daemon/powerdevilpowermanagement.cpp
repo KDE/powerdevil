@@ -233,3 +233,5 @@ bool PowerManagement::canSuspendThenHibernate() const
 } // namespace PowerDevil
 
 #include "powerdevilpowermanagement.moc"
+
+#include "moc_powerdevilpowermanagement.cpp"

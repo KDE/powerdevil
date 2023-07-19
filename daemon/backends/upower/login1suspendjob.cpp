@@ -101,3 +101,5 @@ void Login1SuspendJob::slotLogin1Resuming(bool active)
     if (!active)
         emitResult();
 }
+
+#include "moc_login1suspendjob.cpp"

@@ -77,3 +77,5 @@ void ActionConfigWidget::addWidgets(const QList<QPair<QString, QWidget *>> &conf
         row++;
     }
 }
+
+#include "moc_actionconfigwidget.cpp"

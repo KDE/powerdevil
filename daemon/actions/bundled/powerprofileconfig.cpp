@@ -106,3 +106,5 @@ QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
 }
 
 #include "powerprofileconfig.moc"
+
+#include "moc_powerprofileconfig.cpp"

@@ -89,3 +89,5 @@ bool DDCutilDisplay::supportsBrightness() const
 {
     return m_supportsBrightness;
 }
+
+#include "moc_ddcutildisplay.cpp"

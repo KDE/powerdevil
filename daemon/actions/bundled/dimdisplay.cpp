@@ -128,3 +128,5 @@ bool DimDisplay::loadAction(const KConfigGroup &config)
 }
 
 #include "dimdisplay.moc"
+
+#include "moc_dimdisplay.cpp"

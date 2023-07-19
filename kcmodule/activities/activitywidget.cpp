@@ -103,3 +103,5 @@ void ActivityWidget::setChanged()
 {
     Q_EMIT changed(true);
 }
+
+#include "moc_activitywidget.cpp"

@@ -166,3 +166,5 @@ QList<QPair<QString, QWidget *>> HandleButtonEventsConfig::buildUi()
 }
 
 #include "handlebuttoneventsconfig.moc"
+
+#include "moc_handlebuttoneventsconfig.cpp"

@@ -624,3 +624,5 @@ int PowerDevilUPowerBackend::keyboardBrightness() const
 
     return result;
 }
+
+#include "moc_powerdevilupowerbackend.cpp"

@@ -217,3 +217,5 @@ int BackendInterface::calculateNextKeyboardBrightnessStep(int value, int valueMa
 }
 
 }
+
+#include "moc_powerdevilbackendinterface.cpp"

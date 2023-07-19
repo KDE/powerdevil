@@ -236,3 +236,5 @@ void DPMS::lockScreen()
 }
 }
 #include "dpms.moc"
+
+#include "moc_dpms.cpp"

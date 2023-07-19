@@ -258,3 +258,5 @@ void PowerProfile::propertiesChanged(const QString &interface, const QVariantMap
 }
 
 #include "powerprofile.moc"
+
+#include "moc_powerprofile.cpp"

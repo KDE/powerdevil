@@ -1139,3 +1139,5 @@ void Core::timerfdEventHandler()
 }
 
 }
+
+#include "moc_powerdevilcore.cpp"
