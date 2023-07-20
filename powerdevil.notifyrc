@@ -961,7 +961,7 @@ Comment[x-test]=xxThe power source has been connectedxx
 Comment[zh_CN]=电源已连接
 Comment[zh_TW]=已插入電源
 Contexts=stdnot
-Sound=Oxygen-Sys-App-Positive.ogg
+Sound=power-plug
 Action=Sound
 IconName=battery-charging-low
 
@@ -1053,6 +1053,6 @@ Comment[x-test]=xxThe power source has been disconnectedxx
 Comment[zh_CN]=电源已断开连接
 Comment[zh_TW]=已拔出電源
 Contexts=stdnot
-Sound=Oxygen-Sys-App-Negative.ogg
+Sound=power-unplug
 Action=Sound
 IconName=battery-low
