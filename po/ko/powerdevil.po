@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-07-15 02:06+0000\n"
-"PO-Revision-Date: 2023-02-28 23:09+0100\n"
+"PO-Revision-Date: 2023-07-25 01:18+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,12 +40,10 @@ msgid "Increase Screen Brightness"
 msgstr "화면 밝기 증가"
 
 #: actions/bundled/brightnesscontrol.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "화면 밝기 증가"
+msgstr "화면 밝기 1% 증가"
 
 #: actions/bundled/brightnesscontrol.cpp:69
 #, kde-format
@@ -54,12 +52,10 @@ msgid "Decrease Screen Brightness"
 msgstr "화면 밝기 감소"
 
 #: actions/bundled/brightnesscontrol.cpp:74
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "화면 밝기 감소"
+msgstr "화면 밝기 1% 감소"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:68
 #, kde-format
@@ -95,12 +91,12 @@ msgstr "다음 시간 이후 전원 끄기"
 #: actions/bundled/dpmsconfig.cpp:67
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr "초"
 
 #: actions/bundled/dpmsconfig.cpp:68
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "화면이 잠겼을 때 다음 시간 이후 끄기"
 
 #: actions/bundled/handlebuttonevents.cpp:61
 #, kde-format
@@ -323,10 +319,9 @@ msgid "Previous maintainer"
 msgstr "이전 관리자"
 
 #: powerdevilapp.cpp:149
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "다음 시간 이후 전원 끄기"
+msgstr "전원 프로필 전환"
 
 #: powerdevilapp.cpp:164
 #, kde-format
