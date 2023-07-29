@@ -161,6 +161,7 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 
         // In this case, let's send a wakeup event
         KIdleTime::instance()->simulateUserActivity();
+        backend()->setIdleHint(false);
         break;
     case BackendInterface::PowerButton:
         processAction(m_powerButtonAction);

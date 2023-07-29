@@ -196,10 +196,12 @@ public:
      * @returns whether the lid is closed or not.
      */
     bool isLidClosed() const;
+    QBindable<bool> bindableIsLidClosed() const;
     /**
      * @returns whether the a lid is present
      */
     bool isLidPresent() const;
+    QBindable<bool> bindableIsLidPresent() const;
 
     void setLidPresent(bool present);
 
@@ -321,8 +323,8 @@ private:
     Capabilities m_capabilities;
     SuspendMethods m_suspendMethods;
     QString m_errorString;
-    bool m_isLidClosed = false;
-    bool m_isLidPresent = false;
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(BackendInterface, bool, m_isLidClosed, false, &BackendInterface::lidClosedChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(BackendInterface, bool, m_isLidPresent, false)
 
     friend class Core;
 };

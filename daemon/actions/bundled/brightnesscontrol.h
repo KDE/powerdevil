@@ -22,14 +22,22 @@
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
 
+#include "autobrightness/abstractlightsensor.h"
+
 namespace PowerDevil::BundledActions
 {
+class AbstractLightSensor;
 class BrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.BrightnessControl")
 
 public:
+    enum class BrightnessMode : std::uint32_t {
+        Manual = 0,
+        Automatic,
+    };
+
     explicit BrightnessControl(QObject *parent);
 
 protected:
@@ -46,6 +54,8 @@ public:
     int brightness() const;
     int brightnessMax() const;
     int brightnessSteps() const;
+    std::uint32_t brightnessMode() const;
+    bool supportsAutomaticBrightness() const;
 
 public Q_SLOTS:
     // DBus export
@@ -55,6 +65,7 @@ public Q_SLOTS:
     void decreaseBrightnessSmall();
     void setBrightness(int percent);
     void setBrightnessSilent(int percent);
+    void setBrightnessMode(std::uint32_t modeInt);
 
 private Q_SLOTS:
     void onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &brightnessInfo);
@@ -62,11 +73,16 @@ private Q_SLOTS:
 Q_SIGNALS:
     void brightnessChanged(int value);
     void brightnessMaxChanged(int valueMax);
+    void brightnessModeChanged(std::uint32_t modeInt);
+    void supportsAutomaticBrightnessChanged(bool support);
 
 private:
     int brightnessPercent(float value) const;
 
     int m_defaultValue = -1;
+
+    AbstractLightSensor *m_lightSensor = nullptr;
+    BrightnessMode m_brightnessMode = BrightnessMode::Manual;
 };
 
 }

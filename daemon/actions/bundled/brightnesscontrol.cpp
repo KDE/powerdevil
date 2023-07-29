@@ -27,7 +27,6 @@
 #include <powerdevilcore.h>
 
 #include <QAction>
-#include <QDebug>
 
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -35,12 +34,15 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
+#include "autobrightness/iiosensorproxy.h"
+
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerdevilbrightnesscontrolaction.json")
 
 namespace PowerDevil::BundledActions
 {
 BrightnessControl::BrightnessControl(QObject *parent)
     : Action(parent)
+    , m_lightSensor(new IIOSensorProxy(this))
 {
     // DBus
     new BrightnessControlAdaptor(this);
@@ -51,6 +53,8 @@ BrightnessControl::BrightnessControl(QObject *parent)
             &PowerDevil::BackendInterface::screenBrightnessChanged,
             this,
             &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromBackend);
+
+    connect(m_lightSensor, &AbstractLightSensor::isValidChanged, this, &BrightnessControl::supportsAutomaticBrightnessChanged);
 
     KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -175,6 +179,43 @@ void BrightnessControl::setBrightnessSilent(int value)
     });
 }
 
+void BrightnessControl::setBrightnessMode(std::uint32_t modeInt)
+{
+    if (qToUnderlying(m_brightnessMode) == modeInt) {
+        return;
+    }
+
+    m_brightnessMode = static_cast<BrightnessMode>(modeInt);
+
+    switch (m_brightnessMode) {
+    case BrightnessMode::Automatic: {
+        connect(m_lightSensor, &AbstractLightSensor::lightLevelChanged, this, [this](double lightLevel) {
+            const int maxBrightness = brightnessMax();
+            if (maxBrightness <= 0) {
+                return;
+            }
+            setBrightnessSilent(std::ceil(maxBrightness * lightLevel));
+            qCDebug(POWERDEVIL) << "Setting brightness from light sensor" << lightLevel;
+        });
+        m_lightSensor->enabled().setBinding([this] {
+            return (!backend()->bindableIsLidPresent().value() || !backend()->bindableIsLidClosed().value()) // Lid is not closed
+                && backend()->isSessionActive().value() //
+                && !backend()->isSessionIdle().value();
+        });
+        Q_EMIT brightnessModeChanged(modeInt);
+        break;
+    }
+    case BrightnessMode::Manual:
+        disconnect(m_lightSensor, &AbstractLightSensor::lightLevelChanged, this, nullptr);
+        m_lightSensor->enabled().setValue(false);
+        Q_EMIT brightnessModeChanged(modeInt);
+        break;
+    default:
+        qCWarning(POWERDEVIL) << "Unsupported brightness mode" << modeInt;
+        break;
+    }
+}
+
 void BrightnessControl::increaseBrightness()
 {
     const int newBrightness = backend()->screenBrightnessKeyPressed(BrightnessLogic::Increase);
@@ -210,6 +251,16 @@ void BrightnessControl::decreaseBrightnessSmall()
 int BrightnessControl::brightnessSteps() const
 {
     return backend()->screenBrightnessSteps();
+}
+
+bool BrightnessControl::supportsAutomaticBrightness() const
+{
+    return m_lightSensor->isValid();
+}
+
+std::uint32_t BrightnessControl::brightnessMode() const
+{
+    return qToUnderlying(m_brightnessMode);
 }
 
 int BrightnessControl::brightnessPercent(float value) const

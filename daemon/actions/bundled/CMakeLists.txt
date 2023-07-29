@@ -28,7 +28,9 @@ function(target_dbus_files _target)
     target_sources(${_target} PRIVATE ${dbus_SRCS})
 endfunction()
 
-add_powerdevil_bundled_action(brightnesscontrol KF6::GlobalAccel)
+add_subdirectory(autobrightness)
+
+add_powerdevil_bundled_action(brightnesscontrol KF6::GlobalAccel Qt::DBus autobrightness_static)
 target_dbus_files(powerdevil_brightnesscontrolaction  org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
                      brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
 

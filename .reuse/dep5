@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: powerdevil
+Upstream-Contact: KDE <community@kde.org>
+Source: https://invent.kde.org/plasma/powerdevil
+
+Files: daemon/actions/bundled/autobrightness/net.hadess.SensorProxy.xml
+Copyright: Bastien Nocera <hadess@hadess.net>
+License: GPL-2.0-or-later
+
+Files: daemon/actions/bundled/autobrightness/org.freedesktop.DBus.Properties.xml
+Copyright: KDE Community <community@kde.org>
+License: GPL-2.0-or-later

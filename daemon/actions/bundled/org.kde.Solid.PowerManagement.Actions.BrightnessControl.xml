@@ -7,11 +7,20 @@
     <method name="setBrightnessSilent">
       <arg type="i" direction="in" />
     </method>
+    <method name="setBrightnessMode">
+      <arg type="u" direction="in" />
+    </method>
     <method name="brightness">
       <arg type="i" direction="out" />
     </method>
     <method name="brightnessMax">
       <arg type="i" direction="out" />
+    </method>
+    <method name="supportsAutomaticBrightness">
+      <arg type="b" direction="out" />
+    </method>
+    <method name="brightnessMode">
+      <arg type="u" direction="out" />
     </method>
 
     <signal name="brightnessChanged">
@@ -19,6 +28,12 @@
     </signal>
     <signal name="brightnessMaxChanged">
       <arg type="i" direction="out" />
+    </signal>
+    <signal name="supportsAutomaticBrightnessChanged">
+      <arg type="b" direction="out" />
+    </signal>
+    <signal name="brightnessModeChanged">
+      <arg type="u" direction="out" />
     </signal>
 
     <method name="brightnessSteps">

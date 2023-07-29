@@ -79,9 +79,19 @@ bool BackendInterface::isLidClosed() const
     return m_isLidClosed;
 }
 
+QBindable<bool> BackendInterface::bindableIsLidClosed() const
+{
+    return &m_isLidClosed;
+}
+
 bool BackendInterface::isLidPresent() const
 {
     return m_isLidPresent;
+}
+
+QBindable<bool> BackendInterface::bindableIsLidPresent() const
+{
+    return &m_isLidPresent;
 }
 
 void BackendInterface::setLidPresent(bool present)
