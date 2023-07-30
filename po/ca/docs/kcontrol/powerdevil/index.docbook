@@ -158,17 +158,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Estalvi d'energia de la sense fil</guilabel
-></term>
-<listitem>
-<para
->Activeu aquesta opció per establir les accions individuals per al wifi, banda ampla mòbil o el Bluetooth. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
@@ -322,7 +311,7 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Això fa que canviar el perfil, la lluentor, el regulador sigui molt més fàcil i ràpid. El llançador té diverses paraules clau que podeu introduir per accedir a les seves funcions. </para>
+>). Això fa que canviar el perfil, la lluentor, el regulador i altres sigui més fàcil i ràpid. El llançador té diverses paraules clau que podeu introduir per accedir a les seves funcions. </para>
 <sect2 id="runnerwords">
 <title
 >Paraules clau del llançador</title>
