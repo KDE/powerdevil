@@ -23,6 +23,7 @@
 #include <QObject>
 
 #include "powerdevilbackendinterface.h"
+#include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
 
 namespace PowerDevil
@@ -70,7 +71,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies);
-    void triggerSuspendSession(uint action);
+    void triggerSuspendSession(PowerDevil::PowerButtonAction action);
 
 private:
     PowerDevil::Core *m_core;

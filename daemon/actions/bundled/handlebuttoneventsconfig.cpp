@@ -20,10 +20,10 @@
 
 #include "handlebuttoneventsconfig.h"
 
-#include "suspendsession.h"
 #include "upower_interface.h"
 
-#include "powerdevilpowermanagement.h"
+#include <powerdevilenums.h>
+#include <powerdevilpowermanagement.h>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -85,22 +85,28 @@ QList<QPair<QString, QWidget *>> HandleButtonEventsConfig::buildUi()
         boxes << m_lidCloseCombo << m_powerButtonCombo;
 
         for (QComboBox *box : qAsConst(boxes)) {
-            box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), (uint)SuspendSession::None);
+            box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), static_cast<uint>(PowerDevil::PowerButtonAction::NoAction));
             if (PowerManagement::instance()->canSuspend()) {
-                box->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
+                box->addItem(QIcon::fromTheme("system-suspend"),
+                             i18nc("Suspend to RAM", "Sleep"),
+                             static_cast<uint>(PowerDevil::PowerButtonAction::SuspendToRam));
             }
             if (PowerManagement::instance()->canHibernate()) {
-                box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
+                box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), static_cast<uint>(PowerDevil::PowerButtonAction::SuspendToDisk));
             }
             if (PowerManagement::instance()->canHybridSuspend()) {
-                box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), (uint)SuspendSession::SuspendHybridMode);
+                box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), static_cast<uint>(PowerDevil::PowerButtonAction::SuspendHybrid));
             }
-            box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
-            box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
+            box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), static_cast<uint>(PowerDevil::PowerButtonAction::Shutdown));
+            box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), static_cast<uint>(PowerDevil::PowerButtonAction::LockScreen));
             if (box != m_lidCloseCombo) {
-                box->addItem(QIcon::fromTheme("system-log-out"), i18n("Prompt log out dialog"), (uint)SuspendSession::LogoutDialogMode);
+                box->addItem(QIcon::fromTheme("system-log-out"),
+                             i18n("Prompt log out dialog"),
+                             static_cast<uint>(PowerDevil::PowerButtonAction::PromptLogoutDialog));
             }
-            box->addItem(QIcon::fromTheme("preferences-desktop-screensaver"), i18n("Turn off screen"), (uint)SuspendSession::TurnOffScreenMode);
+            box->addItem(QIcon::fromTheme("preferences-desktop-screensaver"),
+                         i18n("Turn off screen"),
+                         static_cast<uint>(PowerDevil::PowerButtonAction::TurnOffScreen));
         }
     }
 

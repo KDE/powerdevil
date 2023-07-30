@@ -21,10 +21,9 @@
 #include "handlebuttonevents.h"
 #include "handlebuttoneventsadaptor.h"
 
-#include "suspendsession.h"
-
 #include <powerdevil_debug.h>
 #include <powerdevilactionpool.h>
+#include <powerdevilenums.h>
 
 #include <QAction>
 
@@ -183,12 +182,12 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 void HandleButtonEvents::processAction(uint action)
 {
     // Basically, we simply trigger other actions :)
-    switch (static_cast<SuspendSession::Mode>(action)) {
-    case SuspendSession::TurnOffScreenMode:
+    switch (static_cast<PowerDevil::PowerButtonAction>(action)) {
+    case PowerDevil::PowerButtonAction::TurnOffScreen:
         // Turn off screen
         triggerAction("DPMSControl", QStringLiteral("TurnOff"));
         break;
-    case SuspendSession::ToggleScreenOnOffMode:
+    case PowerDevil::PowerButtonAction::ToggleScreenOnOff:
         // Toggle screen on/off
         triggerAction("DPMSControl", QStringLiteral("ToggleOnOff"));
         break;

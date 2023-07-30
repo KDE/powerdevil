@@ -19,6 +19,8 @@
 
 #include "powerdevilprofilegenerator.h"
 
+#include "powerdevilenums.h"
+
 #include <PowerDevilSettings.h>
 
 #include <Solid/Battery>
@@ -34,9 +36,9 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     // Change critical action if default (hibernate) is unavailable
     if (!toDisk) {
         if (!toRam) {
-            PowerDevilSettings::setBatteryCriticalAction(0);
+            PowerDevilSettings::setBatteryCriticalAction(PowerDevil::to_underlying(PowerButtonAction::NoAction));
         } else {
-            PowerDevilSettings::setBatteryCriticalAction(1);
+            PowerDevilSettings::setBatteryCriticalAction(PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
         }
 
         PowerDevilSettings::self()->save();
@@ -64,15 +66,15 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     }
 
     auto initLid = [toRam, mobile](KConfigGroup &profile) {
-        const Modes defaultPowerButtonAction = mobile ? ToggleScreenOnOffMode : LogoutDialogMode;
+        const PowerButtonAction defaultPowerButtonAction = mobile ? PowerButtonAction::ToggleScreenOnOff : PowerButtonAction::PromptLogoutDialog;
 
         KConfigGroup handleButtonEvents(&profile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry<uint>("powerButtonAction", defaultPowerButtonAction);
-        handleButtonEvents.writeEntry<uint>("powerDownAction", LogoutDialogMode);
+        handleButtonEvents.writeEntry("powerButtonAction", PowerDevil::to_underlying(defaultPowerButtonAction));
+        handleButtonEvents.writeEntry("powerDownAction", PowerDevil::to_underlying(PowerButtonAction::PromptLogoutDialog));
         if (toRam) {
-            handleButtonEvents.writeEntry<uint>("lidAction", ToRamMode);
+            handleButtonEvents.writeEntry("lidAction", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
         } else {
-            handleButtonEvents.writeEntry<uint>("lidAction", TurnOffScreenMode);
+            handleButtonEvents.writeEntry("lidAction", PowerDevil::to_underlying(PowerButtonAction::TurnOffScreen));
         }
     };
 
@@ -95,7 +97,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         auto timeout = mobile ? 420000 : 900000;
         KConfigGroup suspendSession(&acProfile, "SuspendSession");
         suspendSession.writeEntry<uint>("idleTime", timeout);
-        suspendSession.writeEntry<uint>("suspendType", ToRamMode);
+        suspendSession.writeEntry<uint>("suspendType", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
     }
 
     // Powersave
@@ -126,7 +128,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         auto timeout = mobile ? 300000 : 600000;
         KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
         suspendSession.writeEntry<uint>("idleTime", timeout);
-        suspendSession.writeEntry<uint>("suspendType", ToRamMode);
+        suspendSession.writeEntry<uint>("suspendType", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
     }
 
     // Ok, now for aggressive powersave
@@ -163,7 +165,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         // config is in the miliseconds
         KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
         suspendSession.writeEntry<uint>("idleTime", 300000);
-        suspendSession.writeEntry<uint>("suspendType", ToRamMode);
+        suspendSession.writeEntry<uint>("suspendType", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
     }
 
     // Save and be happy

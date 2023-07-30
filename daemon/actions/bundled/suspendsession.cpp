@@ -19,9 +19,9 @@
 
 #include "suspendsession.h"
 
-#include "powerdevilbackendinterface.h"
-#include "powerdevilcore.h"
 #include <powerdevil_debug.h>
+#include <powerdevilbackendinterface.h>
+#include <powerdevilcore.h>
 
 #include "suspendsessionadaptor.h"
 
@@ -104,9 +104,12 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 {
     qCDebug(POWERDEVIL) << "Suspend session triggered with" << args;
 
-    const auto mode = static_cast<Mode>(args["Type"].toUInt());
+    const auto mode = static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt());
 
-    if (mode == ToRamMode || mode == ToDiskMode || mode == SuspendHybridMode) {
+    switch (mode) {
+    case PowerDevil::PowerButtonAction::SuspendToRam:
+    case PowerDevil::PowerButtonAction::SuspendToDisk:
+    case PowerDevil::PowerButtonAction::SuspendHybrid:
         // don't suspend if shutting down
         if (KWorkSpace::isShuttingDown()) {
             qCDebug(POWERDEVIL) << "Not suspending because a shutdown is in progress";
@@ -118,6 +121,8 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
             m_fadeEffect->start();
             return;
         }
+    default:
+        /* no suspend action => no fade effect */;
     }
 
     if (args["GraceFade"].toBool()) {
@@ -126,27 +131,27 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 
     // Switch for real action
     KJob *suspendJob = nullptr;
-    switch ((Mode)(args["Type"].toUInt())) {
-    case ToRamMode:
+    switch (static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt())) {
+    case PowerDevil::PowerButtonAction::SuspendToRam:
         Q_EMIT aboutToSuspend();
         suspendJob =
             backend()->suspend(m_suspendThenHibernateEnabled ? PowerDevil::BackendInterface::SuspendThenHibernate : PowerDevil::BackendInterface::ToRam);
         break;
-    case ToDiskMode:
+    case PowerDevil::PowerButtonAction::SuspendToDisk:
         Q_EMIT aboutToSuspend();
         suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
         break;
-    case SuspendHybridMode:
+    case PowerDevil::PowerButtonAction::SuspendHybrid:
         Q_EMIT aboutToSuspend();
         suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
         break;
-    case ShutdownMode:
+    case PowerDevil::PowerButtonAction::Shutdown:
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
         break;
-    case LogoutDialogMode:
+    case PowerDevil::PowerButtonAction::PromptLogoutDialog:
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
         break;
-    case LockScreenMode: {
+    case PowerDevil::PowerButtonAction::LockScreen: {
         // TODO should probably go through the backend (logind perhaps) eventually
         const QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock");
         QDBusConnection::sessionBus().asyncCall(msg);
@@ -183,23 +188,23 @@ bool SuspendSession::loadAction(const KConfigGroup &config)
 
 void SuspendSession::suspendHybrid()
 {
-    triggerSuspendSession(SuspendHybridMode);
+    triggerSuspendSession(PowerDevil::PowerButtonAction::SuspendHybrid);
 }
 
 void SuspendSession::suspendToDisk()
 {
-    triggerSuspendSession(ToDiskMode);
+    triggerSuspendSession(PowerDevil::PowerButtonAction::SuspendToDisk);
 }
 
 void SuspendSession::suspendToRam()
 {
-    triggerSuspendSession(ToRamMode);
+    triggerSuspendSession(PowerDevil::PowerButtonAction::SuspendToRam);
 }
 
-void SuspendSession::triggerSuspendSession(uint action)
+void SuspendSession::triggerSuspendSession(PowerDevil::PowerButtonAction action)
 {
     trigger({
-        {QStringLiteral("Type"), action},
+        {QStringLiteral("Type"), PowerDevil::to_underlying(action)},
         {QStringLiteral("Explicit"), true},
     });
 }

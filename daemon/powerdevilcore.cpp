@@ -24,10 +24,9 @@
 #include "powerdevil_debug.h"
 #include "powerdevilaction.h"
 #include "powerdevilactionpool.h"
+#include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilprofilegenerator.h"
-
-#include "actions/bundled/suspendsession.h"
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -630,20 +629,21 @@ void Core::handleCriticalBattery(int percent)
         m_criticalBatteryNotification->close();
     });
 
-    switch (PowerDevilSettings::batteryCriticalAction()) {
-    case PowerDevil::BundledActions::SuspendSession::ShutdownMode:
+    switch (static_cast<PowerButtonAction>(PowerDevilSettings::batteryCriticalAction())) {
+    case PowerButtonAction::Shutdown:
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will shut down in 60 seconds."));
         actions.prepend(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
-    case PowerDevil::BundledActions::SuspendSession::ToDiskMode:
+    case PowerButtonAction::SuspendToDisk:
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will enter hibernation mode in 60 seconds."));
         actions.prepend(i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
         m_criticalBatteryNotification->setActions(actions);
         m_criticalBatteryTimer->start();
         break;
-    case PowerDevil::BundledActions::SuspendSession::ToRamMode:
+    case PowerButtonAction::SuspendToRam:
+    case PowerButtonAction::SuspendHybrid:
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
         actions.prepend(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
         m_criticalBatteryNotification->setActions(actions);

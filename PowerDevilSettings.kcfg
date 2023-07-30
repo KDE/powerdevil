@@ -6,6 +6,8 @@
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="powerdevilrc"/>
 
+  <include>powerdevilenums.h</include>
+
   <group name="General">
     <entry name="doNotInhibitOnLidClose" type="Bool">
       <default>true</default>
@@ -31,8 +33,10 @@
     <entry name="BatteryCriticalLevel" type="Int">
       <default>5</default>
     </entry>
-    <entry name="BatteryCriticalAction" type="Int">
-      <default>2</default>
+    <entry name="BatteryCriticalAction" type="UInt">
+      <default type="code">
+        PowerDevil::to_underlying(PowerDevil::PowerButtonAction::SuspendToDisk)
+      </default>
     </entry>
     <entry name="PeripheralBatteryLowLevel" type="Int">
       <default>10</default>

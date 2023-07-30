@@ -19,12 +19,12 @@
 
 #include "suspendsessionconfig.h"
 
-#include "powerdevilpowermanagement.h"
+#include <powerdevilenums.h>
+#include <powerdevilpowermanagement.h>
 
 #include <QHBoxLayout>
 #include <QSpinBox>
 
-#include "suspendsession.h"
 #include <KComboBox>
 #include <KConfig>
 #include <KLocalizedString>
@@ -78,16 +78,18 @@ QList<QPair<QString, QWidget *>> SuspendSessionConfig::buildUi()
     m_idleTime->setPrefix(i18n("after "));
 
     if (PowerManagement::instance()->canSuspend()) {
-        m_comboBox->addItem(QIcon::fromTheme("system-suspend"), i18nc("Suspend to RAM", "Sleep"), (uint)SuspendSession::ToRamMode);
+        m_comboBox->addItem(QIcon::fromTheme("system-suspend"),
+                            i18nc("Suspend to RAM", "Sleep"),
+                            static_cast<uint>(PowerDevil::PowerButtonAction::SuspendToRam));
     }
     if (PowerManagement::instance()->canHibernate()) {
-        m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), (uint)SuspendSession::ToDiskMode);
+        m_comboBox->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), static_cast<uint>(PowerDevil::PowerButtonAction::SuspendToDisk));
     }
     if (PowerManagement::instance()->canHybridSuspend()) {
-        m_comboBox->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), (uint)SuspendSession::SuspendHybridMode);
+        m_comboBox->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), static_cast<uint>(PowerDevil::PowerButtonAction::SuspendHybrid));
     }
-    m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), (uint)SuspendSession::ShutdownMode);
-    m_comboBox->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), (uint)SuspendSession::LockScreenMode);
+    m_comboBox->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), static_cast<uint>(PowerDevil::PowerButtonAction::Shutdown));
+    m_comboBox->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), static_cast<uint>(PowerDevil::PowerButtonAction::LockScreen));
 
     hlay->addWidget(m_comboBox);
     hlay->addWidget(m_idleTime);

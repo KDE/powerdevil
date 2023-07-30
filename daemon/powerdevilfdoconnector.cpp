@@ -27,8 +27,6 @@
 #include "powermanagementfdoadaptor.h"
 #include "powermanagementinhibitadaptor.h"
 
-#include "actions/bundled/suspendsession.h"
-
 #include <KConfigGroup>
 
 namespace PowerDevil
@@ -82,17 +80,17 @@ bool FdoConnector::GetPowerSaveStatus()
 
 void FdoConnector::Suspend()
 {
-    triggerSuspendSession(BundledActions::SuspendSession::ToRamMode);
+    triggerSuspendSession(PowerButtonAction::SuspendToRam);
 }
 
 void FdoConnector::Hibernate()
 {
-    triggerSuspendSession(BundledActions::SuspendSession::ToDiskMode);
+    triggerSuspendSession(PowerButtonAction::SuspendToDisk);
 }
 
 void FdoConnector::HybridSuspend()
 {
-    triggerSuspendSession(BundledActions::SuspendSession::SuspendHybridMode);
+    triggerSuspendSession(PowerButtonAction::SuspendHybrid);
 }
 
 bool FdoConnector::HasInhibit()
@@ -131,12 +129,12 @@ void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::Require
     Q_EMIT HasInhibitChanged(newpolicies & PowerDevil::PolicyAgent::InterruptSession);
 }
 
-void FdoConnector::triggerSuspendSession(uint action)
+void FdoConnector::triggerSuspendSession(PowerButtonAction action)
 {
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), m_core);
     if (helperAction) {
         QVariantMap args;
-        args["Type"] = action;
+        args["Type"] = PowerDevil::to_underlying(action);
         args["Explicit"] = true;
         helperAction->trigger(args);
     }

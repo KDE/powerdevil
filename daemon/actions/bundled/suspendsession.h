@@ -20,6 +20,7 @@
 #pragma once
 
 #include <powerdevilaction.h>
+#include <powerdevilenums.h>
 
 #include <QScopedPointer>
 
@@ -35,18 +36,6 @@ class SuspendSession : public PowerDevil::Action
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.SuspendSession")
 
 public:
-    enum Mode {
-        None = 0,
-        ToRamMode = 1,
-        ToDiskMode = 2,
-        SuspendHybridMode = 4,
-        ShutdownMode = 8,
-        LogoutDialogMode = 16,
-        LockScreenMode = 32,
-        TurnOffScreenMode = 64,
-        ToggleScreenOnOffMode = 128,
-    };
-
     explicit SuspendSession(QObject *parent);
     ~SuspendSession() override;
 
@@ -69,7 +58,7 @@ Q_SIGNALS:
     void resumingFromSuspend();
 
 private Q_SLOTS:
-    void triggerSuspendSession(uint action);
+    void triggerSuspendSession(PowerDevil::PowerButtonAction action);
 
 private:
     bool m_suspendThenHibernateEnabled = false;

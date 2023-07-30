@@ -22,9 +22,8 @@
 #include "ErrorOverlay.h"
 #include "PowerDevilSettings.h"
 
-#include "actions/bundled/suspendsession.h"
-
-#include "powerdevilpowermanagement.h"
+#include <powerdevilenums.h>
+#include <powerdevilpowermanagement.h>
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -92,16 +91,18 @@ void GeneralPage::fillUi()
         }
     }
 
-    BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::BundledActions::SuspendSession::None);
+    BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::to_underlying(PowerDevil::PowerButtonAction::NoAction));
     if (PowerDevil::PowerManagement::instance()->canSuspend()) {
         BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"),
                                       i18nc("Suspend to RAM", "Sleep"),
-                                      PowerDevil::BundledActions::SuspendSession::ToRamMode);
+                                      PowerDevil::to_underlying(PowerDevil::PowerButtonAction::SuspendToRam));
     }
     if (PowerDevil::PowerManagement::instance()->canHibernate()) {
-        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), PowerDevil::BundledActions::SuspendSession::ToDiskMode);
+        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"),
+                                      i18n("Hibernate"),
+                                      PowerDevil::to_underlying(PowerDevil::PowerButtonAction::SuspendToDisk));
     }
-    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), PowerDevil::BundledActions::SuspendSession::ShutdownMode);
+    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), PowerDevil::to_underlying(PowerDevil::PowerButtonAction::Shutdown));
 
     notificationsButton->setIcon(QIcon::fromTheme("preferences-desktop-notification"));
 
@@ -182,7 +183,7 @@ void GeneralPage::save()
     PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
     PowerDevilSettings::setPeripheralBatteryLowLevel(lowPeripheralSpin->value());
 
-    PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toInt());
+    PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toUInt());
 
     PowerDevilSettings::setPausePlayersOnSuspend(pausePlayersCheckBox->checkState() == Qt::Checked);
 
