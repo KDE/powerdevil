@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-23 04:00+0000\n"
-"PO-Revision-Date: 2023-06-17 14:25+0200\n"
+"PO-Revision-Date: 2023-07-29 09:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -227,7 +227,7 @@ msgstr "Cambiar a:"
 #: actions/bundled/runscriptconfig.cpp:71
 #, kde-format
 msgid "Script"
-msgstr "Script"
+msgstr "Guión"
 
 #: actions/bundled/runscriptconfig.cpp:83
 #, kde-format
@@ -322,7 +322,7 @@ msgstr "Kai Uwe Broulik"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "Mantedor"
+msgstr "Mantemento."
 
 #: powerdevilapp.cpp:69
 #, kde-format
@@ -334,7 +334,7 @@ msgstr "Dario Freddi"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "Mantedor anterior"
+msgstr "Mantemento anterior."
 
 #: powerdevilapp.cpp:160
 #, kde-format
