@@ -20,6 +20,7 @@
 #include "powerdevilprofilegenerator.h"
 
 #include "powerdevilenums.h"
+#include "powerdevilprofiledefaults.h"
 
 #include <PowerDevilSettings.h>
 
@@ -56,117 +57,46 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         }
     }
 
-    // Let's start: AC profile before anything else
-    KConfigGroup acProfile(profilesConfig, "AC");
-
-    // We want to dim the screen after a while, definitely
-    {
-        KConfigGroup dimDisplay(&acProfile, "DimDisplay");
-        dimDisplay.writeEntry<int>("idleTime", 300000);
-    }
-
-    auto initLid = [toRam, mobile](KConfigGroup &profile) {
-        const PowerButtonAction defaultPowerButtonAction = mobile ? PowerButtonAction::ToggleScreenOnOff : PowerButtonAction::PromptLogoutDialog;
+    auto initProfile = [toRam, mobile](KConfigGroup &profile) {
+        if (ProfileDefaults::defaultUseProfileSpecificDisplayBrightness(profile.name())) {
+            KConfigGroup brightnessControl(&profile, "BrightnessControl");
+            brightnessControl.writeEntry("value", ProfileDefaults::defaultDisplayBrightness(profile.name()));
+        }
 
         KConfigGroup handleButtonEvents(&profile, "HandleButtonEvents");
-        handleButtonEvents.writeEntry("powerButtonAction", PowerDevil::to_underlying(defaultPowerButtonAction));
-        handleButtonEvents.writeEntry("powerDownAction", PowerDevil::to_underlying(PowerButtonAction::PromptLogoutDialog));
-        if (toRam) {
-            handleButtonEvents.writeEntry("lidAction", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
-        } else {
-            handleButtonEvents.writeEntry("lidAction", PowerDevil::to_underlying(PowerButtonAction::TurnOffScreen));
+        handleButtonEvents.writeEntry("powerButtonAction", ProfileDefaults::defaultPowerButtonAction(mobile));
+        handleButtonEvents.writeEntry("powerDownAction", ProfileDefaults::defaultPowerDownAction());
+        handleButtonEvents.writeEntry("lidAction", ProfileDefaults::defaultLidAction(toRam));
+
+        if (ProfileDefaults::defaultDimDisplayWhenIdle()) {
+            KConfigGroup dimDisplay(&profile, "DimDisplay");
+            dimDisplay.writeEntry("idleTime", ProfileDefaults::defaultDimDisplayIdleTimeoutSec(profile.name(), mobile) * 1000); // milliseconds
+        }
+
+        if (ProfileDefaults::defaultTurnOffDisplayWhenIdle()) {
+            KConfigGroup dpmsControl(&profile, "DPMSControl");
+            dpmsControl.writeEntry("idleTime", ProfileDefaults::defaultTurnOffDisplayIdleTimeoutSec(profile.name(), mobile)); // seconds
+            dpmsControl.writeEntry<int>("lockBeforeTurnOff", ProfileDefaults::defaultLockBeforeTurnOffDisplay(mobile));
+        }
+
+        if (ProfileDefaults::defaultAutoSuspendWhenIdle(toRam)) {
+            KConfigGroup suspendSession(&profile, "SuspendSession");
+            suspendSession.writeEntry("idleTime", ProfileDefaults::defaultAutoSuspendIdleTimeoutSec(profile.name(), mobile) * 1000); // milliseconds
+            suspendSession.writeEntry("suspendType", ProfileDefaults::defaultAutoSuspendType());
         }
     };
 
-    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-    initLid(acProfile);
-
-    // And we also want to turn off the screen after another while
-    {
-        // on mobile, 1 minute, on desktop 10 minutes
-        auto timeout = mobile ? 60 : 600;
-        KConfigGroup dpmsControl(&acProfile, "DPMSControl");
-        dpmsControl.writeEntry<uint>("idleTime", timeout);
-        dpmsControl.writeEntry<uint>("lockBeforeTurnOff", mobile);
-    }
-
-    // Even on AC power, suspend after a rather long period of inactivity. Energy
-    // is precious!
-    if (toRam) {
-        // on mobile, 7 minutes, on laptop 15 minutes
-        auto timeout = mobile ? 420000 : 900000;
-        KConfigGroup suspendSession(&acProfile, "SuspendSession");
-        suspendSession.writeEntry<uint>("idleTime", timeout);
-        suspendSession.writeEntry<uint>("suspendType", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
-    }
+    // Let's start: AC profile before anything else
+    KConfigGroup acProfile(profilesConfig, "AC");
+    initProfile(acProfile);
 
     // Powersave
     KConfigGroup batteryProfile(profilesConfig, "Battery");
-    // We want to dim the screen after a while, definitely
-    {
-        // on mobile 30 seconds, on desktop 2 minutes
-        // config is in the miliseconds
-        auto timeout = mobile ? 30000 : 120000;
-        KConfigGroup dimDisplay(&batteryProfile, "DimDisplay");
-        dimDisplay.writeEntry<int>("idleTime", timeout);
-    }
-    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-    initLid(batteryProfile);
-
-    // We want to turn off the screen after another while
-    {
-        // on mobile, 1 minute, on laptop 5 minutes
-        auto timeout = mobile ? 60 : 300;
-        KConfigGroup dpmsControl(&batteryProfile, "DPMSControl");
-        dpmsControl.writeEntry<uint>("idleTime", timeout);
-        dpmsControl.writeEntry<uint>("lockBeforeTurnOff", mobile);
-    }
-
-    // Last but not least, we want to suspend after some inactivity
-    if (toRam) {
-        // on mobile, 5 minute, on laptop 10 minutes
-        auto timeout = mobile ? 300000 : 600000;
-        KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
-        suspendSession.writeEntry<uint>("idleTime", timeout);
-        suspendSession.writeEntry<uint>("suspendType", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
-    }
+    initProfile(batteryProfile);
 
     // Ok, now for aggressive powersave
     KConfigGroup lowBatteryProfile(profilesConfig, "LowBattery");
-    // Less brightness.
-    {
-        KConfigGroup brightnessControl(&lowBatteryProfile, "BrightnessControl");
-        brightnessControl.writeEntry<int>("value", 30);
-    }
-    // We want to dim the screen after a while, definitely
-    {
-        // on mobile 30 seconds, on desktop 1 minute
-        // config is in the miliseconds
-        auto timeout = mobile ? 30000 : 60000;
-        KConfigGroup dimDisplay(&lowBatteryProfile, "DimDisplay");
-        dimDisplay.writeEntry<int>("idleTime", timeout);
-    }
-    // Show the dialog when power button is pressed and suspend on suspend button pressed and lid closed (if supported)
-    initLid(lowBatteryProfile);
-
-    // We want to turn off the screen after another while
-    {
-        // on mobile, half minute, on laptop 2 minutes
-        auto timeout = mobile ? 30 : 120;
-        KConfigGroup dpmsControl(&lowBatteryProfile, "DPMSControl");
-        dpmsControl.writeEntry<uint>("idleTime", timeout);
-        dpmsControl.writeEntry<uint>("lockBeforeTurnOff", mobile);
-    }
-
-    // Last but not least, we want to suspend after a rather long period of inactivity
-    // on mobile by default never suspend, if device wants to suspend, it will enable
-    // using configuration overlay
-    if (toRam) {
-        // config is in the miliseconds
-        KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
-        suspendSession.writeEntry<uint>("idleTime", 300000);
-        suspendSession.writeEntry<uint>("suspendType", PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
-    }
+    initProfile(lowBatteryProfile);
 
     // Save and be happy
     profilesConfig->sync();
