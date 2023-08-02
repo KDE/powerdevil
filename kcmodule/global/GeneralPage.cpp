@@ -20,6 +20,7 @@
 #include "GeneralPage.h"
 
 #include "ErrorOverlay.h"
+#include "PowerButtonActionModel.h"
 
 #include <PowerDevilGlobalSettings.h>
 #include <powerdevilenums.h>
@@ -92,18 +93,15 @@ void GeneralPage::fillUi()
         }
     }
 
-    BatteryCriticalCombo->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), PowerDevil::to_underlying(PowerDevil::PowerButtonAction::NoAction));
-    if (PowerDevil::PowerManagement::instance()->canSuspend()) {
-        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend"),
-                                      i18nc("Suspend to RAM", "Sleep"),
-                                      PowerDevil::to_underlying(PowerDevil::PowerButtonAction::SuspendToRam));
-    }
-    if (PowerDevil::PowerManagement::instance()->canHibernate()) {
-        BatteryCriticalCombo->addItem(QIcon::fromTheme("system-suspend-hibernate"),
-                                      i18n("Hibernate"),
-                                      PowerDevil::to_underlying(PowerDevil::PowerButtonAction::SuspendToDisk));
-    }
-    BatteryCriticalCombo->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), PowerDevil::to_underlying(PowerDevil::PowerButtonAction::Shutdown));
+    BatteryCriticalCombo->setModel(new PowerButtonActionModel(BatteryCriticalCombo,
+                                                              PowerDevil::PowerManagement::instance(),
+                                                              {
+                                                                  PowerDevil::PowerButtonAction::NoAction,
+                                                                  PowerDevil::PowerButtonAction::SuspendToRam,
+                                                                  PowerDevil::PowerButtonAction::SuspendToDisk,
+                                                                  PowerDevil::PowerButtonAction::SuspendHybrid,
+                                                                  PowerDevil::PowerButtonAction::Shutdown,
+                                                              }));
 
     notificationsButton->setIcon(QIcon::fromTheme("preferences-desktop-notification"));
 

@@ -5,6 +5,7 @@ set( powerdevil_config_common_private_SRCS
     actionconfigwidget.cpp
     actioneditwidget.cpp
     ErrorOverlay.cpp
+    PowerButtonActionModel.cpp
 )
 
 add_library(powerdevilconfigcommonprivate SHARED ${powerdevil_config_common_private_SRCS})
