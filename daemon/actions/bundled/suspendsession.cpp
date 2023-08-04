@@ -35,8 +35,6 @@
 
 #include <kworkspace.h>
 
-#include <PowerDevilSettings.h>
-
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::SuspendSession, "powerdevilsuspendsessionaction.json")
 
 namespace PowerDevil::BundledActions

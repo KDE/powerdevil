@@ -20,8 +20,8 @@
 #include "GeneralPage.h"
 
 #include "ErrorOverlay.h"
-#include "PowerDevilSettings.h"
 
+#include <PowerDevilGlobalSettings.h>
 #include <powerdevilenums.h>
 #include <powerdevilpowermanagement.h>
 
@@ -50,6 +50,7 @@ K_PLUGIN_CLASS_WITH_JSON(GeneralPage, "kcm_powerdevilglobalconfig.json")
 
 GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
     : KCModule(parent, data)
+    , m_settings(new PowerDevil::GlobalSettings(this))
 {
     setButtons(Apply | Help);
 
@@ -143,13 +144,13 @@ void GeneralPage::fillUi()
 
 void GeneralPage::load()
 {
-    lowSpin->setValue(PowerDevilSettings::batteryLowLevel());
-    criticalSpin->setValue(PowerDevilSettings::batteryCriticalLevel());
-    lowPeripheralSpin->setValue(PowerDevilSettings::peripheralBatteryLowLevel());
+    lowSpin->setValue(m_settings->batteryLowLevel());
+    criticalSpin->setValue(m_settings->batteryCriticalLevel());
+    lowPeripheralSpin->setValue(m_settings->peripheralBatteryLowLevel());
 
-    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(PowerDevilSettings::batteryCriticalAction()));
+    BatteryCriticalCombo->setCurrentIndex(BatteryCriticalCombo->findData(m_settings->batteryCriticalAction()));
 
-    pausePlayersCheckBox->setChecked(PowerDevilSettings::pausePlayersOnSuspend());
+    pausePlayersCheckBox->setChecked(m_settings->pausePlayersOnSuspend());
 
     KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getthreshold"));
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
@@ -179,15 +180,15 @@ void GeneralPage::configureNotifications()
 
 void GeneralPage::save()
 {
-    PowerDevilSettings::setBatteryLowLevel(lowSpin->value());
-    PowerDevilSettings::setBatteryCriticalLevel(criticalSpin->value());
-    PowerDevilSettings::setPeripheralBatteryLowLevel(lowPeripheralSpin->value());
+    m_settings->setBatteryLowLevel(lowSpin->value());
+    m_settings->setBatteryCriticalLevel(criticalSpin->value());
+    m_settings->setPeripheralBatteryLowLevel(lowPeripheralSpin->value());
 
-    PowerDevilSettings::setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toUInt());
+    m_settings->setBatteryCriticalAction(BatteryCriticalCombo->itemData(BatteryCriticalCombo->currentIndex()).toUInt());
 
-    PowerDevilSettings::setPausePlayersOnSuspend(pausePlayersCheckBox->checkState() == Qt::Checked);
+    m_settings->setPausePlayersOnSuspend(pausePlayersCheckBox->checkState() == Qt::Checked);
 
-    PowerDevilSettings::self()->save();
+    m_settings->save();
 
     if ((m_chargeStartThreshold != -1 && chargeStartThresholdSpin->value() != m_chargeStartThreshold)
         || (m_chargeStopThreshold != -1 && chargeStopThresholdSpin->value() != m_chargeStopThreshold)) {

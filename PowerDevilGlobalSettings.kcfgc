@@ -1,0 +1,7 @@
+ClassName=GlobalSettings
+NameSpace=PowerDevil
+File=PowerDevilSettings.kcfg
+Mutators=true
+DefaultValueGetters=true
+GenerateProperties=true
+ParentInConstructor=true

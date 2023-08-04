@@ -23,7 +23,13 @@
 
 #include "ui_generalPage.h"
 
+namespace PowerDevil
+{
+class GlobalSettings;
+}
+
 class ErrorOverlay;
+
 class GeneralPage : public KCModule, private Ui_generalPage
 {
     Q_OBJECT
@@ -47,6 +53,7 @@ private:
     void setChargeThresholdSupported(bool supported);
 
     ErrorOverlay *m_errorOverlay = nullptr;
+    PowerDevil::GlobalSettings *m_settings;
 
     int m_chargeStartThreshold = 0;
     int m_chargeStopThreshold = 100;

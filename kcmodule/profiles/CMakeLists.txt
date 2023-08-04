@@ -9,8 +9,6 @@ set( kcm_powerdevil_profiles_SRCS
 ki18n_wrap_ui(kcm_powerdevil_profiles_SRCS
     profileEditPage.ui)
 
-kconfig_add_kcfg_files(kcm_powerdevil_profiles_SRCS ../../PowerDevilSettings.kcfgc)
-
 kcoreaddons_add_plugin(kcm_powerdevilprofilesconfig SOURCES ${kcm_powerdevil_profiles_SRCS} INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
 kcmutils_generate_desktop_file(kcm_powerdevilprofilesconfig)
 
