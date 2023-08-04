@@ -7,13 +7,20 @@
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
-import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.kirigami as Kirigami
 
 KCM.AbstractKCM {
     id: root
 
     KCM.ConfigModule.buttons: KCM.ConfigModule.Default | KCM.ConfigModule.Apply
+
+    actions: Kirigami.Action {
+        text: i18nc("@action:button", "Advanced Power &Settings…")
+        icon.name: "settings-configure"
+        enabled: kcm.powerManagementServiceRegistered
+        onTriggered: { kcm.push("GlobalConfig.qml"); }
+    }
 
     implicitWidth: Kirigami.Units.gridUnit * 30
     implicitHeight: Kirigami.Units.gridUnit * 35

@@ -5,6 +5,4 @@ include_directories (
 )
 
 add_subdirectory(common)
-
-add_subdirectory(global)
 add_subdirectory(profiles)

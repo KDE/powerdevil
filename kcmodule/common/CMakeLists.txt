@@ -2,7 +2,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"libpowerdevilcommonconfig\")
 
 set( powerdevil_config_common_private_SRCS
     ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
-    ErrorOverlay.cpp
     PowerButtonActionModel.cpp
     PowerProfileModel.cpp
     SleepModeModel.cpp

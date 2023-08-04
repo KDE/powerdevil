@@ -6,6 +6,7 @@
  */
 
 #include "ProfilesConfigKCM.h"
+#include "ExternalServiceSettings.h"
 
 // powerdevil/kcmodule/common
 #include <PowerButtonActionModel.h>
@@ -13,6 +14,7 @@
 #include <SleepModeModel.h>
 
 // powerdevil/daemon
+#include <PowerDevilGlobalSettings.h>
 #include <PowerDevilProfileSettings.h>
 #include <lidcontroller.h>
 #include <powerdevilenums.h>
@@ -49,13 +51,15 @@ ProfilesConfigData::ProfilesConfigData(QObject *parent, const KPluginMetaData &m
     : ProfilesConfigData(parent,
                          Kirigami::Platform::TabletModeWatcher::self()->isTabletMode() /*isMobile*/,
                          PowerDevil::PowerManagement::instance()->isVirtualMachine() /*isVM*/,
-                         PowerDevil::PowerManagement::instance()->canSuspend())
+                         PowerDevil::PowerManagement::instance()->canSuspend(),
+                         PowerDevil::PowerManagement::instance()->canHibernate())
 {
     Q_UNUSED(metaData);
 }
 
-ProfilesConfigData::ProfilesConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend)
+ProfilesConfigData::ProfilesConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend, bool canHibernate)
     : KCModuleData(parent)
+    , m_globalSettings(new GlobalSettings(canSuspend, canHibernate, this))
     , m_settingsAC(new ProfileSettings("AC", isMobile, isVM, canSuspend, this))
     , m_settingsBattery(new ProfileSettings("Battery", isMobile, isVM, canSuspend, this))
     , m_settingsLowBattery(new ProfileSettings("LowBattery", isMobile, isVM, canSuspend, this))
@@ -65,6 +69,11 @@ ProfilesConfigData::ProfilesConfigData(QObject *parent, bool isMobile, bool isVM
 
 ProfilesConfigData::~ProfilesConfigData()
 {
+}
+
+GlobalSettings *ProfilesConfigData::global() const
+{
+    return m_globalSettings;
 }
 
 ProfileSettings *ProfilesConfigData::profileAC() const
@@ -85,7 +94,10 @@ ProfileSettings *ProfilesConfigData::profileLowBattery() const
 ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &metaData)
     : KQuickManagedConfigModule(parent, metaData)
     , m_settings(new ProfilesConfigData(this, metaData))
+    , m_externalServiceSettings(new ExternalServiceSettings(this))
     , m_supportsBatteryProfiles(false)
+    , m_isPowerSupplyBatteryPresent(false)
+    , m_isPeripheralBatteryPresent(false)
     , m_isLidPresent(false)
     , m_isPowerButtonPresent(false)
     , m_powerManagementServiceRegistered(false)
@@ -98,6 +110,14 @@ ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &met
                                                               PowerButtonAction::Shutdown,
                                                               PowerButtonAction::LockScreen,
                                                           }))
+    , m_batteryCriticalActionModel(new PowerButtonActionModel(this,
+                                                              PowerManagement::instance(),
+                                                              {
+                                                                  PowerButtonAction::NoAction,
+                                                                  PowerButtonAction::Sleep,
+                                                                  PowerButtonAction::Hibernate,
+                                                                  PowerButtonAction::Shutdown,
+                                                              }))
     , m_powerButtonActionModel(new PowerButtonActionModel(this,
                                                           PowerManagement::instance(),
                                                           {
@@ -123,6 +143,20 @@ ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &met
     , m_powerProfileModel(new PowerProfileModel(this))
 {
     qmlRegisterUncreatableMetaObject(PowerDevil::staticMetaObject, "org.kde.powerdevil", 1, 0, "PowerDevil", QStringLiteral("For enums and flags only"));
+
+    connect(m_externalServiceSettings, &ExternalServiceSettings::settingsChanged, this, &ProfilesConfigKCM::settingsChanged);
+    connect(m_externalServiceSettings,
+            &ExternalServiceSettings::isChargeStartThresholdSupportedChanged,
+            this,
+            &ProfilesConfigKCM::isChargeStartThresholdSupportedChanged);
+    connect(m_externalServiceSettings,
+            &ExternalServiceSettings::isChargeStopThresholdSupportedChanged,
+            this,
+            &ProfilesConfigKCM::isChargeStopThresholdSupportedChanged);
+    connect(m_externalServiceSettings,
+            &ExternalServiceSettings::chargeStopThresholdMightNeedReconnectChanged,
+            this,
+            &ProfilesConfigKCM::chargeStopThresholdMightNeedReconnectChanged);
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -173,12 +207,19 @@ ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &met
 
 void ProfilesConfigKCM::load()
 {
+    QWindow *renderWindowAsKAuthParent = QQuickRenderControl::renderWindowFor(mainUi()->window());
+    m_externalServiceSettings->load(renderWindowAsKAuthParent);
+
     const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
     for (const Solid::Device &device : devices) {
         const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
-            setSupportsBatteryProfiles(true);
-            break;
+        if (b->isPowerSupply()) {
+            setPowerSupplyBatteryPresent(true);
+            if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
+                setSupportsBatteryProfiles(true);
+            }
+        } else {
+            setPeripheralBatteryPresent(true);
         }
     }
 
@@ -192,10 +233,18 @@ void ProfilesConfigKCM::save()
 {
     KQuickManagedConfigModule::save();
 
+    QWindow *renderWindowAsKAuthParent = QQuickRenderControl::renderWindowFor(mainUi()->window());
+    m_externalServiceSettings->save(renderWindowAsKAuthParent);
+
     // Notify daemon
     QDBusMessage call =
         QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement", "org.kde.Solid.PowerManagement", "refreshStatus");
     QDBusConnection::sessionBus().asyncCall(call);
+}
+
+bool ProfilesConfigKCM::isSaveNeeded() const
+{
+    return m_externalServiceSettings->isSaveNeeded();
 }
 
 QVariantMap ProfilesConfigKCM::supportedActions() const
@@ -206,6 +255,11 @@ QVariantMap ProfilesConfigKCM::supportedActions() const
 ProfilesConfigData *ProfilesConfigKCM::settings() const
 {
     return m_settings;
+}
+
+ExternalServiceSettings *ProfilesConfigKCM::externalServiceSettings() const
+{
+    return m_externalServiceSettings;
 }
 
 QString ProfilesConfigKCM::currentProfile() const
@@ -234,6 +288,49 @@ void ProfilesConfigKCM::setSupportsBatteryProfiles(bool supportsBatteryProfiles)
     }
     m_supportsBatteryProfiles = supportsBatteryProfiles;
     Q_EMIT supportsBatteryProfilesChanged();
+}
+
+bool ProfilesConfigKCM::isChargeStartThresholdSupported() const
+{
+    return m_externalServiceSettings->isChargeStartThresholdSupported();
+}
+
+bool ProfilesConfigKCM::isChargeStopThresholdSupported() const
+{
+    return m_externalServiceSettings->isChargeStopThresholdSupported();
+}
+
+bool ProfilesConfigKCM::chargeStopThresholdMightNeedReconnect() const
+{
+    return m_externalServiceSettings->chargeStopThresholdMightNeedReconnect();
+}
+
+bool ProfilesConfigKCM::isPowerSupplyBatteryPresent() const
+{
+    return m_isPowerSupplyBatteryPresent;
+}
+
+bool ProfilesConfigKCM::isPeripheralBatteryPresent() const
+{
+    return m_isPeripheralBatteryPresent;
+}
+
+void ProfilesConfigKCM::setPowerSupplyBatteryPresent(bool isBatteryPresent)
+{
+    if (isBatteryPresent == m_isPowerSupplyBatteryPresent) {
+        return;
+    }
+    m_isPowerSupplyBatteryPresent = isBatteryPresent;
+    Q_EMIT isPowerSupplyBatteryPresentChanged();
+}
+
+void ProfilesConfigKCM::setPeripheralBatteryPresent(bool isBatteryPresent)
+{
+    if (isBatteryPresent == m_isPeripheralBatteryPresent) {
+        return;
+    }
+    m_isPeripheralBatteryPresent = isBatteryPresent;
+    Q_EMIT isPeripheralBatteryPresentChanged();
 }
 
 bool ProfilesConfigKCM::isLidPresent() const
@@ -267,6 +364,11 @@ void ProfilesConfigKCM::setPowerButtonPresent(bool isPowerButtonPresent)
 QObject *ProfilesConfigKCM::autoSuspendActionModel() const
 {
     return m_autoSuspendActionModel;
+}
+
+QObject *ProfilesConfigKCM::batteryCriticalActionModel() const
+{
+    return m_batteryCriticalActionModel;
 }
 
 QObject *ProfilesConfigKCM::powerButtonActionModel() const
