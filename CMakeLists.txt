@@ -84,6 +84,8 @@ add_subdirectory(doc)
 kdoctools_install(po)
 add_subdirectory(osd)
 
+add_subdirectory(autotests)
+
 ecm_qt_install_logging_categories(
         EXPORT POWERDEVIL
         FILE powerdevil.categories

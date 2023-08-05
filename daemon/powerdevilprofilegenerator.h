@@ -19,12 +19,14 @@
 
 #pragma once
 
+#include "powerdevilcore_export.h" // exported just for use in tests
+
 namespace PowerDevil
 {
 namespace ProfileGenerator
 {
 
-void generateProfiles(bool isMobile, bool toRam, bool toDisk);
+void POWERDEVILCORE_EXPORT generateProfiles(bool isMobile, bool toRam, bool toDisk);
 
 }
 }
