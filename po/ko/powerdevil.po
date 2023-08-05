@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:06+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2023-07-25 01:18+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -26,7 +26,7 @@ msgid "Your emails"
 msgstr "kde@peremen.name,daemul72@gmail.com"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/handlebuttonevents.cpp:55
 #: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
@@ -98,25 +98,25 @@ msgstr "초"
 msgid "When screen is locked, switch off after"
 msgstr "화면이 잠겼을 때 다음 시간 이후 끄기"
 
-#: actions/bundled/handlebuttonevents.cpp:61
+#: actions/bundled/handlebuttonevents.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "절전"
 
-#: actions/bundled/handlebuttonevents.cpp:66
+#: actions/bundled/handlebuttonevents.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "최대 절전 모드"
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:70
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "전원 끄기"
 
-#: actions/bundled/handlebuttonevents.cpp:85
+#: actions/bundled/handlebuttonevents.cpp:84
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
@@ -134,53 +134,53 @@ msgstr "외부 모니터가 연결된 경우에도 진행"
 msgid "Do nothing"
 msgstr "아무것도 안 함"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:90
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "대기 모드"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
 msgid "Hibernate"
 msgstr "최대 절전 모드"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "하이브리드 대기 모드"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:100
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "컴퓨터 끄기"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "잠금 화면"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "로그아웃 대화 상자 표시하기"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:103
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
 #, kde-format
 msgid "Turn off screen"
 msgstr "화면 끄기"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:129
+#: actions/bundled/handlebuttoneventsconfig.cpp:135
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "노트북 덮개가 닫힐 때"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:140
+#: actions/bundled/handlebuttoneventsconfig.cpp:146
 #, kde-format
 msgid "When power button pressed"
 msgstr "전원 단추를 눌렀을 때"
@@ -260,12 +260,12 @@ msgstr "스크립트 실행"
 msgid "after "
 msgstr "이후 "
 
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "자동으로"
 
-#: actions/bundled/suspendsessionconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:107
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
@@ -328,44 +328,44 @@ msgstr "전원 프로필 전환"
 msgid "Replace an existing instance"
 msgstr "실행 중인 인스턴스 대체"
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
+#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr "활동 관리자"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:397
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "이 활동의 정책은 시스템이 대기 모드로 전환되는 것을 방지합니다"
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "이 활동 정책으로 인하여 화면 전원 관리를 사용할 수 없습니다"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "여분의 배터리 추가됨"
 
-#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "장치 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -375,22 +375,22 @@ msgstr ""
 "\"%1\"의 배터리가 부족하여 언제든지 저절로 꺼질 수 있습니다. 배터리를 재충전"
 "하거나 교체하십시오."
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "마우스 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:555
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "키보드 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "블루투스 장치 배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -400,7 +400,7 @@ msgstr ""
 "블루투스 장치 \"%1\"의 배터리가 부족하여 언제든지 저절로 꺼질 수 있습니다. 배"
 "터리를 충전하거나 교체하십시오."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -409,7 +409,7 @@ msgstr ""
 "배터리 잔량 부족 - 컴퓨터를 계속 사용하려면 어댑터가 연결되어 있고 충분한 전"
 "력 공급이 가능한지 확인하십시오."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:605
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -418,7 +418,7 @@ msgstr ""
 "배터리 잔량 부족 - 컴퓨터를 계속 사용하려면 전원을 연결하거나 종료한 후 배터"
 "리를 교체하십시오."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -426,19 +426,19 @@ msgctxt ""
 msgid "Cancel"
 msgstr "취소"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 종료됩니다."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "지금 컴퓨터 끄기"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:640
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -446,7 +446,7 @@ msgid ""
 msgstr ""
 "배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 최대 절전 모드로 전환됩니다."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "

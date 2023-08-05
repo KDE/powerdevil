@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:06+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2022-01-03 11:10-0800\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -31,7 +31,7 @@ msgid "Your emails"
 msgstr "alam yellow @gmail.com"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/handlebuttonevents.cpp:55
 #: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
@@ -107,25 +107,25 @@ msgstr " ਸਕਿੰਟ"
 msgid "When screen is locked, switch off after"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:61
+#: actions/bundled/handlebuttonevents.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "ਸਸਪੈਂਡ ਕਰੋ"
 
-#: actions/bundled/handlebuttonevents.cpp:66
+#: actions/bundled/handlebuttonevents.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "ਹਾਈਬਰਨੇਟ"
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:70
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "ਬੰਦ ਕਰੋ"
 
-#: actions/bundled/handlebuttonevents.cpp:85
+#: actions/bundled/handlebuttonevents.cpp:84
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
@@ -143,53 +143,53 @@ msgstr "ਭਾਵੇਂ ਕਿ ਬਾਹਰੀ ਮਾਨੀਟਰ ਕਨੈਕ�
 msgid "Do nothing"
 msgstr "ਕੁਝ ਨਾ ਕਰੋ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:90
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "ਸਲੀਪ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
 msgid "Hibernate"
 msgstr "ਹਾਈਬਰਨੇਟ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "ਹਾਈਬਰੈਡ ਸਲੀਪ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:100
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "ਬੰਦ ਕਰੋ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "ਸਕਰੀਨ ਨੂੰ ਲਾਕ ਕਰੋ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "ਲਾਗਆਉਟ ਲਈ ਪੁੱਛਣ ਡਾਈਲਾਗ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:103
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
 #, kde-format
 msgid "Turn off screen"
 msgstr "ਸਕਰੀਨ ਬੰਦ ਕਰੋ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:129
+#: actions/bundled/handlebuttoneventsconfig.cpp:135
 #, kde-format
 msgid "When laptop lid closed"
 msgstr " ਜਦੋਂ ਲੈਪਟਾਪ Lid ਬੰਦ ਕੀਤਾ ਜਾਵੇ"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:140
+#: actions/bundled/handlebuttoneventsconfig.cpp:146
 #, kde-format
 msgid "When power button pressed"
 msgstr "ਜਦੋਂ ਪਾਵਰ ਬਟਨ ਦੱਬਿਆ ਜਾਵੇ"
@@ -269,12 +269,12 @@ msgstr "ਸਕ੍ਰਿਪਟ ਚਲਾਓ"
 msgid "after "
 msgstr "ਬਾਅਦ "
 
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "ਆਪਣੇ-ਆਪ"
 
-#: actions/bundled/suspendsessionconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:107
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "ਜਦੋਂ ਸਲੀਪ ਹੋਵੇ ਤਾਂ ਨਾ-ਸਰਗਰਮੀ ਦੇ ਸਮੇਂ ਬਾਅਦ ਹਾਈਬਰਨੇਟ ਕਰੋ"
@@ -337,44 +337,44 @@ msgstr "ਪਾਵਰ-ਡੀਵਿਲ ਪਰੋਫਾਈਲ ਇੰਪੋਰਟ"
 msgid "Replace an existing instance"
 msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
+#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr "ਐਕਟਵਿਟੀ ਮੈਨੇਜਰ"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:397
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "ਇਹ ਐਕਟਵਿਟੀ ਦੀਆਂ ਪਾਲਸੀਆਂ ਸਿਸਟਮ ਨੂੰ ਸਲੀਪ ਕਰਨ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ"
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "ਇਹ ਐਕਟਵਿਟੀ ਦੀਆਂ ਪਾਲਸੀਆਂ ਸਕਰੀਨ ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "ਵਾਧੂ ਬੈਟਰੀ ਜੋੜੀ ਗਈ"
 
-#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "ਕੰਪਿਊਟਰ ਹੁਣ ਸਲੀਪ ਨਹੀਂ ਹੋਵੇਗਾ।"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "ਡਿਵਾਈਸ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾਕੀ)"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:543
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -388,22 +388,22 @@ msgstr ""
 "(\"%1\") ਦੀ ਬੈਟਰੀ ਘੱਟ ਗਈ ਹੈ ਅਤੇ ਡਿਵਾਈਸ ਕਿਸੇ ਵੀ ਵੇਲੇ ਬੰਦ ਹੋ ਸਕਦਾ ਹੈ। ਬੈਟਰੀ ਨੂੰ ਮੁੜ-ਚਾਰਜ ਕਰੋ "
 "ਜਾਂ ਬਦਲੋ।"
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "ਮਾਊਸ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾਕੀ)"
 
-#: powerdevilcore.cpp:555
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "ਕੀਬੋਰਡ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾਕੀ)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "ਬਲੂਟੁ਼ਥ ਡਿਵਾਈਸ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾਕੀ)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -413,7 +413,7 @@ msgstr ""
 "ਬਲੂਟੁੱਥ ਡਿਵਾਈਸ \"%1\" ਦੀ ਬੈਟਰੀ ਘੱਟ ਗਈ ਹੈ ਅਤੇ ਡਿਵਾਈਸ ਕਿਸੇ ਵੀ ਵੇਲੇ ਬੰਦ ਹੋ ਸਕਦਾ ਹੈ। ਬੈਟਰੀ ਨੂੰ "
 "ਮੁੜ-ਚਾਰਜ ਕਰੋ ਜਾਂ ਬਦਲੋ।"
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -425,7 +425,7 @@ msgstr ""
 "ਬੈਟਰੀ ਹੁਣ ਘੱਟ ਹੈ - ਆਪਣੇ ਕੰਪਿਊਟਰ ਵਰਤਣਾ ਜਾਰੀ ਰੱਖਣਾ ਹੈ ਤਾਂ ਜਾਂ ਤਾਂ ਆਪਣੇ ਕੰਪਿਊਟਰ ਦਾ ਪਲੱਗ ਲਗਾ "
 "ਲਵੋ ਜਾਂ ਇਸ ਨੂੰ ਬੰਦ ਕਰੋ ਕਰਕੇ ਬੈਟਰੀ ਬਦਲੋ।"
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:605
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -434,7 +434,7 @@ msgstr ""
 "ਬੈਟਰੀ ਹੁਣ ਘੱਟ ਹੈ - ਆਪਣੇ ਕੰਪਿਊਟਰ ਵਰਤਣਾ ਜਾਰੀ ਰੱਖਣਾ ਹੈ ਤਾਂ ਜਾਂ ਤਾਂ ਆਪਣੇ ਕੰਪਿਊਟਰ ਦਾ ਪਲੱਗ ਲਗਾ "
 "ਲਵੋ ਜਾਂ ਇਸ ਨੂੰ ਬੰਦ ਕਰੋ ਕਰਕੇ ਬੈਟਰੀ ਬਦਲੋ।"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -442,12 +442,12 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "ਬੈਟਰੀ ਦਾ ਪੱਧਰ ਨਾਜ਼ੁਕ ਹੈ। ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਬੰਦ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -455,14 +455,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "ਬੰਦ ਕਰੋ"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:640
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr "ਬੈਟਰੀ ਦਾ ਪੱਧਰ ਨਾਜ਼ੁਕ ਹੈ। ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਹਾਈਬਰਨੇਟ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:641
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""

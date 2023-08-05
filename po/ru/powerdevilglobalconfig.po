@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2021-05-29 15:34+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -36,12 +36,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aspotashev@gmail.com,shaforostoff@kde.ru,skull@kde.ru"
 
-#: GeneralPage.cpp:95
+#: GeneralPage.cpp:94
 #, kde-format
 msgid "Do nothing"
 msgstr "Ничего не делать"
 
-#: GeneralPage.cpp:98
+#: GeneralPage.cpp:97
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
@@ -52,12 +52,12 @@ msgstr "Ждущий режим"
 msgid "Hibernate"
 msgstr "Спящий режим"
 
-#: GeneralPage.cpp:104
+#: GeneralPage.cpp:105
 #, kde-format
 msgid "Shut down"
 msgstr "Выключить компьютер"
 
-#: GeneralPage.cpp:253
+#: GeneralPage.cpp:254
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Похоже, что служба управления питанием не запущена."

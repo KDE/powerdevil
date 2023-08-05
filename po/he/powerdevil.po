@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:06+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2017-05-16 06:57-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgid "Your emails"
 msgstr "netanel@gmx.com,ttv200@gmail.com"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/handlebuttonevents.cpp:55
 #: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, fuzzy, kde-format
 msgctxt "Name for powerdevil shortcuts category"
@@ -105,25 +105,25 @@ msgstr ""
 msgid "When screen is locked, switch off after"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:61
+#: actions/bundled/handlebuttonevents.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "השהיה לזכרון"
 
-#: actions/bundled/handlebuttonevents.cpp:66
+#: actions/bundled/handlebuttonevents.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "השהייה לכונן"
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:70
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "כיבוי"
 
-#: actions/bundled/handlebuttonevents.cpp:85
+#: actions/bundled/handlebuttonevents.cpp:84
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Power Off"
@@ -143,53 +143,53 @@ msgstr "אפילו שמסך חיצוני מחובר"
 msgid "Do nothing"
 msgstr "אל תעשה דבר"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:90
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
 msgid "Hibernate"
 msgstr "השהייה לכונן"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hybrid sleep"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:100
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "כיבוי"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "נעל מסך"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "הצג חלון יציאה מהמערכת"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:103
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
 #, kde-format
 msgid "Turn off screen"
 msgstr "כיבוי מסך"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:129
+#: actions/bundled/handlebuttoneventsconfig.cpp:135
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "כאשר מכסה המחשב סגור"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:140
+#: actions/bundled/handlebuttoneventsconfig.cpp:146
 #, kde-format
 msgid "When power button pressed"
 msgstr "כאשר כפתור ההפעלה נלחץ"
@@ -273,12 +273,12 @@ msgstr "הרץ סקריפט"
 msgid "after "
 msgstr "אחרי"
 
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr ""
 
-#: actions/bundled/suspendsessionconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:107
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
@@ -341,45 +341,45 @@ msgstr "כיבוי לאחר"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
+#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr "מנהל פעילויות"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:397
 #, fuzzy, kde-format
 #| msgid "This activity's policies prevent the system from suspending"
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "מדיניות הפעילות הזו מונעת מהמערכת להכנס לשינה"
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "מדיניות הפעילות הזו מונעת מהמסך ניהול צריכת החשמל"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "נוספה סוללה נוספת"
 
-#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:543
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -393,24 +393,24 @@ msgstr ""
 "הסוללה בעכבר שלך (\"%1\") נמוכה, ואולי הוא יכבה בכל רגע. אנא החלף סוללות או "
 "הטען אותו בהקדם האפשרי"
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "סוללת העכבר נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:555
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "סוללת המקלדת נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:558
 #, fuzzy, kde-format
 #| msgctxt "The battery in an external device"
 #| msgid "Device Battery Low (%1% Remaining)"
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:560
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -424,7 +424,7 @@ msgstr ""
 "הסוללה בעכבר שלך (\"%1\") נמוכה, ואולי הוא יכבה בכל רגע. אנא החלף סוללות או "
 "הטען אותו בהקדם האפשרי"
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
@@ -436,7 +436,7 @@ msgstr ""
 "הסוללה שלך חלשה. אם אתה צריך תמשיך להשתמש במחשב, אחרת חבר את המחשב למטען או "
 "כבה אותו"
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:605
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
@@ -448,7 +448,7 @@ msgstr ""
 "הסוללה שלך חלשה. אם אתה צריך תמשיך להשתמש במחשב, אחרת חבר את המחשב למטען או "
 "כבה אותו"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Cancel timeout that will automatically suspend system because of low "
@@ -460,14 +460,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ביטול"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "מצב הסוללה קריטי, המחשב יכנס למצב שינה בעוד 60 שניות."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -475,7 +475,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "כיבוי"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:640
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 60 "
@@ -485,7 +485,7 @@ msgid ""
 "seconds."
 msgstr "מצב הסוללה קריטי, המחשב יכבה בעוד 60 שניות."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:641
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""

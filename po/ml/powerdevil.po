@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:06+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -28,7 +28,7 @@ msgid "Your emails"
 msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/handlebuttonevents.cpp:55
 #: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, fuzzy, kde-format
 msgctxt "Name for powerdevil shortcuts category"
@@ -100,25 +100,25 @@ msgstr "സെക്കന്റുകള്‍"
 msgid "When screen is locked, switch off after"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:61
+#: actions/bundled/handlebuttonevents.cpp:60
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "റാമിലാക്കുക"
 
-#: actions/bundled/handlebuttonevents.cpp:66
+#: actions/bundled/handlebuttonevents.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:70
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:85
+#: actions/bundled/handlebuttonevents.cpp:84
 #, fuzzy, kde-format
 #| msgid "PowerDevil"
 msgctxt ""
@@ -137,53 +137,53 @@ msgstr ""
 msgid "Do nothing"
 msgstr "ഒന്നും ചെയ്യണ്ട"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:90
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
 msgid "Hibernate"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hybrid sleep"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:100
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, fuzzy, kde-format
 msgid "Shut down"
 msgstr "നിര്‍ത്തി വയ്ക്കുക"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, fuzzy, kde-format
 msgid "Lock screen"
 msgstr "തിരശ്ശീല പൂട്ടുക"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, fuzzy, kde-format
 msgid "Prompt log out dialog"
 msgstr "പുറത്തിറങ്ങുന്നതിനുള്ള സംഭാഷണം കാണിയ്ക്കുക"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:103
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
 #, fuzzy, kde-format
 msgid "Turn off screen"
 msgstr "സ്ക്രീന്‍ കെടുത്തുക"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:129
+#: actions/bundled/handlebuttoneventsconfig.cpp:135
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "ലാപ്‌ടോപ്പിന്റെ അടപ്പു് അടച്ചാല്‍"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:140
+#: actions/bundled/handlebuttoneventsconfig.cpp:146
 #, kde-format
 msgid "When power button pressed"
 msgstr "വൈദ്യുതി ബട്ടന്‍ അമര്‍ത്തിയാല്‍"
@@ -263,12 +263,12 @@ msgstr ""
 msgid "after "
 msgstr ""
 
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr ""
 
-#: actions/bundled/suspendsessionconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:107
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
@@ -331,44 +331,44 @@ msgstr "പവര്‍ഡെവിള്‍ പ്രൊഫൈലുകള്�
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
+#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr ""
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:397
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:472
 #, fuzzy, kde-format
 msgid "Extra Battery Added"
 msgstr "ഗുരുതരമായ ബാറ്ററി നില"
 
-#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
 #, fuzzy, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -376,22 +376,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:555
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -399,21 +399,21 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:605
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
 "down and change the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -421,26 +421,26 @@ msgctxt ""
 msgid "Cancel"
 msgstr "റദ്ദാക്കുക"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, fuzzy, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "നിര്‍ത്തി വയ്ക്കുക"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:640
 #, fuzzy, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "

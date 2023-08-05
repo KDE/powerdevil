@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2011-01-03 13:59+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -27,12 +27,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jean.cayron@gmail.com"
 
-#: GeneralPage.cpp:95
+#: GeneralPage.cpp:94
 #, kde-format
 msgid "Do nothing"
 msgstr "Èn rén fé"
 
-#: GeneralPage.cpp:98
+#: GeneralPage.cpp:97
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt "Suspend to RAM"
@@ -44,13 +44,13 @@ msgstr "Doirmi"
 msgid "Hibernate"
 msgstr "Ivierner"
 
-#: GeneralPage.cpp:104
+#: GeneralPage.cpp:105
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgid "Shut down"
 msgstr "Arester l' éndjole"
 
-#: GeneralPage.cpp:253
+#: GeneralPage.cpp:254
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

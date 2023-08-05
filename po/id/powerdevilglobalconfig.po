@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -30,12 +30,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andhika.padmawan@gmail.com,wantoyek@gmail.com"
 
-#: GeneralPage.cpp:95
+#: GeneralPage.cpp:94
 #, kde-format
 msgid "Do nothing"
 msgstr "Jangan lakukan apa-apa"
 
-#: GeneralPage.cpp:98
+#: GeneralPage.cpp:97
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
@@ -46,12 +46,12 @@ msgstr "Tidur"
 msgid "Hibernate"
 msgstr "Hibernasi"
 
-#: GeneralPage.cpp:104
+#: GeneralPage.cpp:105
 #, kde-format
 msgid "Shut down"
 msgstr "Matikan"
 
-#: GeneralPage.cpp:253
+#: GeneralPage.cpp:254
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Layanan Pengelolaan Daya yang muncul belum berjalan."

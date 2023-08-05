@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:06+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2021-07-27 16:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/handlebuttonevents.cpp:55
 #: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
@@ -105,25 +105,25 @@ msgstr ""
 msgid "When screen is locked, switch off after"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:61
+#: actions/bundled/handlebuttonevents.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "Uspať"
 
-#: actions/bundled/handlebuttonevents.cpp:66
+#: actions/bundled/handlebuttonevents.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Hibernovať"
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:70
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "Vypnúť"
 
-#: actions/bundled/handlebuttonevents.cpp:85
+#: actions/bundled/handlebuttonevents.cpp:84
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
@@ -141,53 +141,53 @@ msgstr "Aj vtedy, ak je pripojený externý monitor"
 msgid "Do nothing"
 msgstr "Neurobiť nič"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:90
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Uspať"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernovať"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Hybridný spánok"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:100
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "Vypnúť"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "Uzamknúť obrazovku"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Vyvolať dialóg odhlásenia"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:103
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
 #, kde-format
 msgid "Turn off screen"
 msgstr "Vypnúť monitor"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:129
+#: actions/bundled/handlebuttoneventsconfig.cpp:135
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Ak je zatvorený kryt notebooku"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:140
+#: actions/bundled/handlebuttoneventsconfig.cpp:146
 #, kde-format
 msgid "When power button pressed"
 msgstr "Ak je stlačené tlačidlo napájania"
@@ -267,12 +267,12 @@ msgstr "Spustiť skript"
 msgid "after "
 msgstr "po "
 
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "Automaticky"
 
-#: actions/bundled/suspendsessionconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:107
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Počas spánku, hibernovať po období nečinnosti"
@@ -335,44 +335,44 @@ msgstr "Vypnúť po"
 msgid "Replace an existing instance"
 msgstr "Nahradiť existujúcu inštanciu"
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
+#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr "Správca aktivít"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:397
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Tieto politiky aktivít zabraňujú systému prejsť do režimu spánku"
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Tieto politiky aktivít nepovoľujú správu napájania obrazovky"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Pridaná dodatočná batéria"
 
-#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tento počítač sa viac neuspí."
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie zariadenia (%1% zostáva)"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:543
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -386,22 +386,22 @@ msgstr ""
 "Batéria v (\"%1\") je slabá a zariadenie sa môže každú chvíľu samo vypnúť. "
 "Prosím, vymeňte alebo nabite batériu čo najskôr."
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie myši (%1% zostáva)"
 
-#: powerdevilcore.cpp:555
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie klávesnice (%1% zostáva)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie zariadenia Bluetooth (%1% zostáva)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -411,7 +411,7 @@ msgstr ""
 "Batéria v zariadení Bluetooth (\"%1\") je slabá a zariadenie sa môže každú "
 "chvíľu vypnúť. Prosím, vymeňte alebo opätovne nabite batériu."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -423,7 +423,7 @@ msgstr ""
 "Vaša batéria je slabá. Ak potrebujete svoj počítač používať aj naďalej, "
 "pripojte napájanie alebo vypnite počítač a nabite batériu."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:605
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -432,7 +432,7 @@ msgstr ""
 "Vaša batéria je slabá. Ak potrebujete svoj počítač používať aj naďalej, "
 "pripojte napájanie alebo vypnite počítač a nabite batériu."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -440,12 +440,12 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Úroveň batérie je kritická, počítač bude vypnutý za 60 sekúnd."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -453,14 +453,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Vypnúť"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:640
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr "Úroveň batérie je kritická, počítač bude hibernovaný za 60 sekúnd."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:641
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""

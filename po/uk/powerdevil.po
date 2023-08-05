@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-15 02:06+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2023-07-15 08:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -31,7 +31,7 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:56
+#: actions/bundled/handlebuttonevents.cpp:55
 #: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
@@ -103,25 +103,25 @@ msgstr " сек"
 msgid "When screen is locked, switch off after"
 msgstr "Коли екран заблоковано, вимикати за"
 
-#: actions/bundled/handlebuttonevents.cpp:61
+#: actions/bundled/handlebuttonevents.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "Призупинити"
 
-#: actions/bundled/handlebuttonevents.cpp:66
+#: actions/bundled/handlebuttonevents.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Приспати"
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:70
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "Вимкнути"
 
-#: actions/bundled/handlebuttonevents.cpp:85
+#: actions/bundled/handlebuttonevents.cpp:84
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
@@ -139,53 +139,53 @@ msgstr "Навіть якщо з’єднано зовнішній моніто�
 msgid "Do nothing"
 msgstr "Нічого не робити"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:90
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Призупинити"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:93
-#: actions/bundled/suspendsessionconfig.cpp:84
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:86
 #, kde-format
 msgid "Hibernate"
 msgstr "Приспати"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:96
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Гібридне присипляння"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:100
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "Вимкнути"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "Заблокувати екран"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
+#: actions/bundled/handlebuttoneventsconfig.cpp:104
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Відкрити діалогове вікно виходу"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:103
+#: actions/bundled/handlebuttoneventsconfig.cpp:108
 #, kde-format
 msgid "Turn off screen"
 msgstr "Вимкнути екран"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:129
+#: actions/bundled/handlebuttoneventsconfig.cpp:135
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Якщо закрито кришку ноутбука"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:140
+#: actions/bundled/handlebuttoneventsconfig.cpp:146
 #, kde-format
 msgid "When power button pressed"
 msgstr "Якщо натиснуто кнопку вимикання"
@@ -265,12 +265,12 @@ msgstr "Виконати скрипт"
 msgid "after "
 msgstr "після"
 
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "Автоматично"
 
-#: actions/bundled/suspendsessionconfig.cpp:105
+#: actions/bundled/suspendsessionconfig.cpp:107
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
@@ -336,45 +336,45 @@ msgstr "Перемкнути профіль живлення"
 msgid "Replace an existing instance"
 msgstr "Замінити наявний екземпляр"
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:409
+#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr "Керування просторами дій"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:397
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
 "Правила простору дій забороняють переведення системи у режим присипляння"
 
-#: powerdevilcore.cpp:410
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Правила простору дій забороняють керування живленням екрана"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Додано додатковий акумулятор"
 
-#: powerdevilcore.cpp:474 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Комп'ютер надалі не переходитиме до режиму сну."
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:538
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора пристрою (лишилося %1%)"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -385,22 +385,22 @@ msgstr ""
 "дуже скоро. Будь ласка, замініть або перезарядіть джерело живлення якомога "
 "скоріше."
 
-#: powerdevilcore.cpp:551
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора миші (лишилося %1%)"
 
-#: powerdevilcore.cpp:555
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора клавіатури (лишилося %1%)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора пристрою Bluetooth (лишилося %1%)"
 
-#: powerdevilcore.cpp:561
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -411,7 +411,7 @@ msgstr ""
 "припинити роботу дуже скоро. Будь ласка, замініть або перезарядіть джерело "
 "живлення якомога скоріше."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -421,7 +421,7 @@ msgstr ""
 "вашим комп’ютером, з'єднайте його із адаптером живлення і переконайтеся, що "
 "джерело живлення дає достатню напругу."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:605
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -431,7 +431,7 @@ msgstr ""
 "вашим комп’ютером, увімкніть його до мережі живлення або вимкніть і замініть "
 "акумулятор."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -439,21 +439,21 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
 "вимкнено за 60 секунд."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Вимкнути зараз"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:640
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -462,7 +462,7 @@ msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
 "приспано за 60 секунд."
 
-#: powerdevilcore.cpp:642
+#: powerdevilcore.cpp:641
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "

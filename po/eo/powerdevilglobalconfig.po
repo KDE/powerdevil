@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-05 02:00+0000\n"
 "PO-Revision-Date: 2023-03-25 20:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -28,12 +28,12 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "okellogg@users.sourceforge.net"
 
-#: GeneralPage.cpp:95
+#: GeneralPage.cpp:94
 #, kde-format
 msgid "Do nothing"
 msgstr "Fari nenion"
 
-#: GeneralPage.cpp:98
+#: GeneralPage.cpp:97
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
@@ -44,12 +44,12 @@ msgstr "Dormi"
 msgid "Hibernate"
 msgstr "Pasivumi"
 
-#: GeneralPage.cpp:104
+#: GeneralPage.cpp:105
 #, kde-format
 msgid "Shut down"
 msgstr "Fermi"
 
-#: GeneralPage.cpp:253
+#: GeneralPage.cpp:254
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "La Potencadministra Servo ŝajnas ne funkcii."
