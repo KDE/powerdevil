@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-05 02:00+0000\n"
+"POT-Creation-Date: 2023-08-06 02:04+0000\n"
 "PO-Revision-Date: 2013-10-18 20:27+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -30,30 +30,30 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "samir.ribic@etf.unsa.ba"
 
-#: GeneralPage.cpp:94
+#: GeneralPage.cpp:95
 #, kde-format
 msgid "Do nothing"
 msgstr "Ne radi ništa"
 
-#: GeneralPage.cpp:97
+#: GeneralPage.cpp:98
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Spavaj"
 
-#: GeneralPage.cpp:102
+#: GeneralPage.cpp:103
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernacija"
 
-#: GeneralPage.cpp:105
+#: GeneralPage.cpp:106
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgid "Shut down"
 msgstr "Gašenje"
 
-#: GeneralPage.cpp:254
+#: GeneralPage.cpp:255
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

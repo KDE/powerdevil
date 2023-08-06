@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-05 02:00+0000\n"
+"POT-Creation-Date: 2023-08-06 02:04+0000\n"
 "PO-Revision-Date: 2019-12-12 23:00+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -28,28 +28,28 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
 
-#: GeneralPage.cpp:94
+#: GeneralPage.cpp:95
 #, kde-format
 msgid "Do nothing"
 msgstr ""
 
-#: GeneralPage.cpp:97
+#: GeneralPage.cpp:98
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
-#: GeneralPage.cpp:102
+#: GeneralPage.cpp:103
 #, kde-format
 msgid "Hibernate"
 msgstr ""
 
-#: GeneralPage.cpp:105
+#: GeneralPage.cpp:106
 #, kde-format
 msgid "Shut down"
 msgstr ""
 
-#: GeneralPage.cpp:254
+#: GeneralPage.cpp:255
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
