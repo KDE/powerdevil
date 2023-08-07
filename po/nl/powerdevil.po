@@ -54,7 +54,7 @@ msgid "Decrease Screen Brightness"
 msgstr "Helderheid van scherm verlagen"
 
 #: actions/bundled/brightnesscontrol.cpp:74
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Helderheid van scherm met %1 verlagen"
