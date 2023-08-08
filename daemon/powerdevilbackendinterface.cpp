@@ -89,6 +89,11 @@ void BackendInterface::setLidPresent(bool present)
     m_isLidPresent = present;
 }
 
+QBindable<bool> BackendInterface::isSessionActive() const
+{
+    return &m_isSessionActive;
+}
+
 QBindable<bool> BackendInterface::isSessionIdle() const
 {
     return &m_isSessionIdle;
