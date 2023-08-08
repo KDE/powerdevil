@@ -48,6 +48,8 @@
 class QPropertyAnimation;
 class QTimer;
 class DDCutilBrightness;
+class OrgFreedesktopDBusPropertiesInterface;
+
 class POWERDEVILUPOWERBACKEND_EXPORT PowerDevilUPowerBackend : public PowerDevil::BackendInterface
 {
     Q_OBJECT
@@ -74,6 +76,8 @@ public:
     int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
     KJob *suspend(PowerDevil::BackendInterface::SuspendMethod method) override;
 
+    void setIdleHint(bool idle) override;
+
 Q_SIGNALS:
     void brightnessSupportQueried(bool available);
 
@@ -86,6 +90,7 @@ private Q_SLOTS:
     void slotDeviceAdded(const QDBusObjectPath &path);
     void slotDeviceRemoved(const QDBusObjectPath &path);
     void slotLogin1PrepareForSleep(bool active);
+    void onLogin1SessionPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int);
@@ -119,6 +124,9 @@ private:
 
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;
+    OrgFreedesktopDBusPropertiesInterface *m_login1SessionPropInterface = nullptr;
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerDevilUPowerBackend, bool, m_login1SessionIdleHint, false)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerDevilUPowerBackend, bool, m_backendIdleHint, false)
 
     // buttons
     bool m_lidIsPresent;
