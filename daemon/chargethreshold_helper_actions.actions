@@ -122,6 +122,7 @@ Description[tr]=Geçerli pil şarj sınırını görmek için kimliğinizi doğr
 Description[uk]=Пройдіть розпізнавання для перегляду поточного рівня заряду акумулятора.
 Description[x-test]=xxAuthenticate to see the current battery charge limit.xx
 Description[zh_CN]=请进行身份验证以查看当前电池充电限制。
+Description[zh_TW]=認證以檢視目前電池充電限制。
 Policy=yes
 PolicyInactive=yes
 
@@ -192,5 +193,6 @@ Description[tr]=Pil şarj sınırını ayarlamak için kimliğinizi doğrulayın
 Description[uk]=Пройдіть розпізнавання для встановлення обмеження рівня заряду акумулятора.
 Description[x-test]=xxAuthenticate to set the battery charge limit.xx
 Description[zh_CN]=请进行身份验证以设置电池充电限制。
+Description[zh_TW]=認證以設定電池充電限制。
 Policy=auth_admin
 Persistence=session

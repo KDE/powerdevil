@@ -133,6 +133,7 @@ Description[tr]=En yüksek parlaklık değerini görmek için kimliğinizi doğr
 Description[uk]=Пройдіть розпізнавання для перегляду рівня максимальної яскравості.
 Description[x-test]=xxAuthenticate to see the maximum brightness level.xx
 Description[zh_CN]=请进行身份验证以查看最大亮度级别。
+Description[zh_TW]=認證以檢視最高亮度值。
 Policy=yes
 PolicyInactive=yes
 
@@ -214,6 +215,7 @@ Description[tr]=Parlaklık değerini görmek için kimliğinizi doğrulayın.
 Description[uk]=Пройдіть розпізнавання для перегляду рівня яскравості.
 Description[x-test]=xxAuthenticate to see the brightness level.xx
 Description[zh_CN]=请进行身份验证以查看亮度级别。
+Description[zh_TW]=認證以檢視亮度值。
 Policy=yes
 PolicyInactive=yes
 
@@ -295,6 +297,7 @@ Description[tr]=Parlaklık değerini ayarlamak için kimliğinizi doğrulayın.
 Description[uk]=Пройдіть розпізнавання для встановлення рівня максимальної яскравості.
 Description[x-test]=xxAuthenticate to set the brightness level.xx
 Description[zh_CN]=请进行身份验证以设置亮度级别。
+Description[zh_TW]=認證以設定亮度值。
 Policy=yes
 
 [org.kde.powerdevil.backlighthelper.syspath]
@@ -370,5 +373,6 @@ Description[tr]=syspath'i görmek için kimliğinizi doğrulayın.
 Description[uk]=Пройдіть розпізнавання для перегляду шляху у системі.
 Description[x-test]=xxAuthenticate to see the syspath.xx
 Description[zh_CN]=请进行身份验证以查看 syspath。
+Description[zh_TW]=認證以檢視 syspath。
 Policy=yes
 PolicyInactive=yes
