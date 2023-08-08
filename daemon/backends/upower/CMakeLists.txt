@@ -25,6 +25,11 @@ qt_add_dbus_interface(powerdevilupowerbackend_SRCS
     upower_kbdbacklight_interface
 )
 
+qt_add_dbus_interface(powerdevilupowerbackend_SRCS
+    dbus/org.freedesktop.DBus.Properties.xml
+    properties_interface
+)
+
 ## backlight helper executable
 add_executable(backlighthelper backlighthelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 target_link_libraries(backlighthelper Qt::Core KF6::AuthCore KF6::I18n)

@@ -40,9 +40,13 @@
 
 #include "ddcutilbrightness.h"
 #include "login1suspendjob.h"
+#include "properties_interface.h"
 #include "upowerdevice.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
+
+inline constexpr QLatin1String LOGIN1_SESSION_INTERFACE{"org.freedesktop.login1.Session"};
+inline constexpr QLatin1String LOGIN1_SESSION_AUTO_PATH{"/org/freedesktop/login1/session/auto"};
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject *parent)
     : BackendInterface(parent)
@@ -63,6 +67,11 @@ PowerDevilUPowerBackend::~PowerDevilUPowerBackend() = default;
 
 void PowerDevilUPowerBackend::init()
 {
+    // Bindings
+    m_isSessionIdle.setBinding([this] {
+        return m_login1SessionIdleHint.value() || m_backendIdleHint.value();
+    });
+
     // interfaces
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
         // Activate it.
@@ -81,6 +90,16 @@ void PowerDevilUPowerBackend::init()
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
         m_login1Interface = new QDBusInterface(LOGIN1_SERVICE, "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus(), this);
+        m_login1SessionPropInterface = new OrgFreedesktopDBusPropertiesInterface(LOGIN1_SERVICE, LOGIN1_SESSION_AUTO_PATH, QDBusConnection::systemBus(), this);
+        QDBusPendingReply<QVariantMap> pending = m_login1SessionPropInterface->GetAll(LOGIN1_SESSION_INTERFACE);
+        auto watcher = new QDBusPendingCallWatcher(pending, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+            QDBusReply<QVariantMap> reply = *watcher;
+            watcher->deleteLater();
+            if (reply.isValid()) {
+                onLogin1SessionPropertiesChanged({}, reply.value(), {});
+            }
+        });
     }
 
     // if login1 isn't available, try using the same interface with ConsoleKit2
@@ -243,6 +262,13 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     // "resuming" signal
     if (m_login1Interface) {
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
+    }
+
+    if (m_login1SessionPropInterface) {
+        connect(m_login1SessionPropInterface,
+                &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged,
+                this,
+                &PowerDevilUPowerBackend::onLogin1SessionPropertiesChanged);
     }
 
     // backend ready
@@ -458,6 +484,11 @@ KJob *PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMeth
     return nullptr;
 }
 
+void PowerDevilUPowerBackend::setIdleHint(bool idle)
+{
+    m_backendIdleHint = idle;
+}
+
 void PowerDevilUPowerBackend::enumerateDevices()
 {
     m_lidIsPresent = m_upowerInterface->lidIsPresent();
@@ -605,6 +636,15 @@ void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
         Q_EMIT aboutToSuspend();
     } else {
         Q_EMIT resumeFromSuspend();
+    }
+}
+
+void PowerDevilUPowerBackend::onLogin1SessionPropertiesChanged(const QString &, const QVariantMap &changedProps, const QStringList &)
+{
+    auto it = changedProps.constFind(QStringLiteral("Active"));
+    it = changedProps.constFind(QStringLiteral("IdleHint"));
+    if (it != changedProps.cend()) {
+        m_login1SessionIdleHint = it->toBool();
     }
 }
 
