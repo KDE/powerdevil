@@ -306,6 +306,9 @@ private:
     bool m_isLidPresent = false;
 
     friend class Core;
+
+protected:
+    int m_keyboardBrightnessBeforeTogglingOff;
 };
 
 }

@@ -68,6 +68,7 @@ public:
     int keyboardBrightness() const override;
     int keyboardBrightnessMax() const override;
     void setKeyboardBrightness(int value) override;
+    void setKeyboardBrightnessOff();
     bool keyboardBrightnessAvailable() const override;
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;

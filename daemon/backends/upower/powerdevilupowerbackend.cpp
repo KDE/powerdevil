@@ -321,7 +321,11 @@ int PowerDevilUPowerBackend::keyboardBrightnessKeyPressed(PowerDevil::Brightness
         return -1;
     }
 
-    setKeyboardBrightness(newBrightness);
+    if (type == PowerDevil::BrightnessLogic::BrightnessKeyType::Toggle && newBrightness == 0) {
+        setKeyboardBrightnessOff();
+    } else {
+        setKeyboardBrightness(newBrightness);
+    }
     return newBrightness;
 }
 
@@ -417,6 +421,15 @@ void PowerDevilUPowerBackend::setKeyboardBrightness(int value)
 {
     qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
     m_kbdBacklight->SetBrightness(value);
+    m_keyboardBrightnessBeforeTogglingOff = keyboardBrightness();
+}
+
+void PowerDevilUPowerBackend::setKeyboardBrightnessOff()
+{
+    // save value before toggling so that we can restore it later
+    m_keyboardBrightnessBeforeTogglingOff = keyboardBrightness();
+    qCDebug(POWERDEVIL) << "set kbd backlight value: " << 0;
+    m_kbdBacklight->SetBrightness(0);
 }
 
 bool PowerDevilUPowerBackend::keyboardBrightnessAvailable() const

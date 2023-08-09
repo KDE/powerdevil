@@ -52,6 +52,8 @@ public:
         int value;
         /** The maximum possible brightness value for this device */
         int valueMax;
+        /** The most recent brightness before toggling off */
+        int valueBeforeTogglingOff;
         /** The maximum possible brightness step for this device */
         int steps;
     };
@@ -69,6 +71,13 @@ public:
      * @param value Maximum brightness value
      */
     void setValueMax(int valueMax);
+
+    /**
+     * Sets the last active brightness value.
+     *
+     * @param value Last active brightness value
+     */
+    void setValueBeforeTogglingOff(int valueBeforeTogglingOff);
 
     /**
      * Calculate new brightness value that should be set by an action.
@@ -96,7 +105,7 @@ public:
 
     /**
      * Calculates the brightness value of the toggled state.
-     * (Sets the brightness value to either 0 or valueMax).
+     * (Sets the brightness value to either minimum, last active brightness or maximum).
      *
      * @return The brightness value that should be set, or -1 if nothing should be done
      */
@@ -181,6 +190,7 @@ protected:
 private:
     int m_value = -1;
     int m_valueMax = -1;
+    int m_valueBeforeTogglingOff = -1;
     int m_steps = -1;
 };
 

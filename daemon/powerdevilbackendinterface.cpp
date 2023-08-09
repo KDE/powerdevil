@@ -212,10 +212,10 @@ int BackendInterface::calculateNextKeyboardBrightnessStep(int value, int valueMa
 {
     m_keyboardBrightnessLogic.setValueMax(valueMax);
     m_keyboardBrightnessLogic.setValue(value);
+    m_keyboardBrightnessLogic.setValueBeforeTogglingOff(m_keyboardBrightnessBeforeTogglingOff);
 
     return m_keyboardBrightnessLogic.action(keyType);
 }
-
 }
 
 #include "moc_powerdevilbackendinterface.cpp"

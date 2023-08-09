@@ -20,6 +20,8 @@
 #include "powerdevilbrightnesslogic.h"
 #include "powerdevilbackendinterface.h"
 
+#include <QDebug>
+
 namespace PowerDevil
 {
 BrightnessLogic::BrightnessLogic()
@@ -37,6 +39,11 @@ void BrightnessLogic::setValueMax(int valueMax)
         m_valueMax = valueMax;
         m_steps = calculateSteps(valueMax);
     }
+}
+
+void BrightnessLogic::setValueBeforeTogglingOff(int valueBeforeTogglingOff)
+{
+    m_valueBeforeTogglingOff = valueBeforeTogglingOff;
 }
 
 int BrightnessLogic::action(BrightnessKeyType type) const
@@ -107,8 +114,13 @@ int BrightnessLogic::decreasedSmall() const
 
 int BrightnessLogic::toggled() const
 {
-    // If it's not minimum, set to minimum, if it's minimum, set to maximum
-    return m_value > 0 ? 0 : m_valueMax;
+    if (m_value > 0) {
+        return 0; // currently on: toggle off
+    } else if (m_valueBeforeTogglingOff > 0) {
+        return m_valueBeforeTogglingOff; // currently off and was on before toggling: restore
+    } else {
+        return m_valueMax; // currently off and would stay off if restoring: toggle to max
+    }
 }
 
 int BrightnessLogic::steps() const
@@ -123,7 +135,7 @@ float BrightnessLogic::percentage(int value) const
 
 const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const
 {
-    return BrightnessInfo{m_value, m_valueMax, m_steps};
+    return BrightnessInfo{m_value, m_valueMax, m_valueBeforeTogglingOff, m_steps};
 }
 
 int BrightnessLogic::stepToValue(int step) const
