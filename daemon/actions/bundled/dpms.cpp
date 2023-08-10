@@ -104,6 +104,7 @@ bool DPMS::isSupported()
 
 void DPMS::onWakeupFromIdle()
 {
+    qCDebug(POWERDEVIL) << "DPMS:onWakeupFromIdle";
     if (isSupported()) {
         Q_EMIT stopFade();
     }
@@ -115,6 +116,7 @@ void DPMS::onWakeupFromIdle()
 
 void DPMS::onIdleTimeout(int msec)
 {
+    qCDebug(POWERDEVIL) << "DPMS:onIdleTimeout" << msec;
     // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (m_inhibitScreen) {
         return;
@@ -135,6 +137,7 @@ void DPMS::onIdleTimeout(int msec)
             setKeyboardBrightnessHelper(0);
         }
         if (isSupported()) {
+            qCDebug(POWERDEVIL) << "DPMS:onIdleTimeout: turning off screen";
             m_dpms->switchMode(KScreen::Dpms::Off);
         }
     }
