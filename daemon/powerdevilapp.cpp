@@ -108,16 +108,14 @@ void PowerDevilApp::init()
     QPluginLoader *loader = new QPluginLoader(backendFileInfo.filePath(), m_core);
     QObject *instance = loader->instance();
     if (!instance) {
-        qCDebug(POWERDEVIL) << loader->errorString();
-        qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
+        qCCritical(POWERDEVIL) << "KDE Power Management System init failed!" << loader->errorString();
         m_core->loadCore(nullptr);
         return;
     }
 
     auto interface = qobject_cast<PowerDevil::BackendInterface*>(instance);
     if (!interface) {
-        qCDebug(POWERDEVIL) << "Failed to cast plugin instance to BackendInterface, check your plugin";
-        qCCritical(POWERDEVIL) << "KDE Power Management System init failed!";
+        qCCritical(POWERDEVIL) << "KDE Power Management System init failed! Failed to cast plugin instance to BackendInterface, check your plugin";
         m_core->loadCore(nullptr);
         return;
     }
