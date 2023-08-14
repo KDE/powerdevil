@@ -19,7 +19,6 @@
 
 #pragma once
 
-#include <QBindable>
 #include <QHash>
 #include <QObject>
 
@@ -203,17 +202,6 @@ public:
 
     void setLidPresent(bool present);
 
-    /**
-     * @return whether the current session is in idle state
-     */
-    QBindable<bool> isSessionIdle() const;
-    /**
-     * Sets the idle hint state of the system. IdleHint in org.freedesktop.login1.Session is also
-     * taken into account.
-     * @param idle whether IdleHint is true
-     */
-    virtual void setIdleHint(bool idle) = 0;
-
 Q_SIGNALS:
     /**
      * This signal is emitted when the AC adapter is plugged or unplugged.
@@ -298,8 +286,6 @@ protected:
     // Steps logic
     int calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
     int calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
-
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(BackendInterface, bool, m_isSessionIdle, false)
 
 private:
     AcAdapterState m_acAdapterState = UnknownAcAdapterState;

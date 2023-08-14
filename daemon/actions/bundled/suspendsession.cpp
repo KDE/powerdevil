@@ -50,7 +50,6 @@ SuspendSession::SuspendSession(QObject *parent)
 
     connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this]() {
         KIdleTime::instance()->simulateUserActivity();
-        backend()->setIdleHint(false);
 
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
 

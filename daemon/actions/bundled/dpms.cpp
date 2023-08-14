@@ -81,7 +81,6 @@ DPMS::DPMS(QObject *parent)
             lockScreen();
         }
         m_dpms->switchMode(KScreen::Dpms::Off);
-        backend()->setIdleHint(true);
     });
 
     auto powerButtonMode = [globalAction](bool isTablet) {
@@ -174,7 +173,6 @@ void DPMS::triggerImpl(const QVariantMap &args)
         level = KScreen::Dpms::On;
     }
     m_dpms->switchMode(level);
-    backend()->setIdleHint(level != KScreen::Dpms::On);
 }
 
 bool DPMS::loadAction(const KConfigGroup &config)

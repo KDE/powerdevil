@@ -809,8 +809,6 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
         }
     }
 
-    m_backend->setIdleHint(true);
-
     // Catch the next resume event if some actions require it
     if (!m_pendingResumeFromIdleActions.isEmpty()) {
         KIdleTime::instance()->catchNextResumeEvent();
@@ -900,7 +898,6 @@ void Core::onResumingFromIdle()
     KIdleTime::instance()->simulateUserActivity();
     // Wake up the actions in which an idle action was triggered
     std::for_each(m_pendingResumeFromIdleActions.cbegin(), m_pendingResumeFromIdleActions.cend(), std::mem_fn(&PowerDevil::Action::onWakeupFromIdle));
-    m_backend->setIdleHint(false);
 
     m_pendingResumeFromIdleActions.clear();
 }

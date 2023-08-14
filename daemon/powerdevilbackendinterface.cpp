@@ -89,11 +89,6 @@ void BackendInterface::setLidPresent(bool present)
     m_isLidPresent = present;
 }
 
-QBindable<bool> BackendInterface::isSessionIdle() const
-{
-    return &m_isSessionIdle;
-}
-
 void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
 {
     m_acAdapterState = state;
