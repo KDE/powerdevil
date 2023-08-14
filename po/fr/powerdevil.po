@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-05 02:00+0000\n"
+"POT-Creation-Date: 2023-08-14 01:59+0000\n"
 "PO-Revision-Date: 2023-07-17 21:47+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -335,12 +335,12 @@ msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Mainteneur précédent"
 
-#: powerdevilapp.cpp:149
+#: powerdevilapp.cpp:147
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "Changer de profil de gestion d'énergie"
 
-#: powerdevilapp.cpp:164
+#: powerdevilapp.cpp:162
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Remplacer une instance existante"
