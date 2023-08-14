@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-23 04:00+0000\n"
+"POT-Creation-Date: 2023-08-14 02:27+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -354,7 +354,7 @@ msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Cothaitheoir"
 
-#: powerdevilapp.cpp:160
+#: powerdevilapp.cpp:158
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
