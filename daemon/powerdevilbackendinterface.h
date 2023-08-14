@@ -203,10 +203,6 @@ public:
 
     void setLidPresent(bool present);
 
-    /*
-     * @return whether the current session is active
-     */
-    QBindable<bool> isSessionActive() const;
     /**
      * @return whether the current session is in idle state
      */
@@ -303,7 +299,6 @@ protected:
     int calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
     int calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
 
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(BackendInterface, bool, m_isSessionActive, true)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(BackendInterface, bool, m_isSessionIdle, false)
 
 private:

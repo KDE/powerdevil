@@ -642,9 +642,6 @@ void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
 void PowerDevilUPowerBackend::onLogin1SessionPropertiesChanged(const QString &, const QVariantMap &changedProps, const QStringList &)
 {
     auto it = changedProps.constFind(QStringLiteral("Active"));
-    if (it != changedProps.cend()) {
-        m_isSessionActive = it->toBool();
-    }
     it = changedProps.constFind(QStringLiteral("IdleHint"));
     if (it != changedProps.cend()) {
         m_login1SessionIdleHint = it->toBool();
