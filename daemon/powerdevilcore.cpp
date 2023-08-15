@@ -498,12 +498,12 @@ void Core::onDeviceRemoved(const QString &udi)
 
 void Core::emitNotification(const QString &eventId, const QString &title, const QString &message, const QString &iconName)
 {
-    KNotification::event(eventId, title, message, iconName, nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
+    KNotification::event(eventId, title, message, iconName, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
 }
 
 void Core::emitRichNotification(const QString &evid, const QString &title, const QString &message)
 {
-    KNotification::event(evid, title, message, QPixmap(), nullptr, KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
+    KNotification::event(evid, title, message, QPixmap(), KNotification::CloseOnTimeout, QStringLiteral("powerdevil"));
 }
 
 bool Core::emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi, Core::ChargeNotificationFlags flags)
