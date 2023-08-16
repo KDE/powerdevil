@@ -273,7 +273,7 @@ protected:
     void setCapabilities(Capabilities capabilities);
 
     void onScreenBrightnessChanged(int value, int valueMax);
-    void onKeyboardBrightnessChanged(int value, int valueMax);
+    void onKeyboardBrightnessChanged(int value, int valueMax, bool notify = false);
     void setBatteryEnergy(double energy);
     void setBatteryEnergyFull(double energy);
     void setBatteryRate(double rate, qulonglong timestamp);

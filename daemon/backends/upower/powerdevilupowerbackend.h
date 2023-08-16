@@ -89,7 +89,7 @@ private Q_SLOTS:
     void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
-    void onKeyboardBrightnessChanged(int);
+    void onKeyboardBrightnessChanged(int value, QString source);
 
     void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 

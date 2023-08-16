@@ -211,7 +211,10 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         if (m_kbdMaxBrightness) {
             m_cachedKeyboardBrightness = keyboardBrightness();
             qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedKeyboardBrightness;
-            connect(m_kbdBacklight, &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChanged, this, &PowerDevilUPowerBackend::onKeyboardBrightnessChanged);
+            connect(m_kbdBacklight,
+                    &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChangedWithSource,
+                    this,
+                    &PowerDevilUPowerBackend::onKeyboardBrightnessChanged);
         }
     }
 
@@ -454,12 +457,14 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
     }
 }
 
-void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value)
+void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, QString source)
 {
     qCDebug(POWERDEVIL) << "Keyboard brightness changed!!";
     if (value != m_cachedKeyboardBrightness) {
         m_cachedKeyboardBrightness = value;
-        BackendInterface::onKeyboardBrightnessChanged(value, keyboardBrightnessMax());
+        BackendInterface::onKeyboardBrightnessChanged(value, keyboardBrightnessMax(), source == QLatin1String("internal"));
+        // source: internal = keyboard brightness changed through hardware, eg a firmware-handled hotkey being pressed -> show the OSD
+        //         external = keyboard brightness changed through upower -> don't trigger the OSD as we would already have done that where necessary
     }
 }
 

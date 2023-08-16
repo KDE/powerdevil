@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "powerdevilbackendinterface.h"
+#include "brightnessosdwidget.h"
 #include "powerdevil_debug.h"
 #include <QDebug>
 
@@ -182,10 +183,14 @@ void BackendInterface::onScreenBrightnessChanged(int value, int valueMax)
     Q_EMIT screenBrightnessChanged(m_screenBrightnessLogic.info());
 }
 
-void BackendInterface::onKeyboardBrightnessChanged(int value, int valueMax)
+void BackendInterface::onKeyboardBrightnessChanged(int value, int valueMax, bool notify)
 {
     m_keyboardBrightnessLogic.setValueMax(valueMax);
     m_keyboardBrightnessLogic.setValue(value);
+
+    if (notify) {
+        BrightnessOSDWidget::show(m_keyboardBrightnessLogic.percentage(value), PowerDevil::BackendInterface::Keyboard);
+    }
 
     Q_EMIT keyboardBrightnessChanged(m_keyboardBrightnessLogic.info());
 }
