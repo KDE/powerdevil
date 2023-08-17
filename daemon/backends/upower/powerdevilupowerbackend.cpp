@@ -457,7 +457,7 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
     }
 }
 
-void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, QString source)
+void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, const QString &source)
 {
     qCDebug(POWERDEVIL) << "Keyboard brightness changed!!";
     if (value != m_cachedKeyboardBrightness) {
