@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-14 01:59+0000\n"
-"PO-Revision-Date: 2023-08-19 06:58-0700\n"
+"PO-Revision-Date: 2023-08-20 05:56-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -48,7 +48,7 @@ msgstr "ਸਕਰੀਨ ਚਮਕ ਵਧਾਓ"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "%1 ਰਾਹੀਂ ਸਕਰੀਨ ਚਮਕ ਵਧਾਓ"
+msgstr "1% ਰਾਹੀਂ ਸਕਰੀਨ ਚਮਕ ਵਧਾਓ"
 
 #: actions/bundled/brightnesscontrol.cpp:69
 #, kde-format
@@ -60,7 +60,7 @@ msgstr "ਸਕਰੀਨ ਚਮਕ ਘਟਾਓ"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "%1 ਰਾਹੀਂ ਸਕਰੀਨ ਚਮਕ ਘਟਾਓ"
+msgstr "1% ਰਾਹੀਂ ਸਕਰੀਨ ਚਮਕ ਘਟਾਓ"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:68
 #, kde-format
@@ -323,10 +323,9 @@ msgid "Previous maintainer"
 msgstr "ਪੁਰਾਣਾ ਪਰਬੰਧਕ"
 
 #: powerdevilapp.cpp:147
-#, fuzzy, kde-format
-#| msgid "Import PowerDevil Profiles"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "ਪਾਵਰ-ਡੀਵਿਲ ਪਰੋਫਾਈਲ ਇੰਪੋਰਟ"
+msgstr "ਪਾਵਰ ਪਰੋਫਾਈਲ ਬਦਲੋ"
 
 #: powerdevilapp.cpp:162
 #, kde-format
