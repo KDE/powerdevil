@@ -600,41 +600,44 @@ void Core::handleCriticalBattery(int percent)
     m_criticalBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     updateBatteryNotifications(percent); // sets title
 
-    QStringList actions = {i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel")};
-
-    connect(m_criticalBatteryNotification.data(), &KNotification::action1Activated, this, [this] {
-        triggerCriticalBatteryAction();
-    });
-    connect(m_criticalBatteryNotification.data(), &KNotification::action2Activated, this, [this] {
-        m_criticalBatteryTimer->stop();
-        m_criticalBatteryNotification->close();
-    });
-
     switch (static_cast<PowerButtonAction>(m_globalSettings->batteryCriticalAction())) {
-    case PowerButtonAction::Shutdown:
-        m_criticalBatteryNotification->setText(i18n("The computer will shut down in 60 seconds."));
-        actions.prepend(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
-        m_criticalBatteryNotification->setActions(actions);
+    case PowerButtonAction::Shutdown: {
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will shut down in 60 seconds."));
+        auto action =
+            m_criticalBatteryNotification->addAction(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
+        connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
         m_criticalBatteryTimer->start();
         break;
-    case PowerButtonAction::SuspendToDisk:
-        m_criticalBatteryNotification->setText(i18n("The computer will hibernate in 60 seconds."));
-        actions.prepend(i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
-        m_criticalBatteryNotification->setActions(actions);
+    }
+    case PowerButtonAction::SuspendToDisk: {
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will enter hibernation mode in 60 seconds."));
+        auto action = m_criticalBatteryNotification->addAction(
+            i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
+        connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
         m_criticalBatteryTimer->start();
         break;
+    }
     case PowerButtonAction::SuspendToRam:
-    case PowerButtonAction::SuspendHybrid:
-        m_criticalBatteryNotification->setText(i18n("The computer will sleep in 60 seconds."));
-        actions.prepend(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
-        m_criticalBatteryNotification->setActions(actions);
+    case PowerButtonAction::SuspendHybrid: {
+        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
+        auto action =
+            m_criticalBatteryNotification->addAction(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
+        connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
         m_criticalBatteryTimer->start();
         break;
+    }
     default:
         m_criticalBatteryNotification->setText(i18n("Please save your work."));
         // no timer, no actions
         break;
     }
+
+    auto cancelAction =
+        m_criticalBatteryNotification->addAction(i18nc("Cancel timeout that will automatically put system to sleep because of low battery", "Cancel"));
+    connect(cancelAction, &KNotificationAction::activated, this, [this] {
+        m_criticalBatteryTimer->stop();
+        m_criticalBatteryNotification->close();
+    });
 
     m_criticalBatteryNotification->sendEvent();
 }
