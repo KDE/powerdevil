@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2022-11-26 08:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -32,28 +32,7 @@ msgstr ""
 "andrej.vernekar@gmail.com,jlp@holodeck1.com,andrej.znidarsic@ubuntu.com,"
 "andrejm@ubuntu.si"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Ne naredi nič"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Spanje"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "V hibernaciji"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "Izklopi"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Kot kaže, storitev upravljanja z energijo ne teče."
@@ -194,6 +173,19 @@ msgstr "Ostale nastavitve"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Prenehaj polniti pri:"
+
+#~ msgid "Do nothing"
+#~ msgstr "Ne naredi nič"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Spanje"
+
+#~ msgid "Hibernate"
+#~ msgstr "V hibernaciji"
+
+#~ msgid "Shut down"
+#~ msgstr "Izklopi"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

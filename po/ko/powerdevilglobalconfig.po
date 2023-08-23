@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2021-05-28 02:46+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,28 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "아무것도 하지 않음"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "대기 모드"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "최대 절전 모드"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "컴퓨터 끄기"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "전원 관리 서비스가 실행 중이 아닌 것 같습니다."
@@ -188,6 +167,19 @@ msgstr "기타 설정"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "충전 중단 시점:"
+
+#~ msgid "Do nothing"
+#~ msgstr "아무것도 하지 않음"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "대기 모드"
+
+#~ msgid "Hibernate"
+#~ msgstr "최대 절전 모드"
+
+#~ msgid "Shut down"
+#~ msgstr "컴퓨터 끄기"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

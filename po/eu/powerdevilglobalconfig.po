@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2021-06-20 11:55+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,28 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@euskalnet.net,hizpol@ej-gv.es"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Ez egin ezer"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Egin lo"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernatu"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "Itzali"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Ematen du energia kudeatzeko zerbitzua ez dagoela martxan."
@@ -193,6 +172,19 @@ msgstr "Beste ezarpen batzuk"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Kargatzen gelditu hemen:"
+
+#~ msgid "Do nothing"
+#~ msgstr "Ez egin ezer"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Egin lo"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hibernatu"
+
+#~ msgid "Shut down"
+#~ msgstr "Itzali"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

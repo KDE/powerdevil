@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2021-06-21 08:14-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -27,28 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@users.sf.net"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "ਕੁਝ ਨਾ ਕਰੋ"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "ਸਲੀਪ"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "ਹਾਈਬਰਨੇਟ"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "ਬੰਦ ਕਰੋ"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"
@@ -188,6 +167,19 @@ msgstr "ਹੋਰ ਸੈਟਿੰਗਾਂ"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "ਇਸ ਉੱਤੇ ਚਾਰਜ ਕਰਨਾ ਰੋਕੋ:"
+
+#~ msgid "Do nothing"
+#~ msgstr "ਕੁਝ ਨਾ ਕਰੋ"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "ਸਲੀਪ"
+
+#~ msgid "Hibernate"
+#~ msgstr "ਹਾਈਬਰਨੇਟ"
+
+#~ msgid "Shut down"
+#~ msgstr "ਬੰਦ ਕਰੋ"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

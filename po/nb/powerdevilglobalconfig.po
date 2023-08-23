@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2018-06-24 20:29+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -34,28 +34,7 @@ msgstr ""
 "knut.yrvin@gmail.com,gluras@c2i.net,boerre@skolelinux.no,bjornst@skogkatt."
 "homelinux.org,fri_programvare@bojer.no,sunny@sunbase.org"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Ikke gjør noe"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr ""
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Gå i dvalemodus"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "Slå av"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -191,3 +170,12 @@ msgstr ""
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+#~ msgid "Do nothing"
+#~ msgstr "Ikke gjør noe"
+
+#~ msgid "Hibernate"
+#~ msgstr "Gå i dvalemodus"
+
+#~ msgid "Shut down"
+#~ msgstr "Slå av"

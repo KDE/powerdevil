@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2011-08-24 09:48+0300\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -29,30 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "maris.kde@gmail.com"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Nedarīt neko"
-
-#: GeneralPage.cpp:98
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Iesnaudināt"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibrenēt"
-
-#: GeneralPage.cpp:106
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "Izslēgt"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -197,6 +174,23 @@ msgstr "Paplašināti baterijas iestatījumi"
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+#~ msgid "Do nothing"
+#~ msgstr "Nedarīt neko"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Iesnaudināt"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hibrenēt"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "Izslēgt"
 
 #~ msgid "<b>Events</b>"
 #~ msgstr "<b>Notikumi</b>"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -27,30 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "ھېچقانداق قىلما"
-
-#: GeneralPage.cpp:98
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "ئۇخلات"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "ئۈچەك"
-
-#: GeneralPage.cpp:106
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "تاقا"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -190,6 +167,23 @@ msgstr "ئالىي توكدان تەڭشىكى"
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+#~ msgid "Do nothing"
+#~ msgstr "ھېچقانداق قىلما"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "ئۇخلات"
+
+#~ msgid "Hibernate"
+#~ msgstr "ئۈچەك"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "تاقا"
 
 #~ msgid "<b>Events</b>"
 #~ msgstr "<b>ھادىسە</b>"

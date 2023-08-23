@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2011-01-03 13:59+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -27,30 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jean.cayron@gmail.com"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Èn rén fé"
-
-#: GeneralPage.cpp:98
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Doirmi"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Ivierner"
-
-#: GeneralPage.cpp:106
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "Arester l' éndjole"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -195,6 +172,23 @@ msgstr "Sipepieus apontiaedjes del batreye"
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+#~ msgid "Do nothing"
+#~ msgstr "Èn rén fé"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Doirmi"
+
+#~ msgid "Hibernate"
+#~ msgstr "Ivierner"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "Arester l' éndjole"
 
 #~ msgid "<b>Events</b>"
 #~ msgstr "<b>Evenmints</b>"

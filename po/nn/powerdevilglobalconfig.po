@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2021-12-15 13:37+0100\n"
 "Last-Translator: Oystein Steffensen-Alvaervik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -31,28 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "eirbir@gmail.com,karl@huftis.org"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Ikkje gjer noko"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Gå i kvilemodus"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Gå i dvalemodus"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "Slå av maskina"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Det ser ikkje ut til at straumstyrings­tenesta køyrer."
@@ -194,3 +173,16 @@ msgstr "Andre innstillingar"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Stopp lading når nivået er over:"
+
+#~ msgid "Do nothing"
+#~ msgstr "Ikkje gjer noko"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Gå i kvilemodus"
+
+#~ msgid "Hibernate"
+#~ msgstr "Gå i dvalemodus"
+
+#~ msgid "Shut down"
+#~ msgstr "Slå av maskina"

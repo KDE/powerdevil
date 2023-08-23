@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2014-06-05 16:25+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -29,30 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "s_dibbern@web.de, m.j.wiese@web.de"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Nix doon"
-
-#: GeneralPage.cpp:98
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Utsetten"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Infreren"
-
-#: GeneralPage.cpp:106
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "Utmaken"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -191,6 +168,23 @@ msgstr ""
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+#~ msgid "Do nothing"
+#~ msgstr "Nix doon"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Utsetten"
+
+#~ msgid "Hibernate"
+#~ msgstr "Infreren"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "Utmaken"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

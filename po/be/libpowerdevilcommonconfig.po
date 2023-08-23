@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2019-05-20 03:26+0200\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -29,3 +29,50 @@ msgid ""
 msgstr ""
 "Не ўдалося загрузіць модуль канфігурацыі кіравання сілкаваннем.\n"
 "%1"
+
+#: PowerButtonActionModel.cpp:31
+#, kde-format
+msgid "Do nothing"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:40
+#, kde-format
+msgctxt "Suspend to RAM"
+msgid "Sleep"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:50
+#, kde-format
+msgid "Hibernate"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:60
+#, kde-format
+msgid "Hybrid sleep"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:69
+#, kde-format
+msgctxt "Power down the computer"
+msgid "Shut down"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:77
+#, kde-format
+msgid "Lock screen"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:85
+#, kde-format
+msgid "Prompt log out dialog"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:93
+#, kde-format
+msgid "Turn off screen"
+msgstr ""
+
+#: PowerButtonActionModel.cpp:101
+#, kde-format
+msgid "Toggle screen on/off"
+msgstr ""

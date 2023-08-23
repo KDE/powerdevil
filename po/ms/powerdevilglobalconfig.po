@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2011-05-17 14:45+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -28,30 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sharuzzaman@gmail.com"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "Tidak buat apa-apa"
-
-#: GeneralPage.cpp:98
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Tidur"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernasi"
-
-#: GeneralPage.cpp:106
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "Matikan"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -186,6 +163,23 @@ msgstr ""
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+#~ msgid "Do nothing"
+#~ msgstr "Tidak buat apa-apa"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Tidur"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hibernasi"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "Matikan"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "(c), 2010 Dario Freddi"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2021-06-28 23:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -30,28 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "it@abdelos.com,abdilra7eem@yahoo.com,zayed.alsaidi@gmail.com"
 
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "لا تفعل شيئا"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "نَم"
-
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "أسبت"
-
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "أطفئ"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "يبدو أن خدمة إدارة الطاقة لا تعمل."
@@ -189,6 +168,19 @@ msgstr "إعدادات أخرى"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "أوقف الشحن عند:"
+
+#~ msgid "Do nothing"
+#~ msgstr "لا تفعل شيئا"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "نَم"
+
+#~ msgid "Hibernate"
+#~ msgstr "أسبت"
+
+#~ msgid "Shut down"
+#~ msgstr "أطفئ"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-23 02:00+0000\n"
 "PO-Revision-Date: 2017-09-28 17:58+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,31 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-# >> @item:inlistbox
-#: GeneralPage.cpp:95
-#, kde-format
-msgid "Do nothing"
-msgstr "ne radi ništa"
-
-#: GeneralPage.cpp:98
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr ""
-
-# >> @item:inlistbox
-#: GeneralPage.cpp:103
-#, kde-format
-msgid "Hibernate"
-msgstr "u hibernaciju"
-
-# >> @item:inlistbox
-#: GeneralPage.cpp:106
-#, kde-format
-msgid "Shut down"
-msgstr "ugasi"
-
-#: GeneralPage.cpp:255
+#: GeneralPage.cpp:253
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -190,6 +166,18 @@ msgstr ""
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
+
+# >> @item:inlistbox
+#~ msgid "Do nothing"
+#~ msgstr "ne radi ništa"
+
+# >> @item:inlistbox
+#~ msgid "Hibernate"
+#~ msgstr "u hibernaciju"
+
+# >> @item:inlistbox
+#~ msgid "Shut down"
+#~ msgstr "ugasi"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
