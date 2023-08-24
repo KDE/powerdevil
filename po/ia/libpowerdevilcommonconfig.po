@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2013, 2021.
+# Giovanni Sora <g.sora@tiscali.it>, 2013, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-23 02:00+0000\n"
-"PO-Revision-Date: 2021-12-20 12:45+0100\n"
+"PO-Revision-Date: 2023-08-23 17:05+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: ErrorOverlay.cpp:40
 #, kde-format
@@ -29,46 +29,46 @@ msgstr ""
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Nihil Facer"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Dormi"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Hiberna"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Dormi hybrid"
 
 #: PowerButtonActionModel.cpp:69
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Arresto (shut down)"
 
 #: PowerButtonActionModel.cpp:77
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Bloca schermo"
 
 #: PowerButtonActionModel.cpp:85
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr ""
+msgstr "Demanda le dialogo de clausura de session"
 
 #: PowerButtonActionModel.cpp:93
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Extingue schermo"
 
 #: PowerButtonActionModel.cpp:101
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Commuta  schermo On e Off"
