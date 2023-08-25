@@ -58,6 +58,7 @@ void DimDisplay::onWakeupFromIdle()
 
 void DimDisplay::onIdleTimeout(int msec)
 {
+    assert(msec == m_dimOnIdleTime);
     if (backend()->screenBrightness() == 0) {
         // Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
@@ -66,18 +67,15 @@ void DimDisplay::onIdleTimeout(int msec)
         return;
     }
 
-    if (msec == m_dimOnIdleTime) {
-        setBrightnessHelper(0, 0);
-    } else if (msec == (m_dimOnIdleTime * 3 / 4)) {
-        const int newBrightness = qRound(m_oldScreenBrightness / 8.0);
-        setBrightnessHelper(newBrightness, 0);
-    } else if (msec == (m_dimOnIdleTime * 1 / 2)) {
-        m_oldScreenBrightness = backend()->screenBrightness();
-        m_oldKeyboardBrightness = backend()->keyboardBrightness();
+    m_oldScreenBrightness = backend()->screenBrightness();
+    m_oldKeyboardBrightness = backend()->keyboardBrightness();
 
-        const int newBrightness = qRound(m_oldScreenBrightness / 2.0);
-        setBrightnessHelper(newBrightness, 0);
-    }
+    // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
+    // assumption that e.g. 50% may be too bright for returning user to notice that
+    // the screen is going to go off, while 20% may be too dark to be able to read
+    // something on the screen.
+    const int newBrightness = qRound(m_oldScreenBrightness * 0.3);
+    setBrightnessHelper(newBrightness, 0);
 
     m_dimmed = true;
 }
@@ -117,8 +115,6 @@ bool DimDisplay::loadAction(const KConfigGroup &config)
     if (config.hasKey("idleTime")) {
         m_dimOnIdleTime = config.readEntry<int>("idleTime", 10000000);
         qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime;
-        registerIdleTimeout(m_dimOnIdleTime * 3 / 4);
-        registerIdleTimeout(m_dimOnIdleTime / 2);
         registerIdleTimeout(m_dimOnIdleTime);
     }
 
