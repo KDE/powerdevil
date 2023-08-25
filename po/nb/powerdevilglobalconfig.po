@@ -170,12 +170,3 @@ msgstr ""
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
-
-#~ msgid "Do nothing"
-#~ msgstr "Ikke gjør noe"
-
-#~ msgid "Hibernate"
-#~ msgstr "Gå i dvalemodus"
-
-#~ msgid "Shut down"
-#~ msgstr "Slå av"
