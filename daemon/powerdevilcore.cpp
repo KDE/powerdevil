@@ -78,10 +78,6 @@ Core::~Core()
 
 void Core::loadCore(BackendInterface *backend)
 {
-    if (!backend) {
-        return;
-    }
-
     m_backend = backend;
 
     m_suspendController = std::make_unique<SuspendController>();
