@@ -202,7 +202,7 @@ void SuspendSession::suspendToRam()
 void SuspendSession::triggerSuspendSession(PowerDevil::PowerButtonAction action)
 {
     trigger({
-        {QStringLiteral("Type"), PowerDevil::to_underlying(action)},
+        {QStringLiteral("Type"), qToUnderlying(action)},
         {QStringLiteral("Explicit"), true},
     });
 }

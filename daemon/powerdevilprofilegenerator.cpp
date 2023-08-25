@@ -37,9 +37,9 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     // Change critical action if default (hibernate) is unavailable
     if (!toDisk) {
         if (!toRam) {
-            PowerDevilSettings::setBatteryCriticalAction(PowerDevil::to_underlying(PowerButtonAction::NoAction));
+            PowerDevilSettings::setBatteryCriticalAction(qToUnderlying(PowerButtonAction::NoAction));
         } else {
-            PowerDevilSettings::setBatteryCriticalAction(PowerDevil::to_underlying(PowerButtonAction::SuspendToRam));
+            PowerDevilSettings::setBatteryCriticalAction(qToUnderlying(PowerButtonAction::SuspendToRam));
         }
 
         PowerDevilSettings::self()->save();

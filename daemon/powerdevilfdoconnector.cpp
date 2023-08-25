@@ -134,7 +134,7 @@ void FdoConnector::triggerSuspendSession(PowerButtonAction action)
     PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), m_core);
     if (helperAction) {
         QVariantMap args;
-        args["Type"] = PowerDevil::to_underlying(action);
+        args["Type"] = qToUnderlying(action);
         args["Explicit"] = true;
         helperAction->trigger(args);
     }

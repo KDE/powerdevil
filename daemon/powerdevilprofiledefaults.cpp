@@ -98,22 +98,22 @@ int ProfileDefaults::defaultAutoSuspendIdleTimeoutSec(const QString &profileGrou
 
 unsigned int ProfileDefaults::defaultAutoSuspendType()
 {
-    return PowerDevil::to_underlying(PowerButtonAction::SuspendToRam);
+    return qToUnderlying(PowerButtonAction::SuspendToRam);
 }
 
 unsigned int ProfileDefaults::defaultPowerButtonAction(bool isMobile)
 {
-    return PowerDevil::to_underlying(isMobile ? PowerButtonAction::ToggleScreenOnOff : PowerButtonAction::PromptLogoutDialog);
+    return qToUnderlying(isMobile ? PowerButtonAction::ToggleScreenOnOff : PowerButtonAction::PromptLogoutDialog);
 }
 
 unsigned int ProfileDefaults::defaultPowerDownAction()
 {
-    return PowerDevil::to_underlying(PowerButtonAction::PromptLogoutDialog);
+    return qToUnderlying(PowerButtonAction::PromptLogoutDialog);
 }
 
 unsigned int ProfileDefaults::defaultLidAction(bool canSuspendToRam)
 {
-    return PowerDevil::to_underlying(canSuspendToRam ? PowerButtonAction::SuspendToRam : PowerButtonAction::TurnOffScreen);
+    return qToUnderlying(canSuspendToRam ? PowerButtonAction::SuspendToRam : PowerButtonAction::TurnOffScreen);
 }
 
 } // namespace PowerDevil

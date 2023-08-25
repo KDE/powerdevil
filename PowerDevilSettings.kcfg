@@ -35,7 +35,7 @@
     </entry>
     <entry name="BatteryCriticalAction" type="UInt">
       <default type="code">
-        PowerDevil::to_underlying(PowerDevil::PowerButtonAction::SuspendToDisk)
+        qToUnderlying(PowerDevil::PowerButtonAction::SuspendToDisk)
       </default>
     </entry>
     <entry name="PeripheralBatteryLowLevel" type="Int">

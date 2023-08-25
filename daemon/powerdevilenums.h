@@ -16,13 +16,6 @@ namespace PowerDevil
 Q_NAMESPACE_EXPORT(POWERDEVILCORE_EXPORT)
 Q_CLASSINFO("RegisterEnumClassesUnscoped", "false")
 
-// emulate std::to_underlying() from C++23 until we can use the newer standard here
-template<typename Enum>
-constexpr typename std::enable_if<std::is_enum<Enum>::value, typename std::underlying_type<Enum>::type>::type to_underlying(Enum const &value)
-{
-    return static_cast<typename std::underlying_type<Enum>::type>(value);
-}
-
 // The flag-style values here are useless:
 // Power actions never use more than one at a time, and config combobox option listings can't be
 // passed as flags because it's impossible to specify whether NoAction is or isn't included.
