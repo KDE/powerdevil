@@ -31,13 +31,6 @@ install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
 kauth_install_actions(org.kde.powerdevil.backlighthelper backlight_helper_actions.actions)
 
-## discrete gpu helper executable
-add_executable(discretegpuhelper discretegpuhelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
-target_link_libraries(discretegpuhelper Qt::Core KF6::AuthCore)
-install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
-kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
-kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_actions.actions)
-
 add_library(powerdevilupowerbackend ${powerdevilupowerbackend_SRCS})
 
 generate_export_header(powerdevilupowerbackend)
