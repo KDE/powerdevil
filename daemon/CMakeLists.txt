@@ -22,6 +22,8 @@ set(powerdevilcore_SRCS
     powerdevilpowermanagement.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
+    suspendcontroller.cpp
+    login1suspendjob.cpp
 )
 
 add_library(powerdevil_log_static STATIC)

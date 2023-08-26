@@ -18,9 +18,7 @@
 
 #include <KLocalizedString>
 
-Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface,
-                                   PowerDevil::BackendInterface::SuspendMethod method,
-                                   PowerDevil::BackendInterface::SuspendMethods supported)
+Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface, SuspendController::SuspendMethod method, SuspendController::SuspendMethods supported)
     : KJob()
     , m_login1Interface(login1Interface)
 {
@@ -49,16 +47,16 @@ void Login1SuspendJob::doStart()
         QDBusPendingReply<void> reply;
 
         switch (m_method) {
-        case PowerDevil::BackendInterface::ToRam:
+        case SuspendController::ToRam:
             reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Suspend"), args);
             break;
-        case PowerDevil::BackendInterface::ToDisk:
+        case SuspendController::ToDisk:
             reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Hibernate"), args);
             break;
-        case PowerDevil::BackendInterface::HybridSuspend:
+        case SuspendController::HybridSuspend:
             reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("HybridSleep"), args);
             break;
-        case PowerDevil::BackendInterface::SuspendThenHibernate:
+        case SuspendController::SuspendThenHibernate:
             reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("SuspendThenHibernate"), args);
             break;
         default:

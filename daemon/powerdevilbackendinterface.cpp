@@ -57,11 +57,6 @@ int BackendInterface::keyboardBrightnessSteps()
     return m_keyboardBrightnessLogic.steps();
 }
 
-BackendInterface::SuspendMethods BackendInterface::supportedSuspendMethods() const
-{
-    return m_suspendMethods;
-}
-
 bool BackendInterface::isLidClosed() const
 {
     return m_isLidClosed;
@@ -88,10 +83,8 @@ void BackendInterface::setBackendHasError(const QString &errorDetails)
     Q_UNUSED(errorDetails)
 }
 
-void BackendInterface::setBackendIsReady(BackendInterface::SuspendMethods supportedSuspendMethods)
+void BackendInterface::setBackendIsReady()
 {
-    m_suspendMethods = supportedSuspendMethods;
-
     Q_EMIT backendReady();
 }
 

@@ -52,23 +52,6 @@ public:
     Q_ENUM(ButtonType)
 
     /**
-     * This enum type defines the different suspend methods.
-     *
-     * - UnknownSuspendMethod: The name says it all
-     * - Standby: Processes are stopped, some hardware is deactivated (ACPI S1)
-     * - ToRam: Most devices are deactivated, only RAM is powered (ACPI S3)
-     * - ToDisk: State of the machine is saved to disk, and it's powered down (ACPI S4)
-     * - SuspendThenHibernate: Same as ToRam, but after a delay it switches to ToDisk
-     */
-    enum SuspendMethod { UnknownSuspendMethod = 0, Standby = 1, ToRam = 2, ToDisk = 4, HybridSuspend = 8, SuspendThenHibernate = 16 };
-    Q_ENUM(SuspendMethod)
-
-    /**
-     * This type stores an OR combination of SuspendMethod values.
-     */
-    Q_DECLARE_FLAGS(SuspendMethods, SuspendMethod)
-
-    /**
      * This enum defines the different types of brightness controls.
      *
      * - UnknownBrightnessControl: Unknown
@@ -109,23 +92,6 @@ public:
      * @see PowerDevil::BackendInterface::AcAdapterState
      */
     AcAdapterState acAdapterState() const;
-
-    /**
-     * Retrieves the set of suspend methods supported by the system.
-     *
-     * @return the suspend methods supported by this system
-     * @see PowerDevil::BackendInterface::SuspendMethod
-     * @see PowerDevil::BackendInterface::SuspendMethods
-     */
-    SuspendMethods supportedSuspendMethods() const;
-
-    /**
-     * Requests a suspend of the system.
-     *
-     * @param method the suspend method to use
-     * @return the job handling the operation
-     */
-    virtual KJob *suspend(SuspendMethod method) = 0;
 
     /**
      * Gets the screen brightness value.
@@ -224,16 +190,6 @@ Q_SIGNALS:
     void backendError(const QString &error);
 
     /**
-     * This signal is emitted when the PC is resuming from suspension
-     */
-    void resumeFromSuspend();
-
-    /**
-     * This signal is emitted when the PC is about to suspend
-     */
-    void aboutToSuspend();
-
-    /**
      * This signal is emitted when the laptop lid is closed or opened
      *
      * @param closed Whether the lid is now closed or not
@@ -249,7 +205,7 @@ protected:
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
 
-    void setBackendIsReady(SuspendMethods supportedSuspendMethods);
+    void setBackendIsReady();
     void setBackendHasError(const QString &errorDetails);
 
     // Steps logic
@@ -268,7 +224,6 @@ private:
 
     ScreenBrightnessLogic m_screenBrightnessLogic;
     KeyboardBrightnessLogic m_keyboardBrightnessLogic;
-    SuspendMethods m_suspendMethods;
     QString m_errorString;
     bool m_isLidClosed = false;
     bool m_isLidPresent = false;
@@ -280,5 +235,3 @@ protected:
 };
 
 }
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::SuspendMethods)

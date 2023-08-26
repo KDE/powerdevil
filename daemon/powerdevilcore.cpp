@@ -84,6 +84,8 @@ void Core::loadCore(BackendInterface *backend)
 
     m_backend = backend;
 
+    m_suspendController = std::make_unique<SuspendController>();
+
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
     connect(m_backend, &BackendInterface::backendReady, this, &Core::onBackendReady);
@@ -105,8 +107,8 @@ void Core::onBackendReady()
     if (groups.isEmpty()) {
         // Generate defaults
         qCDebug(POWERDEVIL) << "Generating a default configuration";
-        bool toRam = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToRam;
-        bool toDisk = m_backend->supportedSuspendMethods() & PowerDevil::BackendInterface::ToDisk;
+        bool toRam = m_suspendController->supportedSuspendMethods() & SuspendController::ToRam;
+        bool toDisk = m_suspendController->supportedSuspendMethods() & SuspendController::ToDisk;
 
         // These are generated profiles,
         const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
@@ -132,7 +134,7 @@ void Core::onBackendReady()
     connect(m_backend, &BackendInterface::batteryRemainingTimeChanged, this, &Core::onBatteryRemainingTimeChanged);
     connect(m_backend, &BackendInterface::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_backend, &BackendInterface::lidClosedChanged, this, &Core::onLidClosedChanged);
-    connect(m_backend, &BackendInterface::aboutToSuspend, this, &Core::onAboutToSuspend);
+    connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
     connect(KIdleTime::instance(), SIGNAL(timeoutReached(int, int)), this, SLOT(onKIdleTimeoutReached(int, int)));
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
@@ -964,6 +966,11 @@ void Core::readChargeThreshold()
 BackendInterface *Core::backend()
 {
     return m_backend;
+}
+
+SuspendController *Core::suspendController()
+{
+    return m_suspendController.get();
 }
 
 bool Core::isLidClosed() const

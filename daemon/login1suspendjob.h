@@ -14,15 +14,13 @@
 
 #include <KJob>
 
-#include "powerdevilbackendinterface.h"
+#include "suspendcontroller.h"
 
 class Login1SuspendJob : public KJob
 {
     Q_OBJECT
 public:
-    Login1SuspendJob(QDBusInterface *login1Interface,
-                     PowerDevil::BackendInterface::SuspendMethod method,
-                     PowerDevil::BackendInterface::SuspendMethods supported);
+    Login1SuspendJob(QDBusInterface *login1Interface, SuspendController::SuspendMethod method, SuspendController::SuspendMethods supported);
     ~Login1SuspendJob() override;
 
     void start() override;
@@ -34,6 +32,6 @@ private Q_SLOTS:
 
 private:
     QDBusInterface *m_login1Interface;
-    PowerDevil::BackendInterface::SuspendMethod m_method;
-    PowerDevil::BackendInterface::SuspendMethods m_supported;
+    SuspendController::SuspendMethod m_method;
+    SuspendController::SuspendMethods m_supported;
 };

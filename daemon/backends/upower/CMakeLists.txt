@@ -1,6 +1,5 @@
 set(powerdevilupowerbackend_SRCS
     ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp
-    login1suspendjob.cpp
     powerdevilupowerbackend.cpp
     udevqtclient.cpp
     udevqtdevice.cpp

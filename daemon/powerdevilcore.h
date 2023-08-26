@@ -22,6 +22,7 @@
 #include <KSharedConfig>
 
 #include "powerdevilcore_export.h"
+#include "suspendcontroller.h"
 
 namespace KActivities
 {
@@ -75,6 +76,7 @@ public:
     bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi = QString(), ChargeNotificationFlags flags = {});
 
     BackendInterface *backend();
+    SuspendController *suspendController();
 
     // More...
 
@@ -139,6 +141,7 @@ private:
     int m_chargeStopThreshold = 100;
 
     BackendInterface *m_backend = nullptr;
+    std::unique_ptr<SuspendController> m_suspendController;
 
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;

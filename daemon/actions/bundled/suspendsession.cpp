@@ -35,7 +35,7 @@ SuspendSession::SuspendSession(QObject *parent)
 
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 
-    connect(backend(), &PowerDevil::BackendInterface::resumeFromSuspend, this, [this]() {
+    connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, [this]() {
         KIdleTime::instance()->simulateUserActivity();
 
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
@@ -119,16 +119,15 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     switch (static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt())) {
     case PowerDevil::PowerButtonAction::SuspendToRam:
         Q_EMIT aboutToSuspend();
-        suspendJob =
-            backend()->suspend(m_suspendThenHibernateEnabled ? PowerDevil::BackendInterface::SuspendThenHibernate : PowerDevil::BackendInterface::ToRam);
+        suspendJob = core()->suspendController()->suspend(m_suspendThenHibernateEnabled ? SuspendController::SuspendThenHibernate : SuspendController::ToRam);
         break;
     case PowerDevil::PowerButtonAction::SuspendToDisk:
         Q_EMIT aboutToSuspend();
-        suspendJob = backend()->suspend(PowerDevil::BackendInterface::ToDisk);
+        suspendJob = core()->suspendController()->suspend(SuspendController::ToDisk);
         break;
     case PowerDevil::PowerButtonAction::SuspendHybrid:
         Q_EMIT aboutToSuspend();
-        suspendJob = backend()->suspend(PowerDevil::BackendInterface::HybridSuspend);
+        suspendJob = core()->suspendController()->suspend(SuspendController::HybridSuspend);
         break;
     case PowerDevil::PowerButtonAction::Shutdown:
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);

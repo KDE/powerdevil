@@ -27,7 +27,6 @@
 #include <kauth_version.h>
 
 #include "ddcutilbrightness.h"
-#include "login1suspendjob.h"
 #include "upowerdevice.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
@@ -51,33 +50,9 @@ PowerDevilUPowerBackend::~PowerDevilUPowerBackend() = default;
 
 void PowerDevilUPowerBackend::init()
 {
-    // interfaces
-    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
-        // Activate it.
-        QDBusConnection::systemBus().interface()->startService(LOGIN1_SERVICE);
-    }
-
-    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT2_SERVICE)) {
-        // Activate it.
-        QDBusConnection::systemBus().interface()->startService(CONSOLEKIT2_SERVICE);
-    }
-
     if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
         // Activate it.
         QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
-    }
-
-    if (QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
-        m_login1Interface = new QDBusInterface(LOGIN1_SERVICE, "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus(), this);
-    }
-
-    // if login1 isn't available, try using the same interface with ConsoleKit2
-    if (!m_login1Interface && QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT2_SERVICE)) {
-        m_login1Interface = new QDBusInterface(CONSOLEKIT2_SERVICE,
-                                               "/org/freedesktop/ConsoleKit/Manager",
-                                               "org.freedesktop.ConsoleKit.Manager",
-                                               QDBusConnection::systemBus(),
-                                               this);
     }
 
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
@@ -204,38 +179,8 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         }
     }
 
-    // Supported suspend methods
-    SuspendMethods supported = UnknownSuspendMethod;
-    if (m_login1Interface) {
-        QDBusPendingReply<QString> canSuspend = m_login1Interface.data()->asyncCall("CanSuspend");
-        canSuspend.waitForFinished();
-        if (canSuspend.isValid() && (canSuspend.value() == QLatin1String("yes") || canSuspend.value() == QLatin1String("challenge")))
-            supported |= ToRam;
-
-        QDBusPendingReply<QString> canHibernate = m_login1Interface.data()->asyncCall("CanHibernate");
-        canHibernate.waitForFinished();
-        if (canHibernate.isValid() && (canHibernate.value() == QLatin1String("yes") || canHibernate.value() == QLatin1String("challenge")))
-            supported |= ToDisk;
-
-        QDBusPendingReply<QString> canHybridSleep = m_login1Interface.data()->asyncCall("CanHybridSleep");
-        canHybridSleep.waitForFinished();
-        if (canHybridSleep.isValid() && (canHybridSleep.value() == QLatin1String("yes") || canHybridSleep.value() == QLatin1String("challenge")))
-            supported |= HybridSuspend;
-
-        QDBusPendingReply<QString> canSuspendThenHibernate = m_login1Interface.data()->asyncCall("CanSuspendThenHibernate");
-        canSuspendThenHibernate.waitForFinished();
-        if (canSuspendThenHibernate.isValid()
-            && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge")))
-            supported |= SuspendThenHibernate;
-    }
-
-    // "resuming" signal
-    if (m_login1Interface) {
-        connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
-    }
-
     // backend ready
-    setBackendIsReady(supported);
+    setBackendIsReady();
 }
 
 void PowerDevilUPowerBackend::onDeviceChanged(const UdevQt::Device &device)
@@ -454,14 +399,6 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, const QStri
     }
 }
 
-KJob *PowerDevilUPowerBackend::suspend(PowerDevil::BackendInterface::SuspendMethod method)
-{
-    if (m_login1Interface) {
-        return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
-    }
-    return nullptr;
-}
-
 void PowerDevilUPowerBackend::enumerateDevices()
 {
     m_lidIsPresent = m_upowerInterface->lidIsPresent();
@@ -600,15 +537,6 @@ void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, cons
     if (onBattery != m_onBattery) {
         setAcAdapterState(onBattery ? Unplugged : Plugged);
         m_onBattery = onBattery;
-    }
-}
-
-void PowerDevilUPowerBackend::slotLogin1PrepareForSleep(bool active)
-{
-    if (active) {
-        Q_EMIT aboutToSuspend();
-    } else {
-        Q_EMIT resumeFromSuspend();
     }
 }
 

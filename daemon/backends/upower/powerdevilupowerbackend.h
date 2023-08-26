@@ -13,7 +13,6 @@
 #include <powerdevilbackendinterface.h>
 
 #include <QDBusConnection>
-#include <QDBusInterface>
 
 #include <map>
 #include <memory>
@@ -29,9 +28,6 @@
 #define UPOWER_PATH "/org/freedesktop/UPower"
 #define UPOWER_IFACE "org.freedesktop.UPower"
 #define UPOWER_IFACE_DEVICE "org.freedesktop.UPower.Device"
-
-#define LOGIN1_SERVICE "org.freedesktop.login1"
-#define CONSOLEKIT2_SERVICE "org.freedesktop.ConsoleKit"
 
 class QPropertyAnimation;
 class QTimer;
@@ -61,7 +57,6 @@ public:
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
     int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
-    KJob *suspend(PowerDevil::BackendInterface::SuspendMethod method) override;
 
 Q_SIGNALS:
     void brightnessSupportQueried(bool available);
@@ -74,7 +69,6 @@ private Q_SLOTS:
     void updateDeviceProps();
     void slotDeviceAdded(const QDBusObjectPath &path);
     void slotDeviceRemoved(const QDBusObjectPath &path);
-    void slotLogin1PrepareForSleep(bool active);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int value, const QString &source);
@@ -105,9 +99,6 @@ private:
     QPropertyAnimation *m_brightnessAnimation = nullptr;
 
     QTimer *m_brightnessAnimationTimer = nullptr;
-
-    // login1 interface
-    QPointer<QDBusInterface> m_login1Interface;
 
     // buttons
     bool m_lidIsPresent;
