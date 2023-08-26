@@ -26,6 +26,8 @@
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
+#include "dpmscontroladaptor.h"
+
 #include <QAction>
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -53,6 +55,9 @@ DPMS::DPMS(QObject *parent)
     : Action(parent)
     , m_dpms(new KScreen::Dpms)
 {
+    // DBus
+    new DPMSControlAdaptor(this);
+
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 
     // On Wayland, KWin takes care of performing the effect properly
@@ -76,12 +81,7 @@ DPMS::DPMS(QObject *parent)
 
     QAction *globalAction = actionCollection->addAction(QLatin1String("Turn Off Screen"));
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Turn Off Screen"));
-    connect(globalAction, &QAction::triggered, this, [this] {
-        if (m_lockBeforeTurnOff) {
-            lockScreen();
-        }
-        m_dpms->switchMode(KScreen::Dpms::Off);
-    });
+    connect(globalAction, &QAction::triggered, this, &DPMS::turnOffScreen);
 
     auto powerButtonMode = [globalAction](bool isTablet) {
         if (!isTablet) {
@@ -233,8 +233,19 @@ void DPMS::lockScreen()
     });
 }
 
+void DPMS::turnOffScreen()
+{
+    if (!isSupported()) {
+        return;
+    }
+    if (m_lockBeforeTurnOff) {
+        lockScreen();
+    }
+    m_dpms->switchMode(KScreen::Dpms::Off);
 }
 }
+}
+
 #include "dpms.moc"
 
 #include "moc_dpms.cpp"

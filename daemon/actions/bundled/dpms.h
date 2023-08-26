@@ -38,6 +38,7 @@ namespace BundledActions
 class DPMS : public PowerDevil::Action
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.DPMSControl")
 
 public:
     explicit DPMS(QObject *parent);
@@ -62,6 +63,10 @@ protected:
 
 public:
     bool loadAction(const KConfigGroup &config) override;
+
+public Q_SLOTS:
+    // DBus export
+    void turnOffScreen();
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);

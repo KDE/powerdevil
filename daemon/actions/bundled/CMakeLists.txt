@@ -45,6 +45,7 @@ target_dbus_files(powerdevil_suspendsessionaction org.kde.Solid.PowerManagement.
 
 add_powerdevil_bundled_action(dpms)
 target_link_libraries(powerdevil_dpmsaction KF6::ScreenDpms)
+target_dbus_files(powerdevil_dpmsaction org.kde.Solid.PowerManagement.Actions.DPMSControl.xml dpms.h PowerDevil::BundledActions::DPMS)
 
 set(handlebuttons_SRCS handlebuttonevents.cpp)
 qt_add_dbus_adaptor(handlebuttons_SRCS org.kde.Solid.PowerManagement.Actions.HandleButtonEvents.xml handlebuttonevents.h PowerDevil::BundledActions::HandleButtonEvents)

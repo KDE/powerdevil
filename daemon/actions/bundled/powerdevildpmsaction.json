@@ -94,5 +94,6 @@
     "X-KDE-PowerDevil-Action-ConfigPriority": 98,
     "X-KDE-PowerDevil-Action-ForceInstantLoad": true,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
-    "X-KDE-PowerDevil-Action-ID": "DPMSControl"
+    "X-KDE-PowerDevil-Action-ID": "DPMSControl",
+    "X-KDE-PowerDevil-Action-RegistersDBusInterface": true
 }
