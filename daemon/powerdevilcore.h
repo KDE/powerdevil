@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2010 by Dario Freddi <drf@kde.org>
+ *   SPDX-FileCopyrightText: 2010 Dario Freddi <drf@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
