@@ -182,16 +182,6 @@ void BackendInterface::onKeyboardBrightnessChanged(int value, int valueMax, bool
     Q_EMIT keyboardBrightnessChanged(m_keyboardBrightnessLogic.info());
 }
 
-BackendInterface::Capabilities BackendInterface::capabilities() const
-{
-    return m_capabilities;
-}
-
-void BackendInterface::setCapabilities(BackendInterface::Capabilities capabilities)
-{
-    m_capabilities = capabilities;
-}
-
 int BackendInterface::calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType)
 {
     m_screenBrightnessLogic.setValueMax(valueMax);

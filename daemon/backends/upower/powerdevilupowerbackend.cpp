@@ -164,8 +164,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     }
 
     disconnect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
-    // Capabilities
-    setCapabilities(SignalResumeFromSuspend);
 
     QDBusConnection::systemBus().connect(UPOWER_SERVICE,
                                          UPOWER_PATH,

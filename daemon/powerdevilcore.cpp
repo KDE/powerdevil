@@ -1063,7 +1063,7 @@ qulonglong Core::smoothedBatteryRemainingTime() const
 
 uint Core::backendCapabilities()
 {
-    return m_backend->capabilities();
+    return 1; // SignalResumeFromSuspend;
 }
 
 void Core::resetAndScheduleNextWakeup()

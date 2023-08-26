@@ -79,16 +79,6 @@ public:
     Q_ENUM(BrightnessControlType)
 
     /**
-     * This enum defines capabilities of the backend
-     *
-     * - SignalResumeFromSuspend: The backend is able to stream the @c resumeFromSuspend signal accurately
-     */
-    enum Capability { NoCapabilities = 0, SignalResumeFromSuspend = 1 };
-    Q_ENUM(Capability)
-
-    Q_DECLARE_FLAGS(Capabilities, Capability)
-
-    /**
      * Initializes the backend. This function @b MUST be called before the backend is usable. Using
      * any method in BackendInterface without initializing it might lead to undefined behavior. The signal
      * @c backendReady or @c backendError will be streamed upon completion.
@@ -96,12 +86,6 @@ public:
      * @note Backend implementations @b MUST reimplement this function
      */
     virtual void init() = 0;
-
-    /**
-     * @returns the capabilities of the backend
-     * @see PowerDevil::BackendInterface::Capability
-     */
-    Capabilities capabilities() const;
 
     /**
      * Retrieves the current estimated remaining time of the system batteries
@@ -257,8 +241,6 @@ Q_SIGNALS:
     void lidClosedChanged(bool closed);
 
 protected:
-    void setCapabilities(Capabilities capabilities);
-
     void onScreenBrightnessChanged(int value, int valueMax);
     void onKeyboardBrightnessChanged(int value, int valueMax, bool notify = false);
     void setBatteryEnergy(double energy);
@@ -286,7 +268,6 @@ private:
 
     ScreenBrightnessLogic m_screenBrightnessLogic;
     KeyboardBrightnessLogic m_keyboardBrightnessLogic;
-    Capabilities m_capabilities;
     SuspendMethods m_suspendMethods;
     QString m_errorString;
     bool m_isLidClosed = false;
@@ -300,5 +281,4 @@ protected:
 
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::Capabilities)
 Q_DECLARE_OPERATORS_FOR_FLAGS(PowerDevil::BackendInterface::SuspendMethods)
