@@ -1,26 +1,15 @@
-/*******************************************************************
+/*
  * brightnessosdwidget.cpp
  * adapted from kdemultimedia/kmix/osdwidget.cpp
- * Copyright  2009    Aurélien Gâteau <agateau@kde.org>
- * Copyright  2009    Dario Andres Rodriguez <andresbajotierra@gmail.com>
- * Copyright  2009    Christian Esken <christian.esken@arcor.de>
- * Copyright  2010    Felix Geyer <debfx-kde@fobos.de>
- * Copyright  2015    Kai Uwe Broulik <kde@privat.broulik.de>
+ * SPDX-FileCopyrightText: 2009 Aurélien Gâteau <agateau@kde.org>
+ * SPDX-FileCopyrightText: 2009 Dario Andres Rodriguez <andresbajotierra@gmail.com>
+ * SPDX-FileCopyrightText: 2009 Christian Esken <christian.esken@arcor.de>
+ * SPDX-FileCopyrightText: 2010 Felix Geyer <debfx-kde@fobos.de>
+ * SPDX-FileCopyrightText: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of
- * the License, or (at your option) any later version.
+ * SPDX-License-Identifier: GPL-2.0-or-later
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- ******************************************************************/
+ */
 
 #include "brightnessosdwidget.h"
 

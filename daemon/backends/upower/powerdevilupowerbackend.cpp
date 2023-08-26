@@ -1,23 +1,11 @@
 /*  This file is part of the KDE project
-    Copyright (C) 2006 Kevin Ottens <ervin@kde.org>
-    Copyright (C) 2008-2010 Dario Freddi <drf@kde.org>
-    Copyright (C) 2010 Alejandro Fiestas <alex@eyeos.org>
-    Copyright (C) 2010-2013 Lukáš Tinkl <ltinkl@redhat.com>
-    Copyright (C) 2015 Kai Uwe Broulik <kde@privat.broulik.de>
+    SPDX-FileCopyrightText: 2006 Kevin Ottens <ervin@kde.org>
+    SPDX-FileCopyrightText: 2008-2010 Dario Freddi <drf@kde.org>
+    SPDX-FileCopyrightText: 2010 Alejandro Fiestas <alex@eyeos.org>
+    SPDX-FileCopyrightText: 2010-2013 Lukáš Tinkl <ltinkl@redhat.com>
+    SPDX-FileCopyrightText: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
 
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Library General Public
-    License version 2 as published by the Free Software Foundation.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Library General Public License for more details.
-
-    You should have received a copy of the GNU Library General Public License
-    along with this library; see the file COPYING.LIB.  If not, write to
-    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-    Boston, MA 02110-1301, USA.
+    SPDX-License-Identifier: LGPL-2.0-only
 
 */
 

@@ -1,6 +1,6 @@
 /*
- *  SPDX-FileCopyrightText: Copyright 2021 Tomaz Canabrava <tcanabrava@kde.org>
- *  SPDX-FileCopyrightText: Copyright 2023 Jakob Petsovits <jpetso@petsovits.com>
+ *  SPDX-FileCopyrightText: SPDX-FileCopyrightText: 2021 Tomaz Canabrava <tcanabrava@kde.org>
+ *  SPDX-FileCopyrightText: SPDX-FileCopyrightText: 2023 Jakob Petsovits <jpetso@petsovits.com>
  *
  *  SPDX-License-Identifier: GPL-2.0-or-later
  */
