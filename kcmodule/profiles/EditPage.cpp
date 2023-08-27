@@ -13,10 +13,11 @@
 #include <powerdevilpowermanagement.h>
 #include <powerdevilprofilegenerator.h>
 
-#include <Kirigami/Platform/TabletModeWatcher>
+#include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 
 #include <QCheckBox>
+#include <QDebug>
 #include <QFormLayout>
 #include <QLabel>
 #include <QTabBar>
@@ -33,7 +34,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KPluginFactory>
-#include <QDebug>
+#include <Kirigami/Platform/TabletModeWatcher>
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -47,29 +48,25 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData &data)
 
     setupUi(widget());
 
-    m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
+    bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode(); // FIXME: problematic, see powerdevil GitLab issue #16
+    bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
+    bool canSuspend = PowerDevil::PowerManagement::instance()->canSuspend();
 
-    if (m_profilesConfig->groupList().isEmpty()) {
-        PowerDevil::ProfileGenerator::generateProfiles(Kirigami::Platform::TabletModeWatcher::self()->isTabletMode(),
-                                                       PowerDevil::PowerManagement::instance()->isVirtualMachine(),
-                                                       PowerDevil::PowerManagement::instance()->canSuspend());
-        m_profilesConfig->reparseConfiguration();
-    }
-
-    qCDebug(POWERDEVIL) << "loaded profiles" << m_profilesConfig.data()->groupList() << m_profilesConfig.data()->entryMap().keys();
-
-    // Create widgets for each profile
-    ActionEditWidget *editWidget = new ActionEditWidget("AC", tabWidget);
+    // Create config and widgets for each profile
+    auto profileSettings = std::make_unique<PowerDevil::ProfileSettings>("AC", isMobile, isVM, canSuspend);
+    ActionEditWidget *editWidget = new ActionEditWidget("AC", std::move(profileSettings), tabWidget);
     m_editWidgets.insert("AC", editWidget);
     acWidgetLayout->addWidget(editWidget);
     connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
 
-    editWidget = new ActionEditWidget("Battery", tabWidget);
+    profileSettings = std::make_unique<PowerDevil::ProfileSettings>("Battery", isMobile, isVM, canSuspend);
+    editWidget = new ActionEditWidget("Battery", std::move(profileSettings), tabWidget);
     m_editWidgets.insert("Battery", editWidget);
     batteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
 
-    editWidget = new ActionEditWidget("LowBattery", tabWidget);
+    profileSettings = std::make_unique<PowerDevil::ProfileSettings>("LowBattery", isMobile, isVM, canSuspend);
+    editWidget = new ActionEditWidget("LowBattery", std::move(profileSettings), tabWidget);
     m_editWidgets.insert("LowBattery", editWidget);
     lowBatteryWidgetLayout->addWidget(editWidget);
     connect(editWidget, &ActionEditWidget::changed, this, &EditPage::onChanged);
@@ -113,11 +110,6 @@ void EditPage::onChanged(bool value)
     }
 
     m_profileEdited[editWidget->configName()] = value;
-
-    if (value) {
-        setNeedsSave(true);
-    }
-
     checkAndEmitChanged();
 }
 
@@ -150,30 +142,11 @@ void EditPage::notifyDaemon()
                                                                            QStringLiteral("refreshStatus")));
 }
 
-void EditPage::restoreDefaultProfiles()
-{
-    // Confirm
-    int ret = KMessageBox::warningContinueCancel(widget(),
-                                                 i18n("The KDE Power Management System will now generate a set of defaults "
-                                                      "based on your computer's capabilities. This will also erase "
-                                                      "all existing modifications you made. "
-                                                      "Are you sure you want to continue?"),
-                                                 i18n("Restore Default Profiles"));
-    if (ret == KMessageBox::Continue) {
-        qCDebug(POWERDEVIL) << "Restoring defaults.";
-
-        PowerDevil::ProfileGenerator::generateProfiles(Kirigami::Platform::TabletModeWatcher::self()->isTabletMode(),
-                                                       PowerDevil::PowerManagement::instance()->isVirtualMachine(),
-                                                       PowerDevil::PowerManagement::instance()->canSuspend());
-        load();
-
-        notifyDaemon();
-    }
-}
-
 void EditPage::defaults()
 {
-    restoreDefaultProfiles();
+    for (auto it = m_editWidgets.constBegin(); it != m_editWidgets.constEnd(); ++it) {
+        (*it)->setDefaults();
+    }
 }
 
 void EditPage::checkAndEmitChanged()
@@ -181,7 +154,7 @@ void EditPage::checkAndEmitChanged()
     bool value = false;
     for (QHash<QString, bool>::const_iterator i = m_profileEdited.constBegin(); i != m_profileEdited.constEnd(); ++i) {
         if (i.value()) {
-            value = i.value();
+            value |= i.value();
         }
     }
 

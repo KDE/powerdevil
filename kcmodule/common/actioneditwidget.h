@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <PowerDevilProfileSettings.h>
+
 #include <QWidget>
 
 #include <KSharedConfig>
@@ -24,7 +26,7 @@ class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT ActionEditWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ActionEditWidget(const QString &configName, QWidget *parent = nullptr);
+    explicit ActionEditWidget(const QString &configName, std::unique_ptr<PowerDevil::ProfileSettings> profileSettings, QWidget *parent = nullptr);
     ~ActionEditWidget() override;
 
     QString configName() const;
@@ -32,6 +34,7 @@ public:
 public Q_SLOTS:
     void load();
     void save();
+    void setDefaults();
 
 private Q_SLOTS:
     void onChanged();
@@ -44,7 +47,7 @@ private:
 
 private:
     QString m_configName;
-    KSharedConfig::Ptr m_profilesConfig;
+    std::unique_ptr<PowerDevil::ProfileSettings> m_profileSettings;
     QHash<QString, QCheckBox *> m_actionsHash;
     QHash<QString, PowerDevil::ActionConfig *> m_actionsConfigHash;
 };

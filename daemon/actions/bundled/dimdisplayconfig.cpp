@@ -6,6 +6,8 @@
 
 #include "dimdisplayconfig.h"
 
+#include <PowerDevilProfileSettings.h>
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QSpinBox>
@@ -26,13 +28,22 @@ DimDisplayConfig::DimDisplayConfig(QObject *parent)
 
 void DimDisplayConfig::save()
 {
-    configGroup().writeEntry("idleTime", m_spinBox->value() * 60 * 1000);
+    profileSettings()->setDimDisplayIdleTimeoutSec(m_spinBox->value() * 60);
 }
 
 void DimDisplayConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
-    m_spinBox->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
+    m_spinBox->setValue(profileSettings()->dimDisplayIdleTimeoutSec() / 60);
+}
+
+bool DimDisplayConfig::enabledInProfileSettings() const
+{
+    return profileSettings()->dimDisplayWhenIdle();
+}
+
+void DimDisplayConfig::setEnabledInProfileSettings(bool enabled)
+{
+    profileSettings()->setDimDisplayWhenIdle(enabled);
 }
 
 QList<QPair<QString, QWidget *>> DimDisplayConfig::buildUi()

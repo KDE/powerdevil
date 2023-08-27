@@ -20,15 +20,14 @@
 #include <QDBusMessage>
 #include <QDBusPendingReply>
 
-#include <KConfigGroup>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <QDebug>
 
-ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
+ActionEditWidget::ActionEditWidget(const QString &configName, std::unique_ptr<PowerDevil::ProfileSettings> profileSettings, QWidget *parent)
     : QWidget(parent)
     , m_configName(configName)
-    , m_profilesConfig(KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::SimpleConfig | KConfig::CascadeConfig))
+    , m_profileSettings(std::move(profileSettings))
 {
     ActionConfigWidget *actionConfigWidget = new ActionConfigWidget(nullptr);
     QMultiMap<int, QList<QPair<QString, QWidget *>>> widgets;
@@ -64,6 +63,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
         KPluginMetaData uiLib(QLatin1String("powerdevil/action/kcm/") + offer.pluginId() + QLatin1String("_config"), KPluginMetaData::AllowEmptyMetaData);
         if (uiLib.isValid()) {
             actionConfig = KPluginFactory::instantiatePlugin<PowerDevil::ActionConfig>(uiLib).plugin;
+            actionConfig->setProfileSettings(m_profileSettings.get());
         }
         if (!actionConfig) {
             continue;
@@ -97,21 +97,16 @@ ActionEditWidget::~ActionEditWidget()
 
 void ActionEditWidget::load()
 {
-    KConfigGroup group = configGroup();
+    m_profileSettings->load();
 
-    qCDebug(POWERDEVIL) << m_profilesConfig.data()->entryMap().keys();
-
-    if (!group.isValid()) {
-        return;
+    qCDebug(POWERDEVIL) << "PowerDevil::ProfileSettings ready:" << m_configName;
+    for (KConfigSkeletonItem *item : m_profileSettings->items()) {
+        qCDebug(POWERDEVIL) << item->key() << "=" << item->property();
     }
-    qCDebug(POWERDEVIL) << "Ok, KConfigGroup ready" << group.entryMap().keys();
 
     // Iterate over the possible actions
     for (QHash<QString, QCheckBox *>::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
-        i.value()->setChecked(group.groupList().contains(i.key()));
-
-        KConfigGroup actionGroup = group.group(i.key());
-        m_actionsConfigHash[i.key()]->setConfigGroup(actionGroup);
+        i.value()->setChecked(m_actionsConfigHash[i.key()]->enabledInProfileSettings());
         m_actionsConfigHash[i.key()]->load();
     }
 
@@ -120,30 +115,28 @@ void ActionEditWidget::load()
 
 void ActionEditWidget::save()
 {
-    KConfigGroup group = configGroup();
-
-    if (!group.isValid()) {
-        qCDebug(POWERDEVIL) << "Could not perform a save operation, group is not valid!";
-        return;
+    // Iterate over the possible actions
+    for (QHash<QString, QCheckBox *>::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
+        m_actionsConfigHash[i.key()]->setEnabledInProfileSettings(i.value()->isChecked());
+        m_actionsConfigHash[i.key()]->save();
     }
+
+    m_profileSettings->save();
+    // Reloading settings should not be required here given that it's backed by a KSharedConfig,
+    // and we're only interested in the single profile that this ActionEditWidget was initialized with.
+
+    Q_EMIT changed(false);
+}
+
+void ActionEditWidget::setDefaults()
+{
+    m_profileSettings->setDefaults();
 
     // Iterate over the possible actions
     for (QHash<QString, QCheckBox *>::const_iterator i = m_actionsHash.constBegin(); i != m_actionsHash.constEnd(); ++i) {
-        if (i.value()->isChecked()) {
-            // Perform the actual save
-            m_actionsConfigHash[i.key()]->save();
-        } else {
-            // Erase the group
-            group.deleteGroup(i.key());
-        }
+        i.value()->setChecked(m_actionsConfigHash[i.key()]->enabledInProfileSettings());
+        m_actionsConfigHash[i.key()]->load();
     }
-
-    group.sync();
-
-    // After saving, reload the config to make sure we'll pick up changes.
-    m_profilesConfig.data()->reparseConfiguration();
-
-    Q_EMIT changed(false);
 }
 
 void ActionEditWidget::onChanged()
@@ -154,26 +147,6 @@ void ActionEditWidget::onChanged()
 QString ActionEditWidget::configName() const
 {
     return m_configName;
-}
-
-KConfigGroup ActionEditWidget::configGroup()
-{
-    if (!m_configName.contains('/')) {
-        return KConfigGroup(m_profilesConfig, m_configName);
-    } else {
-        QStringList names = m_configName.split('/');
-        KConfigGroup retgroup(m_profilesConfig, names.first());
-
-        QStringList::const_iterator i = names.constBegin();
-        ++i;
-
-        while (i != names.constEnd()) {
-            retgroup = retgroup.group(*i);
-            ++i;
-        }
-
-        return retgroup;
-    }
 }
 
 #include "moc_actioneditwidget.cpp"

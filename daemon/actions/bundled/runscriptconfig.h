@@ -22,15 +22,14 @@ public:
 
     void save() override;
     void load() override;
+    bool enabledInProfileSettings() const override;
+    void setEnabledInProfileSettings(bool enabled) override;
     QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     KUrlRequester *m_urlRequester;
     KComboBox *m_comboBox;
     QSpinBox *m_idleTime;
-
-private Q_SLOTS:
-    void onIndexChanged(const QString &);
 };
 
 }

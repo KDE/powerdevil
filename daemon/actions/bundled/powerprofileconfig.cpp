@@ -6,7 +6,8 @@
 
 #include "powerprofileconfig.h"
 
-#include "powerdevilpowermanagement.h"
+#include <PowerDevilProfileSettings.h>
+#include <powerdevilpowermanagement.h>
 
 #include <QComboBox>
 #include <QDBusConnection>
@@ -29,19 +30,25 @@ PowerProfileConfig::PowerProfileConfig(QObject *parent)
 
 void PowerProfileConfig::save()
 {
-    const QString profile = m_profileCombo->currentData().toString();
-    configGroup().writeEntry("profile", profile);
-
-    configGroup().sync();
+    profileSettings()->setPowerProfile(m_profileCombo->currentData().toString());
 }
 
 void PowerProfileConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
+    const QString powerProfile = profileSettings()->powerProfile();
+    m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(powerProfile)));
+}
 
-    const QString profile = configGroup().readEntry("profile", QString());
-    if (m_profileCombo) {
-        m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
+bool PowerProfileConfig::enabledInProfileSettings() const
+{
+    return !profileSettings()->powerProfile().isEmpty();
+}
+
+void PowerProfileConfig::setEnabledInProfileSettings(bool enabled)
+{
+    if (!enabled) {
+        profileSettings()->setPowerProfile(QString());
+        m_profileCombo->setCurrentIndex(0); // Leave unchanged
     }
 }
 
@@ -82,9 +89,9 @@ QList<QPair<QString, QWidget *>> PowerProfileConfig::buildUi()
             m_profileCombo->addItem(profileNames.value(choice, choice), choice);
         }
 
-        if (configGroup().isValid()) {
-            const QString profile = configGroup().readEntry("profile", QString());
-            m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(profile)));
+        if (profileSettings()) {
+            const QString powerProfile = profileSettings()->powerProfile();
+            m_profileCombo->setCurrentIndex(qMax(0, m_profileCombo->findData(powerProfile)));
         }
     });
 

@@ -12,10 +12,6 @@
 #include "ui_profileEditPage.h"
 
 class ActionEditWidget;
-namespace PowerDevil
-{
-}
-
 class ErrorOverlay;
 
 class EditPage : public KCModule, private Ui_profileEditPage
@@ -32,8 +28,6 @@ public:
 private Q_SLOTS:
     void onChanged(bool changed);
 
-    void restoreDefaultProfiles();
-
     void notifyDaemon();
 
     void onServiceRegistered(const QString &service);
@@ -42,7 +36,6 @@ private Q_SLOTS:
     void checkAndEmitChanged();
 
 private:
-    KSharedConfig::Ptr m_profilesConfig;
     QHash<QString, bool> m_profileEdited;
     ErrorOverlay *m_errorOverlay = nullptr;
     QHash<QString, ActionEditWidget *> m_editWidgets;

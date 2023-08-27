@@ -9,6 +9,7 @@
 #include <powerdevilactionconfig.h>
 
 class KComboBox;
+class QComboBox;
 class QCheckBox;
 class QSpinBox;
 
@@ -22,12 +23,14 @@ public:
 
     void save() override;
     void load() override;
+    bool enabledInProfileSettings() const override;
+    void setEnabledInProfileSettings(bool enabled) override;
     QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:
     QSpinBox *m_idleTime;
-    QCheckBox *m_suspendThenHibernateEnabled;
     KComboBox *m_comboBox;
+    QComboBox *m_sleepModeCombo;
 };
 
 }

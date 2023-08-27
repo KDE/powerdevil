@@ -9,6 +9,7 @@
 
 #include "upower_interface.h"
 
+#include <PowerDevilProfileSettings.h>
 #include <powerdevilenums.h>
 #include <powerdevilpowermanagement.h>
 
@@ -31,30 +32,42 @@ HandleButtonEventsConfig::HandleButtonEventsConfig(QObject *parent)
 void HandleButtonEventsConfig::save()
 {
     if (m_lidCloseCombo) {
-        configGroup().writeEntry<uint>("lidAction", m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
+        profileSettings()->setLidAction(m_lidCloseCombo->itemData(m_lidCloseCombo->currentIndex()).toUInt());
     }
     if (m_triggerLidActionWhenExternalMonitorPresent) {
-        configGroup().writeEntry<bool>("triggerLidActionWhenExternalMonitorPresent", m_triggerLidActionWhenExternalMonitorPresent->isChecked());
+        profileSettings()->setInhibitLidActionWhenExternalMonitorPresent(!m_triggerLidActionWhenExternalMonitorPresent->isChecked());
     }
     if (m_powerButtonCombo) {
-        configGroup().writeEntry<uint>("powerButtonAction", m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
+        profileSettings()->setPowerButtonAction(m_powerButtonCombo->itemData(m_powerButtonCombo->currentIndex()).toUInt());
     }
-
-    configGroup().sync();
+    // Note: PowerDownAction is neither saved nor represented in the UI by this ActionConfig.
 }
 
 void HandleButtonEventsConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
-
     if (m_lidCloseCombo) {
-        m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(configGroup().readEntry<uint>("lidAction", 0))));
+        m_lidCloseCombo->setCurrentIndex(m_lidCloseCombo->findData(QVariant::fromValue(profileSettings()->lidAction())));
     }
     if (m_triggerLidActionWhenExternalMonitorPresent) {
-        m_triggerLidActionWhenExternalMonitorPresent->setChecked(configGroup().readEntry<bool>("triggerLidActionWhenExternalMonitorPresent", false));
+        m_triggerLidActionWhenExternalMonitorPresent->setChecked(!profileSettings()->inhibitLidActionWhenExternalMonitorPresent());
     }
     if (m_powerButtonCombo) {
-        m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(configGroup().readEntry<uint>("powerButtonAction", 0))));
+        m_powerButtonCombo->setCurrentIndex(m_powerButtonCombo->findData(QVariant::fromValue(profileSettings()->powerButtonAction())));
+    }
+}
+
+bool HandleButtonEventsConfig::enabledInProfileSettings() const
+{
+    return true; // we'll get rid of this checkbox soon, but in the meantime, always initialize as enabled
+}
+
+void HandleButtonEventsConfig::setEnabledInProfileSettings(bool enabled)
+{
+    if (!enabled) {
+        profileSettings()->setLidAction(qToUnderlying(PowerDevil::PowerButtonAction::NoAction));
+        profileSettings()->setPowerButtonAction(qToUnderlying(PowerDevil::PowerButtonAction::NoAction));
+        profileSettings()->setPowerDownAction(qToUnderlying(PowerDevil::PowerButtonAction::NoAction));
+        load(); // sync widgets so save() doesn't reset these values
     }
 }
 
@@ -80,9 +93,6 @@ QList<QPair<QString, QWidget *>> HandleButtonEventsConfig::buildUi()
             }
             if (PowerManagement::instance()->canHibernate()) {
                 box->addItem(QIcon::fromTheme("system-suspend-hibernate"), i18n("Hibernate"), static_cast<uint>(PowerDevil::PowerButtonAction::SuspendToDisk));
-            }
-            if (PowerManagement::instance()->canHybridSuspend()) {
-                box->addItem(QIcon::fromTheme("system-suspend-hybrid"), i18n("Hybrid sleep"), static_cast<uint>(PowerDevil::PowerButtonAction::SuspendHybrid));
             }
             box->addItem(QIcon::fromTheme("system-shutdown"), i18n("Shut down"), static_cast<uint>(PowerDevil::PowerButtonAction::Shutdown));
             box->addItem(QIcon::fromTheme("system-lock-screen"), i18n("Lock screen"), static_cast<uint>(PowerDevil::PowerButtonAction::LockScreen));

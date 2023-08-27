@@ -6,6 +6,8 @@
 
 #include "runscriptconfig.h"
 
+#include <PowerDevilProfileSettings.h>
+
 #include <QHBoxLayout>
 #include <QSpinBox>
 
@@ -18,6 +20,15 @@
 
 K_PLUGIN_CLASS(PowerDevil::BundledActions::RunScriptConfig)
 
+namespace RunScriptTrigger
+{
+enum ItemIndex { // keep in sync with m_comboBox->addItem() below
+    OnProfileLoad = 0,
+    OnProfileUnload,
+    OnIdleTimeout,
+};
+}
+
 namespace PowerDevil::BundledActions
 {
 RunScriptConfig::RunScriptConfig(QObject *parent)
@@ -27,19 +38,53 @@ RunScriptConfig::RunScriptConfig(QObject *parent)
 
 void RunScriptConfig::save()
 {
-    configGroup().writeEntry("scriptCommand", m_urlRequester->text());
-    configGroup().writeEntry("scriptPhase", m_comboBox->currentIndex());
-    configGroup().writeEntry("idleTime", m_idleTime->value() * 60 * 1000);
+    profileSettings()->setProfileLoadCommand(QString());
+    profileSettings()->setProfileUnloadCommand(QString());
+    profileSettings()->setIdleTimeoutCommand(QString());
 
-    configGroup().sync();
+    switch (m_comboBox->currentIndex()) {
+    case RunScriptTrigger::OnProfileLoad:
+        profileSettings()->setProfileLoadCommand(m_urlRequester->text());
+        break;
+    case RunScriptTrigger::OnProfileUnload:
+        profileSettings()->setProfileUnloadCommand(m_urlRequester->text());
+        break;
+    case RunScriptTrigger::OnIdleTimeout:
+        profileSettings()->setIdleTimeoutCommand(m_urlRequester->text());
+        break;
+    }
+    profileSettings()->setRunScriptIdleTimeoutSec(m_idleTime->value() * 60);
 }
 
 void RunScriptConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
-    m_urlRequester->setText(configGroup().readEntry<QString>("scriptCommand", QString()));
-    m_comboBox->setCurrentIndex(configGroup().readEntry<int>("scriptPhase", 0));
-    m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
+    if (!profileSettings()->profileLoadCommand().isEmpty()) {
+        m_urlRequester->setText(profileSettings()->profileLoadCommand());
+        m_comboBox->setCurrentIndex(RunScriptTrigger::OnProfileLoad);
+    } else if (!profileSettings()->profileUnloadCommand().isEmpty()) {
+        m_urlRequester->setText(profileSettings()->profileUnloadCommand());
+        m_comboBox->setCurrentIndex(RunScriptTrigger::OnProfileUnload);
+    } else if (!profileSettings()->idleTimeoutCommand().isEmpty()) {
+        m_urlRequester->setText(profileSettings()->idleTimeoutCommand());
+        m_comboBox->setCurrentIndex(RunScriptTrigger::OnIdleTimeout);
+    }
+    m_idleTime->setValue(profileSettings()->runScriptIdleTimeoutSec() / 60);
+}
+
+bool RunScriptConfig::enabledInProfileSettings() const
+{
+    return !profileSettings()->profileLoadCommand().isEmpty() || !profileSettings()->profileUnloadCommand().isEmpty()
+        || !profileSettings()->idleTimeoutCommand().isEmpty();
+}
+
+void RunScriptConfig::setEnabledInProfileSettings(bool enabled)
+{
+    if (!enabled) {
+        profileSettings()->setProfileLoadCommand(QString());
+        profileSettings()->setProfileUnloadCommand(QString());
+        profileSettings()->setIdleTimeoutCommand(QString());
+        m_urlRequester->setText(QString());
+    }
 }
 
 QList<QPair<QString, QWidget *>> RunScriptConfig::buildUi()
@@ -57,13 +102,13 @@ QList<QPair<QString, QWidget *>> RunScriptConfig::buildUi()
     m_idleTime->setMinimum(1);
     m_idleTime->setMaximum(360);
     m_idleTime->setValue(0);
-    m_idleTime->setDisabled(true);
+    m_idleTime->setVisible(false);
     m_idleTime->setSuffix(i18n(" min"));
-    m_comboBox->addItem(i18n("On Profile Load"));
-    m_comboBox->addItem(i18n("On Profile Unload"));
-    m_comboBox->addItem(i18n("After"));
+    m_comboBox->addItem(i18n("When entering power state")); // index 0 == RunScriptTrigger::OnProfileLoad
+    m_comboBox->addItem(i18n("When exiting power state"));
+    m_comboBox->addItem(i18n("After a period of inactivity"));
     connect(m_comboBox, &KComboBox::currentIndexChanged, this, [this](int index) {
-        onIndexChanged(m_comboBox->itemText(index));
+        m_idleTime->setVisible(index == RunScriptTrigger::OnIdleTimeout);
     });
 
     hlay->addWidget(m_comboBox);
@@ -80,12 +125,6 @@ QList<QPair<QString, QWidget *>> RunScriptConfig::buildUi()
 
     return retlist;
 }
-
-void RunScriptConfig::onIndexChanged(const QString &text)
-{
-    m_idleTime->setEnabled(text == i18n("After"));
-}
-
 }
 
 #include "runscriptconfig.moc"

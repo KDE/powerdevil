@@ -6,6 +6,8 @@
 
 #include "keyboardbrightnesscontrolconfig.h"
 
+#include <PowerDevilProfileSettings.h>
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QSlider>
@@ -26,14 +28,22 @@ KeyboardBrightnessControlConfig::KeyboardBrightnessControlConfig(QObject *parent
 
 void KeyboardBrightnessControlConfig::save()
 {
-    configGroup().writeEntry("value", m_slider->value());
-    configGroup().sync();
+    profileSettings()->setKeyboardBrightness(m_slider->value());
 }
 
 void KeyboardBrightnessControlConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
-    m_slider->setValue(configGroup().readEntry<int>("value", 50));
+    m_slider->setValue(profileSettings()->keyboardBrightness());
+}
+
+bool KeyboardBrightnessControlConfig::enabledInProfileSettings() const
+{
+    return profileSettings()->useProfileSpecificKeyboardBrightness();
+}
+
+void KeyboardBrightnessControlConfig::setEnabledInProfileSettings(bool enabled)
+{
+    profileSettings()->setUseProfileSpecificKeyboardBrightness(enabled);
 }
 
 QList<QPair<QString, QWidget *>> KeyboardBrightnessControlConfig::buildUi()

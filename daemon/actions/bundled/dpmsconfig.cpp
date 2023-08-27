@@ -6,6 +6,8 @@
 
 #include "dpmsconfig.h"
 
+#include <PowerDevilProfileSettings.h>
+
 #include <QSpinBox>
 
 #include <KLocalizedString>
@@ -21,17 +23,25 @@ PowerDevilDPMSActionConfig::PowerDevilDPMSActionConfig(QObject *parent)
 
 void PowerDevilDPMSActionConfig::save()
 {
-    configGroup().writeEntry("idleTime", m_spinBox->value() * 60);
-    configGroup().writeEntry("idleTimeoutWhenLocked", m_spinIdleTimeoutLocked->value());
-
-    configGroup().sync();
+    profileSettings()->setTurnOffDisplayIdleTimeoutSec(m_spinBox->value() * 60);
+    profileSettings()->setTurnOffDisplayIdleTimeoutWhenLockedSec(m_spinIdleTimeoutLocked->value());
+    // Note: LockBeforeTurnOffDisplay is neither set nor represented in the UI by this ActionConfig.
 }
 
 void PowerDevilDPMSActionConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
-    m_spinBox->setValue(configGroup().readEntry<int>("idleTime", 600) / 60);
-    m_spinIdleTimeoutLocked->setValue(configGroup().readEntry<int>("idleTimeoutWhenLocked", 60));
+    m_spinBox->setValue(profileSettings()->turnOffDisplayIdleTimeoutSec() / 60);
+    m_spinIdleTimeoutLocked->setValue(profileSettings()->turnOffDisplayIdleTimeoutWhenLockedSec());
+}
+
+bool PowerDevilDPMSActionConfig::enabledInProfileSettings() const
+{
+    return profileSettings()->turnOffDisplayWhenIdle();
+}
+
+void PowerDevilDPMSActionConfig::setEnabledInProfileSettings(bool enabled)
+{
+    profileSettings()->setTurnOffDisplayWhenIdle(enabled);
 }
 
 QList<QPair<QString, QWidget *>> PowerDevilDPMSActionConfig::buildUi()

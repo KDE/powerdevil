@@ -11,7 +11,7 @@ namespace PowerDevil
 class ActionConfig::Private
 {
 public:
-    KConfigGroup config;
+    ProfileSettings *profileSettings;
 };
 
 ActionConfig::ActionConfig(QObject *parent)
@@ -25,14 +25,14 @@ ActionConfig::~ActionConfig()
     delete d;
 }
 
-KConfigGroup ActionConfig::configGroup() const
+PowerDevil::ProfileSettings *ActionConfig::profileSettings() const
 {
-    return d->config;
+    return d->profileSettings;
 }
 
-void ActionConfig::setConfigGroup(const KConfigGroup &group)
+void ActionConfig::setProfileSettings(PowerDevil::ProfileSettings *settings)
 {
-    d->config = group;
+    d->profileSettings = settings;
 }
 
 void ActionConfig::setChanged()

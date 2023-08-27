@@ -17,6 +17,8 @@ public:
 
     void save() override;
     void load() override;
+    bool enabledInProfileSettings() const override;
+    void setEnabledInProfileSettings(bool enabled) override;
     QList<QPair<QString, QWidget *>> buildUi() override;
 
 private:

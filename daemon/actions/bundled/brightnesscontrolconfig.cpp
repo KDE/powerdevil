@@ -6,6 +6,8 @@
 
 #include "brightnesscontrolconfig.h"
 
+#include <PowerDevilProfileSettings.h>
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QSlider>
@@ -26,14 +28,22 @@ BrightnessControlConfig::BrightnessControlConfig(QObject *parent)
 
 void BrightnessControlConfig::save()
 {
-    configGroup().writeEntry("value", m_slider->value());
-    configGroup().sync();
+    profileSettings()->setDisplayBrightness(m_slider->value());
 }
 
 void BrightnessControlConfig::load()
 {
-    configGroup().config()->reparseConfiguration();
-    m_slider->setValue(configGroup().readEntry<int>("value", 50));
+    m_slider->setValue(profileSettings()->displayBrightness());
+}
+
+bool BrightnessControlConfig::enabledInProfileSettings() const
+{
+    return profileSettings()->useProfileSpecificDisplayBrightness();
+}
+
+void BrightnessControlConfig::setEnabledInProfileSettings(bool enabled)
+{
+    profileSettings()->setUseProfileSpecificDisplayBrightness(enabled);
 }
 
 QList<QPair<QString, QWidget *>> BrightnessControlConfig::buildUi()
