@@ -47,30 +47,6 @@ SuspendController::SuspendController()
                                                this);
     }
 
-    // Supported suspend methods
-    if (m_login1Interface) {
-        QDBusPendingReply<QString> canSuspend = m_login1Interface.data()->asyncCall("CanSuspend");
-        canSuspend.waitForFinished();
-        if (canSuspend.isValid() && (canSuspend.value() == QLatin1String("yes") || canSuspend.value() == QLatin1String("challenge")))
-            m_suspendMethods |= ToRam;
-
-        QDBusPendingReply<QString> canHibernate = m_login1Interface.data()->asyncCall("CanHibernate");
-        canHibernate.waitForFinished();
-        if (canHibernate.isValid() && (canHibernate.value() == QLatin1String("yes") || canHibernate.value() == QLatin1String("challenge")))
-            m_suspendMethods |= ToDisk;
-
-        QDBusPendingReply<QString> canHybridSleep = m_login1Interface.data()->asyncCall("CanHybridSleep");
-        canHybridSleep.waitForFinished();
-        if (canHybridSleep.isValid() && (canHybridSleep.value() == QLatin1String("yes") || canHybridSleep.value() == QLatin1String("challenge")))
-            m_suspendMethods |= HybridSuspend;
-
-        QDBusPendingReply<QString> canSuspendThenHibernate = m_login1Interface.data()->asyncCall("CanSuspendThenHibernate");
-        canSuspendThenHibernate.waitForFinished();
-        if (canSuspendThenHibernate.isValid()
-            && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge")))
-            m_suspendMethods |= SuspendThenHibernate;
-    }
-
     // "resuming" signal
     if (m_login1Interface) {
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
@@ -79,22 +55,22 @@ SuspendController::SuspendController()
 
 bool SuspendController::canSuspend() const
 {
-    return m_suspendMethods & ToRam;
+    return m_sessionManagement.canSuspend();
 }
 
 bool SuspendController::canHibernate() const
 {
-    return m_suspendMethods & ToDisk;
+    return m_sessionManagement.canHibernate();
 }
 
 bool SuspendController::canHybridSuspend() const
 {
-    return m_suspendMethods & HybridSuspend;
+    return m_sessionManagement.canHybridSuspend();
 }
 
 bool SuspendController::canSuspendThenHibernate() const
 {
-    return m_suspendMethods & SuspendThenHibernate;
+    return m_sessionManagement.canSuspendThenHibernate();
 }
 
 KJob *SuspendController::suspend(SuspendMethod method)

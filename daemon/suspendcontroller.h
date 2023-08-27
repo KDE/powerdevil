@@ -17,6 +17,8 @@
 
 #include <KJob>
 
+#include <sessionmanagement.h>
+
 #include "powerdevilcore_export.h"
 
 class POWERDEVILCORE_EXPORT SuspendController : public QObject
@@ -80,9 +82,10 @@ private Q_SLOTS:
     void slotLogin1PrepareForSleep(bool active);
 
 private:
+    SessionManagement m_sessionManagement;
+
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;
-    SuspendMethods m_suspendMethods;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::SuspendMethods)
