@@ -80,7 +80,7 @@ SuspendController::SuspendController()
 KJob *SuspendController::suspend(SuspendMethod method)
 {
     if (m_login1Interface) {
-        return new Login1SuspendJob(m_login1Interface.data(), method, supportedSuspendMethods());
+        return new Login1SuspendJob(m_login1Interface.data(), method);
     }
     return nullptr;
 }

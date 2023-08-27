@@ -18,13 +18,12 @@
 
 #include <KLocalizedString>
 
-Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface, SuspendController::SuspendMethod method, SuspendController::SuspendMethods supported)
+Login1SuspendJob::Login1SuspendJob(QDBusInterface *login1Interface, SuspendController::SuspendMethod method)
     : KJob()
     , m_login1Interface(login1Interface)
 {
     qCDebug(POWERDEVIL) << "Starting Login1 suspend job";
     m_method = method;
-    m_supported = supported;
 
     connect(m_login1Interface, SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1Resuming(bool)));
 }
@@ -40,35 +39,33 @@ void Login1SuspendJob::start()
 
 void Login1SuspendJob::doStart()
 {
-    if (m_supported & m_method) {
-        QVariantList args;
-        args << true; // interactive, ie. with polkit dialogs
+    QVariantList args;
+    args << true; // interactive, ie. with polkit dialogs
 
-        QDBusPendingReply<void> reply;
+    QDBusPendingReply<void> reply;
 
-        switch (m_method) {
-        case SuspendController::ToRam:
-            reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Suspend"), args);
-            break;
-        case SuspendController::ToDisk:
-            reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Hibernate"), args);
-            break;
-        case SuspendController::HybridSuspend:
-            reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("HybridSleep"), args);
-            break;
-        case SuspendController::SuspendThenHibernate:
-            reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("SuspendThenHibernate"), args);
-            break;
-        default:
-            qCDebug(POWERDEVIL) << "Unsupported suspend method";
-            setError(1);
-            setErrorText(i18n("Unsupported suspend method"));
-            return;
-        }
-
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &Login1SuspendJob::sendResult);
+    switch (m_method) {
+    case SuspendController::ToRam:
+        reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Suspend"), args);
+        break;
+    case SuspendController::ToDisk:
+        reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("Hibernate"), args);
+        break;
+    case SuspendController::HybridSuspend:
+        reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("HybridSleep"), args);
+        break;
+    case SuspendController::SuspendThenHibernate:
+        reply = m_login1Interface->asyncCallWithArgumentList(QStringLiteral("SuspendThenHibernate"), args);
+        break;
+    default:
+        qCDebug(POWERDEVIL) << "Unsupported suspend method";
+        setError(1);
+        setErrorText(i18n("Unsupported suspend method"));
+        return;
     }
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &Login1SuspendJob::sendResult);
 }
 
 void Login1SuspendJob::sendResult(QDBusPendingCallWatcher *watcher)
