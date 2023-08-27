@@ -114,9 +114,9 @@ void HandleButtonEvents::onWakeupFromIdle()
     //
 }
 
-void HandleButtonEvents::onIdleTimeout(int msec)
+void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    Q_UNUSED(msec)
+    Q_UNUSED(timeout)
 }
 
 void HandleButtonEvents::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)

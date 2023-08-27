@@ -73,9 +73,9 @@ void BrightnessControl::onWakeupFromIdle()
     //
 }
 
-void BrightnessControl::onIdleTimeout(int msec)
+void BrightnessControl::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    Q_UNUSED(msec);
+    Q_UNUSED(timeout);
 }
 
 void BrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)

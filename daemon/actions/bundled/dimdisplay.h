@@ -19,7 +19,7 @@ public:
 protected:
     void onProfileUnload() override;
     void onWakeupFromIdle() override;
-    void onIdleTimeout(int msec) override;
+    void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
@@ -30,7 +30,7 @@ public:
 private:
     void setBrightnessHelper(int screen, int keyboard, bool force = false);
 
-    int m_dimOnIdleTime = 0;
+    std::chrono::milliseconds m_dimOnIdleTime{0};
 
     int m_oldScreenBrightness = 0;
     int m_oldKeyboardBrightness = 0;

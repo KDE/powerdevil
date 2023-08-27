@@ -119,7 +119,7 @@ Q_SIGNALS:
     void chargeStopThresholdChanged(int threshold);
 
 private:
-    void registerActionTimeout(Action *action, int timeout);
+    void registerActionTimeout(Action *action, std::chrono::milliseconds timeout);
     void unregisterActionTimeouts(Action *action);
     void handleLowBattery(int percent);
     void handleCriticalBattery(int percent);

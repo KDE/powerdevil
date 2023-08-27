@@ -142,10 +142,8 @@ protected:
      * Registers an idle timeout for this action. Call this function and not KIdleTime directly to take advantage
      * of Action's automated handling of idle timeouts. Also, please reimplement onIdleTimeout instead of listening
      * to KIdleTime's signals to catch idle timeout events.
-     *
-     * @param msec The idle timeout to be registered in milliseconds.
      */
-    void registerIdleTimeout(int msec);
+    void registerIdleTimeout(std::chrono::milliseconds timeout);
     /**
      * Sets the required policies needed for this Action to run. Usually, you want to call this function in your
      * Action's constructor.
@@ -181,9 +179,9 @@ protected Q_SLOTS:
     /**
      * This slot is triggered whenever an idle timeout registered with registerIdleTimeout is reached.
      *
-     * @param msec The idle timeout reached in milliseconds
+     * @param timeout The idle timeout reached
      */
-    virtual void onIdleTimeout(int msec) = 0;
+    virtual void onIdleTimeout(std::chrono::milliseconds timeout) = 0;
     /**
      * This slot is triggered whenever the PC wakes up from an Idle state. It is @b always called after a registered
      * idle timeout has been reached.

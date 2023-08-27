@@ -32,6 +32,9 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 
+using namespace std::chrono_literals;
+static constexpr auto s_fadeTime = 5s;
+
 namespace PowerDevil
 {
 namespace BundledActions
@@ -100,22 +103,22 @@ void DPMS::onWakeupFromIdle()
     }
 }
 
-void DPMS::onIdleTimeout(int msec)
+void DPMS::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (m_inhibitScreen) {
         return;
     }
 
-    if (msec == m_idleTime * 1000 - 5000
-        || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && msec == m_idleTimeoutWhenLocked * 1000 - 5000)) { // fade out screen
+    if (timeout == m_idleTime - s_fadeTime
+        || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && timeout == m_idleTimeoutWhenLocked - s_fadeTime)) { // fade out screen
 
         if (isSupported()) {
             // only used in X11
             Q_EMIT startFade();
         }
 
-    } else if (msec == m_idleTime * 1000 || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && msec == m_idleTimeoutWhenLocked * 1000)) {
+    } else if (timeout == m_idleTime || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && timeout == m_idleTimeoutWhenLocked)) {
         const int keyboardBrightness = backend()->keyboardBrightness();
         if (keyboardBrightness > 0) {
             m_oldKeyboardBrightness = keyboardBrightness;
@@ -164,10 +167,10 @@ void DPMS::triggerImpl(const QVariantMap &args)
 
 bool DPMS::loadAction(const KConfigGroup &config)
 {
-    m_idleTime = config.readEntry<int>("idleTime", -1);
+    m_idleTime = std::chrono::seconds(config.readEntry<int>("idleTime", -1));
     m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
 
-    m_idleTimeoutWhenLocked = config.readEntry<int>("idleTimeoutWhenLocked", 60);
+    m_idleTimeoutWhenLocked = std::chrono::seconds(config.readEntry<int>("idleTimeoutWhenLocked", 60));
 
     registerDpmsOffOnIdleTimeout(m_idleTime);
 
@@ -184,11 +187,11 @@ void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicie
     m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
-void PowerDevil::BundledActions::DPMS::registerDpmsOffOnIdleTimeout(int timeoutMsecs)
+void PowerDevil::BundledActions::DPMS::registerDpmsOffOnIdleTimeout(std::chrono::milliseconds timeout)
 {
-    if (timeoutMsecs > 0) {
-        registerIdleTimeout(timeoutMsecs * 1000);
-        registerIdleTimeout(timeoutMsecs * 1000 - 5000); // start screen fade a bit earlier to alert user
+    if (timeout > 0s) {
+        registerIdleTimeout(timeout);
+        registerIdleTimeout(timeout - s_fadeTime); // start screen fade a bit earlier to alert user
     }
 }
 

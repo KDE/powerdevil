@@ -38,9 +38,9 @@ void RunScript::onWakeupFromIdle()
     //
 }
 
-void RunScript::onIdleTimeout(int msec)
+void RunScript::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    Q_UNUSED(msec);
+    Q_UNUSED(timeout);
     runCommand();
 }
 
@@ -65,7 +65,7 @@ bool RunScript::loadAction(const KConfigGroup &config)
             if (!config.hasKey("idleTime")) {
                 return false;
             }
-            registerIdleTimeout(config.readEntry<int>("idleTime", 10000000));
+            registerIdleTimeout(std::chrono::milliseconds(config.readEntry<int>("idleTime", 10000000)));
         }
     }
 

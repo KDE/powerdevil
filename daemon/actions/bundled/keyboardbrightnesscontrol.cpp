@@ -80,9 +80,9 @@ void KeyboardBrightnessControl::onWakeupFromIdle()
     //
 }
 
-void KeyboardBrightnessControl::onIdleTimeout(int msec)
+void KeyboardBrightnessControl::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    Q_UNUSED(msec);
+    Q_UNUSED(timeout);
 }
 
 void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)

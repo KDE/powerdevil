@@ -43,9 +43,9 @@ void DimDisplay::onWakeupFromIdle()
     m_dimmed = false;
 }
 
-void DimDisplay::onIdleTimeout(int msec)
+void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    assert(msec == m_dimOnIdleTime);
+    Q_ASSERT(timeout == m_dimOnIdleTime);
     if (backend()->screenBrightness() == 0) {
         // Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
@@ -100,8 +100,8 @@ bool DimDisplay::loadAction(const KConfigGroup &config)
 {
     qCDebug(POWERDEVIL);
     if (config.hasKey("idleTime")) {
-        m_dimOnIdleTime = config.readEntry<int>("idleTime", 10000000);
-        qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime;
+        m_dimOnIdleTime = std::chrono::milliseconds(config.readEntry<int>("idleTime", 10000000));
+        qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime.count();
         registerIdleTimeout(m_dimOnIdleTime);
     }
 

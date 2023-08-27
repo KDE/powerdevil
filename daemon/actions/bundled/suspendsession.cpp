@@ -24,6 +24,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::SuspendSession, "powerdevilsuspendsessionaction.json")
 
+using namespace std::chrono_literals;
+
 namespace PowerDevil::BundledActions
 {
 SuspendSession::SuspendSession(QObject *parent)
@@ -66,12 +68,12 @@ void SuspendSession::onWakeupFromIdle()
     m_fadeEffect->stop();
 }
 
-void SuspendSession::onIdleTimeout(int msec)
+void SuspendSession::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     QVariantMap args{{QStringLiteral("Type"), m_autoType}};
 
     // we fade the screen to black 5 seconds prior to suspending to alert the user
-    if (msec == m_idleTime - 5000) {
+    if (timeout == m_idleTime - 5s) {
         args.insert(QStringLiteral("GraceFade"), true);
     } else {
         args.insert(QStringLiteral("SkipFade"), true);
@@ -156,9 +158,9 @@ bool SuspendSession::loadAction(const KConfigGroup &config)
     if (config.isValid()) {
         if (config.hasKey("idleTime") && config.hasKey("suspendType")) {
             // Add the idle timeout
-            m_idleTime = config.readEntry<int>("idleTime", 0);
-            if (m_idleTime) {
-                registerIdleTimeout(m_idleTime - 5000);
+            m_idleTime = std::chrono::milliseconds(config.readEntry<int>("idleTime", 0));
+            if (m_idleTime != 0ms) {
+                registerIdleTimeout(m_idleTime - 5s);
                 registerIdleTimeout(m_idleTime);
             }
             m_autoType = config.readEntry<uint>("suspendType", 0);

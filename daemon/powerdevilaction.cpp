@@ -25,7 +25,7 @@ public:
 
     PowerDevil::Core *core;
 
-    QVector<int> registeredIdleTimeouts;
+    QVector<std::chrono::milliseconds> registeredIdleTimeouts;
     PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies;
 };
 
@@ -41,10 +41,10 @@ Action::~Action()
     delete d;
 }
 
-void Action::registerIdleTimeout(int msec)
+void Action::registerIdleTimeout(std::chrono::milliseconds timeout)
 {
-    d->registeredIdleTimeouts.append(msec);
-    d->core->registerActionTimeout(this, msec);
+    d->registeredIdleTimeouts.append(timeout);
+    d->core->registerActionTimeout(this, timeout);
 }
 
 bool Action::unloadAction()

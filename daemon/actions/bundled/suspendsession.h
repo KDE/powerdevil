@@ -31,7 +31,7 @@ public:
 protected:
     void onProfileUnload() override;
     void onWakeupFromIdle() override;
-    void onIdleTimeout(int msec) override;
+    void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
     void triggerImpl(const QVariantMap &args) override;
 
@@ -49,7 +49,7 @@ private Q_SLOTS:
 
 private:
     bool m_suspendThenHibernateEnabled = false;
-    int m_idleTime = 0;
+    std::chrono::milliseconds m_idleTime{0};
     uint m_autoType;
     QVariantMap m_savedArgs;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;

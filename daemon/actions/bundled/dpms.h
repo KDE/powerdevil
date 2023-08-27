@@ -40,7 +40,7 @@ protected:
     }
     bool onUnloadAction() override;
     void onWakeupFromIdle() override;
-    void onIdleTimeout(int msec) override;
+    void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/) override
     {
     }
@@ -56,10 +56,10 @@ private Q_SLOTS:
 
 private:
     void setKeyboardBrightnessHelper(int brightness);
-    void registerDpmsOffOnIdleTimeout(int timeoutMsecs);
+    void registerDpmsOffOnIdleTimeout(std::chrono::milliseconds timeout);
 
-    int m_idleTime = -1;
-    int m_idleTimeoutWhenLocked = -1;
+    std::chrono::seconds m_idleTime{-1};
+    std::chrono::seconds m_idleTimeoutWhenLocked{-1};
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
     int m_oldKeyboardBrightness = 0;

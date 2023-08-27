@@ -131,7 +131,7 @@ void Core::onBackendReady()
     connect(m_backend, &BackendInterface::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_backend, &BackendInterface::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
-    connect(KIdleTime::instance(), SIGNAL(timeoutReached(int, int)), this, SLOT(onKIdleTimeoutReached(int, int)));
+    connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
         loadProfile();
@@ -786,7 +786,7 @@ void Core::onKIdleTimeoutReached(int identifier, int msec)
     // Find which action(s) requested this idle timeout
     for (auto i = m_registeredActionTimeouts.constBegin(), end = m_registeredActionTimeouts.constEnd(); i != end; ++i) {
         if (i.value().contains(identifier)) {
-            i.key()->onIdleTimeout(msec);
+            i.key()->onIdleTimeout(std::chrono::milliseconds(msec));
 
             // And it will need to be awaken
             m_pendingResumeFromIdleActions.insert(i.key());
@@ -846,7 +846,7 @@ void Core::onAboutToSuspend()
     }
 }
 
-void Core::registerActionTimeout(Action *action, int timeout)
+void Core::registerActionTimeout(Action *action, std::chrono::milliseconds timeout)
 {
     // Register the timeout with KIdleTime
     int identifier = KIdleTime::instance()->addIdleTimeout(timeout);

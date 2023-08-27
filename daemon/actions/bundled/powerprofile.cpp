@@ -74,9 +74,9 @@ void PowerProfile::onWakeupFromIdle()
 {
 }
 
-void PowerProfile::onIdleTimeout(int msec)
+void PowerProfile::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    Q_UNUSED(msec);
+    Q_UNUSED(timeout);
 }
 
 void PowerProfile::onProfileUnload()
