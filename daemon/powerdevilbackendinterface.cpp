@@ -78,11 +78,6 @@ void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapter
     Q_EMIT acAdapterStateChanged(state);
 }
 
-void BackendInterface::setBackendHasError(const QString &errorDetails)
-{
-    Q_UNUSED(errorDetails)
-}
-
 void BackendInterface::setBackendIsReady()
 {
     Q_EMIT backendReady();

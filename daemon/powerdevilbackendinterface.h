@@ -64,7 +64,7 @@ public:
     /**
      * Initializes the backend. This function @b MUST be called before the backend is usable. Using
      * any method in BackendInterface without initializing it might lead to undefined behavior. The signal
-     * @c backendReady or @c backendError will be streamed upon completion.
+     * @c backendReady will be streamed upon completion.
      *
      * @note Backend implementations @b MUST reimplement this function
      */
@@ -182,14 +182,6 @@ Q_SIGNALS:
     void backendReady();
 
     /**
-     * This signal is emitted if the backend could not be initialized
-     *
-     * @param error Details about the error occurred
-     * @see init
-     */
-    void backendError(const QString &error);
-
-    /**
      * This signal is emitted when the laptop lid is closed or opened
      *
      * @param closed Whether the lid is now closed or not
@@ -206,7 +198,6 @@ protected:
     void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
 
     void setBackendIsReady();
-    void setBackendHasError(const QString &errorDetails);
 
     // Steps logic
     int calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
@@ -224,7 +215,6 @@ private:
 
     ScreenBrightnessLogic m_screenBrightnessLogic;
     KeyboardBrightnessLogic m_keyboardBrightnessLogic;
-    QString m_errorString;
     bool m_isLidClosed = false;
     bool m_isLidPresent = false;
 
