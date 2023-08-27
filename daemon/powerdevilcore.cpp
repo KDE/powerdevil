@@ -104,8 +104,8 @@ void Core::onBackendReady()
     if (groups.isEmpty()) {
         // Generate defaults
         qCDebug(POWERDEVIL) << "Generating a default configuration";
-        bool toRam = m_suspendController->supportedSuspendMethods() & SuspendController::ToRam;
-        bool toDisk = m_suspendController->supportedSuspendMethods() & SuspendController::ToDisk;
+        bool toRam = m_suspendController->canSuspend();
+        bool toDisk = m_suspendController->canHibernate();
 
         // These are generated profiles,
         const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletMode();

@@ -77,17 +77,32 @@ SuspendController::SuspendController()
     }
 }
 
+bool SuspendController::canSuspend() const
+{
+    return m_suspendMethods & ToRam;
+}
+
+bool SuspendController::canHibernate() const
+{
+    return m_suspendMethods & ToDisk;
+}
+
+bool SuspendController::canHybridSuspend() const
+{
+    return m_suspendMethods & HybridSuspend;
+}
+
+bool SuspendController::canSuspendThenHibernate() const
+{
+    return m_suspendMethods & SuspendThenHibernate;
+}
+
 KJob *SuspendController::suspend(SuspendMethod method)
 {
     if (m_login1Interface) {
         return new Login1SuspendJob(m_login1Interface.data(), method);
     }
     return nullptr;
-}
-
-SuspendController::SuspendMethods SuspendController::supportedSuspendMethods() const
-{
-    return m_suspendMethods;
 }
 
 void SuspendController::slotLogin1PrepareForSleep(bool active)

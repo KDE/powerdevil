@@ -42,22 +42,22 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
 
 bool FdoConnector::CanHibernate()
 {
-    return m_core->suspendController()->supportedSuspendMethods() & SuspendController::ToDisk;
+    return m_core->suspendController()->canHibernate();
 }
 
 bool FdoConnector::CanSuspend()
 {
-    return m_core->suspendController()->supportedSuspendMethods() & SuspendController::ToRam;
+    return m_core->suspendController()->canSuspend();
 }
 
 bool FdoConnector::CanHybridSuspend()
 {
-    return m_core->suspendController()->supportedSuspendMethods() & SuspendController::HybridSuspend;
+    return m_core->suspendController()->canHybridSuspend();
 }
 
 bool FdoConnector::CanSuspendThenHibernate()
 {
-    return m_core->suspendController()->supportedSuspendMethods() & SuspendController::SuspendThenHibernate;
+    return m_core->suspendController()->canSuspendThenHibernate();
 }
 
 bool FdoConnector::GetPowerSaveStatus()

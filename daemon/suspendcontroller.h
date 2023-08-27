@@ -49,14 +49,13 @@ public:
      */
     Q_DECLARE_FLAGS(SuspendMethods, SuspendMethod)
 
-    /**
-     * Retrieves the set of suspend methods supported by the system.
-     *
-     * @return the suspend methods supported by this system
-     * @see PowerDevil::BackendInterface::SuspendMethod
-     * @see PowerDevil::BackendInterface::SuspendMethods
-     */
-    SuspendMethods supportedSuspendMethods() const;
+    bool canSuspend() const;
+
+    bool canHibernate() const;
+
+    bool canHybridSuspend() const;
+
+    bool canSuspendThenHibernate() const;
 
     /**
      * Requests a suspend of the system.
