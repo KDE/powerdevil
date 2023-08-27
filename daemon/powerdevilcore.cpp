@@ -82,6 +82,7 @@ void Core::loadCore(BackendInterface *backend)
     m_backend = backend;
 
     m_suspendController = std::make_unique<SuspendController>();
+    m_batteryController = std::make_unique<BatteryController>();
 
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
@@ -128,9 +129,9 @@ void Core::onBackendReady()
         }
     }
 
-    connect(m_backend, &BackendInterface::acAdapterStateChanged, this, &Core::onAcAdapterStateChanged);
-    connect(m_backend, &BackendInterface::batteryRemainingTimeChanged, this, &Core::onBatteryRemainingTimeChanged);
-    connect(m_backend, &BackendInterface::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
+    connect(m_batteryController.get(), &BatteryController::acAdapterStateChanged, this, &Core::onAcAdapterStateChanged);
+    connect(m_batteryController.get(), &BatteryController::batteryRemainingTimeChanged, this, &Core::onBatteryRemainingTimeChanged);
+    connect(m_batteryController.get(), &BatteryController::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_backend, &BackendInterface::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
@@ -289,7 +290,7 @@ void Core::loadProfile(bool force)
         // Compute the previous and current global percentage
         const int percent = currentChargePercent();
 
-        if (backend()->acAdapterState() == BackendInterface::Plugged) {
+        if (m_batteryController->acAdapterState() == BatteryController::Plugged) {
             profileId = QStringLiteral("AC");
             qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
         } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
@@ -558,7 +559,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
     // Make sure a notificaton that's kept open updates its percentage live.
     updateBatteryNotifications(currentPercent);
 
-    if (m_backend->acAdapterState() == BackendInterface::Plugged && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
+    if (m_batteryController->acAdapterState() == BatteryController::Plugged && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
         return false;
     }
 
@@ -581,7 +582,7 @@ void Core::handleLowBattery(int percent)
     m_lowBatteryNotification = new KNotification(QStringLiteral("lowbattery"), KNotification::Persistent, nullptr);
     m_lowBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     updateBatteryNotifications(percent); // sets title
-    if (m_backend->acAdapterState() == BackendInterface::Plugged) {
+    if (m_batteryController->acAdapterState() == BatteryController::Plugged) {
         m_lowBatteryNotification->setText(i18n("Ensure that the power adapter is plugged in and provides enough power."));
     } else {
         m_lowBatteryNotification->setText(i18n("Plug in the computer."));
@@ -651,14 +652,14 @@ void Core::updateBatteryNotifications(int percent)
     }
 }
 
-void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState state)
+void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
 {
     qCDebug(POWERDEVIL);
     // Post request for faking an activity event - usually adapters don't plug themselves out :)
     m_pendingWakeupEvent = true;
     loadProfile();
 
-    if (state == BackendInterface::Plugged) {
+    if (state == BatteryController::Plugged) {
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
         if (m_lowBatteryNotification) {
             m_lowBatteryNotification->close();
@@ -676,7 +677,7 @@ void Core::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState 
         } else {
             emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adapter has been plugged in."));
         }
-    } else if (state == BackendInterface::Unplugged) {
+    } else if (state == BatteryController::Unplugged) {
         emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adapter has been unplugged."));
     }
 }
@@ -725,7 +726,7 @@ void Core::onBatteryChargeStateChanged(int state, const QString &udi)
 
     m_batteriesCharged[udi] = (state == Solid::Battery::FullyCharged);
 
-    if (m_backend->acAdapterState() != BackendInterface::Plugged) {
+    if (m_batteryController->acAdapterState() != BatteryController::Plugged) {
         return;
     }
 
@@ -750,7 +751,7 @@ void Core::onCriticalBatteryTimerExpired()
     }
 
     // Do that only if we're not on AC
-    if (m_backend->acAdapterState() == BackendInterface::Unplugged) {
+    if (m_batteryController->acAdapterState() == BatteryController::Unplugged) {
         triggerCriticalBatteryAction();
     }
 }
@@ -966,6 +967,11 @@ SuspendController *Core::suspendController()
     return m_suspendController.get();
 }
 
+BatteryController *Core::batteryController()
+{
+    return m_batteryController.get();
+}
+
 bool Core::isLidClosed() const
 {
     return m_backend->isLidClosed();
@@ -1053,12 +1059,12 @@ void Core::clearWakeup(int cookie)
 
 qulonglong Core::batteryRemainingTime() const
 {
-    return m_backend->batteryRemainingTime();
+    return m_batteryController->batteryRemainingTime();
 }
 
 qulonglong Core::smoothedBatteryRemainingTime() const
 {
-    return m_backend->smoothedBatteryRemainingTime();
+    return m_batteryController->smoothedBatteryRemainingTime();
 }
 
 uint Core::backendCapabilities()

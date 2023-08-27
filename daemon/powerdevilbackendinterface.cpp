@@ -11,15 +11,6 @@
 
 namespace PowerDevil
 {
-/**
- * Filter data along one dimension using exponential moving average.
- */
-double emafilter(const double last, const double update, double weight)
-{
-    double current = last * (1 - weight) + update * weight;
-
-    return current;
-}
 
 BackendInterface::BackendInterface(QObject *parent)
     : QObject(parent)
@@ -28,21 +19,6 @@ BackendInterface::BackendInterface(QObject *parent)
 
 BackendInterface::~BackendInterface()
 {
-}
-
-BackendInterface::AcAdapterState BackendInterface::acAdapterState() const
-{
-    return m_acAdapterState;
-}
-
-qulonglong BackendInterface::batteryRemainingTime() const
-{
-    return m_batteryRemainingTime;
-}
-
-qulonglong BackendInterface::smoothedBatteryRemainingTime() const
-{
-    return m_smoothedBatteryRemainingTime;
 }
 
 int BackendInterface::screenBrightnessSteps()
@@ -72,70 +48,9 @@ void BackendInterface::setLidPresent(bool present)
     m_isLidPresent = present;
 }
 
-void BackendInterface::setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state)
-{
-    m_acAdapterState = state;
-    Q_EMIT acAdapterStateChanged(state);
-}
-
 void BackendInterface::setBackendIsReady()
 {
     Q_EMIT backendReady();
-}
-
-void BackendInterface::setBatteryEnergyFull(const double energy)
-{
-    m_batteryEnergyFull = energy;
-}
-
-void BackendInterface::setBatteryEnergy(const double energy)
-{
-    m_batteryEnergy = energy;
-}
-
-void BackendInterface::setBatteryRate(const double rate, qulonglong timestamp)
-{
-    // remaining time in milliseconds
-    qulonglong time = 0;
-
-    if (rate > 0) {
-        // Energy and rate are in Watt*hours resp. Watt
-        time = 3600 * 1000 * (m_batteryEnergyFull - m_batteryEnergy) / rate;
-    } else if (rate < 0) {
-        time = 3600 * 1000 * (0.0 - m_batteryEnergy) / rate;
-    }
-
-    if (m_batteryRemainingTime != time) {
-        m_batteryRemainingTime = time;
-        Q_EMIT batteryRemainingTimeChanged(time);
-    }
-
-    // Charging or full
-    if ((rate > 0) || (time == 0)) {
-        if (m_smoothedBatteryRemainingTime != time) {
-            m_smoothedBatteryRemainingTime = time;
-            Q_EMIT smoothedBatteryRemainingTimeChanged(time);
-        }
-        return;
-    }
-
-    double oldRate = m_smoothedBatteryDischargeRate;
-    if (oldRate == 0) {
-        m_smoothedBatteryDischargeRate = rate;
-    } else {
-        // To have a time constant independent from the update frequency
-        // the weight must be scaled
-        double weight = 0.005 * std::min<qulonglong>(60, timestamp - m_lastRateTimestamp);
-        m_lastRateTimestamp = timestamp;
-        m_smoothedBatteryDischargeRate = emafilter(oldRate, rate, weight);
-    }
-
-    time = 3600 * 1000 * (0.0 - m_batteryEnergy) / m_smoothedBatteryDischargeRate;
-
-    if (m_smoothedBatteryRemainingTime != time) {
-        m_smoothedBatteryRemainingTime = time;
-        Q_EMIT smoothedBatteryRemainingTimeChanged(m_smoothedBatteryRemainingTime);
-    }
 }
 
 void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)

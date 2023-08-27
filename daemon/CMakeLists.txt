@@ -24,6 +24,8 @@ set(powerdevilcore_SRCS
     kwinkscreenhelpereffect.cpp
     suspendcontroller.cpp
     login1suspendjob.cpp
+    batterycontroller.cpp
+    upowerdevice.cpp
 )
 
 add_library(powerdevil_log_static STATIC)
@@ -41,6 +43,11 @@ kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
 # Action DBus Adaptors
 
 qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
+
+qt_add_dbus_interface(powerdevilcore_SRCS
+    backends/upower/dbus/org.freedesktop.UPower.xml
+    upower_interface
+)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} powerdevil_debug.cpp)
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)

@@ -20,7 +20,6 @@
 #include "udevqt.h"
 #include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"
-#include "upowerdevice.h"
 
 #include "powerdevilupowerbackend_export.h"
 
@@ -66,9 +65,6 @@ private:
     void addDevice(const QString &);
 
 private Q_SLOTS:
-    void updateDeviceProps();
-    void slotDeviceAdded(const QDBusObjectPath &path);
-    void slotDeviceRemoved(const QDBusObjectPath &path);
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int value, const QString &source);
@@ -78,10 +74,6 @@ private Q_SLOTS:
 private:
     void animationValueChanged(const QVariant &value);
     void initWithBrightness(bool brightnessSupport);
-
-    // upower devices
-    std::map<QString, std::unique_ptr<UPowerDevice>> m_devices;
-    std::unique_ptr<UPowerDevice> m_displayDevice = nullptr;
 
     // brightness
     int m_cachedScreenBrightness;
@@ -103,7 +95,6 @@ private:
     // buttons
     bool m_lidIsPresent;
     bool m_lidIsClosed;
-    bool m_onBattery;
 
     // property if brightness control is leds subsystem
     bool m_isLedBrightnessControl;

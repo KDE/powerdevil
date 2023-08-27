@@ -27,13 +27,11 @@
 #include <kauth_version.h>
 
 #include "ddcutilbrightness.h"
-#include "upowerdevice.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject *parent)
     : BackendInterface(parent)
-    , m_displayDevice(nullptr)
     , m_cachedScreenBrightness(0)
     , m_cachedKeyboardBrightness(0)
     , m_upowerInterface(nullptr)
@@ -41,7 +39,6 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject *parent)
     , m_kbdMaxBrightness(0)
     , m_lidIsPresent(false)
     , m_lidIsClosed(false)
-    , m_onBattery(false)
     , m_isLedBrightnessControl(false)
 {
 }
@@ -147,11 +144,9 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
                                          this,
                                          SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
 
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceAdded", this, SLOT(slotDeviceAdded(QDBusObjectPath)));
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved", this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
-
-    // devices
-    enumerateDevices();
+    m_lidIsPresent = m_upowerInterface->lidIsPresent();
+    setLidPresent(m_lidIsPresent);
+    m_lidIsClosed = m_upowerInterface->lidIsClosed();
 
     // Brightness Controls available
     if (screenBrightnessAvailable) {
@@ -399,116 +394,6 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, const QStri
     }
 }
 
-void PowerDevilUPowerBackend::enumerateDevices()
-{
-    m_lidIsPresent = m_upowerInterface->lidIsPresent();
-    setLidPresent(m_lidIsPresent);
-    m_lidIsClosed = m_upowerInterface->lidIsClosed();
-    m_onBattery = m_upowerInterface->onBattery();
-
-    QDBusReply<QDBusObjectPath> reply = m_upowerInterface->call("GetDisplayDevice");
-    if (reply.isValid()) {
-        const QString path = reply.value().path();
-        if (!path.isEmpty() && path != QStringLiteral("/")) {
-            m_displayDevice = std::make_unique<UPowerDevice>(path);
-            connect(m_displayDevice.get(), &UPowerDevice::propertiesChanged, this, &PowerDevilUPowerBackend::updateDeviceProps);
-        }
-    }
-
-    if (!m_displayDevice) {
-        const QList<QDBusObjectPath> deviceList = m_upowerInterface->EnumerateDevices();
-        for (const QDBusObjectPath &device : deviceList) {
-            if (m_devices.count(device.path())) {
-                continue;
-            }
-            addDevice(device.path());
-        }
-    }
-
-    updateDeviceProps();
-
-    if (m_onBattery)
-        setAcAdapterState(Unplugged);
-    else
-        setAcAdapterState(Plugged);
-}
-
-void PowerDevilUPowerBackend::addDevice(const QString &device)
-{
-    if (m_displayDevice) {
-        return;
-    }
-
-    auto upowerDevice = std::make_unique<UPowerDevice>(device);
-    connect(upowerDevice.get(), &UPowerDevice::propertiesChanged, this, &PowerDevilUPowerBackend::updateDeviceProps);
-
-    m_devices[device] = std::move(upowerDevice);
-}
-
-void PowerDevilUPowerBackend::slotDeviceAdded(const QDBusObjectPath &path)
-{
-    addDevice(path.path());
-    updateDeviceProps();
-}
-
-void PowerDevilUPowerBackend::slotDeviceRemoved(const QDBusObjectPath &path)
-{
-    m_devices.erase(path.path());
-    updateDeviceProps();
-}
-
-void PowerDevilUPowerBackend::updateDeviceProps()
-{
-    double energyTotal = 0.0;
-    double energyRateTotal = 0.0;
-    double energyFullTotal = 0.0;
-    qulonglong timestamp = 0;
-
-    if (m_displayDevice) {
-        if (!m_displayDevice->isPresent()) {
-            // No Battery/Ups, nothing to report
-            return;
-        }
-        const auto state = m_displayDevice->state();
-        energyTotal = m_displayDevice->energy();
-        energyFullTotal = m_displayDevice->energyFull();
-        timestamp = m_displayDevice->updateTime();
-
-        if (state == UPowerDevice::State::Charging) {
-            energyRateTotal = m_displayDevice->energyRate();
-        } else if (state == UPowerDevice::State::Discharging) {
-            energyRateTotal = -1.0 * m_displayDevice->energyRate();
-        }
-    } else {
-        for (const auto &[key, upowerDevice] : m_devices) {
-            if (!upowerDevice->isPowerSupply()) {
-                continue;
-            }
-            const auto type = upowerDevice->type();
-            if (type == UPowerDevice::Type::Battery || type == UPowerDevice::Type::Ups) {
-                const auto state = upowerDevice->state();
-                energyFullTotal += upowerDevice->energyFull();
-                energyTotal += upowerDevice->energy();
-
-                if (state == UPowerDevice::State::FullyCharged) {
-                    continue;
-                }
-
-                timestamp = std::max(timestamp, upowerDevice->updateTime());
-                if (state == UPowerDevice::State::Charging) {
-                    energyRateTotal += upowerDevice->energyRate();
-                } else if (state == UPowerDevice::State::Discharging) {
-                    energyRateTotal -= upowerDevice->energyRate();
-                }
-            }
-        }
-    }
-
-    setBatteryEnergy(energyTotal);
-    setBatteryEnergyFull(energyFullTotal);
-    setBatteryRate(energyRateTotal, timestamp);
-}
-
 void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
 {
     if (ifaceName != UPOWER_IFACE) {
@@ -526,17 +411,6 @@ void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, cons
             setButtonPressed(lidIsClosed ? LidClose : LidOpen);
             m_lidIsClosed = lidIsClosed;
         }
-    }
-
-    bool onBattery = m_onBattery;
-    if (changedProps.contains(QStringLiteral("OnBattery"))) {
-        onBattery = changedProps[QStringLiteral("OnBattery")].toBool();
-    } else if (invalidatedProps.contains(QStringLiteral("OnBattery"))) {
-        onBattery = m_upowerInterface->onBattery();
-    }
-    if (onBattery != m_onBattery) {
-        setAcAdapterState(onBattery ? Unplugged : Plugged);
-        m_onBattery = onBattery;
     }
 }
 

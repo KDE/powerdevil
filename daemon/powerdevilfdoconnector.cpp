@@ -33,7 +33,7 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
     c.registerService("org.freedesktop.PowerManagement.Inhibit");
     c.registerObject("/org/freedesktop/PowerManagement/Inhibit", this);
 
-    connect(m_core->backend(), &BackendInterface::acAdapterStateChanged, this, &FdoConnector::onAcAdapterStateChanged);
+    connect(m_core->batteryController(), &BatteryController::acAdapterStateChanged, this, &FdoConnector::onAcAdapterStateChanged);
     connect(PolicyAgent::instance(),
             SIGNAL(unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies)),
             this,
@@ -62,7 +62,7 @@ bool FdoConnector::CanSuspendThenHibernate()
 
 bool FdoConnector::GetPowerSaveStatus()
 {
-    return m_core->backend()->acAdapterState() == PowerDevil::BackendInterface::Unplugged;
+    return m_core->batteryController()->acAdapterState() == BatteryController::Unplugged;
 }
 
 void FdoConnector::Suspend()
@@ -106,9 +106,9 @@ void FdoConnector::ForceUnInhibitAll()
     PolicyAgent::instance()->releaseAllInhibitions();
 }
 
-void FdoConnector::onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newstate)
+void FdoConnector::onAcAdapterStateChanged(BatteryController::AcAdapterState newstate)
 {
-    Q_EMIT PowerSaveStatusChanged(newstate == PowerDevil::BackendInterface::Unplugged);
+    Q_EMIT PowerSaveStatusChanged(newstate == BatteryController::Unplugged);
 }
 
 void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies)

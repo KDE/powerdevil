@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-#include "powerdevilbackendinterface.h"
+#include "batterycontroller.h"
 #include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
 
@@ -56,7 +56,7 @@ Q_SIGNALS:
     void HasInhibitChanged(bool hasInhibit);
 
 private Q_SLOTS:
-    void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
+    void onAcAdapterStateChanged(BatteryController::AcAdapterState);
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies);
     void triggerSuspendSession(PowerDevil::PowerButtonAction action);
 

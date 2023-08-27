@@ -3,7 +3,6 @@ set(powerdevilupowerbackend_SRCS
     powerdevilupowerbackend.cpp
     udevqtclient.cpp
     udevqtdevice.cpp
-    upowerdevice.cpp
     ddcutilbrightness.cpp
     ddcutildisplay.cpp
 )

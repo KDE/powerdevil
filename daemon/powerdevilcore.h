@@ -21,6 +21,7 @@
 
 #include <KSharedConfig>
 
+#include "batterycontroller.h"
 #include "powerdevilcore_export.h"
 #include "suspendcontroller.h"
 
@@ -77,6 +78,7 @@ public:
 
     BackendInterface *backend();
     SuspendController *suspendController();
+    BatteryController *batteryController();
 
     // More...
 
@@ -142,6 +144,7 @@ private:
 
     BackendInterface *m_backend = nullptr;
     std::unique_ptr<SuspendController> m_suspendController;
+    std::unique_ptr<BatteryController> m_batteryController;
 
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;
@@ -177,7 +180,7 @@ private:
 
 private Q_SLOTS:
     void onBackendReady();
-    void onAcAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState);
+    void onAcAdapterStateChanged(BatteryController::AcAdapterState);
     void onBatteryChargePercentChanged(int, const QString &);
     void onBatteryChargeStateChanged(int, const QString &);
     void onBatteryRemainingTimeChanged(qulonglong);

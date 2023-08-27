@@ -29,16 +29,6 @@ public:
     ~BackendInterface() override;
 
     /**
-     * This enum type defines the different states of the AC adapter.
-     *
-     * - UnknownAcAdapterState: The AC adapter has an unknown state
-     * - Plugged: The AC adapter is plugged
-     * - Unplugged: The AC adapter is unplugged
-     */
-    enum AcAdapterState { UnknownAcAdapterState, Plugged, Unplugged };
-    Q_ENUM(AcAdapterState)
-
-    /**
      * This enum type defines the types of system button events.
      *
      * - UnknownButtonType: An unknown button
@@ -69,29 +59,6 @@ public:
      * @note Backend implementations @b MUST reimplement this function
      */
     virtual void init() = 0;
-
-    /**
-     * Retrieves the current estimated remaining time of the system batteries
-     *
-     * @return the current global estimated remaining time in milliseconds
-     */
-    qulonglong batteryRemainingTime() const;
-
-    /**
-     * Retrieves the current estimated remaining time of the system batteries,
-     * with exponential moving average filter applied to the history records.
-     *
-     * @return the current global estimated remaining time in milliseconds
-     */
-    qulonglong smoothedBatteryRemainingTime() const;
-
-    /**
-     * Retrieves the current state of the system AC adapter.
-     *
-     * @return the current AC adapter state
-     * @see PowerDevil::BackendInterface::AcAdapterState
-     */
-    AcAdapterState acAdapterState() const;
 
     /**
      * Gets the screen brightness value.
@@ -141,14 +108,6 @@ public:
 
 Q_SIGNALS:
     /**
-     * This signal is emitted when the AC adapter is plugged or unplugged.
-     *
-     * @param newState the new state of the AC adapter, it's one of the
-     * type @see PowerDevil::BackendInterface::AcAdapterState
-     */
-    void acAdapterStateChanged(PowerDevil::BackendInterface::AcAdapterState newState);
-
-    /**
      * This signal is emitted when a button has been pressed.
      *
      * @param buttonType the pressed button type, it's one of the
@@ -159,20 +118,6 @@ Q_SIGNALS:
     void screenBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
     void keyboardBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
-
-    /**
-     * This signal is emitted when the estimated battery remaining time changes.
-     *
-     * @param time the new remaining time
-     */
-    void batteryRemainingTimeChanged(qulonglong time);
-
-    /**
-     * This signal is emitted when the estimated battery remaining time changes.
-     *
-     * @param time the new remaining time
-     */
-    void smoothedBatteryRemainingTimeChanged(qulonglong time);
 
     /**
      * This signal is emitted when the backend is ready to be used
@@ -191,11 +136,7 @@ Q_SIGNALS:
 protected:
     void onScreenBrightnessChanged(int value, int valueMax);
     void onKeyboardBrightnessChanged(int value, int valueMax, bool notify = false);
-    void setBatteryEnergy(double energy);
-    void setBatteryEnergyFull(double energy);
-    void setBatteryRate(double rate, qulonglong timestamp);
     void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
-    void setAcAdapterState(PowerDevil::BackendInterface::AcAdapterState state);
 
     void setBackendIsReady();
 
@@ -204,15 +145,6 @@ protected:
     int calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
 
 private:
-    AcAdapterState m_acAdapterState = UnknownAcAdapterState;
-
-    qulonglong m_batteryRemainingTime = 0;
-    qulonglong m_smoothedBatteryRemainingTime = 0;
-    qulonglong m_lastRateTimestamp = 0;
-    double m_batteryEnergyFull = 0;
-    double m_batteryEnergy = 0;
-    double m_smoothedBatteryDischargeRate = 0;
-
     ScreenBrightnessLogic m_screenBrightnessLogic;
     KeyboardBrightnessLogic m_keyboardBrightnessLogic;
     bool m_isLidClosed = false;
