@@ -50,25 +50,27 @@ SuspendController::SuspendController()
     // Supported suspend methods
     if (m_login1Interface) {
         QDBusPendingReply<QString> canSuspend = m_login1Interface.data()->asyncCall("CanSuspend");
-        canSuspend.waitForFinished();
-        if (canSuspend.isValid() && (canSuspend.value() == QLatin1String("yes") || canSuspend.value() == QLatin1String("challenge")))
-            m_suspendMethods |= ToRam;
-
         QDBusPendingReply<QString> canHibernate = m_login1Interface.data()->asyncCall("CanHibernate");
-        canHibernate.waitForFinished();
-        if (canHibernate.isValid() && (canHibernate.value() == QLatin1String("yes") || canHibernate.value() == QLatin1String("challenge")))
-            m_suspendMethods |= ToDisk;
-
         QDBusPendingReply<QString> canHybridSleep = m_login1Interface.data()->asyncCall("CanHybridSleep");
-        canHybridSleep.waitForFinished();
-        if (canHybridSleep.isValid() && (canHybridSleep.value() == QLatin1String("yes") || canHybridSleep.value() == QLatin1String("challenge")))
-            m_suspendMethods |= HybridSuspend;
-
         QDBusPendingReply<QString> canSuspendThenHibernate = m_login1Interface.data()->asyncCall("CanSuspendThenHibernate");
+
+        canSuspend.waitForFinished();
+        canHibernate.waitForFinished();
+        canHybridSleep.waitForFinished();
         canSuspendThenHibernate.waitForFinished();
+        if (canSuspend.isValid() && (canSuspend.value() == QLatin1String("yes") || canSuspend.value() == QLatin1String("challenge"))) {
+            m_suspendMethods |= ToRam;
+        }
+        if (canHibernate.isValid() && (canHibernate.value() == QLatin1String("yes") || canHibernate.value() == QLatin1String("challenge"))) {
+            m_suspendMethods |= ToDisk;
+        }
+        if (canHybridSleep.isValid() && (canHybridSleep.value() == QLatin1String("yes") || canHybridSleep.value() == QLatin1String("challenge"))) {
+            m_suspendMethods |= HybridSuspend;
+        }
         if (canSuspendThenHibernate.isValid()
-            && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge")))
+            && (canSuspendThenHibernate.value() == QLatin1String("yes") || canSuspendThenHibernate.value() == QLatin1String("challenge"))) {
             m_suspendMethods |= SuspendThenHibernate;
+        }
     }
 
     // "resuming" signal
