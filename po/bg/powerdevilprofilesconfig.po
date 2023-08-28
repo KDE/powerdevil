@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2022-05-22 19:41+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "svetlisashkov@yahoo.com"
 
-#: EditPage.cpp:172
+#: EditPage.cpp:159
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -41,12 +41,12 @@ msgstr ""
 "всички съществуващи модификации, които се правили. Сигурни ли сте, че "
 "желаете да продължите?"
 
-#: EditPage.cpp:176
+#: EditPage.cpp:163
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Възстановяване на стандартните профили"
 
-#: EditPage.cpp:248
+#: EditPage.cpp:235
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Изглежда, че услугата за управление на захранването не работи."

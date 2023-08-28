@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2016-05-06 16:01+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -38,7 +38,7 @@ msgstr ""
 "Servis aktivnosti radi sa minimum funkcionalnosti.\n"
 "Imena i ikonice aktivnosti možda neće biti dostupni."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -49,7 +49,7 @@ msgstr ""
 "Neophodno je da menadžer aktivnosti bude u pogonu da bi se podesilo "
 "ponašanje upravljanja napajanjem prema aktivnosti."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

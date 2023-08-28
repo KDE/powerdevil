@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-23 02:00+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2019-06-01 19:22+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: ErrorOverlay.cpp:40
+#: ErrorOverlay.cpp:27
 #, kde-format
 msgid ""
 "Power Management configuration module could not be loaded.\n"

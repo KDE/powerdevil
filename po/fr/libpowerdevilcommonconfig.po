@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-23 02:00+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2013-08-01 18:10+0200\n"
 "Last-Translator: Maxime Corteel <maxime.corteel@gadz.org>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: ErrorOverlay.cpp:40
+#: ErrorOverlay.cpp:27
 #, kde-format
 msgid ""
 "Power Management configuration module could not be loaded.\n"

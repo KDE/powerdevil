@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2022-11-26 08:14+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andrej.vernekar@gmail.com,andrejm@ubuntu.si"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -39,7 +39,7 @@ msgstr ""
 "Storitev dejavnosti teče z osnovnimi zmožnostmi.\n"
 "Imena in ikone dejavnosti morda ne bodo na voljo."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -50,7 +50,7 @@ msgstr ""
 "Če želite nastaviti upravljanje z energijo za posamezno dejavnost, mora biti "
 "upravljalnik dejavnosti zagnan."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Kot kaže, storitev upravljanja z energijo ne teče."

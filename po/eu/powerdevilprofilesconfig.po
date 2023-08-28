@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2020-07-06 23:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,7 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@euskalnet.net,hizpol@ej-gv.es"
 
-#: EditPage.cpp:172
+#: EditPage.cpp:159
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -43,12 +43,12 @@ msgstr ""
 "ordenagailuaren ahalmenean oinarrituta. Zuk egindako aldaketak ere ezabatuko "
 "ditu. Ziur zaude jarraitu nahi duzula?"
 
-#: EditPage.cpp:176
+#: EditPage.cpp:163
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Leheneratu profil lehenetsiak"
 
-#: EditPage.cpp:248
+#: EditPage.cpp:235
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Ematen du energia kudeatzeko zerbitzua ez dagoela martxan."

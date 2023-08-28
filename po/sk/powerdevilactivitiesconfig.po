@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2020-07-11 12:03+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -36,7 +36,7 @@ msgstr ""
 "Služba aktivít beží s obmedzenou funkcionalitou.\n"
 "Názvy a ikony aktivít nemusia byť dostupné."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Je potrebné, aby správca aktivít bežal na nastavenie správania správy "
 "napájania podľa aktivít."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Zdá sa, že služba správy napájania nie je spustená."

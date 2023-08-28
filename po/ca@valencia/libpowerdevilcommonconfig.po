@@ -1,16 +1,16 @@
 # Translation of libpowerdevilcommonconfig.po to Catalan (Valencian)
-# Copyright (C) 2013-2021 This_file_is_part_of_KDE
+# Copyright (C) 2013-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2013.
-# Josep M. Ferrer <txemaq@gmail.com>, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-23 02:00+0000\n"
-"PO-Revision-Date: 2021-09-03 17:17+0200\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"PO-Revision-Date: 2023-08-23 10:58+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,9 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
-#: ErrorOverlay.cpp:40
+#: ErrorOverlay.cpp:27
 #, kde-format
 msgid ""
 "Power Management configuration module could not be loaded.\n"
@@ -33,46 +33,46 @@ msgstr ""
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "No faces res"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Suspén"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Hiberna"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Suspensió híbrida"
 
 #: PowerButtonActionModel.cpp:69
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Para"
 
 #: PowerButtonActionModel.cpp:77
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Bloqueja la pantalla"
 
 #: PowerButtonActionModel.cpp:85
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr ""
+msgstr "Mostra el diàleg d'eixida"
 
 #: PowerButtonActionModel.cpp:93
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Apaga la pantalla"
 
 #: PowerButtonActionModel.cpp:101
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Activa/desactiva la pantalla"

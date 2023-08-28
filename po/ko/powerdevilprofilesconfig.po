@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2020-09-05 23:26+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde@peremen.name"
 
-#: EditPage.cpp:172
+#: EditPage.cpp:159
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -38,12 +38,12 @@ msgstr ""
 "기본 프로필을 생성합니다. 이 과정에서 기존 프로필을 모두 삭제합니다. 계속 진"
 "행하시겠습니까?"
 
-#: EditPage.cpp:176
+#: EditPage.cpp:163
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "기본 프로필 복원하기"
 
-#: EditPage.cpp:248
+#: EditPage.cpp:235
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "전원 관리 서비스가 실행 중이 아닌 것 같습니다."

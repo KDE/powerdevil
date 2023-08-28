@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:59+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2023-08-17 21:55+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -33,346 +33,346 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw, s8321414@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:55
-#: actions/bundled/keyboardbrightnesscontrol.cpp:59
+#: actions/bundled/brightnesscontrol.cpp:43 actions/bundled/dpms.cpp:62
+#: actions/bundled/handlebuttonevents.cpp:42
+#: actions/bundled/keyboardbrightnesscontrol.cpp:46
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "電源管理"
 
-#: actions/bundled/brightnesscontrol.cpp:59
+#: actions/bundled/brightnesscontrol.cpp:46
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "提高螢幕亮度"
 
-#: actions/bundled/brightnesscontrol.cpp:64
+#: actions/bundled/brightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "提高螢幕亮度 1%"
 
-#: actions/bundled/brightnesscontrol.cpp:69
+#: actions/bundled/brightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "降低螢幕亮度"
 
-#: actions/bundled/brightnesscontrol.cpp:74
+#: actions/bundled/brightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "降低螢幕亮度 1%"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:68
+#: actions/bundled/brightnesscontrolconfig.cpp:55
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "等級"
 
-#: actions/bundled/dimdisplayconfig.cpp:57 actions/bundled/dpmsconfig.cpp:58
-#: actions/bundled/runscriptconfig.cpp:74
-#: actions/bundled/suspendsessionconfig.cpp:77
+#: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
+#: actions/bundled/runscriptconfig.cpp:61
+#: actions/bundled/suspendsessionconfig.cpp:64
 #, kde-format
 msgid " min"
 msgstr " 分鐘"
 
-#: actions/bundled/dimdisplayconfig.cpp:67
-#: actions/bundled/runscriptconfig.cpp:77
-#: actions/bundled/runscriptconfig.cpp:99
+#: actions/bundled/dimdisplayconfig.cpp:54
+#: actions/bundled/runscriptconfig.cpp:64
+#: actions/bundled/runscriptconfig.cpp:86
 #, kde-format
 msgid "After"
 msgstr "多久之後："
 
-#: actions/bundled/dpms.cpp:78
+#: actions/bundled/dpms.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "關閉螢幕"
 
-#: actions/bundled/dpmsconfig.cpp:59
+#: actions/bundled/dpmsconfig.cpp:46
 #, kde-format
 msgid "Switch off after"
 msgstr "多久後關閉電源："
 
-#: actions/bundled/dpmsconfig.cpp:67
+#: actions/bundled/dpmsconfig.cpp:54
 #, kde-format
 msgid " sec"
 msgstr " 秒"
 
-#: actions/bundled/dpmsconfig.cpp:68
+#: actions/bundled/dpmsconfig.cpp:55
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr "螢幕鎖定時多久之後關閉："
 
-#: actions/bundled/handlebuttonevents.cpp:60
+#: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "暫停"
 
-#: actions/bundled/handlebuttonevents.cpp:65
+#: actions/bundled/handlebuttonevents.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "休眠"
 
-#: actions/bundled/handlebuttonevents.cpp:70
+#: actions/bundled/handlebuttonevents.cpp:57
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "關閉電源"
 
-#: actions/bundled/handlebuttonevents.cpp:84
+#: actions/bundled/handlebuttonevents.cpp:71
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
 msgstr "強制關機"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
+#: actions/bundled/handlebuttoneventsconfig.cpp:66
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "即使連接到外接螢幕"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/handlebuttoneventsconfig.cpp:75
 #, kde-format
 msgid "Do nothing"
 msgstr "不做任何事"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:82
+#: actions/bundled/handlebuttoneventsconfig.cpp:78
+#: actions/bundled/suspendsessionconfig.cpp:69
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "睡眠"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/handlebuttoneventsconfig.cpp:82
+#: actions/bundled/suspendsessionconfig.cpp:73
 #, kde-format
 msgid "Hibernate"
 msgstr "休眠"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:85
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "混合式睡眠"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:100
-#: actions/bundled/suspendsessionconfig.cpp:91
+#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "Shut down"
 msgstr "關機"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#: actions/bundled/suspendsessionconfig.cpp:92
+#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:79
 #, kde-format
 msgid "Lock screen"
 msgstr "鎖定螢幕"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:104
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "顯示登出對話框"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
 #, kde-format
 msgid "Turn off screen"
 msgstr "關閉螢幕"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:135
+#: actions/bundled/handlebuttoneventsconfig.cpp:122
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "當上蓋關閉時"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:146
+#: actions/bundled/handlebuttoneventsconfig.cpp:133
 #, kde-format
 msgid "When power button pressed"
 msgstr "當按下電源按鍵時"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:63
+#: actions/bundled/keyboardbrightnesscontrol.cpp:50
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "遞增鍵盤亮度"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:68
+#: actions/bundled/keyboardbrightnesscontrol.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "遞減鍵盤亮度"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:73
+#: actions/bundled/keyboardbrightnesscontrol.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "切換鍵盤背光"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:69
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:56
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "等級"
 
-#: actions/bundled/powerprofileconfig.cpp:81
+#: actions/bundled/powerprofileconfig.cpp:67
 #, kde-format
 msgid "Leave unchanged"
 msgstr "保持不變"
 
-#: actions/bundled/powerprofileconfig.cpp:89
+#: actions/bundled/powerprofileconfig.cpp:75
 #, kde-format
 msgid "Power Save"
 msgstr "省電"
 
-#: actions/bundled/powerprofileconfig.cpp:90
+#: actions/bundled/powerprofileconfig.cpp:76
 #, kde-format
 msgid "Balanced"
 msgstr "平衡"
 
-#: actions/bundled/powerprofileconfig.cpp:91
+#: actions/bundled/powerprofileconfig.cpp:77
 #, kde-format
 msgid "Performance"
 msgstr "效能"
 
-#: actions/bundled/powerprofileconfig.cpp:105
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "切換到："
 
-#: actions/bundled/runscriptconfig.cpp:63
+#: actions/bundled/runscriptconfig.cpp:50
 #, kde-format
 msgid "Script"
 msgstr "文稿"
 
-#: actions/bundled/runscriptconfig.cpp:75
+#: actions/bundled/runscriptconfig.cpp:62
 #, kde-format
 msgid "On Profile Load"
 msgstr "設定檔載入時"
 
-#: actions/bundled/runscriptconfig.cpp:76
+#: actions/bundled/runscriptconfig.cpp:63
 #, kde-format
 msgid "On Profile Unload"
 msgstr "設定檔卸載時"
 
-#: actions/bundled/runscriptconfig.cpp:88
+#: actions/bundled/runscriptconfig.cpp:75
 #, kde-format
 msgid "Run script"
 msgstr "執行文稿"
 
-#: actions/bundled/suspendsessionconfig.cpp:78
+#: actions/bundled/suspendsessionconfig.cpp:65
 #, kde-format
 msgid "after "
 msgstr "在下述時間之後："
 
-#: actions/bundled/suspendsessionconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:88
 #, kde-format
 msgid "Automatically"
 msgstr "自動"
 
-#: actions/bundled/suspendsessionconfig.cpp:107
+#: actions/bundled/suspendsessionconfig.cpp:94
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "進入睡眠模式後，在未動作一段時間後進入休眠模式"
 
-#: backends/upower/login1suspendjob.cpp:79
+#: login1suspendjob.cpp:65
 #, kde-format
 msgid "Unsupported suspend method"
 msgstr "未支援中止方法"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE 電源管理系統"
 
-#: powerdevilapp.cpp:69
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil，進階、模組化且輕量的電源管理守護程式"
 
-#: powerdevilapp.cpp:71
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:72
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:72
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "維護者"
 
-#: powerdevilapp.cpp:73
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:73
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "前任維護者"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:132
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "切換電源管理設定檔"
 
-#: powerdevilapp.cpp:162
+#: powerdevilapp.cpp:147
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "取代現存實體"
 
-#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
+#: powerdevilcore.cpp:381 powerdevilcore.cpp:393
 #, kde-format
 msgid "Activity Manager"
 msgstr "活動管理員"
 
-#: powerdevilcore.cpp:397
+#: powerdevilcore.cpp:382
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "此活動的政策是避免系統進入睡眠狀態"
 
-#: powerdevilcore.cpp:409
+#: powerdevilcore.cpp:394
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "此活動的政策是避免使用螢幕電源管理"
 
-#: powerdevilcore.cpp:472
+#: powerdevilcore.cpp:457
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "新增額外電池"
 
-#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:458 powerdevilcore.cpp:678
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "電腦將無法進入睡眠模式。"
 
-#: powerdevilcore.cpp:538
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "裝置電池電力偏低（剩 %1%）"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:528
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -380,22 +380,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr "裝置 \"%1\" 中的電池電量偏低，裝置隨時可能關閉。請盡快更換電池或充電。"
 
-#: powerdevilcore.cpp:550
+#: powerdevilcore.cpp:535
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "滑鼠電池電力偏低（剩 %1%）"
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:539
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "鍵盤電池電力偏低（剩 %1%）"
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:543
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "藍牙裝置電池電力偏低（剩 %1%）"
 
-#: powerdevilcore.cpp:560
+#: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -404,21 +404,21 @@ msgid ""
 msgstr ""
 "「%1」藍牙裝置中的電池電量偏低，裝置隨時可能關閉。請盡快更換電池或充電。"
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:588
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr "電池電量偏低 - 若要繼續使用您的電腦，請插入市電並確保它提供足夠電力。"
 
-#: powerdevilcore.cpp:605
+#: powerdevilcore.cpp:590
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
 "down and change the battery."
 msgstr "電池電量偏低 - 若要繼續使用您的電腦，請插入市電或是關機更換電池。"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -426,26 +426,26 @@ msgctxt ""
 msgid "Cancel"
 msgstr "取消"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "電池電力嚴重不足，電腦將在 60 秒內關機。"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:620
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "現在關機"
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:625
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr "電池電力嚴重不足，電腦將在 60 秒內進入休眠模式。"
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:626
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -453,64 +453,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "現在休眠"
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:632
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "電池電力嚴重不足，電腦將在 60 秒內進入睡眠模式。"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:633
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "現在睡眠"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:638
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "電池電力嚴重不足，請儲存您的作業。"
 
-#: powerdevilcore.cpp:664
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "電池電力偏低（剩 %1%）"
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:653
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "電池電力嚴重不足（剩 %1%）"
 
-#: powerdevilcore.cpp:692
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "當市電電源已插上時"
 
-#: powerdevilcore.cpp:695
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on AC power"
 msgstr "接市電電源"
 
-#: powerdevilcore.cpp:695
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "已插入市電電源。"
 
-#: powerdevilcore.cpp:698
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "使用電池電力"
 
-#: powerdevilcore.cpp:698
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "已拔除市電電源。"
 
-#: powerdevilcore.cpp:759
+#: powerdevilcore.cpp:744
 #, kde-format
 msgid "Charging Complete"
 msgstr "充電完成"
 
-#: powerdevilcore.cpp:759
+#: powerdevilcore.cpp:744
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "電池已充飽。"

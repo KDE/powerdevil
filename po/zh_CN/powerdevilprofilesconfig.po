@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
-"PO-Revision-Date: 2023-08-02 12:38\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"PO-Revision-Date: 2023-08-27 03:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -29,7 +29,7 @@ msgstr ""
 "kde-china@kde.org, chaofeng111@gmail.com, i@guoyunhe.me, tysontan@tysontan."
 "com"
 
-#: EditPage.cpp:172
+#: EditPage.cpp:159
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -39,12 +39,12 @@ msgstr ""
 "KDE 电源管理系统现在会根据系统性能生成一系列默认设置。同时会删除原有方案，是"
 "否继续？"
 
-#: EditPage.cpp:176
+#: EditPage.cpp:163
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "恢复默认方案"
 
-#: EditPage.cpp:248
+#: EditPage.cpp:235
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "电源管理服务尚未运行。"

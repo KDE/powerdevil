@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 01:59+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -31,21 +31,21 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "nashtlumach@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:56 actions/bundled/dpms.cpp:75
-#: actions/bundled/handlebuttonevents.cpp:55
-#: actions/bundled/keyboardbrightnesscontrol.cpp:59
+#: actions/bundled/brightnesscontrol.cpp:43 actions/bundled/dpms.cpp:62
+#: actions/bundled/handlebuttonevents.cpp:42
+#: actions/bundled/keyboardbrightnesscontrol.cpp:46
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Кіраванне сілкаваннем"
 
-#: actions/bundled/brightnesscontrol.cpp:59
+#: actions/bundled/brightnesscontrol.cpp:46
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Павялічыць яркасць экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:64
+#: actions/bundled/brightnesscontrol.cpp:51
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Increase Screen Brightness"
@@ -53,13 +53,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Павялічыць яркасць экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:69
+#: actions/bundled/brightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Паменшыць яркасць экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:74
+#: actions/bundled/brightnesscontrol.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Decrease Screen Brightness"
@@ -67,231 +67,231 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Паменшыць яркасць экрана"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:68
+#: actions/bundled/brightnesscontrolconfig.cpp:55
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Узровень"
 
-#: actions/bundled/dimdisplayconfig.cpp:57 actions/bundled/dpmsconfig.cpp:58
-#: actions/bundled/runscriptconfig.cpp:74
-#: actions/bundled/suspendsessionconfig.cpp:77
+#: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
+#: actions/bundled/runscriptconfig.cpp:61
+#: actions/bundled/suspendsessionconfig.cpp:64
 #, kde-format
 msgid " min"
 msgstr " хв"
 
-#: actions/bundled/dimdisplayconfig.cpp:67
-#: actions/bundled/runscriptconfig.cpp:77
-#: actions/bundled/runscriptconfig.cpp:99
+#: actions/bundled/dimdisplayconfig.cpp:54
+#: actions/bundled/runscriptconfig.cpp:64
+#: actions/bundled/runscriptconfig.cpp:86
 #, kde-format
 msgid "After"
 msgstr "Праз"
 
-#: actions/bundled/dpms.cpp:78
+#: actions/bundled/dpms.cpp:65
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Выключыць экран"
 
-#: actions/bundled/dpmsconfig.cpp:59
+#: actions/bundled/dpmsconfig.cpp:46
 #, kde-format
 msgid "Switch off after"
 msgstr "Выключыць праз"
 
-#: actions/bundled/dpmsconfig.cpp:67
+#: actions/bundled/dpmsconfig.cpp:54
 #, kde-format
 msgid " sec"
 msgstr ""
 
-#: actions/bundled/dpmsconfig.cpp:68
+#: actions/bundled/dpmsconfig.cpp:55
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:60
+#: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "Прыпыніць"
 
-#: actions/bundled/handlebuttonevents.cpp:65
+#: actions/bundled/handlebuttonevents.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Перавесці ў рэжым сну"
 
-#: actions/bundled/handlebuttonevents.cpp:70
+#: actions/bundled/handlebuttonevents.cpp:57
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "Выключыць"
 
-#: actions/bundled/handlebuttonevents.cpp:84
+#: actions/bundled/handlebuttonevents.cpp:71
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
 msgstr "Адключэнне сілкавання"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
+#: actions/bundled/handlebuttoneventsconfig.cpp:66
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Нават пры падлучэнні вонкавага манітора"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/handlebuttoneventsconfig.cpp:75
 #, kde-format
 msgid "Do nothing"
 msgstr "Нічога не рабіць"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:82
+#: actions/bundled/handlebuttoneventsconfig.cpp:78
+#: actions/bundled/suspendsessionconfig.cpp:69
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Прыпыніць у RAM"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/handlebuttoneventsconfig.cpp:82
+#: actions/bundled/suspendsessionconfig.cpp:73
 #, kde-format
 msgid "Hibernate"
 msgstr "Перавесці ў рэжым сну"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:89
+#: actions/bundled/handlebuttoneventsconfig.cpp:85
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Гібрыдны рэжым сну"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:100
-#: actions/bundled/suspendsessionconfig.cpp:91
+#: actions/bundled/handlebuttoneventsconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "Shut down"
 msgstr "Выключыць"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#: actions/bundled/suspendsessionconfig.cpp:92
+#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:79
 #, kde-format
 msgid "Lock screen"
 msgstr "Заблакаваць экран"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:104
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Дыялогавае акно пацвярджэння выхаду"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:108
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
 #, kde-format
 msgid "Turn off screen"
 msgstr "Выключыць экран"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:135
+#: actions/bundled/handlebuttoneventsconfig.cpp:122
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Калі закрыта вечка ноўтбука"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:146
+#: actions/bundled/handlebuttoneventsconfig.cpp:133
 #, kde-format
 msgid "When power button pressed"
 msgstr "Калі націснутая кнопка сілкавання"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:63
+#: actions/bundled/keyboardbrightnesscontrol.cpp:50
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Павялічыць яркасць клавіятуры"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:68
+#: actions/bundled/keyboardbrightnesscontrol.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Паменшыць яркасць клавіятуры"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:73
+#: actions/bundled/keyboardbrightnesscontrol.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Пераключыць яркасць клавіятуры"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:69
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:56
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Узровень"
 
-#: actions/bundled/powerprofileconfig.cpp:81
+#: actions/bundled/powerprofileconfig.cpp:67
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Пакінуць без зменаў"
 
-#: actions/bundled/powerprofileconfig.cpp:89
+#: actions/bundled/powerprofileconfig.cpp:75
 #, kde-format
 msgid "Power Save"
 msgstr "Энергазберагальны"
 
-#: actions/bundled/powerprofileconfig.cpp:90
+#: actions/bundled/powerprofileconfig.cpp:76
 #, kde-format
 msgid "Balanced"
 msgstr "Збалансаваны"
 
-#: actions/bundled/powerprofileconfig.cpp:91
+#: actions/bundled/powerprofileconfig.cpp:77
 #, kde-format
 msgid "Performance"
 msgstr "Прадукцыйны"
 
-#: actions/bundled/powerprofileconfig.cpp:105
+#: actions/bundled/powerprofileconfig.cpp:91
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Пераключэнне на:"
 
-#: actions/bundled/runscriptconfig.cpp:63
+#: actions/bundled/runscriptconfig.cpp:50
 #, kde-format
 msgid "Script"
 msgstr "Скрыпт"
 
-#: actions/bundled/runscriptconfig.cpp:75
+#: actions/bundled/runscriptconfig.cpp:62
 #, kde-format
 msgid "On Profile Load"
 msgstr "Пры загрузцы профілю"
 
-#: actions/bundled/runscriptconfig.cpp:76
+#: actions/bundled/runscriptconfig.cpp:63
 #, kde-format
 msgid "On Profile Unload"
 msgstr "Пры выгрузцы профілю"
 
-#: actions/bundled/runscriptconfig.cpp:88
+#: actions/bundled/runscriptconfig.cpp:75
 #, kde-format
 msgid "Run script"
 msgstr "Запусціць скрыпт"
 
-#: actions/bundled/suspendsessionconfig.cpp:78
+#: actions/bundled/suspendsessionconfig.cpp:65
 #, kde-format
 msgid "after "
 msgstr "праз "
 
-#: actions/bundled/suspendsessionconfig.cpp:101
+#: actions/bundled/suspendsessionconfig.cpp:88
 #, kde-format
 msgid "Automatically"
 msgstr "Аўтаматычна"
 
-#: actions/bundled/suspendsessionconfig.cpp:107
+#: actions/bundled/suspendsessionconfig.cpp:94
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
 "Падчас прыпынення ў RAM пераходзіць у рэжым сну пасля перыяду бяздзейнасці"
 
-#: backends/upower/login1suspendjob.cpp:79
+#: login1suspendjob.cpp:65
 #, kde-format
 msgid "Unsupported suspend method"
 msgstr "Метад прыпынення не падтрымліваецца"
 
-#: powerdevilapp.cpp:67
+#: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Сістэма кіравання сілкаваннем KDE"
 
-#: powerdevilapp.cpp:69
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -299,85 +299,85 @@ msgid ""
 msgstr ""
 "PowerDevil - магутны, модульны і лёгкаважны дэман кіравання сілкаваннем"
 
-#: powerdevilapp.cpp:71
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:72
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:72
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Суправаджальнік"
 
-#: powerdevilapp.cpp:73
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:73
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Папярэдні суправаджальнік"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:132
 #, fuzzy, kde-format
 #| msgid "Switch off after"
 msgid "Switch Power Profile"
 msgstr "Выключыць праз"
 
-#: powerdevilapp.cpp:162
+#: powerdevilapp.cpp:147
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Замяніць наяўны асобнік"
 
-#: powerdevilcore.cpp:396 powerdevilcore.cpp:408
+#: powerdevilcore.cpp:381 powerdevilcore.cpp:393
 #, kde-format
 msgid "Activity Manager"
 msgstr "Кіраўнік пакояў"
 
-#: powerdevilcore.cpp:397
+#: powerdevilcore.cpp:382
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Правілы пакоя не дазваляюць сістэме пераходзіць у рэжым сну"
 
-#: powerdevilcore.cpp:409
+#: powerdevilcore.cpp:394
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Правілы пакоя не дазваляюць кіраваць сілкаваннем экрана"
 
-#: powerdevilcore.cpp:472
+#: powerdevilcore.cpp:457
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Дадатковая батарэя дададзеная"
 
-#: powerdevilcore.cpp:473 powerdevilcore.cpp:693
+#: powerdevilcore.cpp:458 powerdevilcore.cpp:678
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Камп'ютар больш не пераходзіць у рэжым сну."
 
-#: powerdevilcore.cpp:538
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1%2"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Нізкі ўзровень зараду батарэі прылады (засталося %1%)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:528
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -387,22 +387,22 @@ msgstr ""
 "Батарэя ў \"%1\" разраджаецца, прылада можа выключыцца ў любы момант. "
 "Зарадзіце або замяніце батарэю."
 
-#: powerdevilcore.cpp:550
+#: powerdevilcore.cpp:535
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Нізкі ўзровень зараду батарэі мышы (засталося %1%)"
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:539
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Нізкі ўзровень зараду батарэі клавіятуры (засталося %1%)"
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:543
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Нізкі ўзровень зараду батарэі Bluetooth-прылады (засталося %1%)"
 
-#: powerdevilcore.cpp:560
+#: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -412,7 +412,7 @@ msgstr ""
 "Батарэя ў Bluetooth-прыладзе \"%1\" разраджаецца, прылада можа выключыцца ў "
 "любы момант. Зарадзіце або замяніце батарэю."
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:588
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -421,7 +421,7 @@ msgstr ""
 "Батарэя разраджаецца. Каб працягнуць карыстацца камп'ютарам, пераканайцеся, "
 "што штэкер сілкавання падлучаны, і прылада сілкуецца."
 
-#: powerdevilcore.cpp:605
+#: powerdevilcore.cpp:590
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -430,7 +430,7 @@ msgstr ""
 "Батарэя разраджаецца. Каб працягнуць карыстацца камп'ютарам, падлучыце яго "
 "да крыніцы сілкавання або выключыце і замяніце батарэю."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -438,21 +438,21 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар выключыцца праз 60 "
 "секунд."
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:620
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Выключыць"
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:625
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -461,7 +461,7 @@ msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар перойдзе ў рэжым сну "
 "праз 60 секунд."
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:626
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -469,67 +469,67 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Перавесці ў рэжым сну"
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:632
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар прыпыніцца ў RAM "
 "праз 60 секунд."
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:633
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Прыпыніць у RAM"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:638
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Захавайце даныя, з якімі працуеце."
 
-#: powerdevilcore.cpp:664
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Нізкі ўзровень зараду батарэі (засталося %1%)"
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:653
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Крытычна нізкі ўзровень зараду батарэі (засталося %1%)"
 
-#: powerdevilcore.cpp:692
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Штэкер падлучаны да электрасеткі"
 
-#: powerdevilcore.cpp:695
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on AC power"
 msgstr "Сілкуецца ад электрасеткі"
 
-#: powerdevilcore.cpp:695
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Штэкер падлучаны."
 
-#: powerdevilcore.cpp:698
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Сілкуецца ад батарэі"
 
-#: powerdevilcore.cpp:698
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Штэкер адлучаны."
 
-#: powerdevilcore.cpp:759
+#: powerdevilcore.cpp:744
 #, kde-format
 msgid "Charging Complete"
 msgstr "Зараджэнне завершана"
 
-#: powerdevilcore.cpp:759
+#: powerdevilcore.cpp:744
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарэя цалкам зараджаная."

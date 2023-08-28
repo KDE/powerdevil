@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-07-06 02:53+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2020-07-21 13:25+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "vit@pelcak.org"
 
-#: EditPage.cpp:172
+#: EditPage.cpp:159
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -40,12 +40,12 @@ msgstr ""
 "na schopnostech vašeho počítače. Tímto rovněž dojde ke smazání všech vašich "
 "změn. Opravdu si přejete pokračovat?"
 
-#: EditPage.cpp:176
+#: EditPage.cpp:163
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Obnovit výchozí profily"
 
-#: EditPage.cpp:248
+#: EditPage.cpp:235
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Služba pro správu napájení, zdá se, neběží."

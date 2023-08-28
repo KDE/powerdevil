@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2018-06-24 14:45+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "bjornst@skogkatt.homelinux.org"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -39,7 +39,7 @@ msgstr ""
 "Aktivitetstjenesten kjører med lav funksjonalitet.\n"
 "Navn og ikoner for aktiviteter er kanskje utilgjengelige."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -50,7 +50,7 @@ msgstr ""
 "Aktivitetstjenesten må kjøre for at det skal være mulig å sette opp "
 "strømstyring for hver aktivitet."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

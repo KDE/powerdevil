@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2022-03-25 22:22+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wantoyek@gmail.com"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -37,7 +37,7 @@ msgstr ""
 "Layanan aktivitas berjalan dengan memperlihatkan fungsionalitas.\n"
 " Nama dan ikon aktivitas mungkin tidak tersedia."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -48,7 +48,7 @@ msgstr ""
 " Hal ini diperlukan untuk memiliki pengelola aktivitas yang berjalan untuk "
 "mengkonfigurasi perilaku aktivitas pengelolaan daya yang spesifik."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Layanan Pengelolaan Daya yang muncul belum berjalan."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2022-11-10 20:41+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "schwarzer@kde.org"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -36,7 +36,7 @@ msgstr ""
 "Der Aktivitäten-Dienst läuft mit minimaler Funktionalität.\n"
 "Namen und Symbole der Aktivitäten sind möglicherweise nicht verfügbar."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Es ist erforderlich, dass er Aktivitäten-Dienst läuft, um Aktivitäten-"
 "spezifisches Verhalten der Energieverwaltung einzurichten."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Der Energieverwaltungsdienst scheint nicht zu laufen."

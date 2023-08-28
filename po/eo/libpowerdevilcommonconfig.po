@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-23 02:00+0000\n"
-"PO-Revision-Date: 2023-03-25 20:30+0100\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"PO-Revision-Date: 2023-08-26 14:21+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ErrorOverlay.cpp:40
+#: ErrorOverlay.cpp:27
 #, kde-format
 msgid ""
 "Power Management configuration module could not be loaded.\n"
@@ -29,46 +29,46 @@ msgstr ""
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Fari nenion"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Dormi"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Pasivumi"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hibrida dormado"
 
 #: PowerButtonActionModel.cpp:69
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Malŝalti"
 
 #: PowerButtonActionModel.cpp:77
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Ŝlosi ekranon"
 
 #: PowerButtonActionModel.cpp:85
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr ""
+msgstr "Postuli elsalutan dialogon"
 
 #: PowerButtonActionModel.cpp:93
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Malŝalti ekranon"
 
 #: PowerButtonActionModel.cpp:101
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Baskuligi ekranon en-/elŝalt"

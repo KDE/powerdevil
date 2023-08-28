@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-06 02:04+0000\n"
+"POT-Creation-Date: 2023-08-28 02:37+0000\n"
 "PO-Revision-Date: 2021-07-24 09:19+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "capoiosct@gmail.com"
 
-#: activitypage.cpp:59
+#: activitypage.cpp:46
 #, kde-format
 msgid ""
 "The activity service is running with bare functionalities.\n"
@@ -39,7 +39,7 @@ msgstr ""
 "Η υπηρεσία δραστηριοτήτων εκτελείται με στοιχειώδεις λειτουργίες.\n"
 "Τα ονόματα και τα εικονίδια των δραστηριοτήτων μπορεί να μην είναι διαθέσιμα."
 
-#: activitypage.cpp:132
+#: activitypage.cpp:119
 #, kde-format
 msgid ""
 "The activity service is not running.\n"
@@ -51,7 +51,7 @@ msgstr ""
 "δυνατή η διαμόρφωση της ανά-δραστηριότητας συμπεριφοράς διαχείρισης "
 "ενέργειας."
 
-#: activitypage.cpp:227
+#: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Η υπηρεσία διαχείρισης ισχύος μάλλον δεν εκτελείται."
