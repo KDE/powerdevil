@@ -71,12 +71,6 @@ void ErrorOverlay::reposition()
         return;
     }
 
-    // reparent to the current top level widget of the base widget if needed
-    // needed eg. in dock widgets
-    if (parentWidget() != m_BaseWidget->window()) {
-        setParent(m_BaseWidget->window());
-    }
-
     // follow base widget visibility
     // needed eg. in tab widgets
     if (!m_BaseWidget->isVisible()) {
