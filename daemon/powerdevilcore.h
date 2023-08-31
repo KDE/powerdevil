@@ -158,7 +158,6 @@ private:
     bool m_notificationsReady = false;
 
     GlobalSettings *m_globalSettings = nullptr;
-    KSharedConfigPtr m_profilesConfig;
 
     QString m_currentProfile;
 

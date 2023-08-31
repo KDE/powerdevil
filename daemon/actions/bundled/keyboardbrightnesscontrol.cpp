@@ -10,6 +10,7 @@
 
 #include "brightnessosdwidget.h"
 
+#include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilcore.h>
 
@@ -17,7 +18,6 @@
 #include <QDebug>
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KGlobalAccel>
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -109,12 +109,13 @@ bool KeyboardBrightnessControl::isSupported()
     return backend()->keyboardBrightnessAvailable();
 }
 
-bool KeyboardBrightnessControl::loadAction(const KConfigGroup &config)
+bool KeyboardBrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (config.hasKey("value")) {
-        m_defaultValue = config.readEntry<int>("value", 50);
+    if (!profileSettings.useProfileSpecificKeyboardBrightness()) {
+        return false;
     }
 
+    m_defaultValue = profileSettings.keyboardBrightness();
     return true;
 }
 

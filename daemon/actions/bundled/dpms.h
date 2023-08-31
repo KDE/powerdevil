@@ -41,7 +41,7 @@ protected:
     bool isSupported() override;
 
 public:
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);

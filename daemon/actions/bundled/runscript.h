@@ -7,6 +7,7 @@
 #pragma once
 
 #include <powerdevilaction.h>
+#include <powerdevilenums.h>
 
 namespace PowerDevil::BundledActions
 {
@@ -25,12 +26,13 @@ protected:
     void triggerImpl(const QVariantMap &args) override;
 
 public:
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 private:
-    void runCommand();
-    int m_scriptPhase;
-    QString m_scriptCommand;
+    void runCommand(const QString &command);
+    QString m_profileLoadCommand;
+    QString m_profileUnloadCommand;
+    QString m_idleTimeoutCommand;
 };
 
 }

@@ -6,6 +6,7 @@
 
 #include "suspendsession.h"
 
+#include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
@@ -14,7 +15,6 @@
 
 #include <kwinkscreenhelpereffect.h>
 
-#include <KConfigGroup>
 #include <KIdleTime>
 #include <KJob>
 #include <KLocalizedString>
@@ -65,7 +65,7 @@ void SuspendSession::onWakeupFromIdle()
 
 void SuspendSession::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    QVariantMap args{{QStringLiteral("Type"), m_autoType}};
+    QVariantMap args{{QStringLiteral("Type"), qToUnderlying(m_autoSuspendAction)}};
 
     // we fade the screen to black 5 seconds prior to suspending to alert the user
     if (timeout == m_idleTime - 5s) {
@@ -111,8 +111,10 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     case PowerDevil::PowerButtonAction::SuspendToRam:
         Q_EMIT aboutToSuspend();
 
-        if (m_suspendThenHibernateEnabled) {
+        if (m_sleepMode == PowerDevil::SleepMode::SuspendThenHibernate) {
             core()->suspendController()->suspendThenHibernate();
+        } else if (m_sleepMode == PowerDevil::SleepMode::HybridSuspend) {
+            core()->suspendController()->hybridSuspend();
         } else {
             core()->suspendController()->suspend();
         }
@@ -142,22 +144,22 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 }
 
-bool SuspendSession::loadAction(const KConfigGroup &config)
+bool SuspendSession::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (config.isValid()) {
-        if (config.hasKey("idleTime") && config.hasKey("suspendType")) {
-            // Add the idle timeout
-            m_idleTime = std::chrono::milliseconds(config.readEntry<int>("idleTime", 0));
-            if (m_idleTime != 0ms) {
-                registerIdleTimeout(m_idleTime - 5s);
-                registerIdleTimeout(m_idleTime);
-            }
-            m_autoType = config.readEntry<uint>("suspendType", 0);
-        }
-        if (config.hasKey("suspendThenHibernate")) {
-            m_suspendThenHibernateEnabled = config.readEntry<bool>("suspendThenHibernate", false);
-        }
+    m_sleepMode = static_cast<PowerDevil::SleepMode>(profileSettings.sleepMode());
+
+    if (profileSettings.autoSuspendAction() == qToUnderlying(PowerDevil::PowerButtonAction::NoAction)) {
+        return false;
     }
+
+    // Add the idle timeout
+    m_idleTime = std::chrono::seconds(profileSettings.autoSuspendIdleTimeoutSec());
+    if (m_idleTime != 0s) {
+        registerIdleTimeout(m_idleTime - 5s);
+        registerIdleTimeout(m_idleTime);
+    }
+    m_autoSuspendAction = static_cast<PowerDevil::PowerButtonAction>(profileSettings.autoSuspendAction());
+
     return true;
 }
 

@@ -28,7 +28,7 @@ public:
     explicit PowerProfile(QObject *parent);
     ~PowerProfile() override;
 
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
     QStringList profileChoices() const;
     QString currentProfile() const;

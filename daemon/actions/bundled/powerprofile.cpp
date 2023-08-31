@@ -11,9 +11,9 @@
 #include "powerprofileadaptor.h"
 #include "properties_interface.h"
 
+#include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 
-#include <KConfigGroup>
 #include <KPluginFactory>
 
 using namespace PowerDevil::BundledActions;
@@ -75,13 +75,10 @@ void PowerProfile::triggerImpl(const QVariantMap &args)
     Q_UNUSED(args);
 }
 
-bool PowerProfile::loadAction(const KConfigGroup &config)
+bool PowerProfile::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (config.hasKey("profile")) {
-        m_configuredProfile = config.readEntry("profile", QString());
-    }
-
-    return true;
+    m_configuredProfile = profileSettings.powerProfile();
+    return !m_configuredProfile.isEmpty();
 }
 
 bool PowerProfile::isSupported()

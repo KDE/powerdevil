@@ -11,6 +11,7 @@
 
 #include <powerdevilaction.h>
 #include <powerdevilbackendinterface.h>
+#include <powerdevilenums.h>
 
 #include <optional>
 
@@ -25,7 +26,7 @@ public:
     explicit HandleButtonEvents(QObject *parent);
     ~HandleButtonEvents() override;
 
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
     bool isSupported() override;
 
 Q_SIGNALS:
@@ -50,18 +51,18 @@ private Q_SLOTS:
     void checkOutputs();
 
 private:
-    void processAction(uint action);
+    void processAction(PowerDevil::PowerButtonAction action);
     void triggerAction(const QString &action, const QVariant &type);
 
     KScreen::ConfigPtr m_screenConfiguration;
-    uint m_lidAction = 0;
+    PowerDevil::PowerButtonAction m_lidAction = PowerDevil::PowerButtonAction::NoAction;
     bool m_triggerLidActionWhenExternalMonitorPresent = false;
     bool m_externalMonitorPresent = false;
 
-    uint m_powerButtonAction = 0;
-    uint m_powerDownButtonAction = 0;
-    uint m_sleepButtonAction = 1;
-    uint m_hibernateButtonAction = 2;
+    PowerDevil::PowerButtonAction m_powerButtonAction = PowerDevil::PowerButtonAction::NoAction;
+    PowerDevil::PowerButtonAction m_powerDownButtonAction = PowerDevil::PowerButtonAction::NoAction;
+    PowerDevil::PowerButtonAction m_sleepButtonAction = PowerDevil::PowerButtonAction::SuspendToRam;
+    PowerDevil::PowerButtonAction m_hibernateButtonAction = PowerDevil::PowerButtonAction::SuspendToDisk;
 
     std::optional<int> m_oldKeyboardBrightness;
 };

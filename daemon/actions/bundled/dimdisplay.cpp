@@ -6,13 +6,13 @@
 
 #include "dimdisplay.h"
 
+#include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilbackendinterface.h>
 
 #include <QDebug>
 #include <QTimer>
 
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
 
@@ -87,15 +87,16 @@ bool DimDisplay::isSupported()
     return backend()->screenBrightnessAvailable();
 }
 
-bool DimDisplay::loadAction(const KConfigGroup &config)
+bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     qCDebug(POWERDEVIL);
-    if (config.hasKey("idleTime")) {
-        m_dimOnIdleTime = std::chrono::milliseconds(config.readEntry<int>("idleTime", 10000000));
-        qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime.count();
-        registerIdleTimeout(m_dimOnIdleTime);
+    if (!profileSettings.dimDisplayWhenIdle()) {
+        return false;
     }
 
+    m_dimOnIdleTime = std::chrono::seconds(profileSettings.dimDisplayIdleTimeoutSec());
+    qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime.count();
+    registerIdleTimeout(m_dimOnIdleTime);
     return true;
 }
 

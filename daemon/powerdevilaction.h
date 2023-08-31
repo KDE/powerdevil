@@ -13,12 +13,11 @@
 
 #include "powerdevilcore_export.h"
 
-class KConfigGroup;
-
 namespace PowerDevil
 {
 class BackendInterface;
 class Core;
+class ProfileSettings;
 
 /**
  * @brief The base class for Power Management Actions
@@ -94,15 +93,15 @@ public:
 
     /**
      * Reimplement this function when creating a new Action. This function is called whenever the action is loaded or
-     * its configuration changes. It carries the KConfigGroup associated with your action and generated from your
-     * config interface.
+     * its configuration changes. It carries the ProfileSettings associated with the active power management
+     * profile and generated from your config interface.
      *
-     * @param config The action's configuration which should be loaded.
-     * @returns Whether the action has been successfully loaded.
+     * @param profileSettings The profile settings containing the action's configuration which should be loaded.
+     * @returns Whether the action has been successfully loaded. Should return false if not enabled for the given @p profileSettings.
      *
      * @see ActionConfig
      */
-    virtual bool loadAction(const KConfigGroup &config) = 0;
+    virtual bool loadAction(const PowerDevil::ProfileSettings &profileSettings) = 0;
     /**
      * Unloads the action.
      */

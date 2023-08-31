@@ -5,9 +5,10 @@
  */
 
 #include "runscript.h"
-#include "powerdevil_debug.h"
 
-#include <KConfigGroup>
+#include <PowerDevilProfileSettings.h>
+#include <powerdevil_debug.h>
+
 #include <KPluginFactory>
 #include <QProcess>
 
@@ -28,21 +29,21 @@ RunScript::~RunScript()
 
 void RunScript::onProfileUnload()
 {
-    if (m_scriptPhase == 1) {
-        runCommand();
+    if (!m_profileUnloadCommand.isEmpty()) {
+        runCommand(m_profileUnloadCommand);
     }
 }
 
 void RunScript::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_UNUSED(timeout);
-    runCommand();
+    runCommand(m_idleTimeoutCommand);
 }
 
 void RunScript::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
 {
-    if (m_scriptPhase == 0) {
-        runCommand();
+    if (!m_profileLoadCommand.isEmpty()) {
+        runCommand(m_profileLoadCommand);
     }
 }
 
@@ -51,27 +52,27 @@ void RunScript::triggerImpl(const QVariantMap &args)
     Q_UNUSED(args);
 }
 
-bool RunScript::loadAction(const KConfigGroup &config)
+bool RunScript::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (config.hasKey("scriptCommand") && config.hasKey("scriptPhase")) {
-        m_scriptCommand = config.readEntry<QString>("scriptCommand", QString());
-        m_scriptPhase = config.readEntry<int>("scriptPhase", 0);
-        if (m_scriptPhase == 2) {
-            if (!config.hasKey("idleTime")) {
-                return false;
-            }
-            registerIdleTimeout(std::chrono::milliseconds(config.readEntry<int>("idleTime", 10000000)));
-        }
+    m_profileLoadCommand = profileSettings.profileLoadCommand();
+    m_profileUnloadCommand = profileSettings.profileUnloadCommand();
+    m_idleTimeoutCommand = profileSettings.idleTimeoutCommand();
+
+    if (m_profileLoadCommand.isEmpty() && m_profileUnloadCommand.isEmpty() && m_idleTimeoutCommand.isEmpty()) {
+        return false;
     }
 
+    if (!m_idleTimeoutCommand.isEmpty()) {
+        registerIdleTimeout(std::chrono::seconds(profileSettings.runScriptIdleTimeoutSec()));
+    }
     return true;
 }
 
-void RunScript::runCommand()
+void RunScript::runCommand(const QString &command)
 {
     bool success;
 
-    QStringList args = QProcess::splitCommand(m_scriptCommand);
+    QStringList args = QProcess::splitCommand(command);
     if (args.isEmpty()) {
         qCWarning(POWERDEVIL) << "Empty command?";
         return;
@@ -83,10 +84,9 @@ void RunScript::runCommand()
     success = process.startDetached();
 
     if (!success) {
-        qCWarning(POWERDEVIL) << "Failed to run" << m_scriptCommand;
+        qCWarning(POWERDEVIL) << "Failed to run" << command;
     }
 }
-
 }
 
 #include "runscript.moc"

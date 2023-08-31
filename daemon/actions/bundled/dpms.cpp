@@ -8,6 +8,7 @@
 #include "dpms.h"
 #include <KScreenDpms/Dpms>
 
+#include <PowerDevilProfileSettings.h>
 #include <kwinkscreenhelpereffect.h>
 #include <powerdevil_debug.h>
 #include <powerdevilbackendinterface.h>
@@ -23,7 +24,6 @@
 #include <private/qtx11extras_p.h>
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KGlobalAccel>
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -165,12 +165,16 @@ void DPMS::triggerImpl(const QVariantMap &args)
     m_dpms->switchMode(level);
 }
 
-bool DPMS::loadAction(const KConfigGroup &config)
+bool DPMS::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    m_idleTime = std::chrono::seconds(config.readEntry<int>("idleTime", -1));
-    m_lockBeforeTurnOff = config.readEntry<bool>("lockBeforeTurnOff", false);
+    if (!profileSettings.turnOffDisplayWhenIdle()) {
+        return false;
+    }
 
-    m_idleTimeoutWhenLocked = std::chrono::seconds(config.readEntry<int>("idleTimeoutWhenLocked", 60));
+    m_idleTime = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutSec());
+    m_lockBeforeTurnOff = profileSettings.lockBeforeTurnOffDisplay();
+
+    m_idleTimeoutWhenLocked = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec());
 
     registerDpmsOffOnIdleTimeout(m_idleTime);
 

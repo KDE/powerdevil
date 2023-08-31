@@ -16,6 +16,7 @@
 
 #include <PowerDevilActivitySettings.h>
 #include <PowerDevilGlobalSettings.h>
+#include <PowerDevilProfileSettings.h>
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -104,21 +105,6 @@ void Core::onBackendReady()
 
     PowerDevil::migrateConfig(isMobile, isVM, canSuspendToRam);
     m_globalSettings = new PowerDevil::GlobalSettings(canSuspendToRam, canSuspendToDisk, this);
-    m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::CascadeConfig);
-
-    QStringList groups = m_profilesConfig->groupList();
-    // the "migration" key is for shortcuts migration in added by migratePre512KeyboardShortcuts
-    // and as such our configuration would never be considered empty, ignore it!
-    groups.removeOne(QStringLiteral("migration"));
-
-    // Is it brand new?
-    if (groups.isEmpty()) {
-        // Generate defaults
-        qCDebug(POWERDEVIL) << "Generating a default configuration";
-
-        ProfileGenerator::generateProfiles(isMobile, isVM, canSuspendToRam);
-        m_profilesConfig->reparseConfiguration();
-    }
 
     // Get the battery devices ready
     {
@@ -270,7 +256,6 @@ void Core::refreshStatus()
 void Core::reparseConfiguration()
 {
     m_globalSettings->load();
-    m_profilesConfig->reparseConfiguration();
 
     // Config reloaded
     Q_EMIT configurationReloaded();
@@ -298,7 +283,6 @@ QString Core::currentProfile() const
 void Core::loadProfile(bool force)
 {
     QString profileId;
-    KConfigGroup config;
 
     // Check the activity in which we are in
     QString activity = m_activityConsumer->currentActivity();
@@ -331,7 +315,12 @@ void Core::loadProfile(bool force)
         }
     }
 
-    config = m_profilesConfig.data()->group(profileId);
+    // Load settings for the current profile
+    const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
+    const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
+    bool canSuspend = m_suspendController->canSuspend();
+
+    PowerDevil::ProfileSettings profileSettings(profileId, isMobile, isVM, canSuspend);
 
     // Release any special inhibitions
     {
@@ -346,11 +335,6 @@ void Core::loadProfile(bool force)
             PolicyAgent::instance()->ReleaseInhibition(i.value());
             i = m_screenActivityInhibit.erase(i);
         }
-    }
-
-    if (!config.isValid()) {
-        qCWarning(POWERDEVIL) << "Profile " << profileId << "has been selected but does not exist.";
-        return;
     }
 
     // Check: do we need to change profile at all?
@@ -375,28 +359,11 @@ void Core::loadProfile(bool force)
             m_pendingWakeupEvent = false;
         }
 
-        // Cool, now let's load the needed actions
-        const auto groupList = config.groupList();
-        for (const QString &actionName : groupList) {
-            if (m_actionPool.contains(actionName)) {
-                Action *action = m_actionPool[actionName];
-
-                if (m_activeActions.contains(actionName)) {
-                    // We are reloading the action: let's unload it first then.
-                    action->onProfileUnload();
-                    action->unloadAction();
-                    m_activeActions.removeOne(actionName);
-                }
-                action->loadAction(config.group(actionName));
-                m_activeActions.append(actionName);
-
-                action->onProfileLoad(m_currentProfile, profileId);
-            } else {
-                // Ouch, error. But let's just warn and move on anyway
-                // TODO Maybe Remove from the configuration if unsupported
-                qCWarning(POWERDEVIL) << "The profile " << profileId << "tried to activate" << actionName
-                                      << "a non-existent action. This is usually due to an installation problem,"
-                                         " a configuration problem, or because the action is not supported";
+        // Cool, now let's load the needed actions. Mark the ones as active that want to be loaded
+        for (auto it = m_actionPool.begin(); it != m_actionPool.end(); ++it) {
+            if (it.value()->loadAction(profileSettings)) {
+                m_activeActions.append(it.key());
+                it.value()->onProfileLoad(m_currentProfile, profileId);
             }
         }
 

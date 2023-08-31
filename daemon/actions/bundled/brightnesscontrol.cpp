@@ -6,10 +6,9 @@
 
 #include "brightnesscontrol.h"
 
-#include "brightnessosdwidget.h"
-
-#include "brightnesscontroladaptor.h"
-
+#include <PowerDevilProfileSettings.h>
+#include <brightnesscontroladaptor.h>
+#include <brightnessosdwidget.h>
 #include <powerdevil_debug.h>
 #include <powerdevilcore.h>
 
@@ -17,7 +16,6 @@
 #include <QDebug>
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KGlobalAccel>
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -105,12 +103,13 @@ bool BrightnessControl::isSupported()
     return backend()->screenBrightnessAvailable();
 }
 
-bool BrightnessControl::loadAction(const KConfigGroup &config)
+bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (config.hasKey("value")) {
-        m_defaultValue = config.readEntry<int>("value", 50);
+    if (!profileSettings.useProfileSpecificDisplayBrightness()) {
+        return false;
     }
 
+    m_defaultValue = profileSettings.displayBrightness();
     return true;
 }
 

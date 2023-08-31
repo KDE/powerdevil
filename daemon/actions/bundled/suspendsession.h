@@ -26,7 +26,7 @@ public:
     explicit SuspendSession(QObject *parent);
     ~SuspendSession() override;
 
-    bool loadAction(const KConfigGroup &config) override;
+    bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 protected:
     void onWakeupFromIdle() override;
@@ -46,9 +46,9 @@ private Q_SLOTS:
     void triggerSuspendSession(PowerDevil::PowerButtonAction action);
 
 private:
-    bool m_suspendThenHibernateEnabled = false;
     std::chrono::milliseconds m_idleTime{0};
-    uint m_autoType;
+    PowerDevil::PowerButtonAction m_autoSuspendAction;
+    PowerDevil::SleepMode m_sleepMode = PowerDevil::SleepMode::SuspendToRam;
     QVariantMap m_savedArgs;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 };

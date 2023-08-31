@@ -8,6 +8,7 @@
 #include "handlebuttonevents.h"
 #include "handlebuttoneventsadaptor.h"
 
+#include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilcore.h>
 #include <powerdevilenums.h>
@@ -15,7 +16,6 @@
 #include <QAction>
 
 #include <KActionCollection>
-#include <KConfigGroup>
 #include <KIdleTime>
 #include <KLocalizedString>
 
@@ -105,8 +105,8 @@ bool HandleButtonEvents::isSupported()
 
 void HandleButtonEvents::onProfileUnload()
 {
-    m_lidAction = 0;
-    m_powerButtonAction = 0;
+    m_lidAction = PowerDevil::PowerButtonAction::NoAction;
+    m_powerButtonAction = PowerDevil::PowerButtonAction::NoAction;
 }
 
 void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
@@ -139,10 +139,10 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
     }
 }
 
-void HandleButtonEvents::processAction(uint action)
+void HandleButtonEvents::processAction(PowerDevil::PowerButtonAction action)
 {
     // Basically, we simply trigger other actions :)
-    switch (static_cast<PowerDevil::PowerButtonAction>(action)) {
+    switch (action) {
     case PowerDevil::PowerButtonAction::TurnOffScreen:
         // Turn off screen
         triggerAction("DPMSControl", QStringLiteral("TurnOff"));
@@ -152,7 +152,7 @@ void HandleButtonEvents::processAction(uint action)
         triggerAction("DPMSControl", QStringLiteral("ToggleOnOff"));
         break;
     default:
-        triggerAction("SuspendSession", action);
+        triggerAction("SuspendSession", qToUnderlying(action));
         break;
     }
 }
@@ -172,13 +172,17 @@ void HandleButtonEvents::triggerImpl(const QVariantMap & /*args*/)
 {
 }
 
-bool HandleButtonEvents::loadAction(const KConfigGroup &config)
+bool HandleButtonEvents::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    // Read configs
-    m_lidAction = config.readEntry<uint>("lidAction", 0);
-    m_triggerLidActionWhenExternalMonitorPresent = config.readEntry<bool>("triggerLidActionWhenExternalMonitorPresent", false);
-    m_powerButtonAction = config.readEntry<uint>("powerButtonAction", 0);
-    m_powerDownButtonAction = config.readEntry<uint>("powerDownAction", 0);
+    m_lidAction = static_cast<PowerDevil::PowerButtonAction>(profileSettings.lidAction());
+    m_triggerLidActionWhenExternalMonitorPresent = !profileSettings.inhibitLidActionWhenExternalMonitorPresent();
+    m_powerButtonAction = static_cast<PowerDevil::PowerButtonAction>(profileSettings.powerButtonAction());
+    m_powerDownButtonAction = static_cast<PowerDevil::PowerButtonAction>(profileSettings.powerDownAction());
+
+    constexpr auto NoAction = PowerDevil::PowerButtonAction::NoAction;
+    if (m_lidAction == NoAction || m_powerButtonAction == NoAction || m_powerDownButtonAction == NoAction) {
+        return false;
+    }
 
     checkOutputs();
 
@@ -187,7 +191,7 @@ bool HandleButtonEvents::loadAction(const KConfigGroup &config)
 
 int HandleButtonEvents::lidAction() const
 {
-    return m_lidAction;
+    return qToUnderlying(m_lidAction);
 }
 
 bool HandleButtonEvents::triggersLidAction() const
