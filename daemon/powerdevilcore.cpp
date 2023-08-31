@@ -199,7 +199,7 @@ void Core::onBackendReady()
     }
 
     if (m_timerFd != -1) {
-        m_timerFdSocketNotifier = new QSocketNotifier(m_timerFd, QSocketNotifier::Read);
+        m_timerFdSocketNotifier = new QSocketNotifier(m_timerFd, QSocketNotifier::Read, this);
         connect(m_timerFdSocketNotifier, &QSocketNotifier::activated, this, &Core::timerfdEventHandler);
         // we disable events reading for now
         m_timerFdSocketNotifier->setEnabled(false);
