@@ -31,6 +31,7 @@ int main(int argc, char **argv)
                        "powermanagementprofilesrc in your XDG_CONFIG_HOME, but this tool can produce a brand-new one under any name."));
     QCommandLineOption optionMobile("mobile",
                                     "Generate profiles for a mobile device (i.e. phones, tablets running Plasma Mobile) instead of regular desktop/laptop.");
+    QCommandLineOption optionVM("vm", "Generate profiles for a virtual machine environment instead of bare metal.");
     QCommandLineOption optionCannotSuspendToRam("cannot-suspend-to-ram", "Assume that the device does not support suspending to RAM a.k.a. Sleep.");
     QCommandLineOption optionCannotSuspendToDisk("cannot-suspend-to-disk", "Assume that the device does not support suspending to disk a.k.a. Hibernate.");
     parser.addOptions({optionMobile, optionCannotSuspendToRam, optionCannotSuspendToDisk});
@@ -42,6 +43,7 @@ int main(int argc, char **argv)
     }
 
     bool isMobile = parser.isSet(optionMobile);
+    bool isVM = parser.isSet(optionVM);
     bool canSuspendToRam = !parser.isSet(optionCannotSuspendToRam);
     bool canSuspendToDisk = !parser.isSet(optionCannotSuspendToDisk);
 
@@ -55,7 +57,7 @@ int main(int argc, char **argv)
         QFile::remove(temp_globalrc_path);
         QFile::remove(parser.positionalArguments()[0]);
 
-        PowerDevil::ProfileGenerator::generateProfiles(isMobile, canSuspendToRam, canSuspendToDisk);
+        PowerDevil::ProfileGenerator::generateProfiles(isMobile, isVM, canSuspendToRam, canSuspendToDisk);
 
         if (!QFile::rename(temp_profilesrc_path, parser.positionalArguments()[0])) {
             qDebug() << "Unable to move config file to destination.";

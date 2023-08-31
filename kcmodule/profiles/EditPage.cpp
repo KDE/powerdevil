@@ -53,6 +53,7 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData &data)
         auto interface = Kirigami::TabletModeWatcher::self();
 
         PowerDevil::ProfileGenerator::generateProfiles(interface->isTabletMode(),
+                                                       PowerDevil::PowerManagement::instance()->isVirtualMachine(),
                                                        PowerDevil::PowerManagement::instance()->canSuspend(),
                                                        PowerDevil::PowerManagement::instance()->canHibernate());
         m_profilesConfig->reparseConfiguration();
@@ -166,6 +167,7 @@ void EditPage::restoreDefaultProfiles()
         auto interface = Kirigami::TabletModeWatcher::self();
 
         PowerDevil::ProfileGenerator::generateProfiles(interface->isTabletMode(),
+                                                       PowerDevil::PowerManagement::instance()->isVirtualMachine(),
                                                        PowerDevil::PowerManagement::instance()->canSuspend(),
                                                        PowerDevil::PowerManagement::instance()->canHibernate());
 

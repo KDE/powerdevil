@@ -13,6 +13,7 @@
 #include "powerdevilactionpool.h"
 #include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
+#include "powerdevilpowermanagement.h"
 #include "powerdevilprofilegenerator.h"
 
 #include <Solid/Battery>
@@ -108,8 +109,9 @@ void Core::onBackendReady()
 
         // These are generated profiles,
         const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
+        const bool vm = PowerDevil::PowerManagement::instance()->isVirtualMachine();
 
-        ProfileGenerator::generateProfiles(mobile, toRam, toDisk);
+        ProfileGenerator::generateProfiles(mobile, vm, toRam, toDisk);
         m_profilesConfig->reparseConfiguration();
     }
 

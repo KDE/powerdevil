@@ -5,6 +5,7 @@
 */
 
 #include "powerdevilpowermanagement.h"
+#include "powerdevil_debug.h"
 
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
@@ -194,6 +195,26 @@ void PowerManagement::suspendThenHibernate()
     }
     QDBusMessage message = QDBusMessage::createMethodCall(s_fdoPowerService, s_fdoPowerPath, s_fdoPowerService, QStringLiteral("SuspendThenHibernate"));
     QDBusConnection::sessionBus().asyncCall(message);
+}
+
+bool PowerManagement::isVirtualMachine()
+{
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(QStringLiteral("org.freedesktop.systemd1"))) {
+        // can't check, fall back to assuming false
+        return false;
+    }
+    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.freedesktop.systemd1"),
+                                                          QStringLiteral("/org/freedesktop/systemd1"),
+                                                          QStringLiteral("org.freedesktop.DBus.Properties"),
+                                                          QStringLiteral("Get"));
+    message.setArguments({QStringLiteral("org.freedesktop.systemd1.Manager"), QStringLiteral("Virtualization")});
+    QDBusReply<QDBusVariant> reply = QDBusConnection::systemBus().call(message);
+    if (!reply.isValid() || reply.value().variant().isNull() || reply.value().variant().toString().isNull()) {
+        qCWarning(POWERDEVIL) << "Failed to get property Virtualization from systemd1 DBus service:" << reply.error().message();
+        return false;
+    }
+    // on bare-metal hardware this is the empty string, otherwise an identifier such as "kvm", "vmware", etc.
+    return !reply.value().variant().toString().isEmpty();
 }
 
 bool PowerManagement::canSuspend() const

@@ -19,7 +19,7 @@
 
 namespace PowerDevil
 {
-void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
+void ProfileGenerator::generateProfiles(bool mobile, bool vm, bool toRam, bool toDisk)
 {
     // Change critical action if default (hibernate) is unavailable
     if (!toDisk) {
@@ -44,7 +44,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         }
     }
 
-    auto initProfile = [toRam, mobile](KConfigGroup &profile) {
+    auto initProfile = [toRam, mobile, vm](KConfigGroup &profile) {
         if (ProfileDefaults::defaultUseProfileSpecificDisplayBrightness(profile.name())) {
             KConfigGroup brightnessControl(&profile, "BrightnessControl");
             brightnessControl.writeEntry("value", ProfileDefaults::defaultDisplayBrightness(profile.name()));
@@ -53,7 +53,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         KConfigGroup handleButtonEvents(&profile, "HandleButtonEvents");
         handleButtonEvents.writeEntry("powerButtonAction", ProfileDefaults::defaultPowerButtonAction(mobile));
         handleButtonEvents.writeEntry("powerDownAction", ProfileDefaults::defaultPowerDownAction());
-        handleButtonEvents.writeEntry("lidAction", ProfileDefaults::defaultLidAction(toRam));
+        handleButtonEvents.writeEntry("lidAction", ProfileDefaults::defaultLidAction(vm, toRam));
 
         if (ProfileDefaults::defaultDimDisplayWhenIdle()) {
             KConfigGroup dimDisplay(&profile, "DimDisplay");
@@ -66,7 +66,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
             dpmsControl.writeEntry<int>("lockBeforeTurnOff", ProfileDefaults::defaultLockBeforeTurnOffDisplay(mobile));
         }
 
-        if (ProfileDefaults::defaultAutoSuspendWhenIdle(toRam)) {
+        if (ProfileDefaults::defaultAutoSuspendWhenIdle(vm, toRam)) {
             KConfigGroup suspendSession(&profile, "SuspendSession");
             suspendSession.writeEntry("idleTime", ProfileDefaults::defaultAutoSuspendIdleTimeoutSec(profile.name(), mobile) * 1000); // milliseconds
             suspendSession.writeEntry("suspendType", ProfileDefaults::defaultAutoSuspendType());

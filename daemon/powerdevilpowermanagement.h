@@ -22,6 +22,7 @@ class POWERDEVILCORE_EXPORT PowerManagement : public QObject
 public:
     ~PowerManagement() override;
 
+    bool isVirtualMachine();
     bool canSuspend() const;
     bool canHibernate() const;
     bool canHybridSuspend() const;

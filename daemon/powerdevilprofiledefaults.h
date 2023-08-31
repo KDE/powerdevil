@@ -27,13 +27,13 @@ public:
     static int defaultTurnOffDisplayIdleTimeoutSec(const QString &profileGroup, bool isMobile);
     static bool defaultLockBeforeTurnOffDisplay(bool isMobile);
 
-    static bool defaultAutoSuspendWhenIdle(bool canSuspendToRam);
+    static bool defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam);
     static int defaultAutoSuspendIdleTimeoutSec(const QString &profileGroup, bool isMobile);
     static unsigned int defaultAutoSuspendType();
 
     static unsigned int defaultPowerButtonAction(bool isMobile);
     static unsigned int defaultPowerDownAction();
-    static unsigned int defaultLidAction(bool canSuspendToRam);
+    static unsigned int defaultLidAction(bool isVM, bool canSuspendToRam);
 };
 
 }

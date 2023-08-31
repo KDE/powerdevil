@@ -75,8 +75,13 @@ bool ProfileDefaults::defaultLockBeforeTurnOffDisplay(bool isMobile)
     return isMobile;
 }
 
-bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool canSuspendToRam)
+bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam)
 {
+    // Don't auto suspend by default when running in a virtual machine as it won't save energy anyway
+    // and can cause hangs, see bug 473835
+    if (isVM) {
+        return false;
+    }
     // Even on AC power, suspend after a rather long period of inactivity. Energy is precious!
     return canSuspendToRam;
 }
@@ -111,8 +116,13 @@ unsigned int ProfileDefaults::defaultPowerDownAction()
     return qToUnderlying(PowerButtonAction::PromptLogoutDialog);
 }
 
-unsigned int ProfileDefaults::defaultLidAction(bool canSuspendToRam)
+unsigned int ProfileDefaults::defaultLidAction(bool isVM, bool canSuspendToRam)
 {
+    // Don't auto suspend by default when running in a virtual machine as it won't save energy anyway
+    // and can cause hangs, see bug 473835
+    if (isVM) {
+        return qToUnderlying(PowerButtonAction::NoAction);
+    }
     return qToUnderlying(canSuspendToRam ? PowerButtonAction::SuspendToRam : PowerButtonAction::TurnOffScreen);
 }
 
