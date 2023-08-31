@@ -118,7 +118,7 @@ void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::Require
 
 void FdoConnector::triggerSuspendSession(PowerButtonAction action)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction("SuspendSession", KConfigGroup(), m_core);
+    PowerDevil::Action *helperAction = ActionPool::instance()->action("SuspendSession");
     if (helperAction) {
         QVariantMap args;
         args["Type"] = qToUnderlying(action);

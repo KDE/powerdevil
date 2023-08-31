@@ -216,12 +216,8 @@ void Core::onBackendReady()
 
 bool Core::isActionSupported(const QString &actionName)
 {
-    Action *action = ActionPool::instance()->loadAction(actionName, KConfigGroup(), this);
-    if (!action) {
-        return false;
-    } else {
-        return action->isSupported();
-    }
+    Action *action = ActionPool::instance()->action(actionName);
+    return action ? action->isSupported() : false;
 }
 
 void Core::refreshStatus()
@@ -761,7 +757,7 @@ void Core::onCriticalBatteryTimerExpired()
 void Core::triggerCriticalBatteryAction()
 {
     // We consider this as a very special button
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("HandleButtonEvents"), KConfigGroup(), this);
+    PowerDevil::Action *helperAction = ActionPool::instance()->action(QStringLiteral("HandleButtonEvents"));
     if (helperAction) {
         QVariantMap args;
         args[QStringLiteral("Button")] = 32;
@@ -1018,7 +1014,7 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
 void Core::wakeup()
 {
     onResumingFromIdle();
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(QStringLiteral("DPMSControl"), KConfigGroup(), this);
+    PowerDevil::Action *helperAction = ActionPool::instance()->action(QStringLiteral("DPMSControl"));
     if (helperAction) {
         QVariantMap args;
         // we pass empty string as type because when empty type is passed,

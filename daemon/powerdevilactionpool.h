@@ -27,6 +27,7 @@ public:
     void init(PowerDevil::Core *parent);
 
     Action *loadAction(const QString &actionId, const KConfigGroup &group, PowerDevil::Core *parent);
+    Action *action(const QString &actionId) const; // may not be active or have loaded any settings, use carefully
 
     void unloadAllActiveActions();
 

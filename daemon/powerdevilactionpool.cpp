@@ -103,23 +103,25 @@ Action *ActionPool::loadAction(const QString &actionId, const KConfigGroup &grou
     if (m_actionPool.contains(actionId)) {
         Action *retaction = m_actionPool[actionId];
 
-        if (group.isValid()) {
-            if (m_activeActions.contains(actionId)) {
-                // We are reloading the action: let's unload it first then.
-                retaction->onProfileUnload();
-                retaction->unloadAction();
-                m_activeActions.removeOne(actionId);
-            }
-
-            retaction->loadAction(group);
-            m_activeActions.append(actionId);
+        if (m_activeActions.contains(actionId)) {
+            // We are reloading the action: let's unload it first then.
+            retaction->onProfileUnload();
+            retaction->unloadAction();
+            m_activeActions.removeOne(actionId);
         }
+        retaction->loadAction(group);
+        m_activeActions.append(actionId);
 
         return retaction;
     } else {
         // Hmm... troubles in configuration. Np, let's just return 0 and let the core handle this
         return nullptr;
     }
+}
+
+Action *ActionPool::action(const QString &actionId) const
+{
+    return m_actionPool.value(actionId, nullptr);
 }
 
 void ActionPool::unloadAllActiveActions()

@@ -186,7 +186,7 @@ void HandleButtonEvents::processAction(uint action)
 
 void HandleButtonEvents::triggerAction(const QString &action, const QVariant &type)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->loadAction(action, KConfigGroup(), core());
+    PowerDevil::Action *helperAction = ActionPool::instance()->action(action);
     if (helperAction) {
         helperAction->trigger({
             {QStringLiteral("Type"), type},
