@@ -65,3 +65,11 @@ add_migrateconfig_test(
     EXPECTED_POWERDEVILRC test2_migrated_powerdevilrc
     EXPECTED_PROFILESRC test2_migrated_powermanagementprofilesrc
 )
+
+add_migrateconfig_test(
+    NAME migrateconfig_test2a_activities_no_double_migration
+    INPUT_POWERDEVILRC test2_migrated_powerdevilrc
+    INPUT_PROFILESRC test2_migrated_powermanagementprofilesrc
+    EXPECTED_POWERDEVILRC test2_migrated_powerdevilrc
+    EXPECTED_PROFILESRC test2_migrated_powermanagementprofilesrc
+)

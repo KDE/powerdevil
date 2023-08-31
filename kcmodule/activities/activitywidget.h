@@ -6,7 +6,8 @@
 
 #pragma once
 
-#include <KSharedConfig>
+#include <PowerDevilActivitySettings.h>
+
 #include <QWidget>
 
 namespace KActivities
@@ -36,8 +37,8 @@ Q_SIGNALS:
     void changed(bool changed);
 
 private:
+    PowerDevil::ActivitySettings m_activitySettings;
     Ui::ActivityWidget *const m_ui;
-    KSharedConfig::Ptr m_profilesConfig;
     QString m_activity;
     KActivities::Consumer *const m_activityConsumer;
 };

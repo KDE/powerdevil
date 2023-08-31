@@ -18,8 +18,8 @@ void migrateActivitiesConfig()
 {
     KSharedConfigPtr profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"));
 
-    KConfigGroup migrationInfo = profilesConfig->group("Migration");
-    if (!profilesConfig->hasGroup("Activities") || migrationInfo.hasKey("MigratedActivitiesToPlasma6")) {
+    KConfigGroup migrationGroup = profilesConfig->group("Migration");
+    if (!profilesConfig->hasGroup("Activities") || migrationGroup.hasKey("MigratedActivitiesToPlasma6")) {
         return;
     }
 
@@ -39,7 +39,7 @@ void migrateActivitiesConfig()
         newConfig.save();
     }
 
-    migrationInfo.writeEntry("MigratedActivitiesToPlasma6", "powerdevilrc");
+    migrationGroup.writeEntry("MigratedActivitiesToPlasma6", "powerdevilrc");
     profilesConfig->sync();
 }
 

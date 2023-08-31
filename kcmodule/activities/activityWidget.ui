@@ -14,42 +14,18 @@
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QRadioButton" name="noSettingsRadio">
+      <widget class="QCheckBox" name="inhibitScreenManagementCheckBox">
        <property name="text">
-        <string>Do not use special settings</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
+        <string>Never turn off the screen</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="specialBehaviorRadio">
+      <widget class="QCheckBox" name="inhibitSuspendCheckBox">
        <property name="text">
-        <string>Define a special behavior</string>
+        <string>Never shut down the computer or let it go to sleep</string>
        </property>
       </widget>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="specialBehaviorLayout">
-       <property name="leftMargin">
-        <number>30</number>
-       </property>
-       <item>
-        <widget class="QCheckBox" name="noShutdownScreenBox">
-         <property name="text">
-          <string>Never turn off the screen</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="noShutdownPCBox">
-         <property name="text">
-          <string>Never shut down the computer or let it go to sleep</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
     </layout>
    </item>
