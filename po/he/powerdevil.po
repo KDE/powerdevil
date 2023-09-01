@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-29 01:56+0000\n"
+"POT-Creation-Date: 2023-09-01 01:58+0000\n"
 "PO-Revision-Date: 2017-05-16 06:57-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -341,45 +341,45 @@ msgstr "כיבוי לאחר"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:381 powerdevilcore.cpp:393
+#: powerdevilcore.cpp:377 powerdevilcore.cpp:389
 #, kde-format
 msgid "Activity Manager"
 msgstr "מנהל פעילויות"
 
-#: powerdevilcore.cpp:382
+#: powerdevilcore.cpp:378
 #, fuzzy, kde-format
 #| msgid "This activity's policies prevent the system from suspending"
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "מדיניות הפעילות הזו מונעת מהמערכת להכנס לשינה"
 
-#: powerdevilcore.cpp:394
+#: powerdevilcore.cpp:390
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "מדיניות הפעילות הזו מונעת מהמסך ניהול צריכת החשמל"
 
-#: powerdevilcore.cpp:457
+#: powerdevilcore.cpp:453
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "נוספה סוללה נוספת"
 
-#: powerdevilcore.cpp:458 powerdevilcore.cpp:678
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:523
+#: powerdevilcore.cpp:519
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:522
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:528
+#: powerdevilcore.cpp:524
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -393,24 +393,24 @@ msgstr ""
 "הסוללה בעכבר שלך (\"%1\") נמוכה, ואולי הוא יכבה בכל רגע. אנא החלף סוללות או "
 "הטען אותו בהקדם האפשרי"
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:531
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "סוללת העכבר נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:535
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "סוללת המקלדת נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:539
 #, fuzzy, kde-format
 #| msgctxt "The battery in an external device"
 #| msgid "Device Battery Low (%1% Remaining)"
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:541
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -424,7 +424,7 @@ msgstr ""
 "הסוללה בעכבר שלך (\"%1\") נמוכה, ואולי הוא יכבה בכל רגע. אנא החלף סוללות או "
 "הטען אותו בהקדם האפשרי"
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:584
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
@@ -436,7 +436,7 @@ msgstr ""
 "הסוללה שלך חלשה. אם אתה צריך תמשיך להשתמש במחשב, אחרת חבר את המחשב למטען או "
 "כבה אותו"
 
-#: powerdevilcore.cpp:590
+#: powerdevilcore.cpp:586
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
@@ -448,7 +448,7 @@ msgstr ""
 "הסוללה שלך חלשה. אם אתה צריך תמשיך להשתמש במחשב, אחרת חבר את המחשב למטען או "
 "כבה אותו"
 
-#: powerdevilcore.cpp:607
+#: powerdevilcore.cpp:603
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Cancel timeout that will automatically suspend system because of low "
@@ -460,14 +460,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ביטול"
 
-#: powerdevilcore.cpp:619
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "מצב הסוללה קריטי, המחשב יכנס למצב שינה בעוד 60 שניות."
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -475,7 +475,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "כיבוי"
 
-#: powerdevilcore.cpp:625
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 60 "
@@ -485,7 +485,7 @@ msgid ""
 "seconds."
 msgstr "מצב הסוללה קריטי, המחשב יכבה בעוד 60 שניות."
 
-#: powerdevilcore.cpp:626
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -494,70 +494,70 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "השהייה לכונן"
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "מצב הסוללה קריטי, המחשב יכנס למצב שינה בעוד 60 שניות."
 
-#: powerdevilcore.cpp:633
+#: powerdevilcore.cpp:629
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:638
+#: powerdevilcore.cpp:634
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
 msgid "Battery level critical. Please save your work."
 msgstr "מצב הסוללה קריטי: שמור את עבודתך מהר ככל האפשר."
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "סוללה נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:653
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "סוללה במצב קריטי (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "ספק הכח מחובר"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Running on AC power"
 msgstr "פועל על ספק כוח חיצוני"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:676
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "ספק הכח חובר למחשב."
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "פועל על סוללה"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:679
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "ספק הכח נותק מהמחשב."
 
-#: powerdevilcore.cpp:744
+#: powerdevilcore.cpp:740
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "הטעינה הושלמה"
 
-#: powerdevilcore.cpp:744
+#: powerdevilcore.cpp:740
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
