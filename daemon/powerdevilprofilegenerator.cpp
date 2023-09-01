@@ -7,9 +7,7 @@
 #include "powerdevilprofilegenerator.h"
 
 #include "powerdevilenums.h"
-#include "powerdevilprofiledefaults.h"
-
-#include <PowerDevilSettings.h>
+#include "powerdevilsettingsdefaults.h"
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -19,19 +17,8 @@
 
 namespace PowerDevil
 {
-void ProfileGenerator::generateProfiles(bool mobile, bool vm, bool toRam, bool toDisk)
+void ProfileGenerator::generateProfiles(bool mobile, bool vm, bool toRam)
 {
-    // Change critical action if default (hibernate) is unavailable
-    if (!toDisk) {
-        if (!toRam) {
-            PowerDevilSettings::setBatteryCriticalAction(qToUnderlying(PowerButtonAction::NoAction));
-        } else {
-            PowerDevilSettings::setBatteryCriticalAction(qToUnderlying(PowerButtonAction::SuspendToRam));
-        }
-
-        PowerDevilSettings::self()->save();
-    }
-
     // Ok, let's get our config file.
     KSharedConfigPtr profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig);
 
@@ -88,5 +75,4 @@ void ProfileGenerator::generateProfiles(bool mobile, bool vm, bool toRam, bool t
     // Save and be happy
     profilesConfig->sync();
 }
-
 }

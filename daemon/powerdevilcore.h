@@ -43,6 +43,7 @@ namespace PowerDevil
 {
 class BackendInterface;
 class Action;
+class GlobalSettings;
 
 struct WakeupInfo {
     QString service;
@@ -153,6 +154,7 @@ private:
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;
 
+    GlobalSettings *m_globalSettings = nullptr;
     KSharedConfigPtr m_profilesConfig;
 
     QString m_currentProfile;

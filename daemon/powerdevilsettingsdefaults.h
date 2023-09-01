@@ -14,6 +14,12 @@
 namespace PowerDevil
 {
 
+class POWERDEVILCORE_EXPORT GlobalDefaults
+{
+public:
+    static int defaultBatteryCriticalAction(bool canSuspendToRam, bool canSuspendToDisk);
+};
+
 class POWERDEVILCORE_EXPORT ProfileDefaults
 {
 public:

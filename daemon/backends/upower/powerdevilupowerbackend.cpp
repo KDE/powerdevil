@@ -11,7 +11,6 @@
 
 #include "powerdevilupowerbackend.h"
 
-#include <PowerDevilSettings.h>
 #include <powerdevil_debug.h>
 
 #include <QDBusMessage>

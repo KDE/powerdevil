@@ -4,14 +4,15 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
-  <kcfgfile name="powerdevilrc"/>
+  <kcfgfile name="powerdevilrc">
+    <parameter name="CanSuspendToRam" type="Bool"/>
+    <parameter name="CanSuspendToDisk" type="Bool"/>
+  </kcfgfile>
 
   <include>powerdevilenums.h</include>
+  <include>powerdevilsettingsdefaults.h</include>
 
   <group name="General">
-    <entry name="doNotInhibitOnLidClose" type="Bool">
-      <default>true</default>
-    </entry>
     <entry name="pausePlayersOnSuspend" type="Bool">
       <default>true</default>
     </entry>
@@ -26,7 +27,7 @@
     </entry>
     <entry name="BatteryCriticalAction" type="UInt">
       <default type="code">
-        qToUnderlying(PowerDevil::PowerButtonAction::SuspendToDisk)
+        PowerDevil::GlobalDefaults::defaultBatteryCriticalAction(mParamCanSuspendToRam, mParamCanSuspendToDisk)
       </default>
     </entry>
     <entry name="PeripheralBatteryLowLevel" type="Int">

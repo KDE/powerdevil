@@ -6,14 +6,14 @@
 
 #include "powerdevilcore.h"
 
-#include "PowerDevilSettings.h"
-
 #include "powerdevil_debug.h"
 #include "powerdevilaction.h"
 #include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilpowermanagement.h"
 #include "powerdevilprofilegenerator.h"
+
+#include <PowerDevilGlobalSettings.h>
 
 #include <Solid/Battery>
 #include <Solid/Device>
@@ -94,6 +94,12 @@ void Core::onBackendReady()
 {
     qCDebug(POWERDEVIL) << "Backend ready, KDE Power Management system initialized";
 
+    const bool isMobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
+    const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
+    const bool canSuspendToRam = m_suspendController->canSuspend();
+    const bool canSuspendToDisk = m_suspendController->canHibernate();
+
+    m_globalSettings = new PowerDevil::GlobalSettings(canSuspendToRam, canSuspendToDisk, this);
     m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::CascadeConfig);
 
     QStringList groups = m_profilesConfig->groupList();
@@ -105,14 +111,8 @@ void Core::onBackendReady()
     if (groups.isEmpty()) {
         // Generate defaults
         qCDebug(POWERDEVIL) << "Generating a default configuration";
-        bool toRam = m_suspendController->canSuspend();
-        bool toDisk = m_suspendController->canHibernate();
 
-        // These are generated profiles,
-        const bool mobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
-        const bool vm = PowerDevil::PowerManagement::instance()->isVirtualMachine();
-
-        ProfileGenerator::generateProfiles(mobile, vm, toRam, toDisk);
+        ProfileGenerator::generateProfiles(isMobile, isVM, canSuspendToRam);
         m_profilesConfig->reparseConfiguration();
     }
 
@@ -265,21 +265,21 @@ void Core::refreshStatus()
 
 void Core::reparseConfiguration()
 {
-    PowerDevilSettings::self()->load();
+    m_globalSettings->load();
     m_profilesConfig->reparseConfiguration();
 
     // Config reloaded
     Q_EMIT configurationReloaded();
 
     // Check if critical threshold might have changed and cancel the timer if necessary.
-    if (currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
+    if (currentChargePercent() > m_globalSettings->batteryCriticalLevel()) {
         m_criticalBatteryTimer->stop();
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
         }
     }
 
-    if (m_lowBatteryNotification && currentChargePercent() > PowerDevilSettings::batteryLowLevel()) {
+    if (m_lowBatteryNotification && currentChargePercent() > m_globalSettings->batteryLowLevel()) {
         m_lowBatteryNotification->close();
     }
 
@@ -316,7 +316,7 @@ void Core::loadProfile(bool force)
         if (m_batteryController->acAdapterState() == BatteryController::Plugged) {
             profileId = QStringLiteral("AC");
             qCDebug(POWERDEVIL) << "Loading profile for plugged AC";
-        } else if (percent <= PowerDevilSettings::batteryLowLevel()) {
+        } else if (percent <= m_globalSettings->batteryLowLevel()) {
             profileId = QStringLiteral("LowBattery");
             qCDebug(POWERDEVIL) << "Loading profile for low battery";
         } else {
@@ -474,11 +474,11 @@ void Core::onDeviceAdded(const QString &udi)
 
     // If a new battery has been added, let's clear some pending suspend actions if the new global batteries percentage is
     // higher than the battery critical level. (See bug 329537)
-    if (m_lowBatteryNotification && currentChargePercent() > PowerDevilSettings::batteryLowLevel()) {
+    if (m_lowBatteryNotification && currentChargePercent() > m_globalSettings->batteryLowLevel()) {
         m_lowBatteryNotification->close();
     }
 
-    if (currentChargePercent() > PowerDevilSettings::batteryCriticalLevel()) {
+    if (currentChargePercent() > m_globalSettings->batteryCriticalLevel()) {
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
         }
@@ -527,7 +527,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
 {
     if (m_peripheralBatteriesPercent.contains(udi)) {
         // Show the notification just once on each normal->low transition
-        if (currentPercent > PowerDevilSettings::peripheralBatteryLowLevel() || previousPercent <= PowerDevilSettings::peripheralBatteryLowLevel()) {
+        if (currentPercent > m_globalSettings->peripheralBatteryLowLevel() || previousPercent <= m_globalSettings->peripheralBatteryLowLevel()) {
             return false;
         }
 
@@ -596,10 +596,10 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return false;
     }
 
-    if (currentPercent <= PowerDevilSettings::batteryCriticalLevel() && previousPercent > PowerDevilSettings::batteryCriticalLevel()) {
+    if (currentPercent <= m_globalSettings->batteryCriticalLevel() && previousPercent > m_globalSettings->batteryCriticalLevel()) {
         handleCriticalBattery(currentPercent);
         return true;
-    } else if (currentPercent <= PowerDevilSettings::batteryLowLevel() && previousPercent > PowerDevilSettings::batteryLowLevel()) {
+    } else if (currentPercent <= m_globalSettings->batteryLowLevel() && previousPercent > m_globalSettings->batteryLowLevel()) {
         handleLowBattery(currentPercent);
         return true;
     }
@@ -645,7 +645,7 @@ void Core::handleCriticalBattery(int percent)
         m_criticalBatteryNotification->close();
     });
 
-    switch (static_cast<PowerButtonAction>(PowerDevilSettings::batteryCriticalAction())) {
+    switch (static_cast<PowerButtonAction>(m_globalSettings->batteryCriticalAction())) {
     case PowerButtonAction::Shutdown:
         m_criticalBatteryNotification->setText(i18n("The computer will shut down in 60 seconds."));
         actions.prepend(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
@@ -796,7 +796,7 @@ void Core::triggerCriticalBatteryAction()
     if (helperAction) {
         QVariantMap args;
         args[QStringLiteral("Button")] = 32;
-        args[QStringLiteral("Type")] = QVariant::fromValue<uint>(PowerDevilSettings::batteryCriticalAction());
+        args[QStringLiteral("Type")] = QVariant::fromValue<uint>(m_globalSettings->batteryCriticalAction());
         args[QStringLiteral("Explicit")] = true;
         helperAction->trigger(args);
     }
@@ -838,7 +838,7 @@ void Core::onLidClosedChanged(bool closed)
 
 void Core::onAboutToSuspend()
 {
-    if (PowerDevilSettings::pausePlayersOnSuspend()) {
+    if (m_globalSettings->pausePlayersOnSuspend()) {
         qCDebug(POWERDEVIL) << "Pausing all media players before sleep";
 
         QDBusPendingCall listNamesCall = QDBusConnection::sessionBus().interface()->asyncCall(QStringLiteral("ListNames"));

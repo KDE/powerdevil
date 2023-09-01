@@ -13,6 +13,7 @@ namespace PowerDevil
 namespace ProfileGenerator
 {
 
-void POWERDEVILCORE_EXPORT generateProfiles(bool isMobile, bool isVM, bool toRam, bool toDisk);
+void POWERDEVILCORE_EXPORT generateProfiles(bool isMobile, bool isVM, bool toRam);
+
 }
 }

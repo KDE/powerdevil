@@ -13,12 +13,12 @@ set(powerdevilcore_SRCS
     powerdevilcore.cpp
     powerdevilenums.cpp
     powerdevilpolicyagent.cpp
-    powerdevilprofiledefaults.cpp
     powerdevilprofilegenerator.cpp
     powerdevilbrightnesslogic.cpp
     powerdevilscreenbrightnesslogic.cpp
     powerdevilkeyboardbrightnesslogic.cpp
     powerdevilpowermanagement.cpp
+    powerdevilsettingsdefaults.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
     suspendcontroller.cpp
@@ -36,7 +36,7 @@ ecm_qt_declare_logging_category(powerdevil_log_static
    DEFAULT_SEVERITY Warning
    DESCRIPTION "Powerdevil" EXPORT POWERDEVIL)
 
-kconfig_add_kcfg_files(powerdevilcore_SRCS ../PowerDevilSettings.kcfgc)
+kconfig_add_kcfg_files(powerdevilcore_SRCS ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc GENERATE_MOC)
 
 # Action DBus Adaptors
 

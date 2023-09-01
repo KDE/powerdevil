@@ -17,9 +17,6 @@ function (add_profilegenerator_test)
     if (ARG_CANNOT_SUSPEND_TO_RAM)
         set(helper_args "${helper_args} --cannot-suspend-to-ram")
     endif()
-    if (ARG_CANNOT_SUSPEND_TO_DISK)
-        set(helper_args "${helper_args} --cannot-suspend-to-disk")
-    endif()
 
     add_test(
         NAME ${ARG_NAME}
@@ -28,8 +25,8 @@ function (add_profilegenerator_test)
 endfunction()
 
 add_profilegenerator_test(
-    NAME profilegenerator_pc_can_suspend_both
-    EXPECTED_PROFILESRC default_powermanagementprofilesrc_pc_can_suspend_both
+    NAME profilegenerator_pc_can_suspend_to_ram
+    EXPECTED_PROFILESRC default_powermanagementprofilesrc_pc_can_suspend_to_ram
 )
 
 add_profilegenerator_test(
@@ -39,27 +36,7 @@ add_profilegenerator_test(
 )
 
 add_profilegenerator_test(
-    NAME profilegenerator_pc_cannot_suspend_to_disk
-    EXPECTED_PROFILESRC default_powermanagementprofilesrc_pc_cannot_suspend_to_disk
-    CANNOT_SUSPEND_TO_DISK
-)
-
-add_profilegenerator_test(
-    NAME profilegenerator_pc_cannot_suspend_either
-    EXPECTED_PROFILESRC default_powermanagementprofilesrc_pc_cannot_suspend_either
-    CANNOT_SUSPEND_TO_RAM
-    CANNOT_SUSPEND_TO_DISK
-)
-
-add_profilegenerator_test(
-    NAME profilegenerator_mobile_can_suspend_both
-    EXPECTED_PROFILESRC default_powermanagementprofilesrc_mobile_can_suspend_both
+    NAME profilegenerator_mobile_can_suspend_to_ram
+    EXPECTED_PROFILESRC default_powermanagementprofilesrc_mobile_can_suspend_to_ram
     MOBILE
-)
-
-add_profilegenerator_test(
-    NAME profilegenerator_mobile_cannot_suspend_to_disk
-    EXPECTED_PROFILESRC default_powermanagementprofilesrc_mobile_cannot_suspend_to_disk
-    MOBILE
-    CANNOT_SUSPEND_TO_DISK
 )

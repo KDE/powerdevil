@@ -38,7 +38,8 @@ K_PLUGIN_CLASS_WITH_JSON(GeneralPage, "kcm_powerdevilglobalconfig.json")
 
 GeneralPage::GeneralPage(QObject *parent, const KPluginMetaData &data)
     : KCModule(parent, data)
-    , m_settings(new PowerDevil::GlobalSettings(this))
+    , m_settings(
+          new PowerDevil::GlobalSettings(PowerDevil::PowerManagement::instance()->canSuspend(), PowerDevil::PowerManagement::instance()->canHibernate(), this))
 {
     setButtons(Apply | Help);
 

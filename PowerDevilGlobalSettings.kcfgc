@@ -1,6 +1,11 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+
 ClassName=GlobalSettings
 NameSpace=PowerDevil
-File=PowerDevilSettings.kcfg
+File=PowerDevilGlobalSettings.kcfg
+Visibility=POWERDEVILCORE_EXPORT
+IncludeFiles=powerdevilcore_export.h
 Mutators=true
 DefaultValueGetters=true
 GenerateProperties=true

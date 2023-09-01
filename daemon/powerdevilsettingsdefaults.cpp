@@ -5,12 +5,21 @@
  *  SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-#include "powerdevilprofiledefaults.h"
+#include "powerdevilsettingsdefaults.h"
 
 #include "powerdevilenums.h"
 
 namespace PowerDevil
 {
+
+int GlobalDefaults::defaultBatteryCriticalAction(bool canSuspendToRam, bool canSuspendToDisk)
+{
+    if (!canSuspendToDisk) {
+        return qToUnderlying(canSuspendToRam ? PowerButtonAction::SuspendToRam : PowerButtonAction::NoAction);
+    }
+
+    return qToUnderlying(PowerDevil::PowerButtonAction::SuspendToDisk);
+}
 
 bool ProfileDefaults::defaultUseProfileSpecificDisplayBrightness(const QString &profileGroup)
 {
