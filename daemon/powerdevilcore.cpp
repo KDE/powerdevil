@@ -9,6 +9,7 @@
 #include "powerdevil_debug.h"
 #include "powerdevilaction.h"
 #include "powerdevilenums.h"
+#include "powerdevilmigrateconfig.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilpowermanagement.h"
 #include "powerdevilprofilegenerator.h"
@@ -99,6 +100,7 @@ void Core::onBackendReady()
     const bool canSuspendToRam = m_suspendController->canSuspend();
     const bool canSuspendToDisk = m_suspendController->canHibernate();
 
+    PowerDevil::migrateConfig(isMobile, isVM, canSuspendToRam);
     m_globalSettings = new PowerDevil::GlobalSettings(canSuspendToRam, canSuspendToDisk, this);
     m_profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"), KConfig::CascadeConfig);
 

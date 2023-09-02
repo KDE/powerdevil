@@ -12,6 +12,7 @@ set(powerdevilcore_SRCS
     powerdevilbackendinterface.cpp
     powerdevilcore.cpp
     powerdevilenums.cpp
+    powerdevilmigrateconfig.cpp
     powerdevilpolicyagent.cpp
     powerdevilprofilegenerator.cpp
     powerdevilbrightnesslogic.cpp
@@ -34,9 +35,14 @@ ecm_qt_declare_logging_category(powerdevil_log_static
    IDENTIFIER POWERDEVIL
    CATEGORY_NAME org.kde.powerdevil
    DEFAULT_SEVERITY Warning
-   DESCRIPTION "Powerdevil" EXPORT POWERDEVIL)
+   DESCRIPTION "Powerdevil" EXPORT POWERDEVIL
+)
 
-kconfig_add_kcfg_files(powerdevilcore_SRCS ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc GENERATE_MOC)
+kconfig_add_kcfg_files(powerdevilcore_SRCS
+    ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc
+    ${CMAKE_SOURCE_DIR}/PowerDevilActivitySettings.kcfgc
+    GENERATE_MOC
+)
 
 # Action DBus Adaptors
 
