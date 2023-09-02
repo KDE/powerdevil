@@ -29,7 +29,7 @@
 
 namespace PowerDevil {
 
-void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
+void ProfileGenerator::generateProfiles(bool mobile, bool vm, bool toRam, bool toDisk)
 {
     // Change critical action if default (hibernate) is unavailable
     if (!toDisk) {
@@ -64,14 +64,17 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
         dimDisplay.writeEntry< int >("idleTime", 300000);
     }
 
-    auto initLid = [toRam, mobile](KConfigGroup &profile)
+    auto initLid = [vm, toRam, mobile](KConfigGroup &profile)
     {
         const Modes defaultPowerButtonAction = mobile ? ToggleScreenOnOffMode : LogoutDialogMode;
 
         KConfigGroup handleButtonEvents(&profile, "HandleButtonEvents");
         handleButtonEvents.writeEntry< uint >("powerButtonAction", defaultPowerButtonAction);
         handleButtonEvents.writeEntry< uint >("powerDownAction", LogoutDialogMode);
-        if (toRam) {
+        if (vm) {
+            handleButtonEvents.writeEntry< uint >("lidAction", NoneMode);
+        }
+        else if (toRam) {
             handleButtonEvents.writeEntry< uint >("lidAction", ToRamMode);
         } else {
             handleButtonEvents.writeEntry< uint >("lidAction", TurnOffScreenMode);
@@ -91,8 +94,8 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     }
 
     // Even on AC power, suspend after a rather long period of inactivity. Energy
-    // is precious!
-    if (toRam) {
+    // is precious! But not on VMs.
+    if (toRam && !vm) {
         // on mobile, 7 minutes, on laptop 15 minutes
         auto timeout = mobile ? 420000 : 900000;
         KConfigGroup suspendSession(&acProfile, "SuspendSession");
@@ -124,7 +127,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     }
 
     // Last but not least, we want to suspend after some inactivity
-    if (toRam) {
+    if (toRam && !vm) {
         // on mobile, 5 minute, on laptop 10 minutes
         auto timeout = mobile ? 300000 : 600000;
         KConfigGroup suspendSession(&batteryProfile, "SuspendSession");
@@ -164,7 +167,7 @@ void ProfileGenerator::generateProfiles(bool mobile, bool toRam, bool toDisk)
     // Last but not least, we want to suspend after a rather long period of inactivity
     // on mobile by default never suspend, if device wants to suspend, it will enable
     // using configuration overlay
-    if (toRam) {
+    if (toRam && !vm) {
         // config is in the miliseconds
         KConfigGroup suspendSession(&lowBatteryProfile, "SuspendSession");
         suspendSession.writeEntry< uint >("idleTime", 300000);

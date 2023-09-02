@@ -79,6 +79,7 @@ EditPage::EditPage(QWidget *parent, const QVariantList &args)
 
         PowerDevil::ProfileGenerator::generateProfiles(
             interface->isTabletMode(),
+            PowerDevil::PowerManagement::instance()->isVirtualMachine(),
             PowerDevil::PowerManagement::instance()->canSuspend(),
             PowerDevil::PowerManagement::instance()->canHibernate()
         );
@@ -198,6 +199,7 @@ void EditPage::restoreDefaultProfiles()
 
         PowerDevil::ProfileGenerator::generateProfiles(
             interface->isTabletMode(),
+            PowerDevil::PowerManagement::instance()->isVirtualMachine(),
             PowerDevil::PowerManagement::instance()->canSuspend(),
             PowerDevil::PowerManagement::instance()->canHibernate()
         );
