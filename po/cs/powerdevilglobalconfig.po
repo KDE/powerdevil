@@ -165,16 +165,3 @@ msgstr "Další nastavení"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Zastavit nabíjení na:"
-
-#~ msgid "Do nothing"
-#~ msgstr "Nedělat nic"
-
-#~ msgctxt "Suspend to RAM"
-#~ msgid "Sleep"
-#~ msgstr "Uspat"
-
-#~ msgid "Hibernate"
-#~ msgstr "Hibernovat"
-
-#~ msgid "Shut down"
-#~ msgstr "Vypnout"
