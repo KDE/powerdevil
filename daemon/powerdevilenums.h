@@ -28,8 +28,15 @@ enum class PowerButtonAction : uint {
     PromptLogoutDialog = 16,
     LockScreen = 32,
     TurnOffScreen = 64,
-    ToggleScreenOnOff = 128
+    ToggleScreenOnOff = 128,
 };
 Q_ENUM_NS(PowerButtonAction)
+
+enum class SleepMode : uint {
+    SuspendToRam = 1,
+    HybridSuspend = 2,
+    SuspendThenHibernate = 3,
+};
+Q_ENUM_NS(SleepMode)
 
 } // namespace PowerDevil

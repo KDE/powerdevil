@@ -1,6 +1,3 @@
-[AC]
-icon=battery-charging
-
 [AC][DPMSControl]
 idleTime=600
 lockBeforeTurnOff=0
@@ -17,26 +14,6 @@ powerDownAction=16
 idleTime=900000
 suspendType=1
 
-[Activities][764a1fc2-2db5-430c-89c7-8b4be1f49f8b]
-mode=None
-
-[Activities][c326a1f5-08cb-43d9-b2a0-75ab5e74f27e]
-mode=SpecialBehavior
-
-[Activities][c326a1f5-08cb-43d9-b2a0-75ab5e74f27e][SpecialBehavior]
-noScreenManagement=false
-noSuspend=false
-
-[Activities][faa0d718-91f5-4518-83f4-e2e8858a03b5]
-mode=SpecialBehavior
-
-[Activities][faa0d718-91f5-4518-83f4-e2e8858a03b5][SpecialBehavior]
-noScreenManagement=true
-noSuspend=true
-
-[Battery]
-icon=battery-060
-
 [Battery][DPMSControl]
 idleTime=300
 lockBeforeTurnOff=0
@@ -52,9 +29,6 @@ powerDownAction=16
 [Battery][SuspendSession]
 idleTime=600000
 suspendType=1
-
-[LowBattery]
-icon=battery-low
 
 [LowBattery][BrightnessControl]
 value=30
@@ -76,5 +50,4 @@ idleTime=300000
 suspendType=1
 
 [Migration]
-MigratedActivitiesToPlasma6=powerdevilrc
 MigratedProfilesToPlasma6=powerdevilrc

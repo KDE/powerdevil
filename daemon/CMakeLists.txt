@@ -41,6 +41,7 @@ ecm_qt_declare_logging_category(powerdevil_log_static
 
 kconfig_add_kcfg_files(powerdevilcore_SRCS
     ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc
+    ${CMAKE_SOURCE_DIR}/PowerDevilProfileSettings.kcfgc
     ${CMAKE_SOURCE_DIR}/PowerDevilActivitySettings.kcfgc
     GENERATE_MOC
 )

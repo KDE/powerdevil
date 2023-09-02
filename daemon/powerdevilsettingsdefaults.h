@@ -33,6 +33,7 @@ public:
     static int defaultTurnOffDisplayIdleTimeoutSec(const QString &profileGroup, bool isMobile);
     static bool defaultLockBeforeTurnOffDisplay(bool isMobile);
 
+    static unsigned int defaultAutoSuspendAction(bool isVM, bool canSuspendToRam);
     static bool defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam);
     static int defaultAutoSuspendIdleTimeoutSec(const QString &profileGroup, bool isMobile);
     static unsigned int defaultAutoSuspendType();

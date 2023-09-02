@@ -84,6 +84,14 @@ bool ProfileDefaults::defaultLockBeforeTurnOffDisplay(bool isMobile)
     return isMobile;
 }
 
+unsigned int ProfileDefaults::defaultAutoSuspendAction(bool isVM, bool canSuspendToRam)
+{
+    if (!defaultAutoSuspendWhenIdle(isVM, canSuspendToRam)) {
+        return qToUnderlying(PowerButtonAction::NoAction);
+    }
+    return defaultAutoSuspendType();
+}
+
 bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam)
 {
     // Don't auto suspend by default when running in a virtual machine as it won't save energy anyway
