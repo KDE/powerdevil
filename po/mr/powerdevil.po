@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2014-10-28 10:28+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -378,7 +378,7 @@ msgstr "या कार्यपध्दतीचे धोरण स्क्
 msgid "Extra Battery Added"
 msgstr "अतिरिक्त बॅटरी जोडली"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
@@ -430,31 +430,22 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
 #| "plug in your computer, or shut it down and then change the battery."
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "तुमची बॅटरी कमी आहे. तुम्हाला जर तुमचा संगणक चालू ठेवायचा असेल तर त्याला वीज जोडा किंवा "
 "बंद करून त्याची बॅटरी बदला."
 
-#: powerdevilcore.cpp:586
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery is low. If you need to continue using your computer, either "
-#| "plug in your computer, or shut it down and then change the battery."
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+#: powerdevilcore.cpp:585
+#, kde-format
+msgid "Plug in the computer."
 msgstr ""
-"तुमची बॅटरी कमी आहे. तुम्हाला जर तुमचा संगणक चालू ठेवायचा असेल तर त्याला वीज जोडा किंवा "
-"बंद करून त्याची बॅटरी बदला."
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -462,15 +453,15 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The computer will shut down in 60 seconds."
 msgstr ""
 "तुमची बॅटरी संकटाच्या पातळी पर्यंत पोहचली आहे. तुमचा संगणक ३० सेकंदात बंद केला जाईल."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -478,18 +469,16 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "बंद करा"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 30 "
 #| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The computer will hibernate in 60 seconds."
 msgstr ""
 "तुमची बॅटरी संकटाच्या पातळी पर्यंत पोहचली आहे. तुमचा संगणक ३० सेकंदात हायबरनेट केला जाईल."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -498,15 +487,15 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "हायबरनेट"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:627
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The computer will sleep in 60 seconds."
 msgstr ""
 "तुमची बॅटरी संकटाच्या पातळी पर्यंत पोहचली आहे. तुमचा संगणक ३० सेकंदात बंद केला जाईल."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -514,60 +503,71 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "झोप"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:633
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
-msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr "तुमची बॅटरी संकटाच्या पातळी पर्यंत पोहचली आहे. तुमचे काम लवकरात लवकर साठवा."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "बॅटरी कमी (%1% शिल्लक)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "बॅटरी संकटात (%1% शिल्लक)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC एडॅप्टर जोडलेला आहे"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "AC वीजेवर चालू आहे"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "पॉवर एडॅप्टर जोडला गेलेला आहे."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "बॅटरी वीजेवर चालू आहे"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "पॉवर एडॅप्टर काढून टाकण्यात आलेला आहे."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "चार्ज पूर्ण"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "तुमची बॅटरी पूर्ण चार्ज झालेली आहे."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery is low. If you need to continue using your computer, either "
+#~| "plug in your computer, or shut it down and then change the battery."
+#~ msgid ""
+#~ "Battery running low - to continue using your computer, plug it in or shut "
+#~ "it down and change the battery."
+#~ msgstr ""
+#~ "तुमची बॅटरी कमी आहे. तुम्हाला जर तुमचा संगणक चालू ठेवायचा असेल तर त्याला वीज जोडा "
+#~ "किंवा बंद करून त्याची बॅटरी बदला."
 
 #, fuzzy
 #~| msgid "Turn off screen"

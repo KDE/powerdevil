@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2010-12-18 14:04+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -389,7 +389,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "แบตเตอรี่ใกล้หมด"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
@@ -439,21 +439,17 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -463,14 +459,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะถูกปิด ในอีก 30 วินาที"
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The computer will shut down in 60 seconds."
+msgstr "เครื่องจะเข้าสู่โหมดหลับ ในอีก %1 วินาที"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -478,17 +474,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "ปิดเครื่อง"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะจำศีล ในอีก 30 วินาที"
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will hibernate in 60 seconds."
+msgstr "เครื่องจะพักการทำงานโดยเก็บสถานะไว้ในหน่วยความจำ ในอีก %1 วินาที"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -497,14 +490,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "จำศีล"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:627
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะถูกปิด ในอีก 30 วินาที"
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will sleep in 60 seconds."
+msgstr "เครื่องจะพักการทำงานโดยเก็บสถานะไว้ในหน่วยความจำ ในอีก %1 วินาที"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -512,60 +505,84 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "พักเครื่อง"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:633
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
-msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr "ประจุแบตเตอรี่ใกล้หมดแล้ว: กรุณารีบบันทึกงานต่าง ๆ ของคุณด่วนที่สุด"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "เมื่อมีการเสียบตัวแปลงไฟเข้ามา"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "เสียบตัวแปลงไฟแล้ว"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When on battery power"
 msgid "Running on Battery Power"
 msgstr "เมื่อใช้พลังงานจากแบตเตอรี"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "ตัวแปลงไฟถูกถอดออก"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะถูกปิด ในอีก 30 วินาที"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be hibernated in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะจำศีล ในอีก 30 วินาที"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "ประจุแบตเตอรี่ของคุณใกล้หมดแล้ว เครื่องจะถูกปิด ในอีก 30 วินาที"
 
 #, fuzzy
 #~| msgid "Turn off screen"
@@ -833,14 +850,6 @@ msgstr ""
 #~ msgid "The computer will be suspended to disk in 1 second."
 #~ msgid_plural "The computer will be suspended to disk in %1 seconds."
 #~ msgstr[0] "เครื่องจะพักการทำงานโดยเก็บสถานะไว้ในดิกส์ ในอีก %1 วินาที"
-
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] "เครื่องจะพักการทำงานโดยเก็บสถานะไว้ในหน่วยความจำ ในอีก %1 วินาที"
-
-#~ msgid "The computer will be put into standby in 1 second."
-#~ msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgstr[0] "เครื่องจะเข้าสู่โหมดหลับ ในอีก %1 วินาที"
 
 #~ msgid "There was an error while suspending:"
 #~ msgstr "เกิดข้อผิดพลาดขณะทำการพักเครื่อง:"

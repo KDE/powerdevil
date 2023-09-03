@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2008-12-31 04:01+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -373,7 +373,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Asta rexne yê pîlê"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
@@ -426,21 +426,17 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -448,17 +444,17 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#| "The computer will be put into standby in %1 seconds. Click here to block "
+#| "the process."
+msgid "The computer will shut down in 60 seconds."
 msgstr ""
-"Pîla te gihîşt asta rexne, Komputer dê %1 çirkeyan de bê girtin. Pêl li vir "
-"bike ku pêvajo yê bidî rawestandin."
+"Komputer dê %1 çirkeyan de lê bendê bimîne. Pêl li vir bike ku pêvajo yê "
+"bidî rawestandin."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -466,19 +462,17 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Dadan"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#| "The computer will be suspended to RAM in %1 seconds. Click here to block "
+#| "the process."
+msgid "The computer will hibernate in 60 seconds."
 msgstr ""
-"Pîla te gihîşt asta rexne, Komputer dê %1 çirkeyan de bê girtin. Pêl li vir "
-"bike ku pêvajo yê bidî rawestandin."
+"Komputer dê %1 çirkeyan de ji RAMê bê sekinandin. Pêl li vir bike ku pêvajo "
+"yê bidî rawestandin."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -486,79 +480,109 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr ""
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:627
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#| "The computer will be suspended to RAM in %1 seconds. Click here to block "
+#| "the process."
+msgid "The computer will sleep in 60 seconds."
 msgstr ""
-"Pîla te gihîşt asta rexne, Komputer dê %1 çirkeyan de bê girtin. Pêl li vir "
-"bike ku pêvajo yê bidî rawestandin."
+"Komputer dê %1 çirkeyan de ji RAMê bê sekinandin. Pêl li vir bike ku pêvajo "
+"yê bidî rawestandin."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:633
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, save your work as soon as "
 #| "possible!"
-msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr "Pîla te gihîşt asta rexne, xebatên xwe di demê zûtirîn de tomar bike! "
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "Wextê Adaptora AC tê girêdan"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
 msgid "The power adapter has been plugged in."
 msgstr "Adaptorê hêzê hate girêdan "
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When on battery Power"
 msgid "Running on Battery Power"
 msgstr "Wextê di Hêza pîlê de"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
 msgid "The power adapter has been unplugged."
 msgstr "Adaptorê hêzê hate qut kirin"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Pîla te gihîşt asta rexne, Komputer dê %1 çirkeyan de bê girtin. Pêl li "
+#~ "vir bike ku pêvajo yê bidî rawestandin."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Pîla te gihîşt asta rexne, Komputer dê %1 çirkeyan de bê girtin. Pêl li "
+#~ "vir bike ku pêvajo yê bidî rawestandin."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Pîla te gihîşt asta rexne, Komputer dê %1 çirkeyan de bê girtin. Pêl li "
+#~ "vir bike ku pêvajo yê bidî rawestandin."
 
 #, fuzzy
 #~| msgid ""
@@ -738,32 +762,6 @@ msgstr ""
 #~ msgstr[1] ""
 #~ "Komputer dê %1 çirkeyan de ji dîskê bê sekinandin. Pêl li vir bike ku "
 #~ "pêvajo yê bidî rawestandin."
-
-#, fuzzy
-#~| msgid ""
-#~| "The computer will be suspended to RAM in %1 seconds. Click here to block "
-#~| "the process."
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] ""
-#~ "Komputer dê %1 çirkeyan de ji RAMê bê sekinandin. Pêl li vir bike ku "
-#~ "pêvajo yê bidî rawestandin."
-#~ msgstr[1] ""
-#~ "Komputer dê %1 çirkeyan de ji RAMê bê sekinandin. Pêl li vir bike ku "
-#~ "pêvajo yê bidî rawestandin."
-
-#, fuzzy
-#~| msgid ""
-#~| "The computer will be put into standby in %1 seconds. Click here to block "
-#~| "the process."
-#~ msgid "The computer will be put into standby in 1 second."
-#~ msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgstr[0] ""
-#~ "Komputer dê %1 çirkeyan de lê bendê bimîne. Pêl li vir bike ku pêvajo yê "
-#~ "bidî rawestandin."
-#~ msgstr[1] ""
-#~ "Komputer dê %1 çirkeyan de lê bendê bimîne. Pêl li vir bike ku pêvajo yê "
-#~ "bidî rawestandin."
 
 #~ msgid "There was an error while suspending:"
 #~ msgstr "Di demê sekinandinê de çewtiyek çê bû: "

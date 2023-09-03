@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2021-09-02 08:58+0200\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -359,7 +359,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "További akkumulátor hozzáadva"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "A számítógép nem kerül többet alvó állapotba."
@@ -415,30 +415,23 @@ msgstr ""
 "A(z) „%1” akkumulátorának töltöttsége alacsony, az eszköz bármikor "
 "kikapcsolhat. Cserélje ki vagy töltse fel az akkumulátort, amint lehet."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
 #| "it down and change the battery."
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Az akkumulátor feszültsége alacsony. Ha tovább szeretné használni a "
 "számítógépet, dugja be a hálózati kábelt vagy kapcsolja ki a gépet és "
 "cseréljen akkumulátort."
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
-"Az akkumulátor feszültsége alacsony. Ha tovább szeretné használni a "
-"számítógépet, dugja be a hálózati kábelt vagy kapcsolja ki a gépet és "
-"cseréljen akkumulátort."
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -446,13 +439,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"A lemerülés kritikus szintű, a számítógép 60 másodperc múlva kikapcsol."
+#: powerdevilcore.cpp:614
+#, fuzzy, kde-format
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The computer will shut down in 60 seconds."
+msgstr "A számítógép %1 másodperc múlva készenléti állapotba kerül."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -460,15 +454,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Leállítás"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"A lemerülés kritikus szintű, a számítógép 60 másodperc hibernálva lesz."
+#: powerdevilcore.cpp:620
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will hibernate in 60 seconds."
+msgstr "A számítógép fel lesz függesztve memóriába %1 másodperc múlva."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -477,14 +470,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernálás"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"A lemerülés kritikus szintű, a számítógép 60 másodperc múlva alvó állapotba "
-"kerül."
+#: powerdevilcore.cpp:627
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will sleep in 60 seconds."
+msgstr "A számítógép fel lesz függesztve memóriába %1 másodperc múlva."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -493,55 +486,80 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Alvó állapot"
 
-#: powerdevilcore.cpp:634
-#, kde-format
-msgid "Battery level critical. Please save your work."
+#: powerdevilcore.cpp:633
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr "A lemerülés kritikus szintű, mentse el munkáját minél hamarabb."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Alacsony feszültség (%1% van hátra)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritikus lemerültség (%1% van hátra)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Tápcsatlakozó bedugva"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "Hálózatról üzemel"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "A hálózati csatlakozót csatlakoztatták."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Akkumulátorról üzemel"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "A hálózati csatlakozót kihúzták."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr "Töltés befejezve"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Az akkumulátor teljesen feltöltve."
+
+#~ msgid ""
+#~ "Battery running low - to continue using your computer, plug it in or shut "
+#~ "it down and change the battery."
+#~ msgstr ""
+#~ "Az akkumulátor feszültsége alacsony. Ha tovább szeretné használni a "
+#~ "számítógépet, dugja be a hálózati kábelt vagy kapcsolja ki a gépet és "
+#~ "cseréljen akkumulátort."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "A lemerülés kritikus szintű, a számítógép 60 másodperc múlva kikapcsol."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "A lemerülés kritikus szintű, a számítógép 60 másodperc hibernálva lesz."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "A lemerülés kritikus szintű, a számítógép 60 másodperc múlva alvó "
+#~ "állapotba kerül."
 
 #~ msgid "Turn off"
 #~ msgstr "Kikapcsolás"
@@ -817,16 +835,6 @@ msgstr "Az akkumulátor teljesen feltöltve."
 #~ msgid_plural "The computer will be suspended to disk in %1 seconds."
 #~ msgstr[0] "A számítógép fel lesz függesztve lemezre %1 másodperc múlva."
 #~ msgstr[1] "A számítógép fel lesz függesztve lemezre %1 másodperc múlva."
-
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] "A számítógép fel lesz függesztve memóriába %1 másodperc múlva."
-#~ msgstr[1] "A számítógép fel lesz függesztve memóriába %1 másodperc múlva."
-
-#~ msgid "The computer will be put into standby in 1 second."
-#~ msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgstr[0] "A számítógép %1 másodperc múlva készenléti állapotba kerül."
-#~ msgstr[1] "A számítógép %1 másodperc múlva készenléti állapotba kerül."
 
 #~ msgid "There was an error while suspending:"
 #~ msgstr "Hiba történt felfüggesztéskor:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -378,7 +378,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Leibhéal criticiúil cadhnra"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
@@ -428,21 +428,17 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -452,16 +448,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cealaigh"
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Shroich do chadhnra leibhéal criticiúil. Stadfaidh do ríomhaire i gceann 30 "
-"soicind."
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The computer will shut down in 60 seconds."
+msgstr "Cuirfear an ríomhaire sa mhód fuireachais i gceann 1 soicind."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -469,19 +463,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Múch"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Shroich do chadhnra leibhéal criticiúil. Geimhreoidh do ríomhaire i gceann "
-"30 soicind."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will hibernate in 60 seconds."
+msgstr "Cuirfear an ríomhaire ar fionraí i RAM i gceann 1 soicind."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -490,16 +479,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Geimhrigh"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:627
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Shroich do chadhnra leibhéal criticiúil. Stadfaidh do ríomhaire i gceann 30 "
-"soicind."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will sleep in 60 seconds."
+msgstr "Cuirfear an ríomhaire ar fionraí i RAM i gceann 1 soicind."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -507,60 +494,90 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Codail"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:633
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
-msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr ""
 "Shroich do chadhnra leibhéal criticiúil: sábháil do chuid oibre chomh luath "
 "agus is féidir."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Cuibheoir SA Plugáilte Isteach"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "Tá an cuibheoir cumhachta plugáilte isteach."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Ar Chumhacht Chadhnra"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "Bhí an cuibheoir cumhachta díphlugáilte."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Shroich do chadhnra leibhéal criticiúil. Stadfaidh do ríomhaire i gceann "
+#~ "30 soicind."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be hibernated in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Shroich do chadhnra leibhéal criticiúil. Geimhreoidh do ríomhaire i "
+#~ "gceann 30 soicind."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Shroich do chadhnra leibhéal criticiúil. Stadfaidh do ríomhaire i gceann "
+#~ "30 soicind."
 
 #, fuzzy
 #~| msgid "Turn off screen"
@@ -747,22 +764,6 @@ msgstr ""
 #~ "Cuirfear an ríomhaire ar fionraí ar dhiosca i gceann %1 shoicind."
 #~ msgstr[3] "Cuirfear an ríomhaire ar fionraí ar dhiosca i gceann %1 soicind."
 #~ msgstr[4] "Cuirfear an ríomhaire ar fionraí ar dhiosca i gceann %1 soicind."
-
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] "Cuirfear an ríomhaire ar fionraí i RAM i gceann 1 soicind."
-#~ msgstr[1] "Cuirfear an ríomhaire ar fionraí i RAM i gceann %1 shoicind."
-#~ msgstr[2] "Cuirfear an ríomhaire ar fionraí i RAM i gceann %1 shoicind."
-#~ msgstr[3] "Cuirfear an ríomhaire ar fionraí i RAM i gceann %1 soicind."
-#~ msgstr[4] "Cuirfear an ríomhaire ar fionraí i RAM i gceann %1 soicind."
-
-#~ msgid "The computer will be put into standby in 1 second."
-#~ msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgstr[0] "Cuirfear an ríomhaire sa mhód fuireachais i gceann 1 soicind."
-#~ msgstr[1] "Cuirfear an ríomhaire sa mhód fuireachais i gceann %1 shoicind."
-#~ msgstr[2] "Cuirfear an ríomhaire sa mhód fuireachais i gceann %1 shoicind."
-#~ msgstr[3] "Cuirfear an ríomhaire sa mhód fuireachais i gceann %1 soicind."
-#~ msgstr[4] "Cuirfear an ríomhaire sa mhód fuireachais i gceann %1 soicind."
 
 #~ msgid "There was an error while suspending:"
 #~ msgstr "Tharla earráid agus an ríomhaire á chur ar fionraí:"

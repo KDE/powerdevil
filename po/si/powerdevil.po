@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2009-12-28 19:26+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -369,7 +369,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "දරුණු ලෙස පහළ බැටරි මට්ටම"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
@@ -419,21 +419,17 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -443,16 +439,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "අහෝසි කරන්න"
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The computer will shut down in 60 seconds."
+msgstr "පරිගණකය තත්පර 1 කදී පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -460,18 +454,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "වසාදමන්න"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will hibernate in 60 seconds."
+msgstr "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -479,76 +469,104 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr ""
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:627
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will sleep in 60 seconds."
+msgstr "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:633
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
-msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: හැකි ඉක්මනින් ඔබේ කටයුතු සුරකින්න."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "AC ඇඩැප්ටරය සවිකර ඇතිවිට"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "විදුලි ඇඩැප්ටරය සවි කර ඇත."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When on battery power"
 msgid "Running on Battery Power"
 msgstr "බැටරි බලයේ පවතින විට"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "විදුලි ඇඩැප්ටරය ගලවා ඇත."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 1 second."
+#~| msgid_plural ""
+#~| "Your battery level is critical, the computer will be halted in %1 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 1 second."
+#~| msgid_plural ""
+#~| "Your battery level is critical, the computer will be halted in %1 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 1 second."
+#~| msgid_plural ""
+#~| "Your battery level is critical, the computer will be halted in %1 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
 
 #, fuzzy
 #~| msgid "Turn Off Screen"
@@ -700,16 +718,6 @@ msgstr ""
 #~ msgid_plural "The computer will be suspended to disk in %1 seconds."
 #~ msgstr[0] "පරිගණකය තත්පර 1 කදී තැටිය වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
 #~ msgstr[1] "පරිගණකය තත්පර %1 කදී තැටිය වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-#~ msgstr[1] "පරිගණකය තත්පර %1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-
-#~ msgid "The computer will be put into standby in 1 second."
-#~ msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgstr[0] "පරිගණකය තත්පර 1 කදී පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-#~ msgstr[1] "පරිගණකය තත්පර %1කදී පොරොත්තු ප්‍රකාරයට වැටේ."
 
 #~ msgid "There was an error while suspending:"
 #~ msgstr "අත්හිටුවීමේදී දෝශයක් හට ගැණිනි:"

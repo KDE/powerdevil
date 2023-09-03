@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2013-10-18 20:23+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: bosanski <bs@li.org>\n"
@@ -380,7 +380,7 @@ msgstr "Ova pravila aktivnosti sprečavaju upravljanje napajanjem ekrana"
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
@@ -432,31 +432,22 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
 #| "plug in your computer, or shut it down and then change the battery."
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Baterija vam je na niskom nivou. Ako želite nastaviti rad, uključite računar "
 "u struju, ili ga isključite i promijenite bateriju"
 
-#: powerdevilcore.cpp:586
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery is low. If you need to continue using your computer, either "
-#| "plug in your computer, or shut it down and then change the battery."
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+#: powerdevilcore.cpp:585
+#, kde-format
+msgid "Plug in the computer."
 msgstr ""
-"Baterija vam je na niskom nivou. Ako želite nastaviti rad, uključite računar "
-"u struju, ili ga isključite i promijenite bateriju"
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -464,15 +455,15 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The computer will shut down in 60 seconds."
 msgstr "Vaš nivo baterije je kritičan, računar će se zaustaviti za 30 sekundi."
 
 # >> @item:inlistbox
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -480,18 +471,16 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "ugasi"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 30 "
 #| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The computer will hibernate in 60 seconds."
 msgstr ""
 "Vaš nivo baterije je kritičan, računar će se hibernisati za 30 sekundi."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -500,14 +489,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernacija"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:627
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The computer will sleep in 60 seconds."
 msgstr "Vaš nivo baterije je kritičan, računar će se zaustaviti za 30 sekundi."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -515,61 +504,72 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "na·spavanje"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:633
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
-msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr ""
 "Baterija je na kritičnom nivou, sačuvajte svoj rad što je prije moguće."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baterija na niskom nivou (%1% preostalo)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterija kritična (%1% preostalo)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Uključen adapter za naizmjeničnu struju"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "Radim na AC napajanju"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "Strujni adapter je utaknut."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Radim na baterijama"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "Strujni adapter je izvučen."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "Završeno punjenje"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Baerije su potpuno pune"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery is low. If you need to continue using your computer, either "
+#~| "plug in your computer, or shut it down and then change the battery."
+#~ msgid ""
+#~ "Battery running low - to continue using your computer, plug it in or shut "
+#~ "it down and change the battery."
+#~ msgstr ""
+#~ "Baterija vam je na niskom nivou. Ako želite nastaviti rad, uključite "
+#~ "računar u struju, ili ga isključite i promijenite bateriju"
 
 #, fuzzy
 #~| msgid "Turn off screen"

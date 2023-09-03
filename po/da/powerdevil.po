@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2022-05-14 17:18+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -354,7 +354,7 @@ msgstr "Denne aktivitets politikker forhindrer strømstyring for skærm"
 msgid "Extra Battery Added"
 msgstr "Ekstra batteri tilføjet"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Computeren vil ikke længere gå i slumretilstand."
@@ -410,28 +410,22 @@ msgstr ""
 "Batteriet i din Bluetooth-enhed (\"%1\") er lavt, og enheden kan slukke når "
 "som helst. Oplad eller udskift batteriet."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
 #| "it down and change the battery."
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Dit batteriniveau er ved at være lavt. Hvis du vil fortsætte med at bruge "
 "din computer, så sæt den i stikkontakten eller luk ned og udskift batteriet."
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
-"Dit batteriniveau er ved at være lavt. Hvis du vil fortsætte med at bruge "
-"din computer, så sæt den i stikkontakten eller luk ned og udskift batteriet."
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -439,12 +433,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Annullér"
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Batteriniveauet er kritisk. Computeren vil lukke ned om 60 sekunder."
+#: powerdevilcore.cpp:614
+#, fuzzy, kde-format
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The computer will shut down in 60 seconds."
+msgstr "Computeren vil blive sat på standby om 1 sekund."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -452,15 +448,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Luk ned"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Batteriniveauet er kritisk. Computeren vil gå i dvaletilstand om 60 sekunder."
+#: powerdevilcore.cpp:620
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will hibernate in 60 seconds."
+msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -469,14 +464,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Dvale"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Batteriniveauet er kritisk. Computeren vil gå i slumretilstand om 60 "
-"sekunder."
+#: powerdevilcore.cpp:627
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The computer will sleep in 60 seconds."
+msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -485,55 +480,81 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Slumre"
 
-#: powerdevilcore.cpp:634
-#, kde-format
-msgid "Battery level critical. Please save your work."
+#: powerdevilcore.cpp:633
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr "Batteriniveauet er kritisk. Gem dit arbejde så hurtigt som muligt."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batteri lavt (%1% tilbage)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteri kritisk (%1% tilbage)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Strømforsyning tilsluttet"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "Kører på strømforsyning"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Strømforsyningen er blevet tilsluttet."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Kører på batteri"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Strømforsyningen er blevet frakoblet."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr "Opladning fuldført"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er nu fuldt opladet."
+
+#~ msgid ""
+#~ "Battery running low - to continue using your computer, plug it in or shut "
+#~ "it down and change the battery."
+#~ msgstr ""
+#~ "Dit batteriniveau er ved at være lavt. Hvis du vil fortsætte med at bruge "
+#~ "din computer, så sæt den i stikkontakten eller luk ned og udskift "
+#~ "batteriet."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Batteriniveauet er kritisk. Computeren vil lukke ned om 60 sekunder."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Batteriniveauet er kritisk. Computeren vil gå i dvaletilstand om 60 "
+#~ "sekunder."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Batteriniveauet er kritisk. Computeren vil gå i slumretilstand om 60 "
+#~ "sekunder."
 
 #~ msgid "Turn off"
 #~ msgstr "Sluk"
@@ -815,16 +836,6 @@ msgstr "Batteriet er nu fuldt opladet."
 #~ msgid_plural "The computer will be suspended to disk in %1 seconds."
 #~ msgstr[0] "Computeren vil blive suspenderet til disk om 1 sekund."
 #~ msgstr[1] "Computeren vil blive suspenderet til disk om %1 sekunder."
-
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] "Computeren vil blive suspenderet til ram om 1 sekund."
-#~ msgstr[1] "Computeren vil blive suspenderet til ram om %1 sekunder."
-
-#~ msgid "The computer will be put into standby in 1 second."
-#~ msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgstr[0] "Computeren vil blive sat på standby om 1 sekund."
-#~ msgstr[1] "Computeren vil blive sat på standby om %1 sekunder."
 
 #~ msgid "There was an error while suspending:"
 #~ msgstr "Der opstod en fejl under suspendering:"

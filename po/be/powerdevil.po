@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-01 01:58+0000\n"
+"POT-Creation-Date: 2023-09-03 02:37+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -360,7 +360,7 @@ msgstr "Правілы пакоя не дазваляюць кіраваць с�
 msgid "Extra Battery Added"
 msgstr "Дадатковая батарэя дададзеная"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Камп'ютар больш не пераходзіць у рэжым сну."
@@ -412,25 +412,22 @@ msgstr ""
 "Батарэя ў Bluetooth-прыладзе \"%1\" разраджаецца, прылада можа выключыцца ў "
 "любы момант. Зарадзіце або замяніце батарэю."
 
-#: powerdevilcore.cpp:584
-#, kde-format
-msgid ""
-"Battery running low - to continue using your computer, make sure that the "
-"power adapter is plugged in and that it provides enough power."
+#: powerdevilcore.cpp:583
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery running low - to continue using your computer, make sure that the "
+#| "power adapter is plugged in and that it provides enough power."
+msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Батарэя разраджаецца. Каб працягнуць карыстацца камп'ютарам, пераканайцеся, "
 "што штэкер сілкавання падлучаны, і прылада сілкуецца."
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
-msgid ""
-"Battery running low - to continue using your computer, plug it in or shut it "
-"down and change the battery."
+msgid "Plug in the computer."
 msgstr ""
-"Батарэя разраджаецца. Каб працягнуць карыстацца камп'ютарам, падлучыце яго "
-"да крыніцы сілкавання або выключыце і замяніце батарэю."
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:602
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -438,30 +435,32 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#: powerdevilcore.cpp:614
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The computer will shut down in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар выключыцца праз 60 "
 "секунд."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Выключыць"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#: powerdevilcore.cpp:620
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will enter hibernation mode in 60 "
+#| "seconds."
+msgid "The computer will hibernate in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар перойдзе ў рэжым сну "
 "праз 60 секунд."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -469,70 +468,80 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Перавесці ў рэжым сну"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#: powerdevilcore.cpp:627
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The computer will sleep in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар прыпыніцца ў RAM "
 "праз 60 секунд."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Прыпыніць у RAM"
 
-#: powerdevilcore.cpp:634
-#, kde-format
-msgid "Battery level critical. Please save your work."
+#: powerdevilcore.cpp:633
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Please save your work."
+msgid "Please save your work."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Захавайце даныя, з якімі працуеце."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Нізкі ўзровень зараду батарэі (засталося %1%)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Крытычна нізкі ўзровень зараду батарэі (засталося %1%)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Штэкер падлучаны да электрасеткі"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "Сілкуецца ад электрасеткі"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Штэкер падлучаны."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Сілкуецца ад батарэі"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Штэкер адлучаны."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr "Зараджэнне завершана"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарэя цалкам зараджаная."
+
+#~ msgid ""
+#~ "Battery running low - to continue using your computer, plug it in or shut "
+#~ "it down and change the battery."
+#~ msgstr ""
+#~ "Батарэя разраджаецца. Каб працягнуць карыстацца камп'ютарам, падлучыце "
+#~ "яго да крыніцы сілкавання або выключыце і замяніце батарэю."
 
 #~ msgid "Turn off"
 #~ msgstr "Выключыць"
