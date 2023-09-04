@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-14 02:27+0000\n"
-"PO-Revision-Date: 2023-01-15 12:18+0100\n"
+"PO-Revision-Date: 2023-09-02 13:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -135,7 +135,7 @@ msgstr "Gå i dvalemodus"
 #: actions/bundled/suspendsessionconfig.cpp:96
 #, kde-format
 msgid "Hybrid sleep"
-msgstr "Gå i hybrid kvile/dvale-modus"
+msgstr "Gå i hybrid kvilemodus"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:107
 #: actions/bundled/suspendsessionconfig.cpp:98
