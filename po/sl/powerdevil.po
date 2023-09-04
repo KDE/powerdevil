@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-07-15 06:52+0200\n"
+"PO-Revision-Date: 2023-09-03 08:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -413,20 +413,15 @@ msgstr ""
 "kadarkoli izklopi. Prosim ponovno napolnite ali zamenjajte baterijo."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Baterija je skoraj prazna - da bi še naprej uporabljali vaš računalnik, se "
-"prepričajte, da je priključen na električno napajanje in da vtičnica nudi "
-"dovolj napajanja."
+"Prepričajte se, da je napajalnik priključen in zagotavlja dovolj energije."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Priključite računalnik."
 
 #: powerdevilcore.cpp:602
 #, kde-format
@@ -437,12 +432,9 @@ msgid "Cancel"
 msgstr "Preklic"
 
 #: powerdevilcore.cpp:614
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr ""
-"Baterija je dosegla kritično raven. Vaš računalnik se bo čez 60 sekund "
-"izklopil."
+msgstr "Vaš računalnik se bo izklopil čez 60 sekund."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -452,14 +444,9 @@ msgid "Shut Down Now"
 msgstr "Izklopi zdaj"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr ""
-"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"hibernacijo."
+msgstr "Računalnik bo prešel v hibernacijo čez 60 sekund."
 
 #: powerdevilcore.cpp:621
 #, kde-format
@@ -470,13 +457,9 @@ msgid "Hibernate Now"
 msgstr "V hibernacijo zdaj"
 
 #: powerdevilcore.cpp:627
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr ""
-"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"stanje spanja."
+msgstr "Računalnik bo prešel v stanje spanja čez 60 sekund."
 
 #: powerdevilcore.cpp:628
 #, kde-format
@@ -486,10 +469,9 @@ msgid "Sleep Now"
 msgstr "Zaspi zdaj"
 
 #: powerdevilcore.cpp:633
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Baterija je dosegla kritično raven. Prosim shranite svoje delo."
+msgstr "Prosim shranite svoje delo."
 
 #: powerdevilcore.cpp:644
 #, kde-format

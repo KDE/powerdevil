@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-08-09 10:38+0200\n"
+"PO-Revision-Date: 2023-09-03 14:35+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -405,20 +405,15 @@ msgstr ""
 "mogelijk op of vervang deze."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Uw batterij is op een laag niveau - om door te gaan met het gebruik van uw "
-"computer, verbind uw computer dan met de netstroom en ga na dat voldoende "
-"vermogen wordt geleverd."
+"Ga na dat uw computer aan de netstroom hangt en lever voldoende vermogen."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Hang de computer aan de netstroom"
 
 #: powerdevilcore.cpp:602
 #, kde-format
@@ -429,12 +424,9 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 #: powerdevilcore.cpp:614
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr ""
-"Batterij heeft het kritieke niveau bereikt. Uw computer zal worden "
-"afgesloten na 60 seconden."
+msgstr "De computer zal worden afgesloten na 60 seconden."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -444,14 +436,9 @@ msgid "Shut Down Now"
 msgstr "Nu afsluiten"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr ""
-"Uw batterij heeft het kritieke niveau bereikt. De computer zal in slaapstand "
-"naar schijf gaan na 60 seconden."
+msgstr "De computer zal in slaapstand naar schijf gaan na 60 seconden."
 
 #: powerdevilcore.cpp:621
 #, kde-format
@@ -462,13 +449,9 @@ msgid "Hibernate Now"
 msgstr "Nu naar slaapstand naar schijf"
 
 #: powerdevilcore.cpp:627
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr ""
-"Uw batterij heeft het kritieke niveau bereikt. De computer zal in slaap gaan "
-"na 60 seconden."
+msgstr "De computer zal in slaap gaan na 60 seconden."
 
 #: powerdevilcore.cpp:628
 #, kde-format
@@ -478,10 +461,9 @@ msgid "Sleep Now"
 msgstr "Nu slapen"
 
 #: powerdevilcore.cpp:633
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Uw batterij heeft het kritieke niveau bereikt. Sla uw werk op."
+msgstr "Sla uw werk op."
 
 #: powerdevilcore.cpp:644
 #, kde-format

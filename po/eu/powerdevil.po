@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-07-15 21:06+0200\n"
+"PO-Revision-Date: 2023-09-03 10:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -409,20 +409,16 @@ msgstr ""
 "itzal daiteke. Bateria zamatu edo aldatu beharra dago."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Bateria husten ari da - zure ordenagailua erabiltzen jarraitzeko, ziurtatu "
-"energia egokigailua entxufatuta dagoela eta behar adina energia hornitzen "
-"duela."
+"Ziurtatu energia egokigailua entxufatuta dagoela eta behar adina energia "
+"hornitzen duela."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Entxufatu ordenagailua."
 
 #: powerdevilcore.cpp:602
 #, kde-format
@@ -433,11 +429,9 @@ msgid "Cancel"
 msgstr "Utzi"
 
 #: powerdevilcore.cpp:614
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr "Konputagailua egonean jarriko da segundu 1 barru."
+msgstr "Ordenagailua 60 segundo barru itzaliko da."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -447,11 +441,9 @@ msgid "Shut Down Now"
 msgstr "Itzali orain"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr "Konputagailua RAMera esekiko da segundu 1 barru."
+msgstr "Ordenagailua 60 segundo barru hibernatuko da."
 
 #: powerdevilcore.cpp:621
 #, kde-format
@@ -462,11 +454,9 @@ msgid "Hibernate Now"
 msgstr "Hibernatu orain"
 
 #: powerdevilcore.cpp:627
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr "Konputagailua RAMera esekiko da segundu 1 barru."
+msgstr "Ordenagailua 60 segundo barru lokartuko da."
 
 #: powerdevilcore.cpp:628
 #, kde-format
@@ -476,10 +466,9 @@ msgid "Sleep Now"
 msgstr "Egin lo orain"
 
 #: powerdevilcore.cpp:633
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Bateria maila larria. Zure lana gorde ezazu."
+msgstr "Mesedez, gorde zure lana."
 
 #: powerdevilcore.cpp:644
 #, kde-format

@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Automatically generated, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-07-15 12:18+0200\n"
+"PO-Revision-Date: 2023-09-03 20:09+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -407,20 +407,16 @@ msgstr ""
 "batería."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"La batería se está agotando. Para continuar usando el equipo, asegúrese de "
-"que está conectado a la red eléctrica y de que proporciona suficiente "
-"energía."
+"Asegúrese de que está conectado a la red eléctrica y de que proporciona "
+"suficiente energía."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Conecte el equipo."
 
 #: powerdevilcore.cpp:602
 #, kde-format
@@ -431,10 +427,9 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: powerdevilcore.cpp:614
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr "El nivel de batería es crítico. El equipo se apagará en 60 segundos."
+msgstr "El equipo se apagará en 60 segundos."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -444,14 +439,9 @@ msgid "Shut Down Now"
 msgstr "Apagar ahora"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr ""
-"El nivel de batería es crítico. El equipo entrará en modo de hibernación en "
-"60 segundos."
+msgstr "El equipo entrará en hibernación en 60 segundos."
 
 #: powerdevilcore.cpp:621
 #, kde-format
@@ -462,12 +452,9 @@ msgid "Hibernate Now"
 msgstr "Hibernar ahora"
 
 #: powerdevilcore.cpp:627
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr ""
-"El nivel de batería es crítico. El equipo entrará en reposo en 60 segundos."
+msgstr "El equipo entrará en reposo en 60 segundos."
 
 #: powerdevilcore.cpp:628
 #, kde-format
@@ -477,10 +464,9 @@ msgid "Sleep Now"
 msgstr "Entrar en reposo ahora"
 
 #: powerdevilcore.cpp:633
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "El nivel de batería es crítico. Por favor, guarde su trabajo."
+msgstr "Por favor, guarde su trabajo."
 
 #: powerdevilcore.cpp:644
 #, kde-format

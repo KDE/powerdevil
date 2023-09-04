@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-07-29 12:18+0200\n"
+"PO-Revision-Date: 2023-09-02 13:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -157,7 +157,7 @@ msgstr "Gå i dvalemodus"
 #: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "Hybrid sleep"
-msgstr "Gå i hybrid kvile/dvale-modus"
+msgstr "Gå i hybrid kvilemodus"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:87
 #: actions/bundled/suspendsessionconfig.cpp:78
@@ -528,10 +528,3 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
-
-#~ msgid ""
-#~ "Battery running low - to continue using your computer, plug it in or shut "
-#~ "it down and change the battery."
-#~ msgstr ""
-#~ "Batterinivået er lågt. Viss du vil halda fram med å bruka datamaskina, må "
-#~ "du anten kopla ho til eit straumuttak eller slå ho av og byta batteriet."

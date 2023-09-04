@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-07-15 08:33+0100\n"
+"PO-Revision-Date: 2023-09-03 07:55+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -403,19 +403,16 @@ msgstr ""
 "malŝalti iam ajn. Bonvolu reŝargi aŭ anstataŭigi la baterion."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Baterio malŝarĝas - por daŭre uzi vian komputilon, certigu, ke la elektra "
-"adaptilo estas enŝaltita kaj ke ĝi provizas sufiĉan potencon."
+"Certigu, ke la elektra adaptilo estas enŝtopita kaj provizas sufiĉan "
+"potencon."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Enŝtopu la komputilon."
 
 #: powerdevilcore.cpp:602
 #, kde-format
@@ -426,10 +423,9 @@ msgid "Cancel"
 msgstr "Rezigni"
 
 #: powerdevilcore.cpp:614
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr "Bateria nivelo kritika. Via komputilo malŝaltos post 60 sekundoj."
+msgstr "La komputilo malŝaltos post 60 sekundoj."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -439,13 +435,9 @@ msgid "Shut Down Now"
 msgstr "Fermi Nun"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr ""
-"Bateria nivelo kritika. Via komputilo eniros vintrodormon post 60 sekundoj."
+msgstr "La komputilo pasivumiĝos post 60 sekundoj."
 
 #: powerdevilcore.cpp:621
 #, kde-format
@@ -456,11 +448,9 @@ msgid "Hibernate Now"
 msgstr "Hibernate Nun"
 
 #: powerdevilcore.cpp:627
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr "Bateria nivelo kritika. Via komputilo ekdormos post 60 sekundoj."
+msgstr "La komputilo ekdormos post 60 sekundoj."
 
 #: powerdevilcore.cpp:628
 #, kde-format
@@ -470,10 +460,9 @@ msgid "Sleep Now"
 msgstr "Dormi Nun"
 
 #: powerdevilcore.cpp:633
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Bateria nivelo kritika. Bonvolu konservi vian laboron."
+msgstr "Bonvolu konservi vian laboron."
 
 #: powerdevilcore.cpp:644
 #, kde-format
@@ -519,10 +508,3 @@ msgstr "Ŝargado Kompleta"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterio nun plene ŝargita."
-
-#~ msgid ""
-#~ "Battery running low - to continue using your computer, plug it in or shut "
-#~ "it down and change the battery."
-#~ msgstr ""
-#~ "Baterio malfunkcias - por daŭre uzi vian komputilon, enŝovu ĝin aŭ "
-#~ "malŝaltu ĝin kaj ŝanĝu la baterion."
