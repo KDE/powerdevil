@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-03 02:37+0000\n"
-"PO-Revision-Date: 2023-07-17 05:06+0200\n"
+"PO-Revision-Date: 2023-09-04 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -403,19 +403,15 @@ msgstr ""
 "შეიძლება გამოირთოს. საჭიროა ელემენტის გამოცვლა ან დატენვა."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"ელემენტი დასატენია - კომპიუტერის გამოყენების გასაგრძელებლად დარწმუნდით, რომ "
-"კვება შეერთებულია და მას საკმარისი სიმძლავრე მიეწოდება."
+"დარწმუნდით, რომ კვება შეერთებულია და მას საკმარისი სიმძლავრე მიეწოდება."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "მიუერთეთ კომპიუტერს კვების ბლოკი."
 
 #: powerdevilcore.cpp:602
 #, kde-format
@@ -426,12 +422,9 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: powerdevilcore.cpp:614
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr ""
-"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში "
-"გამოირთვება."
+msgstr "თქვენი კომპიუტერი 60 წამში გამოირთვება."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -441,14 +434,9 @@ msgid "Shut Down Now"
 msgstr "ახლავე გამორთვა"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr ""
-"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი დისკზე პროგრამულ "
-"ძილში 60 წამში გადავა."
+msgstr "თქვენი კომპიუტერი დისკზე პროგრამულ ძილში 60 წამში გადავა."
 
 #: powerdevilcore.cpp:621
 #, kde-format
@@ -459,12 +447,9 @@ msgid "Hibernate Now"
 msgstr "პროგრამული ძილი ახლავე"
 
 #: powerdevilcore.cpp:627
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr ""
-"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში დაიძინებს."
+msgstr "თქვენი კომპიუტერი 60 წამში დაიძინებს."
 
 #: powerdevilcore.cpp:628
 #, kde-format
@@ -474,10 +459,9 @@ msgid "Sleep Now"
 msgstr "ძილი ახლავე"
 
 #: powerdevilcore.cpp:633
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. შეინახეთ თქვენი ნაშრომი."
+msgstr "შეინახეთ თქვენი ნაშრომი."
 
 #: powerdevilcore.cpp:644
 #, kde-format
