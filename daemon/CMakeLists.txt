@@ -25,6 +25,7 @@ set(powerdevilcore_SRCS
     suspendcontroller.cpp
     batterycontroller.cpp
     upowerdevice.cpp
+    lidcontroller.cpp
 )
 
 add_library(powerdevil_log_static STATIC)

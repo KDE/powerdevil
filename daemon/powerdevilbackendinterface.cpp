@@ -33,36 +33,9 @@ int BackendInterface::keyboardBrightnessSteps()
     return m_keyboardBrightnessLogic.steps();
 }
 
-bool BackendInterface::isLidClosed() const
-{
-    return m_isLidClosed;
-}
-
-bool BackendInterface::isLidPresent() const
-{
-    return m_isLidPresent;
-}
-
-void BackendInterface::setLidPresent(bool present)
-{
-    m_isLidPresent = present;
-}
-
 void BackendInterface::setBackendIsReady()
 {
     Q_EMIT backendReady();
-}
-
-void BackendInterface::setButtonPressed(PowerDevil::BackendInterface::ButtonType type)
-{
-    if (type == LidClose && !m_isLidClosed) {
-        m_isLidClosed = true;
-        Q_EMIT lidClosedChanged(true);
-    } else if (type == LidOpen && m_isLidClosed) {
-        m_isLidClosed = false;
-        Q_EMIT lidClosedChanged(false);
-    }
-    Q_EMIT buttonPressed(type);
 }
 
 void BackendInterface::onScreenBrightnessChanged(int value, int valueMax)

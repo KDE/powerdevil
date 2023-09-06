@@ -85,6 +85,7 @@ void Core::loadCore(BackendInterface *backend)
 
     m_suspendController = std::make_unique<SuspendController>();
     m_batteryController = std::make_unique<BatteryController>();
+    m_lidController = std::make_unique<LidController>();
 
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
@@ -135,7 +136,7 @@ void Core::onBackendReady()
     connect(m_batteryController.get(), &BatteryController::acAdapterStateChanged, this, &Core::onAcAdapterStateChanged);
     connect(m_batteryController.get(), &BatteryController::batteryRemainingTimeChanged, this, &Core::onBatteryRemainingTimeChanged);
     connect(m_batteryController.get(), &BatteryController::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
-    connect(m_backend, &BackendInterface::lidClosedChanged, this, &Core::onLidClosedChanged);
+    connect(m_lidController.get(), &LidController::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
@@ -431,8 +432,8 @@ void Core::loadProfile(bool force)
     // If the lid is closed, retrigger the lid close signal
     // so that "switching profile then closing the lid" has the same result as
     // "closing lid then switching profile".
-    if (m_backend->isLidClosed()) {
-        Q_EMIT m_backend->buttonPressed(PowerDevil::BackendInterface::LidClose);
+    if (m_lidController->isLidClosed()) {
+        Q_EMIT m_lidController->lidClosedChanged(true);
     }
 }
 
@@ -1015,14 +1016,19 @@ void Core::unloadAllActiveActions()
     m_activeActions.clear();
 }
 
+LidController *Core::lidController()
+{
+    return m_lidController.get();
+}
+
 bool Core::isLidClosed() const
 {
-    return m_backend->isLidClosed();
+    return m_lidController->isLidClosed();
 }
 
 bool Core::isLidPresent() const
 {
-    return m_backend->isLidPresent();
+    return m_lidController->isLidPresent();
 }
 
 bool Core::hasDualGpu() const

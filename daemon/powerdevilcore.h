@@ -22,6 +22,7 @@
 #include <KSharedConfig>
 
 #include "batterycontroller.h"
+#include "lidcontroller.h"
 #include "powerdevilcore_export.h"
 #include "suspendcontroller.h"
 
@@ -80,6 +81,7 @@ public:
     BackendInterface *backend();
     SuspendController *suspendController();
     BatteryController *batteryController();
+    LidController *lidController();
 
     Action *action(const QString actionId);
 
@@ -150,6 +152,7 @@ private:
     BackendInterface *m_backend = nullptr;
     std::unique_ptr<SuspendController> m_suspendController;
     std::unique_ptr<BatteryController> m_batteryController;
+    std::unique_ptr<LidController> m_lidController;
 
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;

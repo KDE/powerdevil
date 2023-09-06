@@ -33,11 +33,8 @@ PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject *parent)
     : BackendInterface(parent)
     , m_cachedScreenBrightness(0)
     , m_cachedKeyboardBrightness(0)
-    , m_upowerInterface(nullptr)
     , m_kbdBacklight(nullptr)
     , m_kbdMaxBrightness(0)
-    , m_lidIsPresent(false)
-    , m_lidIsClosed(false)
     , m_isLedBrightnessControl(false)
 {
 }
@@ -46,13 +43,7 @@ PowerDevilUPowerBackend::~PowerDevilUPowerBackend() = default;
 
 void PowerDevilUPowerBackend::init()
 {
-    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_SERVICE)) {
-        // Activate it.
-        QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
-    }
-
     connect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
-    m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
     m_ddcBrightnessControl = new DDCutilBrightness();
 
     qCDebug(POWERDEVIL) << "Trying Backlight Helper first...";
@@ -134,17 +125,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
     }
 
     disconnect(this, &PowerDevilUPowerBackend::brightnessSupportQueried, this, &PowerDevilUPowerBackend::initWithBrightness);
-
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE,
-                                         UPOWER_PATH,
-                                         "org.freedesktop.DBus.Properties",
-                                         "PropertiesChanged",
-                                         this,
-                                         SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
-
-    m_lidIsPresent = m_upowerInterface->lidIsPresent();
-    setLidPresent(m_lidIsPresent);
-    m_lidIsClosed = m_upowerInterface->lidIsClosed();
 
     // Brightness Controls available
     if (screenBrightnessAvailable) {
@@ -389,26 +369,6 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, const QStri
         BackendInterface::onKeyboardBrightnessChanged(value, keyboardBrightnessMax(), source == QLatin1String("internal"));
         // source: internal = keyboard brightness changed through hardware, eg a firmware-handled hotkey being pressed -> show the OSD
         //         external = keyboard brightness changed through upower -> don't trigger the OSD as we would already have done that where necessary
-    }
-}
-
-void PowerDevilUPowerBackend::onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
-{
-    if (ifaceName != UPOWER_IFACE) {
-        return;
-    }
-
-    if (m_lidIsPresent) {
-        bool lidIsClosed = m_lidIsClosed;
-        if (changedProps.contains(QStringLiteral("LidIsClosed"))) {
-            lidIsClosed = changedProps[QStringLiteral("LidIsClosed")].toBool();
-        } else if (invalidatedProps.contains(QStringLiteral("LidIsClosed"))) {
-            lidIsClosed = m_upowerInterface->lidIsClosed();
-        }
-        if (lidIsClosed != m_lidIsClosed) {
-            setButtonPressed(lidIsClosed ? LidClose : LidOpen);
-            m_lidIsClosed = lidIsClosed;
-        }
     }
 }
 

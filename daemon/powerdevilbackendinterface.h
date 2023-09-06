@@ -35,10 +35,8 @@ public:
      * - PowerDown: A power down pressed event, generally used to turn on or off the system. KWin emits on long power button presses.
      * - PowerButton: A power button pressed event, generally used to turn on or off the system
      * - SleepButton: A sleep button pressed event, generally used to make the system asleep
-     * - LidOpen: A laptop lid open event
-     * - LidClose: A laptop lid close event
      */
-    enum ButtonType { UnknownButtonType, PowerButton, PowerDownButton, SleepButton, LidOpen, LidClose, HibernateButton };
+    enum ButtonType { UnknownButtonType, PowerButton, PowerDownButton, SleepButton, HibernateButton };
     Q_ENUM(ButtonType)
 
     /**
@@ -95,26 +93,7 @@ public:
 
     virtual bool keyboardBrightnessAvailable() const = 0;
 
-    /**
-     * @returns whether the lid is closed or not.
-     */
-    bool isLidClosed() const;
-    /**
-     * @returns whether the a lid is present
-     */
-    bool isLidPresent() const;
-
-    void setLidPresent(bool present);
-
 Q_SIGNALS:
-    /**
-     * This signal is emitted when a button has been pressed.
-     *
-     * @param buttonType the pressed button type, it's one of the
-     * type @see PowerDevil::BackendInterface::ButtonType
-     */
-    void buttonPressed(PowerDevil::BackendInterface::ButtonType buttonType);
-
     void screenBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
     void keyboardBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
@@ -126,17 +105,9 @@ Q_SIGNALS:
      */
     void backendReady();
 
-    /**
-     * This signal is emitted when the laptop lid is closed or opened
-     *
-     * @param closed Whether the lid is now closed or not
-     */
-    void lidClosedChanged(bool closed);
-
 protected:
     void onScreenBrightnessChanged(int value, int valueMax);
     void onKeyboardBrightnessChanged(int value, int valueMax, bool notify = false);
-    void setButtonPressed(PowerDevil::BackendInterface::ButtonType type);
 
     void setBackendIsReady();
 
@@ -147,8 +118,6 @@ protected:
 private:
     ScreenBrightnessLogic m_screenBrightnessLogic;
     KeyboardBrightnessLogic m_keyboardBrightnessLogic;
-    bool m_isLidClosed = false;
-    bool m_isLidPresent = false;
 
     friend class Core;
 

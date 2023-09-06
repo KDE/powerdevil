@@ -36,7 +36,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     new HandleButtonEventsAdaptor(this);
     // We enforce no policies here - after all, we just call other actions - which have their policies.
     setRequiredPolicies(PowerDevil::PolicyAgent::None);
-    connect(backend(), &BackendInterface::buttonPressed, this, &HandleButtonEvents::onButtonPressed);
+    connect(core()->lidController(), &LidController::lidClosedChanged, this, &HandleButtonEvents::onLidClosedChanged);
 
     KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -83,7 +83,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
                 connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &HandleButtonEvents::checkOutputs);
             });
 
-    if (!backend()->isLidClosed()) {
+    if (!core()->lidController()->isLidClosed()) {
         m_oldKeyboardBrightness = backend()->keyboardBrightness();
     }
     connect(backend(), &PowerDevil::BackendInterface::keyboardBrightnessChanged, this, [this](const BrightnessLogic::BrightnessInfo &brightnessInfo) {
@@ -117,28 +117,6 @@ void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
 void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
 {
     switch (type) {
-    case BackendInterface::LidClose:
-        if (m_oldKeyboardBrightness.has_value()) {
-            backend()->setKeyboardBrightness(0);
-        }
-
-        if (!triggersLidAction()) {
-            qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
-            return;
-        }
-
-        processAction(m_lidAction);
-        break;
-    case BackendInterface::LidOpen:
-        // When we restore the keyboard brightness before waking up, we shouldn't conflict
-        // with dimdisplay or dpms also messing with the keyboard.
-        if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
-            backend()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
-        }
-
-        // In this case, let's send a wakeup event
-        KIdleTime::instance()->simulateUserActivity();
-        break;
     case BackendInterface::PowerButton:
         processAction(m_powerButtonAction);
         break;
@@ -153,6 +131,31 @@ void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
         break;
     default:
         break;
+    }
+}
+
+void HandleButtonEvents::onLidClosedChanged(bool closed)
+{
+    if (closed) {
+        if (m_oldKeyboardBrightness.has_value()) {
+            backend()->setKeyboardBrightness(0);
+        }
+
+        if (!triggersLidAction()) {
+            qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
+            return;
+        }
+
+        processAction(m_lidAction);
+    } else {
+        // When we restore the keyboard brightness before waking up, we shouldn't conflict
+        // with dimdisplay or dpms also messing with the keyboard.
+        if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
+            backend()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
+        }
+
+        // In this case, let's send a wakeup event
+        KIdleTime::instance()->simulateUserActivity();
     }
 }
 
@@ -257,9 +260,9 @@ void HandleButtonEvents::checkOutputs()
 
         // when the lid is closed but we don't suspend because of an external monitor but we then
         // unplug said monitor, re-trigger the lid action (Bug 379265)
-        if (triggersLidAction() && backend()->isLidClosed()) {
+        if (triggersLidAction() && core()->lidController()->isLidClosed()) {
             qCDebug(POWERDEVIL) << "External monitor that kept us from suspending is gone and lid is closed, re-triggering lid action";
-            onButtonPressed(BackendInterface::LidClose);
+            onLidClosedChanged(true);
         }
     }
 }

@@ -18,15 +18,11 @@
 #include <memory>
 
 #include "udevqt.h"
-#include "upower_interface.h"
 #include "upower_kbdbacklight_interface.h"
 
 #include "powerdevilupowerbackend_export.h"
 
 #define UPOWER_SERVICE "org.freedesktop.UPower"
-#define UPOWER_PATH "/org/freedesktop/UPower"
-#define UPOWER_IFACE "org.freedesktop.UPower"
-#define UPOWER_IFACE_DEVICE "org.freedesktop.UPower.Device"
 
 class QPropertyAnimation;
 class QTimer;
@@ -69,8 +65,6 @@ private Q_SLOTS:
     void onDeviceChanged(const UdevQt::Device &device);
     void onKeyboardBrightnessChanged(int value, const QString &source);
 
-    void onPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
-
 private:
     void animationValueChanged(const QVariant &value);
     void initWithBrightness(bool brightnessSupport);
@@ -82,7 +76,6 @@ private:
 
     DDCutilBrightness *m_ddcBrightnessControl = nullptr;
 
-    OrgFreedesktopUPowerInterface *m_upowerInterface;
     OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
     int m_kbdMaxBrightness;
     int m_brightnessMax = 0;
@@ -93,10 +86,6 @@ private:
     const int m_brightnessAnimationThreshold = 100;
 
     QTimer *m_brightnessAnimationTimer = nullptr;
-
-    // buttons
-    bool m_lidIsPresent;
-    bool m_lidIsClosed;
 
     // property if brightness control is leds subsystem
     bool m_isLedBrightnessControl;
