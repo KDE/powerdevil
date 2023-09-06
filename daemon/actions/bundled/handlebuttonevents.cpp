@@ -114,26 +114,6 @@ void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
     Q_UNUSED(timeout)
 }
 
-void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)
-{
-    switch (type) {
-    case BackendInterface::PowerButton:
-        processAction(m_powerButtonAction);
-        break;
-    case BackendInterface::PowerDownButton:
-        processAction(m_powerDownButtonAction);
-        break;
-    case BackendInterface::SleepButton:
-        processAction(m_sleepButtonAction);
-        break;
-    case BackendInterface::HibernateButton:
-        processAction(m_hibernateButtonAction);
-        break;
-    default:
-        break;
-    }
-}
-
 void HandleButtonEvents::onLidClosedChanged(bool closed)
 {
     if (closed) {
@@ -217,22 +197,22 @@ bool HandleButtonEvents::triggersLidAction() const
 
 void HandleButtonEvents::powerOffButtonTriggered()
 {
-    onButtonPressed(BackendInterface::PowerButton);
+    processAction(m_powerButtonAction);
 }
 
 void HandleButtonEvents::powerDownButtonTriggered()
 {
-    onButtonPressed(BackendInterface::PowerDownButton);
+    processAction(m_powerDownButtonAction);
 }
 
 void HandleButtonEvents::suspendToDisk()
 {
-    onButtonPressed(BackendInterface::HibernateButton);
+    processAction(m_hibernateButtonAction);
 }
 
 void HandleButtonEvents::suspendToRam()
 {
-    onButtonPressed(BackendInterface::SleepButton);
+    processAction(m_sleepButtonAction);
 }
 
 void HandleButtonEvents::checkOutputs()

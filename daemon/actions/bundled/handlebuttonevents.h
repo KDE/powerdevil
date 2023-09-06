@@ -41,7 +41,6 @@ public Q_SLOTS:
     bool triggersLidAction() const;
 
 private Q_SLOTS:
-    void onButtonPressed(PowerDevil::BackendInterface::ButtonType type);
     void onLidClosedChanged(bool closed);
     void powerOffButtonTriggered();
     void powerDownButtonTriggered();

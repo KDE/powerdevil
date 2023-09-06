@@ -29,17 +29,6 @@ public:
     ~BackendInterface() override;
 
     /**
-     * This enum type defines the types of system button events.
-     *
-     * - UnknownButtonType: An unknown button
-     * - PowerDown: A power down pressed event, generally used to turn on or off the system. KWin emits on long power button presses.
-     * - PowerButton: A power button pressed event, generally used to turn on or off the system
-     * - SleepButton: A sleep button pressed event, generally used to make the system asleep
-     */
-    enum ButtonType { UnknownButtonType, PowerButton, PowerDownButton, SleepButton, HibernateButton };
-    Q_ENUM(ButtonType)
-
-    /**
      * This enum defines the different types of brightness controls.
      *
      * - UnknownBrightnessControl: Unknown
