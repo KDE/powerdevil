@@ -15,8 +15,6 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 
-#include "login1suspendjob.h"
-
 #define LOGIN1_SERVICE "org.freedesktop.login1"
 #define CONSOLEKIT2_SERVICE "org.freedesktop.ConsoleKit"
 
@@ -58,9 +56,19 @@ bool SuspendController::canSuspend() const
     return m_sessionManagement.canSuspend();
 }
 
+void SuspendController::suspend()
+{
+    m_sessionManagement.suspend();
+}
+
 bool SuspendController::canHibernate() const
 {
     return m_sessionManagement.canHibernate();
+}
+
+void SuspendController::hibernate()
+{
+    m_sessionManagement.hibernate();
 }
 
 bool SuspendController::canHybridSuspend() const
@@ -68,17 +76,19 @@ bool SuspendController::canHybridSuspend() const
     return m_sessionManagement.canHybridSuspend();
 }
 
+void SuspendController::hybridSuspend()
+{
+    m_sessionManagement.hybridSuspend();
+}
+
 bool SuspendController::canSuspendThenHibernate() const
 {
     return m_sessionManagement.canSuspendThenHibernate();
 }
 
-KJob *SuspendController::suspend(SuspendMethod method)
+void SuspendController::suspendThenHibernate()
 {
-    if (m_login1Interface) {
-        return new Login1SuspendJob(m_login1Interface.data(), method);
-    }
-    return nullptr;
+    m_sessionManagement.suspendThenHibernate();
 }
 
 void SuspendController::slotLogin1PrepareForSleep(bool active)

@@ -52,20 +52,16 @@ public:
     Q_DECLARE_FLAGS(SuspendMethods, SuspendMethod)
 
     bool canSuspend() const;
+    void suspend();
 
     bool canHibernate() const;
+    void hibernate();
 
     bool canHybridSuspend() const;
+    void hybridSuspend();
 
     bool canSuspendThenHibernate() const;
-
-    /**
-     * Requests a suspend of the system.
-     *
-     * @param method the suspend method to use
-     * @return the job handling the operation
-     */
-    KJob *suspend(SuspendMethod method);
+    void suspendThenHibernate();
 
 Q_SIGNALS:
     /**

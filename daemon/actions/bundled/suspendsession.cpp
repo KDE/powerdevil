@@ -117,19 +117,23 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 
     // Switch for real action
-    KJob *suspendJob = nullptr;
     switch (static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt())) {
     case PowerDevil::PowerButtonAction::SuspendToRam:
         Q_EMIT aboutToSuspend();
-        suspendJob = core()->suspendController()->suspend(m_suspendThenHibernateEnabled ? SuspendController::SuspendThenHibernate : SuspendController::ToRam);
+
+        if (m_suspendThenHibernateEnabled) {
+            core()->suspendController()->suspendThenHibernate();
+        } else {
+            core()->suspendController()->suspend();
+        }
         break;
     case PowerDevil::PowerButtonAction::SuspendToDisk:
         Q_EMIT aboutToSuspend();
-        suspendJob = core()->suspendController()->suspend(SuspendController::ToDisk);
+        core()->suspendController()->hibernate();
         break;
     case PowerDevil::PowerButtonAction::SuspendHybrid:
         Q_EMIT aboutToSuspend();
-        suspendJob = core()->suspendController()->suspend(SuspendController::HybridSuspend);
+        core()->suspendController()->hybridSuspend();
         break;
     case PowerDevil::PowerButtonAction::Shutdown:
         KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
@@ -145,11 +149,6 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
     default:
         break;
-    }
-
-    if (suspendJob) {
-        // TODO connect(suspendJob, &KJob::error ??, this, [this]() { m_fadeEffect->stop(); });
-        suspendJob->start();
     }
 }
 

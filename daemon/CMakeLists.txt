@@ -23,7 +23,6 @@ set(powerdevilcore_SRCS
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
     suspendcontroller.cpp
-    login1suspendjob.cpp
     batterycontroller.cpp
     upowerdevice.cpp
 )
