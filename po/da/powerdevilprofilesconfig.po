@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-07 01:58+0000\n"
 "PO-Revision-Date: 2020-10-04 17:00+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mschlander@opensuse.org"
 
-#: EditPage.cpp:159
+#: EditPage.cpp:160
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -38,12 +38,12 @@ msgstr ""
 "baseret på din computers kapabiliteter. Dette vil også slette alle "
 "eksisterende ændringer du har lavet. Vil du fortsætte?"
 
-#: EditPage.cpp:163
+#: EditPage.cpp:164
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Genskab standardprofiler"
 
-#: EditPage.cpp:235
+#: EditPage.cpp:237
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Strømstyringstjenesten lader til ikke at køre."

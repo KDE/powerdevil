@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-07 01:58+0000\n"
 "PO-Revision-Date: 2020-07-08 10:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -30,7 +30,7 @@ msgid "Your emails"
 msgstr ""
 "andrej.vernekar@gmail.com,andrej.znidarsic@ubuntu.com,andrejm@ubuntu.si"
 
-#: EditPage.cpp:159
+#: EditPage.cpp:160
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -42,12 +42,12 @@ msgstr ""
 "vse obstoječe spremembe, ki ste jih opravili. Ali ste prepričani, da želite "
 "nadaljevati?"
 
-#: EditPage.cpp:163
+#: EditPage.cpp:164
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Obnovi privzete profile"
 
-#: EditPage.cpp:235
+#: EditPage.cpp:237
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Kot kaže, storitev upravljanja z energijo ne teče."

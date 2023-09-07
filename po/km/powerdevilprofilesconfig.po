@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-07 01:58+0000\n"
 "PO-Revision-Date: 2012-06-14 14:00+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -30,7 +30,7 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: EditPage.cpp:159
+#: EditPage.cpp:160
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -40,12 +40,12 @@ msgstr ""
 "ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE នឹង​បង្កើត​សំណុំ​ទម្រង់​លំនាំដើម ដែល​មាន​មូលដ្ឋាន​លើ​សមត្ថភាព​នៃ​កុំព្យូទ័រ​របស់​អ្នក "
 "។ វា​នឹង​លុប​ទម្រង់​ដែល​មាន​ស្រាប់​ទាំងអស់ ។ តើ​អ្នក​ប្រាកដ​ជា​ចង់​បន្ត​ឬ ?"
 
-#: EditPage.cpp:163
+#: EditPage.cpp:164
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "ស្ដារ​​​ទម្រង់​លំនាំដើម"
 
-#: EditPage.cpp:235
+#: EditPage.cpp:237
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

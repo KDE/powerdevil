@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-07 01:58+0000\n"
 "PO-Revision-Date: 2019-12-12 22:24+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
 
-#: EditPage.cpp:159
+#: EditPage.cpp:160
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -36,12 +36,12 @@ msgid ""
 "modifications you made. Are you sure you want to continue?"
 msgstr ""
 
-#: EditPage.cpp:163
+#: EditPage.cpp:164
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr ""
 
-#: EditPage.cpp:235
+#: EditPage.cpp:237
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

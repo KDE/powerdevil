@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-07 01:58+0000\n"
 "PO-Revision-Date: 2011-12-15 07:57+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "s_dibbern@web.de, m.j.wiese@web.de"
 
-#: EditPage.cpp:159
+#: EditPage.cpp:160
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -40,12 +40,12 @@ msgstr ""
 "de op Dien Reeknerkönen opbuut. Dat deit ok all Dien vörhannen Ännern weg. "
 "Wullt Du redig wiedermaken?"
 
-#: EditPage.cpp:163
+#: EditPage.cpp:164
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Standardprofilen wedderherstellen"
 
-#: EditPage.cpp:235
+#: EditPage.cpp:237
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
