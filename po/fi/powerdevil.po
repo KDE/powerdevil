@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 02:27+0000\n"
+"POT-Creation-Date: 2023-09-07 02:25+0000\n"
 "PO-Revision-Date: 2023-03-06 13:47+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -343,44 +343,44 @@ msgstr "Edellinen ylläpitäjä"
 msgid "Replace an existing instance"
 msgstr "Korvaa aiempi instanssi"
 
-#: powerdevilcore.cpp:436 powerdevilcore.cpp:448
+#: powerdevilcore.cpp:438 powerdevilcore.cpp:450
 #, kde-format
 msgid "Activity Manager"
 msgstr "Aktiviteettienhallinta"
 
-#: powerdevilcore.cpp:437
+#: powerdevilcore.cpp:439
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Aktiviteetin asetukset estävät järjestelmän siirtymisen keskeytystilaa"
 
-#: powerdevilcore.cpp:449
+#: powerdevilcore.cpp:451
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Tämän aktiviteetin asetukset estävät näytön virranhallinnan"
 
-#: powerdevilcore.cpp:512
+#: powerdevilcore.cpp:514
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Lisäakku lisätty"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
+#: powerdevilcore.cpp:515 powerdevilcore.cpp:736
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tietokone ei enää siirry keskeytystilaan."
 
-#: powerdevilcore.cpp:580
+#: powerdevilcore.cpp:582
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Laitteen akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:587
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -390,22 +390,22 @@ msgstr ""
 "Laitteen ”%1” virta on vähissä ja laite voi sammua minä hetkenä hyvänsä. "
 "Lataa tai vaihda sen akku."
 
-#: powerdevilcore.cpp:591
+#: powerdevilcore.cpp:593
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Hiiren akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:595
+#: powerdevilcore.cpp:597
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Näppäimistön akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:599
+#: powerdevilcore.cpp:601
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth-laitteen akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:601
+#: powerdevilcore.cpp:603
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -416,7 +416,7 @@ msgstr ""
 "hyvänsä. Lataa tai vaihda sen akku."
 
 # Sovellettu käännös, koska voinee olettaa, että verkkovirta ainakin riittää.
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
@@ -425,7 +425,7 @@ msgstr ""
 "Akku on vähissä. Tietokoneen käytön jatkamiseksi kytke virtalähde ja "
 "varmista, että sen teho riittää."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
@@ -434,7 +434,7 @@ msgstr ""
 "Akku on vähissä. Jos sinun tarvitsee jatkaa tietokoneen käyttöä, kytke se "
 "verkkovirtaan tai sammuta kone ja vaihda akku."
 
-#: powerdevilcore.cpp:664
+#: powerdevilcore.cpp:666
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -442,19 +442,19 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Peru"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Akku on kriittisen vähissä. Järjestelmä sammutetaan 60 sekunnissa."
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:679
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Sammuta nyt"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -463,7 +463,7 @@ msgstr ""
 "Akku on kriittisen vähissä. Järjestelmä siirtyy keskeytystilaan 60 "
 "sekunnissa."
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:685
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -471,65 +471,65 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Siirry lepotilaan nyt"
 
-#: powerdevilcore.cpp:688
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Akku on kriittisen vähissä. Järjestelmä siirtyy valmiustilaan 60 sekunnissa."
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:691
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Siirry valmiustilaan nyt"
 
-#: powerdevilcore.cpp:694
+#: powerdevilcore.cpp:696
 #, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr "Akku on kriittisen vähissä. Tallenna työsi."
 
-#: powerdevilcore.cpp:705
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Akku vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:709
+#: powerdevilcore.cpp:711
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Akku kriittisen vähissä (%1 % jäljellä)"
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Verkkovirta kytketty"
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on AC power"
 msgstr "Verkkovirta käytössä"
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Kytkeydyttiin verkkovirtaan."
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Akku käytössä"
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Irtauduttiin verkkovirrasta."
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr "Lataus valmis"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Akku on nyt ladattu täyteen."

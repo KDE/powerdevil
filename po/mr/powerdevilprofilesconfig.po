@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"POT-Creation-Date: 2023-09-07 02:25+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "chetan@kompkin.com"
 
-#: EditPage.cpp:191
+#: EditPage.cpp:192
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -35,12 +35,12 @@ msgid ""
 "modifications you made. Are you sure you want to continue?"
 msgstr ""
 
-#: EditPage.cpp:194
+#: EditPage.cpp:195
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "मूलभूत रूपरेषांचे पुन्हस्थापन करा"
 
-#: EditPage.cpp:271
+#: EditPage.cpp:273
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

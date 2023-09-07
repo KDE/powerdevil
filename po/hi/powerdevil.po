@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4 - powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-14 02:27+0000\n"
+"POT-Creation-Date: 2023-09-07 02:25+0000\n"
 "PO-Revision-Date: 2021-07-10 10:57+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -354,28 +354,28 @@ msgstr "मेंटेनर"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:436 powerdevilcore.cpp:448
+#: powerdevilcore.cpp:438 powerdevilcore.cpp:450
 #, kde-format
 msgid "Activity Manager"
 msgstr ""
 
-#: powerdevilcore.cpp:437
+#: powerdevilcore.cpp:439
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
 
-#: powerdevilcore.cpp:449
+#: powerdevilcore.cpp:451
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 
-#: powerdevilcore.cpp:512
+#: powerdevilcore.cpp:514
 #, fuzzy, kde-format
 #| msgid "Critical battery level"
 msgid "Extra Battery Added"
 msgstr "बैटरी का गंभीर स्तर"
 
-#: powerdevilcore.cpp:513 powerdevilcore.cpp:734
+#: powerdevilcore.cpp:515 powerdevilcore.cpp:736
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
@@ -383,19 +383,19 @@ msgstr "बैटरी का गंभीर स्तर"
 msgid "The computer will no longer go to sleep."
 msgstr "कम्प्यूटर %1 सेकंड में हाल्ट हो जाएगा. इस प्रक्रिया को रोकने के लिए यहाँ क्लिक करें."
 
-#: powerdevilcore.cpp:580
+#: powerdevilcore.cpp:582
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:587
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -403,22 +403,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:591
+#: powerdevilcore.cpp:593
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:595
+#: powerdevilcore.cpp:597
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:599
+#: powerdevilcore.cpp:601
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:601
+#: powerdevilcore.cpp:603
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -426,21 +426,21 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid ""
 "Battery running low - to continue using your computer, plug it in or shut it "
 "down and change the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:664
+#: powerdevilcore.cpp:666
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -448,7 +448,7 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, the PC will be halted in %1 "
@@ -458,7 +458,7 @@ msgstr ""
 "आपकी बैटरी का स्तर गंभीर हो गया है. पीसी %1 सेकंड में हाल्ट हो जाएगा. इस प्रक्रिया को "
 "रोकने के लिए यहाँ क्लिक करें."
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:679
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -466,7 +466,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "बन्दकरें"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, the PC will be halted in %1 "
@@ -478,7 +478,7 @@ msgstr ""
 "आपकी बैटरी का स्तर गंभीर हो गया है. पीसी %1 सेकंड में हाल्ट हो जाएगा. इस प्रक्रिया को "
 "रोकने के लिए यहाँ क्लिक करें."
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:685
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -486,7 +486,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr ""
 
-#: powerdevilcore.cpp:688
+#: powerdevilcore.cpp:690
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, the PC will be halted in %1 "
@@ -496,14 +496,14 @@ msgstr ""
 "आपकी बैटरी का स्तर गंभीर हो गया है. पीसी %1 सेकंड में हाल्ट हो जाएगा. इस प्रक्रिया को "
 "रोकने के लिए यहाँ क्लिक करें."
 
-#: powerdevilcore.cpp:689
+#: powerdevilcore.cpp:691
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:694
+#: powerdevilcore.cpp:696
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, save your work as soon as "
@@ -511,51 +511,51 @@ msgstr ""
 msgid "Battery level critical. Please save your work."
 msgstr "आपकी बैटरी का स्तर गंभीर हो गया है. अपना कार्य जितनी जल्दी हो सके सहेज लें!"
 
-#: powerdevilcore.cpp:705
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:709
+#: powerdevilcore.cpp:711
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:733
+#: powerdevilcore.cpp:735
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "जब पावर एडॉप्टर प्लग में लगाया गया हो"
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:738
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
 msgid "The power adapter has been plugged in."
 msgstr "पावर एडॉप्टर प्लग में लगा दिया गया"
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:741
 #, fuzzy, kde-format
 #| msgid "When on battery Power"
 msgid "Running on Battery Power"
 msgstr "जब बैटरी पावर पर हो"
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:741
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
 msgid "The power adapter has been unplugged."
 msgstr "पावर एडॉप्टर प्लग से निकाल दिया गया"
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:800
+#: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
