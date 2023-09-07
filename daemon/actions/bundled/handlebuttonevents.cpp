@@ -185,14 +185,8 @@ void HandleButtonEvents::triggerAction(const QString &action, const QVariant &ty
     }
 }
 
-void HandleButtonEvents::triggerImpl(const QVariantMap &args)
+void HandleButtonEvents::triggerImpl(const QVariantMap & /*args*/)
 {
-    // For now, let's just accept the phantomatic "32" button. It is also always explicit
-    if (args["Button"].toInt() == 32) {
-        if (args.contains("Type")) {
-            triggerAction("SuspendSession", args["Type"]);
-        }
-    }
 }
 
 bool HandleButtonEvents::loadAction(const KConfigGroup &config)

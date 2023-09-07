@@ -791,11 +791,9 @@ void Core::onCriticalBatteryTimerExpired()
 
 void Core::triggerCriticalBatteryAction()
 {
-    // We consider this as a very special button
-    PowerDevil::Action *helperAction = action(QStringLiteral("HandleButtonEvents"));
+    PowerDevil::Action *helperAction = action(QStringLiteral("SuspendSession"));
     if (helperAction) {
         QVariantMap args;
-        args[QStringLiteral("Button")] = 32;
         args[QStringLiteral("Type")] = QVariant::fromValue<uint>(m_globalSettings->batteryCriticalAction());
         args[QStringLiteral("Explicit")] = true;
         helperAction->trigger(args);
