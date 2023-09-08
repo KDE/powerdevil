@@ -53,13 +53,6 @@ bool Action::unloadAction()
     d->core->unregisterActionTimeouts(this);
     d->registeredIdleTimeouts.clear();
 
-    // Ok, let's see if the action has to do something for being unloaded
-    return onUnloadAction();
-}
-
-bool Action::onUnloadAction()
-{
-    // Usually nothing has to be done, so let's just happily return true
     return true;
 }
 

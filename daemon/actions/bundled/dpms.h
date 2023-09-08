@@ -38,7 +38,6 @@ protected:
     void onProfileUnload() override
     {
     }
-    bool onUnloadAction() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/) override

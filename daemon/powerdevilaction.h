@@ -191,13 +191,6 @@ protected Q_SLOTS:
      * This function is called when the profile is unloaded.
      */
     virtual void onProfileUnload() = 0;
-    /**
-     * This function is called when the action is unloaded. You usually want to put what would have gone in your
-     * destructor here.
-     *
-     * @returns Whether the action was unloaded successfully.
-     */
-    virtual bool onUnloadAction();
 
 Q_SIGNALS:
     void actionTriggered(bool result, const QString &error = QString());

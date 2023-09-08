@@ -177,11 +177,6 @@ bool DPMS::loadAction(const KConfigGroup &config)
     return true;
 }
 
-bool DPMS::onUnloadAction()
-{
-    return Action::onUnloadAction();
-}
-
 void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
 {
     m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
