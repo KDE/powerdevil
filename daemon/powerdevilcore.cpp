@@ -10,7 +10,6 @@
 
 #include "powerdevil_debug.h"
 #include "powerdevilaction.h"
-#include "powerdevilactionpool.h"
 #include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilpowermanagement.h"
@@ -27,6 +26,8 @@
 #include <KIdleTime>
 #include <KLocalizedString>
 #include <KNotification>
+#include <KPluginFactory>
+#include <KPluginMetaData>
 
 #include <KActivities/Consumer>
 
@@ -72,9 +73,8 @@ Core::Core(QObject *parent)
 Core::~Core()
 {
     qCDebug(POWERDEVIL) << "Core unloading";
-    // Unload all actions before exiting, and clear the cache
-    ActionPool::instance()->unloadAllActiveActions();
-    ActionPool::instance()->clearCache();
+    // Unload all actions before exiting
+    unloadAllActiveActions();
 }
 
 void Core::loadCore(BackendInterface *backend)
@@ -167,7 +167,7 @@ void Core::onBackendReady()
     });
 
     // Initialize the action pool, which will also load the needed startup actions.
-    PowerDevil::ActionPool::instance()->init(this);
+    initActions();
 
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
@@ -217,10 +217,40 @@ void Core::onBackendReady()
     refreshStatus();
 }
 
+void Core::initActions()
+{
+    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
+    for (const KPluginMetaData &data : offers) {
+        if (auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, this).plugin) {
+            m_actionPool.insert(data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), plugin);
+        }
+    }
+
+    // Verify support
+    QHash<QString, Action *>::iterator i = m_actionPool.begin();
+    while (i != m_actionPool.end()) {
+        Action *action = i.value();
+        if (!action->isSupported()) {
+            i = m_actionPool.erase(i);
+            action->deleteLater();
+        } else {
+            ++i;
+        }
+    }
+
+    // Register DBus objects
+    for (const KPluginMetaData &offer : offers) {
+        QString actionId = offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
+        if (offer.value(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), false) && m_actionPool.contains(actionId)) {
+            QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
+        }
+    }
+}
+
 bool Core::isActionSupported(const QString &actionName)
 {
-    Action *action = ActionPool::instance()->action(actionName);
-    return action ? action->isSupported() : false;
+    Action *act = action(actionName);
+    return act ? act->isSupported() : false;
 }
 
 void Core::refreshStatus()
@@ -331,7 +361,7 @@ void Core::loadProfile(bool force)
         }
     } else {
         // First of all, let's clean the old actions. This will also call the onProfileUnload callback
-        ActionPool::instance()->unloadAllActiveActions();
+        unloadAllActiveActions();
 
         // Do we need to force a wakeup?
         if (m_pendingWakeupEvent) {
@@ -343,8 +373,18 @@ void Core::loadProfile(bool force)
         // Cool, now let's load the needed actions
         const auto groupList = config.groupList();
         for (const QString &actionName : groupList) {
-            Action *action = ActionPool::instance()->loadAction(actionName, config.group(actionName), this);
-            if (action) {
+            if (m_actionPool.contains(actionName)) {
+                Action *action = m_actionPool[actionName];
+
+                if (m_activeActions.contains(actionName)) {
+                    // We are reloading the action: let's unload it first then.
+                    action->onProfileUnload();
+                    action->unloadAction();
+                    m_activeActions.removeOne(actionName);
+                }
+                action->loadAction(config.group(actionName));
+                m_activeActions.append(actionName);
+
                 action->onProfileLoad(m_currentProfile, profileId);
             } else {
                 // Ouch, error. But let's just warn and move on anyway
@@ -752,7 +792,7 @@ void Core::onCriticalBatteryTimerExpired()
 void Core::triggerCriticalBatteryAction()
 {
     // We consider this as a very special button
-    PowerDevil::Action *helperAction = ActionPool::instance()->action(QStringLiteral("HandleButtonEvents"));
+    PowerDevil::Action *helperAction = action(QStringLiteral("HandleButtonEvents"));
     if (helperAction) {
         QVariantMap args;
         args[QStringLiteral("Button")] = 32;
@@ -965,6 +1005,20 @@ BatteryController *Core::batteryController()
     return m_batteryController.get();
 }
 
+Action *Core::action(const QString actionId)
+{
+    return m_actionPool.value(actionId, nullptr);
+}
+
+void Core::unloadAllActiveActions()
+{
+    for (const QString &action : qAsConst(m_activeActions)) {
+        m_actionPool[action]->onProfileUnload();
+        m_actionPool[action]->unloadAction();
+    }
+    m_activeActions.clear();
+}
+
 bool Core::isLidClosed() const
 {
     return m_backend->isLidClosed();
@@ -1014,7 +1068,7 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
 void Core::wakeup()
 {
     onResumingFromIdle();
-    PowerDevil::Action *helperAction = ActionPool::instance()->action(QStringLiteral("DPMSControl"));
+    PowerDevil::Action *helperAction = action(QStringLiteral("DPMSControl"));
     if (helperAction) {
         QVariantMap args;
         // we pass empty string as type because when empty type is passed,

@@ -9,7 +9,6 @@ add_subdirectory(actions)
 set(powerdevilcore_SRCS
     powerdevil_debug.cpp
     powerdevilaction.cpp
-    powerdevilactionpool.cpp
     powerdevilbackendinterface.cpp
     powerdevilcore.cpp
     powerdevilenums.cpp

@@ -80,6 +80,8 @@ public:
     SuspendController *suspendController();
     BatteryController *batteryController();
 
+    Action *action(const QString actionId);
+
     // More...
 
 public Q_SLOTS:
@@ -121,6 +123,8 @@ Q_SIGNALS:
     void chargeStopThresholdChanged(int threshold);
 
 private:
+    void initActions();
+    void unloadAllActiveActions();
     void registerActionTimeout(Action *action, std::chrono::milliseconds timeout);
     void unregisterActionTimeouts(Action *action);
     void handleLowBattery(int percent);
@@ -177,6 +181,9 @@ private:
     // Activity inhibition management
     QHash<QString, int> m_sessionActivityInhibit;
     QHash<QString, int> m_screenActivityInhibit;
+
+    QHash<QString, Action *> m_actionPool;
+    QStringList m_activeActions;
 
 private Q_SLOTS:
     void onBackendReady();

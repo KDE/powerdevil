@@ -8,7 +8,6 @@
 #include "powerdevilfdoconnector.h"
 
 #include "powerdevilaction.h"
-#include "powerdevilactionpool.h"
 #include "powerdevilcore.h"
 
 #include "powermanagementfdoadaptor.h"
@@ -118,7 +117,7 @@ void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::Require
 
 void FdoConnector::triggerSuspendSession(PowerButtonAction action)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->action("SuspendSession");
+    PowerDevil::Action *helperAction = m_core->action("SuspendSession");
     if (helperAction) {
         QVariantMap args;
         args["Type"] = qToUnderlying(action);

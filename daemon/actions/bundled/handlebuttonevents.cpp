@@ -9,7 +9,7 @@
 #include "handlebuttoneventsadaptor.h"
 
 #include <powerdevil_debug.h>
-#include <powerdevilactionpool.h>
+#include <powerdevilcore.h>
 #include <powerdevilenums.h>
 
 #include <QAction>
@@ -186,7 +186,7 @@ void HandleButtonEvents::processAction(uint action)
 
 void HandleButtonEvents::triggerAction(const QString &action, const QVariant &type)
 {
-    PowerDevil::Action *helperAction = ActionPool::instance()->action(action);
+    PowerDevil::Action *helperAction = core()->action(action);
     if (helperAction) {
         helperAction->trigger({
             {QStringLiteral("Type"), type},
