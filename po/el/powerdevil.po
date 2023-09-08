@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -281,11 +281,6 @@ msgstr "Αυτόματα"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Όταν είναι σε κοίμηση να μπει σε νάρκη μετά από μια περίοδο αδράνειας"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Μη υποστηριζόμενη μέθοδος αναστολής"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -543,6 +538,9 @@ msgstr "Φόρτιση πλήρης"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμένη."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Μη υποστηριζόμενη μέθοδος αναστολής"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

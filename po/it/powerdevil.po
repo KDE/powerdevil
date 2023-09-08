@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marcello Anni <marcello.anni@alice.it>, 2009, 2010, 2011, 2012.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2009.
-# Vincenzo Reale <smart2128vr@gmail.com>, 2015, 2019, 2020, 2021, 2022, 2023.
+# SPDX-FileCopyrightText: 2015, 2019, 2020, 2021, 2022, 2023 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
-"PO-Revision-Date: 2023-07-17 10:37+0200\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
+"PO-Revision-Date: 2023-09-04 09:04+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -274,11 +274,6 @@ msgstr "Automaticamente"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "In sospensione, iberna dopo un periodo di inattività"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Metodo di sospensione non supportato"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -407,20 +402,15 @@ msgstr ""
 "la batteria."
 
 #: powerdevilcore.cpp:586
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"La batteria è al livello basso. Per continuare a utilizzare il computer, "
-"assicurati che l'alimentatore sia collegato e che fornisca energia "
-"sufficiente."
+"Assicurati che l'alimentatore sia collegato e fornisca energia sufficiente."
 
 #: powerdevilcore.cpp:588
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Collega il computer."
 
 #: powerdevilcore.cpp:605
 #, kde-format
@@ -431,11 +421,9 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: powerdevilcore.cpp:617
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr "Il computer verrà messo in standby fra 1 secondo."
+msgstr "Il computer si spegnerà tra 60 secondi."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -445,11 +433,9 @@ msgid "Shut Down Now"
 msgstr "Spegni subito"
 
 #: powerdevilcore.cpp:623
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr "Il computer verrà sospeso fra 1 secondo."
+msgstr "Il computer sarà ibernato tra 60 secondi."
 
 #: powerdevilcore.cpp:624
 #, kde-format
@@ -460,11 +446,9 @@ msgid "Hibernate Now"
 msgstr "Iberna subito"
 
 #: powerdevilcore.cpp:630
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr "Il computer verrà sospeso fra 1 secondo."
+msgstr "Il computer sarà sospeso fra 60 secondi."
 
 #: powerdevilcore.cpp:631
 #, kde-format
@@ -474,10 +458,9 @@ msgid "Sleep Now"
 msgstr "Sospendi subito"
 
 #: powerdevilcore.cpp:636
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Livello critico della batteria. Salva il tuo lavoro."
+msgstr "Salva il tuo lavoro."
 
 #: powerdevilcore.cpp:647
 #, kde-format
@@ -523,6 +506,9 @@ msgstr "Carica completata"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batteria è ora completamente carica."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Metodo di sospensione non supportato"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

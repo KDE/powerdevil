@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-09-02 13:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -276,11 +276,6 @@ msgstr "Automatisk"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "I kvilemodus, gå til dvalemodus etter periode utan aktivitet"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Denne metoden for kvilemodus er ikkje støtta"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -528,3 +523,6 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Denne metoden for kvilemodus er ikkje støtta"

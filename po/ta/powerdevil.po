@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-07-16 12:57+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -273,11 +273,6 @@ msgstr "தானாக"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "குறிப்பிட்ட நேரம் உறங்கியபின் ஆழுறக்கத்தில் நுழை"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "ஆதரிக்கப்படாத தூக்க முறை"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -518,6 +513,9 @@ msgstr "ஆற்றலேற்றம் முடிந்த‍து"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "மின்கலத்தில் ஆற்றல் முழுதாக ஏறியுள்ளது."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "ஆதரிக்கப்படாத தூக்க முறை"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

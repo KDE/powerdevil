@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2021-07-22 11:40+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -276,11 +276,6 @@ msgstr "Avtomatik"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Boşdayanma zamanı gözləmə rejimindən yuxu rejiminə keçmək"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Dəstəklənməyən enerjiyə qənaət rejimi"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -540,6 +535,9 @@ msgstr "Batareya tam doldu"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "İndi batareya tam dolub."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Dəstəklənməyən enerjiyə qənaət rejimi"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

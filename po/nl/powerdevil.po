@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-09-03 14:35+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -272,11 +272,6 @@ msgstr "Automatisch"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Tijdens slapen, slaapstand naar schijf na een periode van inactiviteit"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Niet-ondersteunde slaapstandmethode"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -509,6 +504,9 @@ msgstr "Laden voltooid"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batterij is nu volledig geladen."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Niet-ondersteunde slaapstandmethode"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

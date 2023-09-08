@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-09-03 20:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -273,11 +273,6 @@ msgstr "Otomatik olarak"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Uyurken, bir süre hareketsiz kaldıktan sonra hazırda beklet"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Desteklenmeyen askıya alma yöntemi"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -508,6 +503,9 @@ msgstr "Şarj Bitti"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Piliniz tümüyle şarj edildi."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Desteklenmeyen askıya alma yöntemi"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2020-04-26 10:46+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -282,11 +282,6 @@ msgstr "Automaatne"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Uneseisundist lülitutakse teatava aja järel talveunne"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Toetamata passiivseisundi meetod"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -538,6 +533,9 @@ msgstr "Laadimine on tehtud"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku on nüüd täielikult laetud."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Toetamata passiivseisundi meetod"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

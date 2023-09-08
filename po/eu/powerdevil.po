@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-09-03 10:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -278,11 +278,6 @@ msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
 "Lo dagoela, hibernatu jarduerarik gabeko denbora tarte bat igaro ondoren"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Esekitze-metodoa ez da onartzen"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -514,6 +509,9 @@ msgstr "Zamatzea osatu da"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Bateria erabat zamatuta dago orain."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Esekitze-metodoa ez da onartzen"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

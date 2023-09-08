@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2017-05-16 06:57-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
@@ -283,11 +283,6 @@ msgstr ""
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "סוג השהייה לא נתמך"
-
 #: powerdevilapp.cpp:54
 #, fuzzy, kde-format
 msgid "KDE Power Management System"
@@ -551,6 +546,9 @@ msgstr "הטעינה הושלמה"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "הסוללה עכשיו מלאה"
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "סוג השהייה לא נתמך"
 
 #, fuzzy
 #~| msgid ""

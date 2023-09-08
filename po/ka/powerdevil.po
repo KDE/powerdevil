@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-09-04 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -273,11 +273,6 @@ msgstr "ავტომატურად"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "ძილისას, დისკზე დაძინება გარკვეული დროის არააქტიურობის შემდეგ"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "დაძინების მხარდაუჭერელი მეთოდი"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -507,6 +502,9 @@ msgstr "დატენვა დასრულდა"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ელემენტი სრულად დაიტენა."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "დაძინების მხარდაუჭერელი მეთოდი"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -281,11 +281,6 @@ msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
 "Падчас прыпынення ў RAM пераходзіць у рэжым сну пасля перыяду бяздзейнасці"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Метад прыпынення не падтрымліваецца"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -535,6 +530,9 @@ msgstr "Зараджэнне завершана"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарэя цалкам зараджаная."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Метад прыпынення не падтрымліваецца"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "

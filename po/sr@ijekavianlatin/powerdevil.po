@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -300,11 +300,6 @@ msgstr ""
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Nepodržan metod suspendovanja"
-
 #: powerdevilapp.cpp:54
 #, fuzzy, kde-format
 #| msgctxt "Name for powerdevil shortcuts category"
@@ -575,6 +570,9 @@ msgstr "Punjenje dovršeno"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Baterija je sada potpuno napunjena."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Nepodržan metod suspendovanja"
 
 #, fuzzy
 #~| msgid ""

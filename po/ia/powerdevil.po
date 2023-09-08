@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-08 01:58+0000\n"
 "PO-Revision-Date: 2023-09-04 10:08+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -272,11 +272,6 @@ msgstr "Automaticamente"
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "Quando on dormi, hyberna post un periodo de inactivitate"
 
-#: login1suspendjob.cpp:63
-#, kde-format
-msgid "Unsupported suspend method"
-msgstr "Methodo de suspender non supportate"
-
 #: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
@@ -509,6 +504,9 @@ msgstr "Cargamento complete"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteria nunc completemente cargate."
+
+#~ msgid "Unsupported suspend method"
+#~ msgstr "Methodo de suspender non supportate"
 
 #~ msgid ""
 #~ "Battery running low - to continue using your computer, plug it in or shut "
