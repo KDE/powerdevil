@@ -70,19 +70,6 @@ void PowerProfile::onProfileLoad(const QString & /*previousProfile*/, const QStr
     }
 }
 
-void PowerProfile::onWakeupFromIdle()
-{
-}
-
-void PowerProfile::onIdleTimeout(std::chrono::milliseconds timeout)
-{
-    Q_UNUSED(timeout);
-}
-
-void PowerProfile::onProfileUnload()
-{
-}
-
 void PowerProfile::triggerImpl(const QVariantMap &args)
 {
     Q_UNUSED(args);

@@ -58,11 +58,6 @@ SuspendSession::SuspendSession(QObject *parent)
 
 SuspendSession::~SuspendSession() = default;
 
-void SuspendSession::onProfileUnload()
-{
-    // Nothing to do
-}
-
 void SuspendSession::onWakeupFromIdle()
 {
     m_fadeEffect->stop();
@@ -80,11 +75,6 @@ void SuspendSession::onIdleTimeout(std::chrono::milliseconds timeout)
     }
 
     trigger(args);
-}
-
-void SuspendSession::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
-{
-    // Nothing to do
 }
 
 void SuspendSession::triggerImpl(const QVariantMap &args)

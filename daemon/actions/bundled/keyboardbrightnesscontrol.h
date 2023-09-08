@@ -20,9 +20,6 @@ public:
     explicit KeyboardBrightnessControl(QObject *parent);
 
 protected:
-    void onProfileUnload() override;
-    void onWakeupFromIdle() override;
-    void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;

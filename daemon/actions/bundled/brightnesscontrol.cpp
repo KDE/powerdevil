@@ -63,21 +63,6 @@ BrightnessControl::BrightnessControl(QObject *parent)
     connect(globalAction, &QAction::triggered, this, &BrightnessControl::decreaseBrightnessSmall);
 }
 
-void BrightnessControl::onProfileUnload()
-{
-    //
-}
-
-void BrightnessControl::onWakeupFromIdle()
-{
-    //
-}
-
-void BrightnessControl::onIdleTimeout(std::chrono::milliseconds timeout)
-{
-    Q_UNUSED(timeout);
-}
-
 void BrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)
 {
     const int absoluteBrightnessValue = qRound(m_defaultValue / 100.0 * brightnessMax());

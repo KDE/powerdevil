@@ -26,10 +26,6 @@ DimDisplay::DimDisplay(QObject *parent)
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
 }
 
-void DimDisplay::onProfileUnload()
-{
-}
-
 void DimDisplay::onWakeupFromIdle()
 {
     if (!m_dimmed) {
@@ -65,11 +61,6 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     setBrightnessHelper(newBrightness, 0);
 
     m_dimmed = true;
-}
-
-void DimDisplay::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
-{
-    //
 }
 
 void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)

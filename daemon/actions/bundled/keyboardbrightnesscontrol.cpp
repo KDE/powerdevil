@@ -70,21 +70,6 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
     });
 }
 
-void KeyboardBrightnessControl::onProfileUnload()
-{
-    //
-}
-
-void KeyboardBrightnessControl::onWakeupFromIdle()
-{
-    //
-}
-
-void KeyboardBrightnessControl::onIdleTimeout(std::chrono::milliseconds timeout)
-{
-    Q_UNUSED(timeout);
-}
-
 void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)
 {
     const int absoluteKeyboardBrightnessValue = qRound(m_defaultValue / 100.0 * keyboardBrightnessMax());

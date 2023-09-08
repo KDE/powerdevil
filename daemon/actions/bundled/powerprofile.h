@@ -48,9 +48,6 @@ Q_SIGNALS:
 
 protected:
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
-    void onWakeupFromIdle() override;
-    void onIdleTimeout(std::chrono::milliseconds timeout) override;
-    void onProfileUnload() override;
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 private Q_SLOTS:

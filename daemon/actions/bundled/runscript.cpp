@@ -33,11 +33,6 @@ void RunScript::onProfileUnload()
     }
 }
 
-void RunScript::onWakeupFromIdle()
-{
-    //
-}
-
 void RunScript::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_UNUSED(timeout);

@@ -109,19 +109,9 @@ void HandleButtonEvents::onProfileUnload()
     m_powerButtonAction = 0;
 }
 
-void HandleButtonEvents::onWakeupFromIdle()
-{
-    //
-}
-
 void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_UNUSED(timeout)
-}
-
-void HandleButtonEvents::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
-{
-    //
 }
 
 void HandleButtonEvents::onButtonPressed(BackendInterface::ButtonType type)

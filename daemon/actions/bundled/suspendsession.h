@@ -29,10 +29,8 @@ public:
     bool loadAction(const KConfigGroup &config) override;
 
 protected:
-    void onProfileUnload() override;
     void onWakeupFromIdle() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
-    void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
     void triggerImpl(const QVariantMap &args) override;
 
 public Q_SLOTS:

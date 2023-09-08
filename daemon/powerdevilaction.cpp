@@ -75,6 +75,22 @@ void Action::setRequiredPolicies(PolicyAgent::RequiredPolicies requiredPolicies)
     m_requiredPolicies = requiredPolicies;
 }
 
+void Action::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
+{
+}
+
+void Action::onWakeupFromIdle()
+{
+}
+
+void Action::onProfileLoad(const QString & /*previousProfile*/, const QString & /*newProfile*/)
+{
+}
+
+void Action::onProfileUnload()
+{
+}
+
 } // namespace PowerDevil
 
 #include "moc_powerdevilaction.cpp"
