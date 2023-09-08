@@ -112,9 +112,9 @@ public:
      */
     virtual bool loadAction(const KConfigGroup &config) = 0;
     /**
-     * Unloads the action. You usually shouldn't reimplement this function: reimplement onUnloadAction instead.
+     * Unloads the action.
      */
-    virtual void unloadAction();
+    void unloadAction();
 
     /**
      * This function is meant to find out if this action is available on this system. Actions
