@@ -29,20 +29,16 @@ class Core;
  * @par Creating a brand new Action
  *
  * If you are already familiar with KDE's plugin system, you have to know that actions are
- * nothing but a KService plugin which will be loaded on demand. Each action has an ID associated to it
+ * nothing but a KCoreAddons plugin which will be loaded on demand. Each action has an ID associated to it
  * which represents it in the config file and uniquely identifies it in the loading phase.
  *
- * In addition to standard parameters, the .desktop file representing your action should contain the following
+ * In addition to standard parameters, the .json file representing your action should contain the following
  * entries:
  *
  * @code
- * X-KDE-PowerDevil-Action-ID=YourActionID
- * X-KDE-PowerDevil-Action-UIComponentLibrary=myactionplugin_config
- * X-KDE-PowerDevil-Action-ConfigPriority=98
+ * X-KDE-PowerDevil-Action-ID: YourActionID
+ * X-KDE-PowerDevil-Action-ConfigPriority: 98
  * @endcode
- *
- * The @c UIComponentLibrary field refers to the library which contains the configuration UI
- * for your action. Please see ActionConfig documentation for more details.
  *
  * The @c ConfigPriority is relevant to the configuration UI as well, and determines where your config UI will appear.
  * The higher the number, the higher your config UI will be in the list of actions. Choose this value wisely: usually
@@ -57,20 +53,16 @@ class Core;
  *
  * Some actions might be available only when the system satisfies certain hardware or software runtime requirements.
  * In this case, powerdevil provides a way for the action to advertise to the outside whether it is supported or
- * not. This can be done by reimplementing @c isSupported and adding to the .desktop file the field
+ * not. This can be done by reimplementing @c isSupported and adding to the .json file the field
  *
  * @code
- * X-KDE-PowerDevil-Action-HasRuntimeRequirement=true
+ * X-KDE-PowerDevil-Action-HasRuntimeRequirement: true
  * @endcode
  *
  * Done that, powerdevil will take care of exposing your action only if support for it is advertised. In addition,
  * the UI will expose the configuration of your action only if its support is advertised. Of course, this means the
  * action will be temporarily loaded by the config UI to verify its support. If your action is performing some tasks in
- * the constructor besides setting policies, first of all revise your design since you probably don't need or want to
- * do that. If you really cannot avoid that, you MUST check for an OPTIONAL parameter in the QVariantList coming
- * from the plugin's constructor. If it exists, it's a boolean and it is true, the action is being loaded just for
- * a support check, and you should refrain from doing any actions which would affect the system. This parameter is also
- * used in tests.
+ * the constructor besides setting policies, revise your design since you probably don't need or want to do that.
  *
  * @par Handling policies from within the action
  *
