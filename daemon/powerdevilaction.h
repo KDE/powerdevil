@@ -190,9 +190,6 @@ protected Q_SLOTS:
      */
     virtual void onProfileUnload() = 0;
 
-Q_SIGNALS:
-    void actionTriggered(bool result, const QString &error = QString());
-
 private:
     class Private;
     Private *const d;
