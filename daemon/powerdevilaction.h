@@ -191,8 +191,10 @@ protected Q_SLOTS:
     virtual void onProfileUnload() = 0;
 
 private:
-    class Private;
-    Private *const d;
+    PowerDevil::Core *m_core;
+
+    QVector<std::chrono::milliseconds> m_registeredIdleTimeouts;
+    PowerDevil::PolicyAgent::RequiredPolicies m_requiredPolicies;
 
     friend class Core;
 };

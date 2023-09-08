@@ -13,45 +13,28 @@
 
 namespace PowerDevil
 {
-class Action::Private
-{
-public:
-    Private()
-    {
-    }
-    ~Private()
-    {
-    }
-
-    PowerDevil::Core *core;
-
-    QVector<std::chrono::milliseconds> registeredIdleTimeouts;
-    PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies;
-};
 
 Action::Action(QObject *parent)
     : QObject(parent)
-    , d(new Private)
 {
-    d->core = qobject_cast<PowerDevil::Core *>(parent);
+    m_core = qobject_cast<PowerDevil::Core *>(parent);
 }
 
 Action::~Action()
 {
-    delete d;
 }
 
 void Action::registerIdleTimeout(std::chrono::milliseconds timeout)
 {
-    d->registeredIdleTimeouts.append(timeout);
-    d->core->registerActionTimeout(this, timeout);
+    m_registeredIdleTimeouts.append(timeout);
+    m_core->registerActionTimeout(this, timeout);
 }
 
 void Action::unloadAction()
 {
     // Remove all registered idle timeouts, if any
-    d->core->unregisterActionTimeouts(this);
-    d->registeredIdleTimeouts.clear();
+    m_core->unregisterActionTimeouts(this);
+    m_registeredIdleTimeouts.clear();
 }
 
 bool Action::isSupported()
@@ -61,12 +44,12 @@ bool Action::isSupported()
 
 BackendInterface *Action::backend() const
 {
-    return d->core->backend();
+    return m_core->backend();
 }
 
 Core *Action::core()
 {
-    return d->core;
+    return m_core;
 }
 
 void Action::trigger(const QVariantMap &args)
@@ -76,7 +59,7 @@ void Action::trigger(const QVariantMap &args)
         triggerImpl(args);
     } else {
         // The action was taken automatically: let's check if we have the rights to do that
-        PolicyAgent::RequiredPolicies unsatisfiablePolicies = PolicyAgent::instance()->requirePolicyCheck(d->requiredPolicies);
+        PolicyAgent::RequiredPolicies unsatisfiablePolicies = PolicyAgent::instance()->requirePolicyCheck(m_requiredPolicies);
         if (unsatisfiablePolicies == PolicyAgent::None) {
             // Ok, let's trigger the action
             triggerImpl(args);
@@ -89,9 +72,9 @@ void Action::trigger(const QVariantMap &args)
 
 void Action::setRequiredPolicies(PolicyAgent::RequiredPolicies requiredPolicies)
 {
-    d->requiredPolicies = requiredPolicies;
+    m_requiredPolicies = requiredPolicies;
 }
 
-}
+} // namespace PowerDevil
 
 #include "moc_powerdevilaction.cpp"
