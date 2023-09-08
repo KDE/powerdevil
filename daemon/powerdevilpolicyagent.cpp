@@ -550,16 +550,6 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
     return retpolicies;
 }
 
-void PolicyAgent::startSessionInterruption()
-{
-    m_sessionIsBeingInterrupted = true;
-}
-
-void PolicyAgent::finishSessionInterruption()
-{
-    m_sessionIsBeingInterrupted = false;
-}
-
 void PolicyAgent::onScreenLockerOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner)
 {
     Q_UNUSED(oldOwner);

@@ -113,8 +113,6 @@ private:
     explicit PolicyAgent(QObject *parent = nullptr);
 
     void init();
-    void startSessionInterruption();
-    void finishSessionInterruption();
 
     void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
 
