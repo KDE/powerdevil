@@ -264,13 +264,6 @@ QString Core::currentProfile() const
 void Core::loadProfile(bool force)
 {
     QString profileId;
-
-    // Policy check
-    if (PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::ChangeProfile) != PolicyAgent::None) {
-        qCDebug(POWERDEVIL) << "Policy Agent prevention: on";
-        return;
-    }
-
     KConfigGroup config;
 
     // Check the activity in which we are in

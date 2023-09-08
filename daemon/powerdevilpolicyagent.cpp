@@ -484,9 +484,6 @@ PolicyAgent::RequiredPolicies PolicyAgent::unavailablePolicies()
 {
     RequiredPolicies retpolicies = None;
 
-    if (!m_typesToCookie[ChangeProfile].isEmpty()) {
-        retpolicies |= ChangeProfile;
-    }
     // when screen locker is active it makes no sense to keep the screen on
     if (!m_screenLockerActive && !m_typesToCookie[ChangeScreenSettings].isEmpty()) {
         retpolicies |= ChangeScreenSettings;
@@ -531,11 +528,6 @@ PolicyAgent::RequiredPolicies PolicyAgent::requirePolicyCheck(PolicyAgent::Requi
     // Ok, let's go then
     RequiredPolicies retpolicies = None;
 
-    if (policies & ChangeProfile) {
-        if (!m_typesToCookie[ChangeProfile].isEmpty()) {
-            retpolicies |= ChangeProfile;
-        }
-    }
     if (policies & ChangeScreenSettings) {
         if (!m_typesToCookie[ChangeScreenSettings].isEmpty()) {
             retpolicies |= ChangeScreenSettings;
@@ -644,14 +636,6 @@ void PolicyAgent::addInhibitionTypeHelper(uint cookie, PolicyAgent::RequiredPoli
 {
     // Look through all of the inhibition types
     bool notify = false;
-    if (types & ChangeProfile) {
-        // Check if we have to notify
-        if (m_typesToCookie[ChangeProfile].isEmpty()) {
-            qCDebug(POWERDEVIL) << "Added change profile";
-            notify = true;
-        }
-        m_typesToCookie[ChangeProfile].append(cookie);
-    }
     if (types & ChangeScreenSettings) {
         // Check if we have to notify
         qCDebug(POWERDEVIL) << "Added change screen settings";
@@ -696,13 +680,6 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
 
     // Look through all of the inhibition types
     bool notify = false;
-    if (m_typesToCookie[ChangeProfile].contains(cookie)) {
-        m_typesToCookie[ChangeProfile].removeOne(cookie);
-        // Check if we have to notify
-        if (m_typesToCookie[ChangeProfile].isEmpty()) {
-            notify = true;
-        }
-    }
     if (m_typesToCookie[ChangeScreenSettings].contains(cookie)) {
         m_typesToCookie[ChangeScreenSettings].removeOne(cookie);
         // Check if we have to notify

@@ -62,7 +62,6 @@ public:
     enum RequiredPolicy {
         None = 0,
         InterruptSession = 1,
-        ChangeProfile = 2,
         ChangeScreenSettings = 4,
     };
     Q_DECLARE_FLAGS(RequiredPolicies, RequiredPolicy)
