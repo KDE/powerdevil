@@ -24,6 +24,7 @@
 #include "batterycontroller.h"
 #include "powerdevilcore_export.h"
 #include "suspendcontroller.h"
+#include "wakeupcontroller.h"
 
 namespace KActivities
 {
@@ -43,13 +44,6 @@ namespace PowerDevil
 {
 class BackendInterface;
 class Action;
-
-struct WakeupInfo {
-    QString service;
-    QDBusObjectPath path;
-    int cookie;
-    qint64 timeout;
-};
 
 class POWERDEVILCORE_EXPORT Core : public QObject, protected QDBusContext
 {
@@ -145,6 +139,7 @@ private:
     BackendInterface *m_backend = nullptr;
     std::unique_ptr<SuspendController> m_suspendController;
     std::unique_ptr<BatteryController> m_batteryController;
+    std::unique_ptr<WakeupController> m_wakeupController;
 
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;
@@ -168,12 +163,6 @@ private:
     QSet<Action *> m_pendingResumeFromIdleActions;
     bool m_pendingWakeupEvent;
 
-    // Scheduled wakeups and alarms
-    QList<WakeupInfo> m_scheduledWakeups;
-    int m_lastWakeupCookie = 0;
-    int m_timerFd = -1;
-    QSocketNotifier *m_timerFdSocketNotifier = nullptr;
-
     // Activity inhibition management
     QHash<QString, int> m_sessionActivityInhibit;
     QHash<QString, int> m_screenActivityInhibit;
@@ -194,9 +183,6 @@ private Q_SLOTS:
     void onServiceRegistered(const QString &service);
     void onLidClosedChanged(bool closed);
     void onAboutToSuspend();
-    // handlers for handling wakeup dbus call
-    void resetAndScheduleNextWakeup();
-    void timerfdEventHandler();
 };
 
 }

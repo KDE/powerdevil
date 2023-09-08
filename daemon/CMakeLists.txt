@@ -24,6 +24,7 @@ set(powerdevilcore_SRCS
     kwinkscreenhelpereffect.cpp
     suspendcontroller.cpp
     batterycontroller.cpp
+    wakeupcontroller.cpp
     upowerdevice.cpp
 )
 
