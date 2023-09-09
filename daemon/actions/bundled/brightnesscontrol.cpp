@@ -30,8 +30,6 @@ BrightnessControl::BrightnessControl(QObject *parent)
     // DBus
     new BrightnessControlAdaptor(this);
 
-    setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
-
     connect(core()->backend(),
             &PowerDevil::BackendInterface::screenBrightnessChanged,
             this,
@@ -73,29 +71,12 @@ void BrightnessControl::onProfileLoad(const QString &previousProfile, const QStr
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
     } else if (absoluteBrightnessValue >= 0) {
-        QVariantMap args{
-            {QStringLiteral("Value"), QVariant::fromValue(absoluteBrightnessValue)},
-        };
-
-        // plugging in/out the AC is always explicit
-        if ((previousProfile == QLatin1String("AC") && newProfile != QLatin1String("AC"))
-            || (previousProfile != QLatin1String("AC") && newProfile == QLatin1String("AC"))) {
-            args["Explicit"] = true;
-            args["Silent"] = true; // but we still don't want to show the OSD then
-        }
-
-        trigger(args);
+        backend()->setScreenBrightness(absoluteBrightnessValue);
     }
 }
 
-void BrightnessControl::triggerImpl(const QVariantMap &args)
+void BrightnessControl::triggerImpl(const QVariantMap & /*args*/)
 {
-    const int value = args.value(QStringLiteral("Value")).toInt();
-
-    backend()->setScreenBrightness(value);
-    if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
-        BrightnessOSDWidget::show(brightnessPercent(value));
-    }
 }
 
 bool BrightnessControl::isSupported()
@@ -131,19 +112,13 @@ int BrightnessControl::brightnessMax() const
 
 void BrightnessControl::setBrightness(int value)
 {
-    trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(value)},
-        {QStringLiteral("Explicit"), true},
-    });
+    backend()->setScreenBrightness(value);
+    BrightnessOSDWidget::show(brightnessPercent(value));
 }
 
 void BrightnessControl::setBrightnessSilent(int value)
 {
-    trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(value)},
-        {QStringLiteral("Explicit"), true},
-        {QStringLiteral("Silent"), true},
-    });
+    backend()->setScreenBrightness(value);
 }
 
 void BrightnessControl::increaseBrightness()
