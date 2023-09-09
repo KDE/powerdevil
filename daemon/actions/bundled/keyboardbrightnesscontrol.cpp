@@ -35,8 +35,6 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
     // DBus
     new KeyboardBrightnessControlAdaptor(this);
 
-    setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
-
     connect(core()->backend(),
             &PowerDevil::BackendInterface::keyboardBrightnessChanged,
             this,
@@ -82,26 +80,12 @@ void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, co
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
     } else {
-        QVariantMap args{{QStringLiteral("Value"), QVariant::fromValue(absoluteKeyboardBrightnessValue)}};
-
-        // plugging in/out the AC is always explicit
-        if ((newProfile == QLatin1String("AC") && previousProfile != QLatin1String("AC"))
-            || (newProfile != QLatin1String("AC") && previousProfile == QLatin1String("AC"))) {
-            args["Explicit"] = true;
-            args["Silent"] = true; // but we still don't want to show the OSD then
-        }
-
-        trigger(args);
+        backend()->setKeyboardBrightness(absoluteKeyboardBrightnessValue);
     }
 }
 
-void KeyboardBrightnessControl::triggerImpl(const QVariantMap &args)
+void KeyboardBrightnessControl::triggerImpl(const QVariantMap & /*args*/)
 {
-    backend()->setKeyboardBrightness(args.value(QStringLiteral("Value")).toInt());
-
-    if (args.value(QStringLiteral("Explicit")).toBool() && !args.value(QStringLiteral("Silent")).toBool()) {
-        BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
-    }
 }
 
 bool KeyboardBrightnessControl::isSupported()
@@ -156,19 +140,13 @@ int KeyboardBrightnessControl::keyboardBrightnessMax() const
 
 void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
 {
-    trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(percent)},
-        {QStringLiteral("Explicit"), true},
-    });
+    backend()->setKeyboardBrightness(percent);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
 }
 
 void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)
 {
-    trigger({
-        {QStringLiteral("Value"), QVariant::fromValue(percent)},
-        {QStringLiteral("Explicit"), true},
-        {QStringLiteral("Silent"), true},
-    });
+    backend()->setKeyboardBrightness(percent);
 }
 
 int KeyboardBrightnessControl::keyboardBrightnessSteps() const
