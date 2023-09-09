@@ -81,7 +81,7 @@ void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, co
         && absoluteKeyboardBrightnessValue > keyboardBrightness()) {
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing keyboard brightness, the current one is lower and the profile is more conservative";
-    } else if (absoluteKeyboardBrightnessValue > 0) {
+    } else {
         QVariantMap args{{QStringLiteral("Value"), QVariant::fromValue(absoluteKeyboardBrightnessValue)}};
 
         // plugging in/out the AC is always explicit
