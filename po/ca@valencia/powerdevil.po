@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-08 01:58+0000\n"
+"POT-Creation-Date: 2023-09-10 01:57+0000\n"
 "PO-Revision-Date: 2023-09-03 10:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -330,45 +330,45 @@ msgstr "Canvia el perfil d'energia"
 msgid "Replace an existing instance"
 msgstr "Substituïx una instància existent"
 
-#: powerdevilcore.cpp:380 powerdevilcore.cpp:392
+#: powerdevilcore.cpp:373 powerdevilcore.cpp:385
 #, kde-format
 msgid "Activity Manager"
 msgstr "Gestor d'activitats"
 
-#: powerdevilcore.cpp:381
+#: powerdevilcore.cpp:374
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Estes polítiques d'activitat eviten la suspensió del sistema"
 
-#: powerdevilcore.cpp:393
+#: powerdevilcore.cpp:386
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Estes polítiques d'activitat eviten la gestió de l'energia de la pantalla"
 
-#: powerdevilcore.cpp:456
+#: powerdevilcore.cpp:449
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "S'ha afegit una bateria extra"
 
-#: powerdevilcore.cpp:457 powerdevilcore.cpp:676
+#: powerdevilcore.cpp:450 powerdevilcore.cpp:669
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "L'ordinador ja no es tornarà a suspendre."
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:515
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:525
+#: powerdevilcore.cpp:518
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del dispositiu (resta %1%)"
 
-#: powerdevilcore.cpp:527
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -378,22 +378,22 @@ msgstr ""
 "La bateria de «%1» està a punt d'exhaurir-se, i el dispositiu es pot "
 "desconnectar en qualsevol moment. Torneu a carregar o substituïu la bateria."
 
-#: powerdevilcore.cpp:534
+#: powerdevilcore.cpp:527
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del ratolí (resta %1%)"
 
-#: powerdevilcore.cpp:538
+#: powerdevilcore.cpp:531
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del teclat (resta %1%)"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:535
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del dispositiu Bluetooth (resta %1%)"
 
-#: powerdevilcore.cpp:544
+#: powerdevilcore.cpp:537
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -404,19 +404,19 @@ msgstr ""
 "dispositiu es pot desconnectar en qualsevol moment. Torneu a carregar o "
 "substituïu la bateria."
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:579
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Assegureu-vos que el carregador estiga connectat i que subministre prou "
 "electricitat."
 
-#: powerdevilcore.cpp:588
+#: powerdevilcore.cpp:581
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Endolleu l'ordinador."
 
-#: powerdevilcore.cpp:605
+#: powerdevilcore.cpp:598
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -424,24 +424,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:610
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "L'ordinador es pararà en 60 segons."
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:611
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Para ara"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:616
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "L'ordinador passarà al mode hibernació en 60 segons."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:617
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -449,64 +449,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hiberna ara"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:623
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "L'ordinador se suspendrà en 60 segons."
 
-#: powerdevilcore.cpp:631
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Suspén ara"
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "Please save your work."
 msgstr "Guardeu la vostra faena."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:640
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria baixa (resta %1%)"
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria crítica (resta %1%)"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:668
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptador de CA connectat"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:671
 #, kde-format
 msgid "Running on AC power"
 msgstr "Funcionant amb alimentació CA"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:671
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "L'adaptador de corrent s'ha connectat."
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Funcionant amb alimentació per bateria"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "L'adaptador de corrent s'ha desconnectat."
 
-#: powerdevilcore.cpp:742
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "Charging Complete"
 msgstr "Càrrega completada"
 
-#: powerdevilcore.cpp:742
+#: powerdevilcore.cpp:735
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La bateria ara està completament carregada."
