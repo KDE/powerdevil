@@ -89,6 +89,8 @@ private:
     bool m_keyboardBrightnessAvailable = false;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
+    const int m_brightnessAnimationDurationMsec = 250;
+    const int m_brightnessAnimationThreshold = 100;
 
     QTimer *m_brightnessAnimationTimer = nullptr;
 

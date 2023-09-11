@@ -123,11 +123,10 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         if (m_ddcBrightnessControl->isSupported()) {
             qCDebug(POWERDEVIL) << "Using DDCutillib";
             m_cachedScreenBrightness = screenBrightness();
-            const int duration = PowerDevilSettings::brightnessAnimationDuration();
-            if (duration > 0 && screenBrightnessMax() >= PowerDevilSettings::brightnessAnimationThreshold()) {
+            if (m_brightnessAnimationDurationMsec > 0 && screenBrightnessMax() >= m_brightnessAnimationThreshold) {
                 m_brightnessAnimation = new QPropertyAnimation(this);
                 m_brightnessAnimation->setTargetObject(this);
-                m_brightnessAnimation->setDuration(duration);
+                m_brightnessAnimation->setDuration(m_brightnessAnimationDurationMsec);
                 connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
                 connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &PowerDevilUPowerBackend::slotScreenBrightnessChanged);
             }
@@ -316,8 +315,8 @@ void PowerDevilUPowerBackend::setScreenBrightness(int value)
         KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
         action.setHelperId(HELPER_ID);
         action.addArgument("brightness", value);
-        if (screenBrightness() >= PowerDevilSettings::brightnessAnimationThreshold()) {
-            action.addArgument("animationDuration", PowerDevilSettings::brightnessAnimationDuration());
+        if (screenBrightness() >= m_brightnessAnimationThreshold) {
+            action.addArgument("animationDuration", m_brightnessAnimationDurationMsec);
         }
         auto *job = action.execute();
         connect(job, &KAuth::ExecuteJob::result, this, [this, job, value] {
@@ -335,7 +334,7 @@ void PowerDevilUPowerBackend::setScreenBrightness(int value)
                 m_brightnessAnimationTimer = new QTimer(this);
                 m_brightnessAnimationTimer->setSingleShot(true);
             }
-            m_brightnessAnimationTimer->start(PowerDevilSettings::brightnessAnimationDuration());
+            m_brightnessAnimationTimer->start(m_brightnessAnimationDurationMsec);
         });
         job->start();
     }
