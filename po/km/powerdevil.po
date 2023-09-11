@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-10 01:57+0000\n"
+"POT-Creation-Date: 2023-09-11 02:01+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -359,45 +359,45 @@ msgstr "បិទ​ក្រោយ​ពេល​"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:373 powerdevilcore.cpp:385
+#: powerdevilcore.cpp:413 powerdevilcore.cpp:425
 #, kde-format
 msgid "Activity Manager"
 msgstr "កម្មវិធី​គ្រប់គ្រង​សកម្មភាព"
 
-#: powerdevilcore.cpp:374
+#: powerdevilcore.cpp:414
 #, fuzzy, kde-format
 #| msgid "This activity's policies prevent the system from suspending"
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "គោលនយោបាយ​របស់​សកម្មភាព​នេះ​ការពារ​ប្រព័ន្ធ​មិន​ឲ្យ​ផ្អាក"
 
-#: powerdevilcore.cpp:386
+#: powerdevilcore.cpp:426
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "គោលនយោបាយ​របស់​សកម្មភាព​នេះ​ការពារ​ការ​គ្រប់គ្រង់​ថាមពល​អេក្រង់"
 
-#: powerdevilcore.cpp:449
+#: powerdevilcore.cpp:489
 #, kde-format
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:450 powerdevilcore.cpp:669
+#: powerdevilcore.cpp:490 powerdevilcore.cpp:709
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:515
+#: powerdevilcore.cpp:555
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:518
+#: powerdevilcore.cpp:558
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:520
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -405,22 +405,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:527
+#: powerdevilcore.cpp:567
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:571
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:575
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:577
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -428,17 +428,17 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:579
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:581
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:598
+#: powerdevilcore.cpp:638
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -446,14 +446,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:650
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
 msgid "The computer will shut down in 60 seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់​ កុំព្យូទ័រ​នឹង​​ត្រូវ​បាន​បញ្ឈប់​នៅ​​ក្នុង​រយៈ​ពេល​ ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:611
+#: powerdevilcore.cpp:651
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -461,7 +461,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "បិទ"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:656
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 30 "
@@ -469,7 +469,7 @@ msgstr "បិទ"
 msgid "The computer will hibernate in 60 seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​ក្នុងរយៈពេល ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:657
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -478,14 +478,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "សម្ងំ"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:663
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
 msgid "The computer will sleep in 60 seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់​ កុំព្យូទ័រ​នឹង​​ត្រូវ​បាន​បញ្ឈប់​នៅ​​ក្នុង​រយៈ​ពេល​ ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:664
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -493,55 +493,55 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "ដេក"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:669
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
 msgid "Please save your work."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ រក្សាទុក​ការងារ​របស់​អ្នក​ឲ្យ​បាន​ឆាប់​តាមដែល​អាច​ធ្វើ​បាន ។"
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:708
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr ""
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:711
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:711
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត ។"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Running on Battery Power"
 msgstr ""
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:714
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "អាដាប់ទ័រ​ថាមពល​បាន​ដក​ចេញ ។"
 
-#: powerdevilcore.cpp:735
+#: powerdevilcore.cpp:775
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:735
+#: powerdevilcore.cpp:775
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""

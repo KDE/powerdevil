@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-10 01:57+0000\n"
+"POT-Creation-Date: 2023-09-11 02:01+0000\n"
 "PO-Revision-Date: 2023-09-04 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -325,44 +325,44 @@ msgstr "კვების პროფილის გადართვა"
 msgid "Replace an existing instance"
 msgstr "გაშვებული ასლის ჩანაცვლება"
 
-#: powerdevilcore.cpp:373 powerdevilcore.cpp:385
+#: powerdevilcore.cpp:413 powerdevilcore.cpp:425
 #, kde-format
 msgid "Activity Manager"
 msgstr "აქტივობების მმართველის ჩვენება"
 
-#: powerdevilcore.cpp:374
+#: powerdevilcore.cpp:414
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "აქტივობის წესები ხელს უშლის სისტემას, დაიძინოს"
 
-#: powerdevilcore.cpp:386
+#: powerdevilcore.cpp:426
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "აქტივობის წესები ხელს უშლის ეკრანის კვების მართვას"
 
-#: powerdevilcore.cpp:449
+#: powerdevilcore.cpp:489
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "დამატებულია დამატებითი ელემენტი"
 
-#: powerdevilcore.cpp:450 powerdevilcore.cpp:669
+#: powerdevilcore.cpp:490 powerdevilcore.cpp:709
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "კომპიუტერი აღარ დაიძინებს."
 
-#: powerdevilcore.cpp:515
+#: powerdevilcore.cpp:555
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:518
+#: powerdevilcore.cpp:558
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "მოწყობილობის ელემენტი დასატებია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:520
+#: powerdevilcore.cpp:560
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -372,22 +372,22 @@ msgstr ""
 "ელემენტი \"%1\"-ში დასატენია და მოწყობილობა ნებისმიერ დროს შეიძლება "
 "გამოირთოს. გთხოვთ დამუხტოთ ან გამოცვალოთ ელემენტი."
 
-#: powerdevilcore.cpp:527
+#: powerdevilcore.cpp:567
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "თაგუნას ელემენტი დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:571
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "კლავიატურის ელემენტი დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:575
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "BT მოწყობილობის ელემენტი დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:577
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -397,18 +397,18 @@ msgstr ""
 "ელემენტი BT მოწყობილობაში (\"%1\") დასატენია და მოწყობილობა ნებისმიერ დროს "
 "შეიძლება გამოირთოს. საჭიროა ელემენტის გამოცვლა ან დატენვა."
 
-#: powerdevilcore.cpp:579
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "დარწმუნდით, რომ კვება შეერთებულია და მას საკმარისი სიმძლავრე მიეწოდება."
 
-#: powerdevilcore.cpp:581
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Plug in the computer."
 msgstr "მიუერთეთ კომპიუტერს კვების ბლოკი."
 
-#: powerdevilcore.cpp:598
+#: powerdevilcore.cpp:638
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -416,24 +416,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "თქვენი კომპიუტერი 60 წამში გამოირთვება."
 
-#: powerdevilcore.cpp:611
+#: powerdevilcore.cpp:651
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "ახლავე გამორთვა"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:656
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "თქვენი კომპიუტერი დისკზე პროგრამულ ძილში 60 წამში გადავა."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:657
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -441,64 +441,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "პროგრამული ძილი ახლავე"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:663
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "თქვენი კომპიუტერი 60 წამში დაიძინებს."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "ძილი ახლავე"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:669
 #, kde-format
 msgid "Please save your work."
 msgstr "შეინახეთ თქვენი ნაშრომი."
 
-#: powerdevilcore.cpp:640
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "ელემენტის დასატენია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "ელემენტის მუხტის დონე კრიტიკულია (დარჩენილია %1%)"
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:708
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "დამტენი შეერთბულია"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:711
 #, kde-format
 msgid "Running on AC power"
 msgstr "იყენებს დენის წყაროს"
 
-#: powerdevilcore.cpp:671
+#: powerdevilcore.cpp:711
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "დამტენის კაბელი შეერთებულია."
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "იყენებს ელემენტის კვებას"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:714
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "დამტენის კაბელი გამოერთებულია."
 
-#: powerdevilcore.cpp:735
+#: powerdevilcore.cpp:775
 #, kde-format
 msgid "Charging Complete"
 msgstr "დატენვა დასრულდა"
 
-#: powerdevilcore.cpp:735
+#: powerdevilcore.cpp:775
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ელემენტი სრულად დაიტენა."

@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# Kishore G <kishore96@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-28 02:37+0000\n"
-"PO-Revision-Date: 2022-02-27 18:40+0530\n"
+"PO-Revision-Date: 2023-09-10 18:59+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 23.08.0\n"
 
 #: ErrorOverlay.cpp:27
 #, kde-format
@@ -29,46 +29,46 @@ msgstr ""
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "ஒன்றும் செய்யாதே"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "உறங்கு"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "ஆழுறங்கு"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "கலப்புமுறையில் உறங்கு"
 
 #: PowerButtonActionModel.cpp:69
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "கணினியை நிறுத்து"
 
 #: PowerButtonActionModel.cpp:77
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "திரையை பூட்டு"
 
 #: PowerButtonActionModel.cpp:85
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr ""
+msgstr "வெளியேற்ற சாளரத்தை காட்டு"
 
 #: PowerButtonActionModel.cpp:93
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "திரையை முடக்கு"
 
 #: PowerButtonActionModel.cpp:101
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "திரையை முடக்கு/இயக்கு"
