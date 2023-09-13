@@ -504,6 +504,3 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
-
-#~ msgid "Unsupported suspend method"
-#~ msgstr "Denne metoden for hvilemodus støttes ikke "

@@ -38,9 +38,7 @@
 >PowerDevil, un démon de gestionnaire d'énergie</title>
 
 <para
->Ce module est un outil de configuration pour gérer l'énergie dans &plasma;. Il permet de configurer le démon « PowerDevil », que vous pouvez démarrer ou arrêter depuis le module <guilabel
->Gestionnaire de services</guilabel
-> de &systemsettings;.</para>
+>Ce module est un outil de configuration pour gérer l'énergie dans &plasma;. Il permet de configurer le démon « PowerDevil ».</para>
 
 <para
 >Avec ce module, vous pouvez définir le comportement de votre ordinateur dans de nombreuses situations, vous permettant d'économiser autant d'énergie que possible. </para>
@@ -160,17 +158,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Économie d'énergie pour le sans-fil</guilabel
-></term>
-<listitem>
-<para
->Activer cette option pour définir des actions individuelles pour les connexions Wifi, en communication large bande et Bluetooth. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
@@ -220,16 +207,6 @@
 >Ne jamais éteindre l'écran</guilabel
 > et <guilabel
 >Ne jamais arrêter ou mettre en veille l'ordinateur</guilabel
->. Il est également possible de définir l'intervalle de temps au bout duquel l'ordinateur bascule en mode de suspension pour les activités d'économie d'énergie. </para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term
->Utiliser des réglages séparés (utilisateurs expérimentés uniquement)</term>
-<listitem>
-<para
->Cette option permet aux utilisateurs de choisir les réglages détaillés de l'économie d'énergie pour une activité particulière. Les réglages sont similaires à ceux de la <link linkend="energy-saving-setting"
->page Économie d'énergie</link
 >. </para>
 </listitem>
 </varlistentry>

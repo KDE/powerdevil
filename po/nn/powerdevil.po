@@ -523,6 +523,3 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
-
-#~ msgid "Unsupported suspend method"
-#~ msgstr "Denne metoden for kvilemodus er ikkje støtta"
