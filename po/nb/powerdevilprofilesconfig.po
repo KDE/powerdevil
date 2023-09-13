@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-06-21 00:46+0000\n"
+"POT-Creation-Date: 2023-09-07 02:25+0000\n"
 "PO-Revision-Date: 2018-06-24 14:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 "knut.yrvin@gmail.com,gluras@c2i.net,boerre@skolelinux.no,bjornst@skogkatt."
 "homelinux.org,fri_programvare@bojer.no,sunny@sunbase.org"
 
-#: EditPage.cpp:191
+#: EditPage.cpp:192
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -45,12 +45,12 @@ msgstr ""
 "datamaskinen din støtter. Dette vil også slette alle endringer du har gjort. "
 "Er du sikker på at du vil fortsette?"
 
-#: EditPage.cpp:194
+#: EditPage.cpp:195
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Gjenopprett standardprofiler"
 
-#: EditPage.cpp:271
+#: EditPage.cpp:273
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
