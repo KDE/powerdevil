@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-14 01:55+0000\n"
 "PO-Revision-Date: 2010-12-23 11:25+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "bhatt.umang7@gmail.com, swkothar@redhat.com"
 
-#: EditPage.cpp:160
+#: EditPage.cpp:157
 #, fuzzy, kde-format
 #| msgid ""
 #| "The KDE Power Management System will now generate a set of default "
@@ -43,12 +43,12 @@ msgstr ""
 "સુયોજનને ઉત્પન્ન કરશે. આ બધી હાલની રૂપરેખાઓને પણ ભૂસી નાંખશે. શું તમે ખરેખર ચાલુ રાખવા માંગો "
 "છો?"
 
-#: EditPage.cpp:164
+#: EditPage.cpp:161
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "મૂળભૂત રૂપરેખાઓને પુન:સંગ્રહિત કરો"
 
-#: EditPage.cpp:237
+#: EditPage.cpp:231
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""

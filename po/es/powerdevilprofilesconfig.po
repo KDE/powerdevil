@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-14 01:55+0000\n"
 "PO-Revision-Date: 2020-07-13 15:29+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -29,7 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
-#: EditPage.cpp:160
+#: EditPage.cpp:157
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -41,12 +41,12 @@ msgstr ""
 "también borrará todas las modificaciones que haya realizado. ¿Seguro que "
 "desea continuar?"
 
-#: EditPage.cpp:164
+#: EditPage.cpp:161
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Restaurar los perfiles por omisión"
 
-#: EditPage.cpp:237
+#: EditPage.cpp:231
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Parece que el servicio de gestión de energía no está funcionando."

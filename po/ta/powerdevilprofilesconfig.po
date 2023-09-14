@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-14 01:55+0000\n"
 "PO-Revision-Date: 2022-02-27 18:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: EditPage.cpp:160
+#: EditPage.cpp:157
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -37,12 +37,12 @@ msgstr ""
 "உங்கள் கணினியின் இயலுமைகளுக்கேற்ற இயல்பிருப்புகளை இப்போது கே.டீ.யீ. ஆற்றல் மேலாண்மை நிரல் "
 "அமைக்கும். நீங்கள் செய்துள்ள அனைத்து மாற்றங்களையும் இது அழிக்கும். உறுதியாக தொடர வேண்டுமா?"
 
-#: EditPage.cpp:164
+#: EditPage.cpp:161
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "இயல்பிருப்பு பயன்முறைகளை மீட்டமை"
 
-#: EditPage.cpp:237
+#: EditPage.cpp:231
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ஆற்றல் மேலாண்மைக்கான பின்னணி சேவை இயங்குவது போல் தெரியவில்லை."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 01:58+0000\n"
+"POT-Creation-Date: 2023-09-14 01:55+0000\n"
 "PO-Revision-Date: 2020-08-28 18:55+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "eirbir@gmail.com,karl@huftis.org"
 
-#: EditPage.cpp:160
+#: EditPage.cpp:157
 #, kde-format
 msgid ""
 "The KDE Power Management System will now generate a set of defaults based on "
@@ -42,12 +42,12 @@ msgstr ""
 "datamaskina di støttar. Dette vil òg sletta alle profilane som finst frå "
 "før. Er du sikker på at du vil halda fram?"
 
-#: EditPage.cpp:164
+#: EditPage.cpp:161
 #, kde-format
 msgid "Restore Default Profiles"
 msgstr "Gjenopprett standardprofilar"
 
-#: EditPage.cpp:237
+#: EditPage.cpp:231
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Det ser ikkje ut til at straumstyrings­tenesta køyrer."

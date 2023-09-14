@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-14 01:55+0000\n"
 "PO-Revision-Date: 2021-06-07 16:40+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -33,7 +33,7 @@ msgid "Your emails"
 msgstr ""
 "karvonen.jorma@gmail.com, lasse.liehu@gmail.com, translator@legisign.org"
 
-#: GeneralPage.cpp:240
+#: GeneralPage.cpp:241
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Virranhallintapalvelu ei vaikuta olevan käynnissä."
