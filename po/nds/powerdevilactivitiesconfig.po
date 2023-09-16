@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2011-12-15 08:38+0100\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -52,32 +52,27 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Don't use special settings"
-msgid "Do not use special settings"
-msgstr "Keen besünner Instellen bruken"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Besünner Bedregen fastleggen"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never turn off the screen"
 msgstr "Den Schirm nienich utmaken"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Den Schirm nienich utmaken"
+
+#, fuzzy
+#~| msgid "Don't use special settings"
+#~ msgid "Do not use special settings"
+#~ msgstr "Keen besünner Instellen bruken"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Besünner Bedregen fastleggen"
 
 #, fuzzy
 #~| msgid "Sleep"

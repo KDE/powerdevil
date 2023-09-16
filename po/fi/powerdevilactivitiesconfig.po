@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-10-28 22:01+0300\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -56,29 +56,23 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Virranhallintapalvelu ei vaikuta olevan käynnissä."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "Älä käytä poikkeavia asetuksia"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Määritä poikkeavat asetukset"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Älä koskaan sammuta näyttöä"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Älä koskaan sammuta tietokonetta tai siirrä sitä keskeytystilaan"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Älä käytä poikkeavia asetuksia"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Määritä poikkeavat asetukset"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

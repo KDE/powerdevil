@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-08-23 19:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -52,29 +52,23 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "ஆற்றல் மேலாண்மைக்கான பின்னணி சேவை இயங்குவது போல் தெரியவில்லை."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "தனிப்பட்ட அமைப்புகள் வேண்டாம்"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "தனிப்பட்ட நடத்தையை வரையறு"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "திரையை ஒருபோதும் அணைக்காதே"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "கணினியை நிறுத்தாதே, மேலும் தூங்க விடாதே"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "தனிப்பட்ட அமைப்புகள் வேண்டாம்"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "தனிப்பட்ட நடத்தையை வரையறு"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

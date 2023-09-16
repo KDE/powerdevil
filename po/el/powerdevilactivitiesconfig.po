@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2021-07-24 09:19+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -56,29 +56,23 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Η υπηρεσία διαχείρισης ισχύος μάλλον δεν εκτελείται."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "Να μη γίνει χρήση ειδικών ρυθμίσεων"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Καθορισμός μιας ειδικής συμπεριφοράς"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Να μην κλείνει ποτέ η οθόνη"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Να μην κλείνει ποτέ ο υπολογιστής ούτε να εισέρχεται σε κοίμηση"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Να μη γίνει χρήση ειδικών ρυθμίσεων"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Καθορισμός μιας ειδικής συμπεριφοράς"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

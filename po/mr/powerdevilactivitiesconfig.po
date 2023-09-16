@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -47,32 +47,27 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Don't use special settings"
-msgid "Do not use special settings"
-msgstr "विशिष्ठ संयोजना वापरु नका"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "विशिष्ठ वर्तन ठरवा"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never turn off the screen"
 msgstr "स्क्रीन कधीही बंद करू नका"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "स्क्रीन कधीही बंद करू नका"
+
+#, fuzzy
+#~| msgid "Don't use special settings"
+#~ msgid "Do not use special settings"
+#~ msgstr "विशिष्ठ संयोजना वापरु नका"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "विशिष्ठ वर्तन ठरवा"
 
 #, fuzzy
 #~| msgid "Sleep"

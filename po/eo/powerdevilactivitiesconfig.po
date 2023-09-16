@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2023-03-25 20:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -53,29 +53,23 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "La Potenca Administra Servo ŝajnas ne funkcii."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "Ne uzi specialajn agordojn"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Difini specialan konduton"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Neniam malŝalti la ekranon"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Neniam malŝalti la komputilon aŭ lasi ĝin dormi"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Ne uzi specialajn agordojn"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Difini specialan konduton"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

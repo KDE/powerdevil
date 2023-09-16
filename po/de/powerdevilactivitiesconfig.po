@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-11-10 20:41+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -52,31 +52,25 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Der Energieverwaltungsdienst scheint nicht zu laufen."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "Keine besonderen Einstellungen verwenden"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Besonderes Verhalten definieren"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Den Bildschirm nie ausschalten"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr ""
 "Den Bildschirm nie ausschalten oder den Rechner nie in den Standby-Modus "
 "versetzen"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Keine besonderen Einstellungen verwenden"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Besonderes Verhalten definieren"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

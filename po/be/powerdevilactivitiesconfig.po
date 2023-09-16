@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-12-30 16:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -56,30 +56,24 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Выглядае, што служба кіравання сілкаваннем на запушчаная."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "Не выкарыстоўваць адмысловыя налады"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Вызначыць адмысловыя паводзіны"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Ніколі не выключаць экран"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr ""
 "Ніколі не выключаць камп'ютар і не дазваляць яму пераходзіць у рэжым сну"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Не выкарыстоўваць адмысловыя налады"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Вызначыць адмысловыя паводзіны"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

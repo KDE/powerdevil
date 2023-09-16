@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2022-07-03 14:23+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -52,29 +52,23 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "Enerjiyə Nəzarət Xidmətinin işləmədiyi görünür."
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, kde-format
-msgid "Do not use special settings"
-msgstr "Xüsusi ayarlardan istifadə etməmək"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Xüsusi davranış təyin etmək"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, kde-format
 msgid "Never turn off the screen"
 msgstr "Ekranı heç zaman söndürməmək"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Komputeri heç zaman sönməsin və yuxu rejiminə keçməsin"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Xüsusi ayarlardan istifadə etməmək"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Xüsusi davranış təyin etmək"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"

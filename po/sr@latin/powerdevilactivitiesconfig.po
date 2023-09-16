@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-28 02:37+0000\n"
+"POT-Creation-Date: 2023-09-16 01:56+0000\n"
 "PO-Revision-Date: 2016-05-06 16:01+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -54,32 +54,27 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QRadioButton, noSettingsRadio)
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
-#, fuzzy, kde-format
-#| msgid "Don't use special settings"
-msgid "Do not use special settings"
-msgstr "Bez posebnih postavki"
-
-#. i18n: ectx: property (text), widget (QRadioButton, specialBehaviorRadio)
-#: activityWidget.ui:29
-#, kde-format
-msgid "Define a special behavior"
-msgstr "Posebno ponašanje"
-
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownScreenBox)
-#: activityWidget.ui:41
 #, fuzzy, kde-format
 #| msgid "Never shutdown the screen"
 msgid "Never turn off the screen"
 msgstr "Nikad ne gasi ekran"
 
-#. i18n: ectx: property (text), widget (QCheckBox, noShutdownPCBox)
-#: activityWidget.ui:48
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
 #, fuzzy, kde-format
 #| msgid "Never suspend or shutdown the computer"
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Nikad ne suspenduj niti gasi računar"
+
+#, fuzzy
+#~| msgid "Don't use special settings"
+#~ msgid "Do not use special settings"
+#~ msgstr "Bez posebnih postavki"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Posebno ponašanje"
 
 # >> @item
 #~ msgid "Hibernate"
