@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2023-09-10 19:01+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -325,44 +325,44 @@ msgstr "ஆற்றல் பயன்முறையை மாற்று"
 msgid "Replace an existing instance"
 msgstr "ஏற்கனவே உள்ளதற்கு பதிலாக இது இயங்கட்டும்"
 
-#: powerdevilcore.cpp:413 powerdevilcore.cpp:424
+#: powerdevilcore.cpp:414 powerdevilcore.cpp:425
 #, kde-format
 msgid "Activity Manager"
 msgstr "செயல்பாடு மேலாளி"
 
-#: powerdevilcore.cpp:414
+#: powerdevilcore.cpp:415
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "கணினி உறங்குவதை இந்த செயல்பாட்டின் அமைப்புகள் தடுக்கின்றன"
 
-#: powerdevilcore.cpp:425
+#: powerdevilcore.cpp:426
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "திரை ஆற்றல் மேலாண்மையை இந்த செயல்பாட்டின் அமைப்புகள் தடுக்கின்றன"
 
-#: powerdevilcore.cpp:487
+#: powerdevilcore.cpp:488
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "கூடுதல் மின்கலம் சேர்க்கப்பட்டது"
 
-#: powerdevilcore.cpp:488 powerdevilcore.cpp:707
+#: powerdevilcore.cpp:489 powerdevilcore.cpp:708
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "கணினி இனிமேல் தூங்காது."
 
-#: powerdevilcore.cpp:553
+#: powerdevilcore.cpp:554
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:556
+#: powerdevilcore.cpp:557
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "சாதனத்தின் மின்கலம் குறைவாயுள்ளது (மீதம் %1%)"
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:559
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -372,22 +372,22 @@ msgstr ""
 "\"%1\" என்பதில் மின்கல ஆற்றல் குறைவாக உள்ளதால் அது எந்நேரமும் முடங்கலாம். ஆற்றலை "
 "ஏற்றுங்கள், அல்லது மின்கலத்தை மாற்றுங்கள்."
 
-#: powerdevilcore.cpp:565
+#: powerdevilcore.cpp:566
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "சுட்டியின் மின்கலம் குறைவு (மீதம் %1%)"
 
-#: powerdevilcore.cpp:569
+#: powerdevilcore.cpp:570
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "விசைப்பலகையின் மின்கலம் குறைவு (மீதம் %1%)"
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:574
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "ஊடலை சாதனத்தின் மின்கலம் குறைவு (மீதம் %1%)"
 
-#: powerdevilcore.cpp:575
+#: powerdevilcore.cpp:576
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -397,18 +397,18 @@ msgstr ""
 "\"%1\" என்ற ஊடலை (புளூடூத்) சாதனத்தின் மின்கல ஆற்றல் குறைவாக உள்ளதால் அது எந்நேரமும் "
 "முடங்கலாம். ஆற்றலை ஏற்றுங்கள், அல்லது மின்கலத்தை மாற்றுங்கள்."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:618
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "கணினியை மின்னூற்றில் செருகி அம்மின்னூற்று போதுமான ஆற்றலை வழுங்குவதை உறுதி செய்யுங்கள்."
 
-#: powerdevilcore.cpp:619
+#: powerdevilcore.cpp:620
 #, kde-format
 msgid "Plug in the computer."
 msgstr "கணினியை மின்னூற்றில் செருகவும்."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:637
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -416,24 +416,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "கணினி 60 நொடிகளில் நிற்கும்."
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:650
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "இப்போதே கணினியை நிறுத்து"
 
-#: powerdevilcore.cpp:654
+#: powerdevilcore.cpp:655
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "கணினி 60 நொடிகளில் ஆழுறங்கும்."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:656
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -441,64 +441,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "இப்போதே ஆழுறங்கு"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:662
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "கணினி 60 நொடிகளில் உறங்கும்."
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:663
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "இப்போதே தூங்கு"
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:668
 #, kde-format
 msgid "Please save your work."
 msgstr "தயவுசெய்து உங்கள் ஆவணங்களை சேமியுங்கள்."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "மின்கலம் குறைவாயுள்ளது (மீதம் %1%)"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "மின்கல நெருக்கடி (மீதம் %1%)"
 
-#: powerdevilcore.cpp:706
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "மின் செருகி சொருகப்பட்டுள்ளது"
 
-#: powerdevilcore.cpp:709
+#: powerdevilcore.cpp:710
 #, kde-format
 msgid "Running on AC power"
 msgstr "மின்னூற்றின் ஆற்றலில் இயங்குகிறது"
 
-#: powerdevilcore.cpp:709
+#: powerdevilcore.cpp:710
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "மின் செருகி சொருகப்பட்டுள்ளது."
 
-#: powerdevilcore.cpp:712
+#: powerdevilcore.cpp:713
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "மின்கல ஆற்றலில் இயங்குகிறது"
 
-#: powerdevilcore.cpp:712
+#: powerdevilcore.cpp:713
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "மின் செருகி கழற்றப்பட்டுள்ளது."
 
-#: powerdevilcore.cpp:773
+#: powerdevilcore.cpp:774
 #, kde-format
 msgid "Charging Complete"
 msgstr "ஆற்றலேற்றம் முடிந்த‍து"
 
-#: powerdevilcore.cpp:773
+#: powerdevilcore.cpp:774
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "மின்கலத்தில் ஆற்றல் முழுதாக ஏறியுள்ளது."

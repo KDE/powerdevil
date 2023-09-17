@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-16 01:56+0000\n"
+"POT-Creation-Date: 2023-09-17 02:29+0000\n"
 "PO-Revision-Date: 2020-04-26 10:46+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -335,44 +335,44 @@ msgstr "Import profiilid"
 msgid "Replace an existing instance"
 msgstr "Olemasoleva protsessi asendamine"
 
-#: powerdevilcore.cpp:413 powerdevilcore.cpp:424
+#: powerdevilcore.cpp:414 powerdevilcore.cpp:425
 #, kde-format
 msgid "Activity Manager"
 msgstr "Tegevuste haldur"
 
-#: powerdevilcore.cpp:414
+#: powerdevilcore.cpp:415
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Tegevuste reeglid takistavad süsteemil uneseisundisse minekut"
 
-#: powerdevilcore.cpp:425
+#: powerdevilcore.cpp:426
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Tegevuste reeglid takistavad ekraani toitehaldust"
 
-#: powerdevilcore.cpp:487
+#: powerdevilcore.cpp:488
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Lisati lisaaku"
 
-#: powerdevilcore.cpp:488 powerdevilcore.cpp:707
+#: powerdevilcore.cpp:489 powerdevilcore.cpp:708
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Arvuti enam magama ei lähe."
 
-#: powerdevilcore.cpp:553
+#: powerdevilcore.cpp:554
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:556
+#: powerdevilcore.cpp:557
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Seadme aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:559
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -386,22 +386,22 @@ msgstr ""
 "Sinu seadme (\"%1\") aku laetuse tase on madal ja seade võib iga hetk välja "
 "lülituda. Palun vaheta või lae aku niipea kui võimalik."
 
-#: powerdevilcore.cpp:565
+#: powerdevilcore.cpp:566
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Hiire aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:569
+#: powerdevilcore.cpp:570
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Klaviatuuri aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:573
+#: powerdevilcore.cpp:574
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetoothi seadme aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:575
+#: powerdevilcore.cpp:576
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -411,7 +411,7 @@ msgstr ""
 "Sinu Bluetoothi seadme \"%1\" aku laetuse tase on madal ja seade võib iga "
 "hetk välja lülituda. Palun vaheta või lae aku niipea kui võimalik."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:618
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -421,12 +421,12 @@ msgstr ""
 "Aku tase on madal. Kui soovid arvutit edasi kasutada, ühenda see vooluvõrku "
 "või sulge arvuti ja vaheta aku välja."
 
-#: powerdevilcore.cpp:619
+#: powerdevilcore.cpp:620
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:637
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -434,14 +434,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Loobu"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:649
 #, fuzzy, kde-format
 #| msgid "The computer will be put into standby in 1 second."
 #| msgid_plural "The computer will be put into standby in %1 seconds."
 msgid "The computer will shut down in 60 seconds."
 msgstr "Arvuti pannakse ooterežiimi 1 sekundi pärast."
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:650
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -449,14 +449,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Seiskamine"
 
-#: powerdevilcore.cpp:654
+#: powerdevilcore.cpp:655
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The computer will hibernate in 60 seconds."
 msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:656
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -465,14 +465,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Talveuni"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:662
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The computer will sleep in 60 seconds."
 msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:663
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -481,7 +481,7 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Uni"
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:668
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
@@ -489,47 +489,47 @@ msgstr ""
 "Aku laetus on jõudnud kriitilisele tasemele, salvesta oma töö nii kiiresti "
 "kui võimalik."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:683
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Aku kriitiline tase (%1% alles)"
 
-#: powerdevilcore.cpp:706
+#: powerdevilcore.cpp:707
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC adapter on ühendatud"
 
-#: powerdevilcore.cpp:709
+#: powerdevilcore.cpp:710
 #, kde-format
 msgid "Running on AC power"
 msgstr "Vooluvõrgust töötav arvuti"
 
-#: powerdevilcore.cpp:709
+#: powerdevilcore.cpp:710
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Arvuti ühendati elektrivõrku."
 
-#: powerdevilcore.cpp:712
+#: powerdevilcore.cpp:713
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Aku peal töötav arvuti"
 
-#: powerdevilcore.cpp:712
+#: powerdevilcore.cpp:713
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Arvuti lahutati elektrivõrgust."
 
-#: powerdevilcore.cpp:773
+#: powerdevilcore.cpp:774
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laadimine on tehtud"
 
-#: powerdevilcore.cpp:773
+#: powerdevilcore.cpp:774
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku on nüüd täielikult laetud."

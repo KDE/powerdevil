@@ -65,9 +65,3 @@ msgstr "Slå aldri av skjermen"
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Gå aldri i kvilemodus eller slå av maskina"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Ikkje bruk spesielle innstillingar"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Definer ei spesialåtferd"

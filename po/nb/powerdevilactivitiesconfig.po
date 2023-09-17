@@ -66,6 +66,3 @@ msgstr ""
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr ""
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Definer en spesiell oppførsel"
