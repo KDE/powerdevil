@@ -172,16 +172,3 @@ msgstr "Altres opcions"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Para la càrrega al:"
-
-#~ msgid "Do nothing"
-#~ msgstr "No faces res"
-
-#~ msgctxt "Suspend to RAM"
-#~ msgid "Sleep"
-#~ msgstr "Suspén"
-
-#~ msgid "Hibernate"
-#~ msgstr "Hiberna"
-
-#~ msgid "Shut down"
-#~ msgstr "Para"

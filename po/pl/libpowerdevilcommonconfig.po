@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2014, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-28 02:37+0000\n"
-"PO-Revision-Date: 2014-05-24 06:27+0200\n"
+"PO-Revision-Date: 2023-09-17 13:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: ErrorOverlay.cpp:27
 #, kde-format
@@ -30,46 +30,46 @@ msgstr ""
 #: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Nic nie rób"
 
 #: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Uśpij"
 
 #: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Zahibernuj"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybrydowe uśpienie"
 
 #: PowerButtonActionModel.cpp:69
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Wyłącz"
 
 #: PowerButtonActionModel.cpp:77
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Zablokuj ekran"
 
 #: PowerButtonActionModel.cpp:85
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr ""
+msgstr "Zapytaj czy wylogować"
 
 #: PowerButtonActionModel.cpp:93
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Wyłącz ekran"
 
 #: PowerButtonActionModel.cpp:101
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Przełącz ekran"
