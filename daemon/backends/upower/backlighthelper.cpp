@@ -96,20 +96,6 @@ bool BacklightHelper::writeToDevice(const QString &device, int brightness) const
 
 QStringList BacklightHelper::getBacklightTypeDevices() const
 {
-    QDir ledsDir(LED_SYSFS_PATH);
-    ledsDir.setFilter(QDir::Dirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
-    ledsDir.setNameFilters({QStringLiteral("*lcd*"), QStringLiteral("*wled*")});
-
-    QStringList ledInterfaces = ledsDir.entryList();
-
-    if (!ledInterfaces.isEmpty()) {
-        QStringList output;
-        for (const QString &interface : ledInterfaces) {
-            output.append(LED_SYSFS_PATH + interface);
-        }
-        return output;
-    }
-
     QDir backlightDir(BACKLIGHT_SYSFS_PATH);
     backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
     backlightDir.setSorting(QDir::Name | QDir::Reversed); // Reverse is needed to priorize acpi_video1 over 0
@@ -157,6 +143,20 @@ QStringList BacklightHelper::getBacklightTypeDevices() const
 
     if (!rawAll.isEmpty())
         return rawAll;
+
+    QDir ledsDir(LED_SYSFS_PATH);
+    ledsDir.setFilter(QDir::Dirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
+    ledsDir.setNameFilters({QStringLiteral("*lcd*"), QStringLiteral("*wled*")});
+
+    QStringList ledInterfaces = ledsDir.entryList();
+
+    if (!ledInterfaces.isEmpty()) {
+        QStringList output;
+        for (const QString &interface : ledInterfaces) {
+            output.append(LED_SYSFS_PATH + interface);
+        }
+        return output;
+    }
 
     return {};
 }
