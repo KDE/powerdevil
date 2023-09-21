@@ -172,17 +172,6 @@
 </listitem>
 </varlistentry>
 
-<varlistentry
-><term
-><guilabel
->Ahorro de energía de la red inalámbrica</guilabel
-></term>
-<listitem>
-<para
->Active esta opción para definir acciones individuales para las conexiones wifi, banda ancha móvil y Bluetooth. </para>
-</listitem>
-</varlistentry>
-
 </variablelist>
 </sect2>
 
