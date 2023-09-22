@@ -58,6 +58,14 @@ public:
     {
         return m_energyFull;
     }
+
+    /**
+     * Amount of energy being drained from the source, measured
+     * in W. If positive, the source is being discharged, if
+     * negative it's being charged.
+     * @return positive value if discharging, negative value if charging, or 0 if unknown
+     * @see org.freedesktop.UPower.Device.xml
+     */
     double energyRate() const
     {
         return m_energyRate;

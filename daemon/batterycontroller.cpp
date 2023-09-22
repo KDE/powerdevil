@@ -91,7 +91,7 @@ void BatteryController::slotDeviceRemoved(const QDBusObjectPath &path)
 void BatteryController::updateDeviceProps()
 {
     double energyTotal = 0.0;
-    double energyRateTotal = 0.0;
+    double energyRateTotal = 0.0; // +: charging, -: discharging (contrary to EnergyRate)
     double energyFullTotal = 0.0;
     qulonglong timestamp = 0;
 
@@ -104,11 +104,11 @@ void BatteryController::updateDeviceProps()
         energyTotal = m_displayDevice->energy();
         energyFullTotal = m_displayDevice->energyFull();
         timestamp = m_displayDevice->updateTime();
-
+        // Workaround for https://gitlab.freedesktop.org/upower/upower/-/issues/252
         if (state == UPowerDevice::State::Charging) {
-            energyRateTotal = m_displayDevice->energyRate();
+            energyRateTotal = std::abs(m_displayDevice->energyRate());
         } else if (state == UPowerDevice::State::Discharging) {
-            energyRateTotal = -1.0 * m_displayDevice->energyRate();
+            energyRateTotal = -std::abs(m_displayDevice->energyRate());
         }
     } else {
         for (const auto &[key, upowerDevice] : m_devices) {
@@ -126,10 +126,11 @@ void BatteryController::updateDeviceProps()
                 }
 
                 timestamp = std::max(timestamp, upowerDevice->updateTime());
+                // Workaround for https://gitlab.freedesktop.org/upower/upower/-/issues/252
                 if (state == UPowerDevice::State::Charging) {
-                    energyRateTotal += upowerDevice->energyRate();
+                    energyRateTotal += std::abs(upowerDevice->energyRate());
                 } else if (state == UPowerDevice::State::Discharging) {
-                    energyRateTotal -= upowerDevice->energyRate();
+                    energyRateTotal -= std::abs(upowerDevice->energyRate());
                 }
             }
         }
