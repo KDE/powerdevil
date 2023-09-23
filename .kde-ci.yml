@@ -28,6 +28,7 @@ Dependencies:
     'frameworks/solid': '@latest-kf6'
     'frameworks/kcmutils': '@latest-kf6' # kcmutils_generate_desktop_file
     'plasma/plasma-workspace': '@same'
+    'plasma/libkscreen': '@same'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
