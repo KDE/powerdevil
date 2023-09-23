@@ -112,7 +112,7 @@ void BatteryController::updateDeviceProps()
         }
     } else {
         for (const auto &[key, upowerDevice] : m_devices) {
-            if (!upowerDevice->isPowerSupply()) {
+            if (!upowerDevice->isPowerSupply() || !upowerDevice->isPresent()) {
                 continue;
             }
             const auto type = upowerDevice->type();
