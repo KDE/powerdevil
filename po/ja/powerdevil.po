@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-17 02:29+0000\n"
-"PO-Revision-Date: 2023-08-12 01:50+0900\n"
+"PO-Revision-Date: 2023-09-16 18:10+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -404,19 +404,14 @@ msgstr ""
 "い。"
 
 #: powerdevilcore.cpp:618
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
-msgstr ""
-"バッテリ残量低下 - コンピュータを使用し続けるには、十分な電力を供給する電源ア"
-"ダプタに接続してください。"
+msgstr "十分な電力を供給する電源アダプタに接続してください。"
 
 #: powerdevilcore.cpp:620
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "コンピュータを接続してください。"
 
 #: powerdevilcore.cpp:637
 #, kde-format
@@ -427,10 +422,9 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: powerdevilcore.cpp:649
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr "バッテリ残量が危険レベルです。60秒後にコンピュータを停止します。"
+msgstr "60秒後にコンピュータを停止します。"
 
 #: powerdevilcore.cpp:650
 #, kde-format
@@ -440,13 +434,9 @@ msgid "Shut Down Now"
 msgstr "今すぐシャットダウン"
 
 #: powerdevilcore.cpp:655
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr ""
-"バッテリ残量が危険レベルです。60秒後にコンピュータをハイバネートします。"
+msgstr "60秒後にコンピュータをハイバネートします。"
 
 #: powerdevilcore.cpp:656
 #, kde-format
@@ -457,11 +447,9 @@ msgid "Hibernate Now"
 msgstr "今すぐハイバネート"
 
 #: powerdevilcore.cpp:662
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr "バッテリ残量が危険レベルです。60秒後にコンピュータを停止します。"
+msgstr "60秒後にコンピュータをスリープします。"
 
 #: powerdevilcore.cpp:663
 #, kde-format
@@ -471,10 +459,9 @@ msgid "Sleep Now"
 msgstr "今すぐスリープ"
 
 #: powerdevilcore.cpp:668
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "バッテリ残量が危険レベルです。できるだけ早く作業を保存してください。"
+msgstr "作業を保存してください。"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -520,13 +507,3 @@ msgstr "充電完了"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "バッテリは完全に充電されました。"
-
-#~ msgid "Unsupported suspend method"
-#~ msgstr "サポートされていないサスペンド方法"
-
-#~ msgid ""
-#~ "Battery running low - to continue using your computer, plug it in or shut "
-#~ "it down and change the battery."
-#~ msgstr ""
-#~ "バッテリ残量低下 - コンピュータを使用し続けるには、電源に接続するか、"
-#~ "シャットダウンしてバッテリを交換してください"
