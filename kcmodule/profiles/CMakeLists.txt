@@ -1,21 +1,16 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"kcm_powerdevilprofilesconfig\")
 
-set( kcm_powerdevil_profiles_SRCS
-     ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
-     EditPage.cpp
+kcmutils_add_qml_kcm(kcm_powerdevilprofilesconfig)
+
+target_sources(kcm_powerdevilprofilesconfig PRIVATE
+    ProfilesConfigKCM.cpp
+    ${kcm_powerdevil_profiles_SRCS}
 )
 
-ki18n_wrap_ui(kcm_powerdevil_profiles_SRCS
-    profileEditPage.ui)
-
-kcoreaddons_add_plugin(kcm_powerdevilprofilesconfig SOURCES ${kcm_powerdevil_profiles_SRCS} INSTALL_NAMESPACE "plasma/kcms/systemsettings_qwidgets")
-kcmutils_generate_desktop_file(kcm_powerdevilprofilesconfig)
-
 target_link_libraries(kcm_powerdevilprofilesconfig
-     KF6::KIOWidgets
-     KF6::ConfigGui
-     KF6::KCMUtils
-     KF6::KirigamiPlatform
-     powerdevilui
-     powerdevilconfigcommonprivate
+    KF6::KCMUtils
+    KF6::I18n
+    KF6::ItemModels
+    KF6::Kirigami2
+    powerdevilconfigcommonprivate
 )

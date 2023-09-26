@@ -28,7 +28,7 @@ include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
-find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Activities Auth IdleTime Config DBusAddons Solid I18n GlobalAccel KIO NotifyConfig DocTools Crash Notifications KirigamiPlatform KCMUtils XmlGui)
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Activities Auth Config Crash DBusAddons DocTools I18n IdleTime ItemModels GlobalAccel KIO Kirigami2 KCMUtils NotifyConfig Notifications Solid XmlGui)
 find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 

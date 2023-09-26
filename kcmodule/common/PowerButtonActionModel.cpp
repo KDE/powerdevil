@@ -27,8 +27,8 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     switch (action) {
     case PowerDevil::PowerButtonAction::NoAction:
         m_data.append(Data{
-            .icon = QIcon::fromTheme("dialog-cancel"),
             .name = i18n("Do nothing"),
+            .iconName = "dialog-cancel-symbolic",
             .value = qToUnderlying(PowerDevil::PowerButtonAction::NoAction),
         });
         break;
@@ -36,8 +36,8 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::SuspendToRam:
         if (pm->canSuspend()) {
             m_data.append(Data{
-                .icon = QIcon::fromTheme("system-suspend"),
                 .name = i18nc("Suspend to RAM", "Sleep"),
+                .iconName = "system-suspend-symbolic",
                 .value = qToUnderlying(PowerDevil::PowerButtonAction::SuspendToRam),
             });
         }
@@ -46,18 +46,18 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::SuspendToDisk:
         if (pm->canHibernate()) {
             m_data.append(Data{
-                .icon = QIcon::fromTheme("system-suspend-hibernate"),
                 .name = i18n("Hibernate"),
+                .iconName = "system-suspend-hibernate-symbolic",
                 .value = qToUnderlying(PowerDevil::PowerButtonAction::SuspendToDisk),
             });
         }
         break;
 
-    case PowerDevil::PowerButtonAction::SuspendHybrid:
+    case PowerDevil::PowerButtonAction::SuspendHybrid: // FIXME: deprecated, ideally we should do without this one
         if (pm->canHybridSuspend()) {
             m_data.append(Data{
-                .icon = QIcon::fromTheme("system-suspend-hybrid"),
                 .name = i18n("Hybrid sleep"),
+                .iconName = "system-suspend-hybrid-symbolic",
                 .value = qToUnderlying(PowerDevil::PowerButtonAction::SuspendHybrid),
             });
         }
@@ -65,40 +65,40 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
 
     case PowerDevil::PowerButtonAction::Shutdown:
         m_data.append(Data{
-            .icon = QIcon::fromTheme("system-shutdown"),
             .name = i18nc("Power down the computer", "Shut down"),
+            .iconName = "system-shutdown-symbolic",
             .value = qToUnderlying(PowerDevil::PowerButtonAction::Shutdown),
         });
         break;
 
     case PowerDevil::PowerButtonAction::LockScreen:
         m_data.append(Data{
-            .icon = QIcon::fromTheme("system-lock-screen"),
             .name = i18n("Lock screen"),
+            .iconName = "system-lock-screen-symbolic",
             .value = qToUnderlying(PowerDevil::PowerButtonAction::LockScreen),
         });
         break;
 
     case PowerDevil::PowerButtonAction::PromptLogoutDialog:
         m_data.append(Data{
-            .icon = QIcon::fromTheme("system-log-out"),
-            .name = i18n("Prompt log out dialog"),
+            .name = i18n("Show logout screen"),
+            .iconName = "system-log-out-symbolic",
             .value = qToUnderlying(PowerDevil::PowerButtonAction::PromptLogoutDialog),
         });
         break;
 
     case PowerDevil::PowerButtonAction::TurnOffScreen:
         m_data.append(Data{
-            .icon = QIcon::fromTheme("preferences-desktop-screensaver"),
             .name = i18n("Turn off screen"),
+            .iconName = "preferences-desktop-screensaver-symbolic",
             .value = qToUnderlying(PowerDevil::PowerButtonAction::TurnOffScreen),
         });
         break;
 
     case PowerDevil::PowerButtonAction::ToggleScreenOnOff:
         m_data.append(Data{
-            .icon = QIcon::fromTheme("osd-shutd-screen"),
             .name = i18n("Toggle screen on/off"),
+            .iconName = "osd-shutd-screen-symbolic",
             .value = qToUnderlying(PowerDevil::PowerButtonAction::TurnOffScreen),
         });
         break;
@@ -113,12 +113,14 @@ QVariant PowerButtonActionModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case Icon:
-        return m_data[index.row()].icon;
+        return QIcon::fromTheme(m_data[index.row()].iconName);
     case Name:
         return m_data[index.row()].name;
     case Value:
         static_assert(std::is_same_v<decltype(Data::value), std::underlying_type_t<PowerDevil::PowerButtonAction>>);
         return m_data[index.row()].value;
+    case IconName:
+        return m_data[index.row()].iconName;
     default:
         return {};
     }
@@ -132,5 +134,5 @@ int PowerButtonActionModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> PowerButtonActionModel::roleNames() const
 {
-    return QHash<int, QByteArray>{{Icon, "icon"}, {Name, "name"}, {Value, "value"}};
+    return QHash<int, QByteArray>{{Icon, "icon"}, {Name, "name"}, {Value, "value"}, {IconName, "iconName"}};
 }

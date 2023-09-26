@@ -6,6 +6,8 @@ set( powerdevil_config_common_private_SRCS
     actioneditwidget.cpp
     ErrorOverlay.cpp
     PowerButtonActionModel.cpp
+    PowerProfileModel.cpp
+    SleepModeModel.cpp
 )
 
 add_library(powerdevilconfigcommonprivate SHARED ${powerdevil_config_common_private_SRCS})
@@ -20,6 +22,7 @@ target_link_libraries(powerdevilconfigcommonprivate
         KF6::I18n
         KF6::Service
 )
+target_include_directories(powerdevilconfigcommonprivate PUBLIC .)
 
 set_target_properties(powerdevilconfigcommonprivate PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
 

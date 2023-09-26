@@ -154,6 +154,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
 install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 # target no.3 - powerdevil ui library
+# TODO: remove anything related to ActionConfig, now that the QML profiles config KCM doesn't use it anymore
 set(powerdevilui_SRCS
     powerdevilactionconfig.cpp
 )

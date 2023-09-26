@@ -26,7 +26,7 @@ class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT PowerButtonActionModel : public QAbst
     Q_OBJECT
 
 public:
-    enum { Icon = Qt::DecorationRole, Name = Qt::DisplayRole, Value = Qt::UserRole };
+    enum { Icon = Qt::DecorationRole, Name = Qt::DisplayRole, Value = Qt::UserRole, IconName = Qt::UserRole + 1 };
 
     PowerButtonActionModel(QObject *parent,
                            PowerDevil::PowerManagement *pm,
@@ -34,7 +34,6 @@ public:
                                PowerDevil::PowerButtonAction::NoAction,
                                PowerDevil::PowerButtonAction::SuspendToRam,
                                PowerDevil::PowerButtonAction::SuspendToDisk,
-                               PowerDevil::PowerButtonAction::SuspendHybrid,
                                PowerDevil::PowerButtonAction::Shutdown,
                                PowerDevil::PowerButtonAction::PromptLogoutDialog,
                                PowerDevil::PowerButtonAction::LockScreen,
@@ -51,8 +50,8 @@ private:
 
 private:
     struct Data {
-        QIcon icon;
         QString name;
+        QString iconName;
         uint value;
     };
 
