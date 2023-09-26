@@ -65,9 +65,3 @@ msgstr "Nikdy nevypínat obrazovku"
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
 msgstr "Nikdy neuspávat nebo nevypínat počítač"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Nepoužívat speciální nastavení"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Definice speciálního chování"
