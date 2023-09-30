@@ -113,7 +113,7 @@
 ></term>
 <listitem>
 <para
->Aquí podeu establir el temps d'espera per apagar en els botons de selecció de valors. </para>
+>Aquí podeu establir el temps d'espera abans d'apagar en els botons de selecció de valors. </para>
 </listitem>
 </varlistentry>
 
@@ -143,7 +143,7 @@
 ></term>
 <listitem>
 <para
->Selecciona accions per dur a terme sempre que la tapa del portàtil està tancada o es prem un botó.</para>
+>Selecciona accions per a dur a terme sempre que la tapa del portàtil està tancada o es prem un botó.</para>
 </listitem>
 </varlistentry>
 
@@ -311,7 +311,7 @@
 >&Alt;<keycap
 >F2</keycap
 ></keycombo
->). Això fa que canviar el perfil, la lluentor, el regulador i altres sigui més fàcil i ràpid. El llançador té diverses paraules clau que podeu introduir per accedir a les seves funcions. </para>
+>). Això fa que canviar el perfil, la lluentor, el regulador i altres sigui més fàcil i ràpid. El llançador té diverses paraules clau que podeu introduir per a accedir a les seves funcions. </para>
 <sect2 id="runnerwords">
 <title
 >Paraules clau del llançador</title>
