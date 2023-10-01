@@ -24,7 +24,7 @@ msgid ""
 "Power Management configuration module could not be loaded.\n"
 "%1"
 msgstr ""
-"Non se puido cargar o módulo de configuración da xestión da enerxía.\n"
+"Non foi posíbel cargar o módulo de configuración da xestión da enerxía.\n"
 "%1"
 
 #: PowerButtonActionModel.cpp:31
