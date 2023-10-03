@@ -2,66 +2,63 @@
 # Tahmar1900 <tahmar1900@gmail.com>, 2011.
 # elkana bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-17 02:29+0000\n"
-"PO-Revision-Date: 2017-05-16 06:57-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2023-10-02 10:13+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "netanel_h,אלקנה ברדוגו"
+msgstr "netanel_h,אלקנה ברדוגו וצוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "netanel@gmx.com,ttv200@gmail.com"
+msgstr "netanel@gmx.com,ttv200@gmail.com,kde-l10n-he@kde.org"
 
 #: actions/bundled/brightnesscontrol.cpp:43 actions/bundled/dpms.cpp:65
 #: actions/bundled/handlebuttonevents.cpp:42
 #: actions/bundled/keyboardbrightnesscontrol.cpp:46
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "ניהול פרופיל"
+msgstr "ניהול צריכת חשמל"
 
 #: actions/bundled/brightnesscontrol.cpp:46
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "הגדל בהירות מסך"
+msgstr "הבהרת המסך"
 
 #: actions/bundled/brightnesscontrol.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "הגדל בהירות מסך"
+msgstr "הבהרת המסך ב־1%"
 
 #: actions/bundled/brightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr "הנמך בהירות מסך"
+msgstr "החשכת המסך"
 
 #: actions/bundled/brightnesscontrol.cpp:61
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "הנמך בהירות מסך"
+msgstr "החשכת המסך ב־1%"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:55
 #, kde-format
@@ -74,7 +71,7 @@ msgstr "רמה"
 #: actions/bundled/suspendsessionconfig.cpp:64
 #, kde-format
 msgid " min"
-msgstr " דקות"
+msgstr " דק׳"
 
 #: actions/bundled/dimdisplayconfig.cpp:54
 #: actions/bundled/runscriptconfig.cpp:64
@@ -84,11 +81,10 @@ msgid "After"
 msgstr "אחרי"
 
 #: actions/bundled/dpms.cpp:68
-#, fuzzy, kde-format
-#| msgid "Turn off screen"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
-msgstr "כיבוי מסך"
+msgstr "כיבוי המסך"
 
 #: actions/bundled/dpmsconfig.cpp:46
 #, kde-format
@@ -98,24 +94,24 @@ msgstr "כיבוי לאחר"
 #: actions/bundled/dpmsconfig.cpp:54
 #, kde-format
 msgid " sec"
-msgstr ""
+msgstr " שנ׳"
 
 #: actions/bundled/dpmsconfig.cpp:55
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "כאשר המסך נעול, לכבות אותו לאחר"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
-msgstr "השהיה לזכרון"
+msgstr "השהייה"
 
 #: actions/bundled/handlebuttonevents.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
-msgstr "השהייה לכונן"
+msgstr "תרדמת"
 
 #: actions/bundled/handlebuttonevents.cpp:57
 #, kde-format
@@ -124,9 +120,7 @@ msgid "Power Off"
 msgstr "כיבוי"
 
 #: actions/bundled/handlebuttonevents.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Power Off"
+#, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
@@ -136,48 +130,48 @@ msgstr "כיבוי"
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
-msgstr "אפילו שמסך חיצוני מחובר"
+msgstr "אפילו כשמסך חיצוני מחובר"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:75
 #, kde-format
 msgid "Do nothing"
-msgstr "אל תעשה דבר"
+msgstr "לא לעשות כלום"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:78
 #: actions/bundled/suspendsessionconfig.cpp:69
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "לישון"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:82
 #: actions/bundled/suspendsessionconfig.cpp:73
 #, kde-format
 msgid "Hibernate"
-msgstr "השהייה לכונן"
+msgstr "להירדם"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:85
 #: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "לישון לסירוגין"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:87
 #: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "Shut down"
-msgstr "כיבוי"
+msgstr "לכבות"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:88
 #: actions/bundled/suspendsessionconfig.cpp:79
 #, kde-format
 msgid "Lock screen"
-msgstr "נעל מסך"
+msgstr "לנעול מסך"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:91
 #, kde-format
 msgid "Prompt log out dialog"
-msgstr "הצג חלון יציאה מהמערכת"
+msgstr "להציג חלון יציאה מהמערכת"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:95
 #, kde-format
@@ -187,7 +181,7 @@ msgstr "כיבוי מסך"
 #: actions/bundled/handlebuttoneventsconfig.cpp:122
 #, kde-format
 msgid "When laptop lid closed"
-msgstr "כאשר מכסה המחשב סגור"
+msgstr "כאשר מכסה המחשב הנייד סגור"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:133
 #, kde-format
@@ -198,19 +192,19 @@ msgstr "כאשר כפתור ההפעלה נלחץ"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr "הגבר בהירות תאורת מקלדת"
+msgstr "הגברת תאורת מקלדת"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr "הנמך בהירות תאורת מקלדת"
+msgstr "החשכת תאורת מקלדת"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr "הפעל או כבה אור מקלדת"
+msgstr "הפעלה/כיבוי של תאורת מקלדת"
 
 #: actions/bundled/keyboardbrightnesscontrolconfig.cpp:56
 #, kde-format
@@ -221,36 +215,33 @@ msgstr "רמה"
 #: actions/bundled/powerprofileconfig.cpp:67
 #, kde-format
 msgid "Leave unchanged"
-msgstr "השאר ללא שינויים"
+msgstr "להשאיר ללא שינוי"
 
 #: actions/bundled/powerprofileconfig.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Power Off"
+#, kde-format
 msgid "Power Save"
-msgstr "כיבוי"
+msgstr "חיסכון בחשמל"
 
 #: actions/bundled/powerprofileconfig.cpp:76
 #, kde-format
 msgid "Balanced"
-msgstr ""
+msgstr "מאוזן"
 
 #: actions/bundled/powerprofileconfig.cpp:77
 #, kde-format
 msgid "Performance"
-msgstr ""
+msgstr "ביצועים"
 
 #: actions/bundled/powerprofileconfig.cpp:91
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
-msgstr "כיבוי לאחר"
+msgstr "מעבר אל:"
 
 #: actions/bundled/runscriptconfig.cpp:50
 #, kde-format
 msgid "Script"
-msgstr "תסריט"
+msgstr "סקריפט"
 
 #: actions/bundled/runscriptconfig.cpp:62
 #, kde-format
@@ -265,76 +256,74 @@ msgstr "בביטול הפרופיל"
 #: actions/bundled/runscriptconfig.cpp:75
 #, kde-format
 msgid "Run script"
-msgstr "הרץ סקריפט"
+msgstr "הרצת סקריפט"
 
 #: actions/bundled/suspendsessionconfig.cpp:65
-#, fuzzy, kde-format
-#| msgid "After"
+#, kde-format
 msgid "after "
-msgstr "אחרי"
+msgstr "אחרי "
 
 #: actions/bundled/suspendsessionconfig.cpp:88
 #, kde-format
 msgid "Automatically"
-msgstr ""
+msgstr "אוטומטית"
 
 #: actions/bundled/suspendsessionconfig.cpp:94
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
-msgstr ""
+msgstr "במצב שינה, להיכנס לתרדמת לאחר תקופה של חוסר פעילות"
 
 #: powerdevilapp.cpp:54
-#, fuzzy, kde-format
+#, kde-format
 msgid "KDE Power Management System"
-msgstr "ניהול פרופיל"
+msgstr "מערכת ניהול צריכת החשמל של KDE"
 
 #: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr ""
+msgstr "PowerDevil, סוכן ניהול צריכת חשמל מתקדם, גמיש וקליל"
 
 #: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
-msgstr ""
+msgstr "(c) 2015-2019 קאי אווה ברוליק"
 
 #: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr ""
+msgstr "קאי אווה ברוליק"
 
 #: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr ""
+msgstr "מתחזק"
 
 #: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
-msgstr ""
+msgstr "דאריו פרדי"
 
 #: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr ""
+msgstr "מתחזק קודם"
 
 #: powerdevilapp.cpp:132
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "כיבוי לאחר"
+msgstr "החלפת פרופיל צריכת חשמל"
 
 #: powerdevilapp.cpp:147
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "החלפת עותק קיים"
 
 #: powerdevilcore.cpp:414 powerdevilcore.cpp:425
 #, kde-format
@@ -342,15 +331,14 @@ msgid "Activity Manager"
 msgstr "מנהל פעילויות"
 
 #: powerdevilcore.cpp:415
-#, fuzzy, kde-format
-#| msgid "This activity's policies prevent the system from suspending"
+#, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr "מדיניות הפעילות הזו מונעת מהמערכת להכנס לשינה"
+msgstr "מדיניויות הפעילות מונעות מהמערכת לישון"
 
 #: powerdevilcore.cpp:426
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr "מדיניות הפעילות הזו מונעת מהמסך ניהול צריכת החשמל"
+msgstr "מדיניויות הפעילות הזו מונעות את ניהול צריכת החשמל של המסך"
 
 #: powerdevilcore.cpp:488
 #, kde-format
@@ -360,7 +348,7 @@ msgstr "נוספה סוללה נוספת"
 #: powerdevilcore.cpp:489 powerdevilcore.cpp:708
 #, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr ""
+msgstr "המחשב לא יישן עוד."
 
 #: powerdevilcore.cpp:554
 #, kde-format
@@ -375,71 +363,52 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:559
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in your mouse (\"%1\") is low, and the device may turn itself "
-#| "off at any time. Please replace or charge the battery as soon as possible."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"הסוללה בעכבר שלך (\"%1\") נמוכה, ואולי הוא יכבה בכל רגע. אנא החלף סוללות או "
-"הטען אותו בהקדם האפשרי"
+"עוצמת הסוללה של „%1” נמוכה, וההתקן עשוי לכבות בכל רגע. נא להחליף סוללות או "
+"להטעין אותו."
 
 #: powerdevilcore.cpp:566
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "סוללת העכבר נמוכה (נותרו %1% אחוז)"
+msgstr "עוצמת סוללת העכבר נמוכה (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:570
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "סוללת המקלדת נמוכה (נותרו %1% אחוז)"
+msgstr "עוצמת סוללת המקלדת נמוכה (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:574
-#, fuzzy, kde-format
-#| msgctxt "The battery in an external device"
-#| msgid "Device Battery Low (%1% Remaining)"
+#, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "סוללת ההתקן נמוכה (נותרו %1% אחוז)"
+msgstr "עוצמת סוללת התקן הבלוטות׳ נמוכה (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:576
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in your mouse (\"%1\") is low, and the device may turn itself "
-#| "off at any time. Please replace or charge the battery as soon as possible."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"הסוללה בעכבר שלך (\"%1\") נמוכה, ואולי הוא יכבה בכל רגע. אנא החלף סוללות או "
-"הטען אותו בהקדם האפשרי"
+"עוצמת הסוללה של התקן הבלוטות׳ שלך „%1” נמוכה, וההתקן עשוי לכבות בכל רגע. נא "
+"להחליף סוללות או להטעין אותו."
 
 #: powerdevilcore.cpp:618
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery is low. If you need to continue using your computer, either "
-#| "plug in your computer, or shut it down and then change the battery."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
-msgstr ""
-"הסוללה שלך חלשה. אם אתה צריך תמשיך להשתמש במחשב, אחרת חבר את המחשב למטען או "
-"כבה אותו"
+msgstr "נא לוודא שהמטען מחובר ומספק מספיק חשמל."
 
 #: powerdevilcore.cpp:620
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "לחבר את המחשב."
 
 #: powerdevilcore.cpp:637
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Cancel timeout that will automatically suspend system because of low "
-#| "battery"
-#| msgid "Cancel"
+#, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
 "battery"
@@ -447,82 +416,71 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: powerdevilcore.cpp:649
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 60 seconds."
+#, kde-format
 msgid "The computer will shut down in 60 seconds."
-msgstr "מצב הסוללה קריטי, המחשב יכנס למצב שינה בעוד 60 שניות."
+msgstr "המחשב ייכבה תוך 60 שניות."
 
 #: powerdevilcore.cpp:650
-#, fuzzy, kde-format
-#| msgid "Shut down"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "כיבוי"
+msgstr "לכבות כעת"
 
 #: powerdevilcore.cpp:655
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 60 "
-#| "seconds."
+#, kde-format
 msgid "The computer will hibernate in 60 seconds."
-msgstr "מצב הסוללה קריטי, המחשב יכבה בעוד 60 שניות."
+msgstr "המחשב יירדם תוך 60 שניות."
 
 #: powerdevilcore.cpp:656
-#, fuzzy, kde-format
-#| msgid "Hibernate"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "השהייה לכונן"
+msgstr "להרדים כעת"
 
 #: powerdevilcore.cpp:662
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 60 seconds."
+#, kde-format
 msgid "The computer will sleep in 60 seconds."
-msgstr "מצב הסוללה קריטי, המחשב יכנס למצב שינה בעוד 60 שניות."
+msgstr "המחשב יישן תוך 60 שניות."
 
 #: powerdevilcore.cpp:663
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr ""
+msgstr "לישון כעת"
 
 #: powerdevilcore.cpp:668
-#, fuzzy, kde-format
-#| msgid "Your battery level is critical, save your work as soon as possible."
+#, kde-format
 msgid "Please save your work."
-msgstr "מצב הסוללה קריטי: שמור את עבודתך מהר ככל האפשר."
+msgstr "נא לשמור את העבודה שלך."
 
 #: powerdevilcore.cpp:679
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "סוללה נמוכה (נותרו %1% אחוז)"
+msgstr "עוצמת הסוללה נמוכה (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:683
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "סוללה במצב קריטי (נותרו %1% אחוז)"
+msgstr "עוצמת הסוללה במצב קריטי (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:707
 #, kde-format
 msgid "AC Adapter Plugged In"
-msgstr "ספק הכח מחובר"
+msgstr "המטען מחובר"
 
 #: powerdevilcore.cpp:710
 #, kde-format
 msgid "Running on AC power"
-msgstr "פועל על ספק כוח חיצוני"
+msgstr "פועל על מטען"
 
 #: powerdevilcore.cpp:710
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been plugged in."
+#, kde-format
 msgid "The power adapter has been plugged in."
-msgstr "ספק הכח חובר למחשב."
+msgstr "המטען חובר."
 
 #: powerdevilcore.cpp:713
 #, kde-format
@@ -530,22 +488,19 @@ msgid "Running on Battery Power"
 msgstr "פועל על סוללה"
 
 #: powerdevilcore.cpp:713
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been unplugged."
+#, kde-format
 msgid "The power adapter has been unplugged."
-msgstr "ספק הכח נותק מהמחשב."
+msgstr "המטען נותק."
 
 #: powerdevilcore.cpp:774
-#, fuzzy, kde-format
-#| msgid "Charge Complete"
+#, kde-format
 msgid "Charging Complete"
 msgstr "הטעינה הושלמה"
 
 #: powerdevilcore.cpp:774
-#, fuzzy, kde-format
-#| msgid "Your battery is now fully charged."
+#, kde-format
 msgid "Battery now fully charged."
-msgstr "הסוללה עכשיו מלאה"
+msgstr "הסוללה טעונה במלואה כעת."
 
 #~ msgid "Unsupported suspend method"
 #~ msgstr "סוג השהייה לא נתמך"
