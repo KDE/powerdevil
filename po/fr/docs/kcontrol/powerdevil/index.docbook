@@ -38,9 +38,7 @@
 >PowerDevil, un démon de gestionnaire d'énergie</title>
 
 <para
->Ce module est un outil de configuration pour gérer l'énergie dans &plasma;. Il permet de configurer le démon « PowerDevil », que vous pouvez démarrer ou arrêter depuis le module <guilabel
->Gestionnaire de services</guilabel
-> de &systemsettings;.</para>
+>Ce module est un outil de configuration pour gérer l'énergie dans &plasma;. Il permet de configurer le démon « PowerDevil ».</para>
 
 <para
 >Avec ce module, vous pouvez définir le comportement de votre ordinateur dans de nombreuses situations, vous permettant d'économiser autant d'énergie que possible. </para>
