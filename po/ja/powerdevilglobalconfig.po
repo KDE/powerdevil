@@ -170,16 +170,3 @@ msgstr "その他の設定"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "この残量で充電を停止する:"
-
-#~ msgid "Do nothing"
-#~ msgstr "何もしない"
-
-#~ msgctxt "Suspend to RAM"
-#~ msgid "Sleep"
-#~ msgstr "スリープ"
-
-#~ msgid "Hibernate"
-#~ msgstr "ハイバネート"
-
-#~ msgid "Shut down"
-#~ msgstr "シャットダウン"
