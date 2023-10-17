@@ -81,7 +81,7 @@ ActivityPage::~ActivityPage()
 
 void ActivityPage::load()
 {
-    for (ActivityWidget *widget : qAsConst(m_activityWidgets)) {
+    for (ActivityWidget *widget : std::as_const(m_activityWidgets)) {
         widget->load();
     }
 
@@ -90,7 +90,7 @@ void ActivityPage::load()
 
 void ActivityPage::save()
 {
-    for (ActivityWidget *widget : qAsConst(m_activityWidgets)) {
+    for (ActivityWidget *widget : std::as_const(m_activityWidgets)) {
         widget->save();
     }
 

@@ -83,7 +83,7 @@ void PowerDevilApp::init()
     }
 
     QFileInfo backendFileInfo;
-    for (const QFileInfo &f : qAsConst(fileInfos)) {
+    for (const QFileInfo &f : std::as_const(fileInfos)) {
         if (f.baseName().toLower() == QLatin1String("powerdevilupowerbackend")) {
             backendFileInfo = f;
             break;

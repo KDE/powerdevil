@@ -71,7 +71,7 @@ QList<QPair<QString, QWidget *>> HandleButtonEventsConfig::buildUi()
         QList<QComboBox *> boxes;
         boxes << m_lidCloseCombo << m_powerButtonCombo;
 
-        for (QComboBox *box : qAsConst(boxes)) {
+        for (QComboBox *box : std::as_const(boxes)) {
             box->addItem(QIcon::fromTheme("dialog-cancel"), i18n("Do nothing"), static_cast<uint>(PowerDevil::PowerButtonAction::NoAction));
             if (PowerManagement::instance()->canSuspend()) {
                 box->addItem(QIcon::fromTheme("system-suspend"),

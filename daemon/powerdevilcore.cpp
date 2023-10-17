@@ -1009,7 +1009,7 @@ Action *Core::action(const QString actionId)
 
 void Core::unloadAllActiveActions()
 {
-    for (const QString &action : qAsConst(m_activeActions)) {
+    for (const QString &action : std::as_const(m_activeActions)) {
         m_actionPool[action]->onProfileUnload();
         m_actionPool[action]->unloadAction();
     }
