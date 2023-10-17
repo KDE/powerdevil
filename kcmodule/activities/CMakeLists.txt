@@ -1,4 +1,4 @@
-add_definitions(-DTRANSLATION_DOMAIN=\"powerdevilactivitiesconfig\")
+add_definitions(-DTRANSLATION_DOMAIN=\"kcm_powerdevilactivitiesconfig\")
 
 set( kcm_powerdevil_activities_SRCS
      ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
