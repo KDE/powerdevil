@@ -56,5 +56,5 @@ private:
         uint value;
     };
 
-    QVector<Data> m_data;
+    QList<Data> m_data;
 };

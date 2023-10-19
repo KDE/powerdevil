@@ -60,9 +60,9 @@ static QStringList getBatteries()
     return batteries;
 }
 
-static QVector<int> getThresholds(const QString &which)
+static QList<int> getThresholds(const QString &which)
 {
-    QVector<int> thresholds;
+    QList<int> thresholds;
 
     const QStringList batteries = getBatteries();
     for (const QString &battery : batteries) {

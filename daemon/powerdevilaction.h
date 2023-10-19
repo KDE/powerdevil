@@ -185,7 +185,7 @@ protected Q_SLOTS:
 private:
     PowerDevil::Core *m_core;
 
-    QVector<std::chrono::milliseconds> m_registeredIdleTimeouts;
+    QList<std::chrono::milliseconds> m_registeredIdleTimeouts;
     PowerDevil::PolicyAgent::RequiredPolicies m_requiredPolicies;
 
     friend class Core;

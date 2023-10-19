@@ -13,9 +13,9 @@
 
 #pragma once
 
+#include <QList>
 #include <QObject>
 #include <QString>
-#include <QVector>
 
 namespace PowerDevil
 {
@@ -29,7 +29,7 @@ public:
     QString label;
     QString iconName;
 
-    static QVector<OsdAction> availableActions();
+    static QList<OsdAction> availableActions();
 };
 
 } // namespace KScreen

@@ -223,7 +223,7 @@ void Core::onBackendReady()
 
 void Core::initActions()
 {
-    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
+    const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
     for (const KPluginMetaData &data : offers) {
         if (auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, this).plugin) {
             m_actionPool.insert(data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), plugin);

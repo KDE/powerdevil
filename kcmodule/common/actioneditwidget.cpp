@@ -34,7 +34,7 @@ ActionEditWidget::ActionEditWidget(const QString &configName, QWidget *parent)
     QMultiMap<int, QList<QPair<QString, QWidget *>>> widgets;
 
     // Load all the plugins
-    const QVector<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
+    const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
 
     for (const KPluginMetaData &offer : offers) {
         // Does it have a runtime requirement?

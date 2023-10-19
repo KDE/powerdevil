@@ -17,7 +17,7 @@
 
 using namespace PowerDevil;
 
-QVector<OsdAction> OsdAction::availableActions()
+QList<OsdAction> OsdAction::availableActions()
 {
     return {
         {QStringLiteral("power-saver"), i18ndc("powerdevil", "power profile", "Power Save Mode"), QStringLiteral("battery-profile-powersave")},

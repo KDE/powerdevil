@@ -8,10 +8,10 @@
 #pragma once
 
 #include <QHash>
+#include <QList>
 #include <QObject>
 #include <QPointer>
 #include <QStringList>
-#include <QVector>
 
 #include <QDBusContext>
 #include <QDBusUnixFileDescriptor>
@@ -151,7 +151,7 @@ private:
 
     QHash<uint, LogindInhibition> m_logindInhibitions;
 
-    QVector<int> m_pendingInhibitions;
+    QList<int> m_pendingInhibitions;
 
     uint m_lastCookie;
 
