@@ -1,0 +1,103 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Antonis Geralis <capoiosct@gmail.com>, 2011, 2012.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2012.
+# Stelios <sstavra@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilprofilesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2021-07-24 09:27+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Αντώνης Γέραλης"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "capoiosct@gmail.com"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"Το σύστημα διαχείρισης ενέργειας του KDE θα δημιουργήσει τώρα μια σειρά από "
+"προεπιλογές με βάση τις δυνατότητες του υπολογιστή σας. Αυτό θα διαγράψει "
+"επίσης όλες τις υπάρχουσες τροποποιήσεις που έχετε κάνει. Είστε βέβαιοι ότι "
+"θέλετε να συνεχίσετε;"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Επαναφορά προκαθορισμένων προφίλ"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Η υπηρεσία διαχείρισης ισχύος μάλλον δεν εκτελείται."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "Σε ρεύμα AC"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "Σε μπαταρία"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "Σε χαμηλή μπαταρία"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Η υπηρεσία διαχείρισης ενέργειας δεν φαίνεται να εκτελείται.\n"
+#~ "Αυτό μπορεί να επιλυθεί με την έναρξη ή τον προγραμματισμό της από το "
+#~ "\"Εκκίνηση και τερματισμός\""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Ρύθμιση των προφίλ ενέργειας"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "Εργαλείο ρύθμισης των προφίλ για το σύστημα διαχείρισης ενέργειας του KDE"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Από αυτό το άρθρωμα, μπορείτε να διαχειριστείτε τα προφίλ ενέργειας του "
+#~ "συστήματος διαχείρισης ενέργειας του KDE, με τη ρύθμιση υπαρχόντων ή τη "
+#~ "δημιουργία νέων."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Συντηρητής"

@@ -18,8 +18,8 @@ msgstr ""
 "X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
 "X-Crowdin-Project-ID: 127\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/powerdevil/powerdevilactivitiesconfig.po\n"
-"X-Crowdin-File-ID: 8984\n"
+"X-Crowdin-File: /main/be/powerdevil/powerdevilglobalconfig.po\n"
+"X-Crowdin-File-ID: 8986\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -40,25 +40,25 @@ msgstr "Выглядае, што служба кіравання сілкава�
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Узроўні зараду батарэі                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "&Нізкі ўзровень:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Нізкі ўзровень зараду батарэі"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Зарад батарэі будзе лічыцца нізкім, калі ён дасягне гэтага ўзроўню"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -69,43 +69,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "&Крытычны ўзровень:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Крытычны ўзровень зараду батарэі"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Зарад батарэі будзе лічыцца крытычным, калі ён дасягне гэтага ўзроўню"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "&На крытычным ўзроўні:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Нізкі ўзровень для перыферыйных прылад:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ліміт зараджэння"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -116,6 +116,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Падтрыманне батарэі зараджанай на 100% на працягу "
+"доўгага перыяду часу можа паскорыць пагаршэнне стану батарэі. Калі "
+"абмяжоўваць максімальнае зараджэнне батарэі, вы можаце павялічыць тэрмін яе "
+"службы.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -124,77 +128,53 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Магчыма, вам давядзецца адлучыцца і зноў падлучыцца да крыніцы сілкавання, "
+"каб зноў пачаць зараджэнне батарэі."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Узровень зараду батарэі, ніжэй за які пачынаецца зараджэнне:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Заўсёды зараджаць пры падлучэнні"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Прыпыненне медыяпрайгравальнікаў пры прыпыненні:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Уключана"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Наладжванне апавяшчэнняў…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Іншыя налады"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Спыненне зараджэння на:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Служба пакояў працуе з базавымі функцыямі.\n"
-#~ "Назвы і значкі пакояў могуць быць недаступнымі."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Служба пакояў не працуе.\n"
-#~ "Неабходна, каб кіраўнік пакояў быў запушчаны, каб наладзіць асобнае "
-#~ "кіраванне сілкаваннем для кожнага пакоя."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "Ніколі не выключаць экран"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr ""
-#~ "Ніколі не выключаць камп'ютар і не дазваляць яму пераходзіць у рэжым сну"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Не выкарыстоўваць адмысловыя налады"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Вызначыць адмысловыя паводзіны"
+#~ msgid "Do nothing"
+#~ msgstr "Нічога не рабіць"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -205,31 +185,3 @@ msgstr ""
 
 #~ msgid "Shut down"
 #~ msgstr "Выключыць"
-
-#~ msgid "Always"
-#~ msgstr "Заўсёды"
-
-#~ msgid "after"
-#~ msgstr "праз"
-
-#~ msgid " min"
-#~ msgstr " хв"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "Камп'ютар сілкуецца ад электрасеткі"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "Камп'ютар сілкуецца ад батарэі"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "Камп'ютар сілкуецца ад батарэі з нізкім узроўнем зараду"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Пакой \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "Паводзіны"
-
-#~ msgid "Use separate settings"
-#~ msgstr "Выкарыстоўваць асобныя налады"

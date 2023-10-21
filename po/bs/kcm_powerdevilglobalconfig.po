@@ -1,14 +1,14 @@
-# Bosnian translation for bosnianuniversetranslation
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the bosnianuniversetranslation package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# Bosnian translation for kdebase-workspace
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the kdebase-workspace package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: bosnianuniversetranslation\n"
+"Project-Id-Version: kdebase-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2013-10-18 20:24+0000\n"
+"PO-Revision-Date: 2013-10-18 20:27+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
@@ -37,27 +37,29 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<b>Battery levels</b>"
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Nivoi baterije</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Low battery level"
 msgid "&Low level:"
-msgstr ""
+msgstr "Nizak nivo baterije"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Nizak nivo baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Uzima se da je baterija nisko kada dosegne ovaj nivo."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -68,31 +70,33 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Critical battery level"
 msgid "&Critical level:"
-msgstr ""
+msgstr "Kritični nivo baterije"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritični nivo baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Uzima se da je baterija kritična kada dosegne ovaj nivo."
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Battery is at critical level at"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Baterija je kritična na"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
@@ -150,9 +154,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Podesi obavještenja..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
@@ -166,39 +171,8 @@ msgstr ""
 msgid "Stop charging at:"
 msgstr ""
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Servis aktivnosti je pokrenut sa golim funkcijama.\n"
-#~ "Imena i ikone aktivnosti možda neće biti dostupne."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Servis aktivnosti nije pokrenut. Potrebno je da menadžer aktivnosti radi "
-#~ "za konfiguriranje aktivnosti specifičnih za ponašanje upravljanja "
-#~ "napajanjem."
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never turn off the screen"
-#~ msgstr "Nikada ne gasiti ekran"
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Nikada ne gasiti ekran"
-
-#, fuzzy
-#~| msgid "Don't use special settings"
-#~ msgid "Do not use special settings"
-#~ msgstr "Ne koristi specijalne postavke"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Definirati specijalno ponašanje"
+#~ msgid "Do nothing"
+#~ msgstr "Ne radi ništa"
 
 #, fuzzy
 #~| msgid "Sleep"
@@ -214,36 +188,6 @@ msgstr ""
 #~ msgid "Shut down"
 #~ msgstr "Gašenje"
 
-#~ msgid "Always"
-#~ msgstr "Uvijek"
-
-#~ msgid "after"
-#~ msgstr "nakon"
-
-#~ msgid " min"
-#~ msgstr " min"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "PC na naizmjeničnoj struju"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "PC na baterijama"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "PC na niskom nivou baterija"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Aktivnost \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "Ponašaj se kao"
-
-#, fuzzy
-#~| msgid "Use separate settings (advanced users only)"
-#~ msgid "Use separate settings"
-#~ msgstr "Koristiti zasebne postavke (samo za napredne korisnike)"
-
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
 #~ "This can be solved by starting or scheduling it inside \"Startup and "
@@ -253,27 +197,58 @@ msgstr ""
 #~ "To se može riješiti pokretanjem ili raspoređivanjem unutar \"Pokretanje i "
 #~ "gašenje\""
 
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "Nikada suspendovati ili ugasiti kompjuter"
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Događaji</b>"
 
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "Aktivnosti za upravljanje konfiguracijom napajanja"
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr ""
+#~ "Kada je ova opcija odabrana, aplikacijama neće biti dopušteni da spriječe "
+#~ "spavanje pri zatvaranju poklopca"
 
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr "Konfigurator KDE sistema za upravljanje energijom po aktivnosti"
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Ne sprečavaj akciju pri zatvaranju poklopca"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Zaključava ekran pri buđenju iz suspenzije."
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "Biće vam zatražena lozinka pri vraćanju iz stanja spavanja."
+
+#, fuzzy
+#~| msgid "Lock screen on resume"
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "Zaključaj ekran po nastavljanju"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "Baterija je nisko na"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "Kada je baterija na kritičnom nivou"
+
+#~ msgid "Global Power Management Configuration"
+#~ msgstr "Konfiguracija opšteg upravljanja napajanjem"
+
+#~ msgid ""
+#~ "A global power management configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "Konfiguracija opšteg upravljanja napajanjem za KDE Power Management System"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "(c), 2010 Dario Freddi"
 
 #~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
+#~ "From this module, you can configure the main Power Management daemon, "
+#~ "assign profiles to states, and do some advanced fine tuning on battery "
+#~ "handling"
 #~ msgstr ""
-#~ "Od ovog modula, možete fino podešavati postavkama za upravljanje "
-#~ "napajanjem za svaku od aktivnosti."
+#~ "Iz ovog modula, možete da konfigurišete glavni demon za upravljanje "
+#~ "napajanjem, dodijelite profili stanjima, kao i neka napredna fino "
+#~ "podešavanje na rukovanju baterijom."
 
 #~ msgid "Dario Freddi"
 #~ msgstr "Dario Freddi"
 
 #~ msgid "Maintainer"
-#~ msgstr "Održavalac"
+#~ msgstr "Održava"

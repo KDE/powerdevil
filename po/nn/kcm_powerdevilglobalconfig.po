@@ -1,20 +1,22 @@
-# Translation of powerdevilactivitiesconfig to Norwegian Nynorsk
+# Translation of powerdevilglobalconfig to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2020, 2022.
+# Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010, 2011.
+# Karl Ove Hufthammer <karl@huftis.org>, 2009, 2015, 2016, 2018, 2019, 2020.
+# Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-09-11 19:42+0200\n"
-"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"PO-Revision-Date: 2021-12-15 13:37+0100\n"
+"Last-Translator: Oystein Steffensen-Alvaervik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 21.12.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -22,12 +24,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Karl Ove Hufthammer"
+msgstr "Eirik U. Birkeland,Karl Ove Hufthammer"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "karl@huftis.org"
+msgstr "eirbir@gmail.com,karl@huftis.org"
 
 #: GeneralPage.cpp:241
 #, kde-format
@@ -38,25 +40,25 @@ msgstr "Det ser ikkje ut til at straumstyrings­tenesta køyrer."
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Batterinivå</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "&Lågt nivå:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Lågt batterinivå"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Batteriet vert rekna å vera på lågt nivå når det når dette nivået"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -67,43 +69,44 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr " %"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "&Kritisk batterinivå:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritisk batterinivå"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
 msgstr ""
+"Batteriet vert rekna å vera på kritisk lågt nivå når det når dette nivået"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "&Kritisk lågt batterinivå:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Lågt batterinivå for tilkopla einingar:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ladegrense"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -114,6 +117,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Viss du held batteriet fullada over lengre tid, kan "
+"det gjera at batteriet mistar lade­kapasiteten raskare. Viss du passar på at "
+"batteriet aldri vert lada over eit visst nivå, kan det hjelpa til å "
+"opprettahalda kapasiteten.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -122,67 +129,47 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Det kan vera du må kopla frå og til straumkjelda for at batteriet skal "
+"starta å att."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Berre start lading når nivået er under:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Lada alltid når tilkopla straumnettet"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Set mediespelarar på pause ved kvile-/dvalemodus:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "På"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Set opp varslingar …"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Andre innstillingar"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
-
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Aktivitetstenesta køyrer med låg funksjonalitet.\n"
-#~ "Namn og ikon for aktivitetar er kanskje ikkje tilgjengelege."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Aktivitetstenesta køyrer ikkje.\n"
-#~ "Aktivitetstenesta må køyra for at det skal vera mogleg å setja opp "
-#~ "straumstyring for kvar aktivitet."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "Slå aldri av skjermen"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Gå aldri i kvilemodus eller slå av maskina"
+msgstr "Stopp lading når nivået er over:"

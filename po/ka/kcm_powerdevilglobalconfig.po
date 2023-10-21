@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-11-16 08:31+0100\n"
+"PO-Revision-Date: 2022-11-16 08:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -37,25 +37,25 @@ msgstr "კვების მართვის სერვისი მგო
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>ელემენტის დონეები                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "&მუხტის დაბალი დონე:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "ელემენტის მუხტის დაბალი დონე"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "ელემენტი ჩაითვლება განმუხტულად, როცა ამ დონეს მიაღწევს"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -66,43 +66,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "&მუხტის კრიტიკული დონე:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "ელემენტის მუხტის კრიტიკული დონე"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "ელემენტი ჩაირთვება კრიტიკულად განმუხტულად, როცა ამ დონეს მიაღწევს"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "&კრიტიკული დონისას:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "მუხტის დაბალი დონე პერიფერიული მოწყობილობებისათვის:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "დატენვის ლიმიტი"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -113,6 +113,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>ელემენტის დიდი ხნის განმავლობაში 100% მუხტით ქონისას "
+"მისი წარმადობა შეიძლება საგრძნობლად დაეცეს. ელემენტის მაქსიმალური მუხტის "
+"შეზღუდვით თქვენ ელემენტის სიცოცხლის გახანგრძლივება შეგიძლიათ.</p></body></"
+"html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -121,76 +125,53 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"თქვენ შეიძლება მოგიწიოთ ენერგიის წყაროს გათიშვა და ხელახლა დაკავშირება, რომ "
+"კვლავ დაიწყოთ ელემენტის დამუხტვა."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "დატენვა დაიწყება, როცა მუხტი მითითებულ დონეზე დაბლა ჩამოვა:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "ყოველთვის დატენვა, როცა შეერთებულია"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "ძილისთვის მომზადებისას მედიის დამკვირებელის შეჩერება:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "ჩართულია"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "შეტყობინებების მორგება…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "სხვა პარამეტრები"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "დატენვის შეჩერება მუხტის დონისას:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "აქტივობის სერვისი შიშველი ფუნქციონალით მუშაობს.\n"
-#~ "აქტივობების სახელები და ხატულები შეიძლება ხელმისაწვდომი არ იყოს."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "აქტივობის სერვისი გაშვებული არაა.\n"
-#~ "კვების მართვის ქცევის აქტივობის მორგებისთვის აქტივობის მმართველის "
-#~ "გაშვებულობა აუცილებელ პირობას წარმოადგენს."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "არასდროს გამორთო ეკრანი"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "არასდროს გამორთო კომპიუტერი ან დააძინო ის"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "სპეციალური პარამეტრები გამოყენებული არ იქნება"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "სპეციალური ქცევის აღწერა"
+#~ msgid "Do nothing"
+#~ msgstr "არაფრის გაკეთება"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -201,31 +182,3 @@ msgstr ""
 
 #~ msgid "Shut down"
 #~ msgstr "გამორთვა"
-
-#~ msgid "Always"
-#~ msgstr "ყოველთვის"
-
-#~ msgid "after"
-#~ msgstr "მითითებულ დროის შემდეგ"
-
-#~ msgid " min"
-#~ msgstr " წთ"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "PC, შეერთებული დენის წყაროში"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "PC, ჩართული ელემენტიდან"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "PC, ჩართული განმუხტული ელემენტიდან"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "აქტივობა \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "მოქცევა, როგორც"
-
-#~ msgid "Use separate settings"
-#~ msgstr "ცალ-ცალკე პარამეტრების დამოყენება"

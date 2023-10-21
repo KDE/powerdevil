@@ -1,20 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sairan Kikkarin <sairan@computer.org>, 2011.
+# Sairan Kikkarin <sairan(at)computer.org>, 2010.
+# Sairan Kikkarin <sairan@computer.org>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2011-12-09 03:11+0600\n"
+"PO-Revision-Date: 2012-02-27 01:30+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -34,27 +35,29 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<b>Battery levels</b>"
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Батарея деңгейлері</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Low battery level"
 msgid "&Low level:"
-msgstr ""
+msgstr "Батареяның толуы төмен деңгейі"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Батареяның толуы төмен деңгейі"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Батареяның толуы төмен деп есептелетін деңгейі"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -65,31 +68,33 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Critical battery level"
 msgid "&Critical level:"
-msgstr ""
+msgstr "Батареяның әбден сарқылған деңгейі"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Батареяның әбден сарқылған деңгейі"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Батарея әбден сарқылған деп есептелетін деңгейі"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Battery is at critical level at"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Батарея әбден сарқылды дейтін деңгейі:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
@@ -147,15 +152,17 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Құлақтандыруларын баптау..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Advanced Battery Settings"
 msgid "Other Settings"
-msgstr ""
+msgstr "Батареясын жетелеп баптау"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
@@ -163,39 +170,8 @@ msgstr ""
 msgid "Stop charging at:"
 msgstr ""
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Белсенділік қызметі шектеулі мүмкіндіктерімен жегілген.\n"
-#~ "Белсенділіктерінің атау мен таңбашалары көрсетілмеуі мүмкін. "
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Белсенділік қызметі жегілмеген.\n"
-#~ "әр белсенділік түріне бөлек құаттандыру тәртібін орнату үшін белсенділік "
-#~ "менеджері жегілген болу керек."
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never turn off the screen"
-#~ msgstr "Экраны ешқашан сөндірілмесін"
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Экраны ешқашан сөндірілмесін"
-
-#, fuzzy
-#~| msgid "Don't use special settings"
-#~ msgid "Do not use special settings"
-#~ msgstr "Арнаулы баптауы қолданбайды"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Әрнаулы тәртібін орнату"
+#~ msgid "Do nothing"
+#~ msgstr "Ештеңе істемеу"
 
 #, fuzzy
 #~| msgid "Sleep"
@@ -211,36 +187,6 @@ msgstr ""
 #~ msgid "Shut down"
 #~ msgstr "Сөндіру"
 
-#~ msgid "Always"
-#~ msgstr "Әрқашан"
-
-#~ msgid "after"
-#~ msgstr "-"
-
-#~ msgid " min"
-#~ msgstr " мин. кейін"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "Компьютер токтан істеп тұр"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "Компьютер батареядан істеп тұр"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "Қуаты аз батареядан істеп тұр"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "\"%1\" белсенділігіндей"
-
-#~ msgid "Act like"
-#~ msgstr "Бұл"
-
-#, fuzzy
-#~| msgid "Use separate settings (advanced users only)"
-#~ msgid "Use separate settings"
-#~ msgstr "Параметрлері бөлек (тек тәжірибелілер үшін)"
-
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
 #~ "This can be solved by starting or scheduling it inside \"Startup and "
@@ -249,27 +195,105 @@ msgstr ""
 #~ "Қуаттандыруны басқару қызметі жегілмеген сияқты.\n"
 #~ "Бұл \"Бастау мен сөндіру\" дегенде жегіп не жоспарлап шешіледі"
 
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "Компьютер қалғымасын және сөндірілмесін"
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Оқиғалар</b>"
 
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "Белсенділік түрлерін қуаттандыруды басқаруын баптау"
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr ""
+#~ "Белгісі қойылса, қолданбаға ноутбуктің қақпағы жабылғанда қалғу режіміне "
+#~ "кедергі қылуға рұқсат етілмейді"
 
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr "Түрлі белсенділіктерді KDE-нің қуаттандыруды басқару жүйесін баптау"
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Қақпағы жабылғандағы амалға кедергі қылмау"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Қалғу режімінен қайтқанда экран бұғаттаулы болады"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "Қалғу күйінен оралғанда пароліңіз сұралады"
+
+#, fuzzy
+#~| msgid "Lock screen on resume"
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "Қайта оралғанда экран бұғаттаулы болсын"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "Батареяның толуы төмен дейтін деңгейі:"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "Батарея әбден сарқылған деңгейде"
+
+#~ msgid "Global Power Management Configuration"
+#~ msgstr "Жалпы жүйелік қуаттандыруды басқаруын баптау"
+
+#~ msgid ""
+#~ "A global power management configurator for KDE Power Management System"
+#~ msgstr "KDE-нің қуаттандыруды басқару жүйесінің жалпы қуаттандыруын баптауы"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "(c), 2010 Dario Freddi"
 
 #~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
+#~ "From this module, you can configure the main Power Management daemon, "
+#~ "assign profiles to states, and do some advanced fine tuning on battery "
+#~ "handling"
 #~ msgstr ""
-#~ "Бұл модулінде әр белсенділік түріне бөлек құаттандыру параметрлерін арнап "
-#~ "баптай аласыз. "
+#~ "Бұл модулінен, негізгі қуаттандыруды басқару қызметін баптауға, күй-"
+#~ "жайларына профильдерін тағайындауға, батареяларды қолданудың кейбір "
+#~ "параметрлерін анықтауға болады"
 
 #~ msgid "Dario Freddi"
 #~ msgstr "Dario Freddi"
 
 #~ msgid "Maintainer"
-#~ msgstr "Желілдірушісі"
+#~ msgstr "Жетілдірушісі"
+
+#~ msgid "Settings and Profile"
+#~ msgstr "Параметрлері және Профилі"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Profile Assignment</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "weight:600;\">Профилін тағайындау</span></p></body></html>"
+
+#~ msgid "When AC Adaptor is plugged in"
+#~ msgstr "АТ адаптері қосылғанда"
+
+#~ msgid "When AC Adaptor is unplugged"
+#~ msgstr "АТ адаптері ажыратылғанда"
+
+#~ msgid "When battery is at warning level"
+#~ msgstr "Батареясы ескертетін деңгейінде"
+
+#~ msgid "When battery remaining is critical"
+#~ msgstr "Батареясы әбден сарқылғанда"
+
+#~ msgid "Battery is at warning level at"
+#~ msgstr "Ескерту жасайтын батареяның деңгейі:"
+
+#~ msgid "Warning battery level"
+#~ msgstr "Батареяның ескерту деңгейі"
+
+#~ msgid ""
+#~ "Battery will be considered at warning level when it reaches this level"
+#~ msgstr "Батареяның төмендегені туралы ескерту жасайтын деңгейі"

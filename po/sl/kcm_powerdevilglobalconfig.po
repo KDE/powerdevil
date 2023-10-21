@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Andrej Mernik <andrejm@ubuntu.si>, 2014, 2015, 2016.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2022.
+# Andrej Mernik <andrejm@ubuntu.si>, 2014, 2015, 2016, 2017.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-11-26 08:14+0100\n"
+"PO-Revision-Date: 2022-11-26 08:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -23,12 +23,14 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrej Vernekar,Andrej Mernik"
+msgstr "Andrej Vernekar,Jure Repinc,Andrej Žnidaršič,Andrej Mernik"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrej.vernekar@gmail.com,andrejm@ubuntu.si"
+msgstr ""
+"andrej.vernekar@gmail.com,jlp@holodeck1.com,andrej.znidarsic@ubuntu.com,"
+"andrejm@ubuntu.si"
 
 #: GeneralPage.cpp:241
 #, kde-format
@@ -39,25 +41,25 @@ msgstr "Kot kaže, storitev upravljanja z energijo ne teče."
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Ravni baterije                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "&Nizka raven:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Nizka raven baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Napolnjenost baterije bo obravnavana kot nizka, ko doseže to raven"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -68,43 +70,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "&Kritična raven:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritična raven baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Napolnjenost baterije bo obravnavana kot kritična, ko doseže to raven"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Ob kri&tični ravni:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Nizka raven za zunanje naprave:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Omejitev polnjenja"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -115,6 +117,9 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Dolgotrajna napolnjenost baterije na 100% lahko "
+"pospeši slabljenje delovanja baterije. Z omejevanjem največje napolnjenosti "
+"baterije lahko podaljšate njeno življenjsko dobo.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -123,114 +128,64 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Za zagon ponovnega polnjenja baterije boste morda morali odklopiti in znova "
+"priključiti vir napajanja."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Začni polniti samo ko je pod:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Vedno polni, ko je priključen"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
 msgstr ""
+"Ob prehodu v pripravljenost naredi premor predstavnostnih predvajalnikov:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Omogočeno"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Nastavi obvestila…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Ostale nastavitve"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Prenehaj polniti pri:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Storitev dejavnosti teče z osnovnimi zmožnostmi.\n"
-#~ "Imena in ikone dejavnosti morda ne bodo na voljo."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Storitev dejavnosti ne teče.\n"
-#~ "Če želite nastaviti upravljanje z energijo za posamezno dejavnost, mora "
-#~ "biti upravljalnik dejavnosti zagnan."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "Nikoli ne izklopi zaslona"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Nikoli ne izklopi računalnika ali dovoli da gre v stanje spanja"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Ne uporabi posebnih nastavitev"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Določi posebno obnašanje"
+#~ msgid "Do nothing"
+#~ msgstr "Ne naredi nič"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
-#~ msgstr "V pripravljenosti"
+#~ msgstr "Spanje"
 
 #~ msgid "Hibernate"
-#~ msgstr "V hibernacijo"
+#~ msgstr "V hibernaciji"
 
 #~ msgid "Shut down"
 #~ msgstr "Izklopi"
-
-#~ msgid "Always"
-#~ msgstr "Vedno"
-
-#~ msgid "after"
-#~ msgstr "po"
-
-#~ msgid " min"
-#~ msgstr " min"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "Računalnik je priključen v el. omrežje"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "Računalnik deluje na baterijo"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "Računalnik deluje na nizki ravni baterije"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Dejavnost \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "Obnašaj se kot"
-
-#~ msgid "Use separate settings"
-#~ msgstr "Uporabi ločene nastavitve"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
@@ -244,29 +199,24 @@ msgstr ""
 #~ msgid "Suspend"
 #~ msgstr "V pripravljenost"
 
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "Nikoli ne postavi računalnik v pripravljenost ali izklopi"
-
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "Nastavitev upravljanja energije za dejavnosti"
-
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr ""
-#~ "Nastavljalnik KDE-jevega sistema za upravljanje z energijo za posamezno "
-#~ "dejavnost"
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "(c), 2010 Dario Freddi"
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Dogodki</b>"
 
 #~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
 #~ msgstr ""
-#~ "Iz tega modula lahko podrobno prilagodite nastavitve upravljanja z "
-#~ "energijo za vsako od vaših dejavnosti."
+#~ "Ko je izbrana ta možnost, programom ob zaprtju prenosnika ne bo dovoljeno "
+#~ "preprečiti prehoda v pripravljenost"
 
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Ob zaprtju prenosnika nikoli ne prepreči dejanja"
 
-#~ msgid "Maintainer"
-#~ msgstr "Vzdrževalec"
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Zaklene zaslon med prebujanjem iz pripravljenosti"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "Ko se računalnik vrne iz stanja pripravljenosti, zahteva vnos gesla"
+
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "Za&kleni zaslon ob nadaljevanju"

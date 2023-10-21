@@ -1,0 +1,142 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrew Coles <andrew_coles@yahoo.co.uk>, 2010.
+# Steve Allewell <steve.allewell@gmail.com>, 2014, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2020-09-26 14:10+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrew Coles, Steve Allewell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Restore Default Profiles"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "The Power Management Service appears not to be running."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "On AC Power"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "On Battery"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "On Low Battery"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Power Profiles Configuration"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "A profile configurator for KDE Power Management System"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Maintainer"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Please enter a name for the new profile:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "The name for the new profile"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Enter here the name for the profile you are creating"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Please enter a name for this profile:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Import Power Management Profiles"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Export Power Management Profiles"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Save Profile"
+
+#~ msgid "New Profile"
+#~ msgstr "New Profile"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Delete Profile"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Import Profiles"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Export Profiles"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Edit Profile"

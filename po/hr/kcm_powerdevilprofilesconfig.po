@@ -1,0 +1,144 @@
+# Translation of powerdevilprofilesconfig to Croatian
+#
+# Zarko Pintar <zarko.pintar@gmail.com>, 2009.
+# DoDo <DoDoEntertainment@gmail.com>, 2009.
+# Marko Dimjasevic <marko@dimjasevic.net>, 2009, 2011.
+# Andrej Dundovic <adundovi@gmail.com>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2011-03-05 16:21+0100\n"
+"Last-Translator: Marko Dimjasevic <marko@dimjasevic.net>\n"
+"Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.2\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Žarko Pintar, Andrej Dundović, Marko Dimjasevic"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zarko.pintar@gmail.com, adundovi@gmail.com, marko@dimjasevic.net"
+
+#: EditPage.cpp:157
+#, fuzzy, kde-format
+#| msgid ""
+#| "The KDE Power Management System will now generate a set of default "
+#| "profiles based on your computer's capabilities. This will also erase all "
+#| "existing profiles. Are you sure you want to continue?"
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"KDE-ov sustav upravljanja potrošnjom energije sad će stvoriti skup zadanih "
+"profila baziranih na mogućnostima Vašeg računala. Ovo će ujedno obrisati sve "
+"postojeće profile. Jeste li sigurni da želite nastaviti?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Vrazi zadane profile"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr ""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Konfiguracija profila potrošnje energije"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "Alat za podešavanje profila za KDE-ov sustav upravljanja potrošnjom "
+#~ "energije"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010. Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Iz ovog modula možete mijenjati profile za KDE-ov sustav upravljanja "
+#~ "potrošnjom energije tako da podešavate postojeće ili stvorite nove."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Održavatelj"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Molim vas unesite naziv novog profila:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Naziv novog profila"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Unesite ovdje naziv profila kojeg stvarate"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Molim vas unesite naziv ovog profila:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Uvezi profile upravljanja energijom"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Izvezi profile upravljanja energijom"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Trenutni profil nije pospremljen.\n"
+#~ "Da li ga želite spremiti?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Spremi profil"
+
+#~ msgid "New Profile"
+#~ msgstr "Novi profil"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Izbriši profil"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Uvezi profile"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Izvezi profile"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Uredi profil"

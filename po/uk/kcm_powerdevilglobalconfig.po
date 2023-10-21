@@ -1,15 +1,15 @@
-# Translation of powerdevilactivitiesconfig.po to Ukrainian
-# Copyright (C) 2011-2020 This_file_is_part_of_KDE
+# Translation of powerdevilglobalconfig.po to Ukrainian
+# Copyright (C) 2010-2020 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2015, 2016, 2019, 2020, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-08-20 08:38+0300\n"
+"PO-Revision-Date: 2021-05-26 08:58+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -39,25 +39,27 @@ msgstr "Здається, службу керування живленням н�
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Заряд акумуляторів</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "&Низький рівень:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Рівень низького заряду"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
 msgstr ""
+"Вважатиметься, що рівень заряду акумулятора низький, коли він досягне цього "
+"рівня"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -68,43 +70,45 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "&Критичний рівень:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Критичний рівень заряду"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
 msgstr ""
+"Вважатиметься, що рівень заряду акумулятора критично низький, коли він "
+"досягне цього рівня"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "З&а критичного рівня:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Низький рівень для периферійних пристроїв:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Обмеження заряджання"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -115,6 +119,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Підтримання заряду акумулятора на рів 100% протягом "
+"тривалого часу може прискорити деградацію акумулятора. Обмеживши "
+"максимальний заряд акумулятора, ви можете продовжити його строк експлуатації."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -123,76 +131,53 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Ймовірно, вам слід від'єднати акумулятор від джерела живлення і з'єднати "
+"його знову, щоб розпочати заряджання акумулятора знову."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Почати заряджання, лише коли нижче за:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Завжди заряджати, якщо увімкнено у мережу"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Призупинення відтворення при призупиненні роботи системи:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнено"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Налаштувати сповіщення…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Інші параметри"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Припиняти заряджання на:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Ця служба просторів дій працює у режимі обмежених можливостей.\n"
-#~ "Можливо, не буде показано назви і піктограми просторів дій."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Службу просторів дій не запущено.\n"
-#~ "Для окремого налаштування керування живленням у просторах дій потрібно "
-#~ "запустити керування просторами дій."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "Ніколи не вимикати екран"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Ніколи не вимикати комп'ютер і не переводити його до стану сну"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Не використовувати особливі параметри"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Визначити особливу поведінку"
+#~ msgid "Do nothing"
+#~ msgstr "Нічого не робити"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -203,34 +188,6 @@ msgstr ""
 
 #~ msgid "Shut down"
 #~ msgstr "Вимкнути"
-
-#~ msgid "Always"
-#~ msgstr "Завжди"
-
-#~ msgid "after"
-#~ msgstr "за"
-
-#~ msgid " min"
-#~ msgstr " хв."
-
-#~ msgid "PC running on AC power"
-#~ msgstr "Живлення здійснюється з мережі"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "Живлення здійснюється з акумуляторів"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "Рівень заряду акумуляторів низький"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Простір дій «%1»"
-
-#~ msgid "Act like"
-#~ msgstr "Вважати, що"
-
-#~ msgid "Use separate settings"
-#~ msgstr "Використовувати окремі параметри"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
@@ -244,29 +201,25 @@ msgstr ""
 #~ msgid "Suspend"
 #~ msgstr "Призупинити"
 
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "Ніколи не присипляти і не вимикати комп’ютер"
-
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "Налаштування керування живленням у просторах дій"
-
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr ""
-#~ "Засіб налаштування системи керування живленням KDE для окремих просторів "
-#~ "дій"
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "© Dario Freddi, 2010"
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Події</b>"
 
 #~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
 #~ msgstr ""
-#~ "За допомогою цього модуля ви можете точно налаштувати параметри керування "
-#~ "живленням для всіх ваших просторів дій."
+#~ "Якщо позначено цей пункт, програми не зможуть забороняти системі "
+#~ "переходити у стан сну після складання ноутбука"
 
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Не перешкоджати присиплянню після складання"
 
-#~ msgid "Maintainer"
-#~ msgstr "Супровідник"
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Блокує екран після пробудження системи від сну"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr ""
+#~ "Під час повернення комп’ютера зі стану сну вам слід буде ввести пароль"
+
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "За&блокувати екран після відновлення"

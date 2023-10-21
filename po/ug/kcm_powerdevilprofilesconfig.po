@@ -1,0 +1,129 @@
+# Uyghur translation for powerdevilprofilesconfig.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sahran <sahran.ug@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilprofilesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2013-09-08 07:05+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "كۆڭۈلدىكى سەپلىمە ھۆججەتنى ئەسلىگە كەلتۈر"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "AC دا ئىشلەۋاتىدۇ"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "توكدان"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr ""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "توك مەنبە سەپلىمە ھۆججەت سەپلىمىسى"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "KDE توك مەنبە باشقۇرۇش سىستېمىسىنىڭ سەپلىمە ھۆججەت سەپلىگۈچ"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c)، 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "بۇ تىزگىن بۆلەكتە، مەۋجۇت توك مەنبە سەپلىمىلىرىنى سەپلىيەلەيسىز ھەمدە "
+#~ "يېڭىدىن بىر سەپلىمە قۇرالايسىز."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "مەسئۇل كىشى"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "يېڭى سەپلىمە ھۆججەتكە ئاتتىن بىرنى كىرگۈزۈڭ:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "يېڭى سەپلىمە ھۆججەتنىڭ ئاتى"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "بۇ جايغا سىز قۇرىدىغان سەپلىمە ھۆججەت ئاتىنى كىرگۈزۈڭ"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "بۇ سەپلىمە ھۆججەتنىڭ ئاتىنى كىرگۈزۈڭ:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "توك مەنبە باشقۇرۇش سەپلىمە ھۆججەتنى ئەكىر"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "توك مەنبە باشقۇرۇش سەپلىمە ھۆججەتنى چىقار"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "نۆۋەتتىكى سەپلىمە ھۆججەت ساقلانمىدى.\n"
+#~ "ئۇنى ساقلامسىز؟"
+
+#~ msgid "Save Profile"
+#~ msgstr "سەپلىمە ھۆججەتنى ساقلا"
+
+#~ msgid "New Profile"
+#~ msgstr "يېڭى Profile"
+
+#~ msgid "Delete Profile"
+#~ msgstr "profile نى ئۆچۈر"
+
+#~ msgid "Import Profiles"
+#~ msgstr "سەپلىمە ھۆججەتلەرنى ئەكىر"
+
+#~ msgid "Export Profiles"
+#~ msgstr "سەپلىمە ھۆججەتلەرنى چىقار"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Profile تەھرىر"

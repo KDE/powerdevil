@@ -1,11 +1,12 @@
-# Translation of powerdevilactivitiesconfig.po into Serbian.
-# Chusslove Illich <caslav.ilic@gmx.net>, 2011, 2015, 2016.
+# Translation of powerdevilglobalconfig.po into Serbian.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2017.
+# Dalibor Djuric <daliborddjuric@gmail.com>, 2009, 2010, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2016-05-06 16:01+0200\n"
+"PO-Revision-Date: 2017-09-28 17:58+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
@@ -16,8 +17,8 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Associated-UI-Catalogs: systemsettings.desktop powerdevilprofilesconfig\n"
 "X-Environment: kde\n"
-"X-Associated-UI-Catalogs: systemsettings.desktop\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,25 +39,25 @@ msgstr ""
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Nivoi baterije</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "&Nizak nivo:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Nizak nivo baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Uzima se da je baterija nisko kada dosegne ovaj nivo."
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -67,37 +68,37 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "&Kritičan nivo:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritičan nivo baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Uzima se da je baterija kritična kada dosegne ovaj nivo."
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "&Pri kritičnom nivou:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Nizak nivo za periferne uređaje:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
@@ -139,19 +140,20 @@ msgstr ""
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Pauziraj medija plejere pri suspendovanju:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "aktivno"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Podesi obavještenja..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
@@ -165,86 +167,23 @@ msgstr ""
 msgid "Stop charging at:"
 msgstr ""
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Servis aktivnosti radi sa minimum funkcionalnosti.\n"
-#~ "Imena i ikonice aktivnosti možda neće biti dostupni."
+# >> @item:inlistbox
+#~ msgid "Do nothing"
+#~ msgstr "ne radi ništa"
 
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Servis aktivnosti nije u pogonu.\n"
-#~ "Neophodno je da menadžer aktivnosti bude u pogonu da bi se podesilo "
-#~ "ponašanje upravljanja napajanjem prema aktivnosti."
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never turn off the screen"
-#~ msgstr "Nikad ne gasi ekran"
-
-#, fuzzy
-#~| msgid "Never suspend or shutdown the computer"
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Nikad ne suspenduj niti gasi računar"
-
-#, fuzzy
-#~| msgid "Don't use special settings"
-#~ msgid "Do not use special settings"
-#~ msgstr "Bez posebnih postavki"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Posebno ponašanje"
-
-# >> @item
+# >> @item:inlistbox
 #~ msgid "Hibernate"
-#~ msgstr "hibernacija"
+#~ msgstr "u hibernaciju"
 
-# >> @item
+# >> @item:inlistbox
 #~ msgid "Shut down"
-#~ msgstr "gašenje"
-
-#~ msgid "Always"
-#~ msgstr "Uvek"
-
-#~ msgid "after"
-#~ msgstr "posle"
-
-#~ msgid " min"
-#~ msgstr " min."
-
-# >> @item
-#~ msgid "PC running on AC power"
-#~ msgstr "računar radi na struji"
-
-# >> @item
-#~ msgid "PC running on battery power"
-#~ msgstr "računar radi na bateriji"
-
-# >> @item
-#~ msgid "PC running on low battery"
-#~ msgstr "računar radi na niskoj bateriji"
-
-# >> @item
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "je aktivnost „%1“"
-
-#~ msgid "Act like"
-#~ msgstr "Kao kad"
-
-#, fuzzy
-#~| msgid "Use separate settings (advanced users only)"
-#~ msgid "Use separate settings"
-#~ msgstr "Zasebne postavke (samo za napredne korisnike)"
+#~ msgstr "ugasi"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
 #~ "This can be solved by starting or scheduling it inside \"Startup and "
 #~ "Shutdown\""
 #~ msgstr ""
-#~ "Izgleda da servis upravljanja napajanjem nije u pogonu.\n"
-#~ "Pokrenite ga (ili ga rasporedite) kroz „Podizanje i gašenje“."
+#~ "Izgleda da servis za upravljanje napajanjem nije u pogonu.\n"
+#~ "Ovo se može rešiti tako što se pokrene ili rasporedi pod „Podizanje i "
+#~ "gašenje“."

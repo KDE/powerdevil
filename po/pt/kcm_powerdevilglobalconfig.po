@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-08-21 18:32+0100\n"
+"PO-Revision-Date: 2020-09-10 10:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POFile-SpellExtra: Freddi min\n"
+"X-POFile-SpellExtra: Freddi pre space wrap white\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -32,25 +32,25 @@ msgstr "O Serviço de Gestão de Energia não parece estar em execução."
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Níveis da Bateria</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "Nível &baixo:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Nível baixo da bateria"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "A bateria será considerada num nível baixo ao atingir este nível"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -61,43 +61,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "Nível &crítico:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Nível crítico da bateria"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "A bateria será considerada num nível crítico ao atingir este nível"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "No nível crí&tico:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Nível baixo dos dispositivos periféricos:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Limite de Carga"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -108,6 +108,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Manter a bateria carregada a 100% durante um período "
+"de tempo prolongado poderá acelerar a degradação da saúde da bateria. Ao "
+"limitar a carga máxima da bateria poderá estender o tempo de vida da bateria."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -116,77 +120,53 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Poderá ter de desligar e ligar de novo a fonte de alimentação para começar a "
+"carregar a bateria de novo."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Começar a carregar apenas se inferior a:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Carregar sempre que estiver ligado"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Pausar os leitores multimédia ao suspender:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Activo"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Configurar as Notificações…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Outras Configurações"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Parar de carregar aos:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "O serviço das actividades está a executar com as funcionalidades "
-#~ "básicas.\n"
-#~ "Os nomes e os ícones das actividades poderão não estar disponíveis."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "O serviço de actividades não está em execução.\n"
-#~ "É necessário ter o gestor de actividades a correr para configurar o "
-#~ "comportamento da gestão de energia específico da actividade."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "Nunca desligar o ecrã"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Nunca desligar o computador nem deixá-lo suspender"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Não usar uma configuração especial"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Definir um comportamento especial"
+#~ msgid "Do nothing"
+#~ msgstr "Não fazer nada"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -197,31 +177,3 @@ msgstr ""
 
 #~ msgid "Shut down"
 #~ msgstr "Desligar"
-
-#~ msgid "Always"
-#~ msgstr "Sempre"
-
-#~ msgid "after"
-#~ msgstr "após"
-
-#~ msgid " min"
-#~ msgstr " min"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "PC ligado à corrente"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "PC a usar a bateria"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "PC com pouca carga de bateria"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Actividade \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "Funcionar como"
-
-#~ msgid "Use separate settings"
-#~ msgstr "Usar uma configuração separada"

@@ -1,14 +1,13 @@
-# translation of powerdevilactivitiesconfig.po to Khmer
+# translation of powerdevilglobalconfig.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2011, 2012.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
-# Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2012-06-14 14:12+0700\n"
+"PO-Revision-Date: 2012-06-14 13:57+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
 "Language: km\n"
@@ -16,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
+"X-Language: km-KH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -37,27 +37,29 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "<b>Battery levels</b>"
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>កម្រិត​ថ្ម</b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Low battery level"
 msgid "&Low level:"
-msgstr ""
+msgstr "កម្រិត​ថ្ម​ទាប"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "កម្រិត​ថ្ម​ទាប"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "ថ្ម​នឹង​ត្រូវបាន​គិត​ថា​ទាប នៅពេល​វា​ដល់​កម្រិត​នេះ"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -68,31 +70,33 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Critical battery level"
 msgid "&Critical level:"
-msgstr ""
+msgstr "កម្រិត​ថ្ម​គ្រោះថ្នាក់"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "កម្រិត​ថ្ម​គ្រោះថ្នាក់"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "ថ្ម​នឹង​ត្រូវ​បាន​គិត​ថា​សំខាន់​បំផុត នៅពេល​វា​ដល់​កម្រិត​នេះ"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Battery is at critical level at"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "ថ្មី​ស្ថិត​ក្នុង​កម្រិត​គ្រោះថ្នាក់"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
@@ -150,9 +154,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure Notifications..."
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "កំណត់​រចនាសម្ព័ន្ធ​ការ​ជូន​ដំណឹង..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
@@ -166,39 +171,8 @@ msgstr ""
 msgid "Stop charging at:"
 msgstr ""
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "សេវាកម្ម​សកម្មភាព​កំពុង​ដំណើរការ​ជា​មួយ​​មុខងារ​ហាមឃាត់ ។\n"
-#~ "ឈ្មោះ និង​រូបតំណាង​របស់​សកម្មភាព​អាច​ប្រើ​មិន​បាន ។"
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "សេវាកម្ម​សកម្មភាព​មិន​កំពុង​ដំណើរការ​ទេ ។\n"
-#~ "វាចាំបាច់​ត្រូវ​ឲ្យ​កម្មវិធី​គ្រប់គ្រង​សកម្មភាព​ដំណើរការ ដើម្បី​កំណត់​រចនាសម្ព័ន្ធ​ឥរិយាបថ​គ្រប់គ្រង​ថាមពល​"
-#~ "ជាក់លាក់ ។"
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never turn off the screen"
-#~ msgstr "កុំ​បិទ​អេក្រង់"
-
-#, fuzzy
-#~| msgid "Never shutdown the screen"
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "កុំ​បិទ​អេក្រង់"
-
-#, fuzzy
-#~| msgid "Don't use special settings"
-#~ msgid "Do not use special settings"
-#~ msgstr "កុំ​ប្រើ​ការ​កំណត់​ពិសេស"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "កំណត់​ឥរិយាបថ​ពិសេស"
+#~ msgid "Do nothing"
+#~ msgstr "មិន​ធ្វើ​ទាំងអស់"
 
 #, fuzzy
 #~| msgid "Sleep"
@@ -207,67 +181,66 @@ msgstr ""
 #~ msgstr "ដេក"
 
 #~ msgid "Hibernate"
-#~ msgstr "សង្ងំ"
+#~ msgstr "សម្ងំ"
 
 #, fuzzy
 #~| msgid "Shutdown"
 #~ msgid "Shut down"
 #~ msgstr "បិទ"
 
-#~ msgid "Always"
-#~ msgstr "ជា​និច្ច"
-
-#~ msgid "after"
-#~ msgstr "បន្ទាប់ពី"
-
-#~ msgid " min"
-#~ msgstr " នាទី"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "កុំព្យូទ័រ​ដំណើរការ​ដោយ​ប្រើ​ថាមពល AC"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "កុំព្យូទ័រ​ដំណើរការ​ដោយ​ប្រើថ្ម"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "កុំព្យូទ័រ​ដំណើរការ​ដោយ​ប្រើថ្ម​ខ្សោយ"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "សកម្មភាព \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "ធ្វើសកម្មភាព​ដូច"
-
-#, fuzzy
-#~| msgid "Use separate settings (advanced users only)"
-#~ msgid "Use separate settings"
-#~ msgstr "ប្រើ​ការ​កំណត់​ដោយ​ឡែក (សម្រាប់​តែ​អ្នក​ប្រើ​កម្រិត​ខ្ពស់)"
-
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
 #~ "This can be solved by starting or scheduling it inside \"Startup and "
 #~ "Shutdown\""
 #~ msgstr ""
-#~ "សេវាកម្ម​គ្រប់គ្រង​ថាមពល​បង្ហាញ​ថា​មិន​កំពុង​ដំណើរការ​ទេ ។\n"
+#~ "សេវាកម្ម​គ្រប់គ្រង​ថាមពល​បង្ហាញ​ថា​មិន​កំពុង​ដំណើរការ​ទេ ។\n"
 #~ "វា​អាច​ត្រូវ​បានដោះស្រាយ​ដោយ​ចាប់ផ្ដើម ឬ​កំណត់​កាលវិភាគ​ឡើងវិញ នៅ​ក្នុង \"ចាប់ផ្ដើម និង​បិទ\""
 
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "កុំ​ផ្អាក ឬ​បិទកុំព្យូទ័រ"
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>ព្រឹត្តិការណ៍</b>"
 
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "ការកំណត់​រចនាសម្ព័ន្ធ​ការ​គ្រប់គ្រង​ថាមពល​សកម្មភាព"
+#~ msgid ""
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
+#~ msgstr "នៅពេល​​បាន​ជ្រើស​ជម្រើស​នេះ កម្មវិធី​នឹង​មិន​ត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​ដេក​នៅ​ពេលបិទ lid ទេ"
 
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr "កម្មវិធី​កំណត់​រចនាសម្ព័ន្ធ​ក្នុង​មួយ​សកម្ម​នៃ​ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល​របស់ KDE"
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "កុំ​ការពារ​សកម្មភាព​នៅ​​ពេលបិទ lid"
+
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "ចាក់​សោ​អេក្រង់ នៅពេល​​​ភ្ញាក់​ពី​កា​រផ្អាក"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr "អ្នក​នឹង​​ត្រូ​វបាន​ស្នើ​ឲ្យ​បញ្ចូល​ពាក្យ​សម្ងាត់​ នៅពេល​បន្ត​ពី​ស្ថានភាប​ដេក"
+
+#, fuzzy
+#~| msgid "Lock screen on resume"
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "ចាក់​សោ​អេក្រង់​នៅពេល​បន្ត"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "ថ្ម​ស្ថិត​​​ក្នុង​កម្រិតទាប​នៅ"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "នៅពេល​ថ្ម​​ស្ថិត​ក្នុងកម្រិត​ទាប"
+
+#~ msgid "Global Power Management Configuration"
+#~ msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ​នៃ​ការ​គ្រប់គ្រង​ថាមពល​សកល"
+
+#~ msgid ""
+#~ "A global power management configurator for KDE Power Management System"
+#~ msgstr "កម្មវិធី​កំណត់​រចនាសម្ព័ន្ធ​នៃ​ការ​គ្រប់គ្រង​ថាមពល​សកល​សម្រាប់ ប្រព័ន្ថ​គ្រប់គ្រង​ថាមពល​របស់ KDE"
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០១០ ដោយ Dario Freddi"
 
 #~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
-#~ msgstr "ពី​ម៉ូឌុល​នេះ អ្នក​អាច​​កែសម្រួល​កា​រកំណត់​ការ​គ្រប់គ្រង​ថាមពល​សម្រាប់​សកម្មភាព​នីមួយៗ​របស់​អ្នក ។"
+#~ "From this module, you can configure the main Power Management daemon, "
+#~ "assign profiles to states, and do some advanced fine tuning on battery "
+#~ "handling"
+#~ msgstr ""
+#~ "ចាប់​ពី​ម៉ូឌុល​នេះ អ្នក​អាច​កំណត់​រចនាសម្ព័ន្ធ​ដេមិន​គ្រប់គ្រង​ថាមពល ដោយ​ផ្ដល់​ទម្រង់​ដល់​ស្ថានភាព ហើយធ្វើការ​"
+#~ "ផ្លាស់ប្ដូរ​ខ្លះៗ​នៅ​ពេល​គ្រប់គ្រង​ថ្ម"
 
 #~ msgid "Dario Freddi"
 #~ msgstr "Dario Freddi"

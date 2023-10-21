@@ -1,0 +1,144 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Marcello Anni <marcello.anni@alice.it>, 2011.
+# Federico Zenith <federico.zenith@member.fsf.org>, 2011.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilprofilesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2020-07-08 17:14+0200\n"
+"Last-Translator: Vincenzo Reale <smart2128@baslug.org>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Federico Zenith,Marcello Anni"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "federico.zenith@member.fsf.org,"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"Il sistema di gestione energetica di KDE creerà adesso una serie di "
+"impostazioni predefinite in base alle capacità del computer. Questo "
+"rimuoverà tutte le tue modifiche. Sei sicuro di voler continuare?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Ripristina i profili predefiniti"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Il servizio di gestione dell'energia sembra non essere in esecuzione."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "Alimentatore"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "Batteria"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "Batteria quasi scarica"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Il servizio di gestione energetica non sembra essere in esecuzione.\n"
+#~ "Questo problema può essere risolto avviandolo o pianificandone "
+#~ "l'esecuzione in «Avvio e spegnimento»"
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Configurazione dei profili energetici"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr ""
+#~ "Un configuratore dei profili per il sistema di gestione energetica di KDE"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "© 2010 di Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Da questo modulo, puoi gestire i profili del sistema di gestione "
+#~ "energetica di KDE, modificando quelli esistenti o creandone di nuovi."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Responsabile"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Scrivi un nome per il nuovo profilo:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Il nome per il nuovo profilo"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Scrivi qua il nome per il profilo che stai creando"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Scrivi un nome per questo profilo:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Importa profili di gestione energetica"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Esporta profili di gestione energetica"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Il profilo attuale non è stato salvato.\n"
+#~ "Vuoi salvarlo?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Salva profilo"
+
+#~ msgid "New Profile"
+#~ msgstr "Nuovo profilo"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Elimina profilo"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Importa profili"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Esporta profili"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Modifica profilo"

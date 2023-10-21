@@ -1,0 +1,142 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Martin Schlander <mschlander@opensuse.org>, 2010, 2011, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2020-10-04 17:00+0200\n"
+"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Martin Schlander"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mschlander@opensuse.org"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"KDE's strømstyringssystem vil nu generere et sæt af standardindstillinger "
+"baseret på din computers kapabiliteter. Dette vil også slette alle "
+"eksisterende ændringer du har lavet. Vil du fortsætte?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Genskab standardprofiler"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Strømstyringstjenesten lader til ikke at køre."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "På strømforsyning"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "På batteri"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "På lavt batteri"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Strømstyringstjenesten lader til ikke at køre.\n"
+#~ "Dette kan løses ved at starte eller skemalægge den i \"Opstart og "
+#~ "nedlukning\""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Konfiguration af strømprofiler"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "Profilkonfiguration til KDE's strømstyringssystem"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Fra dette modul kan du håndtere strømprofilerne for KDE's "
+#~ "strømstyringssystem ved at justere eksisterende profiler eller oprette "
+#~ "nye."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Vedligeholder"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Angiv et navn på den nye profil:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Navnet på den nye profil"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Angiv navnet på profilen, du er ved at oprette her"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Angiv et navn til denne profil:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Importér strømstyringsprofiler"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Eksportér strømstyringsprofiler"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Den aktuelle profil er ikke blevet gemt.\n"
+#~ "Vil du gemme den?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Gem profil"
+
+#~ msgid "New Profile"
+#~ msgstr "Ny profil"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Slet profil"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Importér profiler"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Eksportér profiler"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Redigér profil"

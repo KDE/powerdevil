@@ -1,63 +1,63 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Franklin Weng <franklin@goodhorse.idv.tw>, 2011.
-# Jeff Huang <s8321414@gmail.com>, 2016.
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2012, 2014, 2015.
+# Jeff Huang <s8321414@gmail.com>, 2016, 2017.
 # pan93412 <pan93412@gmail.com>, 2019.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-12-21 04:24+0900\n"
+"PO-Revision-Date: 2023-02-18 01:38+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Frank Weng (a.k.a. Franklin), Jeff Huang"
+msgstr "Franklin Weng, Jeff Huang, Kisaragi Hiu"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "franklin@goodhorse.idv.tw, s8321414@gmail.com"
+msgstr "franklin@goodhorse.idv.tw, s8321414@gmail.com, mail@kisaragi-hiu.com"
 
 #: GeneralPage.cpp:241
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "電源管理服務看起來並非執行中。"
+msgstr "電源管理服務似乎並非執行中。"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>電池電力                              </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "電量偏低等級(&L)："
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "電池電量偏低等級"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "當電池電力低於此等級時會視為低電量"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -68,43 +68,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "電力嚴重不足(&C)："
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "電池電力嚴重不足"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "電池電力低於此等級的話，將視為嚴重不足"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "電池電力已嚴重不足時(&T)："
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "週邊裝置的電量偏低等級："
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "充電限制"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -115,6 +115,8 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>長時間讓電池保持在 100% 電量可能會加快電池健康情況的惡"
+"化。藉由限制最高的電池充電量，您可以幫助電池延長壽命。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -122,76 +124,52 @@ msgstr ""
 msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
-msgstr ""
+msgstr "您可能需要拔出再重新連接電源才能再開始為電池充電。"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "電量低於多少時才開始充電："
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "接上電源時總是充電"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "當系統暫停時暫停媒體播放器："
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "已開啟"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "設定通知…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "其他設定"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "最高充到："
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "此活動服務正執行中，但是缺少一些功能。\n"
-#~ "活動的名稱與圖示可能無法使用。"
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "此活動服務並未執行。\n"
-#~ "必須要先執行活動管理員，才能設定活動相關的電源管理行為。"
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "永不關閉螢幕"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "永不關閉電腦或讓電腦進入睡眠模式"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "不使用特殊設定"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "定義特殊行為"
+#~ msgid "Do nothing"
+#~ msgstr "不做任何事"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -202,34 +180,6 @@ msgstr ""
 
 #~ msgid "Shut down"
 #~ msgstr "關機"
-
-#~ msgid "Always"
-#~ msgstr "總是"
-
-#~ msgid "after"
-#~ msgstr "多久之後："
-
-#~ msgid " min"
-#~ msgstr " 分鐘"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "PC 接市電電源"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "PC 使用電池"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "PC 電池電力不足"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "活動 \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "行為類似"
-
-#~ msgid "Use separate settings"
-#~ msgstr "使用分別的設定"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

@@ -1,16 +1,18 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Wantoyo <wantoyo@yahoo.com>, 2014, 2017, 2018, 2019.
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2014.
 # Wantoyèk <wantoyek@gmail.com>, 2022.
+#
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-03-25 22:22+0700\n"
+"PO-Revision-Date: 2022-08-26 23:44+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
-"Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
+"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +23,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Wantoyèk"
+msgstr "Andhika Padmawan,Wantoyèk"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "wantoyek@gmail.com"
+msgstr "andhika.padmawan@gmail.com,wantoyek@gmail.com"
 
 #: GeneralPage.cpp:241
 #, kde-format
@@ -37,25 +39,25 @@ msgstr "Layanan Pengelolaan Daya yang muncul belum berjalan."
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Level Baterai                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "Level &lemah:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Level baterai lemah"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Baterai akan dianggap lemah saat mencapai level ini"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -66,43 +68,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "Level &kritis:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Level baterai kritis"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Baterai akan dianggap kritis saat mencapai level ini"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Pa&da level kritis:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Level lemah untuk peranti periferal:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ubah Batas"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -113,6 +115,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Mempertahankan baterai tetap tercas 100% dalam jangka "
+"waktu lama dapat mempercepat penurunan kesehatan baterai. Dengan membatasi "
+"daya baterai maksimum, Anda dapat membantu memperpanjang masa pakai baterai."
+"</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -121,76 +127,53 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Anda mungkin harus memutuskan dan menghubungkan kembali sumber daya untuk "
+"memulai pengecasan baterai lagi."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Mulai pengecasan hanya salahsatu di bawah ini:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Selalu ngecas ketika dicolokkan"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Jeda pemutar media ketika pensuspensian:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Difungsikan"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Konfigurasi Notifikasi..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Pengaturan Lainnya"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Hentikan pengecasan pada:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "Layanan aktivitas berjalan dengan memperlihatkan fungsionalitas.\n"
-#~ " Nama dan ikon aktivitas mungkin tidak tersedia."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "Layanan aktivitas tidak berjalan.\n"
-#~ " Hal ini diperlukan untuk memiliki pengelola aktivitas yang berjalan "
-#~ "untuk mengkonfigurasi perilaku aktivitas pengelolaan daya yang spesifik."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "Jangan pernah memadamkan layar"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "Jangan pernah mematikan komputer atau membiarkannya tertidur"
-
-#~ msgid "Do not use special settings"
-#~ msgstr "Jangan gunakan pengaturan spesial"
-
-#~ msgid "Define a special behavior"
-#~ msgstr "Batasi sebuah perilaku spesial"
+#~ msgid "Do nothing"
+#~ msgstr "Jangan lakukan apa-apa"
 
 #~ msgctxt "Suspend to RAM"
 #~ msgid "Sleep"
@@ -202,69 +185,44 @@ msgstr ""
 #~ msgid "Shut down"
 #~ msgstr "Matikan"
 
-#~ msgid "Always"
-#~ msgstr "Selalu"
-
-#~ msgid "after"
-#~ msgstr "setelah"
-
-#~ msgid " min"
-#~ msgstr " mnt"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "PC berjalan pada daya AC"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "PC berjalan pada daya baterai"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "PC berjalan pada baterai lemah"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Aktivitas \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "Tindakan"
-
-#, fuzzy
-#~| msgid "Use separate settings (advanced users only)"
-#~ msgid "Use separate settings"
-#~ msgstr "Gunakan pengaturan terpisah (hanya penggunaan tingkat lanjut)"
-
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
 #~ "This can be solved by starting or scheduling it inside \"Startup and "
 #~ "Shutdown\""
 #~ msgstr ""
-#~ "Layanan Pengelolaan Daya tampaknya tidak akan berjalan.\n"
-#~ "Hal ini dapat diselesaikan dengan memulai atau penjadwalan di dalam "
-#~ "\"Pemulaian dan Mematikan\""
+#~ "Layanan Pengelolaan Daya tampaknya tidak berjalan.\n"
+#~ "Hal ini bisa diatasi dengan memulai atau menjadwalnya di dalam "
+#~ "\"Pemulaian dan Pematian\""
 
 #~ msgid "Suspend"
 #~ msgstr "Suspensi"
 
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "Tidak pernah suspend atau matikan komputer"
-
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "Konfigurasi Manajemen Daya Aktivitas"
-
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr "Sebuah pengatur tiap aktivitas pada Sistem Manajemen Daya KDE"
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "(c), 2010 Dario Freddi"
+#~ msgid "<b>Events</b>"
+#~ msgstr "<b>Kejadian</b>"
 
 #~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
+#~ "When this option is selected, applications will not be allowed to inhibit "
+#~ "sleep when the lid is closed"
 #~ msgstr ""
-#~ "Dari modul ini, Anda bisa menyetel pengaturan manajemen daya untuk masing-"
-#~ "masing aktivitas Anda."
+#~ "Bila opsi ini dipilih, aplikasi tidak akan diizinkan untuk "
+#~ "menghambattidur ketika tutupnya ditutup"
 
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
+#~ msgid "Never prevent an action on lid close"
+#~ msgstr "Tidak pernah mencegah aksi saat penutup menutup"
 
-#~ msgid "Maintainer"
-#~ msgstr "Pemelihara"
+#~ msgid "Locks screen when waking up from suspension"
+#~ msgstr "Kunci layar ketika bangun dari suspensi"
+
+#~ msgid "You will be asked for a password when resuming from sleep state"
+#~ msgstr ""
+#~ "Anda akan diminta untuk memasukkan sebuah kata sandi saat melanjutkan "
+#~ "dari kondisi tidur"
+
+#~ msgid "Loc&k screen on resume"
+#~ msgstr "Kunc&i layar saat mulai lagi"
+
+#~ msgid "Battery is at low level at"
+#~ msgstr "Baterainya lemah pada tingkat"
+
+#~ msgid "When battery is at critical level"
+#~ msgstr "Ketika baterai pada tingkat kritis"

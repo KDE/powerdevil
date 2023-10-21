@@ -6,17 +6,18 @@
 # SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2023-10-02 09:38+0300\n"
+"PO-Revision-Date: 2023-10-02 09:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
@@ -38,25 +39,25 @@ msgstr "נראה ששירות ניהול צריכת החשמל לא פועל."
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>רמות סוללה                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "רמה &נמוכה:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "רמת סוללה נמוכה"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "רמת הסוללה תיחשב לנמוכה מתחת לאחוז זה"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -67,43 +68,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "רמה &קריטית:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "רמת סוללה ריטית"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "רמת הסוללה תיחשב לקריטית שהיא מגיעה לרמה כזאת"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "במ&צב קריטי:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "רמה נמוכה לציוד היקפי:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "מגבלת טעינה"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -114,6 +115,9 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>סוללה שנשארת טעונה ב־100% לאורך תקופה ממושכת עשויה "
+"להאיץ את הידרדרות בריאות הסוללה. הגבלת הטעינה המרבית של הסוללה עשויה לסייע "
+"בהארכת חיי הסוללה.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -122,110 +126,67 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"יכול להיות שצריך לנתק ולחבר את מקור החשמל מחדש כדי להתחיל לטעון שוב את "
+"הסוללה."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "להתחיל לטעון רק אם מתחת:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "תמיד לטעון כשיש חיבור לחשמל"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "להשהות ניגון מדיה בכניסה למצב השהיה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "מופעל"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "הגדרת התראות…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "הגדרות אחרות"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "לעצור טעינה ברמה:"
 
-#~ msgid ""
-#~ "The activity service is running with bare functionalities.\n"
-#~ "Names and icons of the activities might not be available."
-#~ msgstr ""
-#~ "שירות הפעילויות רץ עם היכולות הבסיסיות שלו.\n"
-#~ "כנראה שהשמות והסמלים של הפעילויות לא יהיו זמינים."
-
-#~ msgid ""
-#~ "The activity service is not running.\n"
-#~ "It is necessary to have the activity manager running to configure "
-#~ "activity-specific power management behavior."
-#~ msgstr ""
-#~ "שירות הפעילויות לא פעיל.\n"
-#~ "כדי להגדיר התנהגות צריכת חשמל למנהל הפעילויות הוא חייב להיות פעיל."
-
-#~ msgid "Never turn off the screen"
-#~ msgstr "לעולם לא לכבות את המסך"
-
-#~ msgid "Never shut down the computer or let it go to sleep"
-#~ msgstr "לעולם לא לכבות את המחשב או לאפשר לו להיכנס למצב שינה"
-
-#, fuzzy
-#~| msgid "Don't use special settings"
-#~ msgid "Do not use special settings"
-#~ msgstr "אל תשתמש בהגדרות מיוחדות"
+#~ msgid "Do nothing"
+#~ msgstr "אל תעשה כלום"
 
 #~ msgid "Hibernate"
-#~ msgstr "השהה לדיסק"
+#~ msgstr "השהה לכונן"
 
 #~ msgid "Shut down"
 #~ msgstr "כבה"
 
-#~ msgid "Always"
-#~ msgstr "תמיד"
-
-#~ msgid "after"
-#~ msgstr "אחרי"
-
-#~ msgid " min"
-#~ msgstr "דקות"
-
-#~ msgid "PC running on AC power"
-#~ msgstr "המחשב רץ על ספק חשמל"
-
-#~ msgid "PC running on battery power"
-#~ msgstr "המחשב רץ על סוללה"
-
-#~ msgid "PC running on low battery"
-#~ msgstr "המחשב רץ סוללה חלשה"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "פעילות \"%1\""
-
-#, fuzzy
-#~| msgid "Use separate settings (advanced users only)"
-#~ msgid "Use separate settings"
-#~ msgstr "השתמש בהגדרות נפרדות (משתמשים מתקדים בלבד)"
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "שירות ניהול החשמל אינו פועל.\n"
+#~ "אפשר לפתור זאת על ידי הפעלת או תזמון זאת בתוך \"הפעלה וכיבוי\""
 
 #~ msgid "Suspend"
 #~ msgstr "השהה לזיכרון RAM"
-
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "אף פעם אל תכבה או תשהה את המחשב"

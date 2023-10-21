@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2019-09-26 21:45+0500\n"
+"PO-Revision-Date: 2019-09-26 21:46+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: tg\n"
@@ -65,7 +65,7 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
@@ -143,7 +143,7 @@ msgstr ""
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Фаъол"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
@@ -162,19 +162,3 @@ msgstr ""
 #, kde-format
 msgid "Stop charging at:"
 msgstr ""
-
-#~ msgid "Always"
-#~ msgstr "Ҳамеша"
-
-#~ msgid "after"
-#~ msgstr "баъд аз"
-
-#~ msgid " min"
-#~ msgstr " дақиқа"
-
-#~ msgctxt "This is meant to be: Act like activity %1"
-#~ msgid "Activity \"%1\""
-#~ msgstr "Фаъолияти \"%1\""
-
-#~ msgid "Act like"
-#~ msgstr "Иҷро кардан ҳамчун"

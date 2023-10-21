@@ -1,0 +1,136 @@
+# powerdevilprofilesconfig Bahasa Melayu (Malay) (ms)
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilprofilesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2011-07-16 01:03+0800\n"
+"Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
+"Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sharuzzaman Ahmat Raslan"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sharuzzaman@gmail.com"
+
+#: EditPage.cpp:157
+#, fuzzy, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr "KDE Kuasa Sistem sekarang a buka saat semua ke ?"
+
+#: EditPage.cpp:161
+#, fuzzy, kde-format
+msgid "Restore Default Profiles"
+msgstr "Kembalikan Default"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr ""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Tetapan Profil Kuasa"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "Penetap profil untuk Sistem Pengurusan Kuasa KDE"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#, fuzzy
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr "Daripada KDE Kuasa Sistem saat atau baru."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Penyelenggara"
+
+#, fuzzy
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "a nama baru:"
+
+#, fuzzy
+#~ msgid "The name for the new profile"
+#~ msgstr "nama baru"
+
+#, fuzzy
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Masuk nama"
+
+#, fuzzy
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "a nama:"
+
+#, fuzzy
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Import Kuasa"
+
+#, fuzzy
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Kuasa"
+
+#, fuzzy
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr "ke ?"
+
+#, fuzzy
+#~ msgid "Save Profile"
+#~ msgstr "Simpan Profil"
+
+#~ msgid "New Profile"
+#~ msgstr "Profail Baru"
+
+#, fuzzy
+#~ msgid "Delete Profile"
+#~ msgstr "Padam Profil"
+
+#, fuzzy
+#~ msgid "Import Profiles"
+#~ msgstr "Import"
+
+#, fuzzy
+#~| msgid "New Profile"
+#~ msgid "Edit Profile"
+#~ msgstr "Sunting Profil"

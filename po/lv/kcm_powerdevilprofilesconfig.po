@@ -1,0 +1,138 @@
+# translation of powerdevilprofilesconfig.po to Latvian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Maris Nartiss <maris.kde@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilprofilesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2011-08-24 09:54+0300\n"
+"Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
+"Language-Team: Latvian\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Māris Nartišs"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "maris.kde@gmail.com"
+
+#: EditPage.cpp:157
+#, fuzzy, kde-format
+#| msgid ""
+#| "The KDE Power Management System will now generate a set of default "
+#| "profiles based on your computer's capabilities. This will also erase all "
+#| "existing profiles. Are you sure you want to continue?"
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"KDE energokontroles pārvaldības sistēma ģenerēs noklusējuma profilu kopu, "
+"kam par pamatu tiks ņemtas šī datora iespējas. Vienlaikus šī darbība "
+"izdzēsīs visus eksistējošos profilus. Vai vēlaties turpināt?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Atjaunot noklusējuma profilus"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr ""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Energokontroles profilu konfigurēšana"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "KDE energokontroles pārvaldības sistēmas profilu konfigurators"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Šajā modulī ir iespējams pārvaldīt KDE energokontroles pārvaldības "
+#~ "sistēmas profilus tos rediģējot vai veidojot jaunus."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Uzturētājs"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Ievadiet jaunā profila nosaukumu:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Jaunā profila nosaukums"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Šeit ievadiet jaunveidojamā profila nosaukumu"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Ievadiet šī profila nosaukumu:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Importēt energokontroles pārvaldības profilus"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Eksportēt energokontroles pārvaldības profilus"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Pašreizējais profils nav saglabāts.\n"
+#~ "Vai vēlaties to saglabāt?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Saglabāt profilu"
+
+#~ msgid "New Profile"
+#~ msgstr "Jauns profils"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Dzēst profilu"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Importēt profilus"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Eksportēt profilus"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Rediģēt profilu"

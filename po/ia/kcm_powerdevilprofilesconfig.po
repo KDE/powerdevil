@@ -1,0 +1,141 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2020-10-19 14:12+0200\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 20.04.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Giovanni Sora"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "g.sora@tiscali.it"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"Le Systema de gestion de Energia de KDE ora generara un insimul de profilos "
+"predefinite basate sur le capacitate de tu computator. Isto anque cancellara "
+"omne modificationes que tu ha facite. Tu es secur que tu vole continuar?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "Restabili profilos predefinite"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Le Servicio de Gestion de Energia pare non esser executante."
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "Sur alimentation AC"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "Sur batteria"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "Sur batteria basse"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Le Servicio  de gestion de Energia  sembla non esser executante.\n"
+#~ "Isto pote esser resolvite per initiar o planificar lo intra \"Initia e "
+#~ "Claude\""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "Configuration de Profilos de Energia"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "Un configurator de profilo de Systema de gestion de Energia de KDE"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "Ab iste modulo, tu pote gerer profilos de Systema de gestion de energia "
+#~ "de KDE, per pinciar los existente o crear de noves."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Mantenitor"
+
+#~ msgid "Please enter a name for the new profile:"
+#~ msgstr "Pro favor tu inserta un nomine pro le nove profilo:"
+
+#~ msgid "The name for the new profile"
+#~ msgstr "Le nomine pro le nove profilo"
+
+#~ msgid "Enter here the name for the profile you are creating"
+#~ msgstr "Inserta hic le nomine pro le profilo que tu es creante"
+
+#~ msgid "Please enter a name for this profile:"
+#~ msgstr "Pro favor tu inserta un nomine pro iste profilo:"
+
+#~ msgid "Import Power Management Profiles"
+#~ msgstr "Importa Profilos de Gestion de Energia"
+
+#~ msgid "Export Power Management Profiles"
+#~ msgstr "Exporta Profilos de Gestion de Energia"
+
+#~ msgid ""
+#~ "The current profile has not been saved.\n"
+#~ "Do you want to save it?"
+#~ msgstr ""
+#~ "Le profilo currente non ha essite salvate.\n"
+#~ "Tu vole salvar lo?"
+
+#~ msgid "Save Profile"
+#~ msgstr "Salva Profilo"
+
+#~ msgid "New Profile"
+#~ msgstr "Nove Profilo"
+
+#~ msgid "Delete Profile"
+#~ msgstr "Dele Profilo"
+
+#~ msgid "Import Profiles"
+#~ msgstr "Importa profilos"
+
+#~ msgid "Export Profiles"
+#~ msgstr "Exporta profilos"
+
+#~ msgid "Edit Profile"
+#~ msgstr "Edita profilo"

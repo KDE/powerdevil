@@ -1,0 +1,99 @@
+# translation of powerdevilprofilesconfig.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2011, 2012.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilprofilesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2012-06-14 14:00+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Language: km-KH\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#: EditPage.cpp:157
+#, kde-format
+msgid ""
+"The KDE Power Management System will now generate a set of defaults based on "
+"your computer's capabilities. This will also erase all existing "
+"modifications you made. Are you sure you want to continue?"
+msgstr ""
+"ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE នឹង​បង្កើត​សំណុំ​ទម្រង់​លំនាំដើម ដែល​មាន​មូលដ្ឋាន​លើ​សមត្ថភាព​នៃ​កុំព្យូទ័រ​របស់​អ្នក "
+"។ វា​នឹង​លុប​ទម្រង់​ដែល​មាន​ស្រាប់​ទាំងអស់ ។ តើ​អ្នក​ប្រាកដ​ជា​ចង់​បន្ត​ឬ ?"
+
+#: EditPage.cpp:161
+#, kde-format
+msgid "Restore Default Profiles"
+msgstr "ស្ដារ​​​ទម្រង់​លំនាំដើម"
+
+#: EditPage.cpp:231
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: profileEditPage.ui:21
+#, kde-format
+msgid "On AC Power"
+msgstr "​​ពេល​​​ប្រើ​ថាមពល AC"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: profileEditPage.ui:31
+#, kde-format
+msgid "On Battery"
+msgstr "ពេល​ប្រើថ្ម"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: profileEditPage.ui:41
+#, kde-format
+msgid "On Low Battery"
+msgstr "ពេល​ថ្មី​ខ្សោយ​"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "សេវាកម្ម​គ្រប់គ្រង​ថាមពល​បង្ហាញ​ថា​មិន​កំពុង​ដំណើរការ​ទេ ។\n"
+#~ "វា​អាច​ត្រូវ​បានដោះស្រាយ​ដោយ​ចាប់ផ្ដើម ឬ​កំណត់​កាលវិភាគ​ឡើងវិញ នៅ​ក្នុង \"ចាប់ផ្ដើម និង​បិទ\""
+
+#~ msgid "Power Profiles Configuration"
+#~ msgstr "ការ​កំណត់​រចនាសម្ព័ន្ធ​ទម្រង់​ថាមពល"
+
+#~ msgid "A profile configurator for KDE Power Management System"
+#~ msgstr "កម្មវិធី​កំណត់​រចនាសម្ព័ន្ធ​ទម្រង់​សម្រាប់​ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "រក្សា​សិទ្ធិ​ឆ្នាំ ២០១០ ដោយ Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can manage KDE Power Management System's power "
+#~ "profiles, by tweaking existing ones or creating new ones."
+#~ msgstr ""
+#~ "ពី​ម៉ូឌុល​នេះ អ្នក​អាច​គ្រប់គ្រង​ទម្រង់​ថាមពល​របស់​ប្រព័ន្ធ​គ្រប់គ្រង​ថាម​ពល​របស់ KDE ដោយ​ប្ដូរ​ទម្រង់​ថាមពល​ដែល​​"
+#~ "មាន​ស្រាប់​ ឬ​បង្កើត​ទម្រង់​ថាមពល​ថ្មី​មួយ ។"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "អ្នក​ថែទាំ"
