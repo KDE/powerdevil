@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrej Mernik <andrejm@ubuntu.si>, 2014, 2015, 2016.
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2020, 2022.
+# SPDX-FileCopyrightText: 2020, 2022, 2023 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2022-11-26 08:14+0100\n"
+"PO-Revision-Date: 2023-10-21 18:53+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,46 +18,46 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrej Vernekar,Andrej Mernik"
+msgstr "Andrej Vernekar,Andrej Mernik,Matjaž Jeran"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrej.vernekar@gmail.com,andrejm@ubuntu.si"
+msgstr "andrej.vernekar@gmail.com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
 
 #: GeneralPage.cpp:241
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Kot kaže, storitev upravljanja z energijo ne teče."
+msgstr "Kot je videti, storitev upravljanja z energijo ne teče."
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr ""
+msgstr "<b>Ravni baterije                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr ""
+msgstr "Nizka raven:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr ""
+msgstr "Nizka raven baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr ""
+msgstr "Baterija se bo štela za nizko, ko doseže to raven"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -68,43 +68,43 @@ msgstr ""
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr ""
+msgstr "Kritična raven:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritična raven baterije"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr ""
+msgstr "Baterija bo veljala za kritično, ko bo dosegla to raven"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Na kritični ravni:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr ""
+msgstr "Nizka raven za periferne naprave:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Omejitev napolnjenosti"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -115,6 +115,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Ohranjanje 100-odstotno napolnjene baterije dalj časa"
+" lahko pospeši poslabšanje zdravja baterije. Z omejevanjem največje"
+" napolnjenosti baterije, lahko pomagate podaljšati življenjsko dobo"
+" baterije.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -123,48 +127,50 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Za ponovni zagon napajanja boste morda morali odklopiti in znova priklopiti"
+" vir napajanja."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Začni polniti samo, ko je pod:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Vedno polni, ko je priključen"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr ""
+msgstr "Zaustavi predvajalnike predstavnosti, kadar je v spanju:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr ""
+msgstr "Omogočeno"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Konfiguriraj obvestila…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Ostale nastavitve"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Zaustavi polnjenje pri:"
 
 #~ msgid ""
 #~ "The activity service is running with bare functionalities.\n"
@@ -270,3 +276,4 @@ msgstr ""
 
 #~ msgid "Maintainer"
 #~ msgstr "Vzdrževalec"
+

@@ -1,31 +1,32 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# SPDX-FileCopyrightText: 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2023 Matjaž Jeran <matjaz.jeran@amis.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2023-10-20 10:13+0200\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"PO-Revision-Date: 2023-10-21 10:05+0200\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.1\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - 2023"
+msgstr "Matjaž Jeran"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "freekdekruijf@kde.nl"
+msgstr "matjaz.jeran@amis.net"
 
 #: activitypage.cpp:46
 #, kde-format
@@ -33,8 +34,8 @@ msgid ""
 "The activity service is running with bare functionalities.\n"
 "Names and icons of the activities might not be available."
 msgstr ""
-"De service activiteiten is actief met basis functionaliteiten.\n"
-"Namen en pictogrammen van de activiteiten kunnen niet beschikbaar zijn."
+"Storitev dejavnosti deluje zgolj z osnovnimi funkcijami.\n"
+"Imena in ikone dejavnosti morda ne bodo na voljo."
 
 #: activitypage.cpp:119
 #, kde-format
@@ -43,23 +44,24 @@ msgid ""
 "It is necessary to have the activity manager running to configure activity-"
 "specific power management behavior."
 msgstr ""
-"De service activiteiten is niet actief.\n"
-"De activiteitenbeheerder moet actief zijn om gedrag per activiteit voor "
-"energiebeheer in te kunnen stellen."
+"Storitev dejavnosti se ne izvaja.\n"
+"Upravitelj dejavnosti mora biti zagnan za konfiguracijo dejavnosti posebnega "
+"vedenja upravljanja porabe energije."
 
 #: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "De service energiebeheer lijkt niet actief te zijn."
+msgstr "Zdi se, da storitev za upravljanje porabe energije ne deluje."
 
 #. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
 #, kde-format
 msgid "Never turn off the screen"
-msgstr "Laat het scherm actief"
+msgstr "Nikoli ne izklapljajte zaslona"
 
 #. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
 #: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
-msgstr "Nooit de computer afsluiten of laten slapen"
+msgstr ""
+"Nikoli ne izklapljajte računalnika ali ga pustite, da preide v stanje spanja"
