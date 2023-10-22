@@ -43,7 +43,10 @@ void SuspendSessionConfig::load()
 {
     configGroup().config()->reparseConfiguration();
 
-    uint suspendType = configGroup().readEntry<uint>("suspendType", 0);
+    PowerDevil::PowerButtonAction defaultAction = (PowerManagement::instance()->canSuspend() //
+                                                       ? PowerDevil::PowerButtonAction::SuspendToRam
+                                                       : PowerDevil::PowerButtonAction::Shutdown);
+    uint suspendType = configGroup().readEntry<uint>("suspendType", static_cast<uint>(defaultAction));
     m_comboBox->setCurrentIndex(m_comboBox->findData(suspendType));
     m_idleTime->setValue((configGroup().readEntry<int>("idleTime", 600000) / 60) / 1000);
     if (m_suspendThenHibernateEnabled != nullptr) {
