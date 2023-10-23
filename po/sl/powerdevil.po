@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 02:25+0000\n"
+"POT-Creation-Date: 2023-10-23 02:28+0000\n"
 "PO-Revision-Date: 2022-11-26 08:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -62,7 +62,7 @@ msgstr "Raven"
 
 #: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
 #: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid " min"
 msgstr " min"
@@ -122,32 +122,32 @@ msgid "Do nothing"
 msgstr "Ne naredi nič"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Spanje"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:96
 #, kde-format
 msgid "Hibernate"
 msgstr "V hibernacijo"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:99
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Hibridno spanje"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Shut down"
 msgstr "Izklopi"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Lock screen"
 msgstr "Zakleni zaslon"
@@ -245,17 +245,17 @@ msgstr "Ko se profil odstrani"
 msgid "Run script"
 msgstr "Zaženi skript"
 
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "after "
 msgstr "po "
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:111
 #, kde-format
 msgid "Automatically"
 msgstr "Avtomatsko"
 
-#: actions/bundled/suspendsessionconfig.cpp:115
+#: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""

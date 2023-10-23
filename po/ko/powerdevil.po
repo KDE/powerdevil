@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-07 02:25+0000\n"
+"POT-Creation-Date: 2023-10-23 02:28+0000\n"
 "PO-Revision-Date: 2023-08-25 23:20+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -53,7 +53,7 @@ msgstr "밝기"
 
 #: actions/bundled/dimdisplayconfig.cpp:64 actions/bundled/dpmsconfig.cpp:60
 #: actions/bundled/runscriptconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:86
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid " min"
 msgstr "분"
@@ -113,32 +113,32 @@ msgid "Do nothing"
 msgstr "아무것도 안 함"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:99
-#: actions/bundled/suspendsessionconfig.cpp:90
+#: actions/bundled/suspendsessionconfig.cpp:93
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "대기 모드"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:102
-#: actions/bundled/suspendsessionconfig.cpp:93
+#: actions/bundled/suspendsessionconfig.cpp:96
 #, kde-format
 msgid "Hibernate"
 msgstr "최대 절전 모드"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:105
-#: actions/bundled/suspendsessionconfig.cpp:96
+#: actions/bundled/suspendsessionconfig.cpp:99
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "하이브리드 대기 모드"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:107
-#: actions/bundled/suspendsessionconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Shut down"
 msgstr "컴퓨터 끄기"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:108
-#: actions/bundled/suspendsessionconfig.cpp:99
+#: actions/bundled/suspendsessionconfig.cpp:102
 #, kde-format
 msgid "Lock screen"
 msgstr "잠금 화면"
@@ -236,17 +236,17 @@ msgstr "프로필 닫을 때"
 msgid "Run script"
 msgstr "스크립트 실행"
 
-#: actions/bundled/suspendsessionconfig.cpp:87
+#: actions/bundled/suspendsessionconfig.cpp:90
 #, kde-format
 msgid "after "
 msgstr "이후 "
 
-#: actions/bundled/suspendsessionconfig.cpp:108
+#: actions/bundled/suspendsessionconfig.cpp:111
 #, kde-format
 msgid "Automatically"
 msgstr "자동으로"
 
-#: actions/bundled/suspendsessionconfig.cpp:115
+#: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr ""
