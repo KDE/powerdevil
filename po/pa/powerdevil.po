@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-10-23 01:41+0000\n"
 "PO-Revision-Date: 2023-08-20 05:56-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -70,7 +70,7 @@ msgstr "ਲੈਵਲ"
 
 #: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
 #: actions/bundled/runscriptconfig.cpp:61
-#: actions/bundled/suspendsessionconfig.cpp:64
+#: actions/bundled/suspendsessionconfig.cpp:67
 #, kde-format
 msgid " min"
 msgstr " ਮਿੰਟ"
@@ -140,32 +140,32 @@ msgid "Do nothing"
 msgstr "ਕੁਝ ਨਾ ਕਰੋ"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:78
-#: actions/bundled/suspendsessionconfig.cpp:69
+#: actions/bundled/suspendsessionconfig.cpp:72
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "ਸਲੀਪ"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:73
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "Hibernate"
 msgstr "ਹਾਈਬਰਨੇਟ"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:85
-#: actions/bundled/suspendsessionconfig.cpp:76
+#: actions/bundled/suspendsessionconfig.cpp:79
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "ਹਾਈਬਰੈਡ ਸਲੀਪ"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:87
-#: actions/bundled/suspendsessionconfig.cpp:78
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, kde-format
 msgid "Shut down"
 msgstr "ਬੰਦ ਕਰੋ"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:79
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgid "Lock screen"
 msgstr "ਸਕਰੀਨ ਨੂੰ ਲਾਕ ਕਰੋ"
@@ -260,17 +260,17 @@ msgstr "ਆਨ ਪਰੋਫਾਈਲ ਅਣ-ਲੋਡ"
 msgid "Run script"
 msgstr "ਸਕ੍ਰਿਪਟ ਚਲਾਓ"
 
-#: actions/bundled/suspendsessionconfig.cpp:65
+#: actions/bundled/suspendsessionconfig.cpp:68
 #, kde-format
 msgid "after "
 msgstr "ਬਾਅਦ "
 
-#: actions/bundled/suspendsessionconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Automatically"
 msgstr "ਆਪਣੇ-ਆਪ"
 
-#: actions/bundled/suspendsessionconfig.cpp:94
+#: actions/bundled/suspendsessionconfig.cpp:97
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "ਜਦੋਂ ਸਲੀਪ ਹੋਵੇ ਤਾਂ ਨਾ-ਸਰਗਰਮੀ ਦੇ ਸਮੇਂ ਬਾਅਦ ਹਾਈਬਰਨੇਟ ਕਰੋ"

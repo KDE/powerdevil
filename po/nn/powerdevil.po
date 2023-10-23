@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-17 02:29+0000\n"
+"POT-Creation-Date: 2023-10-23 01:41+0000\n"
 "PO-Revision-Date: 2023-09-02 13:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -71,7 +71,7 @@ msgstr "Nivå"
 
 #: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
 #: actions/bundled/runscriptconfig.cpp:61
-#: actions/bundled/suspendsessionconfig.cpp:64
+#: actions/bundled/suspendsessionconfig.cpp:67
 #, kde-format
 msgid " min"
 msgstr " minutt"
@@ -141,32 +141,32 @@ msgid "Do nothing"
 msgstr "Ikkje gjer noko"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:78
-#: actions/bundled/suspendsessionconfig.cpp:69
+#: actions/bundled/suspendsessionconfig.cpp:72
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Gå i kvilemodus"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:73
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "Hibernate"
 msgstr "Gå i dvalemodus"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:85
-#: actions/bundled/suspendsessionconfig.cpp:76
+#: actions/bundled/suspendsessionconfig.cpp:79
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Gå i hybrid kvilemodus"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:87
-#: actions/bundled/suspendsessionconfig.cpp:78
+#: actions/bundled/suspendsessionconfig.cpp:81
 #, kde-format
 msgid "Shut down"
 msgstr "Slå av maskina"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:79
+#: actions/bundled/suspendsessionconfig.cpp:82
 #, kde-format
 msgid "Lock screen"
 msgstr "Lås skjermen"
@@ -261,17 +261,17 @@ msgstr "Når ein profil vert fjerna"
 msgid "Run script"
 msgstr "Køyr skript"
 
-#: actions/bundled/suspendsessionconfig.cpp:65
+#: actions/bundled/suspendsessionconfig.cpp:68
 #, kde-format
 msgid "after "
 msgstr "etter "
 
-#: actions/bundled/suspendsessionconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Automatically"
 msgstr "Automatisk"
 
-#: actions/bundled/suspendsessionconfig.cpp:94
+#: actions/bundled/suspendsessionconfig.cpp:97
 #, kde-format
 msgid "While asleep, hibernate after a period of inactivity"
 msgstr "I kvilemodus, gå til dvalemodus etter periode utan aktivitet"
