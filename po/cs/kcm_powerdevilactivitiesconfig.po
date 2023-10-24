@@ -1,32 +1,33 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Vít Pelčák <vit@pelcak.org>, 2011, 2013, 2014, 2019, 2020, 2023.
+# Lukáš Tinkl <lukas@kde.org>, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2023-10-10 14:24\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2023-01-04 09:15+0100\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/powerdevil/powerdevilactivitiesconfig."
-"pot\n"
-"X-Crowdin-File-ID: 43237\n"
+"X-Generator: Lokalize 22.12.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
+msgstr "Vít Pelčák"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org,i@guoyunhe.me, tysontan@tysontan.com"
+msgstr "vit@pelcak.org"
 
 #: activitypage.cpp:46
 #, kde-format
@@ -34,8 +35,8 @@ msgid ""
 "The activity service is running with bare functionalities.\n"
 "Names and icons of the activities might not be available."
 msgstr ""
-"活动服务正在以最低状态运行。\n"
-"活动名称和图标可能无法显示。"
+"Běžící servis aktivit má spuštěny pouze nejzákladnější funkce.\n"
+"Jména a ikony aktivit nemusejí být dostupná."
 
 #: activitypage.cpp:119
 #, kde-format
@@ -44,22 +45,23 @@ msgid ""
 "It is necessary to have the activity manager running to configure activity-"
 "specific power management behavior."
 msgstr ""
-"活动服务并未运行运行。\n"
-"如需针对个别活动指定电源管理行为，必须运行活动管理器。"
+"Servis aktivit neběží.\n"
+"Bez tohoto servisu nelze měnit chování správy napájení pro jednotlivé "
+"aktivity."
 
 #: activitypage.cpp:214
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "电源管理服务尚未运行。"
+msgstr "Služba pro správu napájení, zdá se, neběží."
 
 #. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
 #: activityWidget.ui:19
 #, kde-format
 msgid "Never turn off the screen"
-msgstr "永不关闭屏幕"
+msgstr "Nikdy nevypínat obrazovku"
 
 #. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
 #: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
-msgstr "永不关闭计算机或睡眠"
+msgstr "Nikdy neuspávat nebo nevypínat počítač"

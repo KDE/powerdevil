@@ -1,0 +1,70 @@
+# Translation of powerdevilactivitiesconfig into Japanese.
+# This file is distributed under the same license as the kdebase package.
+# takachan@running-dog.net <takachan@running-dog.net>, 2015.
+# Fuminobu Takeyama <ftake@geeko.jp>, 2018.
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015, 2018.
+# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2022-06-29 16:16+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
+"Language-Team: Japanese <kde-jp@kde.org >\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ryuichi Yamada"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ryuichi_ya220@outlook.jp"
+
+#: activitypage.cpp:46
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"アクティビティサービスは必要最小限の機能だけ起動されています。アクティビティ"
+"名とアイコンが使用できない場合があります。"
+
+#: activitypage.cpp:119
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"アクティビティサービスが起動していません。\n"
+"アクティビティのための電源管理を行うためにはアクティビティサービスを起動する"
+"必要があります。"
+
+#: activitypage.cpp:214
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "電源管理サービスが動作していないようです。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "ディスプレーの電源を切らない"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "シャットダウンまたはスリープしない"

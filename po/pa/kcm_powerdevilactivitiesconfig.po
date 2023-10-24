@@ -1,0 +1,142 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# A S Alam <aalam@users.sf.net>, 2011, 2013, 2018, 2020, 2021, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2023-04-01 15:13-0700\n"
+"Last-Translator: A S Alam <aalam@satluj.org>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: activitypage.cpp:46
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"ਐਕਟਿਵ ਸਰਵਿਸ ਮੁੱਢਲੀਆਂ ਕਿਰਿਆਵਾਂ ਨਾਲ ਚੱਲ ਰਿਹਾ ਹੈ।\n"
+"ਸਰਗਰਮੀਆਂ ਦੇ ਨਾਂ ਤੇ ਆਈਕਾਨ ਉਪਲਬਧ ਨਹੀ ਵੀ ਹੋ ਸਕਦੇ ਹਨ।"
+
+#: activitypage.cpp:119
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"ਸਰਗਰਮੀ ਸੇਵਾ ਚੱਲ ਨਹੀ ਹੈ।\n"
+"ਸਰਗਰਮੀ-ਸੰਬੰਧੀ ਊਰਜਾ ਇੰਤਜ਼ਾਮ ਰਵੱੱਈਏ ਦੀ ਸੰਰਚਨਾ ਵਾਸਤੇ ਸਰਗਰਮੀ ਮੈਨੇਜਰ ਚੱਲਦਾ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ।"
+
+#: activitypage.cpp:214
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "ਸਕਰੀਨ ਕਦੇ ਵੀ ਬੰਦ ਨਾ ਕਰੋ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "ਕੰਪਿਊਟਰ ਕਦੇ ਵੀ ਬੰਦ ਨਾ ਕਰੋ ਜਾਂ ਇਸ ਨੂੰ ਸਲੀਪ ਕਰੋ"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "ਖਾਸ ਸੈਟਿੰਗਾਂ ਨਾ ਵਰਤੋਂ"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "ਖਾਸ ਰਵੱਈਆ ਦਿਓ"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "ਸਲੀਪ"
+
+#~ msgid "Hibernate"
+#~ msgstr "ਹਾਈਬਰਨੇਟ"
+
+#~ msgid "Shut down"
+#~ msgstr "ਬੰਦ ਕਰੋ"
+
+#~ msgid "Always"
+#~ msgstr "ਹਮੇਸ਼ਾਂ"
+
+#~ msgid "after"
+#~ msgstr "ਬਾਅਦ"
+
+#~ msgid " min"
+#~ msgstr " ਮਿੰਟ"
+
+#~ msgid "PC running on AC power"
+#~ msgstr "ਪੀਸੀ AC ਪਾਵਰ ਉੱਤੇ ਚੱਲ ਰਿਹਾ ਹੈ"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "ਪੀਸੀ ਬੈਟਰੀ ਪਾਵਰ ਉੱਤੇ ਚੱਲ ਰਿਹਾ ਹੈ"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "ਪੀਸੀ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "ਐਕਟੀਵਿਟੀ \"%1\""
+
+#~ msgid "Act like"
+#~ msgstr "ਇੰਝ ਕੰਮ ਕਰੋ"
+
+#~ msgid "Use separate settings"
+#~ msgstr "ਵੱਖ-ਵੱਖ ਸੈਟਿੰਗਾਂ ਵਰਤੋਂ"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "ਪਾਵਰ ਮੈਨੇਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।\n"
+#~ "ਇਸ ਨੂੰ ਸ਼ੁਰੂ ਕਰਕੇ ਜਾਂ \"ਸਟਾਰਟਅੱਪ ਅਤੇ ਸੱਟਡਾਊਨ\" ਵਿੱਚ ਸੈਡਿਊਲ ਕਰਕੇ ਹੱਲ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ"
+
+#~ msgid "Suspend"
+#~ msgstr "ਸਸਪੈਂਡ ਕਰੋ"
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "ਕੰਪਿਊਟਰ ਕਦੇ ਵੀ ਸਸਪੈਂਡ ਜਾਂ ਬੰਦ ਨਾ ਕਰੋ"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "ਐਕਟਵਿਟੀ ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਸੰਰਚਨਾ"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr "ਕੇਡੀਈ ਪਾਵਰ ਮੈਨੇਜਮੈਂਟ ਸਿਸਟਮ ਲਈ ਪ੍ਰੋ-ਐਕਟਿਵ ਸੰਰਚਨਾਕਾਰ"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can fine tune power management settings for each of "
+#~ "your activities."
+#~ msgstr "ਇਹ ਮੋਡੀਊਲ ਤੋਂ, ਤੁਸੀਂ ਆਪਣੀ ਹਰ ਸਰਗਰਮੀ ਲਈ ਊਰਜਾ ਪਰਬੰਧ ਸੈਟਿੰਗ ਨੂੰ ਠੀਕ ਕਰ ਸਕਦੇ ਹੋ।"
+
+#~ msgid "Dario Freddi"
+#~ msgstr "ਡਾਈਰੋ ਫਰਿੱਡੀ"
+
+#~ msgid "Maintainer"
+#~ msgstr "ਪਰਬੰਧਕ"

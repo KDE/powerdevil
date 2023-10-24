@@ -1,0 +1,144 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Abdelrahman Osama <it@abdelos.com>, 2012.
+# Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2012, 2014.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2022-08-23 19:37+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+"X-Project-Style: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "عبدالرحمن أسامة,عبدالرحيم الفاخوري"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "it@abdelos.com,abdilra7eem@yahoo.com"
+
+#: activitypage.cpp:46
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"خدمة النشاط تعمل بوظائف ضئيلة.\n"
+"أسماء و أيقونات الأنشطة قد لا تكون متاحة."
+
+#: activitypage.cpp:119
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"خدمة النشاط لا تعمل.\n"
+"يجب تشغيل مدير النشاط حتى تستطيع ضبط نشاط خاص بسلوك إدارة الطاقة."
+
+#: activitypage.cpp:214
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "يبدو أن خدمة إدارة الطاقة لا تعمل."
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "لا تقم بإطفاء الشاشة أبدا"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "لا تطفئ الحاسوب أو تتركه ينام أبدا"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "لا تستخدم إعدادات خاصة"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "عرف سلوكًا خاصًّا"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "نَم"
+
+#~ msgid "Hibernate"
+#~ msgstr "أسبِت"
+
+#~ msgid "Shut down"
+#~ msgstr "أطفئ"
+
+#~ msgid "Always"
+#~ msgstr "دائما"
+
+#~ msgid "after"
+#~ msgstr "بعد"
+
+#~ msgid " min"
+#~ msgstr "دقيقة"
+
+#~ msgid "PC running on AC power"
+#~ msgstr "الحاسوب يعمل على الطاقة الاعتيادية"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "الحاسوب يعمل على طاقة البطارية"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "الحاسوب يعمل على بطارية ضعيفة"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "النشاط \"%1\""
+
+#~ msgid "Act like"
+#~ msgstr "تصرف هكذا"
+
+#~ msgid "Use separate settings"
+#~ msgstr "استخدم إعدادات منفصلة"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "يبدو أن خدمة إدارة الطاقة لا تعمل.\n"
+#~ "يمكن حل تلك المشكلة عن طريق بدء الخدمة أو جدولتها من خلال خيارات \"بدء "
+#~ "التشغيل و الإطفاء\" ."
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "لا تقم بتعليق أو إطفاء الحاسوب أبدا"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "ضبط إدارة الطاقة للأنشطة"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr "مضبط نظام أدارة الطاقة لكِيدِي لكل نشاط"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 داريو فريدي"
+
+#~ msgid ""
+#~ "From this module, you can fine tune power management settings for each of "
+#~ "your activities."
+#~ msgstr ""
+#~ "من خلال هذه الوحدة تستطيع ضبط إعدادات إدارة الطاقة لكل من أنشطتك بدقة."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "داريو فريدي"
+
+#~ msgid "Maintainer"
+#~ msgstr "المشرف"

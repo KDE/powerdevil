@@ -1,0 +1,114 @@
+# Zmicier <zmicerturok@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2022-12-30 16:31\n"
+"Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
+"Language-Team: Belarusian\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+"X-Generator: Lokalize 22.12.0\n"
+"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
+"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Language: be\n"
+"X-Crowdin-File: /main/be/powerdevil/powerdevilactivitiesconfig.po\n"
+"X-Crowdin-File-ID: 8984\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antikruk"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "nashtlumach@gmail.com"
+
+#: activitypage.cpp:46
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"Служба пакояў працуе з базавымі функцыямі.\n"
+"Назвы і значкі пакояў могуць быць недаступнымі."
+
+#: activitypage.cpp:119
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"Служба пакояў не працуе.\n"
+"Неабходна, каб кіраўнік пакояў быў запушчаны, каб наладзіць асобнае "
+"кіраванне сілкаваннем для кожнага пакоя."
+
+#: activitypage.cpp:214
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Выглядае, што служба кіравання сілкаваннем на запушчаная."
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "Ніколі не выключаць экран"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr ""
+"Ніколі не выключаць камп'ютар і не дазваляць яму пераходзіць у рэжым сну"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Не выкарыстоўваць адмысловыя налады"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Вызначыць адмысловыя паводзіны"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Прыпыніць у RAM"
+
+#~ msgid "Hibernate"
+#~ msgstr "Перавесці ў рэжым сну"
+
+#~ msgid "Shut down"
+#~ msgstr "Выключыць"
+
+#~ msgid "Always"
+#~ msgstr "Заўсёды"
+
+#~ msgid "after"
+#~ msgstr "праз"
+
+#~ msgid " min"
+#~ msgstr " хв"
+
+#~ msgid "PC running on AC power"
+#~ msgstr "Камп'ютар сілкуецца ад электрасеткі"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "Камп'ютар сілкуецца ад батарэі"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "Камп'ютар сілкуецца ад батарэі з нізкім узроўнем зараду"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "Пакой \"%1\""
+
+#~ msgid "Act like"
+#~ msgstr "Паводзіны"
+
+#~ msgid "Use separate settings"
+#~ msgstr "Выкарыстоўваць асобныя налады"

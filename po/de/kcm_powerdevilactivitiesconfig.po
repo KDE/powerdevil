@@ -1,0 +1,149 @@
+# Frederik Schwarzer <schwarzer@kde.org>, 2011, 2012, 2016.
+# Panagiotis Papadopoulos <pano_90@gmx.net>, 2011.
+# Burkhard Lück <lueck@hube-lueck.de>, 2012, 2015, 2019, 2020.
+# Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2022-11-10 20:41+0100\n"
+"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.08.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Frederik Schwarzer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "schwarzer@kde.org"
+
+#: activitypage.cpp:46
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"Der Aktivitäten-Dienst läuft mit minimaler Funktionalität.\n"
+"Namen und Symbole der Aktivitäten sind möglicherweise nicht verfügbar."
+
+#: activitypage.cpp:119
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"Der Aktivitäten-Dienst läuft nicht.\n"
+"Es ist erforderlich, dass er Aktivitäten-Dienst läuft, um Aktivitäten-"
+"spezifisches Verhalten der Energieverwaltung einzurichten."
+
+#: activitypage.cpp:214
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr "Der Energieverwaltungsdienst scheint nicht zu laufen."
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
+#: activityWidget.ui:19
+#, kde-format
+msgid "Never turn off the screen"
+msgstr "Den Bildschirm nie ausschalten"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
+#, kde-format
+msgid "Never shut down the computer or let it go to sleep"
+msgstr ""
+"Den Bildschirm nie ausschalten oder den Rechner nie in den Standby-Modus "
+"versetzen"
+
+#~ msgid "Do not use special settings"
+#~ msgstr "Keine besonderen Einstellungen verwenden"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Besonderes Verhalten definieren"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Standby-Modus"
+
+#~ msgid "Hibernate"
+#~ msgstr "Ruhezustand"
+
+#~ msgid "Shut down"
+#~ msgstr "Herunterfahren"
+
+#~ msgid "Always"
+#~ msgstr "Immer"
+
+#~ msgid "after"
+#~ msgstr "nach"
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "PC running on AC power"
+#~ msgstr "Rechner läuft mit Netzteil"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "Rechner läuft mit Akku"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "Rechner läuft mit Akku auf niedrigem Ladestand"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "Aktivität \"%1\""
+
+#~ msgid "Act like"
+#~ msgstr "Verhalten wie"
+
+#~ msgid "Use separate settings"
+#~ msgstr "Unterschiedliche Einstellungen verwenden"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Der Energieverwaltungsdienst scheint nicht zu laufen.\n"
+#~ "Das können Sie ändern, indem Sie ihn manuell starten oder unter „Starten "
+#~ "und Beenden“ den automatischen Start einrichten."
+
+#~ msgid "Suspend"
+#~ msgstr "Standby-Modus"
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "Den Rechner nie in den Standby-Modus versetzen oder herunterfahren"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "Einrichtung der Aktivitäten-Energieverwaltung"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr ""
+#~ "Ein Modul zur Einrichtung des KDE-Energieverwaltungssystems pro Aktivität"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "© 2010, Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can fine tune power management settings for each of "
+#~ "your activities."
+#~ msgstr ""
+#~ "In diesem Modul können Sie die Energieverwaltungseinstellungen für jede "
+#~ "Ihrer Aktivitäten anpassen."
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Betreuer"

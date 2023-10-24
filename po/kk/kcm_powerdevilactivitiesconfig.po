@@ -1,0 +1,152 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sairan Kikkarin <sairan@computer.org>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"PO-Revision-Date: 2011-12-09 03:11+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сайран Киккарин"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sairan@computer.org"
+
+#: activitypage.cpp:46
+#, kde-format
+msgid ""
+"The activity service is running with bare functionalities.\n"
+"Names and icons of the activities might not be available."
+msgstr ""
+"Белсенділік қызметі шектеулі мүмкіндіктерімен жегілген.\n"
+"Белсенділіктерінің атау мен таңбашалары көрсетілмеуі мүмкін. "
+
+#: activitypage.cpp:119
+#, kde-format
+msgid ""
+"The activity service is not running.\n"
+"It is necessary to have the activity manager running to configure activity-"
+"specific power management behavior."
+msgstr ""
+"Белсенділік қызметі жегілмеген.\n"
+"әр белсенділік түріне бөлек құаттандыру тәртібін орнату үшін белсенділік "
+"менеджері жегілген болу керек."
+
+#: activitypage.cpp:214
+#, kde-format
+msgid "The Power Management Service appears not to be running."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitScreenManagementCheckBox)
+#: activityWidget.ui:19
+#, fuzzy, kde-format
+#| msgid "Never shutdown the screen"
+msgid "Never turn off the screen"
+msgstr "Экраны ешқашан сөндірілмесін"
+
+#. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
+#: activityWidget.ui:26
+#, fuzzy, kde-format
+#| msgid "Never shutdown the screen"
+msgid "Never shut down the computer or let it go to sleep"
+msgstr "Экраны ешқашан сөндірілмесін"
+
+#, fuzzy
+#~| msgid "Don't use special settings"
+#~ msgid "Do not use special settings"
+#~ msgstr "Арнаулы баптауы қолданбайды"
+
+#~ msgid "Define a special behavior"
+#~ msgstr "Әрнаулы тәртібін орнату"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Қалғу"
+
+#~ msgid "Hibernate"
+#~ msgstr "Ұйықтау"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "Сөндіру"
+
+#~ msgid "Always"
+#~ msgstr "Әрқашан"
+
+#~ msgid "after"
+#~ msgstr "-"
+
+#~ msgid " min"
+#~ msgstr " мин. кейін"
+
+#~ msgid "PC running on AC power"
+#~ msgstr "Компьютер токтан істеп тұр"
+
+#~ msgid "PC running on battery power"
+#~ msgstr "Компьютер батареядан істеп тұр"
+
+#~ msgid "PC running on low battery"
+#~ msgstr "Қуаты аз батареядан істеп тұр"
+
+#~ msgctxt "This is meant to be: Act like activity %1"
+#~ msgid "Activity \"%1\""
+#~ msgstr "\"%1\" белсенділігіндей"
+
+#~ msgid "Act like"
+#~ msgstr "Бұл"
+
+#, fuzzy
+#~| msgid "Use separate settings (advanced users only)"
+#~ msgid "Use separate settings"
+#~ msgstr "Параметрлері бөлек (тек тәжірибелілер үшін)"
+
+#~ msgid ""
+#~ "The Power Management Service appears not to be running.\n"
+#~ "This can be solved by starting or scheduling it inside \"Startup and "
+#~ "Shutdown\""
+#~ msgstr ""
+#~ "Қуаттандыруны басқару қызметі жегілмеген сияқты.\n"
+#~ "Бұл \"Бастау мен сөндіру\" дегенде жегіп не жоспарлап шешіледі"
+
+#~ msgid "Never suspend or shutdown the computer"
+#~ msgstr "Компьютер қалғымасын және сөндірілмесін"
+
+#~ msgid "Activities Power Management Configuration"
+#~ msgstr "Белсенділік түрлерін қуаттандыруды басқаруын баптау"
+
+#~ msgid "A per-activity configurator of KDE Power Management System"
+#~ msgstr "Түрлі белсенділіктерді KDE-нің қуаттандыруды басқару жүйесін баптау"
+
+#~ msgid "(c), 2010 Dario Freddi"
+#~ msgstr "(c), 2010 Dario Freddi"
+
+#~ msgid ""
+#~ "From this module, you can fine tune power management settings for each of "
+#~ "your activities."
+#~ msgstr ""
+#~ "Бұл модулінде әр белсенділік түріне бөлек құаттандыру параметрлерін арнап "
+#~ "баптай аласыз. "
+
+#~ msgid "Dario Freddi"
+#~ msgstr "Dario Freddi"
+
+#~ msgid "Maintainer"
+#~ msgstr "Желілдірушісі"
