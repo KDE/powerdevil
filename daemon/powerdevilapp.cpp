@@ -48,7 +48,7 @@ PowerDevilApp::~PowerDevilApp()
 
 void PowerDevilApp::init()
 {
-    KLocalizedString::setApplicationDomain("powerdevil");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("powerdevil"));
 
     KAboutData aboutData(QStringLiteral("org_kde_powerdevil"),
                          i18n("KDE Power Management System"),
