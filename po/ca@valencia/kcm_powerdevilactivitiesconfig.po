@@ -3,21 +3,21 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2011, 2012, 2013, 2016, 2017, 2019, 2020, 2022, 2023.
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2016, 2017, 2019, 2020, 2022, 2023 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2020, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-20 01:39+0000\n"
-"PO-Revision-Date: 2023-10-20 09:29+0200\n"
+"PO-Revision-Date: 2023-10-21 10:53+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -37,6 +37,8 @@ msgid ""
 "The activity service is running with bare functionalities.\n"
 "Names and icons of the activities might not be available."
 msgstr ""
+"El servei de l'activitat s'està executant amb les funcionalitats mínimes.\n"
+"Els noms i les icones de les activitats podrien no estar disponibles."
 
 #: activitypage.cpp:119
 #, kde-format
@@ -45,6 +47,9 @@ msgid ""
 "It is necessary to have the activity manager running to configure activity-"
 "specific power management behavior."
 msgstr ""
+"El servei de l'activitat no s'està executant.\n"
+"Cal tindre el gestor d'activitat executant-se per a configurar el "
+"comportament de gestió de l'energia específic de l'activitat."
 
 #: activitypage.cpp:214
 #, kde-format
@@ -55,10 +60,10 @@ msgstr "Pareix que el servei de gestió de l'energia no s'està executant."
 #: activityWidget.ui:19
 #, kde-format
 msgid "Never turn off the screen"
-msgstr ""
+msgstr "No apagues mai la pantalla"
 
 #. i18n: ectx: property (text), widget (QCheckBox, inhibitSuspendCheckBox)
 #: activityWidget.ui:26
 #, kde-format
 msgid "Never shut down the computer or let it go to sleep"
-msgstr ""
+msgstr "No pares mai l'ordinador o permetes que se suspenga"
