@@ -40,7 +40,7 @@
 
 #include <QDebug>
 
-#include <Kirigami/TabletModeWatcher>
+#include <Kirigami/Platform/TabletModeWatcher>
 #include <algorithm>
 
 #ifdef Q_OS_LINUX
@@ -97,7 +97,7 @@ void Core::onBackendReady()
 {
     qCDebug(POWERDEVIL) << "Backend ready, KDE Power Management system initialized";
 
-    const bool isMobile = Kirigami::TabletModeWatcher::self()->isTabletMode();
+    const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
     const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
     const bool canSuspendToRam = m_suspendController->canSuspend();
     const bool canSuspendToDisk = m_suspendController->canHibernate();

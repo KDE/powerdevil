@@ -16,7 +16,7 @@ target_link_libraries(kcm_powerdevilprofilesconfig
      KF6::KIOWidgets
      KF6::ConfigGui
      KF6::KCMUtils
-     KF6::Kirigami2
+     KF6::KirigamiPlatform
      powerdevilui
      powerdevilconfigcommonprivate
 )

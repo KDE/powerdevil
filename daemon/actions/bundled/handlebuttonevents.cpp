@@ -25,7 +25,7 @@
 #include <KScreen/Output>
 
 #include <KGlobalAccel>
-#include <Kirigami/TabletModeWatcher>
+#include <Kirigami/Platform/TabletModeWatcher>
 
 namespace PowerDevil::BundledActions
 {
@@ -62,8 +62,8 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
             KGlobalAccel::self()->setGlobalShortcut(globalAction, QList<QKeySequence>());
         }
     };
-    auto interface = Kirigami::TabletModeWatcher::self();
-    connect(interface, &Kirigami::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
+    auto interface = Kirigami::Platform::TabletModeWatcher::self();
+    connect(interface, &Kirigami::Platform::TabletModeWatcher::tabletModeChanged, globalAction, powerButtonMode);
     powerButtonMode(interface->isTabletMode());
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerOffButtonTriggered);
 

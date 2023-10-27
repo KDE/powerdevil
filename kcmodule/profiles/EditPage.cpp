@@ -13,7 +13,7 @@
 #include <powerdevilpowermanagement.h>
 #include <powerdevilprofilegenerator.h>
 
-#include <Kirigami/TabletModeWatcher>
+#include <Kirigami/Platform/TabletModeWatcher>
 #include <powerdevil_debug.h>
 
 #include <QCheckBox>
@@ -50,7 +50,7 @@ EditPage::EditPage(QObject *parent, const KPluginMetaData &data)
     m_profilesConfig = KSharedConfig::openConfig("powermanagementprofilesrc", KConfig::SimpleConfig | KConfig::CascadeConfig);
 
     if (m_profilesConfig->groupList().isEmpty()) {
-        PowerDevil::ProfileGenerator::generateProfiles(Kirigami::TabletModeWatcher::self()->isTabletMode(),
+        PowerDevil::ProfileGenerator::generateProfiles(Kirigami::Platform::TabletModeWatcher::self()->isTabletMode(),
                                                        PowerDevil::PowerManagement::instance()->isVirtualMachine(),
                                                        PowerDevil::PowerManagement::instance()->canSuspend());
         m_profilesConfig->reparseConfiguration();
@@ -162,7 +162,7 @@ void EditPage::restoreDefaultProfiles()
     if (ret == KMessageBox::Continue) {
         qCDebug(POWERDEVIL) << "Restoring defaults.";
 
-        PowerDevil::ProfileGenerator::generateProfiles(Kirigami::TabletModeWatcher::self()->isTabletMode(),
+        PowerDevil::ProfileGenerator::generateProfiles(Kirigami::Platform::TabletModeWatcher::self()->isTabletMode(),
                                                        PowerDevil::PowerManagement::instance()->isVirtualMachine(),
                                                        PowerDevil::PowerManagement::instance()->canSuspend());
         load();
