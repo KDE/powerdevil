@@ -1,4 +1,4 @@
-# Translation of powerdevilactivitiesconfig to Norwegian Bokmål
+# Translation of kcm_powerdevilactivitiesconfig to Norwegian Bokmål
 #
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2011.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
