@@ -1,4 +1,4 @@
-# Translation of powerdevilactivitiesconfig to Norwegian Nynorsk
+# Translation of kcm_powerdevilactivitiesconfig to Norwegian Nynorsk
 #
 # Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2020, 2022.
 msgid ""

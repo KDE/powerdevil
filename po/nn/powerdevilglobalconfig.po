@@ -1,4 +1,4 @@
-# Translation of powerdevilglobalconfig to Norwegian Nynorsk
+# Translation of kcm_powerdevilglobalconfig to Norwegian Nynorsk
 #
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010, 2011.
 # Karl Ove Hufthammer <karl@huftis.org>, 2009, 2015, 2016, 2018, 2019, 2020.
