@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2011-03-05 16:21+0100\n"
 "Last-Translator: Marko Dimjasevic <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -33,27 +33,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zarko.pintar@gmail.com, adundovi@gmail.com, marko@dimjasevic.net"
 
-#: EditPage.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "The KDE Power Management System will now generate a set of default "
-#| "profiles based on your computer's capabilities. This will also erase all "
-#| "existing profiles. Are you sure you want to continue?"
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDE-ov sustav upravljanja potrošnjom energije sad će stvoriti skup zadanih "
-"profila baziranih na mogućnostima Vašeg računala. Ovo će ujedno obrisati sve "
-"postojeće profile. Jeste li sigurni da želite nastaviti?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Vrazi zadane profile"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -75,6 +55,23 @@ msgstr ""
 #, kde-format
 msgid "On Low Battery"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "The KDE Power Management System will now generate a set of default "
+#~| "profiles based on your computer's capabilities. This will also erase all "
+#~| "existing profiles. Are you sure you want to continue?"
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDE-ov sustav upravljanja potrošnjom energije sad će stvoriti skup "
+#~ "zadanih profila baziranih na mogućnostima Vašeg računala. Ovo će ujedno "
+#~ "obrisati sve postojeće profile. Jeste li sigurni da želite nastaviti?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Vrazi zadane profile"
 
 #~ msgid "Power Profiles Configuration"
 #~ msgstr "Konfiguracija profila potrošnje energije"

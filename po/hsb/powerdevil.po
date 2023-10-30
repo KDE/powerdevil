@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-23 01:41+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2008-11-06 22:08+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -27,21 +27,21 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ewerner@uni-leipzig.de"
 
-#: actions/bundled/brightnesscontrol.cpp:43 actions/bundled/dpms.cpp:65
+#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:65
 #: actions/bundled/handlebuttonevents.cpp:42
-#: actions/bundled/keyboardbrightnesscontrol.cpp:46
+#: actions/bundled/keyboardbrightnesscontrol.cpp:44
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Wobchad z milinu"
 
-#: actions/bundled/brightnesscontrol.cpp:46
+#: actions/bundled/brightnesscontrol.cpp:42
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Swětłosć wobrazowki zwyšić"
 
-#: actions/bundled/brightnesscontrol.cpp:51
+#: actions/bundled/brightnesscontrol.cpp:47
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Increase Screen Brightness"
@@ -49,13 +49,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Swětłosć wobrazowki zwyšić"
 
-#: actions/bundled/brightnesscontrol.cpp:56
+#: actions/bundled/brightnesscontrol.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Swětłosć wobrazowki pomjeńšić"
 
-#: actions/bundled/brightnesscontrol.cpp:61
+#: actions/bundled/brightnesscontrol.cpp:57
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Decrease Screen Brightness"
@@ -63,22 +63,20 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Swětłosć wobrazowki pomjeńšić"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:55
+#: actions/bundled/brightnesscontrolconfig.cpp:65
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Stopjeń"
 
-#: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
-#: actions/bundled/runscriptconfig.cpp:61
-#: actions/bundled/suspendsessionconfig.cpp:67
+#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
+#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/suspendsessionconfig.cpp:75
 #, kde-format
 msgid " min"
 msgstr "mjeń."
 
-#: actions/bundled/dimdisplayconfig.cpp:54
-#: actions/bundled/runscriptconfig.cpp:64
-#: actions/bundled/runscriptconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:65
 #, kde-format
 msgid "After"
 msgstr "Po"
@@ -89,12 +87,12 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Wobrazowku hasnyć"
 
-#: actions/bundled/dpmsconfig.cpp:46
+#: actions/bundled/dpmsconfig.cpp:56
 #, kde-format
 msgid "Switch off after"
 msgstr "Hasnyć po"
 
-#: actions/bundled/dpmsconfig.cpp:54
+#: actions/bundled/dpmsconfig.cpp:64
 #, fuzzy, kde-format
 #| msgctxt "@item:intext"
 #| msgid "1 second"
@@ -102,7 +100,7 @@ msgstr "Hasnyć po"
 msgid " sec"
 msgstr "%1 sekunda"
 
-#: actions/bundled/dpmsconfig.cpp:55
+#: actions/bundled/dpmsconfig.cpp:65
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -132,152 +130,171 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Hasnyć"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:66
+#: actions/bundled/handlebuttoneventsconfig.cpp:79
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Samo hdyž je eksterna wobrazowka přizamknjena"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:75
+#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "Do nothing"
 msgstr "Ničo nječinić"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:78
-#: actions/bundled/suspendsessionconfig.cpp:72
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:85
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Spinkać"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:76
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hibernate"
 msgstr "Zymski spar"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:85
-#: actions/bundled/suspendsessionconfig.cpp:79
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Hybridny spar"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "Hasnyć"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:82
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "Wobrazowku zamknyć"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Dialog za wotzjewjenje"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
 #, kde-format
 msgid "Turn off screen"
 msgstr "Wobrazowku hasnyć"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:122
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Hdyž so laptop začini"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:133
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Hdyž so zapinak stłóči"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:50
+#: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Swětłosć tastatury zwyšić"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:55
+#: actions/bundled/keyboardbrightnesscontrol.cpp:53
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Swětłosć tastatury pomjeńšić"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:60
+#: actions/bundled/keyboardbrightnesscontrol.cpp:58
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Tastaturowe wobswětlenje zaswěćić/hasnyć"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:56
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Stopjeń"
 
-#: actions/bundled/powerprofileconfig.cpp:67
+#: actions/bundled/powerprofileconfig.cpp:74
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Nic změnić"
 
-#: actions/bundled/powerprofileconfig.cpp:75
+#: actions/bundled/powerprofileconfig.cpp:82
 #, kde-format
 msgid "Power Save"
 msgstr "Milinu lutować"
 
-#: actions/bundled/powerprofileconfig.cpp:76
+#: actions/bundled/powerprofileconfig.cpp:83
 #, kde-format
 msgid "Balanced"
 msgstr "Wurunane"
 
-#: actions/bundled/powerprofileconfig.cpp:77
+#: actions/bundled/powerprofileconfig.cpp:84
 #, kde-format
 msgid "Performance"
 msgstr "Wukonitosć"
 
-#: actions/bundled/powerprofileconfig.cpp:91
+#: actions/bundled/powerprofileconfig.cpp:98
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Přešaltować na:"
 
-#: actions/bundled/runscriptconfig.cpp:50
+#: actions/bundled/runscriptconfig.cpp:95
 #, kde-format
 msgid "Script"
 msgstr "Skript"
 
-#: actions/bundled/runscriptconfig.cpp:62
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
-msgid "On Profile Load"
-msgstr "Hdyž so profil začita"
+msgid "When entering power state"
+msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:63
+#: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
-msgid "On Profile Unload"
-msgstr "Hdyž so profil zaćisnje"
+msgid "When exiting power state"
+msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:75
+#: actions/bundled/runscriptconfig.cpp:109
+#, fuzzy, kde-format
+#| msgid "While asleep, hibernate after a period of inactivity"
+msgid "After a period of inactivity"
+msgstr "Hdyž spinkam, přeńdu do zymskeho spara po času bjez aktiwity"
+
+#: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
 msgid "Run script"
 msgstr "Skript startować"
 
-#: actions/bundled/suspendsessionconfig.cpp:68
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "after "
 msgstr "po"
 
-#: actions/bundled/suspendsessionconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "Awtomatisce"
 
-#: actions/bundled/suspendsessionconfig.cpp:97
+#: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
-msgid "While asleep, hibernate after a period of inactivity"
+msgid "Standby (Save session to memory)"
+msgstr ""
+
+#: actions/bundled/suspendsessionconfig.cpp:118
+#, kde-format
+msgid "Hybrid sleep (Save session to both memory and disk)"
+msgstr ""
+
+#: actions/bundled/suspendsessionconfig.cpp:121
+#, fuzzy, kde-format
+#| msgid "While asleep, hibernate after a period of inactivity"
+msgid "Standby, then hibernate after a period of inactivity"
 msgstr "Hdyž spinkam, přeńdu do zymskeho spara po času bjez aktiwity"
+
+#: actions/bundled/suspendsessionconfig.cpp:130
+#, kde-format
+msgctxt ""
+"@label:combobox Sleep mode selection - suspend to memory, disk or both"
+msgid "When sleeping, enter"
+msgstr ""
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -332,44 +349,44 @@ msgstr "Hasnyć po"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:414 powerdevilcore.cpp:425
+#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
 #, kde-format
 msgid "Activity Manager"
 msgstr "Rjadowak aktiwitow"
 
-#: powerdevilcore.cpp:415
+#: powerdevilcore.cpp:382
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Nastajenja tuteje aktiwity tomu zadźěwaja, zo móže system spinkać"
 
-#: powerdevilcore.cpp:426
+#: powerdevilcore.cpp:393
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 
-#: powerdevilcore.cpp:488
+#: powerdevilcore.cpp:455
 #, kde-format
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:489 powerdevilcore.cpp:708
+#: powerdevilcore.cpp:456 powerdevilcore.cpp:675
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:521
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:524
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr " Aku grata je skoro prózdny (%1% wostanje)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:526
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -383,22 +400,22 @@ msgstr ""
 "Baterija w (\"%1\") je skoro prózdna, a grat móhł kóždy wokomik hasnyć. "
 "Prošu nabijće abo narunajće bateriju."
 
-#: powerdevilcore.cpp:566
+#: powerdevilcore.cpp:533
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Myšacy aku je skoro prózdny (%1% wostanje)"
 
-#: powerdevilcore.cpp:570
+#: powerdevilcore.cpp:537
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Tastaturowy aku je skoro prózdny (%1% wostanje)"
 
-#: powerdevilcore.cpp:574
+#: powerdevilcore.cpp:541
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr " Aku bluetooth-grata je skoro prózdny (%1% wostanje)"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -408,7 +425,7 @@ msgstr ""
 "Baterija w bluetooth-graće (\"%1\") je skoro prózdna, a grat móhł kóždy "
 "wokomik hasnyć. Prošu nabijće abo narunajće bateriju."
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:585
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -418,12 +435,12 @@ msgstr ""
 "Aku je chětro prózdny - hdyž chceće dale z kompjuterom dźěłać, přizamkńće "
 "jón na milinu abo hasńće jón a narunajće aku. "
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:587
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:604
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -431,13 +448,13 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Přetorhnyć"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgid "The computer will shut down in 60 seconds."
 msgstr "Aku je nimale cyle prózdny. Waš kompjuter so za 60 sekundow hasnje."
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:617
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -445,7 +462,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Hasnyć"
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -455,7 +472,7 @@ msgstr ""
 "Aku je nimale cyle prózdny. Kompjuter póńdźe do zymskeho spara za 60 "
 "sekundow."
 
-#: powerdevilcore.cpp:656
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -464,14 +481,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Zymski spar"
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgid "The computer will sleep in 60 seconds."
 msgstr "Aku je nimale cyle prózdny. Kompjuter póńdźe spinkać za 60 sekundow."
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -480,56 +497,65 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Spinkać"
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "Aku je nimale cyle prózdny. Prošu zawěsćće swoje dźěło."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:646
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Aku je chětro prózdny (%1% wostanje)"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Aku je nimale cyle prózdny (%1 wostanje)"
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Milinowy adapter přizamknjeny"
 
-#: powerdevilcore.cpp:710
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Running on AC power"
 msgstr "Wužiwam syćowu milinu"
 
-#: powerdevilcore.cpp:710
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Milinowy adapter je so přityknył."
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Wužiwam aku"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Milinowy adapter je so wućahnył."
 
-#: powerdevilcore.cpp:774
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Charging Complete"
 msgstr "Donabity"
 
-#: powerdevilcore.cpp:774
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku je nětko cyle połny."
+
+#~ msgid "Hybrid sleep"
+#~ msgstr "Hybridny spar"
+
+#~ msgid "On Profile Load"
+#~ msgstr "Hdyž so profil začita"
+
+#~ msgid "On Profile Unload"
+#~ msgstr "Hdyž so profil zaćisnje"
 
 #~ msgid "Unsupported suspend method"
 #~ msgstr "Njepodpěrowane wašnje zastajenja"

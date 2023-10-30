@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2010-12-24 18:14+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -27,20 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jean.cayron@gmail.com"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Rapexhî les profils prémetous"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -62,6 +49,9 @@ msgstr ""
 #, kde-format
 msgid "On Low Battery"
 msgstr ""
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Rapexhî les profils prémetous"
 
 #~ msgid "Power Profiles Configuration"
 #~ msgstr "Apontiaedje des profils d' enerdjeye"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-23 01:41+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2023-09-03 10:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,54 +32,52 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus,Hizpol@ej-gv.es"
 
-#: actions/bundled/brightnesscontrol.cpp:43 actions/bundled/dpms.cpp:65
+#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:65
 #: actions/bundled/handlebuttonevents.cpp:42
-#: actions/bundled/keyboardbrightnesscontrol.cpp:46
+#: actions/bundled/keyboardbrightnesscontrol.cpp:44
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Energia-kudeaketa"
 
-#: actions/bundled/brightnesscontrol.cpp:46
+#: actions/bundled/brightnesscontrol.cpp:42
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Handitu pantailaren distira"
 
-#: actions/bundled/brightnesscontrol.cpp:51
+#: actions/bundled/brightnesscontrol.cpp:47
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Handitu pantailaren distira % 1"
 
-#: actions/bundled/brightnesscontrol.cpp:56
+#: actions/bundled/brightnesscontrol.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Txikitu pantailaren distira"
 
-#: actions/bundled/brightnesscontrol.cpp:61
+#: actions/bundled/brightnesscontrol.cpp:57
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Txikitu pantailaren distira % 1"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:55
+#: actions/bundled/brightnesscontrolconfig.cpp:65
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Maila"
 
-#: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
-#: actions/bundled/runscriptconfig.cpp:61
-#: actions/bundled/suspendsessionconfig.cpp:67
+#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
+#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/suspendsessionconfig.cpp:75
 #, kde-format
 msgid " min"
 msgstr " min"
 
-#: actions/bundled/dimdisplayconfig.cpp:54
-#: actions/bundled/runscriptconfig.cpp:64
-#: actions/bundled/runscriptconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:65
 #, kde-format
 msgid "After"
 msgstr "Honen ondoren:"
@@ -90,17 +88,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Itzali pantaila"
 
-#: actions/bundled/dpmsconfig.cpp:46
+#: actions/bundled/dpmsconfig.cpp:56
 #, kde-format
 msgid "Switch off after"
 msgstr "Itzaltzeko denbora"
 
-#: actions/bundled/dpmsconfig.cpp:54
+#: actions/bundled/dpmsconfig.cpp:64
 #, kde-format
 msgid " sec"
 msgstr " seg"
 
-#: actions/bundled/dpmsconfig.cpp:55
+#: actions/bundled/dpmsconfig.cpp:65
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr "Pantaila giltzatuta dagoenean, itzaltzeko denbora"
@@ -130,153 +128,174 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Erabat itzali"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:66
+#: actions/bundled/handlebuttoneventsconfig.cpp:79
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Kanpo-monitore bat konektatuta dagoenean ere"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:75
+#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "Do nothing"
 msgstr "Ez egin ezer"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:78
-#: actions/bundled/suspendsessionconfig.cpp:72
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:85
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Egin lo"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:76
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernatu"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:85
-#: actions/bundled/suspendsessionconfig.cpp:79
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Lokartze hibridoa"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "Itzali"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:82
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "Giltzatu pantaila"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Erakutsi saio-amaitzeko elkarrizketa-koadroa"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
 #, kde-format
 msgid "Turn off screen"
 msgstr "Itzali pantaila"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:122
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "Magalekoaren tapa itxita dagoenean"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:133
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Indarraren botoia sakatzean"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:50
+#: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Handitu pantailaren distira"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:55
+#: actions/bundled/keyboardbrightnesscontrol.cpp:53
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Txikitu pantailaren distira"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:60
+#: actions/bundled/keyboardbrightnesscontrol.cpp:58
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Aktibatu/Desaktibatu teklatuaren atzeko argia"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:56
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Maila"
 
-#: actions/bundled/powerprofileconfig.cpp:67
+#: actions/bundled/powerprofileconfig.cpp:74
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Utzi aldatzeke"
 
-#: actions/bundled/powerprofileconfig.cpp:75
+#: actions/bundled/powerprofileconfig.cpp:82
 #, kde-format
 msgid "Power Save"
 msgstr "Energia aurrezpena"
 
-#: actions/bundled/powerprofileconfig.cpp:76
+#: actions/bundled/powerprofileconfig.cpp:83
 #, kde-format
 msgid "Balanced"
 msgstr "Orekatua"
 
-#: actions/bundled/powerprofileconfig.cpp:77
+#: actions/bundled/powerprofileconfig.cpp:84
 #, kde-format
 msgid "Performance"
 msgstr "Errendimendua"
 
-#: actions/bundled/powerprofileconfig.cpp:91
+#: actions/bundled/powerprofileconfig.cpp:98
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Trukatu honetara:"
 
-#: actions/bundled/runscriptconfig.cpp:50
+#: actions/bundled/runscriptconfig.cpp:95
 #, kde-format
 msgid "Script"
 msgstr "Scripta"
 
-#: actions/bundled/runscriptconfig.cpp:62
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
-msgid "On Profile Load"
-msgstr "Profila kargatzean"
+msgid "When entering power state"
+msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:63
+#: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
-msgid "On Profile Unload"
-msgstr "Profila deskargatzean"
+msgid "When exiting power state"
+msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:75
+#: actions/bundled/runscriptconfig.cpp:109
+#, fuzzy, kde-format
+#| msgid "While asleep, hibernate after a period of inactivity"
+msgid "After a period of inactivity"
+msgstr ""
+"Lo dagoela, hibernatu jarduerarik gabeko denbora tarte bat igaro ondoren"
+
+#: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
 msgid "Run script"
 msgstr "Exekutatu scripta"
 
-#: actions/bundled/suspendsessionconfig.cpp:68
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "after "
 msgstr "Hau igarota:"
 
-#: actions/bundled/suspendsessionconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "Automatikoki"
 
-#: actions/bundled/suspendsessionconfig.cpp:97
+#: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
-msgid "While asleep, hibernate after a period of inactivity"
+msgid "Standby (Save session to memory)"
+msgstr ""
+
+#: actions/bundled/suspendsessionconfig.cpp:118
+#, kde-format
+msgid "Hybrid sleep (Save session to both memory and disk)"
+msgstr ""
+
+#: actions/bundled/suspendsessionconfig.cpp:121
+#, fuzzy, kde-format
+#| msgid "While asleep, hibernate after a period of inactivity"
+msgid "Standby, then hibernate after a period of inactivity"
 msgstr ""
 "Lo dagoela, hibernatu jarduerarik gabeko denbora tarte bat igaro ondoren"
+
+#: actions/bundled/suspendsessionconfig.cpp:130
+#, fuzzy, kde-format
+#| msgid "When sleep button pressed"
+msgctxt ""
+"@label:combobox Sleep mode selection - suspend to memory, disk or both"
+msgid "When sleeping, enter"
+msgstr "Lotarako botoia sakatzerakoan"
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -330,45 +349,45 @@ msgstr "Trukatu energia profila"
 msgid "Replace an existing instance"
 msgstr "Ordezkatu existitzen den instantzia bat"
 
-#: powerdevilcore.cpp:414 powerdevilcore.cpp:425
+#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
 #, kde-format
 msgid "Activity Manager"
 msgstr "Jarduera-kudeatzailea"
 
-#: powerdevilcore.cpp:415
+#: powerdevilcore.cpp:382
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Jarduera honen gidalerroek sistema lokartzea galarazten dute"
 
-#: powerdevilcore.cpp:426
+#: powerdevilcore.cpp:393
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Jarduera honen gidalerroek pantailaren energia kudeatzea galarazten dute"
 
-#: powerdevilcore.cpp:488
+#: powerdevilcore.cpp:455
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Bateria gehigarria erantsi da"
 
-#: powerdevilcore.cpp:489 powerdevilcore.cpp:708
+#: powerdevilcore.cpp:456 powerdevilcore.cpp:675
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Konputagailuak ez da aurrerantzean lokartuko."
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:521
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:524
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Gailuaren bateria eskas dago (%%1 gelditzen da)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -378,22 +397,22 @@ msgstr ""
 "\"%1\"(e)ko bateria husten ari da, eta gailua edozein unetan itzal daiteke. "
 "Bateria zamatu edo alda ezazu."
 
-#: powerdevilcore.cpp:566
+#: powerdevilcore.cpp:533
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Saguaren bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:570
+#: powerdevilcore.cpp:537
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Teklatuaren bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:574
+#: powerdevilcore.cpp:541
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth gailuaren bateria eskas dago (% %1 gelditzen zaio)"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -403,19 +422,19 @@ msgstr ""
 "\"%1\" bluetooth gailuko bateria husten ari da, eta gailua edozein unetan "
 "itzal daiteke. Bateria zamatu edo aldatu beharra dago."
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:585
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Ziurtatu energia egokigailua entxufatuta dagoela eta behar adina energia "
 "hornitzen duela."
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:587
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Entxufatu ordenagailua."
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:604
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -423,24 +442,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Utzi"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:616
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "Ordenagailua 60 segundo barru itzaliko da."
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:617
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Itzali orain"
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:622
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "Ordenagailua 60 segundo barru hibernatuko da."
 
-#: powerdevilcore.cpp:656
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -448,67 +467,76 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernatu orain"
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "Ordenagailua 60 segundo barru lokartuko da."
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:630
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Egin lo orain"
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:635
 #, kde-format
 msgid "Please save your work."
 msgstr "Mesedez, gorde zure lana."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:646
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria larri dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Korronte alternoko egokigailua konektatuta"
 
-#: powerdevilcore.cpp:710
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Running on AC power"
 msgstr "Korronte alternoarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:710
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Elikagailua entxufatu egin da."
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Bateria-energiarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Elikagailua desentxufatu egin da."
 
-#: powerdevilcore.cpp:774
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Charging Complete"
 msgstr "Zamatzea osatu da"
 
-#: powerdevilcore.cpp:774
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Bateria erabat zamatuta dago orain."
+
+#~ msgid "Hybrid sleep"
+#~ msgstr "Lokartze hibridoa"
+
+#~ msgid "On Profile Load"
+#~ msgstr "Profila kargatzean"
+
+#~ msgid "On Profile Unload"
+#~ msgstr "Profila deskargatzean"
 
 #~ msgid "Unsupported suspend method"
 #~ msgstr "Esekitze-metodoa ez da onartzen"
@@ -733,9 +761,6 @@ msgstr "Bateria erabat zamatuta dago orain."
 
 #~ msgid "Disable effects"
 #~ msgstr "Ezgaitu efektuak"
-
-#~ msgid "When sleep button pressed"
-#~ msgstr "Lotarako botoia sakatzerakoan"
 
 #~ msgid ""
 #~ "The application %1 is inhibiting suspension for the following reason:\n"

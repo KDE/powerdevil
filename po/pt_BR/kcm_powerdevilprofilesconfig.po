@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2020-07-07 15:49-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -29,23 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"O Sistema de Gerenciamento de Energia do KDE agora irá gerar um conjunto de "
-"padrões, baseados as capacidades do seu computador. Isso também irá apagar "
-"todas as alterações feitas. Deseja realmente continuar?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Restaurar os perfis predefinidos"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "O Serviço de gerenciamento de energia parece não estar em execução."
@@ -67,6 +51,18 @@ msgstr "Com bateria"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Com baixo nível de bateria"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "O Sistema de Gerenciamento de Energia do KDE agora irá gerar um conjunto "
+#~ "de padrões, baseados as capacidades do seu computador. Isso também irá "
+#~ "apagar todas as alterações feitas. Deseja realmente continuar?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Restaurar os perfis predefinidos"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

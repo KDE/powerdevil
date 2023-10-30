@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2020-07-06 23:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,23 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@euskalnet.net,hizpol@ej-gv.es"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDEren energia kudeatzeko sistemak profil lehenetsi batzuk sortuko ditu, "
-"ordenagailuaren ahalmenean oinarrituta. Zuk egindako aldaketak ere ezabatuko "
-"ditu. Ziur zaude jarraitu nahi duzula?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Leheneratu profil lehenetsiak"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Ematen du energia kudeatzeko zerbitzua ez dagoela martxan."
@@ -70,6 +54,18 @@ msgstr "Bateriarekin"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Bateria gutxirekin"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDEren energia kudeatzeko sistemak profil lehenetsi batzuk sortuko ditu, "
+#~ "ordenagailuaren ahalmenean oinarrituta. Zuk egindako aldaketak ere "
+#~ "ezabatuko ditu. Ziur zaude jarraitu nahi duzula?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Leheneratu profil lehenetsiak"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

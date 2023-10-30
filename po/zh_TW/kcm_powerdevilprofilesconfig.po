@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2023-02-18 01:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -29,22 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDE 電源管理系統會根據您的電腦的能力產生一組預設設定。它也會將所有現有的設定"
-"檔刪除。您確定要繼續嗎？"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "回復預設值"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "電源管理服務似乎並非執行中。"
@@ -66,6 +51,17 @@ msgstr "使用電池"
 #, kde-format
 msgid "On Low Battery"
 msgstr "電池電力已低"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDE 電源管理系統會根據您的電腦的能力產生一組預設設定。它也會將所有現有的設"
+#~ "定檔刪除。您確定要繼續嗎？"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "回復預設值"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

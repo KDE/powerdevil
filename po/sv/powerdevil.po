@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-23 01:41+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2022-09-24 15:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -29,21 +29,21 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "stefan.asserhall@bredband.net"
 
-#: actions/bundled/brightnesscontrol.cpp:43 actions/bundled/dpms.cpp:65
+#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:65
 #: actions/bundled/handlebuttonevents.cpp:42
-#: actions/bundled/keyboardbrightnesscontrol.cpp:46
+#: actions/bundled/keyboardbrightnesscontrol.cpp:44
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Effekthantering"
 
-#: actions/bundled/brightnesscontrol.cpp:46
+#: actions/bundled/brightnesscontrol.cpp:42
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Öka bildskärmens ljusstyrka"
 
-#: actions/bundled/brightnesscontrol.cpp:51
+#: actions/bundled/brightnesscontrol.cpp:47
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Increase Screen Brightness"
@@ -51,13 +51,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Öka bildskärmens ljusstyrka"
 
-#: actions/bundled/brightnesscontrol.cpp:56
+#: actions/bundled/brightnesscontrol.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Minska bildskärmens ljusstyrka"
 
-#: actions/bundled/brightnesscontrol.cpp:61
+#: actions/bundled/brightnesscontrol.cpp:57
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Decrease Screen Brightness"
@@ -65,22 +65,20 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Minska bildskärmens ljusstyrka"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:55
+#: actions/bundled/brightnesscontrolconfig.cpp:65
 #, kde-format
 msgctxt "Brightness level, label for the slider"
 msgid "Level"
 msgstr "Nivå"
 
-#: actions/bundled/dimdisplayconfig.cpp:44 actions/bundled/dpmsconfig.cpp:45
-#: actions/bundled/runscriptconfig.cpp:61
-#: actions/bundled/suspendsessionconfig.cpp:67
+#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
+#: actions/bundled/runscriptconfig.cpp:106
+#: actions/bundled/suspendsessionconfig.cpp:75
 #, kde-format
 msgid " min"
 msgstr " min"
 
-#: actions/bundled/dimdisplayconfig.cpp:54
-#: actions/bundled/runscriptconfig.cpp:64
-#: actions/bundled/runscriptconfig.cpp:86
+#: actions/bundled/dimdisplayconfig.cpp:65
 #, kde-format
 msgid "After"
 msgstr "Efter"
@@ -91,17 +89,17 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Stäng av skärmen"
 
-#: actions/bundled/dpmsconfig.cpp:46
+#: actions/bundled/dpmsconfig.cpp:56
 #, kde-format
 msgid "Switch off after"
 msgstr "Stäng av om"
 
-#: actions/bundled/dpmsconfig.cpp:54
+#: actions/bundled/dpmsconfig.cpp:64
 #, kde-format
 msgid " sec"
 msgstr " sek"
 
-#: actions/bundled/dpmsconfig.cpp:55
+#: actions/bundled/dpmsconfig.cpp:65
 #, kde-format
 msgid "When screen is locked, switch off after"
 msgstr ""
@@ -131,152 +129,172 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Stäng av"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:66
+#: actions/bundled/handlebuttoneventsconfig.cpp:79
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
 msgstr "Till och med när en extern bildskärm är ansluten"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:75
+#: actions/bundled/handlebuttoneventsconfig.cpp:88
+#: actions/bundled/suspendsessionconfig.cpp:78
 #, kde-format
 msgid "Do nothing"
 msgstr "Gör ingenting"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:78
-#: actions/bundled/suspendsessionconfig.cpp:72
+#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:85
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Viloläge"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:82
-#: actions/bundled/suspendsessionconfig.cpp:76
+#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/suspendsessionconfig.cpp:89
 #, kde-format
 msgid "Hibernate"
 msgstr "Dvala"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:85
-#: actions/bundled/suspendsessionconfig.cpp:79
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Hybridviloläge"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:87
-#: actions/bundled/suspendsessionconfig.cpp:81
+#: actions/bundled/handlebuttoneventsconfig.cpp:97
+#: actions/bundled/suspendsessionconfig.cpp:91
 #, kde-format
 msgid "Shut down"
 msgstr "Stäng av"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:82
+#: actions/bundled/handlebuttoneventsconfig.cpp:98
+#: actions/bundled/suspendsessionconfig.cpp:92
 #, kde-format
 msgid "Lock screen"
 msgstr "Lås skärmen"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
+#: actions/bundled/handlebuttoneventsconfig.cpp:101
 #, kde-format
 msgid "Prompt log out dialog"
 msgstr "Dialogruta med fråga vid utloggning"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
+#: actions/bundled/handlebuttoneventsconfig.cpp:105
 #, kde-format
 msgid "Turn off screen"
 msgstr "Stäng av skärmen"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:122
+#: actions/bundled/handlebuttoneventsconfig.cpp:132
 #, kde-format
 msgid "When laptop lid closed"
 msgstr "När den bärbara datorns lock stängs"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:133
+#: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
 msgstr "Vid tryck på strömknappen"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:50
+#: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Öka tangentbordets ljusstyrka"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:55
+#: actions/bundled/keyboardbrightnesscontrol.cpp:53
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Minska tangentbordets ljusstyrka"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:60
+#: actions/bundled/keyboardbrightnesscontrol.cpp:58
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Växla tangentbordets bakgrundsbelysning"
 
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:56
+#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Level"
 msgstr "Nivå"
 
-#: actions/bundled/powerprofileconfig.cpp:67
+#: actions/bundled/powerprofileconfig.cpp:74
 #, kde-format
 msgid "Leave unchanged"
 msgstr "Lämna orört"
 
-#: actions/bundled/powerprofileconfig.cpp:75
+#: actions/bundled/powerprofileconfig.cpp:82
 #, kde-format
 msgid "Power Save"
 msgstr "Spara ström"
 
-#: actions/bundled/powerprofileconfig.cpp:76
+#: actions/bundled/powerprofileconfig.cpp:83
 #, kde-format
 msgid "Balanced"
 msgstr "Balanserad"
 
-#: actions/bundled/powerprofileconfig.cpp:77
+#: actions/bundled/powerprofileconfig.cpp:84
 #, kde-format
 msgid "Performance"
 msgstr "Prestanda"
 
-#: actions/bundled/powerprofileconfig.cpp:91
+#: actions/bundled/powerprofileconfig.cpp:98
 #, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
 msgstr "Byt till:"
 
-#: actions/bundled/runscriptconfig.cpp:50
+#: actions/bundled/runscriptconfig.cpp:95
 #, kde-format
 msgid "Script"
 msgstr "Skript"
 
-#: actions/bundled/runscriptconfig.cpp:62
+#: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
-msgid "On Profile Load"
-msgstr "Vid inläsning av ny profil"
+msgid "When entering power state"
+msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:63
+#: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
-msgid "On Profile Unload"
-msgstr "Vid borttagning av profil"
+msgid "When exiting power state"
+msgstr ""
 
-#: actions/bundled/runscriptconfig.cpp:75
+#: actions/bundled/runscriptconfig.cpp:109
+#, fuzzy, kde-format
+#| msgid "While asleep, hibernate after a period of inactivity"
+msgid "After a period of inactivity"
+msgstr "I viloläge, gå till dvala efter en period utan aktivitet"
+
+#: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
 msgid "Run script"
 msgstr "Kör skript"
 
-#: actions/bundled/suspendsessionconfig.cpp:68
+#: actions/bundled/suspendsessionconfig.cpp:76
 #, kde-format
 msgid "after "
 msgstr "efter "
 
-#: actions/bundled/suspendsessionconfig.cpp:91
+#: actions/bundled/suspendsessionconfig.cpp:101
 #, kde-format
 msgid "Automatically"
 msgstr "Automatiskt"
 
-#: actions/bundled/suspendsessionconfig.cpp:97
+#: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
-msgid "While asleep, hibernate after a period of inactivity"
+msgid "Standby (Save session to memory)"
+msgstr ""
+
+#: actions/bundled/suspendsessionconfig.cpp:118
+#, kde-format
+msgid "Hybrid sleep (Save session to both memory and disk)"
+msgstr ""
+
+#: actions/bundled/suspendsessionconfig.cpp:121
+#, fuzzy, kde-format
+#| msgid "While asleep, hibernate after a period of inactivity"
+msgid "Standby, then hibernate after a period of inactivity"
 msgstr "I viloläge, gå till dvala efter en period utan aktivitet"
+
+#: actions/bundled/suspendsessionconfig.cpp:130
+#, fuzzy, kde-format
+#| msgid "When sleep button pressed"
+msgctxt ""
+"@label:combobox Sleep mode selection - suspend to memory, disk or both"
+msgid "When sleeping, enter"
+msgstr "Vid tryck på viloknappen"
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -332,44 +350,44 @@ msgstr "Importera Powerdevil-profiler"
 msgid "Replace an existing instance"
 msgstr "Ersätt en befintlig instans"
 
-#: powerdevilcore.cpp:414 powerdevilcore.cpp:425
+#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
 #, kde-format
 msgid "Activity Manager"
 msgstr "Aktivitetshanterare"
 
-#: powerdevilcore.cpp:415
+#: powerdevilcore.cpp:382
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Aktivitetens policy förhindrar att systemet går till viloläge"
 
-#: powerdevilcore.cpp:426
+#: powerdevilcore.cpp:393
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Aktivitetens policy förhindrar att strömsparhantering av bildskärmen"
 
-#: powerdevilcore.cpp:488
+#: powerdevilcore.cpp:455
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Extrabatteri tillagt"
 
-#: powerdevilcore.cpp:489 powerdevilcore.cpp:708
+#: powerdevilcore.cpp:456 powerdevilcore.cpp:675
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Datorn kommer inte längre gå till viloläge."
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:521
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:557
+#: powerdevilcore.cpp:524
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Dåligt enhetsbatteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:559
+#: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -379,22 +397,22 @@ msgstr ""
 "Batteriet i \"%1\" är dåligt, och enheten kan stängas av när som helst. "
 "Ladda eller ersätt batteriet så snart som möjligt."
 
-#: powerdevilcore.cpp:566
+#: powerdevilcore.cpp:533
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Dåligt musbatteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:570
+#: powerdevilcore.cpp:537
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Dåligt tangentbordsbatteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:574
+#: powerdevilcore.cpp:541
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Dåligt batteri för Blåtandsenhet (%1 % återstår)"
 
-#: powerdevilcore.cpp:576
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -404,7 +422,7 @@ msgstr ""
 "Batteriet i Blåtandsenheten \"%1\" är dåligt, och enheten kan stängas av när "
 "som helst. Ladda eller ersätt batteriet så snart som möjligt."
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:585
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, make sure that the "
@@ -414,12 +432,12 @@ msgstr ""
 "Batteriet har nått låg nivå. För att fortsätta använda datorn, säkerställ "
 "att strömadaptern är inkopplad och att den ger tillräckligt med ström."
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:587
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:604
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -427,14 +445,14 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid "The computer will be put into standby in 1 second."
 #| msgid_plural "The computer will be put into standby in %1 seconds."
 msgid "The computer will shut down in 60 seconds."
 msgstr "Datorn kommer att gå till vänteläge om 1 sekund."
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:617
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -442,14 +460,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Stäng av"
 
-#: powerdevilcore.cpp:655
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The computer will hibernate in 60 seconds."
 msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
 
-#: powerdevilcore.cpp:656
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -458,14 +476,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Dvala"
 
-#: powerdevilcore.cpp:662
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "The computer will be suspended to RAM in 1 second."
 #| msgid_plural "The computer will be suspended to RAM in %1 seconds."
 msgid "The computer will sleep in 60 seconds."
 msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -474,56 +492,65 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Viloläge"
 
-#: powerdevilcore.cpp:668
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "Batterinivå kritisk. Spara ditt arbete."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:646
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Dåligt batteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:683
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritiskt batteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:707
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Nätadapter inkopplad"
 
-#: powerdevilcore.cpp:710
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Running on AC power"
 msgstr "Använder nätström"
 
-#: powerdevilcore.cpp:710
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Nätadaptern har kopplats in."
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Använder batteriström"
 
-#: powerdevilcore.cpp:713
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Nätadaptern har kopplats bort."
 
-#: powerdevilcore.cpp:774
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laddning klar"
 
-#: powerdevilcore.cpp:774
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet är nu fulladdat."
+
+#~ msgid "Hybrid sleep"
+#~ msgstr "Hybridviloläge"
+
+#~ msgid "On Profile Load"
+#~ msgstr "Vid inläsning av ny profil"
+
+#~ msgid "On Profile Unload"
+#~ msgstr "Vid borttagning av profil"
 
 #~ msgid "Unsupported suspend method"
 #~ msgstr "Vilolägesmetod som inte stöds"
@@ -731,9 +758,6 @@ msgstr "Batteriet är nu fulladdat."
 
 #~ msgid "Disable effects"
 #~ msgstr "Inaktivera effekter"
-
-#~ msgid "When sleep button pressed"
-#~ msgstr "Vid tryck på viloknappen"
 
 #~ msgid "Developer"
 #~ msgstr "Utvecklare"

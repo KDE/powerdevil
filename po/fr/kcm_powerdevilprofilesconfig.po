@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2020-07-07 20:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -35,24 +35,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jcorn@free.fr, xavier.besnard@neuf.fr"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"Le système de gestion de l'énergie de KDE va maintenant générer un ensemble "
-"de réglages par défaut en fonction des possibilités de votre ordinateur. "
-"Cette opération supprimera également toutes les modifications que vous avez "
-"effectuées. Voulez-vous continuer ?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Restaurer les profils par défaut"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Le service de gestion de l'énergie semble ne pas être lancé."
@@ -74,6 +57,19 @@ msgstr "Sur batterie"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Sur batterie faible"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "Le système de gestion de l'énergie de KDE va maintenant générer un "
+#~ "ensemble de réglages par défaut en fonction des possibilités de votre "
+#~ "ordinateur. Cette opération supprimera également toutes les modifications "
+#~ "que vous avez effectuées. Voulez-vous continuer ?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Restaurer les profils par défaut"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

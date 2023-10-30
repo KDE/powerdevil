@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2018-06-24 14:17+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -34,23 +34,7 @@ msgstr ""
 "knut.yrvin@gmail.com,gluras@c2i.net,boerre@skolelinux.no,bjornst@skogkatt."
 "homelinux.org,fri_programvare@bojer.no,sunny@sunbase.org"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDEs strømstyringssystem vil nå lage et sett standarder basert på hva "
-"datamaskinen din støtter. Dette vil også slette alle endringer du har gjort. "
-"Er du sikker på at du vil fortsette?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Gjenopprett standardprofiler"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -72,3 +56,15 @@ msgstr "På batteridrift"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Lavt batterinivå"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDEs strømstyringssystem vil nå lage et sett standarder basert på hva "
+#~ "datamaskinen din støtter. Dette vil også slette alle endringer du har "
+#~ "gjort. Er du sikker på at du vil fortsette?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Gjenopprett standardprofiler"

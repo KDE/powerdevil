@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2020-07-21 15:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -33,23 +33,7 @@ msgid "Your emails"
 msgstr ""
 "karvonen.jorma@gmail.com, lasse.liehu@gmail.com, translator@legisign.org"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDE:n virranhallintajärjestelmä tuottaa nyt joukon oletusasetuksia perustuen "
-"tietokoneesi tukemiin virranhallintaominaisuuksiin. Kaikki tekemäsi "
-"muutokset poistetaan. Haluatko varmasti jatkaa?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Palauta oletusprofiilit"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Virranhallintapalvelu ei vaikuta olevan käynnissä."
@@ -71,6 +55,18 @@ msgstr "Akkuvirta"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Akun ollessa vähissä"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDE:n virranhallintajärjestelmä tuottaa nyt joukon oletusasetuksia "
+#~ "perustuen tietokoneesi tukemiin virranhallintaominaisuuksiin. Kaikki "
+#~ "tekemäsi muutokset poistetaan. Haluatko varmasti jatkaa?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Palauta oletusprofiilit"
 
 # Hieman vapaampi suomennos, mutta välttää kehittäjän turhan ”Tämä voidaan ratkaista” -alun.
 #~ msgid ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2011-08-24 09:54+0300\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian\n"
@@ -29,27 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "maris.kde@gmail.com"
 
-#: EditPage.cpp:157
-#, fuzzy, kde-format
-#| msgid ""
-#| "The KDE Power Management System will now generate a set of default "
-#| "profiles based on your computer's capabilities. This will also erase all "
-#| "existing profiles. Are you sure you want to continue?"
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDE energokontroles pārvaldības sistēma ģenerēs noklusējuma profilu kopu, "
-"kam par pamatu tiks ņemtas šī datora iespējas. Vienlaikus šī darbība "
-"izdzēsīs visus eksistējošos profilus. Vai vēlaties turpināt?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Atjaunot noklusējuma profilus"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -71,6 +51,23 @@ msgstr ""
 #, kde-format
 msgid "On Low Battery"
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "The KDE Power Management System will now generate a set of default "
+#~| "profiles based on your computer's capabilities. This will also erase all "
+#~| "existing profiles. Are you sure you want to continue?"
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDE energokontroles pārvaldības sistēma ģenerēs noklusējuma profilu kopu, "
+#~ "kam par pamatu tiks ņemtas šī datora iespējas. Vienlaikus šī darbība "
+#~ "izdzēsīs visus eksistējošos profilus. Vai vēlaties turpināt?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Atjaunot noklusējuma profilus"
 
 #~ msgid "Power Profiles Configuration"
 #~ msgstr "Energokontroles profilu konfigurēšana"

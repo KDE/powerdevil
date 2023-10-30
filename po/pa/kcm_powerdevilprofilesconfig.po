@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2020-10-10 22:20-0700\n"
 "Last-Translator: A S Alam <aalam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -27,22 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "aalam@users.sf.net"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDE ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਸਿਸਟਮ ਹੁਣ ਤੁਹਾਡੀ ਕੰਪਿਊਟਰ ਦੀ ਸਮੱਰਥਾ ਮੁਤਾਬਕ ਡਿਫਾਲਟ ਸੈੱਟ ਤਿਆਰ ਕਰੇਗਾ। ਇਸ "
-"ਨਾਲ ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਸਾਫ਼ ਕਰ ਦਿੱਤੇ ਜਾਣਗੇ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "ਡਿਫਾਲਟ ਪਰੋਫਾਈਲ ਰੀ-ਸਟੋਰ ਕਰੋ["
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"
@@ -64,6 +49,17 @@ msgstr "ਬੈਟਰੀ ਉੱਤੇ"
 #, kde-format
 msgid "On Low Battery"
 msgstr "ਘੱਟ ਬੈਟਰੀ"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDE ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਸਿਸਟਮ ਹੁਣ ਤੁਹਾਡੀ ਕੰਪਿਊਟਰ ਦੀ ਸਮੱਰਥਾ ਮੁਤਾਬਕ ਡਿਫਾਲਟ ਸੈੱਟ ਤਿਆਰ ਕਰੇਗਾ। "
+#~ "ਇਸ ਨਾਲ ਸਭ ਮੌਜੂਦਾ ਬਦਲਾਅ ਸਾਫ਼ ਕਰ ਦਿੱਤੇ ਜਾਣਗੇ। ਕੀ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "ਡਿਫਾਲਟ ਪਰੋਫਾਈਲ ਰੀ-ਸਟੋਰ ਕਰੋ["
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2023-10-20 09:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -30,24 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"El sistema de gestió d'energia de KDE ara generarà un conjunt de valors "
-"predeterminats basats en les característiques de l'ordinador. Això també "
-"esborrarà totes les modificacions que hàgiu efectuat. Segur que voleu "
-"continuar?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Restaura els perfils predeterminats"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Sembla que el servei de gestió d'energia no s'està executant."
@@ -69,3 +52,16 @@ msgstr "Amb la bateria"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Amb la bateria baixa"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "El sistema de gestió d'energia de KDE ara generarà un conjunt de valors "
+#~ "predeterminats basats en les característiques de l'ordinador. Això també "
+#~ "esborrarà totes les modificacions que hàgiu efectuat. Segur que voleu "
+#~ "continuar?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Restaura els perfils predeterminats"

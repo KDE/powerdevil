@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2021-07-24 09:27+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -29,24 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "capoiosct@gmail.com"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"Το σύστημα διαχείρισης ενέργειας του KDE θα δημιουργήσει τώρα μια σειρά από "
-"προεπιλογές με βάση τις δυνατότητες του υπολογιστή σας. Αυτό θα διαγράψει "
-"επίσης όλες τις υπάρχουσες τροποποιήσεις που έχετε κάνει. Είστε βέβαιοι ότι "
-"θέλετε να συνεχίσετε;"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Επαναφορά προκαθορισμένων προφίλ"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Η υπηρεσία διαχείρισης ισχύος μάλλον δεν εκτελείται."
@@ -68,6 +51,19 @@ msgstr "Σε μπαταρία"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Σε χαμηλή μπαταρία"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "Το σύστημα διαχείρισης ενέργειας του KDE θα δημιουργήσει τώρα μια σειρά "
+#~ "από προεπιλογές με βάση τις δυνατότητες του υπολογιστή σας. Αυτό θα "
+#~ "διαγράψει επίσης όλες τις υπάρχουσες τροποποιήσεις που έχετε κάνει. Είστε "
+#~ "βέβαιοι ότι θέλετε να συνεχίσετε;"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Επαναφορά προκαθορισμένων προφίλ"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

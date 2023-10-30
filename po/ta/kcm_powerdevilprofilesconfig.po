@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2023-10-22 17:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -27,22 +27,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"உங்கள் கணினியின் இயலுமைகளுக்கேற்ற இயல்பிருப்புகளை இப்போது கே.டீ.யீ. ஆற்றல் மேலாண்மை நிரல் "
-"அமைக்கும். நீங்கள் செய்துள்ள அனைத்து மாற்றங்களையும் இது அழிக்கும். உறுதியாக தொடர வேண்டுமா?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "இயல்பிருப்பு பயன்முறைகளை மீட்டமை"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ஆற்றல் மேலாண்மைக்கான பின்னணி சேவை இயங்குவது போல் தெரியவில்லை."
@@ -64,3 +49,15 @@ msgstr "மின்கல ஆற்றலில் இயங்கும்ப�
 #, kde-format
 msgid "On Low Battery"
 msgstr "மின்கல ஆற்றல் குறைவாயுள்ளபோது"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "உங்கள் கணினியின் இயலுமைகளுக்கேற்ற இயல்பிருப்புகளை இப்போது கே.டீ.யீ. ஆற்றல் மேலாண்மை "
+#~ "நிரல் அமைக்கும். நீங்கள் செய்துள்ள அனைத்து மாற்றங்களையும் இது அழிக்கும். உறுதியாக தொடர "
+#~ "வேண்டுமா?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "இயல்பிருப்பு பயன்முறைகளை மீட்டமை"

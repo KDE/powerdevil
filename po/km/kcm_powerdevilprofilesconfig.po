@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2012-06-14 14:00+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -30,22 +30,7 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE នឹង​បង្កើត​សំណុំ​ទម្រង់​លំនាំដើម ដែល​មាន​មូលដ្ឋាន​លើ​សមត្ថភាព​នៃ​កុំព្យូទ័រ​របស់​អ្នក "
-"។ វា​នឹង​លុប​ទម្រង់​ដែល​មាន​ស្រាប់​ទាំងអស់ ។ តើ​អ្នក​ប្រាកដ​ជា​ចង់​បន្ត​ឬ ?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "ស្ដារ​​​ទម្រង់​លំនាំដើម"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
@@ -67,6 +52,17 @@ msgstr "ពេល​ប្រើថ្ម"
 #, kde-format
 msgid "On Low Battery"
 msgstr "ពេល​ថ្មី​ខ្សោយ​"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល KDE នឹង​បង្កើត​សំណុំ​ទម្រង់​លំនាំដើម ដែល​មាន​មូលដ្ឋាន​លើ​សមត្ថភាព​នៃ​កុំព្យូទ័រ​របស់​"
+#~ "អ្នក ។ វា​នឹង​លុប​ទម្រង់​ដែល​មាន​ស្រាប់​ទាំងអស់ ។ តើ​អ្នក​ប្រាកដ​ជា​ចង់​បន្ត​ឬ ?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "ស្ដារ​​​ទម្រង់​លំនាំដើម"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2021-06-28 22:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -29,22 +29,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "safaalfulaij@hotmail.com"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"نظام مراقب الطاقة لكِيدِي سيولّد مجموعة من الافتراضيات بناءً على إمكانيات "
-"الحاسوب. هذا سيمحي أيضًا التعديلات التي فعلتها. هل تود الاستمرار؟"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "استعد التشكيلات الافتراضية"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "يبدو أن خدمة إدارة الطاقة لا تعمل."
@@ -66,6 +51,17 @@ msgstr "على البطارية"
 #, kde-format
 msgid "On Low Battery"
 msgstr "على بطارية ضعيفة"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "نظام مراقب الطاقة لكِيدِي سيولّد مجموعة من الافتراضيات بناءً على إمكانيات "
+#~ "الحاسوب. هذا سيمحي أيضًا التعديلات التي فعلتها. هل تود الاستمرار؟"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "استعد التشكيلات الافتراضية"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-20 01:39+0000\n"
+"POT-Creation-Date: 2023-10-30 01:42+0000\n"
 "PO-Revision-Date: 2020-07-08 10:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -30,24 +30,7 @@ msgid "Your emails"
 msgstr ""
 "andrej.vernekar@gmail.com,andrej.znidarsic@ubuntu.com,andrejm@ubuntu.si"
 
-#: EditPage.cpp:157
-#, kde-format
-msgid ""
-"The KDE Power Management System will now generate a set of defaults based on "
-"your computer's capabilities. This will also erase all existing "
-"modifications you made. Are you sure you want to continue?"
-msgstr ""
-"KDE-jev sistem za upravljanje z energijo bo ustvaril nabor privzetih "
-"nastavitev, ki temeljijo na zmožnostih vašega računalnika. To bo izbrisalo "
-"vse obstoječe spremembe, ki ste jih opravili. Ali ste prepričani, da želite "
-"nadaljevati?"
-
-#: EditPage.cpp:161
-#, kde-format
-msgid "Restore Default Profiles"
-msgstr "Obnovi privzete profile"
-
-#: EditPage.cpp:231
+#: EditPage.cpp:204
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Kot kaže, storitev upravljanja z energijo ne teče."
@@ -69,6 +52,19 @@ msgstr "Pri bateriji"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Pri nizki ravni baterije"
+
+#~ msgid ""
+#~ "The KDE Power Management System will now generate a set of defaults based "
+#~ "on your computer's capabilities. This will also erase all existing "
+#~ "modifications you made. Are you sure you want to continue?"
+#~ msgstr ""
+#~ "KDE-jev sistem za upravljanje z energijo bo ustvaril nabor privzetih "
+#~ "nastavitev, ki temeljijo na zmožnostih vašega računalnika. To bo "
+#~ "izbrisalo vse obstoječe spremembe, ki ste jih opravili. Ali ste "
+#~ "prepričani, da želite nadaljevati?"
+
+#~ msgid "Restore Default Profiles"
+#~ msgstr "Obnovi privzete profile"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
