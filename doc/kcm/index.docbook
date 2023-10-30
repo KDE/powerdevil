@@ -108,47 +108,6 @@ or after a given amount of time.
 </variablelist>
 </sect2>
 
-<sect2 id="activity-setting">
-<title>Activity Settings</title>
-<para>Here you can configure the Power Management settings per activity. The settings for each activity can be configured on its own tab.</para>
-
-<screenshot>
-<screeninfo>Activity Settings</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase>Activity Settings</phrase>
-    </textobject>
-    <caption>
-      <para>Activity Settings</para>
-    </caption>
-  </mediaobject>
-</screenshot>
-
-<variablelist>
-
-<varlistentry>
-<term>Don't use special settings</term>
-<listitem>
-<para>
-Use the settings defined on <guilabel>Energy Saving</guilabel> page.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term>Define a special behavior</term>
-<listitem>
-<para>
-If this option is chosen, a special behavior for activity can be chosen. If this is a presentation activity, you can check the <guilabel>Never shutdown the screen</guilabel> and <guilabel>Never shutdown the computer or let it go to sleep</guilabel> boxes.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-</sect2>
-
 <sect2 id="advanced-settings">
 <title>Advanced Settings</title>
 <para>
