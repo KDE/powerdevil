@@ -14,7 +14,6 @@ set(powerdevilcore_SRCS
     powerdevilenums.cpp
     powerdevilmigrateconfig.cpp
     powerdevilpolicyagent.cpp
-    powerdevilprofilegenerator.cpp
     powerdevilbrightnesslogic.cpp
     powerdevilscreenbrightnesslogic.cpp
     powerdevilkeyboardbrightnesslogic.cpp

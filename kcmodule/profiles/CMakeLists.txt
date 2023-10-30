@@ -3,7 +3,6 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_powerdevilprofilesconfig\")
 set( kcm_powerdevil_profiles_SRCS
      ${CMAKE_CURRENT_BINARY_DIR}/../../daemon/powerdevil_debug.cpp
      EditPage.cpp
-     ${PowerDevil_SOURCE_DIR}/daemon/powerdevilprofilegenerator.cpp
 )
 
 ki18n_wrap_ui(kcm_powerdevil_profiles_SRCS

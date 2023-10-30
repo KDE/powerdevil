@@ -11,7 +11,6 @@
 
 #include <powerdevilactionconfig.h>
 #include <powerdevilpowermanagement.h>
-#include <powerdevilprofilegenerator.h>
 
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>

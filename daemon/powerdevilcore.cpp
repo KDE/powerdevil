@@ -12,7 +12,6 @@
 #include "powerdevilmigrateconfig.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilpowermanagement.h"
-#include "powerdevilprofilegenerator.h"
 
 #include <PowerDevilActivitySettings.h>
 #include <PowerDevilGlobalSettings.h>
