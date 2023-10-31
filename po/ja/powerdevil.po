@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:42+0000\n"
+"POT-Creation-Date: 2023-10-31 01:40+0000\n"
 "PO-Revision-Date: 2023-09-16 18:10+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -347,44 +347,44 @@ msgstr "電源プロファイルを切り替え"
 msgid "Replace an existing instance"
 msgstr "既存のインスタンスを置換"
 
-#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
+#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
 #, kde-format
 msgid "Activity Manager"
 msgstr "アクティビティマネージャ"
 
-#: powerdevilcore.cpp:382
+#: powerdevilcore.cpp:381
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "このアクティビティポリシーはシステムのスリープを妨げます"
 
-#: powerdevilcore.cpp:393
+#: powerdevilcore.cpp:392
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "このアクティビティポリシーはスクリーンの電源管理を妨げます"
 
-#: powerdevilcore.cpp:455
+#: powerdevilcore.cpp:454
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "追加のバッテリが接続されました"
 
-#: powerdevilcore.cpp:456 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "コンピュータはスリープしなくなります。"
 
-#: powerdevilcore.cpp:521
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "デバイスのバッテリ低下 (残り %1%)"
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:525
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -394,22 +394,22 @@ msgstr ""
 "デバイス \"%1\" のバッテリ残量が低下しており、デバイスの電源がいきなり切れる"
 "かもしれません。できるだけ早くバッテリを交換するか充電してください。"
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:532
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "マウスのバッテリ低下 (残り %1%)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:536
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "キーボードのバッテリ低下 (残り %1%)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:540
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth デバイスのバッテリ低下 (残り %1%)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -420,17 +420,17 @@ msgstr ""
 "なり切れるかもしれません。できるだけ早くバッテリを交換するか充電してくださ"
 "い。"
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:584
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr "十分な電力を供給する電源アダプタに接続してください。"
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
 msgstr "コンピュータを接続してください。"
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -438,24 +438,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "60秒後にコンピュータを停止します。"
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:616
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "今すぐシャットダウン"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "60秒後にコンピュータをハイバネートします。"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -463,64 +463,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "今すぐハイバネート"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "60秒後にコンピュータをスリープします。"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "今すぐスリープ"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Please save your work."
 msgstr "作業を保存してください。"
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "バッテリ残量低下 (残り %1%)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "バッテリ危険レベル (残り%1%)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC アダプタ接続"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Running on AC power"
 msgstr "AC アダプタで動作"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "電源アダプタが接続されました。"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "バッテリで動作"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "電源アダプタが取り外されました。"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Charging Complete"
 msgstr "充電完了"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "バッテリは完全に充電されました。"

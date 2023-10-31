@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-03 10:29+0200\n"
+"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"PO-Revision-Date: 2023-10-30 10:25+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -243,18 +243,17 @@ msgstr "Script"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "En entrar a un estat d'energia"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "En sortir d'un estat d'energia"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Estant adormit, hiberna després d'un període d'inactivitat"
+msgstr "Després d'un període d'inactivitat"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -274,25 +273,24 @@ msgstr "Automàticament"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Repòs (desa la sessió a la memòria)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Suspensió híbrida (desa la sessió a la memòria i al disc)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Estant adormit, hiberna després d'un període d'inactivitat"
+msgstr "Repòs, hiberna després d'un període d'inactivitat"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr ""
+msgstr "En adormir-se, passa a"
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -347,45 +345,45 @@ msgstr "Canvia el perfil d'energia"
 msgid "Replace an existing instance"
 msgstr "Substitueix una instància existent"
 
-#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
+#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
 #, kde-format
 msgid "Activity Manager"
 msgstr "Gestor d'activitats"
 
-#: powerdevilcore.cpp:382
+#: powerdevilcore.cpp:381
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Aquestes polítiques d'activitats eviten la suspensió del sistema"
 
-#: powerdevilcore.cpp:393
+#: powerdevilcore.cpp:392
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Aquestes polítiques d'activitats eviten la gestió d'energia de la pantalla"
 
-#: powerdevilcore.cpp:455
+#: powerdevilcore.cpp:454
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "S'ha afegit una bateria extra"
 
-#: powerdevilcore.cpp:456 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "L'ordinador ja no es tornarà a suspendre."
 
-#: powerdevilcore.cpp:521
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del dispositiu (resta %1%)"
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:525
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -395,22 +393,22 @@ msgstr ""
 "La bateria del «%1» està a punt d'exhaurir-se, i el dispositiu es pot "
 "desconnectar en qualsevol moment. Recarregueu o substituïu la bateria."
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:532
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del ratolí (resta %1%)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:536
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del teclat (resta %1%)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:540
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bateria baixa del dispositiu Bluetooth (resta %1%)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -421,19 +419,19 @@ msgstr ""
 "dispositiu es pot desconnectar en qualsevol moment. Recarregueu o substituïu "
 "la bateria."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:584
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Assegureu-vos que el carregador estigui endollat i que subministri prou "
 "electricitat."
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Endolleu l'ordinador."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -441,24 +439,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "L'ordinador s'aturarà en 60 segons."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:616
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Atura ara"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "L'ordinador passarà al mode hibernació en 60 segons."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -466,83 +464,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hiberna ara"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "L'ordinador se suspendrà en 60 segons."
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Suspèn ara"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Please save your work."
 msgstr "Deseu la vostra feina."
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria baixa (resta %1%)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria crítica (resta %1%)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptador de CA endollat"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Running on AC power"
 msgstr "Funcionant amb alimentació CA"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "L'adaptador de corrent s'ha endollat."
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Funcionant amb alimentació per bateria"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "L'adaptador de corrent s'ha desendollat."
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Charging Complete"
 msgstr "Càrrega completada"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La bateria ara està completament carregada."
-
-#~ msgid "Hybrid sleep"
-#~ msgstr "Suspensió híbrida"
-
-#~ msgid "On Profile Load"
-#~ msgstr "En carregar un perfil"
-
-#~ msgid "On Profile Unload"
-#~ msgstr "En descarregar un perfil"
-
-#~ msgid "Unsupported suspend method"
-#~ msgstr "Mètode de suspensió no admès"
-
-#~ msgid ""
-#~ "Battery running low - to continue using your computer, plug it in or shut "
-#~ "it down and change the battery."
-#~ msgstr ""
-#~ "La bateria està a punt d'exhaurir-se: per a continuar usant l'ordinador, "
-#~ "endolleu-lo o apagueu-lo i canvieu la bateria."

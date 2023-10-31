@@ -1,7 +1,7 @@
 # Translation for powerdevil.po to Euskara/Basque (eu).
 # Copyright (C) 2008-2023 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2008, 2009, 2010, 2011, 2014, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
@@ -11,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-30 01:42+0000\n"
-"PO-Revision-Date: 2023-09-03 10:00+0200\n"
+"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"PO-Revision-Date: 2023-10-30 23:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -243,19 +243,17 @@ msgstr "Scripta"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Energia egoerara sartzean"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Energia egoeratik irtetean"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr ""
-"Lo dagoela, hibernatu jarduerarik gabeko denbora tarte bat igaro ondoren"
+msgstr "Jarduerarik gabeko aldi baten ondoren"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -275,27 +273,24 @@ msgstr "Automatikoki"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Egonean (Gorde saioa memorian)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Lokartze hibridoan (Gorde saioa bietara, memoriara eta diskora)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr ""
-"Lo dagoela, hibernatu jarduerarik gabeko denbora tarte bat igaro ondoren"
+msgstr "Egonean, jarduerarik gabeko aldi baten ondoren hibernatu"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
+#, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr "Lotarako botoia sakatzerakoan"
+msgstr "Lokartuta dagoenean, sartu"
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -349,45 +344,45 @@ msgstr "Trukatu energia profila"
 msgid "Replace an existing instance"
 msgstr "Ordezkatu existitzen den instantzia bat"
 
-#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
+#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
 #, kde-format
 msgid "Activity Manager"
 msgstr "Jarduera-kudeatzailea"
 
-#: powerdevilcore.cpp:382
+#: powerdevilcore.cpp:381
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Jarduera honen gidalerroek sistema lokartzea galarazten dute"
 
-#: powerdevilcore.cpp:393
+#: powerdevilcore.cpp:392
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Jarduera honen gidalerroek pantailaren energia kudeatzea galarazten dute"
 
-#: powerdevilcore.cpp:455
+#: powerdevilcore.cpp:454
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Bateria gehigarria erantsi da"
 
-#: powerdevilcore.cpp:456 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Konputagailuak ez da aurrerantzean lokartuko."
 
-#: powerdevilcore.cpp:521
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Gailuaren bateria eskas dago (%%1 gelditzen da)"
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:525
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -397,22 +392,22 @@ msgstr ""
 "\"%1\"(e)ko bateria husten ari da, eta gailua edozein unetan itzal daiteke. "
 "Bateria zamatu edo alda ezazu."
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:532
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Saguaren bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:536
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Teklatuaren bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:540
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth gailuaren bateria eskas dago (% %1 gelditzen zaio)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -422,19 +417,19 @@ msgstr ""
 "\"%1\" bluetooth gailuko bateria husten ari da, eta gailua edozein unetan "
 "itzal daiteke. Bateria zamatu edo aldatu beharra dago."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:584
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Ziurtatu energia egokigailua entxufatuta dagoela eta behar adina energia "
 "hornitzen duela."
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Entxufatu ordenagailua."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:603
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -442,24 +437,24 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Utzi"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid "The computer will shut down in 60 seconds."
 msgstr "Ordenagailua 60 segundo barru itzaliko da."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:616
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Itzali orain"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "The computer will hibernate in 60 seconds."
 msgstr "Ordenagailua 60 segundo barru hibernatuko da."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -467,64 +462,64 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernatu orain"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, kde-format
 msgid "The computer will sleep in 60 seconds."
 msgstr "Ordenagailua 60 segundo barru lokartuko da."
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Egin lo orain"
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "Please save your work."
 msgstr "Mesedez, gorde zure lana."
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria larri dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Korronte alternoko egokigailua konektatuta"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Running on AC power"
 msgstr "Korronte alternoarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Elikagailua entxufatu egin da."
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Bateria-energiarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Elikagailua desentxufatu egin da."
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Charging Complete"
 msgstr "Zamatzea osatu da"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Bateria erabat zamatuta dago orain."
