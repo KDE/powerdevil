@@ -14,6 +14,7 @@
 
 // powerdevil/daemon
 #include <PowerDevilProfileSettings.h>
+#include <lidcontroller.h>
 #include <powerdevilenums.h>
 #include <powerdevilpowermanagement.h>
 
@@ -123,6 +124,8 @@ QObject *ProfileConfigData::powerProfileModel() const
 ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &metaData)
     : KQuickManagedConfigModule(parent, metaData)
     , m_supportsBatteryProfiles(false)
+    , m_isLidPresent(false)
+    , m_isPowerButtonPresent(false)
     , m_powerManagementServiceRegistered(false)
 {
     qmlRegisterUncreatableMetaObject(PowerDevil::staticMetaObject, "org.kde.powerdevil", 1, 0, "PowerDevil", QStringLiteral("For enums and flags only"));
@@ -193,6 +196,9 @@ void ProfilesConfigKCM::load()
         }
     }
 
+    setLidPresent(LidController().isLidPresent());
+    setPowerButtonPresent(true /* HACK This needs proper API to determine! */);
+
     KQuickManagedConfigModule::load();
 }
 
@@ -242,6 +248,34 @@ void ProfilesConfigKCM::setSupportsBatteryProfiles(bool supportsBatteryProfiles)
     }
     m_supportsBatteryProfiles = supportsBatteryProfiles;
     Q_EMIT supportsBatteryProfilesChanged();
+}
+
+bool ProfilesConfigKCM::isLidPresent() const
+{
+    return m_isLidPresent;
+}
+
+bool ProfilesConfigKCM::isPowerButtonPresent() const
+{
+    return m_isPowerButtonPresent;
+}
+
+void ProfilesConfigKCM::setLidPresent(bool isLidPresent)
+{
+    if (isLidPresent == m_isLidPresent) {
+        return;
+    }
+    m_isLidPresent = isLidPresent;
+    Q_EMIT isLidPresentChanged();
+}
+
+void ProfilesConfigKCM::setPowerButtonPresent(bool isPowerButtonPresent)
+{
+    if (isPowerButtonPresent == m_isPowerButtonPresent) {
+        return;
+    }
+    m_isPowerButtonPresent = isPowerButtonPresent;
+    Q_EMIT isPowerButtonPresentChanged();
 }
 
 bool ProfilesConfigKCM::powerManagementServiceRegistered() const

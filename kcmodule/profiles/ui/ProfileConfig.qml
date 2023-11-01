@@ -33,10 +33,17 @@ Kirigami.FormLayout {
     Item {
         Kirigami.FormData.isSection: true
         Kirigami.FormData.label: i18nc("@title:group", "Suspend Session")
-        visible: kcm.supportedActions["SuspendSession"] === true || kcm.supportedActions["HandleButtonEvents"] === true
+        visible: (
+            autoSuspendActionRow.visible
+            || powerButtonActionCombo.visible
+            || lidActionCombo.visible
+            || triggersLidActionWhenExternalMonitorPresentCheck.visible
+            || sleepModeCombo.visible
+        )
     }
 
     RowLayout {
+        id: autoSuspendActionRow
         Kirigami.FormData.label: i18nc(
             "@label:combobox Suspend action such as sleep/hibernate to perform when the system is idle",
             "A&fter a period of inactivity:"
@@ -88,7 +95,7 @@ Kirigami.FormLayout {
         )
         Accessible.name: i18nc("@accessible:name:combobox", "Action to perform when the power button is pressed")
 
-        visible: kcm.supportedActions["HandleButtonEvents"] === true
+        visible: kcm.supportedActions["HandleButtonEvents"] === true && kcm.isPowerButtonPresent
         Layout.fillWidth: true
         implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted
 
@@ -118,7 +125,7 @@ Kirigami.FormLayout {
         )
         Accessible.name: i18nc("@accessible:name:combobox", "Action to perform when the laptop lid is closed")
 
-        visible: kcm.supportedActions["HandleButtonEvents"] === true
+        visible: kcm.supportedActions["HandleButtonEvents"] === true && kcm.isLidPresent
         Layout.fillWidth: true
         implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted
 

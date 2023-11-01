@@ -69,6 +69,8 @@ class ProfilesConfigKCM : public KQuickManagedConfigModule
     Q_PROPERTY(QVariantMap profileData READ profileData CONSTANT)
     Q_PROPERTY(QString currentProfile READ currentProfile NOTIFY currentProfileChanged)
     Q_PROPERTY(bool supportsBatteryProfiles READ supportsBatteryProfiles NOTIFY supportsBatteryProfilesChanged)
+    Q_PROPERTY(bool isLidPresent READ isLidPresent NOTIFY isLidPresentChanged)
+    Q_PROPERTY(bool isPowerButtonPresent READ isPowerButtonPresent NOTIFY isPowerButtonPresentChanged)
 
     Q_PROPERTY(bool powerManagementServiceRegistered READ powerManagementServiceRegistered NOTIFY powerManagementServiceRegisteredChanged)
     Q_PROPERTY(QString powerManagementServiceErrorReason READ powerManagementServiceErrorReason NOTIFY powerManagementServiceErrorReasonChanged)
@@ -81,6 +83,8 @@ public:
     QVariantMap profileData() const;
     QString currentProfile() const;
     bool supportsBatteryProfiles() const;
+    bool isLidPresent() const;
+    bool isPowerButtonPresent() const;
 
     bool powerManagementServiceRegistered() const;
     QString powerManagementServiceErrorReason() const;
@@ -94,6 +98,8 @@ Q_SIGNALS:
 
     void currentProfileChanged();
     void supportsBatteryProfilesChanged();
+    void isLidPresentChanged();
+    void isPowerButtonPresentChanged();
 
     void powerManagementServiceRegisteredChanged();
     void powerManagementServiceErrorReasonChanged();
@@ -101,6 +107,8 @@ Q_SIGNALS:
 private:
     void setCurrentProfile(const QString &currentProfile);
     void setSupportsBatteryProfiles(bool);
+    void setLidPresent(bool);
+    void setPowerButtonPresent(bool);
 
     void setPowerManagementServiceRegistered(bool);
     void setPowerManagementServiceErrorReason(const QString &);
@@ -112,6 +120,8 @@ private:
     QVariantMap m_profileData;
     QString m_currentProfile;
     bool m_supportsBatteryProfiles;
+    bool m_isLidPresent;
+    bool m_isPowerButtonPresent;
 
     bool m_powerManagementServiceRegistered;
     QString m_powerManagementServiceErrorReason;
