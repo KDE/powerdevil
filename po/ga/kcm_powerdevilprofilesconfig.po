@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"POT-Creation-Date: 2023-11-01 01:41+0000\n"
 "PO-Revision-Date: 2011-12-28 12:28-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -27,28 +27,314 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kscanne@gmail.com"
 
-#: EditPage.cpp:203
+#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21
+#: profileEditPage.ui:21 ui/main.qml:54
 #, kde-format
 msgid "On AC Power"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31
+#: profileEditPage.ui:31 ui/main.qml:62
 #, kde-format
 msgid "On Battery"
 msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41
+#: profileEditPage.ui:41 ui/main.qml:70
 #, kde-format
 msgid "On Low Battery"
 msgstr ""
+
+#: ui/main.qml:36
+#, kde-format
+msgctxt "@text:placeholdermessage"
+msgid "Power Management settings could not be loaded"
+msgstr ""
+
+#: ui/ProfileConfig.qml:22
+#, kde-format
+msgctxt ""
+"Percentage value example, used for formatting brightness levels in the power "
+"management settings"
+msgid "10%"
+msgstr ""
+
+#: ui/ProfileConfig.qml:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Suspend Session"
+msgstr ""
+
+#: ui/ProfileConfig.qml:42
+#, kde-format
+msgctxt ""
+"@label:combobox Suspend action such as sleep/hibernate to perform when the "
+"system is idle"
+msgid "A&fter a period of inactivity:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:50
+#, kde-format
+msgctxt "@accessible:name:combobox"
+msgid "Action to perform when the system is idle"
+msgstr ""
+
+#: ui/ProfileConfig.qml:87
+#, kde-format
+msgctxt ""
+"@label:combobox Suspend action such as sleep/hibernate to perform when the "
+"power button is pressed"
+msgid "When &power button pressed:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:89
+#, kde-format
+msgctxt "@accessible:name:combobox"
+msgid "Action to perform when the power button is pressed"
+msgstr ""
+
+#: ui/ProfileConfig.qml:117
+#, kde-format
+msgctxt ""
+"@label:combobox Suspend action such as sleep/hibernate to perform when the "
+"power button is pressed"
+msgid "When laptop &lid closed:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:119
+#, kde-format
+msgctxt "@accessible:name:combobox"
+msgid "Action to perform when the laptop lid is closed"
+msgstr ""
+
+#: ui/ProfileConfig.qml:147
+#, kde-format
+msgctxt ""
+"@text:checkbox Trigger laptop lid action even when an external monitor is "
+"connected"
+msgid "Even when an external monitor is connected"
+msgstr ""
+
+#: ui/ProfileConfig.qml:149
+#, kde-format
+msgid "Perform laptop lid action even when an external monitor is connected"
+msgstr ""
+
+#: ui/ProfileConfig.qml:162
+#, kde-format
+msgctxt ""
+"@label:combobox Sleep mode selection - suspend to memory, disk or both"
+msgid "When sleeping, enter:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:164
+#, kde-format
+msgctxt "@accessible:name:combobox"
+msgid "When sleeping, enter this power-save mode"
+msgstr ""
+
+#: ui/ProfileConfig.qml:212
+#, kde-format
+msgctxt "@title:group"
+msgid "Display and Brightness"
+msgstr ""
+
+#: ui/ProfileConfig.qml:222
+#, kde-format
+msgctxt "@label:slider Brightness level"
+msgid "Change scr&een brightness:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:255
+#, kde-format
+msgctxt "@label:spinbox Dim screen after X minutes"
+msgid "Di&m automatically:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:281
+#, kde-format
+msgctxt "@label:spinbox After X minutes"
+msgid "&Turn off screen:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:306
+#, kde-format
+msgctxt "@label:spinbox After X seconds"
+msgid "When loc&ked, turn off screen:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:330
+#, kde-format
+msgctxt "@label:slider Brightness level"
+msgid "Change key&board brightness:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:367
+#, kde-format
+msgctxt "@title:group"
+msgid "Other Settings"
+msgstr ""
+
+#: ui/ProfileConfig.qml:375
+#, kde-format
+msgctxt ""
+"@label:combobox Power Save, Balanced or Performance profile - same options "
+"as in the Battery applet"
+msgid "Switch to po&wer profile:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:379
+#, kde-format
+msgctxt ""
+"@accessible:name:combobox Power Save, Balanced or Performance profile - same "
+"options as in the Battery applet"
+msgid "Switch to power profile"
+msgstr ""
+
+#: ui/ProfileConfig.qml:411
+#, kde-format
+msgctxt "@label:button"
+msgid "Run custom script:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:417
+#, kde-format
+msgctxt ""
+"@text:button Determine what will trigger a script command to run in this "
+"power state"
+msgid "Choose run conditions…"
+msgstr ""
+
+#: ui/ProfileConfig.qml:419
+#, kde-format
+msgctxt "@accessible:name:button"
+msgid "Choose run conditions for script command"
+msgstr ""
+
+#: ui/ProfileConfig.qml:438
+#, kde-format
+msgctxt "@text:action:menu Script command to execute"
+msgid "When e&ntering this power state"
+msgstr ""
+
+#: ui/ProfileConfig.qml:454
+#, kde-format
+msgctxt "@text:action:menu Script command to execute"
+msgid "When e&xiting this power state"
+msgstr ""
+
+#: ui/ProfileConfig.qml:470
+#, kde-format
+msgctxt "@text:action:menu Script command to execute"
+msgid "After a period of inacti&vity"
+msgstr ""
+
+#: ui/ProfileConfig.qml:489
+#, kde-format
+msgctxt "@label:textfield Script command to execute"
+msgid "When e&ntering this power state:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:491
+#, kde-format
+msgctxt "@label:textfield"
+msgid "Script command when entering this power state"
+msgstr ""
+
+#: ui/ProfileConfig.qml:511
+#, kde-format
+msgctxt "@label:textfield Script command to execute"
+msgid "When e&xiting this power state:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:513
+#, kde-format
+msgctxt "@label:textfield"
+msgid "Script command when exiting this power state"
+msgstr ""
+
+#: ui/ProfileConfig.qml:533
+#, kde-format
+msgctxt "@label:textfield Script command to execute"
+msgid "After a period of inacti&vity:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:535
+#, kde-format
+msgctxt "@@accessible:name:textfield"
+msgid "Script command after a period of inactivity"
+msgstr ""
+
+#: ui/ProfileConfig.qml:553
+#, kde-format
+msgctxt "@accessible:name:spinbox"
+msgid "Period of inactivity until the script command executes"
+msgstr ""
+
+#: ui/RunScriptEdit.qml:26
+#, kde-format
+msgid "Enter command or select file…"
+msgstr ""
+
+#: ui/RunScriptEdit.qml:43
+#, kde-format
+msgid "Select executable file…"
+msgstr ""
+
+#: ui/RunScriptEdit.qml:58
+#, kde-format
+msgid "Select executable file"
+msgstr ""
+
+#: ui/TimeDelaySpinBox.qml:14
+#, kde-format
+msgctxt ""
+"List of recognized strings for 'minutes' in a time delay expression such as "
+"'after 10 min'"
+msgid "m|min|mins|minutes"
+msgstr ""
+
+#: ui/TimeDelaySpinBox.qml:15
+#, kde-format
+msgctxt ""
+"List of recognized strings for 'seconds' in a time delay expression such as "
+"'after 10 sec'"
+msgid "s|sec|secs|seconds"
+msgstr ""
+
+#: ui/TimeDelaySpinBox.qml:17
+#, kde-format
+msgctxt ""
+"Validator/extractor regular expression for a time delay number and unit, "
+"from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
+"%1 and %2."
+msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
+msgstr ""
+
+#: ui/TimeDelaySpinBox.qml:26
+#, kde-format
+msgid "after %1 min"
+msgid_plural "after %1 min"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: ui/TimeDelaySpinBox.qml:28
+#, kde-format
+msgid "after %1 sec"
+msgid_plural "after %1 sec"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
 
 #~ msgid "(c), 2010 Dario Freddi"
 #~ msgstr "©, 2010 Dario Freddi"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-31 01:40+0000\n"
-"PO-Revision-Date: 2023-09-04 10:08+0200\n"
+"PO-Revision-Date: 2023-10-31 10:13+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -238,18 +238,17 @@ msgstr "Script"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Quando insertante stato de energia"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Quando exitante stato de energia"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Quando on dormi, hyberna post un periodo de inactivitate"
+msgstr "Post un periodo de inactivitate"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -269,26 +268,24 @@ msgstr "Automaticamente"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Expectation (StandBy) (Salveguarda session a memoria)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Dormi hybrid (Salveguarda session e in memoria e sur disco)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Quando on dormi, hyberna post un periodo de inactivitate"
+msgstr "Expectation (SyandBy), tum hyberna post un periodo de inactivitate"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
+#, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr "Quando on pressa le button de dormir"
+msgstr "Quando on dorme, entra"
 
 #: powerdevilapp.cpp:54
 #, kde-format

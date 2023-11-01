@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-31 01:40+0000\n"
-"PO-Revision-Date: 2023-09-03 07:55+0100\n"
+"PO-Revision-Date: 2023-10-31 22:58+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -239,18 +239,17 @@ msgstr "Skripto"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Eniĝante energiostaton"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Eliĝante energiostaton"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Dum dormo, travintri post periodo de neaktiveco"
+msgstr "Post periodo de neaktiveco"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -270,25 +269,24 @@ msgstr "Aŭtomate"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Pretstari (Konservi seancon al memoro)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Hibrida dormo (Konservi seancon al ambaŭ memoro kaj disko)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Dum dormo, travintri post periodo de neaktiveco"
+msgstr "Pretstari, travintri post periodo de neaktiveco"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr ""
+msgstr "Dormante, eniri"
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -520,15 +518,3 @@ msgstr "Ŝargado Kompleta"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterio nun plene ŝargita."
-
-#~ msgid "Hybrid sleep"
-#~ msgstr "Hibrida dormo"
-
-#~ msgid "On Profile Load"
-#~ msgstr "Je Profilŝargo"
-
-#~ msgid "On Profile Unload"
-#~ msgstr "Je Profila Malŝargo"
-
-#~ msgid "Unsupported suspend method"
-#~ msgstr "Nesubtenata suspenda metodo"

@@ -251,10 +251,9 @@ msgid "When exiting power state"
 msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Během uspání hibernovat po čase neaktivity"
+msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -282,10 +281,9 @@ msgid "Hybrid sleep (Save session to both memory and disk)"
 msgstr ""
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Během uspání hibernovat po čase neaktivity"
+msgstr ""
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
@@ -522,12 +520,3 @@ msgstr "Nabití bylo dokončeno"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Vaše baterie je nyní plně nabitá."
-
-#~ msgid "Hybrid sleep"
-#~ msgstr "Hybridní uspání"
-
-#~ msgid "On Profile Load"
-#~ msgstr "Při načtení profilu"
-
-#~ msgid "On Profile Unload"
-#~ msgstr "Při ukončení profilu"

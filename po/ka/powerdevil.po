@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-31 01:40+0000\n"
-"PO-Revision-Date: 2023-09-04 05:50+0200\n"
+"PO-Revision-Date: 2023-10-31 05:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -239,18 +239,17 @@ msgstr "სკრიპტი"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "კვების რეჟიმზე გადასვლისას"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "კვების რეჟიმიდან დაბრუნებისას"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "ძილისას, დისკზე დაძინება გარკვეული დროის არააქტიურობის შემდეგ"
+msgstr "არააქტიურობის პერიოდის შემდეგ"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -270,25 +269,24 @@ msgstr "ავტომატურად"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "უქმე (სესიის შენახვა მეხსიერებაში)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "ჰიბრიდული ძილი (სესიის, ორივე, დისკზე და მეხსიერებაში შენახვა)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "ძილისას, დისკზე დაძინება გარკვეული დროის არააქტიურობის შემდეგ"
+msgstr "ძილი, შემდეგ კი დისკზე დაძინება გარკვეული დროის არააქტიურობის შემდეგ"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr ""
+msgstr "ძილისას, შესვლა"
 
 #: powerdevilapp.cpp:54
 #, kde-format
