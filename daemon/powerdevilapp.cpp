@@ -32,7 +32,6 @@
 #include <KActionCollection>
 #include <KGlobalAccel>
 
-#include <kworkspace.h>
 #include <qnamespace.h>
 
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
@@ -138,7 +137,6 @@ int main(int argc, char **argv)
 {
     QGuiApplication::setDesktopSettingsAware(false);
     QGuiApplication::setAttribute(Qt::AA_DisableSessionManager);
-    KWorkSpace::detectPlatform(argc, argv);
     PowerDevilApp app(argc, argv);
 
     bool replace = false;
