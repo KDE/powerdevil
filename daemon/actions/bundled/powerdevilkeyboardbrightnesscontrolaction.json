@@ -93,7 +93,6 @@
         "Name[zh_CN]": "键盘背光",
         "Name[zh_TW]": "鍵盤背光"
     },
-    "X-KDE-PowerDevil-Action-ConfigPriority": 100,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "KeyboardBrightnessControl",
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true

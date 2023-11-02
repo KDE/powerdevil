@@ -84,7 +84,6 @@
         "Name[zh_CN]": "电源管理配置方案",
         "Name[zh_TW]": "電源管理設定檔"
     },
-    "X-KDE-PowerDevil-Action-ConfigPriority": 70,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "PowerProfile",
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true

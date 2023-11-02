@@ -94,7 +94,6 @@
         "Name[zh_CN]": "挂起会话",
         "Name[zh_TW]": "暫停工作階段"
     },
-    "X-KDE-PowerDevil-Action-ConfigPriority": 90,
     "X-KDE-PowerDevil-Action-ID": "SuspendSession",
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true
 }

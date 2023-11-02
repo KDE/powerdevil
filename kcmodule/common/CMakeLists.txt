@@ -16,7 +16,6 @@ generate_export_header(powerdevilconfigcommonprivate)
 target_link_libraries(powerdevilconfigcommonprivate
     PUBLIC
         powerdevilcore
-        powerdevilui
         KF6::I18n
         KF6::Service
 )

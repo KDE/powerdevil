@@ -4,21 +4,8 @@ function(add_powerdevil_bundled_action _name)
     target_link_libraries(powerdevil_${_name}action
                         powerdevil_log_static
                         powerdevilcore
-                        powerdevilui
-                        Qt::Widgets
                         KF6::CoreAddons
                         KF6::I18n
-                        KF6::ConfigGui
-                        ${ARGN})
-    # Build the config module
-    kcoreaddons_add_plugin(powerdevil_${_name}action_config SOURCES ${_name}config.cpp INSTALL_NAMESPACE "powerdevil/action/kcm")
-    target_link_libraries(powerdevil_${_name}action_config
-                        powerdevilcore
-                        powerdevilui
-                        Qt::Widgets
-                        KF6::CoreAddons
-                        KF6::I18n
-                        KF6::ConfigGui
                         ${ARGN})
 endfunction(add_powerdevil_bundled_action _name)
 
@@ -58,18 +45,3 @@ target_sources(powerdevil_powerprofileaction PRIVATE ${powerprofile_dbus_SRCS} $
 
 kcoreaddons_add_plugin(powerdevil_handlebuttoneventsaction SOURCES powerdevilhandlebuttonevents_plugin.cpp ${handlebuttons_SRCS} INSTALL_NAMESPACE "powerdevil/action")
 target_link_libraries(powerdevil_handlebuttoneventsaction PRIVATE powerdevilcore)
-
-set(actionconfig_SRCS handlebuttoneventsconfig.cpp)
-qt_add_dbus_interface(actionconfig_SRCS
-    ${CMAKE_SOURCE_DIR}/daemon/backends/upower/dbus/org.freedesktop.UPower.xml
-    upower_interface)
-kcoreaddons_add_plugin(powerdevil_handlebuttoneventsaction_config SOURCES ${actionconfig_SRCS} INSTALL_NAMESPACE "powerdevil/action/kcm")
-target_link_libraries(powerdevil_handlebuttoneventsaction_config
-    powerdevilcore
-    powerdevilui
-    Qt::Widgets
-    KF6::CoreAddons
-    KF6::I18n
-    KF6::ConfigGui
-    KF6::XmlGui
-)

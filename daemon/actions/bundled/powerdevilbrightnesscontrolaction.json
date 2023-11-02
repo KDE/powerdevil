@@ -94,7 +94,6 @@
         "Name[zh_CN]": "屏幕亮度",
         "Name[zh_TW]": "螢幕亮度"
     },
-    "X-KDE-PowerDevil-Action-ConfigPriority": 100,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "BrightnessControl",
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true

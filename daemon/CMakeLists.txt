@@ -153,25 +153,8 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/powerdevil.desktop
         DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 install(TARGETS powerdevilcore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-# target no.3 - powerdevil ui library
-# TODO: remove anything related to ActionConfig, now that the QML profiles config KCM doesn't use it anymore
-set(powerdevilui_SRCS
-    powerdevilactionconfig.cpp
-)
-
-add_library(powerdevilui ${powerdevilui_SRCS})
-set_target_properties(powerdevilui PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR})
-
-# not exported, so just make the deps public
-target_link_libraries(powerdevilui
-    PUBLIC
-        Qt::Widgets
-        KF6::ConfigCore
-)
-
 set(HAVE_XCB ${XCB_FOUND})
 configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
-install(TARGETS powerdevilui ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 ecm_install_configured_files(INPUT plasma-powerdevil.service.in @ONLY DESTINATION
         ${KDE_INSTALL_SYSTEMDUSERUNITDIR})

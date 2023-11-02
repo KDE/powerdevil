@@ -93,7 +93,6 @@
         "Name[zh_CN]": "按键事件处理",
         "Name[zh_TW]": "按鍵事件處理"
     },
-    "X-KDE-PowerDevil-Action-ConfigPriority": 80,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "HandleButtonEvents",
     "X-KDE-PowerDevil-Action-RegistersDBusInterface": true

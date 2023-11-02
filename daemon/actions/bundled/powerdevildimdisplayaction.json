@@ -93,7 +93,6 @@
         "Name[zh_CN]": "降低屏幕亮度",
         "Name[zh_TW]": "將螢幕變暗"
     },
-    "X-KDE-PowerDevil-Action-ConfigPriority": 99,
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "DimDisplay"
 }

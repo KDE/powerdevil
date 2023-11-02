@@ -29,19 +29,14 @@ class ProfileSettings;
  *
  * If you are already familiar with KDE's plugin system, you have to know that actions are
  * nothing but a KCoreAddons plugin which will be loaded on demand. Each action has an ID associated to it
- * which represents it in the config file and uniquely identifies it in the loading phase.
+ * which uniquely identifies it in the loading phase.
  *
  * In addition to standard parameters, the .json file representing your action should contain the following
- * entries:
+ * entry:
  *
  * @code
  * X-KDE-PowerDevil-Action-ID: YourActionID
- * X-KDE-PowerDevil-Action-ConfigPriority: 98
  * @endcode
- *
- * The @c ConfigPriority is relevant to the configuration UI as well, and determines where your config UI will appear.
- * The higher the number, the higher your config UI will be in the list of actions. Choose this value wisely: usually
- * only very basic power management functions should have a value > 50.
  *
  * The most important functions you need to reimplement are loadAction and triggerImpl. The first is called
  * whenever an action is loaded, carrying the action's configuration. The other is called whenever
@@ -98,8 +93,6 @@ public:
      *
      * @param profileSettings The profile settings containing the action's configuration which should be loaded.
      * @returns Whether the action has been successfully loaded. Should return false if not enabled for the given @p profileSettings.
-     *
-     * @see ActionConfig
      */
     virtual bool loadAction(const PowerDevil::ProfileSettings &profileSettings) = 0;
     /**
