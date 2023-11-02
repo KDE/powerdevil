@@ -10,6 +10,7 @@
 
 #include <PowerDevilActivitySettings.h>
 #include <PowerDevilProfileSettings.h>
+#include <powerdevil_version.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -218,6 +219,15 @@ void migrateConfig(bool isMobile, bool isVM, bool canSuspendToRam)
 
     migrateActivitiesConfig(profilesConfig);
     migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspendToRam);
+
+#if POWERDEVIL_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    KSharedConfig::Ptr globalConfig = KSharedConfig::openConfig(QStringLiteral("powerdevilrc"));
+    KConfigGroup batteryManagementGroup = globalConfig->group("BatteryManagement");
+    if (batteryManagementGroup.readEntry("BatteryCriticalAction", 0) == 4 /* the old PowerButtonAction::SuspendHybrid */) {
+        batteryManagementGroup.writeEntry("BatteryCriticalAction", qToUnderlying(PowerButtonAction::SuspendToDisk));
+        globalConfig->sync();
+    }
+#endif
 }
 
 } // namespace PowerDevil

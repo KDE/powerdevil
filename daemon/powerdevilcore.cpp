@@ -617,8 +617,7 @@ void Core::handleCriticalBattery(int percent)
         m_criticalBatteryTimer->start();
         break;
     }
-    case PowerButtonAction::SuspendToRam:
-    case PowerButtonAction::SuspendHybrid: {
+    case PowerButtonAction::SuspendToRam: {
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
         auto action =
             m_criticalBatteryNotification->addAction(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
@@ -1148,7 +1147,6 @@ void Core::timerfdEventHandler()
     // send it away
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 }
-
 }
 
 #include "moc_powerdevilcore.cpp"

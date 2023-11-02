@@ -23,7 +23,7 @@ enum class PowerButtonAction : uint {
     NoAction = 0,
     SuspendToRam = 1,
     SuspendToDisk = 2,
-    SuspendHybrid = 4,
+    // Unused = 4, // previously SuspendHybrid - use SuspendToRam + SleepMode::HybridSuspend instead
     Shutdown = 8,
     PromptLogoutDialog = 16,
     LockScreen = 32,

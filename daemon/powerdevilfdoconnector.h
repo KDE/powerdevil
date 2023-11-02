@@ -37,8 +37,6 @@ public:
 
     void Suspend();
     void Hibernate();
-    void HybridSuspend();
-    void SuspendThenHibernate();
 
     bool HasInhibit();
 

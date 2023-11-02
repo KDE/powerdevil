@@ -74,11 +74,6 @@ void FdoConnector::Hibernate()
     triggerSuspendSession(PowerButtonAction::SuspendToDisk);
 }
 
-void FdoConnector::HybridSuspend()
-{
-    triggerSuspendSession(PowerButtonAction::SuspendHybrid);
-}
-
 bool FdoConnector::HasInhibit()
 {
     return PolicyAgent::instance()->requirePolicyCheck(PolicyAgent::InterruptSession) != PolicyAgent::None;
