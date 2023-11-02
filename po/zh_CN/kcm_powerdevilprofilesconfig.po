@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-10-21 13:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -18,46 +18,31 @@ msgstr ""
 "pot\n"
 "X-Crowdin-File-ID: 46586\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "KDE 中国, csslayer, Guo Yunhe, Tyson Tan"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"kde-china@kde.org, chaofeng111@gmail.com, i@guoyunhe.me, tysontan@tysontan."
-"com"
-
-#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
+#: ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "电源管理服务尚未运行。"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21 ui/main.qml:54
-#, kde-format
-msgid "On AC Power"
-msgstr "交流供电"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31 ui/main.qml:62
-#, kde-format
-msgid "On Battery"
-msgstr "电池供电"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41 ui/main.qml:70
-#, kde-format
-msgid "On Low Battery"
-msgstr "电池电量低"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
+
+#: ui/main.qml:54
+#, kde-format
+msgid "On AC Power"
+msgstr "交流供电"
+
+#: ui/main.qml:62
+#, kde-format
+msgid "On Battery"
+msgstr "电池供电"
+
+#: ui/main.qml:70
+#, kde-format
+msgid "On Low Battery"
+msgstr "电池电量低"
 
 #: ui/ProfileConfig.qml:22
 #, kde-format
@@ -330,6 +315,16 @@ msgstr[0] ""
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
 msgstr[0] ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "KDE 中国, csslayer, Guo Yunhe, Tyson Tan"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "kde-china@kde.org, chaofeng111@gmail.com, i@guoyunhe.me, "
+#~ "tysontan@tysontan.com"
 
 #~ msgid ""
 #~ "The KDE Power Management System will now generate a set of defaults based "

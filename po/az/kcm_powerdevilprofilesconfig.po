@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2020-12-14 12:27+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,44 +17,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 20.08.3\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Xəyyam Qocayev"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "xxmn77@gmail.com"
-
-#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
+#: ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Enerjiyə Nəzarət Xidmətinin işləmədiyi görünür."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21 ui/main.qml:54
-#, kde-format
-msgid "On AC Power"
-msgstr "Elektrik şəbəkəsindən"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31 ui/main.qml:62
-#, kde-format
-msgid "On Battery"
-msgstr "Batareyadan"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41 ui/main.qml:70
-#, kde-format
-msgid "On Low Battery"
-msgstr "Zəif batareyadan"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
+
+#: ui/main.qml:54
+#, kde-format
+msgid "On AC Power"
+msgstr "Elektrik şəbəkəsindən"
+
+#: ui/main.qml:62
+#, kde-format
+msgid "On Battery"
+msgstr "Batareyadan"
+
+#: ui/main.qml:70
+#, kde-format
+msgid "On Low Battery"
+msgstr "Zəif batareyadan"
 
 #: ui/ProfileConfig.qml:22
 #, kde-format
@@ -329,6 +316,14 @@ msgid "after %1 sec"
 msgid_plural "after %1 sec"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Xəyyam Qocayev"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "xxmn77@gmail.com"
 
 #~ msgid ""
 #~ "The KDE Power Management System will now generate a set of defaults based "

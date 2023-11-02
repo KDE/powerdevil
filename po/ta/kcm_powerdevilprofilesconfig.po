@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-10-22 17:15+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -17,44 +17,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.2\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "கோ. கிஷோர்"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "Kde-l10n-ta@kde.org"
-
-#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
+#: ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ஆற்றல் மேலாண்மைக்கான பின்னணி சேவை இயங்குவது போல் தெரியவில்லை."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21 ui/main.qml:54
-#, kde-format
-msgid "On AC Power"
-msgstr "மின்னூற்றின் ஆற்றலில் இயங்கும்போது"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31 ui/main.qml:62
-#, kde-format
-msgid "On Battery"
-msgstr "மின்கல ஆற்றலில் இயங்கும்போது"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41 ui/main.qml:70
-#, kde-format
-msgid "On Low Battery"
-msgstr "மின்கல ஆற்றல் குறைவாயுள்ளபோது"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
+
+#: ui/main.qml:54
+#, kde-format
+msgid "On AC Power"
+msgstr "மின்னூற்றின் ஆற்றலில் இயங்கும்போது"
+
+#: ui/main.qml:62
+#, kde-format
+msgid "On Battery"
+msgstr "மின்கல ஆற்றலில் இயங்கும்போது"
+
+#: ui/main.qml:70
+#, kde-format
+msgid "On Low Battery"
+msgstr "மின்கல ஆற்றல் குறைவாயுள்ளபோது"
 
 #: ui/ProfileConfig.qml:22
 #, kde-format
@@ -329,6 +316,14 @@ msgid "after %1 sec"
 msgid_plural "after %1 sec"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "கோ. கிஷோர்"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "Kde-l10n-ta@kde.org"
 
 #~ msgid ""
 #~ "The KDE Power Management System will now generate a set of defaults based "

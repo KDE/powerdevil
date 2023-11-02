@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -312,58 +312,58 @@ msgctxt ""
 msgid "When sleeping, enter"
 msgstr "Nuair a bhrúitear an cnaipe codlata"
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:53
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Córas Bainisteoireachta Cumhachta le haghaidh KDE"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Cothaitheoir"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Cothaitheoir"
 
-#: powerdevilapp.cpp:132
+#: powerdevilapp.cpp:131
 #, fuzzy, kde-format
 #| msgid "Import PowerDevil Profiles"
 msgid "Switch Power Profile"
 msgstr "Iompórtáil Próifílí PowerDevil"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:145
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

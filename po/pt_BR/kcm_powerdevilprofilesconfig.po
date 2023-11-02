@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2020-07-07 15:49-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -19,44 +19,31 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "André Marcelo Alvarenga"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "alvarenga@kde.org"
-
-#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
+#: ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "O Serviço de gerenciamento de energia parece não estar em execução."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21 ui/main.qml:54
-#, kde-format
-msgid "On AC Power"
-msgstr "Com adaptador de energia"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31 ui/main.qml:62
-#, kde-format
-msgid "On Battery"
-msgstr "Com bateria"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41 ui/main.qml:70
-#, kde-format
-msgid "On Low Battery"
-msgstr "Com baixo nível de bateria"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
+
+#: ui/main.qml:54
+#, kde-format
+msgid "On AC Power"
+msgstr "Com adaptador de energia"
+
+#: ui/main.qml:62
+#, kde-format
+msgid "On Battery"
+msgstr "Com bateria"
+
+#: ui/main.qml:70
+#, kde-format
+msgid "On Low Battery"
+msgstr "Com baixo nível de bateria"
 
 #: ui/ProfileConfig.qml:22
 #, kde-format
@@ -331,6 +318,14 @@ msgid "after %1 sec"
 msgid_plural "after %1 sec"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "André Marcelo Alvarenga"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "alvarenga@kde.org"
 
 #~ msgid ""
 #~ "The KDE Power Management System will now generate a set of defaults based "

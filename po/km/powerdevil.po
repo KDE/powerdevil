@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -312,13 +312,13 @@ msgctxt ""
 msgid "When sleeping, enter"
 msgstr ""
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:53
 #, fuzzy, kde-format
 #| msgid "KDE Power Management System"
 msgid "KDE Power Management System"
 msgstr "ឧបករណ៍​គ្រប់គ្រង​ថាមពល​សម្រាប់ KDE4​"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:55
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE Power Management System is PowerDevil, an advanced, modular and "
@@ -330,46 +330,46 @@ msgstr ""
 "ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល​ KDE ​គឺ​ PowerDevil ​កម្រិត​ខ្ពស់​​ ដេមិន​​ការ​គ្រប់គ្រង​ថាមពី​ modular និង​ "
 "lightweight "
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "អ្នកថែទាំ"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "អ្នកថែទាំ"
 
-#: powerdevilapp.cpp:132
+#: powerdevilapp.cpp:131
 #, fuzzy, kde-format
 #| msgid "Switch off after"
 msgid "Switch Power Profile"
 msgstr "បិទ​ក្រោយ​ពេល​"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:145
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

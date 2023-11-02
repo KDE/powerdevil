@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
-"PO-Revision-Date: 2023-09-03 20:09+0200\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"PO-Revision-Date: 2023-11-01 22:48+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -240,18 +240,17 @@ msgstr "Guion"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Al entrar en el estado de energía"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Al salir del estado de energía"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Cuando no esté en reposo, hibernar tras un periodo de inactividad"
+msgstr "Tras un período de inactividad"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -271,32 +270,31 @@ msgstr "Automáticamente"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "En espera (guardar sesión en la memoria)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Reposo híbrido (guardar la sesión en la memoria y en el disco)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Cuando no esté en reposo, hibernar tras un periodo de inactividad"
+msgstr "En espera, y luego hibernar tras un período de inactividad"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr ""
+msgstr "En estado de reposo, entrar"
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:53
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Sistema de gestión de energía de KDE"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -304,42 +302,42 @@ msgid ""
 msgstr ""
 "PowerDevil, un demonio de gestión de energía ligero, modular y avanzado"
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Encargado"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Encargado anterior"
 
-#: powerdevilapp.cpp:132
+#: powerdevilapp.cpp:131
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "Cambiar perfil de energía"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:145
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Sustituir una instancia existente"

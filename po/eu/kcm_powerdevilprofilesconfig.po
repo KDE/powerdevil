@@ -1,65 +1,51 @@
 # Translation for powerdevilprofilesconfig.po to Euskara/Basque (eu).
-# Copyright (C) 2011-2014, Free Software Foundation.
-# Copyright (C) 2015-2020, This file is copyright:
+# Copyright (C) 2011-2023 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 # KDE euskaratzeko proiektuko arduraduna <xalba@euskalnet.net>.
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2011, 2014, 2020.
+# SPDX-FileCopyrightText: 2011, 2014, 2020, 2023 Iñigo Salvador Azurmendi <xalba@euskalnet.net>
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
-"PO-Revision-Date: 2020-07-06 23:12+0200\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"PO-Revision-Date: 2023-11-01 12:41+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Iñigo Salvador Azurmendi,Hizkuntza Politikarako Sailburuordetza"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "xalba@euskalnet.net,hizpol@ej-gv.es"
-
-#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
+#: ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Ematen du energia kudeatzeko zerbitzua ez dagoela martxan."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21 ui/main.qml:54
-#, kde-format
-msgid "On AC Power"
-msgstr "Entxufatuta"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31 ui/main.qml:62
-#, kde-format
-msgid "On Battery"
-msgstr "Bateriarekin"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41 ui/main.qml:70
-#, kde-format
-msgid "On Low Battery"
-msgstr "Bateria gutxirekin"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Ezin izan dira energia kudeatzeko ezarpenak zamatu"
+
+#: ui/main.qml:54
+#, kde-format
+msgid "On AC Power"
+msgstr "Entxufatuta"
+
+#: ui/main.qml:62
+#, kde-format
+msgid "On Battery"
+msgstr "Bateriarekin"
+
+#: ui/main.qml:70
+#, kde-format
+msgid "On Low Battery"
+msgstr "Bateria gutxirekin"
 
 #: ui/ProfileConfig.qml:22
 #, kde-format
@@ -67,13 +53,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "% 10"
 
 #: ui/ProfileConfig.qml:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Saioa egonean utzi"
 
 #: ui/ProfileConfig.qml:42
 #, kde-format
@@ -81,13 +67,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "Jarduerarik gabeko aldi baten on&doren:"
 
 #: ui/ProfileConfig.qml:50
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Sistema ez-aktibo dagoenean gauzatu beharreko ekintza"
 
 #: ui/ProfileConfig.qml:87
 #, kde-format
@@ -95,13 +81,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "&Indarraren botoia sakatzean:"
 
 #: ui/ProfileConfig.qml:89
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Indar botoia sakatzean gauzatu beharreko ekintza"
 
 #: ui/ProfileConfig.qml:117
 #, kde-format
@@ -109,13 +95,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Magalekoaren &tapa ixten denean:"
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Magalekoaren tapa ixten denean gauzatu beharreko ekintza"
 
 #: ui/ProfileConfig.qml:147
 #, kde-format
@@ -123,67 +109,69 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Kanpo-monitore bat konektatuta dagoenean ere"
 
 #: ui/ProfileConfig.qml:149
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Gauzatu magalekoaren taparako ekintza kanpoko monitore bat konektatuta "
+"dagoenean ere"
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "Lokartzean, sartu:"
 
 #: ui/ProfileConfig.qml:164
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "Lokartzean, sartu energia aurrezteko modu horretan"
 
 #: ui/ProfileConfig.qml:212
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Pantaila eta distira"
 
 #: ui/ProfileConfig.qml:222
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Aldatu pantailar&en distira:"
 
 #: ui/ProfileConfig.qml:255
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "&Moteldu automatikoki:"
 
 #: ui/ProfileConfig.qml:281
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "I&tzali pantaila:"
 
 #: ui/ProfileConfig.qml:306
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "&Giltzatuta dagoenean, itzali pantaila:"
 
 #: ui/ProfileConfig.qml:330
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Aldatu &teklatuko distira:"
 
 #: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Beste ezarpen batzuk"
 
 #: ui/ProfileConfig.qml:375
 #, kde-format
@@ -191,7 +179,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Aldatu energia profilera:"
 
 #: ui/ProfileConfig.qml:379
 #, kde-format
@@ -199,13 +187,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Aldatu energia profilera,"
 
 #: ui/ProfileConfig.qml:411
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Exekutatu neurrira eginiko gidoia:"
 
 #: ui/ProfileConfig.qml:417
 #, kde-format
@@ -213,88 +201,88 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Aukeratu ibiltzeko baldintzak..."
 
 #: ui/ProfileConfig.qml:419
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Aukeratu gidoi-komandoa ibiltzeko baldintzak"
 
 #: ui/ProfileConfig.qml:438
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "Energia-egoera horretan &sartzean"
 
 #: ui/ProfileConfig.qml:454
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "Energia-egoera horretarik &irtetean"
 
 #: ui/ProfileConfig.qml:470
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "&Jarduerarik gabeko aldi baten ondoren"
 
 #: ui/ProfileConfig.qml:489
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "Energia-egoera horretara sa&rtzean:"
 
 #: ui/ProfileConfig.qml:491
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "Gidoi komandoa energia-egoera horretara sartzean"
 
 #: ui/ProfileConfig.qml:511
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "Energia-egoera horretarik &irtetean:"
 
 #: ui/ProfileConfig.qml:513
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "Gidoi komandoa energia-egoera horretatik irtetean"
 
 #: ui/ProfileConfig.qml:533
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "&Jarduerarik gabeko aldi baten ondoren:"
 
 #: ui/ProfileConfig.qml:535
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "Gidoi komandoa jarduerarik gabeko aldi baten ondoren"
 
 #: ui/ProfileConfig.qml:553
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "Gidoi komandoa exekutatu arteko jarduerarik gabeko aldia"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Sartu komandoa edo aukeratu fitxategia..."
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Aukeratu fitxategi exekutagarria..."
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Aukeratu fitxategi exekutagarria..."
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -302,7 +290,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|min|minutu"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -310,7 +298,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|sg|seg|segundo"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -319,21 +307,29 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "min %1 ondoren"
+msgstr[1] "%1 min ondoren"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "seg %1 ondoren"
+msgstr[1] "%1 seg ondoren"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Iñigo Salvador Azurmendi,Hizkuntza Politikarako Sailburuordetza"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "xalba@euskalnet.net,hizpol@ej-gv.es"
 
 #~ msgid ""
 #~ "The KDE Power Management System will now generate a set of defaults based "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-09-04 09:04+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -292,12 +292,12 @@ msgctxt ""
 msgid "When sleeping, enter"
 msgstr "Quando viene premuto il pulsante della sospensione"
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:53
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Il Sistema di Gestione Energetica per KDE"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -305,42 +305,42 @@ msgid ""
 msgstr ""
 "PowerDevil, un servizio di gestione energetica avanzato, modulare e leggero"
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Responsabile"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Responsabile precedente"
 
-#: powerdevilapp.cpp:132
+#: powerdevilapp.cpp:131
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "Cambia il profilo energetico"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:145
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Sostituisci un'istanza esistente"

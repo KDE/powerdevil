@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2020-07-21 15:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -22,45 +22,31 @@ msgstr ""
 "X-POT-Import-Date: 2012-12-01 22:22:38+0000\n"
 "X-Generator: Lokalize 20.04.3\n"
 
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Jorma Karvonen, Lasse Liehu, Tommi Nieminen"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"karvonen.jorma@gmail.com, lasse.liehu@gmail.com, translator@legisign.org"
-
-#: EditPage.cpp:203 ProfilesConfigKCM.cpp:298
+#: ProfilesConfigKCM.cpp:298
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Virranhallintapalvelu ei vaikuta olevan käynnissä."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: profileEditPage.ui:21 ui/main.qml:54
-#, kde-format
-msgid "On AC Power"
-msgstr "Verkkovirta"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: profileEditPage.ui:31 ui/main.qml:62
-#, kde-format
-msgid "On Battery"
-msgstr "Akkuvirta"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: profileEditPage.ui:41 ui/main.qml:70
-#, kde-format
-msgid "On Low Battery"
-msgstr "Akun ollessa vähissä"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
+
+#: ui/main.qml:54
+#, kde-format
+msgid "On AC Power"
+msgstr "Verkkovirta"
+
+#: ui/main.qml:62
+#, kde-format
+msgid "On Battery"
+msgstr "Akkuvirta"
+
+#: ui/main.qml:70
+#, kde-format
+msgid "On Low Battery"
+msgstr "Akun ollessa vähissä"
 
 #: ui/ProfileConfig.qml:22
 #, kde-format
@@ -335,6 +321,15 @@ msgid "after %1 sec"
 msgid_plural "after %1 sec"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Jorma Karvonen, Lasse Liehu, Tommi Nieminen"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "karvonen.jorma@gmail.com, lasse.liehu@gmail.com, translator@legisign.org"
 
 #~ msgid ""
 #~ "The KDE Power Management System will now generate a set of defaults based "

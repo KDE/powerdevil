@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-01 01:41+0000\n"
-"PO-Revision-Date: 2023-08-26 14:21+0100\n"
+"PO-Revision-Date: 2023-11-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -23,7 +23,7 @@ msgid ""
 "Power Management configuration module could not be loaded.\n"
 "%1"
 msgstr ""
-"Potencadministra agordmodulo ne povis esti ŝargata.\n"
+"Energiadministra agordmodulo ne povis esti ŝargata.\n"
 "%1"
 
 #: PowerButtonActionModel.cpp:30
@@ -61,7 +61,7 @@ msgstr "Ŝlosi ekranon"
 #: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Montri ekranon de elsaluto"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
@@ -77,53 +77,50 @@ msgstr "Baskuligi ekranon en-/elŝalt"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Energioŝparo"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Ekvilibrata"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Agado"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Lasi senŝanĝe"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Konservi seancon al memoro"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Konservi seancon al kaj memoro kaj disko"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Standby, tiam vintrodormi"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
-
-#~ msgid "Prompt log out dialog"
-#~ msgstr "Postuli elsalutan dialogon"
+msgstr "Ŝanĝi al vintrodormo post periodo de neaktiveco"

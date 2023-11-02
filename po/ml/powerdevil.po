@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -289,55 +289,55 @@ msgctxt ""
 msgid "When sleeping, enter"
 msgstr "ഉറങ്ങാനുള്ള ബട്ടണ്‍ അമര്‍ത്തിയാല്‍"
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:53
 #, fuzzy, kde-format
 msgid "KDE Power Management System"
 msgstr "കെഡിഇ4 നു് വേണ്ടിയുള്ള വൈദ്യുതി നടത്തിപ്പിനുള്ള പണിയായുധം"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "പരിപാലകന്‍"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "ഡാരിയോ ഫ്രെഡ്ഡി"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "പരിപാലകന്‍"
 
-#: powerdevilapp.cpp:132
+#: powerdevilapp.cpp:131
 #, fuzzy, kde-format
 #| msgid "Import PowerDevil Profiles"
 msgid "Switch Power Profile"
 msgstr "പവര്‍ഡെവിള്‍ പ്രൊഫൈലുകള്‍ പുറത്തുനിന്നെടുക്കുക"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:145
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-31 01:40+0000\n"
+"POT-Creation-Date: 2023-11-02 01:40+0000\n"
 "PO-Revision-Date: 2023-10-23 06:19-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -293,54 +293,54 @@ msgctxt ""
 msgid "When sleeping, enter"
 msgstr "ਜਦੋਂ ਸਲੀਪ ਬਟਨ ਦੱਬਿਆ ਜਾਵੇ"
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:53
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE ਪਾਵਰ ਪਰਬੰਧਕ ਸਿਸਟਮ"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "ਪਾਵਰਡਿਵੀਲ ਹੈ, ਇੱਕ ਤਨਕੀਕੀ, ਮੋਡੂਲਰ ਅਤੇ ਹਲਕਾ ਪਾਵਰ ਪਰਬੰਧਕੀ ਡੈਮਨ ਹੈ"
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "ਕੋਈ ਉਵੇ ਬਰੋਉਲਿਕ"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "ਪਰਬੰਧਕ"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "ਡਾਈਰੋ ਫਰਿੱਡੀ"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "ਪੁਰਾਣਾ ਪਰਬੰਧਕ"
 
-#: powerdevilapp.cpp:132
+#: powerdevilapp.cpp:131
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "ਪਾਵਰ ਪਰੋਫਾਈਲ ਬਦਲੋ"
 
-#: powerdevilapp.cpp:147
+#: powerdevilapp.cpp:145
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
