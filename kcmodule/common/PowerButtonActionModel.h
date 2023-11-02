@@ -32,8 +32,8 @@ public:
                            PowerDevil::PowerManagement *pm,
                            std::initializer_list<PowerDevil::PowerButtonAction> actions = {
                                PowerDevil::PowerButtonAction::NoAction,
-                               PowerDevil::PowerButtonAction::SuspendToRam,
-                               PowerDevil::PowerButtonAction::SuspendToDisk,
+                               PowerDevil::PowerButtonAction::Sleep,
+                               PowerDevil::PowerButtonAction::Hibernate,
                                PowerDevil::PowerButtonAction::Shutdown,
                                PowerDevil::PowerButtonAction::PromptLogoutDialog,
                                PowerDevil::PowerButtonAction::LockScreen,

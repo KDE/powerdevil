@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 
     parser.addOption({"mobile", "Assume running on a mobile device (i.e. phones, tablets running Plasma Mobile) instead of regular desktop/laptop."});
     parser.addOption({"vm", "Assume running in a virtual machine environment instead of bare metal."});
-    parser.addOption({"cannot-suspend-to-ram", "Assume that the device does not support suspending to RAM a.k.a. Sleep."});
+    parser.addOption({"cannot-suspend", "Assume that the device does not support suspending to RAM a.k.a. Sleep."});
 
     parser.addHelpOption();
     parser.process(app);
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
     bool assertNoPowerdevilrcAfterMigration = parser.isSet("assert-no-powerdevilrc-after-migration");
     bool isMobile = parser.isSet("mobile");
     bool isVM = parser.isSet("vm");
-    bool canSuspendToRam = !parser.isSet("cannot-suspend-to-ram");
+    bool canSuspend = !parser.isSet("cannot-suspend");
 
     QString src_powerdevilrc_path = parser.value("src-powerdevilrc");
     QString src_profilesrc_path = parser.value("src-profilesrc");
@@ -91,7 +91,7 @@ int main(int argc, char **argv)
             }
         }
 
-        PowerDevil::migrateConfig(isMobile, isVM, canSuspendToRam);
+        PowerDevil::migrateConfig(isMobile, isVM, canSuspend);
 
         if (assertNoPowerdevilrcAfterMigration && QFile::exists(temp_powerdevilrc_path)) {
             qDebug() << "Unexpected powerdevilrc exists after migration.";

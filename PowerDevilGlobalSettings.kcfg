@@ -5,8 +5,8 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="powerdevilrc">
-    <parameter name="CanSuspendToRam" type="Bool"/>
-    <parameter name="CanSuspendToDisk" type="Bool"/>
+    <parameter name="CanSuspend" type="Bool"/>
+    <parameter name="CanHibernate" type="Bool"/>
   </kcfgfile>
 
   <include>powerdevilenums.h</include>
@@ -27,7 +27,7 @@
     </entry>
     <entry name="BatteryCriticalAction" type="UInt">
       <default type="code">
-        PowerDevil::GlobalDefaults::defaultBatteryCriticalAction(mParamCanSuspendToRam, mParamCanSuspendToDisk)
+        PowerDevil::GlobalDefaults::defaultBatteryCriticalAction(mParamCanSuspend, mParamCanHibernate)
       </default>
     </entry>
     <entry name="PeripheralBatteryLowLevel" type="Int">

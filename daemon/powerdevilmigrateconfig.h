@@ -11,6 +11,6 @@
 namespace PowerDevil
 {
 
-void POWERDEVILCORE_EXPORT migrateConfig(bool isMobile, bool isVM, bool canSuspendToRam);
+void POWERDEVILCORE_EXPORT migrateConfig(bool isMobile, bool isVM, bool canSuspend);
 
 } // namespace PowerDevil

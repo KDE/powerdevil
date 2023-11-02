@@ -3,7 +3,7 @@ target_link_libraries(migrateconfig powerdevilcore)
 ecm_mark_as_test(migrateconfig)
 
 function(add_migrateconfig_test)
-    set(options MOBILE VM CANNOT_SUSPEND_TO_RAM ASSERT_NO_POWERDEVILRC_AFTER_MIGRATION)
+    set(options MOBILE VM CANNOT_SUSPEND ASSERT_NO_POWERDEVILRC_AFTER_MIGRATION)
     set(oneValueArgs NAME INPUT_POWERDEVILRC INPUT_PROFILESRC EXPECTED_POWERDEVILRC EXPECTED_PROFILESRC)
     cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "" ${ARGN})
 
@@ -41,8 +41,8 @@ function(add_migrateconfig_test)
     if (ARG_VM)
         set(migrateconfig_args "${helper_args} --vm")
     endif()
-    if (ARG_CANNOT_SUSPEND_TO_RAM)
-        set(migrateconfig_args "${helper_args} --cannot-suspend-to-ram")
+    if (ARG_CANNOT_SUSPEND)
+        set(migrateconfig_args "${helper_args} --cannot-suspend")
     endif()
 
     add_test(

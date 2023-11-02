@@ -12,13 +12,13 @@
 namespace PowerDevil
 {
 
-int GlobalDefaults::defaultBatteryCriticalAction(bool canSuspendToRam, bool canSuspendToDisk)
+int GlobalDefaults::defaultBatteryCriticalAction(bool canSuspend, bool canHibernate)
 {
-    if (!canSuspendToDisk) {
-        return qToUnderlying(canSuspendToRam ? PowerButtonAction::SuspendToRam : PowerButtonAction::NoAction);
+    if (!canHibernate) {
+        return qToUnderlying(canSuspend ? PowerButtonAction::Sleep : PowerButtonAction::NoAction);
     }
 
-    return qToUnderlying(PowerDevil::PowerButtonAction::SuspendToDisk);
+    return qToUnderlying(PowerDevil::PowerButtonAction::Hibernate);
 }
 
 bool ProfileDefaults::defaultUseProfileSpecificDisplayBrightness(const QString &profileGroup)
@@ -84,15 +84,15 @@ bool ProfileDefaults::defaultLockBeforeTurnOffDisplay(bool isMobile)
     return isMobile;
 }
 
-unsigned int ProfileDefaults::defaultAutoSuspendAction(bool isVM, bool canSuspendToRam)
+unsigned int ProfileDefaults::defaultAutoSuspendAction(bool isVM, bool canSuspend)
 {
-    if (!defaultAutoSuspendWhenIdle(isVM, canSuspendToRam)) {
+    if (!defaultAutoSuspendWhenIdle(isVM, canSuspend)) {
         return qToUnderlying(PowerButtonAction::NoAction);
     }
     return defaultAutoSuspendType();
 }
 
-bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam)
+bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool isVM, bool canSuspend)
 {
     // Don't auto suspend by default when running in a virtual machine as it won't save energy anyway
     // and can cause hangs, see bug 473835
@@ -100,7 +100,7 @@ bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam
         return false;
     }
     // Even on AC power, suspend after a rather long period of inactivity. Energy is precious!
-    return canSuspendToRam;
+    return canSuspend;
 }
 
 int ProfileDefaults::defaultAutoSuspendIdleTimeoutSec(const QString &profileGroup, bool isMobile)
@@ -120,7 +120,7 @@ int ProfileDefaults::defaultAutoSuspendIdleTimeoutSec(const QString &profileGrou
 
 unsigned int ProfileDefaults::defaultAutoSuspendType()
 {
-    return qToUnderlying(PowerButtonAction::SuspendToRam);
+    return qToUnderlying(PowerButtonAction::Sleep);
 }
 
 unsigned int ProfileDefaults::defaultPowerButtonAction(bool isMobile)
@@ -133,14 +133,14 @@ unsigned int ProfileDefaults::defaultPowerDownAction()
     return qToUnderlying(PowerButtonAction::PromptLogoutDialog);
 }
 
-unsigned int ProfileDefaults::defaultLidAction(bool isVM, bool canSuspendToRam)
+unsigned int ProfileDefaults::defaultLidAction(bool isVM, bool canSuspend)
 {
     // Don't auto suspend by default when running in a virtual machine as it won't save energy anyway
     // and can cause hangs, see bug 473835
     if (isVM) {
         return qToUnderlying(PowerButtonAction::NoAction);
     }
-    return qToUnderlying(canSuspendToRam ? PowerButtonAction::SuspendToRam : PowerButtonAction::TurnOffScreen);
+    return qToUnderlying(canSuspend ? PowerButtonAction::Sleep : PowerButtonAction::TurnOffScreen);
 }
 
 } // namespace PowerDevil

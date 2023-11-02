@@ -33,22 +33,22 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
         });
         break;
 
-    case PowerDevil::PowerButtonAction::SuspendToRam:
+    case PowerDevil::PowerButtonAction::Sleep:
         if (pm->canSuspend()) {
             m_data.append(Data{
                 .name = i18nc("Suspend to RAM", "Sleep"),
                 .iconName = "system-suspend-symbolic",
-                .value = qToUnderlying(PowerDevil::PowerButtonAction::SuspendToRam),
+                .value = qToUnderlying(PowerDevil::PowerButtonAction::Sleep),
             });
         }
         break;
 
-    case PowerDevil::PowerButtonAction::SuspendToDisk:
+    case PowerDevil::PowerButtonAction::Hibernate:
         if (pm->canHibernate()) {
             m_data.append(Data{
                 .name = i18n("Hibernate"),
                 .iconName = "system-suspend-hibernate-symbolic",
-                .value = qToUnderlying(PowerDevil::PowerButtonAction::SuspendToDisk),
+                .value = qToUnderlying(PowerDevil::PowerButtonAction::Hibernate),
             });
         }
         break;

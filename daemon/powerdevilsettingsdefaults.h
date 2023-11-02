@@ -17,7 +17,7 @@ namespace PowerDevil
 class POWERDEVILCORE_EXPORT GlobalDefaults
 {
 public:
-    static int defaultBatteryCriticalAction(bool canSuspendToRam, bool canSuspendToDisk);
+    static int defaultBatteryCriticalAction(bool canSuspend, bool canHibernate);
 };
 
 class POWERDEVILCORE_EXPORT ProfileDefaults
@@ -33,14 +33,14 @@ public:
     static int defaultTurnOffDisplayIdleTimeoutSec(const QString &profileGroup, bool isMobile);
     static bool defaultLockBeforeTurnOffDisplay(bool isMobile);
 
-    static unsigned int defaultAutoSuspendAction(bool isVM, bool canSuspendToRam);
-    static bool defaultAutoSuspendWhenIdle(bool isVM, bool canSuspendToRam);
+    static unsigned int defaultAutoSuspendAction(bool isVM, bool canSuspend);
+    static bool defaultAutoSuspendWhenIdle(bool isVM, bool canSuspend);
     static int defaultAutoSuspendIdleTimeoutSec(const QString &profileGroup, bool isMobile);
     static unsigned int defaultAutoSuspendType();
 
     static unsigned int defaultPowerButtonAction(bool isMobile);
     static unsigned int defaultPowerDownAction();
-    static unsigned int defaultLidAction(bool isVM, bool canSuspendToRam);
+    static unsigned int defaultLidAction(bool isVM, bool canSuspend);
 };
 
 }

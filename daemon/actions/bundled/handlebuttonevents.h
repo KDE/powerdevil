@@ -45,8 +45,8 @@ private Q_SLOTS:
     void onLidClosedChanged(bool closed);
     void powerOffButtonTriggered();
     void powerDownButtonTriggered();
-    void suspendToRam();
-    void suspendToDisk();
+    void sleep();
+    void hibernate();
 
     void checkOutputs();
 
@@ -61,8 +61,8 @@ private:
 
     PowerDevil::PowerButtonAction m_powerButtonAction = PowerDevil::PowerButtonAction::NoAction;
     PowerDevil::PowerButtonAction m_powerDownButtonAction = PowerDevil::PowerButtonAction::NoAction;
-    PowerDevil::PowerButtonAction m_sleepButtonAction = PowerDevil::PowerButtonAction::SuspendToRam;
-    PowerDevil::PowerButtonAction m_hibernateButtonAction = PowerDevil::PowerButtonAction::SuspendToDisk;
+    PowerDevil::PowerButtonAction m_sleepButtonAction = PowerDevil::PowerButtonAction::Sleep;
+    PowerDevil::PowerButtonAction m_hibernateButtonAction = PowerDevil::PowerButtonAction::Hibernate;
 
     std::optional<int> m_oldKeyboardBrightness;
 };

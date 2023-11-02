@@ -36,7 +36,7 @@ class ProfileConfigData : public KCModuleData
     Q_PROPERTY(QObject *powerProfileModel READ powerProfileModel CONSTANT)
 
 public:
-    explicit ProfileConfigData(const QString &profileId, bool isMobile, bool isVM, bool canSuspendToRam, QObject *parent);
+    explicit ProfileConfigData(const QString &profileId, bool isMobile, bool isVM, bool canSuspend, QObject *parent);
     ~ProfileConfigData() override;
 
     QString profileId() const;

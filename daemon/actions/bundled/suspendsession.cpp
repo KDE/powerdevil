@@ -82,8 +82,8 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     const auto mode = static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt());
 
     switch (mode) {
-    case PowerDevil::PowerButtonAction::SuspendToRam:
-    case PowerDevil::PowerButtonAction::SuspendToDisk:
+    case PowerDevil::PowerButtonAction::Sleep:
+    case PowerDevil::PowerButtonAction::Hibernate:
         // don't suspend if shutting down
         if (QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.kde.Shutdown"))) {
             qCDebug(POWERDEVIL) << "Not suspending because a shutdown is in progress";
@@ -105,7 +105,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 
     // Switch for real action
     switch (static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt())) {
-    case PowerDevil::PowerButtonAction::SuspendToRam: {
+    case PowerDevil::PowerButtonAction::Sleep: {
         Q_EMIT aboutToSuspend();
         auto sleepMode = args.contains("SleepMode") ? static_cast<PowerDevil::SleepMode>(args["SleepMode"].toUInt()) : m_sleepMode;
 
@@ -118,7 +118,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
         }
         break;
     }
-    case PowerDevil::PowerButtonAction::SuspendToDisk: {
+    case PowerDevil::PowerButtonAction::Hibernate: {
         Q_EMIT aboutToSuspend();
         core()->suspendController()->hibernate();
         break;
@@ -164,13 +164,13 @@ bool SuspendSession::loadAction(const PowerDevil::ProfileSettings &profileSettin
 
 void SuspendSession::suspendToDisk()
 {
-    triggerSuspendSession(PowerDevil::PowerButtonAction::SuspendToDisk);
+    triggerSuspendSession(PowerDevil::PowerButtonAction::Hibernate);
 }
 
 void SuspendSession::suspendToRam()
 {
     triggerImpl({
-        {QStringLiteral("Type"), qToUnderlying(PowerDevil::PowerButtonAction::SuspendToRam)},
+        {QStringLiteral("Type"), qToUnderlying(PowerDevil::PowerButtonAction::Sleep)},
         {QStringLiteral("SleepMode"), qToUnderlying(PowerDevil::SleepMode::SuspendToRam)},
     });
 }
@@ -178,7 +178,7 @@ void SuspendSession::suspendToRam()
 void SuspendSession::suspendHybrid()
 {
     triggerImpl({
-        {QStringLiteral("Type"), qToUnderlying(PowerDevil::PowerButtonAction::SuspendToRam)},
+        {QStringLiteral("Type"), qToUnderlying(PowerDevil::PowerButtonAction::Sleep)},
         {QStringLiteral("SleepMode"), qToUnderlying(PowerDevil::SleepMode::HybridSuspend)},
     });
 }

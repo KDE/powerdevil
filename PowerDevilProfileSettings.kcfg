@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC0-1.0
         <parameter name="ProfileId"/>
         <parameter name="IsMobile" type="Bool"/>
         <parameter name="IsVM" type="Bool"/>
-        <parameter name="CanSuspendToRam" type="Bool"/>
+        <parameter name="CanSuspend" type="Bool"/>
     </kcfgfile>
 
     <include>powerdevilenums.h</include>
@@ -74,7 +74,7 @@ SPDX-License-Identifier: CC0-1.0
     <group name="SuspendAndShutdown" parentGroupName="$(ProfileId)">
         <entry name="AutoSuspendAction" type="UInt">
             <default type="code">
-                PowerDevil::ProfileDefaults::defaultAutoSuspendAction(mParamIsVM, mParamCanSuspendToRam)
+                PowerDevil::ProfileDefaults::defaultAutoSuspendAction(mParamIsVM, mParamCanSuspend)
             </default>
         </entry>
         <entry name="AutoSuspendIdleTimeoutSec" type="Int">
@@ -94,7 +94,7 @@ SPDX-License-Identifier: CC0-1.0
         </entry>
         <entry name="LidAction" type="UInt">
             <default type="code">
-                PowerDevil::ProfileDefaults::defaultLidAction(mParamIsVM, mParamCanSuspendToRam)
+                PowerDevil::ProfileDefaults::defaultLidAction(mParamIsVM, mParamCanSuspend)
             </default>
         </entry>
         <entry name="InhibitLidActionWhenExternalMonitorPresent" type="Bool">

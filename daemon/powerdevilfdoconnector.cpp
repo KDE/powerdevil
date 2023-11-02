@@ -66,12 +66,12 @@ bool FdoConnector::GetPowerSaveStatus()
 
 void FdoConnector::Suspend()
 {
-    triggerSuspendSession(PowerButtonAction::SuspendToRam);
+    triggerSuspendSession(PowerButtonAction::Sleep);
 }
 
 void FdoConnector::Hibernate()
 {
-    triggerSuspendSession(PowerButtonAction::SuspendToDisk);
+    triggerSuspendSession(PowerButtonAction::Hibernate);
 }
 
 bool FdoConnector::HasInhibit()

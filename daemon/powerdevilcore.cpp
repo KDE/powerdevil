@@ -99,11 +99,11 @@ void Core::onBackendReady()
 
     const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
     const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
-    const bool canSuspendToRam = m_suspendController->canSuspend();
-    const bool canSuspendToDisk = m_suspendController->canHibernate();
+    const bool canSuspend = m_suspendController->canSuspend();
+    const bool canHibernate = m_suspendController->canHibernate();
 
-    PowerDevil::migrateConfig(isMobile, isVM, canSuspendToRam);
-    m_globalSettings = new PowerDevil::GlobalSettings(canSuspendToRam, canSuspendToDisk, this);
+    PowerDevil::migrateConfig(isMobile, isVM, canSuspend);
+    m_globalSettings = new PowerDevil::GlobalSettings(canSuspend, canHibernate, this);
 
     // Get the battery devices ready
     {
@@ -609,7 +609,7 @@ void Core::handleCriticalBattery(int percent)
         m_criticalBatteryTimer->start();
         break;
     }
-    case PowerButtonAction::SuspendToDisk: {
+    case PowerButtonAction::Hibernate: {
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will enter hibernation mode in 60 seconds."));
         auto action = m_criticalBatteryNotification->addAction(
             i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
@@ -617,7 +617,7 @@ void Core::handleCriticalBattery(int percent)
         m_criticalBatteryTimer->start();
         break;
     }
-    case PowerButtonAction::SuspendToRam: {
+    case PowerButtonAction::Sleep: {
         m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
         auto action =
             m_criticalBatteryNotification->addAction(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));

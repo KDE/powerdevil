@@ -85,8 +85,8 @@ void GeneralPage::fillUi()
                                                               PowerDevil::PowerManagement::instance(),
                                                               {
                                                                   PowerDevil::PowerButtonAction::NoAction,
-                                                                  PowerDevil::PowerButtonAction::SuspendToRam,
-                                                                  PowerDevil::PowerButtonAction::SuspendToDisk,
+                                                                  PowerDevil::PowerButtonAction::Sleep,
+                                                                  PowerDevil::PowerButtonAction::Hibernate,
                                                                   PowerDevil::PowerButtonAction::Shutdown,
                                                               }));
 

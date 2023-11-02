@@ -172,9 +172,9 @@ Kirigami.FormLayout {
 
         visible: count > 1 && (kcm.supportedActions["SuspendSession"] === true || kcm.supportedActions["HandleButtonEvents"] === true)
         enabled: (
-            autoSuspendActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.SuspendToRam
-            || powerButtonActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.SuspendToRam
-            || lidActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.SuspendToRam
+            autoSuspendActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
+            || powerButtonActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
+            || lidActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
         )
         Layout.fillWidth: true
         implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted

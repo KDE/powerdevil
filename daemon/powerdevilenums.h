@@ -21,9 +21,9 @@ Q_CLASSINFO("RegisterEnumClassesUnscoped", "false")
 // passed as flags because it's impossible to specify whether NoAction is or isn't included.
 enum class PowerButtonAction : uint {
     NoAction = 0,
-    SuspendToRam = 1,
-    SuspendToDisk = 2,
-    // Unused = 4, // previously SuspendHybrid - use SuspendToRam + SleepMode::HybridSuspend instead
+    Sleep = 1,
+    Hibernate = 2,
+    // Unused = 4, // previously SuspendHybrid - use Sleep + SleepMode::HybridSuspend instead
     Shutdown = 8,
     PromptLogoutDialog = 16,
     LockScreen = 32,

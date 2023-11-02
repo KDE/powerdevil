@@ -42,16 +42,16 @@ K_PLUGIN_CLASS_WITH_JSON(PowerDevil::ProfilesConfigKCM, "kcm_powerdevilprofilesc
 namespace PowerDevil
 {
 
-ProfileConfigData::ProfileConfigData(const QString &profileId, bool isMobile, bool isVM, bool canSuspendToRam, QObject *parent)
+ProfileConfigData::ProfileConfigData(const QString &profileId, bool isMobile, bool isVM, bool canSuspend, QObject *parent)
     : KCModuleData(parent)
     , m_profileId(profileId)
-    , m_settings(new ProfileSettings(profileId, isMobile, isVM, canSuspendToRam, this))
+    , m_settings(new ProfileSettings(profileId, isMobile, isVM, canSuspend, this))
     , m_autoSuspendActionModel(new PowerButtonActionModel(this,
                                                           PowerManagement::instance(),
                                                           {
                                                               PowerButtonAction::NoAction,
-                                                              PowerButtonAction::SuspendToRam,
-                                                              PowerButtonAction::SuspendToDisk,
+                                                              PowerButtonAction::Sleep,
+                                                              PowerButtonAction::Hibernate,
                                                               PowerButtonAction::Shutdown,
                                                               PowerButtonAction::LockScreen,
                                                           }))
@@ -59,8 +59,8 @@ ProfileConfigData::ProfileConfigData(const QString &profileId, bool isMobile, bo
                                                           PowerManagement::instance(),
                                                           {
                                                               PowerButtonAction::NoAction,
-                                                              PowerButtonAction::SuspendToRam,
-                                                              PowerButtonAction::SuspendToDisk,
+                                                              PowerButtonAction::Sleep,
+                                                              PowerButtonAction::Hibernate,
                                                               PowerButtonAction::Shutdown,
                                                               PowerButtonAction::LockScreen,
                                                               PowerButtonAction::PromptLogoutDialog,
@@ -70,8 +70,8 @@ ProfileConfigData::ProfileConfigData(const QString &profileId, bool isMobile, bo
                                                   PowerManagement::instance(),
                                                   {
                                                       PowerButtonAction::NoAction,
-                                                      PowerButtonAction::SuspendToRam,
-                                                      PowerButtonAction::SuspendToDisk,
+                                                      PowerButtonAction::Sleep,
+                                                      PowerButtonAction::Hibernate,
                                                       PowerButtonAction::Shutdown,
                                                       PowerButtonAction::LockScreen,
                                                       PowerButtonAction::TurnOffScreen,

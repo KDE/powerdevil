@@ -61,7 +61,7 @@ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
     profilesConfig->sync();
 }
 
-void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, bool isVM, bool canSuspendToRam)
+void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, bool isVM, bool canSuspend)
 {
     KConfigGroup migrationGroup = profilesConfig->group("Migration");
     if (migrationGroup.hasKey(QStringLiteral("MigratedProfilesToPlasma6"))) {
@@ -73,7 +73,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         if (!oldProfileGroup.exists()) {
             continue;
         }
-        PowerDevil::ProfileSettings profileSettings(profileName, isMobile, isVM, canSuspendToRam);
+        PowerDevil::ProfileSettings profileSettings(profileName, isMobile, isVM, canSuspend);
 
         auto migrateEntry = [&]<typename T, typename Transformer = IdentityTransformer<T>>(KConfigGroup & oldGroup,
                                                                                            const QString &oldKey,
@@ -132,7 +132,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             migrateEntry(group, "suspendType", &ProfileSettings::setAutoSuspendAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
-                    return qToUnderlying(PowerButtonAction::SuspendToRam);
+                    return qToUnderlying(PowerButtonAction::Sleep);
                 }
                 return oldAction;
             });
@@ -148,21 +148,21 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             migrateEntry(group, "powerButtonAction", &ProfileSettings::setPowerButtonAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
-                    return qToUnderlying(PowerButtonAction::SuspendToRam);
+                    return qToUnderlying(PowerButtonAction::Sleep);
                 }
                 return oldAction;
             });
             migrateEntry(group, "powerDownAction", &ProfileSettings::setPowerDownAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
-                    return qToUnderlying(PowerButtonAction::SuspendToRam);
+                    return qToUnderlying(PowerButtonAction::Sleep);
                 }
                 return oldAction;
             });
             migrateEntry(group, "lidAction", &ProfileSettings::setLidAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
-                    return qToUnderlying(PowerButtonAction::SuspendToRam);
+                    return qToUnderlying(PowerButtonAction::Sleep);
                 }
                 return oldAction;
             });
@@ -212,19 +212,19 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
     profilesConfig->sync();
 }
 
-void migrateConfig(bool isMobile, bool isVM, bool canSuspendToRam)
+void migrateConfig(bool isMobile, bool isVM, bool canSuspend)
 {
     KSharedConfig::Ptr profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"));
     // TODO KF7 (or perhaps earlier): Remove Plasma 5->6 migration code and delete powermanagementprofilesrc
 
     migrateActivitiesConfig(profilesConfig);
-    migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspendToRam);
+    migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspend);
 
 #if POWERDEVIL_VERSION < QT_VERSION_CHECK(6, 0, 0)
     KSharedConfig::Ptr globalConfig = KSharedConfig::openConfig(QStringLiteral("powerdevilrc"));
     KConfigGroup batteryManagementGroup = globalConfig->group("BatteryManagement");
     if (batteryManagementGroup.readEntry("BatteryCriticalAction", 0) == 4 /* the old PowerButtonAction::SuspendHybrid */) {
-        batteryManagementGroup.writeEntry("BatteryCriticalAction", qToUnderlying(PowerButtonAction::SuspendToDisk));
+        batteryManagementGroup.writeEntry("BatteryCriticalAction", qToUnderlying(PowerButtonAction::Hibernate));
         globalConfig->sync();
     }
 #endif
