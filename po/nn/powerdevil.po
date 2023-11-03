@@ -540,12 +540,3 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
-
-#~ msgid "Hybrid sleep"
-#~ msgstr "Gå i hybrid kvilemodus"
-
-#~ msgid "On Profile Load"
-#~ msgstr "Når ein profil vert lasta inn"
-
-#~ msgid "On Profile Unload"
-#~ msgstr "Når ein profil vert fjerna"

@@ -519,9 +519,3 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
-
-#~ msgid "On Profile Load"
-#~ msgstr "Når en profil lastes"
-
-#~ msgid "On Profile Unload"
-#~ msgstr "Når en profil fjernes"
