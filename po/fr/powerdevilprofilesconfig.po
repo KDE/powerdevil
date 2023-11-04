@@ -5,7 +5,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2009.
 # Ludovic Grossard <grossard@kde.org>, 2012.
 # xavier <ktranslator31@yahoo.fr>, 2013.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2020.
+# SPDX-FileCopyrightText: 2020, 2023 Xavier Besnard <xavier.besnard@neuf.fr>
 #
 msgid ""
 msgstr ""
@@ -14,15 +14,15 @@ msgstr ""
 "POT-Creation-Date: 2023-09-07 02:25+0000\n"
 "PO-Revision-Date: 2020-07-07 20:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-i18n-doc@kde.org>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
