@@ -53,16 +53,6 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
         }
         break;
 
-    case PowerDevil::PowerButtonAction::SuspendHybrid: // FIXME: deprecated, ideally we should do without this one
-        if (pm->canHybridSuspend()) {
-            m_data.append(Data{
-                .name = i18n("Hybrid sleep"),
-                .iconName = "system-suspend-hybrid-symbolic",
-                .value = qToUnderlying(PowerDevil::PowerButtonAction::SuspendHybrid),
-            });
-        }
-        break;
-
     case PowerDevil::PowerButtonAction::Shutdown:
         m_data.append(Data{
             .name = i18nc("Power down the computer", "Shut down"),

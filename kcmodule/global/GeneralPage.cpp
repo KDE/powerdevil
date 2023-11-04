@@ -87,7 +87,6 @@ void GeneralPage::fillUi()
                                                                   PowerDevil::PowerButtonAction::NoAction,
                                                                   PowerDevil::PowerButtonAction::SuspendToRam,
                                                                   PowerDevil::PowerButtonAction::SuspendToDisk,
-                                                                  PowerDevil::PowerButtonAction::SuspendHybrid,
                                                                   PowerDevil::PowerButtonAction::Shutdown,
                                                               }));
 
