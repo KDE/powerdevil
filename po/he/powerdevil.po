@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2023-11-02 07:41+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -361,7 +361,7 @@ msgstr "מדיניויות הפעילות הזו מונעות את ניהול צ
 msgid "Extra Battery Added"
 msgstr "נוספה סוללה נוספת"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "המחשב לא יישן עוד."
@@ -423,32 +423,32 @@ msgstr "נא לוודא שהמטען מחובר ומספק מספיק חשמל."
 msgid "Plug in the computer."
 msgstr "לחבר את המחשב."
 
-#: powerdevilcore.cpp:603
-#, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "ביטול"
+#: powerdevilcore.cpp:605
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr "מצב הסוללה קריטי, המחשב יכנס להשהייה לזכרון בעוד 60 שניות."
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "The computer will shut down in 60 seconds."
-msgstr "המחשב ייכבה תוך 60 שניות."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "לכבות כעת"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid "The computer will hibernate in 60 seconds."
-msgstr "המחשב יירדם תוך 60 שניות."
+#: powerdevilcore.cpp:613
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr "מצב הסוללה קריטי, המחשב יכנס להשהייה לזכרון בעוד 60 שניות."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -456,67 +456,87 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "להרדים כעת"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "The computer will sleep in 60 seconds."
-msgstr "המחשב יישן תוך 60 שניות."
+#: powerdevilcore.cpp:622
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr "מצב הסוללה קריטי, המחשב יכנס להשהייה לזכרון בעוד 60 שניות."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "לישון כעת"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr "נא לשמור את העבודה שלך."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "ביטול"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "עוצמת הסוללה נמוכה (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "עוצמת הסוללה במצב קריטי (נותרו %1% אחוז)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "המטען מחובר"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "פועל על מטען"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "המטען חובר."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "פועל על סוללה"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "המטען נותק."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "הטעינה הושלמה"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "הסוללה טעונה במלואה כעת."
+
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "המחשב ייכבה תוך 60 שניות."
+
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "המחשב יירדם תוך 60 שניות."
+
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "המחשב יישן תוך 60 שניות."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "לישון לסירוגין"
@@ -619,11 +639,6 @@ msgstr "הסוללה טעונה במלואה כעת."
 #~ msgstr ""
 #~ "הסוללה בהתקן שלך (\"%1\") נמוכה, ואולי הוא יכבה את עצמו בכל רגע. אנא החלף "
 #~ "סוללות או הטען אותו בהקדם האפשרי"
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended in 60 "
-#~ "seconds."
-#~ msgstr "מצב הסוללה קריטי, המחשב יכנס להשהייה לזכרון בעוד 60 שניות."
 
 #~ msgid "Suspend"
 #~ msgstr "השהיה לזכרון"

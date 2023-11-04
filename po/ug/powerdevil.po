@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -383,7 +383,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
@@ -441,24 +441,17 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
-#, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr ""
-
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:605
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "The computer will shut down in 60 seconds."
+#| "Your battery level is critical, the computer will be suspended in 30 "
+#| "seconds."
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-"سېكۇنت ئىچىدە توختايدۇ."
+"سېكۇنت ئىچىدە توڭلىتىلىدۇ."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -466,17 +459,19 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "تاقا"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:613
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
+#| "Your battery level is critical, the computer will be suspended in 30 "
 #| "seconds."
-msgid "The computer will hibernate in 60 seconds."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
 msgstr ""
 "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-"سېكۇنت ئىچىدە ئۈچەككە كىرىدۇ."
+"سېكۇنت ئىچىدە توڭلىتىلىدۇ."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -485,16 +480,17 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "ئۈچەك"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "The computer will sleep in 60 seconds."
+#| "Your battery level is critical, the computer will be suspended in 30 "
+#| "seconds."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-"سېكۇنت ئىچىدە توختايدۇ."
+"سېكۇنت ئىچىدە توڭلىتىلىدۇ."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -502,57 +498,92 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "ئۇخلات"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr ""
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr ""
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى چېتىلدى."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr ""
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى ئاجرىتىۋېتىلدى."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
+#~ "سېكۇنت ئىچىدە توختايدۇ."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be hibernated in 30 "
+#~| "seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr ""
+#~ "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
+#~ "سېكۇنت ئىچىدە ئۈچەككە كىرىدۇ."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr ""
+#~ "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
+#~ "سېكۇنت ئىچىدە توختايدۇ."
 
 #~ msgid "On Profile Load"
 #~ msgstr "سەپلىمە ھۆججەت يۈكلەنگەندە"
@@ -614,17 +645,6 @@ msgstr ""
 #~ msgstr ""
 #~ "KDE مەنبە باشقۇرۇش سىستېمىسىنى دەسلەپلەشتۈرگىلى بولمىدى. ئارقائۇچ "
 #~ "تۆۋەندىكى خاتالىقنى مەلۇم قىلدى: %1"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be suspended in 30 "
-#~| "seconds."
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
-#~ "سېكۇنت ئىچىدە توڭلىتىلىدۇ."
 
 #~ msgctxt "@action:inmenu Global shortcut"
 #~ msgid "Sleep"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2023-10-20 03:19+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -367,7 +367,7 @@ msgstr "此活動的政策是避免使用螢幕電源管理"
 msgid "Extra Battery Added"
 msgstr "新增額外電池"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "電腦將無法進入睡眠模式。"
@@ -426,32 +426,28 @@ msgstr "請插入市電並確保它提供足夠電力。"
 msgid "Plug in the computer."
 msgstr "請為電腦插上市電電源。"
 
-#: powerdevilcore.cpp:603
-#, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "取消"
-
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "The computer will shut down in 60 seconds."
+#: powerdevilcore.cpp:605
+#, fuzzy, kde-format
+#| msgid "The computer will shut down in 60 seconds."
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "電腦將在 60 秒內關機。"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "現在關機"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid "The computer will hibernate in 60 seconds."
+#: powerdevilcore.cpp:613
+#, fuzzy, kde-format
+#| msgid "The computer will hibernate in 60 seconds."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
 msgstr "電腦將在 60 秒內進入休眠。"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -459,64 +455,73 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "現在休眠"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "The computer will sleep in 60 seconds."
+#: powerdevilcore.cpp:622
+#, fuzzy, kde-format
+#| msgid "The computer will sleep in 60 seconds."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "電腦將在 60 秒內進入睡眠。"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "現在睡眠"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr "請儲存您的作業。"
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "取消"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "電池電力偏低（剩 %1%）"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "電池電力嚴重不足（剩 %1%）"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "當市電電源已插上時"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "接市電電源"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "已插入市電電源。"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "使用電池電力"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "已拔除市電電源。"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "充電完成"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "電池已充飽。"

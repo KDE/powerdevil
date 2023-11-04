@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2021-07-26 12:52+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian\n"
@@ -372,7 +372,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Acumulator suplimentar adăugat"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Calculatorul nu va mai adormi."
@@ -443,22 +443,14 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
 #, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Anulează"
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Nivelul acumulatorului e critic. Calculatorul va fi deconectat în 60 de "
+"secunde."
 
-#: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
-msgid "The computer will shut down in 60 seconds."
-msgstr "Calculatorul va fi trecut în starea de veghe în 1 secundă."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -466,14 +458,16 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Oprește"
 
-#: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will hibernate in 60 seconds."
-msgstr "Calculatorul va fi suspendat în RAM în 1 secundă."
+#: powerdevilcore.cpp:613
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Nivelul acumulatorului e critic. Calculatorul va intra în regim de hibernare "
+"în 60 de secunde."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -482,14 +476,13 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernează"
 
-#: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will sleep in 60 seconds."
-msgstr "Calculatorul va fi suspendat în RAM în 1 secundă."
+#: powerdevilcore.cpp:622
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Nivelul acumulatorului e critic. Calculatorul va adormi în 60 de secunde."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -498,56 +491,82 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Adormire"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "Nivelul acumulatorului e critic. Salvați-vă lucrul."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Anulează"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut (%1% rămas)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Acumulator critic (%1% rămas)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptorul de alimentare este atașat"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Rulează alimentat de la priză"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Adaptorul de alimentare a fost atașat."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Rulează alimentat de la acumulator"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Adaptorul de alimentare a fost detașat."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Încărcare încheiată"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Acumulatorul este complet încărcat."
+
+#, fuzzy
+#~| msgid "The computer will be put into standby in 1 second."
+#~| msgid_plural "The computer will be put into standby in %1 seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "Calculatorul va fi trecut în starea de veghe în 1 secundă."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "Calculatorul va fi suspendat în RAM în 1 secundă."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "Calculatorul va fi suspendat în RAM în 1 secundă."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Somn hibrid"
@@ -567,23 +586,6 @@ msgstr "Acumulatorul este complet încărcat."
 #~ msgstr ""
 #~ "Acumulatorul e scăzut. Pentru a continua utilizarea calculatorului, "
 #~ "conectați-l la priză sau deconectați-l și schimbați acumulatorul."
-
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Nivelul acumulatorului e critic. Calculatorul va fi deconectat în 60 de "
-#~ "secunde."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Nivelul acumulatorului e critic. Calculatorul va intra în regim de "
-#~ "hibernare în 60 de secunde."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr ""
-#~ "Nivelul acumulatorului e critic. Calculatorul va adormi în 60 de secunde."
 
 #~ msgid "Turn off"
 #~ msgstr "Deconectează"

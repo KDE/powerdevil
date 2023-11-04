@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2023-11-01 22:48+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Batería adicional añadida"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "El equipo ya no entrará en reposo."
@@ -428,32 +428,34 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr "Conecte el equipo."
 
-#: powerdevilcore.cpp:603
-#, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Cancelar"
+#: powerdevilcore.cpp:605
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"El nivel de batería es crítico: el equipo se suspenderá en 60 segundos."
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "The computer will shut down in 60 seconds."
-msgstr "El equipo se apagará en 60 segundos."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Apagar ahora"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid "The computer will hibernate in 60 seconds."
-msgstr "El equipo entrará en hibernación en 60 segundos."
+#: powerdevilcore.cpp:613
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"El nivel de batería es crítico: el equipo se suspenderá en 60 segundos."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -461,67 +463,88 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernar ahora"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "The computer will sleep in 60 seconds."
-msgstr "El equipo entrará en reposo en 60 segundos."
+#: powerdevilcore.cpp:622
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"El nivel de batería es crítico: el equipo se suspenderá en 60 segundos."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Entrar en reposo ahora"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr "Por favor, guarde su trabajo."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batería baja (queda el %1%)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batería en estado crítico (queda el %1%)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptador AC conectado"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Funcionando con energía AC"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Se ha conectado el adaptador de alimentación de energía."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Funcionando con batería"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Se ha desconectado el adaptador de alimentación de energía."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Carga completa"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batería está completamente cargada."
+
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "El equipo se apagará en 60 segundos."
+
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "El equipo entrará en hibernación en 60 segundos."
+
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "El equipo entrará en reposo en 60 segundos."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Reposo híbrido"
@@ -612,12 +635,6 @@ msgstr "La batería está completamente cargada."
 #~ "La batería de un dispositivo conectado («%1») está baja y el dispositivo "
 #~ "se puede apagar por sí mismo en cualquier momento. Por favor, sustituya o "
 #~ "cargue la batería tan pronto como le sea posible."
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "El nivel de batería es crítico: el equipo se suspenderá en 60 segundos."
 
 #~ msgid "Hybrid suspend"
 #~ msgstr "Suspensión híbrida"

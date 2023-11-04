@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2009-12-28 19:26+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -378,7 +378,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "දරුණු ලෙස පහළ බැටරි මට්ටම"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
@@ -438,7 +438,65 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be halted in 1 second."
+#| msgid_plural ""
+#| "Your battery level is critical, the computer will be halted in %1 seconds."
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+
+#: powerdevilcore.cpp:607
+#, fuzzy, kde-format
+#| msgid "Shutdown"
+msgctxt ""
+"@action:button Shut down without waiting for the battery critical timer"
+msgid "Shut Down Now"
+msgstr "වසාදමන්න"
+
+#: powerdevilcore.cpp:613
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be halted in 1 second."
+#| msgid_plural ""
+#| "Your battery level is critical, the computer will be halted in %1 seconds."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+
+#: powerdevilcore.cpp:615
+#, kde-format
+msgctxt ""
+"@action:button Enter hibernation mode without waiting for the battery "
+"critical timer"
+msgid "Hibernate Now"
+msgstr ""
+
+#: powerdevilcore.cpp:622
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be halted in 1 second."
+#| msgid_plural ""
+#| "Your battery level is critical, the computer will be halted in %1 seconds."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
+
+#: powerdevilcore.cpp:624
+#, kde-format
+msgctxt ""
+"@action:button Suspend to ram without waiting for the battery critical timer"
+msgid "Sleep Now"
+msgstr ""
+
+#: powerdevilcore.cpp:630
+#, fuzzy, kde-format
+#| msgid "Your battery level is critical: save your work as soon as possible."
+msgid "Please save your work."
+msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: හැකි ඉක්මනින් ඔබේ කටයුතු සුරකින්න."
+
+#: powerdevilcore.cpp:636
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -448,104 +506,72 @@ msgctxt ""
 msgid "Cancel"
 msgstr "අහෝසි කරන්න"
 
-#: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
-msgid "The computer will shut down in 60 seconds."
-msgstr "පරිගණකය තත්පර 1 කදී පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-
-#: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgctxt ""
-"@action:button Shut down without waiting for the battery critical timer"
-msgid "Shut Down Now"
-msgstr "වසාදමන්න"
-
-#: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will hibernate in 60 seconds."
-msgstr "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-
-#: powerdevilcore.cpp:622
-#, kde-format
-msgctxt ""
-"@action:button Enter hibernation mode without waiting for the battery "
-"critical timer"
-msgid "Hibernate Now"
-msgstr ""
-
-#: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will sleep in 60 seconds."
-msgstr "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
-
-#: powerdevilcore.cpp:629
-#, kde-format
-msgctxt ""
-"@action:button Suspend to ram without waiting for the battery critical timer"
-msgid "Sleep Now"
-msgstr ""
-
-#: powerdevilcore.cpp:634
-#, fuzzy, kde-format
-#| msgid "Your battery level is critical: save your work as soon as possible."
-msgid "Please save your work."
-msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: හැකි ඉක්මනින් ඔබේ කටයුතු සුරකින්න."
-
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "AC ඇඩැප්ටරය සවිකර ඇතිවිට"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "විදුලි ඇඩැප්ටරය සවි කර ඇත."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, fuzzy, kde-format
 #| msgid "When on battery power"
 msgid "Running on Battery Power"
 msgstr "බැටරි බලයේ පවතින විට"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "විදුලි ඇඩැප්ටරය ගලවා ඇත."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid "The computer will be put into standby in 1 second."
+#~| msgid_plural "The computer will be put into standby in %1 seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "පරිගණකය තත්පර 1 කදී පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "පරිගණකය තත්පර 1 කදී RAM වෙත පොරොත්තු ප්‍රකාරයට වැටෙනු ඇත."
 
 #, fuzzy
 #~| msgid "New Profile"
@@ -556,36 +582,6 @@ msgstr ""
 #~| msgid "Supported suspend methods"
 #~ msgid "Unsupported suspend method"
 #~ msgstr "සහාය දක්වන අත්හිටවුම් ක්‍රම"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 1 second."
-#~| msgid_plural ""
-#~| "Your battery level is critical, the computer will be halted in %1 "
-#~| "seconds."
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 1 second."
-#~| msgid_plural ""
-#~| "Your battery level is critical, the computer will be halted in %1 "
-#~| "seconds."
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 1 second."
-#~| msgid_plural ""
-#~| "Your battery level is critical, the computer will be halted in %1 "
-#~| "seconds."
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr "ඔබේ බැටරි මට්ටම අවදානම් ලෙස පහළයි: පරිගණකය තත්පර 1 කදී නැවතෙනු ඇත."
 
 #, fuzzy
 #~| msgid "Turn Off Screen"

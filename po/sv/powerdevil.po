@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2022-09-24 15:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -370,7 +370,7 @@ msgstr "Aktivitetens policy förhindrar att strömsparhantering av bildskärmen"
 msgid "Extra Battery Added"
 msgstr "Extrabatteri tillagt"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Datorn kommer inte längre gå till viloläge."
@@ -437,22 +437,12 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
 #, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Avbryt"
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr "Batterinivå kritisk. Datorn kommer att stängas av om 60 sekunder."
 
-#: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
-msgid "The computer will shut down in 60 seconds."
-msgstr "Datorn kommer att gå till vänteläge om 1 sekund."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -460,14 +450,14 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Stäng av"
 
-#: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will hibernate in 60 seconds."
-msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
+#: powerdevilcore.cpp:613
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr "Batterinivå kritisk. Datorn kommer att gå i dvala av om 60 sekunder."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -476,14 +466,13 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Dvala"
 
-#: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will sleep in 60 seconds."
-msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
+#: powerdevilcore.cpp:622
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Batterinivå kritisk. Datorn kommer att gå till viloläge om 60 sekunder."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -492,56 +481,82 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Viloläge"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "Batterinivå kritisk. Spara ditt arbete."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Dåligt batteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritiskt batteri (%1 % återstår)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Nätadapter inkopplad"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Använder nätström"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Nätadaptern har kopplats in."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Använder batteriström"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Nätadaptern har kopplats bort."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laddning klar"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet är nu fulladdat."
+
+#, fuzzy
+#~| msgid "The computer will be put into standby in 1 second."
+#~| msgid_plural "The computer will be put into standby in %1 seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "Datorn kommer att gå till vänteläge om 1 sekund."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hybridviloläge"
@@ -561,20 +576,6 @@ msgstr "Batteriet är nu fulladdat."
 #~ msgstr ""
 #~ "Batteriet har nått låg nivå. För att fortsätta använda datorn, koppla "
 #~ "antingen in den, eller stäng av den och ladda batteriet."
-
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr "Batterinivå kritisk. Datorn kommer att stängas av om 60 sekunder."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Batterinivå kritisk. Datorn kommer att gå i dvala av om 60 sekunder."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr ""
-#~ "Batterinivå kritisk. Datorn kommer att gå till viloläge om 60 sekunder."
 
 #~ msgid "Turn off"
 #~ msgstr "Stäng av"

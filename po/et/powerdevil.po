@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2020-04-26 10:46+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -373,7 +373,7 @@ msgstr "Tegevuste reeglid takistavad ekraani toitehaldust"
 msgid "Extra Battery Added"
 msgstr "Lisati lisaaku"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Arvuti enam magama ei lähe."
@@ -444,22 +444,14 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
 #, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Loobu"
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Aku laetus on jõudnud kriitilisele tasemele, arvuti töö peatatakse 60 "
+"sekundi pärast."
 
-#: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
-msgid "The computer will shut down in 60 seconds."
-msgstr "Arvuti pannakse ooterežiimi 1 sekundi pärast."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -467,14 +459,16 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Seiskamine"
 
-#: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will hibernate in 60 seconds."
-msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
+#: powerdevilcore.cpp:613
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Aku laetus on jõudnud kriitilisele tasemele, arvuti viiakse talveunne 60 "
+"sekundi pärast."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -483,14 +477,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Talveuni"
 
-#: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will sleep in 60 seconds."
-msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
+#: powerdevilcore.cpp:622
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Aku laetus on jõudnud kriitilisele tasemele, arvuti pannakse magama 60 "
+"sekundi pärast."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -499,7 +493,7 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Uni"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
@@ -507,50 +501,76 @@ msgstr ""
 "Aku laetus on jõudnud kriitilisele tasemele, salvesta oma töö nii kiiresti "
 "kui võimalik."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Loobu"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Aku kriitiline tase (%1% alles)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC adapter on ühendatud"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Vooluvõrgust töötav arvuti"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Arvuti ühendati elektrivõrku."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Aku peal töötav arvuti"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Arvuti lahutati elektrivõrgust."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laadimine on tehtud"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku on nüüd täielikult laetud."
+
+#, fuzzy
+#~| msgid "The computer will be put into standby in 1 second."
+#~| msgid_plural "The computer will be put into standby in %1 seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "Arvuti pannakse ooterežiimi 1 sekundi pärast."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "Arvuti pannakse passiivseisundisse mälus 1 sekundi pärast."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hübriiduni"
@@ -570,24 +590,6 @@ msgstr "Aku on nüüd täielikult laetud."
 #~ msgstr ""
 #~ "Aku tase on madal. Kui soovid arvutit edasi kasutada, ühenda see "
 #~ "vooluvõrku või sulge arvuti ja vaheta aku välja."
-
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Aku laetus on jõudnud kriitilisele tasemele, arvuti töö peatatakse 60 "
-#~ "sekundi pärast."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Aku laetus on jõudnud kriitilisele tasemele, arvuti viiakse talveunne 60 "
-#~ "sekundi pärast."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr ""
-#~ "Aku laetus on jõudnud kriitilisele tasemele, arvuti pannakse magama 60 "
-#~ "sekundi pärast."
 
 #~ msgid "Turn off"
 #~ msgstr "Väljalülitamine"

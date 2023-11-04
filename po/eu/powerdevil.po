@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2023-10-30 23:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -365,7 +365,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Bateria gehigarria erantsi da"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Konputagailuak ez da aurrerantzean lokartuko."
@@ -429,32 +429,27 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr "Entxufatu ordenagailua."
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
 #, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Utzi"
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr "Bateria maila larria. Zure ordenagailua 60 segundo barru itzaliko da."
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "The computer will shut down in 60 seconds."
-msgstr "Ordenagailua 60 segundo barru itzaliko da."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Itzali orain"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:613
 #, kde-format
-msgid "The computer will hibernate in 60 seconds."
-msgstr "Ordenagailua 60 segundo barru hibernatuko da."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Bateria maila larria. Zure ordenagailua 60 segundo barru hibernatuko da."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -462,67 +457,85 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernatu orain"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:622
 #, kde-format
-msgid "The computer will sleep in 60 seconds."
-msgstr "Ordenagailua 60 segundo barru lokartuko da."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Bateria maila larria. Zure ordenagailuak 60 segundo barru lokartuko da."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Egin lo orain"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr "Mesedez, gorde zure lana."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria eskas dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria larri dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Korronte alternoko egokigailua konektatuta"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Korronte alternoarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Elikagailua entxufatu egin da."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Bateria-energiarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Elikagailua desentxufatu egin da."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Zamatzea osatu da"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Bateria erabat zamatuta dago orain."
+
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "Ordenagailua 60 segundo barru itzaliko da."
+
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "Ordenagailua 60 segundo barru hibernatuko da."
+
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "Ordenagailua 60 segundo barru lokartuko da."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Lokartze hibridoa"
@@ -542,21 +555,6 @@ msgstr "Bateria erabat zamatuta dago orain."
 #~ msgstr ""
 #~ "Zure bateria husten ari da - zure ordenagailua erabiltzen jarraitzeko, "
 #~ "entxufatu edo itzali eta bateria zamatu ezazu."
-
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Bateria maila larria. Zure ordenagailua 60 segundo barru itzaliko da."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Bateria maila larria. Zure ordenagailua 60 segundo barru hibernatuko da."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr ""
-#~ "Bateria maila larria. Zure ordenagailuak 60 segundo barru lokartuko da."
 
 #~ msgid "Turn off"
 #~ msgstr "Itzali"

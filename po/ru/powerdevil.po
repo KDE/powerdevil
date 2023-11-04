@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2022-12-23 10:04+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -383,7 +383,7 @@ msgstr "Политики этих комнат препятствуют упра
 msgid "Extra Battery Added"
 msgstr "Подключена дополнительная батарея"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Компьютер более будет переходить в режим ожидания."
@@ -452,41 +452,30 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
 #, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Отменить"
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Уровень заряда батареи критический. Компьютер будет выключен через 60 секунд."
 
-# shutdown-method
-#: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
-msgid "The computer will shut down in 60 seconds."
-msgstr "Компьютер будет переведён в режим остановки через %1 секунду."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Выключить"
 
-# shutdown-method
-#: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will hibernate in 60 seconds."
+#: powerdevilcore.cpp:613
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
 msgstr ""
-"Компьютер будет переведён в ждущий режим (с сохранением состояния в ОЗУ) "
-"через %1 секунду."
+"Уровень заряда батареи критический. Компьютер будет переведён в спящий режим "
+"через 60 секунд."
 
 # shutdown-method --aspotashev
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -494,25 +483,22 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Спящий режим"
 
-# shutdown-method
-#: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will sleep in 60 seconds."
+#: powerdevilcore.cpp:622
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"Компьютер будет переведён в ждущий режим (с сохранением состояния в ОЗУ) "
-"через %1 секунду."
+"Уровень заряда батареи критический. Компьютер будет переведён в ждущий режим "
+"через 60 секунд."
 
 # shutdown-method --aspotashev
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Ждущий режим"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
@@ -520,50 +506,83 @@ msgstr ""
 "Уровень заряда батареи критический. Сохраните результаты своей работы как "
 "можно быстрее."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Отменить"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи (осталось %1%)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Критический уровень заряда батареи (осталось %1%)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Сетевой адаптер подключён"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Работа от сети"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Блок питания подключён к электрической сети."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Работа от батареи"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Блок питания отключён от электрической сети."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Батарея полностью заряжена"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарея теперь полностью заряжена"
+
+# shutdown-method
+#, fuzzy
+#~| msgid "The computer will be put into standby in 1 second."
+#~| msgid_plural "The computer will be put into standby in %1 seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "Компьютер будет переведён в режим остановки через %1 секунду."
+
+# shutdown-method
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr ""
+#~ "Компьютер будет переведён в ждущий режим (с сохранением состояния в ОЗУ) "
+#~ "через %1 секунду."
+
+# shutdown-method
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr ""
+#~ "Компьютер будет переведён в ждущий режим (с сохранением состояния в ОЗУ) "
+#~ "через %1 секунду."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Перейти в гибридный спящий режим"
@@ -585,24 +604,6 @@ msgstr "Батарея теперь полностью заряжена"
 #~ "Батарея почти разряжена. Если вы хотите продолжать работать с этим "
 #~ "компьютером, либо включите его в сеть, либо выключите его и замените "
 #~ "батарею."
-
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Уровень заряда батареи критический. Компьютер будет выключен через 60 "
-#~ "секунд."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Уровень заряда батареи критический. Компьютер будет переведён в спящий "
-#~ "режим через 60 секунд."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr ""
-#~ "Уровень заряда батареи критический. Компьютер будет переведён в ждущий "
-#~ "режим через 60 секунд."
 
 #~ msgid "Turn off"
 #~ msgstr "Выключить"

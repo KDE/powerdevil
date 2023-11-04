@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2023-08-13 16:38+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -370,7 +370,7 @@ msgstr "Die Richtlinien dieser Aktivität verhindern die Bildschirmverwaltung."
 msgid "Extra Battery Added"
 msgstr "Zusätzlicher Akku hinzugefügt"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Der Rechner wird nicht mehr in den Standby-Modus versetzt."
@@ -439,36 +439,30 @@ msgstr ""
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:603
+#: powerdevilcore.cpp:605
 #, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "Abbrechen"
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht. Der Rechner "
+"wird in 60 Sekunden heruntergefahren."
 
-#: powerdevilcore.cpp:615
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
-msgid "The computer will shut down in 60 seconds."
-msgstr "Der Rechner wird in 1 Sekunde in den Bereitschaftsmodus versetzt."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Jetzt herunterfahren"
 
-#: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will hibernate in 60 seconds."
-msgstr "Der Rechner wird in 1 Sekunde in den Ruhezustand versetzt."
+#: powerdevilcore.cpp:613
+#, kde-format
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht. Der Rechner "
+"wird in 60 Sekunden in den Ruhezustand versetzt."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -476,21 +470,21 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Jetzt in den Ruhezustand wechseln"
 
-#: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-msgid "The computer will sleep in 60 seconds."
-msgstr "Der Rechner wird in 1 Sekunde in den Ruhezustand versetzt."
+#: powerdevilcore.cpp:622
+#, kde-format
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht. Der Rechner "
+"wird in 60 Sekunden in den Standby-Modus versetzt."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Jetzt in den Standby-Modus wechseln"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
@@ -498,50 +492,76 @@ msgstr ""
 "Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht, bitte "
 "speichern Sie Ihre Daten."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Akku-Ladestand niedrig (%1 % geladen)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Akku-Ladestand kritisch (%1 % verbleibend)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Netzkabel angeschlossen"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Rechner läuft mit Netzteil"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Das Netzkabel ist angeschlossen worden."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Rechner läuft mit Akku"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Das Netzkabel ist vom Rechner getrennt worden."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Vollständig geladen"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Der Akku ist nun vollständig geladen."
+
+#, fuzzy
+#~| msgid "The computer will be put into standby in 1 second."
+#~| msgid_plural "The computer will be put into standby in %1 seconds."
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "Der Rechner wird in 1 Sekunde in den Bereitschaftsmodus versetzt."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "Der Rechner wird in 1 Sekunde in den Ruhezustand versetzt."
+
+#, fuzzy
+#~| msgid "The computer will be suspended to RAM in 1 second."
+#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "Der Rechner wird in 1 Sekunde in den Ruhezustand versetzt."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hybrider Standby-Modus"
@@ -562,24 +582,6 @@ msgstr "Der Akku ist nun vollständig geladen."
 #~ "Der Ladestatus Ihres Akkus ist niedrig. Möchten Sie den Rechner weiter "
 #~ "verwenden, schließen Sie entweder das Netzteil an oder fahren Sie ihn "
 #~ "herunter und wechseln Sie den Akku."
-
-#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht. Der Rechner "
-#~ "wird in 60 Sekunden heruntergefahren."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht. Der Rechner "
-#~ "wird in 60 Sekunden in den Ruhezustand versetzt."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgstr ""
-#~ "Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht. Der Rechner "
-#~ "wird in 60 Sekunden in den Standby-Modus versetzt."
 
 #~ msgid "Turn off"
 #~ msgstr "Ausschalten"

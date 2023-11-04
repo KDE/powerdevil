@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-02 01:40+0000\n"
+"POT-Creation-Date: 2023-11-04 16:53+0000\n"
 "PO-Revision-Date: 2023-10-08 23:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -361,7 +361,7 @@ msgstr "이 활동 정책으로 인하여 화면 전원 관리를 사용할 수 
 msgid "Extra Battery Added"
 msgstr "여분의 배터리 추가됨"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:674
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
@@ -423,32 +423,34 @@ msgstr "어댑터가 연결되어 있고 충분한 전력 공급이 가능한지
 msgid "Plug in the computer."
 msgstr "컴퓨터를 전원에 연결하십시오."
 
-#: powerdevilcore.cpp:603
-#, kde-format
-msgctxt ""
-"Cancel timeout that will automatically put system to sleep because of low "
-"battery"
-msgid "Cancel"
-msgstr "취소"
+#: powerdevilcore.cpp:605
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgstr ""
+"배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
 
-#: powerdevilcore.cpp:615
-#, kde-format
-msgid "The computer will shut down in 60 seconds."
-msgstr "컴퓨터가 60초 후에 종료됩니다."
-
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:607
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "지금 컴퓨터 끄기"
 
-#: powerdevilcore.cpp:621
-#, kde-format
-msgid "The computer will hibernate in 60 seconds."
-msgstr "컴퓨터가 60초 후에 최대 절전 모드로 진입합니다."
+#: powerdevilcore.cpp:613
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid ""
+"Battery level critical. Your computer will enter hibernation mode in 60 "
+"seconds."
+msgstr ""
+"배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:615
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -456,67 +458,88 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "지금 최대 절전 모드로 전환"
 
-#: powerdevilcore.cpp:628
-#, kde-format
-msgid "The computer will sleep in 60 seconds."
-msgstr "60초 후에 컴퓨터가 대기 모드로 전환됩니다."
+#: powerdevilcore.cpp:622
+#, fuzzy, kde-format
+#| msgid ""
+#| "Your battery level is critical, the computer will be suspended in 60 "
+#| "seconds."
+msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgstr ""
+"배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "지금 대기 모드로 전환"
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr "작업을 저장하십시오."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:636
+#, kde-format
+msgctxt ""
+"Cancel timeout that will automatically put system to sleep because of low "
+"battery"
+msgid "Cancel"
+msgstr "취소"
+
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "배터리 부족(%1% 남음)"
 
-#: powerdevilcore.cpp:649
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "배터리 바닥남(%1% 남음)"
 
-#: powerdevilcore.cpp:673
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC 어댑터가 연결됨"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "AC 어댑터 전원으로 실행 중"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "전원 어댑터가 연결되었습니다."
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "배터리 전원으로 실행 중"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "전원 어댑터의 연결이 해제되었습니다."
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "충전 완료"
 
-#: powerdevilcore.cpp:740
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "배터리가 완전히 충전되었습니다."
+
+#~ msgid "The computer will shut down in 60 seconds."
+#~ msgstr "컴퓨터가 60초 후에 종료됩니다."
+
+#~ msgid "The computer will hibernate in 60 seconds."
+#~ msgstr "컴퓨터가 60초 후에 최대 절전 모드로 진입합니다."
+
+#~ msgid "The computer will sleep in 60 seconds."
+#~ msgstr "60초 후에 컴퓨터가 대기 모드로 전환됩니다."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "하이브리드 대기 모드"
@@ -616,12 +639,6 @@ msgstr "배터리가 완전히 충전되었습니다."
 #~ msgstr ""
 #~ "연결된 장치(\"%1\")의 배터리가 부족하여 저절로 꺼질 수 있습니다. 빠른 시"
 #~ "간 내에 배터리를 충전하거나 교체하십시오."
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
 
 #~ msgid "Hybrid suspend"
 #~ msgstr "하이브리드 절전"
