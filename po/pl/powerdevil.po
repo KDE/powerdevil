@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-02 01:40+0000\n"
-"PO-Revision-Date: 2023-09-17 13:12+0200\n"
+"PO-Revision-Date: 2023-11-04 12:14+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -239,18 +239,17 @@ msgstr "Skrypt"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Przy wejściu w stan zasilania"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Przy wyjściu ze stanu zasilania"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Gdy w uśpieniu, to zahibernuj po okresie bezczynności"
+msgstr "Po okresie bezczynności"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -270,25 +269,25 @@ msgstr "Samoczynnie"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Oczekuj (Zapisz posiedzenie do pamięci)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
 msgstr ""
+"Hybrydowe uśpienie (Zapisz posiedzenie zarówno do pamięci jak i na dysk)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Gdy w uśpieniu, to zahibernuj po okresie bezczynności"
+msgstr "Stan gotowości, a później zahibernuj po okresie bezczynności"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr ""
+msgstr "Podczas snu, wejdź"
 
 #: powerdevilapp.cpp:53
 #, kde-format
