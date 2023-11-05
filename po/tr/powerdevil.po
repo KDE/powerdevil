@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 02:28+0000\n"
-"PO-Revision-Date: 2023-10-30 05:12+0300\n"
+"PO-Revision-Date: 2023-11-05 11:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -108,7 +108,7 @@ msgstr "Gücü Kapat"
 #, kde-format
 msgctxt "Execute action on lid close even when external monitor is connected"
 msgid "Even when an external monitor is connected"
-msgstr "Harici monitör bağlıyken dahi"
+msgstr "Dış monitör bağlıyken dahi"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:97
 #, kde-format
