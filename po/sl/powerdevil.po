@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-10-30 06:33+0100\n"
+"PO-Revision-Date: 2023-11-05 07:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -433,14 +433,9 @@ msgid "Plug in the computer."
 msgstr "Priključite računalnik."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"pripravljenost."
+msgstr "Raven baterije je kritična. Računalnik se bo izklopil čez 60 sekund."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -450,16 +445,13 @@ msgid "Shut Down Now"
 msgstr "Izklopi zdaj"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"pripravljenost."
+"Raven baterije kritična. Vaš računalnik bo v 60 sekundah preklopil v stanje "
+"mirovanja."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -470,14 +462,11 @@ msgid "Hibernate Now"
 msgstr "V hibernacijo zdaj"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"Baterija je dosegla kritično raven. Računalnik bo čez 60 sekund prešel v "
-"pripravljenost."
+"Raven baterije kritična. Vaš računalnik bo prešel v stanje spanja v 60 "
+"sekundah."
 
 #: powerdevilcore.cpp:624
 #, kde-format
