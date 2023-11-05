@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-10-31 22:58+0100\n"
+"PO-Revision-Date: 2023-11-04 19:37+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -425,10 +425,9 @@ msgid "Plug in the computer."
 msgstr "Enŝtopu la komputilon."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "La komputilo malŝaltos post 60 sekundoj."
+msgstr "Baterinivelo estas kritika. La komputilo malŝaltos post 60 sekundoj."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -438,12 +437,11 @@ msgid "Shut Down Now"
 msgstr "Fermi Nun"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr "La komputilo pasivumiĝos post 60 sekundoj."
+msgstr "Baterinivelo kritika. Via komputilo pasivumiĝos post 60 sekundoj."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -454,10 +452,9 @@ msgid "Hibernate Now"
 msgstr "Hibernate Nun"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "La komputilo ekdormos post 60 sekundoj."
+msgstr "Baterinivelo kritika. Via komputilo ekdormos post 60 sekundoj."
 
 #: powerdevilcore.cpp:624
 #, kde-format

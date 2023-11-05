@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-10-30 23:04+0200\n"
+"PO-Revision-Date: 2023-11-04 20:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -434,14 +434,11 @@ msgid "Plug in the computer."
 msgstr "З'єднайте комп'ютер із джерелом живлення"
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
-"переведено до режиму призупинення роботи за 60 секунд."
+"вимкнено за 60 секунд."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -451,16 +448,13 @@ msgid "Shut Down Now"
 msgstr "Вимкнути зараз"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
-"переведено до режиму призупинення роботи за 60 секунд."
+"приспано за 60 секунд."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -471,14 +465,11 @@ msgid "Hibernate Now"
 msgstr "Приспати зараз"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
-"переведено до режиму призупинення роботи за 60 секунд."
+"вимкнено за 60 секунд."
 
 #: powerdevilcore.cpp:624
 #, kde-format
