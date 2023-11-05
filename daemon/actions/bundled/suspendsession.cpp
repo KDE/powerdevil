@@ -20,8 +20,6 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-#include <kworkspace.h>
-
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::SuspendSession, "powerdevilsuspendsessionaction.json")
 
 using namespace std::chrono_literals;
@@ -88,7 +86,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     case PowerDevil::PowerButtonAction::SuspendToDisk:
     case PowerDevil::PowerButtonAction::SuspendHybrid:
         // don't suspend if shutting down
-        if (KWorkSpace::isShuttingDown()) {
+        if (QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.kde.Shutdown"))) {
             qCDebug(POWERDEVIL) << "Not suspending because a shutdown is in progress";
             return;
         }
@@ -127,16 +125,19 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
         Q_EMIT aboutToSuspend();
         core()->suspendController()->hybridSuspend();
         break;
-    case PowerDevil::PowerButtonAction::Shutdown:
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmNo, KWorkSpace::ShutdownTypeHalt);
+    case PowerDevil::PowerButtonAction::Shutdown: {
+        SessionManagement sessionManager;
+        sessionManager.requestShutdown(SessionManagement::ConfirmationMode::Skip);
         break;
-    case PowerDevil::PowerButtonAction::PromptLogoutDialog:
-        KWorkSpace::requestShutDown(KWorkSpace::ShutdownConfirmYes);
+    }
+    case PowerDevil::PowerButtonAction::PromptLogoutDialog: {
+        SessionManagement sessionManager;
+        sessionManager.requestShutdown(SessionManagement::ConfirmationMode::ForcePrompt);
         break;
+    }
     case PowerDevil::PowerButtonAction::LockScreen: {
-        // TODO should probably go through the backend (logind perhaps) eventually
-        const QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock");
-        QDBusConnection::sessionBus().asyncCall(msg);
+        SessionManagement sessionManager;
+        sessionManager.lock();
         break;
     }
     default:
