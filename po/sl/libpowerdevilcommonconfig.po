@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-05 14:07+0000\n"
 "PO-Revision-Date: 2023-11-01 07:56+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -43,33 +43,28 @@ msgstr "Spi"
 msgid "Hibernate"
 msgstr "Hiberniraj"
 
-#: PowerButtonActionModel.cpp:59 SleepModeModel.cpp:29
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Hibridno spanje"
-
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Zaustavi računalnik"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
 msgstr "Zakleni zaslon"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
 msgstr "Prikaži odjavni zaslon"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
 msgstr "Ugasni zaslon"
 
-#: PowerButtonActionModel.cpp:100
+#: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Preklopi zaslon prižgan/ugasnjen"
@@ -108,6 +103,11 @@ msgstr "V pripravljenosti"
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "Shrani sejo v pomnilnik"
+
+#: SleepModeModel.cpp:29
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Hibridno spanje"
 
 #: SleepModeModel.cpp:30
 #, kde-format

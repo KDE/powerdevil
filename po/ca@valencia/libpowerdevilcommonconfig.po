@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-05 14:07+0000\n"
 "PO-Revision-Date: 2023-11-01 09:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -46,33 +46,28 @@ msgstr "Suspén"
 msgid "Hibernate"
 msgstr "Hiberna"
 
-#: PowerButtonActionModel.cpp:59 SleepModeModel.cpp:29
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Suspensió híbrida"
-
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Para"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
 msgstr "Bloqueja la pantalla"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
 msgstr "Mostra la pantalla d'eixida"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
 msgstr "Apaga la pantalla"
 
-#: PowerButtonActionModel.cpp:100
+#: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Activa/desactiva la pantalla"
@@ -111,6 +106,11 @@ msgstr "Repòs"
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "Guarda la sessió a la memòria"
+
+#: SleepModeModel.cpp:29
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Suspensió híbrida"
 
 #: SleepModeModel.cpp:30
 #, kde-format

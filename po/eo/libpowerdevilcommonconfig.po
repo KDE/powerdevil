@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-05 14:07+0000\n"
 "PO-Revision-Date: 2023-11-01 17:55+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -42,33 +42,28 @@ msgstr "Dormi"
 msgid "Hibernate"
 msgstr "Pasivumi"
 
-#: PowerButtonActionModel.cpp:59 SleepModeModel.cpp:29
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Hibrida dormado"
-
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Malŝalti"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
 msgstr "Ŝlosi ekranon"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
 msgstr "Montri ekranon de elsaluto"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
 msgstr "Malŝalti ekranon"
 
-#: PowerButtonActionModel.cpp:100
+#: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Baskuligi ekranon en-/elŝalt"
@@ -107,6 +102,11 @@ msgstr "Standby"
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "Konservi seancon al memoro"
+
+#: SleepModeModel.cpp:29
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Hibrida dormado"
 
 #: SleepModeModel.cpp:30
 #, kde-format

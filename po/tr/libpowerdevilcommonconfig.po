@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-05 14:07+0000\n"
 "PO-Revision-Date: 2023-11-01 06:15+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -43,33 +43,28 @@ msgstr "Uyut"
 msgid "Hibernate"
 msgstr "Hazırda beklet"
 
-#: PowerButtonActionModel.cpp:59 SleepModeModel.cpp:29
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Hibrit uyku"
-
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Kapat"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
 msgstr "Kilit ekranı"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
 msgstr "Oturumu kapat ekranını göster"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
 msgstr "Ekranı kapat"
 
-#: PowerButtonActionModel.cpp:100
+#: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Ekranı aç/kapat"
@@ -108,6 +103,11 @@ msgstr "Uyut"
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "Oturumu belleğe kaydet"
+
+#: SleepModeModel.cpp:29
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Hibrit uyku"
 
 #: SleepModeModel.cpp:30
 #, kde-format

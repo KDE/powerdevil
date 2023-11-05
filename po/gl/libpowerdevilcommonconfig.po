@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-01 01:41+0000\n"
+"POT-Creation-Date: 2023-11-05 14:07+0000\n"
 "PO-Revision-Date: 2023-08-26 03:40+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -43,33 +43,28 @@ msgstr "Durmir"
 msgid "Hibernate"
 msgstr "Hibernar"
 
-#: PowerButtonActionModel.cpp:59 SleepModeModel.cpp:29
-#, kde-format
-msgid "Hybrid sleep"
-msgstr "Durmir híbrido"
-
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Apagar"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
 msgstr "Bloquear a pantalla"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
 msgstr "Apagar a pantalla"
 
-#: PowerButtonActionModel.cpp:100
+#: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Acender ou apagar a pantalla"
@@ -108,6 +103,11 @@ msgstr ""
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr ""
+
+#: SleepModeModel.cpp:29
+#, kde-format
+msgid "Hybrid sleep"
+msgstr "Durmir híbrido"
 
 #: SleepModeModel.cpp:30
 #, kde-format
