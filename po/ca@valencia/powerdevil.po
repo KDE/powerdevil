@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-10-30 10:25+0100\n"
+"PO-Revision-Date: 2023-11-05 08:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -183,7 +183,7 @@ msgstr "Quan es tanque la tapa del portàtil"
 #: actions/bundled/handlebuttoneventsconfig.cpp:143
 #, kde-format
 msgid "When power button pressed"
-msgstr "Quan es prema el botó d'encesa/apagat"
+msgstr "Quan es prema el botó d'encesa o apagada"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
@@ -290,7 +290,7 @@ msgstr "Repòs, hiberna després d'un període d'inactivitat"
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr "En adormir-se, passa a"
+msgstr "Quan s'adorm, passa a"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -432,10 +432,10 @@ msgid "Plug in the computer."
 msgstr "Endolleu l'ordinador."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "L'ordinador es pararà en 60 segons."
+msgstr ""
+"La bateria ha arribat al nivell crítica. L'ordinador es pararà en 60 segons."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -445,12 +445,13 @@ msgid "Shut Down Now"
 msgstr "Para ara"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr "L'ordinador passarà al mode hibernació en 60 segons."
+msgstr ""
+"La bateria ha arribat al nivell crítica. L'ordinador passarà al mode "
+"hibernació en 60 segons."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -461,10 +462,11 @@ msgid "Hibernate Now"
 msgstr "Hiberna ara"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "L'ordinador se suspendrà en 60 segons."
+msgstr ""
+"La bateria ha arribat al nivell crítica. L'ordinador se suspendrà en 60 "
+"segons."
 
 #: powerdevilcore.cpp:624
 #, kde-format

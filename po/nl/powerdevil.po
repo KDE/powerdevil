@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-10-30 10:06+0100\n"
+"PO-Revision-Date: 2023-11-05 17:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -426,14 +426,11 @@ msgid "Plug in the computer."
 msgstr "Hang de computer aan de netstroom"
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
-"Uw accu heeft het kritieke niveau bereikt, de computer zal in de slaapstand "
-"worden gezet na 60 seconden."
+"Accu heeft het kritieke niveau bereikt. Uw computer zal uit worden gezet na "
+"60 seconden."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -443,16 +440,13 @@ msgid "Shut Down Now"
 msgstr "Nu afsluiten"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"Uw accu heeft het kritieke niveau bereikt, de computer zal in de slaapstand "
-"worden gezet na 60 seconden."
+"Accu heeft kritiek niveau bereikt. Uw computer zal in de slaapstand naar "
+"schijf worden gezet na 60 seconden."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -463,14 +457,11 @@ msgid "Hibernate Now"
 msgstr "Nu naar slaapstand naar schijf"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"Uw accu heeft het kritieke niveau bereikt, de computer zal in de slaapstand "
-"worden gezet na 60 seconden."
+"Accu heeft kritiek niveau bereikt. Uw computer zal in de slaapstand worden "
+"gezet na 60 seconden."
 
 #: powerdevilcore.cpp:624
 #, kde-format
