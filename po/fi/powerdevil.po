@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-05-28 16:59+0300\n"
+"PO-Revision-Date: 2023-10-12 18:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2012-12-01 22:22:38+0000\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -341,10 +341,9 @@ msgid "Previous maintainer"
 msgstr "Edellinen ylläpitäjä"
 
 #: powerdevilapp.cpp:131
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Sammuta viiveellä"
+msgstr "Vaihda virranhallintaprofiilia"
 
 #: powerdevilapp.cpp:145
 #, kde-format
@@ -423,31 +422,20 @@ msgstr ""
 "Bluetooth-laitteen ”%1” virta on vähissä ja laite voi sammua minä hetkenä "
 "hyvänsä. Lataa tai vaihda sen akku."
 
-# Sovellettu käännös, koska voinee olettaa, että verkkovirta ainakin riittää.
 #: powerdevilcore.cpp:584
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
-msgstr ""
-"Akku on vähissä. Tietokoneen käytön jatkamiseksi kytke virtalähde ja "
-"varmista, että sen teho riittää."
+msgstr "Varmista, että virtalähde on kytketty ja tarjoaa tarpeeksi virtaa."
 
 #: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Kytke tietokone verkkovirtaan."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Akku on kriittisen vähissä, joten järjestelmä keskeytetään muistiin 60 "
-"sekunnin kuluttua."
+msgstr "Akku on kriittisen vähissä. Järjestelmä sammutetaan 60 sekunnissa."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -457,16 +445,13 @@ msgid "Shut Down Now"
 msgstr "Sammuta nyt"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"Akku on kriittisen vähissä, joten järjestelmä keskeytetään muistiin 60 "
-"sekunnin kuluttua."
+"Akku on kriittisen vähissä. Järjestelmä siirtyy keskeytystilaan 60 "
+"sekunnissa."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -477,14 +462,10 @@ msgid "Hibernate Now"
 msgstr "Siirry lepotilaan nyt"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"Akku on kriittisen vähissä, joten järjestelmä keskeytetään muistiin 60 "
-"sekunnin kuluttua."
+"Akku on kriittisen vähissä. Järjestelmä siirtyy valmiustilaan 60 sekunnissa."
 
 #: powerdevilcore.cpp:624
 #, kde-format
@@ -494,10 +475,9 @@ msgid "Sleep Now"
 msgstr "Siirry valmiustilaan nyt"
 
 #: powerdevilcore.cpp:630
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Akku on kriittisen vähissä. Tallenna työsi."
+msgstr "Tallenna työsi."
 
 #: powerdevilcore.cpp:636
 #, kde-format
