@@ -1,11 +1,14 @@
 /*  This file is part of the KDE project
- *    SPDX-FileCopyrightText: 2010 Lukas Tinkl <ltinkl@redhat.com>
+ *    SPDX-FileCopyrightText: 2012 Alberto Villa <avilla@FreeBSD.org>
+ *    SPDX-FileCopyrightText: 2023 Serenity Cyber Security LLC <license@futurecrew.ru>
+ *                       Author: Gleb Popov <arrowd@FreeBSD.org>
  *
  *    SPDX-License-Identifier: LGPL-2.0-only
  *
  */
 
-#pragma once
+#ifndef BACKLIGHTHELPER_H
+#define BACKLIGHTHELPER_H
 
 #include <QObject>
 #include <QVariantAnimation>
@@ -29,26 +32,20 @@ public Q_SLOTS:
     ActionReply syspath(const QVariantMap &args);
 
 private:
-    void init();
-
     int readBrightness() const;
     bool writeBrightness(int brightness) const;
 
-    int readFromDevice(const QString &device, const QString &property) const;
+    int readFromDevice(const QString &device) const;
     bool writeToDevice(const QString &device, int brightness) const;
-
-    /**
-     * The kernel offer from version 2.6.37 the type of the interface, and based on that
-     * we can decide which interface is better for us, being the order
-     * firmware-platform-raw
-     */
-    void initUsingBacklightType();
-    QStringList getBacklightTypeDevices() const;
 
     /**
      * FreeBSD (and other BSDs) can control backlight via acpi_video(4)
      */
     void initUsingSysctl();
+    /**
+     * FreeBSD 13+ has a dedicated command line utility backlight(8)
+     */
+    void initUsingFreeBSDBacklight();
 
     bool m_isSupported = false;
     QString m_sysctlDevice;
@@ -57,3 +54,5 @@ private:
 
     QVariantAnimation m_anim;
 };
+
+#endif // BACKLIGHTHELPER_H
