@@ -47,7 +47,6 @@ KCM.AbstractKCM {
 
             Layout.fillWidth: true
             visible: kcm.supportsBatteryProfiles
-            shadow: false
 
             actions: [
                 Kirigami.Action {
