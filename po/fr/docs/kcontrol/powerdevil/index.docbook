@@ -161,58 +161,6 @@
 </variablelist>
 </sect2>
 
-<sect2 id="activity-setting">
-<title
->Configuration des activités</title>
-<para
->Vous pouvez configurer la gestion de l'énergie par activité. Les réglages pour chaque activité peuvent être configurés dans un onglet séparé.</para>
-
-<screenshot>
-<screeninfo
->Configuration des activités</screeninfo>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="activity.png" format="PNG"/>
-    </imageobject>
-    <textobject>
-      <phrase
->Configuration des activités</phrase>
-    </textobject>
-    <caption>
-      <para
->Configuration des activités</para>
-    </caption>
-  </mediaobject>
-</screenshot>
-
-<variablelist>
-
-<varlistentry>
-<term
->Ne pas utiliser de réglages spéciaux</term>
-<listitem>
-<para
->Utilise les réglages définis dans la page <guilabel
->Économie d'énergie</guilabel
->. </para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term
->Définir un comportement spécial</term>
-<listitem>
-<para
->Si cette option est sélectionnée, un comportement spécial pour l'activité peut être choisi. S'il s'agit d'une activité de présentation, vous pouvez cocher les cases <guilabel
->Ne jamais éteindre l'écran</guilabel
-> et <guilabel
->Ne jamais arrêter ou mettre en veille l'ordinateur</guilabel
->. </para>
-</listitem>
-</varlistentry>
-</variablelist>
-</sect2>
-
 <sect2 id="advanced-settings">
 <title
 >Paramètres avancés</title>

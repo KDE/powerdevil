@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-03 01:41+0000\n"
-"PO-Revision-Date: 2023-11-03 21:04+0100\n"
+"PO-Revision-Date: 2023-11-05 19:15+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -91,7 +91,7 @@ msgstr "Sur un appui du bouton d'alimentation :"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Action à effectuer lors d'un appui sur le bouton de mise sous tension"
 
 #: ui/ProfileConfig.qml:124
 #, kde-format
@@ -99,13 +99,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Lorsque &l'écran de l'ordinateur portable est refermé :"
 
 #: ui/ProfileConfig.qml:126
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Action à effectuer lors du rabat de l'écran de l'ordinateur portable"
 
 #: ui/ProfileConfig.qml:154
 #, kde-format
@@ -119,6 +119,8 @@ msgstr "Même lorsqu'un moniteur externe est connecté"
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Effectuer l'action associée à l'écran de l'ordinateur portable même "
+"lorsqu'un moniteur externe est connecté"
 
 #: ui/ProfileConfig.qml:169
 #, kde-format
@@ -161,7 +163,7 @@ msgstr "É&teindre l'écran :"
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "Lorsque &verrouillé, éteindre l'écran :"
 
 #: ui/ProfileConfig.qml:337
 #, kde-format
@@ -221,7 +223,7 @@ msgstr "Lors du passage dans ce mode de gestion d'énergie"
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "Lors de la sortie de cet état de gestion d'énergie"
 
 #: ui/ProfileConfig.qml:477
 #, kde-format
@@ -270,6 +272,7 @@ msgstr "Commande de script après une période d'inactivité"
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
 msgstr ""
+"Période d'inactivité jusqu'à la fin d'exécution de la commande de script"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format

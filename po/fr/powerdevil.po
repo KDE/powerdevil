@@ -443,14 +443,9 @@ msgid "Plug in the computer."
 msgstr "Branchez l'ordinateur."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Votre batterie a atteint un niveau critique, l'ordinateur sera mis en veille "
-"dans 60 secondes."
+msgstr "Batterie critique. Votre ordinateur s'éteindra dans 60 secondes."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -460,16 +455,12 @@ msgid "Shut Down Now"
 msgstr "Éteindre maintenant"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"Votre batterie a atteint un niveau critique, l'ordinateur sera mis en veille "
-"dans 60 secondes."
+"Batterie critique. Votre ordinateur passera en hibernation dans 60 secondes."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -480,14 +471,10 @@ msgid "Hibernate Now"
 msgstr "Mettre en hibernation maintenant"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"Votre batterie a atteint un niveau critique, l'ordinateur sera mis en veille "
-"dans 60 secondes."
+"Batterie critique. Votre ordinateur sera mis en veille dans 60 secondes."
 
 #: powerdevilcore.cpp:624
 #, kde-format
