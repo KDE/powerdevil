@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-03 01:41+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2020-12-26 11:09+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -28,17 +28,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
 
-#: ui/main.qml:54
+#: ui/main.qml:53
 #, kde-format
 msgid "On AC Power"
 msgstr "Hálózati áramról"
 
-#: ui/main.qml:62
+#: ui/main.qml:61
 #, kde-format
 msgid "On Battery"
 msgstr "Akkumulátorról"
 
-#: ui/main.qml:70
+#: ui/main.qml:69
 #, kde-format
 msgid "On Low Battery"
 msgstr "Alacsony töltöttségű akkumulátorról"

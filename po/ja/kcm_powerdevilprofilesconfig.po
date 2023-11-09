@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-03 01:41+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2022-06-28 17:49+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org >\n"
@@ -32,17 +32,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
 
-#: ui/main.qml:54
+#: ui/main.qml:53
 #, kde-format
 msgid "On AC Power"
 msgstr "AC アダプタで動作時"
 
-#: ui/main.qml:62
+#: ui/main.qml:61
 #, kde-format
 msgid "On Battery"
 msgstr "バッテリーで動作時"
 
-#: ui/main.qml:70
+#: ui/main.qml:69
 #, kde-format
 msgid "On Low Battery"
 msgstr "バッテリー残量低レベル時"

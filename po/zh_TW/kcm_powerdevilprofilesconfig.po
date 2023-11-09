@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-03 01:41+0000\n"
+"POT-Creation-Date: 2023-11-09 01:39+0000\n"
 "PO-Revision-Date: 2023-02-18 01:40+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
@@ -30,17 +30,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
 
-#: ui/main.qml:54
+#: ui/main.qml:53
 #, kde-format
 msgid "On AC Power"
 msgstr "接市電電源"
 
-#: ui/main.qml:62
+#: ui/main.qml:61
 #, kde-format
 msgid "On Battery"
 msgstr "使用電池"
 
-#: ui/main.qml:70
+#: ui/main.qml:69
 #, kde-format
 msgid "On Low Battery"
 msgstr "電池電力已低"
