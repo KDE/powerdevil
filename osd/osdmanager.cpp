@@ -22,7 +22,12 @@ OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
     , m_cleanupTimer(new QTimer(this))
 {
-    qmlRegisterUncreatableType<PowerDevil::OsdAction>("org.kde.powerdevil", 1, 0, "OsdAction", QStringLiteral("Can't create OsdAction"));
+    qmlRegisterUncreatableMetaObject(PowerDevil::OsdAction::staticMetaObject,
+                                     "org.kde.powerdevil",
+                                     1,
+                                     0,
+                                     "OsdAction",
+                                     QStringLiteral("Can't create OsdAction"));
     new PowerProfileOsdServiceAdaptor(this);
 
     // free up memory when the osd hasn't been used for more than 1 minute
