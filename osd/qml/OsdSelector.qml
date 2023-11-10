@@ -47,7 +47,9 @@ Control {
 
                     onClicked: root.clicked(modelData.id)
                     onHoveredChanged: {
-                        actionRepeater.currentIndex = index
+                        if (hovered) {
+                            actionRepeater.currentIndex = index
+                        }
                     }
 
                     activeFocusOnTab: true
