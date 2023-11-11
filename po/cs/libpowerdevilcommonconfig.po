@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Vit Pelcak <vit@pelcak.org>, 2013.
+# SPDX-FileCopyrightText: 2013, 2023 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 14:07+0000\n"
-"PO-Revision-Date: 2013-07-31 09:35+0200\n"
+"PO-Revision-Date: 2023-11-02 14:09+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: ErrorOverlay.cpp:27
 #, kde-format
@@ -46,7 +46,7 @@ msgstr "Hibernovat"
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Vypnout"
 
 #: PowerButtonActionModel.cpp:66
 #, kde-format
@@ -72,24 +72,24 @@ msgstr ""
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Úspora energie"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Vyvážený"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Výkon"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Ponechat nezměněné"
 
 #: SleepModeModel.cpp:21
 #, kde-format
@@ -101,7 +101,7 @@ msgstr ""
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Uložit sezení do paměti"
 
 #: SleepModeModel.cpp:29
 #, kde-format
@@ -124,6 +124,3 @@ msgstr ""
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr ""
-
-#~ msgid "Prompt log out dialog"
-#~ msgstr "Vyvolat odhlašovací dialog"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-09-04 09:04+0200\n"
+"PO-Revision-Date: 2023-11-08 10:23+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -240,18 +240,17 @@ msgstr "Script"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Quando si entra nello stato di alimentazione"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Quando si esce dallo stato di alimentazione"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "In sospensione, iberna dopo un periodo di inattività"
+msgstr "Dopo un periodo di inattività"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -271,26 +270,24 @@ msgstr "Automaticamente"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Sospensione (salva la sessione in memoria)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Sospensione ibrida (salva la sessione sia sulla memoria che sul disco)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
 msgstr "In sospensione, iberna dopo un periodo di inattività"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
+#, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr "Quando viene premuto il pulsante della sospensione"
+msgstr "Durante la sospensione, entra"
 
 #: powerdevilapp.cpp:53
 #, kde-format

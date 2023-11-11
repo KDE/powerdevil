@@ -1,7 +1,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2020.
+# SPDX-FileCopyrightText: 2010, 2011, 2020, 2023 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2020-07-21 13:25+0200\n"
+"PO-Revision-Date: 2023-11-02 14:07+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.04.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: ProfilesConfigKCM.cpp:332
 #, kde-format
@@ -51,13 +51,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Pozastavit sezení"
 
 #: ui/ProfileConfig.qml:49
 #, kde-format
@@ -79,7 +79,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Pokud je stisknut &spínač:"
 
 #: ui/ProfileConfig.qml:96
 #, kde-format
@@ -93,7 +93,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Když je &laptop zavřen:"
 
 #: ui/ProfileConfig.qml:126
 #, kde-format
@@ -107,7 +107,7 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "I když je připojen externí monitor"
 
 #: ui/ProfileConfig.qml:156
 #, kde-format
@@ -149,7 +149,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "Vypnou&t monitor:"
 
 #: ui/ProfileConfig.qml:313
 #, kde-format
@@ -167,7 +167,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Další nastavení"
 
 #: ui/ProfileConfig.qml:382
 #, kde-format
@@ -286,7 +286,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|min|min|minut"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -294,7 +294,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|sek|sek|sekund"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -309,22 +309,14 @@ msgstr ""
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "po %1 minutě"
+msgstr[1] "po %1 minutách"
+msgstr[2] "po %1 minutách"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Vít Pelčák"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "vit@pelcak.org"
+msgstr[0] "po %1 sekundě"
+msgstr[1] "po %1 sekundách"
+msgstr[2] "po %1 sekundách"
