@@ -2,22 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Svetoslav Stefanov <svetlisashkov@yahoo.com>, 2014.
-# Mincho Kondarev <mkondarev@yahoo.de>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2022-05-22 19:41+0200\n"
+"PO-Revision-Date: 2023-11-11 17:40+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
-"Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
+"Language-Team: \n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Lokalize 22.04.0\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: ProfilesConfigKCM.cpp:332
 #, kde-format
@@ -28,7 +28,7 @@ msgstr "Изглежда, че услугата за управление на �
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Неуспех при зареждане на настройките за управление на захранването"
 
 #: ui/main.qml:53
 #, kde-format
@@ -51,13 +51,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Спиране на сесията"
 
 #: ui/ProfileConfig.qml:49
 #, kde-format
@@ -65,13 +65,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "След  период на бездействие:"
 
 #: ui/ProfileConfig.qml:57
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Действие, което се извършва, когато системата е неактивна"
 
 #: ui/ProfileConfig.qml:94
 #, kde-format
@@ -79,13 +79,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "При натискане на &бутона за изключване:"
 
 #: ui/ProfileConfig.qml:96
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Действие, което се извършва при натискане на бутона за захранване"
 
 #: ui/ProfileConfig.qml:124
 #, kde-format
@@ -93,13 +93,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "При затваряне екрана на лаптопа:"
 
 #: ui/ProfileConfig.qml:126
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Действие, което да се извърши, когато капакът на лаптопа е затворен"
 
 #: ui/ProfileConfig.qml:154
 #, kde-format
@@ -107,67 +107,69 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Дори когато е свързан външен монитор"
 
 #: ui/ProfileConfig.qml:156
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Извършване на действието, зададено при затваряне на капака на лаптопа, дори "
+"когато е свързан външен монитор"
 
 #: ui/ProfileConfig.qml:169
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "При приспиване, влизане в режим на:"
 
 #: ui/ProfileConfig.qml:171
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "При приспиване, влизане в този режим на пестене на енергия"
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Екран и яркост"
 
 #: ui/ProfileConfig.qml:229
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Промяна на &яркостта на екрана:"
 
 #: ui/ProfileConfig.qml:262
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Автоматично &плавно изгасване:"
 
 #: ui/ProfileConfig.qml:288
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "&Изключване на екрана:"
 
 #: ui/ProfileConfig.qml:313
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "Изключване на монитора при &заключване на екрана:"
 
 #: ui/ProfileConfig.qml:337
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Промяна на яркостта на &клавиатурата:"
 
 #: ui/ProfileConfig.qml:374
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Други настройки"
 
 #: ui/ProfileConfig.qml:382
 #, kde-format
@@ -175,7 +177,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Превключване към про&фил на захранването:"
 
 #: ui/ProfileConfig.qml:386
 #, kde-format
@@ -183,13 +185,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Превключване към профил на захранването"
 
 #: ui/ProfileConfig.qml:418
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Изпълняване на  потребителски скрипт:"
 
 #: ui/ProfileConfig.qml:424
 #, kde-format
@@ -197,88 +199,88 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Условия за изпълнение…"
 
 #: ui/ProfileConfig.qml:426
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Избор на условия за изпълнение на командата на скрипта"
 
 #: ui/ProfileConfig.qml:445
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "При в&лизане в този режим на захранване"
 
 #: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "При &напускане на този режим на захранване"
 
 #: ui/ProfileConfig.qml:477
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "След  период на &бездействие"
 
 #: ui/ProfileConfig.qml:496
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "При в&лизане в този режим на захранване:"
 
 #: ui/ProfileConfig.qml:498
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "Скрипт команда при влизане в този режим на захранване"
 
 #: ui/ProfileConfig.qml:518
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "При &напускане на този режим на захранване"
 
 #: ui/ProfileConfig.qml:520
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "Скрипт команда при напускане на този режим на захранване"
 
 #: ui/ProfileConfig.qml:540
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "След  период на бездействие:"
 
 #: ui/ProfileConfig.qml:542
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "Скрипт команда след период на неактивност"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "Период на неактивност, докато се изпълни скриптът"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Въведете команда или изберете файл…"
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Изберете файл за изпълнение…"
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Изберете изпълним файл"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -286,7 +288,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "м|мин|минута|минути"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -294,7 +296,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|сек|секунда|секунди"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -303,21 +305,21 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "след %1 мин"
+msgstr[1] "след %1 мин"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "след %1 сек"
+msgstr[1] "след %1 сек"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

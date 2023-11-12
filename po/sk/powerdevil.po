@@ -1,21 +1,21 @@
 # translation of powerdevil.po to Slovak
 # Roman Paholík <wizzardsk@gmail.com>, 2014, 2015, 2016, 2017.
 # Mthw <jari_45@hotmail.com>, 2019.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019, 2020, 2021, 2023.
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-08-06 11:19+0200\n"
+"PO-Revision-Date: 2023-11-11 13:04+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -97,7 +97,7 @@ msgstr " sek"
 #: actions/bundled/dpmsconfig.cpp:65
 #, kde-format
 msgid "When screen is locked, switch off after"
-msgstr ""
+msgstr "Keď je obrazovka zamknutá, vypnúť po"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -239,18 +239,17 @@ msgstr "Skript"
 #: actions/bundled/runscriptconfig.cpp:107
 #, kde-format
 msgid "When entering power state"
-msgstr ""
+msgstr "Pri vstupe do režimu napájania"
 
 #: actions/bundled/runscriptconfig.cpp:108
 #, kde-format
 msgid "When exiting power state"
-msgstr ""
+msgstr "Pri odchode z režimu napájania"
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "Počas spánku, hibernovať po období nečinnosti"
+msgstr "Po intervale nečinnosti"
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -270,25 +269,24 @@ msgstr "Automaticky"
 #: actions/bundled/suspendsessionconfig.cpp:115
 #, kde-format
 msgid "Standby (Save session to memory)"
-msgstr ""
+msgstr "Pohotovosť (Uložiť sedenie do pamäte)"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
 msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
+msgstr "Hybridný spánok (Uložiť sedenie do pamäte aj na disk)"
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Počas spánku, hibernovať po období nečinnosti"
+msgstr "Počas pohotovosti, hibernovať po období nečinnosti"
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter"
-msgstr ""
+msgstr "Počas spánku, vstúpiť"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -415,27 +413,21 @@ msgstr ""
 "chvíľu vypnúť. Prosím, vymeňte alebo opätovne nabite batériu."
 
 #: powerdevilcore.cpp:584
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Vaša batéria je slabá. Ak potrebujete svoj počítač používať aj naďalej, "
-"pripojte napájanie alebo vypnite počítač a nabite batériu."
+"Skontrolujte, či je napájací adaptér zapojený a či poskytuje dostatok "
+"energie."
 
 #: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Zapojte počítač do siete."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Úroveň batérie je kritická, počítač bude uspatý do RAM za 60 sekúnd."
+msgstr "Úroveň batérie je kritická, počítač bude vypnutý za 60 sekúnd."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -445,14 +437,11 @@ msgid "Shut Down Now"
 msgstr "Vypnúť teraz"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr "Úroveň batérie je kritická, počítač bude uspatý do RAM za 60 sekúnd."
+msgstr "Úroveň batérie je kritická, počítač bude hibernovaný za 60 sekúnd."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -463,12 +452,9 @@ msgid "Hibernate Now"
 msgstr "Hibernovať teraz"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "Úroveň batérie je kritická, počítač bude uspatý do RAM za 60 sekúnd."
+msgstr "Úroveň batérie je kritická, počítač bude uspatý za 60 sekúnd."
 
 #: powerdevilcore.cpp:624
 #, kde-format
@@ -478,10 +464,9 @@ msgid "Sleep Now"
 msgstr "Uspať teraz"
 
 #: powerdevilcore.cpp:630
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Úroveň vašej batérie je kritická, uložte si svoju prácu čo najskôr."
+msgstr "Uložte si svoju prácu."
 
 #: powerdevilcore.cpp:636
 #, kde-format

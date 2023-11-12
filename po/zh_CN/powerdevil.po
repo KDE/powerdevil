@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-04 16:53+0000\n"
-"PO-Revision-Date: 2023-10-21 13:51\n"
+"PO-Revision-Date: 2023-11-11 07:19\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -246,10 +246,9 @@ msgid "When exiting power state"
 msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "After a period of inactivity"
-msgstr "睡眠一段时间内无活动则休眠"
+msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:120
 #, kde-format
@@ -277,10 +276,9 @@ msgid "Hybrid sleep (Save session to both memory and disk)"
 msgstr ""
 
 #: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
+#, kde-format
 msgid "Standby, then hibernate after a period of inactivity"
-msgstr "睡眠一段时间内无活动则休眠"
+msgstr ""
 
 #: actions/bundled/suspendsessionconfig.cpp:130
 #, kde-format
@@ -421,10 +419,9 @@ msgid "Plug in the computer."
 msgstr "请插入电脑的电源。"
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "电脑将在 60 秒后关机。"
+msgstr "电池电量危急，电脑将在 60 秒后关机。"
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -434,12 +431,11 @@ msgid "Shut Down Now"
 msgstr "立即关机"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr "电脑将在 60 秒后休眠。"
+msgstr "电池电量危急，电脑将在 60 秒后休眠。"
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -450,10 +446,9 @@ msgid "Hibernate Now"
 msgstr "立即休眠"
 
 #: powerdevilcore.cpp:622
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "电脑将在 60 秒后睡眠。"
+msgstr "电池电量危急，电脑将在 60 秒后睡眠。"
 
 #: powerdevilcore.cpp:624
 #, kde-format
@@ -519,12 +514,3 @@ msgstr "充电完成"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "电池已经充满。"
-
-#~ msgid "Hybrid sleep"
-#~ msgstr "混合睡眠"
-
-#~ msgid "On Profile Load"
-#~ msgstr "加载配置方案时"
-
-#~ msgid "On Profile Unload"
-#~ msgstr "卸载配置方案时"

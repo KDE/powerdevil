@@ -1,20 +1,20 @@
 # translation of powerdevilprofilesconfig.po to Slovak
 # Roman Paholík <wizzardsk@gmail.com>, 2014.
 # Dusan Kazik <prescott66@gmail.com>, 2020.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2020.
+# SPDX-FileCopyrightText: 2020, 2023 Matej Mrenica <matejm98mthw@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2020-07-11 12:02+0200\n"
+"PO-Revision-Date: 2023-11-11 13:00+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 20.04.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ProfilesConfigKCM.cpp:332
@@ -49,13 +49,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Pozastaviť sedenie"
 
 #: ui/ProfileConfig.qml:49
 #, kde-format
@@ -77,7 +77,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Ak je stlačené tlačidlo napájania:"
 
 #: ui/ProfileConfig.qml:96
 #, kde-format
@@ -91,7 +91,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Ak je zatvorený kryt notebooku:"
 
 #: ui/ProfileConfig.qml:126
 #, kde-format
@@ -105,7 +105,7 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Aj vtedy, ak je pripojený externý monitor"
 
 #: ui/ProfileConfig.qml:156
 #, kde-format
@@ -129,7 +129,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Obrazovka a jas"
 
 #: ui/ProfileConfig.qml:229
 #, kde-format
@@ -147,7 +147,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "Vypnúť obrazovku:"
 
 #: ui/ProfileConfig.qml:313
 #, kde-format
@@ -165,7 +165,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Ostatné nastavenia"
 
 #: ui/ProfileConfig.qml:382
 #, kde-format
@@ -173,7 +173,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Prepnúť na profil napájania:"
 
 #: ui/ProfileConfig.qml:386
 #, kde-format
@@ -181,13 +181,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Prepnúť na profil napájania"
 
 #: ui/ProfileConfig.qml:418
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Spustiť vlastný skript:"
 
 #: ui/ProfileConfig.qml:424
 #, kde-format
@@ -195,37 +195,37 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Vybrať podmienky spustenia…"
 
 #: ui/ProfileConfig.qml:426
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Vybrať podmienky spustenia skriptu"
 
 #: ui/ProfileConfig.qml:445
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "Pri vstupe do tohto režimu napájania"
 
 #: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "Pri odchode z tohto režimu napájania"
 
 #: ui/ProfileConfig.qml:477
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "Po intervale nečinnosti"
 
 #: ui/ProfileConfig.qml:496
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "Pri vstupe do tohto režimu napájania:"
 
 #: ui/ProfileConfig.qml:498
 #, kde-format
@@ -237,7 +237,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "Pri odchode z tohto režimu napájania:"
 
 #: ui/ProfileConfig.qml:520
 #, kde-format
@@ -249,7 +249,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "Po intervale nečinnosti:"
 
 #: ui/ProfileConfig.qml:542
 #, kde-format
@@ -271,12 +271,12 @@ msgstr ""
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Vybrať súbor na vykonanie..."
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Vybrať súbor na vykonanie"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -284,7 +284,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|min|min|minúty"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -292,7 +292,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|sek|sek|sekundy"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -307,17 +307,17 @@ msgstr ""
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "po %1 min"
+msgstr[1] "po %1 min"
+msgstr[2] "po %1 min"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "po %1 sek"
+msgstr[1] "po %1 sek"
+msgstr[2] "po %1 sek"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
