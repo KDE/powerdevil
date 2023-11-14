@@ -29,7 +29,7 @@ public:
     QString label;
     QString iconName;
 
-    static QList<OsdAction> availableActions();
+    static QList<OsdAction> availableActions(QStringList availableProfiles);
 };
 
 } // namespace KScreen

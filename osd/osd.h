@@ -31,7 +31,7 @@ public:
     explicit Osd(QObject *parent = nullptr);
     ~Osd() override;
 
-    void showActionSelector(QString currentProfile = QString());
+    void showActionSelector(QStringList availableProfiles, QString currentProfile = QString());
     void hideOsd();
 
 Q_SIGNALS:
