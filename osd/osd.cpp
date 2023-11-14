@@ -33,11 +33,12 @@ Osd::~Osd()
 {
 }
 
-void Osd::showActionSelector(QString currentProfile)
+void Osd::showActionSelector(QStringList availableProfiles, QString currentProfile)
 {
     if (!m_osdActionSelector) {
         m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
-        m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions())}, {QLatin1String("currentProfile"), currentProfile}});
+        m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions(availableProfiles))},
+                                                   {QLatin1String("currentProfile"), currentProfile}});
         m_osdActionSelector->setSource(QUrl(QStringLiteral("qrc:/qml/OsdSelector.qml")));
         m_osdActionSelector->setColor(Qt::transparent);
         m_osdActionSelector->setFlag(Qt::FramelessWindowHint);

@@ -57,18 +57,28 @@ OsdManager::~OsdManager()
 
 void OsdManager::showOsd()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
-                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
-                                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
-                                                          QStringLiteral("currentProfile"));
-    auto reply = QDBusConnection::sessionBus().call(message);
-    if (reply.type() == QDBusMessage::ErrorMessage) {
+    QDBusMessage message1 = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                           QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                           QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                           QStringLiteral("currentProfile"));
+    auto reply1 = QDBusConnection::sessionBus().call(message1);
+    if (reply1.type() == QDBusMessage::ErrorMessage) {
         return;
     }
-    QString currentProfile = reply.arguments().first().toString();
+    QString currentProfile = reply1.arguments().first().toString();
+
+    QDBusMessage message2 = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                           QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                           QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                           QStringLiteral("profileChoices"));
+    auto reply2 = QDBusConnection::sessionBus().call(message2);
+    if (reply2.type() == QDBusMessage::ErrorMessage) {
+        return;
+    }
+    QStringList availableProfiles = reply2.arguments().first().toStringList();
 
     PowerDevil::Osd * osd = new PowerDevil::Osd(this);
-    osd->showActionSelector(currentProfile);
+    osd->showActionSelector(availableProfiles, currentProfile);
 
     connect(osd, &Osd::osdActionSelected, this, [this](QString profile) {
         applyProfile(profile);

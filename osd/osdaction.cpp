@@ -17,13 +17,23 @@
 
 using namespace PowerDevil;
 
-QList<OsdAction> OsdAction::availableActions()
+QList<OsdAction> OsdAction::availableActions(QStringList availableProfiles)
 {
-    return {
-        {QStringLiteral("power-saver"), i18ndc("powerdevil", "power profile", "Power Save Mode"), QStringLiteral("battery-profile-powersave")},
-        {QStringLiteral("balanced"), i18ndc("powerdevil", "power profile", "Balanced Performance Mode"), QStringLiteral("speedometer")},
-        {QStringLiteral("performance"), i18ndc("powerdevil", "power profile", "Maximum Performance Mode"), QStringLiteral("battery-profile-performance")},
-    };
+    QList<OsdAction> actions;
+    if (availableProfiles.contains(QStringLiteral("power-saver"))) {
+        actions << OsdAction(QStringLiteral("power-saver"),
+                             i18ndc("powerdevil", "power profile", "Power Save Mode"),
+                             QStringLiteral("battery-profile-powersave"));
+    }
+    if (availableProfiles.contains(QStringLiteral("balanced"))) {
+        actions << OsdAction(QStringLiteral("balanced"), i18ndc("powerdevil", "power profile", "Balanced Performance Mode"), QStringLiteral("speedometer"));
+    }
+    if (availableProfiles.contains(QStringLiteral("performance"))) {
+        actions << OsdAction(QStringLiteral("performance"),
+                             i18ndc("powerdevil", "power profile", "Maximum Performance Mode"),
+                             QStringLiteral("battery-profile-performance"));
+    }
+    return actions;
 }
 
 #include "moc_osdaction.cpp"
