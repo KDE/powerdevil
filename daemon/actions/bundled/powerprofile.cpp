@@ -194,9 +194,10 @@ void PowerProfile::readProperties(const QVariantMap &properties)
         QList<QVariantMap> profiles;
         properties[profilesProperty].value<QDBusArgument>() >> profiles;
         m_profileChoices.clear();
-        std::transform(profiles.cbegin(), profiles.cend(), std::back_inserter(m_profileChoices), [](const QVariantMap &dict) {
-            return dict[QStringLiteral("Profile")].toString();
-        });
+        m_profileChoices = {QStringLiteral("power-saver"), QStringLiteral("balanced")};
+        // std::transform(profiles.cbegin(), profiles.cend(), std::back_inserter(m_profileChoices), [](const QVariantMap &dict) {
+        //     return dict[QStringLiteral("Profile")].toString();
+        // });
         Q_EMIT profileChoicesChanged(m_profileChoices);
     }
 
