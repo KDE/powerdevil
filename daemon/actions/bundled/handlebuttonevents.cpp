@@ -7,6 +7,7 @@
 
 #include "handlebuttonevents.h"
 #include "handlebuttoneventsadaptor.h"
+#include "suspendcontroller.h"
 
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
@@ -126,6 +127,11 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
             return;
         }
 
+        if (m_lidAction == PowerDevil::PowerButtonAction::Sleep || m_lidAction == PowerDevil::PowerButtonAction::Hibernate) {
+            core()->suspendController()->setRecentSuspendReason(SuspendController::SuspendReason::LidClose);
+            processAction(m_lidAction);
+            return;
+        }
         processAction(m_lidAction);
     } else {
         // When we restore the keyboard brightness before waking up, we shouldn't conflict
@@ -201,11 +207,17 @@ bool HandleButtonEvents::triggersLidAction() const
 
 void HandleButtonEvents::powerOffButtonTriggered()
 {
+    if (m_powerButtonAction == PowerDevil::PowerButtonAction::Sleep || m_powerButtonAction == PowerDevil::PowerButtonAction::Hibernate) {
+        core()->suspendController()->setRecentSuspendReason(SuspendController::SuspendReason::PowerButton);
+    }
     processAction(m_powerButtonAction);
 }
 
 void HandleButtonEvents::powerDownButtonTriggered()
 {
+    if (m_powerDownButtonAction == PowerDevil::PowerButtonAction::Sleep || m_powerDownButtonAction == PowerDevil::PowerButtonAction::Hibernate) {
+        core()->suspendController()->setRecentSuspendReason(SuspendController::SuspendReason::PowerButton);
+    }
     processAction(m_powerDownButtonAction);
 }
 
