@@ -49,7 +49,6 @@ private:
     std::chrono::milliseconds m_idleTime{0};
     PowerDevil::PowerButtonAction m_autoSuspendAction;
     PowerDevil::SleepMode m_sleepMode = PowerDevil::SleepMode::SuspendToRam;
-    QVariantMap m_savedArgs;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
 };
 

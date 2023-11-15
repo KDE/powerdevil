@@ -44,14 +44,6 @@ SuspendSession::SuspendSession(QObject *parent)
 
         Q_EMIT resumingFromSuspend();
     });
-
-    connect(m_fadeEffect.data(), &PowerDevil::KWinKScreenHelperEffect::fadedOut, this, [this]() {
-        if (!m_savedArgs.isEmpty()) {
-            QVariantMap args = m_savedArgs;
-            args["SkipFade"] = true;
-            triggerImpl(args);
-        }
-    });
 }
 
 SuspendSession::~SuspendSession() = default;
@@ -63,16 +55,18 @@ void SuspendSession::onWakeupFromIdle()
 
 void SuspendSession::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    QVariantMap args{{QStringLiteral("Type"), qToUnderlying(m_autoSuspendAction)}};
+    PolicyAgent::RequiredPolicies unsatisfiablePolicies = PolicyAgent::instance()->requirePolicyCheck(PowerDevil::PolicyAgent::InterruptSession);
+    if (unsatisfiablePolicies != PolicyAgent::None) {
+        return;
+    }
 
     // we fade the screen to black 5 seconds prior to suspending to alert the user
     if (timeout == m_idleTime - 5s) {
-        args.insert(QStringLiteral("GraceFade"), true);
+        m_fadeEffect->start();
     } else {
-        args.insert(QStringLiteral("SkipFade"), true);
+        QVariantMap args{{QStringLiteral("Type"), qToUnderlying(m_autoSuspendAction)}};
+        triggerImpl(args);
     }
-
-    trigger(args);
 }
 
 void SuspendSession::triggerImpl(const QVariantMap &args)
@@ -81,26 +75,12 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 
     const auto mode = static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt());
 
-    switch (mode) {
-    case PowerDevil::PowerButtonAction::Sleep:
-    case PowerDevil::PowerButtonAction::Hibernate:
+    if (mode == PowerDevil::PowerButtonAction::Sleep || mode == PowerDevil::PowerButtonAction::Hibernate) {
         // don't suspend if shutting down
         if (QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.kde.Shutdown"))) {
             qCDebug(POWERDEVIL) << "Not suspending because a shutdown is in progress";
             return;
         }
-
-        if (!args["SkipFade"].toBool()) {
-            m_savedArgs = args;
-            m_fadeEffect->start();
-            return;
-        }
-    default:
-        /* no suspend action => no fade effect */;
-    }
-
-    if (args["GraceFade"].toBool()) {
-        return;
     }
 
     // Switch for real action
