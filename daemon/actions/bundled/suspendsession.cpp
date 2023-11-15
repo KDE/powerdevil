@@ -11,6 +11,9 @@
 #include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
+#include "batterycontroller.h"
+#include "powerdevilenums.h"
+#include "suspendcontroller.h"
 #include "suspendsessionadaptor.h"
 
 #include <kwinkscreenhelpereffect.h>
@@ -36,11 +39,35 @@ SuspendSession::SuspendSession(QObject *parent)
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 
     connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, [this]() {
+        if ((core()->suspendController()->recentSuspendAcState() != core()->batteryController()->acAdapterState()
+             || (core()->suspendController()->recentSuspendTrigger() == SuspendController::SuspendTrigger::LidClose && core()->isLidClosed()))
+            && core()->suspendController()->recentSuspendMethod() != SuspendController::SuspendMethod::SuspendThenHibernate) {
+            // We were on battery before suspend, but now we're on AC, or vice versa
+            // Or we entered suspension because the lid was closed, but it's still closed
+            // And we are not waking up because the device is switching from sleep to hibernation
+            // This means the computer got woken up because the AC state changed
+            // or an external mouse was moved with the lid still closed,
+            // and not because the user meant to resume
+            // So we don't want to resume but instead enter whatever suspend mode is configured for the new AC state
+            // Doesn't catch the case of plugged before sleep, unplugged during suspend, plugged again, and
+            // doesn't cath the case of suspend-then-hiberated and AC state changed during suspend
+            core()->loadProfile(true);
+            PowerButtonAction suspendAction = core()->suspendController()->recentSuspendMethod() == SuspendController::SuspendMethod::ToDisk
+                ? PowerButtonAction::Hibernate
+                : PowerButtonAction::Sleep;
+            triggerSuspendSession(suspendAction);
+            return;
+        }
+
         KIdleTime::instance()->simulateUserActivity();
 
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
 
         m_fadeEffect->stop();
+
+        core()->suspendController()->setRecentSuspendMethod(SuspendController::UnknownSuspendMethod);
+        core()->suspendController()->setRecentSuspendTrigger(SuspendController::UnkownSuspendTrigger);
+        core()->suspendController()->setRecentSuspendAcState(BatteryController::UnknownAcAdapterState);
 
         Q_EMIT resumingFromSuspend();
     });
@@ -72,6 +99,7 @@ void SuspendSession::onIdleTimeout(std::chrono::milliseconds timeout)
         args.insert(QStringLiteral("SkipFade"), true);
     }
 
+    core()->suspendController()->setRecentSuspendTrigger(SuspendController::IdleTimeout);
     trigger(args);
 }
 
@@ -108,18 +136,23 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     case PowerDevil::PowerButtonAction::Sleep: {
         Q_EMIT aboutToSuspend();
         auto sleepMode = args.contains("SleepMode") ? static_cast<PowerDevil::SleepMode>(args["SleepMode"].toUInt()) : m_sleepMode;
+        core()->suspendController()->setRecentSuspendAcState(core()->batteryController()->acAdapterState());
 
         if (sleepMode == PowerDevil::SleepMode::SuspendThenHibernate) {
+            core()->suspendController()->setRecentSuspendMethod(SuspendController::SuspendMethod::SuspendThenHibernate);
             core()->suspendController()->suspendThenHibernate();
         } else if (sleepMode == PowerDevil::SleepMode::HybridSuspend) {
+            core()->suspendController()->setRecentSuspendMethod(SuspendController::SuspendMethod::HybridSuspend);
             core()->suspendController()->hybridSuspend();
         } else {
+            core()->suspendController()->setRecentSuspendMethod(SuspendController::SuspendMethod::ToRam);
             core()->suspendController()->suspend();
         }
         break;
     }
     case PowerDevil::PowerButtonAction::Hibernate: {
         Q_EMIT aboutToSuspend();
+        core()->suspendController()->setRecentSuspendMethod(SuspendController::SuspendMethod::ToDisk);
         core()->suspendController()->hibernate();
         break;
     }

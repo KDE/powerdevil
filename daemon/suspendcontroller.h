@@ -17,6 +17,7 @@
 
 #include <KJob>
 
+#include "batterycontroller.h"
 #include <sessionmanagement.h>
 
 #include "powerdevilcore_export.h"
@@ -46,6 +47,9 @@ public:
     };
     Q_ENUM(SuspendMethod)
 
+    enum SuspendTrigger { UnkownSuspendTrigger, IdleTimeout, PowerButton, LidClose };
+    Q_ENUM(SuspendTrigger)
+
     /**
      * This type stores an OR combination of SuspendMethod values.
      */
@@ -62,6 +66,34 @@ public:
 
     bool canSuspendThenHibernate() const;
     void suspendThenHibernate();
+
+    SuspendMethod recentSuspendMethod() const
+    {
+        return m_recentSuspendMethod;
+    }
+    void setRecentSuspendMethod(SuspendMethod method)
+    {
+        m_recentSuspendMethod = method;
+    }
+
+    SuspendTrigger recentSuspendTrigger() const
+    {
+        return m_recentSuspendTrigger;
+    }
+
+    void setRecentSuspendTrigger(SuspendTrigger trigger)
+    {
+        m_recentSuspendTrigger = trigger;
+    }
+
+    BatteryController::AcAdapterState recentSuspendAcState() const
+    {
+        return m_recentSuspendAcState;
+    };
+    void setRecentSuspendAcState(BatteryController::AcAdapterState state)
+    {
+        m_recentSuspendAcState = state;
+    };
 
 Q_SIGNALS:
     /**
@@ -82,6 +114,10 @@ private:
 
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;
+
+    SuspendMethod m_recentSuspendMethod = UnknownSuspendMethod;
+    SuspendTrigger m_recentSuspendTrigger = UnkownSuspendTrigger;
+    BatteryController::AcAdapterState m_recentSuspendAcState = BatteryController::UnknownAcAdapterState;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::SuspendMethods)
