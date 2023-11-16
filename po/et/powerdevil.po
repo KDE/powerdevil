@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2020-04-26 10:46+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -64,44 +64,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Ekraani heleduse vähendamine"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Tase"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " min"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Pärast"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Ekraani väljalülitamine"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Väljalülitamine pärast"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr " sek"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -128,63 +95,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Seiskamine"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Isegi kui väline monitor on ühendatud"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Ei tehta midagi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Uni"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "Talveuni"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "Seiskamine"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Ekraani lukustamine"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Väljalogimise dialoog"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Ekraani väljalülitamine"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Kui sülearvuti kaas suletakse"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Kui vajutatakse toitenuppu"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -202,103 +112,6 @@ msgstr "Klaviatuuri heleduse vähendamine"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Klaviatuuri taustavalguse lülitamine"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Tase"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "Jäetakse muutmata"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "Name of a power profile"
-#| msgid "Powersave"
-msgid "Power Save"
-msgstr "Energiasääst"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "Name of a power profile"
-#| msgid "Performance"
-msgid "Performance"
-msgstr "Jõudlus"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, fuzzy, kde-format
-#| msgid "Switch off after"
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Väljalülitamine pärast"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Skript"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "After a period of inactivity"
-msgstr "Uneseisundist lülitutakse teatava aja järel talveunne"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Skripti käivitamine"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "pärast "
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "Automaatne"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Uneseisundist lülitutakse teatava aja järel talveunne"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Kui vajutatakse unenuppu"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -373,7 +186,7 @@ msgstr "Tegevuste reeglid takistavad ekraani toitehaldust"
 msgid "Extra Battery Added"
 msgstr "Lisati lisaaku"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Arvuti enam magama ei lähe."
@@ -477,14 +290,14 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Talveuni"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Aku laetus on jõudnud kriitilisele tasemele, arvuti pannakse magama 60 "
 "sekundi pärast."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgctxt "Suspend to RAM"
 #| msgid "Sleep"
@@ -493,7 +306,7 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Uni"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
@@ -501,7 +314,7 @@ msgstr ""
 "Aku laetus on jõudnud kriitilisele tasemele, salvesta oma töö nii kiiresti "
 "kui võimalik."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -509,50 +322,153 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Loobu"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Aku madal tase (%1% alles)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Aku kriitiline tase (%1% alles)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC adapter on ühendatud"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "Vooluvõrgust töötav arvuti"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Arvuti ühendati elektrivõrku."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Aku peal töötav arvuti"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Arvuti lahutati elektrivõrgust."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laadimine on tehtud"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku on nüüd täielikult laetud."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Tase"
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "After"
+#~ msgstr "Pärast"
+
+#~ msgid "Switch off after"
+#~ msgstr "Väljalülitamine pärast"
+
+#~ msgid " sec"
+#~ msgstr " sek"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Isegi kui väline monitor on ühendatud"
+
+#~ msgid "Do nothing"
+#~ msgstr "Ei tehta midagi"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Uni"
+
+#~ msgid "Hibernate"
+#~ msgstr "Talveuni"
+
+#~ msgid "Shut down"
+#~ msgstr "Seiskamine"
+
+#~ msgid "Lock screen"
+#~ msgstr "Ekraani lukustamine"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Väljalogimise dialoog"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Ekraani väljalülitamine"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Kui sülearvuti kaas suletakse"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Kui vajutatakse toitenuppu"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Tase"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "Jäetakse muutmata"
+
+#, fuzzy
+#~| msgctxt "Name of a power profile"
+#~| msgid "Powersave"
+#~ msgid "Power Save"
+#~ msgstr "Energiasääst"
+
+#, fuzzy
+#~| msgctxt "Name of a power profile"
+#~| msgid "Performance"
+#~ msgid "Performance"
+#~ msgstr "Jõudlus"
+
+#, fuzzy
+#~| msgid "Switch off after"
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Väljalülitamine pärast"
+
+#~ msgid "Script"
+#~ msgstr "Skript"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "After a period of inactivity"
+#~ msgstr "Uneseisundist lülitutakse teatava aja järel talveunne"
+
+#~ msgid "Run script"
+#~ msgstr "Skripti käivitamine"
+
+#~ msgid "after "
+#~ msgstr "pärast "
+
+#~ msgid "Automatically"
+#~ msgstr "Automaatne"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "Uneseisundist lülitutakse teatava aja järel talveunne"
+
+#, fuzzy
+#~| msgid "When sleep button pressed"
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Kui vajutatakse unenuppu"
 
 #, fuzzy
 #~| msgid "The computer will be put into standby in 1 second."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -66,25 +66,6 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Смањи осветљај екрана"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Ниво"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " мин."
-
-# >> @item:inlistbox
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "после"
-
 # >> @item:inlistbox
 #: actions/bundled/dpms.cpp:68
 #, fuzzy, kde-format
@@ -92,21 +73,6 @@ msgstr "после"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "угаси екран"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Угаси после"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr ""
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -135,69 +101,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Угаси"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Чак и кад је прикључен спољашњи монитор"
-
-# >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "не ради ништа"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr ""
-
-# >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "у хибернацију"
-
-# >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "угаси"
-
-# >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "закључај екран"
-
-# >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "покажи одјавни дијалог"
-
-# >> @item:inlistbox
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "угаси екран"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Када се спусти поклопац"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Када се притисне дугме напајања"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -215,101 +118,6 @@ msgstr "Смањи осветљај тастатуре"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Обрни осветљење тастатуре"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Ниво"
-
-# >> @item:inlistbox
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "остави како је"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Power Off"
-msgid "Power Save"
-msgstr "Угаси"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, fuzzy, kde-format
-#| msgid "Switch off after"
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Угаси после"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Скрипта"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Изврши скрипту"
-
-# >> @item:inlistbox
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, fuzzy, kde-format
-#| msgid "After"
-msgid "after "
-msgstr "после"
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr ""
 
 #: powerdevilapp.cpp:53
 #, fuzzy, kde-format
@@ -387,7 +195,7 @@ msgstr "Смернице ове активности не допуштају у�
 msgid "Extra Battery Added"
 msgstr "Додата допунска батерија"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
@@ -502,27 +310,27 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "у хибернацију"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Батерија је на критичном нивоу, рачунар ће бити угашен за 60 секунди."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
 msgid "Please save your work."
 msgstr "Батерија је на критичном нивоу, сачувајте свој рад што је пре могуће."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Cancel timeout that will automatically suspend system because of low "
@@ -534,54 +342,135 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Одустани"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Батерија при крају (остало %1%)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Батерија критична (остало %1%)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Струјни адаптер утакнут"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "На зидном напајању"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "Струјни адаптер је утакнут."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "На батеријском напајању"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "Струјни адаптер је извучен."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "Пуњење довршено"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Батерија је сада потпуно напуњена."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Ниво"
+
+#~ msgid " min"
+#~ msgstr " мин."
+
+# >> @item:inlistbox
+#~ msgid "After"
+#~ msgstr "после"
+
+#~ msgid "Switch off after"
+#~ msgstr "Угаси после"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Чак и кад је прикључен спољашњи монитор"
+
+# >> @item:inlistbox
+#~ msgid "Do nothing"
+#~ msgstr "не ради ништа"
+
+# >> @item:inlistbox
+#~ msgid "Hibernate"
+#~ msgstr "у хибернацију"
+
+# >> @item:inlistbox
+#~ msgid "Shut down"
+#~ msgstr "угаси"
+
+# >> @item:inlistbox
+#~ msgid "Lock screen"
+#~ msgstr "закључај екран"
+
+# >> @item:inlistbox
+#~ msgid "Prompt log out dialog"
+#~ msgstr "покажи одјавни дијалог"
+
+# >> @item:inlistbox
+#~ msgid "Turn off screen"
+#~ msgstr "угаси екран"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Када се спусти поклопац"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Када се притисне дугме напајања"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Ниво"
+
+# >> @item:inlistbox
+#~ msgid "Leave unchanged"
+#~ msgstr "остави како је"
+
+#, fuzzy
+#~| msgctxt "@action:inmenu Global shortcut"
+#~| msgid "Power Off"
+#~ msgid "Power Save"
+#~ msgstr "Угаси"
+
+#, fuzzy
+#~| msgid "Switch off after"
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Угаси после"
+
+#~ msgid "Script"
+#~ msgstr "Скрипта"
+
+#~ msgid "Run script"
+#~ msgstr "Изврши скрипту"
+
+# >> @item:inlistbox
+#, fuzzy
+#~| msgid "After"
+#~ msgid "after "
+#~ msgstr "после"
 
 # >> @item:inlistbox
 #, fuzzy

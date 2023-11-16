@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-09-10 19:01+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -59,44 +59,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "திரையின் பிரகாசத்தை 1% குறை"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "நிலை"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " நிமிடம்"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "இதற்கு பின்:"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "காட்சிக் கருவியை அணை"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "இவ்வளவு நேரத்திற்கு பின் அணை"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr " நொடி"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr "திரை பூட்டப்பட்டிருக்கும்போது இவ்வளவு நேரத்திற்கு பின் அணை:"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -123,63 +90,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "கணினியை உடனடியாக நிறுத்து"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "வெளி காட்சிக் கருவி இணைக்கப்பட்டிருக்கும்போதும்"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "ஒன்றும் செய்யாதே"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "உறங்கு"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "ஆழுறங்கு"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "கணினியை நிறுத்து"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "திரையை பூட்டு"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "வெளியேற்ற சாளரத்தை காட்டு"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "காட்சிக் கருவியை முடக்கு"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "மடிக்கணினியின் மூடி மூடப்படும்போது"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "ஆற்றல் பட்டன் அழுத்தப்படும்போது"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -197,98 +107,6 @@ msgstr "விசைப்பலகையின் பிரகாசத்த�
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "விசைப்பலகை விளக்கை நிலைமாற்று"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "நிலை"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "மாற்றாதே"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "ஆற்றல் சேமிப்பு"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "சமநிலை"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "அதிவேகம்"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "இதற்கு மாறு:"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "சிறுநிரல்"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "After a period of inactivity"
-msgstr "குறிப்பிட்ட நேரம் உறங்கியபின் ஆழுறக்கத்தில் நுழை"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "சிறுநிரலை இயக்கு"
-
-# this is like 'after X min'. Unfortunately, I do not think this can be translated without changing the order of the words. Leaving untranslated for now. - Kishore
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "தானாக"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "குறிப்பிட்ட நேரம் உறங்கியபின் ஆழுறக்கத்தில் நுழை"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr ""
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -362,7 +180,7 @@ msgstr "திரை ஆற்றல் மேலாண்மையை இந்
 msgid "Extra Battery Added"
 msgstr "கூடுதல் மின்கலம் சேர்க்கப்பட்டது"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "கணினி இனிமேல் தூங்காது."
@@ -454,25 +272,25 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "இப்போதே ஆழுறங்கு"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid "The computer will sleep in 60 seconds."
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "கணினி 60 நொடிகளில் உறங்கும்."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "இப்போதே தூங்கு"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "Please save your work."
 msgstr "தயவுசெய்து உங்கள் ஆவணங்களை சேமியுங்கள்."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -480,50 +298,141 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "மின்கலம் குறைவாயுள்ளது (மீதம் %1%)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "மின்கல நெருக்கடி (மீதம் %1%)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "மின் செருகி சொருகப்பட்டுள்ளது"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "மின்னூற்றின் ஆற்றலில் இயங்குகிறது"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "மின் செருகி சொருகப்பட்டுள்ளது."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "மின்கல ஆற்றலில் இயங்குகிறது"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "மின் செருகி கழற்றப்பட்டுள்ளது."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "ஆற்றலேற்றம் முடிந்த‍து"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "மின்கலத்தில் ஆற்றல் முழுதாக ஏறியுள்ளது."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "நிலை"
+
+#~ msgid " min"
+#~ msgstr " நிமிடம்"
+
+#~ msgid "After"
+#~ msgstr "இதற்கு பின்:"
+
+#~ msgid "Switch off after"
+#~ msgstr "இவ்வளவு நேரத்திற்கு பின் அணை"
+
+#~ msgid " sec"
+#~ msgstr " நொடி"
+
+#~ msgid "When screen is locked, switch off after"
+#~ msgstr "திரை பூட்டப்பட்டிருக்கும்போது இவ்வளவு நேரத்திற்கு பின் அணை:"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "வெளி காட்சிக் கருவி இணைக்கப்பட்டிருக்கும்போதும்"
+
+#~ msgid "Do nothing"
+#~ msgstr "ஒன்றும் செய்யாதே"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "உறங்கு"
+
+#~ msgid "Hibernate"
+#~ msgstr "ஆழுறங்கு"
+
+#~ msgid "Shut down"
+#~ msgstr "கணினியை நிறுத்து"
+
+#~ msgid "Lock screen"
+#~ msgstr "திரையை பூட்டு"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "வெளியேற்ற சாளரத்தை காட்டு"
+
+#~ msgid "Turn off screen"
+#~ msgstr "காட்சிக் கருவியை முடக்கு"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "மடிக்கணினியின் மூடி மூடப்படும்போது"
+
+#~ msgid "When power button pressed"
+#~ msgstr "ஆற்றல் பட்டன் அழுத்தப்படும்போது"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "நிலை"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "மாற்றாதே"
+
+#~ msgid "Power Save"
+#~ msgstr "ஆற்றல் சேமிப்பு"
+
+#~ msgid "Balanced"
+#~ msgstr "சமநிலை"
+
+#~ msgid "Performance"
+#~ msgstr "அதிவேகம்"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "இதற்கு மாறு:"
+
+#~ msgid "Script"
+#~ msgstr "சிறுநிரல்"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "After a period of inactivity"
+#~ msgstr "குறிப்பிட்ட நேரம் உறங்கியபின் ஆழுறக்கத்தில் நுழை"
+
+#~ msgid "Run script"
+#~ msgstr "சிறுநிரலை இயக்கு"
+
+#~ msgid "Automatically"
+#~ msgstr "தானாக"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "குறிப்பிட்ட நேரம் உறங்கியபின் ஆழுறக்கத்தில் நுழை"
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "கலப்புமுறையில் உறங்கு"

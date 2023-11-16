@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-10-31 16:17+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -74,44 +74,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Diminuer la luminosité de l'écran de 1 %"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Niveau"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr "min"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Après"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Éteindre l'écran"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Éteindre après"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr " sec"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr "Lorsque l'écran est verrouillé, l'éteindre après son déverrouillage"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -138,63 +105,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Forcer l'extinction"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Même lorsqu'un écran externe est connecté"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Ne rien faire"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Veille"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "En hibernation"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "Éteindre"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Verrouiller l'écran"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Afficher la fenêtre de déconnexion"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Éteindre l'écran"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Lorsque l'écran du portable est rabattu"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Lorsque le bouton de mise en marche est enfoncé"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -212,97 +122,6 @@ msgstr "Diminuer la luminosité du clavier"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Changer le rétro-éclairage du clavier"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Niveau"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "Laisser inchangé"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "Économie d'énergie"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "Équilibré"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "Performance"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Basculer vers :"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Script"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr "Lors de l'entrée en mode alimenté"
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr "Lors de la sortie du mode alimenté"
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr "Après une période d'inactivité"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Exécuter le script"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "après "
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "Automatiquement"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr "En attente (Enregistrement de la session en mémoire)"
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-"Veille hybride (Enregistrement de la session à la fois en mémoire et sur "
-"disque)"
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "En attente puis hiberner après une période d'inactivité"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Lors de la veille, saisir"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -377,7 +196,7 @@ msgstr "Ces règles d'activité empêchent la gestion de l'énergie de l'écran"
 msgid "Extra Battery Added"
 msgstr "Batterie supplémentaire ajoutée"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "L'ordinateur ne sera plus mis en veille."
@@ -470,13 +289,13 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Mettre en hibernation maintenant"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Batterie critique. Votre ordinateur sera mis en veille dans 60 secondes."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
@@ -484,12 +303,12 @@ msgid "Sleep Now"
 msgstr "Mettre en veille maintenant"
 
 # unreviewed-context
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "Please save your work."
 msgstr "Veuillez enregistrer vos travaux."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -497,50 +316,159 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Annuler"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batterie faible (%1 % restant)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Niveau de la batterie critique (%1 % restant)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Prise d'alimentation branchée"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "Fonctionnement sur secteur"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "La prise d'alimentation a été branchée."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Fonctionnement sur batterie"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "La prise d'alimentation a été débranchée."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "Charge complète"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batterie est maintenant complètement chargée."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Niveau"
+
+#~ msgid " min"
+#~ msgstr "min"
+
+#~ msgid "After"
+#~ msgstr "Après"
+
+#~ msgid "Switch off after"
+#~ msgstr "Éteindre après"
+
+#~ msgid " sec"
+#~ msgstr " sec"
+
+#~ msgid "When screen is locked, switch off after"
+#~ msgstr "Lorsque l'écran est verrouillé, l'éteindre après son déverrouillage"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Même lorsqu'un écran externe est connecté"
+
+#~ msgid "Do nothing"
+#~ msgstr "Ne rien faire"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Veille"
+
+#~ msgid "Hibernate"
+#~ msgstr "En hibernation"
+
+#~ msgid "Shut down"
+#~ msgstr "Éteindre"
+
+#~ msgid "Lock screen"
+#~ msgstr "Verrouiller l'écran"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Afficher la fenêtre de déconnexion"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Éteindre l'écran"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Lorsque l'écran du portable est rabattu"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Lorsque le bouton de mise en marche est enfoncé"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Niveau"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "Laisser inchangé"
+
+#~ msgid "Power Save"
+#~ msgstr "Économie d'énergie"
+
+#~ msgid "Balanced"
+#~ msgstr "Équilibré"
+
+#~ msgid "Performance"
+#~ msgstr "Performance"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Basculer vers :"
+
+#~ msgid "Script"
+#~ msgstr "Script"
+
+#~ msgid "When entering power state"
+#~ msgstr "Lors de l'entrée en mode alimenté"
+
+#~ msgid "When exiting power state"
+#~ msgstr "Lors de la sortie du mode alimenté"
+
+#~ msgid "After a period of inactivity"
+#~ msgstr "Après une période d'inactivité"
+
+#~ msgid "Run script"
+#~ msgstr "Exécuter le script"
+
+#~ msgid "after "
+#~ msgstr "après "
+
+#~ msgid "Automatically"
+#~ msgstr "Automatiquement"
+
+#~ msgid "Standby (Save session to memory)"
+#~ msgstr "En attente (Enregistrement de la session en mémoire)"
+
+#~ msgid "Hybrid sleep (Save session to both memory and disk)"
+#~ msgstr ""
+#~ "Veille hybride (Enregistrement de la session à la fois en mémoire et sur "
+#~ "disque)"
+
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "En attente puis hiberner après une période d'inactivité"
+
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Lors de la veille, saisir"
 
 #~ msgid "The computer will shut down in 60 seconds."
 #~ msgstr "Votre ordinateur s'éteindra dans 60 secondes."

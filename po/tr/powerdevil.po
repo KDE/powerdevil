@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-11-05 11:39+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -60,44 +60,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Ekran Parlaklığını %​1 Azalt"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Düzey"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " dak"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Süre"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Ekranı Kapat"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Şu süre sonunda kapat:"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr " san"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr "Ekran kilitliyken kapatılma süresi"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -124,63 +91,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Gücü Kapat"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Dış monitör bağlıyken dahi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Hiçbir şey yapma"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Uyut"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "Hazırda beklet"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "Kapat"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Ekranı kilitle"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Oturumu kapat penceresini göster"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Ekranı kapat"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Dizüstü kapağı kapatıldığında"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Güç düğmesine basıldığında"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -198,95 +108,6 @@ msgstr "Klavye Parlaklığını Azalt"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Klavye Arka Işığını Aç/Kapat"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Düzey"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "Aynı bırak"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "Güç Tasarrufu"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "Dengeli"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "Başarım"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Şuna geç:"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Betik"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr "Güç durumuna girerken"
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr "Güç durumundan çıkarken"
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr "Bir süre hareketsizlikten sonra"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Betik çalıştır"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "sonra: "
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "Kendiliğinden"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr "Uyut (Oturumu belleğe kaydet)"
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr "Hibrit uyku (Oturumu hem belleğe hem diske kaydet)"
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Bir süre hareketsizlikten sonra uyut, sonra hazırda beklet"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Uyurken kullanılacak kip"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -360,7 +181,7 @@ msgstr "Bu etkinliğin kuralları ekran güç yönetimini engeller"
 msgid "Extra Battery Added"
 msgstr "İlave Pil Eklendi"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Bilgisayar artık uyku kipine geçmeyecek."
@@ -452,24 +273,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Şimdi Hazırda Beklet"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Pil düzeyi kritik. Bilgisayar 60 saniye içinde uyuyacak."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Şimdi Uyut"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "Please save your work."
 msgstr "Lütfen çalışmalarınızı kaydedin."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -477,50 +298,157 @@ msgctxt ""
 msgid "Cancel"
 msgstr "İptal"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Pil Düşük (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Pil Kritik (%​%1 Kaldı)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Bağdaştırıcı Takılı"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "Fişe Takılı"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Güç bağdaştırıcısı takılı."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Pille Çalışıyor"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Güç bağdaştırıcısı takılı değil."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "Şarj Tamamlandı"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Piliniz tümüyle şarj edildi."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Düzey"
+
+#~ msgid " min"
+#~ msgstr " dak"
+
+#~ msgid "After"
+#~ msgstr "Süre"
+
+#~ msgid "Switch off after"
+#~ msgstr "Şu süre sonunda kapat:"
+
+#~ msgid " sec"
+#~ msgstr " san"
+
+#~ msgid "When screen is locked, switch off after"
+#~ msgstr "Ekran kilitliyken kapatılma süresi"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Dış monitör bağlıyken dahi"
+
+#~ msgid "Do nothing"
+#~ msgstr "Hiçbir şey yapma"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Uyut"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hazırda beklet"
+
+#~ msgid "Shut down"
+#~ msgstr "Kapat"
+
+#~ msgid "Lock screen"
+#~ msgstr "Ekranı kilitle"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Oturumu kapat penceresini göster"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Ekranı kapat"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Dizüstü kapağı kapatıldığında"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Güç düğmesine basıldığında"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Düzey"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "Aynı bırak"
+
+#~ msgid "Power Save"
+#~ msgstr "Güç Tasarrufu"
+
+#~ msgid "Balanced"
+#~ msgstr "Dengeli"
+
+#~ msgid "Performance"
+#~ msgstr "Başarım"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Şuna geç:"
+
+#~ msgid "Script"
+#~ msgstr "Betik"
+
+#~ msgid "When entering power state"
+#~ msgstr "Güç durumuna girerken"
+
+#~ msgid "When exiting power state"
+#~ msgstr "Güç durumundan çıkarken"
+
+#~ msgid "After a period of inactivity"
+#~ msgstr "Bir süre hareketsizlikten sonra"
+
+#~ msgid "Run script"
+#~ msgstr "Betik çalıştır"
+
+#~ msgid "after "
+#~ msgstr "sonra: "
+
+#~ msgid "Automatically"
+#~ msgstr "Kendiliğinden"
+
+#~ msgid "Standby (Save session to memory)"
+#~ msgstr "Uyut (Oturumu belleğe kaydet)"
+
+#~ msgid "Hybrid sleep (Save session to both memory and disk)"
+#~ msgstr "Hibrit uyku (Oturumu hem belleğe hem diske kaydet)"
+
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "Bir süre hareketsizlikten sonra uyut, sonra hazırda beklet"
+
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Uyurken kullanılacak kip"
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hibrit uyku"

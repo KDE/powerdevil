@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-02-18 15:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -66,45 +66,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Kurangi Kecerahan Layar"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Tingkat"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " mnt"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Setelah"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Padamkan Layar"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Padamkan setelah"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, fuzzy, kde-format
-#| msgid " sec"
-msgid " sec"
-msgstr " det"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -131,63 +97,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Matikan Daya"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Setiap kali sebuah monitor eksternal terkoneksi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Jangan lakukan apa-apa"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Tidur"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernasi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "Matikan"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Layar kunci"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Tanyakan dialog logout"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Padamkan layar"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Ketika tutup laptop ditutup"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Ketika tombol daya ditekan"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -205,98 +114,6 @@ msgstr "Kurangi Kecerahan Keyboard"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Ubah Warna Cahayabelakang Keyboard"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Tingkat"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "Biarkan takdiubah"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "Penghematan Daya"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "Terseimbang"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "Kinerja"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Ubah ke:"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Skrip"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "After a period of inactivity"
-msgstr "Ketika tertidur, hibernasikan sesudah periode tak beraktifitas"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Jalankan Skrip"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "sesudah-"
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "Secara otomatis"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Ketika tertidur, hibernasikan sesudah periode tak beraktifitas"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Jika tombol tidur ditekan"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -371,7 +188,7 @@ msgstr "Kebijakan aktivitas ini mencegah pengelolaan daya layar"
 msgid "Extra Battery Added"
 msgstr "Baterai Ekstra Ditambahkan"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Komputer tidak lama lagi akan tidur."
@@ -473,25 +290,25 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernasi"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Tingkat baterai kritis. Komputermu akan tidur dalam 60 detik."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Tidur Sekarang"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "Tingkat baterai kritis. Silakan simpan pekerjaanmu."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -499,50 +316,150 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Batal"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baterai Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterai Kritis (%1% Tersisa)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptor AC Dicolokkan"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "Berjalan dalam daya AC"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Adaptor daya telah dicolokkan."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Berjalan dalam Daya Baterai"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Adaptor daya telah dicabut."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "Pengecasan Rampung"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterai sekarang tercas penuh."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Tingkat"
+
+#~ msgid " min"
+#~ msgstr " mnt"
+
+#~ msgid "After"
+#~ msgstr "Setelah"
+
+#~ msgid "Switch off after"
+#~ msgstr "Padamkan setelah"
+
+#, fuzzy
+#~| msgid " sec"
+#~ msgid " sec"
+#~ msgstr " det"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Setiap kali sebuah monitor eksternal terkoneksi"
+
+#~ msgid "Do nothing"
+#~ msgstr "Jangan lakukan apa-apa"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Tidur"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hibernasi"
+
+#~ msgid "Shut down"
+#~ msgstr "Matikan"
+
+#~ msgid "Lock screen"
+#~ msgstr "Layar kunci"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Tanyakan dialog logout"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Padamkan layar"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Ketika tutup laptop ditutup"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Ketika tombol daya ditekan"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Tingkat"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "Biarkan takdiubah"
+
+#~ msgid "Power Save"
+#~ msgstr "Penghematan Daya"
+
+#~ msgid "Balanced"
+#~ msgstr "Terseimbang"
+
+#~ msgid "Performance"
+#~ msgstr "Kinerja"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Ubah ke:"
+
+#~ msgid "Script"
+#~ msgstr "Skrip"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "After a period of inactivity"
+#~ msgstr "Ketika tertidur, hibernasikan sesudah periode tak beraktifitas"
+
+#~ msgid "Run script"
+#~ msgstr "Jalankan Skrip"
+
+#~ msgid "after "
+#~ msgstr "sesudah-"
+
+#~ msgid "Automatically"
+#~ msgstr "Secara otomatis"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "Ketika tertidur, hibernasikan sesudah periode tak beraktifitas"
+
+#, fuzzy
+#~| msgid "When sleep button pressed"
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Jika tombol tidur ditekan"
 
 #, fuzzy
 #~| msgid "The computer will be put into standby in 1 second."

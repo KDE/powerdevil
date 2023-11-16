@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -59,44 +59,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr ""
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr ""
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " മിനിറ്റ്"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr ""
-
 #: actions/bundled/dpms.cpp:68
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "സ്ക്രീന്‍ കെടുത്തുക"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, fuzzy, kde-format
-msgid "Switch off after"
-msgstr "എത്ര സമയത്തിനു് ശേഷം &നിര്‍ത്തി വയ്ക്കാം"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, fuzzy, kde-format
-msgid " sec"
-msgstr "സെക്കന്റുകള്‍"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, fuzzy, kde-format
@@ -124,63 +91,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "പവര്‍ഡെവിള്‍"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr ""
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "ഒന്നും ചെയ്യണ്ട"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr ""
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr ""
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, fuzzy, kde-format
-msgid "Shut down"
-msgstr "നിര്‍ത്തി വയ്ക്കുക"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, fuzzy, kde-format
-msgid "Lock screen"
-msgstr "തിരശ്ശീല പൂട്ടുക"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, fuzzy, kde-format
-msgid "Prompt log out dialog"
-msgstr "പുറത്തിറങ്ങുന്നതിനുള്ള സംഭാഷണം കാണിയ്ക്കുക"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, fuzzy, kde-format
-msgid "Turn off screen"
-msgstr "സ്ക്രീന്‍ കെടുത്തുക"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "ലാപ്‌ടോപ്പിന്റെ അടപ്പു് അടച്ചാല്‍"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "വൈദ്യുതി ബട്ടന്‍ അമര്‍ത്തിയാല്‍"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -198,96 +108,6 @@ msgstr ""
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr ""
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, fuzzy, kde-format
-msgid "Power Save"
-msgstr "വൈദ്യതി മിതവ്യയം"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, fuzzy, kde-format
-msgid "Performance"
-msgstr "പ്രകടനം"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, fuzzy, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "എത്ര സമയത്തിനു് ശേഷം &നിര്‍ത്തി വയ്ക്കാം"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "ഉറങ്ങാനുള്ള ബട്ടണ്‍ അമര്‍ത്തിയാല്‍"
 
 #: powerdevilapp.cpp:53
 #, fuzzy, kde-format
@@ -362,7 +182,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "ഗുരുതരമായ ബാറ്ററി നില"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, fuzzy, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
@@ -447,24 +267,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr ""
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 msgid "Please save your work."
 msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്: നിങ്ങളുടെ ജോലി എത്രയും പെട്ടെന്നു് സൂക്ഷിയ്ക്കുക."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -472,50 +292,106 @@ msgctxt ""
 msgid "Cancel"
 msgstr "റദ്ദാക്കുക"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "എസി അഡാപ്റ്റര്‍ കുത്തിയിരിയ്ക്കുമ്പോള്‍"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "വൈദ്യുതി അഡാപ്റ്റര്‍ കുത്തിയിരിയ്ക്കുന്നു."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 msgid "Running on Battery Power"
 msgstr "ബാറ്ററി വൈദ്യുതിയിലായിരിയ്ക്കുമ്പോള്‍"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "വൈദ്യുതി അഡാപ്റ്റര്‍ നീക്കം ചെയ്തിരിയ്ക്കുന്നു."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#~ msgid " min"
+#~ msgstr " മിനിറ്റ്"
+
+#, fuzzy
+#~ msgid "Switch off after"
+#~ msgstr "എത്ര സമയത്തിനു് ശേഷം &നിര്‍ത്തി വയ്ക്കാം"
+
+#, fuzzy
+#~ msgid " sec"
+#~ msgstr "സെക്കന്റുകള്‍"
+
+#~ msgid "Do nothing"
+#~ msgstr "ഒന്നും ചെയ്യണ്ട"
+
+#, fuzzy
+#~ msgid "Shut down"
+#~ msgstr "നിര്‍ത്തി വയ്ക്കുക"
+
+#, fuzzy
+#~ msgid "Lock screen"
+#~ msgstr "തിരശ്ശീല പൂട്ടുക"
+
+#, fuzzy
+#~ msgid "Prompt log out dialog"
+#~ msgstr "പുറത്തിറങ്ങുന്നതിനുള്ള സംഭാഷണം കാണിയ്ക്കുക"
+
+#, fuzzy
+#~ msgid "Turn off screen"
+#~ msgstr "സ്ക്രീന്‍ കെടുത്തുക"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "ലാപ്‌ടോപ്പിന്റെ അടപ്പു് അടച്ചാല്‍"
+
+#~ msgid "When power button pressed"
+#~ msgstr "വൈദ്യുതി ബട്ടന്‍ അമര്‍ത്തിയാല്‍"
+
+#, fuzzy
+#~ msgid "Power Save"
+#~ msgstr "വൈദ്യതി മിതവ്യയം"
+
+#, fuzzy
+#~ msgid "Performance"
+#~ msgstr "പ്രകടനം"
+
+#, fuzzy
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "എത്ര സമയത്തിനു് ശേഷം &നിര്‍ത്തി വയ്ക്കാം"
+
+#, fuzzy
+#~| msgid "When sleep button pressed"
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "ഉറങ്ങാനുള്ള ബട്ടണ്‍ അമര്‍ത്തിയാല്‍"
 
 #, fuzzy
 #~| msgid "The computer will be put into standby in 1 second."

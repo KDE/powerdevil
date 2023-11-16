@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-06-01 10:08+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -63,44 +63,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "انقص سطوع الشاشة بـ1%"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "المستوى"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr "دقائق"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "بعد"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "أطفئ الشاشة"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "أطفئ بعد"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr "ث"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr "عندما تقفل الشاشة، أطفئها"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -127,63 +94,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "اقطع الطاقة"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "حتى عند توصيل شاشة خارجية"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "لا تفعل شيئا"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "نَم"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "أسبت"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "أطفئ"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "اقفل الشاشة"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "اعرض حوار الخروج"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "أطفئ الشاشة"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "عند إغلاق غطاء المحمول"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "عند ضغط زر الطاقة"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -201,98 +111,6 @@ msgstr "انقص سطوع لوحة المفاتيح"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "بدّل الإضاءة الخلفيّة للوحة المفاتيح"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "المستوى"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "اتركه بدون تغيير"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "حفظ الطاقة"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "متوازن"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "الأداء"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "بدل إلى:"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "سكربت"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "After a period of inactivity"
-msgstr "أثناء النوم ، اسبت بعد فترة من عدم النشاط"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "شغل سكربت"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "بعد "
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "آليا"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, fuzzy, kde-format
-#| msgid "While asleep, hibernate after a period of inactivity"
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "أثناء النوم ، اسبت بعد فترة من عدم النشاط"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "عند ضغط زر النوم"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -367,7 +185,7 @@ msgstr "سياسات النشاط منعت إدارة طاقة الشاشة"
 msgid "Extra Battery Added"
 msgstr "أضيفت بطارية إضافية"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "لن ينتقل الحاسوب إلى وضع السكون بعد الآن."
@@ -461,25 +279,25 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "أسبت الآن"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "بلغت البطارية المستوى الحرج، سينام الحاسوب في 60 ثانية."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "نَم الآن"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "بلغت البطارية المستوى الحرج، احفظ عملك."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -487,50 +305,151 @@ msgctxt ""
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "البطارية منخفضة (%1٪ متبقية)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "البطارية في مستوى حرج (%1% متبقية)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "وصل قابس الطاقة"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "يعمل على قابس الطاقة"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "وُصِل محول الطاقة."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "يعمل على طاقة البطارية"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "فُصل محول الطاقة."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "اكتمل الشحن"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "بطاريتك الآن مشحونة كليًّا."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "المستوى"
+
+#~ msgid " min"
+#~ msgstr "دقائق"
+
+#~ msgid "After"
+#~ msgstr "بعد"
+
+#~ msgid "Switch off after"
+#~ msgstr "أطفئ بعد"
+
+#~ msgid " sec"
+#~ msgstr "ث"
+
+#~ msgid "When screen is locked, switch off after"
+#~ msgstr "عندما تقفل الشاشة، أطفئها"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "حتى عند توصيل شاشة خارجية"
+
+#~ msgid "Do nothing"
+#~ msgstr "لا تفعل شيئا"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "نَم"
+
+#~ msgid "Hibernate"
+#~ msgstr "أسبت"
+
+#~ msgid "Shut down"
+#~ msgstr "أطفئ"
+
+#~ msgid "Lock screen"
+#~ msgstr "اقفل الشاشة"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "اعرض حوار الخروج"
+
+#~ msgid "Turn off screen"
+#~ msgstr "أطفئ الشاشة"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "عند إغلاق غطاء المحمول"
+
+#~ msgid "When power button pressed"
+#~ msgstr "عند ضغط زر الطاقة"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "المستوى"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "اتركه بدون تغيير"
+
+#~ msgid "Power Save"
+#~ msgstr "حفظ الطاقة"
+
+#~ msgid "Balanced"
+#~ msgstr "متوازن"
+
+#~ msgid "Performance"
+#~ msgstr "الأداء"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "بدل إلى:"
+
+#~ msgid "Script"
+#~ msgstr "سكربت"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "After a period of inactivity"
+#~ msgstr "أثناء النوم ، اسبت بعد فترة من عدم النشاط"
+
+#~ msgid "Run script"
+#~ msgstr "شغل سكربت"
+
+#~ msgid "after "
+#~ msgstr "بعد "
+
+#~ msgid "Automatically"
+#~ msgstr "آليا"
+
+#, fuzzy
+#~| msgid "While asleep, hibernate after a period of inactivity"
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "أثناء النوم ، اسبت بعد فترة من عدم النشاط"
+
+#, fuzzy
+#~| msgid "When sleep button pressed"
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "عند ضغط زر النوم"
 
 #, fuzzy
 #~| msgid "The computer will be put into standby in 1 second."

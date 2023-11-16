@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-11-11 13:04+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -60,44 +60,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Znížiť jas obrazovky o 1%"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Úroveň"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " min"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Po"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Vypnúť obrazovku"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Vypnúť po"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr " sek"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr "Keď je obrazovka zamknutá, vypnúť po"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -124,63 +91,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Vypnúť"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Aj vtedy, ak je pripojený externý monitor"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Neurobiť nič"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Uspať"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernovať"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "Vypnúť"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Uzamknúť obrazovku"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Vyvolať dialóg odhlásenia"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Vypnúť monitor"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Ak je zatvorený kryt notebooku"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Ak je stlačené tlačidlo napájania"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -198,95 +108,6 @@ msgstr "Znížiť jas klávesnice"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Prepnúť podsvietenie klávesnice"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Úroveň"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "Ponechať nezmenené"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "Šetrenie energie"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "Vyvážený"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "Vysoký výkon"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Prepnúť na:"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Skript"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr "Pri vstupe do režimu napájania"
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr "Pri odchode z režimu napájania"
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr "Po intervale nečinnosti"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Spustiť skript"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "po "
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "Automaticky"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr "Pohotovosť (Uložiť sedenie do pamäte)"
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr "Hybridný spánok (Uložiť sedenie do pamäte aj na disk)"
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Počas pohotovosti, hibernovať po období nečinnosti"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Počas spánku, vstúpiť"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -360,7 +181,7 @@ msgstr "Tieto politiky aktivít nepovoľujú správu napájania obrazovky"
 msgid "Extra Battery Added"
 msgstr "Pridaná dodatočná batéria"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tento počítač sa viac neuspí."
@@ -451,24 +272,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernovať teraz"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Úroveň batérie je kritická, počítač bude uspatý za 60 sekúnd."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Uspať teraz"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "Please save your work."
 msgstr "Uložte si svoju prácu."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -476,50 +297,157 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie (%1% zostáva)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritická úroveň batérie (%1% zostáva)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Napájací adaptér zapojený"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "Spustené s napájaním zo siete"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Napájanie zo siete bolo pripojené."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Spustené s napájaním z batérie"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Napájanie zo siete bolo odpojené."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "Nabíjanie dokončené"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batéria je teraz plne nabitá."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Úroveň"
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "After"
+#~ msgstr "Po"
+
+#~ msgid "Switch off after"
+#~ msgstr "Vypnúť po"
+
+#~ msgid " sec"
+#~ msgstr " sek"
+
+#~ msgid "When screen is locked, switch off after"
+#~ msgstr "Keď je obrazovka zamknutá, vypnúť po"
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Aj vtedy, ak je pripojený externý monitor"
+
+#~ msgid "Do nothing"
+#~ msgstr "Neurobiť nič"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Uspať"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hibernovať"
+
+#~ msgid "Shut down"
+#~ msgstr "Vypnúť"
+
+#~ msgid "Lock screen"
+#~ msgstr "Uzamknúť obrazovku"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Vyvolať dialóg odhlásenia"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Vypnúť monitor"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Ak je zatvorený kryt notebooku"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Ak je stlačené tlačidlo napájania"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Úroveň"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "Ponechať nezmenené"
+
+#~ msgid "Power Save"
+#~ msgstr "Šetrenie energie"
+
+#~ msgid "Balanced"
+#~ msgstr "Vyvážený"
+
+#~ msgid "Performance"
+#~ msgstr "Vysoký výkon"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Prepnúť na:"
+
+#~ msgid "Script"
+#~ msgstr "Skript"
+
+#~ msgid "When entering power state"
+#~ msgstr "Pri vstupe do režimu napájania"
+
+#~ msgid "When exiting power state"
+#~ msgstr "Pri odchode z režimu napájania"
+
+#~ msgid "After a period of inactivity"
+#~ msgstr "Po intervale nečinnosti"
+
+#~ msgid "Run script"
+#~ msgstr "Spustiť skript"
+
+#~ msgid "after "
+#~ msgstr "po "
+
+#~ msgid "Automatically"
+#~ msgstr "Automaticky"
+
+#~ msgid "Standby (Save session to memory)"
+#~ msgstr "Pohotovosť (Uložiť sedenie do pamäte)"
+
+#~ msgid "Hybrid sleep (Save session to both memory and disk)"
+#~ msgstr "Hybridný spánok (Uložiť sedenie do pamäte aj na disk)"
+
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "Počas pohotovosti, hibernovať po období nečinnosti"
+
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Počas spánku, vstúpiť"
 
 #, fuzzy
 #~| msgid "Battery level critical. Your computer will shut down in 60 seconds."

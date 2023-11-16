@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2023-11-04 19:37+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -60,44 +60,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Malpliigi Ekran Brilon je 1%"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Nivelo"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " min"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Post"
-
 #: actions/bundled/dpms.cpp:68
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Malŝalti ekranon"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "Malŝalti post"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr " sek"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr "Kiam ekrano estas ŝlosita, malŝalti post "
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -124,63 +91,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Potenco Malsupren"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr "Eĉ kiam ekstera monitoro estas konektita"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Fari nenion"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, kde-format
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Dormi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "Hibernate"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, kde-format
-msgid "Shut down"
-msgstr "Fermi sistemon"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Ŝlosi ekranon"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Ekigi elsalutan dialogon"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Malŝalti ekranon"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Kiam tekokomputilo estas fermita"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Kiam energia butono presiĝis"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -198,95 +108,6 @@ msgstr "Malpliigi Klavaran Brilon"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Baskuligi Klavaran Retrolumon"
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, kde-format
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Nivelo"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr "Lasi senŝanĝe"
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, kde-format
-msgid "Power Save"
-msgstr "Potencoŝparo"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr "Ekvilibrita"
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr "Rendimento"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, kde-format
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "Ŝanĝi al:"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Skripto"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr "Eniĝante energiostaton"
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr "Eliĝante energiostaton"
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr "Post periodo de neaktiveco"
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Ruli skripton"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, kde-format
-msgid "after "
-msgstr "post "
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr "Aŭtomate"
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr "Pretstari (Konservi seancon al memoro)"
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr "Hibrida dormo (Konservi seancon al ambaŭ memoro kaj disko)"
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr "Pretstari, travintri post periodo de neaktiveco"
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Dormante, eniri"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -360,7 +181,7 @@ msgstr "La politikoj de ĉi tiu agado malhelpas administradon de ekrano-potenco"
 msgid "Extra Battery Added"
 msgstr "Kroma Baterio Aldonita"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "La komputilo ne plu ekdormos."
@@ -451,24 +272,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernate Nun"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Baterinivelo kritika. Via komputilo ekdormos post 60 sekundoj."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Dormi Nun"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, kde-format
 msgid "Please save your work."
 msgstr "Bonvolu konservi vian laboron."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -476,47 +297,154 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Rezigni"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baterio Malalta (%1% Restanta)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterio Kritika (%1% Restanta)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "AC-Adaptilo Konektita"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr "Funkcianta sur AC-potenco"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "La elektra adaptilo estis enŝovita."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Funkcianta sur Bateria Potenco"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "La elektra adaptilo estis malkonektita."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr "Ŝargado Kompleta"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterio nun plene ŝargita."
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Nivelo"
+
+#~ msgid " min"
+#~ msgstr " min"
+
+#~ msgid "After"
+#~ msgstr "Post"
+
+#~ msgid "Switch off after"
+#~ msgstr "Malŝalti post"
+
+#~ msgid " sec"
+#~ msgstr " sek"
+
+#~ msgid "When screen is locked, switch off after"
+#~ msgstr "Kiam ekrano estas ŝlosita, malŝalti post "
+
+#~ msgctxt ""
+#~ "Execute action on lid close even when external monitor is connected"
+#~ msgid "Even when an external monitor is connected"
+#~ msgstr "Eĉ kiam ekstera monitoro estas konektita"
+
+#~ msgid "Do nothing"
+#~ msgstr "Fari nenion"
+
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Dormi"
+
+#~ msgid "Hibernate"
+#~ msgstr "Hibernate"
+
+#~ msgid "Shut down"
+#~ msgstr "Fermi sistemon"
+
+#~ msgid "Lock screen"
+#~ msgstr "Ŝlosi ekranon"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Ekigi elsalutan dialogon"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Malŝalti ekranon"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Kiam tekokomputilo estas fermita"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Kiam energia butono presiĝis"
+
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Nivelo"
+
+#~ msgid "Leave unchanged"
+#~ msgstr "Lasi senŝanĝe"
+
+#~ msgid "Power Save"
+#~ msgstr "Potencoŝparo"
+
+#~ msgid "Balanced"
+#~ msgstr "Ekvilibrita"
+
+#~ msgid "Performance"
+#~ msgstr "Rendimento"
+
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "Ŝanĝi al:"
+
+#~ msgid "Script"
+#~ msgstr "Skripto"
+
+#~ msgid "When entering power state"
+#~ msgstr "Eniĝante energiostaton"
+
+#~ msgid "When exiting power state"
+#~ msgstr "Eliĝante energiostaton"
+
+#~ msgid "After a period of inactivity"
+#~ msgstr "Post periodo de neaktiveco"
+
+#~ msgid "Run script"
+#~ msgstr "Ruli skripton"
+
+#~ msgid "after "
+#~ msgstr "post "
+
+#~ msgid "Automatically"
+#~ msgstr "Aŭtomate"
+
+#~ msgid "Standby (Save session to memory)"
+#~ msgstr "Pretstari (Konservi seancon al memoro)"
+
+#~ msgid "Hybrid sleep (Save session to both memory and disk)"
+#~ msgstr "Hibrida dormo (Konservi seancon al ambaŭ memoro kaj disko)"
+
+#~ msgid "Standby, then hibernate after a period of inactivity"
+#~ msgstr "Pretstari, travintri post periodo de neaktiveco"
+
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Dormante, eniri"

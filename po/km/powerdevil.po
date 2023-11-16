@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -71,45 +71,12 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "កម្រិត​"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " នាទី"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "ក្រោយ​ពេល​​"
-
 #: actions/bundled/dpms.cpp:68
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "បិទ​អេក្រង់​"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "បិទ​ក្រោយ​ពេល​"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, kde-format
-msgid " sec"
-msgstr ""
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
@@ -137,65 +104,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr ""
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr ""
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "មិនធ្វើអ្វីទាំង​អស់"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "ដេក"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "សម្ងំ"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "បិទ"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "ចាក់សោ​អេក្រង់​"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "បង្ហាញ​ប្រអប់​ចេញ​"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "បិទ​អេក្រង់​"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "នៅពេល​គម្រប​កុំព្យូទ័រ​យួរដៃ​បាន​បិទ"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "នៅ​ពេល​ចុច​ប៊ូតុង​ថាមពល"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, fuzzy, kde-format
 #| msgctxt "Global shortcut"
@@ -216,100 +124,6 @@ msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr ""
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, fuzzy, kde-format
-#| msgctxt "Brightness level, label for the slider"
-#| msgid "Level"
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "កម្រិត​"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, fuzzy, kde-format
-#| msgid "KDE Power Management System"
-msgid "Power Save"
-msgstr "ឧបករណ៍​គ្រប់គ្រង​ថាមពល​សម្រាប់ KDE4​"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, kde-format
-msgid "Performance"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, fuzzy, kde-format
-#| msgid "Switch off after"
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "បិទ​ក្រោយ​ពេល​"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "ស្គ្រីប​"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "ដំណើរការ​ស្គ្រីប​"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, fuzzy, kde-format
-#| msgid "After"
-msgid "after "
-msgstr "ក្រោយ​ពេល​​"
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, kde-format
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
 msgstr ""
 
 #: powerdevilapp.cpp:53
@@ -395,7 +209,7 @@ msgstr "គោលនយោបាយ​របស់​សកម្មភាព​
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
@@ -488,7 +302,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "សម្ងំ"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be suspended in 30 "
@@ -496,7 +310,7 @@ msgstr "សម្ងំ"
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -504,13 +318,13 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "ដេក"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
 msgid "Please save your work."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ រក្សាទុក​ការងារ​របស់​អ្នក​ឲ្យ​បាន​ឆាប់​តាមដែល​អាច​ធ្វើ​បាន ។"
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -518,52 +332,126 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr ""
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត ។"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr ""
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "អាដាប់ទ័រ​ថាមពល​បាន​ដក​ចេញ ។"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "កម្រិត​"
+
+#~ msgid " min"
+#~ msgstr " នាទី"
+
+#~ msgid "After"
+#~ msgstr "ក្រោយ​ពេល​​"
+
+#~ msgid "Switch off after"
+#~ msgstr "បិទ​ក្រោយ​ពេល​"
+
+#~ msgid "Do nothing"
+#~ msgstr "មិនធ្វើអ្វីទាំង​អស់"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "ដេក"
+
+#~ msgid "Hibernate"
+#~ msgstr "សម្ងំ"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "បិទ"
+
+#~ msgid "Lock screen"
+#~ msgstr "ចាក់សោ​អេក្រង់​"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "បង្ហាញ​ប្រអប់​ចេញ​"
+
+#~ msgid "Turn off screen"
+#~ msgstr "បិទ​អេក្រង់​"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "នៅពេល​គម្រប​កុំព្យូទ័រ​យួរដៃ​បាន​បិទ"
+
+#~ msgid "When power button pressed"
+#~ msgstr "នៅ​ពេល​ចុច​ប៊ូតុង​ថាមពល"
+
+#, fuzzy
+#~| msgctxt "Brightness level, label for the slider"
+#~| msgid "Level"
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "កម្រិត​"
+
+#, fuzzy
+#~| msgid "KDE Power Management System"
+#~ msgid "Power Save"
+#~ msgstr "ឧបករណ៍​គ្រប់គ្រង​ថាមពល​សម្រាប់ KDE4​"
+
+#, fuzzy
+#~| msgid "Switch off after"
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "បិទ​ក្រោយ​ពេល​"
+
+#~ msgid "Script"
+#~ msgstr "ស្គ្រីប​"
+
+#~ msgid "Run script"
+#~ msgstr "ដំណើរការ​ស្គ្រីប​"
+
+#, fuzzy
+#~| msgid "After"
+#~ msgid "after "
+#~ msgstr "ក្រោយ​ពេល​​"
 
 #, fuzzy
 #~| msgid ""

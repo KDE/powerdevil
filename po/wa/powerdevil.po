@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 16:53+0000\n"
+"POT-Creation-Date: 2023-11-16 01:46+0000\n"
 "PO-Revision-Date: 2011-01-05 19:44+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -61,47 +61,12 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr ""
 
-#: actions/bundled/brightnesscontrolconfig.cpp:65
-#, kde-format
-msgctxt "Brightness level, label for the slider"
-msgid "Level"
-msgstr "Livea"
-
-#: actions/bundled/dimdisplayconfig.cpp:55 actions/bundled/dpmsconfig.cpp:55
-#: actions/bundled/runscriptconfig.cpp:106
-#: actions/bundled/suspendsessionconfig.cpp:75
-#, kde-format
-msgid " min"
-msgstr " mun"
-
-#: actions/bundled/dimdisplayconfig.cpp:65
-#, kde-format
-msgid "After"
-msgstr "Après"
-
 #: actions/bundled/dpms.cpp:68
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Arester li waitroûle"
-
-#: actions/bundled/dpmsconfig.cpp:56
-#, kde-format
-msgid "Switch off after"
-msgstr "&Arester après"
-
-#: actions/bundled/dpmsconfig.cpp:64
-#, fuzzy, kde-format
-#| msgctxt "As in \"seconds\""
-#| msgid " sec"
-msgid " sec"
-msgstr " seg"
-
-#: actions/bundled/dpmsconfig.cpp:65
-#, kde-format
-msgid "When screen is locked, switch off after"
-msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, fuzzy, kde-format
@@ -131,65 +96,6 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Li Diale d' Enerdjeye"
 
-#: actions/bundled/handlebuttoneventsconfig.cpp:79
-#, kde-format
-msgctxt "Execute action on lid close even when external monitor is connected"
-msgid "Even when an external monitor is connected"
-msgstr ""
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:88
-#: actions/bundled/suspendsessionconfig.cpp:78
-#, kde-format
-msgid "Do nothing"
-msgstr "Èn rén fé"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:91
-#: actions/bundled/suspendsessionconfig.cpp:85
-#, fuzzy, kde-format
-#| msgid "Sleep"
-msgctxt "Suspend to RAM"
-msgid "Sleep"
-msgstr "Doirmi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:95
-#: actions/bundled/suspendsessionconfig.cpp:89
-#, kde-format
-msgid "Hibernate"
-msgstr "Fordoirmi"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:97
-#: actions/bundled/suspendsessionconfig.cpp:91
-#, fuzzy, kde-format
-#| msgid "Shutdown"
-msgid "Shut down"
-msgstr "Arester"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:98
-#: actions/bundled/suspendsessionconfig.cpp:92
-#, kde-format
-msgid "Lock screen"
-msgstr "Eclawer waitroûle"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:101
-#, kde-format
-msgid "Prompt log out dialog"
-msgstr "Arinner l' purnea d' dislodjaedje"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:105
-#, kde-format
-msgid "Turn off screen"
-msgstr "Arester li waitroûle"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:132
-#, kde-format
-msgid "When laptop lid closed"
-msgstr "Cwand l' covieke do poirtåve est cloyou"
-
-#: actions/bundled/handlebuttoneventsconfig.cpp:143
-#, kde-format
-msgid "When power button pressed"
-msgstr "Cwand l' boutoe d' aloumaedje/distindaedje est tchôkî"
-
 #: actions/bundled/keyboardbrightnesscontrol.cpp:48
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
@@ -207,104 +113,6 @@ msgstr ""
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr ""
-
-#: actions/bundled/keyboardbrightnesscontrolconfig.cpp:66
-#, fuzzy, kde-format
-#| msgctxt "Brightness level, label for the slider"
-#| msgid "Level"
-msgctxt "@label:slider Brightness level"
-msgid "Level"
-msgstr "Livea"
-
-#: actions/bundled/powerprofileconfig.cpp:74
-#, kde-format
-msgid "Leave unchanged"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:82
-#, fuzzy, kde-format
-#| msgctxt "Name of a power profile"
-#| msgid "Powersave"
-msgid "Power Save"
-msgstr "Sipårgnaedje d' enerdjeye"
-
-#: actions/bundled/powerprofileconfig.cpp:83
-#, kde-format
-msgid "Balanced"
-msgstr ""
-
-#: actions/bundled/powerprofileconfig.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "Name of a power profile"
-#| msgid "Performance"
-msgid "Performance"
-msgstr "Performance"
-
-#: actions/bundled/powerprofileconfig.cpp:98
-#, fuzzy, kde-format
-#| msgid "Switch off after"
-msgctxt "Switch to power management profile"
-msgid "Switch to:"
-msgstr "&Arester après"
-
-#: actions/bundled/runscriptconfig.cpp:95
-#, kde-format
-msgid "Script"
-msgstr "Sicripe"
-
-#: actions/bundled/runscriptconfig.cpp:107
-#, kde-format
-msgid "When entering power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:108
-#, kde-format
-msgid "When exiting power state"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:109
-#, kde-format
-msgid "After a period of inactivity"
-msgstr ""
-
-#: actions/bundled/runscriptconfig.cpp:120
-#, kde-format
-msgid "Run script"
-msgstr "Enonder scripe"
-
-#: actions/bundled/suspendsessionconfig.cpp:76
-#, fuzzy, kde-format
-#| msgid "After"
-msgid "after "
-msgstr "Après"
-
-#: actions/bundled/suspendsessionconfig.cpp:101
-#, kde-format
-msgid "Automatically"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:115
-#, kde-format
-msgid "Standby (Save session to memory)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:118
-#, kde-format
-msgid "Hybrid sleep (Save session to both memory and disk)"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:121
-#, kde-format
-msgid "Standby, then hibernate after a period of inactivity"
-msgstr ""
-
-#: actions/bundled/suspendsessionconfig.cpp:130
-#, fuzzy, kde-format
-#| msgid "When sleep button pressed"
-msgctxt ""
-"@label:combobox Sleep mode selection - suspend to memory, disk or both"
-msgid "When sleeping, enter"
-msgstr "Cwand l' boutoe Doirmi est tchôkî"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -383,7 +191,7 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Livea critike del batreye"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
@@ -480,7 +288,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Fordoirmi"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
@@ -488,7 +296,7 @@ msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Vosse livea batreye est critike, li copiutrece s' arestêyrè dins 30 segondes."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -496,7 +304,7 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "Doirmi"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
 msgid "Please save your work."
@@ -504,7 +312,7 @@ msgstr ""
 "Vosse livea d' batreye est critike : schapez vost ovraedje ttossu rade ki "
 "possibe."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:635
 #, fuzzy, kde-format
 #| msgctxt "Interrupts the suspension/shutdown process"
 #| msgid "Cancel"
@@ -514,54 +322,148 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Rinoncî"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:675
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "AC Adapter Plugged In"
 msgstr "Cwand l' adaptateu AC est tchôkî"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "L' adaptateu d' corant a stî tchôkî."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "When on battery power"
 msgid "Running on Battery Power"
 msgstr "Cwand dj' so sol batreye"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "L' adaptateu d' corant a stî distchôkî."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#~ msgctxt "Brightness level, label for the slider"
+#~ msgid "Level"
+#~ msgstr "Livea"
+
+#~ msgid " min"
+#~ msgstr " mun"
+
+#~ msgid "After"
+#~ msgstr "Après"
+
+#~ msgid "Switch off after"
+#~ msgstr "&Arester après"
+
+#, fuzzy
+#~| msgctxt "As in \"seconds\""
+#~| msgid " sec"
+#~ msgid " sec"
+#~ msgstr " seg"
+
+#~ msgid "Do nothing"
+#~ msgstr "Èn rén fé"
+
+#, fuzzy
+#~| msgid "Sleep"
+#~ msgctxt "Suspend to RAM"
+#~ msgid "Sleep"
+#~ msgstr "Doirmi"
+
+#~ msgid "Hibernate"
+#~ msgstr "Fordoirmi"
+
+#, fuzzy
+#~| msgid "Shutdown"
+#~ msgid "Shut down"
+#~ msgstr "Arester"
+
+#~ msgid "Lock screen"
+#~ msgstr "Eclawer waitroûle"
+
+#~ msgid "Prompt log out dialog"
+#~ msgstr "Arinner l' purnea d' dislodjaedje"
+
+#~ msgid "Turn off screen"
+#~ msgstr "Arester li waitroûle"
+
+#~ msgid "When laptop lid closed"
+#~ msgstr "Cwand l' covieke do poirtåve est cloyou"
+
+#~ msgid "When power button pressed"
+#~ msgstr "Cwand l' boutoe d' aloumaedje/distindaedje est tchôkî"
+
+#, fuzzy
+#~| msgctxt "Brightness level, label for the slider"
+#~| msgid "Level"
+#~ msgctxt "@label:slider Brightness level"
+#~ msgid "Level"
+#~ msgstr "Livea"
+
+#, fuzzy
+#~| msgctxt "Name of a power profile"
+#~| msgid "Powersave"
+#~ msgid "Power Save"
+#~ msgstr "Sipårgnaedje d' enerdjeye"
+
+#, fuzzy
+#~| msgctxt "Name of a power profile"
+#~| msgid "Performance"
+#~ msgid "Performance"
+#~ msgstr "Performance"
+
+#, fuzzy
+#~| msgid "Switch off after"
+#~ msgctxt "Switch to power management profile"
+#~ msgid "Switch to:"
+#~ msgstr "&Arester après"
+
+#~ msgid "Script"
+#~ msgstr "Sicripe"
+
+#~ msgid "Run script"
+#~ msgstr "Enonder scripe"
+
+#, fuzzy
+#~| msgid "After"
+#~ msgid "after "
+#~ msgstr "Après"
+
+#, fuzzy
+#~| msgid "When sleep button pressed"
+#~ msgctxt ""
+#~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
+#~ msgid "When sleeping, enter"
+#~ msgstr "Cwand l' boutoe Doirmi est tchôkî"
 
 #, fuzzy
 #~| msgid "The computer will be put into standby in 1 second."

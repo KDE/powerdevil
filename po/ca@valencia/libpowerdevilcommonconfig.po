@@ -70,7 +70,7 @@ msgstr "Apaga la pantalla"
 #: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr "Activa/desactiva la pantalla"
+msgstr "Activa o desactiva la pantalla"
 
 #: PowerProfileModel.cpp:40
 #, kde-format
