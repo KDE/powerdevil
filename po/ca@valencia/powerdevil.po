@@ -168,7 +168,7 @@ msgstr "Quan es tanque la tapa del portàtil"
 #: actions/bundled/handlebuttoneventsconfig.cpp:149
 #, kde-format
 msgid "When power button pressed"
-msgstr "Quan es prema el botó d'encesa/apagat"
+msgstr "Quan es prema el botó d'encesa o apagada"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
