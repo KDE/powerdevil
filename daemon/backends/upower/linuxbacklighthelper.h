@@ -58,11 +58,6 @@ private:
     void initUsingBacklightType();
     QStringList getBacklightTypeDevices() const;
 
-    /**
-     * FreeBSD (and other BSDs) can control backlight via acpi_video(4)
-     */
-    void initUsingSysctl();
-
     bool m_isSupported = false;
     QString m_sysctlDevice;
     QList<int> m_sysctlBrightnessLevels;

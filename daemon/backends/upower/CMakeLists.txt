@@ -29,7 +29,14 @@ qt_add_dbus_interface(powerdevilupowerbackend_SRCS
 )
 
 ## backlight helper executable
-add_executable(backlighthelper backlighthelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
+    list(APPEND backlighthelpers_SRCS freebsdbacklighthelper.cpp)
+else()
+    list(APPEND backlighthelpers_SRCS linuxbacklighthelper.cpp)
+endif()
+
+add_executable(backlighthelper ${backlighthelpers_SRCS})
 target_link_libraries(backlighthelper Qt::Core KF5::AuthCore KF5::I18n)
 install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
