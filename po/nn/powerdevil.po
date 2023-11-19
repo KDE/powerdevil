@@ -253,8 +253,7 @@ msgid "Plug in the computer."
 msgstr ""
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Batterinivået er kritisk lågt. Maskina vert automatisk slått av om 60 sekund."
@@ -267,10 +266,7 @@ msgid "Shut Down Now"
 msgstr "Slå av no"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
@@ -287,9 +283,7 @@ msgid "Hibernate Now"
 msgstr "Gå i dvalemodus no"
 
 #: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Batterinivået er kritisk lågt. Maskina går automatisk i kvilemodus om 60 "
@@ -361,97 +355,3 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
-
-#~ msgctxt "Brightness level, label for the slider"
-#~ msgid "Level"
-#~ msgstr "Nivå"
-
-#~ msgid " min"
-#~ msgstr " minutt"
-
-#~ msgid "After"
-#~ msgstr "Etter"
-
-#~ msgid "Switch off after"
-#~ msgstr "Slå av etter"
-
-#~ msgid " sec"
-#~ msgstr " sekund"
-
-#~ msgid "When screen is locked, switch off after"
-#~ msgstr "Når skjermen er låst, slå han av etter"
-
-#~ msgctxt ""
-#~ "Execute action on lid close even when external monitor is connected"
-#~ msgid "Even when an external monitor is connected"
-#~ msgstr "Sjølv om ein ekstern skjerm er kopla til"
-
-#~ msgid "Do nothing"
-#~ msgstr "Ikkje gjer noko"
-
-#~ msgctxt "Suspend to RAM"
-#~ msgid "Sleep"
-#~ msgstr "Gå i kvilemodus"
-
-#~ msgid "Hibernate"
-#~ msgstr "Gå i dvalemodus"
-
-#~ msgid "Shut down"
-#~ msgstr "Slå av maskina"
-
-#~ msgid "Lock screen"
-#~ msgstr "Lås skjermen"
-
-#~ msgid "Prompt log out dialog"
-#~ msgstr "Vis utloggingsvindauget"
-
-#~ msgid "Turn off screen"
-#~ msgstr "Slå av skjermen"
-
-#~ msgid "When laptop lid closed"
-#~ msgstr "Når lokket vert lukka"
-
-#~ msgid "When power button pressed"
-#~ msgstr "Ved trykk på straumknappen"
-
-#~ msgctxt "@label:slider Brightness level"
-#~ msgid "Level"
-#~ msgstr "Nivå"
-
-#~ msgid "Leave unchanged"
-#~ msgstr "La vera uendra"
-
-#~ msgid "Power Save"
-#~ msgstr "Straumsparing"
-
-#~ msgid "Balanced"
-#~ msgstr "Balansert"
-
-#~ msgid "Performance"
-#~ msgstr "Yting"
-
-#~ msgctxt "Switch to power management profile"
-#~ msgid "Switch to:"
-#~ msgstr "Byt til:"
-
-#~ msgid "Script"
-#~ msgstr "Skript"
-
-#, fuzzy
-#~| msgid "While asleep, hibernate after a period of inactivity"
-#~ msgid "After a period of inactivity"
-#~ msgstr "I kvilemodus, gå til dvalemodus etter periode utan aktivitet"
-
-#~ msgid "Run script"
-#~ msgstr "Køyr skript"
-
-#~ msgid "after "
-#~ msgstr "etter "
-
-#~ msgid "Automatically"
-#~ msgstr "Automatisk"
-
-#, fuzzy
-#~| msgid "While asleep, hibernate after a period of inactivity"
-#~ msgid "Standby, then hibernate after a period of inactivity"
-#~ msgstr "I kvilemodus, gå til dvalemodus etter periode utan aktivitet"
