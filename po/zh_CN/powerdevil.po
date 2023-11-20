@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-16 01:46+0000\n"
-"PO-Revision-Date: 2023-11-11 07:19\n"
+"PO-Revision-Date: 2023-11-19 03:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -335,87 +335,3 @@ msgstr "充电完成"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "电池已经充满。"
-
-#~ msgctxt "Brightness level, label for the slider"
-#~ msgid "Level"
-#~ msgstr "亮度"
-
-#~ msgid " min"
-#~ msgstr " 分钟"
-
-#~ msgid "After"
-#~ msgstr "如果空闲"
-
-#~ msgid "Switch off after"
-#~ msgstr "关闭前等待时间"
-
-#~ msgid " sec"
-#~ msgstr " 秒"
-
-#~ msgid "When screen is locked, switch off after"
-#~ msgstr "屏幕被锁定时，经过此时间后息屏"
-
-#~ msgctxt ""
-#~ "Execute action on lid close even when external monitor is connected"
-#~ msgid "Even when an external monitor is connected"
-#~ msgstr "即使在外接显示器时"
-
-#~ msgid "Do nothing"
-#~ msgstr "无操作"
-
-#~ msgctxt "Suspend to RAM"
-#~ msgid "Sleep"
-#~ msgstr "睡眠"
-
-#~ msgid "Hibernate"
-#~ msgstr "休眠"
-
-#~ msgid "Shut down"
-#~ msgstr "关机"
-
-#~ msgid "Lock screen"
-#~ msgstr "锁屏"
-
-#~ msgid "Prompt log out dialog"
-#~ msgstr "提示注销对话框"
-
-#~ msgid "Turn off screen"
-#~ msgstr "息屏"
-
-#~ msgid "When laptop lid closed"
-#~ msgstr "合上笔记本盖时"
-
-#~ msgid "When power button pressed"
-#~ msgstr "按下电源键时"
-
-#~ msgctxt "@label:slider Brightness level"
-#~ msgid "Level"
-#~ msgstr "亮度"
-
-#~ msgid "Leave unchanged"
-#~ msgstr "保持不变"
-
-#~ msgid "Power Save"
-#~ msgstr "省电"
-
-#~ msgid "Balanced"
-#~ msgstr "平衡"
-
-#~ msgid "Performance"
-#~ msgstr "性能"
-
-#~ msgctxt "Switch to power management profile"
-#~ msgid "Switch to:"
-#~ msgstr "切换到："
-
-#~ msgid "Script"
-#~ msgstr "脚本"
-
-#~ msgid "Run script"
-#~ msgstr "运行脚本"
-
-#~ msgid "after "
-#~ msgstr "如果空闲 "
-
-#~ msgid "Automatically"
-#~ msgstr "自动"
