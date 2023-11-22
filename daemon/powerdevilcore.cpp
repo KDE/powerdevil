@@ -31,7 +31,7 @@
 #include <KPluginFactory>
 #include <KPluginMetaData>
 
-#include <KActivities/Consumer>
+#include <PlasmaActivities/Consumer>
 
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
