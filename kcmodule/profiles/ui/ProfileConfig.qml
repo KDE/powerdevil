@@ -372,7 +372,7 @@ Kirigami.FormLayout {
     Item {
         Kirigami.FormData.isSection: true
         Kirigami.FormData.label: i18nc("@title:group", "Other Settings")
-        visible: kcm.supportedActions["RunScript"] === true || kcm.supportedActions["PowerProfile"] === true
+        visible: kcm.supportedActions["RunScript"] === true || powerProfileCombo.visible
     }
 
     QQC2.ComboBox {
@@ -386,7 +386,7 @@ Kirigami.FormLayout {
             "Switch to power profile"
         )
 
-        visible: kcm.supportedActions["PowerProfile"] === true
+        visible: kcm.supportedActions["PowerProfile"] === true && count > 1
         Layout.fillWidth: true
         implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted
 
