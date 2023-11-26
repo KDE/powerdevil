@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-09 01:39+0000\n"
-"PO-Revision-Date: 2023-11-19 03:37\n"
+"PO-Revision-Date: 2023-11-25 02:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -21,13 +21,13 @@ msgstr ""
 #: ProfilesConfigKCM.cpp:332
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "电源管理服务尚未运行。"
+msgstr "电源管理服务没有运行。"
 
 #: ui/main.qml:36
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "电源管理设置无法加载"
 
 #: ui/main.qml:53
 #, kde-format
@@ -50,13 +50,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "挂起会话"
 
 #: ui/ProfileConfig.qml:49
 #, kde-format
@@ -64,13 +64,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "不活动一段时间后(&F)："
 
 #: ui/ProfileConfig.qml:57
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "系统空闲时执行的操作"
 
 #: ui/ProfileConfig.qml:94
 #, kde-format
@@ -78,13 +78,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "按下电源键时(&P)："
 
 #: ui/ProfileConfig.qml:96
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "按下电源按钮时执行的操作"
 
 #: ui/ProfileConfig.qml:124
 #, kde-format
@@ -92,13 +92,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "合上笔记本盖时(&L)："
 
 #: ui/ProfileConfig.qml:126
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "合上笔记本盖时的操作"
 
 #: ui/ProfileConfig.qml:154
 #, kde-format
@@ -106,67 +106,67 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "即使在外接了显示器时"
 
 #: ui/ProfileConfig.qml:156
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
-msgstr ""
+msgstr "即使在外接了显示器时也依然执行合上笔记本盖的操作"
 
 #: ui/ProfileConfig.qml:169
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "睡眠时进入此模式："
 
 #: ui/ProfileConfig.qml:171
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "睡眠时进入此省电模式"
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "显示器和亮度"
 
 #: ui/ProfileConfig.qml:229
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "更改屏幕亮度(&E)："
 
 #: ui/ProfileConfig.qml:262
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "自动降低亮度(&M)："
 
 #: ui/ProfileConfig.qml:288
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "息屏(&T)："
 
 #: ui/ProfileConfig.qml:313
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "锁定时关闭屏幕(&K)："
 
 #: ui/ProfileConfig.qml:337
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "更改键盘亮度(&B)："
 
 #: ui/ProfileConfig.qml:374
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "其他设置"
 
 #: ui/ProfileConfig.qml:382
 #, kde-format
@@ -174,7 +174,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "切换到此电源方案(&W)："
 
 #: ui/ProfileConfig.qml:386
 #, kde-format
@@ -182,13 +182,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "切换到指定的电源方案"
 
 #: ui/ProfileConfig.qml:418
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "运行自定义脚本："
 
 #: ui/ProfileConfig.qml:424
 #, kde-format
@@ -196,88 +196,88 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "选择运行条件…"
 
 #: ui/ProfileConfig.qml:426
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "选择脚本命令的运行条件"
 
 #: ui/ProfileConfig.qml:445
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "进入此电源状态时(&N)"
 
 #: ui/ProfileConfig.qml:461
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "退出此电源状态时(&X)"
 
 #: ui/ProfileConfig.qml:477
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "不活动一段时间后(&V)"
 
 #: ui/ProfileConfig.qml:496
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "进入此电源状态时(&N)："
 
 #: ui/ProfileConfig.qml:498
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "进入此电源状态时的脚本命令"
 
 #: ui/ProfileConfig.qml:518
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "退出此电源状态时(&X)："
 
 #: ui/ProfileConfig.qml:520
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "退出此电源状态时的脚本命令"
 
 #: ui/ProfileConfig.qml:540
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "不活动一段时间后(&V)："
 
 #: ui/ProfileConfig.qml:542
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "不活动一段时间后的脚本命令"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "执行脚本命令之前的空闲等待时间"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "输入命令或选择文件…"
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "选择可执行文件…"
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "选择可执行文件"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -285,7 +285,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|min|mins|minutes|分|分钟"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -293,7 +293,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|sec|secs|seconds|秒"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -302,16 +302,16 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
+msgstr[0] "%1 分钟之后"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
+msgstr[0] "%1 秒之后"
