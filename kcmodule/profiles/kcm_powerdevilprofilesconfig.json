@@ -33,7 +33,7 @@
         "Description[tr]": "Güç Tasarrufu",
         "Description[uk]": "Заощадження енергії",
         "Description[x-test]": "xxEnergy Savingxx",
-        "Description[zh_CN]": "节能",
+        "Description[zh_CN]": "省电功能",
         "Description[zh_TW]": "省電模式",
         "Icon": "preferences-system-power-management",
         "Name": "Energy Saving",
@@ -86,7 +86,7 @@
         "Name[tr]": "Güç Tasarrufu",
         "Name[uk]": "Заощадження енергії",
         "Name[x-test]": "xxEnergy Savingxx",
-        "Name[zh_CN]": "节能",
+        "Name[zh_CN]": "省电功能",
         "Name[zh_TW]": "省電模式"
     },
     "X-DocPath": "kcontrol/powerdevil/index.html",
