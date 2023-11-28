@@ -318,23 +318,3 @@ msgstr[0] ""
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
 msgstr[0] ""
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Yukiko Bando, Ryuichi Yamada"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "ybando@k6.dion.ne.jp, ryuichi_ya220@outlook.jp"
-
-#~ msgid ""
-#~ "The KDE Power Management System will now generate a set of defaults based "
-#~ "on your computer's capabilities. This will also erase all existing "
-#~ "modifications you made. Are you sure you want to continue?"
-#~ msgstr ""
-#~ "KDE 電源管理システムはコンピュータの特性をもとにデフォルトの設定値を生成し"
-#~ "ます。これはこれまでに行われたすべての既存の変更を消去します。本当に続行し"
-#~ "ますか？"
-
-#~ msgid "Restore Default Profiles"
-#~ msgstr "デフォルトのプロファイルを復元"
