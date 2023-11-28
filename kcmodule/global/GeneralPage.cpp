@@ -139,6 +139,7 @@ void GeneralPage::load()
 
     KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getthreshold"));
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
+    action.setParentWindow(widget()->window()->windowHandle());
     KAuth::ExecuteJob *job = action.execute();
     job->exec();
 
@@ -183,6 +184,7 @@ void GeneralPage::save()
             {QStringLiteral("chargeStartThreshold"), m_chargeStartThreshold != -1 ? chargeStartThresholdSpin->value() : -1},
             {QStringLiteral("chargeStopThreshold"), m_chargeStopThreshold != -1 ? chargeStopThresholdSpin->value() : -1},
         });
+        action.setParentWindow(widget()->window()->windowHandle());
         KAuth::ExecuteJob *job = action.execute();
         job->exec();
         if (!job->error()) {
