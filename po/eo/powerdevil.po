@@ -1,53 +1,52 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translation of powerdevil.pot to esperanto
+# Copyright (C) 2009 Free Software Foundation, Inc.
+# Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 02:28+0000\n"
-"PO-Revision-Date: 2009-12-23 16:16+0100\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-11-04 19:37+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Language: Esperanto\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Axel Rousseau"
+msgstr "Axel Rousseau,Oliver Kellogg"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org"
+msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
 
 #: actions/bundled/brightnesscontrol.cpp:53 actions/bundled/dpms.cpp:76
 #: actions/bundled/handlebuttonevents.cpp:57
 #: actions/bundled/keyboardbrightnesscontrol.cpp:57
-#, fuzzy, kde-format
-#| msgid "Profile Management"
+#, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Administrado de profiloj"
+msgstr "Potencadministrado"
 
 #: actions/bundled/brightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr ""
+msgstr "Pliigi Ekranan Brilon"
 
 #: actions/bundled/brightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr ""
+msgstr "Malpliigi Ekran Brilon"
 
 #: actions/bundled/brightnesscontrolconfig.cpp:75
 #, kde-format
@@ -70,44 +69,40 @@ msgid "After"
 msgstr ""
 
 #: actions/bundled/dpms.cpp:79
-#, fuzzy, kde-format
-#| msgid "Turn Off Screen"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Malŝalti ekranon"
 
 #: actions/bundled/dpmsconfig.cpp:61
-#, fuzzy, kde-format
-#| msgid "&Power off after"
+#, kde-format
 msgid "Switch off after"
-msgstr "Malŝaltiĝi &post"
+msgstr ""
 
 #: actions/bundled/handlebuttonevents.cpp:62
-#, fuzzy, kde-format
-#| msgid "Suspend to RAM"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
-msgstr "Pretstari al RAM"
+msgstr "Interrompi"
 
 #: actions/bundled/handlebuttonevents.cpp:67
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernate"
 
 #: actions/bundled/handlebuttonevents.cpp:72
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
-msgstr ""
+msgstr "Malŝalti"
 
 #: actions/bundled/handlebuttonevents.cpp:86
-#, fuzzy, kde-format
-#| msgid "PowerDevil"
+#, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr "PowerDevil"
+msgstr "Potenco Malsupren"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:87
 #, kde-format
@@ -131,7 +126,7 @@ msgstr ""
 #: actions/bundled/suspendsessionconfig.cpp:96
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernate"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:105
 #: actions/bundled/suspendsessionconfig.cpp:99
@@ -141,17 +136,15 @@ msgstr ""
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:107
 #: actions/bundled/suspendsessionconfig.cpp:101
-#, fuzzy, kde-format
-#| msgid "Shutdown"
+#, kde-format
 msgid "Shut down"
-msgstr "Sistemfermi"
+msgstr ""
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:108
 #: actions/bundled/suspendsessionconfig.cpp:102
-#, fuzzy, kde-format
-#| msgid "Lock Screen"
+#, kde-format
 msgid "Lock screen"
-msgstr "Ŝlosi ekranon"
+msgstr ""
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:110
 #, kde-format
@@ -159,10 +152,9 @@ msgid "Prompt log out dialog"
 msgstr ""
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:112
-#, fuzzy, kde-format
-#| msgid "Turn Off Screen"
+#, kde-format
 msgid "Turn off screen"
-msgstr "Malŝalti ekranon"
+msgstr ""
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:138
 #, kde-format
@@ -178,19 +170,19 @@ msgstr "Kiam energia butono presiĝis"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr ""
+msgstr "Pliigi Klavaran Brilon"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:66
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr ""
+msgstr "Malpliigi Klavaran Brilon"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:71
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr ""
+msgstr "Baskuligi Klavaran Retrolumon"
 
 #: actions/bundled/keyboardbrightnesscontrolconfig.cpp:77
 #, kde-format
@@ -207,11 +199,9 @@ msgid "Leave unchanged"
 msgstr ""
 
 #: actions/bundled/powerprofileconfig.cpp:92
-#, fuzzy, kde-format
-#| msgctxt "Name of a power profile"
-#| msgid "Powersave"
+#, kde-format
 msgid "Power Save"
-msgstr "energiŝparo"
+msgstr ""
 
 #: actions/bundled/powerprofileconfig.cpp:93
 #, kde-format
@@ -219,18 +209,15 @@ msgid "Balanced"
 msgstr ""
 
 #: actions/bundled/powerprofileconfig.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "Name of a power profile"
-#| msgid "Performance"
+#, kde-format
 msgid "Performance"
-msgstr "Rendimento"
+msgstr ""
 
 #: actions/bundled/powerprofileconfig.cpp:109
-#, fuzzy, kde-format
-#| msgid "&Power off after"
+#, kde-format
 msgctxt "Switch to power management profile"
 msgid "Switch to:"
-msgstr "Malŝaltiĝi &post"
+msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:71
 #, kde-format
@@ -238,10 +225,9 @@ msgid "Script"
 msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:83
-#, fuzzy, kde-format
-#| msgid "New Profile"
+#, kde-format
 msgid "On Profile Load"
-msgstr "Nova Profilo"
+msgstr ""
 
 #: actions/bundled/runscriptconfig.cpp:84
 #, kde-format
@@ -271,18 +257,16 @@ msgstr ""
 #: actions/bundled/wirelesspowersavingconfig.cpp:76
 #: actions/bundled/wirelesspowersavingconfig.cpp:81
 #: actions/bundled/wirelesspowersavingconfig.cpp:86
-#, fuzzy, kde-format
-#| msgid "Turn Off Screen"
+#, kde-format
 msgid "Turn off"
-msgstr "Malŝalti ekranon"
+msgstr ""
 
 #: actions/bundled/wirelesspowersavingconfig.cpp:77
 #: actions/bundled/wirelesspowersavingconfig.cpp:82
 #: actions/bundled/wirelesspowersavingconfig.cpp:87
-#, fuzzy, kde-format
-#| msgid "Turn Off Screen"
+#, kde-format
 msgid "Turn on"
-msgstr "Malŝalti ekranon"
+msgstr ""
 
 #: actions/bundled/wirelesspowersavingconfig.cpp:110
 #, kde-format
@@ -300,101 +284,93 @@ msgid "Bluetooth"
 msgstr ""
 
 #: backends/upower/login1suspendjob.cpp:79
-#, fuzzy, kde-format
-#| msgid "Supported schemes"
+#, kde-format
 msgid "Unsupported suspend method"
-msgstr "Subtenataj skemoj"
+msgstr ""
 
 #: powerdevilapp.cpp:62
-#, fuzzy, kde-format
-#| msgid "A Power Management tool for KDE4"
+#, kde-format
 msgid "KDE Power Management System"
-msgstr "Energimastrumilo por KDE4"
+msgstr "KDE-Potencadministra Sistemo"
 
 #: powerdevilapp.cpp:63
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr ""
+msgstr "PowerDevil, altnivela, modula kaj malpeza potencadministrada demono"
 
 #: powerdevilapp.cpp:65
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
-msgstr ""
+msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:66
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr ""
+msgstr "Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:67
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Prizorganto"
 
 #: powerdevilapp.cpp:69
-#, fuzzy, kde-format
-#| msgid "Dario Freddi"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
 #: powerdevilapp.cpp:70
-#, fuzzy, kde-format
-#| msgid "Maintainer"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "Prizorganto"
+msgstr "Antaŭa prizorganto"
 
 #: powerdevilapp.cpp:158
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Anstataŭigi ekzistantan petskribon"
 
 #: powerdevilcore.cpp:438 powerdevilcore.cpp:450
 #, kde-format
 msgid "Activity Manager"
-msgstr ""
+msgstr "Agadmanaĝero"
 
 #: powerdevilcore.cpp:439
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr ""
+msgstr "La politikoj de ĉi tiu aktiveco malhelpas la sistemon ekdormi"
 
 #: powerdevilcore.cpp:451
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr ""
+msgstr "La politikoj de ĉi tiu agado malhelpas administradon de ekrano-potenco"
 
 #: powerdevilcore.cpp:514
-#, fuzzy, kde-format
-#| msgid "Critical battery level"
+#, kde-format
 msgid "Extra Battery Added"
-msgstr "Kritika bateria nivelo"
+msgstr "Kroma Baterio Aldonita"
 
 #: powerdevilcore.cpp:515 powerdevilcore.cpp:736
-#, fuzzy, kde-format
-#| msgid "The computer will be halted in 1 second."
-#| msgid_plural "The computer will be halted in %1 seconds."
+#, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr "la komputilo malŝaltiĝos post 1 sekundo."
+msgstr "La komputilo ne plu ekdormos."
 
 #: powerdevilcore.cpp:582
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Aparata Baterio Malalta (%1% Restanta)"
 
 #: powerdevilcore.cpp:587
 #, kde-format
@@ -403,21 +379,23 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
+"La baterio en \"%1\" malpleniĝas, kaj la aparato povas malŝalti iam ajn. "
+"Bonvolu reŝarĝi aŭ anstataŭigi la baterion."
 
 #: powerdevilcore.cpp:593
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Musa Baterio Malalta (%1% Restanta)"
 
 #: powerdevilcore.cpp:597
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Klavaro Baterio Malalta (%1% Restanta)"
 
 #: powerdevilcore.cpp:601
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Baterio de Bluetooth-aparato Malalta (%1% Restanta)"
 
 #: powerdevilcore.cpp:603
 #, kde-format
@@ -426,6 +404,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
+"La baterio en Bluetooth-aparato \"%1\" malpleniĝas, kaj la aparato povas "
+"malŝalti iam ajn. Bonvolu reŝargi aŭ anstataŭigi la baterion."
 
 #: powerdevilcore.cpp:647
 #, kde-format
@@ -443,7 +423,9 @@ msgstr ""
 
 #: powerdevilcore.cpp:666
 #, fuzzy, kde-format
-#| msgctxt "Interrupts the suspension/shutdown process"
+#| msgctxt ""
+#| "Cancel timeout that will automatically put system to sleep because of low "
+#| "¦battery"
 #| msgid "Cancel"
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -452,421 +434,94 @@ msgid "Cancel"
 msgstr "Rezigni"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Viaj baterioj atingis kritikan nivelon, la komputilo malŝaltiĝos post 1 "
-"sekundo."
+msgstr "Baterinivelo estas kritika. La komputilo malŝaltos post 60 sekundoj."
 
 #: powerdevilcore.cpp:679
-#, fuzzy, kde-format
-#| msgid "Shutdown"
+#, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr "Sistemfermi"
+msgstr "Fermi Nun"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr ""
-"Viaj baterioj atingis kritikan nivelon, la komputilo malŝaltiĝos post 1 "
-"sekundo."
+msgstr "Baterinivelo kritika. Via komputilo pasivumiĝos post 60 sekundoj."
 
 #: powerdevilcore.cpp:685
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@action:button Enter hibernation mode without waiting for the battery "
+#| "¦critical timer"
+#| msgid "Hibernate Now"
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr ""
+msgstr "Hibernate Nun"
 
 #: powerdevilcore.cpp:690
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Viaj baterioj atingis kritikan nivelon, la komputilo malŝaltiĝos post 1 "
-"sekundo."
+msgstr "Baterinivelo kritika. Via komputilo ekdormos post 60 sekundoj."
 
 #: powerdevilcore.cpp:691
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr ""
+msgstr "Dormi Nun"
 
 #: powerdevilcore.cpp:696
-#, fuzzy, kde-format
-#| msgid "Your battery level is critical: save your work as soon as possible."
+#, kde-format
 msgid "Battery level critical. Please save your work."
 msgstr ""
-"Via bateria nivelo estas kritika : Registru vian laboron plej rapide kiel "
-"eble."
 
 #: powerdevilcore.cpp:707
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "Baterio Malalta (%1% Restanta)"
 
 #: powerdevilcore.cpp:711
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr ""
+msgstr "Baterio Kritika (%1% Restanta)"
 
 #: powerdevilcore.cpp:735
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been unplugged."
+#, kde-format
 msgid "AC Adapter Plugged In"
-msgstr "La kurentkonekto malkonektiĝis. "
+msgstr "AC-Adaptilo Konektita"
 
 #: powerdevilcore.cpp:738
 #, kde-format
 msgid "Running on AC power"
-msgstr ""
+msgstr "Funkcianta sur AC-potenco"
 
 #: powerdevilcore.cpp:738
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been plugged in."
+#, kde-format
 msgid "The power adapter has been plugged in."
-msgstr "La kurentkonekto konektiĝis."
+msgstr "La elektra adaptilo estis enŝovita."
 
 #: powerdevilcore.cpp:741
 #, kde-format
 msgid "Running on Battery Power"
-msgstr ""
+msgstr "Funkcianta sur Bateria Potenco"
 
 #: powerdevilcore.cpp:741
-#, fuzzy, kde-format
-#| msgid "The power adaptor has been unplugged."
+#, kde-format
 msgid "The power adapter has been unplugged."
-msgstr "La kurentkonekto malkonektiĝis. "
+msgstr "La elektra adaptilo estis malkonektita."
 
 #: powerdevilcore.cpp:802
 #, kde-format
 msgid "Charging Complete"
-msgstr ""
+msgstr "Ŝargado Kompleta"
 
 #: powerdevilcore.cpp:802
 #, kde-format
 msgid "Battery now fully charged."
-msgstr ""
-
-#, fuzzy
-#~| msgid ""
-#~| "The power adaptor has been plugged in. Any pending suspend actions have "
-#~| "been canceled."
-#~ msgid "All pending suspend actions have been canceled."
-#~ msgstr "La kurentkonekto konektiĝis. Ĉiuj okazantoj agoj nuliĝis."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be suspended to RAM in "
-#~| "1 second."
-#~| msgid_plural ""
-#~| "Your battery level is critical, the computer will be suspended to RAM in "
-#~| "%1 seconds."
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo haltetos al "
-#~ "ĉefmemoro post 1 sekundo."
-
-#, fuzzy
-#~| msgid "Suspend to RAM"
-#~ msgid "Suspend"
-#~ msgstr "Pretstari al RAM"
-
-#, fuzzy
-#~| msgid "Lock Screen"
-#~ msgid "Locking Screen"
-#~ msgstr "Ŝlosi ekranon"
-
-#~ msgid "The screen is being locked"
-#~ msgstr "La ekrano estas  ŝlosita"
-
-#, fuzzy
-#~| msgid ""
-#~| "The power adaptor has been plugged in. Any pending suspend actions have "
-#~| "been canceled."
-#~ msgid ""
-#~ "The power adaptor has been plugged in – all pending suspend actions have "
-#~ "been canceled."
-#~ msgstr "La kurentkonekto konektiĝis. Ĉiuj okazantoj agoj nuliĝis."
-
-#~ msgid "Your battery has reached a low level."
-#~ msgstr "Via baterio atingis malaltan nivelon."
-
-#~ msgid "Your battery has reached the warning level."
-#~ msgstr "Via baterio atingis avertan nivelon."
-
-#~ msgid "When sleep button pressed"
-#~ msgstr "Kiam dormeta butono presiĝis"
-
-#~ msgid "A Power Management tool for KDE4"
-#~ msgstr "Energimastrumilo por KDE4"
-
-#, fuzzy
-#~| msgid "(c), 2008 Dario Freddi"
-#~ msgid "(c) 2008 Dario Freddi"
-#~ msgstr "(c), 2008 Dario Freddi"
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be halted in 1 second."
-#~ msgid_plural ""
-#~ "Your battery level is critical, the computer will be halted in %1 seconds."
-#~ msgstr[0] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo malŝaltiĝos post 1 "
-#~ "sekundo."
-#~ msgstr[1] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo malŝaltiĝos post %1 "
-#~ "sekundoj."
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended to disk in "
-#~ "1 second."
-#~ msgid_plural ""
-#~ "Your battery level is critical, the computer will be suspended to disk in "
-#~ "%1 seconds."
-#~ msgstr[0] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo haltetos al disko "
-#~ "post 1 sekundo."
-#~ msgstr[1] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo haltetos al disko "
-#~ "post %1 sekundoj."
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended to RAM in "
-#~ "1 second."
-#~ msgid_plural ""
-#~ "Your battery level is critical, the computer will be suspended to RAM in "
-#~ "%1 seconds."
-#~ msgstr[0] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo haltetos al "
-#~ "ĉefmemoro post 1 sekundo."
-#~ msgstr[1] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo haltetos al "
-#~ "ĉefmemoro post %1 sekundoj."
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be put into standby in "
-#~ "1 second."
-#~ msgid_plural ""
-#~ "Your battery level is critical, the computer will be put into standby in "
-#~ "%1 seconds."
-#~ msgstr[0] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo iĝos pretstara post "
-#~ "1 sekundo."
-#~ msgstr[1] ""
-#~ "Viaj baterioj atingis kritikan nivelon, la komputilo iĝos pretstara post "
-#~ "%1 sekundoj."
-
-#~ msgid "The computer will be suspended to disk in 1 second."
-#~ msgid_plural "The computer will be suspended to disk in %1 seconds."
-#~ msgstr[0] "la komputilo haltetos al disko post 1 sekundo."
-#~ msgstr[1] "la komputilo haltetos al disko post %1 sekundoj."
-
-#~ msgid "The computer will be suspended to RAM in 1 second."
-#~ msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgstr[0] "la komputilo haltetos al ĉefmemoro post 1 sekundo."
-#~ msgstr[1] "la komputilo haltetos al ĉefmemoro post %1 sekundoj."
-
-#~ msgid "Suspend to Disk"
-#~ msgstr "Halteti al disko"
-
-#~ msgid "Standby"
-#~ msgstr "Pretstari"
-
-#~ msgid "General Settings"
-#~ msgstr "Ĝeneralaj Agordoj"
-
-#~ msgid "Edit Profiles"
-#~ msgstr "Redakti Profilojn"
-
-#~ msgid "Capabilities"
-#~ msgstr "Kapabloj"
-
-#~ msgid "PowerDevil Configuration"
-#~ msgstr "PowerDevil agordo"
-
-#~ msgid "A configurator for PowerDevil"
-#~ msgstr "Agordilo por PowerDevil"
-
-#~ msgid "(c), 2008 Dario Freddi"
-#~ msgstr "(c), 2008 Dario Freddi"
-
-#, fuzzy
-#~| msgid "PowerDevil Configuration"
-#~ msgid "Power Profiles Configuration"
-#~ msgstr "PowerDevil agordo"
-
-#, fuzzy
-#~| msgid "A configurator for PowerDevil"
-#~ msgid "A profile configurator for KDE Power Management System"
-#~ msgstr "Agordilo por PowerDevil"
-
-#, fuzzy
-#~| msgid "(c), 2008 Dario Freddi"
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "(c), 2008 Dario Freddi"
-
-#~ msgid "The name for the new profile"
-#~ msgstr "Priskriba nomo por la nova profilo"
-
-#~ msgid "Import PowerDevil Profiles"
-#~ msgstr "Importi PowerDevil-Profilojn"
-
-#~ msgid "Export PowerDevil Profiles"
-#~ msgstr "Eksporti PowerDevil-Profilojn"
-
-#~ msgid ""
-#~ "The current profile has not been saved.\n"
-#~ "Do you want to save it?"
-#~ msgstr ""
-#~ "La aktuala profilo ne konserviĝis.\n"
-#~ "Ĉu vi deziras konservi ĝin ?"
-
-#~ msgid "Save Profile"
-#~ msgstr "Konservi profilon"
-
-#~ msgctxt "None"
-#~ msgid "No methods found"
-#~ msgstr "Ne trovis metodojn"
-
-#~ msgid "New Profile"
-#~ msgstr "Nova Profilo"
-
-#~ msgid "Delete Profile"
-#~ msgstr "Forigi Profilon"
-
-#~ msgid "Import Profiles"
-#~ msgstr "Importi Profilon"
-
-#~ msgid "Export Profiles"
-#~ msgstr "Eksporti Profilon"
-
-#, fuzzy
-#~| msgid "Save Profile"
-#~ msgid "Settings and Profile"
-#~ msgstr "Konservi profilon"
-
-#~ msgid "Configure Notifications..."
-#~ msgstr "Agordi Avertojn..."
-
-#~ msgid "Battery Levels"
-#~ msgstr "Bateria Nivelo"
-
-#~ msgid "Low battery level"
-#~ msgstr "Malalta bateria nivelo"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgid "Battery is at warning level at"
-#~ msgstr "Baterio atingis avertnivelon"
-
-#~ msgid "Warning battery level"
-#~ msgstr "Bateria Avertnivelo"
-
-#~ msgid "Battery is at critical level at"
-#~ msgstr "Baterio atingis kritikan nivelon"
-
-#~ msgid "System Capabilities"
-#~ msgstr "Sistemaj Kapabloj"
-
-#~ msgid "Number of CPUs"
-#~ msgstr "Nombro da procesoroj"
-
-#~ msgid "Number of Batteries"
-#~ msgstr "Nombro da baterioj"
-
-#~ msgid "Status"
-#~ msgstr "Stato"
-
-#~ msgid "PowerDevil error"
-#~ msgstr "PowerDevil eraro"
-
-#, fuzzy
-#~| msgid "Edit Profiles"
-#~ msgid "Editing Profile"
-#~ msgstr "Redakti Profilojn"
-
-#~ msgid " sec"
-#~ msgstr " s"
-
-#~ msgid "Do not wait"
-#~ msgstr "Ne atendu"
-
-#~ msgid "Do Nothing"
-#~ msgstr "Fari Nenion"
-
-#~ msgid "Actions"
-#~ msgstr "Agoj"
-
-#~ msgid "This action will be performed when the laptop lid gets closed"
-#~ msgstr "Tiu ago efektiviĝos kiam la tekokomputila fermiĝos"
-
-#~ msgid "Screen"
-#~ msgstr "Ekrano"
-
-#~ msgid "Brightness:"
-#~ msgstr "Brileco:"
-
-#~ msgctxt "Minutes"
-#~ msgid " min"
-#~ msgstr " min"
-
-#~ msgid "&Standby after"
-#~ msgstr "Pret&stariĝi post"
-
-#~ msgid "S&uspend after"
-#~ msgstr "Halteti post"
-
-#~ msgid "CPU and System"
-#~ msgstr "Ĉefprocesoro kaj Sistemo"
-
-#, fuzzy
-#~| msgid "(c) 2008 Dario Freddi"
-#~ msgid "Copyright © 2008–2011 Dario Freddi"
-#~ msgstr "(c) 2008 Dario Freddi"
-
-#~ msgid "Scheme support"
-#~ msgstr "Skema subteno"
-
-#~ msgid "Userspace"
-#~ msgstr "Uzantspaco"
-
-#~ msgid "CPU <numid>%1</numid>"
-#~ msgstr "Ĉefprocesoro <numid>%1</numid>"
-
-#~ msgid "Disable CPU <numid>%1</numid>"
-#~ msgstr "Malebligi Ĉefprocesoron <numid>%1</numid>"
-
-#~ msgid "Attempt to load modules"
-#~ msgstr "Provas ŝarĝi la modulojn"
-
-#~ msgid "Do not display this warning again"
-#~ msgstr "Ne remontri tiun avertmesaĝon"
-
-#~ msgid "Modules not found"
-#~ msgstr "Ne trovis modulojn"
-
-#~ msgid "Configure actions"
-#~ msgstr "Agordi Agojn"
-
-#~ msgid "Battery Actions"
-#~ msgstr "Bateriaj Agoj"
+msgstr "Baterio nun plene ŝargita."
