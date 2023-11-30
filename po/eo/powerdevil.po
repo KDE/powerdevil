@@ -422,11 +422,7 @@ msgid ""
 msgstr ""
 
 #: powerdevilcore.cpp:666
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Cancel timeout that will automatically put system to sleep because of low "
-#| "¦battery"
-#| msgid "Cancel"
+#, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
 "battery"
@@ -453,11 +449,7 @@ msgid ""
 msgstr "Baterinivelo kritika. Via komputilo pasivumiĝos post 60 sekundoj."
 
 #: powerdevilcore.cpp:685
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@action:button Enter hibernation mode without waiting for the battery "
-#| "¦critical timer"
-#| msgid "Hibernate Now"
+#, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
