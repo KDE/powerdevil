@@ -37,15 +37,58 @@
 #include <QQuickItem>
 #include <QQuickRenderControl>
 
-K_PLUGIN_CLASS_WITH_JSON(PowerDevil::ProfilesConfigKCM, "kcm_powerdevilprofilesconfig.json")
+K_PLUGIN_FACTORY_WITH_JSON(PowerDevilProfilesConfigFactory, "kcm_powerdevilprofilesconfig.json", {
+    registerPlugin<PowerDevil::ProfilesConfigKCM>();
+    registerPlugin<PowerDevil::ProfilesConfigData>();
+})
 
 namespace PowerDevil
 {
 
-ProfileConfigData::ProfileConfigData(const QString &profileId, bool isMobile, bool isVM, bool canSuspend, QObject *parent)
+ProfilesConfigData::ProfilesConfigData(QObject *parent, const KPluginMetaData &metaData)
+    : ProfilesConfigData(parent,
+                         Kirigami::Platform::TabletModeWatcher::self()->isTabletMode() /*isMobile*/,
+                         PowerDevil::PowerManagement::instance()->isVirtualMachine() /*isVM*/,
+                         PowerDevil::PowerManagement::instance()->canSuspend())
+{
+    Q_UNUSED(metaData);
+}
+
+ProfilesConfigData::ProfilesConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend)
     : KCModuleData(parent)
-    , m_profileId(profileId)
-    , m_settings(new ProfileSettings(profileId, isMobile, isVM, canSuspend, this))
+    , m_settingsAC(new ProfileSettings("AC", isMobile, isVM, canSuspend, this))
+    , m_settingsBattery(new ProfileSettings("Battery", isMobile, isVM, canSuspend, this))
+    , m_settingsLowBattery(new ProfileSettings("LowBattery", isMobile, isVM, canSuspend, this))
+{
+    autoRegisterSkeletons();
+}
+
+ProfilesConfigData::~ProfilesConfigData()
+{
+}
+
+ProfileSettings *ProfilesConfigData::profileAC() const
+{
+    return m_settingsAC;
+}
+
+ProfileSettings *ProfilesConfigData::profileBattery() const
+{
+    return m_settingsBattery;
+}
+
+ProfileSettings *ProfilesConfigData::profileLowBattery() const
+{
+    return m_settingsLowBattery;
+}
+
+ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &metaData)
+    : KQuickManagedConfigModule(parent, metaData)
+    , m_settings(new ProfilesConfigData(this, metaData))
+    , m_supportsBatteryProfiles(false)
+    , m_isLidPresent(false)
+    , m_isPowerButtonPresent(false)
+    , m_powerManagementServiceRegistered(false)
     , m_autoSuspendActionModel(new PowerButtonActionModel(this,
                                                           PowerManagement::instance(),
                                                           {
@@ -79,64 +122,7 @@ ProfileConfigData::ProfileConfigData(const QString &profileId, bool isMobile, bo
     , m_sleepModeModel(new SleepModeModel(this, PowerManagement::instance()))
     , m_powerProfileModel(new PowerProfileModel(this))
 {
-    autoRegisterSkeletons();
-}
-
-ProfileConfigData::~ProfileConfigData()
-{
-}
-
-QString ProfileConfigData::profileId() const
-{
-    return m_profileId;
-}
-
-ProfileSettings *ProfileConfigData::settings() const
-{
-    return m_settings;
-}
-
-QObject *ProfileConfigData::autoSuspendActionModel() const
-{
-    return m_autoSuspendActionModel;
-}
-
-QObject *ProfileConfigData::powerButtonActionModel() const
-{
-    return m_powerButtonActionModel;
-}
-
-QObject *ProfileConfigData::lidActionModel() const
-{
-    return m_lidActionModel;
-}
-
-QObject *ProfileConfigData::sleepModeModel() const
-{
-    return m_sleepModeModel;
-}
-
-QObject *ProfileConfigData::powerProfileModel() const
-{
-    return m_powerProfileModel;
-}
-
-ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &metaData)
-    : KQuickManagedConfigModule(parent, metaData)
-    , m_supportsBatteryProfiles(false)
-    , m_isLidPresent(false)
-    , m_isPowerButtonPresent(false)
-    , m_powerManagementServiceRegistered(false)
-{
     qmlRegisterUncreatableMetaObject(PowerDevil::staticMetaObject, "org.kde.powerdevil", 1, 0, "PowerDevil", QStringLiteral("For enums and flags only"));
-
-    bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
-    bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
-    bool canSuspend = PowerDevil::PowerManagement::instance()->canSuspend();
-
-    m_profileData.insert("AC", QVariant::fromValue(new ProfileConfigData("AC", isMobile, isVM, canSuspend, this)));
-    m_profileData.insert("Battery", QVariant::fromValue(new ProfileConfigData("Battery", isMobile, isVM, canSuspend, this)));
-    m_profileData.insert("LowBattery", QVariant::fromValue(new ProfileConfigData("LowBattery", isMobile, isVM, canSuspend, this)));
 
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
@@ -217,9 +203,9 @@ QVariantMap ProfilesConfigKCM::supportedActions() const
     return m_supportedActions;
 }
 
-QVariantMap ProfilesConfigKCM::profileData() const
+ProfilesConfigData *ProfilesConfigKCM::settings() const
 {
-    return m_profileData;
+    return m_settings;
 }
 
 QString ProfilesConfigKCM::currentProfile() const
@@ -276,6 +262,31 @@ void ProfilesConfigKCM::setPowerButtonPresent(bool isPowerButtonPresent)
     }
     m_isPowerButtonPresent = isPowerButtonPresent;
     Q_EMIT isPowerButtonPresentChanged();
+}
+
+QObject *ProfilesConfigKCM::autoSuspendActionModel() const
+{
+    return m_autoSuspendActionModel;
+}
+
+QObject *ProfilesConfigKCM::powerButtonActionModel() const
+{
+    return m_powerButtonActionModel;
+}
+
+QObject *ProfilesConfigKCM::lidActionModel() const
+{
+    return m_lidActionModel;
+}
+
+QObject *ProfilesConfigKCM::sleepModeModel() const
+{
+    return m_sleepModeModel;
+}
+
+QObject *ProfilesConfigKCM::powerProfileModel() const
+{
+    return m_powerProfileModel;
 }
 
 bool ProfilesConfigKCM::powerManagementServiceRegistered() const

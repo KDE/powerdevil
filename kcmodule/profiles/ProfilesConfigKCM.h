@@ -23,40 +23,27 @@ namespace PowerDevil
 {
 class ProfileSettings;
 
-class ProfileConfigData : public KCModuleData
+class ProfilesConfigData : public KCModuleData
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString profileId READ profileId CONSTANT)
-    Q_PROPERTY(QObject *settings READ settings CONSTANT)
-    Q_PROPERTY(QObject *autoSuspendActionModel READ autoSuspendActionModel CONSTANT)
-    Q_PROPERTY(QObject *powerButtonActionModel READ powerButtonActionModel CONSTANT)
-    Q_PROPERTY(QObject *lidActionModel READ lidActionModel CONSTANT)
-    Q_PROPERTY(QObject *sleepModeModel READ sleepModeModel CONSTANT)
-    Q_PROPERTY(QObject *powerProfileModel READ powerProfileModel CONSTANT)
+    Q_PROPERTY(QObject *profileAC READ profileAC CONSTANT)
+    Q_PROPERTY(QObject *profileBattery READ profileBattery CONSTANT)
+    Q_PROPERTY(QObject *profileLowBattery READ profileLowBattery CONSTANT)
 
 public:
-    explicit ProfileConfigData(const QString &profileId, bool isMobile, bool isVM, bool canSuspend, QObject *parent);
-    ~ProfileConfigData() override;
+    explicit ProfilesConfigData(QObject *parent, const KPluginMetaData &metaData);
+    explicit ProfilesConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend);
+    ~ProfilesConfigData() override;
 
-    QString profileId() const;
-    ProfileSettings *settings() const;
-
-    QObject *autoSuspendActionModel() const;
-    QObject *powerButtonActionModel() const;
-    QObject *lidActionModel() const;
-    QObject *sleepModeModel() const;
-    QObject *powerProfileModel() const;
+    ProfileSettings *profileAC() const;
+    ProfileSettings *profileBattery() const;
+    ProfileSettings *profileLowBattery() const;
 
 private:
-    QString m_profileId;
-    ProfileSettings *m_settings;
-
-    PowerButtonActionModel *m_autoSuspendActionModel;
-    PowerButtonActionModel *m_powerButtonActionModel;
-    PowerButtonActionModel *m_lidActionModel;
-    SleepModeModel *m_sleepModeModel;
-    PowerProfileModel *m_powerProfileModel;
+    ProfileSettings *m_settingsAC;
+    ProfileSettings *m_settingsBattery;
+    ProfileSettings *m_settingsLowBattery;
 };
 
 class ProfilesConfigKCM : public KQuickManagedConfigModule
@@ -66,7 +53,7 @@ class ProfilesConfigKCM : public KQuickManagedConfigModule
     // e.g. {"BrightnessControl": true, "KeyboardBrightnessControl": false, "SuspendSession": true, ...}
     Q_PROPERTY(QVariantMap supportedActions READ supportedActions NOTIFY supportedActionsChanged)
 
-    Q_PROPERTY(QVariantMap profileData READ profileData CONSTANT)
+    Q_PROPERTY(QObject *settings READ settings CONSTANT)
     Q_PROPERTY(QString currentProfile READ currentProfile NOTIFY currentProfileChanged)
     Q_PROPERTY(bool supportsBatteryProfiles READ supportsBatteryProfiles NOTIFY supportsBatteryProfilesChanged)
     Q_PROPERTY(bool isLidPresent READ isLidPresent NOTIFY isLidPresentChanged)
@@ -75,16 +62,28 @@ class ProfilesConfigKCM : public KQuickManagedConfigModule
     Q_PROPERTY(bool powerManagementServiceRegistered READ powerManagementServiceRegistered NOTIFY powerManagementServiceRegisteredChanged)
     Q_PROPERTY(QString powerManagementServiceErrorReason READ powerManagementServiceErrorReason NOTIFY powerManagementServiceErrorReasonChanged)
 
+    Q_PROPERTY(QObject *autoSuspendActionModel READ autoSuspendActionModel CONSTANT)
+    Q_PROPERTY(QObject *powerButtonActionModel READ powerButtonActionModel CONSTANT)
+    Q_PROPERTY(QObject *lidActionModel READ lidActionModel CONSTANT)
+    Q_PROPERTY(QObject *sleepModeModel READ sleepModeModel CONSTANT)
+    Q_PROPERTY(QObject *powerProfileModel READ powerProfileModel CONSTANT)
+
 public:
     ProfilesConfigKCM(QObject *parent, const KPluginMetaData &metaData);
 
     QVariantMap supportedActions() const;
 
-    QVariantMap profileData() const;
+    ProfilesConfigData *settings() const;
     QString currentProfile() const;
     bool supportsBatteryProfiles() const;
     bool isLidPresent() const;
     bool isPowerButtonPresent() const;
+
+    QObject *autoSuspendActionModel() const;
+    QObject *powerButtonActionModel() const;
+    QObject *lidActionModel() const;
+    QObject *sleepModeModel() const;
+    QObject *powerProfileModel() const;
 
     bool powerManagementServiceRegistered() const;
     QString powerManagementServiceErrorReason() const;
@@ -117,7 +116,7 @@ private:
 
     QVariantMap m_supportedActions;
 
-    QVariantMap m_profileData;
+    ProfilesConfigData *m_settings;
     QString m_currentProfile;
     bool m_supportsBatteryProfiles;
     bool m_isLidPresent;
@@ -125,6 +124,12 @@ private:
 
     bool m_powerManagementServiceRegistered;
     QString m_powerManagementServiceErrorReason;
+
+    PowerButtonActionModel *m_autoSuspendActionModel;
+    PowerButtonActionModel *m_powerButtonActionModel;
+    PowerButtonActionModel *m_lidActionModel;
+    SleepModeModel *m_sleepModeModel;
+    PowerProfileModel *m_powerProfileModel;
 };
 
 } // namespace PowerDevil
