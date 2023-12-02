@@ -36,23 +36,27 @@ namespace PowerDevil
 
 void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
 {
-    KConfigGroup migrationGroup = profilesConfig->group("Migration");
-    if (!profilesConfig->hasGroup("Activities") || migrationGroup.hasKey("MigratedActivitiesToPlasma6")) {
+    KConfigGroup migrationGroup = profilesConfig->group(QStringLiteral("Migration"));
+    if (migrationGroup.hasKey("MigratedActivitiesToPlasma6")) {
         return;
     }
 
     // Activity special behavior config written via ActivitySettings, reading must be done manually.
-    KConfigGroup oldActivitiesGroup = profilesConfig->group("Activities");
+    const KConfigGroup oldActivitiesGroup = profilesConfig->group(QStringLiteral("Activities"));
+    if (!oldActivitiesGroup.exists()) {
+        return;
+    }
 
     // Every activity has its own group identified by its UUID.
     for (const QString &activityId : oldActivitiesGroup.groupList()) {
         const KConfigGroup oldConfig = oldActivitiesGroup.group(activityId);
         PowerDevil::ActivitySettings newConfig(activityId);
 
-        if (oldConfig.readEntry("mode", "None") == "SpecialBehavior" && oldConfig.hasGroup("SpecialBehavior")) {
-            const KConfigGroup oldSB = oldConfig.group("SpecialBehavior");
-            newConfig.setInhibitScreenManagement(oldSB.readEntry("noScreenManagement", false));
-            newConfig.setInhibitSuspend(oldSB.readEntry("noSuspend", false));
+        if (oldConfig.readEntry("mode", "None") == "SpecialBehavior") {
+            if (const KConfigGroup oldSB = oldConfig.group(QStringLiteral("SpecialBehavior")); oldSB.exists()) {
+                newConfig.setInhibitScreenManagement(oldSB.readEntry("noScreenManagement", false));
+                newConfig.setInhibitSuspend(oldSB.readEntry("noSuspend", false));
+            }
         }
         newConfig.save();
     }
@@ -63,7 +67,7 @@ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
 
 void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, bool isVM, bool canSuspend)
 {
-    KConfigGroup migrationGroup = profilesConfig->group("Migration");
+    KConfigGroup migrationGroup = profilesConfig->group(QStringLiteral("Migration"));
     if (migrationGroup.hasKey(QStringLiteral("MigratedProfilesToPlasma6"))) {
         return;
     }
@@ -88,21 +92,21 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             (profileSettings.*setter)(newValue);
         };
 
-        if (KConfigGroup group = oldProfileGroup.group("KeyboardBrightnessControl"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("KeyboardBrightnessControl")); group.exists()) {
             profileSettings.setUseProfileSpecificKeyboardBrightness(true);
             migrateEntry(group, "value", &ProfileSettings::setKeyboardBrightness);
         } else {
             profileSettings.setUseProfileSpecificKeyboardBrightness(false);
         }
 
-        if (KConfigGroup group = oldProfileGroup.group("BrightnessControl"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("BrightnessControl")); group.exists()) {
             profileSettings.setUseProfileSpecificDisplayBrightness(true);
             migrateEntry(group, "value", &ProfileSettings::setDisplayBrightness);
         } else {
             profileSettings.setUseProfileSpecificDisplayBrightness(false);
         }
 
-        if (KConfigGroup group = oldProfileGroup.group("DimDisplay"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("DimDisplay")); group.exists()) {
             profileSettings.setDimDisplayWhenIdle(true);
             migrateEntry(group, "idleTime", &ProfileSettings::setDimDisplayIdleTimeoutSec, [](int oldMsec) {
                 return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
@@ -111,7 +115,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             profileSettings.setDimDisplayWhenIdle(false);
         }
 
-        if (KConfigGroup group = oldProfileGroup.group("DPMSControl"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("DPMSControl")); group.exists()) {
             profileSettings.setTurnOffDisplayWhenIdle(true);
             // The "DPMSControl" group used seconds for "idleTime". Unlike other groups which
             // used milliseconds in Plasma 5, this one doesn't need division by 1000.
@@ -125,7 +129,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         bool suspendThenHibernate = false;
         bool hybridSuspend = false;
 
-        if (KConfigGroup group = oldProfileGroup.group("SuspendSession"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("SuspendSession")); group.exists()) {
             if (group.readEntry("suspendThenHibernate", false)) {
                 suspendThenHibernate = true;
             }
@@ -144,7 +148,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             profileSettings.setAutoSuspendAction(qToUnderlying(PowerButtonAction::NoAction));
         }
 
-        if (KConfigGroup group = oldProfileGroup.group("HandleButtonEvents"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("HandleButtonEvents")); group.exists()) {
             migrateEntry(group, "powerButtonAction", &ProfileSettings::setPowerButtonAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
@@ -178,11 +182,11 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             profileSettings.setLidAction(qToUnderlying(PowerButtonAction::NoAction));
         }
 
-        if (KConfigGroup group = oldProfileGroup.group("PowerProfile"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("PowerProfile")); group.exists()) {
             migrateEntry(group, "profile", &ProfileSettings::setPowerProfile);
         }
 
-        if (KConfigGroup group = oldProfileGroup.group("RunScript"); group.exists()) {
+        if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("RunScript")); group.exists()) {
             switch (group.readEntry("scriptPhase", 0)) {
             case 0: // on profile load
                 migrateEntry(group, "scriptCommand", &ProfileSettings::setProfileLoadCommand);
@@ -222,7 +226,7 @@ void migrateConfig(bool isMobile, bool isVM, bool canSuspend)
 
 #if POWERDEVIL_VERSION < QT_VERSION_CHECK(6, 0, 0)
     KSharedConfig::Ptr globalConfig = KSharedConfig::openConfig(QStringLiteral("powerdevilrc"));
-    KConfigGroup batteryManagementGroup = globalConfig->group("BatteryManagement");
+    KConfigGroup batteryManagementGroup = globalConfig->group(QStringLiteral("BatteryManagement"));
     if (batteryManagementGroup.readEntry("BatteryCriticalAction", 0) == 4 /* the old PowerButtonAction::SuspendHybrid */) {
         batteryManagementGroup.writeEntry("BatteryCriticalAction", qToUnderlying(PowerButtonAction::Hibernate));
         globalConfig->sync();

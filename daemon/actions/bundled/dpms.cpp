@@ -210,7 +210,7 @@ void DPMS::onScreenLockerActiveChanged(bool active)
 static std::chrono::milliseconds dimAnimationTime()
 {
     // See kscreen.kcfg from kwin
-    return std::chrono::milliseconds(KSharedConfig::openConfig("kwinrc")->group("Effect-Kscreen").readEntry("Duration", 250));
+    return std::chrono::milliseconds(KSharedConfig::openConfig("kwinrc")->group(QStringLiteral("Effect-Kscreen")).readEntry("Duration", 250));
 }
 
 void DPMS::lockScreen()
