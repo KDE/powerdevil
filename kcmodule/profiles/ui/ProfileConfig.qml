@@ -83,6 +83,7 @@ Kirigami.FormLayout {
         }
 
         TimeDelaySpinBox {
+            id: autoSuspendTimeDelay
             stepSize: 60
             from: 60
             to: 360 * 60
@@ -94,6 +95,12 @@ Kirigami.FormLayout {
             }
             value: profileSettings.autoSuspendIdleTimeoutSec
             onValueModified: { profileSettings.autoSuspendIdleTimeoutSec = value; }
+            Connections {
+                target: profileSettings
+                function onAutoSuspendIdleTimeoutSecChanged() {
+                    autoSuspendTimeDelay.value = profileSettings.autoSuspendIdleTimeoutSec;
+                }
+            }
         }
     }
 
@@ -326,6 +333,12 @@ Kirigami.FormLayout {
             }
             value: profileSettings.dimDisplayIdleTimeoutSec
             onValueModified: { profileSettings.dimDisplayIdleTimeoutSec = value; }
+            Connections {
+                target: profileSettings
+                function onDimDisplayIdleTimeoutSecChanged() {
+                    dimDisplayTimeDelay.value = profileSettings.dimDisplayIdleTimeoutSec;
+                }
+            }
         }
     }
 
@@ -362,6 +375,12 @@ Kirigami.FormLayout {
             }
             value: profileSettings.turnOffDisplayIdleTimeoutSec
             onValueModified: { profileSettings.turnOffDisplayIdleTimeoutSec = value; }
+            Connections {
+                target: profileSettings
+                function onTurnOffDisplayIdleTimeoutSecChanged() {
+                    turnOffDisplayTimeDelay.value = profileSettings.turnOffDisplayIdleTimeoutSec;
+                }
+            }
         }
     }
 
@@ -391,6 +410,12 @@ Kirigami.FormLayout {
             }
             value: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
             onValueModified: { profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = value; }
+            Connections {
+                target: profileSettings
+                function onTurnOffDisplayIdleTimeoutWhenLockedSecChanged() {
+                    turnOffDisplayWhenLockedTimeDelay.value = profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec;
+                }
+            }
         }
     }
 
@@ -658,5 +683,11 @@ Kirigami.FormLayout {
         }
         value: profileSettings.runScriptIdleTimeoutSec
         onValueModified: { profileSettings.runScriptIdleTimeoutSec = value; }
+        Connections {
+            target: profileSettings
+            function onRunScriptIdleTimeoutSecChanged() {
+                idleTimeoutCommandTimeDelay.value = profileSettings.runScriptIdleTimeoutSec;
+            }
+        }
     }
 }
