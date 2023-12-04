@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:07+0000\n"
+"POT-Creation-Date: 2023-12-04 01:38+0000\n"
 "PO-Revision-Date: 2020-09-10 10:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -23,7 +23,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "zepires@gmail.com"
 
-#: GeneralPage.cpp:240
+#: GeneralPage.cpp:242
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "O Serviço de Gestão de Energia não parece estar em execução."
