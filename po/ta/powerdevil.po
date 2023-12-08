@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-16 01:46+0000\n"
-"PO-Revision-Date: 2023-09-10 19:01+0530\n"
+"PO-Revision-Date: 2023-12-07 21:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -244,10 +244,9 @@ msgid "Plug in the computer."
 msgstr "கணினியை மின்னூற்றில் செருகவும்."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "கணினி 60 நொடிகளில் நிற்கும்."
+msgstr "மின்கல ஆற்றலளவு நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் நிற்கும்."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -257,12 +256,11 @@ msgid "Shut Down Now"
 msgstr "இப்போதே கணினியை நிறுத்து"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr "கணினி 60 நொடிகளில் ஆழுறங்கும்."
+msgstr "மின்கல ஆற்றலளவு நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் ஆழுறங்கும்."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -273,10 +271,9 @@ msgid "Hibernate Now"
 msgstr "இப்போதே ஆழுறங்கு"
 
 #: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "கணினி 60 நொடிகளில் உறங்கும்."
+msgstr "மின்கல ஆற்றலளவு நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் உறங்கும்."
 
 #: powerdevilcore.cpp:623
 #, kde-format
