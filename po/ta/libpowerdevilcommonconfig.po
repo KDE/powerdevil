@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 14:07+0000\n"
-"PO-Revision-Date: 2023-09-10 18:59+0530\n"
+"PO-Revision-Date: 2023-12-08 20:42+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: ErrorOverlay.cpp:27
 #, kde-format
@@ -56,7 +56,7 @@ msgstr "திரையை பூட்டு"
 #: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "வெளியேற்ற திரையை காட்டு"
 
 #: PowerButtonActionModel.cpp:82
 #, kde-format
@@ -72,36 +72,36 @@ msgstr "திரையை முடக்கு/இயக்கு"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "ஆற்றல் சேமிப்பு"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "சமநிலை"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "அதிவேகம்"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "மாற்றாதே"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "உறங்கு"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "நினைவுக்கு அமர்வை சேமிக்கும்"
 
 #: SleepModeModel.cpp:29
 #, kde-format
@@ -112,18 +112,18 @@ msgstr "கலப்புமுறையில் உறங்கு"
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "அமர்வை நினைவுக்கும் வட்டுக்கும் சேர்க்கும்"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "உறங்கி ஆழுறங்கு"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "உறங்கி, கொஞ்சம் நேரம் கழித்து ஆழுறங்கும்"
 
 #~ msgid "Prompt log out dialog"
 #~ msgstr "வெளியேற்ற சாளரத்தை காட்டு"
