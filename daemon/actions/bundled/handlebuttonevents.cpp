@@ -81,6 +81,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
                 KScreen::ConfigMonitor::instance()->addConfig(m_screenConfiguration);
                 connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &HandleButtonEvents::checkOutputs);
+                connect(core(), &Core::configurationReloaded, this, &HandleButtonEvents::checkOutputs);
             });
 
     if (!core()->lidController()->isLidClosed()) {
