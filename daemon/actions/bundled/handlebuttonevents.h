@@ -54,10 +54,13 @@ private:
     void processAction(PowerDevil::PowerButtonAction action);
     void triggerAction(const QString &action, const QVariant &type);
 
+    void checkTriggersLidAction();
+
     KScreen::ConfigPtr m_screenConfiguration;
     PowerDevil::PowerButtonAction m_lidAction = PowerDevil::PowerButtonAction::NoAction;
     bool m_triggerLidActionWhenExternalMonitorPresent = false;
     bool m_externalMonitorPresent = false;
+    bool m_triggersLidAction = false;
 
     PowerDevil::PowerButtonAction m_powerButtonAction = PowerDevil::PowerButtonAction::NoAction;
     PowerDevil::PowerButtonAction m_powerDownButtonAction = PowerDevil::PowerButtonAction::NoAction;

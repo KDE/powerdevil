@@ -185,6 +185,7 @@ bool HandleButtonEvents::loadAction(const PowerDevil::ProfileSettings &profileSe
         return false;
     }
 
+    checkTriggersLidAction();
     checkOutputs();
 
     return true;
@@ -197,7 +198,17 @@ int HandleButtonEvents::lidAction() const
 
 bool HandleButtonEvents::triggersLidAction() const
 {
-    return m_triggerLidActionWhenExternalMonitorPresent || !m_externalMonitorPresent;
+    return m_triggersLidAction;
+}
+
+void HandleButtonEvents::checkTriggersLidAction()
+{
+    bool triggersLidAction = m_triggerLidActionWhenExternalMonitorPresent || !m_externalMonitorPresent;
+
+    if (triggersLidAction != m_triggersLidAction) {
+        Q_EMIT triggersLidActionChanged(triggersLidAction);
+        m_triggersLidAction = triggersLidAction;
+    }
 }
 
 void HandleButtonEvents::powerOffButtonTriggered()
