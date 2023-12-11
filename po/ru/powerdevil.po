@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-16 01:46+0000\n"
-"PO-Revision-Date: 2023-12-05 16:16+0300\n"
+"PO-Revision-Date: 2023-12-08 21:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -248,19 +248,16 @@ msgstr ""
 "замените батарею или зарядите аккумулятор."
 
 #: powerdevilcore.cpp:584
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Батарея почти разряжена. Если вы хотите продолжать работать с этим "
-"компьютером, либо включите его в сеть, либо выключите его и замените батарею."
+"Убедитесь, что блок питания подключён к сети и обеспечивает необходимую "
+"мощность."
 
 #: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Подключите компьютер к блоку питания."
 
 #: powerdevilcore.cpp:605
 #, kde-format
@@ -309,12 +306,9 @@ msgid "Sleep Now"
 msgstr "Ждущий режим"
 
 #: powerdevilcore.cpp:629
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr ""
-"Уровень заряда батареи критический. Сохраните результаты своей работы как "
-"можно быстрее."
+msgstr "Сохраните результаты своей работы как можно быстрее."
 
 #: powerdevilcore.cpp:635
 #, kde-format
