@@ -29,7 +29,7 @@
         "Description[sl]": "Postopoma potemni zaslon glede na čas",
         "Description[sv]": "Dämpa bildskärmen gradvis baserat på tid",
         "Description[ta]": "நேரத்தின் அடிப்படையில் திரையை படிப்படியாக மங்கசெய்யும்",
-        "Description[tr]": "Zamana bağlı olarak ekranı yavaşça karartır",
+        "Description[tr]": "Zamana bağlı olarak görüntüyü yavaşça karartır",
         "Description[uk]": "Поступове зменшення яскравості дисплея з часом",
         "Description[x-test]": "xxDims gradually the display on a time basisxx",
         "Description[zh_CN]": "按照设置的时间逐渐降低屏幕亮度",
