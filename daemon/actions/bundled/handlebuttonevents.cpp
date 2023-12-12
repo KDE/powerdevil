@@ -121,6 +121,11 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
             backend()->setKeyboardBrightness(0);
         }
 
+        if (!m_screenConfiguration) {
+            // triggering the lid closed action now might suspend the system even though it just started up
+            // once there's a screen configuration, checkOutputs will call this method again if needed
+            return;
+        }
         if (!triggersLidAction()) {
             qCWarning(POWERDEVIL) << "Lid action was suppressed because an external monitor is present";
             return;
@@ -196,7 +201,7 @@ int HandleButtonEvents::lidAction() const
 
 bool HandleButtonEvents::triggersLidAction() const
 {
-    return m_triggerLidActionWhenExternalMonitorPresent || !m_externalMonitorPresent;
+    return m_triggerLidActionWhenExternalMonitorPresent || !m_externalMonitorPresent.value_or(false);
 }
 
 void HandleButtonEvents::powerOffButtonTriggered()
@@ -237,9 +242,10 @@ void HandleButtonEvents::checkOutputs()
         }
     }
 
+    const std::optional<bool> oldExternalMonitorPresent = m_externalMonitorPresent;
     m_externalMonitorPresent = hasExternalMonitor;
 
-    if (old_triggersLidAction != triggersLidAction()) {
+    if (old_triggersLidAction != triggersLidAction() || !oldExternalMonitorPresent.has_value()) {
         Q_EMIT triggersLidActionChanged(triggersLidAction());
 
         // when the lid is closed but we don't suspend because of an external monitor but we then

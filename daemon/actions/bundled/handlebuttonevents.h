@@ -57,7 +57,7 @@ private:
     KScreen::ConfigPtr m_screenConfiguration;
     PowerDevil::PowerButtonAction m_lidAction = PowerDevil::PowerButtonAction::NoAction;
     bool m_triggerLidActionWhenExternalMonitorPresent = false;
-    bool m_externalMonitorPresent = false;
+    std::optional<bool> m_externalMonitorPresent;
 
     PowerDevil::PowerButtonAction m_powerButtonAction = PowerDevil::PowerButtonAction::NoAction;
     PowerDevil::PowerButtonAction m_powerDownButtonAction = PowerDevil::PowerButtonAction::NoAction;
