@@ -232,18 +232,12 @@ void HandleButtonEvents::checkOutputs()
     }
 
     const bool old_triggersLidAction = triggersLidAction();
-
-    bool hasExternalMonitor = false;
-
-    for (const KScreen::OutputPtr &output : m_screenConfiguration->outputs()) {
-        if (output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel && output->type() != KScreen::Output::Unknown) {
-            hasExternalMonitor = true;
-            break;
-        }
-    }
-
     const std::optional<bool> oldExternalMonitorPresent = m_externalMonitorPresent;
-    m_externalMonitorPresent = hasExternalMonitor;
+
+    const auto outputs = m_screenConfiguration->outputs();
+    m_externalMonitorPresent = std::any_of(outputs.begin(), outputs.end(), [](const KScreen::OutputPtr &output) {
+        return output->isConnected() && output->isEnabled() && output->type() != KScreen::Output::Panel && output->type() != KScreen::Output::Unknown;
+    });
 
     if (old_triggersLidAction != triggersLidAction() || !oldExternalMonitorPresent.has_value()) {
         Q_EMIT triggersLidActionChanged(triggersLidAction());
