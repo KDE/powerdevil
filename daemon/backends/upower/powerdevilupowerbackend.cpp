@@ -288,7 +288,9 @@ void PowerDevilUPowerBackend::setScreenBrightness(int value)
             connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &PowerDevilUPowerBackend::animationValueChanged);
             m_brightnessAnimation->start();
         } else {
-            m_ddcBrightnessControl->setBrightness(m_ddcBrightnessControl->displayIds().constFirst(), value);
+            for (const QString &displayId : m_ddcBrightnessControl->displayIds()) {
+                m_ddcBrightnessControl->setBrightness(displayId, value);
+            }
         }
     } else {
         KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
@@ -375,7 +377,9 @@ void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, const QStri
 void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
 {
     if (m_ddcBrightnessControl->isSupported()) {
-        m_ddcBrightnessControl->setBrightness(m_ddcBrightnessControl->displayIds().constFirst(), value.toInt());
+        for (const QString &displayId : m_ddcBrightnessControl->displayIds()) {
+            m_ddcBrightnessControl->setBrightness(displayId, value.toInt());
+        }
     } else {
         qCInfo(POWERDEVIL) << "PowerDevilUPowerBackend::animationValueChanged: brightness control not supported";
     }
