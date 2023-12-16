@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 02:28+0000\n"
-"PO-Revision-Date: 2023-12-11 18:11+0100\n"
+"PO-Revision-Date: 2023-12-15 20:44+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -373,17 +373,13 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie zariadenia (%1% zostáva)"
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"Batéria v (\"%1\") je slabá a zariadenie sa môže každú chvíľu samo vypnúť. "
+"Batéria v \"%1\" je slabá a zariadenie sa môže každú chvíľu samo vypnúť. "
 "Prosím, vymeňte alebo nabite batériu čo najskôr."
 
 #: powerdevilcore.cpp:593
@@ -412,10 +408,7 @@ msgstr ""
 "chvíľu vypnúť. Prosím, vymeňte alebo opätovne nabite batériu."
 
 #: powerdevilcore.cpp:647
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, plug it in or shut "
-#| "it down and change the battery."
+#, kde-format
 msgid ""
 "Battery running low - to continue using your computer, make sure that the "
 "power adapter is plugged in and that it provides enough power."
