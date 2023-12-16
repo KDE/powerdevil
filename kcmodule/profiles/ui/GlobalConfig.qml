@@ -163,6 +163,9 @@ Kirigami.ScrollablePage {
             onActivated: {
                 globalSettings.batteryCriticalAction = currentValue;
             }
+            Component.onCompleted: {
+                batteryCriticalCombo.currentIndex = batteryCriticalCombo.indexOfValue(globalSettings.batteryCriticalAction);
+            }
             Connections {
                 target: globalSettings
                 function onBatteryCriticalActionChanged() {
@@ -288,7 +291,7 @@ Kirigami.ScrollablePage {
         Kirigami.InlineMessage {
             id: chargeStopThresholdReconnectMessage
             Kirigami.FormData.isSection: true
-            visible: chargeLimitHeader.visible && kcm.isChargeStopThresholdMightNeedReconnect
+            visible: chargeLimitHeader.visible && kcm.chargeStopThresholdMightNeedReconnect
             implicitWidth: batteryThresholdExplanation.implicitWidth
             type: Kirigami.MessageType.Warning
             text: i18nc("@info:status", "You might have to disconnect and re-connect the power source to start charging the battery again.")
