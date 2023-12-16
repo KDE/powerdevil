@@ -337,7 +337,8 @@ Kirigami.ScrollablePage {
 
             readonly property real maxPageButtonImplicitWidth: Math.max(
                 firstRelatedPage.implicitWidth,
-                desktopSessionsPage.implicitWidth
+                desktopSessionsPage.implicitWidth,
+                activitiesPage.implicitWidth,
             )
 
             MostUsedItem {
@@ -358,6 +359,14 @@ Kirigami.ScrollablePage {
                 Accessible.name: i18n("Open \"Desktop Session\" settings page")
                 Layout.preferredWidth: relatedPagesLayout.maxPageButtonImplicitWidth
                 onClicked: KCM.KCMLauncher.openSystemSettings("kcm_smserver")
+            }
+            MostUsedItem {
+                id: activitiesPage
+                kcmIcon: "preferences-desktop-activities"
+                kcmName: i18nc("@text:button Name of KCM", "Activities")
+                Accessible.name: i18n("Open \"Activities\" settings page")
+                Layout.preferredWidth: relatedPagesLayout.maxPageButtonImplicitWidth
+                onClicked: KCM.KCMLauncher.openSystemSettings("kcm_activities")
             }
         }
     }
