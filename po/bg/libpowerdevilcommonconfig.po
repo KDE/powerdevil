@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:07+0000\n"
+"POT-Creation-Date: 2023-12-16 01:39+0000\n"
 "PO-Revision-Date: 2023-11-08 16:01+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: \n"
@@ -16,16 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.2\n"
-
-#: ErrorOverlay.cpp:27
-#, kde-format
-msgid ""
-"Power Management configuration module could not be loaded.\n"
-"%1"
-msgstr ""
-"Неуспех при зареждане на конфигурационният модул за управление на "
-"захранването.\n"
-"%1"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
@@ -125,6 +115,14 @@ msgstr "Приспиване, след това хибернация"
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr "При период на бездействие да се извърши хибернация"
+
+#~ msgid ""
+#~ "Power Management configuration module could not be loaded.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Неуспех при зареждане на конфигурационният модул за управление на "
+#~ "захранването.\n"
+#~ "%1"
 
 #~ msgid "Prompt log out dialog"
 #~ msgstr "Питане при изход от сесията"

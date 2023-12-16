@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:07+0000\n"
+"POT-Creation-Date: 2023-12-16 01:39+0000\n"
 "PO-Revision-Date: 2023-12-08 21:44+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -18,15 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.3\n"
-
-#: ErrorOverlay.cpp:27
-#, kde-format
-msgid ""
-"Power Management configuration module could not be loaded.\n"
-"%1"
-msgstr ""
-"Загрузить модуль настройки управления питанием не удалось.\n"
-"%1"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
@@ -126,3 +117,10 @@ msgstr ""
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr "Переходить из ждущего в спящий режим при бездействии"
+
+#~ msgid ""
+#~ "Power Management configuration module could not be loaded.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Загрузить модуль настройки управления питанием не удалось.\n"
+#~ "%1"

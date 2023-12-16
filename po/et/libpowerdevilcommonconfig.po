@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:07+0000\n"
+"POT-Creation-Date: 2023-12-16 01:39+0000\n"
 "PO-Revision-Date: 2016-01-10 23:29+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-i18n-doc@kde.org>\n"
@@ -16,15 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
-
-#: ErrorOverlay.cpp:27
-#, kde-format
-msgid ""
-"Power Management configuration module could not be loaded.\n"
-"%1"
-msgstr ""
-"Toitehalduse seadistusmooduli laadimine nurjus.\n"
-"%1"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
@@ -124,3 +115,10 @@ msgstr ""
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr ""
+
+#~ msgid ""
+#~ "Power Management configuration module could not be loaded.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Toitehalduse seadistusmooduli laadimine nurjus.\n"
+#~ "%1"

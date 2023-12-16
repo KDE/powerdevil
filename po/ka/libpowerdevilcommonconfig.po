@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:07+0000\n"
+"POT-Creation-Date: 2023-12-16 01:39+0000\n"
 "PO-Revision-Date: 2023-11-02 05:32+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -17,15 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
-
-#: ErrorOverlay.cpp:27
-#, kde-format
-msgid ""
-"Power Management configuration module could not be loaded.\n"
-"%1"
-msgstr ""
-"კვების მართვის მორგების მოდულის ჩატვირთვის შეცდომა.\n"
-"%1"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
@@ -125,6 +116,13 @@ msgstr "ჯერ ჩვეულებრივი ძილი, შემდ�
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr "პროგრამულ ძილზე გადართვა მითითებული პერიოდის უქმეობის შემდეგ"
+
+#~ msgid ""
+#~ "Power Management configuration module could not be loaded.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "კვების მართვის მორგების მოდულის ჩატვირთვის შეცდომა.\n"
+#~ "%1"
 
 #~ msgid "Prompt log out dialog"
 #~ msgstr "გამოსვლის ფანჯრის ჩვენება"

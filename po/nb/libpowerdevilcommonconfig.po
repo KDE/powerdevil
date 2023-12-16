@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 14:07+0000\n"
+"POT-Creation-Date: 2023-12-16 01:39+0000\n"
 "PO-Revision-Date: 2013-08-05 21:54+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -18,15 +18,6 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-
-#: ErrorOverlay.cpp:27
-#, kde-format
-msgid ""
-"Power Management configuration module could not be loaded.\n"
-"%1"
-msgstr ""
-"Klarte ikke laste inn oppsettsmodulen for strømstyring.\n"
-"%1"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
@@ -126,3 +117,10 @@ msgstr ""
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
 msgstr ""
+
+#~ msgid ""
+#~ "Power Management configuration module could not be loaded.\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Klarte ikke laste inn oppsettsmodulen for strømstyring.\n"
+#~ "%1"
