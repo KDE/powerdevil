@@ -34,8 +34,8 @@ ExternalServiceSettings::ExternalServiceSettings(QObject *parent)
     : QObject(parent)
     , m_chargeStartThreshold(ChargeThresholdUnsupported)
     , m_chargeStopThreshold(ChargeThresholdUnsupported)
-    , m_backendChargeStartThreshold(ChargeThresholdUnsupported)
-    , m_backendChargeStopThreshold(ChargeThresholdUnsupported)
+    , m_savedChargeStartThreshold(ChargeThresholdUnsupported)
+    , m_savedChargeStopThreshold(ChargeThresholdUnsupported)
     , m_chargeStopThresholdMightNeedReconnect(false)
 {
 }
@@ -54,14 +54,14 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
     if (thisAlive && jobAlive) {
         if (!job->error()) {
             const auto data = job->data();
-            setBackendChargeStartThreshold(data.value(QStringLiteral("chargeStartThreshold")).toInt());
-            setBackendChargeStopThreshold(data.value(QStringLiteral("chargeStopThreshold")).toInt());
-            setChargeStopThreshold(m_backendChargeStopThreshold);
-            setChargeStartThreshold(m_backendChargeStartThreshold);
+            setSavedChargeStartThreshold(data.value(QStringLiteral("chargeStartThreshold")).toInt());
+            setSavedChargeStopThreshold(data.value(QStringLiteral("chargeStopThreshold")).toInt());
+            setChargeStopThreshold(m_savedChargeStopThreshold);
+            setChargeStartThreshold(m_savedChargeStartThreshold);
         } else {
             qWarning() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed:" << job->errorText();
-            setBackendChargeStartThreshold(ChargeThresholdUnsupported);
-            setBackendChargeStopThreshold(ChargeThresholdUnsupported);
+            setSavedChargeStartThreshold(ChargeThresholdUnsupported);
+            setSavedChargeStopThreshold(ChargeThresholdUnsupported);
         }
     } else {
         qWarning() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed: was deleted during job execution";
@@ -70,8 +70,8 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
 
 void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 {
-    if ((isChargeStartThresholdSupported() && m_chargeStartThreshold != m_backendChargeStartThreshold)
-        || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_backendChargeStopThreshold)) {
+    if ((isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)
+        || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold)) {
         int newChargeStartThreshold = isChargeStartThresholdSupported() ? m_chargeStartThreshold : ChargeThresholdUnsupported;
         int newChargeStopThreshold = isChargeStopThresholdSupported() ? m_chargeStopThreshold : ChargeThresholdUnsupported;
 
@@ -90,13 +90,13 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 
         if (thisAlive && jobAlive) {
             if (!job->error()) {
-                setBackendChargeStartThreshold(newChargeStartThreshold);
-                setBackendChargeStopThreshold(newChargeStopThreshold);
+                setSavedChargeStartThreshold(newChargeStartThreshold);
+                setSavedChargeStopThreshold(newChargeStopThreshold);
             } else {
                 qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed:" << job->errorText();
             }
-            setChargeStopThreshold(m_backendChargeStopThreshold);
-            setChargeStartThreshold(m_backendChargeStartThreshold);
+            setChargeStopThreshold(m_savedChargeStopThreshold);
+            setChargeStartThreshold(m_savedChargeStartThreshold);
         } else {
             qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed: was deleted during job execution";
         }
@@ -105,33 +105,33 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 
 bool ExternalServiceSettings::isSaveNeeded() const
 {
-    return (isChargeStartThresholdSupported() && m_chargeStartThreshold != m_backendChargeStartThreshold)
-        || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_backendChargeStopThreshold);
+    return (isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)
+        || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold);
 }
 
 bool ExternalServiceSettings::isChargeStartThresholdSupported() const
 {
-    return m_backendChargeStartThreshold != ChargeThresholdUnsupported;
+    return m_savedChargeStartThreshold != ChargeThresholdUnsupported;
 }
 
 bool ExternalServiceSettings::isChargeStopThresholdSupported() const
 {
-    return m_backendChargeStopThreshold != ChargeThresholdUnsupported;
+    return m_savedChargeStopThreshold != ChargeThresholdUnsupported;
 }
 
-void ExternalServiceSettings::setBackendChargeStartThreshold(int threshold)
+void ExternalServiceSettings::setSavedChargeStartThreshold(int threshold)
 {
     bool wasChargeStartThresholdSupported = isChargeStartThresholdSupported();
-    m_backendChargeStartThreshold = threshold;
+    m_savedChargeStartThreshold = threshold;
     if (wasChargeStartThresholdSupported != isChargeStartThresholdSupported()) {
         Q_EMIT isChargeStartThresholdSupportedChanged();
     }
 }
 
-void ExternalServiceSettings::setBackendChargeStopThreshold(int threshold)
+void ExternalServiceSettings::setSavedChargeStopThreshold(int threshold)
 {
     bool wasChargeStopThresholdSupported = isChargeStopThresholdSupported();
-    m_backendChargeStopThreshold = threshold;
+    m_savedChargeStopThreshold = threshold;
     if (wasChargeStopThresholdSupported != isChargeStopThresholdSupported()) {
         Q_EMIT isChargeStopThresholdSupportedChanged();
     }
@@ -165,7 +165,7 @@ void ExternalServiceSettings::setChargeStopThreshold(int threshold)
     m_chargeStopThreshold = threshold;
     Q_EMIT chargeStopThresholdChanged();
 
-    if (m_chargeStopThreshold > m_backendChargeStopThreshold) {
+    if (m_chargeStopThreshold > m_savedChargeStopThreshold) {
         // Only show message if there is actually a charging or fully charged battery
         const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
         for (const Solid::Device &device : devices) {

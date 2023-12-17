@@ -3,7 +3,7 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_powerdevilprofilesconfig\")
 kcmutils_add_qml_kcm(kcm_powerdevilprofilesconfig)
 
 target_sources(kcm_powerdevilprofilesconfig PRIVATE
-    ProfilesConfigKCM.cpp
+    PowerKCM.cpp
     ExternalServiceSettings.cpp
     ${kcm_powerdevil_profiles_SRCS}
 )

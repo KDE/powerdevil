@@ -12,8 +12,6 @@
 #include <QList>
 #include <QVariant>
 
-// Profile configuration for PowerDevil, i.e. separate settings for AC/Battery/LowBattery power states
-
 class PowerButtonActionModel;
 class PowerProfileModel;
 class SleepModeModel;
@@ -24,7 +22,7 @@ class ProfileSettings;
 class GlobalSettings;
 class ExternalServiceSettings;
 
-class ProfilesConfigData : public KCModuleData
+class PowerConfigData : public KCModuleData
 {
     Q_OBJECT
 
@@ -34,9 +32,9 @@ class ProfilesConfigData : public KCModuleData
     Q_PROPERTY(QObject *profileLowBattery READ profileLowBattery CONSTANT)
 
 public:
-    explicit ProfilesConfigData(QObject *parent, const KPluginMetaData &metaData);
-    explicit ProfilesConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend, bool canHibernate);
-    ~ProfilesConfigData() override;
+    explicit PowerConfigData(QObject *parent, const KPluginMetaData &metaData);
+    explicit PowerConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend, bool canHibernate);
+    ~PowerConfigData() override;
 
     GlobalSettings *global() const;
     ProfileSettings *profileAC() const;
@@ -50,7 +48,7 @@ private:
     ProfileSettings *m_settingsLowBattery;
 };
 
-class ProfilesConfigKCM : public KQuickManagedConfigModule
+class PowerKCM : public KQuickManagedConfigModule
 {
     Q_OBJECT
 
@@ -82,13 +80,13 @@ class ProfilesConfigKCM : public KQuickManagedConfigModule
     Q_PROPERTY(QObject *powerProfileModel READ powerProfileModel CONSTANT)
 
 public:
-    ProfilesConfigKCM(QObject *parent, const KPluginMetaData &metaData);
+    PowerKCM(QObject *parent, const KPluginMetaData &metaData);
 
     bool isSaveNeeded() const override;
 
     QVariantMap supportedActions() const;
 
-    ProfilesConfigData *settings() const;
+    PowerConfigData *settings() const;
     ExternalServiceSettings *externalServiceSettings() const;
     QString currentProfile() const;
     bool supportsBatteryProfiles() const;
@@ -150,7 +148,7 @@ private:
 
     QVariantMap m_supportedActions;
 
-    ProfilesConfigData *m_settings;
+    PowerConfigData *m_settings;
     ExternalServiceSettings *m_externalServiceSettings;
     QString m_currentProfile;
     bool m_supportsBatteryProfiles;

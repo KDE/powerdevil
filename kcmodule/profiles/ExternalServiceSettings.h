@@ -52,14 +52,14 @@ Q_SIGNALS:
     void chargeStopThresholdMightNeedReconnectChanged();
 
 private:
-    void setBackendChargeStartThreshold(int);
-    void setBackendChargeStopThreshold(int);
+    void setSavedChargeStartThreshold(int);
+    void setSavedChargeStopThreshold(int);
     void setChargeStopThresholdMightNeedReconnect(bool);
 
     int m_chargeStartThreshold;
     int m_chargeStopThreshold;
-    int m_backendChargeStartThreshold;
-    int m_backendChargeStopThreshold;
+    int m_savedChargeStartThreshold;
+    int m_savedChargeStopThreshold;
     bool m_chargeStopThresholdMightNeedReconnect;
 };
 
