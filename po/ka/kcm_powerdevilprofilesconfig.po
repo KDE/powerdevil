@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2023-11-02 06:18+0100\n"
+"PO-Revision-Date: 2023-12-16 06:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -27,14 +27,10 @@ msgstr "კვების მართვის სერვისი მგო
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "ენერგიის დამატებითი პარამეტრები"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -45,21 +41,20 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "ელემენტის დონეები"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&მუხტის დაბალი დონე:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "დამჯდარ ელემენტზე"
+msgstr "ელემენტის მუხტის დაბალი დონე"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -68,6 +63,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"ელემენტის მუხტი ჩაითვლება დაბლად, როცა ის ამ დონეზე ჩამოვა. ელემენტის "
+"ჩვეულებრივი პარამეტრების მაგიერ დამჯდარი ელემენტის პარამეტრებს გამოვიყენებ."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -75,13 +72,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "&კრიტიკული დონე:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "ელემენტის მუხტის კრიტიკული დონე"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -91,6 +88,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"ელემენტის მუხტი ჩაითვლება კრიტიკულად, როცა ის ამ დონეზე ჩამოვა. მოკლე "
+"გაფრთხილების შემდეგ სისტემა ავტომატურად დაიძინებს ან გამოირთვება იმაზე "
+"დამოკიდებულებით, რა გაქვთ არჩეული კრიტიკული ელემენტის დონის ქმედებაში."
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -98,25 +98,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "&კრიტიკული დონისას:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "ელემენტის მუხტის კრიტიკულ დონემდე დაცემისას შესრულებული ქმედება"
 
 #: ui/GlobalConfig.qml:177
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "მუხტის დაბალი დონე პერიფერიული &მოწყობილობებისათვის:"
 
 #: ui/GlobalConfig.qml:185
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "მუხტის დაბალი დონე პერიფერიული მოწყობილობებისათვის"
 
 #: ui/GlobalConfig.qml:212
 #, kde-format
@@ -125,12 +125,14 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"პერიფერიული მოწყობილობის ელემენტის დონე ჩაითვლება დაბლად, როცა ის ამ დონეზე "
+"ჩამოვა."
 
 #: ui/GlobalConfig.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "დატენვის ლიმიტი"
 
 #: ui/GlobalConfig.qml:229
 #, kde-format
@@ -138,7 +140,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&დატენვის შეჩერება მუხტის დონისას:"
 
 #: ui/GlobalConfig.qml:259
 #, kde-format
@@ -146,7 +148,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "დატენვა დაიწყება, როცა მუხტი მითითებულ დონეზე და&ბლა ჩამოვა:"
 
 #: ui/GlobalConfig.qml:294
 #, kde-format
@@ -155,6 +157,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"თქვენ შეიძლება მოგიწიოთ ენერგიის წყაროს გათიშვა და ხელახლა დაკავშირება, რომ "
+"კვლავ დაიწყოთ ელემენტის დამუხტვა."
 
 #: ui/GlobalConfig.qml:304
 #, kde-format
@@ -164,11 +168,12 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"ელემენტის რეგულარულად 100%-მე დატენვამ ან სრულად განმუხტვამ შეიძლება "
+"ელემენტის სიცოცხლის დრო შეამციროს. მაქსიმალური ელემენტის მუხტის კონტროლით, "
+"შეგუძლიათ, ელემენტის სიცოცხლის დრო საგრძნობლად გაზარდოთ."
 
 #: ui/GlobalConfig.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
@@ -179,49 +184,47 @@ msgstr "სხვა პარამეტრები"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "&მედიის დაკვრა:"
 
 #: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "ძილისთვის მომზადებისას მედიის დამკვირებელის შეჩერება"
 
 #: ui/GlobalConfig.qml:334
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "მსგავსი გვერდები:"
 
 #: ui/GlobalConfig.qml:348
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "გაფრთხილებები: კვების მართვა"
 
 #: ui/GlobalConfig.qml:350
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "გახსენით \"გაფრთხილების\" მორგების გვერდი, \"კვების მართვის\" სექცია"
 
 #: ui/GlobalConfig.qml:357
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "სესიის შეჩერება"
+msgstr "სამუშაო მაგიდის სესია"
 
 #: ui/GlobalConfig.qml:358
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "\"სამუშაო მაგიდის სესიის\" მორგების გვერდის გახსნა"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "ენერგიი&ს დამატებითი პარამეტრები…"
 
 #: ui/main.qml:43
 #, kde-format

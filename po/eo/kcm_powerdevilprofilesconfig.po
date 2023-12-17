@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2023-11-02 20:46+0100\n"
+"PO-Revision-Date: 2023-12-16 07:44+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -27,14 +27,10 @@ msgstr "La Potencadministra Servo ŝajnas ne funkcii."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Altnivelaj Energiagordoj"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -45,21 +41,20 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Bateriniveloj"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "Ma&lalta nivelo:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Je Malalta Baterio"
+msgstr "Malalta baterinivelo"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -68,6 +63,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"La bateria ŝargo estos konsiderata malalta kiam ĝi falas al ĉi tiu nivelo."
+"Agordoj por malalta baterio estos uzataj anstataŭ regulaj bateriaj agordoj."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -75,13 +72,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Kr&itika nivelo:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritika baterinivelo"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -91,6 +88,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"La bateria ŝargo estos konsiderata kritika kiam ĝi falas al ĉi tiu nivelo."
+"Post mallonga averto, la sistemo aŭtomate suspendiĝos aŭ malŝaltiĝos laŭ la "
+"agordita ago por kritika baterinivelo."
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -98,25 +98,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Ĉe kritika nivelo:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Ago efektivigita je kritika baterinivelo"
 
 #: ui/GlobalConfig.qml:177
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Malalta niv&elo por flankaparatoj:"
 
 #: ui/GlobalConfig.qml:185
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Malalta baterinivelo por periferiaj aparatoj"
 
 #: ui/GlobalConfig.qml:212
 #, kde-format
@@ -125,12 +125,14 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"La bateriŝarĝo por periferiaj aparatoj estos konsiderata malalta kiam ĝi "
+"atingas ĉi tiun nivelon."
 
 #: ui/GlobalConfig.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ŝarĝolimo"
 
 #: ui/GlobalConfig.qml:229
 #, kde-format
@@ -138,7 +140,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "Ĉe&si ŝarĝadon ĉe:"
 
 #: ui/GlobalConfig.qml:259
 #, kde-format
@@ -146,7 +148,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Komenci ŝarĝadon kiam pli &malalta ol:"
 
 #: ui/GlobalConfig.qml:294
 #, kde-format
@@ -166,9 +168,7 @@ msgid ""
 msgstr ""
 
 #: ui/GlobalConfig.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
@@ -179,25 +179,25 @@ msgstr "Aliaj Agordoj"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Aŭdvidaĵa ludado:"
 
 #: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Paŭzi aŭdvidaĵajn ludilojn dum suspendo"
 
 #: ui/GlobalConfig.qml:334
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Rilataj paĝoj:"
 
 #: ui/GlobalConfig.qml:348
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Sciigoj: Energia Administrado"
 
 #: ui/GlobalConfig.qml:350
 #, kde-format
@@ -205,23 +205,21 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 
 #: ui/GlobalConfig.qml:357
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "Ĉesigi Seancon"
+msgstr "Labortabla Seanco"
 
 #: ui/GlobalConfig.qml:358
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Malfermi \"Labortabla Seanco\" agordpaĝon"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "&Altnivelaj Energiagordoj…"
 
 #: ui/main.qml:43
 #, kde-format

@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-16 01:46+0000\n"
-"PO-Revision-Date: 2023-10-30 23:33+0100\n"
+"PO-Revision-Date: 2023-12-16 08:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -201,7 +201,7 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Gailuaren bateria eskas dago (%%1 gelditzen da)"
+msgstr "Gailuaren bateria apal dago (%%1 gelditzen da)"
 
 #: powerdevilcore.cpp:525
 #, kde-format
@@ -210,23 +210,23 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"\"%1\"(e)ko bateria husten ari da, eta gailua edozein unetan itzal daiteke. "
-"Bateria zamatu edo alda ezazu."
+"\"%1\"(e)ko bateria apaltzen ari da, eta gailua edozein unetan itzal "
+"daiteke. Bateria kargatu, edo alda ezazu."
 
 #: powerdevilcore.cpp:532
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Saguaren bateria eskas dago (% %1 gelditzen da)"
+msgstr "Saguaren bateria apal dago (% %1 gelditzen da)"
 
 #: powerdevilcore.cpp:536
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Teklatuaren bateria eskas dago (% %1 gelditzen da)"
+msgstr "Teklatuaren bateria apal dago (% %1 gelditzen da)"
 
 #: powerdevilcore.cpp:540
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Bluetooth gailuaren bateria eskas dago (% %1 gelditzen zaio)"
+msgstr "Bluetooth gailuaren bateria apal dago (% %1 gelditzen zaio)"
 
 #: powerdevilcore.cpp:542
 #, kde-format
@@ -235,7 +235,7 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"\"%1\" bluetooth gailuko bateria husten ari da, eta gailua edozein unetan "
+"\"%1\" bluetooth gailuko bateria apaltzen ari da, eta gailua edozein unetan "
 "itzal daiteke. Bateria zamatu edo aldatu beharra dago."
 
 #: powerdevilcore.cpp:584
@@ -307,7 +307,7 @@ msgstr "Utzi"
 #: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Bateria eskas dago (% %1 gelditzen da)"
+msgstr "Bateria apal dago (% %1 gelditzen da)"
 
 #: powerdevilcore.cpp:651
 #, kde-format
