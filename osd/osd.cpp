@@ -20,20 +20,11 @@
 #include <QStandardPaths>
 #include <QTimer>
 
-#include <QQuickView>
+#include "osdaction.h"
 
 using namespace PowerDevil;
 
-Osd::Osd(QObject *parent)
-    : QObject(parent)
-{
-}
-
-Osd::~Osd()
-{
-}
-
-void Osd::showActionSelector(QString currentProfile)
+void Osd::showActionSelector(const QString &currentProfile)
 {
     if (!m_osdActionSelector) {
         m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
@@ -72,7 +63,7 @@ void Osd::showActionSelector(QString currentProfile)
     m_osdActionSelector->setVisible(true);
 }
 
-void Osd::onOsdActionSelected(QString action)
+void Osd::onOsdActionSelected(const QString &action)
 {
     Q_EMIT osdActionSelected(action);
     hideOsd();

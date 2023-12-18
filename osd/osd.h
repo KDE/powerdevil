@@ -10,12 +10,11 @@
 
 #include <QObject>
 #include <QQmlEngine>
+#include <QQuickView>
 #include <QRect>
 #include <QString>
 
 #include <memory>
-
-#include "osdaction.h"
 
 class QQuickView;
 
@@ -28,23 +27,20 @@ class Osd : public QObject
     Q_OBJECT
 
 public:
-    explicit Osd(QObject *parent = nullptr);
-    ~Osd() override;
+    using QObject::QObject;
 
-    void showActionSelector(QString currentProfile = QString());
+    void showActionSelector(const QString &currentProfile = QString());
     void hideOsd();
 
 Q_SIGNALS:
     void osdActionSelected(QString action);
 
 private Q_SLOTS:
-    void onOsdActionSelected(QString action);
+    void onOsdActionSelected(const QString &action);
 
 private:
     QQmlEngine m_engine;
     std::unique_ptr<QQuickView> m_osdActionSelector;
-    QTimer *m_osdTimer = nullptr;
-    int m_timeout = 0;
 };
 
-} // ns
+} // namespace PowerDevil

@@ -32,4 +32,4 @@ public:
     static QList<OsdAction> availableActions();
 };
 
-} // namespace KScreen
+} // namespace PowerDevil

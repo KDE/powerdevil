@@ -20,7 +20,6 @@ namespace PowerDevil
 {
 OsdManager::OsdManager(QObject *parent)
     : QObject(parent)
-    , m_cleanupTimer(new QTimer(this))
 {
     qmlRegisterUncreatableMetaObject(PowerDevil::OsdAction::staticMetaObject,
                                      "org.kde.powerdevil",
@@ -40,7 +39,7 @@ OsdManager::OsdManager(QObject *parent)
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.powerdevil.powerProfileOsdService"));
 }
 
-void OsdManager::hideOsd()
+void OsdManager::hideOsd() const
 {
     // Let QML engine finish execution of signal handlers, if any.
     QTimer::singleShot(0, this, &OsdManager::quit);
@@ -49,10 +48,6 @@ void OsdManager::hideOsd()
 void OsdManager::quit()
 {
     qApp->quit();
-}
-
-OsdManager::~OsdManager()
-{
 }
 
 void OsdManager::showOsd()
@@ -67,7 +62,7 @@ void OsdManager::showOsd()
     }
     QString currentProfile = reply.arguments().first().toString();
 
-    PowerDevil::Osd * osd = new PowerDevil::Osd(this);
+    auto osd = new PowerDevil::Osd(this);
     osd->showActionSelector(currentProfile);
 
     connect(osd, &Osd::osdActionSelected, this, [this](QString profile) {
@@ -76,7 +71,8 @@ void OsdManager::showOsd()
     });
 }
 
-void OsdManager::applyProfile(QString profile) {
+void OsdManager::applyProfile(const QString &profile)
+{
     if (profile.isEmpty()) {
         return;
     }
@@ -88,6 +84,6 @@ void OsdManager::applyProfile(QString profile) {
     QDBusConnection::sessionBus().call(message);
 }
 
-}
+} // namespace PowerDevil
 
 #include "moc_osdmanager.cpp"

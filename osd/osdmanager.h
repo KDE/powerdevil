@@ -13,8 +13,6 @@
 #include <QString>
 #include <QTimer>
 
-#include "osdaction.h"
-
 namespace PowerDevil
 {
 class ConfigOperation;
@@ -25,17 +23,16 @@ class OsdManager : public QObject, public QDBusContext
     Q_OBJECT
 
 public:
-    OsdManager(QObject *parent = nullptr);
-    ~OsdManager() override;
+    explicit OsdManager(QObject *parent = nullptr);
 
 public Q_SLOTS:
-    void hideOsd();
+    void hideOsd() const;
     void showOsd();
-    void applyProfile(QString profile);
+    void applyProfile(const QString &profile);
 
 private:
     void quit();
-    QTimer *m_cleanupTimer;
+    QTimer *m_cleanupTimer = new QTimer(this);
 };
 
-} // ns
+} // namespace PowerDevil
