@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2023-12-08 21:41+0300\n"
+"PO-Revision-Date: 2023-12-17 22:16+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -34,14 +34,10 @@ msgstr "Похоже, что служба управления питанием 
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Дополнительные параметры управления питанием"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -52,21 +48,20 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Уровни заряда батареи"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Низкий уровень:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Низкий уровень заряда"
+msgstr "Низкий уровень заряда батареи"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -82,13 +77,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Критический уровень:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Критический уровень заряда батареи"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -105,7 +100,7 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Пр&и критическом уровне заряда:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
@@ -117,7 +112,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Низкий уровень заряда &периферийного устройства:"
 
 #: ui/GlobalConfig.qml:185
 #, kde-format
@@ -137,7 +132,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ограничение уровня заряда"
 
 #: ui/GlobalConfig.qml:229
 #, kde-format
@@ -145,7 +140,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Останавливать зарядку на уровне:"
 
 #: ui/GlobalConfig.qml:259
 #, kde-format
@@ -162,6 +157,7 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Для начала заряда отключите и снова подключите источник внешнего питания."
 
 #: ui/GlobalConfig.qml:304
 #, kde-format
@@ -178,7 +174,7 @@ msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Другие параметры"
 
 #: ui/GlobalConfig.qml:320
 #, kde-format
@@ -190,20 +186,19 @@ msgstr ""
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Приостанавливать воспроизведение при приостановке работы"
 
 #: ui/GlobalConfig.qml:334
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Связанные страницы:"
 
 #: ui/GlobalConfig.qml:348
-#, fuzzy, kde-format
-#| msgid "Import Power Management Profiles"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Импорт профилей питания"
+msgstr "Уведомления: управление питанием"
 
 #: ui/GlobalConfig.qml:350
 #, kde-format
@@ -214,7 +209,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Управление сеансами"
 
 #: ui/GlobalConfig.qml:358
 #, kde-format
@@ -225,7 +220,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Дополнительные &параметры управления питанием…"
 
 #: ui/main.qml:43
 #, kde-format
@@ -260,7 +255,7 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Приостановка сеанса"
 
 #: ui/ProfileConfig.qml:50
 #, kde-format
@@ -268,7 +263,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "При бездействии:"
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -282,13 +277,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "При &нажатии кнопки питания:"
 
 #: ui/ProfileConfig.qml:113
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Действие, выполняемое при нажатии кнопки питания"
 
 #: ui/ProfileConfig.qml:145
 #, kde-format
@@ -296,13 +291,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "При &закрытии крышки ноутбука:"
 
 #: ui/ProfileConfig.qml:147
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Действие, выполняемое при закрытии крышки ноутбука"
 
 #: ui/ProfileConfig.qml:179
 #, kde-format
@@ -310,12 +305,14 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Даже если подключён внешний монитор"
 
 #: ui/ProfileConfig.qml:181
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Действие, назначенное на закрытие крышки ноутбука, будет выполнено даже если "
+"подключён внешний монитор"
 
 #: ui/ProfileConfig.qml:198
 #, kde-format
@@ -334,25 +331,25 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Экран и яркость"
 
 #: ui/ProfileConfig.qml:262
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Изменить &яркость экрана:"
 
 #: ui/ProfileConfig.qml:305
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Автоматически затемнять:"
 
 #: ui/ProfileConfig.qml:347
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "&Выключить монитор:"
 
 #: ui/ProfileConfig.qml:388
 #, kde-format
@@ -364,13 +361,13 @@ msgstr ""
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Изменить яркость подсветки &клавиатуры:"
 
 #: ui/ProfileConfig.qml:470
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Другие параметры"
 
 #: ui/ProfileConfig.qml:478
 #, kde-format
@@ -378,7 +375,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Переключить профиль &энергопотребления:"
 
 #: ui/ProfileConfig.qml:482
 #, kde-format
@@ -392,7 +389,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Запустить пользовательский сценарий:"
 
 #: ui/ProfileConfig.qml:524
 #, kde-format
@@ -400,7 +397,7 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Настроить условия запуска…"
 
 #: ui/ProfileConfig.qml:526
 #, kde-format
@@ -424,7 +421,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "При без&действии"
 
 #: ui/ProfileConfig.qml:596
 #, kde-format
@@ -454,7 +451,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "При без&действии:"
 
 #: ui/ProfileConfig.qml:650
 #, kde-format

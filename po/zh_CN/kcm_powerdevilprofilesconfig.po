@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2023-12-09 09:24\n"
+"PO-Revision-Date: 2023-12-17 11:26\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -27,14 +27,10 @@ msgstr "电源管理服务没有运行。"
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "高级电源设置"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -45,21 +41,20 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "电池电量"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "低电量临界值(&L)："
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "电池电量低"
+msgstr "低电量临界值"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -68,6 +63,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"当电池电量下降到这个临界值时，系统将把它视作低电量。系统将使用低电量的电池设"
+"置，而不是正常的设置。"
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -75,13 +72,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "危急电量临界值(&I)："
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "危急电量临界值"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -91,6 +88,8 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"当电池电量下降到这个临界值时，系统将把它视作危机电量。系统将发出一条短暂的警"
+"告，然后按照危机电量操作中的设置自动挂起系统或者关机。"
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -98,25 +97,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "进入危急电量时(&T)："
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "进入危急电量时执行的操作"
 
 #: ui/GlobalConfig.qml:177
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "外设低电量临界值(&E)："
 
 #: ui/GlobalConfig.qml:185
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "外设低电量临界值"
 
 #: ui/GlobalConfig.qml:212
 #, kde-format
@@ -124,13 +123,13 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
-msgstr ""
+msgstr "当外设的电池电量下降到这个临界值时，系统将把它视作低电量。"
 
 #: ui/GlobalConfig.qml:220
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "充电上限"
 
 #: ui/GlobalConfig.qml:229
 #, kde-format
@@ -138,7 +137,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "高于此电量时停止充电(&S)："
 
 #: ui/GlobalConfig.qml:259
 #, kde-format
@@ -146,7 +145,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "低于此电量时开始充电(&B)："
 
 #: ui/GlobalConfig.qml:294
 #, kde-format
@@ -154,7 +153,7 @@ msgctxt "@info:status"
 msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
-msgstr ""
+msgstr "您可能需要断开并重新连接电源才能再次开始充电。"
 
 #: ui/GlobalConfig.qml:304
 #, kde-format
@@ -164,11 +163,11 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"经常性地完全充满、完全耗尽电池的电量可能会加速电池的老化。限制电池充电的百分"
+"比有助于延长电池的使用寿命。"
 
 #: ui/GlobalConfig.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
@@ -179,49 +178,47 @@ msgstr "其他设置"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "媒体播放(&M)："
 
 #: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "挂起时暂停媒体播放器"
 
 #: ui/GlobalConfig.qml:334
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "相关页面："
 
 #: ui/GlobalConfig.qml:348
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "通知：电源管理"
 
 #: ui/GlobalConfig.qml:350
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "打开“通知”设置页面的“电源管理”栏目"
 
 #: ui/GlobalConfig.qml:357
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "挂起会话"
+msgstr "桌面会话"
 
 #: ui/GlobalConfig.qml:358
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "打开“桌面会话”设置页面"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "高级电源设置(&S)…"
 
 #: ui/main.qml:43
 #, kde-format
@@ -382,7 +379,7 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr "切换到指定的电源方案"
+msgstr "切换到指定的电源管理方案"
 
 #: ui/ProfileConfig.qml:518
 #, kde-format

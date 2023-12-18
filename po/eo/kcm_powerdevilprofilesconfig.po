@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2023-12-16 07:44+0100\n"
+"PO-Revision-Date: 2023-12-17 22:24+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -157,6 +157,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Vi eble devos malkonekti kaj rekonekti la energifonton por komenci ŝarĝi la "
+"baterion denove."
 
 #: ui/GlobalConfig.qml:304
 #, kde-format
@@ -166,6 +168,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Regula ŝarĝado de la baterio proksime al 100%, aŭ ĝia plena malŝarĝado, "
+"povas akceli difekton de bateria sano. Limigante la maksimuman "
+"baterioŝarĝon, vi povas helpi plilongigi la baterian vivdaŭron."
 
 #: ui/GlobalConfig.qml:312
 #, kde-format
@@ -202,7 +207,7 @@ msgstr "Sciigoj: Energia Administrado"
 #: ui/GlobalConfig.qml:350
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Malfermu \"Sciigoj\" agordopaĝon, sekcion \"Energia Administrado\""
 
 #: ui/GlobalConfig.qml:357
 #, kde-format

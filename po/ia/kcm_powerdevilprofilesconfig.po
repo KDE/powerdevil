@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2023-11-02 12:51+0100\n"
+"PO-Revision-Date: 2023-12-17 21:56+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ProfilesConfigKCM.cpp:445
@@ -29,11 +29,7 @@ msgid "Advanced Power Settings"
 msgstr ""
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -44,21 +40,20 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Nivellos de batteria"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Nivello basse:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Sur batteria basse"
+msgstr "Nivello de batteria basse"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -74,13 +69,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Nivello Cr&itic:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Nivello de batteria critic"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -97,7 +92,7 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Al nivello cri&tic:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
@@ -109,7 +104,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Bass&e nivello per dispositivos peripheric:"
 
 #: ui/GlobalConfig.qml:185
 #, kde-format
@@ -129,7 +124,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Limite de carga"
 
 #: ui/GlobalConfig.qml:229
 #, kde-format
@@ -137,7 +132,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Stoppa cargar a:"
 
 #: ui/GlobalConfig.qml:259
 #, kde-format
@@ -154,6 +149,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Tu poterea deber disconnecter e riconnecter le fonte de energia per initiar "
+"a recargar le batteria novemente"
 
 #: ui/GlobalConfig.qml:304
 #, kde-format
@@ -165,9 +162,7 @@ msgid ""
 msgstr ""
 
 #: ui/GlobalConfig.qml:312
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
@@ -184,7 +179,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Pausa executor de media quando on suspende"
 
 #: ui/GlobalConfig.qml:334
 #, kde-format
@@ -193,11 +188,10 @@ msgid "Related pages:"
 msgstr ""
 
 #: ui/GlobalConfig.qml:348
-#, fuzzy, kde-format
-#| msgid "Import Power Management Profiles"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Importa Profilos de Gestion de Energia"
+msgstr "Notificationes;  Gestion de Energia"
 
 #: ui/GlobalConfig.qml:350
 #, kde-format
@@ -205,12 +199,10 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 
 #: ui/GlobalConfig.qml:357
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "Suspende session"
+msgstr "Session de scriptorio"
 
 #: ui/GlobalConfig.qml:358
 #, kde-format
@@ -221,7 +213,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Preferentia&s Avantiate de energia..."
 
 #: ui/main.qml:43
 #, kde-format
