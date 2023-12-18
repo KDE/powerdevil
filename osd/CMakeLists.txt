@@ -9,6 +9,7 @@ target_link_libraries(power_profile_osd_service PRIVATE
     KF6::I18n
     KF6::WindowSystem
     KF6::Screen
+    KF6::Crash
     LayerShellQt::Interface
 )
 

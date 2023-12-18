@@ -9,12 +9,15 @@
 
 #include <QGuiApplication>
 
+#include <KCrash>
+
 #include "osdmanager.h"
 
 int main(int argc, char **argv)
 {
     LayerShellQt::Shell::useLayerShell();
     QGuiApplication app(argc, argv);
+    KCrash::initialize();
     PowerDevil::OsdManager osdManager;
     return app.exec();
 }
