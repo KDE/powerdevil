@@ -99,3 +99,5 @@ void SuspendController::slotLogin1PrepareForSleep(bool active)
         Q_EMIT resumeFromSuspend();
     }
 }
+
+#include "moc_suspendcontroller.cpp"

@@ -66,3 +66,5 @@ bool LidController::isLidPresent() const
 {
     return m_isLidPresent;
 }
+
+#include "moc_lidcontroller.cpp"

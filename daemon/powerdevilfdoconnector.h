@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-#include "batterycontroller.h"
+#include "controllers/batterycontroller.h"
 #include "powerdevilenums.h"
 #include "powerdevilpolicyagent.h"
 

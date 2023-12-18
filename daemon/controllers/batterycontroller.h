@@ -16,7 +16,7 @@
 
 #include "powerdevilcore_export.h"
 #include "upower_interface.h"
-#include <upowerdevice.h>
+#include "upowerdevice.h"
 
 class POWERDEVILCORE_EXPORT BatteryController : public QObject
 {

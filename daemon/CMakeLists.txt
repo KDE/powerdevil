@@ -21,10 +21,10 @@ set(powerdevilcore_SRCS
     powerdevilsettingsdefaults.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
-    suspendcontroller.cpp
-    batterycontroller.cpp
     upowerdevice.cpp
-    lidcontroller.cpp
+    controllers/lidcontroller.cpp
+    controllers/batterycontroller.cpp
+    controllers/suspendcontroller.cpp
 )
 
 add_library(powerdevil_log_static STATIC)
@@ -49,12 +49,9 @@ kconfig_add_kcfg_files(powerdevilcore_SRCS
 
 qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
 
-qt_add_dbus_interface(powerdevilcore_SRCS
-    backends/upower/dbus/org.freedesktop.UPower.xml
-    upower_interface
-)
+qt_add_dbus_interface(powerdevilcore_SRCS backends/upower/dbus/org.freedesktop.UPower.xml upower_interface)
 
-add_library(powerdevilcore SHARED ${powerdevilcore_SRCS} powerdevil_debug.cpp)
+add_library(powerdevilcore SHARED ${powerdevilcore_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
 
 generate_export_header(powerdevilcore)
@@ -62,6 +59,9 @@ generate_export_header(powerdevilcore)
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
     Plasma::Activities
+    Qt::DBus
+    PW::KWorkspace
+    KF6::CoreAddons
     KF6::AuthCore
     KF6::ConfigCore
     KF6::ConfigGui
@@ -75,7 +75,6 @@ target_link_libraries(powerdevilcore
     KF6::Notifications
     KF6::XmlGui
     KF6::KirigamiPlatform
-    PW::KWorkspace
     XCB::DPMS
     powerdevil_log_static
 )

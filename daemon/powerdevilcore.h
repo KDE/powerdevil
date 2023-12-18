@@ -21,10 +21,10 @@
 
 #include <KSharedConfig>
 
-#include "batterycontroller.h"
-#include "lidcontroller.h"
+#include "controllers/batterycontroller.h"
+#include "controllers/lidcontroller.h"
+#include "controllers/suspendcontroller.h"
 #include "powerdevilcore_export.h"
-#include "suspendcontroller.h"
 
 namespace KActivities
 {

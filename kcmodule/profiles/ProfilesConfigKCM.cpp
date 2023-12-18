@@ -16,7 +16,7 @@
 // powerdevil/daemon
 #include <PowerDevilGlobalSettings.h>
 #include <PowerDevilProfileSettings.h>
-#include <lidcontroller.h>
+#include <controllers/lidcontroller.h>
 #include <powerdevilenums.h>
 #include <powerdevilpowermanagement.h>
 

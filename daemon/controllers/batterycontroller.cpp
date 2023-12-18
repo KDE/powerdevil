@@ -229,3 +229,5 @@ qulonglong BatteryController::smoothedBatteryRemainingTime() const
 {
     return m_smoothedBatteryRemainingTime;
 }
+
+#include "moc_batterycontroller.cpp"
