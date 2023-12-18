@@ -138,6 +138,7 @@ int main(int argc, char **argv)
     QGuiApplication::setDesktopSettingsAware(false);
     QGuiApplication::setAttribute(Qt::AA_DisableSessionManager);
     PowerDevilApp app(argc, argv);
+    KCrash::initialize();
 
     bool replace = false;
     {
