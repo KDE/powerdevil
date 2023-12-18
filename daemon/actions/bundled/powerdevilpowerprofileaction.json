@@ -37,7 +37,7 @@
         "Description[tr]": "Bir güç yönetimi profili uygula",
         "Description[uk]": "Застосувати профіль керування живленням",
         "Description[x-test]": "xxApply a power management profilexx",
-        "Description[zh_CN]": "应用电源管理配置方案",
+        "Description[zh_CN]": "应用电源管理方案",
         "Description[zh_TW]": "套用電源管理設定檔",
         "Icon": "preferences-system-power-management-profile",
         "Name": "Power management profile",
@@ -83,7 +83,7 @@
         "Name[tr]": "Güç yönetimi profili",
         "Name[uk]": "Профіль керування живленням",
         "Name[x-test]": "xxPower management profilexx",
-        "Name[zh_CN]": "电源管理配置方案",
+        "Name[zh_CN]": "电源管理方案",
         "Name[zh_TW]": "電源管理設定檔"
     },
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
