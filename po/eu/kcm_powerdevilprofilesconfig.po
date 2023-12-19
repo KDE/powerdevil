@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 01:39+0000\n"
+"POT-Creation-Date: 2023-12-19 01:35+0000\n"
 "PO-Revision-Date: 2023-12-16 08:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -110,19 +110,19 @@ msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "Bateriaren maila kritikoan egindako ekintza"
 
-#: ui/GlobalConfig.qml:177
+#: ui/GlobalConfig.qml:180
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "&Gailu periferikoen maila apala:"
 
-#: ui/GlobalConfig.qml:185
+#: ui/GlobalConfig.qml:188
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "Gailu periferikoetarako bateriaren maila apala"
 
-#: ui/GlobalConfig.qml:212
+#: ui/GlobalConfig.qml:215
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -132,13 +132,13 @@ msgstr ""
 "Gailu periferikoetako bateriaren karga maila horretara iristen denean apala "
 "dela joko da."
 
-#: ui/GlobalConfig.qml:220
+#: ui/GlobalConfig.qml:223
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Karga-muga"
 
-#: ui/GlobalConfig.qml:229
+#: ui/GlobalConfig.qml:232
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -146,7 +146,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&Utzi kargatzeari honetan:"
 
-#: ui/GlobalConfig.qml:259
+#: ui/GlobalConfig.qml:262
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -154,7 +154,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Hasi kargatzen honetatik &jaistean:"
 
-#: ui/GlobalConfig.qml:294
+#: ui/GlobalConfig.qml:297
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -164,7 +164,7 @@ msgstr ""
 "Baliteke, bateria berriz kargatzen hasteko, elikatze-iturria deskonektatu "
 "eta berriz konektatu behar izatea."
 
-#: ui/GlobalConfig.qml:304
+#: ui/GlobalConfig.qml:307
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -176,7 +176,7 @@ msgstr ""
 "bateriaren osasuna kaltetzea azkartu dezake. Bateriaren gehienezko karga "
 "mugatuz, bateriaren bizi iraupena luzatzen lagun dezakezu."
 
-#: ui/GlobalConfig.qml:312
+#: ui/GlobalConfig.qml:315
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -184,45 +184,57 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Beste ezarpen batzuk"
 
-#: ui/GlobalConfig.qml:320
+#: ui/GlobalConfig.qml:323
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Eus&karri atzera-jotzea:"
 
-#: ui/GlobalConfig.qml:321
+#: ui/GlobalConfig.qml:324
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Euskarri jotzaileen etenaldia esekitzean"
 
-#: ui/GlobalConfig.qml:334
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Lotura duten orriak:"
 
-#: ui/GlobalConfig.qml:348
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Jakinarazpenak: Energia kudeaketa"
 
-#: ui/GlobalConfig.qml:350
+#: ui/GlobalConfig.qml:354
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Ireki \"Jakinarazpenak\" ezarpenen orria, \"Energia kudeaketa\" atalean"
 
-#: ui/GlobalConfig.qml:357
+#: ui/GlobalConfig.qml:361
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Mahaigaineko saioa"
 
-#: ui/GlobalConfig.qml:358
+#: ui/GlobalConfig.qml:362
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
+msgstr "Ireki \"Mahaigaineko saioa\" ezarpenen orria"
+
+#: ui/GlobalConfig.qml:369
+#, kde-format
+msgctxt "@text:button Name of KCM"
+msgid "Activities"
+msgstr ""
+
+#: ui/GlobalConfig.qml:370
+#, fuzzy, kde-format
+#| msgid "Open \"Desktop Session\" settings page"
+msgid "Open \"Activities\" settings page"
 msgstr "Ireki \"Mahaigaineko saioa\" ezarpenen orria"
 
 #: ui/main.qml:19
