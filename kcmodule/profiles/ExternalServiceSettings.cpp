@@ -20,7 +20,7 @@
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusServiceWatcher>
-#include <QWindow>
+#include <QPointer>
 
 namespace
 {
@@ -46,7 +46,12 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
     action.setParentWindow(parentWindowForKAuth);
     KAuth::ExecuteJob *job = action.execute();
-    connect(job, &KAuth::ExecuteJob::result, this, [this, job]() {
+
+    QPointer thisAlive(this);
+    QPointer jobAlive(job);
+    job->exec();
+
+    if (thisAlive && jobAlive) {
         if (!job->error()) {
             const auto data = job->data();
             setBackendChargeStartThreshold(data.value(QStringLiteral("chargeStartThreshold")).toInt());
@@ -58,8 +63,9 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
             setBackendChargeStartThreshold(ChargeThresholdUnsupported);
             setBackendChargeStopThreshold(ChargeThresholdUnsupported);
         }
-    });
-    job->start();
+    } else {
+        qWarning() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed: was deleted during job execution";
+    }
 }
 
 void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
@@ -78,7 +84,11 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
         action.setParentWindow(parentWindowForKAuth);
         KAuth::ExecuteJob *job = action.execute();
 
-        connect(job, &KAuth::ExecuteJob::result, this, [this, job, newChargeStartThreshold, newChargeStopThreshold]() {
+        QPointer thisAlive(this);
+        QPointer jobAlive(job);
+        job->exec();
+
+        if (thisAlive && jobAlive) {
             if (!job->error()) {
                 setBackendChargeStartThreshold(newChargeStartThreshold);
                 setBackendChargeStopThreshold(newChargeStopThreshold);
@@ -87,8 +97,9 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
             }
             setChargeStopThreshold(m_backendChargeStopThreshold);
             setChargeStartThreshold(m_backendChargeStartThreshold);
-        });
-        job->start();
+        } else {
+            qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed: was deleted during job execution";
+        }
     }
 }
 
