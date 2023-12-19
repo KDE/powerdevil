@@ -42,6 +42,7 @@
 
 #include <Kirigami/Platform/TabletModeWatcher>
 #include <algorithm>
+#include <qstringliteral.h>
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
@@ -659,6 +660,11 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
     m_pendingWakeupEvent = true;
     loadProfile();
 
+    QDBusMessage osdMsg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
+                                                         QStringLiteral("/org/kde/osdService"),
+                                                         QStringLiteral("org.kde.osdService"),
+                                                         QStringLiteral("acAdapterStateChanged"));
+
     if (state == BatteryController::Plugged) {
         // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
         if (m_lowBatteryNotification) {
@@ -677,8 +683,14 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
         } else {
             emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adapter has been plugged in."));
         }
+
+        osdMsg << true << state;
+        QDBusConnection::sessionBus().asyncCall(osdMsg);
     } else if (state == BatteryController::Unplugged) {
         emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adapter has been unplugged."));
+
+        osdMsg << false << state;
+        QDBusConnection::sessionBus().asyncCall(osdMsg);
     }
 }
 
