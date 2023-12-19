@@ -24,7 +24,9 @@
 #include "controllers/batterycontroller.h"
 #include "controllers/lidcontroller.h"
 #include "controllers/suspendcontroller.h"
+#include "controllers/keyboardbrightnesscontroller.h"
 #include "powerdevilcore_export.h"
+
 
 namespace KActivities
 {
@@ -82,6 +84,7 @@ public:
     SuspendController *suspendController();
     BatteryController *batteryController();
     LidController *lidController();
+    KeyboardBrightnessController *keyboardBrightnessController();
 
     Action *action(const QString actionId);
 
@@ -124,6 +127,7 @@ Q_SIGNALS:
     void lidClosedChanged(bool closed);
     void chargeStartThresholdChanged(int threshold);
     void chargeStopThresholdChanged(int threshold);
+    void keyboardBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
 private:
     void initActions();
@@ -153,6 +157,7 @@ private:
     std::unique_ptr<SuspendController> m_suspendController;
     std::unique_ptr<BatteryController> m_batteryController;
     std::unique_ptr<LidController> m_lidController;
+    std::unique_ptr<KeyboardBrightnessController> m_keyboardBrightnessController;
 
     QDBusServiceWatcher *m_notificationsWatcher = nullptr;
     bool m_notificationsReady = false;
@@ -205,6 +210,7 @@ private Q_SLOTS:
     void onServiceRegistered(const QString &service);
     void onLidClosedChanged(bool closed);
     void onAboutToSuspend();
+    void onKeyboardBrightnessChanged(const KeyboardBrightnessLogic::BrightnessInfo &brightnessInfo);
     // handlers for handling wakeup dbus call
     void resetAndScheduleNextWakeup();
     void timerfdEventHandler();

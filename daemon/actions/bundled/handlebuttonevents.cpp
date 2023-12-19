@@ -84,9 +84,9 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
             });
 
     if (!core()->lidController()->isLidClosed()) {
-        m_oldKeyboardBrightness = backend()->keyboardBrightness();
+        m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
     }
-    connect(backend(), &PowerDevil::BackendInterface::keyboardBrightnessChanged, this, [this](const BrightnessLogic::BrightnessInfo &brightnessInfo) {
+    connect(core(), &PowerDevil::Core::keyboardBrightnessChanged, this, [this](const BrightnessLogic::BrightnessInfo &brightnessInfo) {
         // By the time the lid close is processed, the backend brightness will already be updated.
         // That's why we track the brightness here as long as the lid is open.
         m_oldKeyboardBrightness = brightnessInfo.value;
@@ -118,7 +118,7 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
 {
     if (closed) {
         if (m_oldKeyboardBrightness.has_value()) {
-            backend()->setKeyboardBrightness(0);
+            core()->keyboardBrightnessController()->setKeyboardBrightness(0);
         }
 
         if (!m_screenConfiguration) {
@@ -136,7 +136,7 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
         // When we restore the keyboard brightness before waking up, we shouldn't conflict
         // with dimdisplay or dpms also messing with the keyboard.
         if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
-            backend()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
+            core()->keyboardBrightnessController()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
         }
 
         // In this case, let's send a wakeup event

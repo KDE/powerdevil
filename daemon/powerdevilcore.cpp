@@ -86,6 +86,7 @@ void Core::loadCore(BackendInterface *backend)
     m_suspendController = std::make_unique<SuspendController>();
     m_batteryController = std::make_unique<BatteryController>();
     m_lidController = std::make_unique<LidController>();
+    m_keyboardBrightnessController = std::make_unique<KeyboardBrightnessController>();
 
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
@@ -123,6 +124,7 @@ void Core::onBackendReady()
     connect(m_batteryController.get(), &BatteryController::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_lidController.get(), &LidController::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
+    connect(m_keyboardBrightnessController.get(), &KeyboardBrightnessController::keyboardBrightnessChanged, this, &Core::onKeyboardBrightnessChanged);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
@@ -1146,6 +1148,16 @@ void Core::timerfdEventHandler()
     msg << currentWakeup.cookie;
     // send it away
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
+}
+
+void Core::onKeyboardBrightnessChanged(const KeyboardBrightnessLogic::BrightnessInfo &brightnessInfo)
+{
+    Q_EMIT keyboardBrightnessChanged(brightnessInfo);
+}
+
+KeyboardBrightnessController *Core::keyboardBrightnessController()
+{
+    return m_keyboardBrightnessController.get();
 }
 }
 

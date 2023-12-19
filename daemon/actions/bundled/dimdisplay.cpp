@@ -9,6 +9,7 @@
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilbackendinterface.h>
+#include <powerdevilcore.h>
 
 #include <QDebug>
 #include <QTimer>
@@ -51,7 +52,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     }
 
     m_oldScreenBrightness = backend()->screenBrightness();
-    m_oldKeyboardBrightness = backend()->keyboardBrightness();
+    m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
 
     // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
     // assumption that e.g. 50% may be too bright for returning user to notice that
@@ -78,7 +79,7 @@ void DimDisplay::triggerImpl(const QVariantMap &args)
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
-        backend()->setKeyboardBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt());
+        core()->keyboardBrightnessController()->setKeyboardBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt());
     }
 }
 

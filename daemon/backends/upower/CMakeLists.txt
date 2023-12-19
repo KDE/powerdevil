@@ -18,11 +18,6 @@ qt_add_dbus_interface(powerdevilupowerbackend_SRCS
     upower_interface
 )
 
-qt_add_dbus_interface(powerdevilupowerbackend_SRCS
-    dbus/org.freedesktop.UPower.KbdBacklight.xml
-    upower_kbdbacklight_interface
-)
-
 ## backlight helper executable
 set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)

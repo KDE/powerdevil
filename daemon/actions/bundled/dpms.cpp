@@ -11,7 +11,6 @@
 #include <PowerDevilProfileSettings.h>
 #include <kwinkscreenhelpereffect.h>
 #include <powerdevil_debug.h>
-#include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
 #include <QAction>
@@ -127,7 +126,7 @@ void DPMS::turnOffOnIdleTimeout()
         return;
     }
 
-    const int keyboardBrightness = backend()->keyboardBrightness();
+    const int keyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
     if (keyboardBrightness > 0) {
         m_oldKeyboardBrightness = keyboardBrightness;
         setKeyboardBrightnessHelper(0);
@@ -146,7 +145,7 @@ void DPMS::triggerImpl(const QVariantMap &args)
 {
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
-        backend()->setKeyboardBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
+        core()->keyboardBrightnessController()->setKeyboardBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
         return;
     }
 

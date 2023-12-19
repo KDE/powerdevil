@@ -52,7 +52,7 @@ BackendInterface *Action::backend() const
     return m_core->backend();
 }
 
-Core *Action::core()
+Core *Action::core() const
 {
     return m_core;
 }

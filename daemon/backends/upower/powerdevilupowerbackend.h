@@ -18,7 +18,6 @@
 #include <memory>
 
 #include "udevqt.h"
-#include "upower_kbdbacklight_interface.h"
 
 #include "powerdevilupowerbackend_export.h"
 
@@ -44,14 +43,7 @@ public:
     void setScreenBrightness(int value) override;
     bool screenBrightnessAvailable() const override;
 
-    int keyboardBrightness() const override;
-    int keyboardBrightnessMax() const override;
-    void setKeyboardBrightness(int value) override;
-    void setKeyboardBrightnessOff();
-    bool keyboardBrightnessAvailable() const override;
-
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
-    int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type) override;
 
 Q_SIGNALS:
     void brightnessSupportQueried(bool available);
@@ -63,7 +55,6 @@ private:
 private Q_SLOTS:
     void slotScreenBrightnessChanged();
     void onDeviceChanged(const UdevQt::Device &device);
-    void onKeyboardBrightnessChanged(int value, const QString &source);
 
 private:
     void animationValueChanged(const QVariant &value);
@@ -71,15 +62,11 @@ private:
 
     // brightness
     int m_cachedScreenBrightness;
-    int m_cachedKeyboardBrightness;
     bool m_screenBrightnessAvailable = false;
 
     DDCutilBrightness *m_ddcBrightnessControl = nullptr;
 
-    OrgFreedesktopUPowerKbdBacklightInterface *m_kbdBacklight;
-    int m_kbdMaxBrightness;
     int m_brightnessMax = 0;
-    bool m_keyboardBrightnessAvailable = false;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
     const int m_brightnessAnimationDurationMsec = 250;

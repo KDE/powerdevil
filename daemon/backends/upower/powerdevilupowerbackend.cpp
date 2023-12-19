@@ -15,6 +15,7 @@
 
 #include <QDBusMessage>
 #include <QDebug>
+#include <QFileInfo>
 #include <QPropertyAnimation>
 #include <QTextStream>
 #include <QTimer>
@@ -32,9 +33,6 @@
 PowerDevilUPowerBackend::PowerDevilUPowerBackend(QObject *parent)
     : BackendInterface(parent)
     , m_cachedScreenBrightness(0)
-    , m_cachedKeyboardBrightness(0)
-    , m_kbdBacklight(nullptr)
-    , m_kbdMaxBrightness(0)
     , m_isLedBrightnessControl(false)
 {
 }
@@ -132,26 +130,6 @@ void PowerDevilUPowerBackend::initWithBrightness(bool screenBrightnessAvailable)
         qCDebug(POWERDEVIL) << "current screen brightness value: " << m_cachedScreenBrightness;
     }
 
-    m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
-    if (m_kbdBacklight->isValid()) {
-        // Cache max value
-        QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
-        rep.waitForFinished();
-        if (rep.isValid()) {
-            m_kbdMaxBrightness = rep.value();
-            m_keyboardBrightnessAvailable = true;
-        }
-        // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
-        if (m_kbdMaxBrightness) {
-            m_cachedKeyboardBrightness = keyboardBrightness();
-            qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedKeyboardBrightness;
-            connect(m_kbdBacklight,
-                    &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChangedWithSource,
-                    this,
-                    &PowerDevilUPowerBackend::onKeyboardBrightnessChanged);
-        }
-    }
-
     // backend ready
     setBackendIsReady();
 }
@@ -206,36 +184,6 @@ int PowerDevilUPowerBackend::screenBrightnessKeyPressed(PowerDevil::BrightnessLo
     return newBrightness;
 }
 
-int PowerDevilUPowerBackend::keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
-{
-    if (!m_keyboardBrightnessAvailable) {
-        return -1; // ignore as we are not able to determine the brightness level
-    }
-
-    int currentBrightness = keyboardBrightness();
-    // m_cachedBrightnessMap is not being updated during animation, thus checking the m_cachedBrightnessMap
-    // value here doesn't make much sense, use the endValue from brightness() anyway.
-    // This prevents brightness key being ignored during the animation.
-    if (currentBrightness != m_cachedKeyboardBrightness) {
-        m_cachedKeyboardBrightness = currentBrightness;
-        return currentBrightness;
-    }
-
-    int maxBrightness = keyboardBrightnessMax();
-    int newBrightness = calculateNextKeyboardBrightnessStep(currentBrightness, maxBrightness, type);
-
-    if (newBrightness < 0) {
-        return -1;
-    }
-
-    if (type == PowerDevil::BrightnessLogic::BrightnessKeyType::Toggle && newBrightness == 0) {
-        setKeyboardBrightnessOff();
-    } else {
-        setKeyboardBrightness(newBrightness);
-    }
-    return newBrightness;
-}
-
 int PowerDevilUPowerBackend::screenBrightness() const
 {
     int result = 0;
@@ -263,14 +211,6 @@ int PowerDevilUPowerBackend::screenBrightnessMax() const
         result = m_brightnessMax;
     }
     qCDebug(POWERDEVIL) << "Screen brightness value max: " << result;
-
-    return result;
-}
-
-int PowerDevilUPowerBackend::keyboardBrightnessMax() const
-{
-    int result = m_kbdMaxBrightness;
-    qCDebug(POWERDEVIL) << "Kbd backlight brightness value max: " << result;
 
     return result;
 }
@@ -326,26 +266,6 @@ bool PowerDevilUPowerBackend::screenBrightnessAvailable() const
     return m_screenBrightnessAvailable;
 }
 
-void PowerDevilUPowerBackend::setKeyboardBrightness(int value)
-{
-    qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
-    m_kbdBacklight->SetBrightness(value);
-    m_keyboardBrightnessBeforeTogglingOff = keyboardBrightness();
-}
-
-void PowerDevilUPowerBackend::setKeyboardBrightnessOff()
-{
-    // save value before toggling so that we can restore it later
-    m_keyboardBrightnessBeforeTogglingOff = keyboardBrightness();
-    qCDebug(POWERDEVIL) << "set kbd backlight value: " << 0;
-    m_kbdBacklight->SetBrightness(0);
-}
-
-bool PowerDevilUPowerBackend::keyboardBrightnessAvailable() const
-{
-    return m_keyboardBrightnessAvailable;
-}
-
 void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
 {
     if (m_brightnessAnimation && m_brightnessAnimation->state() != QPropertyAnimation::Stopped) {
@@ -363,17 +283,6 @@ void PowerDevilUPowerBackend::slotScreenBrightnessChanged()
     }
 }
 
-void PowerDevilUPowerBackend::onKeyboardBrightnessChanged(int value, const QString &source)
-{
-    qCDebug(POWERDEVIL) << "Keyboard brightness changed!!";
-    if (value != m_cachedKeyboardBrightness) {
-        m_cachedKeyboardBrightness = value;
-        BackendInterface::onKeyboardBrightnessChanged(value, keyboardBrightnessMax(), source == QLatin1String("internal"));
-        // source: internal = keyboard brightness changed through hardware, eg a firmware-handled hotkey being pressed -> show the OSD
-        //         external = keyboard brightness changed through upower -> don't trigger the OSD as we would already have done that where necessary
-    }
-}
-
 void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
 {
     if (m_ddcBrightnessControl->isSupported()) {
@@ -383,14 +292,6 @@ void PowerDevilUPowerBackend::animationValueChanged(const QVariant &value)
     } else {
         qCInfo(POWERDEVIL) << "PowerDevilUPowerBackend::animationValueChanged: brightness control not supported";
     }
-}
-
-int PowerDevilUPowerBackend::keyboardBrightness() const
-{
-    int result = m_kbdBacklight->GetBrightness();
-    qCDebug(POWERDEVIL) << "Kbd backlight brightness value: " << result;
-
-    return result;
 }
 
 #include "moc_powerdevilupowerbackend.cpp"

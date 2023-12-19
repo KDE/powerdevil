@@ -70,22 +70,8 @@ public:
 
     virtual bool screenBrightnessAvailable() const = 0;
 
-    virtual int keyboardBrightness() const = 0;
-
-    virtual int keyboardBrightnessMax() const = 0;
-
-    int keyboardBrightnessSteps();
-
-    virtual void setKeyboardBrightness(int value) = 0;
-
-    virtual int keyboardBrightnessKeyPressed(BrightnessLogic::BrightnessKeyType type) = 0;
-
-    virtual bool keyboardBrightnessAvailable() const = 0;
-
 Q_SIGNALS:
     void screenBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
-
-    void keyboardBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
     /**
      * This signal is emitted when the backend is ready to be used
@@ -96,22 +82,16 @@ Q_SIGNALS:
 
 protected:
     void onScreenBrightnessChanged(int value, int valueMax);
-    void onKeyboardBrightnessChanged(int value, int valueMax, bool notify = false);
 
     void setBackendIsReady();
 
     // Steps logic
     int calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
-    int calculateNextKeyboardBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
 
 private:
     ScreenBrightnessLogic m_screenBrightnessLogic;
-    KeyboardBrightnessLogic m_keyboardBrightnessLogic;
 
     friend class Core;
-
-protected:
-    int m_keyboardBrightnessBeforeTogglingOff;
 };
 
 }

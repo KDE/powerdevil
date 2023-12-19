@@ -155,7 +155,7 @@ protected:
     /**
      * @returns The PowerDevil Core
      */
-    PowerDevil::Core *core();
+    PowerDevil::Core *core() const;
 
 protected Q_SLOTS:
     /**

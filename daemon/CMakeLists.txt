@@ -25,6 +25,7 @@ set(powerdevilcore_SRCS
     controllers/lidcontroller.cpp
     controllers/batterycontroller.cpp
     controllers/suspendcontroller.cpp
+    controllers/keyboardbrightnesscontroller.cpp
 )
 
 add_library(powerdevil_log_static STATIC)
@@ -47,9 +48,17 @@ kconfig_add_kcfg_files(powerdevilcore_SRCS
 
 # Action DBus Adaptors
 
+set_source_files_properties(
+        backends/upower/dbus/org.freedesktop.UPower.xml
+        backends/upower/dbus/org.freedesktop.UPower.Device.xml
+        PROPERTIES NO_NAMESPACE TRUE
+)
+
 qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
 
 qt_add_dbus_interface(powerdevilcore_SRCS backends/upower/dbus/org.freedesktop.UPower.xml upower_interface)
+
+qt_add_dbus_interface(powerdevilcore_SRCS backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml upower_kbdbacklight_interface)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
