@@ -445,7 +445,7 @@ msgstr "Cancel·la"
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
-"La bateria ha arribat al nivell crítica. L'ordinador es pararà en 60 segons."
+"La bateria ha arribat al nivell crític. L'ordinador es pararà en 60 segons."
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -460,7 +460,7 @@ msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"La bateria ha arribat al nivell crítica. L'ordinador passarà al mode "
+"La bateria ha arribat al nivell crític. L'ordinador passarà al mode "
 "hibernació en 60 segons."
 
 #: powerdevilcore.cpp:685
@@ -475,7 +475,7 @@ msgstr "Hiberna ara"
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"La bateria ha arribat al nivell crítica. L'ordinador se suspendrà en 60 "
+"La bateria ha arribat al nivell crític. L'ordinador se suspendrà en 60 "
 "segons."
 
 #: powerdevilcore.cpp:691
@@ -488,7 +488,7 @@ msgstr "Suspén ara"
 #: powerdevilcore.cpp:696
 #, kde-format
 msgid "Battery level critical. Please save your work."
-msgstr "La bateria ha arribat al nivell crítica. Guardeu la vostra faena."
+msgstr "La bateria ha arribat al nivell crític. Guardeu la vostra faena."
 
 #: powerdevilcore.cpp:707
 #, kde-format

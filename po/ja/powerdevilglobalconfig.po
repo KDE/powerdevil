@@ -1,17 +1,17 @@
 # Translation of powerdevil into Japanese.
+# SPDX-FileCopyrightText: 2022, 2023 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2008, 2009.
 # Taiki Komoda <kom@kde.gr.jp>, 2010.
 # TAKANO Yuji <takachan@running-dog.net>, 2015.
 # Fuminobu Takeyama <ftake@geeko.jp>, 2018.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2010, 2015, 2018, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2022-07-04 12:30-0700\n"
-"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"PO-Revision-Date: 2023-12-17 21:32+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,7 +62,7 @@ msgstr "電源管理サービスが動作していないようです。"
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr "<b>バッテリーレベル                     </b>"
+msgstr "<b>バッテリレベル                     </b>"
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
@@ -115,7 +115,7 @@ msgstr "バッテリ残量がこのレベルに達したら危険レベルと見
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr "バッテリの危険レベル時(&T):"
+msgstr "危険レベル時の動作(&T):"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
@@ -166,7 +166,7 @@ msgstr "電源が接続されたとき常に充電する"
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr "サスペンド時にメディアメディアプレーヤーを一時停止する:"
+msgstr "サスペンド時にメディアプレーヤーを一時停止:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
@@ -190,4 +190,4 @@ msgstr "その他の設定"
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr "この残量で充電を停止する:"
+msgstr "この残量で充電を停止:"
