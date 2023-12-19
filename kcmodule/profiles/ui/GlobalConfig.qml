@@ -273,13 +273,35 @@ Kirigami.ScrollablePage {
                     externalSettings.chargeStartThreshold = value < to ? value : 0;
                 }
             }
-            onValueModified: { setChargeStartThreshold(); }
-            onToChanged: { setChargeStartThreshold(); }
+            property int lockstepUpperBound: -1 // tracks externalSettings and manual user changes, not range limit changes
+
+            onValueModified: {
+                setChargeStartThreshold();
+                lockstepUpperBound = value;
+            }
+            onToChanged: {
+                // Follow the stop threshold back up until the value we started from.
+                if (externalSettings.chargeStartThreshold > 0 && to == value) {
+                    lockstepUpperBound = value;
+                }
+                else if (externalSettings.chargeStartThreshold == 0 && to <= lockstepUpperBound) {
+                    value = to;
+                }
+                setChargeStartThreshold();
+            }
             Connections {
                 target: externalSettings
                 function onChargeStartThresholdChanged() {
-                    chargeStartThresholdSpin.value = externalSettings.chargeStartThreshold > 0 ? externalSettings.chargeStartThreshold : to;
+                    if (externalSettings.chargeStartThreshold == 0) {
+                        chargeStartThresholdSpin.lockstepUpperBound = chargeStartThresholdSpin.to;
+                    }
+                    chargeStartThresholdSpin.value = externalSettings.chargeStartThreshold > 0
+                        ? externalSettings.chargeStartThreshold
+                        : chargeStartThresholdSpin.to;
                 }
+            }
+            Component.onCompleted: {
+                chargeStartThresholdSpin.lockstepUpperBound = value;
             }
 
             editable: true
