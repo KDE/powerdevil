@@ -73,37 +73,7 @@ void PowerDevilApp::init()
 
     connect(m_core, &PowerDevil::Core::coreReady, this, &PowerDevilApp::onCoreReady);
 
-    // Before doing anything, let's set up our backend
-    const QStringList paths = QCoreApplication::libraryPaths();
-    QFileInfoList fileInfos;
-    for (const QString &path : paths) {
-        QDir dir(path + QStringLiteral("/kf6/powerdevil/"), QStringLiteral("*"), QDir::SortFlags(QDir::QDir::Name), QDir::NoDotAndDotDot | QDir::Files);
-        fileInfos.append(dir.entryInfoList());
-    }
-
-    QFileInfo backendFileInfo;
-    for (const QFileInfo &f : std::as_const(fileInfos)) {
-        if (f.baseName().toLower() == QLatin1String("powerdevilupowerbackend")) {
-            backendFileInfo = f;
-            break;
-        }
-    }
-
-    QPluginLoader *loader = new QPluginLoader(backendFileInfo.filePath(), m_core);
-    QObject *instance = loader->instance();
-    if (!instance) {
-        qCCritical(POWERDEVIL) << "KDE Power Management System init failed!" << loader->errorString();
-        return;
-    }
-
-    auto interface = qobject_cast<PowerDevil::BackendInterface *>(instance);
-    if (!interface) {
-        qCCritical(POWERDEVIL) << "KDE Power Management System init failed! Failed to cast plugin instance to BackendInterface, check your plugin";
-        return;
-    }
-
-    qCDebug(POWERDEVIL) << "Backend loaded, loading core";
-    m_core->loadCore(interface);
+    m_core->loadCore();
 }
 
 void PowerDevilApp::onCoreReady()

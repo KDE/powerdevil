@@ -17,7 +17,6 @@
 
 namespace PowerDevil
 {
-class BackendInterface;
 class Core;
 class ProfileSettings;
 
@@ -148,10 +147,6 @@ protected:
      */
     virtual void triggerImpl(const QVariantMap &args) = 0;
 
-    /**
-     * @returns The BackendInterface
-     */
-    PowerDevil::BackendInterface *backend() const;
     /**
      * @returns The PowerDevil Core
      */

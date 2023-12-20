@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "powerdevilbackendinterface.h"
-
 #include <QPointer>
 #include <QSet>
 #include <QStringList>
@@ -44,7 +42,6 @@ class Battery;
 
 namespace PowerDevil
 {
-class BackendInterface;
 class Action;
 class GlobalSettings;
 
@@ -80,7 +77,6 @@ public:
 
     bool emitBatteryChargePercentNotification(int currentPercent, int previousPercent, const QString &udi = QString(), ChargeNotificationFlags flags = {});
 
-    BackendInterface *backend();
     SuspendController *suspendController();
     BatteryController *batteryController();
     LidController *lidController();
@@ -92,11 +88,12 @@ public:
     // More...
 
 public Q_SLOTS:
-    void loadCore(PowerDevil::BackendInterface *backend);
+    void loadCore();
     // Set of common action - useful for the DBus interface
     uint backendCapabilities();
     void refreshStatus();
     void reparseConfiguration();
+    void onControllersReady();
 
     QString currentProfile() const;
     void loadProfile(bool force = false);
@@ -155,7 +152,6 @@ private:
     int m_chargeStartThreshold = 0;
     int m_chargeStopThreshold = 100;
 
-    BackendInterface *m_backend = nullptr;
     std::unique_ptr<SuspendController> m_suspendController;
     std::unique_ptr<BatteryController> m_batteryController;
     std::unique_ptr<LidController> m_lidController;
@@ -198,7 +194,6 @@ private:
     QStringList m_activeActions;
 
 private Q_SLOTS:
-    void onBackendReady();
     void onAcAdapterStateChanged(BatteryController::AcAdapterState);
     void onBatteryChargePercentChanged(int, const QString &);
     void onBatteryChargeStateChanged(int, const QString &);

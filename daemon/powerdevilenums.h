@@ -39,4 +39,11 @@ enum class SleepMode : uint {
 };
 Q_ENUM_NS(SleepMode)
 
+enum class BrightnessControlType : uint {
+    UnknownBrightnessControl = 0,
+    Screen = 1,
+    Keyboard = 2,
+};
+Q_ENUM_NS(BrightnessControlType)
+
 } // namespace PowerDevil

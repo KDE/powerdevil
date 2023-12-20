@@ -9,7 +9,6 @@ add_subdirectory(actions)
 set(powerdevilcore_SRCS
     powerdevil_debug.cpp
     powerdevilaction.cpp
-    powerdevilbackendinterface.cpp
     powerdevilcore.cpp
     powerdevilenums.cpp
     powerdevilmigrateconfig.cpp
@@ -132,6 +131,7 @@ install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
 kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_actions.actions)
 
+
 ## backlight helper executable
 set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
@@ -146,8 +146,6 @@ install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
 kauth_install_actions(org.kde.powerdevil.backlighthelper controllers/backlight_helper_actions.actions)
 
-# Backends
-add_subdirectory(backends)
 
 add_executable(powerdevil ${powerdevil_SRCS})
 set_target_properties(powerdevil PROPERTIES OUTPUT_NAME org_kde_powerdevil)

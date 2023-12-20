@@ -13,12 +13,10 @@
 
 #pragma once
 
-#include "powerdevilbackendinterface.h"
-
 #include "powerdevilcore_export.h"
+#include "powerdevilenums.h"
 
 namespace BrightnessOSDWidget
 {
-POWERDEVILCORE_EXPORT void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type = PowerDevil::BackendInterface::Screen);
-
+POWERDEVILCORE_EXPORT void show(int percentage, PowerDevil::BrightnessControlType type = PowerDevil::BrightnessControlType::Screen);
 }

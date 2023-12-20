@@ -18,10 +18,10 @@
 
 namespace BrightnessOSDWidget
 {
-void show(int percentage, PowerDevil::BackendInterface::BrightnessControlType type)
+void show(int percentage, PowerDevil::BrightnessControlType type)
 {
     QString method;
-    if (type == PowerDevil::BackendInterface::Keyboard) {
+    if (type == PowerDevil::BrightnessControlType::Keyboard) {
         method = QLatin1String("keyboardBrightnessChanged");
     } else {
         method = QLatin1String("brightnessChanged");

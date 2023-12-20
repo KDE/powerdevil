@@ -13,6 +13,7 @@
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilcore.h>
+#include <powerdevilenums.h>
 
 #include <QAction>
 #include <QDebug>
@@ -110,19 +111,19 @@ void KeyboardBrightnessControl::onBrightnessChangedFromCore(const KeyboardBright
 void KeyboardBrightnessControl::increaseKeyboardBrightness()
 {
     core()->keyboardBrightnessController()->keyboardBrightnessKeyPressed(BrightnessLogic::Increase);
-    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), PowerDevil::BrightnessControlType::Keyboard);
 }
 
 void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 {
     core()->keyboardBrightnessController()->keyboardBrightnessKeyPressed(BrightnessLogic::Decrease);
-    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), PowerDevil::BrightnessControlType::Keyboard);
 }
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
     core()->keyboardBrightnessController()->keyboardBrightnessKeyPressed(BrightnessLogic::Toggle);
-    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), PowerDevil::BrightnessControlType::Keyboard);
 }
 
 int KeyboardBrightnessControl::keyboardBrightness() const
@@ -138,7 +139,7 @@ int KeyboardBrightnessControl::keyboardBrightnessMax() const
 void KeyboardBrightnessControl::setKeyboardBrightness(int percent)
 {
     core()->keyboardBrightnessController()->setKeyboardBrightness(percent);
-    BrightnessOSDWidget::show(keyboardBrightnessPercent(), BackendInterface::Keyboard);
+    BrightnessOSDWidget::show(keyboardBrightnessPercent(), PowerDevil::BrightnessControlType::Keyboard);
 }
 
 void KeyboardBrightnessControl::setKeyboardBrightnessSilent(int percent)

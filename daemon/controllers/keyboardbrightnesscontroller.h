@@ -13,6 +13,7 @@
 #include <QObject>
 
 #include "powerdevilcore_export.h"
+#include "powerdevilenums.h"
 #include "powerdevilkeyboardbrightnesslogic.h"
 #include "upower_kbdbacklight_interface.h"
 

@@ -7,7 +7,7 @@
 #pragma once
 
 #include <powerdevilaction.h>
-#include <powerdevilbackendinterface.h>
+#include <powerdevilkeyboardbrightnesslogic.h>
 
 namespace PowerDevil::BundledActions
 {

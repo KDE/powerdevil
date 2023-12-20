@@ -79,25 +79,20 @@ Core::~Core()
     unloadAllActiveActions();
 }
 
-void Core::loadCore(BackendInterface *backend)
+void Core::loadCore()
 {
-    m_backend = backend;
-
     m_suspendController = std::make_unique<SuspendController>();
     m_batteryController = std::make_unique<BatteryController>();
     m_lidController = std::make_unique<LidController>();
     m_keyboardBrightnessController = std::make_unique<KeyboardBrightnessController>();
     m_screenBrightnessController = std::make_unique<ScreenBrightnessController>();
 
-    // Async backend init - so that KDED gets a bit of a speed up
-    qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
-    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onBackendReady);
-    m_backend->init();
+    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onControllersReady);
 }
 
-void Core::onBackendReady()
+void Core::onControllersReady()
 {
-    qCDebug(POWERDEVIL) << "Backend ready, KDE Power Management system initialized";
+    qCDebug(POWERDEVIL) << "Controllers ready, KDE Power Management system initialized";
 
     const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
     const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
@@ -957,11 +952,6 @@ void Core::readChargeThreshold()
         qCDebug(POWERDEVIL) << "Charge thresholds: start at" << chargeStartThreshold << "- stop at" << chargeStopThreshold;
     });
     job->start();
-}
-
-BackendInterface *Core::backend()
-{
-    return m_backend;
 }
 
 SuspendController *Core::suspendController()

@@ -47,11 +47,6 @@ bool Action::isSupported()
     return true;
 }
 
-BackendInterface *Action::backend() const
-{
-    return m_core->backend();
-}
-
 Core *Action::core() const
 {
     return m_core;

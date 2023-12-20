@@ -8,7 +8,6 @@
 
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
-#include <powerdevilbackendinterface.h>
 #include <powerdevilcore.h>
 
 #include "suspendsessionadaptor.h"

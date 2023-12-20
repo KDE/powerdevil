@@ -10,7 +10,6 @@
 #include <KScreen/Types>
 
 #include <powerdevilaction.h>
-#include <powerdevilbackendinterface.h>
 #include <powerdevilenums.h>
 
 #include <optional>

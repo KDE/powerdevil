@@ -5,7 +5,6 @@
  */
 
 #include "powerdevilbrightnesslogic.h"
-#include "powerdevilbackendinterface.h"
 
 #include <QDebug>
 
