@@ -54,16 +54,16 @@ kconfig_add_kcfg_files(powerdevilcore_SRCS
 # Action DBus Adaptors
 
 set_source_files_properties(
-        backends/upower/dbus/org.freedesktop.UPower.xml
-        backends/upower/dbus/org.freedesktop.UPower.Device.xml
+        dbus/org.freedesktop.UPower.xml
+        dbus/org.freedesktop.UPower.Device.xml
         PROPERTIES NO_NAMESPACE TRUE
 )
 
-qt_add_dbus_interface(powerdevilcore_SRCS org.freedesktop.ScreenSaver.xml screenlocker_interface)
+qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.ScreenSaver.xml screenlocker_interface)
 
-qt_add_dbus_interface(powerdevilcore_SRCS backends/upower/dbus/org.freedesktop.UPower.xml upower_interface)
+qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.UPower.xml upower_interface)
 
-qt_add_dbus_interface(powerdevilcore_SRCS backends/upower/dbus/org.freedesktop.UPower.KbdBacklight.xml upower_kbdbacklight_interface)
+qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.UPower.KbdBacklight.xml upower_kbdbacklight_interface)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)
@@ -110,13 +110,13 @@ set(powerdevil_SRCS
 )
 
 # DBus Adaptors
-qt_add_dbus_adaptor(powerdevil_SRCS org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
-qt_add_dbus_adaptor(powerdevil_SRCS org.kde.Solid.PowerManagement.PolicyAgent.xml
+qt_add_dbus_adaptor(powerdevil_SRCS dbus/org.kde.Solid.PowerManagement.xml powerdevilcore.h PowerDevil::Core)
+qt_add_dbus_adaptor(powerdevil_SRCS dbus/org.kde.Solid.PowerManagement.PolicyAgent.xml
                                          powerdevilpolicyagent.h PowerDevil::PolicyAgent
                                          powermanagementpolicyagentadaptor PowerManagementPolicyAgentAdaptor)
 
-qt_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
-qt_add_dbus_adaptor(powerdevil_SRCS org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
+qt_add_dbus_adaptor(powerdevil_SRCS dbus/org.freedesktop.PowerManagement.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementfdoadaptor PowerManagementFdoAdaptor)
+qt_add_dbus_adaptor(powerdevil_SRCS dbus/org.freedesktop.PowerManagement.Inhibit.xml powerdevilfdoconnector.h PowerDevil::FdoConnector powermanagementinhibitadaptor PowerManagementInhibitAdaptor)
 
 # KAuth charge threshold helper
 add_executable(chargethresholdhelper chargethresholdhelper.cpp powerdevil_debug.cpp ${chargethresholdhelper_mocs})
