@@ -47,31 +47,7 @@ public:
      */
     virtual void init() = 0;
 
-    /**
-     * Gets the screen brightness value.
-     *
-     * @return the brightness of the screen, as an integer from 0 to brightnessValueMax
-     */
-    virtual int screenBrightness() const = 0;
-
-    /**
-     * Gets the maximum device brightness value.
-     *
-     * @param device the name of the device that you would like to control
-     * @return the maximum brightness of the device
-     */
-    virtual int screenBrightnessMax() const = 0;
-
-    int screenBrightnessSteps();
-
-    virtual void setScreenBrightness(int value) = 0;
-
-    virtual int screenBrightnessKeyPressed(BrightnessLogic::BrightnessKeyType type) = 0;
-
-    virtual bool screenBrightnessAvailable() const = 0;
-
 Q_SIGNALS:
-    void screenBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
     /**
      * This signal is emitted when the backend is ready to be used
@@ -81,16 +57,9 @@ Q_SIGNALS:
     void backendReady();
 
 protected:
-    void onScreenBrightnessChanged(int value, int valueMax);
-
     void setBackendIsReady();
 
-    // Steps logic
-    int calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType);
-
 private:
-    ScreenBrightnessLogic m_screenBrightnessLogic;
-
     friend class Core;
 };
 

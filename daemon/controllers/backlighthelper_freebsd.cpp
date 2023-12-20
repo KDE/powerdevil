@@ -7,7 +7,7 @@
  *
  */
 
-#include "freebsdbacklighthelper.h"
+#include "backlighthelper_freebsd.h"
 
 #include <powerdevil_debug.h>
 

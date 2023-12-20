@@ -87,10 +87,11 @@ void Core::loadCore(BackendInterface *backend)
     m_batteryController = std::make_unique<BatteryController>();
     m_lidController = std::make_unique<LidController>();
     m_keyboardBrightnessController = std::make_unique<KeyboardBrightnessController>();
+    m_screenBrightnessController = std::make_unique<ScreenBrightnessController>();
 
     // Async backend init - so that KDED gets a bit of a speed up
     qCDebug(POWERDEVIL) << "Core loaded, initializing backend";
-    connect(m_backend, &BackendInterface::backendReady, this, &Core::onBackendReady);
+    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onBackendReady);
     m_backend->init();
 }
 
@@ -125,6 +126,7 @@ void Core::onBackendReady()
     connect(m_lidController.get(), &LidController::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
     connect(m_keyboardBrightnessController.get(), &KeyboardBrightnessController::keyboardBrightnessChanged, this, &Core::onKeyboardBrightnessChanged);
+    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::screenBrightnessChanged, this, &Core::onScreenBrightnessChanged);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
@@ -1158,6 +1160,16 @@ void Core::onKeyboardBrightnessChanged(const KeyboardBrightnessLogic::Brightness
 KeyboardBrightnessController *Core::keyboardBrightnessController()
 {
     return m_keyboardBrightnessController.get();
+}
+
+void Core::onScreenBrightnessChanged(const ScreenBrightnessLogic::BrightnessInfo &brightnessInfo)
+{
+    Q_EMIT screenBrightnessChanged(brightnessInfo);
+}
+
+ScreenBrightnessController *Core::screenBrightnessController()
+{
+    return m_screenBrightnessController.get();
 }
 }
 

@@ -43,7 +43,7 @@ void DimDisplay::onWakeupFromIdle()
 void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_ASSERT(timeout == m_dimOnIdleTime);
-    if (backend()->screenBrightness() == 0) {
+    if (core()->screenBrightnessController()->screenBrightness() == 0) {
         // Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
         // backlight won't switch on later.
@@ -51,8 +51,10 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
         return;
     }
 
-    m_oldScreenBrightness = backend()->screenBrightness();
+
+    m_oldScreenBrightness = core()->screenBrightnessController()->screenBrightness();
     m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
+
 
     // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
     // assumption that e.g. 50% may be too bright for returning user to notice that
@@ -75,7 +77,7 @@ void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
 
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
-    backend()->setScreenBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt());
+    core()->screenBrightnessController()->setScreenBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt());
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
@@ -85,7 +87,7 @@ void DimDisplay::triggerImpl(const QVariantMap &args)
 
 bool DimDisplay::isSupported()
 {
-    return backend()->screenBrightnessAvailable();
+    return core()->screenBrightnessController()->screenBrightnessAvailable();
 }
 
 bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)

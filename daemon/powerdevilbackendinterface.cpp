@@ -21,31 +21,9 @@ BackendInterface::~BackendInterface()
 {
 }
 
-int BackendInterface::screenBrightnessSteps()
-{
-    m_screenBrightnessLogic.setValueMax(screenBrightnessMax());
-    return m_screenBrightnessLogic.steps();
-}
-
 void BackendInterface::setBackendIsReady()
 {
     Q_EMIT backendReady();
-}
-
-void BackendInterface::onScreenBrightnessChanged(int value, int valueMax)
-{
-    m_screenBrightnessLogic.setValueMax(valueMax);
-    m_screenBrightnessLogic.setValue(value);
-
-    Q_EMIT screenBrightnessChanged(m_screenBrightnessLogic.info());
-}
-
-int BackendInterface::calculateNextScreenBrightnessStep(int value, int valueMax, BrightnessLogic::BrightnessKeyType keyType)
-{
-    m_screenBrightnessLogic.setValueMax(valueMax);
-    m_screenBrightnessLogic.setValue(value);
-
-    return m_screenBrightnessLogic.action(keyType);
 }
 }
 

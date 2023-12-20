@@ -26,6 +26,11 @@ set(powerdevilcore_SRCS
     controllers/batterycontroller.cpp
     controllers/suspendcontroller.cpp
     controllers/keyboardbrightnesscontroller.cpp
+    controllers/screenbrightnesscontroller.cpp
+    controllers/ddcutilbrightness.cpp
+    controllers/ddcutildisplay.cpp
+    controllers/udevqtclient.cpp
+    controllers/udevqtdevice.cpp
 )
 
 add_library(powerdevil_log_static STATIC)
@@ -86,11 +91,16 @@ target_link_libraries(powerdevilcore
     KF6::KirigamiPlatform
     XCB::DPMS
     powerdevil_log_static
+    ${UDEV_LIBS}
 )
 
 if (XCB_FOUND) # kwin kscreen helper effect
     target_link_libraries(powerdevilcore XCB::XCB Qt::GuiPrivate)
 endif ()
+
+if(DDCUTIL_FOUND)
+    target_link_libraries(powerdevilcore ${LIBDDCUTIL_LIBRARY})
+endif()
 
 # target no.2 - powerdevil kded module
 set(powerdevil_SRCS
@@ -121,6 +131,20 @@ target_link_libraries(discretegpuhelper Qt::Core KF6::AuthCore)
 install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
 kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_actions.actions)
+
+## backlight helper executable
+set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
+    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_freebsd.cpp)
+else()
+    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_linux.cpp)
+endif()
+
+add_executable(backlighthelper ${backlighthelpers_SRCS})
+target_link_libraries(backlighthelper Qt::Core KF6::AuthCore KF6::I18n)
+install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
+kauth_install_actions(org.kde.powerdevil.backlighthelper controllers/backlight_helper_actions.actions)
 
 # Backends
 add_subdirectory(backends)

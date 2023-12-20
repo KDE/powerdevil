@@ -30,10 +30,7 @@ BrightnessControl::BrightnessControl(QObject *parent)
     // DBus
     new BrightnessControlAdaptor(this);
 
-    connect(core()->backend(),
-            &PowerDevil::BackendInterface::screenBrightnessChanged,
-            this,
-            &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromBackend);
+    connect(core(), &PowerDevil::Core::screenBrightnessChanged, this, &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromCore);
 
     KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -71,7 +68,7 @@ void BrightnessControl::onProfileLoad(const QString &previousProfile, const QStr
         // We don't want to change anything here
         qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
     } else if (absoluteBrightnessValue >= 0) {
-        backend()->setScreenBrightness(absoluteBrightnessValue);
+        core()->screenBrightnessController()->setScreenBrightness(absoluteBrightnessValue);
     }
 }
 
@@ -81,7 +78,7 @@ void BrightnessControl::triggerImpl(const QVariantMap & /*args*/)
 
 bool BrightnessControl::isSupported()
 {
-    return backend()->screenBrightnessAvailable();
+    return core()->screenBrightnessController()->screenBrightnessAvailable();
 }
 
 bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSettings)
@@ -94,7 +91,7 @@ bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSet
     return true;
 }
 
-void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::BrightnessInfo &info)
+void BrightnessControl::onBrightnessChangedFromCore(const BrightnessLogic::BrightnessInfo &info)
 {
     Q_EMIT brightnessChanged(info.value);
     Q_EMIT brightnessMaxChanged(info.valueMax);
@@ -102,28 +99,28 @@ void BrightnessControl::onBrightnessChangedFromBackend(const BrightnessLogic::Br
 
 int BrightnessControl::brightness() const
 {
-    return backend()->screenBrightness();
+    return core()->screenBrightnessController()->screenBrightness();
 }
 
 int BrightnessControl::brightnessMax() const
 {
-    return backend()->screenBrightnessMax();
+    return core()->screenBrightnessController()->screenBrightnessMax();
 }
 
 void BrightnessControl::setBrightness(int value)
 {
-    backend()->setScreenBrightness(value);
+    core()->screenBrightnessController()->setScreenBrightness(value);
     BrightnessOSDWidget::show(brightnessPercent(value));
 }
 
 void BrightnessControl::setBrightnessSilent(int value)
 {
-    backend()->setScreenBrightness(value);
+    core()->screenBrightnessController()->setScreenBrightness(value);
 }
 
 void BrightnessControl::increaseBrightness()
 {
-    const int newBrightness = backend()->screenBrightnessKeyPressed(BrightnessLogic::Increase);
+    const int newBrightness = core()->screenBrightnessController()->screenBrightnessKeyPressed(BrightnessLogic::Increase);
     if (newBrightness > -1) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }
@@ -131,7 +128,7 @@ void BrightnessControl::increaseBrightness()
 
 void BrightnessControl::increaseBrightnessSmall()
 {
-    const int newBrightness = backend()->screenBrightnessKeyPressed(BrightnessLogic::IncreaseSmall);
+    const int newBrightness = core()->screenBrightnessController()->screenBrightnessKeyPressed(BrightnessLogic::IncreaseSmall);
     if (newBrightness > -1) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }
@@ -139,7 +136,7 @@ void BrightnessControl::increaseBrightnessSmall()
 
 void BrightnessControl::decreaseBrightness()
 {
-    const int newBrightness = backend()->screenBrightnessKeyPressed(BrightnessLogic::Decrease);
+    const int newBrightness = core()->screenBrightnessController()->screenBrightnessKeyPressed(BrightnessLogic::Decrease);
     if (newBrightness > -1) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }
@@ -147,7 +144,7 @@ void BrightnessControl::decreaseBrightness()
 
 void BrightnessControl::decreaseBrightnessSmall()
 {
-    const int newBrightness = backend()->screenBrightnessKeyPressed(BrightnessLogic::DecreaseSmall);
+    const int newBrightness = core()->screenBrightnessController()->screenBrightnessKeyPressed(BrightnessLogic::DecreaseSmall);
     if (newBrightness > -1) {
         BrightnessOSDWidget::show(brightnessPercent(newBrightness));
     }
@@ -155,7 +152,7 @@ void BrightnessControl::decreaseBrightnessSmall()
 
 int BrightnessControl::brightnessSteps() const
 {
-    return backend()->screenBrightnessSteps();
+    return core()->screenBrightnessController()->screenBrightnessSteps();
 }
 
 int BrightnessControl::brightnessPercent(float value) const

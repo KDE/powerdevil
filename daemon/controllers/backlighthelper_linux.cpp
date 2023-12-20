@@ -5,7 +5,7 @@
  *
  */
 
-#include "linuxbacklighthelper.h"
+#include "backlighthelper_linux.h"
 
 #include <powerdevil_debug.h>
 
@@ -267,4 +267,4 @@ ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
 
 KAUTH_HELPER_MAIN("org.kde.powerdevil.backlighthelper", BacklightHelper)
 
-#include "moc_linuxbacklighthelper.cpp"
+#include "moc_backlighthelper_linux.cpp"
