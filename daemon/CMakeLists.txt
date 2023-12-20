@@ -72,7 +72,6 @@ target_link_libraries(powerdevilcore
     KF6::GlobalAccel
     KF6::Screen
     KF6::Service
-    KF6::WidgetsAddons
     KF6::Notifications
     KF6::XmlGui
     KF6::KirigamiPlatform
