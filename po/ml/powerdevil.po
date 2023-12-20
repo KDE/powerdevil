@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 01:46+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -157,7 +157,7 @@ msgstr "പരിപാലകന്‍"
 msgid "Switch Power Profile"
 msgstr "പവര്‍ഡെവിള്‍ പ്രൊഫൈലുകള്‍ പുറത്തുനിന്നെടുക്കുക"
 
-#: powerdevilapp.cpp:145
+#: powerdevilapp.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

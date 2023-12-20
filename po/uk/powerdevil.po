@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 01:46+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2023-11-04 20:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -160,7 +160,7 @@ msgstr "Колишній супровідник"
 msgid "Switch Power Profile"
 msgstr "Перемкнути профіль живлення"
 
-#: powerdevilapp.cpp:145
+#: powerdevilapp.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Замінити наявний екземпляр"

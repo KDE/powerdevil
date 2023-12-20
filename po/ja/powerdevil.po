@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 01:46+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2023-09-16 18:10+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -161,7 +161,7 @@ msgstr "以前のメンテナ"
 msgid "Switch Power Profile"
 msgstr "電源プロファイルを切り替え"
 
-#: powerdevilapp.cpp:145
+#: powerdevilapp.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "既存のインスタンスを置換"

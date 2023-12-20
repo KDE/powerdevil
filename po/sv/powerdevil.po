@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 01:46+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2022-09-24 15:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -163,7 +163,7 @@ msgstr "Tidigare underhåll"
 msgid "Switch Power Profile"
 msgstr "Importera Powerdevil-profiler"
 
-#: powerdevilapp.cpp:145
+#: powerdevilapp.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ersätt en befintlig instans"

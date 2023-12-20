@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:35+0000\n"
-"PO-Revision-Date: 2023-12-16 22:53+0200\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"PO-Revision-Date: 2023-12-19 22:50+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: ProfilesConfigKCM.cpp:445
 #, kde-format
@@ -152,7 +152,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Розпочати заряджання, щойно стане &нижчим:"
 
-#: ui/GlobalConfig.qml:297
+#: ui/GlobalConfig.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -162,7 +162,7 @@ msgstr ""
 "Ймовірно, вам слід від'єднати акумулятор від джерела живлення і з'єднати "
 "його знову, щоб розпочати заряджання акумулятора знову."
 
-#: ui/GlobalConfig.qml:307
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -174,7 +174,7 @@ msgstr ""
 "прискорити деградацію компонентів акумулятора. Обмежуючи максимальний заряд "
 "акумулятора ви можете збільшити термін його працездатності."
 
-#: ui/GlobalConfig.qml:315
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -182,58 +182,57 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Інші параметри"
 
-#: ui/GlobalConfig.qml:323
+#: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "В&ідтворення мультимедіа:"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Призупинення відтворення при призупиненні роботи системи"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Пов'язані сторінки:"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Сповіщення: Керування живленням"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Відкрити сторінку параметрів «Сповіщення», розділ «Керування живленням»"
 
-#: ui/GlobalConfig.qml:361
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Сеанс стільниці"
 
-#: ui/GlobalConfig.qml:362
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Відкрити сторінку параметрів «Сеанс стільниці»"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Простори дій"
 
-#: ui/GlobalConfig.qml:370
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#: ui/GlobalConfig.qml:392
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Відкрити сторінку параметрів «Сеанс стільниці»"
+msgstr "Відкрити сторінку параметрів «Простори дій»"
 
 #: ui/main.qml:19
 #, kde-format

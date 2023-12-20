@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:35+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2023-12-17 11:21+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
@@ -159,7 +159,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Commencer à charger une fois en &dessous de :"
 
-#: ui/GlobalConfig.qml:297
+#: ui/GlobalConfig.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -169,7 +169,7 @@ msgstr ""
 "Vous devriez peut-être déconnecter et reconnecter la source d'alimentation "
 "pour reprendre le chargement de la batterie."
 
-#: ui/GlobalConfig.qml:307
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -181,7 +181,7 @@ msgstr ""
 "complet peuvent accélérer la détérioration de sa santé. En limitant la "
 "charge maximale de batterie, vous pouvez aider à prolonger sa durée de vie."
 
-#: ui/GlobalConfig.qml:315
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -189,55 +189,55 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Autres paramètres"
 
-#: ui/GlobalConfig.qml:323
+#: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Lecture de &média :"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Mettre en pause les lecteurs de média lors de la mise en veille"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Pages associées :"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Notifications : gestion de l'énergie"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Ouvrir la page des paramètres « Notifications » et la section « Gestion de "
 "l'énergie »"
 
-#: ui/GlobalConfig.qml:361
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Session de bureau"
 
-#: ui/GlobalConfig.qml:362
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Ouvrir la page des paramètres « Session de bureau »"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr ""
 
-#: ui/GlobalConfig.qml:370
+#: ui/GlobalConfig.qml:392
 #, fuzzy, kde-format
 #| msgid "Open \"Desktop Session\" settings page"
 msgid "Open \"Activities\" settings page"

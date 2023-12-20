@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 01:46+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2018-06-24 00:29+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Switch Power Profile"
 msgstr "Slå av etter"
 
-#: powerdevilapp.cpp:145
+#: powerdevilapp.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

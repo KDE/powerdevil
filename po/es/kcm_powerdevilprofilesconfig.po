@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:35+0000\n"
-"PO-Revision-Date: 2023-11-02 01:12+0100\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"PO-Revision-Date: 2023-12-19 17:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: ProfilesConfigKCM.cpp:445
 #, kde-format
@@ -28,39 +28,34 @@ msgstr "Parece que el servicio de gestión de energía no está funcionando."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Preferencias avanzadas de energía"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr "10%"
+msgstr "10 %"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Niveles de batería"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "Nive&l bajo:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Con batería baja"
+msgstr "Nivel de batería bajo"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -69,6 +64,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"La carga de la batería se considerará baja cuando esté por debajo de este "
+"nivel. Se usarán las preferencias de batería baja en lugar de las de batería "
+"normal."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -76,13 +74,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "N&ivel crítico:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Nivel de batería crítico"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -92,6 +90,10 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"La carga de la batería se considerará crítica cuando esté por debajo de este "
+"nivel. Tras una breve advertencia, el sistema se suspenderá o se apagará "
+"automáticamente, según la acción que haya configurado para el nivel de "
+"batería crítico."
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -99,25 +101,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "En el nivel crí&tico:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Acción realizada en el nivel de batería crítico"
 
 #: ui/GlobalConfig.qml:180
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Niv&el bajo para dispositivos periféricos:"
 
 #: ui/GlobalConfig.qml:188
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Nivel de batería bajo para dispositivos periféricos"
 
 #: ui/GlobalConfig.qml:215
 #, kde-format
@@ -126,12 +128,14 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"La carga de la batería de los dispositivo periféricos se considerará baja "
+"cuando alcance este nivel."
 
 #: ui/GlobalConfig.qml:223
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Límite de carga"
 
 #: ui/GlobalConfig.qml:232
 #, kde-format
@@ -139,7 +143,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "De&jar de cargar al:"
 
 #: ui/GlobalConfig.qml:262
 #, kde-format
@@ -147,17 +151,19 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Empezar a cargar por de&bajo de:"
 
-#: ui/GlobalConfig.qml:297
+#: ui/GlobalConfig.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Tendrá que desconectar y volver a conectar la fuente de alimentación para "
+"empezar a cargar la batería de nuevo."
 
-#: ui/GlobalConfig.qml:307
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -165,75 +171,76 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"La carga habitual de la batería cerca del 100 %, o su carga completa, puede "
+"acelerar el deterioro del estado de salud de la batería. Si limita la carga "
+"máxima de la batería, podrá extender su vida."
 
-#: ui/GlobalConfig.qml:315
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#: ui/GlobalConfig.qml:337
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
 msgstr "Otras preferencias"
 
-#: ui/GlobalConfig.qml:323
+#: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Reproducción &multimedia:"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Pausar los reproductores multimedia al entrar en suspensión"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Páginas relacionadas:"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Notificaciones: Gestión de energía"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
+"Abrir la página de preferencias de «Notificaciones» en la sección «Gestión "
+"de energía»"
 
-#: ui/GlobalConfig.qml:361
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#: ui/GlobalConfig.qml:383
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "Suspender la sesión"
+msgstr "Sesión de escritorio"
 
-#: ui/GlobalConfig.qml:362
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Abrir la página de preferencias «Sesión de escritorio»"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
-#: ui/GlobalConfig.qml:370
+#: ui/GlobalConfig.qml:392
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Abrir la página de preferencias de las «Actividades»"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Preferencias a&vanzadas de energía..."
 
 #: ui/main.qml:43
 #, kde-format

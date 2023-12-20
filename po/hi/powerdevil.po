@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4 - powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-16 01:46+0000\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
 "PO-Revision-Date: 2021-07-10 10:57+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -165,7 +165,7 @@ msgstr "मेंटेनर"
 msgid "Switch Power Profile"
 msgstr "पावरडेविल प्रोफ़ाइल आयात करें"
 
-#: powerdevilapp.cpp:145
+#: powerdevilapp.cpp:146
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

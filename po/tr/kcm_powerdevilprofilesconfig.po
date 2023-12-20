@@ -1,14 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Serdar Soytetir, 2010, 2012.
 # SPDX-FileCopyrightText: 2022, 2023 Emir SARI <emir_sari@icloud.com>
+# Serdar Soytetir, 2010, 2012.
+# Emir SARI <emir_sari@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:35+0000\n"
-"PO-Revision-Date: 2023-11-01 06:12+0300\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"PO-Revision-Date: 2023-12-19 11:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: ProfilesConfigKCM.cpp:445
 #, kde-format
@@ -150,7 +151,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Şu düzey&in altında şarj etmeye başla:"
 
-#: ui/GlobalConfig.qml:297
+#: ui/GlobalConfig.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -160,7 +161,7 @@ msgstr ""
 "Pili yeniden şarj etmeye başlamak için güç kaynağını çıkarıp yeniden "
 "takmanız gerekebilir."
 
-#: ui/GlobalConfig.qml:307
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -172,7 +173,7 @@ msgstr ""
 "boşaltmak pil sağlığının kötüleşmesini hızlandırabilir. En yüksek pil "
 "şarjını sınırlayarak pil ömrünü artırmaya yardımcı olabilirsiniz."
 
-#: ui/GlobalConfig.qml:315
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -180,57 +181,56 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Diğer Ayarlar"
 
-#: ui/GlobalConfig.qml:323
+#: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&Ortam çalma/oynatma:"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Askıya alırken ortam oynatıcılarını duraklat"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "İlgili sayfalar:"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Bildirimler: Güç Yönetimi"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "\"Bildirimler\" ayarları sayfasında \"Güç Yönetimi\" bölümünü açın"
 
-#: ui/GlobalConfig.qml:361
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Masaüstü Oturumu"
 
-#: ui/GlobalConfig.qml:362
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "\"Masaüstü Oturumu\" ayarları sayfasını açın"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Etkinlikler"
 
-#: ui/GlobalConfig.qml:370
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#: ui/GlobalConfig.qml:392
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "\"Masaüstü Oturumu\" ayarları sayfasını açın"
+msgstr "\"Etkinlikler\" ayarları sayfasını açın"
 
 #: ui/main.qml:19
 #, kde-format

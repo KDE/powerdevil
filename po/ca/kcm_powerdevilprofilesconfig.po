@@ -3,21 +3,21 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2017, 2020, 2021, 2023.
 # SPDX-FileCopyrightText: 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
+# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2017, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:35+0000\n"
-"PO-Revision-Date: 2023-12-16 17:10+0100\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"PO-Revision-Date: 2023-12-19 13:02+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -154,7 +154,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Inicia la càrrega per &sota de:"
 
-#: ui/GlobalConfig.qml:297
+#: ui/GlobalConfig.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -164,7 +164,7 @@ msgstr ""
 "Potser cal desconnectar i tornar a connectar la font d'alimentació per "
 "tornar a iniciar la càrrega de la bateria."
 
-#: ui/GlobalConfig.qml:307
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -177,7 +177,7 @@ msgstr ""
 "càrrega màxima de la bateria, podeu ajudar a allargar la vida útil de la "
 "bateria."
 
-#: ui/GlobalConfig.qml:315
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -185,58 +185,57 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Altres paràmetres"
 
-#: ui/GlobalConfig.qml:323
+#: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Reproducció &multimèdia:"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Fa pausa dels reproductors multimèdia en suspendre"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Pàgines relacionades:"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Notificacions: Gestió d'energia"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Obre la pàgina de configuració de «Notificacions», secció «Gestió d'energia»"
 
-#: ui/GlobalConfig.qml:361
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Sessió d'escriptori"
 
-#: ui/GlobalConfig.qml:362
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Obre la pàgina de configuració de «Sessió d'escriptori»"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Activitats"
 
-#: ui/GlobalConfig.qml:370
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#: ui/GlobalConfig.qml:392
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Obre la pàgina de configuració de «Sessió d'escriptori»"
+msgstr "Obre la pàgina de configuració d'«Activitats»"
 
 #: ui/main.qml:19
 #, kde-format

@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-19 01:35+0000\n"
-"PO-Revision-Date: 2023-12-16 09:22+0100\n"
+"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"PO-Revision-Date: 2023-12-19 07:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.4.1\n"
 
 #: ProfilesConfigKCM.cpp:445
@@ -152,7 +152,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Začni spet polniti, ko je pod:"
 
-#: ui/GlobalConfig.qml:297
+#: ui/GlobalConfig.qml:319
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -162,7 +162,7 @@ msgstr ""
 "Morda boste morali odklopiti in znova priključiti vir napajanja, da bo znova "
 "začeli polniti baterijo."
 
-#: ui/GlobalConfig.qml:307
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -174,7 +174,7 @@ msgstr ""
 "poslabšanje zdravja baterije. Z omejitvijo največje napolnjenosti baterije "
 "lahko pomagate podaljšati življenjsko dobo baterije."
 
-#: ui/GlobalConfig.qml:315
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -182,58 +182,57 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Druge nastavitve"
 
-#: ui/GlobalConfig.qml:323
+#: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Playback medija:"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Začasno ustavi medijske predvajalnike ob prekinitvi"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Sorodne strani:"
 
-#: ui/GlobalConfig.qml:352
+#: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Obvestila: Upravljanje z energijo"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Odprite stran z nastavitvami »Obvestila«, razdelek »Upravljanje z energijo«"
 
-#: ui/GlobalConfig.qml:361
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Seja namizja"
 
-#: ui/GlobalConfig.qml:362
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Odpri stran z nastavitvami »Seja namizja«."
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Dejavnosti"
 
-#: ui/GlobalConfig.qml:370
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#: ui/GlobalConfig.qml:392
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Odpri stran z nastavitvami »Seja namizja«."
+msgstr "Odpri stran z nastavitvami »Dejavnosti«."
 
 #: ui/main.qml:19
 #, kde-format
