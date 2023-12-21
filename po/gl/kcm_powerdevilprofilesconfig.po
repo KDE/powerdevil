@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-12-17 06:11+0100\n"
+"PO-Revision-Date: 2023-12-20 16:53+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -227,13 +227,12 @@ msgstr "Abrir a páxina de configuración de «Sesión de escritorio»"
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Actividades"
 
 #: ui/GlobalConfig.qml:392
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Abrir a páxina de configuración de «Sesión de escritorio»"
+msgstr "Abrir a páxina de configuración de «Actividades»"
 
 #: ui/main.qml:19
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-11-08 11:05+0100\n"
+"PO-Revision-Date: 2023-12-20 03:24+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: ProfilesConfigKCM.cpp:445
 #, kde-format
@@ -28,14 +28,10 @@ msgstr "Il servizio di gestione dell'energia sembra non essere in esecuzione."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Impostazioni avanzate di alimentazione"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -46,21 +42,20 @@ msgstr "10%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Livelli della batteria"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Livello basso:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Batteria quasi scarica"
+msgstr "Livello della batteria basso"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -69,6 +64,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"La carica della batteria sarà considerata bassa quando scende a questo "
+"livello. Saranno utilizzate le impostazioni per la batteria scarica invece "
+"delle normali impostazioni della batteria."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -76,13 +74,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Livello &critico:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Livello della batteria critico"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -92,6 +90,10 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"La carica della batteria sarà considerata critica quando scende a questo "
+"livello. Dopo un breve avviso, il sistema sarà sospeso o si spegnerà "
+"automaticamente, in base all'azione configurata per il livello critico della "
+"batteria."
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -99,25 +101,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Al livello cri&tico:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Azione eseguita a livello critico della batteria"
 
 #: ui/GlobalConfig.qml:180
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Livello basso per i dispositivi p&eriferici:"
 
 #: ui/GlobalConfig.qml:188
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Livello basso della batteria per i dispositivi periferici"
 
 #: ui/GlobalConfig.qml:215
 #, kde-format
@@ -126,12 +128,14 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"La carica della batteria dei dispositivi periferici sarà considerata bassa "
+"quando raggiunge questo livello."
 
 #: ui/GlobalConfig.qml:223
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Limite di carica"
 
 #: ui/GlobalConfig.qml:232
 #, kde-format
@@ -139,7 +143,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Ferma la carica al:"
 
 #: ui/GlobalConfig.qml:262
 #, kde-format
@@ -147,7 +151,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Inizia a caricare u&na volta sotto"
 
 #: ui/GlobalConfig.qml:319
 #, kde-format
@@ -156,6 +160,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Potresti dover scollegare e ricollegare l'alimentazione per iniziare a "
+"ricaricare la batteria."
 
 #: ui/GlobalConfig.qml:329
 #, kde-format
@@ -165,11 +171,12 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Caricare regolarmente la batteria quasi al 100% o scaricarla completamente "
+"può accelerare il deterioramento della salute della batteria. Limitando la "
+"carica massima della batteria, puoi contribuire a prolungarne la durata."
 
 #: ui/GlobalConfig.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
@@ -180,61 +187,60 @@ msgstr "Altre impostazioni"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Riproduzione &multimediale:"
 
 #: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Metti in pausa i lettori multimediali durante la sospensione"
 
 #: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Pagine correlate:"
 
 #: ui/GlobalConfig.qml:374
-#, fuzzy, kde-format
-#| msgid "Import Power Management Profiles"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Importa profili di gestione energetica"
+msgstr "Notifiche: gestione dell'energia"
 
 #: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
+"Apri la pagina delle impostazioni «Notifiche», sezione «Gestione "
+"dell'energia»."
 
 #: ui/GlobalConfig.qml:383
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "Sospendi la sessione"
+msgstr "Sessione del desktop"
 
 #: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Apri la pagina delle impostazioni «Sessione del desktop»."
 
 #: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Attività"
 
 #: ui/GlobalConfig.qml:392
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Apri la pagina delle impostazioni «Attività»"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Impo&stazioni avanzate di alimentazione..."
 
 #: ui/main.qml:43
 #, kde-format

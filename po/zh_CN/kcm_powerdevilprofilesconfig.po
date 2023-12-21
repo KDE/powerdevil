@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-12-17 11:26\n"
+"PO-Revision-Date: 2023-12-20 11:22\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -218,13 +218,12 @@ msgstr "打开“桌面会话”设置页面"
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "活动"
 
 #: ui/GlobalConfig.qml:392
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "打开“桌面会话”设置页面"
+msgstr "打开“活动”设置页面"
 
 #: ui/main.qml:19
 #, kde-format
