@@ -4,10 +4,10 @@
 # Julien Richard-Foy <julien.rf@no-log.org>, 2008, 2009, 2010.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2009.
 # Ludovic Grossard <grossard@kde.org>, 2012, 2015.
-# xavier <ktranslator31@yahoo.fr>, 2013.
+# Xavier Besnard <xavier.besnard@kde.org>, 2013.
 # Vincent Pinon <vpinon@kde.org>, 2016, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019.
-# Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021.
+# Xavier Besnard <xavier.besnard@kde.org>, 2020, 2021.
 #
 msgid ""
 msgstr ""
