@@ -1,6 +1,6 @@
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2008, 2009, 2010.
 # Burkhard Lück <lueck@hube-lueck.de>, 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2009, 2010.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2009, 2010, 2023.
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2013, 2014, 2016, 2020, 2022, 2023.
 # Moritz Baumann <flamingmo@online.de>, 2010.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010, 2011.
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -242,20 +242,16 @@ msgstr ""
 "Akku."
 
 #: powerdevilcore.cpp:584
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Der Ladestatus Ihres Akkus ist niedrig. Möchten Sie den Rechner weiter "
-"verwenden, stellen Sie sicher, dass das Netzteil angeschlossen ist und genug "
+"BittesStellen Sie sicher, dass das Netzteil angeschlossen ist und genug "
 "Leistung liefert."
 
 #: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Schließen Sie den Computer an."
 
 #: powerdevilcore.cpp:605
 #, kde-format
@@ -303,12 +299,9 @@ msgid "Sleep Now"
 msgstr "Jetzt in den Standby-Modus wechseln"
 
 #: powerdevilcore.cpp:629
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr ""
-"Der Ladestand Ihres Akkus hat einen kritischen Wert erreicht, bitte "
-"speichern Sie Ihre Daten."
+msgstr "Bitte speichern Sie Ihre Arbeit."
 
 #: powerdevilcore.cpp:635
 #, kde-format

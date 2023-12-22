@@ -4,7 +4,7 @@
 # Julien Richard-Foy <julien.rf@no-log.org>, 2008, 2009, 2010.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2009.
 # Ludovic Grossard <grossard@kde.org>, 2012.
-# Xavier Besnard <xavier.besnard@kde.org>, 2013.
+# SPDX-FileCopyrightText: 2013, 2023 Xavier Besnard <xavier.besnard@kde.org>
 # SPDX-FileCopyrightText: 2020, 2023 Xavier Besnard <xavier.besnard@kde.org>
 #
 msgid ""
@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-12-17 11:21+0100\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2023-12-20 09:15+0100\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -235,13 +235,12 @@ msgstr "Ouvrir la page des paramètres « Session de bureau »"
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Activités"
 
 #: ui/GlobalConfig.qml:392
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Ouvrir la page des paramètres « Session de bureau »"
+msgstr "Ouvrir la page des paramètres « Activités »"
 
 #: ui/main.qml:19
 #, kde-format
