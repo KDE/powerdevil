@@ -1,17 +1,17 @@
 # Translation of powerdevil into Japanese.
+# SPDX-FileCopyrightText: 2022, 2023 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2008, 2009.
 # Taiki Komoda <kom@kde.gr.jp>, 2010.
 # Fuminobu Takeyama <ftake@geeko.jp>, 2018.
-# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2010, 2018.
-# Ryuichi Yamada <ryuichi_ya220@outlook.jp>, 2022.
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2010, 2018, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-07 02:25+0000\n"
-"PO-Revision-Date: 2022-06-28 17:49+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org >\n"
+"PO-Revision-Date: 2023-12-22 19:28-0800\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,10 +62,10 @@ msgstr "AC アダプタで動作時"
 #: profileEditPage.ui:31
 #, kde-format
 msgid "On Battery"
-msgstr "バッテリーで動作時"
+msgstr "バッテリ動作時"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: profileEditPage.ui:41
 #, kde-format
 msgid "On Low Battery"
-msgstr "バッテリー残量低レベル時"
+msgstr "バッテリ残量低レベル時"
