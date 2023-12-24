@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-12-17 17:29+0900\n"
+"PO-Revision-Date: 2023-12-24 06:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -219,13 +219,12 @@ msgstr "開啟「桌面工作階段」設定頁面"
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "活動"
 
 #: ui/GlobalConfig.qml:392
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "開啟「桌面工作階段」設定頁面"
+msgstr "開啟「活動」設定頁面"
 
 #: ui/main.qml:19
 #, kde-format
