@@ -18,7 +18,6 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
-#include <QDebug>
 #include <QGuiApplication>
 #include <QTimer>
 #include <private/qtx11extras_p.h>
@@ -33,6 +32,11 @@
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 
 using namespace std::chrono_literals;
+
+// always make sure to allow meaningful interaction and for lock screens, time for authentication methods
+static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenUnlocked = 30s;
+static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenLocked = 10s;
+static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenActivatingLock = 100ms;
 
 namespace PowerDevil
 {
@@ -58,8 +62,10 @@ DPMS::DPMS(QObject *parent)
     // Listen to the policy agent
     auto policyAgent = PowerDevil::PolicyAgent::instance();
     connect(policyAgent, &PowerDevil::PolicyAgent::unavailablePoliciesChanged, this, &DPMS::onUnavailablePoliciesChanged);
-
     connect(policyAgent, &PowerDevil::PolicyAgent::screenLockerActiveChanged, this, &DPMS::onScreenLockerActiveChanged);
+
+    connect(core()->suspendController(), &SuspendController::aboutToSuspend, this, &DPMS::onAboutToSuspend);
+    connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, &DPMS::onResumeFromSuspend);
 
     // inhibitions persist over kded module unload/load
     m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
@@ -97,6 +103,10 @@ bool DPMS::isSupported()
 
 void DPMS::onWakeupFromIdle()
 {
+    if (m_isActivatingLock) {
+        // Use the longer minimum timeout whenever we see user interaction, e.g. for allowing the user to type
+        registerStandardIdleTimeout();
+    }
     Q_EMIT stopFade(); // only actively used in X11
 
     if (m_oldKeyboardBrightness > 0) {
@@ -168,13 +178,20 @@ bool DPMS::loadAction(const PowerDevil::ProfileSettings &profileSettings)
         return false;
     }
 
-    m_idleTime = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutSec());
+    m_idleTimeoutWhenUnlocked = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutSec());
+    m_idleTimeoutWhenLocked = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec());
     m_lockBeforeTurnOff = profileSettings.lockBeforeTurnOffDisplay();
 
-    m_idleTimeoutWhenLocked = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec());
+    if (m_idleTimeoutWhenUnlocked >= 0ms) {
+        m_idleTimeoutWhenUnlocked = std::max(m_idleTimeoutWhenUnlocked, s_minIdleTimeoutWhenUnlocked);
+    }
+    if (m_idleTimeoutWhenLocked >= 0ms) {
+        // Allow (almost) immediate turn-off upon entering the lockscreen, but not when already locked
+        m_idleTimeoutWhenActivatingLock = std::max(m_idleTimeoutWhenLocked, s_minIdleTimeoutWhenActivatingLock);
+        m_idleTimeoutWhenLocked = std::max(m_idleTimeoutWhenLocked, s_minIdleTimeoutWhenLocked);
+    }
 
-    registerDpmsOffOnIdleTimeout(m_idleTime);
-
+    registerStandardIdleTimeout();
     return true;
 }
 
@@ -183,24 +200,43 @@ void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicie
     m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
-void PowerDevil::BundledActions::DPMS::registerDpmsOffOnIdleTimeout(std::chrono::milliseconds timeout)
+void DPMS::registerStandardIdleTimeout()
 {
-    if (timeout > 0s) {
-        registerIdleTimeout(timeout);
+    unregisterIdleTimeouts();
+    m_isActivatingLock = false;
+
+    if (PowerDevil::PolicyAgent::instance()->screenLockerActive()) {
+        registerIdleTimeout(m_idleTimeoutWhenLocked);
+    } else {
+        registerIdleTimeout(m_idleTimeoutWhenUnlocked);
     }
 }
 
 void DPMS::onScreenLockerActiveChanged(bool active)
 {
-    unloadAction();
+    unregisterIdleTimeouts();
+    m_isActivatingLock = active && !m_isAboutToSuspend;
 
-    if (active) {
-        // in lockscreen
-        registerDpmsOffOnIdleTimeout(m_idleTimeoutWhenLocked);
-    } else {
+    if (m_isActivatingLock) {
+        // entering lockscreen - fast display turn-off if the config calls for it
+        registerIdleTimeout(m_idleTimeoutWhenActivatingLock);
+        // if we're locking but about to suspend, wait until onResumeFromSuspend() to register the timeout
+    } else if (!active) {
         // restoring normal idleTimeout
-        registerDpmsOffOnIdleTimeout(m_idleTime);
+        registerIdleTimeout(m_idleTimeoutWhenUnlocked);
     }
+}
+
+void DPMS::onAboutToSuspend()
+{
+    m_isAboutToSuspend = true;
+    unregisterIdleTimeouts();
+}
+
+void DPMS::onResumeFromSuspend()
+{
+    m_isAboutToSuspend = false;
+    registerStandardIdleTimeout();
 }
 
 static std::chrono::milliseconds dimAnimationTime()

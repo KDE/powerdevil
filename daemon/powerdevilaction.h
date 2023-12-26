@@ -11,6 +11,8 @@
 #include <QObject>
 #include <QVariantMap>
 
+#include <chrono>
+
 #include "powerdevilcore_export.h"
 
 namespace PowerDevil
@@ -126,6 +128,10 @@ protected:
      * to KIdleTime's signals to catch idle timeout events.
      */
     void registerIdleTimeout(std::chrono::milliseconds timeout);
+    /**
+     * Removes any previously registered idle timeouts for this action.
+     */
+    void unregisterIdleTimeouts();
     /**
      * Sets the required policies needed for this Action to run. Usually, you want to call this function in your
      * Action's constructor.

@@ -30,11 +30,16 @@ void Action::registerIdleTimeout(std::chrono::milliseconds timeout)
     m_core->registerActionTimeout(this, timeout);
 }
 
-void Action::unloadAction()
+void Action::unregisterIdleTimeouts()
 {
     // Remove all registered idle timeouts, if any
     m_core->unregisterActionTimeouts(this);
     m_registeredIdleTimeouts.clear();
+}
+
+void Action::unloadAction()
+{
+    unregisterIdleTimeouts();
 }
 
 bool Action::isSupported()

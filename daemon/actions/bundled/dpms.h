@@ -47,13 +47,18 @@ private Q_SLOTS:
     void turnOffOnIdleTimeout();
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
     void onScreenLockerActiveChanged(bool active);
+    void onAboutToSuspend();
+    void onResumeFromSuspend();
 
 private:
     void setKeyboardBrightnessHelper(int brightness);
-    void registerDpmsOffOnIdleTimeout(std::chrono::milliseconds timeout);
+    void registerStandardIdleTimeout();
 
-    std::chrono::seconds m_idleTime{-1};
-    std::chrono::seconds m_idleTimeoutWhenLocked{-1};
+    std::chrono::milliseconds m_idleTimeoutWhenUnlocked{-1};
+    std::chrono::milliseconds m_idleTimeoutWhenLocked{-1};
+    std::chrono::milliseconds m_idleTimeoutWhenActivatingLock{-1};
+    bool m_isActivatingLock = false;
+    bool m_isAboutToSuspend = false;
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
     int m_oldKeyboardBrightness = 0;
