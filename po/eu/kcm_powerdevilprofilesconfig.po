@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-12-16 08:27+0100\n"
+"PO-Revision-Date: 2023-12-28 20:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -211,8 +211,7 @@ msgstr "Jakinarazpenak: Energia kudeaketa"
 #: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
-"Ireki \"Jakinarazpenak\" ezarpenen orria, \"Energia kudeaketa\" atalean"
+msgstr "Ireki \"Jakinarazpenak\" ezarpen-orria, \"Energia kudeaketa\" atalean"
 
 #: ui/GlobalConfig.qml:383
 #, kde-format
@@ -223,19 +222,18 @@ msgstr "Mahaigaineko saioa"
 #: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr "Ireki \"Mahaigaineko saioa\" ezarpenen orria"
+msgstr "Ireki \"Mahaigaineko saioa\" ezarpen-orria"
 
 #: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Jarduerak"
 
 #: ui/GlobalConfig.qml:392
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "Ireki \"Mahaigaineko saioa\" ezarpenen orria"
+msgstr "Ireki \"Jarduerak\" ezarpen-orria"
 
 #: ui/main.qml:19
 #, kde-format
