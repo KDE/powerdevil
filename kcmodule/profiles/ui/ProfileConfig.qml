@@ -71,14 +71,17 @@ Kirigami.FormLayout {
             onActivated: {
                 profileSettings.autoSuspendAction = currentValue;
             }
-            Component.onCompleted: {
-                autoSuspendActionCombo.currentIndex = autoSuspendActionCombo.indexOfValue(profileSettings.autoSuspendAction);
+            function resetToProfileSettings() {
+                currentIndex = indexOfValue(profileSettings.autoSuspendAction);
+            }
+            Component.onCompleted: { autoSuspendActionCombo.resetToProfileSettings(); }
+            Connections {
+                target: root
+                function onProfileSettingsChanged() { autoSuspendActionCombo.resetToProfileSettings(); }
             }
             Connections {
                 target: profileSettings
-                function onAutoSuspendActionChanged() {
-                    autoSuspendActionCombo.currentIndex = autoSuspendActionCombo.indexOfValue(profileSettings.autoSuspendAction);
-                }
+                function onAutoSuspendActionChanged() { autoSuspendActionCombo.resetToProfileSettings(); }
             }
         }
 
@@ -94,12 +97,19 @@ Kirigami.FormLayout {
                 extraEnabledConditions: autoSuspendActionCombo.currentValue !== PD.PowerDevil.PowerButtonAction.NoAction
             }
             value: profileSettings.autoSuspendIdleTimeoutSec
-            onValueModified: { profileSettings.autoSuspendIdleTimeoutSec = value; }
+            onValueModified: {
+                profileSettings.autoSuspendIdleTimeoutSec = value;
+            }
+            function resetToProfileSettings() {
+                value = profileSettings.autoSuspendIdleTimeoutSec;
+            }
+            Connections {
+                target: root
+                function onProfileSettingsChanged() { autoSuspendTimeDelay.resetToProfileSettings(); }
+            }
             Connections {
                 target: profileSettings
-                function onAutoSuspendIdleTimeoutSecChanged() {
-                    autoSuspendTimeDelay.value = profileSettings.autoSuspendIdleTimeoutSec;
-                }
+                function onAutoSuspendIdleTimeoutSecChanged() { autoSuspendTimeDelay.resetToProfileSettings(); }
             }
         }
     }
@@ -127,14 +137,17 @@ Kirigami.FormLayout {
         onActivated: {
             profileSettings.powerButtonAction = currentValue;
         }
-        Component.onCompleted: {
-            powerButtonActionCombo.currentIndex = powerButtonActionCombo.indexOfValue(profileSettings.powerButtonAction);
+        function resetToProfileSettings() {
+            currentIndex = indexOfValue(profileSettings.powerButtonAction);
+        }
+        Component.onCompleted: { powerButtonActionCombo.resetToProfileSettings(); }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { powerButtonActionCombo.resetToProfileSettings(); }
         }
         Connections {
             target: profileSettings
-            function onPowerButtonActionChanged() {
-                powerButtonActionCombo.currentIndex = powerButtonActionCombo.indexOfValue(profileSettings.powerButtonAction);
-            }
+            function onPowerButtonActionChanged() { powerButtonActionCombo.resetToProfileSettings(); }
         }
     }
 
@@ -161,14 +174,17 @@ Kirigami.FormLayout {
         onActivated: {
             profileSettings.lidAction = currentValue;
         }
-        Component.onCompleted: {
-            lidActionCombo.currentIndex = lidActionCombo.indexOfValue(profileSettings.lidAction);
+        function resetToProfileSettings() {
+            currentIndex = indexOfValue(profileSettings.lidAction);
+        }
+        Component.onCompleted: { lidActionCombo.resetToProfileSettings(); }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { lidActionCombo.resetToProfileSettings(); }
         }
         Connections {
             target: profileSettings
-            function onLidActionChanged() {
-                lidActionCombo.currentIndex = lidActionCombo.indexOfValue(profileSettings.lidAction);
-            }
+            function onLidActionChanged() { lidActionCombo.resetToProfileSettings(); }
         }
     }
 
@@ -233,14 +249,17 @@ Kirigami.FormLayout {
         onActivated: {
             profileSettings.sleepMode = currentValue;
         }
-        Component.onCompleted: {
-            sleepModeCombo.currentIndex = sleepModeCombo.indexOfValue(profileSettings.sleepMode);
+        function resetToProfileSettings() {
+            currentIndex = indexOfValue(profileSettings.sleepMode);
+        }
+        Component.onCompleted: { sleepModeCombo.resetToProfileSettings(); }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { sleepModeCombo.resetToProfileSettings(); }
         }
         Connections {
             target: profileSettings
-            function onSleepModeChanged() {
-                sleepModeCombo.currentIndex = sleepModeCombo.indexOfValue(profileSettings.sleepMode);
-            }
+            function onSleepModeChanged() { sleepModeCombo.resetToProfileSettings(); }
         }
     }
 
@@ -332,12 +351,19 @@ Kirigami.FormLayout {
                 extraEnabledConditions: dimDisplayCheck.checked
             }
             value: profileSettings.dimDisplayIdleTimeoutSec
-            onValueModified: { profileSettings.dimDisplayIdleTimeoutSec = value; }
+            onValueModified: {
+                profileSettings.dimDisplayIdleTimeoutSec = value;
+            }
+            function resetToProfileSettings() {
+                value = profileSettings.dimDisplayIdleTimeoutSec;
+            }
+            Connections {
+                target: root
+                function onProfileSettingsChanged() { dimDisplayTimeDelay.resetToProfileSettings(); }
+            }
             Connections {
                 target: profileSettings
-                function onDimDisplayIdleTimeoutSecChanged() {
-                    dimDisplayTimeDelay.value = profileSettings.dimDisplayIdleTimeoutSec;
-                }
+                function onDimDisplayIdleTimeoutSecChanged() { dimDisplayTimeDelay.resetToProfileSettings(); }
             }
         }
     }
@@ -374,12 +400,19 @@ Kirigami.FormLayout {
                 extraEnabledConditions: turnOffDisplayCheck.checked
             }
             value: profileSettings.turnOffDisplayIdleTimeoutSec
-            onValueModified: { profileSettings.turnOffDisplayIdleTimeoutSec = value; }
+            onValueModified: {
+                profileSettings.turnOffDisplayIdleTimeoutSec = value;
+            }
+            function resetToProfileSettings() {
+                value = profileSettings.turnOffDisplayIdleTimeoutSec;
+            }
+            Connections {
+                target: root
+                function onProfileSettingsChanged() { turnOffDisplayTimeDelay.resetToProfileSettings(); }
+            }
             Connections {
                 target: profileSettings
-                function onTurnOffDisplayIdleTimeoutSecChanged() {
-                    turnOffDisplayTimeDelay.value = profileSettings.turnOffDisplayIdleTimeoutSec;
-                }
+                function onTurnOffDisplayIdleTimeoutSecChanged() { turnOffDisplayTimeDelay.resetToProfileSettings(); }
             }
         }
     }
@@ -409,12 +442,19 @@ Kirigami.FormLayout {
                 extraEnabledConditions: turnOffDisplayCheck.checked
             }
             value: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
-            onValueModified: { profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = value; }
+            onValueModified: {
+                profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = value;
+            }
+            function resetToProfileSettings() {
+                value = profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec;
+            }
+            Connections {
+                target: root
+                function onProfileSettingsChanged() { turnOffDisplayWhenLockedTimeDelay.resetToProfileSettings(); }
+            }
             Connections {
                 target: profileSettings
-                function onTurnOffDisplayIdleTimeoutWhenLockedSecChanged() {
-                    turnOffDisplayWhenLockedTimeDelay.value = profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec;
-                }
+                function onTurnOffDisplayIdleTimeoutWhenLockedSecChanged() { turnOffDisplayWhenLockedTimeDelay.resetToProfileSettings(); }
             }
         }
     }
@@ -499,17 +539,22 @@ Kirigami.FormLayout {
         onActivated: {
             profileSettings.powerProfile = currentValue;
         }
+        function resetToProfileSettings() {
+            currentIndex = indexOfValue(profileSettings.powerProfile);
+        }
         onCountChanged: { // PowerProfileModel has delayed initialization due to a D-Bus call
             if (count > 0 && !assignedInitialIndex) {
-                powerProfileCombo.currentIndex = powerProfileCombo.indexOfValue(profileSettings.powerProfile);
+                resetToProfileSettings();
                 assignedInitialIndex = true;
             }
         }
         Connections {
+            target: root
+            function onProfileSettingsChanged() { powerProfileCombo.resetToProfileSettings(); }
+        }
+        Connections {
             target: profileSettings
-            function onPowerProfileChanged() {
-                powerProfileCombo.currentIndex = powerProfileCombo.indexOfValue(profileSettings.powerProfile);
-            }
+            function onPowerProfileChanged() { powerProfileCombo.resetToProfileSettings(); }
         }
     }
 
@@ -549,7 +594,7 @@ Kirigami.FormLayout {
                     profileLoadCommandEditAction.checked = profileSettings.profileLoadCommand !== "";
                 }
                 onToggled: {
-                    if (!profileLoadCommandEditAction.checked) {
+                    if (!checked) {
                         profileSettings.profileLoadCommand = "";
                     }
                 }
@@ -565,7 +610,7 @@ Kirigami.FormLayout {
                     profileUnloadCommandEditAction.checked = profileSettings.profileUnloadCommand !== "";
                 }
                 onToggled: {
-                    if (!profileUnloadCommandEditAction.checked) {
+                    if (!checked) {
                         profileSettings.profileUnloadCommand = "";
                     }
                 }
@@ -581,7 +626,7 @@ Kirigami.FormLayout {
                     idleTimeoutCommandEditAction.checked = profileSettings.idleTimeoutCommand !== "";
                 }
                 onToggled: {
-                    if (!idleTimeoutCommandEditAction.checked) {
+                    if (!checked) {
                         profileSettings.idleTimeoutCommand = "";
                     }
                 }
@@ -605,13 +650,20 @@ Kirigami.FormLayout {
             settingName: "ProfileLoadCommand"
         }
         command: profileSettings.profileLoadCommand
-        onCommandChanged: { profileSettings.profileLoadCommand = command; }
+        onCommandChanged: {
+            profileSettings.profileLoadCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.profileLoadCommand;
+            profileLoadCommandEditAction.checked |= profileSettings.profileLoadCommand !== "";
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
+        }
         Connections {
             target: profileSettings
-            function onProfileLoadCommandChanged() {
-                profileLoadCommandEdit.command = profileSettings.profileLoadCommand;
-                profileLoadCommandEditAction.checked |= profileSettings.profileLoadCommand !== "";
-            }
+            function onProfileLoadCommandChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
         }
     }
 
@@ -631,13 +683,20 @@ Kirigami.FormLayout {
             settingName: "ProfileUnloadCommand"
         }
         command: profileSettings.profileUnloadCommand
-        onCommandChanged: { profileSettings.profileUnloadCommand = command; }
+        onCommandChanged: {
+            profileSettings.profileUnloadCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.profileUnloadCommand;
+            profileUnloadCommandEditAction.checked |= profileSettings.profileUnloadCommand !== "";
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
+        }
         Connections {
             target: profileSettings
-            function onProfileUnloadCommandChanged() {
-                profileUnloadCommandEdit.command = profileSettings.profileUnloadCommand;
-                profileUnloadCommandEditAction.checked |= profileSettings.profileUnloadCommand !== "";
-            }
+            function onProfileUnloadCommandChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
         }
     }
 
@@ -657,13 +716,20 @@ Kirigami.FormLayout {
             settingName: "IdleTimeoutCommand"
         }
         command: profileSettings.idleTimeoutCommand
-        onCommandChanged: { profileSettings.idleTimeoutCommand = command; }
+        onCommandChanged: {
+            profileSettings.idleTimeoutCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.idleTimeoutCommand;
+            idleTimeoutCommandEditAction.checked |= profileSettings.idleTimeoutCommand !== "";
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
+        }
         Connections {
             target: profileSettings
-            function onIdleTimeoutCommandChanged() {
-                idleTimeoutCommandEdit.command = profileSettings.idleTimeoutCommand;
-                idleTimeoutCommandEditAction.checked |= profileSettings.idleTimeoutCommand !== "";
-            }
+            function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
         }
     }
 
@@ -682,12 +748,19 @@ Kirigami.FormLayout {
             settingName: "RunScriptIdleTimeoutSec"
         }
         value: profileSettings.runScriptIdleTimeoutSec
-        onValueModified: { profileSettings.runScriptIdleTimeoutSec = value; }
+        onValueModified: {
+            profileSettings.runScriptIdleTimeoutSec = value;
+        }
+        function resetToProfileSettings() {
+            value = profileSettings.runScriptIdleTimeoutSec;
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { idleTimeoutCommandTimeDelay.resetToProfileSettings(); }
+        }
         Connections {
             target: profileSettings
-            function onRunScriptIdleTimeoutSecChanged() {
-                idleTimeoutCommandTimeDelay.value = profileSettings.runScriptIdleTimeoutSec;
-            }
+            function onRunScriptIdleTimeoutSecChanged() { idleTimeoutCommandTimeDelay.resetToProfileSettings(); }
         }
     }
 }

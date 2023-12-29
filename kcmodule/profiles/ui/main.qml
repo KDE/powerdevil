@@ -55,30 +55,43 @@ KCM.AbstractKCM {
             Layout.fillWidth: true
             visible: kcm.supportsBatteryProfiles
 
+            property var selectedProfile: kcm.currentProfile || "AC"
+            property bool allowAutoSwitchProfile: true // by binding to kcm.currentProfile
+
+            function setProfileAndStopAutoSwitch(profile) {
+                allowAutoSwitchProfile = false;
+                selectedProfile = profile; // breaks the binding
+            }
+            function stopAutoSwitchProfileOnInit() {
+                if (allowAutoSwitchProfile && kcm.currentProfile) {
+                    setProfileAndStopAutoSwitch(kcm.currentProfile);
+                }
+            }
+            // kcm takes a while to set currentProfile, either before or after Component.onCompleted
+            Component.onCompleted: { profileTabBar.stopAutoSwitchProfileOnInit(); }
+            Connections {
+                target: kcm
+                function onCurrentProfileChanged() { profileTabBar.stopAutoSwitchProfileOnInit(); }
+            }
+
             actions: [
                 Kirigami.Action {
                     text: i18n("On AC Power")
                     icon.name: "battery-full-charging"
-                    checked: profileConfigStack.currentIndex == profileConfigAC.StackLayout.index
-                    onTriggered: {
-                        profileConfigStack.currentIndex = profileConfigAC.StackLayout.index;
-                    }
+                    checked: profileTabBar.selectedProfile == "AC"
+                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch("AC"); }
                 },
                 Kirigami.Action {
                     text: i18n("On Battery")
                     icon.name: "battery-good"
-                    checked: profileConfigStack.currentIndex == profileConfigBattery.StackLayout.index
-                    onTriggered: {
-                        profileConfigStack.currentIndex = profileConfigBattery.StackLayout.index;
-                    }
+                    checked: profileTabBar.selectedProfile == "Battery"
+                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch("Battery"); }
                 },
                 Kirigami.Action {
                     text: i18n("On Low Battery")
                     icon.name: "battery-low"
-                    checked: profileConfigStack.currentIndex == profileConfigLowBattery.StackLayout.index
-                    onTriggered: {
-                        profileConfigStack.currentIndex = profileConfigLowBattery.StackLayout.index;
-                    }
+                    checked: profileTabBar.selectedProfile == "LowBattery"
+                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch("LowBattery"); }
                 }
             ]
         }
@@ -137,42 +150,23 @@ KCM.AbstractKCM {
 
                 Item {
                     id: tabContentContainer
-                    width: Math.max(scrollBarContainer.width - flickable.leftMargin - flickable.rightMargin, profileConfigStack.width)
-                    height: Math.max(scrollBarContainer.height - flickable.topMargin - flickable.bottomMargin, profileConfigStack.height)
+                    width: Math.max(scrollBarContainer.width - flickable.leftMargin - flickable.rightMargin, profileConfig.width + Kirigami.Units.smallSpacing * 2)
+                    height: Math.max(scrollBarContainer.height - flickable.topMargin - flickable.bottomMargin, profileConfig.height + Kirigami.Units.smallSpacing)
 
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
                             // allow closing popups by clicking outside
-                            profileConfigStack.forceActiveFocus();
+                            profileConfig.forceActiveFocus();
                         }
                     }
 
-                    StackLayout {
-                        id: profileConfigStack
-                        anchors.horizontalCenter: tabContentContainer.horizontalCenter
+                    ProfileConfig {
+                        id: profileConfig
+                        profileId: profileTabBar.selectedProfile
+
+                        anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: tabContentContainer.top
-                        anchors.margins: Kirigami.Units.smallSpacing
-
-                        readonly property var profileIds: ["AC", "Battery", "LowBattery"]
-                        currentIndex: profileIds.indexOf(kcm.currentProfile)
-
-                        ProfileConfig {
-                            id: profileConfigAC
-                            profileId: profileConfigStack.profileIds[0]
-                        }
-                        ProfileConfig {
-                            id: profileConfigBattery
-                            profileId: profileConfigStack.profileIds[1]
-                        }
-                        ProfileConfig {
-                            id: profileConfigLowBattery
-                            profileId: profileConfigStack.profileIds[2]
-                        }
-
-                        // Without manually signaling, "checked" in profileTabBar actions
-                        // doesn't initialize correctly. Not sure what's going wrong there.
-                        Component.onCompleted: { currentIndexChanged(); }
                     }
                 }
             }
