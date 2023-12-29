@@ -6,6 +6,12 @@
  */
 
 #include "ddcutilbrightness.h"
+
+#ifdef WITH_DDCUTIL
+#include <ddcutil_macros.h> // for DDCUTIL_V{MAJOR,MINOR,MICRO}
+#define DDCUTIL_VERSION QT_VERSION_CHECK(DDCUTIL_VMAJOR, DDCUTIL_VMINOR, DDCUTIL_VMICRO)
+#endif
+
 #include <chrono>
 #include <powerdevil_debug.h>
 #include <span>
@@ -23,7 +29,18 @@ DDCutilBrightness::~DDCutilBrightness()
 void DDCutilBrightness::detect()
 {
 #ifdef WITH_DDCUTIL
-    qCDebug(POWERDEVIL) << "Check for monitors using ddca_get_displays()...";
+#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 0, 0)
+    qCDebug(POWERDEVIL) << "Initializing ddcutil API (create ddcutil configuration file for tracing & more)...";
+    static DDCA_Status init_status = -1; // negative indicates error condition
+    if (init_status < 0) {
+        init_status = ddca_init(nullptr, DDCA_SYSLOG_NOTICE, DDCA_INIT_OPTIONS_CLIENT_OPENED_SYSLOG);
+    }
+    if (init_status < 0) {
+        qCWarning(POWERDEVIL) << "Could not initialize ddcutil API. Not using DDC for monitor brightness.";
+        return;
+    }
+#endif
+    qCDebug(POWERDEVIL) << "Check for monitors using ddca_get_display_info_list2()...";
     // Inquire about detected monitors.
     DDCA_Display_Info_List *displays = nullptr;
     ddca_get_display_info_list2(true, &displays);
