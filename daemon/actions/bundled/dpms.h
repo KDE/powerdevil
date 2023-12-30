@@ -44,6 +44,7 @@ public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 private Q_SLOTS:
+    void turnOffOnIdleTimeout();
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
     void onScreenLockerActiveChanged(bool active);
 

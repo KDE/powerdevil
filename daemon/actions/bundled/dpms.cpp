@@ -33,7 +33,6 @@
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 
 using namespace std::chrono_literals;
-static constexpr auto s_fadeTime = 5s;
 
 namespace PowerDevil
 {
@@ -50,6 +49,10 @@ DPMS::DPMS(QObject *parent)
         auto fadeEffect = new PowerDevil::KWinKScreenHelperEffect(this);
         connect(this, &DPMS::startFade, fadeEffect, &PowerDevil::KWinKScreenHelperEffect::start);
         connect(this, &DPMS::stopFade, fadeEffect, &PowerDevil::KWinKScreenHelperEffect::stop);
+        connect(fadeEffect, &PowerDevil::KWinKScreenHelperEffect::fadedOut, this, &DPMS::turnOffOnIdleTimeout);
+    } else {
+        // short-cut without fadeEffect in between timeout and actual action (compositor handles fading)
+        connect(this, &DPMS::startFade, this, &DPMS::turnOffOnIdleTimeout);
     }
 
     // Listen to the policy agent
@@ -94,39 +97,33 @@ bool DPMS::isSupported()
 
 void DPMS::onWakeupFromIdle()
 {
-    if (isSupported()) {
-        Q_EMIT stopFade();
-    }
+    Q_EMIT stopFade(); // only actively used in X11
+
     if (m_oldKeyboardBrightness > 0) {
         setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
         m_oldKeyboardBrightness = 0;
     }
 }
 
-void DPMS::onIdleTimeout(std::chrono::milliseconds timeout)
+void DPMS::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
+{
+    Q_EMIT startFade();
+}
+
+void DPMS::turnOffOnIdleTimeout()
 {
     // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (m_inhibitScreen) {
         return;
     }
 
-    if (timeout == m_idleTime - s_fadeTime
-        || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && timeout == m_idleTimeoutWhenLocked - s_fadeTime)) { // fade out screen
-
-        if (isSupported()) {
-            // only used in X11
-            Q_EMIT startFade();
-        }
-
-    } else if (timeout == m_idleTime || (PowerDevil::PolicyAgent::instance()->screenLockerActive() && timeout == m_idleTimeoutWhenLocked)) {
-        const int keyboardBrightness = backend()->keyboardBrightness();
-        if (keyboardBrightness > 0) {
-            m_oldKeyboardBrightness = keyboardBrightness;
-            setKeyboardBrightnessHelper(0);
-        }
-        if (isSupported()) {
-            m_dpms->switchMode(KScreen::Dpms::Off);
-        }
+    const int keyboardBrightness = backend()->keyboardBrightness();
+    if (keyboardBrightness > 0) {
+        m_oldKeyboardBrightness = keyboardBrightness;
+        setKeyboardBrightnessHelper(0);
+    }
+    if (isSupported()) {
+        m_dpms->switchMode(KScreen::Dpms::Off);
     }
 }
 
@@ -190,7 +187,6 @@ void PowerDevil::BundledActions::DPMS::registerDpmsOffOnIdleTimeout(std::chrono:
 {
     if (timeout > 0s) {
         registerIdleTimeout(timeout);
-        registerIdleTimeout(timeout - s_fadeTime); // start screen fade a bit earlier to alert user
     }
 }
 
