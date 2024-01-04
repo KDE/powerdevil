@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2024-01-01 09:23-0600\n"
+"PO-Revision-Date: 2024-01-03 14:00-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -382,7 +382,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr "ਪਾਵਰ ਪਰੋਫਾਈਲ ਲਈ ਬਦਲੋ(&w):"
+msgstr "ਪਾਵਰ ਪਰੋਫਾਇਲ ਲਈ ਬਦਲੋ(&w):"
 
 #: ui/ProfileConfig.qml:482
 #, kde-format
@@ -390,7 +390,7 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr "ਪਾਵਰ ਪਰੋਫਾਈਲ ਲਈ ਬਦਲੋ"
+msgstr "ਪਾਵਰ ਪਰੋਫਾਇਲ ਲਈ ਬਦਲੋ"
 
 #: ui/ProfileConfig.qml:518
 #, kde-format
