@@ -6,13 +6,13 @@
 # Andrey Cherepanov <skull@kde.ru>, 2011.
 # Nick Shaforostoff <shafff@ukr.net>, 2011.
 # Julia Dronova <juliette.tux@gmail.com>, 2012.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2023.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-20 01:35+0000\n"
-"PO-Revision-Date: 2023-12-24 17:36+0300\n"
+"PO-Revision-Date: 2024-01-04 17:35+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -343,13 +343,13 @@ msgstr ""
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "Способ приостановки сеанса:"
 
 #: ui/ProfileConfig.qml:200
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "Способ приостановки сеанса"
 
 #: ui/ProfileConfig.qml:252
 #, kde-format
@@ -361,25 +361,25 @@ msgstr "Экран и яркость"
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr "Изменить &яркость экрана:"
+msgstr "&Яркость экрана:"
 
 #: ui/ProfileConfig.qml:305
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr "Автоматически затемнять:"
+msgstr "&Затемнение:"
 
 #: ui/ProfileConfig.qml:347
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr "&Выключить монитор:"
+msgstr "&Отключение монитора:"
 
 #: ui/ProfileConfig.qml:388
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "Отключение монитора после &блокировки экрана:"
 
 #: ui/ProfileConfig.qml:423
 #, kde-format
@@ -399,7 +399,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr "Переключить профиль &энергопотребления:"
+msgstr "Профиль энергопотребления:"
 
 #: ui/ProfileConfig.qml:482
 #, kde-format
@@ -407,7 +407,7 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr "Переключить профиль энергопотребления"
+msgstr "Профиль энергопотребления"
 
 #: ui/ProfileConfig.qml:518
 #, kde-format
@@ -427,19 +427,19 @@ msgstr "Настроить условия запуска…"
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Настройка условий запуска сценария"
 
 #: ui/ProfileConfig.qml:545
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "При &переходе в этот режим"
 
 #: ui/ProfileConfig.qml:561
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "При в&ыходе из этого режима"
 
 #: ui/ProfileConfig.qml:577
 #, kde-format
@@ -451,25 +451,25 @@ msgstr "При без&действии"
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "При &переходе в этот режим:"
 
 #: ui/ProfileConfig.qml:598
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "Сценарий при переходе в этот режим электропитания"
 
 #: ui/ProfileConfig.qml:622
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "При в&ыходе из этого режима:"
 
 #: ui/ProfileConfig.qml:624
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "Сценарий при выходе из этого режима электропитания"
 
 #: ui/ProfileConfig.qml:648
 #, kde-format
@@ -481,28 +481,28 @@ msgstr "При без&действии:"
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "Запускать сценарий при бездействии"
 
 #: ui/ProfileConfig.qml:672
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "Период бездействия до запуска сценария"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Введите команду или выберите файл…"
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Выбрать исполняемый файл…"
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Выбор исполняемого файла"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -510,7 +510,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "мин|минут|минуту|минуты"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -518,7 +518,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "сек|секунд|секунду|секунды"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -527,25 +527,25 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "через %1 минуту"
+msgstr[1] "через %1 минуты"
+msgstr[2] "через %1 минут"
+msgstr[3] "через %1 минуту"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "через %1 секунду"
+msgstr[1] "через %1 секунды"
+msgstr[2] "через %1 секунд"
+msgstr[3] "через %1 секунду"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
