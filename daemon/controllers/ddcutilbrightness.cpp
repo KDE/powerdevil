@@ -7,18 +7,20 @@
 
 #include "ddcutilbrightness.h"
 
+#include <powerdevil_debug.h>
+
 #ifdef WITH_DDCUTIL
 #include <ddcutil_macros.h> // for DDCUTIL_V{MAJOR,MINOR,MICRO}
 #define DDCUTIL_VERSION QT_VERSION_CHECK(DDCUTIL_VMAJOR, DDCUTIL_VMINOR, DDCUTIL_VMICRO)
 #endif
 
 #include <chrono>
-#include <powerdevil_debug.h>
 #include <span>
 
 using namespace std::chrono_literals;
 
-DDCutilBrightness::DDCutilBrightness()
+DDCutilBrightness::DDCutilBrightness(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -105,7 +107,7 @@ int DDCutilBrightness::brightness(const QString &displayId)
     return m_displays[displayId]->brightness();
 }
 
-int DDCutilBrightness::brightnessMax(const QString &displayId)
+int DDCutilBrightness::maxBrightness(const QString &displayId)
 {
     if (!m_displayIds.contains(displayId)) {
         return -1;

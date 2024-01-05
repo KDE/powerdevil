@@ -7,9 +7,8 @@
 
 #pragma once
 
-#include <QHash>
-#include <QList>
 #include <QObject>
+#include <QStringList>
 
 #ifdef WITH_DDCUTIL
 #include <ddcutil_c_api.h>
@@ -23,14 +22,14 @@ class DDCutilBrightness : public QObject
 {
     Q_OBJECT
 public:
-    DDCutilBrightness();
+    explicit DDCutilBrightness(QObject *parent = nullptr);
     ~DDCutilBrightness();
 
     void detect();
     QStringList displayIds() const;
     bool isSupported() const;
     int brightness(const QString &displayId);
-    int brightnessMax(const QString &displayId);
+    int maxBrightness(const QString &displayId);
     void setBrightness(const QString &displayId, int value);
 
 private:

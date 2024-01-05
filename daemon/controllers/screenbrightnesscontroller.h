@@ -10,19 +10,16 @@
 
 #pragma once
 
-#include <QDBusConnection>
+#include <QObject>
 
-#include <map>
-#include <memory>
+#include <powerdevilcore_export.h>
 
 #include "powerdevilscreenbrightnesslogic.h"
-#include "udevqt.h"
-
-#include "powerdevilcore_export.h"
 
 class QPropertyAnimation;
-class QTimer;
+class BacklightBrightness;
 class DDCutilBrightness;
+
 class POWERDEVILCORE_EXPORT ScreenBrightnessController : public QObject
 {
     Q_OBJECT
@@ -38,7 +35,6 @@ public:
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
 Q_SIGNALS:
-    void brightnessSupportQueried(bool available);
     void detectionFinished();
     void screenBrightnessChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
 
@@ -48,32 +44,21 @@ private:
     int calculateNextScreenBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
 
 private Q_SLOTS:
-    void initWithBrightness(bool screenBrightnessAvailable);
-    void slotScreenBrightnessChanged();
-    void onDeviceChanged(const UdevQt::Device &device);
+    void onBacklightDetectionFinished(bool isSupported);
+    void ddcScreenBrightnessChanged();
     void onScreenBrightnessChanged(int value, int valueMax);
 
 private:
     void animationValueChanged(const QVariant &value);
 
-    // brightness
-    int m_cachedScreenBrightness;
+    int m_cachedBrightness = 0;
     bool m_screenBrightnessAvailable = false;
     PowerDevil::ScreenBrightnessLogic m_screenBrightnessLogic;
 
-    DDCutilBrightness *m_ddcBrightnessControl = nullptr;
-
-    int m_brightnessMax = 0;
+    BacklightBrightness *m_backlightBrightnessControl;
+    DDCutilBrightness *m_ddcBrightnessControl;
 
     QPropertyAnimation *m_brightnessAnimation = nullptr;
     const int m_brightnessAnimationDurationMsec = 250;
     const int m_brightnessAnimationThreshold = 100;
-
-    QTimer *m_brightnessAnimationTimer = nullptr;
-
-    // property if brightness control is leds subsystem
-    bool m_isLedBrightnessControl;
-
-    // helper path
-    QString m_syspath;
 };
