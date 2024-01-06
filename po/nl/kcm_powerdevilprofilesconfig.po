@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-20 01:35+0000\n"
+"POT-Creation-Date: 2024-01-06 01:34+0000\n"
 "PO-Revision-Date: 2023-12-19 12:36+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -245,17 +245,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Instellingen van energiebeheer konden niet geladen worden"
 
-#: ui/main.qml:60
+#: ui/main.qml:79
 #, kde-format
 msgid "On AC Power"
 msgstr "Op externe stroom"
 
-#: ui/main.qml:68
+#: ui/main.qml:85
 #, kde-format
 msgid "On Battery"
 msgstr "Op batterij"
 
-#: ui/main.qml:76
+#: ui/main.qml:91
 #, kde-format
 msgid "On Low Battery"
 msgstr "Op laag batterijniveau"
@@ -288,7 +288,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Actie uitvoeren wanneer het systeem niets heeft te doen"
 
-#: ui/ProfileConfig.qml:111
+#: ui/ProfileConfig.qml:121
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -296,13 +296,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Wanneer op de aan/&uitknop wordt gedrukt:"
 
-#: ui/ProfileConfig.qml:113
+#: ui/ProfileConfig.qml:123
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Actie uitvoeren wanneer het op de aan/uitknop wordt gedrukt"
 
-#: ui/ProfileConfig.qml:145
+#: ui/ProfileConfig.qml:158
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -310,13 +310,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Wanneer het &laptopdeksel sluit:"
 
-#: ui/ProfileConfig.qml:147
+#: ui/ProfileConfig.qml:160
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Actie uitvoeren wanneer het laptopdeksel wordt gesloten"
 
-#: ui/ProfileConfig.qml:179
+#: ui/ProfileConfig.qml:195
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -324,69 +324,69 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Zelfs wanneer een externe monitor is aangesloten"
 
-#: ui/ProfileConfig.qml:181
+#: ui/ProfileConfig.qml:197
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Actie bij laptopdeksel sluiten zelfs wanneer een externe monitor is "
 "aangesloten"
 
-#: ui/ProfileConfig.qml:198
+#: ui/ProfileConfig.qml:214
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Bij slapen, voer in:"
 
-#: ui/ProfileConfig.qml:200
+#: ui/ProfileConfig.qml:216
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "Bij slapen, ga in deze energiebesparingsmodus"
 
-#: ui/ProfileConfig.qml:252
+#: ui/ProfileConfig.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Beeldscherm en helderheid"
 
-#: ui/ProfileConfig.qml:262
+#: ui/ProfileConfig.qml:281
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Sch&ermhelderheid wijzigen:"
 
-#: ui/ProfileConfig.qml:305
+#: ui/ProfileConfig.qml:324
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Automatisch dimmen:"
 
-#: ui/ProfileConfig.qml:347
+#: ui/ProfileConfig.qml:373
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Scherm &uitschakelen:"
 
-#: ui/ProfileConfig.qml:388
+#: ui/ProfileConfig.qml:421
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "Bij ver&grendeld, scherm uitschakelen:"
 
-#: ui/ProfileConfig.qml:423
+#: ui/ProfileConfig.qml:463
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Helderheid van toetsen&bord wijzigen:"
 
-#: ui/ProfileConfig.qml:470
+#: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Overige instellingen"
 
-#: ui/ProfileConfig.qml:478
+#: ui/ProfileConfig.qml:518
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -394,7 +394,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Naar &energieprofiel omschakelen:"
 
-#: ui/ProfileConfig.qml:482
+#: ui/ProfileConfig.qml:522
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -402,13 +402,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Naar energieprofiel omschakelen"
 
-#: ui/ProfileConfig.qml:518
+#: ui/ProfileConfig.qml:563
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Aangepast script uitvoeren:"
 
-#: ui/ProfileConfig.qml:524
+#: ui/ProfileConfig.qml:569
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -416,67 +416,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Condities bij uitvoeren kiezen…"
 
-#: ui/ProfileConfig.qml:526
+#: ui/ProfileConfig.qml:571
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Condities bij uitvoeren van scriptcommando kiezen"
 
-#: ui/ProfileConfig.qml:545
+#: ui/ProfileConfig.qml:590
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "Bij binnengaan van deze energiestatus"
 
-#: ui/ProfileConfig.qml:561
+#: ui/ProfileConfig.qml:606
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "Bij verlaten van deze energiestatus"
 
-#: ui/ProfileConfig.qml:577
+#: ui/ProfileConfig.qml:622
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "Na een periode van inacti&viteit"
 
-#: ui/ProfileConfig.qml:596
+#: ui/ProfileConfig.qml:641
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "Bij bi&nnengaan van deze energiestatus:"
 
-#: ui/ProfileConfig.qml:598
+#: ui/ProfileConfig.qml:643
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Scriptcommando bij binnengaan van deze energiestatus"
 
-#: ui/ProfileConfig.qml:622
+#: ui/ProfileConfig.qml:674
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "Bij &verlaten van deze energiestatus:"
 
-#: ui/ProfileConfig.qml:624
+#: ui/ProfileConfig.qml:676
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Scriptcommando bij verlaten van deze energiestatus"
 
-#: ui/ProfileConfig.qml:648
+#: ui/ProfileConfig.qml:707
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Na een periode van inacti&viteit:"
 
-#: ui/ProfileConfig.qml:650
+#: ui/ProfileConfig.qml:709
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Scriptcommando na een periode van inactiviteit"
 
-#: ui/ProfileConfig.qml:672
+#: ui/ProfileConfig.qml:738
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
