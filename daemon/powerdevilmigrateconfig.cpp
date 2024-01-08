@@ -15,6 +15,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
+#include <algorithm> // std::min, std::max
 #include <functional> // std::invoke
 #include <type_traits> // std::remove_cvref_t
 
@@ -65,6 +66,17 @@ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
     profilesConfig->sync();
 }
 
+void ensureLockScreenIdleTimeoutInKScreenLockerKCM(int seconds)
+{
+    KSharedConfig::Ptr lockerConfig = KSharedConfig::openConfig(QStringLiteral("kscreenlockerrc"));
+    KConfigGroup group = lockerConfig->group(QStringLiteral("Daemon"));
+    if (group.readEntry("Autolock", true) == false) {
+        group.deleteEntry("Autolock"); // reset to default true value
+        group.writeEntry("Timeout", std::max(1, std::min(group.readEntry("Timeout", 5), seconds / 60)));
+    }
+    lockerConfig->sync();
+}
+
 void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, bool isVM, bool canSuspend)
 {
     KConfigGroup migrationGroup = profilesConfig->group(QStringLiteral("Migration"));
@@ -72,7 +84,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         return;
     }
 
-    for (QString profileName : {"AC", "Battery", "LowBattery"}) {
+    for (const auto &profileName : {QStringLiteral("AC"), QStringLiteral("Battery"), QStringLiteral("LowBattery")}) {
         const KConfigGroup oldProfileGroup = profilesConfig->group(profileName);
         if (!oldProfileGroup.exists()) {
             continue;
@@ -128,6 +140,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
 
         bool suspendThenHibernate = false;
         bool hybridSuspend = false;
+        bool migrateLockScreenIdleTimeout = false;
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("SuspendSession")); group.exists()) {
             if (group.readEntry("suspendThenHibernate", false)) {
@@ -137,6 +150,10 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
                     return qToUnderlying(PowerButtonAction::Sleep);
+                }
+                if (oldAction == qToUnderlying(PowerButtonAction::LockScreen)) {
+                    migrateLockScreenIdleTimeout = true; // see bottom of function
+                    return qToUnderlying(PowerButtonAction::NoAction);
                 }
                 return oldAction;
             });
@@ -209,6 +226,11 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             profileSettings.setSleepMode(qToUnderlying(SleepMode::HybridSuspend));
         }
 
+        if (migrateLockScreenIdleTimeout) {
+            // We had two different settings for this, ditch this and only keep the one in kscreenlockerrc
+            ensureLockScreenIdleTimeoutInKScreenLockerKCM(profileSettings.autoSuspendIdleTimeoutSec());
+        }
+
         profileSettings.save();
     }
 
@@ -225,11 +247,20 @@ void migrateConfig(bool isMobile, bool isVM, bool canSuspend)
     migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspend);
 
 #if POWERDEVIL_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    // quick-fixes for configs migrated prior to Plasma 6 RC1 (which we tweaked before final release)
     KSharedConfig::Ptr globalConfig = KSharedConfig::openConfig(QStringLiteral("powerdevilrc"));
     KConfigGroup batteryManagementGroup = globalConfig->group(QStringLiteral("BatteryManagement"));
     if (batteryManagementGroup.readEntry("BatteryCriticalAction", 0) == 4 /* the old PowerButtonAction::SuspendHybrid */) {
         batteryManagementGroup.writeEntry("BatteryCriticalAction", qToUnderlying(PowerButtonAction::Hibernate));
         globalConfig->sync();
+    }
+    for (const auto &profileName : {QStringLiteral("AC"), QStringLiteral("Battery"), QStringLiteral("LowBattery")}) {
+        PowerDevil::ProfileSettings profileSettings(profileName, isMobile, isVM, canSuspend);
+        if (profileSettings.autoSuspendAction() == qToUnderlying(PowerButtonAction::LockScreen)) {
+            profileSettings.setAutoSuspendAction(qToUnderlying(PowerButtonAction::NoAction));
+            ensureLockScreenIdleTimeoutInKScreenLockerKCM(profileSettings.autoSuspendIdleTimeoutSec());
+            profileSettings.save();
+        }
     }
 #endif
 }

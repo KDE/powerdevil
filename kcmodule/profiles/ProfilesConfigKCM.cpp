@@ -108,7 +108,6 @@ ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &met
                                                               PowerButtonAction::Sleep,
                                                               PowerButtonAction::Hibernate,
                                                               PowerButtonAction::Shutdown,
-                                                              PowerButtonAction::LockScreen,
                                                           }))
     , m_batteryCriticalActionModel(new PowerButtonActionModel(this,
                                                               PowerManagement::instance(),

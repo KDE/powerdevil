@@ -80,3 +80,9 @@ add_migrateconfig_test(
     EXPECTED_POWERDEVILRC test3_migrated_powerdevilrc
     EXPECTED_PROFILESRC test3_migrated_powermanagementprofilesrc
 )
+
+add_migrateconfig_test(
+    NAME migrateconfig_test4_profiles_more
+    INPUT_PROFILESRC test4_initial_powermanagementprofilesrc  # with selected non-default profile settings
+    EXPECTED_POWERDEVILRC test4_migrated_powerdevilrc
+)
