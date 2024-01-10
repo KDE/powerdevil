@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:34+0000\n"
+"POT-Creation-Date: 2024-01-10 22:29+0000\n"
 "PO-Revision-Date: 2020-07-07 15:49-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: ProfilesConfigKCM.cpp:445
+#: ProfilesConfigKCM.cpp:444
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "O Serviço de gerenciamento de energia parece não estar em execução."
