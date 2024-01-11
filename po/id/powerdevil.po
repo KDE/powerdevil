@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-06 01:34+0000\n"
+"POT-Creation-Date: 2024-01-11 00:38+0000\n"
 "PO-Revision-Date: 2023-02-18 15:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -30,21 +30,21 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "andhika.padmawan@gmail.com,wantoyo@yahoo.com,linerly@protonmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:74
+#: actions/bundled/brightnesscontrol.cpp:36 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:42
-#: actions/bundled/keyboardbrightnesscontrol.cpp:44
+#: actions/bundled/keyboardbrightnesscontrol.cpp:42
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Power Management"
 
-#: actions/bundled/brightnesscontrol.cpp:42
+#: actions/bundled/brightnesscontrol.cpp:39
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Tambahi Kecerahan Layar"
 
-#: actions/bundled/brightnesscontrol.cpp:47
+#: actions/bundled/brightnesscontrol.cpp:44
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Increase Screen Brightness"
@@ -52,13 +52,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Tambahi Kecerahan Layar"
 
-#: actions/bundled/brightnesscontrol.cpp:52
+#: actions/bundled/brightnesscontrol.cpp:49
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Kurangi Kecerahan Layar"
 
-#: actions/bundled/brightnesscontrol.cpp:57
+#: actions/bundled/brightnesscontrol.cpp:54
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Global shortcut"
 #| msgid "Decrease Screen Brightness"
@@ -66,7 +66,7 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Kurangi Kecerahan Layar"
 
-#: actions/bundled/dpms.cpp:77
+#: actions/bundled/dpms.cpp:76
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
@@ -97,19 +97,19 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Matikan Daya"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:48
+#: actions/bundled/keyboardbrightnesscontrol.cpp:46
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Tambahi Kecerahan Keyboard"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:53
+#: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Kurangi Kecerahan Keyboard"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:58
+#: actions/bundled/keyboardbrightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
@@ -157,55 +157,55 @@ msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Pemelihara sebelumnya"
 
-#: powerdevilapp.cpp:131
+#: powerdevilapp.cpp:101
 #, fuzzy, kde-format
 #| msgid "Import PowerDevil Profiles"
 msgid "Switch Power Profile"
 msgstr "Impor Profil PowerDevil"
 
-#: powerdevilapp.cpp:146
+#: powerdevilapp.cpp:116
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ganti dengan instansi yang ada"
 
-#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
+#: powerdevilcore.cpp:379 powerdevilcore.cpp:390
 #, kde-format
 msgid "Activity Manager"
 msgstr "Pengelola Aktivitas"
 
-#: powerdevilcore.cpp:381
+#: powerdevilcore.cpp:380
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Kebijakan aktivitas ini mencegah sistem dari peniduran"
 
-#: powerdevilcore.cpp:392
+#: powerdevilcore.cpp:391
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Kebijakan aktivitas ini mencegah pengelolaan daya layar"
 
-#: powerdevilcore.cpp:454
+#: powerdevilcore.cpp:453
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Baterai Ekstra Ditambahkan"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
+#: powerdevilcore.cpp:454 powerdevilcore.cpp:675
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Komputer tidak lama lagi akan tidur."
 
-#: powerdevilcore.cpp:520
+#: powerdevilcore.cpp:519
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:523
+#: powerdevilcore.cpp:522
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Baterai Peranti Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:525
+#: powerdevilcore.cpp:524
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -219,22 +219,22 @@ msgstr ""
 "Baterai di (''%1'') berjalan lemah, dan peranti mungkin suatu saat akan "
 "padam. Mohon dicas atau ganti baterainya."
 
-#: powerdevilcore.cpp:532
+#: powerdevilcore.cpp:531
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Baterai Mouse Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:536
+#: powerdevilcore.cpp:535
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Baterai Keyboard Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:540
+#: powerdevilcore.cpp:539
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Baterai Peranti Bluetooth Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -244,7 +244,7 @@ msgstr ""
 "Baterai dalam peranti Bluetooth ''%1'' kondisinya melemah, dan peranti "
 "mungkin suatu saat akan padam. Mohon dicas atau ganti baterainya."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
@@ -254,17 +254,17 @@ msgstr ""
 "Baterai berjalan lemah - untuk meneruskan penggunaan komputermu, colokkanlah "
 "atau matikanlah dan ubah baterainya."
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:605
+#: powerdevilcore.cpp:604
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Tingkat baterai kritis. Komputermu akan mati dalam 60 detik."
 
-#: powerdevilcore.cpp:607
+#: powerdevilcore.cpp:606
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -272,7 +272,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Matikan"
 
-#: powerdevilcore.cpp:613
+#: powerdevilcore.cpp:612
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -281,7 +281,7 @@ msgstr ""
 "Tingkat baterai kritis. Komputermu akan memasuki mode hibernasi dalam 60 "
 "detik."
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -290,25 +290,25 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernasi"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Tingkat baterai kritis. Komputermu akan tidur dalam 60 detik."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Tidur Sekarang"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Please save your work."
 msgid "Please save your work."
 msgstr "Tingkat baterai kritis. Silakan simpan pekerjaanmu."
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -316,47 +316,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Batal"
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:646
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baterai Lemah (Tersisa %1%)"
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterai Kritis (%1% Tersisa)"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptor AC Dicolokkan"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Running on AC power"
 msgstr "Berjalan dalam daya AC"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Adaptor daya telah dicolokkan."
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Berjalan dalam Daya Baterai"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Adaptor daya telah dicabut."
 
-#: powerdevilcore.cpp:742
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Charging Complete"
 msgstr "Pengecasan Rampung"
 
-#: powerdevilcore.cpp:742
+#: powerdevilcore.cpp:741
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterai sekarang tercas penuh."
