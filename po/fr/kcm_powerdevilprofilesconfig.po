@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:38+0000\n"
+"POT-Creation-Date: 2024-01-13 00:39+0000\n"
 "PO-Revision-Date: 2023-12-20 09:15+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -25,7 +25,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 "X-Text-Markup: kde4\n"
 
-#: ProfilesConfigKCM.cpp:444
+#: PowerKCM.cpp:442
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Le service de gestion de l'énergie semble ne pas être lancé."
