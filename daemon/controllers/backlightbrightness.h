@@ -10,6 +10,8 @@
 #include <QObject>
 #include <QString>
 
+#include "displaybrightness.h"
+
 class QTimer;
 
 namespace UdevQt
@@ -17,7 +19,7 @@ namespace UdevQt
 class Device;
 }
 
-class BacklightBrightness : public QObject
+class BacklightBrightness : public DisplayBrightness
 {
     Q_OBJECT
 
@@ -33,8 +35,9 @@ public:
      */
     bool isSupported() const;
 
-    int maxBrightness() const;
-    int brightness() const;
+    int maxBrightness() const override;
+    int brightness() const override;
+    void setBrightness(int brightness) override;
 
 public Q_SLOTS:
     /**
@@ -43,11 +46,8 @@ public Q_SLOTS:
      */
     void detect();
 
-    void setBrightness(int brightness);
-
 Q_SIGNALS:
     void detectionFinished(bool isSupported);
-    void brightnessChanged(int brightness, int maxBrightness);
 
 private Q_SLOTS:
     void onDeviceChanged(const UdevQt::Device &device);

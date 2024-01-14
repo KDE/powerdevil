@@ -26,6 +26,7 @@ set(powerdevilcore_SRCS
     controllers/suspendcontroller.cpp
     controllers/keyboardbrightnesscontroller.cpp
     controllers/screenbrightnesscontroller.cpp
+    controllers/displaybrightness.cpp
     controllers/backlightbrightness.cpp
     controllers/ddcutilbrightness.cpp
     controllers/ddcutildisplay.cpp

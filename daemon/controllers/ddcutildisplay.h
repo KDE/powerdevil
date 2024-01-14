@@ -8,6 +8,7 @@
 #pragma once
 
 #include <QObject>
+#include <QString>
 #include <QThread>
 #include <QTimer>
 
@@ -19,9 +20,11 @@
 #define DDCUTIL_VERSION QT_VERSION_CHECK(DDCUTIL_VMAJOR, DDCUTIL_VMINOR, DDCUTIL_VMICRO)
 #endif
 
+#include "displaybrightness.h"
+
 class BrightnessWorker;
 
-class DDCutilDisplay : public QObject
+class DDCutilDisplay : public DisplayBrightness
 {
     Q_OBJECT
 
@@ -35,9 +38,9 @@ public:
     ~DDCutilDisplay();
 
     QString label() const;
-    int brightness();
-    int maxBrightness();
-    void setBrightness(int value);
+    int maxBrightness() const override;
+    int brightness() const override;
+    void setBrightness(int value) override;
     bool supportsBrightness() const;
     void resumeWorker();
     void pauseWorker();
@@ -45,7 +48,6 @@ public:
 Q_SIGNALS:
     void supportsBrightnessChanged(bool supportsBrightness);
     void ddcBrightnessChangeRequested(int value, DDCutilDisplay *display);
-    void brightnessChanged(int brightness, int maxBrightness);
 
 private Q_SLOTS:
     void ddcBrightnessChangeFinished(bool isSuccessful);

@@ -27,7 +27,7 @@
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
 BacklightBrightness::BacklightBrightness(QObject *parent)
-    : QObject(parent)
+    : DisplayBrightness(parent)
 {
 }
 

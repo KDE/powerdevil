@@ -103,12 +103,12 @@ QString DDCutilDisplay::label() const
     return m_label;
 }
 
-int DDCutilDisplay::brightness()
+int DDCutilDisplay::brightness() const
 {
     return m_brightness;
 }
 
-int DDCutilDisplay::maxBrightness()
+int DDCutilDisplay::maxBrightness() const
 {
     return m_maxBrightness;
 }
