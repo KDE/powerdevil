@@ -9,7 +9,7 @@
     SPDX-License-Identifier: LGPL-2.0-only
 */
 
-#include "backlightbrightness.h"
+#include "backlightbrightness_freebsd.h"
 
 #include <powerdevil_debug.h>
 
@@ -24,8 +24,6 @@
 #include <KLocalizedString>
 
 #include <memory> // std::shared_ptr
-
-#include "udevqt.h"
 
 using namespace Qt::StringLiterals;
 
@@ -66,35 +64,10 @@ void BacklightDetector::detect()
                 return;
             }
             int maxBrightness = brightnessMaxJob->data()[u"brightnessmax"_s].toInt();
-
-#ifdef Q_OS_FREEBSD
-            // FreeBSD doesn't have the sysfs interface that the bits below expect;
-            // the sysfs calls always fail, leading to detectionFinished(false) emission.
-            // Skip that command and carry on with the information that we do have.
             if (maxBrightness > 0) {
                 m_display.reset(new BacklightBrightness(cachedBrightness, maxBrightness, QString()));
             }
             Q_EMIT detectionFinished(m_display != nullptr);
-#else
-            KAuth::Action syspathAction(u"org.kde.powerdevil.backlighthelper.syspath"_s);
-            syspathAction.setHelperId(HELPER_ID);
-            KAuth::ExecuteJob* syspathJob = syspathAction.execute();
-            connect(syspathJob, &KJob::result, this, [this, syspathJob, cachedBrightness, maxBrightness, deleteOld = std::move(deleteOld)] {
-                if (syspathJob->error()) {
-                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
-                    qCDebug(POWERDEVIL) << syspathJob->errorText();
-                    Q_EMIT detectionFinished(false);
-                    return;
-                }
-                if (maxBrightness > 0) {
-                    QString syspath = syspathJob->data()[u"syspath"_s].toString();
-                    syspath = QFileInfo(syspath).symLinkTarget();
-                    m_display.reset(new BacklightBrightness(cachedBrightness, maxBrightness, syspath));
-                }
-                Q_EMIT detectionFinished(m_display != nullptr);
-            });
-            syspathJob->start();
-#endif
         });
         brightnessMaxJob->start();
     });
@@ -114,69 +87,11 @@ BacklightBrightness::BacklightBrightness(int observedBrightness, int maxBrightne
     , m_executedBrightness(observedBrightness)
     , m_maxBrightness(maxBrightness)
 {
-#ifndef Q_OS_FREEBSD
-    // Kernel doesn't send uevent for leds-class devices, or at least that's what commit 26a48f9db
-    // claimed (although the monitored subsystem was already hardcoded to "backlight" then).
-    // Keep track of backlight devices for changes not initiated by this class.
-    if (!m_syspath.contains(QLatin1String("/leds/"))) {
-        UdevQt::Client *client = new UdevQt::Client(QStringList{u"backlight"_s}, this);
-        connect(client, &UdevQt::Client::deviceChanged, this, &BacklightBrightness::onDeviceChanged);
-    }
-#endif
 }
 
 bool BacklightBrightness::isSupported() const
 {
     return m_maxBrightness > 0;
-}
-
-void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
-{
-    if (device.sysfsPath() != m_syspath) {
-        return;
-    }
-    int maxBrightness = device.sysfsProperty(u"max_brightness"_s).toInt();
-    if (maxBrightness <= 0) {
-        return;
-    }
-    int newBrightness = device.sysfsProperty(u"brightness"_s).toInt();
-    if (m_observedBrightness == newBrightness) {
-        return;
-    }
-    int lastObservedBrightness = m_observedBrightness;
-    m_observedBrightness = newBrightness;
-
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed brightness to:" << m_observedBrightness << "for" << m_syspath;
-
-    //
-    // Ignore any brightness changes that we initiated in this class, send signals only for external changes
-
-    if (m_observedBrightness > lastObservedBrightness) {
-        // Moving up means we don't need a lower boundary, the only valid animation targets are
-        // executed brightness (current target) and expected max brightness (delayed previous target)
-        if (m_executedBrightness >= m_observedBrightness) {
-            m_expectedMinBrightness = -1;
-            return;
-        } else if (m_expectedMaxBrightness != -1 && m_expectedMaxBrightness >= m_observedBrightness) {
-            return;
-        }
-    } else {
-        // Moving down means we don't need a upper boundary, the only valid animation targets are
-        // executed brightness (current target) and expected min brightness (delayed previous target)
-        if (m_executedBrightness <= m_observedBrightness) {
-            m_expectedMaxBrightness = -1;
-            return;
-        } else if (m_expectedMinBrightness != -1 && m_expectedMinBrightness <= m_observedBrightness) {
-            return;
-        }
-    }
-
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: External brightness change observed:" << m_observedBrightness << "/" << maxBrightness;
-    m_requestedBrightness = m_observedBrightness;
-    m_executedBrightness = m_observedBrightness;
-    m_expectedMinBrightness = -1;
-    m_expectedMaxBrightness = -1;
-    Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
 }
 
 QString BacklightBrightness::id() const
@@ -276,4 +191,4 @@ bool BacklightBrightness::isInternal() const
     return true;
 }
 
-#include "moc_backlightbrightness.cpp"
+#include "moc_backlightbrightness_freebsd.cpp"

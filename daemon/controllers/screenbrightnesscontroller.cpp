@@ -13,7 +13,12 @@
 
 #include "screenbrightnesscontroller.h"
 
-#include "backlightbrightness.h"
+#ifdef Q_OS_FREEBSD
+#include "backlightbrightness_freebsd.h"
+#else
+#include "backlightbrightness_linux.h"
+#endif
+
 #include "ddcutildetector.h"
 #include "externalbrightnesscontrol.h"
 #include "kwinbrightness.h"

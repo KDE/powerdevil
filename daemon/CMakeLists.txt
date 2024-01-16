@@ -28,7 +28,6 @@ set(powerdevilcore_SRCS
     controllers/keyboardbrightnesscontroller.cpp controllers/keyboardbrightnesscontroller.h
     controllers/screenbrightnesscontroller.cpp controllers/screenbrightnesscontroller.h
     controllers/displaybrightness.cpp controllers/displaybrightness.h
-    controllers/backlightbrightness.cpp controllers/backlightbrightness.h
     controllers/ddcutildetector.cpp controllers/ddcutildetector.h
     controllers/ddcutildisplay.cpp controllers/ddcutildisplay.h
     controllers/udevqtclient.cpp controllers/udevqtclient.h
@@ -37,6 +36,11 @@ set(powerdevilcore_SRCS
     controllers/externalbrightnesscontrol.cpp controllers/externalbrightnesscontrol.h
     controllers/displaymatch.h
 )
+if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
+    list(APPEND powerdevilcore_SRCS controllers/backlightbrightness_freebsd.cpp controllers/backlightbrightness_freebsd.h)
+else()
+    list(APPEND powerdevilcore_SRCS controllers/backlightbrightness_linux.cpp controllers/backlightbrightness_linux.h)
+endif()
 
 add_library(powerdevil_log_static STATIC)
 set_property(TARGET powerdevil_log_static PROPERTY POSITION_INDEPENDENT_CODE ON)
@@ -154,7 +158,6 @@ install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
 kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_actions.actions)
 
-
 ## backlight helper executable
 set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
@@ -162,7 +165,6 @@ if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
 else()
     list(APPEND backlighthelpers_SRCS controllers/backlighthelper_linux.cpp controllers/backlighthelper_linux.h)
 endif()
-
 add_executable(backlighthelper ${backlighthelpers_SRCS})
 target_link_libraries(backlighthelper Qt::Core KF6::AuthCore KF6::I18n)
 install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
