@@ -45,7 +45,7 @@ void DDCutilBrightness::detect()
     qCDebug(POWERDEVIL) << "Check for monitors using ddca_get_display_info_list2()...";
     // Inquire about detected monitors.
     DDCA_Display_Info_List *displays = nullptr;
-    ddca_get_display_info_list2(true, &displays);
+    ddca_get_display_info_list2(false, &displays);
     qCInfo(POWERDEVIL) << "[DDCutilBrightness]" << displays->ct << "display(s) were detected";
 
     for (auto &displayInfo : std::span(displays->info, displays->ct)) {
