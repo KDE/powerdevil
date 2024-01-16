@@ -88,6 +88,7 @@ void Core::loadCore()
     m_screenBrightnessController = std::make_unique<ScreenBrightnessController>();
 
     connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onControllersReady);
+    m_screenBrightnessController->detectDisplays();
 }
 
 void Core::onControllersReady()

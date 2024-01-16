@@ -18,31 +18,40 @@
 #include <QPropertyAnimation>
 
 #include "backlightbrightness.h"
-#include "ddcutilbrightness.h"
+#include "ddcutildetector.h"
 
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
-    , m_backlightBrightnessControl(new BacklightBrightness(this))
-    , m_ddcBrightnessControl(new DDCutilBrightness(this))
+    , m_detectors({
+          {new BacklightDetector(this), "internal display backlight"},
+          {new DDCutilDetector(this), "libddcutil"},
+      })
 {
-    connect(m_backlightBrightnessControl, &BacklightBrightness::detectionFinished, this, &ScreenBrightnessController::onBacklightDetectionFinished);
-
-    qCDebug(POWERDEVIL) << "Trying to detect internal display backlight for brightness control...";
-    m_backlightBrightnessControl->detect();
 }
 
-void ScreenBrightnessController::onBacklightDetectionFinished(bool isSupported)
+void ScreenBrightnessController::detectDisplays()
 {
-    disconnect(m_backlightBrightnessControl, &BacklightBrightness::detectionFinished, this, &ScreenBrightnessController::onBacklightDetectionFinished);
+    disconnect(nullptr, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
+    disconnect(nullptr, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDisplaysChanged);
 
-    if (!isSupported) {
-        qCDebug(POWERDEVIL) << "No internal display backlight detected. Trying DDC for brightness controls... ";
-        m_ddcBrightnessControl->detect();
-        connect(m_ddcBrightnessControl, &DDCutilBrightness::displaysChanged, this, &ScreenBrightnessController::onDisplaysChanged);
+    qCDebug(POWERDEVIL) << "Trying to detect displays for brightness control...";
+    m_finishedDetectingCount = 0;
+    m_displays.clear();
+
+    for (const std::pair<DisplayBrightnessDetector *, const char *> &detectorNamePair : m_detectors) {
+        DisplayBrightnessDetector *detector = detectorNamePair.first;
+
+        connect(detector, &DisplayBrightnessDetector::detectionFinished, this, [this, detector]() {
+            disconnect(detector, &DisplayBrightnessDetector::detectionFinished, this, nullptr);
+
+            if (++m_finishedDetectingCount; m_finishedDetectingCount == m_detectors.size()) {
+                onDisplaysChanged();
+                Q_EMIT detectionFinished();
+            }
+            connect(detector, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDisplaysChanged);
+        });
+        detector->detect();
     }
-    onDisplaysChanged();
-
-    Q_EMIT detectionFinished();
 }
 
 void ScreenBrightnessController::onDisplaysChanged()
@@ -50,13 +59,13 @@ void ScreenBrightnessController::onDisplaysChanged()
     DisplayBrightness *previousFirstDisplay = m_displays.isEmpty() ? nullptr : m_displays.first();
     m_displays.clear();
 
-    if (m_backlightBrightnessControl->isSupported()) {
-        qCDebug(POWERDEVIL) << "Using internal display backlight for brightness controls.";
-        m_displays += m_backlightBrightnessControl;
-    } else if (m_ddcBrightnessControl->isSupported()) {
-        qCDebug(POWERDEVIL) << "Using libddcutil for brightness controls.";
-        m_displays += m_ddcBrightnessControl->displays();
-    } else {
+    for (const auto &detectorNamePair : m_detectors) {
+        if (m_displays += detectorNamePair.first->displays(); !m_displays.isEmpty()) {
+            qCDebug(POWERDEVIL) << "Using" << detectorNamePair.second << "for brightness controls.";
+            break; // FIXME: remove this and use all available displays once we have a UI/API for it
+        }
+    }
+    if (m_displays.isEmpty()) {
         qCDebug(POWERDEVIL) << "No suitable displays detected. Brightness controls are unsupported in this configuration.";
     }
 

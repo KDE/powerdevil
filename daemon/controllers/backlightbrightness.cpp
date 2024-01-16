@@ -22,70 +22,73 @@
 #include <KAuth/ExecuteJob>
 #include <KAuth/HelperSupport>
 
+#include <memory> // std::shared_ptr
+
 #include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
 
-BacklightBrightness::BacklightBrightness(QObject *parent)
-    : DisplayBrightness(parent)
+BacklightDetector::BacklightDetector(QObject *parent)
+    : DisplayBrightnessDetector(parent)
 {
 }
 
-void BacklightBrightness::detect()
+void BacklightDetector::detect()
 {
+    if (m_display) {
+        disconnect(m_display.get(), nullptr, nullptr, nullptr);
+    }
+    std::shared_ptr<BacklightBrightness> deleteOld(m_display.release());
+
     KAuth::Action brightnessAction("org.kde.powerdevil.backlighthelper.brightness");
     brightnessAction.setHelperId(HELPER_ID);
     KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
-    connect(brightnessJob, &KJob::result, this, [this, brightnessJob] {
+    connect(brightnessJob, &KJob::result, this, [this, brightnessJob, deleteOld = std::move(deleteOld)] {
         if (brightnessJob->error()) {
             qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
             qCDebug(POWERDEVIL) << brightnessJob->errorText();
-            Q_EMIT detectionFinished(isSupported());
+            Q_EMIT detectionFinished(false);
             return;
         }
-        m_cachedBrightness = brightnessJob->data()["brightness"].toFloat();
+        int cachedBrightness = brightnessJob->data()["brightness"].toInt();
 
         KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
         brightnessMaxAction.setHelperId(HELPER_ID);
         KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
-        connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob] {
+        connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob, cachedBrightness, deleteOld = std::move(deleteOld)] {
             if (brightnessMaxJob->error()) {
                 qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
                 qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
-            } else {
-                m_maxBrightness = brightnessMaxJob->data()["brightnessmax"].toInt();
+                Q_EMIT detectionFinished(false);
+                return;
             }
+            int maxBrightness = brightnessMaxJob->data()["brightnessmax"].toInt();
 
 #ifdef Q_OS_FREEBSD
             // FreeBSD doesn't have the sysfs interface that the bits below expect;
             // the sysfs calls always fail, leading to detectionFinished(false) emission.
             // Skip that command and carry on with the information that we do have.
-            Q_EMIT detectionFinished(isSupported());
+            if (maxBrightness > 0) {
+                m_display.reset(new BacklightBrightness(cachedBrightness, maxBrightness, QString()));
+            }
+            Q_EMIT detectionFinished(m_display != nullptr);
 #else
             KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
             syspathAction.setHelperId(HELPER_ID);
             KAuth::ExecuteJob* syspathJob = syspathAction.execute();
-            connect(syspathJob, &KJob::result, this, [this, syspathJob] {
+            connect(syspathJob, &KJob::result, this, [this, syspathJob, cachedBrightness, maxBrightness, deleteOld = std::move(deleteOld)] {
                 if (syspathJob->error()) {
                     qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
                     qCDebug(POWERDEVIL) << syspathJob->errorText();
-                    m_maxBrightness = 0; // i.e. isSupported() == false
-                    Q_EMIT detectionFinished(isSupported());
+                    Q_EMIT detectionFinished(false);
                     return;
                 }
-                m_syspath = syspathJob->data()["syspath"].toString();
-                m_syspath = QFileInfo(m_syspath).symLinkTarget();
-
-                // Kernel doesn't send uevent for leds-class devices, or at least that's what
-                // commit 26a48f9db claimed (although the monitored subsystem was already hardcoded
-                // to "backlight" then). That's okay because we emit brightnessChanged() at least
-                // once when setBrightness() starts successfully.
-                if (!m_syspath.contains(QLatin1String("/leds/"))) {
-                    UdevQt::Client *client =  new UdevQt::Client(QStringList("backlight"), this);
-                    connect(client, &UdevQt::Client::deviceChanged, this, &BacklightBrightness::onDeviceChanged);
+                if (maxBrightness > 0) {
+                    QString syspath = syspathJob->data()["syspath"].toString();
+                    syspath = QFileInfo(syspath).symLinkTarget();
+                    m_display.reset(new BacklightBrightness(cachedBrightness, maxBrightness, syspath));
                 }
-
-                Q_EMIT detectionFinished(isSupported());
+                Q_EMIT detectionFinished(m_display != nullptr);
             });
             syspathJob->start();
 #endif
@@ -93,6 +96,29 @@ void BacklightBrightness::detect()
         brightnessMaxJob->start();
     });
     brightnessJob->start();
+}
+
+QList<DisplayBrightness *> BacklightDetector::displays() const
+{
+    return m_display ? QList<DisplayBrightness *>(1, m_display.get()) : QList<DisplayBrightness *>();
+}
+
+BacklightBrightness::BacklightBrightness(int cachedBrightness, int maxBrightness, QString syspath, QObject *parent)
+    : DisplayBrightness(parent)
+    , m_syspath(syspath)
+    , m_cachedBrightness(cachedBrightness)
+    , m_maxBrightness(maxBrightness)
+{
+#ifndef Q_OS_FREEBSD
+    // Kernel doesn't send uevent for leds-class devices, or at least that's what
+    // commit 26a48f9db claimed (although the monitored subsystem was already hardcoded
+    // to "backlight" then). That's okay because we emit brightnessChanged() at least
+    // once when setBrightness() starts successfully.
+    if (!m_syspath.contains(QLatin1String("/leds/"))) {
+        UdevQt::Client *client = new UdevQt::Client(QStringList("backlight"), this);
+        connect(client, &UdevQt::Client::deviceChanged, this, &BacklightBrightness::onDeviceChanged);
+    }
+#endif
 }
 
 bool BacklightBrightness::isSupported() const

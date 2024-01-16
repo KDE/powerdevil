@@ -28,7 +28,7 @@ set(powerdevilcore_SRCS
     controllers/screenbrightnesscontroller.cpp
     controllers/displaybrightness.cpp
     controllers/backlightbrightness.cpp
-    controllers/ddcutilbrightness.cpp
+    controllers/ddcutildetector.cpp
     controllers/ddcutildisplay.cpp
     controllers/udevqtclient.cpp
     controllers/udevqtdevice.cpp

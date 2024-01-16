@@ -12,19 +12,23 @@
 
 #include <QObject>
 
+#include <utility> // std::pair
+
 #include <powerdevilcore_export.h>
 
 #include "displaybrightness.h"
 #include "powerdevilscreenbrightnesslogic.h"
 
-class BacklightBrightness;
-class DDCutilBrightness;
+class BacklightDetector;
+class DDCutilDetector;
 
 class POWERDEVILCORE_EXPORT ScreenBrightnessController : public QObject
 {
     Q_OBJECT
 public:
     ScreenBrightnessController();
+
+    void detectDisplays(); // will emit detectionFinished signal once all candidates were checked
 
     int screenBrightness() const;
     int screenBrightnessMax() const;
@@ -43,13 +47,12 @@ private:
 
 private Q_SLOTS:
     void onDisplaysChanged();
-    void onBacklightDetectionFinished(bool isSupported);
     void onScreenBrightnessChanged(int value, int valueMax);
 
 private:
     QList<DisplayBrightness *> m_displays;
     PowerDevil::ScreenBrightnessLogic m_screenBrightnessLogic;
 
-    BacklightBrightness *m_backlightBrightnessControl;
-    DDCutilBrightness *m_ddcBrightnessControl;
+    QList<std::pair<DisplayBrightnessDetector *, const char * /*debug name*/>> m_detectors;
+    int m_finishedDetectingCount = 0;
 };

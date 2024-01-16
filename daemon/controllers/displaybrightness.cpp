@@ -6,6 +6,11 @@
 
 #include "displaybrightness.h"
 
+DisplayBrightnessDetector::DisplayBrightnessDetector(QObject *parent)
+    : QObject(parent)
+{
+}
+
 DisplayBrightness::DisplayBrightness(QObject *parent)
     : QObject(parent)
 {
