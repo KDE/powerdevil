@@ -14,6 +14,8 @@
 #include <KAuth/HelperSupport>
 #include <kauth_version.h>
 
+#include "backlightsysfsdevice.h"
+
 using namespace KAuth;
 
 class BacklightHelper : public QObject
@@ -31,10 +33,8 @@ public Q_SLOTS:
 private:
     void init();
 
-    int readBrightness() const;
     bool writeBrightness(int brightness) const;
 
-    int readFromDevice(const QString &device, const QString &property) const;
     bool writeToDevice(const QString &device, int brightness) const;
 
     /**
@@ -43,12 +43,9 @@ private:
      * firmware-platform-raw
      */
     void initUsingBacklightType();
-    QStringList getBacklightTypeDevices() const;
 
     bool m_isSupported = false;
-    QString m_sysctlDevice;
-    QList<int> m_sysctlBrightnessLevels;
-    QList<QPair<QString /*device path*/, int /*max brightness*/>> m_devices;
+    QList<BacklightSysfsDevice> m_devices;
 
     QVariantAnimation m_anim;
 };
