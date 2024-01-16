@@ -39,7 +39,10 @@ set(powerdevilcore_SRCS
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
     list(APPEND powerdevilcore_SRCS controllers/backlightbrightness_freebsd.cpp controllers/backlightbrightness_freebsd.h)
 else()
-    list(APPEND powerdevilcore_SRCS controllers/backlightbrightness_linux.cpp controllers/backlightbrightness_linux.h)
+    list(APPEND powerdevilcore_SRCS
+        controllers/backlightbrightness_linux.cpp controllers/backlightbrightness_linux.h
+        controllers/backlightsysfsdevice.cpp controllers/backlightsysfsdevice.h
+    )
 endif()
 
 add_library(powerdevil_log_static STATIC)
@@ -163,7 +166,10 @@ set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
     list(APPEND backlighthelpers_SRCS controllers/backlighthelper_freebsd.cpp controllers/backlighthelper_freebsd.h)
 else()
-    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_linux.cpp controllers/backlighthelper_linux.h)
+    list(APPEND backlighthelpers_SRCS
+        controllers/backlighthelper_linux.cpp controllers/backlighthelper_linux.h
+        controllers/backlightsysfsdevice.cpp controllers/backlightsysfsdevice.h
+    )
 endif()
 add_executable(backlighthelper ${backlighthelpers_SRCS})
 target_link_libraries(backlighthelper Qt::Core KF6::AuthCore KF6::I18n)
