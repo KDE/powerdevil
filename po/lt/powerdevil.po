@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:38+0000\n"
-"PO-Revision-Date: 2022-12-12 19:31+0200\n"
+"PO-Revision-Date: 2024-01-17 01:17+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -48,12 +48,10 @@ msgid "Increase Screen Brightness"
 msgstr "Padidinti ekrano ryškumą"
 
 #: actions/bundled/brightnesscontrol.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Padidinti ekrano ryškumą"
+msgstr "Padidinti ekrano ryškumą 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:49
 #, kde-format
@@ -62,12 +60,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Sumažinti ekrano ryškumą"
 
 #: actions/bundled/brightnesscontrol.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Sumažinti ekrano ryškumą"
+msgstr "Sumažinti ekrano ryškumą 1%"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -162,10 +158,9 @@ msgid "Previous maintainer"
 msgstr "Ankstesnis prižiūrėtojas"
 
 #: powerdevilapp.cpp:101
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Išjungti po"
+msgstr "Perjungti maitinimo profilį"
 
 #: powerdevilapp.cpp:116
 #, kde-format
@@ -246,30 +241,21 @@ msgstr ""
 "pakeiskite jo akumuliatorių."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
-"Baigia išsikrauti akumuliatorius – norėdami toliau naudotis kompiuteriu, "
-"įsitikinkite, kad jis prijungtas prie elektros maitinimo šaltinio ir, kad "
-"maitinimo šaltinis tiekia pakankamai energijos."
+"Įsitikinkite, kad yra prijungtas elektros maitinimo šaltinis ir, kad jis "
+"tiekia pakankamai energijos."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Prijunkite elektros maitinimo laidą."
 
 #: powerdevilcore.cpp:604
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Jūsų akumuliatorius pasiekė kritinį lygmenį, kompiuteris bus sustabdytas po "
-"60 sekundžių."
+msgstr "Kritinis akumuliatoriaus lygis. Po 60 sekundžių kompiuteris išsijungs."
 
 #: powerdevilcore.cpp:606
 #, kde-format
@@ -279,16 +265,12 @@ msgid "Shut Down Now"
 msgstr "Išjungti kompiuterį dabar"
 
 #: powerdevilcore.cpp:612
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"Jūsų akumuliatorius pasiekė kritinį lygmenį, kompiuteris bus sustabdytas po "
-"60 sekundžių."
+"Kritinis akumuliatoriaus lygis. Po 60 sekundžių kompiuteris bus užmigdytas."
 
 #: powerdevilcore.cpp:614
 #, kde-format
@@ -299,14 +281,10 @@ msgid "Hibernate Now"
 msgstr "Užmigdyti dabar"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"Jūsų akumuliatorius pasiekė kritinį lygmenį, kompiuteris bus sustabdytas po "
-"60 sekundžių."
+"Kritinis akumuliatoriaus lygis. Po 60 sekundžių bus įjungta miego veiksena."
 
 #: powerdevilcore.cpp:622
 #, kde-format
@@ -316,10 +294,9 @@ msgid "Sleep Now"
 msgstr "Pristabdyti dabar"
 
 #: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "Kritinis akumuliatoriaus lygis. Įrašykite visus savo darbus."
+msgstr "Įrašykite visus savo darbus."
 
 #: powerdevilcore.cpp:634
 #, kde-format
