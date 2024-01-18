@@ -99,22 +99,6 @@ bool BacklightHelper::writeBrightness(int brightness) const
     return true;
 }
 
-ActionReply BacklightHelper::syspath(const QVariantMap &args)
-{
-    Q_UNUSED(args);
-
-    ActionReply reply;
-
-    if (!m_isSupported || m_devices.isEmpty()) {
-        reply = ActionReply::HelperErrorReply();
-        return reply;
-    }
-
-    reply.addData(QStringLiteral("syspath"), m_devices.constFirst().syspath());
-
-    return reply;
-}
-
 ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
 {
     Q_UNUSED(args);

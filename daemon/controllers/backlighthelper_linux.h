@@ -27,7 +27,6 @@ public Q_SLOTS:
     ActionReply brightness(const QVariantMap &args);
     ActionReply brightnessmax(const QVariantMap &args);
     ActionReply setbrightness(const QVariantMap &args);
-    ActionReply syspath(const QVariantMap &args);
 
 private:
     void init();

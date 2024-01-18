@@ -13,8 +13,9 @@
 
 #include <powerdevil_debug.h>
 
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDebug>
-#include <QFileInfo>
 #include <QTimer>
 
 #include <KAuth/Action>
@@ -23,13 +24,20 @@
 #include <KAuth/HelperSupport>
 #include <KLocalizedString>
 
+#include <algorithm> // std::max, std::min
+#include <limits> // std::numeric_limits
 #include <memory> // std::shared_ptr
 
 #include "udevqt.h"
 
 using namespace Qt::StringLiterals;
 
-inline constexpr QLatin1StringView HELPER_ID("org.kde.powerdevil.backlighthelper");
+inline constexpr QLatin1StringView SYSFS_BACKLIGHT_SUBSYSTEM("backlight");
+inline constexpr QLatin1StringView SYSFS_LED_SUBSYSTEM("leds");
+
+inline constexpr QLatin1StringView LOGIN1_SERVICE("org.freedesktop.login1");
+inline constexpr QLatin1StringView LOGIN1_SESSION_PATH("/org/freedesktop/login1/session/auto");
+inline constexpr QLatin1StringView LOGIN1_SESSION_IFACE("org.freedesktop.login1.Session");
 
 BacklightDetector::BacklightDetector(QObject *parent)
     : DisplayBrightnessDetector(parent)
@@ -41,54 +49,16 @@ void BacklightDetector::detect()
     if (m_display) {
         disconnect(m_display.get(), nullptr, this, nullptr);
     }
-    std::shared_ptr<BacklightBrightness> deleteOld(m_display.release());
+    std::shared_ptr<BacklightBrightness> deleteAfterDetectionFinished(m_display.release());
 
-    KAuth::Action brightnessAction(u"org.kde.powerdevil.backlighthelper.brightness"_s);
-    brightnessAction.setHelperId(HELPER_ID);
-    KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
-    connect(brightnessJob, &KJob::result, this, [this, brightnessJob, deleteOld = std::move(deleteOld)] {
-        if (brightnessJob->error()) {
-            qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightness failed";
-            qCDebug(POWERDEVIL) << brightnessJob->errorText();
-            Q_EMIT detectionFinished(false);
-            return;
-        }
-        int cachedBrightness = brightnessJob->data()[u"brightness"_s].toInt();
-
-        KAuth::Action brightnessMaxAction(u"org.kde.powerdevil.backlighthelper.brightnessmax"_s);
-        brightnessMaxAction.setHelperId(HELPER_ID);
-        KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
-        connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob, cachedBrightness, deleteOld = std::move(deleteOld)] {
-            if (brightnessMaxJob->error()) {
-                qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.brightnessmax failed";
-                qCDebug(POWERDEVIL) << brightnessMaxJob->errorText();
-                Q_EMIT detectionFinished(false);
-                return;
-            }
-            int maxBrightness = brightnessMaxJob->data()[u"brightnessmax"_s].toInt();
-
-            KAuth::Action syspathAction(u"org.kde.powerdevil.backlighthelper.syspath"_s);
-            syspathAction.setHelperId(HELPER_ID);
-            KAuth::ExecuteJob *syspathJob = syspathAction.execute();
-            connect(syspathJob, &KJob::result, this, [this, syspathJob, cachedBrightness, maxBrightness, deleteOld = std::move(deleteOld)] {
-                if (syspathJob->error()) {
-                    qCWarning(POWERDEVIL) << "org.kde.powerdevil.backlighthelper.syspath failed";
-                    qCDebug(POWERDEVIL) << syspathJob->errorText();
-                    Q_EMIT detectionFinished(false);
-                    return;
-                }
-                if (maxBrightness > 0) {
-                    QString syspath = syspathJob->data()[u"syspath"_s].toString();
-                    syspath = QFileInfo(syspath).symLinkTarget();
-                    m_display.reset(new BacklightBrightness(cachedBrightness, maxBrightness, syspath));
-                }
-                Q_EMIT detectionFinished(m_display != nullptr);
-            });
-            syspathJob->start();
-        });
-        brightnessMaxJob->start();
-    });
-    brightnessJob->start();
+    if (!QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
+        qCWarning(POWERDEVIL) << "[BacklightBrightness]: not supported: missing D-Bus service" << LOGIN1_SERVICE;
+    } else if (QList<BacklightSysfsDevice> devices = BacklightSysfsDevice::getBacklightTypeDevices(); !devices.isEmpty()) {
+        m_display.reset(new BacklightBrightness(devices, this));
+    } else {
+        qCWarning(POWERDEVIL) << "[BacklightBrightness]: not supported: no kernel backlight interface found";
+    }
+    Q_EMIT detectionFinished(m_display != nullptr);
 }
 
 QList<DisplayBrightness *> BacklightDetector::displays() const
@@ -96,45 +66,49 @@ QList<DisplayBrightness *> BacklightDetector::displays() const
     return m_display ? QList<DisplayBrightness *>{m_display.get()} : QList<DisplayBrightness *>{};
 }
 
-BacklightBrightness::BacklightBrightness(int observedBrightness, int maxBrightness, QString syspath, QObject *parent)
+BacklightBrightness::BacklightBrightness(const QList<BacklightSysfsDevice> &devices, QObject *parent)
     : DisplayBrightness(parent)
-    , m_syspath(syspath)
-    , m_observedBrightness(observedBrightness)
-    , m_requestedBrightness(observedBrightness)
-    , m_executedBrightness(observedBrightness)
-    , m_maxBrightness(maxBrightness)
+    , m_devices(devices)
 {
+    if (m_devices.isEmpty()) {
+        return;
+    }
+    m_observedBrightness = m_devices.constFirst().readBrightness().value_or(-1);
+    m_requestedBrightness = m_observedBrightness;
+    m_executedBrightness = m_observedBrightness;
+
     // Kernel doesn't send uevent for leds-class devices, or at least that's what commit 26a48f9db
     // claimed (although the monitored subsystem was already hardcoded to "backlight" then).
     // Keep track of backlight devices for changes not initiated by this class.
-    if (!m_syspath.contains(QLatin1String("/leds/"))) {
-        UdevQt::Client *client = new UdevQt::Client(QStringList{u"backlight"_s}, this);
+    if (m_devices.constFirst().subsystem == SYSFS_BACKLIGHT_SUBSYSTEM) {
+        UdevQt::Client *client = new UdevQt::Client(QStringList(SYSFS_BACKLIGHT_SUBSYSTEM), this);
         connect(client, &UdevQt::Client::deviceChanged, this, &BacklightBrightness::onDeviceChanged);
     }
 }
 
 bool BacklightBrightness::isSupported() const
 {
-    return m_maxBrightness > 0;
+    return !m_devices.isEmpty();
 }
 
 void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
 {
-    if (device.sysfsPath() != m_syspath) {
+    Q_ASSERT(!m_devices.isEmpty());
+
+    if (device.name() != m_devices.constFirst().interface) {
         return;
     }
-    int maxBrightness = device.sysfsProperty(u"max_brightness"_s).toInt();
-    if (maxBrightness <= 0) {
+    if (device.sysfsProperty("max_brightness"_L1).toInt() != m_devices.constFirst().maxBrightness) {
         return;
     }
-    int newBrightness = device.sysfsProperty(u"brightness"_s).toInt();
-    if (m_observedBrightness == newBrightness) {
+    std::optional<int> newBrightness = m_devices.constFirst().readBrightness();
+    if (!newBrightness.has_value() || m_observedBrightness == *newBrightness) {
         return;
     }
     int lastObservedBrightness = m_observedBrightness;
-    m_observedBrightness = newBrightness;
+    m_observedBrightness = *newBrightness;
 
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed brightness to:" << m_observedBrightness << "for" << m_syspath;
+    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed brightness to:" << m_observedBrightness << "for" << device.sysfsPath();
 
     //
     // Ignore any brightness changes that we initiated in this class, send signals only for external changes
@@ -159,7 +133,7 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
         }
     }
 
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: External brightness change observed:" << m_observedBrightness << "/" << maxBrightness;
+    qCDebug(POWERDEVIL) << "[BacklightBrightness]: External brightness change observed:" << m_observedBrightness << "/" << m_devices.constFirst().maxBrightness;
     m_requestedBrightness = m_observedBrightness;
     m_executedBrightness = m_observedBrightness;
     m_expectedMinBrightness = -1;
@@ -189,7 +163,7 @@ int BacklightBrightness::knownSafeMinBrightness() const
 
 int BacklightBrightness::maxBrightness() const
 {
-    return m_maxBrightness;
+    return m_devices.isEmpty() ? -1 : m_devices.constFirst().maxBrightness;
 }
 
 int BacklightBrightness::brightness() const
@@ -209,14 +183,13 @@ void BacklightBrightness::setBrightness(int newBrightness)
     }
     m_requestedBrightness = newBrightness;
 
-    if (m_isWaitingForKAuthJob) {
-        // There's already a KAuth setbrightness job running. Don't start a second one until
-        // this one has replied. (Note that when the setbrightness job returns, the animation
-        // has been started but will probably still run asynchronously for a while.)
+    if (m_isWaitingForAsyncIPC) {
+        // There's already an async SetBrightness D-Bus call running. Don't start a second one
+        // until this one has replied. (Note that even if we cancel an animation now, previous
+        // calls may still result in a handful of onDeviceChanged() events later.)
         // Remember m_requestedBrightness for later and handle it in the result handler lambda.
         return;
     }
-    m_isWaitingForKAuthJob = true;
 
     const int oldExecutedBrightness = m_executedBrightness;
     m_executedBrightness = newBrightness;
@@ -230,28 +203,65 @@ void BacklightBrightness::setBrightness(int newBrightness)
         m_expectedMaxBrightness = qMax(m_observedBrightness, oldExecutedBrightness);
     }
 
-    KAuth::Action action(u"org.kde.powerdevil.backlighthelper.setbrightness"_s);
-    action.setHelperId(HELPER_ID);
-    action.addArgument(u"brightness"_s, newBrightness);
-    auto *job = action.execute();
+    setBrightnessWithLogin1(newBrightness);
+}
 
-    connect(job, &KAuth::ExecuteJob::result, this, [this, job] {
-        Q_ASSERT(m_isWaitingForKAuthJob);
-        m_isWaitingForKAuthJob = false;
+void BacklightBrightness::setBrightnessWithLogin1(int newBrightness)
+{
+    Q_ASSERT(!m_devices.isEmpty());
 
-        if (job->error()) {
-            qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness" << job->errorText();
-            Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
-            return;
+    const int firstMaxBrightness = std::max(1, m_devices.constFirst().maxBrightness);
+    for (qsizetype i = 0; i < m_devices.size(); ++i) {
+        const BacklightSysfsDevice &device = m_devices[i];
+        bool isFirstDevice = i == 0;
+        unsigned int perDeviceBrightness = newBrightness;
+
+        if (!isFirstDevice) {
+            // Some monitor brightness values are ridiculously high, and can easily overflow during computation
+            const qint64 newBrightness64 =
+                static_cast<qint64>(newBrightness) * static_cast<qint64>(device.maxBrightness) / static_cast<qint64>(firstMaxBrightness);
+            // cautiously truncate it back
+            perDeviceBrightness = static_cast<unsigned int>(std::min(static_cast<qint64>(std::numeric_limits<int>::max()), newBrightness64));
         }
 
-        if (m_requestedBrightness != m_executedBrightness) {
-            // We had another setBrightness() request come in in the meantime:
-            // apply it now that m_isWaitingForKAuthJob is not blocking the call
-            setBrightness(m_requestedBrightness);
+        if (isFirstDevice) {
+            m_isWaitingForAsyncIPC = true;
         }
-    });
-    job->start();
+
+        QDBusMessage msg = QDBusMessage::createMethodCall(LOGIN1_SERVICE, LOGIN1_SESSION_PATH, LOGIN1_SESSION_IFACE, "SetBrightness"_L1);
+        msg << device.subsystem << device.interface << perDeviceBrightness;
+
+        QDBusPendingCall call = QDBusConnection::systemBus().asyncCall(msg);
+
+        if (isFirstDevice) {
+            QDBusPendingCallWatcher *callWatcher = new QDBusPendingCallWatcher(call, this);
+
+            connect(callWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+                QDBusPendingReply<> reply = *watcher;
+                watcher->deleteLater();
+
+                Q_ASSERT(m_isWaitingForAsyncIPC);
+                m_isWaitingForAsyncIPC = false;
+
+                if (reply.isError()) {
+                    qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness via" << LOGIN1_SERVICE
+                                          << "D-Bus service:" << reply.error().message();
+                    std::optional<int> currentBrightness = m_devices.constFirst().readBrightness();
+                    if (currentBrightness.has_value()) {
+                        m_observedBrightness = *currentBrightness;
+                    }
+                    Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
+                    return;
+                }
+
+                if (m_requestedBrightness != m_executedBrightness) {
+                    // We had another setBrightness() request come in in the meantime:
+                    // apply it now that m_isWaitingForAsyncIPC is not blocking the call
+                    setBrightness(m_requestedBrightness);
+                }
+            });
+        }
+    }
 }
 
 bool BacklightBrightness::isInternal() const
