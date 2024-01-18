@@ -161,21 +161,17 @@ install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
 kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_actions.actions)
 
-## backlight helper executable
-set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+## backlight helper executable (FreeBSD only, on Linux we use a login1.SetBrightness D-Bus call)
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
-    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_freebsd.cpp controllers/backlighthelper_freebsd.h)
-else()
-    list(APPEND backlighthelpers_SRCS
-        controllers/backlighthelper_linux.cpp controllers/backlighthelper_linux.h
-        controllers/backlightsysfsdevice.cpp controllers/backlightsysfsdevice.h
+    add_executable(backlighthelper
+        controllers/backlighthelper_freebsd.cpp controllers/backlighthelper_freebsd.h
+        ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp
     )
+    target_link_libraries(backlighthelper Qt::Core KF6::AuthCore KF6::I18n)
+    install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+    kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
+    kauth_install_actions(org.kde.powerdevil.backlighthelper controllers/backlight_helper_actions.actions)
 endif()
-add_executable(backlighthelper ${backlighthelpers_SRCS})
-target_link_libraries(backlighthelper Qt::Core KF6::AuthCore KF6::I18n)
-install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
-kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
-kauth_install_actions(org.kde.powerdevil.backlighthelper controllers/backlight_helper_actions.actions)
 
 # Wakeup source helper
 if (CMAKE_SYSTEM_NAME STREQUAL Linux)

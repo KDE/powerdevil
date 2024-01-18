@@ -7,12 +7,17 @@
 
 #pragma once
 
+#include <QList>
 #include <QObject>
 #include <QString>
 
 #include <memory> // std::unique_ptr
 
+#include "backlightsysfsdevice.h"
 #include "displaybrightness.h"
+
+class QDBusInterface;
+class QVariantAnimation;
 
 namespace UdevQt
 {
@@ -53,25 +58,30 @@ private Q_SLOTS:
 
 private:
     friend class BacklightDetector;
-    explicit BacklightBrightness(int cachedBrightness, int maxBrightness, QString syspath, QObject *parent = nullptr);
+    explicit BacklightBrightness(QList<BacklightSysfsDevice> devices, QObject *parent = nullptr);
 
     bool isSupported() const;
+    void cancelBrightnessAnimation();
+    void animateBrightnessWithLogin1(int newBrightness);
+    void setBrightnessWithLogin1(int newBrightness, bool isFinalAnimationValue = true);
 
 private:
-    QString m_syspath; // device path within sysfs
+    QList<BacklightSysfsDevice> m_devices;
+
+    QVariantAnimation *m_brightnessAnimation = nullptr;
 
     const int m_brightnessAnimationThreshold = 100;
     const int m_brightnessAnimationDurationMsec = 250;
 
-    int m_observedBrightness;
-    int m_requestedBrightness;
-    int m_executedBrightness;
-    int m_maxBrightness;
+    int m_observedBrightness = -1;
+    int m_requestedBrightness = -1;
+    int m_executedBrightness = -1;
 
     // lower and upper bound for checking whether an observed brightness change is expected or not
     // by the brightness animation
     int m_expectedMinBrightness = -1;
     int m_expectedMaxBrightness = -1;
 
-    bool m_isWaitingForKAuthJob = false;
+    bool m_isWaitingForAsyncIPC = false;
+    bool m_requestedAllowAnimations = false;
 };
