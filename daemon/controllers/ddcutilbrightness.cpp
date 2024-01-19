@@ -31,6 +31,11 @@ DDCutilBrightness::~DDCutilBrightness()
 void DDCutilBrightness::detect()
 {
 #ifdef WITH_DDCUTIL
+
+    if (qEnvironmentVariableIntValue("POWERDEVIL_NO_DDCUTIL") > 0) {
+        return;
+    }
+
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 0, 0)
     qCDebug(POWERDEVIL) << "Initializing ddcutil API (create ddcutil configuration file for tracing & more)...";
     static DDCA_Status init_status = -1; // negative indicates error condition
