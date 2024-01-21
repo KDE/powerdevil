@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 22:29+0000\n"
-"PO-Revision-Date: 2021-08-21 16:43+0300\n"
+"PO-Revision-Date: 2024-01-21 01:27+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: ProfilesConfigKCM.cpp:444
 #, kde-format
@@ -31,7 +31,7 @@ msgstr "Atrodo, kad energijos valdymo tarnyba neveikia."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Išplėstinės maitinimo nuostatos"
 
 #: ui/GlobalConfig.qml:21
 #, kde-format
@@ -39,27 +39,26 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Akumuliatoriaus lygiai"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "Že&mas lygis:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Senkant akumuliatoriui"
+msgstr "Žemas akumuliatoriaus įkrovos lygis"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -68,6 +67,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Akumuliatoriaus įkrova bus laikoma žema, kai ji nusileis iki šio lygio. "
+"Vietoj įprastų akumuliatoriaus nuostatų, bus naudojamos baigiančio "
+"išsikrauti akumuliatoriaus nuostatos."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -75,13 +77,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Kr&itinis lygis:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritinis akumuliatoriaus lygis"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -91,6 +93,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Baterijos įkrova bus laikoma kritine, kai ji nusileis iki šio lygio. Po "
+"trumpo įspėjimo sistema automatiškai pristabdys kompiuterį arba jį išjungs, "
+"priklausomai nuo sukonfigūruoto kritinio akumuliatoriaus lygio veiksmo."
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -98,25 +103,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Esant kri&tiniam lygiui:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Veiksmas, kuris bus atliktas, kai akumuliatoriaus lygis bus kritinis"
 
 #: ui/GlobalConfig.qml:180
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Išorinių įr&enginių žemas lygis:"
 
 #: ui/GlobalConfig.qml:188
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Žemas išorinių įrenginių akumuliatoriaus lygis"
 
 #: ui/GlobalConfig.qml:215
 #, kde-format
@@ -125,12 +130,13 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"Įšorinių įrenginių baterijos įkrova bus laikoma žema, kai ji pasieks šį lygį."
 
 #: ui/GlobalConfig.qml:223
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Įkrovimo riba"
 
 #: ui/GlobalConfig.qml:232
 #, kde-format
@@ -138,7 +144,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "S&tabdyti įkrovimą ties:"
 
 #: ui/GlobalConfig.qml:262
 #, kde-format
@@ -146,7 +152,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Pradėti įkrovimą, kai yra že&miau:"
 
 #: ui/GlobalConfig.qml:319
 #, kde-format
@@ -155,6 +161,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Jums gali tekti atjungti ir iš naujo prijungti elektros maitinimo šaltinį, "
+"kad vėl pradėtumėte įkrauti akumuliatorių."
 
 #: ui/GlobalConfig.qml:329
 #, kde-format
@@ -164,6 +172,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Reguliarus akumuliatoriaus įkrovimas iki beveik 100% ar pilnas jo iškrovimas "
+"gali pagreitinti akumuliatoriaus nusidėvėjimą. Apribodami didžiausią "
+"akumuliatoriaus įkrovą, galite pailginti akumuliatoriaus darbo trukmę."
 
 #: ui/GlobalConfig.qml:337
 #, kde-format
@@ -171,70 +182,70 @@ msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Kitos nuostatos"
 
 #: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "&Medijos atkūrimas:"
 
 #: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Pristabdant kompiuterį pristabdyti medijos leistuves"
 
 #: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Susiję puslapiai:"
 
 #: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Pranešimai: Maitinimo valdymas"
 
 #: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Atverti „Pranešimų“ nuostatų puslapį, „Maitinimo valdymo“ sekciją"
 
 #: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Darbalaukio seansas"
 
 #: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Atverti „Darbalaukio seanso“ nuostatų puslapį"
 
 #: ui/GlobalConfig.qml:391
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Veiklos"
 
 #: ui/GlobalConfig.qml:392
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Atverti „Veiklų“ nuostatų puslapį"
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Išplėstinės maitinimo nuo&statos…"
 
 #: ui/main.qml:43
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Nepavyko įkelti maitinimo valdymo nuostatų"
 
 #: ui/main.qml:79
 #, kde-format
@@ -257,13 +268,13 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:36
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Pristabdyti seansą"
 
 #: ui/ProfileConfig.qml:50
 #, kde-format
@@ -271,13 +282,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "P&o neveiklumo laikotarpio:"
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Veiksmas, kurį atlikti, kai sistema neveikli"
 
 #: ui/ProfileConfig.qml:121
 #, kde-format
@@ -285,13 +296,14 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Paspaudus kompiuterio &maitinimo mygtuką:"
 
 #: ui/ProfileConfig.qml:123
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr ""
+"Veiksmas, kurį atlikti, kai paspaudžiamas kompiuterio maitinimo mygtukas"
 
 #: ui/ProfileConfig.qml:158
 #, kde-format
@@ -299,13 +311,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Uždarius nešiojamojo kompiuterio &dangtį:"
 
 #: ui/ProfileConfig.qml:160
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Veiksmas, kurį atlikti, kai uždaromas nešiojamojo kompiuterio dangtis"
 
 #: ui/ProfileConfig.qml:195
 #, kde-format
@@ -313,67 +325,69 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Netgi, kai prijungtas išorinis monitorius"
 
 #: ui/ProfileConfig.qml:197
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Atlikti nešiojamojo kompiuterio dangčio uždarymui skirtą veiksmą net, kai "
+"yra prijungtas išorinis monitorius"
 
 #: ui/ProfileConfig.qml:214
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "Ką daryti įjungus miego veikseną:"
 
 #: ui/ProfileConfig.qml:216
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "Įjungus miego veikseną, perjungti į šią energijos taupymo veikseną"
 
 #: ui/ProfileConfig.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Ekranas ir ryškumas"
 
 #: ui/ProfileConfig.qml:281
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Keisti &ekrano ryškumą:"
 
 #: ui/ProfileConfig.qml:324
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Automatiškai prite&mdyti:"
 
 #: ui/ProfileConfig.qml:373
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "Išjung&ti ekraną:"
 
 #: ui/ProfileConfig.qml:421
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "Kai užra&kinta, išjungti ekraną:"
 
 #: ui/ProfileConfig.qml:463
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Keisti kla&viatūros ryškumą:"
 
 #: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Kitos nuostatos"
 
 #: ui/ProfileConfig.qml:518
 #, kde-format
@@ -381,7 +395,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Perjungti į maiti&nimo profilį:"
 
 #: ui/ProfileConfig.qml:522
 #, kde-format
@@ -389,13 +403,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Perjungti į maitinimo profilį"
 
 #: ui/ProfileConfig.qml:563
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Vykdyti tinkintą scenarijų:"
 
 #: ui/ProfileConfig.qml:569
 #, kde-format
@@ -403,88 +417,89 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Pasirinkite vykdymo sąlygas…"
 
 #: ui/ProfileConfig.qml:571
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Pasirinkite scenarijaus komandos vykdymo sąlygas"
 
 #: ui/ProfileConfig.qml:590
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "Kai į šią maiti&nimo būseną įžengiama"
 
 #: ui/ProfileConfig.qml:606
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "Kai iš šios maitinim&o būsenos išeinama"
 
 #: ui/ProfileConfig.qml:622
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "Po ne&veiklumo laikotarpio"
 
 #: ui/ProfileConfig.qml:641
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "Kai į šią maiti&nimo būseną įžengiama:"
 
 #: ui/ProfileConfig.qml:643
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "Scenarijaus komanda, kuomet bus įžengiama į šią maitinimo būseną"
 
 #: ui/ProfileConfig.qml:674
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "Kai iš šios maitinim&o būsenos išeinama:"
 
 #: ui/ProfileConfig.qml:676
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "Scenarijaus komanda, kuomet bus išeinama iš šios maitinimo būsenos"
 
 #: ui/ProfileConfig.qml:707
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "Po ne&veiklumo laikotarpio:"
 
 #: ui/ProfileConfig.qml:709
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "Scenarijaus komanda, kuri bus vykdoma po neveiklumo laikotarpio"
 
 #: ui/ProfileConfig.qml:738
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
 msgstr ""
+"Neveiklumo laikotarpis, kuriam pasibaigus bus vykdoma scenarijaus komanda"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Įveskite komandą arba pasirinkite failą…"
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Pasirinkti vykdomąjį failą…"
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Pasirinkti vykdomąjį failą"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -492,7 +507,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|m.|min|min.|minučių|minuciu|minutės|minutes|minutė|minute"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -500,7 +515,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|s.|sek|sek.|sekundžių|sekundziu|sekundės|sekundes|sekundė|sekunde"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -509,25 +524,25 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "po %1 min."
+msgstr[1] "po %1 min."
+msgstr[2] "po %1 min."
+msgstr[3] "po %1 min."
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "po %1 sek."
+msgstr[1] "po %1 sek."
+msgstr[2] "po %1 sek."
+msgstr[3] "po %1 sek."
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
