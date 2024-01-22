@@ -36,10 +36,7 @@ void ScreenBrightnessController::onBacklightDetectionFinished(bool isSupported)
 {
     disconnect(m_backlightBrightnessControl, &BacklightBrightness::detectionFinished, this, &ScreenBrightnessController::onBacklightDetectionFinished);
 
-    if (isSupported) {
-        m_screenBrightnessAvailable = true;
-        m_cachedBrightness = m_backlightBrightnessControl->brightness();
-    } else {
+    if (true) {
         qCDebug(POWERDEVIL) << "No internal dislay backlight detected. Trying DDC for brightness controls...";
         m_ddcBrightnessControl->detect();
         if (m_ddcBrightnessControl->isSupported()) {
@@ -53,6 +50,9 @@ void ScreenBrightnessController::onBacklightDetectionFinished(bool isSupported)
                 connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &ScreenBrightnessController::ddcScreenBrightnessChanged);
             }
             m_screenBrightnessAvailable = true;
+        } else if (isSupported) {
+            m_screenBrightnessAvailable = true;
+            m_cachedBrightness = m_backlightBrightnessControl->brightness();
         }
     }
     // Brightness Controls available
