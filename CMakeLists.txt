@@ -4,6 +4,7 @@ project(PowerDevil)
 set(PROJECT_VERSION "5.92.90")
 set(PROJECT_VERSION_MAJOR 6)
 
+set(PROJECT_DEP_VERSION "6.0.80")
 set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
@@ -29,11 +30,11 @@ include(ECMDeprecationSettings)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Auth Config Crash DBusAddons DocTools I18n IdleTime ItemModels GlobalAccel KIO Kirigami2 KCMUtils Notifications Solid XmlGui)
-find_package(PlasmaActivities ${PROJECT_VERSION} REQUIRED)
+find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(KF6Screen CONFIG REQUIRED)
 find_package(LibKWorkspace CONFIG REQUIRED)
 
-find_package(LibKWorkspace ${PROJECT_VERSION} REQUIRED)
+find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
 
 find_package(UDev REQUIRED)
 
