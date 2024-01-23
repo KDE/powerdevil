@@ -7,6 +7,6 @@ After=plasma-core.target
 ExecStart=@KDE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
 Type=dbus
 BusName=org.kde.Solid.PowerManagement
-TimeoutStopSec=5sec
+TimeoutStopSec=10sec
 Slice=background.slice
 Restart=on-failure
