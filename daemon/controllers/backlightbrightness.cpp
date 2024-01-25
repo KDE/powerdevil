@@ -22,6 +22,8 @@
 #include <KAuth/ExecuteJob>
 #include <KAuth/HelperSupport>
 
+#include <KLocalizedString>
+
 #include "udevqt.h"
 
 #define HELPER_ID "org.kde.powerdevil.backlighthelper"
@@ -93,6 +95,11 @@ void BacklightBrightness::detect()
         brightnessMaxJob->start();
     });
     brightnessJob->start();
+}
+
+QString BacklightBrightness::label() const
+{
+    return i18n("Built-in Screen");
 }
 
 bool BacklightBrightness::isSupported() const
@@ -167,6 +174,11 @@ void BacklightBrightness::setBrightness(int newBrightness, int animationDuration
         Q_EMIT brightnessChanged(newBrightness, maxBrightness());
     });
     job->start();
+}
+
+QString BacklightBrightness::generateDisplayId() const
+{
+    return m_syspath.split(QLatin1Char('/')).last();
 }
 
 #include "moc_backlightbrightness.cpp"

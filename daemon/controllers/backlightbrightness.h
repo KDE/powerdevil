@@ -24,6 +24,8 @@ class BacklightBrightness : public QObject
 public:
     explicit BacklightBrightness(QObject *parent = nullptr);
 
+    QString label() const;
+
     /**
      * Check if this controller is operational. Call detect() and wait for the
      * detectionFinished() signal before using this.
@@ -53,6 +55,8 @@ private Q_SLOTS:
     void onDeviceChanged(const UdevQt::Device &device);
 
 private:
+    QString generateDisplayId() const;
+
     QString m_syspath; // device path within sysfs
 
     const int m_brightnessAnimationThreshold = 100;
