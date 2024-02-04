@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=systemsettings&component=kcm_powerdevil",
-        "Description": "Energy Saving",
+        "Description": "Power Management",
         "Description[ar]": "حِفظ الطاقة",
         "Description[ast]": "Aforru d'enerxía",
         "Description[be]": "Захаванне энергіі",
@@ -44,7 +44,7 @@
         "Description[zh_CN]": "省电功能",
         "Description[zh_TW]": "省電模式",
         "Icon": "preferences-system-power-management",
-        "Name": "Energy Saving",
+        "Name": "Power Management",
         "Name[ar]": "حِفظ الطاقة",
         "Name[ast]": "Aforru d'enerxía",
         "Name[az]": "Enerjiyə Qənaət",
@@ -102,7 +102,7 @@
         "Name[zh_TW]": "省電模式"
     },
     "X-DocPath": "kcontrol/powerdevil/index.html",
-    "X-KDE-Keywords": "system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,limit,charge limit,charging limit,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,battery levels,low battery,low level,critical level,power notifications,plug,unplug",
+    "X-KDE-Keywords": "system,power,power management,energy,energy saving,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,limit,charge limit,charging limit,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,battery levels,low battery,low level,critical level,power notifications,plug,unplug",
     "X-KDE-Keywords[ar]": "نظام,النظام,طاقة,الطاقة,إدارة الطاقة,ادارة الطاقة, لابتوب,حاسوب محمول,محمول,سطوع,إضاءة,اضاءة,تعليق,علق,نم,نوم,أسبت,اسبت,اسبات,إسبات,أداء,اداء,الأداء,نشاط,جدث,أنشطة,أحداث,",
     "X-KDE-Keywords[az]": "system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,limit,charge limit,charging limit,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,battery levels,low battery,low level,critical level,power notifications,plug,unplug,sistem,güc,güc idarəetməsi,enerji,dizüstü kompyuter,noutbuk,batareya,yuxulama,dəyişən cəryan şəbəkəsi,fasilə,parlaqlıq,işləmə gücü,enerjiyə qənaət,doldurma,boşalma,söndürmək,batareya səviyyəsi,ekranın qaralması,yuxu rejimi,ekranın kilidlənməsi,ekranın söndürülməsi,güc düymələri,zəif batareya,aşağı səviyyə,kritik səviyyə,güc bildirişləri,qoşmaq,çıxarmaq",
     "X-KDE-Keywords[bg]": "енергия,захранване,лаптоп,монитор,хибернация,изключване,приспиване,яркост,натоварване,батерия,зареждане,заключване,дейности,работна среда,затъмняване,екран,разреждане,поведение,система",

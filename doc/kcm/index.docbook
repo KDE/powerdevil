@@ -37,22 +37,22 @@
 
 <note><para>Note that PowerDevil does not poll your system. This means that it will not waste energy while trying to save it, as some other power managers do.</para></note>
 <sect2 id="energy-saving-setting">
-<title>Energy Saving Settings</title>
+<title>Power Management Settings</title>
 <para>
-This page shows the actual energy saving settings. If a battery is detected you have three tabs with different settings for <guilabel>On AC Power</guilabel>, <guilabel>On Battery</guilabel> and <guilabel>On Low Battery</guilabel> profiles.
+This page shows the actual Power Management settings. If a battery is detected you have three tabs with different settings for <guilabel>On AC Power</guilabel>, <guilabel>On Battery</guilabel> and <guilabel>On Low Battery</guilabel> profiles.
 </para>
 <para>
 <screenshot>
-<screeninfo>Energy Saving Settings</screeninfo>
+<screeninfo>Power Management Settings</screeninfo>
   <mediaobject>
     <imageobject>
       <imagedata fileref="energy.png" format="PNG"/>
     </imageobject>
     <textobject>
-      <phrase>Energy Saving Settings</phrase>
+      <phrase>Power Management Settings</phrase>
     </textobject>
     <caption>
-      <para>Energy Saving Settings</para>
+      <para>Power Management Settings</para>
     </caption>
   </mediaobject>
 </screenshot>
