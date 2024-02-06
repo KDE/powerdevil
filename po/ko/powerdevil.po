@@ -241,13 +241,9 @@ msgid "Plug in the computer."
 msgstr "컴퓨터를 전원에 연결하십시오."
 
 #: powerdevilcore.cpp:605
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
+msgstr "배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 종료됩니다."
 
 #: powerdevilcore.cpp:607
 #, kde-format
@@ -257,15 +253,12 @@ msgid "Shut Down Now"
 msgstr "지금 컴퓨터 끄기"
 
 #: powerdevilcore.cpp:613
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr ""
-"배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
+"배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 최대 절전 모드로 전환됩니다."
 
 #: powerdevilcore.cpp:615
 #, kde-format
@@ -276,13 +269,10 @@ msgid "Hibernate Now"
 msgstr "지금 최대 절전 모드로 전환"
 
 #: powerdevilcore.cpp:621
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 60 "
-#| "seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
-"배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 대기 모드로 진입합니다."
+"배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 대기 모드로 전환됩니다."
 
 #: powerdevilcore.cpp:623
 #, kde-format
