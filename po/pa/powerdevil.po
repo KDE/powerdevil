@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:38+0000\n"
-"PO-Revision-Date: 2024-01-03 14:00-0600\n"
+"PO-Revision-Date: 2024-02-05 08:01-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -28,7 +28,7 @@ msgstr "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ (A S Alam)"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "alam yellow @gmail.com"
+msgstr "aalam@punlinux.org"
 
 #: actions/bundled/brightnesscontrol.cpp:36 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:42
@@ -91,7 +91,7 @@ msgstr "ਬੰਦ ਕਰੋ"
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr "ਬੰਦ ਕਰੋ"
+msgstr "ਪਾਵਰ ਡਾਊਨ"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:46
 #, kde-format
@@ -114,14 +114,14 @@ msgstr "ਕੀਬੋਰਡ ਬੈਕਲਾਈਟ ਬਦਲੋ"
 #: powerdevilapp.cpp:53
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "KDE ਪਾਵਰ ਪਰਬੰਧਕ ਸਿਸਟਮ"
+msgstr "KDE ਪਾਵਰ ਮੈਨੇਜਮੈਂਟ ਸਿਸਟਮ"
 
 #: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr "ਪਾਵਰਡਿਵੀਲ ਹੈ, ਇੱਕ ਤਨਕੀਕੀ, ਮੋਡੂਲਰ ਅਤੇ ਹਲਕਾ ਪਾਵਰ ਪਰਬੰਧਕੀ ਡੈਮਨ ਹੈ"
+msgstr "ਪਾਵਰਡਿਵੀਲ ਹੈ, ਇੱਕ ਤਨਕੀਕੀ, ਮੋਡੂਲਰ ਅਤੇ ਹਲਕਾ ਪਾਵਰ ਮੈਨੇਜਮੈਂਟ ਡੈਮਨ ਹੈ"
 
 #: powerdevilapp.cpp:57
 #, kde-format
@@ -166,17 +166,17 @@ msgstr "ਮੌਜੂਦਾ ਮੌਕੇ ਨੂੰ ਬਦਲੋ"
 #: powerdevilcore.cpp:379 powerdevilcore.cpp:390
 #, kde-format
 msgid "Activity Manager"
-msgstr "ਐਕਟਵਿਟੀ ਮੈਨੇਜਰ"
+msgstr "ਸਰਗਰਮੀ ਮੈਨੇਜਰ"
 
 #: powerdevilcore.cpp:380
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr "ਇਹ ਐਕਟਵਿਟੀ ਦੀਆਂ ਪਾਲਸੀਆਂ ਸਿਸਟਮ ਨੂੰ ਸਲੀਪ ਕਰਨ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ"
+msgstr "ਇਹ ਸਰਗਰਮੀ ਦੀਆਂ ਪਾਲਸੀਆਂ ਸਿਸਟਮ ਨੂੰ ਸਲੀਪ ਹੋਣ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ"
 
 #: powerdevilcore.cpp:391
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr "ਇਹ ਐਕਟਵਿਟੀ ਦੀਆਂ ਪਾਲਸੀਆਂ ਸਕਰੀਨ ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ"
+msgstr "ਇਹ ਸਰਗਰਮੀ ਦੀਆਂ ਪਾਲਸੀਆਂ ਸਕਰੀਨ ਪਾਵਰ ਮੈਨਜੇਮੈਂਟ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ"
 
 #: powerdevilcore.cpp:453
 #, kde-format
@@ -223,7 +223,7 @@ msgstr "ਕੀਬੋਰਡ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾ�
 #: powerdevilcore.cpp:539
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "ਬਲੂਟੁ਼ਥ ਡਿਵਾਈਸ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾਕੀ)"
+msgstr "ਬਲੂਟੁ਼ੱਥ ਡਿਵਾਈਸ ਦੀ ਬੈਟਰੀ ਘੱਟ ਹੈ (%1% ਬਾਕੀ)"
 
 #: powerdevilcore.cpp:541
 #, kde-format
@@ -275,7 +275,7 @@ msgstr "ਹੁਣੇ ਹਾਈਬਰਨੇਟ"
 #: powerdevilcore.cpp:620
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "ਬੈਟਰੀ ਦਾ ਪੱਧਰ ਨਾਜ਼ੁਕ ਹੈ। ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਸਲੀਪ ਕੀਤਾ ਜਾਵੇਗਾ।"
+msgstr "ਬੈਟਰੀ ਦਾ ਪੱਧਰ ਨਾਜ਼ੁਕ ਹੈ। ਤੁਹਾਡਾ ਕੰਪਿਊਟਰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਸਲੀਪ ਹੋ ਜਾਵੇਗਾ।"
 
 #: powerdevilcore.cpp:622
 #, kde-format
