@@ -42,6 +42,10 @@ void DimDisplay::onWakeupFromIdle()
 void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_ASSERT(timeout == m_dimOnIdleTime);
+    if (m_dimmed) {
+        return;
+    }
+
     if (backend()->screenBrightness() == 0) {
         // Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
@@ -74,7 +78,10 @@ void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
 
 void DimDisplay::triggerImpl(const QVariantMap &args)
 {
-    backend()->setScreenBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt());
+    // don't arbitrarily turn-off the display
+    if (m_oldScreenBrightness > 0) {
+        backend()->setScreenBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt());
+    }
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
@@ -90,8 +97,30 @@ bool DimDisplay::isSupported()
 bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     qCDebug(POWERDEVIL);
+    // when profile is changed after display is dimmed or turn-off (by dpms)
+    // 1. restore brightness values if current loaded profile doesn't require dimming
+    // 2. update brightness values to new ones if there are explicitly set
+    // but do not update m_dimmed so onIdleTimeout would not override them
     if (!profileSettings.dimDisplayWhenIdle()) {
+        if (m_dimmed) {
+            if (!profileSettings.useProfileSpecificDisplayBrightness() && m_oldScreenBrightness > 0) {
+                backend()->setScreenBrightness(m_oldScreenBrightness);
+            }
+            if (!profileSettings.useProfileSpecificKeyboardBrightness() && m_oldKeyboardBrightness > 0) {
+                backend()->setKeyboardBrightness(m_oldKeyboardBrightness);
+            }
+            m_dimmed = false;
+        }
         return false;
+    }
+
+    if (m_dimmed) {
+        if (profileSettings.useProfileSpecificDisplayBrightness()) {
+            m_oldScreenBrightness = profileSettings.displayBrightness();
+        }
+        if (profileSettings.useProfileSpecificKeyboardBrightness()) {
+            m_oldKeyboardBrightness = profileSettings.keyboardBrightness();
+        }
     }
 
     m_dimOnIdleTime = std::chrono::seconds(profileSettings.dimDisplayIdleTimeoutSec());
