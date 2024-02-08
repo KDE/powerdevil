@@ -109,7 +109,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
     case PowerDevil::PowerButtonAction::PromptLogoutDialog: {
         SessionManagement sessionManager;
-        sessionManager.requestShutdown(SessionManagement::ConfirmationMode::ForcePrompt);
+        sessionManager.requestLogoutPrompt();
         break;
     }
     case PowerDevil::PowerButtonAction::LockScreen: {
