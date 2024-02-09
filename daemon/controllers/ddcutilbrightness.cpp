@@ -46,6 +46,7 @@ Q_SIGNALS:
     void displayAdded();
     void displayRemoved(QString path);
     void dpmsStateChanged(QString path, bool isSleeping);
+    void brightnessChanged(int brightness, int maxBrightness);
 
 private Q_SLOTS:
     void redetect();
@@ -64,6 +65,12 @@ void ddcaCallback(DDCA_Display_Status_Event event)
 }
 #endif
 
+DDCutilPrivateSingleton &DDCutilPrivateSingleton::instance()
+{
+    static DDCutilPrivateSingleton singleton;
+    return singleton;
+}
+
 DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 0, 0)
@@ -73,6 +80,7 @@ DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 #else
     DDCA_Status init_status = ddca_init(nullptr, DDCA_SYSLOG_NOTICE, DDCA_INIT_OPTIONS_CLIENT_OPENED_SYSLOG);
 #endif
+
     if (init_status < 0) {
         qCWarning(POWERDEVIL) << "[DDCutilBrightness]: Could not initialize ddcutil API. Not using DDC for monitor brightness.";
         return;
@@ -101,12 +109,6 @@ DDCutilPrivateSingleton::~DDCutilPrivateSingleton()
     disconnect(this, &DDCutilPrivateSingleton::displayRemoved, this, &DDCutilPrivateSingleton::removeDisplay);
     disconnect(this, &DDCutilPrivateSingleton::dpmsStateChanged, this, &DDCutilPrivateSingleton::setDpmsState);
 #endif
-}
-
-DDCutilPrivateSingleton &DDCutilPrivateSingleton::instance()
-{
-    static DDCutilPrivateSingleton singleton;
-    return singleton;
 }
 
 void DDCutilPrivateSingleton::detect()
@@ -150,6 +152,10 @@ void DDCutilPrivateSingleton::detect()
         m_displays[displayId] = std::move(display);
         m_displayIds += displayId;
     }
+
+    if (!m_displayIds.isEmpty()) {
+        connect(m_displays.at(m_displayIds.first()).get(), &DDCutilDisplay::brightnessChanged, this, &DDCutilPrivateSingleton::brightnessChanged);
+    }
     ddca_free_display_info_list(displays);
 }
 
@@ -177,6 +183,7 @@ QString DDCutilPrivateSingleton::generateDisplayId(const DDCA_IO_Path &displayPa
 void DDCutilPrivateSingleton::redetect()
 {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
+
     qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Screen configuration changed. Redetecting displays";
 
     m_displays.clear();
@@ -213,10 +220,14 @@ void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &ev
 void DDCutilPrivateSingleton::removeDisplay(const QString &path)
 {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    if (m_displayIds.contains(path)) {
+    if (auto index = m_displayIds.indexOf(path); index != -1) {
         qCDebug(POWERDEVIL) << "[DDCutilBrightness]: closing display" << path;
-        m_displayIds.remove(m_displayIds.indexOf(path));
+        m_displayIds.remove(index);
         m_displays.erase(path);
+
+        if (index == 0 && !m_displayIds.empty()) {
+            connect(m_displays.at(m_displayIds.first()).get(), &DDCutilDisplay::brightnessChanged, this, &DDCutilPrivateSingleton::brightnessChanged);
+        }
     } else {
         qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Remove display failded";
     }
@@ -227,21 +238,24 @@ void DDCutilPrivateSingleton::setDpmsState(const QString &path, bool isSleeping)
 {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     if (m_displayIds.contains(path)) {
-        if (!isSleeping) {
-            m_displays.at(path)->wakeWorker();
-            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: wakeup displays";
+        if (isSleeping) {
+            m_displays.at(path)->pauseWorker();
+            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: set display to sleep:" << path;
+        } else {
+            m_displays.at(path)->resumeWorker();
+            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: wakeup display:" << path;
         }
-
-        m_displays.at(path)->setIsSleeping(isSleeping);
     }
 #endif
 }
-
 #endif
 
 DDCutilBrightness::DDCutilBrightness(QObject *parent)
     : QObject(parent)
 {
+#ifdef WITH_DDCUTIL
+    connect(&DDCutilPrivateSingleton::instance(), &DDCutilPrivateSingleton::brightnessChanged, this, &DDCutilBrightness::brightnessChanged);
+#endif
 }
 
 DDCutilBrightness::~DDCutilBrightness()

@@ -16,7 +16,6 @@
 
 #include "powerdevilscreenbrightnesslogic.h"
 
-class QPropertyAnimation;
 class BacklightBrightness;
 class DDCutilBrightness;
 
@@ -45,20 +44,14 @@ private:
 
 private Q_SLOTS:
     void onBacklightDetectionFinished(bool isSupported);
-    void ddcScreenBrightnessChanged();
     void onScreenBrightnessChanged(int value, int valueMax);
 
 private:
-    void animationValueChanged(const QVariant &value);
-
-    int m_cachedBrightness = 0;
     bool m_screenBrightnessAvailable = false;
     PowerDevil::ScreenBrightnessLogic m_screenBrightnessLogic;
 
     BacklightBrightness *m_backlightBrightnessControl;
     DDCutilBrightness *m_ddcBrightnessControl;
 
-    QPropertyAnimation *m_brightnessAnimation = nullptr;
     const int m_brightnessAnimationDurationMsec = 250;
-    const int m_brightnessAnimationThreshold = 100;
 };

@@ -7,6 +7,10 @@
 
 #include "ddcutildisplay.h"
 
+#include <chrono>
+
+using namespace std::chrono_literals;
+
 #define BRIGHTNESS_VCP_FEATURE_CODE 0x10
 
 #ifdef WITH_DDCUTIL
@@ -17,8 +21,6 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo, DDCA_Display_Handl
     , m_brightness(-1)
     , m_maxBrightness(-1)
     , m_supportsBrightness(false)
-    , m_isSleeping(false)
-    , m_isWorking(false)
 {
     Q_ASSERT(displayHandle);
 
@@ -29,23 +31,23 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo, DDCA_Display_Handl
         m_maxBrightness = value.mh << 8 | value.ml;
         m_supportsBrightness = true;
     }
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
+    m_timer = new QTimer(this);
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(std::chrono::milliseconds(1000));
+    connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onTimeout);
     m_brightnessWorker->moveToThread(&m_brightnessWorkerThread);
     connect(&m_brightnessWorkerThread, &QThread::finished, m_brightnessWorker, &QObject::deleteLater);
     connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
-    connect(m_brightnessWorker, &BrightnessWorker::ddcBrightnessChangeApplied, this, &DDCutilDisplay::onDdcBrightnessChangeFinished);
+    connect(m_brightnessWorker, &BrightnessWorker::ddcBrightnessChangeApplied, this, &DDCutilDisplay::ddcBrightnessChangeFinished);
     m_brightnessWorkerThread.start();
-#endif
 }
 #endif
 
 DDCutilDisplay::~DDCutilDisplay()
 {
 #ifdef WITH_DDCUTIL
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     m_brightnessWorkerThread.quit();
     m_brightnessWorkerThread.wait();
-#endif
     ddca_close_display(m_displayHandle);
 #endif
 }
@@ -57,7 +59,6 @@ QString DDCutilDisplay::label() const
 
 int DDCutilDisplay::brightness()
 {
-    QReadLocker lock(&m_lock);
     return m_brightness;
 }
 
@@ -69,35 +70,15 @@ int DDCutilDisplay::maxBrightness()
 void DDCutilDisplay::setBrightness(int value)
 {
 #ifdef WITH_DDCUTIL
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    m_cachedBrightness = value;
-
-    if (!m_isWorking) {
-        m_isWorking = true;
-        Q_EMIT ddcBrightnessChangeRequested(value, this);
-    }
-#else
-    QWriteLocker lock(&m_lock);
-
-    uint8_t sh = value >> 8 & 0xff;
-    uint8_t sl = value & 0xff;
-
-    if (ddca_set_non_table_vcp_value(m_displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl) == DDCRC_OK) {
-        m_brightness = value;
-    }
-#endif
+    m_timer->start();
+    m_brightness = value;
+    Q_EMIT brightnessChanged(value, m_maxBrightness);
 #endif
 }
 
-void DDCutilDisplay::onDdcBrightnessChangeFinished(int brightness, bool isSuccessful)
+void DDCutilDisplay::ddcBrightnessChangeFinished(bool isSuccessful)
 {
-    if (isSuccessful) {
-        if (m_cachedBrightness != brightness) {
-            Q_EMIT ddcBrightnessChangeRequested(m_cachedBrightness, this);
-        } else {
-            m_isWorking = false;
-        }
-    } else {
+    if (!isSuccessful) {
         m_supportsBrightness = false;
     }
 }
@@ -105,25 +86,11 @@ void DDCutilDisplay::onDdcBrightnessChangeFinished(int brightness, bool isSucces
 void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)
 {
 #ifdef WITH_DDCUTIL
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    display->m_lock.lockForWrite();
-
     uint8_t sh = value >> 8 & 0xff;
     uint8_t sl = value & 0xff;
 
-    if (display->isSleeping()) {
-        display->m_sync.wait(&display->m_lock, 15000);
-    }
-
-    if (ddca_set_non_table_vcp_value(display->m_displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl) == DDCRC_OK) {
-        display->m_brightness = value;
-        Q_EMIT ddcBrightnessChangeApplied(value, true);
-    } else {
-        Q_EMIT ddcBrightnessChangeApplied(0, false);
-    }
-
-    display->m_lock.unlock();
-#endif
+    auto status = ddca_set_non_table_vcp_value(display->m_displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl);
+    Q_EMIT ddcBrightnessChangeApplied(status == DDCRC_OK);
 #endif
 }
 
@@ -132,22 +99,29 @@ bool DDCutilDisplay::supportsBrightness() const
     return m_supportsBrightness;
 }
 
-void DDCutilDisplay::setIsSleeping(bool isSleeping)
-{
-    m_isSleeping = isSleeping;
-}
-
-bool DDCutilDisplay::isSleeping() const
-{
-    return m_isSleeping;
-}
-
-void DDCutilDisplay::wakeWorker()
+void DDCutilDisplay::resumeWorker()
 {
 #ifdef WITH_DDCUTIL
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    m_sync.wakeAll();
+    connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
+    Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
 #endif
+#endif
+}
+
+void DDCutilDisplay::pauseWorker()
+{
+#ifdef WITH_DDCUTIL
+#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
+    disconnect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
+#endif
+#endif
+}
+
+void DDCutilDisplay::onTimeout()
+{
+#ifdef WITH_DDCUTIL
+    Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
 #endif
 }
 

@@ -8,9 +8,8 @@
 #pragma once
 
 #include <QObject>
-#include <QReadWriteLock>
 #include <QThread>
-#include <QWaitCondition>
+#include <QTimer>
 
 #ifdef WITH_DDCUTIL
 #include <ddcutil_c_api.h>
@@ -39,15 +38,16 @@ public:
     int maxBrightness();
     void setBrightness(int value);
     bool supportsBrightness() const;
-    void setIsSleeping(bool isSleeping);
-    bool isSleeping() const;
-    void wakeWorker();
+    void resumeWorker();
+    void pauseWorker();
 
 Q_SIGNALS:
     void ddcBrightnessChangeRequested(int value, DDCutilDisplay *display);
+    void brightnessChanged(int brightness, int maxBrightness);
 
 private Q_SLOTS:
-    void onDdcBrightnessChangeFinished(int brightness, bool isSuccessful);
+    void ddcBrightnessChangeFinished(bool isSuccessful);
+    void onTimeout();
 
 private:
 #ifdef WITH_DDCUTIL
@@ -56,14 +56,10 @@ private:
     QString m_label;
     BrightnessWorker *m_brightnessWorker;
     QThread m_brightnessWorkerThread;
-    QWaitCondition m_sync;
-    QReadWriteLock m_lock;
+    QTimer *m_timer;
     int m_brightness;
     int m_maxBrightness;
-    int m_cachedBrightness;
     bool m_supportsBrightness;
-    bool m_isSleeping;
-    bool m_isWorking;
 };
 
 class BrightnessWorker : public QObject
@@ -74,5 +70,5 @@ class BrightnessWorker : public QObject
 private Q_SLOTS:
     void ddcSetBrightness(int value, DDCutilDisplay *display);
 Q_SIGNALS:
-    void ddcBrightnessChangeApplied(int value, bool isSuccessful);
+    void ddcBrightnessChangeApplied(bool isSuccessful);
 };

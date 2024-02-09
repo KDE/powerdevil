@@ -25,4 +25,7 @@ public:
     void setBrightness(const QString &displayId, int value);
     QStringList displayIds() const;
     void detect();
+
+Q_SIGNALS:
+    void brightnessChanged(int brightness, int maxBrightness);
 };

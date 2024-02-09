@@ -26,7 +26,6 @@ ScreenBrightnessController::ScreenBrightnessController()
     , m_ddcBrightnessControl(new DDCutilBrightness(this))
 {
     connect(m_backlightBrightnessControl, &BacklightBrightness::detectionFinished, this, &ScreenBrightnessController::onBacklightDetectionFinished);
-    connect(m_backlightBrightnessControl, &BacklightBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
 
     qCDebug(POWERDEVIL) << "Trying to detect internal display backlight for brightness control...";
     m_backlightBrightnessControl->detect();
@@ -38,26 +37,19 @@ void ScreenBrightnessController::onBacklightDetectionFinished(bool isSupported)
 
     if (isSupported) {
         m_screenBrightnessAvailable = true;
-        m_cachedBrightness = m_backlightBrightnessControl->brightness();
+        connect(m_backlightBrightnessControl, &BacklightBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
     } else {
         qCDebug(POWERDEVIL) << "No internal dislay backlight detected. Trying DDC for brightness controls...";
         m_ddcBrightnessControl->detect();
         if (m_ddcBrightnessControl->isSupported()) {
             qCDebug(POWERDEVIL) << "Using DDCutillib";
-            m_cachedBrightness = screenBrightness();
-            if (m_brightnessAnimationDurationMsec > 0 && screenBrightnessMax() >= m_brightnessAnimationThreshold) {
-                m_brightnessAnimation = new QPropertyAnimation(this);
-                m_brightnessAnimation->setTargetObject(this);
-                m_brightnessAnimation->setDuration(m_brightnessAnimationDurationMsec);
-                connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &ScreenBrightnessController::animationValueChanged);
-                connect(m_brightnessAnimation, &QPropertyAnimation::finished, this, &ScreenBrightnessController::ddcScreenBrightnessChanged);
-            }
+            connect(m_ddcBrightnessControl, &DDCutilBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
             m_screenBrightnessAvailable = true;
         }
     }
     // Brightness Controls available
     if (m_screenBrightnessAvailable) {
-        qCDebug(POWERDEVIL) << "initial screen brightness value:" << m_cachedBrightness;
+        qCDebug(POWERDEVIL) << "initial screen brightness value:" << screenBrightness();
     }
     Q_EMIT detectionFinished();
 }
@@ -86,10 +78,6 @@ int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::Brightnes
     // m_cachedBrightness is not being updated during animation, thus checking the m_cachedBrightness
     // value here doesn't make much sense, use the endValue from brightness() anyway.
     // This prevents brightness key being ignored during the animation.
-    if (!(m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) && currentBrightness != m_cachedBrightness) {
-        m_cachedBrightness = currentBrightness;
-        return currentBrightness;
-    }
 
     int maxBrightness = screenBrightnessMax();
     int newBrightness = calculateNextScreenBrightnessStep(currentBrightness, maxBrightness, type);
@@ -107,13 +95,9 @@ int ScreenBrightnessController::screenBrightness() const
     int result = 0;
 
     if (m_ddcBrightnessControl->isSupported()) {
-        if (m_brightnessAnimation && m_brightnessAnimation->state() == QPropertyAnimation::Running) {
-            result = m_brightnessAnimation->endValue().toInt();
-        } else {
-            result = m_ddcBrightnessControl->brightness(m_ddcBrightnessControl->displayIds().constFirst());
-        }
+        result = m_ddcBrightnessControl->brightness(m_ddcBrightnessControl->displayIds().constFirst());
     } else {
-        result = m_cachedBrightness;
+        result = m_backlightBrightnessControl->brightness();
     }
     qCDebug(POWERDEVIL) << "Screen brightness value:" << result;
     return result;
@@ -137,18 +121,8 @@ void ScreenBrightnessController::setScreenBrightness(int value)
 {
     qCDebug(POWERDEVIL) << "set screen brightness value:" << value;
     if (m_ddcBrightnessControl->isSupported()) {
-        if (m_brightnessAnimation) {
-            m_brightnessAnimation->stop();
-            disconnect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &ScreenBrightnessController::animationValueChanged);
-            m_brightnessAnimation->setStartValue(screenBrightness());
-            m_brightnessAnimation->setEndValue(value);
-            m_brightnessAnimation->setEasingCurve(screenBrightness() < value ? QEasingCurve::OutQuad : QEasingCurve::InQuad);
-            connect(m_brightnessAnimation, &QPropertyAnimation::valueChanged, this, &ScreenBrightnessController::animationValueChanged);
-            m_brightnessAnimation->start();
-        } else {
-            for (const QString &displayId : m_ddcBrightnessControl->displayIds()) {
-                m_ddcBrightnessControl->setBrightness(displayId, value);
-            }
+        for (const QString &displayId : m_ddcBrightnessControl->displayIds()) {
+            m_ddcBrightnessControl->setBrightness(displayId, value);
         }
     } else if (m_backlightBrightnessControl->isSupported()) {
         m_backlightBrightnessControl->setBrightness(value, m_brightnessAnimationDurationMsec);
@@ -160,32 +134,8 @@ bool ScreenBrightnessController::screenBrightnessAvailable() const
     return m_screenBrightnessAvailable;
 }
 
-void ScreenBrightnessController::ddcScreenBrightnessChanged()
-{
-    if (m_brightnessAnimation && m_brightnessAnimation->state() != QPropertyAnimation::Stopped) {
-        return;
-    }
-
-    if (int currentBrightness = screenBrightness(); currentBrightness != m_cachedBrightness) {
-        onScreenBrightnessChanged(currentBrightness, screenBrightnessMax());
-    }
-}
-
-void ScreenBrightnessController::animationValueChanged(const QVariant &value)
-{
-    if (m_ddcBrightnessControl->isSupported()) {
-        for (const QString &displayId : m_ddcBrightnessControl->displayIds()) {
-            m_ddcBrightnessControl->setBrightness(displayId, value.toInt());
-        }
-    } else {
-        qCInfo(POWERDEVIL) << "ScreenBrightnessController::animationValueChanged: brightness control not supported";
-    }
-}
-
 void ScreenBrightnessController::onScreenBrightnessChanged(int value, int valueMax)
 {
-    m_cachedBrightness = value;
-
     m_screenBrightnessLogic.setValueMax(valueMax);
     m_screenBrightnessLogic.setValue(value);
 
