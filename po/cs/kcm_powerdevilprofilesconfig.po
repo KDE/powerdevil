@@ -31,16 +31,12 @@ msgid "Advanced Power Settings"
 msgstr ""
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr "10%"
+msgstr ""
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
@@ -56,11 +52,10 @@ msgid "&Low level:"
 msgstr ""
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Při nízké úrovní baterie"
+msgstr ""
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -167,14 +162,12 @@ msgid ""
 msgstr ""
 
 #: ui/GlobalConfig.qml:337
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Other Settings"
+#, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr "Další nastavení"
+msgstr ""
 
 #: ui/GlobalConfig.qml:345
 #, kde-format
@@ -206,12 +199,10 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 
 #: ui/GlobalConfig.qml:383
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Suspend Session"
+#, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr "Pozastavit sezení"
+msgstr ""
 
 #: ui/GlobalConfig.qml:384
 #, kde-format
