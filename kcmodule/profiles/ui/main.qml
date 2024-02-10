@@ -96,11 +96,6 @@ KCM.AbstractKCM {
             ]
         }
 
-        Kirigami.Separator {
-            visible: profileTabBar.visible
-            Layout.fillWidth: true
-        }
-
         Item {
             id: scrollBarContainer
             clip: true
