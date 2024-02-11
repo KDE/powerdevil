@@ -1,7 +1,7 @@
 # translation of powerdevil.po to Arabic
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# zayed <zayed.alsaidi@gmail.com>, 2008.
+# SPDX-FileCopyrightText: 2008, 2024 zayed <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2021, 2022, 2023.
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012, 2014.
 # Safa Alfulaij <safaalfulaij@hotmail.con>, 2013.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:38+0000\n"
-"PO-Revision-Date: 2023-06-01 10:08+0400\n"
+"PO-Revision-Date: 2024-02-10 21:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -155,10 +155,9 @@ msgid "Previous maintainer"
 msgstr "المصين السّابق"
 
 #: powerdevilapp.cpp:101
-#, fuzzy, kde-format
-#| msgid "Import PowerDevil Profiles"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "استورد تشكيلات عفريت-الطاقة"
+msgstr "بدل تشكيلة الطاقة"
 
 #: powerdevilapp.cpp:116
 #, kde-format
@@ -238,19 +237,14 @@ msgstr ""
 "في أي وقت. يرجى إعادة شحن البطارية أو استبدالها."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
-msgstr ""
-"طاقة البطارية منخفضة - للاستمرار في استخدام الحاسوب، صِل الشاحن الطاقة وتأكد "
-"أنه يزود طاقة كافية."
+msgstr "صِل شاحن الطاقة وتأكد أنه يزود طاقة كافية."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "اشحن الحاسوب"
 
 #: powerdevilcore.cpp:604
 #, kde-format
@@ -292,10 +286,9 @@ msgid "Sleep Now"
 msgstr "نَم الآن"
 
 #: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr "بلغت البطارية المستوى الحرج، احفظ عملك."
+msgstr "رجاء احفظ عملك."
 
 #: powerdevilcore.cpp:634
 #, kde-format
