@@ -38,7 +38,7 @@ private:
     QString generateDisplayId(const DDCA_IO_Path &displayPath) const;
     void detect();
     QStringList displayIds() const;
-    std::unordered_map<QString, std::unique_ptr<DDCutilDisplay>> &displays();
+    DDCutilDisplay *display(const QString &id) const;
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     void displayStatusChanged(DDCA_Display_Status_Event &event);
 #endif
@@ -156,6 +156,14 @@ void DDCutilPrivateSingleton::detect()
     if (!m_displayIds.isEmpty()) {
         connect(m_displays.at(m_displayIds.first()).get(), &DDCutilDisplay::brightnessChanged, this, &DDCutilPrivateSingleton::brightnessChanged);
     }
+    for (const QString &displayId : std::as_const(m_displayIds)) {
+        DDCutilDisplay *display = m_displays.at(displayId).get();
+        connect(display, &DDCutilDisplay::supportsBrightnessChanged, this, [this, displayId](bool isSupported) {
+            if (!isSupported) {
+                removeDisplay(displayId);
+            }
+        });
+    }
     ddca_free_display_info_list(displays);
 }
 
@@ -164,9 +172,9 @@ QStringList DDCutilPrivateSingleton::displayIds() const
     return m_displayIds;
 }
 
-std::unordered_map<QString, std::unique_ptr<DDCutilDisplay>> &DDCutilPrivateSingleton::displays()
+DDCutilDisplay *DDCutilPrivateSingleton::display(const QString &id) const
 {
-    return m_displays;
+    return m_displayIds.contains(id) ? m_displays.at(id).get() : nullptr;
 }
 
 QString DDCutilPrivateSingleton::generateDisplayId(const DDCA_IO_Path &displayPath) const
@@ -219,9 +227,8 @@ void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &ev
 
 void DDCutilPrivateSingleton::removeDisplay(const QString &path)
 {
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     if (auto index = m_displayIds.indexOf(path); index != -1) {
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: closing display" << path;
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: removing display" << path;
         m_displayIds.remove(index);
         m_displays.erase(path);
 
@@ -229,9 +236,8 @@ void DDCutilPrivateSingleton::removeDisplay(const QString &path)
             connect(m_displays.at(m_displayIds.first()).get(), &DDCutilDisplay::brightnessChanged, this, &DDCutilPrivateSingleton::brightnessChanged);
         }
     } else {
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Remove display failded";
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: failed to remove display";
     }
-#endif
 }
 
 void DDCutilPrivateSingleton::setDpmsState(const QString &path, bool isSleeping)
@@ -274,53 +280,30 @@ bool DDCutilBrightness::isSupported() const
 int DDCutilBrightness::brightness(const QString &displayId)
 {
 #ifdef WITH_DDCUTIL
-    if (!DDCutilPrivateSingleton::instance().displayIds().contains(displayId)) {
-        return -1;
-    }
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    if (!DDCutilPrivateSingleton::instance().displays()[displayId]->supportsBrightness()) {
-        DDCutilPrivateSingleton::instance().removeDisplay(displayId);
-        return -1;
+    if (DDCutilDisplay *display = DDCutilPrivateSingleton::instance().display(displayId)) {
+        return display->brightness();
     }
 #endif
-    return DDCutilPrivateSingleton::instance().displays()[displayId]->brightness();
-#else
     return -1;
-#endif
 }
 
 int DDCutilBrightness::maxBrightness(const QString &displayId)
 {
 #ifdef WITH_DDCUTIL
-    if (!DDCutilPrivateSingleton::instance().displayIds().contains(displayId)) {
-        return -1;
-    }
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    if (!DDCutilPrivateSingleton::instance().displays()[displayId]->supportsBrightness()) {
-        DDCutilPrivateSingleton::instance().removeDisplay(displayId);
-        return -1;
+    if (DDCutilDisplay *display = DDCutilPrivateSingleton::instance().display(displayId)) {
+        return display->maxBrightness();
     }
 #endif
-    return DDCutilPrivateSingleton::instance().displays()[displayId]->maxBrightness();
-#else
     return -1;
-#endif
 }
 
 void DDCutilBrightness::setBrightness(const QString &displayId, int value)
 {
 #ifdef WITH_DDCUTIL
-    if (!DDCutilPrivateSingleton::instance().displayIds().contains(displayId)) {
-        return;
+    if (DDCutilDisplay *display = DDCutilPrivateSingleton::instance().display(displayId)) {
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setBrightness: displayId:" << displayId << "brightness:" << value;
+        display->setBrightness(value);
     }
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    if (!DDCutilPrivateSingleton::instance().displays()[displayId]->supportsBrightness()) {
-        DDCutilPrivateSingleton::instance().removeDisplay(displayId);
-        return;
-    }
-#endif
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setBrightness: displayId:" << displayId << "brightness:" << value;
-    DDCutilPrivateSingleton::instance().displays()[displayId]->setBrightness(value);
 #endif
 }
 

@@ -42,6 +42,7 @@ public:
     void pauseWorker();
 
 Q_SIGNALS:
+    void supportsBrightnessChanged(bool supportsBrightness);
     void ddcBrightnessChangeRequested(int value, DDCutilDisplay *display);
     void brightnessChanged(int brightness, int maxBrightness);
 

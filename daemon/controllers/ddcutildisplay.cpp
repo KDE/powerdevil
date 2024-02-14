@@ -80,6 +80,7 @@ void DDCutilDisplay::ddcBrightnessChangeFinished(bool isSuccessful)
 {
     if (!isSuccessful) {
         m_supportsBrightness = false;
+        Q_EMIT supportsBrightnessChanged(false);
     }
 }
 
