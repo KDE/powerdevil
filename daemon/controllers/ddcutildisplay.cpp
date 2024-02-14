@@ -11,7 +11,7 @@
 
 #ifdef WITH_DDCUTIL
 DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo, DDCA_Display_Handle displayHandle)
-    : m_displayInfo(displayInfo)
+    : m_label(displayInfo.model_name)
     , m_displayHandle(displayHandle)
     , m_brightnessWorker(new BrightnessWorker)
     , m_brightness(-1)
@@ -52,11 +52,7 @@ DDCutilDisplay::~DDCutilDisplay()
 
 QString DDCutilDisplay::label() const
 {
-#ifdef WITH_DDCUTIL
-    return m_displayInfo.model_name;
-#else
-    return QString();
-#endif
+    return m_label;
 }
 
 int DDCutilDisplay::brightness()
