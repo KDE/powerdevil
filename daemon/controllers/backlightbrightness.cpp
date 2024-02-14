@@ -134,7 +134,7 @@ int BacklightBrightness::brightness() const
     return m_cachedBrightness;
 }
 
-void BacklightBrightness::setBrightness(int newBrightness, int animationDurationMsec)
+void BacklightBrightness::setBrightness(int newBrightness)
 {
     if (!isSupported()) {
         qCWarning(POWERDEVIL) << "backlight not supported, setBrightness() should not be called";
@@ -145,11 +145,11 @@ void BacklightBrightness::setBrightness(int newBrightness, int animationDuration
     action.setHelperId(HELPER_ID);
     action.addArgument("brightness", newBrightness);
     if (brightness() >= m_brightnessAnimationThreshold) {
-        action.addArgument("animationDuration", animationDurationMsec);
+        action.addArgument("animationDuration", m_brightnessAnimationDurationMsec);
     }
     auto *job = action.execute();
 
-    connect(job, &KAuth::ExecuteJob::result, this, [this, job, newBrightness, animationDurationMsec] {
+    connect(job, &KAuth::ExecuteJob::result, this, [this, job, newBrightness] {
         if (job->error()) {
             qCWarning(POWERDEVIL) << "Failed to set screen brightness" << job->errorText();
             return;
@@ -160,7 +160,7 @@ void BacklightBrightness::setBrightness(int newBrightness, int animationDuration
             m_brightnessAnimationTimer = new QTimer(this);
             m_brightnessAnimationTimer->setSingleShot(true);
         }
-        m_brightnessAnimationTimer->start(animationDurationMsec);
+        m_brightnessAnimationTimer->start(m_brightnessAnimationDurationMsec);
 
         // Immediately announce the new brightness to everyone while we still animate to it
         m_cachedBrightness = newBrightness;

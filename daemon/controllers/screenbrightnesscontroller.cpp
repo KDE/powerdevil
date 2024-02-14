@@ -125,7 +125,7 @@ void ScreenBrightnessController::setScreenBrightness(int value)
             m_ddcBrightnessControl->setBrightness(displayId, value);
         }
     } else if (m_backlightBrightnessControl->isSupported()) {
-        m_backlightBrightnessControl->setBrightness(value, m_brightnessAnimationDurationMsec);
+        m_backlightBrightnessControl->setBrightness(value);
     }
 }
 

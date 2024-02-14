@@ -43,7 +43,7 @@ public Q_SLOTS:
      */
     void detect();
 
-    void setBrightness(int brightness, int animationDurationMsec);
+    void setBrightness(int brightness);
 
 Q_SIGNALS:
     void detectionFinished(bool isSupported);
@@ -56,6 +56,7 @@ private:
     QString m_syspath; // device path within sysfs
 
     const int m_brightnessAnimationThreshold = 100;
+    const int m_brightnessAnimationDurationMsec = 250;
     QTimer *m_brightnessAnimationTimer = nullptr;
 
     int m_cachedBrightness = 0;

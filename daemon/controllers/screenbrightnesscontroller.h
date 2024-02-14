@@ -52,6 +52,4 @@ private:
 
     BacklightBrightness *m_backlightBrightnessControl;
     DDCutilBrightness *m_ddcBrightnessControl;
-
-    const int m_brightnessAnimationDurationMsec = 250;
 };
