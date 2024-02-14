@@ -32,9 +32,9 @@ public:
 
 private:
 #ifdef WITH_DDCUTIL
-    DDCA_Display_Info m_displayInfo;
     DDCA_Display_Handle m_displayHandle;
 #endif
+    QString m_label;
     QReadWriteLock m_lock;
     int m_brightness;
     int m_maxBrightness;
