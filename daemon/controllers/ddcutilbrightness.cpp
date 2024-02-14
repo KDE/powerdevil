@@ -6,14 +6,18 @@
  */
 
 #include "ddcutilbrightness.h"
+#include "displaybrightness.h"
 
 #include <powerdevil_debug.h>
 
+#include <map>
+#include <memory> // std::unique_ptr
 #include <span>
-#include <unordered_map>
 
 #ifdef WITH_DDCUTIL
 #include <ddcutil_c_api.h>
+
+#include "ddcutildisplay.h"
 
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
 void ddcaCallback(DDCA_Display_Status_Event event);
@@ -37,25 +41,28 @@ private:
 
     QString generateDisplayId(const DDCA_IO_Path &displayPath) const;
     void detect();
-    QStringList displayIds() const;
-    DDCutilDisplay *display(const QString &id) const;
+    const std::map<QString, std::unique_ptr<DDCutilDisplay>> &displays();
+
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     void displayStatusChanged(DDCA_Display_Status_Event &event);
 #endif
+
 Q_SIGNALS:
+    void displaysChanged();
+
+    // emitted from the ddcutil callback from potentially outside the object's thread
     void displayAdded();
-    void displayRemoved(QString path);
-    void dpmsStateChanged(QString path, bool isSleeping);
-    void brightnessChanged(int brightness, int maxBrightness);
+    void displayRemoved(const QString &id);
+    void dpmsStateChanged(const QString &id, bool isSleeping);
 
 private Q_SLOTS:
     void redetect();
-    void removeDisplay(const QString &path);
-    void setDpmsState(const QString &path, bool isSleeping);
+    void removeDisplay(const QString &id);
+    void setDpmsState(const QString &id, bool isSleeping);
 
 private:
-    QStringList m_displayIds;
-    std::unordered_map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
+    std::map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
+    bool m_performedDetection = false;
 };
 
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
@@ -113,9 +120,10 @@ DDCutilPrivateSingleton::~DDCutilPrivateSingleton()
 
 void DDCutilPrivateSingleton::detect()
 {
-    if (qEnvironmentVariableIntValue("POWERDEVIL_NO_DDCUTIL") > 0) {
+    if (m_performedDetection || qEnvironmentVariableIntValue("POWERDEVIL_NO_DDCUTIL") > 0) {
         return;
     }
+    m_performedDetection = true;
 
     qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Check for monitors using ddca_get_display_refs()...";
     // Inquire about detected monitors.
@@ -131,44 +139,35 @@ void DDCutilPrivateSingleton::detect()
     for (int i = 0; i < displayCount; ++i) {
         auto display = std::make_unique<DDCutilDisplay>(displayRefs[i]);
 
-        QString displayId = generateDisplayId(display->ioPath());
-        if (displayId.isEmpty()) {
+        QString id = generateDisplayId(display->ioPath());
+        if (id.isEmpty()) {
             qCWarning(POWERDEVIL) << "[DDCutilBrightness]: Cannot generate ID for display with model name:" << display->label() << "- ignoring";
             continue;
         }
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Created ID:" << displayId << "for display:" << display->label();
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Created ID:" << id << "for display:" << display->label();
 
         if (!display->supportsBrightness()) {
             qCInfo(POWERDEVIL) << "[DDCutilBrightness]: Display" << display->label() << "does not seem to support brightness control - ignoring";
             continue;
         }
-
         qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Display supports Brightness, adding handle to list";
-        m_displays[displayId] = std::move(display);
-        m_displayIds += displayId;
+
+        m_displays.emplace(std::move(id), std::move(display));
     }
 
-    if (!m_displayIds.isEmpty()) {
-        connect(m_displays.at(m_displayIds.first()).get(), &DDCutilDisplay::brightnessChanged, this, &DDCutilPrivateSingleton::brightnessChanged);
-    }
-    for (const QString &displayId : std::as_const(m_displayIds)) {
-        DDCutilDisplay *display = m_displays.at(displayId).get();
-        connect(display, &DDCutilDisplay::supportsBrightnessChanged, this, [this, displayId](bool isSupported) {
+    for (auto it = m_displays.cbegin(); it != m_displays.cend(); ++it) {
+        DDCutilDisplay *display = it->second.get();
+        connect(display, &DDCutilDisplay::supportsBrightnessChanged, this, [this, id = it->first](bool isSupported) {
             if (!isSupported) {
-                removeDisplay(displayId);
+                removeDisplay(id);
             }
         });
     }
 }
 
-QStringList DDCutilPrivateSingleton::displayIds() const
+const std::map<QString, std::unique_ptr<DDCutilDisplay>> &DDCutilPrivateSingleton::displays()
 {
-    return m_displayIds;
-}
-
-DDCutilDisplay *DDCutilPrivateSingleton::display(const QString &id) const
-{
-    return m_displayIds.contains(id) ? m_displays.at(id).get() : nullptr;
+    return m_displays;
 }
 
 QString DDCutilPrivateSingleton::generateDisplayId(const DDCA_IO_Path &displayPath) const
@@ -185,18 +184,24 @@ QString DDCutilPrivateSingleton::generateDisplayId(const DDCA_IO_Path &displayPa
 void DDCutilPrivateSingleton::redetect()
 {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-
-    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Screen configuration changed. Redetecting displays";
-
-    m_displays.clear();
-    m_displayIds.clear();
-
-    if (ddca_redetect_displays()) {
-        qCCritical(POWERDEVIL) << "[DDCutilBrightness]: Redetection failed";
+    if (!m_performedDetection) {
         return;
     }
+    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Screen configuration changed. Redetecting displays";
 
-    detect();
+    std::map<QString, std::unique_ptr<DDCutilDisplay>> invalidDisplays; // delete at end of function
+    std::swap(m_displays, invalidDisplays); // clear m_displays, detect() will repopulate it
+
+    if (ddca_redetect_displays() == DDCRC_OK) {
+        m_performedDetection = false;
+        detect();
+    } else {
+        qCCritical(POWERDEVIL) << "[DDCutilBrightness]: Redetection failed";
+    }
+
+    if (!m_displays.empty() || !invalidDisplays.empty()) {
+        Q_EMIT displaysChanged();
+    }
 #endif
 }
 
@@ -219,31 +224,26 @@ void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &ev
 }
 #endif
 
-void DDCutilPrivateSingleton::removeDisplay(const QString &path)
+void DDCutilPrivateSingleton::removeDisplay(const QString &id)
 {
-    if (auto index = m_displayIds.indexOf(path); index != -1) {
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: removing display" << path;
-        m_displayIds.remove(index);
-        m_displays.erase(path);
-
-        if (index == 0 && !m_displayIds.empty()) {
-            connect(m_displays.at(m_displayIds.first()).get(), &DDCutilDisplay::brightnessChanged, this, &DDCutilPrivateSingleton::brightnessChanged);
-        }
+    if (auto deletedAfterEmit = m_displays.extract(id); !deletedAfterEmit.empty()) {
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Removing display" << id;
+        Q_EMIT displaysChanged();
     } else {
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: failed to remove display";
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Failed to remove display" << id;
     }
 }
 
-void DDCutilPrivateSingleton::setDpmsState(const QString &path, bool isSleeping)
+void DDCutilPrivateSingleton::setDpmsState(const QString &id, bool isSleeping)
 {
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    if (m_displayIds.contains(path)) {
+    if (const auto &it = m_displays.find(id); it != m_displays.end()) {
         if (isSleeping) {
-            m_displays.at(path)->pauseWorker();
-            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: set display to sleep:" << path;
+            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Display" << id << "asleep - pause worker";
+            it->second->pauseWorker();
         } else {
-            m_displays.at(path)->resumeWorker();
-            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: wakeup display:" << path;
+            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Display" << id << "awake - resume worker";
+            it->second->resumeWorker();
         }
     }
 #endif
@@ -253,70 +253,50 @@ void DDCutilPrivateSingleton::setDpmsState(const QString &path, bool isSleeping)
 DDCutilBrightness::DDCutilBrightness(QObject *parent)
     : QObject(parent)
 {
-#ifdef WITH_DDCUTIL
-    connect(&DDCutilPrivateSingleton::instance(), &DDCutilPrivateSingleton::brightnessChanged, this, &DDCutilBrightness::brightnessChanged);
-#endif
 }
 
 DDCutilBrightness::~DDCutilBrightness()
 {
 }
 
+void DDCutilBrightness::detect()
+{
+#ifdef WITH_DDCUTIL
+    bool isFirstDetectCall = connect(&DDCutilPrivateSingleton::instance(),
+                                     &DDCutilPrivateSingleton::displaysChanged,
+                                     this,
+                                     &DDCutilBrightness::displaysChanged,
+                                     Qt::UniqueConnection);
+    if (isFirstDetectCall) {
+        DDCutilPrivateSingleton::instance().detect();
+        if (!DDCutilPrivateSingleton::instance().displays().empty()) {
+            Q_EMIT displaysChanged();
+        }
+    }
+#else
+    qCInfo(POWERDEVIL) << "[DDCutilBrightness] compiled without DDC/CI support";
+#endif
+}
+
 bool DDCutilBrightness::isSupported() const
 {
 #ifdef WITH_DDCUTIL
-    return !DDCutilPrivateSingleton::instance().displayIds().isEmpty();
+    return !DDCutilPrivateSingleton::instance().displays().empty();
 #else
     return false;
 #endif
 }
 
-int DDCutilBrightness::brightness(const QString &displayId)
+QList<DisplayBrightness *> DDCutilBrightness::displays() const
 {
+    QList<DisplayBrightness *> result;
 #ifdef WITH_DDCUTIL
-    if (DDCutilDisplay *display = DDCutilPrivateSingleton::instance().display(displayId)) {
-        return display->brightness();
+    result.reserve(DDCutilPrivateSingleton::instance().displays().size());
+    for (const auto &pair : DDCutilPrivateSingleton::instance().displays()) {
+        result.append(pair.second.get());
     }
 #endif
-    return -1;
-}
-
-int DDCutilBrightness::maxBrightness(const QString &displayId)
-{
-#ifdef WITH_DDCUTIL
-    if (DDCutilDisplay *display = DDCutilPrivateSingleton::instance().display(displayId)) {
-        return display->maxBrightness();
-    }
-#endif
-    return -1;
-}
-
-void DDCutilBrightness::setBrightness(const QString &displayId, int value)
-{
-#ifdef WITH_DDCUTIL
-    if (DDCutilDisplay *display = DDCutilPrivateSingleton::instance().display(displayId)) {
-        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: setBrightness: displayId:" << displayId << "brightness:" << value;
-        display->setBrightness(value);
-    }
-#endif
-}
-
-QStringList DDCutilBrightness::displayIds() const
-{
-#ifdef WITH_DDCUTIL
-    return DDCutilPrivateSingleton::instance().displayIds();
-#else
-    return QStringList();
-#endif
-}
-
-void DDCutilBrightness::detect()
-{
-#ifdef WITH_DDCUTIL
-    DDCutilPrivateSingleton::instance().detect();
-#else
-    qCInfo(POWERDEVIL) << "[DDCutilBrightness] compiled without DDC/CI support";
-#endif
+    return result;
 }
 
 #include "ddcutilbrightness.moc"

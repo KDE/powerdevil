@@ -7,25 +7,23 @@
 
 #pragma once
 
+#include <QList>
 #include <QObject>
-#include <QStringList>
 
-#include "ddcutildisplay.h"
+class DisplayBrightness;
 
 class DDCutilBrightness : public QObject
 {
     Q_OBJECT
+
 public:
     explicit DDCutilBrightness(QObject *parent = nullptr);
     ~DDCutilBrightness();
 
-    bool isSupported() const;
-    int brightness(const QString &displayId);
-    int maxBrightness(const QString &displayId);
-    void setBrightness(const QString &displayId, int value);
-    QStringList displayIds() const;
     void detect();
+    bool isSupported() const;
+    QList<DisplayBrightness *> displays() const;
 
 Q_SIGNALS:
-    void brightnessChanged(int brightness, int maxBrightness);
+    void displaysChanged();
 };

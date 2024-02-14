@@ -14,6 +14,7 @@
 
 #include <powerdevilcore_export.h>
 
+#include "displaybrightness.h"
 #include "powerdevilscreenbrightnesslogic.h"
 
 class BacklightBrightness;
@@ -38,16 +39,15 @@ Q_SIGNALS:
     void screenBrightnessChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
 
 private:
-    void enumerateDevices();
-    void addDevice(const QString &);
     int calculateNextScreenBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
 
 private Q_SLOTS:
+    void onDisplaysChanged();
     void onBacklightDetectionFinished(bool isSupported);
     void onScreenBrightnessChanged(int value, int valueMax);
 
 private:
-    bool m_screenBrightnessAvailable = false;
+    QList<DisplayBrightness *> m_displays;
     PowerDevil::ScreenBrightnessLogic m_screenBrightnessLogic;
 
     BacklightBrightness *m_backlightBrightnessControl;
