@@ -13,7 +13,7 @@ import org.kde.kirigami as Kirigami
 KCM.AbstractKCM {
     id: root
 
-    KCM.ConfigModule.buttons: KCM.ConfigModule.Default | KCM.ConfigModule.Apply
+    KCM.ConfigModule.buttons: KCM.ConfigModule.Default | KCM.ConfigModule.Apply | KCM.ConfigModule.Help
 
     actions: Kirigami.Action {
         text: i18nc("@action:button", "Advanced Power &Settings…")
