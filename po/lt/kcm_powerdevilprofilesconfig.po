@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-10 22:29+0000\n"
-"PO-Revision-Date: 2024-01-21 01:27+0200\n"
+"PO-Revision-Date: 2024-02-20 01:39+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -206,12 +206,12 @@ msgstr "Susiję puslapiai:"
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Pranešimai: Maitinimo valdymas"
+msgstr "Pranešimai: Energijos valdymas"
 
 #: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "Atverti „Pranešimų“ nuostatų puslapį, „Maitinimo valdymo“ sekciją"
+msgstr "Atverti „Pranešimų“ nuostatų puslapį, „Energijos valdymo“ sekciją"
 
 #: ui/GlobalConfig.qml:383
 #, kde-format
@@ -245,7 +245,7 @@ msgstr "Išplėstinės maitinimo nuo&statos…"
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr "Nepavyko įkelti maitinimo valdymo nuostatų"
+msgstr "Nepavyko įkelti energijos valdymo nuostatų"
 
 #: ui/main.qml:79
 #, kde-format
