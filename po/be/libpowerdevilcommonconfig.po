@@ -1,10 +1,10 @@
 # Zmicier <zmicerturok@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2022-12-30 16:31\n"
+"PO-Revision-Date: 2024-02-23 13:37\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -15,99 +15,100 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Generator: Lokalize 22.12.0\n"
-"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
-"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
+"X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/powerdevil/libpowerdevilcommonconfig.po\n"
-"X-Crowdin-File-ID: 8976\n"
+"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/powerdevil/"
+"libpowerdevilcommonconfig.po\n"
+"X-Crowdin-File-ID: 10918\n"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Нічога не рабіць"
 
 #: PowerButtonActionModel.cpp:39
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Прыпыніць у RAM"
 
 #: PowerButtonActionModel.cpp:49
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Перавесці ў рэжым сну"
 
 #: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Выключыць"
 
 #: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Заблакаваць экран"
 
 #: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Паказваць экран выхаду"
 
 #: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Выключыць экран"
 
 #: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Уключыць або адключыць экран"
 
 #: PowerProfileModel.cpp:40
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Энергазберагальны"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Збалансаваны"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Прадукцыйны"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Пакінуць без зменаў"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Прыпыніць у RAM"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Захаваць сеанс у памяць"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Гібрыдны рэжым сну"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Захаваць сеанс як у памяць, так і на дыск"
 
 #: SleepModeModel.cpp:37
 #, kde-format

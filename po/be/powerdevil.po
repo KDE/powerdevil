@@ -1,10 +1,10 @@
 # Zmicier <zmicerturok@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:38+0000\n"
-"PO-Revision-Date: 2022-12-30 16:31\n"
+"PO-Revision-Date: 2024-02-23 13:37\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -15,11 +15,12 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Generator: Lokalize 22.12.0\n"
-"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
-"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
+"X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/powerdevil/powerdevil.po\n"
-"X-Crowdin-File-ID: 8982\n"
+"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/powerdevil/powerdevil."
+"po\n"
+"X-Crowdin-File-ID: 10924\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -46,12 +47,10 @@ msgid "Increase Screen Brightness"
 msgstr "Павялічыць яркасць экрана"
 
 #: actions/bundled/brightnesscontrol.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Павялічыць яркасць экрана"
+msgstr ""
 
 #: actions/bundled/brightnesscontrol.cpp:49
 #, kde-format
@@ -60,12 +59,10 @@ msgid "Decrease Screen Brightness"
 msgstr "Паменшыць яркасць экрана"
 
 #: actions/bundled/brightnesscontrol.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
+#, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Паменшыць яркасць экрана"
+msgstr ""
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -160,10 +157,9 @@ msgid "Previous maintainer"
 msgstr "Папярэдні суправаджальнік"
 
 #: powerdevilapp.cpp:101
-#, fuzzy, kde-format
-#| msgid "Switch off after"
+#, kde-format
 msgid "Switch Power Profile"
-msgstr "Выключыць праз"
+msgstr "Пераключыць профіль сілкавання"
 
 #: powerdevilapp.cpp:116
 #, kde-format
@@ -243,23 +239,17 @@ msgstr ""
 "любы момант. Зарадзіце або замяніце батарэю."
 
 #: powerdevilcore.cpp:583
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
-msgstr ""
-"Батарэя разраджаецца. Каб працягнуць карыстацца камп'ютарам, пераканайцеся, "
-"што штэкер сілкавання падлучаны, і прылада сілкуецца."
+msgstr "Пераканайцеся, што штэкер сілкавання падлучаны, і прылада сілкуецца."
 
 #: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Падлучыце камп'ютар да крыніцы сілкавання."
 
 #: powerdevilcore.cpp:604
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар выключыцца праз 60 "
@@ -273,10 +263,7 @@ msgid "Shut Down Now"
 msgstr "Выключыць"
 
 #: powerdevilcore.cpp:612
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
@@ -293,9 +280,7 @@ msgid "Hibernate Now"
 msgstr "Перавесці ў рэжым сну"
 
 #: powerdevilcore.cpp:620
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "У батарэі крытычна нізкі ўзровень зараду. Ваш камп'ютар прыпыніцца ў RAM "
@@ -309,11 +294,9 @@ msgid "Sleep Now"
 msgstr "Прыпыніць у RAM"
 
 #: powerdevilcore.cpp:628
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr ""
-"У батарэі крытычна нізкі ўзровень зараду. Захавайце даныя, з якімі працуеце."
+msgstr "Захавайце даныя, з якімі працуеце."
 
 #: powerdevilcore.cpp:634
 #, kde-format
