@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2024-02-23 13:37\n"
+"PO-Revision-Date: 2024-02-27 19:40\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -91,7 +91,7 @@ msgstr "Пакінуць без зменаў"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr "Прыпыніць у RAM"
+msgstr "Чакаць"
 
 #: SleepModeModel.cpp:22
 #, kde-format
@@ -113,13 +113,13 @@ msgstr "Захаваць сеанс як у памяць, так і на дыс�
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Чакаць, потым перавесці ў рэжым сну"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "Пераход у рэжым сну пасля перыяду бяздзейнасці"
 
 #~ msgid ""
 #~ "Power Management configuration module could not be loaded.\n"

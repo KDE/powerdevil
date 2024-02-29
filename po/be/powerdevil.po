@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:38+0000\n"
-"PO-Revision-Date: 2024-02-23 13:37\n"
+"PO-Revision-Date: 2024-02-27 19:40\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -50,7 +50,7 @@ msgstr "Павялічыць яркасць экрана"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr ""
+msgstr "Павялічыць яркасць экрана на 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:49
 #, kde-format
@@ -62,7 +62,7 @@ msgstr "Паменшыць яркасць экрана"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr ""
+msgstr "Паменшыць яркасць экрана на 1%"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -344,7 +344,7 @@ msgstr "Штэкер адлучаны."
 #: powerdevilcore.cpp:741
 #, kde-format
 msgid "Charging Complete"
-msgstr "Зараджэнне завершана"
+msgstr "Зараджанне завершана"
 
 #: powerdevilcore.cpp:741
 #, kde-format

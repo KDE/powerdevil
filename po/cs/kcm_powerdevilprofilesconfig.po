@@ -3,21 +3,22 @@
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011.
 # SPDX-FileCopyrightText: 2010, 2011, 2020, 2023 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2013.
+# SPDX-FileCopyrightText: 2024 Vit Pelcak <vpelcak@suse.cz>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:39+0000\n"
-"PO-Revision-Date: 2023-11-02 14:07+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-02-23 15:05+0100\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: PowerKCM.cpp:442
 #, kde-format
@@ -28,7 +29,7 @@ msgstr "Služba pro správu napájení, zdá se, neběží."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Pokročilé nastavení napájení"
 
 #: ui/GlobalConfig.qml:21
 #, kde-format
@@ -36,26 +37,26 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Úrovně baterie"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Nízká úroveň:"
 
 #: ui/GlobalConfig.qml:73
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr ""
+msgstr "Nízká úroveň nabití baterie"
 
 #: ui/GlobalConfig.qml:100
 #, kde-format
@@ -71,13 +72,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Kr&itická úroveň:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kriticky nízká úroveň nabití baterie"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -94,25 +95,25 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Na kri&tické úrovni:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Činnosti provedené při kriticky nízkém nabití baterie"
 
 #: ui/GlobalConfig.qml:180
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Nízká úroveň pro periferní zaříz&ení:"
 
 #: ui/GlobalConfig.qml:188
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Nízká úroveň nabití baterie pro periferní zařízení"
 
 #: ui/GlobalConfig.qml:215
 #, kde-format
@@ -120,13 +121,13 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
-msgstr ""
+msgstr "Stav nabití baterie bude považován za nízký pokud dosáhne této úrovně."
 
 #: ui/GlobalConfig.qml:223
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Limit nabití"
 
 #: ui/GlobalConfig.qml:232
 #, kde-format
@@ -134,7 +135,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "Za&stavit nabíjení na:"
 
 #: ui/GlobalConfig.qml:262
 #, kde-format
@@ -142,7 +143,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Začít na&bíjet na:"
 
 #: ui/GlobalConfig.qml:319
 #, kde-format
@@ -151,6 +152,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Pro zahájení nabíjení možná musíte zařízení odpojit a znovu připojit ke "
+"zdroji napájení."
 
 #: ui/GlobalConfig.qml:329
 #, kde-format
@@ -167,42 +170,42 @@ msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Další nastavení"
 
 #: ui/GlobalConfig.qml:345
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Přehrání &média:"
 
 #: ui/GlobalConfig.qml:346
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Při uspání pozastavit multimediální přehrávače"
 
 #: ui/GlobalConfig.qml:359
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Příbuzné stránky:"
 
 #: ui/GlobalConfig.qml:374
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Oznámení: Správa napájení"
 
 #: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Otevřít nastavení \"Oznamování\", \"Správa napájení\""
 
 #: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Sezení plochy"
 
 #: ui/GlobalConfig.qml:384
 #, kde-format
@@ -213,18 +216,18 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Aktivity"
 
 #: ui/GlobalConfig.qml:392
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Otevřít nastavení \"Aktivity\""
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Pokročilá na&stavení napájení…"
 
 #: ui/main.qml:43
 #, kde-format
