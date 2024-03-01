@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-11 00:38+0000\n"
-"PO-Revision-Date: 2024-02-05 11:37\n"
+"PO-Revision-Date: 2024-02-29 12:52\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -203,7 +203,7 @@ msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
-msgstr "“%1”的电池电量低，它将在不久后停止工作。请尽快充电或者更换电池。"
+msgstr "“%1”的电池电量低，它可能会随时停止工作。请尽快充电或者更换电池。"
 
 #: powerdevilcore.cpp:531
 #, kde-format
@@ -227,7 +227,7 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"蓝牙设备“%1”的电池电量低，它将在不久后停止工作。请尽快充电或者更换电池。"
+"蓝牙设备“%1”的电池电量低，它可能会随时停止工作。请尽快充电或者更换电池。"
 
 #: powerdevilcore.cpp:583
 #, kde-format
