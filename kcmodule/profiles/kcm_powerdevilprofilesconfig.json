@@ -29,6 +29,7 @@
         "Description[tr]": "Güç yönetimi",
         "Description[uk]": "Керування живленням",
         "Description[x-test]": "xxPower Managementxx",
+        "Description[zh_CN]": "电源管理",
         "Description[zh_TW]": "電源管理",
         "Icon": "preferences-system-power-management",
         "Name": "Power Management",
@@ -76,6 +77,7 @@
         "Name[tr]": "Güç Yönetimi",
         "Name[uk]": "Керування живленням",
         "Name[x-test]": "xxPower Managementxx",
+        "Name[zh_CN]": "电源管理",
         "Name[zh_TW]": "電源管理"
     },
     "X-DocPath": "kcontrol/powerdevil/index.html",
