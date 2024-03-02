@@ -1,4 +1,5 @@
 add_executable(power_profile_osd_service main.cpp osdmanager.cpp osdaction.cpp osd.cpp qml.qrc)
+add_definitions(-DTRANSLATION_DOMAIN=\"powerdevil_osd\")
 
 qt_add_dbus_adaptor(DBUS_SRC org.kde.powerdevil.powerProfileOsdService.xml osdmanager.h PowerDevil::OsdManager)
 target_sources(power_profile_osd_service PRIVATE ${DBUS_SRC})
