@@ -20,9 +20,9 @@ using namespace PowerDevil;
 QList<OsdAction> OsdAction::availableActions()
 {
     return {
-        {QStringLiteral("power-saver"), i18ndc("powerdevil", "power profile", "Power Save Mode"), QStringLiteral("battery-profile-powersave")},
-        {QStringLiteral("balanced"), i18ndc("powerdevil", "power profile", "Balanced Performance Mode"), QStringLiteral("speedometer")},
-        {QStringLiteral("performance"), i18ndc("powerdevil", "power profile", "Maximum Performance Mode"), QStringLiteral("battery-profile-performance")},
+        {QStringLiteral("power-saver"), i18nc("power profile", "Power Save Mode"), QStringLiteral("battery-profile-powersave")},
+        {QStringLiteral("balanced"), i18nc("power profile", "Balanced Performance Mode"), QStringLiteral("speedometer")},
+        {QStringLiteral("performance"), i18nc("power profile", "Maximum Performance Mode"), QStringLiteral("battery-profile-performance")},
     };
 }
 
