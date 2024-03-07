@@ -68,20 +68,11 @@ Kirigami.FormLayout {
                 configObject: profileSettings
                 settingName: "AutoSuspendAction"
             }
+            Component.onCompleted: {
+                currentIndex = Qt.binding(() => indexOfValue(profileSettings.autoSuspendAction));
+            }
             onActivated: {
                 profileSettings.autoSuspendAction = currentValue;
-            }
-            function resetToProfileSettings() {
-                currentIndex = indexOfValue(profileSettings.autoSuspendAction);
-            }
-            Component.onCompleted: { autoSuspendActionCombo.resetToProfileSettings(); }
-            Connections {
-                target: root
-                function onProfileSettingsChanged() { autoSuspendActionCombo.resetToProfileSettings(); }
-            }
-            Connections {
-                target: profileSettings
-                function onAutoSuspendActionChanged() { autoSuspendActionCombo.resetToProfileSettings(); }
             }
         }
 
@@ -99,17 +90,8 @@ Kirigami.FormLayout {
             value: profileSettings.autoSuspendIdleTimeoutSec
             onValueModified: {
                 profileSettings.autoSuspendIdleTimeoutSec = value;
-            }
-            function resetToProfileSettings() {
-                value = profileSettings.autoSuspendIdleTimeoutSec;
-            }
-            Connections {
-                target: root
-                function onProfileSettingsChanged() { autoSuspendTimeDelay.resetToProfileSettings(); }
-            }
-            Connections {
-                target: profileSettings
-                function onAutoSuspendIdleTimeoutSecChanged() { autoSuspendTimeDelay.resetToProfileSettings(); }
+                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                value = Qt.binding(() => profileSettings.autoSuspendIdleTimeoutSec);
             }
         }
     }
@@ -134,20 +116,11 @@ Kirigami.FormLayout {
             configObject: profileSettings
             settingName: "PowerButtonAction"
         }
+        Component.onCompleted: {
+            currentIndex = Qt.binding(() => indexOfValue(profileSettings.powerButtonAction));
+        }
         onActivated: {
             profileSettings.powerButtonAction = currentValue;
-        }
-        function resetToProfileSettings() {
-            currentIndex = indexOfValue(profileSettings.powerButtonAction);
-        }
-        Component.onCompleted: { powerButtonActionCombo.resetToProfileSettings(); }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { powerButtonActionCombo.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onPowerButtonActionChanged() { powerButtonActionCombo.resetToProfileSettings(); }
         }
     }
 
@@ -171,20 +144,11 @@ Kirigami.FormLayout {
             configObject: profileSettings
             settingName: "LidAction"
         }
+        Component.onCompleted: {
+            currentIndex = Qt.binding(() => indexOfValue(profileSettings.lidAction));
+        }
         onActivated: {
             profileSettings.lidAction = currentValue;
-        }
-        function resetToProfileSettings() {
-            currentIndex = indexOfValue(profileSettings.lidAction);
-        }
-        Component.onCompleted: { lidActionCombo.resetToProfileSettings(); }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { lidActionCombo.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onLidActionChanged() { lidActionCombo.resetToProfileSettings(); }
         }
     }
 
@@ -246,20 +210,11 @@ Kirigami.FormLayout {
                 || lidActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
             )
         }
+        Component.onCompleted: {
+            currentIndex = Qt.binding(() => indexOfValue(profileSettings.sleepMode));
+        }
         onActivated: {
             profileSettings.sleepMode = currentValue;
-        }
-        function resetToProfileSettings() {
-            currentIndex = indexOfValue(profileSettings.sleepMode);
-        }
-        Component.onCompleted: { sleepModeCombo.resetToProfileSettings(); }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { sleepModeCombo.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onSleepModeChanged() { sleepModeCombo.resetToProfileSettings(); }
         }
     }
 
@@ -353,17 +308,8 @@ Kirigami.FormLayout {
             value: profileSettings.dimDisplayIdleTimeoutSec
             onValueModified: {
                 profileSettings.dimDisplayIdleTimeoutSec = value;
-            }
-            function resetToProfileSettings() {
-                value = profileSettings.dimDisplayIdleTimeoutSec;
-            }
-            Connections {
-                target: root
-                function onProfileSettingsChanged() { dimDisplayTimeDelay.resetToProfileSettings(); }
-            }
-            Connections {
-                target: profileSettings
-                function onDimDisplayIdleTimeoutSecChanged() { dimDisplayTimeDelay.resetToProfileSettings(); }
+                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                value = Qt.binding(() => profileSettings.dimDisplayIdleTimeoutSec);
             }
         }
     }
@@ -402,17 +348,8 @@ Kirigami.FormLayout {
             value: profileSettings.turnOffDisplayIdleTimeoutSec
             onValueModified: {
                 profileSettings.turnOffDisplayIdleTimeoutSec = value;
-            }
-            function resetToProfileSettings() {
-                value = profileSettings.turnOffDisplayIdleTimeoutSec;
-            }
-            Connections {
-                target: root
-                function onProfileSettingsChanged() { turnOffDisplayTimeDelay.resetToProfileSettings(); }
-            }
-            Connections {
-                target: profileSettings
-                function onTurnOffDisplayIdleTimeoutSecChanged() { turnOffDisplayTimeDelay.resetToProfileSettings(); }
+                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                value = Qt.binding(() => profileSettings.turnOffDisplayIdleTimeoutSec);
             }
         }
     }
@@ -444,17 +381,8 @@ Kirigami.FormLayout {
             value: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
             onValueModified: {
                 profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = value;
-            }
-            function resetToProfileSettings() {
-                value = profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec;
-            }
-            Connections {
-                target: root
-                function onProfileSettingsChanged() { turnOffDisplayWhenLockedTimeDelay.resetToProfileSettings(); }
-            }
-            Connections {
-                target: profileSettings
-                function onTurnOffDisplayIdleTimeoutWhenLockedSecChanged() { turnOffDisplayWhenLockedTimeDelay.resetToProfileSettings(); }
+                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                value = Qt.binding(() => profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec);
             }
         }
     }
@@ -536,25 +464,14 @@ Kirigami.FormLayout {
             configObject: profileSettings
             settingName: "PowerProfile"
         }
-        onActivated: {
-            profileSettings.powerProfile = currentValue;
-        }
-        function resetToProfileSettings() {
-            currentIndex = indexOfValue(profileSettings.powerProfile);
-        }
         onCountChanged: { // PowerProfileModel has delayed initialization due to a D-Bus call
             if (count > 0 && !assignedInitialIndex) {
-                resetToProfileSettings();
+                currentIndex = Qt.binding(() => indexOfValue(profileSettings.powerProfile));
                 assignedInitialIndex = true;
             }
         }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { powerProfileCombo.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onPowerProfileChanged() { powerProfileCombo.resetToProfileSettings(); }
+        onActivated: {
+            profileSettings.powerProfile = currentValue;
         }
     }
 
@@ -750,17 +667,8 @@ Kirigami.FormLayout {
         value: profileSettings.runScriptIdleTimeoutSec
         onValueModified: {
             profileSettings.runScriptIdleTimeoutSec = value;
-        }
-        function resetToProfileSettings() {
-            value = profileSettings.runScriptIdleTimeoutSec;
-        }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { idleTimeoutCommandTimeDelay.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onRunScriptIdleTimeoutSecChanged() { idleTimeoutCommandTimeDelay.resetToProfileSettings(); }
+            // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+            value = Qt.binding(() => profileSettings.runScriptIdleTimeoutSec);
         }
     }
 }

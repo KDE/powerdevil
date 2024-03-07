@@ -81,12 +81,10 @@ Kirigami.ScrollablePage {
                     settingName: "BatteryLowLevel"
                 }
                 value: globalSettings.batteryLowLevel
-                onValueModified: { globalSettings.batteryLowLevel = value; }
-                Connections {
-                    target: globalSettings
-                    function onBatteryLowLevelChanged() {
-                        batteryLowSpin.value = globalSettings.batteryLowLevel;
-                    }
+                onValueModified: {
+                    globalSettings.batteryLowLevel = value;
+                    // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                    value = Qt.binding(() => globalSettings.batteryLowLevel);
                 }
 
                 editable: true
@@ -123,12 +121,10 @@ Kirigami.ScrollablePage {
                     settingName: "BatteryCriticalLevel"
                 }
                 value: globalSettings.batteryCriticalLevel
-                onValueModified: { globalSettings.batteryCriticalLevel = value; }
-                Connections {
-                    target: globalSettings
-                    function onBatteryCriticalLevelChanged() {
-                        batteryCriticalSpin.value = globalSettings.batteryCriticalLevel;
-                    }
+                onValueModified: {
+                    globalSettings.batteryCriticalLevel = value;
+                    // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                    value = Qt.binding(() => globalSettings.batteryCriticalLevel);
                 }
 
                 editable: true
@@ -160,17 +156,11 @@ Kirigami.ScrollablePage {
                 configObject: globalSettings
                 settingName: "BatteryCriticalAction"
             }
+            Component.onCompleted: {
+                currentIndex = Qt.binding(() => indexOfValue(globalSettings.batteryCriticalAction));
+            }
             onActivated: {
                 globalSettings.batteryCriticalAction = currentValue;
-            }
-            Component.onCompleted: {
-                batteryCriticalCombo.currentIndex = batteryCriticalCombo.indexOfValue(globalSettings.batteryCriticalAction);
-            }
-            Connections {
-                target: globalSettings
-                function onBatteryCriticalActionChanged() {
-                    batteryCriticalCombo.currentIndex = batteryCriticalCombo.indexOfValue(globalSettings.batteryCriticalAction);
-                }
             }
         }
 
@@ -196,12 +186,10 @@ Kirigami.ScrollablePage {
                     settingName: "PeripheralBatteryLowLevel"
                 }
                 value: globalSettings.peripheralBatteryLowLevel
-                onValueModified: { globalSettings.peripheralBatteryLowLevel = value; }
-                Connections {
-                    target: globalSettings
-                    function onPeripheralBatteryLowLevelChanged() {
-                        peripheralBatteryLowSpin.value = globalSettings.peripheralBatteryLowLevel;
-                    }
+                onValueModified: {
+                    globalSettings.peripheralBatteryLowLevel = value;
+                    // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                    value = Qt.binding(() => globalSettings.peripheralBatteryLowLevel);
                 }
 
                 editable: true
@@ -241,12 +229,8 @@ Kirigami.ScrollablePage {
                 if (kcm.isChargeStopThresholdSupported) {
                     externalSettings.chargeStopThreshold = value;
                 }
-            }
-            Connections {
-                target: externalSettings
-                function onChargeStopThresholdChanged() {
-                    chargeStopThresholdSpin.value = externalSettings.chargeStopThreshold;
-                }
+                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
+                value = Qt.binding(() => externalSettings.chargeStopThreshold);
             }
 
             editable: true
@@ -272,6 +256,9 @@ Kirigami.ScrollablePage {
                 if (kcm.isChargeStartThresholdSupported) {
                     externalSettings.chargeStartThreshold = value < to ? value : 0;
                 }
+                // In Qt 6.6, SpinBox breaks the value binding on keyboard input.
+                // We do too, in onToChanged. Restore it again.
+                value = Qt.binding(() => externalSettings.chargeStartThreshold > 0 ? externalSettings.chargeStartThreshold : to);
             }
             property int lockstepUpperBound: -1 // tracks externalSettings and manual user changes, not range limit changes
 
@@ -295,9 +282,6 @@ Kirigami.ScrollablePage {
                     if (externalSettings.chargeStartThreshold == 0) {
                         chargeStartThresholdSpin.lockstepUpperBound = chargeStartThresholdSpin.to;
                     }
-                    chargeStartThresholdSpin.value = externalSettings.chargeStartThreshold > 0
-                        ? externalSettings.chargeStartThreshold
-                        : chargeStartThresholdSpin.to;
                 }
             }
             Component.onCompleted: {
