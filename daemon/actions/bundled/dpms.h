@@ -39,6 +39,7 @@ protected:
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
+    void onProfileUnload() override;
 
 public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;

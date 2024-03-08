@@ -171,25 +171,31 @@ void DPMS::triggerImpl(const QVariantMap &args)
 
 bool DPMS::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (!profileSettings.turnOffDisplayWhenIdle()) {
-        return false;
-    }
-
     m_idleTimeoutWhenUnlocked = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutSec());
     m_idleTimeoutWhenLocked = std::chrono::seconds(profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec());
     m_lockBeforeTurnOff = profileSettings.lockBeforeTurnOffDisplay();
 
-    if (m_idleTimeoutWhenUnlocked >= 0ms) {
-        m_idleTimeoutWhenUnlocked = std::max(m_idleTimeoutWhenUnlocked, s_minIdleTimeoutWhenUnlocked);
+    if (!profileSettings.turnOffDisplayWhenIdle() || m_idleTimeoutWhenUnlocked < 0ms) {
+        onProfileUnload();
+        return false;
     }
-    if (m_idleTimeoutWhenLocked >= 0ms) {
-        // Allow (almost) immediate turn-off upon entering the lockscreen, but not when already locked
-        m_idleTimeoutWhenActivatingLock = std::max(m_idleTimeoutWhenLocked, s_minIdleTimeoutWhenActivatingLock);
-        m_idleTimeoutWhenLocked = std::max(m_idleTimeoutWhenLocked, s_minIdleTimeoutWhenLocked);
+
+    m_idleTimeoutWhenUnlocked = std::max(m_idleTimeoutWhenUnlocked, s_minIdleTimeoutWhenUnlocked);
+
+    if (m_idleTimeoutWhenLocked < 0ms) {
+        m_idleTimeoutWhenLocked = m_idleTimeoutWhenUnlocked;
     }
+    // Allow (almost) immediate turn-off upon entering the lockscreen, but not when already locked
+    m_idleTimeoutWhenActivatingLock = std::max(m_idleTimeoutWhenLocked, s_minIdleTimeoutWhenActivatingLock);
+    m_idleTimeoutWhenLocked = std::max(m_idleTimeoutWhenLocked, s_minIdleTimeoutWhenLocked);
 
     registerStandardIdleTimeout();
     return true;
+}
+
+void DPMS::onProfileUnload()
+{
+    m_idleTimeoutWhenUnlocked = std::chrono::milliseconds(-1);
 }
 
 void DPMS::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
@@ -202,6 +208,10 @@ void DPMS::registerStandardIdleTimeout()
     unregisterIdleTimeouts();
     m_isActivatingLock = false;
 
+    if (m_idleTimeoutWhenUnlocked < 0ms) { // action created, but not loaded
+        return;
+    }
+
     if (PowerDevil::PolicyAgent::instance()->screenLockerActive()) {
         registerIdleTimeout(m_idleTimeoutWhenLocked);
     } else {
@@ -213,6 +223,10 @@ void DPMS::onScreenLockerActiveChanged(bool active)
 {
     unregisterIdleTimeouts();
     m_isActivatingLock = active && !m_isAboutToSuspend;
+
+    if (m_idleTimeoutWhenUnlocked < 0ms) { // action created, but not loaded
+        return;
+    }
 
     if (m_isActivatingLock) {
         // entering lockscreen - fast display turn-off if the config calls for it
