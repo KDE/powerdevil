@@ -35,7 +35,7 @@ public:
 
 private:
 #ifdef WITH_DDCUTIL
-    QString generateDisplayId(const DDCA_Display_Info &displayInfo) const;
+    QString generateDisplayId(const DDCA_IO_Path &displayPath) const;
 #endif
 
 private:

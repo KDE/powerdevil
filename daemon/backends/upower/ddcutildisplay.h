@@ -20,7 +20,8 @@ class DDCutilDisplay : public QObject
     Q_OBJECT
 public:
 #ifdef WITH_DDCUTIL
-    DDCutilDisplay(DDCA_Display_Info, DDCA_Display_Handle);
+    DDCutilDisplay(DDCA_Display_Ref);
+    DDCA_IO_Path ioPath() const;
 #endif
     ~DDCutilDisplay();
 
@@ -32,7 +33,8 @@ public:
 
 private:
 #ifdef WITH_DDCUTIL
-    DDCA_Display_Handle m_displayHandle;
+    DDCA_Display_Ref m_displayRef;
+    DDCA_IO_Path m_ioPath;
 #endif
     QString m_label;
     QReadWriteLock m_lock;

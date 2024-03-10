@@ -45,42 +45,38 @@ void DDCutilBrightness::detect()
         return;
     }
 #endif
-    qCDebug(POWERDEVIL) << "Check for monitors using ddca_get_display_info_list2()...";
+    qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Check for monitors using ddca_get_display_refs()...";
     // Inquire about detected monitors.
-    DDCA_Display_Info_List *displays = nullptr;
-    ddca_get_display_info_list2(false, &displays);
-    qCInfo(POWERDEVIL) << "[DDCutilBrightness]" << displays->ct << "display(s) were detected";
+    DDCA_Display_Ref *displayRefs = nullptr;
+    ddca_get_display_refs(false, &displayRefs);
 
-    for (auto &displayInfo : std::span(displays->info, displays->ct)) {
-        DDCA_Display_Handle displayHandle = nullptr;
-        DDCA_Status rc;
+    int displayCount = 0;
+    while (displayRefs[displayCount] != nullptr) {
+        ++displayCount;
+    }
+    qCInfo(POWERDEVIL) << "[DDCutilBrightness]:" << displayCount << "display(s) were detected";
 
-        qCDebug(POWERDEVIL) << "Opening the display reference, creating a display handle...";
-        if ((rc = ddca_open_display2(displayInfo.dref, true, &displayHandle))) {
-            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: ddca_open_display2" << rc;
+    for (int i = 0; i < displayCount; ++i) {
+        auto display = std::make_unique<DDCutilDisplay>(displayRefs[i]);
+
+        QString displayId = generateDisplayId(display->ioPath());
+        if (displayId.isEmpty()) {
+            qCWarning(POWERDEVIL) << "[DDCutilBrightness]: Cannot generate ID for display with model name:" << display->label() << "- ignoring";
             continue;
         }
 
-        auto display = std::make_unique<DDCutilDisplay>(displayInfo, displayHandle);
+        qCDebug(POWERDEVIL) << "[DDCutilBrightness]: Created ID:" << displayId << "for display:" << display->label();
 
         if (!display->supportsBrightness()) {
-            qCDebug(POWERDEVIL) << "[DDCutilBrightness]: This monitor does not seem to support brightness control";
+            qCInfo(POWERDEVIL) << "[DDCutilBrightness]: Display" << display->label() << "does not seem to support brightness control - ignoring";
             continue;
         }
 
         qCDebug(POWERDEVIL) << "Display supports Brightness, adding handle to list";
-        QString displayId = generateDisplayId(displayInfo);
-        qCDebug(POWERDEVIL) << "Create a Display Identifier:" << displayId << "for display:" << displayInfo.model_name;
-
-        if (displayId.isEmpty()) {
-            qCWarning(POWERDEVIL) << "Cannot generate ID for display with model name:" << displayInfo.model_name;
-            continue;
-        }
 
         m_displays[displayId] = std::move(display);
         m_displayIds += displayId;
     }
-    ddca_free_display_info_list(displays);
 #else
     qCInfo(POWERDEVIL) << "[DDCutilBrightness] compiled without DDC/CI support";
     return;
@@ -130,13 +126,13 @@ void DDCutilBrightness::setBrightness(const QString &displayId, int value)
 }
 
 #ifdef WITH_DDCUTIL
-QString DDCutilBrightness::generateDisplayId(const DDCA_Display_Info &displayInfo) const
+QString DDCutilBrightness::generateDisplayId(const DDCA_IO_Path &displayPath) const
 {
-    switch (displayInfo.path.io_mode) {
+    switch (displayPath.io_mode) {
     case DDCA_IO_I2C:
-        return QString("i2c:%1").arg(displayInfo.path.path.i2c_busno);
+        return QString("i2c:%1").arg(displayPath.path.i2c_busno);
     case DDCA_IO_USB:
-        return QString("usb:%1").arg(displayInfo.path.path.hiddev_devno);
+        return QString("usb:%1").arg(displayPath.path.hiddev_devno);
     }
     return QString();
 }
