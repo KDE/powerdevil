@@ -7,6 +7,8 @@
 
 #include "ddcutildisplay.h"
 
+#include <powerdevil_debug.h>
+
 #include <chrono>
 
 using namespace std::chrono_literals;
@@ -14,32 +16,77 @@ using namespace std::chrono_literals;
 #define BRIGHTNESS_VCP_FEATURE_CODE 0x10
 
 #ifdef WITH_DDCUTIL
-DDCutilDisplay::DDCutilDisplay(DDCA_Display_Info displayInfo, DDCA_Display_Handle displayHandle)
-    : m_displayHandle(displayHandle)
-    , m_label(displayInfo.model_name)
+DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef)
+    : m_displayRef(displayRef)
     , m_brightnessWorker(new BrightnessWorker)
+    , m_timer(new QTimer(this))
     , m_brightness(-1)
     , m_maxBrightness(-1)
     , m_supportsBrightness(false)
 {
-    Q_ASSERT(displayHandle);
+    Q_ASSERT(m_displayRef != nullptr);
+
+    qCDebug(POWERDEVIL) << "[DDCutilDisplay]: Creating display info and handle from display reference...";
+    DDCA_Status status = DDCRC_OK;
+
+    //
+    // Part 1: display info
+
+    DDCA_Display_Info *displayInfo = nullptr;
+    if (status = ddca_get_display_info(m_displayRef, &displayInfo); status != DDCRC_OK) {
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_get_display_info" << status;
+        return;
+    }
+    m_label = displayInfo->model_name;
+    m_ioPath = displayInfo->path;
+
+    ddca_free_display_info(displayInfo);
+
+    //
+    // Part 2: temporarily opened display handle
+    //
+    // We don't want to keep it open permanently, because doing so will block other programs
+    // backed by libddcutil (like the ddcutil CLI itself) from functioning.
+
+    DDCA_Display_Handle displayHandle = nullptr;
+    if (status = ddca_open_display2(m_displayRef, true, &displayHandle); status != DDCRC_OK) {
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
+        return;
+    }
 
     DDCA_Non_Table_Vcp_Value value;
-
-    if (ddca_get_non_table_vcp_value(m_displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, &value) == DDCRC_OK) {
+    if (status = ddca_get_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, &value); status != DDCRC_OK) {
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_get_non_table_vcp_value" << status;
+    } else {
         m_brightness = value.sh << 8 | value.sl;
         m_maxBrightness = value.mh << 8 | value.ml;
         m_supportsBrightness = true;
     }
-    m_timer = new QTimer(this);
+
+    if (status = ddca_close_display(displayHandle); status != DDCRC_OK) {
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << status;
+    }
+    if (status != DDCRC_OK || !m_supportsBrightness) {
+        return;
+    }
+
+    //
+    // Part 3: timer & worker setup
+
     m_timer->setSingleShot(true);
     m_timer->setInterval(std::chrono::milliseconds(1000));
     connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onTimeout);
+
     m_brightnessWorker->moveToThread(&m_brightnessWorkerThread);
     connect(&m_brightnessWorkerThread, &QThread::finished, m_brightnessWorker, &QObject::deleteLater);
     connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
     connect(m_brightnessWorker, &BrightnessWorker::ddcBrightnessChangeApplied, this, &DDCutilDisplay::ddcBrightnessChangeFinished);
     m_brightnessWorkerThread.start();
+}
+
+DDCA_IO_Path DDCutilDisplay::ioPath() const
+{
+    return m_ioPath;
 }
 #endif
 
@@ -48,7 +95,6 @@ DDCutilDisplay::~DDCutilDisplay()
 #ifdef WITH_DDCUTIL
     m_brightnessWorkerThread.quit();
     m_brightnessWorkerThread.wait();
-    ddca_close_display(m_displayHandle);
 #endif
 }
 
@@ -70,9 +116,11 @@ int DDCutilDisplay::maxBrightness()
 void DDCutilDisplay::setBrightness(int value)
 {
 #ifdef WITH_DDCUTIL
-    m_timer->start();
-    m_brightness = value;
-    Q_EMIT brightnessChanged(value, m_maxBrightness);
+    if (m_supportsBrightness) {
+        m_timer->start();
+        m_brightness = value;
+        Q_EMIT brightnessChanged(value, m_maxBrightness);
+    }
 #endif
 }
 
@@ -87,10 +135,27 @@ void DDCutilDisplay::ddcBrightnessChangeFinished(bool isSuccessful)
 void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)
 {
 #ifdef WITH_DDCUTIL
-    uint8_t sh = value >> 8 & 0xff;
-    uint8_t sl = value & 0xff;
+    qCDebug(POWERDEVIL) << "[DDCutilDisplay]:" << display->m_label << "setting brightness to" << value << "with temporary display handle";
 
-    auto status = ddca_set_non_table_vcp_value(display->m_displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl);
+    DDCA_Display_Handle displayHandle = nullptr;
+    DDCA_Status status = DDCRC_OK;
+
+    if (status = ddca_open_display2(display->m_displayRef, true, &displayHandle); status != DDCRC_OK) {
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
+    } else {
+        uint8_t sh = value >> 8 & 0xff;
+        uint8_t sl = value & 0xff;
+
+        if (status = ddca_set_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl); status != DDCRC_OK) {
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_set_non_table_vcp_value" << status;
+        }
+
+        if (DDCA_Status closeStatus = ddca_close_display(displayHandle); closeStatus != DDCRC_OK) {
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << closeStatus;
+            status = closeStatus;
+        }
+    }
+
     Q_EMIT ddcBrightnessChangeApplied(status == DDCRC_OK);
 #endif
 }
