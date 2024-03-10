@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:39+0000\n"
+"POT-Creation-Date: 2024-03-10 00:39+0000\n"
 "PO-Revision-Date: 2023-12-18 06:17+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -56,7 +56,7 @@ msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "Malalta baterinivelo"
 
-#: ui/GlobalConfig.qml:100
+#: ui/GlobalConfig.qml:98
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -66,7 +66,7 @@ msgstr ""
 "La bateria ŝargo estos konsiderata malalta kiam ĝi falas al ĉi tiu nivelo."
 "Agordoj por malalta baterio estos uzataj anstataŭ regulaj bateriaj agordoj."
 
-#: ui/GlobalConfig.qml:107
+#: ui/GlobalConfig.qml:105
 #, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
@@ -74,13 +74,13 @@ msgctxt ""
 msgid "Cr&itical level:"
 msgstr "Kr&itika nivelo:"
 
-#: ui/GlobalConfig.qml:115
+#: ui/GlobalConfig.qml:113
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
 msgstr "Kritika baterinivelo"
 
-#: ui/GlobalConfig.qml:142
+#: ui/GlobalConfig.qml:138
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -92,7 +92,7 @@ msgstr ""
 "Post mallonga averto, la sistemo aŭtomate suspendiĝos aŭ malŝaltiĝos laŭ la "
 "agordita ago por kritika baterinivelo."
 
-#: ui/GlobalConfig.qml:150
+#: ui/GlobalConfig.qml:146
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -100,25 +100,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "Ĉe kritika nivelo:"
 
-#: ui/GlobalConfig.qml:152
+#: ui/GlobalConfig.qml:148
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "Ago efektivigita je kritika baterinivelo"
 
-#: ui/GlobalConfig.qml:180
+#: ui/GlobalConfig.qml:170
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "Malalta niv&elo por flankaparatoj:"
 
-#: ui/GlobalConfig.qml:188
+#: ui/GlobalConfig.qml:178
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "Malalta baterinivelo por periferiaj aparatoj"
 
-#: ui/GlobalConfig.qml:215
+#: ui/GlobalConfig.qml:203
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -128,13 +128,13 @@ msgstr ""
 "La bateriŝarĝo por periferiaj aparatoj estos konsiderata malalta kiam ĝi "
 "atingas ĉi tiun nivelon."
 
-#: ui/GlobalConfig.qml:223
+#: ui/GlobalConfig.qml:211
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Ŝarĝolimo"
 
-#: ui/GlobalConfig.qml:232
+#: ui/GlobalConfig.qml:220
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -142,7 +142,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "Ĉe&si ŝarĝadon ĉe:"
 
-#: ui/GlobalConfig.qml:262
+#: ui/GlobalConfig.qml:246
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -150,7 +150,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Komenci ŝarĝadon kiam pli &malalta ol:"
 
-#: ui/GlobalConfig.qml:319
+#: ui/GlobalConfig.qml:303
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -160,7 +160,7 @@ msgstr ""
 "Vi eble devos malkonekti kaj rekonekti la energifonton por komenci ŝarĝi la "
 "baterion denove."
 
-#: ui/GlobalConfig.qml:329
+#: ui/GlobalConfig.qml:313
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -172,7 +172,7 @@ msgstr ""
 "povas akceli difekton de bateria sano. Limigante la maksimuman "
 "baterioŝarĝon, vi povas helpi plilongigi la baterian vivdaŭron."
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -180,53 +180,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Aliaj Agordoj"
 
-#: ui/GlobalConfig.qml:345
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Aŭdvidaĵa ludado:"
 
-#: ui/GlobalConfig.qml:346
+#: ui/GlobalConfig.qml:330
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Paŭzi aŭdvidaĵajn ludilojn dum suspendo"
 
-#: ui/GlobalConfig.qml:359
+#: ui/GlobalConfig.qml:343
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Rilataj paĝoj:"
 
-#: ui/GlobalConfig.qml:374
+#: ui/GlobalConfig.qml:358
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Sciigoj: Energia Administrado"
 
-#: ui/GlobalConfig.qml:376
+#: ui/GlobalConfig.qml:360
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Malfermu \"Sciigoj\" agordopaĝon, sekcion \"Energia Administrado\""
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:367
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Labortabla Seanco"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:368
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Malfermi \"Labortabla Seanco\" agordpaĝon"
 
-#: ui/GlobalConfig.qml:391
+#: ui/GlobalConfig.qml:375
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Aktivecoj"
 
-#: ui/GlobalConfig.qml:392
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Malfermi \"Aktivecoj\" agordpaĝon"
@@ -286,7 +286,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Ago por plenumi kiam la sistemo estas neaktiva"
 
-#: ui/ProfileConfig.qml:121
+#: ui/ProfileConfig.qml:103
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -294,13 +294,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Kiam energibutono &premita:"
 
-#: ui/ProfileConfig.qml:123
+#: ui/ProfileConfig.qml:105
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Ago por plenumi kiam la elektra butono estas premata"
 
-#: ui/ProfileConfig.qml:158
+#: ui/ProfileConfig.qml:131
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -308,13 +308,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Kiam la kovrilo de tekkomputi&lo fermiĝis:"
 
-#: ui/ProfileConfig.qml:160
+#: ui/ProfileConfig.qml:133
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Ago por plenumi kiam la tekkomputila kovrilo estas fermita"
 
-#: ui/ProfileConfig.qml:195
+#: ui/ProfileConfig.qml:159
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -322,68 +322,68 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Eĉ kiam ekstera monitoro estas konektita"
 
-#: ui/ProfileConfig.qml:197
+#: ui/ProfileConfig.qml:161
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Plenumi tekkomputil-kovrilan agon eĉ kiam ekstera monitoro estas konektita"
 
-#: ui/ProfileConfig.qml:214
+#: ui/ProfileConfig.qml:178
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Dum dormo, enigu:"
 
-#: ui/ProfileConfig.qml:216
+#: ui/ProfileConfig.qml:180
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "Dum dormado, enigu ĉi tiun energiŝparan reĝimon"
 
-#: ui/ProfileConfig.qml:271
+#: ui/ProfileConfig.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Ekrano kaj Brilo"
 
-#: ui/ProfileConfig.qml:281
+#: ui/ProfileConfig.qml:236
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Ŝanĝi ekranan brilon:"
 
-#: ui/ProfileConfig.qml:324
+#: ui/ProfileConfig.qml:279
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Di&m aŭtomate:"
 
-#: ui/ProfileConfig.qml:373
+#: ui/ProfileConfig.qml:319
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Malŝal&ti ekranon:"
 
-#: ui/ProfileConfig.qml:421
+#: ui/ProfileConfig.qml:358
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "Kiam ŝlosita, malŝaltu e&kranon:"
 
-#: ui/ProfileConfig.qml:463
+#: ui/ProfileConfig.qml:391
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Ŝanĝi klavaran &brilecon:"
 
-#: ui/ProfileConfig.qml:510
+#: ui/ProfileConfig.qml:438
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Aliaj Agordoj"
 
-#: ui/ProfileConfig.qml:518
+#: ui/ProfileConfig.qml:446
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -391,7 +391,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Ŝalti al energi&profilo:"
 
-#: ui/ProfileConfig.qml:522
+#: ui/ProfileConfig.qml:450
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -399,13 +399,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Ŝalti al energia profilo"
 
-#: ui/ProfileConfig.qml:563
+#: ui/ProfileConfig.qml:480
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Ruli propran skripton:"
 
-#: ui/ProfileConfig.qml:569
+#: ui/ProfileConfig.qml:486
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -413,67 +413,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Elekti rulkondiĉojn…"
 
-#: ui/ProfileConfig.qml:571
+#: ui/ProfileConfig.qml:488
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Elekti rulkondiĉojn por skripto-komando"
 
-#: ui/ProfileConfig.qml:590
+#: ui/ProfileConfig.qml:507
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "Kiam vi eniras ĉi tiun potencostaton"
 
-#: ui/ProfileConfig.qml:606
+#: ui/ProfileConfig.qml:523
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "Dum eli&ro de ĉi tiu potencostato"
 
-#: ui/ProfileConfig.qml:622
+#: ui/ProfileConfig.qml:539
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "Post periodo de neakti&veco"
 
-#: ui/ProfileConfig.qml:641
+#: ui/ProfileConfig.qml:558
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "Kiam vi enigas ĉi tiun energiostaton:"
 
-#: ui/ProfileConfig.qml:643
+#: ui/ProfileConfig.qml:560
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Skriptokomando dum eniro de ĉi tiu energiostato"
 
-#: ui/ProfileConfig.qml:674
+#: ui/ProfileConfig.qml:591
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "&Forirante ĉi tiun energiostaton:"
 
-#: ui/ProfileConfig.qml:676
+#: ui/ProfileConfig.qml:593
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Skriptokomando elirante de ĉi tiu energiostato"
 
-#: ui/ProfileConfig.qml:707
+#: ui/ProfileConfig.qml:624
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Post periodo de senakti&veco:"
 
-#: ui/ProfileConfig.qml:709
+#: ui/ProfileConfig.qml:626
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Skriptokomando post periodo de neaktiveco"
 
-#: ui/ProfileConfig.qml:738
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"

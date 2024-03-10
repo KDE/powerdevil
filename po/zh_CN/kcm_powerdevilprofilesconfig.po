@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:39+0000\n"
-"PO-Revision-Date: 2024-02-29 12:52\n"
+"POT-Creation-Date: 2024-03-10 00:39+0000\n"
+"PO-Revision-Date: 2024-03-09 04:45\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -56,7 +56,7 @@ msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "低电量临界值"
 
-#: ui/GlobalConfig.qml:100
+#: ui/GlobalConfig.qml:98
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -66,7 +66,7 @@ msgstr ""
 "当电池电量下降到这个临界值时，系统将把它视作低电量。系统将使用低电量的电池设"
 "置，而不是正常的设置。"
 
-#: ui/GlobalConfig.qml:107
+#: ui/GlobalConfig.qml:105
 #, kde-format
 msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
@@ -74,13 +74,13 @@ msgctxt ""
 msgid "Cr&itical level:"
 msgstr "危急电量临界值(&I)："
 
-#: ui/GlobalConfig.qml:115
+#: ui/GlobalConfig.qml:113
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
 msgstr "危急电量临界值"
 
-#: ui/GlobalConfig.qml:142
+#: ui/GlobalConfig.qml:138
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -91,7 +91,7 @@ msgstr ""
 "当电池电量下降到这个临界值时，系统将把它视作危机电量。系统将发出一条短暂的警"
 "告，然后按照危机电量操作中的设置自动挂起系统或者关机。"
 
-#: ui/GlobalConfig.qml:150
+#: ui/GlobalConfig.qml:146
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -99,25 +99,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "进入危急电量时(&T)："
 
-#: ui/GlobalConfig.qml:152
+#: ui/GlobalConfig.qml:148
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "进入危急电量时执行的操作"
 
-#: ui/GlobalConfig.qml:180
+#: ui/GlobalConfig.qml:170
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "外设低电量临界值(&E)："
 
-#: ui/GlobalConfig.qml:188
+#: ui/GlobalConfig.qml:178
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "外设低电量临界值"
 
-#: ui/GlobalConfig.qml:215
+#: ui/GlobalConfig.qml:203
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -125,13 +125,13 @@ msgid ""
 "reaches this level."
 msgstr "当外设的电池电量下降到这个临界值时，系统将把它视作低电量。"
 
-#: ui/GlobalConfig.qml:223
+#: ui/GlobalConfig.qml:211
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "充电上限"
 
-#: ui/GlobalConfig.qml:232
+#: ui/GlobalConfig.qml:220
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -139,7 +139,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "高于此电量时停止充电(&S)："
 
-#: ui/GlobalConfig.qml:262
+#: ui/GlobalConfig.qml:246
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -147,7 +147,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "低于此电量时开始充电(&B)："
 
-#: ui/GlobalConfig.qml:319
+#: ui/GlobalConfig.qml:303
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -155,7 +155,7 @@ msgid ""
 "charging the battery again."
 msgstr "您可能需要断开并重新连接电源才能再次开始充电。"
 
-#: ui/GlobalConfig.qml:329
+#: ui/GlobalConfig.qml:313
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -166,7 +166,7 @@ msgstr ""
 "经常性地完全充满、完全耗尽电池的电量可能会加速电池的老化。限制电池充电的百分"
 "比有助于延长电池的使用寿命。"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -174,53 +174,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "其他设置"
 
-#: ui/GlobalConfig.qml:345
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "媒体播放(&M)："
 
-#: ui/GlobalConfig.qml:346
+#: ui/GlobalConfig.qml:330
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "挂起时暂停媒体播放器"
 
-#: ui/GlobalConfig.qml:359
+#: ui/GlobalConfig.qml:343
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "相关页面："
 
-#: ui/GlobalConfig.qml:374
+#: ui/GlobalConfig.qml:358
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "通知：电源管理"
 
-#: ui/GlobalConfig.qml:376
+#: ui/GlobalConfig.qml:360
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "打开“通知”设置页面的“电源管理”栏目"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:367
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "桌面会话"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:368
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "打开“桌面会话”设置页面"
 
-#: ui/GlobalConfig.qml:391
+#: ui/GlobalConfig.qml:375
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "活动"
 
-#: ui/GlobalConfig.qml:392
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "打开“活动”设置页面"
@@ -280,7 +280,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "系统空闲时执行的操作"
 
-#: ui/ProfileConfig.qml:121
+#: ui/ProfileConfig.qml:103
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -288,13 +288,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "按下电源键时(&P)："
 
-#: ui/ProfileConfig.qml:123
+#: ui/ProfileConfig.qml:105
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "按下电源按钮时执行的操作"
 
-#: ui/ProfileConfig.qml:158
+#: ui/ProfileConfig.qml:131
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -302,13 +302,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "合上笔记本盖时(&L)："
 
-#: ui/ProfileConfig.qml:160
+#: ui/ProfileConfig.qml:133
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "合上笔记本盖时的操作"
 
-#: ui/ProfileConfig.qml:195
+#: ui/ProfileConfig.qml:159
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -316,67 +316,67 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "即使在外接了显示器时"
 
-#: ui/ProfileConfig.qml:197
+#: ui/ProfileConfig.qml:161
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr "即使在外接了显示器时也依然执行合上笔记本盖的操作"
 
-#: ui/ProfileConfig.qml:214
+#: ui/ProfileConfig.qml:178
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "睡眠时进入此模式："
 
-#: ui/ProfileConfig.qml:216
+#: ui/ProfileConfig.qml:180
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "睡眠时进入此省电模式"
 
-#: ui/ProfileConfig.qml:271
+#: ui/ProfileConfig.qml:226
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "显示器和亮度"
 
-#: ui/ProfileConfig.qml:281
+#: ui/ProfileConfig.qml:236
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "更改屏幕亮度(&E)："
 
-#: ui/ProfileConfig.qml:324
+#: ui/ProfileConfig.qml:279
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "自动降低亮度(&M)："
 
-#: ui/ProfileConfig.qml:373
+#: ui/ProfileConfig.qml:319
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "息屏(&T)："
 
-#: ui/ProfileConfig.qml:421
+#: ui/ProfileConfig.qml:358
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "锁定时关闭屏幕(&K)："
 
-#: ui/ProfileConfig.qml:463
+#: ui/ProfileConfig.qml:391
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "更改键盘亮度(&B)："
 
-#: ui/ProfileConfig.qml:510
+#: ui/ProfileConfig.qml:438
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "其他设置"
 
-#: ui/ProfileConfig.qml:518
+#: ui/ProfileConfig.qml:446
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -384,7 +384,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "切换到此电源方案(&W)："
 
-#: ui/ProfileConfig.qml:522
+#: ui/ProfileConfig.qml:450
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -392,13 +392,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "切换到指定的电源管理方案"
 
-#: ui/ProfileConfig.qml:563
+#: ui/ProfileConfig.qml:480
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "运行自定义脚本："
 
-#: ui/ProfileConfig.qml:569
+#: ui/ProfileConfig.qml:486
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -406,67 +406,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "选择运行条件…"
 
-#: ui/ProfileConfig.qml:571
+#: ui/ProfileConfig.qml:488
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "选择脚本命令的运行条件"
 
-#: ui/ProfileConfig.qml:590
+#: ui/ProfileConfig.qml:507
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "进入此电源状态时(&N)"
 
-#: ui/ProfileConfig.qml:606
+#: ui/ProfileConfig.qml:523
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "退出此电源状态时(&X)"
 
-#: ui/ProfileConfig.qml:622
+#: ui/ProfileConfig.qml:539
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "不活动一段时间后(&V)"
 
-#: ui/ProfileConfig.qml:641
+#: ui/ProfileConfig.qml:558
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "进入此电源状态时(&N)："
 
-#: ui/ProfileConfig.qml:643
+#: ui/ProfileConfig.qml:560
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "进入此电源状态时的脚本命令"
 
-#: ui/ProfileConfig.qml:674
+#: ui/ProfileConfig.qml:591
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "退出此电源状态时(&X)："
 
-#: ui/ProfileConfig.qml:676
+#: ui/ProfileConfig.qml:593
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "退出此电源状态时的脚本命令"
 
-#: ui/ProfileConfig.qml:707
+#: ui/ProfileConfig.qml:624
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "不活动一段时间后(&V)："
 
-#: ui/ProfileConfig.qml:709
+#: ui/ProfileConfig.qml:626
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "不活动一段时间后的脚本命令"
 
-#: ui/ProfileConfig.qml:738
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
