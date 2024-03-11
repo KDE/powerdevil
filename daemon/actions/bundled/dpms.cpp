@@ -116,16 +116,14 @@ void DPMS::onWakeupFromIdle()
 
 void DPMS::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
 {
-    Q_EMIT startFade();
+    // Do not inhibit anything even if idleTimeout reaches because we are inhibit
+    if (!m_inhibitScreen && isSupported()) {
+        Q_EMIT startFade();
+    }
 }
 
 void DPMS::turnOffOnIdleTimeout()
 {
-    // Do not inhibit anything even if idleTimeout reaches because we are inhibit
-    if (m_inhibitScreen) {
-        return;
-    }
-
     const int keyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
     if (keyboardBrightness > 0) {
         m_oldKeyboardBrightness = keyboardBrightness;
