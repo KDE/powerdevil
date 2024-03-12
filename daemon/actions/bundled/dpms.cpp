@@ -118,12 +118,17 @@ void DPMS::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
 {
     // Do not inhibit anything even if idleTimeout reaches because we are inhibit
     if (!m_inhibitScreen && isSupported()) {
+        qCDebug(POWERDEVIL) << "DPMS: starting to fade out";
         Q_EMIT startFade();
+    } else {
+        qCDebug(POWERDEVIL) << "DPMS: inhibited (or unsupported), not turning off display";
     }
 }
 
 void DPMS::turnOffOnIdleTimeout()
 {
+    qCDebug(POWERDEVIL) << "DPMS: triggered on idle timeout, turning off display and keyboard backlight";
+
     const int keyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
     if (keyboardBrightness > 0) {
         m_oldKeyboardBrightness = keyboardBrightness;
@@ -141,6 +146,9 @@ void DPMS::setKeyboardBrightnessHelper(int brightness)
 
 void DPMS::triggerImpl(const QVariantMap &args)
 {
+    QString type = args.value(QStringLiteral("Type")).toString();
+    qCDebug(POWERDEVIL) << "DPMS: triggered from externally, type:" << (type.isEmpty() ? "TurnOn" : type);
+
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
         core()->keyboardBrightnessController()->setKeyboardBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
@@ -150,7 +158,6 @@ void DPMS::triggerImpl(const QVariantMap &args)
     if (!isSupported()) {
         return;
     }
-    QString type = args.value(QStringLiteral("Type")).toString();
     if (m_lockBeforeTurnOff && (type == "TurnOff" || type == "ToggleOnOff")) {
         lockScreen();
     }
@@ -213,8 +220,10 @@ void DPMS::registerStandardIdleTimeout()
     }
 
     if (PowerDevil::PolicyAgent::instance()->screenLockerActive()) {
+        qCDebug(POWERDEVIL) << "DPMS: registering idle timeout (screen already locked) after" << m_idleTimeoutWhenLocked;
         registerIdleTimeout(m_idleTimeoutWhenLocked);
     } else {
+        qCDebug(POWERDEVIL) << "DPMS: registering idle timeout after" << m_idleTimeoutWhenUnlocked;
         registerIdleTimeout(m_idleTimeoutWhenUnlocked);
     }
 }
@@ -230,10 +239,12 @@ void DPMS::onScreenLockerActiveChanged(bool active)
 
     if (m_isActivatingLock) {
         // entering lockscreen - fast display turn-off if the config calls for it
+        qCDebug(POWERDEVIL) << "DPMS: registering idle timeout (screen lock activating) after" << m_idleTimeoutWhenActivatingLock;
         registerIdleTimeout(m_idleTimeoutWhenActivatingLock);
         // if we're locking but about to suspend, wait until onResumeFromSuspend() to register the timeout
     } else if (!active) {
         // restoring normal idleTimeout
+        qCDebug(POWERDEVIL) << "DPMS: registering idle timeout (screen unlocked) after" << m_idleTimeoutWhenUnlocked;
         registerIdleTimeout(m_idleTimeoutWhenUnlocked);
     }
 }
