@@ -64,12 +64,11 @@ Kirigami.FormLayout {
             textRole: "name"
             valueRole: "value"
 
+            currentIndex: indexOfValue(profileSettings.autoSuspendAction)
+
             KCM.SettingStateBinding {
                 configObject: profileSettings
                 settingName: "AutoSuspendAction"
-            }
-            Component.onCompleted: {
-                currentIndex = Qt.binding(() => indexOfValue(profileSettings.autoSuspendAction));
             }
             onActivated: {
                 profileSettings.autoSuspendAction = currentValue;
@@ -112,12 +111,11 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
+        currentIndex: indexOfValue(profileSettings.powerButtonAction)
+
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "PowerButtonAction"
-        }
-        Component.onCompleted: {
-            currentIndex = Qt.binding(() => indexOfValue(profileSettings.powerButtonAction));
         }
         onActivated: {
             profileSettings.powerButtonAction = currentValue;
@@ -140,12 +138,11 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
+        currentIndex: indexOfValue(profileSettings.lidAction)
+
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "LidAction"
-        }
-        Component.onCompleted: {
-            currentIndex = Qt.binding(() => indexOfValue(profileSettings.lidAction));
         }
         onActivated: {
             profileSettings.lidAction = currentValue;
@@ -201,6 +198,8 @@ Kirigami.FormLayout {
             highlighted: index === sleepModeCombo.currentIndex
         }
 
+        currentIndex: indexOfValue(profileSettings.sleepMode)
+
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "SleepMode"
@@ -209,9 +208,6 @@ Kirigami.FormLayout {
                 || powerButtonActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
                 || lidActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
             )
-        }
-        Component.onCompleted: {
-            currentIndex = Qt.binding(() => indexOfValue(profileSettings.sleepMode));
         }
         onActivated: {
             profileSettings.sleepMode = currentValue;

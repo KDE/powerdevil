@@ -97,7 +97,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
 
 QVariant PowerButtonActionModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() > m_data.size()) {
+    if (index.row() < 0 || index.row() >= m_data.size()) {
         return {};
     }
 
