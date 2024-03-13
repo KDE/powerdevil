@@ -43,6 +43,14 @@ Kirigami.FormLayout {
         )
     }
 
+    Kirigami.InlineMessage {
+        Kirigami.FormData.isSection: true
+        visible: autoSuspendActionCombo.visible && !autoSuspendActionCombo.isConfiguredValueSupported
+        Layout.fillWidth: true
+        type: Kirigami.MessageType.Warning
+        text: i18nc("@info:status", "The action you had previously configured for after a period of inactivity is now unsupported on your system. Please select a different one.")
+    }
+
     RowLayout {
         id: autoSuspendActionRow
         Kirigami.FormData.label: i18nc(
@@ -65,6 +73,7 @@ Kirigami.FormLayout {
             valueRole: "value"
 
             currentIndex: indexOfValue(profileSettings.autoSuspendAction)
+            readonly property bool isConfiguredValueSupported: currentValue === profileSettings.autoSuspendAction
 
             KCM.SettingStateBinding {
                 configObject: profileSettings
@@ -95,6 +104,14 @@ Kirigami.FormLayout {
         }
     }
 
+    Kirigami.InlineMessage {
+        Kirigami.FormData.isSection: true
+        visible: powerButtonActionCombo.visible && !powerButtonActionCombo.isConfiguredValueSupported
+        Layout.fillWidth: true
+        type: Kirigami.MessageType.Warning
+        text: i18nc("@info:status", "The action you had previously configured for when the power button is pressed is now unsupported on your system. Please select a different one.")
+    }
+
     ComboBoxWithIcon {
         id: powerButtonActionCombo
         Kirigami.FormData.label: i18nc(
@@ -112,6 +129,7 @@ Kirigami.FormLayout {
         valueRole: "value"
 
         currentIndex: indexOfValue(profileSettings.powerButtonAction)
+        readonly property bool isConfiguredValueSupported: currentValue === profileSettings.powerButtonAction
 
         KCM.SettingStateBinding {
             configObject: profileSettings
@@ -120,6 +138,14 @@ Kirigami.FormLayout {
         onActivated: {
             profileSettings.powerButtonAction = currentValue;
         }
+    }
+
+    Kirigami.InlineMessage {
+        Kirigami.FormData.isSection: true
+        visible: lidActionCombo.visible && !lidActionCombo.isConfiguredValueSupported
+        Layout.fillWidth: true
+        type: Kirigami.MessageType.Warning
+        text: i18nc("@info:status", "The action you had previously configured for when the lid is closed is now unsupported on your system. Please select a different one.")
     }
 
     ComboBoxWithIcon {
@@ -139,6 +165,7 @@ Kirigami.FormLayout {
         valueRole: "value"
 
         currentIndex: indexOfValue(profileSettings.lidAction)
+        readonly property bool isConfiguredValueSupported: currentValue === profileSettings.lidAction
 
         KCM.SettingStateBinding {
             configObject: profileSettings
@@ -166,6 +193,14 @@ Kirigami.FormLayout {
         }
         checked: !profileSettings.inhibitLidActionWhenExternalMonitorPresent
         onToggled: { profileSettings.inhibitLidActionWhenExternalMonitorPresent = !checked; }
+    }
+
+    Kirigami.InlineMessage {
+        Kirigami.FormData.isSection: true
+        visible: sleepModeCombo.visible && sleepModeCombo.enabled && !sleepModeCombo.isConfiguredValueSupported
+        Layout.fillWidth: true
+        type: Kirigami.MessageType.Warning
+        text: i18nc("@info:status", "The sleep mode you had previously configured is now unsupported on your system. Please select a different one.")
     }
 
     QQC2.ComboBox {
@@ -199,6 +234,7 @@ Kirigami.FormLayout {
         }
 
         currentIndex: indexOfValue(profileSettings.sleepMode)
+        readonly property bool isConfiguredValueSupported: currentValue === profileSettings.sleepMode
 
         KCM.SettingStateBinding {
             configObject: profileSettings

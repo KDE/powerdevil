@@ -139,6 +139,14 @@ Kirigami.ScrollablePage {
             }
         }
 
+        Kirigami.InlineMessage {
+            Kirigami.FormData.isSection: true
+            visible: batteryCriticalCombo.visible && !batteryCriticalCombo.isConfiguredValueSupported
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Warning
+            text: i18nc("@info:status", "The action you had previously configured for reaching the critical battery level is now unsupported on your system. Please select a different one.")
+        }
+
         ComboBoxWithIcon {
             id: batteryCriticalCombo
             Kirigami.FormData.label: i18nc(
@@ -153,6 +161,7 @@ Kirigami.ScrollablePage {
             valueRole: "value"
 
             currentIndex: indexOfValue(globalSettings.batteryCriticalAction)
+            readonly property bool isConfiguredValueSupported: currentValue === globalSettings.batteryCriticalAction
 
             KCM.SettingStateBinding {
                 configObject: globalSettings
