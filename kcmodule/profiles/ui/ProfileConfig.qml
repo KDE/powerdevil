@@ -64,6 +64,8 @@ Kirigami.FormLayout {
             textRole: "name"
             valueRole: "value"
 
+            currentIndex: indexOfValue(profileSettings.autoSuspendAction)
+
             KCM.SettingStateBinding {
                 configObject: profileSettings
                 settingName: "AutoSuspendAction"
@@ -130,6 +132,8 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
+        currentIndex: indexOfValue(profileSettings.powerButtonAction)
+
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "PowerButtonAction"
@@ -166,6 +170,8 @@ Kirigami.FormLayout {
         model: kcm.lidActionModel
         textRole: "name"
         valueRole: "value"
+
+        currentIndex: indexOfValue(profileSettings.lidAction)
 
         KCM.SettingStateBinding {
             configObject: profileSettings
@@ -236,6 +242,8 @@ Kirigami.FormLayout {
             width: sleepModeCombo.popup.width
             highlighted: index === sleepModeCombo.currentIndex
         }
+
+        currentIndex: indexOfValue(profileSettings.sleepMode)
 
         KCM.SettingStateBinding {
             configObject: profileSettings

@@ -156,6 +156,8 @@ Kirigami.ScrollablePage {
             textRole: "name"
             valueRole: "value"
 
+            currentIndex: indexOfValue(globalSettings.batteryCriticalAction)
+
             KCM.SettingStateBinding {
                 configObject: globalSettings
                 settingName: "BatteryCriticalAction"
