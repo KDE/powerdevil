@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-10 22:29+0000\n"
+"POT-Creation-Date: 2024-03-15 03:05+0000\n"
 "PO-Revision-Date: 2023-12-19 11:04+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -107,19 +107,19 @@ msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "Kritik pil düzeyinde gerçekleştirilen eylem"
 
-#: ui/GlobalConfig.qml:180
+#: ui/GlobalConfig.qml:182
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "Çevre birimleri için düşük düz&ey:"
 
-#: ui/GlobalConfig.qml:188
+#: ui/GlobalConfig.qml:190
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "Çevre birimleri için düşük pil düzeyi"
 
-#: ui/GlobalConfig.qml:215
+#: ui/GlobalConfig.qml:217
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -129,13 +129,13 @@ msgstr ""
 "Çevre birimleri için olan pil düzeyi bu düzeye düştüğünde düşük olarak kabul "
 "edilecektir."
 
-#: ui/GlobalConfig.qml:223
+#: ui/GlobalConfig.qml:225
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Şarj Sınırı"
 
-#: ui/GlobalConfig.qml:232
+#: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -143,7 +143,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "Ş&u düzeyde şarjı durdur:"
 
-#: ui/GlobalConfig.qml:262
+#: ui/GlobalConfig.qml:264
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -151,7 +151,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Şu düzey&in altında şarj etmeye başla:"
 
-#: ui/GlobalConfig.qml:319
+#: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -161,7 +161,7 @@ msgstr ""
 "Pili yeniden şarj etmeye başlamak için güç kaynağını çıkarıp yeniden "
 "takmanız gerekebilir."
 
-#: ui/GlobalConfig.qml:329
+#: ui/GlobalConfig.qml:331
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -173,7 +173,7 @@ msgstr ""
 "boşaltmak pil sağlığının kötüleşmesini hızlandırabilir. En yüksek pil "
 "şarjını sınırlayarak pil ömrünü artırmaya yardımcı olabilirsiniz."
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:339
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -181,53 +181,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Diğer Ayarlar"
 
-#: ui/GlobalConfig.qml:345
+#: ui/GlobalConfig.qml:347
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&Ortam çalma/oynatma:"
 
-#: ui/GlobalConfig.qml:346
+#: ui/GlobalConfig.qml:348
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Askıya alırken ortam oynatıcılarını duraklat"
 
-#: ui/GlobalConfig.qml:359
+#: ui/GlobalConfig.qml:361
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "İlgili sayfalar:"
 
-#: ui/GlobalConfig.qml:374
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Bildirimler: Güç Yönetimi"
 
-#: ui/GlobalConfig.qml:376
+#: ui/GlobalConfig.qml:378
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "\"Bildirimler\" ayarları sayfasında \"Güç Yönetimi\" bölümünü açın"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:385
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Masaüstü Oturumu"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:386
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "\"Masaüstü Oturumu\" ayarları sayfasını açın"
 
-#: ui/GlobalConfig.qml:391
+#: ui/GlobalConfig.qml:393
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Etkinlikler"
 
-#: ui/GlobalConfig.qml:392
+#: ui/GlobalConfig.qml:394
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "\"Etkinlikler\" ayarları sayfasını açın"
@@ -287,7 +287,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Sistem boştayken gerçekleştirilecek eylem"
 
-#: ui/ProfileConfig.qml:121
+#: ui/ProfileConfig.qml:123
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -295,13 +295,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "&Güç düğmesine basıldığında:"
 
-#: ui/ProfileConfig.qml:123
+#: ui/ProfileConfig.qml:125
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Güç düğmesine basıldığında gerçekleştirilecek eylem"
 
-#: ui/ProfileConfig.qml:158
+#: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -309,13 +309,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Dizüstü &kapağı kapatıldığında:"
 
-#: ui/ProfileConfig.qml:160
+#: ui/ProfileConfig.qml:164
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Dizüstü bilgisayar kapağı kapatıldığında gerçekleştirilecek eylem"
 
-#: ui/ProfileConfig.qml:195
+#: ui/ProfileConfig.qml:201
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -323,69 +323,69 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Bir dış monitör bağlı olsa bile"
 
-#: ui/ProfileConfig.qml:197
+#: ui/ProfileConfig.qml:203
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Bir dış monitör bağlı olsa bile dizüstü bilgisayar kapağı kapatma eylemini "
 "gerçekleştir"
 
-#: ui/ProfileConfig.qml:214
+#: ui/ProfileConfig.qml:220
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Uyurken girilecek kip:"
 
-#: ui/ProfileConfig.qml:216
+#: ui/ProfileConfig.qml:222
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "Uyurken, şu güç tasarrufu kipine gir"
 
-#: ui/ProfileConfig.qml:271
+#: ui/ProfileConfig.qml:279
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Görüntü ve Parlaklık"
 
-#: ui/ProfileConfig.qml:281
+#: ui/ProfileConfig.qml:289
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "&Ekran parlaklığını değiştir:"
 
-#: ui/ProfileConfig.qml:324
+#: ui/ProfileConfig.qml:332
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Kendiliğinden k&arart:"
 
-#: ui/ProfileConfig.qml:373
+#: ui/ProfileConfig.qml:381
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Ekranı ka&pat:"
 
-#: ui/ProfileConfig.qml:421
+#: ui/ProfileConfig.qml:429
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "Kilitl&iyken ekranı kapat:"
 
-#: ui/ProfileConfig.qml:463
+#: ui/ProfileConfig.qml:471
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Kla&vye parlaklığını değiştir:"
 
-#: ui/ProfileConfig.qml:510
+#: ui/ProfileConfig.qml:518
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Diğer Ayarlar"
 
-#: ui/ProfileConfig.qml:518
+#: ui/ProfileConfig.qml:526
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -393,7 +393,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Şu &güç profiline geç:"
 
-#: ui/ProfileConfig.qml:522
+#: ui/ProfileConfig.qml:530
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -401,13 +401,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Şu güç profiline geç"
 
-#: ui/ProfileConfig.qml:563
+#: ui/ProfileConfig.qml:571
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Özel betik çalıştır:"
 
-#: ui/ProfileConfig.qml:569
+#: ui/ProfileConfig.qml:577
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -415,67 +415,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Çalıştırma Koşullarını Seç…"
 
-#: ui/ProfileConfig.qml:571
+#: ui/ProfileConfig.qml:579
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Betik komutunu çalıştırma koşullarını seç"
 
-#: ui/ProfileConfig.qml:590
+#: ui/ProfileConfig.qml:598
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "Bu güç durumuna gi&rerken"
 
-#: ui/ProfileConfig.qml:606
+#: ui/ProfileConfig.qml:614
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "Bu güç durumundan çıkark&en"
 
-#: ui/ProfileConfig.qml:622
+#: ui/ProfileConfig.qml:630
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "Bir &süre hareketsizlikten sonra"
 
-#: ui/ProfileConfig.qml:641
+#: ui/ProfileConfig.qml:649
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "Bu güç durumuna gir&erken:"
 
-#: ui/ProfileConfig.qml:643
+#: ui/ProfileConfig.qml:651
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Bu güç durumuna girerken çalıştırılacak betik komutu"
 
-#: ui/ProfileConfig.qml:674
+#: ui/ProfileConfig.qml:682
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "Bu g&üç durumundan çıkarken:"
 
-#: ui/ProfileConfig.qml:676
+#: ui/ProfileConfig.qml:684
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Bu güç durumundan çıkarken çalıştırılacak betik komutu"
 
-#: ui/ProfileConfig.qml:707
+#: ui/ProfileConfig.qml:715
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Bir süre hareketsizlikten son&ra:"
 
-#: ui/ProfileConfig.qml:709
+#: ui/ProfileConfig.qml:717
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Bir süre hareketsizlikten sonra çalıştırılacak betik komutu"
 
-#: ui/ProfileConfig.qml:738
+#: ui/ProfileConfig.qml:746
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
