@@ -4,20 +4,21 @@
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2014.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020.
+# SPDX-FileCopyrightText: 2024 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:39+0000\n"
-"PO-Revision-Date: 2020-07-07 15:49-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"POT-Creation-Date: 2024-03-15 00:39+0000\n"
+"PO-Revision-Date: 2024-03-14 15:46-0300\n"
+"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: PowerKCM.cpp:442
 #, kde-format
@@ -28,7 +29,7 @@ msgstr "O Serviço de gerenciamento de energia parece não estar em execução."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Configurações avançadas de energia"
 
 #: ui/GlobalConfig.qml:21
 #, kde-format
@@ -36,27 +37,26 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Nível da bateria"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Nível de bateria baixo:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Com baixo nível de bateria"
+msgstr "Nível de bateria baixo"
 
 #: ui/GlobalConfig.qml:98
 #, kde-format
@@ -65,6 +65,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"A carga da bateria será considerada baixa quando cair para este nível. As "
+"configurações de bateria baixa serão usadas em vez das configurações normais "
+"de bateria."
 
 #: ui/GlobalConfig.qml:105
 #, kde-format
@@ -72,13 +75,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "Nível cr&ítico:"
 
 #: ui/GlobalConfig.qml:113
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Nível crítica da bateria"
 
 #: ui/GlobalConfig.qml:138
 #, kde-format
@@ -88,34 +91,45 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"A carga da bateria será considerada crítica quando cair para este nível. "
+"Após um breve aviso, o sistema irá suspender ou desligar automaticamente, de "
+"acordo com a ação de nível crítico de bateria configurada."
 
-#: ui/GlobalConfig.qml:146
+#: ui/GlobalConfig.qml:147
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for reaching the critical battery "
+"level is now unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/GlobalConfig.qml:154
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "E&m nível crítico:"
 
-#: ui/GlobalConfig.qml:148
+#: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Ação realizada quando em nível crítico de bateria"
 
-#: ui/GlobalConfig.qml:170
+#: ui/GlobalConfig.qml:178
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr ""
 
-#: ui/GlobalConfig.qml:178
+#: ui/GlobalConfig.qml:186
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr ""
 
-#: ui/GlobalConfig.qml:203
+#: ui/GlobalConfig.qml:211
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -123,29 +137,29 @@ msgid ""
 "reaches this level."
 msgstr ""
 
-#: ui/GlobalConfig.qml:211
+#: ui/GlobalConfig.qml:219
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr ""
 
-#: ui/GlobalConfig.qml:220
+#: ui/GlobalConfig.qml:228
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Parar de carregar em:"
 
-#: ui/GlobalConfig.qml:246
+#: ui/GlobalConfig.qml:254
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Começar a carregar assim que estiver &abaixo:"
 
-#: ui/GlobalConfig.qml:303
+#: ui/GlobalConfig.qml:311
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -153,7 +167,7 @@ msgid ""
 "charging the battery again."
 msgstr ""
 
-#: ui/GlobalConfig.qml:313
+#: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -162,76 +176,79 @@ msgid ""
 "charge, you can help extend the battery lifespan."
 msgstr ""
 
-#: ui/GlobalConfig.qml:321
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Outras configurações"
 
-#: ui/GlobalConfig.qml:329
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr ""
 
-#: ui/GlobalConfig.qml:330
+#: ui/GlobalConfig.qml:338
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Pausar reprodutores de mídia ao suspender"
 
-#: ui/GlobalConfig.qml:343
+#: ui/GlobalConfig.qml:351
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Páginas relacionadas:"
 
-#: ui/GlobalConfig.qml:358
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
-
-#: ui/GlobalConfig.qml:360
-#, kde-format
-msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
-
-#: ui/GlobalConfig.qml:367
-#, kde-format
-msgctxt "@text:button Name of KCM"
-msgid "Desktop Session"
-msgstr ""
+msgstr "Notificações: gerenciamento de energia"
 
 #: ui/GlobalConfig.qml:368
 #, kde-format
-msgid "Open \"Desktop Session\" settings page"
+msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
+"Abrir a página de configurações de \"Notificações\", seção \"Gerenciamento "
+"de energia\""
 
 #: ui/GlobalConfig.qml:375
 #, kde-format
 msgctxt "@text:button Name of KCM"
-msgid "Activities"
-msgstr ""
+msgid "Desktop Session"
+msgstr "Sessão de área de trabalho"
 
 #: ui/GlobalConfig.qml:376
 #, kde-format
+msgid "Open \"Desktop Session\" settings page"
+msgstr "Abrir a página de configurações da sessão de área de trabalho"
+
+#: ui/GlobalConfig.qml:383
+#, kde-format
+msgctxt "@text:button Name of KCM"
+msgid "Activities"
+msgstr "Atividades"
+
+#: ui/GlobalConfig.qml:384
+#, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Abrir a página de configurações de \"Atividades\""
 
 #: ui/main.qml:19
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "&Configurações avançadas de energia…"
 
 #: ui/main.qml:43
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr ""
+"As configurações de gerenciamento de energia não puderam ser carregadas"
 
 #: ui/main.qml:79
 #, kde-format
@@ -254,7 +271,7 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:36
 #, kde-format
@@ -262,7 +279,15 @@ msgctxt "@title:group"
 msgid "Suspend Session"
 msgstr ""
 
-#: ui/ProfileConfig.qml:50
+#: ui/ProfileConfig.qml:51
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for after a period of inactivity is "
+"now unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:58
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -270,13 +295,21 @@ msgctxt ""
 msgid "A&fter a period of inactivity:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:58
+#: ui/ProfileConfig.qml:66
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr ""
 
-#: ui/ProfileConfig.qml:103
+#: ui/ProfileConfig.qml:112
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for when the power button is "
+"pressed is now unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:119
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -284,13 +317,21 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:105
+#: ui/ProfileConfig.qml:121
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr ""
 
-#: ui/ProfileConfig.qml:131
+#: ui/ProfileConfig.qml:148
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for when the lid is closed is now "
+"unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:155
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -298,13 +339,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:133
+#: ui/ProfileConfig.qml:157
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr ""
 
-#: ui/ProfileConfig.qml:159
+#: ui/ProfileConfig.qml:183
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -312,176 +353,184 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr ""
 
-#: ui/ProfileConfig.qml:161
+#: ui/ProfileConfig.qml:185
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 
-#: ui/ProfileConfig.qml:178
+#: ui/ProfileConfig.qml:203
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The sleep mode you had previously configured is now unsupported on your "
+"system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:210
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:180
+#: ui/ProfileConfig.qml:212
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr ""
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:258
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr ""
 
-#: ui/ProfileConfig.qml:236
+#: ui/ProfileConfig.qml:268
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:279
+#: ui/ProfileConfig.qml:311
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:319
+#: ui/ProfileConfig.qml:351
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:358
+#: ui/ProfileConfig.qml:390
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:391
+#: ui/ProfileConfig.qml:423
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:438
+#: ui/ProfileConfig.qml:470
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Outras configurações"
 
-#: ui/ProfileConfig.qml:446
+#: ui/ProfileConfig.qml:478
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Mudar para perfil de en&ergia:"
 
-#: ui/ProfileConfig.qml:450
+#: ui/ProfileConfig.qml:482
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Mudar para perfil de energia"
 
-#: ui/ProfileConfig.qml:480
+#: ui/ProfileConfig.qml:512
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Executar o script personalizado:"
 
-#: ui/ProfileConfig.qml:486
+#: ui/ProfileConfig.qml:518
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Escolher as condições de execução…"
 
-#: ui/ProfileConfig.qml:488
+#: ui/ProfileConfig.qml:520
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
-
-#: ui/ProfileConfig.qml:507
-#, kde-format
-msgctxt "@text:action:menu Script command to execute"
-msgid "When e&ntering this power state"
-msgstr ""
-
-#: ui/ProfileConfig.qml:523
-#, kde-format
-msgctxt "@text:action:menu Script command to execute"
-msgid "When e&xiting this power state"
-msgstr ""
+msgstr "Escolher as condições de execução para rodar o script"
 
 #: ui/ProfileConfig.qml:539
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
-msgid "After a period of inacti&vity"
-msgstr ""
+msgid "When e&ntering this power state"
+msgstr "Ao e&ntrar neste estado de energia"
 
-#: ui/ProfileConfig.qml:558
+#: ui/ProfileConfig.qml:555
+#, kde-format
+msgctxt "@text:action:menu Script command to execute"
+msgid "When e&xiting this power state"
+msgstr "Ao s&air deste estado de energia"
+
+#: ui/ProfileConfig.qml:571
+#, kde-format
+msgctxt "@text:action:menu Script command to execute"
+msgid "After a period of inacti&vity"
+msgstr "Após um período de inativ&idade"
+
+#: ui/ProfileConfig.qml:590
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "Ao e&ntrar neste estado de energia:"
 
-#: ui/ProfileConfig.qml:560
+#: ui/ProfileConfig.qml:592
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "Script ao entrar neste estado de energia"
 
-#: ui/ProfileConfig.qml:591
+#: ui/ProfileConfig.qml:623
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "Ao s&air deste estado de energia:"
 
-#: ui/ProfileConfig.qml:593
+#: ui/ProfileConfig.qml:625
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "Script ao sair deste estado de energia"
 
-#: ui/ProfileConfig.qml:624
+#: ui/ProfileConfig.qml:656
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "Após um período de inativ&idade:"
 
-#: ui/ProfileConfig.qml:626
+#: ui/ProfileConfig.qml:658
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "Script após um período de inatividade"
 
-#: ui/ProfileConfig.qml:655
+#: ui/ProfileConfig.qml:687
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "Período de inatividade até que o script seja executado"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Digite o comando ou selecione o arquivo…"
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Selecionar o arquivo executável…"
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Selecionar o arquivo executável"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -489,7 +538,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|min|mins|minutos"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -497,7 +546,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|seg|segs|segundos"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -506,21 +555,21 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "depois de %1 minuto"
+msgstr[1] "depois de %1 minutos"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "depois de %1 segundo"
+msgstr[1] "depois de %1 segundos"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

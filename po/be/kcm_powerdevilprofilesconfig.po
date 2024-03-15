@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-10 00:39+0000\n"
+"POT-Creation-Date: 2024-03-15 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 19:40\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -97,7 +97,15 @@ msgstr ""
 "Пасля кароткага папярэджання сістэма аўтаматычна прыпыніца або выключыцца ў "
 "адпаведнасці з наладжаным дзеяннем для крытычнага ўзроўню зараду батарэі."
 
-#: ui/GlobalConfig.qml:146
+#: ui/GlobalConfig.qml:147
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for reaching the critical battery "
+"level is now unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/GlobalConfig.qml:154
 #, kde-format
 msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
@@ -105,25 +113,25 @@ msgctxt ""
 msgid "A&t critical level:"
 msgstr "&На крытычным ўзроўні:"
 
-#: ui/GlobalConfig.qml:148
+#: ui/GlobalConfig.qml:156
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "Дзеянне выконваецца пры крытычным узроўні зараду батарэі"
 
-#: ui/GlobalConfig.qml:170
+#: ui/GlobalConfig.qml:178
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "Нізкі ўзровень для перы&ферыйных прылад:"
 
-#: ui/GlobalConfig.qml:178
+#: ui/GlobalConfig.qml:186
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "Нізкі ўзровень зараду батарэі для перыферыйных прылад"
 
-#: ui/GlobalConfig.qml:203
+#: ui/GlobalConfig.qml:211
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -133,13 +141,13 @@ msgstr ""
 "Зарад батарэі перыферыйных прылад будзе лічыцца нізкім, калі ён дасягне "
 "гэтага ўзроўню."
 
-#: ui/GlobalConfig.qml:211
+#: ui/GlobalConfig.qml:219
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Ліміт зараджання"
 
-#: ui/GlobalConfig.qml:220
+#: ui/GlobalConfig.qml:228
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -147,7 +155,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&Спыненне зараджання на:"
 
-#: ui/GlobalConfig.qml:246
+#: ui/GlobalConfig.qml:254
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -155,7 +163,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Узровень зараду батарэі, &ніжэй за які пачынаецца зараджанне:"
 
-#: ui/GlobalConfig.qml:303
+#: ui/GlobalConfig.qml:311
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -165,7 +173,7 @@ msgstr ""
 "Магчыма, вам давядзецца адлучыцца і зноў падлучыцца да крыніцы сілкавання, "
 "каб зноў пачаць зараджанне батарэі."
 
-#: ui/GlobalConfig.qml:313
+#: ui/GlobalConfig.qml:321
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -177,7 +185,7 @@ msgstr ""
 "паскорыць пагаршэнне яе стану. Абмяжоўваючы максімальны зарад батарэі, вы "
 "можаце павялічыць тэрмін яе службы."
 
-#: ui/GlobalConfig.qml:321
+#: ui/GlobalConfig.qml:329
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -185,54 +193,54 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Іншыя налады"
 
-#: ui/GlobalConfig.qml:329
+#: ui/GlobalConfig.qml:337
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&Прайграванне медыяфайлаў:"
 
-#: ui/GlobalConfig.qml:330
+#: ui/GlobalConfig.qml:338
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Прыпыненне медыяпрайгравальнікаў пры прыпыненні сістэмы"
 
-#: ui/GlobalConfig.qml:343
+#: ui/GlobalConfig.qml:351
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Звязаныя старонкі:"
 
-#: ui/GlobalConfig.qml:358
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Апавяшчэнні: кіраванне сілкаваннем"
 
-#: ui/GlobalConfig.qml:360
+#: ui/GlobalConfig.qml:368
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Адкрыць старонку налад \"Апавяшчэнні\", раздзел \"Кіраванне сілкаваннем\""
 
-#: ui/GlobalConfig.qml:367
+#: ui/GlobalConfig.qml:375
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Сеансы працоўнага стала"
 
-#: ui/GlobalConfig.qml:368
+#: ui/GlobalConfig.qml:376
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Адкрыць старонку налад \"Сеанс працоўнага стала\""
 
-#: ui/GlobalConfig.qml:375
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Пакоі"
 
-#: ui/GlobalConfig.qml:376
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Адкрыць старонку налад \"Пакоі\""
@@ -278,7 +286,15 @@ msgctxt "@title:group"
 msgid "Suspend Session"
 msgstr "Прыпыніць сеанс"
 
-#: ui/ProfileConfig.qml:50
+#: ui/ProfileConfig.qml:51
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for after a period of inactivity is "
+"now unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:58
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -286,13 +302,21 @@ msgctxt ""
 msgid "A&fter a period of inactivity:"
 msgstr "П&асля перыяду бяздзейнасці:"
 
-#: ui/ProfileConfig.qml:58
+#: ui/ProfileConfig.qml:66
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Дзеянне для выканання, калі сістэма бяздзейнічае"
 
-#: ui/ProfileConfig.qml:103
+#: ui/ProfileConfig.qml:112
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for when the power button is "
+"pressed is now unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:119
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -300,13 +324,21 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Калі націснутая кнопка &сілкавання:"
 
-#: ui/ProfileConfig.qml:105
+#: ui/ProfileConfig.qml:121
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Дзеянне для выканання, калі націснутая кнопка сілкавання"
 
-#: ui/ProfileConfig.qml:131
+#: ui/ProfileConfig.qml:148
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The action you had previously configured for when the lid is closed is now "
+"unsupported on your system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:155
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -314,13 +346,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Калі закрыта &вечка ноўтбука:"
 
-#: ui/ProfileConfig.qml:133
+#: ui/ProfileConfig.qml:157
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Дзеянне для выканання, калі закрыта вечка ноўтбука"
 
-#: ui/ProfileConfig.qml:159
+#: ui/ProfileConfig.qml:183
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -328,69 +360,77 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Нават пры падлучэнні вонкавага манітора"
 
-#: ui/ProfileConfig.qml:161
+#: ui/ProfileConfig.qml:185
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Выконваць дзеянне для вечка ноўтбука, нават калі падлучаны вонкавы манітор"
 
-#: ui/ProfileConfig.qml:178
+#: ui/ProfileConfig.qml:203
+#, kde-format
+msgctxt "@info:status"
+msgid ""
+"The sleep mode you had previously configured is now unsupported on your "
+"system. Please select a different one."
+msgstr ""
+
+#: ui/ProfileConfig.qml:210
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Падчас пераходу ў рэжым сну:"
 
-#: ui/ProfileConfig.qml:180
+#: ui/ProfileConfig.qml:212
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr ""
 "Падчас пераходу ў рэжым сну пераходзіць у наступны энергазберагальны рэжым"
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:258
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Дысплэй і яркасць"
 
-#: ui/ProfileConfig.qml:236
+#: ui/ProfileConfig.qml:268
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Змяніць яркасць &экрана:"
 
-#: ui/ProfileConfig.qml:279
+#: ui/ProfileConfig.qml:311
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Аўтаматычна &зацямніць:"
 
-#: ui/ProfileConfig.qml:319
+#: ui/ProfileConfig.qml:351
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "&Выключыць экран:"
 
-#: ui/ProfileConfig.qml:358
+#: ui/ProfileConfig.qml:390
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "Калі &заблакавана, выключыць экран:"
 
-#: ui/ProfileConfig.qml:391
+#: ui/ProfileConfig.qml:423
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Змяніць &яркасць клавіятуры:"
 
-#: ui/ProfileConfig.qml:438
+#: ui/ProfileConfig.qml:470
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Іншыя налады"
 
-#: ui/ProfileConfig.qml:446
+#: ui/ProfileConfig.qml:478
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -398,7 +438,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Пераключыцца на &профіль сілкавання:"
 
-#: ui/ProfileConfig.qml:450
+#: ui/ProfileConfig.qml:482
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -406,13 +446,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Пераключыцца на профіль сілкавання"
 
-#: ui/ProfileConfig.qml:480
+#: ui/ProfileConfig.qml:512
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Выканаць адвольны скрыпт:"
 
-#: ui/ProfileConfig.qml:486
+#: ui/ProfileConfig.qml:518
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -420,67 +460,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Абраць умовы выканання…"
 
-#: ui/ProfileConfig.qml:488
+#: ui/ProfileConfig.qml:520
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Абраць умовы выканання для загаду скрыпта"
 
-#: ui/ProfileConfig.qml:507
+#: ui/ProfileConfig.qml:539
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "Пры &пераходзе ў гэты рэжым сілкавання"
 
-#: ui/ProfileConfig.qml:523
+#: ui/ProfileConfig.qml:555
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "Пры &выхадзе з гэтага рэжыму сілкавання"
 
-#: ui/ProfileConfig.qml:539
+#: ui/ProfileConfig.qml:571
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "П&асля перыяду бяздзейнасці"
 
-#: ui/ProfileConfig.qml:558
+#: ui/ProfileConfig.qml:590
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "Пры &пераходзе ў гэты рэжым сілкавання:"
 
-#: ui/ProfileConfig.qml:560
+#: ui/ProfileConfig.qml:592
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Загад скрыпта пры пераходзе ў гэты рэжым сілкавання"
 
-#: ui/ProfileConfig.qml:591
+#: ui/ProfileConfig.qml:623
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "Пры &выхадзе з гэтага рэжыму сілкавання:"
 
-#: ui/ProfileConfig.qml:593
+#: ui/ProfileConfig.qml:625
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Загад скрыпта пры выхадзе з гэтага рэжыму сілкавання"
 
-#: ui/ProfileConfig.qml:624
+#: ui/ProfileConfig.qml:656
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "П&асля перыяду бяздзейнасці:"
 
-#: ui/ProfileConfig.qml:626
+#: ui/ProfileConfig.qml:658
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Загад скрыпта пасля перыяду бяздзейнасці"
 
-#: ui/ProfileConfig.qml:655
+#: ui/ProfileConfig.qml:687
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
