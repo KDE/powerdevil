@@ -160,12 +160,15 @@ Kirigami.ScrollablePage {
             textRole: "name"
             valueRole: "value"
 
-            currentIndex: indexOfValue(globalSettings.batteryCriticalAction)
             readonly property bool isConfiguredValueSupported: currentValue === globalSettings.batteryCriticalAction
 
             KCM.SettingStateBinding {
                 configObject: globalSettings
                 settingName: "BatteryCriticalAction"
+            }
+            Component.onCompleted: {
+                // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+                currentIndex = Qt.binding(() => indexOfValue(globalSettings.batteryCriticalAction));
             }
             onActivated: {
                 globalSettings.batteryCriticalAction = currentValue;

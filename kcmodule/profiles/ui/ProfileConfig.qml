@@ -72,12 +72,15 @@ Kirigami.FormLayout {
             textRole: "name"
             valueRole: "value"
 
-            currentIndex: indexOfValue(profileSettings.autoSuspendAction)
             readonly property bool isConfiguredValueSupported: currentValue === profileSettings.autoSuspendAction
 
             KCM.SettingStateBinding {
                 configObject: profileSettings
                 settingName: "AutoSuspendAction"
+            }
+            Component.onCompleted: {
+                // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+                currentIndex = Qt.binding(() => indexOfValue(profileSettings.autoSuspendAction));
             }
             onActivated: {
                 profileSettings.autoSuspendAction = currentValue;
@@ -128,12 +131,15 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
-        currentIndex: indexOfValue(profileSettings.powerButtonAction)
         readonly property bool isConfiguredValueSupported: currentValue === profileSettings.powerButtonAction
 
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "PowerButtonAction"
+        }
+        Component.onCompleted: {
+            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+            currentIndex = Qt.binding(() => indexOfValue(profileSettings.powerButtonAction));
         }
         onActivated: {
             profileSettings.powerButtonAction = currentValue;
@@ -164,12 +170,15 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
-        currentIndex: indexOfValue(profileSettings.lidAction)
         readonly property bool isConfiguredValueSupported: currentValue === profileSettings.lidAction
 
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "LidAction"
+        }
+        Component.onCompleted: {
+            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+            currentIndex = Qt.binding(() => indexOfValue(profileSettings.lidAction));
         }
         onActivated: {
             profileSettings.lidAction = currentValue;
@@ -233,7 +242,6 @@ Kirigami.FormLayout {
             highlighted: index === sleepModeCombo.currentIndex
         }
 
-        currentIndex: indexOfValue(profileSettings.sleepMode)
         readonly property bool isConfiguredValueSupported: currentValue === profileSettings.sleepMode
 
         KCM.SettingStateBinding {
@@ -244,6 +252,10 @@ Kirigami.FormLayout {
                 || powerButtonActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
                 || lidActionCombo.currentValue === PD.PowerDevil.PowerButtonAction.Sleep
             )
+        }
+        Component.onCompleted: {
+            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+            currentIndex = Qt.binding(() => indexOfValue(profileSettings.sleepMode));
         }
         onActivated: {
             profileSettings.sleepMode = currentValue;
@@ -490,17 +502,14 @@ Kirigami.FormLayout {
         textRole: "name"
         valueRole: "value"
 
-        /*private*/ property bool assignedInitialIndex: false
-
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "PowerProfile"
         }
-        onCountChanged: { // PowerProfileModel has delayed initialization due to a D-Bus call
-            if (count > 0 && !assignedInitialIndex) {
-                currentIndex = Qt.binding(() => indexOfValue(profileSettings.powerProfile));
-                assignedInitialIndex = true;
-            }
+        Component.onCompleted: {
+            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+            // Also observe count - PowerProfileModel has delayed initialization due to a D-Bus call.
+            currentIndex = Qt.binding(() => count ? indexOfValue(profileSettings.powerProfile) : -1);
         }
         onActivated: {
             profileSettings.powerProfile = currentValue;
