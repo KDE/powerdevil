@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2014, 2020, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2014, 2020, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:39+0000\n"
-"PO-Revision-Date: 2023-12-19 12:36+0100\n"
+"PO-Revision-Date: 2024-03-15 12:48+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: PowerKCM.cpp:442
 #, kde-format
@@ -100,6 +100,9 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"De actie die u eerder had geconfigureerd voor bij het bereiken van het "
+"kritische batterijniveau wordt nu niet meer ondersteund op uw systeem. "
+"Selecteer een andere."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -289,6 +292,9 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"De actie die u eerder had geconfigureerd voor na een periode van "
+"inactiviteit wordt nu niet meer ondersteund op uw systeem. Selecteer een "
+"andere."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -311,6 +317,9 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"De actie die u eerder had geconfigureerd voor wanneer de aan/uit schakelaar "
+"wordt ingedrukt wordt nu niet meer ondersteund op uw systeem. Selecteer een "
+"andere."
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
@@ -333,6 +342,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"De actie die u eerder had geconfigureerd voor wanneer het deksel wordt "
+"gesloten wordt nu niet meer ondersteund op uw systeem. Selecteer een andere."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -370,6 +381,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"De slaapmodus die u eerder had geconfigureerd wordt nu niet meer ondersteund "
+"op uw systeem. Selecteer een andere."
 
 #: ui/ProfileConfig.qml:210
 #, kde-format

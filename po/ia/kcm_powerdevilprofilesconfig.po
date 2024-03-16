@@ -1,20 +1,20 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# g.sora <g.sora@tiscali.it>, 2010, 2011, 2020, 2023.
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2020, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:39+0000\n"
-"PO-Revision-Date: 2023-12-20 08:42+0100\n"
+"PO-Revision-Date: 2024-03-15 18:49+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerKCM.cpp:442
@@ -99,6 +99,9 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Le action que tu ha previemente configurate per attinger le nivello critic "
+"de batteria es nunc non supportate per tu systema. Pro favor seile un altere "
+"differente."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -289,6 +292,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"Le action que tu ha previemente configurate per un periodo de inactivitate "
+"es nunc non supportate per tu systema. Pro favor seile un altere differente."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -311,6 +316,9 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Le action que tu ha previemente configurate per quando le button de potentia "
+"es pressate es nunc no nsupportate per tu systema. Pro favor seile un altere "
+"differente."
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
@@ -333,6 +341,9 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Le action que tu ha previemente configurate per quando le coperculo es "
+"claudite  es nunc no nsupportate per tu systema. Pro favor seile un altere "
+"differente."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -370,6 +381,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Le modo de dormir que tu ha configurate es nunc non suppportate sur tu "
+"systema. Pro favor selige un altere differente."
 
 #: ui/ProfileConfig.qml:210
 #, kde-format

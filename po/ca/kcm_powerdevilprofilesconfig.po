@@ -3,21 +3,21 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2023 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2023, 2024 Antoni Bella Pérez <antonibella5@yahoo.com>
 # Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2017, 2020, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:39+0000\n"
-"PO-Revision-Date: 2024-01-12 19:14+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2024-03-15 14:52+0100\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -103,6 +103,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"L'acció que havíeu configurat prèviament en assolir el nivell de bateria "
+"crític ara no és compatible amb el sistema. Seleccioneu-ne una de diferent."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -293,6 +295,9 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"L'acció que havíeu configurat prèviament per a després d'un període "
+"d'inactivitat ara no és compatible amb el sistema. Seleccioneu-ne una de "
+"diferent."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -315,6 +320,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"L'acció que havíeu configurat prèviament per a quan es prem el botó d'encesa/"
+"apagat ara no és compatible amb el sistema. Seleccioneu-ne una de diferent."
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
@@ -337,6 +344,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"L'acció que havíeu configurat prèviament per a quan es tanqui la tapa ara no "
+"és compatible amb el sistema. Seleccioneu-ne una de diferent."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -364,7 +373,7 @@ msgstr "Inclús quan hi hagi un monitor extern connectat"
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
-"Porta a terme l'acció de la tapa del portàtil Inclús quan hi hagi un monitor "
+"Porta a terme l'acció de la tapa del portàtil inclús quan hi hagi un monitor "
 "extern connectat"
 
 #: ui/ProfileConfig.qml:203
@@ -374,6 +383,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"El mode d'adormir-se que havíeu configurat prèviament ara no és compatible "
+"amb el sistema. Seleccioneu-ne un de diferent."
 
 #: ui/ProfileConfig.qml:210
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:39+0000\n"
-"PO-Revision-Date: 2023-12-19 22:50+0200\n"
+"PO-Revision-Date: 2024-03-15 17:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -101,6 +101,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Підтримку вибраної вами раніше дії у відповідь на критично низький рівень "
+"заряду акумулятора у вашій системі припинено. Будь ласка, виберіть іншу дію."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -290,6 +292,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"Підтримку вибраної вами раніше дії у відповідь на певний період "
+"бездіяльності у вашій системі припинено. Будь ласка, виберіть іншу дію."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -312,6 +316,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Підтримку вибраної вами раніше дії у відповідь на натискання кнопки живлення "
+"у вашій системі припинено. Будь ласка, виберіть іншу дію."
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
@@ -334,6 +340,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Підтримку вибраної вами раніше дії у відповідь на закриття кришки у вашій "
+"системі припинено. Будь ласка, виберіть іншу дію."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -371,6 +379,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Підтримку вибраного вами режиму присипляння у вашій системі припинено. Будь "
+"ласка, виберіть інший режим."
 
 #: ui/ProfileConfig.qml:210
 #, kde-format

@@ -3,13 +3,13 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:39+0000\n"
-"PO-Revision-Date: 2023-12-19 15:38+0200\n"
+"PO-Revision-Date: 2024-03-15 06:59+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -100,6 +100,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"הפעולה שהגדרת בעבר למצב בו הסוללה הגיעה למצב מכריע אינה נתמכת עוד במערכת "
+"שלך. נא לבחור בפעולה אחרת."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -286,6 +288,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"הפעולה שהגדרת בעבר לאחר משך זמן של חוסר פעילות אינה נתמכת עוד במערכת שלך. נא "
+"לבחור בפעולה אחרת."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -308,6 +312,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"הפעולה שהגדרת בעבר ללחיצה על כפתור הכיבוי אינה נתמכת עוד במערכת שלך. נא "
+"לבחור בפעולה אחרת."
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
@@ -330,6 +336,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"הפעולה שהגדרת בעבר לסגירת מסך המחשב הנייד אינה נתמכת עוד במערכת שלך. נא "
+"לבחור בפעולה אחרת."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -364,7 +372,7 @@ msgctxt "@info:status"
 msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
-msgstr ""
+msgstr "מצב השינה שהגדרת בעבר אינו נתמך עוד במערכת שלך. נא לבחור במצב אחר."
 
 #: ui/ProfileConfig.qml:210
 #, kde-format

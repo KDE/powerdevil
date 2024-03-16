@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marcello Anni <marcello.anni@alice.it>, 2011.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2011.
-# SPDX-FileCopyrightText: 2020, 2023 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 00:39+0000\n"
-"PO-Revision-Date: 2023-12-20 03:24+0100\n"
+"PO-Revision-Date: 2024-03-15 13:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: PowerKCM.cpp:442
 #, kde-format
@@ -102,6 +102,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"L'azione precedentemente configurata per raggiungere il livello critico "
+"della batteria non è ora supportata sul tuo sistema. Selezionane una diversa."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -292,6 +294,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"L'azione precedentemente configurata dopo un periodo di inattività ora non è "
+"supportata sul tuo sistema. Selezionane una diversa."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -314,6 +318,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"L'azione precedentemente configurata per quando viene premuto il pulsante di "
+"accensione non è ora supportata sul sistema. Selezionane una diversa."
 
 #: ui/ProfileConfig.qml:119
 #, kde-format
@@ -336,6 +342,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"L'azione precedentemente configurata per la chiusura dello schermo del "
+"portatile ora non è supportata sul tuo sistema. Selezionane una diversa."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -373,6 +381,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"La modalità di sospensione configurata in precedenza ora non è supportata "
+"sul tuo sistema. Selezionane una diversa."
 
 #: ui/ProfileConfig.qml:210
 #, kde-format
