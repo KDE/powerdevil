@@ -30,7 +30,10 @@ BrightnessControl::BrightnessControl(QObject *parent)
     // DBus
     new BrightnessControlAdaptor(this);
 
-    connect(core(), &PowerDevil::Core::screenBrightnessChanged, this, &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromCore);
+    connect(core()->screenBrightnessController(),
+            &ScreenBrightnessController::screenBrightnessChanged,
+            this,
+            &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromController);
 
     KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -91,7 +94,7 @@ bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSet
     return true;
 }
 
-void BrightnessControl::onBrightnessChangedFromCore(const BrightnessLogic::BrightnessInfo &info)
+void BrightnessControl::onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &info)
 {
     Q_EMIT brightnessChanged(info.value);
     Q_EMIT brightnessMaxChanged(info.valueMax);

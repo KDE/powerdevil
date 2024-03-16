@@ -20,10 +20,10 @@
 #include <KSharedConfig>
 
 #include "controllers/batterycontroller.h"
-#include "controllers/lidcontroller.h"
-#include "controllers/suspendcontroller.h"
 #include "controllers/keyboardbrightnesscontroller.h"
+#include "controllers/lidcontroller.h"
 #include "controllers/screenbrightnesscontroller.h"
+#include "controllers/suspendcontroller.h"
 #include "powerdevilcore_export.h"
 
 namespace KActivities
@@ -125,8 +125,6 @@ Q_SIGNALS:
     void lidClosedChanged(bool closed);
     void chargeStartThresholdChanged(int threshold);
     void chargeStopThresholdChanged(int threshold);
-    void keyboardBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
-    void screenBrightnessChanged(const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
 private:
     void initActions();
@@ -208,8 +206,6 @@ private Q_SLOTS:
     void onServiceRegistered(const QString &service);
     void onLidClosedChanged(bool closed);
     void onAboutToSuspend();
-    void onKeyboardBrightnessChanged(const KeyboardBrightnessLogic::BrightnessInfo &brightnessInfo);
-    void onScreenBrightnessChanged(const ScreenBrightnessLogic::BrightnessInfo &brightnessInfo);
     // handlers for handling wakeup dbus call
     void resetAndScheduleNextWakeup();
     void timerfdEventHandler();

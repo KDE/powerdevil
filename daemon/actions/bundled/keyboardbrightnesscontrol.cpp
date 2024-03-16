@@ -36,7 +36,10 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
     // DBus
     new KeyboardBrightnessControlAdaptor(this);
 
-    connect(core(), &PowerDevil::Core::keyboardBrightnessChanged, this, &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromCore);
+    connect(core()->keyboardBrightnessController(),
+            &KeyboardBrightnessController::keyboardBrightnessChanged,
+            this,
+            &PowerDevil::BundledActions::KeyboardBrightnessControl::onBrightnessChangedFromController);
 
     KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
@@ -101,7 +104,7 @@ bool KeyboardBrightnessControl::loadAction(const PowerDevil::ProfileSettings &pr
     return true;
 }
 
-void KeyboardBrightnessControl::onBrightnessChangedFromCore(const KeyboardBrightnessLogic::BrightnessInfo &info)
+void KeyboardBrightnessControl::onBrightnessChangedFromController(const KeyboardBrightnessLogic::BrightnessInfo &info)
 {
     m_lastKeyboardBrightness = info.value;
     Q_EMIT keyboardBrightnessChanged(info.value);

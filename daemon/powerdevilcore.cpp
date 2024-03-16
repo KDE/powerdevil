@@ -120,8 +120,6 @@ void Core::onControllersReady()
     connect(m_batteryController.get(), &BatteryController::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_lidController.get(), &LidController::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
-    connect(m_keyboardBrightnessController.get(), &KeyboardBrightnessController::keyboardBrightnessChanged, this, &Core::onKeyboardBrightnessChanged);
-    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::screenBrightnessChanged, this, &Core::onScreenBrightnessChanged);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
@@ -1142,19 +1140,9 @@ void Core::timerfdEventHandler()
     QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 }
 
-void Core::onKeyboardBrightnessChanged(const KeyboardBrightnessLogic::BrightnessInfo &brightnessInfo)
-{
-    Q_EMIT keyboardBrightnessChanged(brightnessInfo);
-}
-
 KeyboardBrightnessController *Core::keyboardBrightnessController()
 {
     return m_keyboardBrightnessController.get();
-}
-
-void Core::onScreenBrightnessChanged(const ScreenBrightnessLogic::BrightnessInfo &brightnessInfo)
-{
-    Q_EMIT screenBrightnessChanged(brightnessInfo);
 }
 
 ScreenBrightnessController *Core::screenBrightnessController()
