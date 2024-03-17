@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-11 00:38+0000\n"
+"POT-Creation-Date: 2024-03-17 00:39+0000\n"
 "PO-Revision-Date: 2024-02-18 10:10+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -37,33 +37,33 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shaforostoff@kde.ru,skull@kde.ru"
 
-#: actions/bundled/brightnesscontrol.cpp:36 actions/bundled/dpms.cpp:73
+#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:42
-#: actions/bundled/keyboardbrightnesscontrol.cpp:42
+#: actions/bundled/keyboardbrightnesscontrol.cpp:45
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Управление питанием"
 
-#: actions/bundled/brightnesscontrol.cpp:39
+#: actions/bundled/brightnesscontrol.cpp:42
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Увеличить яркость экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:44
+#: actions/bundled/brightnesscontrol.cpp:47
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Увеличить яркость экрана на 1%"
 
-#: actions/bundled/brightnesscontrol.cpp:49
+#: actions/bundled/brightnesscontrol.cpp:52
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Уменьшить яркость экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:54
+#: actions/bundled/brightnesscontrol.cpp:57
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
@@ -104,19 +104,19 @@ msgctxt ""
 msgid "Power Down"
 msgstr "Отключить питание"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:46
+#: actions/bundled/keyboardbrightnesscontrol.cpp:49
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Увеличить яркость подсветки клавиатуры"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:51
+#: actions/bundled/keyboardbrightnesscontrol.cpp:54
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Уменьшить яркость подсветки клавиатуры"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:56
+#: actions/bundled/keyboardbrightnesscontrol.cpp:59
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
@@ -174,44 +174,44 @@ msgstr "Переключить профиль энергопотребления
 msgid "Replace an existing instance"
 msgstr "Заменить существующий запущенный процесс."
 
-#: powerdevilcore.cpp:379 powerdevilcore.cpp:390
+#: powerdevilcore.cpp:377 powerdevilcore.cpp:388
 #, kde-format
 msgid "Activity Manager"
 msgstr "Диспетчер комнат"
 
-#: powerdevilcore.cpp:380
+#: powerdevilcore.cpp:378
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Политики этих комнат препятствуют переходу в спящий режим"
 
-#: powerdevilcore.cpp:391
+#: powerdevilcore.cpp:389
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Политики этих комнат препятствуют управлению питанием монитора"
 
-#: powerdevilcore.cpp:453
+#: powerdevilcore.cpp:451
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Подключена дополнительная батарея"
 
-#: powerdevilcore.cpp:454 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:452 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Компьютер более будет переходить в режим ожидания."
 
-#: powerdevilcore.cpp:519
+#: powerdevilcore.cpp:517
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи устройства (осталось %1%)"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:522
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -222,22 +222,22 @@ msgstr ""
 "любой момент. Если вы хотите продолжать его использовать, замените батарею "
 "или зарядите аккумулятор."
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:529
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи мыши (осталось %1%)"
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:533
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи клавиатуры (осталось %1%)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:537
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда устройства Bluetooth (осталось %1%)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:539
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -248,32 +248,32 @@ msgstr ""
 "отключиться в любой момент. Если вы хотите продолжать его использовать, "
 "замените батарею или зарядите аккумулятор."
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:581
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Убедитесь, что блок питания подключён к сети и обеспечивает необходимую "
 "мощность."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:583
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Подключите компьютер к блоку питания."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:602
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Уровень заряда батареи критический. Компьютер будет выключен через 60 секунд."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:604
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Выключить"
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:610
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -283,7 +283,7 @@ msgstr ""
 "гибернации через 60 секунд."
 
 # shutdown-method --aspotashev
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:612
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -291,7 +291,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Гибернация"
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:618
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
@@ -299,19 +299,19 @@ msgstr ""
 "через 60 секунд."
 
 # shutdown-method --aspotashev
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:620
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Сон"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:626
 #, kde-format
 msgid "Please save your work."
 msgstr "Сохраните результаты своей работы как можно быстрее."
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:632
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -319,47 +319,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Отменить"
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи (осталось %1%)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Критический уровень заряда батареи (осталось %1%)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Сетевой адаптер подключён"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "Работа от сети"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Блок питания подключён к электрической сети."
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Работа от батареи"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Блок питания отключён от электрической сети."
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr "Батарея полностью заряжена"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарея теперь полностью заряжена"

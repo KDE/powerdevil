@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 00:39+0000\n"
+"POT-Creation-Date: 2024-03-17 00:39+0000\n"
 "PO-Revision-Date: 2024-01-27 14:46+0000\n"
 "Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -114,19 +114,19 @@ msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
 msgstr "Aðgerð sem er framkvæmd þegar rafhlaðan er að tæmast"
 
-#: ui/GlobalConfig.qml:178
+#: ui/GlobalConfig.qml:181
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
 msgstr "Lítil hl&eðsla fyrir jaðartæki:"
 
-#: ui/GlobalConfig.qml:186
+#: ui/GlobalConfig.qml:189
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
 msgstr "Lítil hleðsla á rafhlöðu jaðartækja"
 
-#: ui/GlobalConfig.qml:211
+#: ui/GlobalConfig.qml:214
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -135,13 +135,13 @@ msgid ""
 msgstr ""
 "Rafhlaða jaðartækis telst vera með litla hleðslu þegar hún nær þessu stigi."
 
-#: ui/GlobalConfig.qml:219
+#: ui/GlobalConfig.qml:222
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Hleðslumörk"
 
-#: ui/GlobalConfig.qml:228
+#: ui/GlobalConfig.qml:231
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -149,7 +149,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&Hætta að hlaða við:"
 
-#: ui/GlobalConfig.qml:254
+#: ui/GlobalConfig.qml:257
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -157,7 +157,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Byrja að hlaða un&dir:"
 
-#: ui/GlobalConfig.qml:311
+#: ui/GlobalConfig.qml:314
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -167,7 +167,7 @@ msgstr ""
 "Þú þarft kannski að taka tölvuna úr sambandi og setja aftur í samband til að "
 "rafhlaðan byrji aftur að hlaðast."
 
-#: ui/GlobalConfig.qml:321
+#: ui/GlobalConfig.qml:324
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -179,7 +179,7 @@ msgstr ""
 "100% eða tæmd að fullu. Með því að takmarka hámarkshleðslu rafhlöðunnar er "
 "hægt að stuðla að lengri líftíma hennar."
 
-#: ui/GlobalConfig.qml:329
+#: ui/GlobalConfig.qml:332
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -187,53 +187,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Aðrar stillingar"
 
-#: ui/GlobalConfig.qml:337
+#: ui/GlobalConfig.qml:340
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&Miðlaspilun:"
 
-#: ui/GlobalConfig.qml:338
+#: ui/GlobalConfig.qml:341
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Setja miðlaspilara á pásu þegar sett er í dvala"
 
-#: ui/GlobalConfig.qml:351
+#: ui/GlobalConfig.qml:354
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Tengdar síður:"
 
-#: ui/GlobalConfig.qml:366
+#: ui/GlobalConfig.qml:369
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Tilkynningar: Orkustjórnun"
 
-#: ui/GlobalConfig.qml:368
+#: ui/GlobalConfig.qml:371
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Opna stillingasíðuna \"Tilkynningar\", hlutann \"Orkustjórnun\""
 
-#: ui/GlobalConfig.qml:375
+#: ui/GlobalConfig.qml:378
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Skjáborðsseta"
 
-#: ui/GlobalConfig.qml:376
+#: ui/GlobalConfig.qml:379
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Opna stillingasíðuna \"Skjáborðsseta\""
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:386
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Athafnir"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:387
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Opna stillingasíðuna \"Athafnir\""
@@ -301,7 +301,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Aðgerð sem á að gera þegar tölvan er aðgerðarlaus"
 
-#: ui/ProfileConfig.qml:112
+#: ui/ProfileConfig.qml:115
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -309,7 +309,7 @@ msgid ""
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
 
-#: ui/ProfileConfig.qml:119
+#: ui/ProfileConfig.qml:122
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -317,13 +317,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Þegar ýtt er á &rofann:"
 
-#: ui/ProfileConfig.qml:121
+#: ui/ProfileConfig.qml:124
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Aðgerð sem á að gera þegar ýtt er á rofann"
 
-#: ui/ProfileConfig.qml:148
+#: ui/ProfileConfig.qml:154
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -331,7 +331,7 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 
-#: ui/ProfileConfig.qml:155
+#: ui/ProfileConfig.qml:161
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -339,13 +339,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Þegar fartölvu er &lokað:"
 
-#: ui/ProfileConfig.qml:157
+#: ui/ProfileConfig.qml:163
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Aðgerð sem á að gera þegar fartölvunni er lokað"
 
-#: ui/ProfileConfig.qml:183
+#: ui/ProfileConfig.qml:192
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -353,12 +353,12 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Jafnvel þegar ytri skjár er tengdur"
 
-#: ui/ProfileConfig.qml:185
+#: ui/ProfileConfig.qml:194
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr "Framkvæma aðgerð þegar fartölvu er lokað þótt ytri skjár sé tengdur"
 
-#: ui/ProfileConfig.qml:203
+#: ui/ProfileConfig.qml:212
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -366,62 +366,62 @@ msgid ""
 "system. Please select a different one."
 msgstr ""
 
-#: ui/ProfileConfig.qml:210
+#: ui/ProfileConfig.qml:219
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Við svæfingu á að stilla á:"
 
-#: ui/ProfileConfig.qml:212
+#: ui/ProfileConfig.qml:221
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "Þegar tölvan er svæfð á að setja hana í þetta orkusparnaðarsnið"
 
-#: ui/ProfileConfig.qml:258
+#: ui/ProfileConfig.qml:270
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Skjár og birtustig"
 
-#: ui/ProfileConfig.qml:268
+#: ui/ProfileConfig.qml:280
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Breyta &birtustigi skjás:"
 
-#: ui/ProfileConfig.qml:311
+#: ui/ProfileConfig.qml:323
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Di&mma sjálfkrafa:"
 
-#: ui/ProfileConfig.qml:351
+#: ui/ProfileConfig.qml:363
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "&Slökkva á skjá"
 
-#: ui/ProfileConfig.qml:390
+#: ui/ProfileConfig.qml:402
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "Þegar læst, slö&kkva á skjá:"
 
-#: ui/ProfileConfig.qml:423
+#: ui/ProfileConfig.qml:435
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Breyta birtustigi lykla&borðs:"
 
-#: ui/ProfileConfig.qml:470
+#: ui/ProfileConfig.qml:482
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Aðrar stillingar"
 
-#: ui/ProfileConfig.qml:478
+#: ui/ProfileConfig.qml:490
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -429,7 +429,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Skipta í orku&prófíl:"
 
-#: ui/ProfileConfig.qml:482
+#: ui/ProfileConfig.qml:494
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -437,13 +437,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Skipta í orkuprófíl"
 
-#: ui/ProfileConfig.qml:512
+#: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Keyra sérsniðna skriftu:"
 
-#: ui/ProfileConfig.qml:518
+#: ui/ProfileConfig.qml:527
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -451,67 +451,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Veldu keyrsluskilyrði..."
 
-#: ui/ProfileConfig.qml:520
+#: ui/ProfileConfig.qml:529
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Velja keyrsluskilyrði fyrir skriftuskipunina"
 
-#: ui/ProfileConfig.qml:539
+#: ui/ProfileConfig.qml:548
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "Þegar fa&rið er í þessa orkustöðu"
 
-#: ui/ProfileConfig.qml:555
+#: ui/ProfileConfig.qml:564
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "Þegar h&ætt er í þessari orkustöðu"
 
-#: ui/ProfileConfig.qml:571
+#: ui/ProfileConfig.qml:580
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "E&ftir aðgerðaleysi í smátíma"
 
-#: ui/ProfileConfig.qml:590
+#: ui/ProfileConfig.qml:599
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "Þegar fa&rið er í þessa orkustöðu:"
 
-#: ui/ProfileConfig.qml:592
+#: ui/ProfileConfig.qml:601
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Skriftuskipun þegar farið er í þessa orkustöðu"
 
-#: ui/ProfileConfig.qml:623
+#: ui/ProfileConfig.qml:632
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "Þegar h&ætt er í þessari orkustöðu:"
 
-#: ui/ProfileConfig.qml:625
+#: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Skriftuskipun þegar hætt er í þessari orkustöðu"
 
-#: ui/ProfileConfig.qml:656
+#: ui/ProfileConfig.qml:665
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "E&ftir aðgerðaleysi í tiltekinn tíma:"
 
-#: ui/ProfileConfig.qml:658
+#: ui/ProfileConfig.qml:667
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Skriftuskipun eftir aðgerðaleysi í tiltekinn tíma"
 
-#: ui/ProfileConfig.qml:687
+#: ui/ProfileConfig.qml:696
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
