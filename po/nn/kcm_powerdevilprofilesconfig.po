@@ -1,14 +1,13 @@
 # Translation of kcm_powerdevilprofilesconfig to Norwegian Nynorsk
 #
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010, 2011.
-# Karl Ove Hufthammer <karl@huftis.org>, 2009, 2015, 2018, 2020.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 03:05+0000\n"
-"PO-Revision-Date: 2020-08-28 18:55+0200\n"
+"PO-Revision-Date: 2024-03-17 11:11+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -16,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.0\n"
+"X-Generator: Lokalize 24.02.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -30,7 +29,7 @@ msgstr "Det ser ikkje ut til at straumstyrings­tenesta køyrer."
 #, kde-format
 msgctxt "@title"
 msgid "Advanced Power Settings"
-msgstr ""
+msgstr "Avanserte straumval"
 
 #: ui/GlobalConfig.qml:21
 #, kde-format
@@ -38,24 +37,23 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10 %"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
 msgctxt "@title:group"
 msgid "Battery Levels"
-msgstr ""
+msgstr "Batterinivå"
 
 #: ui/GlobalConfig.qml:65
 #, kde-format
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr ""
+msgstr "&Lågt nivå:"
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "Lågt batterinivå"
@@ -74,13 +72,13 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr ""
+msgstr "&Kritisk batterinivå:"
 
 #: ui/GlobalConfig.qml:115
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Critical battery level"
-msgstr ""
+msgstr "Kritisk batterinivå"
 
 #: ui/GlobalConfig.qml:142
 #, kde-format
@@ -97,7 +95,7 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr ""
+msgstr "Ved &kritisk lågt batterinivå:"
 
 #: ui/GlobalConfig.qml:152
 #, kde-format
@@ -129,7 +127,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ladegrense"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
@@ -137,7 +135,7 @@ msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
 "reached"
 msgid "&Stop charging at:"
-msgstr ""
+msgstr "&Stopp lading når nivået er over:"
 
 #: ui/GlobalConfig.qml:264
 #, kde-format
@@ -145,7 +143,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Start lading når nivået er &under:"
 
 #: ui/GlobalConfig.qml:321
 #, kde-format
@@ -154,6 +152,8 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Det kan vera du må kopla frå og til straumkjelda for at batteriet skal "
+"starta å att."
 
 #: ui/GlobalConfig.qml:331
 #, kde-format
@@ -170,19 +170,19 @@ msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
 "elsewhere"
 msgid "Other Settings"
-msgstr ""
+msgstr "Andre innstillingar"
 
 #: ui/GlobalConfig.qml:347
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "&Medieavspeling:"
 
 #: ui/GlobalConfig.qml:348
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
-msgstr ""
+msgstr "Set mediespelarar på pause ved kvile-/dvalemodus"
 
 #: ui/GlobalConfig.qml:361
 #, kde-format
@@ -205,7 +205,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
-msgstr ""
+msgstr "Skrivebordsøkt"
 
 #: ui/GlobalConfig.qml:386
 #, kde-format
@@ -216,7 +216,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
-msgstr ""
+msgstr "Aktivitetar"
 
 #: ui/GlobalConfig.qml:394
 #, kde-format
@@ -227,13 +227,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr ""
+msgstr "Avanserte &straumval …"
 
 #: ui/main.qml:43
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Klarte ikkje lasta straumstyrings­innstillingar"
 
 #: ui/main.qml:79
 #, kde-format
@@ -256,7 +256,7 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10 %"
 
 #: ui/ProfileConfig.qml:36
 #, kde-format
@@ -284,7 +284,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr ""
+msgstr "Ved trykk på straum&knappen:"
 
 #: ui/ProfileConfig.qml:125
 #, kde-format
@@ -298,7 +298,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr ""
+msgstr "Når lokket vert &lukka:"
 
 #: ui/ProfileConfig.qml:164
 #, kde-format
@@ -342,7 +342,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Endra &lysstyrken på skjermen:"
 
 #: ui/ProfileConfig.qml:332
 #, kde-format
@@ -354,7 +354,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "Slå &av skjermen:"
 
 #: ui/ProfileConfig.qml:429
 #, kde-format
@@ -372,7 +372,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
-msgstr ""
+msgstr "Andre innstillingar"
 
 #: ui/ProfileConfig.qml:526
 #, kde-format
@@ -380,7 +380,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Byt til straum&profil:"
 
 #: ui/ProfileConfig.qml:530
 #, kde-format
@@ -388,13 +388,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Byt straumprofil"
 
 #: ui/ProfileConfig.qml:571
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Køyr sjølvvalt skript:"
 
 #: ui/ProfileConfig.qml:577
 #, kde-format
@@ -473,17 +473,17 @@ msgstr ""
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Skriv inn kommando eller vel fil …"
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Vel programfil …"
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Vel programfil"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -491,7 +491,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "m|min|minutt|minuttar"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -499,7 +499,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "s|sek|sekund|sekundar"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -508,18 +508,18 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "etter %1 minutt"
+msgstr[1] "etter %1 minutt"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "etter %1 sekund"
+msgstr[1] "etter %1 sekund"
