@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:39+0000\n"
+"POT-Creation-Date: 2024-03-18 00:39+0000\n"
 "PO-Revision-Date: 2024-01-02 14:51+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -165,45 +165,45 @@ msgstr "Energiakezelési profil váltása"
 msgid "Replace an existing instance"
 msgstr "Meglévő példány cseréje"
 
-#: powerdevilcore.cpp:377 powerdevilcore.cpp:388
+#: powerdevilcore.cpp:378 powerdevilcore.cpp:389
 #, kde-format
 msgid "Activity Manager"
 msgstr "Aktivitáskezelő"
 
-#: powerdevilcore.cpp:378
+#: powerdevilcore.cpp:379
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Az aktivitás házirendjei tiltják a rendszer alvó állapotba kerülését"
 
-#: powerdevilcore.cpp:389
+#: powerdevilcore.cpp:390
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Az aktivitás házirendjei nem engedélyezik a képernyő energiatakarékosságát"
 
-#: powerdevilcore.cpp:451
+#: powerdevilcore.cpp:452
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "További akkumulátor hozzáadva"
 
-#: powerdevilcore.cpp:452 powerdevilcore.cpp:673
+#: powerdevilcore.cpp:453 powerdevilcore.cpp:674
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "A számítógép nem kerül többet alvó állapotba."
 
-#: powerdevilcore.cpp:517
+#: powerdevilcore.cpp:518
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:520
+#: powerdevilcore.cpp:521
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Alacsony eszköztöltöttség (%1% van hátra)"
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -213,22 +213,22 @@ msgstr ""
 "A(z) „%1” akkumulátorának töltöttsége alacsony, az eszköz bármikor "
 "kikapcsolhat. Cserélje ki vagy töltse fel az akkumulátort, amint lehet."
 
-#: powerdevilcore.cpp:529
+#: powerdevilcore.cpp:530
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Alacsony egértöltöttség (%1% van hátra)"
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:534
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Alacsony billentyűzet-töltöttség (%1% van hátra)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:538
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Alacsony eszköztöltöttség (%1% van hátra)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:540
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -238,32 +238,32 @@ msgstr ""
 "A(z) „%1” akkumulátorának töltöttsége alacsony, az eszköz bármikor "
 "kikapcsolhat. Cserélje ki vagy töltse fel az akkumulátort, amint lehet."
 
-#: powerdevilcore.cpp:581
+#: powerdevilcore.cpp:582
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Ellenőrizze, hogy a hálózati adapter be van-e dugva, és elegendő energiát "
 "biztosít-e."
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:584
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Csatlakoztassa a számítógépet."
 
-#: powerdevilcore.cpp:602
+#: powerdevilcore.cpp:603
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "A lemerülés kritikus szintű, a számítógép 60 másodperc múlva kikapcsol."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:605
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Leállítás most"
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:611
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -271,7 +271,7 @@ msgid ""
 msgstr ""
 "A lemerülés kritikus szintű, a számítógép 60 másodperc hibernálva lesz."
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:613
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -279,26 +279,26 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernálás most"
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "A lemerülés kritikus szintű, a számítógép 60 másodperc múlva alvó állapotba "
 "kerül."
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:621
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Altatás most"
 
-#: powerdevilcore.cpp:626
+#: powerdevilcore.cpp:627
 #, kde-format
 msgid "Please save your work."
 msgstr "Kérjük, mentse el munkáját."
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:633
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -306,47 +306,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Alacsony feszültség (%1% van hátra)"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritikus lemerültség (%1% van hátra)"
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Tápcsatlakozó bedugva"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Running on AC power"
 msgstr "Hálózatról üzemel"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "A hálózati csatlakozót csatlakoztatták."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Akkumulátorról üzemel"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "A hálózati csatlakozót kihúzták."
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Charging Complete"
 msgstr "Töltés befejezve"
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Az akkumulátor teljesen feltöltve."

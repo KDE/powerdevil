@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:39+0000\n"
+"POT-Creation-Date: 2024-03-18 00:39+0000\n"
 "PO-Revision-Date: 2024-02-25 18:12+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -163,45 +163,45 @@ msgstr "Schimbă profilul de energie"
 msgid "Replace an existing instance"
 msgstr "Înlocuiește o instanță existentă"
 
-#: powerdevilcore.cpp:377 powerdevilcore.cpp:388
+#: powerdevilcore.cpp:378 powerdevilcore.cpp:389
 #, kde-format
 msgid "Activity Manager"
 msgstr "Gestionar de activități"
 
-#: powerdevilcore.cpp:378
+#: powerdevilcore.cpp:379
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Politicile acestei activități împiedică sistemul să adoarmă"
 
-#: powerdevilcore.cpp:389
+#: powerdevilcore.cpp:390
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Politicile acestei activități împiedică gestiunea alimentării ecranului"
 
-#: powerdevilcore.cpp:451
+#: powerdevilcore.cpp:452
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Acumulator suplimentar adăugat"
 
-#: powerdevilcore.cpp:452 powerdevilcore.cpp:673
+#: powerdevilcore.cpp:453 powerdevilcore.cpp:674
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Calculatorul nu va mai adormi."
 
-#: powerdevilcore.cpp:517
+#: powerdevilcore.cpp:518
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:520
+#: powerdevilcore.cpp:521
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut al dispozitivului (%1% rămase)"
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -211,22 +211,22 @@ msgstr ""
 "Acumulatorul din „%1” e scăzut și dispozitivul se poate deconecta în orice "
 "moment. Reîncărcați sau schimbați acumulatorul."
 
-#: powerdevilcore.cpp:529
+#: powerdevilcore.cpp:530
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut al mausului (%1% rămase)"
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:534
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut al tastaturii (%1% rămase)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:538
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut al dispozitivului Bluetooth (%1% rămase)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:540
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -236,33 +236,33 @@ msgstr ""
 "Acumulatorul din dispozitivul Bluetooth „%1” e scăzut și dispozitivul se "
 "poate deconecta în orice moment. Reîncărcați sau schimbați bateriile."
 
-#: powerdevilcore.cpp:581
+#: powerdevilcore.cpp:582
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Asigurați-vă că adaptorul de alimentare e conectat și furnizează destulă "
 "putere."
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:584
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Conectați calculatorul la rețea."
 
-#: powerdevilcore.cpp:602
+#: powerdevilcore.cpp:603
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Nivelul acumulatorului e critic. Calculatorul va fi deconectat în 60 de "
 "secunde."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:605
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Oprește acum"
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:611
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -271,7 +271,7 @@ msgstr ""
 "Nivelul acumulatorului e critic. Calculatorul va intra în regim de hibernare "
 "în 60 de secunde."
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:613
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -279,25 +279,25 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernează acum"
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:619
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Nivelul acumulatorului e critic. Calculatorul va adormi în 60 de secunde."
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:621
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Dormi acum"
 
-#: powerdevilcore.cpp:626
+#: powerdevilcore.cpp:627
 #, kde-format
 msgid "Please save your work."
 msgstr "Salvați-vă lucrul."
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:633
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -305,47 +305,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Anulează"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Acumulator scăzut (%1% rămas)"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:649
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Acumulator critic (%1% rămas)"
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:673
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Adaptorul de alimentare este atașat"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "Running on AC power"
 msgstr "Rulează alimentat de la priză"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Adaptorul de alimentare a fost atașat."
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Rulează alimentat de la acumulator"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Adaptorul de alimentare a fost detașat."
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Charging Complete"
 msgstr "Încărcare încheiată"
 
-#: powerdevilcore.cpp:739
+#: powerdevilcore.cpp:740
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Acumulatorul este complet încărcat."

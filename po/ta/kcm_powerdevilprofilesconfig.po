@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-02-18 16:18+0530\n"
+"PO-Revision-Date: 2024-03-17 17:55+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: PowerKCM.cpp:442
 #, kde-format
@@ -97,6 +97,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"நெருக்கடியான மின்கல நிலைக்கு நீங்கள் முன்பு அமைத்திருந்த செயல், தற்போது உங்கள் கணினியால் "
+"அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -284,6 +286,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"குறிப்பிட்ட இடைவெளிக்கு கணினியைப் பயன்படுத்தாதபோது செய்யவேண்டியதாக நீங்கள் முன்பு "
+"அமைத்திருந்த செயல், தற்போது உங்கள் கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -306,6 +310,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"ஆற்றல் பட்டனை அழுத்தும்போது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், தற்போது உங்கள் "
+"கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
@@ -328,6 +334,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"மடிக்கணினியின் மூடியை மூடும்போது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், "
+"தற்போது உங்கள் கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
 #: ui/ProfileConfig.qml:161
 #, kde-format
@@ -365,6 +373,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"நீங்கள் முன்பு அமைத்திருந்த உறக்க முறை, தற்போது உங்கள் கணினியால் அதரிக்கப்படாத‍து. "
+"வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
