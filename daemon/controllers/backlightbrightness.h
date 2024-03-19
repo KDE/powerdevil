@@ -64,11 +64,16 @@ private:
 
     const int m_brightnessAnimationThreshold = 100;
     const int m_brightnessAnimationDurationMsec = 250;
-    QTimer *m_brightnessAnimationTimer = nullptr;
 
-    int m_cachedBrightness;
+    int m_observedBrightness;
+    int m_requestedBrightness;
+    int m_executedBrightness;
     int m_maxBrightness;
 
-    int m_requestedBrightness = -1;
+    // lower and upper bound for checking whether an observed brightness change is expected or not
+    // by the brightness animation
+    int m_expectedMinBrightness = -1;
+    int m_expectedMaxBrightness = -1;
+
     bool m_isWaitingForKAuthJob = false;
 };
