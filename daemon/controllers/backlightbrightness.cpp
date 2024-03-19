@@ -106,10 +106,12 @@ QList<DisplayBrightness *> BacklightDetector::displays() const
     return m_display ? QList<DisplayBrightness *>(1, m_display.get()) : QList<DisplayBrightness *>();
 }
 
-BacklightBrightness::BacklightBrightness(int cachedBrightness, int maxBrightness, QString syspath, QObject *parent)
+BacklightBrightness::BacklightBrightness(int observedBrightness, int maxBrightness, QString syspath, QObject *parent)
     : DisplayBrightness(parent)
     , m_syspath(syspath)
-    , m_cachedBrightness(cachedBrightness)
+    , m_observedBrightness(observedBrightness)
+    , m_requestedBrightness(observedBrightness)
+    , m_executedBrightness(observedBrightness)
     , m_maxBrightness(maxBrightness)
 {
 #ifndef Q_OS_FREEBSD
@@ -130,27 +132,51 @@ bool BacklightBrightness::isSupported() const
 
 void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
 {
-    // If we're currently in the process of changing brightness, ignore any such events
-    if (m_isWaitingForKAuthJob || (m_brightnessAnimationTimer && m_brightnessAnimationTimer->isActive())) {
-        return;
-    }
-
-    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed" << m_syspath << device.sysfsPath();
     if (device.sysfsPath() != m_syspath) {
         return;
     }
-
     int maxBrightness = device.sysfsProperty(u"max_brightness"_s).toInt();
     if (maxBrightness <= 0) {
         return;
     }
     int newBrightness = device.sysfsProperty(u"brightness"_s).toInt();
-
-    if (newBrightness != m_cachedBrightness) {
-        m_cachedBrightness = newBrightness;
-        m_maxBrightness = maxBrightness; // we don't expect this to change, but set it anyway for safety
-        Q_EMIT externalBrightnessChangeObserved(this, newBrightness);
+    if (m_observedBrightness == newBrightness) {
+        return;
     }
+    int lastObservedBrightness = m_observedBrightness;
+    m_observedBrightness = newBrightness;
+
+    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed brightness to:" << m_observedBrightness << "for" << m_syspath;
+
+    //
+    // Ignore any brightness changes that we initiated in this class, send signals only for external changes
+
+    if (m_observedBrightness > lastObservedBrightness) {
+        // Moving up means we don't need a lower boundary, the only valid animation targets are
+        // executed brightness (current target) and expected max brightness (delayed previous target)
+        if (m_executedBrightness >= m_observedBrightness) {
+            m_expectedMinBrightness = -1;
+            return;
+        } else if (m_expectedMaxBrightness != -1 && m_expectedMaxBrightness >= m_observedBrightness) {
+            return;
+        }
+    } else {
+        // Moving down means we don't need a upper boundary, the only valid animation targets are
+        // executed brightness (current target) and expected min brightness (delayed previous target)
+        if (m_executedBrightness <= m_observedBrightness) {
+            m_expectedMaxBrightness = -1;
+            return;
+        } else if (m_expectedMinBrightness != -1 && m_expectedMinBrightness <= m_observedBrightness) {
+            return;
+        }
+    }
+
+    qCDebug(POWERDEVIL) << "[BacklightBrightness]: External brightness change observed:" << m_observedBrightness << "/" << maxBrightness;
+    m_requestedBrightness = m_observedBrightness;
+    m_executedBrightness = m_observedBrightness;
+    m_expectedMinBrightness = -1;
+    m_expectedMaxBrightness = -1;
+    Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
 }
 
 QString BacklightBrightness::id() const
@@ -180,7 +206,7 @@ int BacklightBrightness::maxBrightness() const
 
 int BacklightBrightness::brightness() const
 {
-    return m_cachedBrightness;
+    return m_requestedBrightness;
 }
 
 void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
@@ -204,8 +230,20 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
     }
     m_isWaitingForKAuthJob = true;
 
+    const int oldExecutedBrightness = m_executedBrightness;
+    m_executedBrightness = newBrightness;
+
+    // Define the range of expected animation values, if we observe any values outside of this
+    // then we'll emit a brightness change signal as "external change"
+    if (newBrightness > oldExecutedBrightness && m_expectedMinBrightness == -1) {
+        m_expectedMinBrightness = qMin(m_observedBrightness, oldExecutedBrightness);
+    }
+    if (newBrightness < oldExecutedBrightness && m_expectedMaxBrightness == -1) {
+        m_expectedMaxBrightness = qMax(m_observedBrightness, oldExecutedBrightness);
+    }
+
     // Make sure there are enough integer steps of difference to run a smooth animation
-    const int brightnessDiff = qAbs(brightness() - newBrightness);
+    const int brightnessDiff = qAbs(m_observedBrightness - newBrightness);
     const bool willAnimate = brightnessDiff >= m_brightnessAnimationThreshold && allowAnimations;
 
     KAuth::Action action(u"org.kde.powerdevil.backlighthelper.setbrightness"_s);
@@ -214,28 +252,18 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
     action.addArgument(u"animationDuration"_s, willAnimate ? m_brightnessAnimationDurationMsec : 0);
     auto *job = action.execute();
 
-    connect(job, &KAuth::ExecuteJob::result, this, [this, job, newBrightness, willAnimate] {
+    connect(job, &KAuth::ExecuteJob::result, this, [this, job, willAnimate] {
         m_isWaitingForKAuthJob = false;
 
         if (job->error()) {
             qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness" << job->errorText();
+            Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
             return;
         }
 
-        if (willAnimate) {
-            // So we ignore any brightness changes during the animation
-            if (!m_brightnessAnimationTimer) {
-                m_brightnessAnimationTimer = new QTimer(this);
-                m_brightnessAnimationTimer->setSingleShot(true);
-            }
-            m_brightnessAnimationTimer->start(m_brightnessAnimationDurationMsec);
-        }
-
-        // Immediately register the new brightness while we still animate to it
-        m_cachedBrightness = newBrightness;
-
-        if (m_requestedBrightness != m_cachedBrightness) {
-            // We had another setBrightness() request come in in the meantime, apply it now
+        if (m_requestedBrightness != m_executedBrightness) {
+            // We had another setBrightness() request come in in the meantime:
+            // apply it now that m_isWaitingForKAuthJob is not blocking the call
             setBrightness(m_requestedBrightness, willAnimate);
         }
     });
