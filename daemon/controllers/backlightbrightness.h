@@ -65,4 +65,7 @@ private:
 
     int m_cachedBrightness;
     int m_maxBrightness;
+
+    int m_requestedBrightness = -1;
+    bool m_isWaitingForKAuthJob = false;
 };

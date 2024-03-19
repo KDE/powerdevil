@@ -129,11 +129,11 @@ bool BacklightBrightness::isSupported() const
 void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
 {
     // If we're currently in the process of changing brightness, ignore any such events
-    if (m_brightnessAnimationTimer && m_brightnessAnimationTimer->isActive()) {
+    if (m_isWaitingForKAuthJob || (m_brightnessAnimationTimer && m_brightnessAnimationTimer->isActive())) {
         return;
     }
 
-    qCDebug(POWERDEVIL) << "Udev device changed" << m_syspath << device.sysfsPath();
+    qCDebug(POWERDEVIL) << "[BacklightBrightness]: Udev device changed" << m_syspath << device.sysfsPath();
     if (device.sysfsPath() != m_syspath) {
         return;
     }
@@ -172,34 +172,59 @@ int BacklightBrightness::brightness() const
 void BacklightBrightness::setBrightness(int newBrightness)
 {
     if (!isSupported()) {
-        qCWarning(POWERDEVIL) << "backlight not supported, setBrightness() should not be called";
+        qCWarning(POWERDEVIL) << "[BacklightBrightness]: Not supported, setBrightness() should not be called";
         return;
     }
+    if (newBrightness < 0 || newBrightness > maxBrightness()) {
+        qCWarning(POWERDEVIL) << "[BacklightBrightness]: Invalid brightness requested:" << newBrightness << "- ignoring | valid range: 0 to" << maxBrightness();
+        return;
+    }
+    m_requestedBrightness = newBrightness;
+
+    if (m_isWaitingForKAuthJob) {
+        // There's already a KAuth setbrightness job running. Don't start a second one until
+        // this one has replied. (Note that when the setbrightness job returns, the animation
+        // has been started but will probably still run asynchronously for a while.)
+        // Remember m_requestedBrightness for later and handle it in the result handler lambda.
+        return;
+    }
+    m_isWaitingForKAuthJob = true;
+
+    // Make sure there are enough integer steps of difference to run a smooth animation
+    const int brightnessDiff = qAbs(brightness() - newBrightness);
+    const bool willAnimate = brightnessDiff >= m_brightnessAnimationThreshold;
 
     KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
     action.setHelperId(HELPER_ID);
     action.addArgument("brightness", newBrightness);
-    if (brightness() >= m_brightnessAnimationThreshold) {
-        action.addArgument("animationDuration", m_brightnessAnimationDurationMsec);
-    }
+    action.addArgument("animationDuration", willAnimate ? m_brightnessAnimationDurationMsec : 0);
     auto *job = action.execute();
 
-    connect(job, &KAuth::ExecuteJob::result, this, [this, job, newBrightness] {
+    connect(job, &KAuth::ExecuteJob::result, this, [this, job, newBrightness, willAnimate] {
+        m_isWaitingForKAuthJob = false;
+
         if (job->error()) {
-            qCWarning(POWERDEVIL) << "Failed to set screen brightness" << job->errorText();
+            qCWarning(POWERDEVIL) << "[BacklightBrightness]: Failed to set screen brightness" << job->errorText();
             return;
         }
 
-        // So we ignore any brightness changes during the animation
-        if (!m_brightnessAnimationTimer) {
-            m_brightnessAnimationTimer = new QTimer(this);
-            m_brightnessAnimationTimer->setSingleShot(true);
+        if (willAnimate) {
+            // So we ignore any brightness changes during the animation
+            if (!m_brightnessAnimationTimer) {
+                m_brightnessAnimationTimer = new QTimer(this);
+                m_brightnessAnimationTimer->setSingleShot(true);
+            }
+            m_brightnessAnimationTimer->start(m_brightnessAnimationDurationMsec);
         }
-        m_brightnessAnimationTimer->start(m_brightnessAnimationDurationMsec);
 
         // Immediately announce the new brightness to everyone while we still animate to it
         m_cachedBrightness = newBrightness;
         Q_EMIT brightnessChanged(newBrightness, maxBrightness());
+
+        if (m_requestedBrightness != m_cachedBrightness) {
+            // We had another setBrightness() request come in in the meantime, apply it now
+            setBrightness(m_requestedBrightness);
+        }
     });
     job->start();
 }
