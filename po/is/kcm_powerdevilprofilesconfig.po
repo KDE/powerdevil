@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-01-27 14:46+0000\n"
+"PO-Revision-Date: 2024-03-16 17:37+0000\n"
 "Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -99,6 +99,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Aðgerðin sem þú valdir áður að myndi gerast þegar rafhlaðan væri alveg að "
+"tæmast er ekki lengur studd í kerfinu. Veldu aðra aðgerð."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -286,6 +288,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"Aðgerðin sem þú valdir áður að myndi gerast eftir aðgerðaleysi í smátíma er "
+"ekki lengur studd í kerfinu. Veldu aðra aðgerð."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -308,6 +312,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Aðgerðin sem þú valdir áður að myndi gerast þegar ýtt væri á rofann er ekki "
+"lengur studd í kerfinu. Veldu aðra aðgerð."
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
@@ -330,6 +336,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Aðgerðin sem þú valdir áður að myndi gerast þegar tölvunni væri lokað er "
+"ekki lengur studd í kerfinu. Veldu aðra aðgerð."
 
 #: ui/ProfileConfig.qml:161
 #, kde-format
@@ -365,6 +373,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Svefnstillingin sem þú valdir áður er ekki lengur studd í kerfinu. Veldu "
+"aðra stillingu."
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
