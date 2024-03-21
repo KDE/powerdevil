@@ -3,20 +3,20 @@
 #
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010.
-# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2023-12-24 06:13+0900\n"
+"PO-Revision-Date: 2024-03-20 18:04+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: PowerKCM.cpp:442
@@ -99,6 +99,7 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"您先前設定電量嚴重不足時要進行的動作已不再被您的系統支援。請選擇別的動作。"
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -282,6 +283,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"您先前設定未動作一段時間之後要進行的動作已不再被您的系統支援。請選擇別的動"
+"作。"
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -304,6 +307,7 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"您先前設定按下電源按鍵時要進行的動作已不再被您的系統支援。請選擇別的動作。"
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
@@ -325,7 +329,7 @@ msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
-msgstr ""
+msgstr "您先前設定關閉上蓋時要進行的動作已不再被您的系統支援。請選擇別的動作。"
 
 #: ui/ProfileConfig.qml:161
 #, kde-format
@@ -360,7 +364,7 @@ msgctxt "@info:status"
 msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
-msgstr ""
+msgstr "您先前設定的睡眠模式已不再被您的系統支援。請選擇別的模式。"
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
