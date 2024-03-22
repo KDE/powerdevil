@@ -25,6 +25,8 @@
 
 #include <algorithm> // std::ranges::find_if
 
+using namespace Qt::Literals::StringLiterals; // u""_s
+
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
     , m_detectors({
@@ -171,7 +173,7 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     for (const QString &displayId : std::as_const(brightnessChangedDisplayIds)) {
         const auto it = m_displaysById.constFind(displayId);
         qCDebug(POWERDEVIL) << "Screen brightness of display" << displayId << "after detection/reconfiguration:" << it->brightnessLogic.info().value;
-        Q_EMIT brightnessInfoChanged(displayId, it->brightnessLogic.info());
+        Q_EMIT brightnessChanged(displayId, it->brightnessLogic.info(), QString(), QString());
     }
 
     const QString previousFirstDisplayId = m_legacyDisplayIds.value(0, QString());
@@ -194,6 +196,17 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
         qCDebug(POWERDEVIL) << "Screen brightness of first display after detection/reconfiguration:" << it->brightnessLogic.info().value;
         Q_EMIT legacyBrightnessInfoChanged(it->brightnessLogic.info());
     }
+}
+
+QString ScreenBrightnessController::label(const QString &displayId) const
+{
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd() && !it->zombie) {
+        QString result = it->display->label();
+        qCDebug(POWERDEVIL) << "Screen label of" << displayId << "is" << result;
+        return result;
+    }
+    qCWarning(POWERDEVIL) << "Query screen label failed: no display with id" << displayId;
+    return QString();
 }
 
 int ScreenBrightnessController::knownSafeMinBrightness(const QString &displayId) const
@@ -240,7 +253,7 @@ int ScreenBrightnessController::brightness(const QString &displayId) const
     return 0;
 }
 
-void ScreenBrightnessController::setBrightness(const QString &displayId, int value)
+void ScreenBrightnessController::setBrightness(const QString &displayId, int value, const QString &sourceClientName, const QString &sourceClientContext)
 {
     if (auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->zombie) {
         const PowerDevil::BrightnessLogic::BrightnessInfo bi = it->brightnessLogic.info();
@@ -254,7 +267,7 @@ void ScreenBrightnessController::setBrightness(const QString &displayId, int val
         // notify only when the internally tracked brightness value is actually different
         if (bi.value != boundedValue) {
             it->brightnessLogic.setValue(boundedValue);
-            Q_EMIT brightnessInfoChanged(displayId, it->brightnessLogic.info());
+            Q_EMIT brightnessChanged(displayId, it->brightnessLogic.info(), sourceClientName, sourceClientContext);
 
             // legacy API without displayId parameter: notify only if the first supported display changed
             if (displayId == m_legacyDisplayIds.first()) {
@@ -295,7 +308,7 @@ void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrigh
 
     it->brightnessLogic.setValue(value);
 
-    Q_EMIT brightnessInfoChanged(it.key(), it->brightnessLogic.info());
+    Q_EMIT brightnessChanged(it.key(), it->brightnessLogic.info(), QString(), QString());
 
     // legacy API without displayId parameter: notify only if the first supported display changed
     if (it.key() == m_legacyDisplayIds.first()) {
@@ -323,7 +336,7 @@ int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::Brightnes
         return -1;
     }
 
-    setBrightness(m_sortedDisplayIds.first(), newBrightness);
+    setBrightness(m_sortedDisplayIds.first(), newBrightness, u"(internal)"_s, u"brightness_key"_s);
     return newBrightness;
 }
 
@@ -361,7 +374,7 @@ void ScreenBrightnessController::setBrightness(int value)
         qCWarning(POWERDEVIL) << "Set screen brightness failed: no supported display available";
     }
     for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
-        setBrightness(displayId, value);
+        setBrightness(displayId, value, QString(), QString());
     }
 }
 
