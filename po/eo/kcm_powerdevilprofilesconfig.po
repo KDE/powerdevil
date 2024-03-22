@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-03-17 05:34+0100\n"
+"PO-Revision-Date: 2024-03-21 09:47+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -313,6 +313,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"La ago, kiun vi antaŭe agordis por kiam la energibutono estas premata, nun "
+"estas nesubtenata en via sistemo. Bonvolu elekti alian."
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
