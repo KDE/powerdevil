@@ -16,19 +16,27 @@ function(target_dbus_files _target)
 endfunction()
 
 add_powerdevil_bundled_action(brightnesscontrol KF6::GlobalAccel)
-target_dbus_files(powerdevil_brightnesscontrolaction  org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
-                     brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
+target_dbus_files(powerdevil_brightnesscontrolaction
+    org.kde.Solid.PowerManagement.Actions.BrightnessControl.xml
+    brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
+
+add_powerdevil_bundled_action(screenbrightnesscontrol)
+target_dbus_files(powerdevil_screenbrightnesscontrolaction
+    org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl.xml
+    screenbrightnesscontrol.h PowerDevil::BundledActions::ScreenBrightnessControl)
 
 add_powerdevil_bundled_action(keyboardbrightnesscontrol)
-target_dbus_files(powerdevil_keyboardbrightnesscontrolaction org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl.xml
-                     keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
+target_dbus_files(powerdevil_keyboardbrightnesscontrolaction
+    org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl.xml
+    keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
 
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF6::KIOCore KF6::KIOWidgets)
 
 add_powerdevil_bundled_action(suspendsession KF6::KIOCore KF6::KIOWidgets)
-target_dbus_files(powerdevil_suspendsessionaction org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
-                     suspendsession.h PowerDevil::BundledActions::SuspendSession)
+target_dbus_files(powerdevil_suspendsessionaction
+    org.kde.Solid.PowerManagement.Actions.SuspendSession.xml
+    suspendsession.h PowerDevil::BundledActions::SuspendSession)
 
 add_powerdevil_bundled_action(dpms)
 target_link_libraries(powerdevil_dpmsaction KF6::ScreenDpms)
