@@ -93,7 +93,7 @@ Kirigami.ScrollablePage {
                 valueFromText: extractPercent
             }
 
-            KCM.ContextualHelpButton {
+            Kirigami.ContextualHelpButton {
                 id: batteryLowContextualHelp
                 toolTipText: i18nc("@info:whatsthis", "The battery charge will be considered low when it drops to this level. Settings for low battery will be used instead of regular battery settings.")
             }
@@ -133,7 +133,7 @@ Kirigami.ScrollablePage {
                 valueFromText: extractPercent
             }
 
-            KCM.ContextualHelpButton {
+            Kirigami.ContextualHelpButton {
                 id: batteryCriticalContextualHelp
                 toolTipText: i18nc("@info:whatsthis", "The battery charge will be considered critical when it drops to this level. After a brief warning, the system will automatically suspend or shut down, according to the configured critical battery level action.")
             }
@@ -209,7 +209,7 @@ Kirigami.ScrollablePage {
                 valueFromText: extractPercent
             }
 
-            KCM.ContextualHelpButton {
+            Kirigami.ContextualHelpButton {
                 id: peripheralBatteryLowContextualHelp
                 toolTipText: i18nc("@info:whatsthis", "The battery charge for peripheral devices will be considered low when it reaches this level.")
             }
