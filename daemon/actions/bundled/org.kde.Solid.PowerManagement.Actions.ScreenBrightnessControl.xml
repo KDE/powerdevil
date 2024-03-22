@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
+  <interface name="org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl">
+    <!--
+      global
+    -->
+    <method name="GetDisplayIds">
+      <doc:doc>
+        <doc:summary>Get a list of display IDs with brightness controls available.</doc:summary>
+        <doc:para>Per-display methods take a display ID as parameter.</doc:para>
+      </doc:doc>
+      <arg type="as" direction="out"/>
+    </method>
+    <signal name="DisplayAdded">
+      <arg name="display_id" type="s">
+        <doc:doc>
+          <doc:summary>The display whose brightness controls became newly available.</doc:summary>
+        </doc:doc>
+      </arg>
+    </signal>
+    <signal name="DisplayRemoved">
+      <arg name="display_id" type="s">
+        <doc:doc>
+          <doc:summary>The display whose brightness controls became unavailable.</doc:summary>
+        </doc:doc>
+      </arg>
+    </signal>
+    <method name="AdjustBrightnessRatio">
+      <doc:doc>
+        <doc:summary>Adjust display brightness for a predetermined set of displays by a delta between -1.0 and 1.0.</doc:summary>
+      </doc:doc>
+      <arg name="delta" type="d" direction="in"/>
+      <arg name="flags" type="u" direction="in">
+        <doc:doc>
+          <doc:summary>Boolean options, combined in a single value with binary OR (pass 0 for default behavior).</doc:summary>
+          <doc:para>
+            <doc:list>
+              <doc:item>0x1: SuppressIndicator - don't show brightness change indicators such as OSD, notification, etc. ("silent mode").</doc:item>
+            </doc:list>
+          </doc:para>
+        </doc:doc>
+      </arg>
+    </method>
+    <method name="AdjustBrightnessRatioWithContext">
+      <doc:doc>
+        <doc:summary>Adjust display brightness for a predetermined set of displays by a delta between -1.0 and 1.0, with extra context passthrough.</doc:summary>
+        <doc:para>Arguments other than source_client_context are the same as in AdjustBrightnessRatio.</doc:para>
+      </doc:doc>
+      <arg name="delta" type="d" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+      <arg name="source_client_context" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>Will be passed through to any resulting BrightnessChanged signal.</doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+    <method name="AdjustBrightnessStep">
+      <doc:doc>
+        <doc:summary>Adjust display brightness for a predetermined set of displays by a step up or down the brightness scale.</doc:summary>
+      </doc:doc>
+      <arg name="step_action" type="u" direction="in">
+        <doc:doc>
+          <doc:summary>The direction and size of the step</doc:summary>
+          <doc:para>
+            <doc:item>0: Increase - raise brightness by a regular step.</doc:item>
+            <doc:item>1: Decrease - lower brightness by a regular step.</doc:item>
+            <doc:item>2: IncreaseSmall - raise brightness by a small step.</doc:item>
+            <doc:item>3: DecreaseSmall - lower brightness by a small step.</doc:item>
+          </doc:para>
+        </doc:doc>
+      </arg>
+      <arg name="flags" type="u" direction="in">
+        <doc:doc>
+          <doc:summary>Boolean options, combined in a single value with binary OR (pass 0 for default behavior).</doc:summary>
+          <doc:para>
+            <doc:list>
+              <doc:item>0x1: SuppressIndicator - don't show brightness change indicators such as OSD, notification, etc. ("silent mode").</doc:item>
+            </doc:list>
+          </doc:para>
+        </doc:doc>
+      </arg>
+    </method>
+    <method name="AdjustBrightnessStepWithContext">
+      <doc:doc>
+        <doc:summary>Adjust display brightness for a predetermined set of displays by a step up or down the brightness scale, with extra context passthrough.</doc:summary>
+        <doc:para>Arguments other than source_client_context are the same as in AdjustBrightnessStep.</doc:para>
+      </doc:doc>
+      <arg name="step_action" type="u" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+      <arg name="source_client_context" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>Will be passed through to any resulting BrightnessChanged signal.</doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+    <!--
+      per display
+    -->
+    <method name="GetLabel">
+      <doc:doc>
+        <doc:summary>Get a user-visible name for a given display.</doc:summary>
+      </doc:doc>
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="GetIsInternal">
+      <doc:doc>
+        <doc:summary>Returns true if the display is part of the system itself (e.g. laptop panel), false if external (e.g. monitor, drawing tablet) or unknown.</doc:summary>
+      </doc:doc>
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="GetMaxBrightness">
+      <doc:doc>
+        <doc:summary>Get the maximum brightness value for a given display.</doc:summary>
+      </doc:doc>
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="GetBrightness">
+      <doc:doc>
+        <doc:summary>Get the current brightness value for a given display, in the range from 0 (the lowest still-visible brightness level) to GetMaxBrightness.</doc:summary>
+        <doc:para>Note that not all external brightness changes can be observed. The actual screen brightness may be a different one than the one returned by this function.</doc:para>
+      </doc:doc>
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="SetBrightness">
+      <doc:doc>
+        <doc:summary>Set the brightness for a given display.</doc:summary>
+      </doc:doc>
+      <arg name="display_id" type="s" direction="in"/>
+      <arg name="brightness" type="i" direction="in">
+        <doc:doc>
+          <doc:summary>The requested brightness value in the range from 0 (the lowest still-visible brightness) to GetMaxBrightness.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="flags" type="u" direction="in">
+        <doc:doc>
+          <doc:summary>Boolean options, combined in a single value with binary OR (pass 0 for default behavior).</doc:summary>
+          <doc:para>
+            <doc:list>
+              <doc:item>0x1: SuppressIndicator - don't show brightness change indicators such as OSD, notification, etc. ("silent mode").</doc:item>
+            </doc:list>
+          </doc:para>
+        </doc:doc>
+      </arg>
+    </method>
+    <method name="SetBrightnessWithContext">
+      <doc:doc>
+        <doc:summary>Set the brightness for a given display, with extra context passthrough.</doc:summary>
+        <doc:para>Arguments other than source_client_context are the same as in SetBrightness.</doc:para>
+      </doc:doc>
+      <arg name="display_id" type="s" direction="in"/>
+      <arg name="brightness" type="i" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+      <arg name="source_client_context" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>Will be passed through to any resulting BrightnessChanged signal.</doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+    <signal name="BrightnessChanged">
+      <arg name="display_id" type="s">
+        <doc:doc>
+          <doc:summary>The display for which a brightness change was performed or observed.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="brightness" type="i">
+        <doc:doc>
+          <doc:summary>The updated brightness value.</doc:summary>
+          <doc:para>Note that not all types of displays allow external brightness changes. The actual screen brightness may be a different one than the one that was last emitted by this signal.</doc:para>
+        </doc:doc>
+      </arg>
+      <arg name="source_client_name" type="s">
+        <doc:doc>
+          <doc:summary>The client (bus address) that requested the brightness change.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="source_client_context" type="s">
+        <doc:doc>
+          <doc:summary>The context string passed through from a brightness change method, or an empty string if no context was passed.</doc:summary>
+        </doc:doc>
+      </arg>
+    </signal>
+    <signal name="BrightnessRangeChanged">
+      <arg name="display_id" type="s">
+        <doc:doc>
+          <doc:summary>The display for which the brightness range changed.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="max_brightness" type="i">
+        <doc:doc>
+          <doc:summary>The updated maximum brightness value.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="brightness" type="i">
+        <doc:doc>
+          <doc:summary>The current brightness value within the updated scale from 0 to max_brightness.</doc:summary>
+        </doc:doc>
+      </arg>
+    </signal>
+  </interface>
+</node>

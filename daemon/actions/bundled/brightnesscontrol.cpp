@@ -22,6 +22,9 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerdevilbrightnesscontrolaction.json")
 
+static const auto InternalClientName = QStringLiteral("(internal)");
+static const auto BrightnessKeyClientContext = QStringLiteral("brightness_key");
+
 namespace PowerDevil::BundledActions
 {
 BrightnessControl::BrightnessControl(QObject *parent)
@@ -149,22 +152,34 @@ void BrightnessControl::setBrightnessSilent(int value)
 
 void BrightnessControl::increaseBrightness()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Increase, ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Increase,
+                                                               InternalClientName,
+                                                               BrightnessKeyClientContext,
+                                                               ScreenBrightnessController::ShowIndicator);
 }
 
 void BrightnessControl::increaseBrightnessSmall()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::IncreaseSmall, ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::IncreaseSmall,
+                                                               InternalClientName,
+                                                               BrightnessKeyClientContext,
+                                                               ScreenBrightnessController::ShowIndicator);
 }
 
 void BrightnessControl::decreaseBrightness()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Decrease, ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Decrease,
+                                                               InternalClientName,
+                                                               BrightnessKeyClientContext,
+                                                               ScreenBrightnessController::ShowIndicator);
 }
 
 void BrightnessControl::decreaseBrightnessSmall()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::DecreaseSmall, ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::DecreaseSmall,
+                                                               InternalClientName,
+                                                               BrightnessKeyClientContext,
+                                                               ScreenBrightnessController::ShowIndicator);
 }
 
 int BrightnessControl::brightnessSteps() const

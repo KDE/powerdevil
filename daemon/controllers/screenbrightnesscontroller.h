@@ -64,6 +64,17 @@ public:
      */
     QStringList displayIds() const;
 
+    /**
+     * A human-readable name for this display.
+     */
+    QString label(const QString &label) const;
+
+    /**
+     * Returns true if the display is part of the system (e.g. laptop panel),
+     * false if external (e.g. monitor, drawing tablet) or unknown.
+     */
+    bool isInternal(const QString &displayId) const;
+
     int knownSafeMinBrightness(const QString &displayId) const;
     int minBrightness(const QString &displayId) const;
     int maxBrightness(const QString &displayId) const;
@@ -73,42 +84,54 @@ public:
      * Set display brightness for this @p displayId to the given @p value.
      *
      * The @p value will be clamped to the range within minBrightness(@p displayId) and
-     * maxBrightness(@p displayId).
+     * maxBrightness(@p displayId). @p sourceClientName and @p sourceClientContext are passed to
+     * the `brightnessChanged` signal that is emitted when a change has indeed happened.
      *
      * @see brightnessChanged
      */
-    void setBrightness(const QString &displayId, int value, IndicatorHint hint = SuppressIndicator);
+    void setBrightness(const QString &displayId,
+                       int value,
+                       const QString &sourceClientName,
+                       const QString &sourceClientContext,
+                       IndicatorHint hint = SuppressIndicator);
 
     /**
      * Adjust display brightness for this @p displayId by a @p delta between -1.0 and 1.0.
      *
      * The @p delta will be converted to and clamped to the valid brightness range for this display.
+     *  @p sourceClientName and @p sourceClientContext are passed to the `brightnessChanged` signal
+     * that is emitted for each display when a change has indeed happened.
      *
      * @see brightnessChanged
      */
-    void adjustBrightnessRatio(const QString &displayId, double delta, IndicatorHint hint);
+    void adjustBrightnessRatio(const QString &displayId, double delta, const QString &sourceClientName, const QString &sourceClientContext, IndicatorHint hint);
 
     /**
      * Adjust display brightness for a predetermined set of displays by a @p delta between -1.0 and 1.0.
      *
      * The @p delta will be converted to and clamped to the valid brightness range for each
-     * affected display.
+     * affected display. @p sourceClientName and @p sourceClientContext are passed to the
+     * `brightnessChanged` signal that is emitted for each display when a change has indeed happened.
      *
      * @see brightnessChanged
      */
-    void adjustBrightnessRatio(double delta, IndicatorHint hint = SuppressIndicator);
+    void adjustBrightnessRatio(double delta, const QString &sourceClientName, const QString &sourceClientContext, IndicatorHint hint = SuppressIndicator);
 
     /**
      * Adjust display brightness for a predetermined set of displays by a step up or down the
      * brightness scale.
      *
-     * The direction and size of each step are specified by @p adjustment. The exact behavior
-     * of step movement and the set of affected displays are an implementation detail that may
-     * change over time.
+     * The direction and size of each step are specified by @p step. The exact behavior of step
+     * movement and the set of affected displays are an implementation detail that may change
+     * over time. @p sourceClientName and @p sourceClientContext are passed to the
+     * `brightnessChanged` signal that is emitted when a change has indeed happened.
      *
      * @see brightnessChanged
      */
-    void adjustBrightnessStep(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment, IndicatorHint hint = SuppressIndicator);
+    void adjustBrightnessStep(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment,
+                              const QString &sourceClientName,
+                              const QString &sourceClientContext,
+                              IndicatorHint hint = SuppressIndicator);
 
     int brightnessSteps(const QString &displayId) const;
 
@@ -125,7 +148,11 @@ Q_SIGNALS:
     void detectionFinished();
     void displayAdded(const QString &displayId);
     void displayRemoved(const QString &displayId);
-    void brightnessChanged(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &, IndicatorHint);
+    void brightnessChanged(const QString &displayId,
+                           const PowerDevil::BrightnessLogic::BrightnessInfo &,
+                           const QString &sourceClientName,
+                           const QString &sourceClientContext,
+                           IndicatorHint);
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()

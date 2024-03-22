@@ -13,6 +13,8 @@
 
 namespace PowerDevil::BundledActions
 {
+
+// Legacy D-Bus API and brightness management, operating on a single value instead of per-display.
 class BrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
@@ -36,11 +38,12 @@ public:
     int brightnessSteps() const;
 
 public Q_SLOTS:
-    // DBus export
     void increaseBrightness();
     void increaseBrightnessSmall();
     void decreaseBrightness();
     void decreaseBrightnessSmall();
+
+    // DBus export
     void setBrightness(int percent);
     void setBrightnessSilent(int percent);
 
