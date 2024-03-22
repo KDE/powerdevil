@@ -21,6 +21,7 @@
 #include <QDBusPendingCall>
 #include <QDBusServiceWatcher>
 #include <QPointer>
+#include <qdebug.h>
 
 namespace
 {
@@ -56,8 +57,10 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
             const auto data = job->data();
             setSavedChargeStartThreshold(data.value(QStringLiteral("chargeStartThreshold")).toInt());
             setSavedChargeStopThreshold(data.value(QStringLiteral("chargeStopThreshold")).toInt());
+            qDebug() << "load saved" << m_savedChargeStartThreshold << m_savedChargeStopThreshold;
             setChargeStopThreshold(m_savedChargeStopThreshold);
             setChargeStartThreshold(m_savedChargeStartThreshold);
+            qDebug() << "load" << m_chargeStartThreshold << m_chargeStopThreshold;
         } else {
             qWarning() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed:" << job->errorText();
             setSavedChargeStartThreshold(ChargeThresholdUnsupported);
@@ -70,10 +73,15 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
 
 void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 {
+    qDebug() << "save" << m_chargeStartThreshold << m_savedChargeStartThreshold << m_chargeStopThreshold << m_savedChargeStopThreshold;
     if ((isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)
         || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold)) {
+        qDebug() << "save"
+                 << "saving";
         int newChargeStartThreshold = isChargeStartThresholdSupported() ? m_chargeStartThreshold : ChargeThresholdUnsupported;
         int newChargeStopThreshold = isChargeStopThresholdSupported() ? m_chargeStopThreshold : ChargeThresholdUnsupported;
+        qDebug() << "save"
+                 << "new" << newChargeStartThreshold << newChargeStopThreshold;
 
         KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.setthreshold"));
         action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
@@ -87,16 +95,22 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
         QPointer thisAlive(this);
         QPointer jobAlive(job);
         job->exec();
+        qDebug() << "save"
+                 << "executed";
 
         if (thisAlive && jobAlive) {
             if (!job->error()) {
                 setSavedChargeStartThreshold(newChargeStartThreshold);
                 setSavedChargeStopThreshold(newChargeStopThreshold);
+                qDebug() << "save"
+                         << "set saved" << m_savedChargeStartThreshold << m_savedChargeStopThreshold;
             } else {
                 qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed:" << job->errorText();
             }
             setChargeStopThreshold(m_savedChargeStopThreshold);
             setChargeStartThreshold(m_savedChargeStartThreshold);
+            qDebug() << "save"
+                     << "set" << m_chargeStartThreshold << m_chargeStopThreshold;
         } else {
             qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed: was deleted during job execution";
         }
@@ -105,6 +119,7 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 
 bool ExternalServiceSettings::isSaveNeeded() const
 {
+    qDebug() << "isSaveNeeded" << m_chargeStartThreshold << m_savedChargeStartThreshold << m_chargeStopThreshold << m_savedChargeStopThreshold;
     return (isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)
         || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold);
 }
@@ -131,8 +146,14 @@ void ExternalServiceSettings::setSavedChargeStartThreshold(int threshold)
 void ExternalServiceSettings::setSavedChargeStopThreshold(int threshold)
 {
     bool wasChargeStopThresholdSupported = isChargeStopThresholdSupported();
+    qDebug() << "setSavedChargeStopThreshold"
+             << "was supported" << wasChargeStopThresholdSupported;
     m_savedChargeStopThreshold = threshold;
+    qDebug() << "setSavedChargeStopThreshold"
+             << "saved" << m_savedChargeStopThreshold;
     if (wasChargeStopThresholdSupported != isChargeStopThresholdSupported()) {
+        qDebug() << "setSavedChargeStopThreshold"
+                 << "changed";
         Q_EMIT isChargeStopThresholdSupportedChanged();
     }
 }
@@ -159,13 +180,20 @@ void ExternalServiceSettings::setChargeStartThreshold(int threshold)
 
 void ExternalServiceSettings::setChargeStopThreshold(int threshold)
 {
+    qDebug() << "setChargeStopThreshold" << threshold;
     if (threshold == m_chargeStopThreshold) {
+        qDebug() << "setChargeStopThreshold"
+                 << "same";
         return;
     }
     m_chargeStopThreshold = threshold;
+    qDebug() << "setChargeStopThreshold"
+             << "changed";
     Q_EMIT chargeStopThresholdChanged();
 
     if (m_chargeStopThreshold > m_savedChargeStopThreshold) {
+        qDebug() << "setChargeStopThreshold"
+                 << "might need reconnect";
         // Only show message if there is actually a charging or fully charged battery
         const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
         for (const Solid::Device &device : devices) {

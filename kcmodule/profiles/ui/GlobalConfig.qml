@@ -239,9 +239,11 @@ Kirigami.ScrollablePage {
             onValueModified: {
                 if (kcm.isChargeStopThresholdSupported) {
                     externalSettings.chargeStopThreshold = value;
+                    console.log("chargeStopThresholdSpin.onValueModified", value, externalSettings.chargeStopThreshold);
                 }
                 // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
                 value = Qt.binding(() => externalSettings.chargeStopThreshold);
+                console.log("restore spin box; chargeStopThresholdSpin.onValueModified", value, externalSettings.chargeStopThreshold);
             }
 
             editable: true
