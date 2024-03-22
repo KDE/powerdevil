@@ -48,11 +48,27 @@ public:
      */
     QStringList displayIds() const;
 
+    /**
+     * A human-readable name for this display.
+     */
+    QString label(const QString &label) const;
+
     int knownSafeMinBrightness(const QString &displayId) const;
     int minBrightness(const QString &displayId) const;
     int maxBrightness(const QString &displayId) const;
     int brightness(const QString &displayId) const;
-    void setBrightness(const QString &displayId, int value);
+
+    /**
+     * Set display brightness for this @p displayId to the given @p value.
+     *
+     * The @p value will be clamped to the range within minBrightness(@p displayId) and
+     * maxBrightness(@p displayId). @p sourceClientName and @p sourceClientContext are passed to
+     * the `brightnessChanged` signal that is emitted when a change has indeed happened.
+     *
+     * @see brightnessChanged
+     */
+    void setBrightness(const QString &displayId, int value, const QString &sourceClientName, const QString &sourceClientContext);
+
     int brightnessSteps(const QString &displayId);
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
@@ -70,7 +86,10 @@ Q_SIGNALS:
     void detectionFinished();
     void displayAdded(const QString &displayId);
     void displayRemoved(const QString &displayId);
-    void brightnessInfoChanged(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &);
+    void brightnessChanged(const QString &displayId,
+                           const PowerDevil::BrightnessLogic::BrightnessInfo &,
+                           const QString &sourceClientName,
+                           const QString &sourceClientContext);
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()

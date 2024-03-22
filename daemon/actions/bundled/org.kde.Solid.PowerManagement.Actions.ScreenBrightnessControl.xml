@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl">
+    <!--
+      global
+    -->
+    <method name="displayIds">
+      <arg type="as" direction="out"/>
+    </method>
+    <signal name="DisplayAdded">
+      <arg name="display_id" type="s"/>
+    </signal>
+    <signal name="DisplayRemoved">
+      <arg name="display_id" type="s"/>
+    </signal>
+    <!--
+      per display
+    -->
+    <method name="label">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="brightness">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="maxBrightness">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="minBrightness">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="knownSafeMinBrightness">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="preferredNumberOfBrightnessSteps">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="setBrightness">
+      <arg name="display_id" type="s" direction="in"/>
+      <arg name="brightness" type="i" direction="in"/>
+      <arg name="source_client_context" type="s" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+    </method>
+    <signal name="BrightnessChanged">
+      <arg name="display_id" type="s"/>
+      <arg name="brightness" type="i"/>
+      <arg name="source_client_name" type="s"/>
+      <arg name="source_client_context" type="s"/>
+    </signal>
+    <signal name="BrightnessRangeChanged">
+      <arg name="display_id" type="s"/>
+      <arg name="min_brightness" type="i"/>
+      <arg name="max_brightness" type="i"/>
+      <arg name="brightness" type="i"/>
+    </signal>
+  </interface>
+</node>
