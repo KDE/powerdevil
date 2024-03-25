@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 03:05+0000\n"
-"PO-Revision-Date: 2024-02-12 15:09+0100\n"
+"PO-Revision-Date: 2024-03-24 11:21+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.01.95\n"
+"X-Generator: Lokalize 24.02.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ProfilesConfigKCM.cpp:444
@@ -30,11 +30,7 @@ msgid "Advanced Power Settings"
 msgstr "Pokročilé nastavenia napájania"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -67,6 +63,9 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Nabitie batérie sa považuje za nízke, keď klesne na túto úroveň. Nastavenia "
+"pre nízku úroveň nabitia batérie sa použijú namiesto bežných nastavení "
+"batérie."
 
 #: ui/GlobalConfig.qml:107
 #, kde-format
@@ -90,6 +89,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Ak nabitie batérie klesne na túto úroveň, bude sa považovať za kritické. Po "
+"krátkom upozornení sa systém automaticky pozastaví alebo vypne, podľa "
+"nakonfigurovanej akcie kritickej úrovne nabitia batérie."
 
 #: ui/GlobalConfig.qml:150
 #, kde-format
@@ -103,7 +105,7 @@ msgstr "Na kritickej úrovni:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Akcia vykonaná pri kritickej úrovni batérie"
 
 #: ui/GlobalConfig.qml:182
 #, kde-format
@@ -115,7 +117,7 @@ msgstr "Nízka úroveň pripojených zariadení:"
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Nízka úroveň nabitia batérie periférnych zariadení"
 
 #: ui/GlobalConfig.qml:217
 #, kde-format
@@ -124,6 +126,8 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"Nabitie batérie periférnych zariadení sa považuje za nízke, keď dosiahne "
+"túto úroveň."
 
 #: ui/GlobalConfig.qml:225
 #, kde-format
@@ -145,7 +149,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "Spustiť nabíjanie keď pod:"
 
 #: ui/GlobalConfig.qml:321
 #, kde-format
@@ -165,6 +169,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Pravidelné nabíjanie batérie takmer na 100 % alebo jej úplné vybitie môže "
+"urýchliť zhoršenie stavu batérie. Obmedzením maximálneho nabitia batérie "
+"nabíjania môžete pomôcť predĺžiť životnosť batérie."
 
 #: ui/GlobalConfig.qml:339
 #, kde-format
@@ -178,7 +185,7 @@ msgstr "Ostatné nastavenia"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr ""
+msgstr "Prehrávanie médií:"
 
 #: ui/GlobalConfig.qml:348
 #, kde-format
@@ -190,18 +197,18 @@ msgstr "Pozastaviť prehrávače médií pri uspaní"
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Súvisiace stránky:"
 
 #: ui/GlobalConfig.qml:376
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Oznámenia: Správa napájania"
 
 #: ui/GlobalConfig.qml:378
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Otvorte stránku nastavení \"Oznámenia\", časť \"Správa napájania\"."
 
 #: ui/GlobalConfig.qml:385
 #, kde-format
@@ -223,7 +230,7 @@ msgstr "Aktivity"
 #: ui/GlobalConfig.qml:394
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Otvorte stránku nastavení \"Aktivity\""
 
 #: ui/main.qml:19
 #, kde-format
