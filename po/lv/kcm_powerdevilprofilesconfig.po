@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-01-28 13:02+0200\n"
+"PO-Revision-Date: 2024-03-24 12:10+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -103,6 +103,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Darbību, kuru iepriekš konfigurējāt, kas palaistos, sasniedzot kritisku "
+"baterijas uzlādes līmeni, jūsu sistēma neatbalsta. Izvēlieties citu darbību."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -291,6 +293,9 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"Darbību, kuru iepriekš konfigurējāt, lai tā palaistos, noteiktu laiku "
+"neizmantojot sistēmu, jūsu sistēma šobrīd neatbalsta. Izvēlieties citu "
+"darbību."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -313,6 +318,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Jūsu iepriekš konfigurēto darbību izslēgšanas pogas nospiešanai jūsu sistēma "
+"šobrīd neatbalsta. Izvēlieties citu."
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
@@ -335,6 +342,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Jūsu iepriekš konfigurēto darbību, aizverot datora vāku, jūsu sistēma šobrīd "
+"neatbalsta. Izvēlieties citu."
 
 #: ui/ProfileConfig.qml:161
 #, kde-format
@@ -372,6 +381,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Jūsu iepriekš konfigurēto iesnaudināšanas režīmu jūsu sistēma šobrīd "
+"neatbalsta. Izvēlieties citu."
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
