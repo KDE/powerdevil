@@ -51,6 +51,22 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, NamedDBusObjectPa
     return argument;
 }
 
+QDBusArgument &operator<<(QDBusArgument &argument, const SolidInhibition &inhibition)
+{
+    argument.beginStructure();
+    argument << inhibition.cookie << inhibition.appName << inhibition.reason;
+    argument.endStructure();
+    return argument;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &argument, SolidInhibition &inhibition)
+{
+    argument.beginStructure();
+    argument >> inhibition.cookie >> inhibition.appName >> inhibition.reason;
+    argument.endStructure();
+    return argument;
+}
+
 QDBusArgument &operator<<(QDBusArgument &argument, const LogindInhibition &inhibition)
 {
     argument.beginStructure();
@@ -70,8 +86,8 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, LogindInhibition 
 Q_DECLARE_METATYPE(NamedDBusObjectPath)
 Q_DECLARE_METATYPE(LogindInhibition)
 Q_DECLARE_METATYPE(QList<LogindInhibition>)
-Q_DECLARE_METATYPE(InhibitionInfo)
-Q_DECLARE_METATYPE(QList<InhibitionInfo>)
+Q_DECLARE_METATYPE(SolidInhibition)
+Q_DECLARE_METATYPE(QList<SolidInhibition>)
 
 namespace PowerDevil
 {
@@ -125,8 +141,8 @@ PolicyAgent::~PolicyAgent()
 
 void PolicyAgent::init()
 {
-    qDBusRegisterMetaType<InhibitionInfo>();
-    qDBusRegisterMetaType<QList<InhibitionInfo>>();
+    qDBusRegisterMetaType<SolidInhibition>();
+    qDBusRegisterMetaType<QList<SolidInhibition>>();
 
     // Watch over the systemd service
     m_sdWatcher.data()->setConnection(QDBusConnection::systemBus());
@@ -589,7 +605,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 {
     ++m_lastCookie;
 
-    const int cookie = m_lastCookie; // when the Timer below fires, m_lastCookie might be different already
+    const uint cookie = m_lastCookie; // when the Timer below fires, m_lastCookie might be different already
 
     if (!m_busWatcher.isNull() && !service.isEmpty()) {
         m_cookieToBusService.insert(cookie, service);
@@ -615,7 +631,11 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
         addInhibitionTypeHelper(cookie, static_cast<PolicyAgent::RequiredPolicies>(types));
 
-        Q_EMIT InhibitionsChanged({{qMakePair(appName, reason)}}, {});
+        SolidInhibition inhibition;
+        inhibition.cookie = cookie;
+        inhibition.appName = appName;
+        inhibition.reason = reason;
+        Q_EMIT InhibitionsChanged({inhibition}, {});
 
         m_pendingInhibitions.removeOne(cookie);
     });
@@ -675,7 +695,7 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
         return;
     }
 
-    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), {{m_cookieToAppName.value(cookie).first}});
+    Q_EMIT InhibitionsChanged({}, {cookie});
     m_cookieToAppName.remove(cookie);
 
     // Look through all of the inhibition types
@@ -701,9 +721,17 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
     }
 }
 
-QList<InhibitionInfo> PolicyAgent::ListInhibitions() const
+QList<SolidInhibition> PolicyAgent::ListInhibitions() const
 {
-    return m_cookieToAppName.values();
+    QList<SolidInhibition> inhibitions;
+    for (uint cookie : m_cookieToAppName.keys()) {
+        SolidInhibition inhibition;
+        inhibition.cookie = cookie;
+        inhibition.appName = m_cookieToAppName.value(cookie).first;
+        inhibition.reason = m_cookieToAppName.value(cookie).second;
+        inhibitions.append(inhibition);
+    }
+    return inhibitions;
 }
 
 bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicies*/ uint types)

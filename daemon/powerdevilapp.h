@@ -14,8 +14,6 @@ namespace PowerDevil
 class Core;
 }
 
-using InhibitionInfo = QPair<QString, QString>;
-
 class PowerDevilApp : public QGuiApplication
 {
     Q_OBJECT

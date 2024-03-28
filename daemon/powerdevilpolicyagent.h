@@ -33,7 +33,11 @@ class OrgFreedesktopScreenSaverInterface;
 #define CONSOLEKIT_MANAGER_PATH "/org/freedesktop/ConsoleKit/Manager"
 #define CONSOLEKIT_MANAGER_IFACE "org.freedesktop.ConsoleKit.Manager"
 
-using InhibitionInfo = QPair<QString, QString>;
+struct SolidInhibition {
+    uint cookie;
+    QString appName;
+    QString reason;
+};
 
 struct LogindInhibition {
     QString what;
@@ -86,14 +90,14 @@ public Q_SLOTS:
     // Exported slots
     uint AddInhibition(uint types, const QString &appName, const QString &reason);
     void ReleaseInhibition(uint cookie);
-    QList<InhibitionInfo> ListInhibitions() const;
+    QList<SolidInhibition> ListInhibitions() const;
     bool HasInhibition(uint types);
 
     void releaseAllInhibitions();
 
 Q_SIGNALS:
     // Exported signals
-    void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
+    void InhibitionsChanged(const QList<SolidInhibition> &added, const QList<uint> &removed);
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
     void sessionActiveChanged(bool active);

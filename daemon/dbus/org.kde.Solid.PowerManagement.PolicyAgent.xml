@@ -14,8 +14,8 @@
     </method>
 
     <method name="ListInhibitions">
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg type="a{ss}" direction="out" />
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;SolidInhibition&gt;"/>
+        <arg type="a(uss)" direction="out" />
     </method>
 
     <method name="HasInhibition">
@@ -24,9 +24,10 @@
     </method>
 
     <signal name="InhibitionsChanged">
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg type="a{ss}" />
-        <arg type="as" />
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;SolidInhibition&gt;" />
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;uint&gt;" />
+        <arg type="a(uss)" />
+        <arg type="a(u)" />
     </signal>
 
   </interface>

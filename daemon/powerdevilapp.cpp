@@ -89,8 +89,6 @@ void PowerDevilApp::onCoreReady()
     QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
 
     // Start the Policy Agent service
-    qDBusRegisterMetaType<QList<InhibitionInfo>>();
-    qDBusRegisterMetaType<InhibitionInfo>();
     new PowerManagementPolicyAgentAdaptor(PowerDevil::PolicyAgent::instance());
 
     QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
