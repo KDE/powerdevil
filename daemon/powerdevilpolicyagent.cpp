@@ -589,7 +589,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 {
     ++m_lastCookie;
 
-    const int cookie = m_lastCookie; // when the Timer below fires, m_lastCookie might be different already
+    const uint cookie = m_lastCookie; // when the Timer below fires, m_lastCookie might be different already
 
     if (!m_busWatcher.isNull() && !service.isEmpty()) {
         m_cookieToBusService.insert(cookie, service);
@@ -615,7 +615,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
         addInhibitionTypeHelper(cookie, static_cast<PolicyAgent::RequiredPolicies>(types));
 
-        Q_EMIT InhibitionsChanged({{qMakePair(appName, reason)}}, {});
+        Q_EMIT InhibitionsChanged({cookie}, {});
 
         m_pendingInhibitions.removeOne(cookie);
     });
@@ -675,7 +675,7 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
         return;
     }
 
-    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), {{m_cookieToAppName.value(cookie).first}});
+    Q_EMIT InhibitionsChanged({}, {cookie});
     m_cookieToAppName.remove(cookie);
 
     // Look through all of the inhibition types
@@ -703,7 +703,15 @@ void PolicyAgent::ReleaseInhibition(uint cookie)
 
 QList<InhibitionInfo> PolicyAgent::ListInhibitions() const
 {
-    return m_cookieToAppName.values();
+    QList<InhibitionInfo> inhibitions;
+    for (uint cookie : m_cookieToAppName.keys()) {
+        InhibitionInfo info;
+        info.append(cookie);
+        info.append(m_cookieToAppName.value(cookie).first);
+        info.append(m_cookieToAppName.value(cookie).second);
+        inhibitions.append(info);
+    }
+    return inhibitions;
 }
 
 bool PolicyAgent::HasInhibition(/*PolicyAgent::RequiredPolicies*/ uint types)
