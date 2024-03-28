@@ -1,88 +1,90 @@
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Burkhard Lück <lueck@hube-lueck.de>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-16 01:39+0000\n"
-"PO-Revision-Date: 2014-03-20 12:15+0100\n"
-"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"PO-Revision-Date: 2024-03-27 19:58+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #: PowerButtonActionModel.cpp:30
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Nichts unternehmen"
 
 #: PowerButtonActionModel.cpp:39
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Schlafen"
 
 #: PowerButtonActionModel.cpp:49
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Ruhezustand"
 
 #: PowerButtonActionModel.cpp:58
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Herunterfahren"
 
 #: PowerButtonActionModel.cpp:66
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Bildschirm sperren"
 
 #: PowerButtonActionModel.cpp:74
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Abmeldedialog anzeigen"
 
 #: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Bildschirm ausschalten"
 
 #: PowerButtonActionModel.cpp:90
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Bildschirm ein-/ausschalten"
 
 #: PowerProfileModel.cpp:40
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Energiesparen"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Ausgeglichen"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Leistung"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Unverändert lassen"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 #: SleepModeModel.cpp:22
 #, kde-format
