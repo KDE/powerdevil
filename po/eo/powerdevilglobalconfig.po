@@ -1,81 +1,82 @@
+# translation of powerdevilglobalconfig.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the powerdevil package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2024-03-28 19:24\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-03-28 09:21+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-stable/messages/powerdevil/powerdevilglobalconfig.pot\n"
-"X-Crowdin-File-ID: 2952\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
+msgstr ""
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org,i@guoyunhe.me, tds00@qq.com"
+msgstr ""
 
 #: GeneralPage.cpp:108
 #, kde-format
 msgid "Do nothing"
-msgstr "无操作"
+msgstr "Fari nenion"
 
 #: GeneralPage.cpp:110
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "睡眠"
+msgstr "Dormi"
 
 #: GeneralPage.cpp:113
 #, kde-format
 msgid "Hibernate"
-msgstr "休眠"
+msgstr "Pasivumigi"
 
 #: GeneralPage.cpp:115
 #, kde-format
 msgid "Shut down"
-msgstr "关机"
+msgstr "Malŝalti"
 
 #: GeneralPage.cpp:264
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "电源管理服务尚未运行。"
+msgstr "La Potencadministra Servo ŝajnas ne funkcii."
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
 #, kde-format
 msgid "<b>Battery Levels                     </b>"
-msgstr "<b>电池电量</b>"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lowLabel)
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr "低电量临界值(&L)："
+msgstr "Ma&lalta nivelo:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr "低电量临界值"
+msgstr "Malalta baterinivelo"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr "电池电量降到此数值之下时将被视作低电量"
+msgstr ""
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -92,37 +93,37 @@ msgstr "%"
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr "危急电量临界值(&C)："
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr "危急电量临界值"
+msgstr "Kritika baterinivelo"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr "电池电量降到此数值之下时将被视作危急电量"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr "进入危急电量时(&T)："
+msgstr "Ĉe kri&tika nivelo:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr "外设低电量临界值："
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr "充电上限："
+msgstr "Ŝarĝolimo"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -133,8 +134,6 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>长期对电池进行完全充电可能加速电池老化。限制电池充电的"
-"百分比有助于延长电池的使用寿命。</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -142,46 +141,46 @@ msgstr ""
 msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
-msgstr "您可能需要断开并重新连接电源才能再次开始充电。"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr "低于此电量时开始充电："
+msgstr ""
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr "插入电源时总是充电"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr "挂起时暂停媒体播放器："
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr "已启用"
+msgstr "Ebligita"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr "配置通知…"
+msgstr "Agordi Avizojn…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr "其他设置"
+msgstr "Aliaj Agordoj"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr "充电水平上限："
+msgstr ""
