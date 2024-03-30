@@ -1,21 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
+# SPDX-FileCopyrightText: 2021, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Safa Alfulaij <safaalfulaij@hotmail.con>, 2013.
 # Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2014.
-# SPDX-FileCopyrightText: 2021, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-02-10 17:50+0400\n"
+"PO-Revision-Date: 2024-03-29 17:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: ar\n"
+"Language-Team: \n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
@@ -64,6 +65,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"سيُعتبر شحن البطارية منخفضا عندما ينخفض إلى هذا المستوى. ستُستخدم إعدادات "
+"البطارية المنخفضة بدلا من إعدادات البطارية العادية."
 
 #: ui/GlobalConfig.qml:105
 #, kde-format
@@ -87,6 +90,8 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"سيعتبر شحن البطارية حرجا عندما ينخفض إلى هذا المستوى. بعد تحذير قصير، سيُعلّق "
+"النظام أو يوقف تشغيله تلقائيا، وفقا لإجراء مستوى البطارية الحرج الذي ضُبط."
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -95,6 +100,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"الإجراء الذي ضبطتَه مسبقا للوصول إلى البطارية الحرجة المستوى الآن غير مدعوم "
+"على نظامك. يرجى تحديد واحد مختلف."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -108,7 +115,7 @@ msgstr "&عند المستوى الحرج:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "الإجراء المنجز على مستوى البطارية الحرج"
 
 #: ui/GlobalConfig.qml:181
 #, kde-format
@@ -120,7 +127,7 @@ msgstr "المستوى المنخفض للأجهزة ال&طرفية:"
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "انخفاض مستوى البطارية للأجهزة الطرفية"
 
 #: ui/GlobalConfig.qml:214
 #, kde-format
@@ -128,7 +135,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
-msgstr ""
+msgstr "سيعتبر شحن البطارية للأجهزة الطرفية منخفضا عندما يصل إلى هذا المستوى."
 
 #: ui/GlobalConfig.qml:222
 #, kde-format
@@ -150,7 +157,7 @@ msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
 "is reached, after having hit the stop-charging threshold earlier"
 msgid "Start charging once &below:"
-msgstr ""
+msgstr "ابدأ الشحن مرة وا&حدة أدناه:"
 
 #: ui/GlobalConfig.qml:314
 #, kde-format
@@ -168,6 +175,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"قد يؤدي شحن البطارية بانتظام بنسبة قريبة من 100٪ أو تفريغها بالكامل إلى "
+"تسريع تدهور صحة البطارية. عن طريق الحد الأقصى لشحن البطارية، يمكنك المساعدة "
+"في إطالة عمر البطارية."
 
 #: ui/GlobalConfig.qml:332
 #, kde-format
@@ -193,18 +203,18 @@ msgstr "ألبث مشغّلات الوسائط عند تعليق"
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "صفحات ذات صلة:"
 
 #: ui/GlobalConfig.qml:369
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "الإخطارات: إدارة الطاقة"
 
 #: ui/GlobalConfig.qml:371
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "افتح صفحة إعدادات \"الإخطارات\"، قسم \"إدارة الطاقة\""
 
 #: ui/GlobalConfig.qml:378
 #, kde-format
@@ -215,7 +225,7 @@ msgstr "جلسة سطح المكتب"
 #: ui/GlobalConfig.qml:379
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "افتح صفحة إعدادات \"جلسة سطح المكتب\""
 
 #: ui/GlobalConfig.qml:386
 #, kde-format
@@ -226,7 +236,7 @@ msgstr "الأنشطة"
 #: ui/GlobalConfig.qml:387
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "افتح صفحة إعدادات \"الأنشطة\""
 
 #: ui/main.qml:19
 #, kde-format
@@ -238,7 +248,7 @@ msgstr "إعدادات الطاقة ال&متقدمة…"
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "تعذر تحميل إعدادات إدارة الطاقة"
 
 #: ui/main.qml:79
 #, kde-format
@@ -261,7 +271,7 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr ""
+msgstr "10%"
 
 #: ui/ProfileConfig.qml:36
 #, kde-format
@@ -276,6 +286,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"الإجراء الذي أعددتَه مسبقا بعد فترة من عدم النشاط هو الآن غير مدعوم على "
+"نظامك. يرجى تحديد واحد مختلف."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -283,13 +295,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "بع&د فترة من عدم النشاط:"
 
 #: ui/ProfileConfig.qml:66
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "الإجراء الذي يجب تنفيذه عندما يكون النظام خاملا"
 
 #: ui/ProfileConfig.qml:115
 #, kde-format
@@ -298,6 +310,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"الإجراء الذي أعددتَه مسبقا عندما يُضغط على زر الطاقة غير مدعوم الآن على نظامك. "
+"يرجى تحديد واحد مختلف."
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
@@ -311,7 +325,7 @@ msgstr "عند ضغط زر الطا&قة:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "الإجراء الذي يجب تنفيذه عند الضغط على زر الطاقة"
 
 #: ui/ProfileConfig.qml:154
 #, kde-format
@@ -320,6 +334,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"الإجراء الذي أعددتَه مسبقا عند إغلاق الغطاء هو الآن غير مدعوم على نظامك. يرجى "
+"تحديد واحد مختلف."
 
 #: ui/ProfileConfig.qml:161
 #, kde-format
@@ -333,7 +349,7 @@ msgstr "عند إغلاق غطاء الم&حمول:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "إجراء يجب تنفيذه عند إغلاق غطاء الكمبيوتر المحمول"
 
 #: ui/ProfileConfig.qml:192
 #, kde-format
@@ -346,7 +362,7 @@ msgstr "حتى عند توصيل شاشة خارجية"
 #: ui/ProfileConfig.qml:194
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
-msgstr ""
+msgstr "أجرِ عملية غطاء الكمبيوتر المحمول حتى عند توصيل شاشة خارجية"
 
 #: ui/ProfileConfig.qml:212
 #, kde-format
@@ -355,37 +371,38 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"وضع السكون الذي أعددتَه مسبقا غير مدعوم الآن على نظامك. يرجى تحديد واحد مختلف."
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "عند النوم، أدخِل:"
 
 #: ui/ProfileConfig.qml:221
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "عند النوم، ادخل وضع توفير الطاقة هذا"
 
 #: ui/ProfileConfig.qml:270
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "العرض والسطوع"
 
 #: ui/ProfileConfig.qml:280
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "غيّر سطوع الشا&شة:"
 
 #: ui/ProfileConfig.qml:323
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "عتّ&م تلقائيا:"
 
 #: ui/ProfileConfig.qml:363
 #, kde-format
@@ -397,13 +414,13 @@ msgstr "أ&طفئ الشاشة:"
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "عند القف&ل، أوقف تشغيل الشاشة:"
 
 #: ui/ProfileConfig.qml:435
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "غيّر سطوع لوحة ال&مفاتيح:"
 
 #: ui/ProfileConfig.qml:482
 #, kde-format
@@ -417,7 +434,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "بدل إلى وضع الطا&قة:"
 
 #: ui/ProfileConfig.qml:494
 #, kde-format
@@ -425,13 +442,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "بدّل إلى وضع الطاقة"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "شغّل سكربت مخصصا:"
 
 #: ui/ProfileConfig.qml:527
 #, kde-format
@@ -439,88 +456,88 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "اختر ظروف التشغيل..."
 
 #: ui/ProfileConfig.qml:529
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "اختر شروط التشغيل للأمر النصي (السكربت)"
 
 #: ui/ProfileConfig.qml:548
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
-msgstr ""
+msgstr "عند الد&خول إلى حالة الطاقة هذه"
 
 #: ui/ProfileConfig.qml:564
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
-msgstr ""
+msgstr "عند الخرو&ج من حالة الطاقة هذه"
 
 #: ui/ProfileConfig.qml:580
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "بعد فترة من عدم النشا&ط"
 
 #: ui/ProfileConfig.qml:599
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
-msgstr ""
+msgstr "عند الد&خول إلى حالة الطاقة هذه:"
 
 #: ui/ProfileConfig.qml:601
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
-msgstr ""
+msgstr "أمر السكربت عند الدخول إلى حالة الطاقة هذه"
 
 #: ui/ProfileConfig.qml:632
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
-msgstr ""
+msgstr "عند الخرو&ج من حالة الطاقة هذه:"
 
 #: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
-msgstr ""
+msgstr "أمر السكربت عند الخروج من حالة الطاقة هذه"
 
 #: ui/ProfileConfig.qml:665
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "بعد فترة من عدم النشا&ط:"
 
 #: ui/ProfileConfig.qml:667
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "أمر السكربت بعد فترة من عدم النشاط"
 
 #: ui/ProfileConfig.qml:696
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "فترة عدم النشاط حتى تنفيذ أمر السكربت"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "أدخل أمرا أو حدّد ملفا..."
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "حدد ملفا قابلا للتنفيذ..."
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "حدد ملفا قابلا للتنفيذ"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -528,7 +545,7 @@ msgctxt ""
 "List of recognized strings for 'minutes' in a time delay expression such as "
 "'after 10 min'"
 msgid "m|min|mins|minutes"
-msgstr ""
+msgstr "د|دق|دقا|دقائق"
 
 #: ui/TimeDelaySpinBox.qml:15
 #, kde-format
@@ -536,7 +553,7 @@ msgctxt ""
 "List of recognized strings for 'seconds' in a time delay expression such as "
 "'after 10 sec'"
 msgid "s|sec|secs|seconds"
-msgstr ""
+msgstr "ث|ثو|ثوا|ثواني"
 
 #: ui/TimeDelaySpinBox.qml:17
 #, kde-format
@@ -545,29 +562,29 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
 msgid "after %1 min"
 msgid_plural "after %1 min"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "بعد %1 دق"
+msgstr[1] "بعد %1 دق"
+msgstr[2] "بعد %1 دق"
+msgstr[3] "بعد %1 دق"
+msgstr[4] "بعد %1 دق"
+msgstr[5] "بعد %1 دق"
 
 #: ui/TimeDelaySpinBox.qml:28
 #, kde-format
 msgid "after %1 sec"
 msgid_plural "after %1 sec"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "بعد ثانية"
+msgstr[1] "بعد ثانيتين"
+msgstr[2] "بعد %1 ثا"
+msgstr[3] "بعد %1 ثا"
+msgstr[4] "بعد %1 ثا"
+msgstr[5] "بعد %1 ثا"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
