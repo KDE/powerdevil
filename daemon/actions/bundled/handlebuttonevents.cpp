@@ -89,7 +89,9 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     connect(backend(), &PowerDevil::BackendInterface::keyboardBrightnessChanged, this, [this](const BrightnessLogic::BrightnessInfo &brightnessInfo) {
         // By the time the lid close is processed, the backend brightness will already be updated.
         // That's why we track the brightness here as long as the lid is open.
-        m_oldKeyboardBrightness = brightnessInfo.value;
+        if (!core()->lidController()->isLidClosed()) {
+            m_oldKeyboardBrightness = brightnessInfo.value;
+        }
     });
 }
 
