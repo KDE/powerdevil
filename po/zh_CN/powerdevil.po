@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-06 01:34+0000\n"
-"PO-Revision-Date: 2024-01-06 03:31\n"
+"PO-Revision-Date: 2024-03-30 19:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/powerdevil/powerdevil.pot\n"
-"X-Crowdin-File-ID: 43709\n"
+"X-Crowdin-File: /kf6-stable/messages/powerdevil/powerdevil.pot\n"
+"X-Crowdin-File-ID: 50030\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -203,7 +203,7 @@ msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
-msgstr "“%1”的电池电量低，它将在不久后停止工作。请尽快充电或者更换电池。"
+msgstr "“%1”的电池电量低，它可能会随时停止工作。请尽快充电或者更换电池。"
 
 #: powerdevilcore.cpp:532
 #, kde-format
@@ -227,7 +227,7 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
-"蓝牙设备“%1”的电池电量低，它将在不久后停止工作。请尽快充电或者更换电池。"
+"蓝牙设备“%1”的电池电量低，它可能会随时停止工作。请尽快充电或者更换电池。"
 
 #: powerdevilcore.cpp:584
 #, kde-format
