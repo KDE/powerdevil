@@ -25,14 +25,18 @@ protected:
 public:
     bool loadAction(const PowerDevil::ProfileSettings &) override;
 
+private Q_SLOTS:
+    void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
+
 private:
-    void setBrightnessHelper(int screen, int keyboard, bool force = false);
+    void setBrightnessHelper(int screenBrightness, int keyboardBrightness);
 
     std::chrono::milliseconds m_dimOnIdleTime{0};
 
     int m_oldScreenBrightness = 0;
     int m_oldKeyboardBrightness = 0;
 
+    PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
     bool m_dimmed = false;
 };
 

@@ -64,11 +64,10 @@ DPMS::DPMS(QObject *parent)
     connect(policyAgent, &PowerDevil::PolicyAgent::unavailablePoliciesChanged, this, &DPMS::onUnavailablePoliciesChanged);
     connect(policyAgent, &PowerDevil::PolicyAgent::screenLockerActiveChanged, this, &DPMS::onScreenLockerActiveChanged);
 
+    m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
+
     connect(core()->suspendController(), &SuspendController::aboutToSuspend, this, &DPMS::onAboutToSuspend);
     connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, &DPMS::onResumeFromSuspend);
-
-    // inhibitions persist over kded module unload/load
-    m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 
     KActionCollection *actionCollection = new KActionCollection(this);
     actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
