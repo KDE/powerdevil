@@ -40,6 +40,7 @@ void DimDisplay::onWakeupFromIdle()
     // An active inhibition may not let us restore the brightness.
     // We should wait a bit screen to wake-up from sleep
     QTimer::singleShot(0, this, [this]() {
+        qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on wake-up from idle";
         setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
     });
     m_dimmed = false;
@@ -49,6 +50,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_ASSERT(timeout == m_dimOnIdleTime);
     if (m_dimmed || m_inhibitScreen) {
+        qCDebug(POWERDEVIL) << "DimDisplay: inhibited (or already dimmed), not dimming";
         return;
     }
 
@@ -59,6 +61,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
         // Furthermore, we can't dim if brightness is 0 already.
         return;
     }
+    qCDebug(POWERDEVIL) << "DimDisplay: triggered on idle timeout, dimming";
 
     m_oldScreenBrightness = core()->screenBrightnessController()->screenBrightness();
     m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
@@ -97,7 +100,6 @@ bool DimDisplay::isSupported()
 
 bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    qCDebug(POWERDEVIL);
     // when profile is changed after display is dimmed or turn-off (by dpms)
     // 1. restore brightness values if current loaded profile doesn't require dimming
     // 2. update brightness values to new ones if there are explicitly set
@@ -105,6 +107,7 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     if (!profileSettings.dimDisplayWhenIdle()) {
         if (m_dimmed) {
             if (!profileSettings.useProfileSpecificDisplayBrightness() && m_oldScreenBrightness > 0) {
+                qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
                 core()->screenBrightnessController()->setScreenBrightness(m_oldScreenBrightness);
             }
             if (!profileSettings.useProfileSpecificKeyboardBrightness() && m_oldKeyboardBrightness > 0) {
@@ -125,7 +128,7 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     }
 
     m_dimOnIdleTime = std::chrono::seconds(profileSettings.dimDisplayIdleTimeoutSec());
-    qCDebug(POWERDEVIL) << "Loading timeouts with " << m_dimOnIdleTime.count();
+    qCDebug(POWERDEVIL) << "DimDisplay: registering idle timeout after" << m_dimOnIdleTime;
     registerIdleTimeout(m_dimOnIdleTime);
     return true;
 }
