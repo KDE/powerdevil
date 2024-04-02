@@ -24,6 +24,12 @@ DimDisplay::DimDisplay(QObject *parent)
     : Action(parent)
 {
     setRequiredPolicies(PowerDevil::PolicyAgent::ChangeScreenSettings);
+
+    // Listen to the policy agent
+    auto policyAgent = PowerDevil::PolicyAgent::instance();
+    connect(policyAgent, &PowerDevil::PolicyAgent::unavailablePoliciesChanged, this, &DimDisplay::onUnavailablePoliciesChanged);
+
+    m_inhibitScreen = policyAgent->unavailablePolicies() & PowerDevil::PolicyAgent::ChangeScreenSettings;
 }
 
 void DimDisplay::onWakeupFromIdle()
@@ -34,7 +40,7 @@ void DimDisplay::onWakeupFromIdle()
     // An active inhibition may not let us restore the brightness.
     // We should wait a bit screen to wake-up from sleep
     QTimer::singleShot(0, this, [this]() {
-        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness, true);
+        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
     });
     m_dimmed = false;
 }
@@ -42,7 +48,7 @@ void DimDisplay::onWakeupFromIdle()
 void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
 {
     Q_ASSERT(timeout == m_dimOnIdleTime);
-    if (m_dimmed) {
+    if (m_dimmed || m_inhibitScreen) {
         return;
     }
 
@@ -54,10 +60,8 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
         return;
     }
 
-
     m_oldScreenBrightness = core()->screenBrightnessController()->screenBrightness();
     m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
-
 
     // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
     // assumption that e.g. 50% may be too bright for returning user to notice that
@@ -69,26 +73,21 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     m_dimmed = true;
 }
 
-void DimDisplay::setBrightnessHelper(int screen, int keyboard, bool force)
-{
-    trigger({
-        {QStringLiteral("_ScreenBrightness"), QVariant::fromValue(screen)},
-        {QStringLiteral("_KeyboardBrightness"), QVariant::fromValue(keyboard)},
-        {QStringLiteral("Explicit"), QVariant::fromValue(force)},
-    });
-}
-
-void DimDisplay::triggerImpl(const QVariantMap &args)
+void DimDisplay::setBrightnessHelper(int screenBrightness, int keyboardBrightness)
 {
     // don't arbitrarily turn-off the display
-    if (m_oldScreenBrightness > 0) {
-        core()->screenBrightnessController()->setScreenBrightness(args.value(QStringLiteral("_ScreenBrightness")).toInt());
+    if (screenBrightness > 0) {
+        core()->screenBrightnessController()->setScreenBrightness(screenBrightness);
     }
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
-        core()->keyboardBrightnessController()->setKeyboardBrightness(args.value(QStringLiteral("_KeyboardBrightness")).toInt());
+        core()->keyboardBrightnessController()->setKeyboardBrightness(keyboardBrightness);
     }
+}
+
+void DimDisplay::triggerImpl(const QVariantMap & /*args*/)
+{
 }
 
 bool DimDisplay::isSupported()
@@ -131,6 +130,10 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     return true;
 }
 
+void DimDisplay::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies)
+{
+    m_inhibitScreen = policies & PowerDevil::PolicyAgent::ChangeScreenSettings;
+}
 }
 
 #include "dimdisplay.moc"
