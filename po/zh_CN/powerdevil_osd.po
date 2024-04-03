@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-11 00:39+0000\n"
-"PO-Revision-Date: 2024-03-30 19:36\n"
+"PO-Revision-Date: 2024-04-01 14:43\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -21,16 +21,16 @@ msgstr ""
 #, kde-format
 msgctxt "power profile"
 msgid "Power Save Mode"
-msgstr ""
+msgstr "省电模式"
 
 #: osdaction.cpp:24
 #, kde-format
 msgctxt "power profile"
 msgid "Balanced Performance Mode"
-msgstr ""
+msgstr "平衡性能模式"
 
 #: osdaction.cpp:25
 #, kde-format
 msgctxt "power profile"
 msgid "Maximum Performance Mode"
-msgstr ""
+msgstr "最高性能模式"
