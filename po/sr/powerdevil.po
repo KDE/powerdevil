@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-18 00:39+0000\n"
+"POT-Creation-Date: 2024-04-15 00:39+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -30,7 +30,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:73
+#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:72
 #: actions/bundled/handlebuttonevents.cpp:42
 #: actions/bundled/keyboardbrightnesscontrol.cpp:45
 #, kde-format
@@ -67,7 +67,7 @@ msgid "Decrease Screen Brightness by 1%"
 msgstr "Смањи осветљај екрана"
 
 # >> @item:inlistbox
-#: actions/bundled/dpms.cpp:76
+#: actions/bundled/dpms.cpp:75
 #, fuzzy, kde-format
 #| msgid "Turn off screen"
 msgctxt "@action:inmenu Global shortcut"
