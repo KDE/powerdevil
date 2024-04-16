@@ -22,6 +22,7 @@ class PowerProfile : public PowerDevil::Action, protected QDBusContext
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.Actions.PowerProfile")
 
     Q_PROPERTY(QStringList profileChoices READ profileChoices NOTIFY profileChoicesChanged)
+    Q_PROPERTY(QString configuredProfile READ configuredProfile NOTIFY configuredProfileChanged)
     Q_PROPERTY(QString currentProfile READ currentProfile NOTIFY currentProfileChanged)
 
 public:
@@ -31,6 +32,7 @@ public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
     QStringList profileChoices() const;
+    QString configuredProfile() const;
     QString currentProfile() const;
     void setProfile(const QString &profile);
     QString performanceInhibitedReason() const;
@@ -45,6 +47,7 @@ Q_SIGNALS:
     void performanceInhibitedReasonChanged(const QString &reason);
     void performanceDegradedReasonChanged(const QString &reason);
     void profileHoldsChanged(const QList<QVariantMap> &holds);
+    void configuredProfileChanged(const QString &profile);
 
 protected:
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;

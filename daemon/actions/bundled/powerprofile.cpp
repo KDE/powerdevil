@@ -78,6 +78,7 @@ void PowerProfile::triggerImpl(const QVariantMap &args)
 bool PowerProfile::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     m_configuredProfile = profileSettings.powerProfile();
+    Q_EMIT configuredProfileChanged(m_configuredProfile);
     return !m_configuredProfile.isEmpty();
 }
 
@@ -89,6 +90,11 @@ bool PowerProfile::isSupported()
 QStringList PowerProfile::profileChoices() const
 {
     return m_profileChoices;
+}
+
+QString PowerProfile::configuredProfile() const
+{
+    return m_configuredProfile;
 }
 
 QString PowerProfile::currentProfile() const
