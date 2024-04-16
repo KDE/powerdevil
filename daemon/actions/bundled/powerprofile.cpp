@@ -77,8 +77,11 @@ void PowerProfile::triggerImpl(const QVariantMap &args)
 
 bool PowerProfile::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    m_configuredProfile = profileSettings.powerProfile();
-    Q_EMIT configuredProfileChanged(m_configuredProfile);
+    QString newConfiguredProfile = profileSettings.powerProfile();
+    if (m_configuredProfile != newConfiguredProfile) {
+        m_configuredProfile = newConfiguredProfile;
+        Q_EMIT configuredProfileChanged(m_configuredProfile);
+    }
     return !m_configuredProfile.isEmpty();
 }
 
@@ -192,35 +195,51 @@ void PowerProfile::serviceUnregistered(const QString &name)
 void PowerProfile::readProperties(const QVariantMap &properties)
 {
     if (properties.contains(activeProfileProperty)) {
-        m_currentProfile = properties[activeProfileProperty].toString();
-        Q_EMIT currentProfileChanged(m_currentProfile);
+        QString newCurrentProfile = properties[activeProfileProperty].toString();
+        if (m_currentProfile != newCurrentProfile) {
+            m_currentProfile = newCurrentProfile;
+            Q_EMIT currentProfileChanged(m_currentProfile);
+        }
     }
 
     if (properties.contains(profilesProperty)) {
         QList<QVariantMap> profiles;
         properties[profilesProperty].value<QDBusArgument>() >> profiles;
-        m_profileChoices.clear();
+        QStringList newProfileChoices;
         if (!profiles.isEmpty() && profiles.first()[QStringLiteral("Driver")] != QLatin1String("placeholder")) {
-            std::transform(profiles.cbegin(), profiles.cend(), std::back_inserter(m_profileChoices), [](const QVariantMap &dict) {
+            std::transform(profiles.cbegin(), profiles.cend(), std::back_inserter(newProfileChoices), [](const QVariantMap &dict) {
                 return dict[QStringLiteral("Profile")].toString();
             });
         }
-        Q_EMIT profileChoicesChanged(m_profileChoices);
+        if (m_profileChoices != newProfileChoices) {
+            m_profileChoices = newProfileChoices;
+            Q_EMIT profileChoicesChanged(m_profileChoices);
+        }
     }
 
     if (properties.contains(performanceInhibitedProperty)) {
-        m_performanceInhibitedReason = properties[performanceInhibitedProperty].toString();
-        Q_EMIT performanceInhibitedReasonChanged(m_performanceInhibitedReason);
+        QString newReason = properties[performanceInhibitedProperty].toString();
+        if (m_performanceInhibitedReason != newReason) {
+            m_performanceInhibitedReason = newReason;
+            Q_EMIT performanceInhibitedReasonChanged(m_performanceInhibitedReason);
+        }
     }
 
     if (properties.contains(performanceDegradedProperty)) {
-        m_degradationReason = properties[performanceDegradedProperty].toString();
-        Q_EMIT performanceDegradedReasonChanged(m_degradationReason);
+        QString newDegradationReason = properties[performanceDegradedProperty].toString();
+        if (m_degradationReason != newDegradationReason) {
+            m_degradationReason = newDegradationReason;
+            Q_EMIT performanceDegradedReasonChanged(m_degradationReason);
+        }
     }
 
     if (properties.contains(profileHoldsProperty)) {
-        properties[profileHoldsProperty].value<QDBusArgument>() >> m_profileHolds;
-        Q_EMIT profileHoldsChanged(m_profileHolds);
+        QList<QVariantMap> newProfileHolds;
+        properties[profileHoldsProperty].value<QDBusArgument>() >> newProfileHolds;
+        if (m_profileHolds != newProfileHolds) {
+            m_profileHolds = newProfileHolds;
+            Q_EMIT profileHoldsChanged(m_profileHolds);
+        }
     }
 }
 
