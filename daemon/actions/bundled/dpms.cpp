@@ -128,7 +128,7 @@ void DPMS::turnOffOnIdleTimeout()
 {
     qCDebug(POWERDEVIL) << "DPMS: triggered on idle timeout, turning off display and keyboard backlight";
 
-    const int keyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
+    const int keyboardBrightness = core()->keyboardBrightnessController()->brightness();
     if (keyboardBrightness > 0) {
         m_oldKeyboardBrightness = keyboardBrightness;
         setKeyboardBrightnessHelper(0);
@@ -150,7 +150,7 @@ void DPMS::triggerImpl(const QVariantMap &args)
 
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
-        core()->keyboardBrightnessController()->setKeyboardBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
+        core()->keyboardBrightnessController()->setBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
         return;
     }
 
