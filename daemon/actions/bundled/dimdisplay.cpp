@@ -54,7 +54,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
         return;
     }
 
-    if (core()->screenBrightnessController()->screenBrightness() == 0) {
+    if (core()->screenBrightnessController()->brightness() == 0) {
         // Some drivers report brightness == 0 when display is off because of DPMS
         //(especially Intel driver). Don't change brightness in this case, or
         // backlight won't switch on later.
@@ -63,7 +63,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     }
     qCDebug(POWERDEVIL) << "DimDisplay: triggered on idle timeout, dimming";
 
-    m_oldScreenBrightness = core()->screenBrightnessController()->screenBrightness();
+    m_oldScreenBrightness = core()->screenBrightnessController()->brightness();
     m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
 
     // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
@@ -80,7 +80,7 @@ void DimDisplay::setBrightnessHelper(int screenBrightness, int keyboardBrightnes
 {
     // don't arbitrarily turn-off the display
     if (screenBrightness > 0) {
-        core()->screenBrightnessController()->setScreenBrightness(screenBrightness);
+        core()->screenBrightnessController()->setBrightness(screenBrightness);
     }
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
@@ -95,7 +95,7 @@ void DimDisplay::triggerImpl(const QVariantMap & /*args*/)
 
 bool DimDisplay::isSupported()
 {
-    return core()->screenBrightnessController()->screenBrightnessAvailable();
+    return core()->screenBrightnessController()->isSupported();
 }
 
 bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
@@ -108,7 +108,7 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
         if (m_dimmed) {
             if (!profileSettings.useProfileSpecificDisplayBrightness() && m_oldScreenBrightness > 0) {
                 qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
-                core()->screenBrightnessController()->setScreenBrightness(m_oldScreenBrightness);
+                core()->screenBrightnessController()->setBrightness(m_oldScreenBrightness);
             }
             if (!profileSettings.useProfileSpecificKeyboardBrightness() && m_oldKeyboardBrightness > 0) {
                 core()->keyboardBrightnessController()->setKeyboardBrightness(m_oldKeyboardBrightness);

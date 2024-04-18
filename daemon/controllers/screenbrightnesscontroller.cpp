@@ -31,7 +31,7 @@ ScreenBrightnessController::ScreenBrightnessController()
 
 void ScreenBrightnessController::detectDisplays()
 {
-    disconnect(nullptr, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
+    disconnect(nullptr, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
     disconnect(nullptr, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDisplaysChanged);
 
     qCDebug(POWERDEVIL) << "Trying to detect displays for brightness control...";
@@ -54,6 +54,11 @@ void ScreenBrightnessController::detectDisplays()
     }
 }
 
+bool ScreenBrightnessController::isSupported() const
+{
+    return !m_displays.isEmpty();
+}
+
 void ScreenBrightnessController::onDisplaysChanged()
 {
     DisplayBrightness *previousFirstDisplay = m_displays.isEmpty() ? nullptr : m_displays.first();
@@ -72,27 +77,28 @@ void ScreenBrightnessController::onDisplaysChanged()
     DisplayBrightness *newFirstDisplay = m_displays.isEmpty() ? nullptr : m_displays.first();
 
     if (previousFirstDisplay != nullptr && newFirstDisplay != previousFirstDisplay) {
-        disconnect(previousFirstDisplay, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
+        disconnect(previousFirstDisplay, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
     }
     if (newFirstDisplay != nullptr) {
         // ScreenBrightnessController's API can only deal with a single display right now.
         // We'll use the first one.
-        connect(newFirstDisplay, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onScreenBrightnessChanged);
+        connect(newFirstDisplay, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
 
         if (newFirstDisplay != previousFirstDisplay) {
-            onScreenBrightnessChanged(screenBrightness(), screenBrightnessMax());
-            qCDebug(POWERDEVIL) << "screen brightness value after display detection/reconfiguration:" << screenBrightness();
+            int newBrightness = brightness();
+            onBrightnessChanged(newBrightness, maxBrightness());
+            qCDebug(POWERDEVIL) << "screen brightness value after display detection/reconfiguration:" << newBrightness;
         }
     }
 }
 
-int ScreenBrightnessController::screenBrightnessSteps()
+int ScreenBrightnessController::brightnessSteps()
 {
-    m_screenBrightnessLogic.setValueMax(screenBrightnessMax());
+    m_screenBrightnessLogic.setValueMax(maxBrightness());
     return m_screenBrightnessLogic.steps();
 }
 
-int ScreenBrightnessController::calculateNextScreenBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
+int ScreenBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
 {
     m_screenBrightnessLogic.setValueMax(valueMax);
     m_screenBrightnessLogic.setValue(value);
@@ -102,29 +108,22 @@ int ScreenBrightnessController::calculateNextScreenBrightnessStep(int value, int
 
 int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
 {
-    if (!screenBrightnessAvailable()) {
+    if (!isSupported()) {
         return -1; // ignore as we are not able to determine the brightness level
     }
 
-    int currentBrightness = screenBrightness();
-    // m_cachedBrightness is not being updated during animation, thus checking the m_cachedBrightness
-    // value here doesn't make much sense, use the endValue from brightness() anyway.
-    // This prevents brightness key being ignored during the animation.
-
-    int maxBrightness = screenBrightnessMax();
-    int newBrightness = calculateNextScreenBrightnessStep(currentBrightness, maxBrightness, type);
-
+    int newBrightness = calculateNextBrightnessStep(brightness(), maxBrightness(), type);
     if (newBrightness < 0) {
         return -1;
     }
 
-    setScreenBrightness(newBrightness);
+    setBrightness(newBrightness);
     return newBrightness;
 }
 
-int ScreenBrightnessController::screenBrightness() const
+int ScreenBrightnessController::brightness() const
 {
-    if (!screenBrightnessAvailable()) {
+    if (!isSupported()) {
         return 0;
     }
     int result = m_displays.first()->brightness();
@@ -132,9 +131,9 @@ int ScreenBrightnessController::screenBrightness() const
     return result;
 }
 
-int ScreenBrightnessController::screenBrightnessMax() const
+int ScreenBrightnessController::maxBrightness() const
 {
-    if (!screenBrightnessAvailable()) {
+    if (!isSupported()) {
         return 0;
     }
     int result = m_displays.first()->maxBrightness();
@@ -142,7 +141,7 @@ int ScreenBrightnessController::screenBrightnessMax() const
     return result;
 }
 
-void ScreenBrightnessController::setScreenBrightness(int value)
+void ScreenBrightnessController::setBrightness(int value)
 {
     qCDebug(POWERDEVIL) << "set screen brightness value:" << value;
     for (DisplayBrightness *display : std::as_const(m_displays)) {
@@ -150,17 +149,12 @@ void ScreenBrightnessController::setScreenBrightness(int value)
     }
 }
 
-bool ScreenBrightnessController::screenBrightnessAvailable() const
-{
-    return !m_displays.isEmpty();
-}
-
-void ScreenBrightnessController::onScreenBrightnessChanged(int value, int valueMax)
+void ScreenBrightnessController::onBrightnessChanged(int value, int valueMax)
 {
     m_screenBrightnessLogic.setValueMax(valueMax);
     m_screenBrightnessLogic.setValue(value);
 
-    Q_EMIT screenBrightnessChanged(m_screenBrightnessLogic.info());
+    Q_EMIT brightnessInfoChanged(m_screenBrightnessLogic.info());
 }
 
 #include "moc_screenbrightnesscontroller.cpp"

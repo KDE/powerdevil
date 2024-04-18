@@ -29,25 +29,25 @@ public:
     ScreenBrightnessController();
 
     void detectDisplays(); // will emit detectionFinished signal once all candidates were checked
+    bool isSupported() const;
 
-    int screenBrightness() const;
-    int screenBrightnessMax() const;
-    void setScreenBrightness(int value);
-    bool screenBrightnessAvailable() const;
-    int screenBrightnessSteps();
+    int brightness() const;
+    int maxBrightness() const;
+    void setBrightness(int value);
+    int brightnessSteps();
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
 Q_SIGNALS:
     void detectionFinished();
-    void screenBrightnessChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
 
 private:
-    int calculateNextScreenBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
+    int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
 
 private Q_SLOTS:
     void onDisplaysChanged();
-    void onScreenBrightnessChanged(int value, int valueMax);
+    void onBrightnessChanged(int value, int valueMax);
 
 private:
     QList<DisplayBrightness *> m_displays;
