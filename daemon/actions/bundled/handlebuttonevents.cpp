@@ -84,10 +84,10 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
             });
 
     if (!core()->lidController()->isLidClosed()) {
-        m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
+        m_oldKeyboardBrightness = core()->keyboardBrightnessController()->brightness();
     }
     connect(core()->keyboardBrightnessController(),
-            &KeyboardBrightnessController::keyboardBrightnessChanged,
+            &KeyboardBrightnessController::brightnessInfoChanged,
             this,
             [this](const BrightnessLogic::BrightnessInfo &brightnessInfo) {
                 // By the time the lid close is processed, the backend brightness will already be updated.
@@ -123,7 +123,7 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
 {
     if (closed) {
         if (m_oldKeyboardBrightness.has_value()) {
-            core()->keyboardBrightnessController()->setKeyboardBrightness(0);
+            core()->keyboardBrightnessController()->setBrightness(0);
         }
 
         if (!m_screenConfiguration) {
@@ -141,7 +141,7 @@ void HandleButtonEvents::onLidClosedChanged(bool closed)
         // When we restore the keyboard brightness before waking up, we shouldn't conflict
         // with dimdisplay or dpms also messing with the keyboard.
         if (m_oldKeyboardBrightness.has_value() && m_oldKeyboardBrightness > 0) {
-            core()->keyboardBrightnessController()->setKeyboardBrightness(m_oldKeyboardBrightness.value());
+            core()->keyboardBrightnessController()->setBrightness(m_oldKeyboardBrightness.value());
         }
 
         // In this case, let's send a wakeup event

@@ -64,7 +64,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     qCDebug(POWERDEVIL) << "DimDisplay: triggered on idle timeout, dimming";
 
     m_oldScreenBrightness = core()->screenBrightnessController()->brightness();
-    m_oldKeyboardBrightness = core()->keyboardBrightnessController()->keyboardBrightness();
+    m_oldKeyboardBrightness = core()->keyboardBrightnessController()->brightness();
 
     // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
     // assumption that e.g. 50% may be too bright for returning user to notice that
@@ -85,7 +85,7 @@ void DimDisplay::setBrightnessHelper(int screenBrightness, int keyboardBrightnes
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
-        core()->keyboardBrightnessController()->setKeyboardBrightness(keyboardBrightness);
+        core()->keyboardBrightnessController()->setBrightness(keyboardBrightness);
     }
 }
 
@@ -111,7 +111,7 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
                 core()->screenBrightnessController()->setBrightness(m_oldScreenBrightness);
             }
             if (!profileSettings.useProfileSpecificKeyboardBrightness() && m_oldKeyboardBrightness > 0) {
-                core()->keyboardBrightnessController()->setKeyboardBrightness(m_oldKeyboardBrightness);
+                core()->keyboardBrightnessController()->setBrightness(m_oldKeyboardBrightness);
             }
             m_dimmed = false;
         }

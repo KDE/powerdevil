@@ -23,28 +23,29 @@ class POWERDEVILCORE_EXPORT KeyboardBrightnessController : public QObject
 public:
     KeyboardBrightnessController();
 
-    int keyboardBrightness() const;
-    int keyboardBrightnessMax() const;
-    void setKeyboardBrightness(int value);
-    void setKeyboardBrightnessOff();
-    bool keyboardBrightnessAvailable() const;
-    int keyboardBrightnessSteps();
+    bool isSupported() const;
+
+    int brightness() const;
+    int maxBrightness() const;
+    void setBrightness(int value);
+    void setBrightnessOff();
+    int brightnessSteps();
 
     int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
 Q_SIGNALS:
-    void keyboardBrightnessChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
 
 private Q_SLOTS:
-    void onKeyboardBrightnessChanged(int value, const QString &source);
+    void onBrightnessChanged(int value, const QString &source);
 
 private:
-    int calculateNextKeyboardBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
+    int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
 
-    int m_kbdMaxBrightness;
-    int m_cachedKeyboardBrightness;
-    int m_keyboardBrightnessBeforeTogglingOff;
-    bool m_keyboardBrightnessAvailable = false;
+    int m_maxBrightness;
+    int m_cachedBrightness;
+    int m_brightnessBeforeTogglingOff;
+    bool m_isSupported = false;
 
     PowerDevil::KeyboardBrightnessLogic m_keyboardBrightnessLogic;
 
