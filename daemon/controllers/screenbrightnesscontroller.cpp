@@ -20,6 +20,9 @@
 #include "backlightbrightness.h"
 #include "ddcutildetector.h"
 
+// brightness 0 can turn off the backlight with some drivers
+constexpr int KnownSafeMinBrightness = 1;
+
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
     , m_detectors({
@@ -94,13 +97,13 @@ void ScreenBrightnessController::onDisplaysChanged()
 
 int ScreenBrightnessController::brightnessSteps()
 {
-    m_screenBrightnessLogic.setValueMax(maxBrightness());
+    m_screenBrightnessLogic.setValueRange(KnownSafeMinBrightness, maxBrightness());
     return m_screenBrightnessLogic.steps();
 }
 
 int ScreenBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
 {
-    m_screenBrightnessLogic.setValueMax(valueMax);
+    m_screenBrightnessLogic.setValueRange(KnownSafeMinBrightness, valueMax);
     m_screenBrightnessLogic.setValue(value);
 
     return m_screenBrightnessLogic.action(keyType);
@@ -151,7 +154,7 @@ void ScreenBrightnessController::setBrightness(int value)
 
 void ScreenBrightnessController::onBrightnessChanged(int value, int valueMax)
 {
-    m_screenBrightnessLogic.setValueMax(valueMax);
+    m_screenBrightnessLogic.setValueRange(KnownSafeMinBrightness, valueMax);
     m_screenBrightnessLogic.setValue(value);
 
     Q_EMIT brightnessInfoChanged(m_screenBrightnessLogic.info());

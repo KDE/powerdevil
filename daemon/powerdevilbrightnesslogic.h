@@ -36,13 +36,20 @@ public:
      */
     struct BrightnessInfo {
         /** The raw brightness value, from 0 to valueMax */
-        int value;
+        int value = -1;
+        /**
+         * The minimum practical brightness value for this device. Usually 0, but should be
+         * overridden for device types where a higher minimum value brightness makes sense.
+         * For example, for screens where a value of 0 sometimes turns off the backlight
+         * completely, which is not wanted there.
+         */
+        int valueMin = -1;
         /** The maximum possible brightness value for this device */
-        int valueMax;
+        int valueMax = -1;
         /** The most recent brightness before toggling off */
-        int valueBeforeTogglingOff;
+        int valueBeforeTogglingOff = -1;
         /** The maximum possible brightness step for this device */
-        int steps;
+        int steps = -1;
     };
 
     /**
@@ -53,11 +60,12 @@ public:
     void setValue(int value);
 
     /**
-     * Sets the maximum brightness value.
+     * Sets the minimum and maximum brightness value.
      *
-     * @param value Maximum brightness value
+     * @param valueMin Minimum brightness value
+     * @param valueMax Maximum brightness value
      */
-    void setValueMax(int valueMax);
+    void setValueRange(int valueMin, int valueMax);
 
     /**
      * Sets the last active brightness value.
@@ -144,20 +152,6 @@ public:
      */
     int stepToValue(int step) const;
 
-    /**
-     * Retrieve the minimum practical brightness value for this device. Defaults
-     * to 0, but should be overridden in subclasses to be a higher value for device
-     * types where a higher minimum value brightness makes sense. For example,
-     * for screens where a value of 0 sometimes turns off the backlight completely,
-     * which is not wanted there.
-     *
-     * @return Minimum practical brightness value
-     */
-    virtual int valueMin() const
-    {
-        return 0;
-    }
-
 protected:
     /**
      * Calculate the optimal number of brightness steps.
@@ -175,10 +169,7 @@ protected:
     virtual int calculateSteps(int valueMax) const = 0;
 
 private:
-    int m_value = -1;
-    int m_valueMax = -1;
-    int m_valueBeforeTogglingOff = -1;
-    int m_steps = -1;
+    BrightnessInfo m_current;
 };
 
 }

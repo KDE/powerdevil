@@ -14,7 +14,6 @@ class ScreenBrightnessLogic : public BrightnessLogic
 {
 public:
     int toggled() const override;
-    int valueMin() const override;
 
 protected:
     int calculateSteps(int valueMax) const override;
