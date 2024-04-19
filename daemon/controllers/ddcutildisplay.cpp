@@ -103,14 +103,20 @@ QString DDCutilDisplay::label() const
     return m_label;
 }
 
-int DDCutilDisplay::brightness() const
+int DDCutilDisplay::knownSafeMinBrightness() const
 {
-    return m_brightness;
+    // External monitors are not known to turn off completely when their brightness goes to 0.
+    return 0;
 }
 
 int DDCutilDisplay::maxBrightness() const
 {
     return m_maxBrightness;
+}
+
+int DDCutilDisplay::brightness() const
+{
+    return m_brightness;
 }
 
 void DDCutilDisplay::setBrightness(int value)
