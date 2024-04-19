@@ -108,6 +108,11 @@ KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, K
     connect(m_output.get(), &KScreen::Output::brightnessChanged, this, &KWinDisplayBrightness::handleBrightnessChanged);
 }
 
+int KWinDisplayBrightness::knownSafeMinBrightness() const
+{
+    return 0;
+}
+
 int KWinDisplayBrightness::maxBrightness() const
 {
     return 10'000;

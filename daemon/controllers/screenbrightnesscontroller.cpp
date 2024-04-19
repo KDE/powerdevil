@@ -21,9 +21,6 @@
 #include "ddcutildetector.h"
 #include "kwinbrightness.h"
 
-// brightness 0 can turn off the backlight with some drivers
-constexpr int KnownSafeMinBrightness = 1;
-
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
     , m_detectors({
@@ -99,13 +96,13 @@ void ScreenBrightnessController::onDisplaysChanged()
 
 int ScreenBrightnessController::brightnessSteps()
 {
-    m_screenBrightnessLogic.setValueRange(KnownSafeMinBrightness, maxBrightness());
+    m_screenBrightnessLogic.setValueRange(minBrightness(), maxBrightness());
     return m_screenBrightnessLogic.steps();
 }
 
 int ScreenBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
 {
-    m_screenBrightnessLogic.setValueRange(KnownSafeMinBrightness, valueMax);
+    m_screenBrightnessLogic.setValueRange(minBrightness(), valueMax);
     m_screenBrightnessLogic.setValue(value);
 
     return m_screenBrightnessLogic.action(keyType);
@@ -126,13 +123,18 @@ int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::Brightnes
     return newBrightness;
 }
 
-int ScreenBrightnessController::brightness() const
+int ScreenBrightnessController::knownSafeMinBrightness() const
+{
+    return isSupported() ? m_displays.first()->knownSafeMinBrightness() : 0;
+}
+
+int ScreenBrightnessController::minBrightness() const
 {
     if (!isSupported()) {
         return 0;
     }
-    int result = m_displays.first()->brightness();
-    qCDebug(POWERDEVIL) << "Screen brightness value:" << result;
+    int result = m_displays.first()->knownSafeMinBrightness();
+    qCDebug(POWERDEVIL) << "Screen brightness min visible value:" << result;
     return result;
 }
 
@@ -142,7 +144,17 @@ int ScreenBrightnessController::maxBrightness() const
         return 0;
     }
     int result = m_displays.first()->maxBrightness();
-    qCDebug(POWERDEVIL) << "Screen brightness value max:" << result;
+    qCDebug(POWERDEVIL) << "Screen brightness max value:" << result;
+    return result;
+}
+
+int ScreenBrightnessController::brightness() const
+{
+    if (!isSupported()) {
+        return 0;
+    }
+    int result = m_displays.first()->brightness();
+    qCDebug(POWERDEVIL) << "Screen brightness value:" << result;
     return result;
 }
 
@@ -156,7 +168,7 @@ void ScreenBrightnessController::setBrightness(int value)
 
 void ScreenBrightnessController::onBrightnessChanged(int value, int valueMax)
 {
-    m_screenBrightnessLogic.setValueRange(KnownSafeMinBrightness, valueMax);
+    m_screenBrightnessLogic.setValueRange(minBrightness(), valueMax);
     m_screenBrightnessLogic.setValue(value);
 
     Q_EMIT brightnessInfoChanged(m_screenBrightnessLogic.info());

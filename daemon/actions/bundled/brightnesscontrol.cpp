@@ -96,8 +96,17 @@ bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSet
 
 void BrightnessControl::onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &info)
 {
-    Q_EMIT brightnessChanged(info.value);
-    Q_EMIT brightnessMaxChanged(info.valueMax);
+    if (info.value != m_lastBrightnessInfo.value) {
+        Q_EMIT brightnessChanged(info.value);
+    }
+    if (info.valueMax != m_lastBrightnessInfo.valueMax) {
+        Q_EMIT brightnessMaxChanged(info.valueMax);
+    }
+    if (info.valueMin != m_lastBrightnessInfo.valueMin) {
+        Q_EMIT brightnessMinChanged(info.valueMin);
+    }
+
+    m_lastBrightnessInfo = info;
 }
 
 int BrightnessControl::brightness() const
@@ -108,6 +117,20 @@ int BrightnessControl::brightness() const
 int BrightnessControl::brightnessMax() const
 {
     return core()->screenBrightnessController()->maxBrightness();
+}
+
+int BrightnessControl::brightnessMin() const
+{
+    return core()->screenBrightnessController()->minBrightness();
+}
+
+int BrightnessControl::knownSafeBrightnessMin() const
+{
+    // Theoretically we should provide a change signal for this property, because it can change as
+    // display connections change, even if it's constant per individual display. In practice,
+    // this won't change as long as laptop screens don't get added or removed at runtime.
+    // Which shouldn't happen.
+    return core()->screenBrightnessController()->knownSafeMinBrightness();
 }
 
 void BrightnessControl::setBrightness(int value)

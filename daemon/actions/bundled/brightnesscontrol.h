@@ -29,6 +29,8 @@ public:
 
     int brightness() const;
     int brightnessMax() const;
+    int brightnessMin() const;
+    int knownSafeBrightnessMin() const;
     int brightnessSteps() const;
 
 public Q_SLOTS:
@@ -46,11 +48,13 @@ private Q_SLOTS:
 Q_SIGNALS:
     void brightnessChanged(int value);
     void brightnessMaxChanged(int valueMax);
+    void brightnessMinChanged(int valueMin);
 
 private:
     int brightnessPercent(float value) const;
 
     int m_defaultValue = -1;
+    BrightnessLogic::BrightnessInfo m_lastBrightnessInfo;
 };
 
 }

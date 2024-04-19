@@ -31,8 +31,10 @@ public:
     void detectDisplays(); // will emit detectionFinished signal once all candidates were checked
     bool isSupported() const;
 
-    int brightness() const;
+    int knownSafeMinBrightness() const;
+    int minBrightness() const;
     int maxBrightness() const;
+    int brightness() const;
     void setBrightness(int value);
     int brightnessSteps();
 

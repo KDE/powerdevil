@@ -150,6 +150,15 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
     }
 }
 
+int BacklightBrightness::knownSafeMinBrightness() const
+{
+    // Some laptop displays have been known to turn off completely when set to 0.
+    // We could keep lists of model names for displays where this is the case, but that's a lot of
+    // work and still can't guarantee that we won't be wrong with future displays. Use 1 as the
+    // lowest value that we're actually sure won't turn off the display.
+    return 1;
+}
+
 int BacklightBrightness::maxBrightness() const
 {
     return m_maxBrightness;

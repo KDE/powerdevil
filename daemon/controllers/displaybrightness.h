@@ -18,6 +18,16 @@ class DisplayBrightness : public QObject
 public:
     explicit DisplayBrightness(QObject *parent = nullptr);
 
+    /**
+     * The minimum practical brightness value that still results in contents being visible.
+     *
+     * Some screens fully turn off when set to 0. Brightness adjustments should not be used to
+     * turn screens off, use DPMS interfaces for this instead. Setting brightness to values in
+     * the range [0, knownSafeMinBrightness()) might still keep contents visible, but should
+     * only be done with informed user consent.
+     */
+    virtual int knownSafeMinBrightness() const = 0;
+
     virtual int maxBrightness() const = 0;
     virtual int brightness() const = 0;
     virtual void setBrightness(int brightness) = 0;
