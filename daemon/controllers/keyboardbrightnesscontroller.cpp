@@ -54,13 +54,13 @@ bool KeyboardBrightnessController::isSupported() const
 
 int KeyboardBrightnessController::brightnessSteps()
 {
-    m_keyboardBrightnessLogic.setValueMax(maxBrightness());
+    m_keyboardBrightnessLogic.setValueRange(0, maxBrightness());
     return m_keyboardBrightnessLogic.steps();
 }
 
 int KeyboardBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
 {
-    m_keyboardBrightnessLogic.setValueMax(valueMax);
+    m_keyboardBrightnessLogic.setValueRange(0, valueMax);
     m_keyboardBrightnessLogic.setValue(value);
     m_keyboardBrightnessLogic.setValueBeforeTogglingOff(m_brightnessBeforeTogglingOff);
 
@@ -128,7 +128,7 @@ void KeyboardBrightnessController::onBrightnessChanged(int value, const QString 
         m_cachedBrightness = value;
         // source: internal = keyboard brightness changed through hardware, eg a firmware-handled hotkey being pressed -> show the OSD
         //         external = keyboard brightness changed through upower -> don't trigger the OSD as we would already have done that where necessary
-        m_keyboardBrightnessLogic.setValueMax(maxBrightness());
+        m_keyboardBrightnessLogic.setValueRange(0, maxBrightness());
         m_keyboardBrightnessLogic.setValue(value);
 
         if (source == QLatin1String("internal")) {
