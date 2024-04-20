@@ -34,10 +34,12 @@ public:
 #ifdef WITH_DDCUTIL
     DDCutilDisplay(DDCA_Display_Ref);
     DDCA_IO_Path ioPath() const;
+    static QString generatePathId(const DDCA_IO_Path &displayPath);
 #endif
     ~DDCutilDisplay();
 
-    QString label() const;
+    QString id() const override;
+    QString label() const override;
     int knownSafeMinBrightness() const override;
     int maxBrightness() const override;
     int brightness() const override;
@@ -59,6 +61,7 @@ private:
     DDCA_Display_Ref m_displayRef;
     DDCA_IO_Path m_ioPath;
 #endif
+    QString m_id;
     QString m_label;
     BrightnessWorker *m_brightnessWorker;
     QThread m_brightnessWorkerThread;

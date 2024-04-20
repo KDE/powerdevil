@@ -4,6 +4,7 @@
     SPDX-FileCopyrightText: 2010 Alejandro Fiestas <alex@eyeos.org>
     SPDX-FileCopyrightText: 2010-2013 Lukáš Tinkl <ltinkl@redhat.com>
     SPDX-FileCopyrightText: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
+    SPDX-FileCopyrightText: 2024 Jakob Petsovits <jpetso@petsovits.com>
 
     SPDX-License-Identifier: LGPL-2.0-only
 
@@ -11,46 +12,58 @@
 
 #include "screenbrightnesscontroller.h"
 
+#include "backlightbrightness.h"
+#include "ddcutildetector.h"
+#include "displaybrightness.h"
+#include "kwinbrightness.h"
+
 #include <brightnessosdwidget.h>
 #include <powerdevil_debug.h>
 
 #include <QDebug>
 #include <QPropertyAnimation>
 
-#include "backlightbrightness.h"
-#include "ddcutildetector.h"
-#include "kwinbrightness.h"
+#include <algorithm> // std::ranges::find_if
 
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
     , m_detectors({
-          {new KWinDisplayDetector(this), "kwin brightness control"},
-          {new BacklightDetector(this), "internal display backlight"},
-          {new DDCutilDetector(this), "libddcutil"},
+          {
+              .detector = new KWinDisplayDetector(this),
+              .debugName = "kwin brightness control",
+              .displayIdPrefix = "kwin:",
+          },
+          {
+              .detector = new BacklightDetector(this),
+              .debugName = "internal display backlight",
+              .displayIdPrefix = "backlight:",
+          },
+          {
+              .detector = new DDCutilDetector(this),
+              .debugName = "libddcutil",
+              .displayIdPrefix = "ddc:",
+          },
       })
 {
 }
 
 void ScreenBrightnessController::detectDisplays()
 {
-    disconnect(nullptr, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
-    disconnect(nullptr, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDisplaysChanged);
-
     qCDebug(POWERDEVIL) << "Trying to detect displays for brightness control...";
     m_finishedDetectingCount = 0;
-    m_displays.clear();
 
-    for (const std::pair<DisplayBrightnessDetector *, const char *> &detectorNamePair : m_detectors) {
-        DisplayBrightnessDetector *detector = detectorNamePair.first;
+    for (const DetectorInfo &detectorInfo : m_detectors) {
+        DisplayBrightnessDetector *detector = detectorInfo.detector;
+        disconnect(detector, nullptr, this, nullptr);
 
         connect(detector, &DisplayBrightnessDetector::detectionFinished, this, [this, detector]() {
             disconnect(detector, &DisplayBrightnessDetector::detectionFinished, this, nullptr);
 
             if (++m_finishedDetectingCount; m_finishedDetectingCount == m_detectors.size()) {
-                onDisplaysChanged();
+                onDetectorDisplaysChanged();
                 Q_EMIT detectionFinished();
             }
-            connect(detector, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDisplaysChanged);
+            connect(detector, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDetectorDisplaysChanged);
         });
         detector->detect();
     }
@@ -58,54 +71,203 @@ void ScreenBrightnessController::detectDisplays()
 
 bool ScreenBrightnessController::isSupported() const
 {
-    return !m_displays.isEmpty();
+    return !m_sortedDisplayIds.isEmpty();
 }
 
-void ScreenBrightnessController::onDisplaysChanged()
+QStringList ScreenBrightnessController::displayIds() const
 {
-    DisplayBrightness *previousFirstDisplay = m_displays.isEmpty() ? nullptr : m_displays.first();
-    m_displays.clear();
+    return m_sortedDisplayIds;
+}
 
-    for (const auto &detectorNamePair : m_detectors) {
-        if (m_displays += detectorNamePair.first->displays(); !m_displays.isEmpty()) {
-            qCDebug(POWERDEVIL) << "Using" << detectorNamePair.second << "for brightness controls.";
-            break; // FIXME: remove this and use all available displays once we have a UI/API for it
+void ScreenBrightnessController::onDisplayDestroyed(QObject *obj)
+{
+    for (auto it = m_displaysById.begin(); it != m_displaysById.end(); ++it) {
+        if (it->display == obj) {
+            // we'll do the proper removal in onDetectorDisplaysChanged() which should come
+            // right afterwards, just don't call it anymore including through QObject::disconnect()
+            it->zombie = true;
         }
     }
-    if (m_displays.isEmpty()) {
+}
+
+void ScreenBrightnessController::onDetectorDisplaysChanged()
+{
+    const QString previousFirstDisplayId = m_sortedDisplayIds.value(0, QString());
+
+    // don't clear m_displaysById, we'll diff its items for proper signal invocation
+    m_sortedDisplayIds.clear();
+    QStringList addedDisplayIds;
+    QStringList brightnessChangedDisplayIds;
+
+    // add new displays
+    for (const DetectorInfo &detectorInfo : m_detectors) {
+        QList<DisplayBrightness *> detectorDisplays = detectorInfo.detector->displays();
+
+        if (!detectorDisplays.isEmpty()) {
+            qCDebug(POWERDEVIL) << "Using" << detectorInfo.debugName << "for brightness controls.";
+        }
+        for (DisplayBrightness *display : std::as_const(detectorDisplays)) {
+            const QString displayId = detectorInfo.displayIdPrefix + display->id();
+            m_sortedDisplayIds.append(displayId);
+            bool replacing = false;
+
+            if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
+                if (it->display != display) { // same displayId, different object: start from scratch
+                    if (!it->zombie) {
+                        disconnect(it->display, nullptr, this, nullptr);
+                    }
+                    const PowerDevil::BrightnessLogic::BrightnessInfo previous = it->brightnessLogic.info();
+
+                    if (previous.value != display->brightness() || previous.valueMax != display->maxBrightness()) {
+                        brightnessChangedDisplayIds.append(displayId); // in case the new object has different values
+                    }
+                    replacing = true;
+                }
+            }
+            if (replacing || !m_displaysById.contains(displayId)) {
+                connect(display, &QObject::destroyed, this, &ScreenBrightnessController::onDisplayDestroyed);
+                connect(display, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
+
+                auto &info = m_displaysById[displayId] = DisplayInfo{
+                    .display = display,
+                    .detector = detectorInfo.detector,
+                };
+                info.brightnessLogic.setValueRange(display->knownSafeMinBrightness(), display->maxBrightness());
+                info.brightnessLogic.setValue(display->brightness());
+
+                if (!replacing) {
+                    addedDisplayIds.append(displayId);
+                }
+            }
+        }
+    }
+
+    // remove displays that were in the list before, but disappeared after the update
+    for (const QString &displayId : m_displaysById.keys()) {
+        if (!m_sortedDisplayIds.contains(displayId)) {
+            const auto it = m_displaysById.constFind(displayId);
+            if (!it->zombie) {
+                disconnect(it->display, nullptr, this, nullptr);
+            }
+            m_displaysById.erase(it);
+            Q_EMIT displayRemoved(displayId);
+        }
+    }
+
+    // now that display structures are all up to date, emit signals about new and changed displays
+    for (const QString &displayId : std::as_const(addedDisplayIds)) {
+        Q_EMIT displayAdded(displayId);
+    }
+    for (const QString &displayId : std::as_const(brightnessChangedDisplayIds)) {
+        const auto it = m_displaysById.constFind(displayId);
+        qCDebug(POWERDEVIL) << "Screen brightness of display" << displayId << "after detection/reconfiguration:" << it->brightnessLogic.info().value;
+        Q_EMIT brightnessInfoChanged(displayId, it->brightnessLogic.info());
+    }
+
+    if (!isSupported()) {
         qCDebug(POWERDEVIL) << "No suitable displays detected. Brightness controls are unsupported in this configuration.";
+        return;
     }
 
-    DisplayBrightness *newFirstDisplay = m_displays.isEmpty() ? nullptr : m_displays.first();
-
-    if (previousFirstDisplay != nullptr && newFirstDisplay != previousFirstDisplay) {
-        disconnect(previousFirstDisplay, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
-    }
-    if (newFirstDisplay != nullptr) {
-        // ScreenBrightnessController's API can only deal with a single display right now.
-        // We'll use the first one.
-        connect(newFirstDisplay, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
-
-        if (newFirstDisplay != previousFirstDisplay) {
-            int newBrightness = brightness();
-            onBrightnessChanged(newBrightness, maxBrightness());
-            qCDebug(POWERDEVIL) << "screen brightness value after display detection/reconfiguration:" << newBrightness;
-        }
+    // legacy API needs to emit a brightness change signal for the first display, regardless of
+    // whether the new first display was newly added or an existing display moved up to index 0
+    const QString newFirstDisplayId = m_sortedDisplayIds.first();
+    if (newFirstDisplayId != previousFirstDisplayId || brightnessChangedDisplayIds.contains(newFirstDisplayId)) {
+        const auto it = m_displaysById.constFind(newFirstDisplayId);
+        qCDebug(POWERDEVIL) << "Screen brightness of first display after detection/reconfiguration:" << it->brightnessLogic.info().value;
+        Q_EMIT legacyBrightnessInfoChanged(it->brightnessLogic.info());
     }
 }
 
-int ScreenBrightnessController::brightnessSteps()
+int ScreenBrightnessController::knownSafeMinBrightness(const QString &displayId) const
 {
-    m_screenBrightnessLogic.setValueRange(minBrightness(), maxBrightness());
-    return m_screenBrightnessLogic.steps();
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd() && !it->zombie) {
+        int result = it->display->knownSafeMinBrightness();
+        qCDebug(POWERDEVIL) << "Screen knownSafeMinBrightness of" << displayId << "is" << result;
+        return result;
+    }
+    qCWarning(POWERDEVIL) << "Query screen knownSafeMinBrightness failed: no display with id" << displayId;
+    return 0;
 }
 
-int ScreenBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
+int ScreenBrightnessController::minBrightness(const QString &displayId) const
 {
-    m_screenBrightnessLogic.setValueRange(minBrightness(), valueMax);
-    m_screenBrightnessLogic.setValue(value);
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
+        int result = it->brightnessLogic.info().valueMin;
+        qCDebug(POWERDEVIL) << "Screen minBrightness of" << displayId << "is" << result;
+        return result;
+    }
+    qCWarning(POWERDEVIL) << "Query screen minBrightness failed: no display with id" << displayId;
+    return 0;
+}
 
-    return m_screenBrightnessLogic.action(keyType);
+int ScreenBrightnessController::maxBrightness(const QString &displayId) const
+{
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
+        int result = it->brightnessLogic.info().valueMax;
+        qCDebug(POWERDEVIL) << "Screen maxBrightness of" << displayId << "is" << result;
+        return result;
+    }
+    qCWarning(POWERDEVIL) << "Query screen maxBrightness failed: no display with id" << displayId;
+    return 0;
+}
+
+int ScreenBrightnessController::brightness(const QString &displayId) const
+{
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
+        int result = it->brightnessLogic.info().value;
+        qCDebug(POWERDEVIL) << "Screen brightness of" << displayId << "is" << result;
+        return result;
+    }
+    qCWarning(POWERDEVIL) << "Query screen brightness failed: no display with id" << displayId;
+    return 0;
+}
+
+void ScreenBrightnessController::setBrightness(const QString &displayId, int value)
+{
+    if (auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->zombie) {
+        qCDebug(POWERDEVIL) << "Set screen brightness of" << displayId << "to" << value;
+        it->display->setBrightness(value);
+    } else {
+        qCWarning(POWERDEVIL) << "Set screen brightness failed: no display with id" << displayId;
+    }
+}
+
+int ScreenBrightnessController::brightnessSteps(const QString &displayId)
+{
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
+        return it->brightnessLogic.steps();
+    }
+    qCWarning(POWERDEVIL) << "Query screen brightnessSteps failed: no display with id" << displayId;
+    return 1;
+}
+
+void ScreenBrightnessController::onBrightnessChanged(DisplayBrightness *display, int value)
+{
+    const auto it = std::ranges::find_if(m_displaysById, [display](const DisplayInfo &info) {
+        return info.display == display;
+    });
+    if (it == m_displaysById.end()) {
+        return;
+    }
+
+    it->brightnessLogic.setValue(value);
+
+    Q_EMIT brightnessInfoChanged(it.key(), it->brightnessLogic.info());
+
+    // legacy API without displayId parameter: notify only if the first supported display changed
+    if (it.key() == m_sortedDisplayIds.first()) {
+        Q_EMIT legacyBrightnessInfoChanged(it->brightnessLogic.info());
+    }
+}
+
+int ScreenBrightnessController::calculateNextBrightnessStep(const QString &displayId, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
+{
+    if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
+        return it->brightnessLogic.action(keyType);
+    }
+    qCWarning(POWERDEVIL) << "Calculate next brightness step failed: no display with id" << displayId;
+    return -1;
 }
 
 int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
@@ -114,64 +276,60 @@ int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::Brightnes
         return -1; // ignore as we are not able to determine the brightness level
     }
 
-    int newBrightness = calculateNextBrightnessStep(brightness(), maxBrightness(), type);
+    int newBrightness = calculateNextBrightnessStep(m_sortedDisplayIds.first(), type);
     if (newBrightness < 0) {
         return -1;
     }
 
-    setBrightness(newBrightness);
+    setBrightness(m_sortedDisplayIds.first(), newBrightness);
     return newBrightness;
 }
 
+//
+// legacy API without displayId parameter
+
 int ScreenBrightnessController::knownSafeMinBrightness() const
 {
-    return isSupported() ? m_displays.first()->knownSafeMinBrightness() : 0;
+    return knownSafeMinBrightness(m_sortedDisplayIds.value(0, QString()));
 }
 
 int ScreenBrightnessController::minBrightness() const
 {
-    if (!isSupported()) {
-        return 0;
-    }
-    int result = m_displays.first()->knownSafeMinBrightness();
-    qCDebug(POWERDEVIL) << "Screen brightness min visible value:" << result;
-    return result;
+    return minBrightness(m_sortedDisplayIds.value(0, QString()));
 }
 
 int ScreenBrightnessController::maxBrightness() const
 {
-    if (!isSupported()) {
-        return 0;
-    }
-    int result = m_displays.first()->maxBrightness();
-    qCDebug(POWERDEVIL) << "Screen brightness max value:" << result;
-    return result;
+    return maxBrightness(m_sortedDisplayIds.value(0, QString()));
 }
 
 int ScreenBrightnessController::brightness() const
 {
-    if (!isSupported()) {
-        return 0;
-    }
-    int result = m_displays.first()->brightness();
-    qCDebug(POWERDEVIL) << "Screen brightness value:" << result;
-    return result;
+    return brightness(m_sortedDisplayIds.value(0, QString()));
 }
 
 void ScreenBrightnessController::setBrightness(int value)
 {
-    qCDebug(POWERDEVIL) << "set screen brightness value:" << value;
-    for (DisplayBrightness *display : std::as_const(m_displays)) {
-        display->setBrightness(value);
+    if (m_sortedDisplayIds.isEmpty()) {
+        qCWarning(POWERDEVIL) << "Set screen brightness failed: no supported display available";
+    }
+    // For backwards compatibility with legacy API clients, set the same brightness to all displays
+    // of the first detector. i.e. either to only the backlight display, or to all external DDC monitors
+    DisplayBrightnessDetector *firstSupportedDetector = nullptr;
+
+    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
+        if (firstSupportedDetector == nullptr) {
+            firstSupportedDetector = m_displaysById[displayId].detector;
+        } else if (firstSupportedDetector != m_displaysById[displayId].detector) {
+            break;
+        }
+        setBrightness(displayId, value);
     }
 }
 
-void ScreenBrightnessController::onBrightnessChanged(int value, int valueMax)
+int ScreenBrightnessController::brightnessSteps()
 {
-    m_screenBrightnessLogic.setValueRange(minBrightness(), valueMax);
-    m_screenBrightnessLogic.setValue(value);
-
-    Q_EMIT brightnessInfoChanged(m_screenBrightnessLogic.info());
+    return brightnessSteps(m_sortedDisplayIds.value(0, QString()));
 }
 
 #include "moc_screenbrightnesscontroller.cpp"
