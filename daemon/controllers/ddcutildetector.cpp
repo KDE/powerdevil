@@ -39,7 +39,6 @@ private:
     explicit DDCutilPrivateSingleton();
     ~DDCutilPrivateSingleton();
 
-    QString generateDisplayId(const DDCA_IO_Path &displayPath) const;
     void detect();
     const std::map<QString, std::unique_ptr<DDCutilDisplay>> &displays();
 
@@ -139,7 +138,7 @@ void DDCutilPrivateSingleton::detect()
     for (int i = 0; i < displayCount; ++i) {
         auto display = std::make_unique<DDCutilDisplay>(displayRefs[i]);
 
-        QString id = generateDisplayId(display->ioPath());
+        QString id = DDCutilDisplay::generatePathId(display->ioPath());
         if (id.isEmpty()) {
             qCWarning(POWERDEVIL) << "[DDCutilDetector]: Cannot generate ID for display with model name:" << display->label() << "- ignoring";
             continue;
@@ -168,17 +167,6 @@ void DDCutilPrivateSingleton::detect()
 const std::map<QString, std::unique_ptr<DDCutilDisplay>> &DDCutilPrivateSingleton::displays()
 {
     return m_displays;
-}
-
-QString DDCutilPrivateSingleton::generateDisplayId(const DDCA_IO_Path &displayPath) const
-{
-    switch (displayPath.io_mode) {
-    case DDCA_IO_I2C:
-        return QString("i2c:%1").arg(displayPath.path.i2c_busno);
-    case DDCA_IO_USB:
-        return QString("usb:%1").arg(displayPath.path.hiddev_devno);
-    }
-    return QString();
 }
 
 void DDCutilPrivateSingleton::redetect()
@@ -213,13 +201,13 @@ void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &ev
         Q_EMIT displayAdded();
     } else if (event.event_type == DDCA_EVENT_DISPLAY_DISCONNECTED) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DISPLAY_DISCONNECTED signal arrived";
-        Q_EMIT displayRemoved(generateDisplayId(event.io_path));
+        Q_EMIT displayRemoved(DDCutilDisplay::generatePathId(event.io_path));
     } else if (event.event_type == DDCA_EVENT_DPMS_ASLEEP) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DPMS_ASLEEP signal arrived";
-        Q_EMIT dpmsStateChanged(generateDisplayId(event.io_path), true);
+        Q_EMIT dpmsStateChanged(DDCutilDisplay::generatePathId(event.io_path), true);
     } else if (event.event_type == DDCA_EVENT_DPMS_AWAKE) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DPMS_AWAKE signal arrived";
-        Q_EMIT dpmsStateChanged(generateDisplayId(event.io_path), false);
+        Q_EMIT dpmsStateChanged(DDCutilDisplay::generatePathId(event.io_path), false);
     }
 }
 #endif

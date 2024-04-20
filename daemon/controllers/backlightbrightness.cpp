@@ -146,8 +146,15 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
 
     if (newBrightness != m_cachedBrightness) {
         m_cachedBrightness = newBrightness;
-        Q_EMIT brightnessChanged(newBrightness, maxBrightness);
+        m_maxBrightness = maxBrightness; // we don't expect this to change, but set it anyway for safety
+        Q_EMIT brightnessChanged(this, newBrightness);
     }
+}
+
+QString BacklightBrightness::id() const
+{
+    // BacklightDetector only ever owns one BacklightBrightness object, so this is necessarily unique
+    return "display";
 }
 
 int BacklightBrightness::knownSafeMinBrightness() const
@@ -199,7 +206,7 @@ void BacklightBrightness::setBrightness(int newBrightness)
 
         // Immediately announce the new brightness to everyone while we still animate to it
         m_cachedBrightness = newBrightness;
-        Q_EMIT brightnessChanged(newBrightness, maxBrightness());
+        Q_EMIT brightnessChanged(this, newBrightness);
     });
     job->start();
 }

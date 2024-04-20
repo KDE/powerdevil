@@ -19,6 +19,11 @@ public:
     explicit DisplayBrightness(QObject *parent = nullptr);
 
     /**
+     * A string that uniquely identifies this display within the scope of its associated detector.
+     */
+    virtual QString id() const = 0;
+
+    /**
      * The minimum practical brightness value that still results in contents being visible.
      *
      * Some screens fully turn off when set to 0. Brightness adjustments should not be used to
@@ -28,12 +33,21 @@ public:
      */
     virtual int knownSafeMinBrightness() const = 0;
 
+    /**
+     * The maximum brightness value that the user is allowed to set.
+     */
     virtual int maxBrightness() const = 0;
+
+    /**
+     * The latest brightness value that was set or observed for this display.
+     *
+     * It's acceptable if this class does not pick up on brightness changes by external actors.
+     */
     virtual int brightness() const = 0;
     virtual void setBrightness(int brightness) = 0;
 
 Q_SIGNALS:
-    void brightnessChanged(int brightness, int maxBrightness);
+    void brightnessChanged(DisplayBrightness *self, int brightness);
 };
 
 /**
