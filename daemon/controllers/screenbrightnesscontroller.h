@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2008-2010 Dario Freddi <drf@kde.org>
     SPDX-FileCopyrightText: 2010 Alejandro Fiestas <alex@eyeos.org>
     SPDX-FileCopyrightText: 2015 Kai Uwe Broulik <kde@privat.broulik.de>
+    SPDX-FileCopyrightText: 2024 Jakob Petsovits <jpetso@petsovits.com>
 
     SPDX-License-Identifier: LGPL-2.0-only
 
@@ -10,7 +11,9 @@
 
 #pragma once
 
+#include <QHash>
 #include <QObject>
+#include <QStringList>
 
 #include <utility> // std::pair
 
@@ -28,9 +31,33 @@ class POWERDEVILCORE_EXPORT ScreenBrightnessController : public QObject
 public:
     ScreenBrightnessController();
 
-    void detectDisplays(); // will emit detectionFinished signal once all candidates were checked
+    /**
+     * Actively look for connected displays.
+     *
+     * This will emit detectionFinished signal once all candidates were checked, and after initial
+     * detection, displaysChanged can be emitted whenever a change in display connections is observed.
+     */
+    void detectDisplays();
     bool isSupported() const;
 
+    /**
+     * A list of string identifiers for displays that support brightness operations.
+     *
+     * Note that a displayId is not necessarily stable across reboots and hotplugging events.
+     * The same display may receive a different displayId when it is removed and later re-added.
+     */
+    QStringList displayIds() const;
+
+    int knownSafeMinBrightness(const QString &displayId) const;
+    int minBrightness(const QString &displayId) const;
+    int maxBrightness(const QString &displayId) const;
+    int brightness(const QString &displayId) const;
+    void setBrightness(const QString &displayId, int value);
+    int brightnessSteps(const QString &displayId);
+
+    int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
+
+    // legacy API without displayId parameter, kept for backward compatibility
     int knownSafeMinBrightness() const;
     int minBrightness() const;
     int maxBrightness() const;
@@ -38,23 +65,39 @@ public:
     void setBrightness(int value);
     int brightnessSteps();
 
-    int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
-
 Q_SIGNALS:
     void detectionFinished();
-    void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void displayAdded(const QString &displayId);
+    void displayRemoved(const QString &displayId);
+    void brightnessInfoChanged(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &);
+
+    // legacy API without displayId parameter, kept for backward compatibility.
+    // include legacy prefix to avoid function overload errors when used in connect()
+    void legacyBrightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &);
 
 private:
-    int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
+    int calculateNextBrightnessStep(const QString &displayId, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
 
 private Q_SLOTS:
-    void onDisplaysChanged();
-    void onBrightnessChanged(int value, int valueMax);
+    void onDisplayDestroyed(QObject *);
+    void onDetectorDisplaysChanged();
+    void onBrightnessChanged(DisplayBrightness *display, int value);
 
 private:
-    QList<DisplayBrightness *> m_displays;
-    PowerDevil::ScreenBrightnessLogic m_screenBrightnessLogic;
+    struct DisplayInfo {
+        DisplayBrightness *display = nullptr;
+        DisplayBrightnessDetector *detector = nullptr;
+        PowerDevil::ScreenBrightnessLogic brightnessLogic = {};
+        bool zombie = false;
+    };
+    QStringList m_sortedDisplayIds;
+    QHash<QString, DisplayInfo> m_displaysById;
 
-    QList<std::pair<DisplayBrightnessDetector *, const char * /*debug name*/>> m_detectors;
+    struct DetectorInfo {
+        DisplayBrightnessDetector *detector = nullptr;
+        const char *debugName = nullptr;
+        const char *displayIdPrefix = nullptr;
+    };
+    QList<DetectorInfo> m_detectors;
     int m_finishedDetectingCount = 0;
 };

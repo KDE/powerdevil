@@ -39,6 +39,7 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef)
     }
     m_label = displayInfo->model_name;
     m_ioPath = displayInfo->path;
+    m_id = DDCutilDisplay::generatePathId(displayInfo->path);
 
     ddca_free_display_info(displayInfo);
 
@@ -88,6 +89,17 @@ DDCA_IO_Path DDCutilDisplay::ioPath() const
 {
     return m_ioPath;
 }
+
+QString DDCutilDisplay::generatePathId(const DDCA_IO_Path &displayPath)
+{
+    switch (displayPath.io_mode) {
+    case DDCA_IO_I2C:
+        return QString("i2c:%1").arg(displayPath.path.i2c_busno);
+    case DDCA_IO_USB:
+        return QString("usb:%1").arg(displayPath.path.hiddev_devno);
+    }
+    return QString();
+}
 #endif
 
 DDCutilDisplay::~DDCutilDisplay()
@@ -96,6 +108,11 @@ DDCutilDisplay::~DDCutilDisplay()
     m_brightnessWorkerThread.quit();
     m_brightnessWorkerThread.wait();
 #endif
+}
+
+QString DDCutilDisplay::id() const
+{
+    return m_id;
 }
 
 QString DDCutilDisplay::label() const
@@ -125,7 +142,7 @@ void DDCutilDisplay::setBrightness(int value)
     if (m_supportsBrightness) {
         m_timer->start();
         m_brightness = value;
-        Q_EMIT brightnessChanged(value, m_maxBrightness);
+        Q_EMIT brightnessChanged(this, value);
     }
 #endif
 }

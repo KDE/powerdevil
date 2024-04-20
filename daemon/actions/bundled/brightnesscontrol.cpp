@@ -31,7 +31,7 @@ BrightnessControl::BrightnessControl(QObject *parent)
     new BrightnessControlAdaptor(this);
 
     connect(core()->screenBrightnessController(),
-            &ScreenBrightnessController::brightnessInfoChanged,
+            &ScreenBrightnessController::legacyBrightnessInfoChanged,
             this,
             &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromController);
 

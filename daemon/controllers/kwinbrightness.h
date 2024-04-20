@@ -20,6 +20,8 @@ class KWinDisplayBrightness : public DisplayBrightness
 public:
     explicit KWinDisplayBrightness(const KScreen::OutputPtr &output, KWinDisplayDetector *detector);
 
+    QString id() const override;
+    QString label() const override;
     int knownSafeMinBrightness() const override;
     int maxBrightness() const override;
     int brightness() const override;

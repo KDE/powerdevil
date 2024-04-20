@@ -5,7 +5,9 @@
 */
 #include "kwinbrightness.h"
 
+#include <KLocalizedString>
 #include <KScreen/ConfigMonitor>
+#include <KScreen/EDID>
 #include <KScreen/GetConfigOperation>
 
 KWinDisplayDetector::KWinDisplayDetector(QObject *parent)
@@ -118,6 +120,21 @@ KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, K
     connect(m_output.get(), &KScreen::Output::brightnessChanged, this, &KWinDisplayBrightness::handleBrightnessChanged);
 }
 
+QString KWinDisplayBrightness::id() const
+{
+    return m_output->name();
+}
+
+QString KWinDisplayBrightness::label() const
+{
+    if (KScreen::Edid *edid = m_output->edid()) {
+        if (!edid->vendor().isEmpty() || !edid->name().isEmpty()) {
+            return i18nc("Display label: vendor + product name", "%1 %2", edid->vendor(), edid->name()).simplified();
+        }
+    }
+    return m_output->name();
+}
+
 int KWinDisplayBrightness::knownSafeMinBrightness() const
 {
     return 0;
@@ -144,7 +161,7 @@ void KWinDisplayBrightness::handleBrightnessChanged()
     if (m_inhibitChangeSignal) {
         return;
     }
-    Q_EMIT brightnessChanged(std::round(m_output->brightness() * 10'000), 10'000);
+    Q_EMIT brightnessChanged(this, std::round(m_output->brightness() * 10'000));
 }
 
 void KWinDisplayBrightness::applyPendingBrightness()
