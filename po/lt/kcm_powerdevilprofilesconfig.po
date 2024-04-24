@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-04-10 16:23+0300\n"
+"PO-Revision-Date: 2024-04-23 11:30+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -141,7 +141,7 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
-"Įšorinių įrenginių baterijos įkrova bus laikoma žema, kai ji pasieks šį lygį."
+"Išorinių įrenginių baterijos įkrova bus laikoma žema, kai ji pasieks šį lygį."
 
 #: ui/GlobalConfig.qml:222
 #, kde-format
