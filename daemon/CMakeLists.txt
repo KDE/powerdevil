@@ -91,8 +91,8 @@ target_link_libraries(powerdevilcore
     KF6::XmlGui
     KF6::KirigamiPlatform
     XCB::DPMS
+    UDev::UDev
     powerdevil_log_static
-    ${UDEV_LIBS}
 )
 
 if (XCB_FOUND) # kwin kscreen helper effect
@@ -166,8 +166,6 @@ target_link_libraries(powerdevil
 if (XCB_FOUND)
     target_link_libraries(powerdevil Qt::GuiPrivate)
 endif ()
-
-target_link_libraries(powerdevil ${UDEV_LIBS})
 
 install(TARGETS powerdevil DESTINATION ${KDE_INSTALL_FULL_LIBEXECDIR})
 if (HAVE_LIBCAP)
