@@ -92,6 +92,7 @@ target_link_libraries(powerdevilcore
     KF6::KirigamiPlatform
     XCB::DPMS
     UDev::UDev
+    devinfo
     powerdevil_log_static
 )
 
