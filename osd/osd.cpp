@@ -26,6 +26,8 @@ using namespace PowerDevil;
 
 void Osd::showActionSelector(const QString &currentProfile)
 {
+    m_engine.setProperty("_kirigamiTheme", QStringLiteral("KirigamiPlasmaStyle"));
+
     if (!m_osdActionSelector) {
         m_osdActionSelector = std::make_unique<QQuickView>(&m_engine, nullptr);
         m_osdActionSelector->setInitialProperties({{QLatin1String("actions"), QVariant::fromValue(OsdAction::availableActions())}, {QLatin1String("currentProfile"), currentProfile}});
