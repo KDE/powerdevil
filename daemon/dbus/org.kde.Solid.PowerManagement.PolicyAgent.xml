@@ -23,10 +23,34 @@
       <arg type="b" direction="out" />
     </method>
 
+    <method name="BlockInhibition">
+      <arg type="s" direction="in" />
+      <arg type="s" direction="in" />
+      <arg type="b" direction="in" />
+    </method>
+
+    <method name="UnblockInhibition">
+      <arg type="s" direction="in" />
+      <arg type="s" direction="in" />
+      <arg type="b" direction="in" />
+    </method>
+
+    <method name="ListBlockedInhibitions">
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg type="a{ss}" direction="out" />
+    </method>
+
     <signal name="InhibitionsChanged">
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
         <arg type="a{ss}" />
         <arg type="as" />
+    </signal>
+
+    <signal name="BlockedInhibitionsChanged">
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg type="a{ss}" />
+        <arg type="a{ss}" />
     </signal>
 
   </interface>
