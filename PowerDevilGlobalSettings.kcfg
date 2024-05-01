@@ -34,4 +34,10 @@
       <default>10</default>
     </entry>
   </group>
+
+  <group name="Inhibitions">
+    <entry name="BlockedInhibitions" type="StringList">
+      <default></default>
+    </entry>
+  </group>
 </kcfg>
