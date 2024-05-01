@@ -1,6 +1,7 @@
 /*
  *   SPDX-FileCopyrightText: 2010 Dario Freddi <drf@kde.org>
  *   SPDX-FileCopyrightText: 2012 Lukáš Tinkl <ltinkl@redhat.com>
+ *   SPDX-FileCopyrightText: 2024 Natalie Clarius <natalie.clarius@kde.org>
  *
  *   SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -16,6 +17,10 @@
 #include <QDBusContext>
 #include <QDBusUnixFileDescriptor>
 
+#include <KSharedConfig>
+#include <qobjectdefs.h>
+
+#include "PowerDevilGlobalSettings.h"
 #include "powerdevilcore_export.h"
 
 class QDBusServiceWatcher;
@@ -51,6 +56,7 @@ struct LogindInhibition {
 
 namespace PowerDevil
 {
+class GlobalSettings;
 class POWERDEVILCORE_EXPORT PolicyAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
@@ -85,15 +91,20 @@ public:
 public Q_SLOTS:
     // Exported slots
     uint AddInhibition(uint types, const QString &appName, const QString &reason);
-    void ReleaseInhibition(uint cookie);
+    void ReleaseInhibition(uint cookie, bool retainCookie = false);
     QList<InhibitionInfo> ListInhibitions() const;
     bool HasInhibition(uint types);
 
     void releaseAllInhibitions();
 
+    void BlockInhibition(const QString &appName, const QString &reason, bool permanently);
+    void UnblockInhibition(const QString &appName, const QString &reason, bool permanently);
+    QList<InhibitionInfo> ListBlockedInhibitions() const;
+
 Q_SIGNALS:
     // Exported signals
     void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
+    void BlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
     void sessionActiveChanged(bool active);
@@ -111,7 +122,7 @@ private Q_SLOTS:
 private:
     explicit PolicyAgent(QObject *parent = nullptr);
 
-    void init();
+    void init(GlobalSettings *globalSettings);
 
     void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
 
@@ -152,6 +163,9 @@ private:
     QHash<uint, LogindInhibition> m_logindInhibitions;
 
     QList<int> m_pendingInhibitions;
+    QSet<uint> m_activeInhibitions;
+    QSet<uint> m_blockedInhibitions;
+    QSet<uint> m_pendingBlockedInhibitions;
 
     uint m_lastCookie;
 
@@ -161,8 +175,17 @@ private:
 
     bool m_wasLastActiveSession;
 
+    GlobalSettings *m_config = nullptr;
+    QSet<InhibitionInfo> m_configuredToBlockInhibitions;
+
+    QHash<uint, QMetaObject::Connection> m_blockInhibitionConnections;
+    QHash<uint, QMetaObject::Connection> m_unblockInhibitionConnections;
+
     friend class Core;
     friend class FdoConnector;
-};
 
+Q_SIGNALS:
+    void blockInhibitionRequested(InhibitionInfo info);
+    void unblockInhibitionRequested(InhibitionInfo info);
+};
 }
