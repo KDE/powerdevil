@@ -133,7 +133,7 @@ void Core::onControllersReady()
     });
 
     // Set up the policy agent
-    PowerDevil::PolicyAgent::instance()->init();
+    PowerDevil::PolicyAgent::instance()->init(m_globalSettings);
     // When inhibitions change, simulate user activity, see Bug 315438
     connect(PowerDevil::PolicyAgent::instance(),
             &PowerDevil::PolicyAgent::unavailablePoliciesChanged,

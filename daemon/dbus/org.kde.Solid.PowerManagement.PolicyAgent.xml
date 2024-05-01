@@ -2,31 +2,75 @@
 <node>
   <interface name="org.kde.Solid.PowerManagement.PolicyAgent">
     <method name="AddInhibition">
-      <arg type="u" direction="in" />
-      <arg type="s" direction="in" />
-      <arg type="s" direction="in" />
+      <arg name="types" type="u" direction="in" />
+      <arg name="app_name" type="s" direction="in" />
+      <arg name="reason" type="s" direction="in" />
 
-      <arg type="u" direction="out" />
+      <arg name="cookie" type="u" direction="out" />
     </method>
 
     <method name="ReleaseInhibition">
-      <arg type="u" direction="in" />
+      <arg name="cookie" type="u" direction="in" />
     </method>
 
     <method name="ListInhibitions">
+        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg type="a{ss}" direction="out" />
+        <arg name="inhibited" type="a{ss}" direction="out" />
     </method>
 
     <method name="HasInhibition">
-      <arg type="u" direction="in" />
-      <arg type="b" direction="out" />
+      <arg name="types" type="u" direction="in" />
+      <arg name="has_inhibition" type="b" direction="out" />
+    </method>
+
+    <method name="BlockInhibition">
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+      <arg name="app_name" type="s" direction="in" />
+      <arg name="reason" type="s" direction="in" />
+      <arg name="permanently" type="b" direction="in" />
+    </method>
+
+    <method name="UnblockInhibition">
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+      <arg name="app_name" type="s" direction="in" />
+      <arg name="reason" type="s" direction="in" />
+      <arg name="permanently" type="b" direction="in" />
+    </method>
+
+    <method name="ListPermanentlyBlockedInhibitions">
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+      <arg name="blocked" type="a{ss}" direction="out" />
+    </method>
+
+    <method name="ListTemporarilyBlockedInhibitions">
+      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+      <arg name="blocked" type="a{ss}" direction="out" />
     </method>
 
     <signal name="InhibitionsChanged">
+        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg type="a{ss}" />
-        <arg type="as" />
+        <arg name="added" type="a{ss}" />
+        <arg name="removed" type="as" />
+    </signal>
+
+    <signal name="PermanentlyBlockedInhibitionsChanged">
+        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg name="added" type="a{ss}" />
+        <arg name="removed" type="a{ss}" />
+    </signal>
+
+    <signal name="TemporarilyBlockedInhibitionsChanged">
+        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg name="added" type="a{ss}" />
+        <arg name="removed" type="a{ss}" />
     </signal>
 
   </interface>
