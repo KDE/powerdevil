@@ -65,11 +65,38 @@ public:
      * maxBrightness(@p displayId). @p sourceClientName and @p sourceClientContext are passed to
      * the `brightnessChanged` signal that is emitted when a change has indeed happened.
      *
+     * If the display is affected by the brightness multiplier and a multiplier other than 1.0
+     * is currently set, it will be applied before clamping.
+     *
+     * @see setBrightnessMultiplier
      * @see brightnessChanged
      */
     void setBrightness(const QString &displayId, int value, const QString &sourceClientName, const QString &sourceClientContext);
 
     int brightnessSteps(const QString &displayId);
+
+    /**
+     * Modify the brightness of all affected displays with a @p multiplier between 0.0 and 1.0.
+     *
+     * The set of affected displays may change over time. For now, it refers to the set of
+     * legacy displays that can also be controlled with legacy setBrightness() without displayId
+     * parameter.
+     *
+     * If brightness changes are observed from an external source, the multiplier will be reset
+     * to 1.0.
+     *
+     * Setting this multiplier will have the same visible effect as calling setBrightness()
+     * for all affected displays with the brightness value multiplied by @p multiplier. However,
+     * unlike setBrightness(), this function will not affect the value returned by brightness().
+     * Setting the multiplier to 1.0 will restore the original brightness.
+     *
+     * Multiplier arguments outside of 0.0 and 1.0 will be clamped to this range.
+     *
+     * @see legacyDisplayIds
+     * @see brightnessMultiplierChanged
+     */
+    void setBrightnessMultiplier(float multiplier);
+    float brightnessMultiplier();
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
@@ -90,6 +117,7 @@ Q_SIGNALS:
                            const PowerDevil::BrightnessLogic::BrightnessInfo &,
                            const QString &sourceClientName,
                            const QString &sourceClientContext);
+    void brightnessMultiplierChanged(float multiplier);
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()
@@ -97,6 +125,7 @@ Q_SIGNALS:
     void legacyBrightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &);
 
 private:
+    int brightnessMultiplied(int value, bool usesMultiplier, int min) const;
     int calculateNextBrightnessStep(const QString &displayId, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
 
 private Q_SLOTS:
@@ -109,6 +138,7 @@ private:
         DisplayBrightness *display = nullptr;
         DisplayBrightnessDetector *detector = nullptr;
         PowerDevil::ScreenBrightnessLogic brightnessLogic = {};
+        bool usesMultiplier = false;
         bool zombie = false;
     };
     QStringList m_sortedDisplayIds;
@@ -122,4 +152,6 @@ private:
     };
     QList<DetectorInfo> m_detectors;
     int m_finishedDetectingCount = 0;
+
+    float m_brightnessMultiplier = 1.0;
 };

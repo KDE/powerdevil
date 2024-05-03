@@ -41,7 +41,7 @@ void DimDisplay::onWakeupFromIdle()
     // We should wait a bit screen to wake-up from sleep
     QTimer::singleShot(0, this, [this]() {
         qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on wake-up from idle";
-        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
+        setBrightnessHelper(1.0, m_oldKeyboardBrightness);
     });
     m_dimmed = false;
 }
@@ -53,35 +53,22 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
         qCDebug(POWERDEVIL) << "DimDisplay: inhibited (or already dimmed), not dimming";
         return;
     }
-
-    if (core()->screenBrightnessController()->brightness() == 0) {
-        // Some drivers report brightness == 0 when display is off because of DPMS
-        //(especially Intel driver). Don't change brightness in this case, or
-        // backlight won't switch on later.
-        // Furthermore, we can't dim if brightness is 0 already.
-        return;
-    }
     qCDebug(POWERDEVIL) << "DimDisplay: triggered on idle timeout, dimming";
 
-    m_oldScreenBrightness = core()->screenBrightnessController()->brightness();
     m_oldKeyboardBrightness = core()->keyboardBrightnessController()->brightness();
 
     // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
     // assumption that e.g. 50% may be too bright for returning user to notice that
     // the screen is going to go off, while 20% may be too dark to be able to read
     // something on the screen.
-    const int newBrightness = qRound(m_oldScreenBrightness * 0.3);
-    setBrightnessHelper(newBrightness, 0);
+    setBrightnessHelper(0.3, 0);
 
     m_dimmed = true;
 }
 
-void DimDisplay::setBrightnessHelper(int screenBrightness, int keyboardBrightness)
+void DimDisplay::setBrightnessHelper(float screenBrightnessMultiplier, int keyboardBrightness)
 {
-    // don't arbitrarily turn-off the display
-    if (screenBrightness > 0) {
-        core()->screenBrightnessController()->setBrightness(screenBrightness);
-    }
+    core()->screenBrightnessController()->setBrightnessMultiplier(screenBrightnessMultiplier);
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
@@ -106,10 +93,9 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     // but do not update m_dimmed so onIdleTimeout would not override them
     if (!profileSettings.dimDisplayWhenIdle()) {
         if (m_dimmed) {
-            if (!profileSettings.useProfileSpecificDisplayBrightness() && m_oldScreenBrightness > 0) {
-                qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
-                core()->screenBrightnessController()->setBrightness(m_oldScreenBrightness);
-            }
+            qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
+            core()->screenBrightnessController()->setBrightnessMultiplier(1.0);
+
             if (!profileSettings.useProfileSpecificKeyboardBrightness() && m_oldKeyboardBrightness > 0) {
                 core()->keyboardBrightnessController()->setBrightness(m_oldKeyboardBrightness);
             }
@@ -118,13 +104,8 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
         return false;
     }
 
-    if (m_dimmed) {
-        if (profileSettings.useProfileSpecificDisplayBrightness()) {
-            m_oldScreenBrightness = profileSettings.displayBrightness();
-        }
-        if (profileSettings.useProfileSpecificKeyboardBrightness()) {
-            m_oldKeyboardBrightness = profileSettings.keyboardBrightness();
-        }
+    if (m_dimmed && profileSettings.useProfileSpecificKeyboardBrightness()) {
+        m_oldKeyboardBrightness = profileSettings.keyboardBrightness();
     }
 
     m_dimOnIdleTime = std::chrono::seconds(profileSettings.dimDisplayIdleTimeoutSec());

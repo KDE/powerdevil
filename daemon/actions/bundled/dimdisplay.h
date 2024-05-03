@@ -29,11 +29,10 @@ private Q_SLOTS:
     void onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies policies);
 
 private:
-    void setBrightnessHelper(int screenBrightness, int keyboardBrightness);
+    void setBrightnessHelper(float screenBrightnessMultiplier, int keyboardBrightness);
 
     std::chrono::milliseconds m_dimOnIdleTime{0};
 
-    int m_oldScreenBrightness = 0;
     int m_oldKeyboardBrightness = 0;
 
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
