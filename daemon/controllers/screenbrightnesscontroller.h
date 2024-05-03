@@ -56,7 +56,8 @@ public:
     /**
      * Return `true` if this display will be affected by multi-display brightness operations, `false` if exempt.
      *
-     * Certain operations can affect more than one display. Changing brightness across the board can
+     * Certain operations can affect more than one display. This includes setBrightnessMultiplier()
+     * and, potentially, brightness key press handling. Changing brightness across the board can
      * result in tricky edge cases if not paired with an ability to store and restore brightness
      * values across reboots and hotplugging events.
      *
@@ -104,12 +105,29 @@ public:
      * Set display brightness for this @p displayId to the given @p value.
      *
      * The @p value will be clamped to the range within minBrightness(@p displayId) and
-     * maxBrightness(@p displayId). The display will be set as managed.
+     * maxBrightness(@p displayId). The display will be set as managed and the
+     * brightness multiplier will be reset to 1.0.
      *
      * @see setBrightnessManaged
+     * @see setBrightnessMultiplier
      */
     void setBrightness(const QString &displayId, int value);
     int brightnessSteps(const QString &displayId);
+
+    /**
+     * Modify the brightness of all managed displays with a @p multiplier between 0.0 and 1.0.
+     *
+     * Setting this multiplier will have the same visible effect as calling setBrightness()
+     * for all displays with the brightness value multiplied by @p multiplier. However,
+     * unlike setBrightness(), this function will not affect the value returned by brightness().
+     * Setting the multiplier to 1.0 will restore the original brightness.
+     *
+     * Multiplier arguments outside of 0.0 and 1.0 will be clamped to this range.
+     *
+     * @see isBrightnessManaged
+     */
+    void setBrightnessMultiplier(float multiplier);
+    float brightnessMultiplier();
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
@@ -127,6 +145,7 @@ Q_SIGNALS:
     void displayRemoved(const QString &displayId);
     void brightnessManagedChanged(const QString &displayId, bool isManaged);
     void brightnessInfoChanged(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &);
+    void brightnessMultiplierChanged(float multiplier);
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()
@@ -156,4 +175,6 @@ private:
     };
     QList<DetectorInfo> m_detectors;
     int m_finishedDetectingCount = 0;
+
+    float m_brightnessMultiplier = 1.0;
 };

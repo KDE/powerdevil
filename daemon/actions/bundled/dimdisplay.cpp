@@ -41,7 +41,7 @@ void DimDisplay::onWakeupFromIdle()
     // We should wait a bit screen to wake-up from sleep
     QTimer::singleShot(0, this, [this]() {
         qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on wake-up from idle";
-        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
+        setBrightnessHelper(1.0, m_oldKeyboardBrightness);
     });
     m_dimmed = false;
 }
@@ -70,18 +70,14 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     // assumption that e.g. 50% may be too bright for returning user to notice that
     // the screen is going to go off, while 20% may be too dark to be able to read
     // something on the screen.
-    const int newBrightness = qRound(m_oldScreenBrightness * 0.3);
-    setBrightnessHelper(newBrightness, 0);
+    setBrightnessHelper(0.3, 0);
 
     m_dimmed = true;
 }
 
-void DimDisplay::setBrightnessHelper(int screenBrightness, int keyboardBrightness)
+void DimDisplay::setBrightnessHelper(float screenBrightnessMultiplier, int keyboardBrightness)
 {
-    // don't arbitrarily turn-off the display
-    if (screenBrightness > 0) {
-        core()->screenBrightnessController()->setBrightness(screenBrightness);
-    }
+    core()->screenBrightnessController()->setBrightnessMultiplier(screenBrightnessMultiplier);
 
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {

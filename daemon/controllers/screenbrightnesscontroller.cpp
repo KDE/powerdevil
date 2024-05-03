@@ -88,9 +88,9 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     QStringList brightnessChangedDisplayIds;
     QStringList restoreBrightnessDisplayIds;
 
-    // To ensure backward compatibility with legacy API clients that we can't track well
-    // across reboots/hotplugging, we'll default to only managing brightness for all displays of
-    // the first non-empty detector.
+    // To ensure backward compatibility with legacy API clients as well as minimize unintended
+    // dimming that we can't track well across reboots/hotplugging, we'll default to only managing
+    // brightness for all displays of the first non-empty detector.
     // i.e. either only the backlight display, or to all external DDC monitors.
     // This is the same set of displays as is affected by legacy setBrightness() without displayId,
     // except here we only initialize isManaged for added displays (no changes to known displays).
@@ -146,7 +146,11 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
                     .detector = detectorInfo.detector,
                 };
 
-                // Register a new display's brightness as managed for the first detector only.
+                // Register the new display's brightness as having a 1.0 multiplier
+                // (i.e. no dimming) and mark the first detector's displays as managed.
+                // This may still be problematic if the display was previously dimmed or
+                // explicitly exempt, but we can't do better without stable display IDs and
+                // configuration stored across rebooting/hotplugging (we may implement this later).
                 info.isManaged = firstSupportedDetector == detectorInfo.detector; // see further up
                 info.brightnessLogic.setValueRange(display->knownSafeMinBrightness(), display->maxBrightness());
                 info.brightnessLogic.setValue(display->brightness());
@@ -173,6 +177,10 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     // also emit signals about new and changed displays, and restore previous brightness if needed
     for (const QString &displayId : std::as_const(addedDisplayIds)) {
         Q_EMIT displayAdded(displayId);
+    }
+    // un-dim whenever a new display is added, also to keep dimming consistent across displays
+    if (!addedDisplayIds.isEmpty()) {
+        setBrightnessMultiplier(1.0);
     }
     for (const QString &displayId : std::as_const(restoreBrightnessDisplayIds)) {
         const auto it = m_displaysById.constFind(displayId);
@@ -276,6 +284,15 @@ void ScreenBrightnessController::setBrightness(const QString &displayId, int val
             qCDebug(POWERDEVIL) << "- clamped from" << value;
         }
 
+        // FIXME: is this what we want, or should we keep the screen dimmed even upon setBrightness()?
+        // Treat the assigned brightness value as having a 1.0 multiplier (i.e. not dimmed), and
+        // un-dim any other connected displays to avoid confusing dimmed/non-dimmed combinations.
+        // Exempt the display from setBrightnessMultiplier() to avoid a duplicate setBrightness().
+        bool isAlreadyManaged = it->isManaged;
+        it->isManaged = false;
+        setBrightnessMultiplier(1.0);
+        it->isManaged = isAlreadyManaged;
+
         setBrightnessManaged(displayId, true);
 
         // notify only when the internally tracked brightness value is actually different
@@ -305,6 +322,33 @@ int ScreenBrightnessController::brightnessSteps(const QString &displayId)
     return 1;
 }
 
+void ScreenBrightnessController::setBrightnessMultiplier(float multiplier)
+{
+    float boundedMultiplier = qBound(0.0, multiplier, 1.0);
+    if (m_brightnessMultiplier == boundedMultiplier) {
+        return;
+    }
+    m_brightnessMultiplier = boundedMultiplier;
+    Q_EMIT brightnessMultiplierChanged(m_brightnessMultiplier);
+
+    for (auto it = m_displaysById.constBegin(); it != m_displaysById.constEnd(); ++it) {
+        if (!it->isManaged) {
+            continue;
+        }
+        const PowerDevil::BrightnessLogic::BrightnessInfo stored = it->brightnessLogic.info();
+        const int boundedValue = qMax<int>(stored.valueMin, stored.value * m_brightnessMultiplier);
+
+        qCDebug(POWERDEVIL) << "Screen brightness multiplier" << m_brightnessMultiplier << "- adjusting" << it.key() << "to" << boundedValue << "/"
+                            << stored.valueMax;
+        it->display->setBrightness(boundedValue);
+    }
+}
+
+float ScreenBrightnessController::brightnessMultiplier()
+{
+    return m_brightnessMultiplier;
+}
+
 void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrightness *display, int value)
 {
     const auto it = std::find_if(m_displaysById.begin(), m_displaysById.end(), [display](const DisplayInfo &info) {
@@ -318,6 +362,7 @@ void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrigh
     qCDebug(POWERDEVIL) << "External brightness change of display" << it.key() << "to" << value << "/" << it->brightnessLogic.info().valueMax;
 
     // if an external actor changes display brightness, we relinquish ownership of brightness to them
+    // (while treating the observed brightness as having a 1.0 multiplier, i.e. not dimmed)
     setBrightnessManaged(it.key(), false);
     it->brightnessLogic.setValue(value);
 
