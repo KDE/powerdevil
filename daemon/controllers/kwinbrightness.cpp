@@ -148,5 +148,5 @@ void KWinDisplayBrightness::setBrightness(int brightness)
 
 void KWinDisplayBrightness::handleBrightnessChanged()
 {
-    Q_EMIT brightnessChanged(this, std::round(m_output->brightness() * 10'000));
+    Q_EMIT externalBrightnessChangeObserved(this, std::round(m_output->brightness() * 10'000));
 }
