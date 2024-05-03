@@ -142,7 +142,6 @@ void DDCutilDisplay::setBrightness(int value)
     if (m_supportsBrightness) {
         m_timer->start();
         m_brightness = value;
-        Q_EMIT brightnessChanged(this, value);
     }
 #endif
 }

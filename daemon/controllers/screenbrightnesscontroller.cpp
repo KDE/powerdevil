@@ -43,7 +43,7 @@ ScreenBrightnessController::ScreenBrightnessController()
 
 void ScreenBrightnessController::detectDisplays()
 {
-    disconnect(nullptr, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
+    disconnect(nullptr, &DisplayBrightness::externalBrightnessChangeObserved, this, &ScreenBrightnessController::onExternalBrightnessChangeObserved);
     disconnect(nullptr, &DisplayBrightnessDetector::displaysChanged, this, &ScreenBrightnessController::onDetectorDisplaysChanged);
 
     qCDebug(POWERDEVIL) << "Trying to detect displays for brightness control...";
@@ -100,13 +100,17 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
 
             if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
                 if (it->display != display) { // same displayId, different object: start from scratch
-                    disconnect(display, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
+                    disconnect(it->display,
+                               &DisplayBrightness::externalBrightnessChangeObserved,
+                               this,
+                               &ScreenBrightnessController::onExternalBrightnessChangeObserved);
+
                     brightnessChangedDisplayIds.append(displayId); // in case the new object has different values
                     replacing = true;
                 }
             }
             if (replacing || !m_displaysById.contains(displayId)) {
-                connect(display, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
+                connect(display, &DisplayBrightness::externalBrightnessChangeObserved, this, &ScreenBrightnessController::onExternalBrightnessChangeObserved);
 
                 auto &info = m_displaysById[displayId] = DisplayInfo{
                     .display = display,
@@ -126,7 +130,10 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     for (const QString &displayId : m_displaysById.keys()) {
         if (!m_sortedDisplayIds.contains(displayId)) {
             const auto it = m_displaysById.constFind(displayId);
-            disconnect(it->display, &DisplayBrightness::brightnessChanged, this, &ScreenBrightnessController::onBrightnessChanged);
+            disconnect(it->display,
+                       &DisplayBrightness::externalBrightnessChangeObserved,
+                       this,
+                       &ScreenBrightnessController::onExternalBrightnessChangeObserved);
             m_displaysById.erase(it);
 
             Q_EMIT displayRemoved(displayId);
@@ -204,8 +211,27 @@ int ScreenBrightnessController::brightness(const QString &displayId) const
 void ScreenBrightnessController::setBrightness(const QString &displayId, int value)
 {
     if (auto it = m_displaysById.find(displayId); it != m_displaysById.end()) {
-        qCDebug(POWERDEVIL) << "Set screen brightness of" << displayId << "to" << value;
-        it->display->setBrightness(value);
+        const PowerDevil::BrightnessLogic::BrightnessInfo bi = it->brightnessLogic.info();
+        const int boundedValue = qBound(bi.valueMin, value, bi.valueMax);
+
+        qCDebug(POWERDEVIL) << "Set screen brightness of" << displayId << "to" << boundedValue << "/" << bi.valueMax;
+        if (value != boundedValue) {
+            qCDebug(POWERDEVIL) << "- clamped from" << value;
+        }
+
+        // notify only when the internally tracked brightness value is actually different
+        if (bi.value != boundedValue) {
+            it->brightnessLogic.setValue(boundedValue);
+            Q_EMIT brightnessInfoChanged(displayId, it->brightnessLogic.info());
+
+            // legacy API without displayId parameter: notify only if the first supported display changed
+            if (displayId == m_sortedDisplayIds.first()) {
+                Q_EMIT legacyBrightnessInfoChanged(it->brightnessLogic.info());
+            }
+        }
+
+        // but always call setBrightness() on the display, in case we're unaware of an external change
+        it->display->setBrightness(boundedValue);
     } else {
         qCWarning(POWERDEVIL) << "Set screen brightness failed: no display with id" << displayId;
     }
@@ -220,14 +246,17 @@ int ScreenBrightnessController::brightnessSteps(const QString &displayId)
     return 1;
 }
 
-void ScreenBrightnessController::onBrightnessChanged(DisplayBrightness *display, int value)
+void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrightness *display, int value)
 {
     const auto it = std::find_if(m_displaysById.begin(), m_displaysById.end(), [display](const DisplayInfo &info) {
         return info.display == display;
     });
     if (it == m_displaysById.end()) {
+        qCWarning(POWERDEVIL) << "External brightness change of untracked display" << display->id() << "to" << value << "/" << display->maxBrightness();
         return;
     }
+
+    qCDebug(POWERDEVIL) << "External brightness change of display" << it.key() << "to" << value << "/" << it->brightnessLogic.info().valueMax;
 
     it->brightnessLogic.setValue(value);
 

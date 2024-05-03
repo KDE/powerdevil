@@ -47,7 +47,7 @@ public:
     virtual void setBrightness(int brightness) = 0;
 
 Q_SIGNALS:
-    void brightnessChanged(DisplayBrightness *self, int brightness);
+    void externalBrightnessChangeObserved(DisplayBrightness *self, int brightness);
 };
 
 /**

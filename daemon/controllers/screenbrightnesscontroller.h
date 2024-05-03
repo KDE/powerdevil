@@ -80,7 +80,7 @@ private:
 
 private Q_SLOTS:
     void onDetectorDisplaysChanged();
-    void onBrightnessChanged(DisplayBrightness *display, int value);
+    void onExternalBrightnessChangeObserved(DisplayBrightness *display, int value);
 
 private:
     struct DisplayInfo {
