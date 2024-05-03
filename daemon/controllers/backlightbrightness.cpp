@@ -111,10 +111,9 @@ BacklightBrightness::BacklightBrightness(int cachedBrightness, int maxBrightness
     , m_maxBrightness(maxBrightness)
 {
 #ifndef Q_OS_FREEBSD
-    // Kernel doesn't send uevent for leds-class devices, or at least that's what
-    // commit 26a48f9db claimed (although the monitored subsystem was already hardcoded
-    // to "backlight" then). That's okay because we emit brightnessChanged() at least
-    // once when setBrightness() starts successfully.
+    // Kernel doesn't send uevent for leds-class devices, or at least that's what commit 26a48f9db
+    // claimed (although the monitored subsystem was already hardcoded to "backlight" then).
+    // Keep track of backlight devices for changes not initiated by this class.
     if (!m_syspath.contains(QLatin1String("/leds/"))) {
         UdevQt::Client *client = new UdevQt::Client(QStringList("backlight"), this);
         connect(client, &UdevQt::Client::deviceChanged, this, &BacklightBrightness::onDeviceChanged);
@@ -148,7 +147,7 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
     if (newBrightness != m_cachedBrightness) {
         m_cachedBrightness = newBrightness;
         m_maxBrightness = maxBrightness; // we don't expect this to change, but set it anyway for safety
-        Q_EMIT brightnessChanged(this, newBrightness);
+        Q_EMIT externalBrightnessChangeObserved(this, newBrightness);
     }
 }
 
@@ -210,9 +209,8 @@ void BacklightBrightness::setBrightness(int newBrightness)
         }
         m_brightnessAnimationTimer->start(m_brightnessAnimationDurationMsec);
 
-        // Immediately announce the new brightness to everyone while we still animate to it
+        // Immediately register the new brightness while we still animate to it
         m_cachedBrightness = newBrightness;
-        Q_EMIT brightnessChanged(this, newBrightness);
     });
     job->start();
 }

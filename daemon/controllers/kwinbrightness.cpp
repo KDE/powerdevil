@@ -161,14 +161,14 @@ void KWinDisplayBrightness::handleBrightnessChanged()
     if (m_inhibitChangeSignal) {
         return;
     }
-    Q_EMIT brightnessChanged(this, std::round(m_output->brightness() * 10'000));
+    Q_EMIT externalBrightnessChangeObserved(this, std::round(m_output->brightness() * 10'000));
 }
 
 void KWinDisplayBrightness::applyPendingBrightness()
 {
+    m_inhibitChangeSignal = true;
     // this will trigger handleBrightnessChanged
     m_output->setBrightness(m_desiredBrightness);
-    m_inhibitChangeSignal = true;
 }
 
 void KWinDisplayBrightness::setConfigOperationDone()
