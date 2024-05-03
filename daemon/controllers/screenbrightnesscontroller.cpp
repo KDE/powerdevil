@@ -294,14 +294,27 @@ void ScreenBrightnessController::setBrightness(int value)
     // For backwards compatibility with legacy API clients, set the same brightness to all displays
     // of the first detector. i.e. either to only the backlight display, or to all external DDC monitors
     DisplayBrightnessDetector *firstSupportedDetector = nullptr;
+    int firstMaxBrightness = 1;
 
     for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
+        const auto it = m_displaysById.constFind(displayId);
+        int perDisplayValue = value;
+
         if (firstSupportedDetector == nullptr) {
-            firstSupportedDetector = m_displaysById[displayId].detector;
-        } else if (firstSupportedDetector != m_displaysById[displayId].detector) {
+            // first display (reference for calculations)
+            firstSupportedDetector = it->detector;
+            firstMaxBrightness = it->display->maxBrightness();
+        } else if (firstSupportedDetector == it->detector) {
+            // scale the value to the other display's brightness range -
+            // some displays' brightness values are ridiculously high, and can easily overflow during computation
+            const qint64 newBrightness64 =
+                static_cast<qint64>(value) * static_cast<qint64>(it->display->maxBrightness()) / static_cast<qint64>(firstMaxBrightness);
+            // cautiously truncate it back
+            perDisplayValue = static_cast<int>(qMin<qint64>(std::numeric_limits<int>::max(), newBrightness64));
+        } else {
             break;
         }
-        setBrightness(displayId, value);
+        setBrightness(displayId, perDisplayValue);
     }
 }
 
