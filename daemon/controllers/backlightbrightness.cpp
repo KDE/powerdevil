@@ -155,20 +155,34 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
         // Moving up means we don't need a lower boundary, the only valid animation targets are
         // executed brightness (current target) and expected max brightness (delayed previous target)
         if (m_executedBrightness >= m_observedBrightness) {
+            qCDebug(POWERDEVIL) << "Caught straggler (rise toward" << m_executedBrightness << "exec) @ brightness" << m_observedBrightness;
+            if (m_expectedMinBrightness != -1) {
+                qCDebug(POWERDEVIL) << "Reset expected min from" << m_expectedMinBrightness;
+            }
             m_expectedMinBrightness = -1;
             return;
         } else if (m_expectedMaxBrightness != -1 && m_expectedMaxBrightness >= m_observedBrightness) {
+            qCDebug(POWERDEVIL) << "Caught straggler (rise toward" << m_expectedMaxBrightness << "max) @ brightness" << m_observedBrightness;
             return;
         }
+        qCDebug(POWERDEVIL) << "fallthrough (rise): observed:" << m_observedBrightness << "| executed:" << m_executedBrightness
+                            << "| max:" << m_expectedMaxBrightness;
     } else {
         // Moving down means we don't need a upper boundary, the only valid animation targets are
         // executed brightness (current target) and expected min brightness (delayed previous target)
         if (m_executedBrightness <= m_observedBrightness) {
+            qCDebug(POWERDEVIL) << "Caught straggler (fall toward" << m_executedBrightness << "exec) @ brightness" << m_observedBrightness;
+            if (m_expectedMaxBrightness != -1) {
+                qCDebug(POWERDEVIL) << "Reset expected max from" << m_expectedMaxBrightness;
+            }
             m_expectedMaxBrightness = -1;
             return;
         } else if (m_expectedMinBrightness != -1 && m_expectedMinBrightness <= m_observedBrightness) {
+            qCDebug(POWERDEVIL) << "Caught straggler (fall toward" << m_expectedMinBrightness << "min) @ brightness" << m_observedBrightness;
             return;
         }
+        qCDebug(POWERDEVIL) << "fallthrough (fall): min:" << m_expectedMinBrightness << "| observed:" << m_observedBrightness
+                            << "| executed:" << m_executedBrightness;
     }
 
     qCDebug(POWERDEVIL) << "[BacklightBrightness]: External brightness change observed:" << m_observedBrightness << "/" << maxBrightness;
@@ -237,9 +251,16 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
     // then we'll emit a brightness change signal as "external change"
     if (newBrightness > oldExecutedBrightness && m_expectedMinBrightness == -1) {
         m_expectedMinBrightness = qMin(m_observedBrightness, oldExecutedBrightness);
+        qCDebug(POWERDEVIL) << "expected min to" << m_expectedMinBrightness;
+    } else if (newBrightness > oldExecutedBrightness) {
+        qCDebug(POWERDEVIL) << "executing upward from" << oldExecutedBrightness << "to" << newBrightness << "| keeping min at" << m_expectedMinBrightness;
     }
+
     if (newBrightness < oldExecutedBrightness && m_expectedMaxBrightness == -1) {
         m_expectedMaxBrightness = qMax(m_observedBrightness, oldExecutedBrightness);
+        qCDebug(POWERDEVIL) << "expected max to" << m_expectedMaxBrightness;
+    } else if (newBrightness < oldExecutedBrightness) {
+        qCDebug(POWERDEVIL) << "executing downward from" << oldExecutedBrightness << "to" << newBrightness << "| keeping max at" << m_expectedMaxBrightness;
     }
 
     // Make sure there are enough integer steps of difference to run a smooth animation
@@ -260,6 +281,9 @@ void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
             Q_EMIT externalBrightnessChangeObserved(this, m_observedBrightness);
             return;
         }
+
+        qCDebug(POWERDEVIL) << "brightness job started: observed:" << m_observedBrightness << "| executed" << m_executedBrightness
+                            << "| latest requested:" << m_requestedBrightness;
 
         if (m_requestedBrightness != m_executedBrightness) {
             // We had another setBrightness() request come in in the meantime:
