@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Lukáš Tinkl <lukas@kde.org>, 2010, 2012.
 # Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2014, 2015, 2016, 2017, 2019, 2020.
-# Vit Pelcak <vit@pelcak.org>, 2021.
+# SPDX-FileCopyrightText: 2021, 2024 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2021-06-03 11:50+0200\n"
+"PO-Revision-Date: 2024-05-07 10:41+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.04.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -136,6 +136,9 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Dlouhodobé ponechání baterie 100% nabití může zrychlit "
+"její degradaci. Omezením maximální úrovně nabytí můžete prodloužit životnost "
+"baterie.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -144,12 +147,14 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Pro zahájení nabíjení možná musíte zařízení odpojit a znovu připojit ke "
+"zdroji napájení."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Začít nabíjet pokud pod:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
