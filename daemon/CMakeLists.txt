@@ -32,6 +32,7 @@ set(powerdevilcore_SRCS
     controllers/ddcutildisplay.cpp
     controllers/udevqtclient.cpp
     controllers/udevqtdevice.cpp
+    controllers/kwinbrightness.cpp
 )
 
 add_library(powerdevil_log_static STATIC)

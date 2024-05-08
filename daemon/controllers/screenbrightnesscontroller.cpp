@@ -19,6 +19,7 @@
 
 #include "backlightbrightness.h"
 #include "ddcutildetector.h"
+#include "kwinbrightness.h"
 
 // brightness 0 can turn off the backlight with some drivers
 constexpr int KnownSafeMinBrightness = 1;
@@ -26,6 +27,7 @@ constexpr int KnownSafeMinBrightness = 1;
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
     , m_detectors({
+          {new KWinDisplayDetector(this), "kwin brightness control"},
           {new BacklightDetector(this), "internal display backlight"},
           {new DDCutilDetector(this), "libddcutil"},
       })
