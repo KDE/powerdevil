@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-04-03 11:47+0200\n"
+"PO-Revision-Date: 2024-05-07 10:39+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: PowerKCM.cpp:442
 #, kde-format
@@ -65,6 +65,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Stav nabití baterie bude považován za nízký pokud dosáhne této úrovně. Budou "
+"použita nastavení pro nízký stav baterie namísto standardních nastavení."
 
 #: ui/GlobalConfig.qml:105
 #, kde-format
@@ -88,6 +90,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Stav nabití baterie bude považován za kritický pokud dosáhne této úrovně. Po "
+"krátkém varování bude systém automaticky uspán nebo hibernován podle "
+"nastavení činností pro kritickou úroveň nabytí baterie."
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -171,6 +176,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Pravidelné nabíjení baterie na 100%, nebo její úplné vybití může zrychlit "
+"její degradaci. Omezením maximální úrovně nabytí můžete prodloužit životnost "
+"baterie."
 
 #: ui/GlobalConfig.qml:332
 #, kde-format
@@ -241,7 +249,7 @@ msgstr "Pokročilá na&stavení napájení…"
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr ""
+msgstr "Nastavení správy napájení nelze načíst"
 
 #: ui/main.qml:79
 #, kde-format
@@ -286,7 +294,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "Po &době nečinnosti:"
 
 #: ui/ProfileConfig.qml:66
 #, kde-format
@@ -376,19 +384,19 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Obrazovka a jas"
 
 #: ui/ProfileConfig.qml:280
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr ""
+msgstr "Změnit jas obrazov&ky:"
 
 #: ui/ProfileConfig.qml:323
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Auto&maticky ztmavit:"
 
 #: ui/ProfileConfig.qml:363
 #, kde-format
@@ -400,13 +408,13 @@ msgstr "Vypnou&t monitor:"
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
-msgstr ""
+msgstr "Po&kud zamčeno, vypni obrazovku:"
 
 #: ui/ProfileConfig.qml:435
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Z&měnit jas klávesnice:"
 
 #: ui/ProfileConfig.qml:482
 #, kde-format
@@ -420,7 +428,7 @@ msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
 "as in the Battery applet"
 msgid "Switch to po&wer profile:"
-msgstr ""
+msgstr "Přepnout na pro&fil napájení:"
 
 #: ui/ProfileConfig.qml:494
 #, kde-format
@@ -428,13 +436,13 @@ msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
 "options as in the Battery applet"
 msgid "Switch to power profile"
-msgstr ""
+msgstr "Přepnout na profil napájení"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
-msgstr ""
+msgstr "Spustit vlastní skript:"
 
 #: ui/ProfileConfig.qml:527
 #, kde-format
@@ -442,13 +450,13 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Zvolte podmínky spuštění.."
 
 #: ui/ProfileConfig.qml:529
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Zvolte podmínky spuštění příkazu skriptu"
 
 #: ui/ProfileConfig.qml:548
 #, kde-format
@@ -466,7 +474,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
-msgstr ""
+msgstr "Po &době nečinnosti"
 
 #: ui/ProfileConfig.qml:599
 #, kde-format
@@ -496,7 +504,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "Po &době nečinnosti:"
 
 #: ui/ProfileConfig.qml:667
 #, kde-format
@@ -508,22 +516,22 @@ msgstr ""
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "Období nečinnosti než dojde ke spuštění skriptu"
 
 #: ui/RunScriptEdit.qml:26
 #, kde-format
 msgid "Enter command or select file…"
-msgstr ""
+msgstr "Zadejte příkaz nebo vyberte soubor..."
 
 #: ui/RunScriptEdit.qml:43
 #, kde-format
 msgid "Select executable file…"
-msgstr ""
+msgstr "Vyberte spustitelný soubor..."
 
 #: ui/RunScriptEdit.qml:58
 #, kde-format
 msgid "Select executable file"
-msgstr ""
+msgstr "Vyberte spustitelný soubor"
 
 #: ui/TimeDelaySpinBox.qml:14
 #, kde-format
@@ -548,7 +556,7 @@ msgctxt ""
 "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds as "
 "%1 and %2."
 msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-msgstr ""
+msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
 
 #: ui/TimeDelaySpinBox.qml:26
 #, kde-format
