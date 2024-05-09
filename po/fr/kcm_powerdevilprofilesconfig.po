@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-03-16 08:28+0100\n"
+"PO-Revision-Date: 2024-05-07 08:40+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -109,7 +109,7 @@ msgid ""
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
 "L'action que vous aviez précédemment configurée lors de l'arrivée en niveau "
-"critique de batterie n’est plus prise en charge sur votre système. Veuillez "
+"critique de batterie n'est plus prise en charge sur votre système. Veuillez "
 "en sélectionner une autre."
 
 #: ui/GlobalConfig.qml:154
@@ -302,7 +302,7 @@ msgid ""
 "now unsupported on your system. Please select a different one."
 msgstr ""
 "L'action que vous aviez précédemment configurée après une période "
-"d'inactivité n’est plus prise en charge sur votre système. Veuillez en "
+"d'inactivité n'est plus prise en charge sur votre système. Veuillez en "
 "sélectionner une autre."
 
 #: ui/ProfileConfig.qml:58
@@ -327,7 +327,7 @@ msgid ""
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
 "L'action que vous aviez précédemment configurée lors d'un appui sur le "
-"bouton de mise sous tension n’est plus prise en charge sur votre système. "
+"bouton de mise sous tension n'est plus prise en charge sur votre système. "
 "Veuillez en sélectionner une autre."
 
 #: ui/ProfileConfig.qml:122
@@ -352,7 +352,7 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 "L'action que vous aviez précédemment configurée lors du rabat de l'écran de "
-"votre portable n’est plus prise en charge sur votre système. Veuillez en "
+"votre portable n'est plus prise en charge sur votre système. Veuillez en "
 "sélectionner une autre."
 
 #: ui/ProfileConfig.qml:161
@@ -391,7 +391,7 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
-"Le mode de veille que vous aviez précédemment configuré n’est plus pris en "
+"Le mode de veille que vous aviez précédemment configuré n'est plus pris en "
 "charge sur votre système. Veuillez en sélectionner un autre."
 
 #: ui/ProfileConfig.qml:219
