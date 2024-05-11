@@ -157,6 +157,21 @@ ProfilesConfigKCM::ProfilesConfigKCM(QObject *parent, const KPluginMetaData &met
             this,
             &ProfilesConfigKCM::chargeStopThresholdMightNeedReconnectChanged);
 
+    // Solid device discovery
+    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
+    for (const Solid::Device &device : devices) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if (b->isPowerSupply()) {
+            setPowerSupplyBatteryPresent(true);
+            if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
+                setSupportsBatteryProfiles(true);
+            }
+        } else {
+            setPeripheralBatteryPresent(true);
+        }
+    }
+
+    // Look for PowerDevil's own service
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
                                                            QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration,
@@ -208,19 +223,6 @@ void ProfilesConfigKCM::load()
 {
     QWindow *renderWindowAsKAuthParent = QQuickRenderControl::renderWindowFor(mainUi()->window());
     m_externalServiceSettings->load(renderWindowAsKAuthParent);
-
-    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
-    for (const Solid::Device &device : devices) {
-        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->isPowerSupply()) {
-            setPowerSupplyBatteryPresent(true);
-            if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
-                setSupportsBatteryProfiles(true);
-            }
-        } else {
-            setPeripheralBatteryPresent(true);
-        }
-    }
 
     setLidPresent(LidController().isLidPresent());
     setPowerButtonPresent(true /* HACK This needs proper API to determine! */);

@@ -569,8 +569,12 @@ Kirigami.FormLayout {
     QQC2.Button {
         id: addScriptCommandButton
         Kirigami.FormData.label: i18nc("@label:button", "Run custom script:")
-        visible: kcm.supportedActions["RunScript"] === true
 
+        visible: (kcm.supportedActions["RunScript"] === true
+            // If power states aren't switchable, only show the idleTimeoutCommand field
+            // because profile load and unload fields are not useful, just confusing.
+            && kcm.supportsBatteryProfiles
+        )
         icon.name: "settings-configure"
         text: i18nc(
             "@text:button Determine what will trigger a script command to run in this power state",
@@ -631,7 +635,9 @@ Kirigami.FormLayout {
                 )
                 checkable: true
                 Component.onCompleted: {
-                    idleTimeoutCommandEditAction.checked = profileSettings.idleTimeoutCommand !== "";
+                    idleTimeoutCommandEditAction.checked = (profileSettings.idleTimeoutCommand !== ""
+                        // Always show field, regardless of addScriptCommandButton.visible.
+                        || (kcm.supportedActions["RunScript"] === true && !kcm.supportsBatteryProfiles));
                 }
                 onToggled: {
                     if (!checked) {
