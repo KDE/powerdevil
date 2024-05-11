@@ -144,6 +144,7 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
 {
     qmlRegisterUncreatableMetaObject(PowerDevil::staticMetaObject, "org.kde.powerdevil", 1, 0, "PowerDevil", QStringLiteral("For enums and flags only"));
 
+    // External service settings
     connect(m_externalServiceSettings, &ExternalServiceSettings::settingsChanged, this, &PowerKCM::settingsChanged);
     connect(m_externalServiceSettings,
             &ExternalServiceSettings::isChargeStartThresholdSupportedChanged,
@@ -155,6 +156,21 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
             this,
             &PowerKCM::chargeStopThresholdMightNeedReconnectChanged);
 
+    // Solid device discovery
+    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
+    for (const Solid::Device &device : devices) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if (b->isPowerSupply()) {
+            setPowerSupplyBatteryPresent(true);
+            if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
+                setSupportsBatteryProfiles(true);
+            }
+        } else {
+            setPeripheralBatteryPresent(true);
+        }
+    }
+
+    // Look for PowerDevil's own service
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
                                                            QDBusConnection::sessionBus(),
                                                            QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration,
@@ -206,19 +222,6 @@ void PowerKCM::load()
 {
     QWindow *renderWindowAsKAuthParent = QQuickRenderControl::renderWindowFor(mainUi()->window());
     m_externalServiceSettings->load(renderWindowAsKAuthParent);
-
-    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
-    for (const Solid::Device &device : devices) {
-        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
-        if (b->isPowerSupply()) {
-            setPowerSupplyBatteryPresent(true);
-            if (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery) {
-                setSupportsBatteryProfiles(true);
-            }
-        } else {
-            setPeripheralBatteryPresent(true);
-        }
-    }
 
     setLidPresent(LidController().isLidPresent());
     setPowerButtonPresent(true /* HACK This needs proper API to determine! */);
