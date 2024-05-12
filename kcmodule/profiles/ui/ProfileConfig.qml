@@ -557,7 +557,9 @@ Kirigami.FormLayout {
                     profileLoadCommandEditAction.checked = profileSettings.profileLoadCommand !== "";
                 }
                 onToggled: {
-                    if (!checked) {
+                    if (checked) {
+                        profileLoadCommandEdit.forceActiveFocus();
+                    } else {
                         profileSettings.profileLoadCommand = "";
                     }
                 }
@@ -573,7 +575,9 @@ Kirigami.FormLayout {
                     profileUnloadCommandEditAction.checked = profileSettings.profileUnloadCommand !== "";
                 }
                 onToggled: {
-                    if (!checked) {
+                    if (checked) {
+                        profileUnloadCommandEdit.forceActiveFocus();
+                    } else {
                         profileSettings.profileUnloadCommand = "";
                     }
                 }
@@ -591,7 +595,9 @@ Kirigami.FormLayout {
                         || (kcm.supportedActions["RunScript"] === true && !kcm.supportsBatteryProfiles));
                 }
                 onToggled: {
-                    if (!checked) {
+                    if (checked) {
+                        idleTimeoutCommandEdit.forceActiveFocus();
+                    } else {
                         profileSettings.idleTimeoutCommand = "";
                     }
                 }
