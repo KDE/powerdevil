@@ -58,6 +58,12 @@ KCM.AbstractKCM {
             property var selectedProfile: kcm.currentProfile || "AC"
             property bool allowAutoSwitchProfile: true // by binding to kcm.currentProfile
 
+            readonly property var profileInfo: ({
+                "AC": { label: i18n("On AC Power"), icon: "battery-full-charging"},
+                "Battery": {label: i18n("On Battery"), icon: "battery-good"},
+                "LowBattery": {label: i18n("On Low Battery"), icon: "battery-low"},
+            })
+
             function setProfileAndStopAutoSwitch(profile) {
                 allowAutoSwitchProfile = false;
                 selectedProfile = profile; // breaks the binding
@@ -74,24 +80,27 @@ KCM.AbstractKCM {
                 function onCurrentProfileChanged() { profileTabBar.stopAutoSwitchProfileOnInit(); }
             }
 
-            actions: [
+            actions: [ // can't use Repeater here, because Action is not an Item
                 Kirigami.Action {
-                    text: i18n("On AC Power")
-                    icon.name: "battery-full-charging"
-                    checked: profileTabBar.selectedProfile == "AC"
-                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch("AC"); }
+                    readonly property string profileId: "AC"
+                    text: profileTabBar.profileInfo[profileId].label
+                    icon.name: profileTabBar.profileInfo[profileId].icon
+                    checked: profileTabBar.selectedProfile == profileId
+                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch(profileId); }
                 },
                 Kirigami.Action {
-                    text: i18n("On Battery")
-                    icon.name: "battery-good"
-                    checked: profileTabBar.selectedProfile == "Battery"
-                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch("Battery"); }
+                    readonly property string profileId: "Battery"
+                    text: profileTabBar.profileInfo[profileId].label
+                    icon.name: profileTabBar.profileInfo[profileId].icon
+                    checked: profileTabBar.selectedProfile == profileId
+                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch(profileId); }
                 },
                 Kirigami.Action {
-                    text: i18n("On Low Battery")
-                    icon.name: "battery-low"
-                    checked: profileTabBar.selectedProfile == "LowBattery"
-                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch("LowBattery"); }
+                    readonly property string profileId: "LowBattery"
+                    text: profileTabBar.profileInfo[profileId].label
+                    icon.name: profileTabBar.profileInfo[profileId].icon
+                    checked: profileTabBar.selectedProfile == profileId
+                    onTriggered: { profileTabBar.setProfileAndStopAutoSwitch(profileId); }
                 }
             ]
         }
@@ -159,6 +168,7 @@ KCM.AbstractKCM {
                     ProfileConfig {
                         id: profileConfig
                         profileId: profileTabBar.selectedProfile
+                        profileLabel: profileTabBar.profileInfo[profileTabBar.selectedProfile].label
 
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: tabContentContainer.top

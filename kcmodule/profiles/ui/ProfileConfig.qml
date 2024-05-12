@@ -15,6 +15,7 @@ Kirigami.FormLayout {
     id: root
 
     required property string profileId
+    required property string profileLabel
     readonly property var profileSettings: kcm.settings["profile" + profileId]
 
     function formatPercentageText(value) {
@@ -548,8 +549,8 @@ Kirigami.FormLayout {
             Kirigami.Action {
                 id: profileLoadCommandEditAction
                 text: i18nc(
-                    "@text:action:menu Script command to execute",
-                    "When e&ntering this power state"
+                    "@text:action:menu Script command to execute for power state (On AC Power, On Battery, ...)",
+                    "When entering \"%1\" state", root.profileLabel
                 )
                 checkable: true
                 Component.onCompleted: {
@@ -564,8 +565,8 @@ Kirigami.FormLayout {
             Kirigami.Action {
                 id: profileUnloadCommandEditAction
                 text: i18nc(
-                    "@text:action:menu Script command to execute",
-                    "When e&xiting this power state"
+                    "@text:action:menu Script command to execute for power state (On AC Power, On Battery, ...)",
+                    "When exiting \"%1\" state", root.profileLabel
                 )
                 checkable: true
                 Component.onCompleted: {
@@ -581,7 +582,7 @@ Kirigami.FormLayout {
                 id: idleTimeoutCommandEditAction
                 text: i18nc(
                     "@text:action:menu Script command to execute",
-                    "After a period of inacti&vity"
+                    "After a period of inactivity"
                 )
                 checkable: true
                 Component.onCompleted: {
@@ -601,11 +602,13 @@ Kirigami.FormLayout {
     RunScriptEdit {
         id: profileLoadCommandEdit
         Kirigami.FormData.label: i18nc(
-            "@label:textfield Script command to execute",
-            "When e&ntering this power state:"
+            "@label:textfield Script command to execute for power state (On AC Power, On Battery, ...)",
+            "When e&ntering \"%1\" state:", root.profileLabel
         )
-        Accessible.name: i18nc("@label:textfield", "Script command when entering this power state")
-
+        Accessible.name: i18nc(
+            "@label:textfield for power state (On AC Power, On Battery, ...)",
+            "Script command when entering \"%1\" state", root.profileLabel
+        )
         visible: profileLoadCommandEditAction.checked
         Layout.fillWidth: true
 
@@ -634,11 +637,13 @@ Kirigami.FormLayout {
     RunScriptEdit {
         id: profileUnloadCommandEdit
         Kirigami.FormData.label: i18nc(
-            "@label:textfield Script command to execute",
-            "When e&xiting this power state:"
+            "@label:textfield Script command to execute for power state (On AC Power, On Battery, ...)",
+            "When e&xiting \"%1\" state:", root.profileLabel
         )
-        Accessible.name: i18nc("@label:textfield", "Script command when exiting this power state")
-
+        Accessible.name: i18nc(
+            "@label:textfield for power state (On AC Power, On Battery, ...)",
+            "Script command when exiting \"%1\" state", root.profileLabel
+        )
         visible: profileUnloadCommandEditAction.checked
         Layout.fillWidth: true
 
