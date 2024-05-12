@@ -188,7 +188,7 @@ msgstr "Altres paràmetres"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr "Reproducció &multimèdia:"
+msgstr "Reproduïu &multimèdia:"
 
 #: ui/GlobalConfig.qml:348
 #, kde-format
