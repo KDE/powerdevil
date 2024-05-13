@@ -25,10 +25,6 @@ Kirigami.FormLayout {
         ).replace("10", value);
     }
 
-    function maxTimeDelaySpinBoxImplicitWidth() {
-        return Math.max(dimDisplayTimeDelay.implicitWidth, turnOffDisplayTimeDelay.implicitWidth, turnOffDisplayWhenLockedTimeDelay.implicitWidth, idleTimeoutCommandTimeDelay.implicitWidth);
-    }
-
     //
     // Suspend Session
 
@@ -88,22 +84,58 @@ Kirigami.FormLayout {
             }
         }
 
-        TimeDelaySpinBox {
-            id: autoSuspendTimeDelay
-            stepSize: 60
-            from: 60
-            to: 360 * 60
+        TimeDurationComboBox {
+            id: autoSuspendIdleTimeoutCombo
+            overlay: QQC2.Overlay.overlay
+            durationPromptLabel: autoSuspendActionRow.Kirigami.FormData.label
+            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+
+            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+                return formatUnit == DurationPromptDialog.Unit.Minutes
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox", "after %1 second", "after %1 seconds", n);
+            }
+            function translateMinutes(n) { return i18ncp("@option:combobox", "after %1 minute", "after %1 minutes", n); }
+
+            valueRole: "seconds"
+            textRole: "text"
+            unitOfValueRole: DurationPromptDialog.Unit.Seconds
+            durationPromptFromValue: 60
+            presetOptions: [
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -1, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+            ]
+            customRequesterValue: -1
+            configuredValue: profileSettings.autoSuspendIdleTimeoutSec
+            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
+
+            onRegularValueActivated: { profileSettings.autoSuspendIdleTimeoutSec = currentValue; }
+            onCustomDurationAccepted: {
+                profileSettings.autoSuspendIdleTimeoutSec = valueToUnit(
+                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+            }
+
+            onConfiguredValueOptionMissing: {
+                const unit = configuredValue % 60 === 0
+                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                    : DurationPromptDialog.Unit.Seconds;
+
+                customOptions = [{
+                    seconds: configuredValue,
+                    text: translateSeconds(configuredValue, unit),
+                    unit: unit,
+                }];
+                customDuration = null;
+            }
 
             KCM.SettingStateBinding {
                 configObject: profileSettings
                 settingName: "AutoSuspendIdleTimeoutSec"
                 extraEnabledConditions: autoSuspendActionCombo.currentValue !== PD.PowerDevil.PowerButtonAction.NoAction
-            }
-            value: profileSettings.autoSuspendIdleTimeoutSec
-            onValueModified: {
-                profileSettings.autoSuspendIdleTimeoutSec = value;
-                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                value = Qt.binding(() => profileSettings.autoSuspendIdleTimeoutSec);
             }
         }
     }
@@ -320,114 +352,206 @@ Kirigami.FormLayout {
         }
     }
 
-    RowLayout {
-        Kirigami.FormData.label: i18nc("@label:spinbox Dim screen after X minutes", "Di&m automatically:")
-
+    TimeDurationComboBox {
+        id: dimDisplayIdleTimeoutCombo
         visible: kcm.supportedActions["DimDisplay"] === true
         Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
+        Kirigami.FormData.label: i18nc("@label:combobox Dim screen after X minutes", "Di&m automatically:")
 
-        QQC2.CheckBox {
-            id: dimDisplayCheck
+        overlay: QQC2.Overlay.overlay
+        durationPromptLabel: i18nc("@label:spinbox Dim screen after X minutes", "Di&m automatically after:")
+        durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "DimDisplayWhenIdle"
-            }
-            checked: profileSettings.dimDisplayWhenIdle
-            onToggled: { profileSettings.dimDisplayWhenIdle = checked; }
+        function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+            return formatUnit == DurationPromptDialog.Unit.Minutes
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "%1 second", "%1 seconds", n);
         }
-        TimeDelaySpinBox {
-            id: dimDisplayTimeDelay
-            Layout.preferredWidth: maxTimeDelaySpinBoxImplicitWidth()
+        function translateMinutes(n) { return i18ncp("@option:combobox", "%1 minute", "%1 minutes", n); }
 
-            stepSize: 60
-            from: 60
-            to: 360 * 60
+        valueRole: "seconds"
+        textRole: "text"
+        unitOfValueRole: DurationPromptDialog.Unit.Seconds
+        durationPromptFromValue: 10
+        presetOptions: [
+            { seconds: -1, text: i18nc("@option:combobox Dim screen automatically", "Never") },
+            { seconds: 30, text: translateSeconds(30), unit: DurationPromptDialog.Unit.Seconds },
+            { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+        ]
+        customRequesterValue: -2
+        configuredValue: profileSettings.dimDisplayWhenIdle ? profileSettings.dimDisplayIdleTimeoutSec : -1
+        configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
 
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "DimDisplayIdleTimeoutSec"
-                extraEnabledConditions: dimDisplayCheck.checked
-            }
-            value: profileSettings.dimDisplayIdleTimeoutSec
-            onValueModified: {
-                profileSettings.dimDisplayIdleTimeoutSec = value;
-                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                value = Qt.binding(() => profileSettings.dimDisplayIdleTimeoutSec);
-            }
+        onRegularValueActivated: {
+            profileSettings.dimDisplayIdleTimeoutSec = currentValue;
+            profileSettings.dimDisplayWhenIdle = currentValue > 0;
         }
+        onCustomDurationAccepted: {
+            profileSettings.dimDisplayIdleTimeoutSec = valueToUnit(
+                customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+            profileSettings.dimDisplayWhenIdle = customDuration.value > 0;
+        }
+
+        onConfiguredValueOptionMissing: {
+            const unit = configuredValue % 60 === 0
+                ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                : DurationPromptDialog.Unit.Seconds;
+
+            customOptions = [{
+                seconds: configuredValue,
+                text: translateSeconds(configuredValue, unit),
+                unit: unit,
+            }];
+            customDuration = null;
+        }
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "DimDisplayIdleTimeoutSec"
+        }
+    }
+
+    Kirigami.InlineMessage {
+        Kirigami.FormData.isSection: true
+        visible: (
+            dimDisplayIdleTimeoutCombo.visible
+            && profileSettings.dimDisplayWhenIdle && profileSettings.turnOffDisplayWhenIdle
+            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutSec
+            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
+        )
+        Layout.fillWidth: true
+        type: Kirigami.MessageType.Warning
+        text: i18nc("@info:status", "The screen will not be dimmed because it is configured to turn off sooner.")
     }
 
     RowLayout {
         id: turnOffDisplayRow
-        Kirigami.FormData.label: i18nc("@label:spinbox After X minutes", "&Turn off screen:")
+        Kirigami.FormData.label: i18nc("@label:combobox After X minutes", "&Turn off screen:")
+        Kirigami.FormData.buddyFor: turnOffDisplayIdleTimeoutCombo
 
         visible: kcm.supportedActions["DPMSControl"] === true
         Layout.fillWidth: true
         spacing: Kirigami.Units.smallSpacing
 
-        QQC2.CheckBox {
-            id: turnOffDisplayCheck
+        TimeDurationComboBox {
+            id: turnOffDisplayIdleTimeoutCombo
+            Layout.fillWidth: true
 
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "TurnOffDisplayWhenIdle"
+            overlay: QQC2.Overlay.overlay
+            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+            durationPromptLabel: i18nc("@label:spinbox After X minutes", "Turn off screen after:")
+
+            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+                return formatUnit == DurationPromptDialog.Unit.Minutes
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%1 second", "%1 seconds", n);
             }
-            checked: profileSettings.turnOffDisplayWhenIdle
-            onToggled: { profileSettings.turnOffDisplayWhenIdle = checked; }
-        }
-        TimeDelaySpinBox {
-            id: turnOffDisplayTimeDelay
-            Layout.preferredWidth: maxTimeDelaySpinBoxImplicitWidth()
+            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%1 minute", "%1 minutes", n); }
 
-            stepSize: 60
-            from: 60
-            to: 360 * 60
+            valueRole: "seconds"
+            textRole: "text"
+            unitOfValueRole: DurationPromptDialog.Unit.Seconds
+            durationPromptFromValue: 30
+            presetOptions: [
+                { seconds: -1, text: i18nc("@option:combobox Turn off screen (caution: watch for string length)", "Never") },
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values (caution: watch for string length)", "Custom…") },
+            ]
+            customRequesterValue: -2
+            configuredValue: profileSettings.turnOffDisplayWhenIdle ? profileSettings.turnOffDisplayIdleTimeoutSec : -1
+            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
+
+            onRegularValueActivated: {
+                profileSettings.turnOffDisplayIdleTimeoutSec = currentValue;
+                profileSettings.turnOffDisplayWhenIdle = currentValue > 0;
+            }
+            onCustomDurationAccepted: {
+                profileSettings.turnOffDisplayIdleTimeoutSec = valueToUnit(
+                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+                profileSettings.turnOffDisplayWhenIdle = customDuration.value > 0;
+            }
+
+            onConfiguredValueOptionMissing: {
+                const unit = configuredValue % 60 === 0
+                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                    : DurationPromptDialog.Unit.Seconds;
+
+                customOptions = [{
+                    seconds: configuredValue,
+                    text: translateSeconds(configuredValue, unit),
+                    unit: unit,
+                }];
+                customDuration = null;
+            }
 
             KCM.SettingStateBinding {
                 configObject: profileSettings
                 settingName: "TurnOffDisplayIdleTimeoutSec"
-                extraEnabledConditions: turnOffDisplayCheck.checked
-            }
-            value: profileSettings.turnOffDisplayIdleTimeoutSec
-            onValueModified: {
-                profileSettings.turnOffDisplayIdleTimeoutSec = value;
-                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                value = Qt.binding(() => profileSettings.turnOffDisplayIdleTimeoutSec);
             }
         }
-    }
 
-    RowLayout {
-        Kirigami.FormData.label: i18nc("@label:spinbox After X seconds", "When loc&ked, turn off screen:")
+        TimeDurationComboBox {
+            id: turnOffDisplayIdleTimeoutWhenLockedCombo
 
-        visible: kcm.supportedActions["DPMSControl"] === true
-        Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
+            overlay: QQC2.Overlay.overlay
+            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+            durationPromptLabel: i18nc("@label:spinbox After X minutes", "When locked, turn off screen after:")
 
-        QQC2.CheckBox { // dummy item to line up the two spinboxes
-            enabled: false
-            opacity: 0
-        }
-        TimeDelaySpinBox {
-            id: turnOffDisplayWhenLockedTimeDelay
-            Layout.preferredWidth: maxTimeDelaySpinBoxImplicitWidth()
+            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+                return formatUnit == DurationPromptDialog.Unit.Minutes
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: %1 second", "When locked: %1 seconds", n);
+            }
+            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: %1 minute", "When locked: %1 minutes", n); }
 
-            stepSize: 10
-            from: 0
-            to: turnOffDisplayTimeDelay.value
+            valueRole: "seconds"
+            textRole: "text"
+            unitOfValueRole: DurationPromptDialog.Unit.Seconds
+            durationPromptFromValue: 10
+            presetOptions: [
+                { seconds: -2, text: i18nc("@option:combobox Turn off screen after X minutes regardless of lock screen (caution: watch for string length)", "When locked and unlocked")  },
+                // -1 would be "Never", same as for the unlocked timeout, if we want that option
+                { seconds: 0, text: i18nc("@option:combobox Turn off screen (caution: watch for string length)", "When locked: Immediately") },
+                { seconds: 20, text: translateSeconds(20), unit: DurationPromptDialog.Unit.Seconds },
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -3, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+            ]
+            customRequesterValue: -3
+            configuredValue: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
+            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Seconds
+
+            onRegularValueActivated: { profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = currentValue; }
+            onCustomDurationAccepted: {
+                profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = valueToUnit(
+                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+            }
+
+            onConfiguredValueOptionMissing: {
+                const unit = configuredValue % 60 === 0
+                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                    : DurationPromptDialog.Unit.Seconds;
+
+                customOptions = [{
+                    seconds: configuredValue,
+                    text: translateSeconds(configuredValue, unit),
+                    unit: unit,
+                }];
+                customDuration = null;
+            }
 
             KCM.SettingStateBinding {
                 configObject: profileSettings
                 settingName: "TurnOffDisplayIdleTimeoutWhenLockedSec"
-                extraEnabledConditions: turnOffDisplayCheck.checked
-            }
-            value: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
-            onValueModified: {
-                profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = value;
-                // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-                value = Qt.binding(() => profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec);
+                extraEnabledConditions: profileSettings.turnOffDisplayWhenIdle
             }
         }
     }
@@ -708,25 +832,61 @@ Kirigami.FormLayout {
         }
     }
 
-    TimeDelaySpinBox {
-        id: idleTimeoutCommandTimeDelay
+    TimeDurationComboBox {
+        id: idleTimeoutCommandTimeDelayCombo
         Accessible.name: i18nc("@accessible:name:spinbox", "Period of inactivity until the script command executes")
+        Layout.fillWidth: true
         visible: idleTimeoutCommandEdit.visible
-        Layout.preferredWidth: maxTimeDelaySpinBoxImplicitWidth()
 
-        stepSize: 60
-        from: 60
-        to: 360 * 60
+        overlay: QQC2.Overlay.overlay
+        durationPromptLabel: i18nc("@label:spinbox After X minutes", "Execute script after:")
+        durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+
+        function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+            return formatUnit == DurationPromptDialog.Unit.Minutes
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "after %1 seconds", "after %1 seconds", n);
+        }
+        function translateMinutes(n) { return i18ncp("@option:combobox", "after %1 minutes", "after %1 minutes", n); }
+
+        valueRole: "seconds"
+        textRole: "text"
+        unitOfValueRole: DurationPromptDialog.Unit.Seconds
+        durationPromptFromValue: 10
+        presetOptions: [
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -1, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+        ]
+        customRequesterValue: -1
+        configuredValue: profileSettings.runScriptIdleTimeoutSec
+        configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
+
+        onRegularValueActivated: { profileSettings.runScriptIdleTimeoutSec = currentValue; }
+        onCustomDurationAccepted: {
+            profileSettings.runScriptIdleTimeoutSec = valueToUnit(
+                customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+        }
+
+        onConfiguredValueOptionMissing: {
+            const unit = configuredValue % 60 === 0
+                ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                : DurationPromptDialog.Unit.Seconds;
+
+            customOptions = [{
+                seconds: configuredValue,
+                text: translateSeconds(configuredValue, unit),
+                unit: unit,
+            }];
+            customDuration = null;
+        }
 
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "RunScriptIdleTimeoutSec"
-        }
-        value: profileSettings.runScriptIdleTimeoutSec
-        onValueModified: {
-            profileSettings.runScriptIdleTimeoutSec = value;
-            // In Qt 6.6, SpinBox breaks the value binding on keyboard input. Restore it again.
-            value = Qt.binding(() => profileSettings.runScriptIdleTimeoutSec);
         }
     }
 }
