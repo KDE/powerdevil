@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-17 00:39+0000\n"
-"PO-Revision-Date: 2024-02-20 09:16+0300\n"
+"PO-Revision-Date: 2024-05-12 16:52+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 21.08.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -109,6 +109,10 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Настроенное ранее действие, выполняемое при достижении критического уровня "
+"заряда батареи, сейчас не поддерживается вашей системой. Выберете другое "
+"действие, которое будет выполняться при достижении критического уровня "
+"заряда батареи."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -296,6 +300,9 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"Настроенное ранее действие, выполняемое при заданном периоде бездействия, "
+"сейчас не поддерживается вашей системой. Выберете другое действие, которое "
+"будет выполняться при заданном периоде бездействия."
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
@@ -318,6 +325,9 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Настроенное ранее действие, выполняемое при нажатии кнопки питания, сейчас "
+"не поддерживается вашей системой. Выберете другое действие, которое будет "
+"выполняться при нажатии кнопки питания."
 
 #: ui/ProfileConfig.qml:122
 #, kde-format
@@ -340,6 +350,9 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Настроенное ранее действие, выполняемое при закрытии крышки, сейчас не "
+"поддерживается вашей системой. Выберете другое действие, которое будет "
+"выполняться при нажатии закрытии крышки."
 
 #: ui/ProfileConfig.qml:161
 #, kde-format
@@ -377,6 +390,8 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Способ приостановки сеанса, настроенный ранее, более ранее, сейчас не "
+"поддерживается вашей системой. Выберите другой способ приостановки сеанса."
 
 #: ui/ProfileConfig.qml:219
 #, kde-format
