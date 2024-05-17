@@ -98,6 +98,7 @@ Description[ar]=الاستيثاق للتأكد من وحدة معالجة ال�
 Description[bg]=Удостоверете се, за да проверите за наличие на отделен графичен процесор.
 Description[ca]=Autenticació per a comprovar l'existència d'una GPU dedicada.
 Description[ca@valencia]=Autenticació per a comprovar l'existència d'una GPU dedicada.
+Description[cs]=Ověřte totožnost abyste zkonstrolovali existenci dedikované grafické karty.
 Description[eo]=Aŭtentiĝu por kontroli pri la ekzisto de diskreta GPU.
 Description[es]=Debe autenticarse para comprobar la existencia de una GPU discreta.
 Description[eu]=Kautotu bereizitako GPUrik dagoen egiaztatzeko.
