@@ -1,15 +1,15 @@
 # Translation of powerdevilprofilesconfig.pot to esperanto
 # Copyright (C) 2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the powerdevil package.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-15 03:05+0000\n"
-"PO-Revision-Date: 2023-12-18 06:17+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-03-21 09:47+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -278,7 +278,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr "Post periodo de neaktiveco:"
+msgstr "Post periodo de neakti&veco:"
 
 #: ui/ProfileConfig.qml:58
 #, kde-format
