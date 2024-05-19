@@ -58,6 +58,7 @@ public:
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
     // legacy API without displayId parameter, kept for backward compatibility
+    QStringList legacyDisplayIds() const;
     int knownSafeMinBrightness() const;
     int minBrightness() const;
     int maxBrightness() const;
@@ -73,6 +74,7 @@ Q_SIGNALS:
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()
+    void legacyDisplayIdsChanged(const QStringList &);
     void legacyBrightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &);
 
 private:
@@ -91,6 +93,7 @@ private:
         bool zombie = false;
     };
     QStringList m_sortedDisplayIds;
+    QStringList m_legacyDisplayIds;
     QHash<QString, DisplayInfo> m_displaysById;
 
     struct DetectorInfo {
