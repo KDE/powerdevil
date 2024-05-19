@@ -92,18 +92,24 @@ void ScreenBrightnessController::onDisplayDestroyed(QObject *obj)
 
 void ScreenBrightnessController::onDetectorDisplaysChanged()
 {
-    const QString previousFirstDisplayId = m_sortedDisplayIds.value(0, QString());
-
     // don't clear m_displaysById, we'll diff its items for proper signal invocation
     m_sortedDisplayIds.clear();
+    QStringList legacyDisplayIds;
     QStringList addedDisplayIds;
     QStringList brightnessChangedDisplayIds;
+
+    // for backwards compatibility with legacy API clients, set the same brightness to all displays
+    // of the first detector - e.g. to only the backlight display, or to all external DDC monitors
+    DisplayBrightnessDetector *firstSupportedDetector = nullptr;
 
     // add new displays
     for (const DetectorInfo &detectorInfo : m_detectors) {
         QList<DisplayBrightness *> detectorDisplays = detectorInfo.detector->displays();
 
         if (!detectorDisplays.isEmpty()) {
+            if (firstSupportedDetector == nullptr) {
+                firstSupportedDetector = detectorInfo.detector;
+            }
             qCDebug(POWERDEVIL) << "Using" << detectorInfo.debugName << "for brightness controls.";
         }
         for (DisplayBrightness *display : std::as_const(detectorDisplays)) {
@@ -139,6 +145,10 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
                     addedDisplayIds.append(displayId);
                 }
             }
+
+            if (detectorInfo.detector == firstSupportedDetector) {
+                legacyDisplayIds.append(displayId);
+            }
         }
     }
 
@@ -164,6 +174,13 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
         Q_EMIT brightnessInfoChanged(displayId, it->brightnessLogic.info());
     }
 
+    const QString previousFirstDisplayId = m_legacyDisplayIds.value(0, QString());
+
+    if (m_legacyDisplayIds != legacyDisplayIds) {
+        m_legacyDisplayIds = legacyDisplayIds;
+        Q_EMIT legacyDisplayIdsChanged(m_legacyDisplayIds);
+    }
+
     if (!isSupported()) {
         qCDebug(POWERDEVIL) << "No suitable displays detected. Brightness controls are unsupported in this configuration.";
         return;
@@ -171,7 +188,7 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
 
     // legacy API needs to emit a brightness change signal for the first display, regardless of
     // whether the new first display was newly added or an existing display moved up to index 0
-    const QString newFirstDisplayId = m_sortedDisplayIds.first();
+    const QString &newFirstDisplayId = m_legacyDisplayIds.first();
     if (newFirstDisplayId != previousFirstDisplayId || brightnessChangedDisplayIds.contains(newFirstDisplayId)) {
         const auto it = m_displaysById.constFind(newFirstDisplayId);
         qCDebug(POWERDEVIL) << "Screen brightness of first display after detection/reconfiguration:" << it->brightnessLogic.info().value;
@@ -256,7 +273,7 @@ void ScreenBrightnessController::onBrightnessChanged(DisplayBrightness *display,
     Q_EMIT brightnessInfoChanged(it.key(), it->brightnessLogic.info());
 
     // legacy API without displayId parameter: notify only if the first supported display changed
-    if (it.key() == m_sortedDisplayIds.first()) {
+    if (it.key() == m_legacyDisplayIds.first()) {
         Q_EMIT legacyBrightnessInfoChanged(it->brightnessLogic.info());
     }
 }
@@ -288,48 +305,44 @@ int ScreenBrightnessController::screenBrightnessKeyPressed(PowerDevil::Brightnes
 //
 // legacy API without displayId parameter
 
+QStringList ScreenBrightnessController::legacyDisplayIds() const
+{
+    return m_legacyDisplayIds;
+}
+
 int ScreenBrightnessController::knownSafeMinBrightness() const
 {
-    return knownSafeMinBrightness(m_sortedDisplayIds.value(0, QString()));
+    return knownSafeMinBrightness(m_legacyDisplayIds.value(0, QString()));
 }
 
 int ScreenBrightnessController::minBrightness() const
 {
-    return minBrightness(m_sortedDisplayIds.value(0, QString()));
+    return minBrightness(m_legacyDisplayIds.value(0, QString()));
 }
 
 int ScreenBrightnessController::maxBrightness() const
 {
-    return maxBrightness(m_sortedDisplayIds.value(0, QString()));
+    return maxBrightness(m_legacyDisplayIds.value(0, QString()));
 }
 
 int ScreenBrightnessController::brightness() const
 {
-    return brightness(m_sortedDisplayIds.value(0, QString()));
+    return brightness(m_legacyDisplayIds.value(0, QString()));
 }
 
 void ScreenBrightnessController::setBrightness(int value)
 {
-    if (m_sortedDisplayIds.isEmpty()) {
+    if (m_legacyDisplayIds.isEmpty()) {
         qCWarning(POWERDEVIL) << "Set screen brightness failed: no supported display available";
     }
-    // For backwards compatibility with legacy API clients, set the same brightness to all displays
-    // of the first detector. i.e. either to only the backlight display, or to all external DDC monitors
-    DisplayBrightnessDetector *firstSupportedDetector = nullptr;
-
-    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
-        if (firstSupportedDetector == nullptr) {
-            firstSupportedDetector = m_displaysById[displayId].detector;
-        } else if (firstSupportedDetector != m_displaysById[displayId].detector) {
-            break;
-        }
+    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
         setBrightness(displayId, value);
     }
 }
 
 int ScreenBrightnessController::brightnessSteps()
 {
-    return brightnessSteps(m_sortedDisplayIds.value(0, QString()));
+    return brightnessSteps(m_legacyDisplayIds.value(0, QString()));
 }
 
 #include "moc_screenbrightnesscontroller.cpp"
