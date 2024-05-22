@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 03:05+0000\n"
+"POT-Creation-Date: 2024-05-22 02:33+0000\n"
 "PO-Revision-Date: 2024-04-04 21:11+0200\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.02.1\n"
 
-#: ProfilesConfigKCM.cpp:444
+#: ProfilesConfigKCM.cpp:446
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Der Energieverwaltungsdienst scheint nicht zu laufen."
@@ -410,7 +410,7 @@ msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Eigenes Skript ausführen:"
 
-#: ui/ProfileConfig.qml:577
+#: ui/ProfileConfig.qml:581
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -418,67 +418,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Ausführungsbedingungen auswählen …"
 
-#: ui/ProfileConfig.qml:579
+#: ui/ProfileConfig.qml:583
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Die Bedingungen für die Ausführung des Skripts auswählen"
 
-#: ui/ProfileConfig.qml:598
+#: ui/ProfileConfig.qml:602
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "Beim &Wechseln in diesen Energiezustand"
 
-#: ui/ProfileConfig.qml:614
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "Beim We&chseln aus diesem Energiezustand"
 
-#: ui/ProfileConfig.qml:630
+#: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "Nach einer Weile &Inaktivität"
 
-#: ui/ProfileConfig.qml:649
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "Beim &Betreten dieses Energiezustands:"
 
-#: ui/ProfileConfig.qml:651
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Skriptbefehl beim Betreten dieses Energiezustands"
 
-#: ui/ProfileConfig.qml:682
+#: ui/ProfileConfig.qml:688
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "Beim &Verlassen dieses Energiezustands:"
 
-#: ui/ProfileConfig.qml:684
+#: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Skriptbefehl beim Betreten dieses Energiezustands"
 
-#: ui/ProfileConfig.qml:715
+#: ui/ProfileConfig.qml:721
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Nach einer Weile &Inaktivität:"
 
-#: ui/ProfileConfig.qml:717
+#: ui/ProfileConfig.qml:723
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Skriptbefehl beim Betreten dieses Energiezustands"
 
-#: ui/ProfileConfig.qml:746
+#: ui/ProfileConfig.qml:752
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"

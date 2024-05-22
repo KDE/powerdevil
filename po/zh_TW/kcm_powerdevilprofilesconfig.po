@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 03:05+0000\n"
+"POT-Creation-Date: 2024-05-22 02:33+0000\n"
 "PO-Revision-Date: 2023-12-24 06:13+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ProfilesConfigKCM.cpp:444
+#: ProfilesConfigKCM.cpp:446
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "電源管理服務似乎並非執行中。"
@@ -399,7 +399,7 @@ msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "執行自訂文稿："
 
-#: ui/ProfileConfig.qml:577
+#: ui/ProfileConfig.qml:581
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -407,67 +407,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "選擇執行條件…"
 
-#: ui/ProfileConfig.qml:579
+#: ui/ProfileConfig.qml:583
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "選擇文稿命令的執行條件"
 
-#: ui/ProfileConfig.qml:598
+#: ui/ProfileConfig.qml:602
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "進入這個電源狀態時(&N)"
 
-#: ui/ProfileConfig.qml:614
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "離開這個電源狀態時(&X)"
 
-#: ui/ProfileConfig.qml:630
+#: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "未動作一段時間之後"
 
-#: ui/ProfileConfig.qml:649
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "進入這個電源狀態時(&N)："
 
-#: ui/ProfileConfig.qml:651
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "進入這個電源狀態時要執行的文稿命令"
 
-#: ui/ProfileConfig.qml:682
+#: ui/ProfileConfig.qml:688
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "離開這個電源狀態時(&X)："
 
-#: ui/ProfileConfig.qml:684
+#: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "離開這個電源狀態時要執行的文稿命令"
 
-#: ui/ProfileConfig.qml:715
+#: ui/ProfileConfig.qml:721
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "未動作一段時間之後(&V)："
 
-#: ui/ProfileConfig.qml:717
+#: ui/ProfileConfig.qml:723
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "未動作一段時間之後要執行的文稿命令"
 
-#: ui/ProfileConfig.qml:746
+#: ui/ProfileConfig.qml:752
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 03:05+0000\n"
+"POT-Creation-Date: 2024-05-22 02:33+0000\n"
 "PO-Revision-Date: 2024-01-29 22:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-POT-Import-Date: 2012-12-01 22:22:38+0000\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: ProfilesConfigKCM.cpp:444
+#: ProfilesConfigKCM.cpp:446
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Virranhallintapalvelu ei vaikuta olevan käynnissä."
@@ -408,7 +408,7 @@ msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Aja mukautettu skripti:"
 
-#: ui/ProfileConfig.qml:577
+#: ui/ProfileConfig.qml:581
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -416,67 +416,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Valitse suoritusehdot…"
 
-#: ui/ProfileConfig.qml:579
+#: ui/ProfileConfig.qml:583
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Valitse skriptikomennon suoritusehdot"
 
-#: ui/ProfileConfig.qml:598
+#: ui/ProfileConfig.qml:602
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "S&iirryttäessä tähän virranhallintatilaan"
 
-#: ui/ProfileConfig.qml:614
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "P&oistuttaessa tästä virranhallintatilasta"
 
-#: ui/ProfileConfig.qml:630
+#: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "&Joutoajan jälkeen"
 
-#: ui/ProfileConfig.qml:649
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "S&iirryttäessä tähän virranhallintatilaan:"
 
-#: ui/ProfileConfig.qml:651
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "Tähän virranhallintatilaan siirryttäessä suoritettava skripti"
 
-#: ui/ProfileConfig.qml:682
+#: ui/ProfileConfig.qml:688
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "P&oistuttaessa tästä virranhallintatilasta:"
 
-#: ui/ProfileConfig.qml:684
+#: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "Tästä virranhallintatilasta poistuttaessa suoritettava skripti"
 
-#: ui/ProfileConfig.qml:715
+#: ui/ProfileConfig.qml:721
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Kun on oltu &jouten:"
 
-#: ui/ProfileConfig.qml:717
+#: ui/ProfileConfig.qml:723
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Joutoajan jälkeen suoritettava skripti"
 
-#: ui/ProfileConfig.qml:746
+#: ui/ProfileConfig.qml:752
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"

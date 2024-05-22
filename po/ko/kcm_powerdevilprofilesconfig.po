@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-15 03:05+0000\n"
+"POT-Creation-Date: 2024-05-22 02:33+0000\n"
 "PO-Revision-Date: 2024-02-06 00:36+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: ProfilesConfigKCM.cpp:444
+#: ProfilesConfigKCM.cpp:446
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "전원 관리 서비스가 실행 중이 아닌 것 같습니다."
@@ -399,7 +399,7 @@ msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "사용자 정의 스크립트 실행:"
 
-#: ui/ProfileConfig.qml:577
+#: ui/ProfileConfig.qml:581
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -407,67 +407,67 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "실행 조건 선택…"
 
-#: ui/ProfileConfig.qml:579
+#: ui/ProfileConfig.qml:583
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "스크립트 명령 실행 조건 선택"
 
-#: ui/ProfileConfig.qml:598
+#: ui/ProfileConfig.qml:602
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&ntering this power state"
 msgstr "이 전원 상태로 들어갈 때(&N)"
 
-#: ui/ProfileConfig.qml:614
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "When e&xiting this power state"
 msgstr "이 전원 상태를 빠져나올 때(&X)"
 
-#: ui/ProfileConfig.qml:630
+#: ui/ProfileConfig.qml:634
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inacti&vity"
 msgstr "다음 시간 동안 활동이 없을 때(&V)"
 
-#: ui/ProfileConfig.qml:649
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&ntering this power state:"
 msgstr "이 전원 상태로 들어갈 때(&N):"
 
-#: ui/ProfileConfig.qml:651
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when entering this power state"
 msgstr "이 전원 상태로 들어갈 때 스크립트 명령"
 
-#: ui/ProfileConfig.qml:682
+#: ui/ProfileConfig.qml:688
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "When e&xiting this power state:"
 msgstr "이 전원 상태를 빠져나올 때(&X):"
 
-#: ui/ProfileConfig.qml:684
+#: ui/ProfileConfig.qml:690
 #, kde-format
 msgctxt "@label:textfield"
 msgid "Script command when exiting this power state"
 msgstr "이 전원 상태를 빠져나올 때 스크립트 명령"
 
-#: ui/ProfileConfig.qml:715
+#: ui/ProfileConfig.qml:721
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "다음 시간 동안 활동이 없을 때(&V):"
 
-#: ui/ProfileConfig.qml:717
+#: ui/ProfileConfig.qml:723
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "활동이 없을 때 실행할 스크립트 명령"
 
-#: ui/ProfileConfig.qml:746
+#: ui/ProfileConfig.qml:752
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
