@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-17 00:39+0000\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
 "PO-Revision-Date: 2024-03-15 14:52+0100\n"
 "Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
-#: PowerKCM.cpp:442
+#: PowerKCM.cpp:445
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Pareix que el servei de gestió de l'energia no s'està executant."
@@ -258,22 +258,22 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "No s'han pogut carregar els paràmetres de gestió de l'energia"
 
-#: ui/main.qml:79
+#: ui/main.qml:62
 #, kde-format
 msgid "On AC Power"
 msgstr "Amb alimentació CA"
 
-#: ui/main.qml:85
+#: ui/main.qml:63
 #, kde-format
 msgid "On Battery"
 msgstr "Amb la bateria"
 
-#: ui/main.qml:91
+#: ui/main.qml:64
 #, kde-format
 msgid "On Low Battery"
 msgstr "Amb la bateria baixa"
 
-#: ui/ProfileConfig.qml:23
+#: ui/ProfileConfig.qml:24
 #, kde-format
 msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
@@ -281,13 +281,13 @@ msgctxt ""
 msgid "10%"
 msgstr "10%"
 
-#: ui/ProfileConfig.qml:36
+#: ui/ProfileConfig.qml:37
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
 msgstr "Suspén la sessió"
 
-#: ui/ProfileConfig.qml:51
+#: ui/ProfileConfig.qml:52
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -298,7 +298,7 @@ msgstr ""
 "d'inactivitat ara no és compatible amb el sistema. Seleccioneu-ne una de "
 "diferent."
 
-#: ui/ProfileConfig.qml:58
+#: ui/ProfileConfig.qml:59
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -306,13 +306,13 @@ msgctxt ""
 msgid "A&fter a period of inactivity:"
 msgstr "D&esprés d'un període d'inactivitat:"
 
-#: ui/ProfileConfig.qml:66
+#: ui/ProfileConfig.qml:67
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Acció a portar a terme quan el sistema no estiga ocupat"
 
-#: ui/ProfileConfig.qml:115
+#: ui/ProfileConfig.qml:116
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -323,7 +323,7 @@ msgstr ""
 "o apagada ara no és compatible amb el sistema. Seleccioneu-ne una de "
 "diferent."
 
-#: ui/ProfileConfig.qml:122
+#: ui/ProfileConfig.qml:123
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -331,13 +331,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Quan es &prema el botó d'encesa o apagada:"
 
-#: ui/ProfileConfig.qml:124
+#: ui/ProfileConfig.qml:125
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Acció a portar a terme quan es prema el botó d'encesa o apagada"
 
-#: ui/ProfileConfig.qml:154
+#: ui/ProfileConfig.qml:155
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -347,7 +347,7 @@ msgstr ""
 "L'acció que havíeu configurat prèviament per a quan es tanque la tapa ara no "
 "és compatible amb el sistema. Seleccioneu-ne una de diferent."
 
-#: ui/ProfileConfig.qml:161
+#: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -355,13 +355,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Quan es tanque la &tapa del portàtil:"
 
-#: ui/ProfileConfig.qml:163
+#: ui/ProfileConfig.qml:164
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Acció a portar a terme quan es tanque la tapa del portàtil"
 
-#: ui/ProfileConfig.qml:192
+#: ui/ProfileConfig.qml:193
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -369,14 +369,14 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Inclús quan hi haja connectat un monitor extern"
 
-#: ui/ProfileConfig.qml:194
+#: ui/ProfileConfig.qml:195
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Porta a terme l'acció de la tapa del portàtil inclús quan hi haja connectat "
 "un monitor extern"
 
-#: ui/ProfileConfig.qml:212
+#: ui/ProfileConfig.qml:213
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -386,62 +386,62 @@ msgstr ""
 "El mode d'adormir-se que havíeu configurat prèviament ara no és compatible "
 "amb el sistema. Seleccioneu-ne un de diferent."
 
-#: ui/ProfileConfig.qml:219
+#: ui/ProfileConfig.qml:220
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "Quan s'adorm, passa a:"
 
-#: ui/ProfileConfig.qml:221
+#: ui/ProfileConfig.qml:222
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "Quan s'adorm, entra en este mode d'estalvi d'energia"
 
-#: ui/ProfileConfig.qml:270
+#: ui/ProfileConfig.qml:271
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Pantalla i brillantor"
 
-#: ui/ProfileConfig.qml:280
+#: ui/ProfileConfig.qml:281
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Canvia la brillantor d&e la pantalla:"
 
-#: ui/ProfileConfig.qml:323
+#: ui/ProfileConfig.qml:324
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Enfosquix auto&màticament:"
 
-#: ui/ProfileConfig.qml:363
+#: ui/ProfileConfig.qml:364
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Apaga la pan&talla:"
 
-#: ui/ProfileConfig.qml:402
+#: ui/ProfileConfig.qml:403
 #, kde-format
 msgctxt "@label:spinbox After X seconds"
 msgid "When loc&ked, turn off screen:"
 msgstr "Quan està blo&quejada, apaga la pantalla:"
 
-#: ui/ProfileConfig.qml:435
+#: ui/ProfileConfig.qml:436
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Canvia la brillantor del te&clat:"
 
-#: ui/ProfileConfig.qml:482
+#: ui/ProfileConfig.qml:483
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Altres paràmetres"
 
-#: ui/ProfileConfig.qml:490
+#: ui/ProfileConfig.qml:491
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -449,7 +449,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Canvia al perfil d'e&nergia:"
 
-#: ui/ProfileConfig.qml:494
+#: ui/ProfileConfig.qml:495
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -457,13 +457,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Canvia al perfil d'energia"
 
-#: ui/ProfileConfig.qml:521
+#: ui/ProfileConfig.qml:522
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Executa un script personalitzat:"
 
-#: ui/ProfileConfig.qml:527
+#: ui/ProfileConfig.qml:532
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -471,83 +471,105 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Selecciona les condicions d'execució…"
 
-#: ui/ProfileConfig.qml:529
+#: ui/ProfileConfig.qml:534
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Seleccioneu les condicions d'execució de l'ordre de l'script"
 
-#: ui/ProfileConfig.qml:548
-#, kde-format
-msgctxt "@text:action:menu Script command to execute"
-msgid "When e&ntering this power state"
+#: ui/ProfileConfig.qml:553
+#, fuzzy, kde-format
+#| msgctxt "@text:action:menu Script command to execute"
+#| msgid "When e&ntering this power state"
+msgctxt ""
+"@text:action:menu Script command to execute for power state (On AC Power, On "
+"Battery, ...)"
+msgid "When entering \"%1\" state"
 msgstr "Quan s'e&ntri en este estat d'energia"
 
-#: ui/ProfileConfig.qml:564
-#, kde-format
-msgctxt "@text:action:menu Script command to execute"
-msgid "When e&xiting this power state"
+#: ui/ProfileConfig.qml:571
+#, fuzzy, kde-format
+#| msgctxt "@text:action:menu Script command to execute"
+#| msgid "When e&xiting this power state"
+msgctxt ""
+"@text:action:menu Script command to execute for power state (On AC Power, On "
+"Battery, ...)"
+msgid "When exiting \"%1\" state"
 msgstr "Quan se &isca d'este estat d'energia"
 
-#: ui/ProfileConfig.qml:580
-#, kde-format
+#: ui/ProfileConfig.qml:589
+#, fuzzy, kde-format
+#| msgctxt "@text:action:menu Script command to execute"
+#| msgid "After a period of inacti&vity"
 msgctxt "@text:action:menu Script command to execute"
-msgid "After a period of inacti&vity"
+msgid "After a period of inactivity"
 msgstr "Després d'un període d'inacti&vitat"
 
-#: ui/ProfileConfig.qml:599
-#, kde-format
-msgctxt "@label:textfield Script command to execute"
-msgid "When e&ntering this power state:"
+#: ui/ProfileConfig.qml:612
+#, fuzzy, kde-format
+#| msgctxt "@label:textfield Script command to execute"
+#| msgid "When e&ntering this power state:"
+msgctxt ""
+"@label:textfield Script command to execute for power state (On AC Power, On "
+"Battery, ...)"
+msgid "When e&ntering \"%1\" state:"
 msgstr "Quan s'e&ntri en este estat d'energia:"
 
-#: ui/ProfileConfig.qml:601
-#, kde-format
-msgctxt "@label:textfield"
-msgid "Script command when entering this power state"
+#: ui/ProfileConfig.qml:616
+#, fuzzy, kde-format
+#| msgctxt "@label:textfield"
+#| msgid "Script command when entering this power state"
+msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
+msgid "Script command when entering \"%1\" state"
 msgstr "Ordre de l'script en entrar en este estat d'energia"
 
-#: ui/ProfileConfig.qml:632
-#, kde-format
-msgctxt "@label:textfield Script command to execute"
-msgid "When e&xiting this power state:"
+#: ui/ProfileConfig.qml:647
+#, fuzzy, kde-format
+#| msgctxt "@label:textfield Script command to execute"
+#| msgid "When e&xiting this power state:"
+msgctxt ""
+"@label:textfield Script command to execute for power state (On AC Power, On "
+"Battery, ...)"
+msgid "When e&xiting \"%1\" state:"
 msgstr "Quan se &isca d'este estat d'energia:"
 
-#: ui/ProfileConfig.qml:634
-#, kde-format
-msgctxt "@label:textfield"
-msgid "Script command when exiting this power state"
+#: ui/ProfileConfig.qml:651
+#, fuzzy, kde-format
+#| msgctxt "@label:textfield"
+#| msgid "Script command when exiting this power state"
+msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
+msgid "Script command when exiting \"%1\" state"
 msgstr "Ordre de l'script en eixir d'este estat d'energia"
 
-#: ui/ProfileConfig.qml:665
+#: ui/ProfileConfig.qml:682
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Després d'un període d'inacti&vitat:"
 
-#: ui/ProfileConfig.qml:667
+#: ui/ProfileConfig.qml:684
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Ordre de l'script després d'un període d'inacti&vitat"
 
-#: ui/ProfileConfig.qml:696
+#: ui/ProfileConfig.qml:713
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
 msgstr "Període d'inactivitat fins que s'execute l'ordre de l'script"
 
-#: ui/RunScriptEdit.qml:26
+#: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
 msgstr "Introduïx una ordre o selecciona un fitxer…"
 
-#: ui/RunScriptEdit.qml:43
+#: ui/RunScriptEdit.qml:51
 #, kde-format
 msgid "Select executable file…"
 msgstr "Selecciona un fitxer executable…"
 
-#: ui/RunScriptEdit.qml:58
+#: ui/RunScriptEdit.qml:66
 #, kde-format
 msgid "Select executable file"
 msgstr "Seleccioneu un fitxer executable"
