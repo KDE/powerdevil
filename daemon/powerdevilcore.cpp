@@ -70,6 +70,7 @@ Core::Core(QObject *parent)
     discreteGpuJob->start();
 
     readChargeThreshold();
+    readBatteryConservationMode();
 }
 
 Core::~Core()
@@ -270,6 +271,7 @@ void Core::reparseConfiguration()
     }
 
     readChargeThreshold();
+    readBatteryConservationMode();
 }
 
 QString Core::currentProfile() const
@@ -953,6 +955,29 @@ void Core::readChargeThreshold()
     job->start();
 }
 
+void Core::readBatteryConservationMode()
+{
+    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getconservationmode"));
+    action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
+    KAuth::ExecuteJob *job = action.execute();
+    connect(job, &KJob::result, this, [this, job] {
+        if (job->error()) {
+            qCWarning(POWERDEVIL) << "org.kde.powerdevil.chargethresholdhelper.getconservationmode failed" << job->errorText();
+            return;
+        }
+
+        const auto data = job->data();
+        const bool enabled = data.value(QStringLiteral("batteryConservationModeEnabled")).toBool();
+        if (m_batteryConservationModeEnabled != enabled) {
+            m_batteryConservationModeEnabled = enabled;
+            Q_EMIT batteryConservationModeChanged(enabled);
+        }
+
+        qCDebug(POWERDEVIL) << "Battery conservation mode is" << (enabled ? "enabled" : "disabled");
+    });
+    job->start();
+}
+
 SuspendController *Core::suspendController()
 {
     return m_suspendController.get();
@@ -995,6 +1020,11 @@ bool Core::isLidPresent() const
 bool Core::hasDualGpu() const
 {
     return m_hasDualGpu;
+}
+
+bool Core::isBatteryConservationModeEnabled() const
+{
+    return m_batteryConservationModeEnabled;
 }
 
 int Core::chargeStartThreshold() const

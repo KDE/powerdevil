@@ -105,6 +105,7 @@ public Q_SLOTS:
     bool isLidPresent() const;
     bool isActionSupported(const QString &actionName);
     bool hasDualGpu() const;
+    bool isBatteryConservationModeEnabled() const;
     int chargeStartThreshold() const;
     int chargeStopThreshold() const;
 
@@ -123,6 +124,7 @@ Q_SIGNALS:
     void batteryRemainingTimeChanged(qulonglong time);
     void smoothedBatteryRemainingTimeChanged(qulonglong time);
     void lidClosedChanged(bool closed);
+    void batteryConservationModeChanged(bool enabled);
     void chargeStartThresholdChanged(int threshold);
     void chargeStopThresholdChanged(int threshold);
 
@@ -137,6 +139,7 @@ private:
     void triggerCriticalBatteryAction();
 
     void readChargeThreshold();
+    void readBatteryConservationMode();
 
     /**
      * Computes the current global charge percentage.
@@ -147,6 +150,7 @@ private:
     friend class Action;
 
     bool m_hasDualGpu;
+    bool m_batteryConservationModeEnabled = false;
     int m_chargeStartThreshold = 0;
     int m_chargeStopThreshold = 100;
 

@@ -151,6 +151,7 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
             this,
             &PowerKCM::isChargeStartThresholdSupportedChanged);
     connect(m_externalServiceSettings, &ExternalServiceSettings::isChargeStopThresholdSupportedChanged, this, &PowerKCM::isChargeStopThresholdSupportedChanged);
+    connect(m_externalServiceSettings, &ExternalServiceSettings::isBatteryConservationModeSupportedChanged, this, &PowerKCM::isBatteryConservationModeSupportedChanged);
     connect(m_externalServiceSettings,
             &ExternalServiceSettings::chargeStopThresholdMightNeedReconnectChanged,
             this,
@@ -288,6 +289,11 @@ void PowerKCM::setSupportsBatteryProfiles(bool supportsBatteryProfiles)
     }
     m_supportsBatteryProfiles = supportsBatteryProfiles;
     Q_EMIT supportsBatteryProfilesChanged();
+}
+
+bool PowerKCM::isBatteryConservationModeSupported() const
+{
+    return m_externalServiceSettings->isBatteryConservationModeSupported();
 }
 
 bool PowerKCM::isChargeStartThresholdSupported() const

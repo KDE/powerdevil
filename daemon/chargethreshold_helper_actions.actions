@@ -229,3 +229,19 @@ Description[zh_CN]=请进行身份验证以设置电池充电限制。
 Description[zh_TW]=認證以設定電池充電限制。
 Policy=auth_admin
 Persistence=session
+
+[org.kde.powerdevil.chargethresholdhelper.getconservationmode]
+Name=Check battery conservation mode
+Name[de]=Batterie-Konservierungs-Modus prüfen
+Description=Authenticate to check the current state of battery conservation mode.
+Description[de]=Authentifizieren, um den aktuellen Status des Batterie-Konservierungs-Modus zu überprüfen.
+Policy=yes
+PolicyInactive=yes
+
+[org.kde.powerdevil.chargethresholdhelper.setconservationmode]
+Name=Set battery conservation mode
+Name[de]=Batterie-Konservierungs-Modus einstellen
+Description=Authenticate to set the battery conservation mode.
+Description[de]=Authentifizieren, um den Batterie-Konservierungs-Modus einzustellen.
+Policy=auth_admin
+Persistence=session

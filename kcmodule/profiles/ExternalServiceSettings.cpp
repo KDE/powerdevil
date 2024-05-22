@@ -1,6 +1,7 @@
 /*
  *  SPDX-FileCopyrightText: 2008-2010 Dario Freddi <drf@kde.org>
  *  SPDX-FileCopyrightText: 2023 Jakob Petsovits <jpetso@petsovits.com>
+ *  SPDX-FileCopyrightText: 2024 Fabian Arndt <fabian.arndt@root-core.net>
  *
  *  SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -22,6 +23,9 @@
 #include <QDBusServiceWatcher>
 #include <QPointer>
 
+// debug category for qCInfo()
+#include <powerdevil_debug.h>
+
 namespace
 {
 constexpr int ChargeThresholdUnsupported = -1;
@@ -32,81 +36,138 @@ namespace PowerDevil
 
 ExternalServiceSettings::ExternalServiceSettings(QObject *parent)
     : QObject(parent)
+    , m_batteryConservationMode(false)
     , m_chargeStartThreshold(ChargeThresholdUnsupported)
     , m_chargeStopThreshold(ChargeThresholdUnsupported)
+    , m_savedBatteryConservationMode(false)
     , m_savedChargeStartThreshold(ChargeThresholdUnsupported)
     , m_savedChargeStopThreshold(ChargeThresholdUnsupported)
+    , m_isBatteryConservationModeSupported(false)
     , m_chargeStopThresholdMightNeedReconnect(false)
 {
 }
 
-void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
+void ExternalServiceSettings::executeChargeThresholdHelperAction(const QString &actionName,
+                                                                 QWindow *parentWindowForKAuth,
+                                                                 const QVariantMap &arguments,
+                                                                 const std::function<void(KAuth::ExecuteJob *job)> callback)
 {
-    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getthreshold"));
+    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.") + actionName);
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
     action.setParentWindow(parentWindowForKAuth);
-    KAuth::ExecuteJob *job = action.execute();
+    action.setArguments(arguments);
 
+    KAuth::ExecuteJob *job = action.execute();
     QPointer thisAlive(this);
     QPointer jobAlive(job);
     job->exec();
 
-    if (thisAlive && jobAlive) {
-        if (!job->error()) {
-            const auto data = job->data();
-            setSavedChargeStartThreshold(data.value(QStringLiteral("chargeStartThreshold")).toInt());
-            setSavedChargeStopThreshold(data.value(QStringLiteral("chargeStopThreshold")).toInt());
-            setChargeStopThreshold(m_savedChargeStopThreshold);
-            setChargeStartThreshold(m_savedChargeStartThreshold);
-        } else {
-            qWarning() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed:" << job->errorText();
+    if (!thisAlive || !jobAlive) {
+        qCInfo(POWERDEVIL) << action.name() << "failed: was deleted during job execution";
+        return;
+    }
+
+    if (job->error()) {
+        qCInfo(POWERDEVIL) << "KAuth action" << action.name() << "failed:" << job->errorText();
+    }
+    callback(job);
+}
+
+void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
+{
+    // Battery thresholds (start / stop)
+    executeChargeThresholdHelperAction("getthreshold", parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
+        if (job->error()) {
             setSavedChargeStartThreshold(ChargeThresholdUnsupported);
             setSavedChargeStopThreshold(ChargeThresholdUnsupported);
+            return;
         }
-    } else {
-        qWarning() << "org.kde.powerdevil.chargethresholdhelper.getthreshold failed: was deleted during job execution";
-    }
+
+        const auto data = job->data();
+        setSavedChargeStartThreshold(data.value(QStringLiteral("chargeStartThreshold")).toInt());
+        setSavedChargeStopThreshold(data.value(QStringLiteral("chargeStopThreshold")).toInt());
+        setChargeStopThreshold(m_savedChargeStopThreshold);
+        setChargeStartThreshold(m_savedChargeStartThreshold);
+    });
+
+    // Battery Conservation Mode (fixed)
+    executeChargeThresholdHelperAction("getconservationmode", parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
+        if (job->error()) {
+            setSavedBatteryConservationMode(false);
+            m_isBatteryConservationModeSupported = false;
+            return;
+        }
+
+        const auto data = job->data();
+        setSavedBatteryConservationMode(data.value(QStringLiteral("batteryConservationModeEnabled")).toBool());
+        setBatteryConservationMode(m_batteryConservationMode);
+        m_isBatteryConservationModeSupported = true;
+    });
 }
 
 void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 {
+    // Battery threshold (start / stop)
     if ((isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)
         || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold)) {
         int newChargeStartThreshold = isChargeStartThresholdSupported() ? m_chargeStartThreshold : ChargeThresholdUnsupported;
         int newChargeStopThreshold = isChargeStopThresholdSupported() ? m_chargeStopThreshold : ChargeThresholdUnsupported;
 
-        KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.setthreshold"));
-        action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
-        action.setArguments({
-            {QStringLiteral("chargeStartThreshold"), newChargeStartThreshold},
-            {QStringLiteral("chargeStopThreshold"), newChargeStopThreshold},
-        });
-        action.setParentWindow(parentWindowForKAuth);
-        KAuth::ExecuteJob *job = action.execute();
+        executeChargeThresholdHelperAction("setthreshold",
+                                           parentWindowForKAuth,
+                                           {
+                                               {QStringLiteral("chargeStartThreshold"), newChargeStartThreshold},
+                                               {QStringLiteral("chargeStopThreshold"), newChargeStopThreshold},
+                                           },
+                                           [&](KAuth::ExecuteJob *job) {
+                                               if (job->error()) {
+                                                   setChargeStopThreshold(m_savedChargeStopThreshold);
+                                                   setChargeStartThreshold(m_savedChargeStartThreshold);
+                                                   return;
+                                               }
 
-        QPointer thisAlive(this);
-        QPointer jobAlive(job);
-        job->exec();
+                                               setSavedChargeStartThreshold(newChargeStartThreshold);
+                                               setSavedChargeStopThreshold(newChargeStopThreshold);
+                                           });
+    }
 
-        if (thisAlive && jobAlive) {
-            if (!job->error()) {
-                setSavedChargeStartThreshold(newChargeStartThreshold);
-                setSavedChargeStopThreshold(newChargeStopThreshold);
-            } else {
-                qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed:" << job->errorText();
-            }
-            setChargeStopThreshold(m_savedChargeStopThreshold);
-            setChargeStartThreshold(m_savedChargeStartThreshold);
-        } else {
-            qWarning() << "org.kde.powerdevil.chargethresholdhelper.setthreshold failed: was deleted during job execution";
-        }
+    // Battery Conservation Mode (fixed)
+    if (isBatteryConservationModeSupported() && m_batteryConservationMode != m_savedBatteryConservationMode) {
+        executeChargeThresholdHelperAction("setconservationmode",
+                                           parentWindowForKAuth,
+                                           {
+                                               {QStringLiteral("batteryConservationModeEnabled"), m_batteryConservationMode},
+                                           },
+                                           [&](KAuth::ExecuteJob *job) {
+                                               if (job->error()) {
+                                                   setBatteryConservationMode(m_savedBatteryConservationMode);
+                                                   return;
+                                               }
+
+                                               setSavedBatteryConservationMode(m_batteryConservationMode);
+                                           });
     }
 }
 
 bool ExternalServiceSettings::isSaveNeeded() const
 {
     return (isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)
-        || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold);
+        || (isChargeStopThresholdSupported() && m_chargeStopThreshold != m_savedChargeStopThreshold)
+        || (isBatteryConservationModeSupported() && m_batteryConservationMode != m_savedBatteryConservationMode);
+}
+
+bool ExternalServiceSettings::isBatteryConservationModeSupported() const
+{
+    return m_isBatteryConservationModeSupported;
+}
+
+void ExternalServiceSettings::setSavedBatteryConservationMode(bool enabled)
+{
+    bool wasSavedBatteryConservationModeSupported = isBatteryConservationModeSupported();
+    m_savedBatteryConservationMode = enabled;
+    if (wasSavedBatteryConservationModeSupported != isBatteryConservationModeSupported()) {
+        Q_EMIT isBatteryConservationModeSupportedChanged();
+    }
 }
 
 bool ExternalServiceSettings::isChargeStartThresholdSupported() const
@@ -135,6 +196,21 @@ void ExternalServiceSettings::setSavedChargeStopThreshold(int threshold)
     if (wasChargeStopThresholdSupported != isChargeStopThresholdSupported()) {
         Q_EMIT isChargeStopThresholdSupportedChanged();
     }
+}
+
+bool ExternalServiceSettings::batteryConservationMode() const
+{
+    return m_batteryConservationMode;
+}
+
+void ExternalServiceSettings::setBatteryConservationMode(bool enabled)
+{
+    if (enabled == m_batteryConservationMode) {
+        return;
+    }
+    m_batteryConservationMode = enabled;
+    Q_EMIT batteryConservationModeChanged();
+    Q_EMIT settingsChanged();
 }
 
 int ExternalServiceSettings::chargeStartThreshold() const

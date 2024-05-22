@@ -65,6 +65,7 @@ class PowerKCM : public KQuickManagedConfigModule
     Q_PROPERTY(bool isLidPresent READ isLidPresent NOTIFY isLidPresentChanged)
     Q_PROPERTY(bool isPowerButtonPresent READ isPowerButtonPresent NOTIFY isPowerButtonPresentChanged)
 
+    Q_PROPERTY(bool isBatteryConservationModeSupported READ isBatteryConservationModeSupported NOTIFY isBatteryConservationModeSupportedChanged)
     Q_PROPERTY(bool isChargeStartThresholdSupported READ isChargeStartThresholdSupported NOTIFY isChargeStartThresholdSupportedChanged)
     Q_PROPERTY(bool isChargeStopThresholdSupported READ isChargeStopThresholdSupported NOTIFY isChargeStopThresholdSupportedChanged)
     Q_PROPERTY(bool chargeStopThresholdMightNeedReconnect READ chargeStopThresholdMightNeedReconnect NOTIFY chargeStopThresholdMightNeedReconnectChanged)
@@ -96,6 +97,7 @@ public:
     bool isLidPresent() const;
     bool isPowerButtonPresent() const;
 
+    bool isBatteryConservationModeSupported() const;
     bool isChargeStartThresholdSupported() const;
     bool isChargeStopThresholdSupported() const;
     bool chargeStopThresholdMightNeedReconnect() const;
@@ -125,6 +127,7 @@ Q_SIGNALS:
     void isLidPresentChanged();
     void isPowerButtonPresentChanged();
 
+    void isBatteryConservationModeSupportedChanged();
     void isChargeStartThresholdSupportedChanged();
     void isChargeStopThresholdSupportedChanged();
     void chargeStopThresholdMightNeedReconnectChanged();

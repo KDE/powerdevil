@@ -31,6 +31,9 @@
     <method name="hasDualGpu">
       <arg type="b" direction="out" />
     </method>
+    <method name="isBatteryConservationModeEnabled">
+      <arg type="b" direction="out" />
+    </method>
     <method name="chargeStartThreshold">
       <arg type="i" direction="out" />
     </method>
@@ -103,6 +106,9 @@
       <arg type="t" direction="out" />
     </signal>
     <signal name="lidClosedChanged">
+      <arg type="b" direction="out" />
+    </signal>
+    <signal name="batteryConservationModeChanged">
       <arg type="b" direction="out" />
     </signal>
     <signal name="chargeStartThresholdChanged">

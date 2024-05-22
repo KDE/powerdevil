@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: 2020 Kai Uwe Broulik <kde@broulik.de>
+ * SPDX-FileCopyrightText: 2023 Fabian Arndt <fabian.arndt@root-core.net>
  *
  * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -16,6 +17,7 @@
 #include <QFile>
 
 static const QString s_powerSupplySysFsPath = QStringLiteral("/sys/class/power_supply");
+static const QString s_conservationModeSysFsPath = QStringLiteral("/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode");
 
 static const QString s_chargeStartThreshold = QStringLiteral("charge_control_start_threshold");
 static const QString s_chargeEndThreshold = QStringLiteral("charge_control_end_threshold");
@@ -169,6 +171,56 @@ ActionReply ChargeThresholdHelper::setthreshold(const QVariantMap &args)
     if (hasStopThreshold && !(setThresholds(s_chargeEndThreshold, stopThreshold) || setThresholds(s_oldChargeStopThreshold, stopThreshold))) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Failed to write stop charge threshold"));
+        return reply;
+    }
+
+    return ActionReply();
+}
+
+// This handles Lenovo's "battery conservation mode" that limits the threshold to a fixed value
+// This value differs from model to model (most 55-60%, others ~80%) and is unknown (last checked in Kernel 6.3)
+ActionReply ChargeThresholdHelper::getconservationmode(const QVariantMap &args)
+{
+    Q_UNUSED(args);
+
+    QFile file(s_conservationModeSysFsPath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        auto reply = ActionReply::HelperErrorReply();
+        reply.setErrorDescription(QStringLiteral("Battery conservation mode is not supported"));
+        return reply;
+    }
+
+    int state = 0;
+    QTextStream stream(&file);
+    stream >> state;
+
+    if (state < 0 || state > 1) {
+        auto reply = ActionReply::HelperErrorReply();
+        reply.setErrorDescription(QStringLiteral("Battery conservation mode is in an invalid state"));
+        return reply;
+    }
+
+    ActionReply reply;
+    reply.setData({
+        {QStringLiteral("batteryConservationModeEnabled"), !!state}
+    });
+    return reply;
+}
+
+ActionReply ChargeThresholdHelper::setconservationmode(const QVariantMap &args)
+{
+    const bool enabled = args.value(QStringLiteral("batteryConservationModeEnabled"), 0).toBool();
+    QFile file(s_conservationModeSysFsPath);
+
+    if (!file.open(QIODevice::WriteOnly)) {
+        auto reply = ActionReply::HelperErrorReply();
+        reply.setErrorDescription(QStringLiteral("Failed to open battery conservation mode file"));
+        return reply;
+    }
+
+    if (file.write(QByteArray::number(enabled)) == -1) {
+        auto reply = ActionReply::HelperErrorReply();
+        reply.setErrorDescription(QStringLiteral("Failed to set battery conservation mode"));
         return reply;
     }
 

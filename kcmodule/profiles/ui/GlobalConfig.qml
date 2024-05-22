@@ -221,7 +221,18 @@ Kirigami.ScrollablePage {
             id: chargeLimitHeader
             Kirigami.FormData.label: i18nc("@title:group", "Charge Limit")
             Kirigami.FormData.isSection: true
-            visible: chargeStopThresholdSpin.visible || chargeStartThresholdSpin.visible
+            visible: chargeStopThresholdSpin.visible || chargeStartThresholdSpin.visible || batteryConservationModeCheck.visible
+        }
+
+        QQC2.CheckBox {
+            id: batteryConservationModeCheck
+            visible: kcm.isBatteryConservationModeSupported
+            checked: externalSettings.batteryConservationMode
+            onToggled: externalSettings.batteryConservationMode = checked
+
+            Kirigami.FormData.label: i18nc("@label:checkbox", "&Battery protection:")
+            text: i18nc("@text:checkbox", "Limit the maximum battery charge")
+            Accessible.name: text
         }
 
         QQC2.SpinBox {
@@ -319,7 +330,8 @@ Kirigami.ScrollablePage {
             Kirigami.FormData.isSection: true
             // iFixit suggests keeping the charge between 40-80%, Battery University lists 25-85% as a decent tradeoff.
             // Show this reminder only when high charge thresholds are configured.
-            visible: chargeLimitHeader.visible && !chargeStopThresholdReconnectMessage.visible && chargeStopThresholdSpin.value > 85
+            visible: (chargeLimitHeader.visible && !chargeStopThresholdReconnectMessage.visible && chargeStopThresholdSpin.value > 85)
+                  || (batteryConservationModeCheck.visible && !batteryConservationModeCheck.checked)
             implicitWidth: Kirigami.Units.gridUnit * 16
             text: i18nc("@info", "Regularly charging the battery close to 100%, or fully discharging it, may accelerate deterioration of battery health. By limiting the maximum battery charge, you can help extend the battery lifespan.")
         }
