@@ -33,6 +33,7 @@ public Q_SLOTS:
 private:
     void quit();
     QTimer *m_cleanupTimer = new QTimer(this);
+    PowerDevil::Osd *m_osd = nullptr;
 };
 
 } // namespace PowerDevil

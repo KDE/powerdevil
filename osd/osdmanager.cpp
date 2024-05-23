@@ -47,11 +47,17 @@ void OsdManager::hideOsd() const
 
 void OsdManager::quit()
 {
+    delete m_osd;
     qApp->quit();
 }
 
 void OsdManager::showOsd()
 {
+    // BUG: 483948 - Show OSD only once, prevent mem leak
+    if (m_osd) {
+        return;
+    }
+
     QDBusMessage message = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
                                                           QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                           QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
@@ -62,10 +68,10 @@ void OsdManager::showOsd()
     }
     QString currentProfile = reply.arguments().first().toString();
 
-    auto osd = new PowerDevil::Osd(this);
-    osd->showActionSelector(currentProfile);
+    m_osd = new PowerDevil::Osd(this);
+    m_osd->showActionSelector(currentProfile);
 
-    connect(osd, &Osd::osdActionSelected, this, [this](QString profile) {
+    connect(m_osd, &Osd::osdActionSelected, this, [this](QString profile) {
         applyProfile(profile);
         hideOsd();
     });
