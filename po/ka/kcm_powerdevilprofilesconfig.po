@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:40+0000\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
 "PO-Revision-Date: 2024-05-22 04:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: PowerKCM.cpp:445
+#: PowerKCM.cpp:451
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "კვების მართვის სერვისი მგონი გაშვებული არაა."
@@ -256,7 +256,19 @@ msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "დატენვის ლიმიტი"
 
-#: ui/GlobalConfig.qml:231
+#: ui/GlobalConfig.qml:233
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "&Battery protection:"
+msgstr ""
+
+#: ui/GlobalConfig.qml:234
+#, kde-format
+msgctxt "@text:checkbox"
+msgid "Limit the maximum battery charge"
+msgstr ""
+
+#: ui/GlobalConfig.qml:242
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -264,7 +276,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&დატენვის შეჩერება მუხტის დონისას:"
 
-#: ui/GlobalConfig.qml:257
+#: ui/GlobalConfig.qml:268
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -272,7 +284,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "დატენვა დაიწყება, როცა მუხტი მითითებულ დონეზე და&ბლა ჩამოვა:"
 
-#: ui/GlobalConfig.qml:314
+#: ui/GlobalConfig.qml:325
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -282,7 +294,7 @@ msgstr ""
 "თქვენ შეიძლება მოგიწიოთ ენერგიის წყაროს გათიშვა და ხელახლა დაკავშირება, რომ "
 "კვლავ დაიწყოთ ელემენტის დამუხტვა."
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:336
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -294,7 +306,7 @@ msgstr ""
 "ელემენტის სიცოცხლის დრო შეამციროს. მაქსიმალური ელემენტის მუხტის კონტროლით, "
 "შეგუძლიათ, ელემენტის სიცოცხლის დრო საგრძნობლად გაზარდოთ."
 
-#: ui/GlobalConfig.qml:332
+#: ui/GlobalConfig.qml:344
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -302,53 +314,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "სხვა პარამეტრები"
 
-#: ui/GlobalConfig.qml:340
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&მედიის დაკვრა:"
 
-#: ui/GlobalConfig.qml:341
+#: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "ძილისთვის მომზადებისას მედიის დამკვირებელის შეჩერება"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "მსგავსი გვერდები:"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "გაფრთხილებები: კვების მართვა"
 
-#: ui/GlobalConfig.qml:371
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "გახსენით \"გაფრთხილების\" მორგების გვერდი, \"კვების მართვის\" სექცია"
 
-#: ui/GlobalConfig.qml:378
+#: ui/GlobalConfig.qml:390
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "სამუშაო მაგიდის სესია"
 
-#: ui/GlobalConfig.qml:379
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "\"სამუშაო მაგიდის სესიის\" მორგების გვერდის გახსნა"
 
-#: ui/GlobalConfig.qml:386
+#: ui/GlobalConfig.qml:398
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "ქმედებები"
 
-#: ui/GlobalConfig.qml:387
+#: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "\"ქმედებების\" მორგების გვერდის გახსნა"

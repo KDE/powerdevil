@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:40+0000\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
 "PO-Revision-Date: 2024-01-29 22:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-POT-Import-Date: 2012-12-01 22:22:38+0000\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: PowerKCM.cpp:445
+#: PowerKCM.cpp:451
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Virranhallintapalvelu ei vaikuta olevan käynnissä."
@@ -258,7 +258,19 @@ msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Latausrajoitus"
 
-#: ui/GlobalConfig.qml:231
+#: ui/GlobalConfig.qml:233
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "&Battery protection:"
+msgstr ""
+
+#: ui/GlobalConfig.qml:234
+#, kde-format
+msgctxt "@text:checkbox"
+msgid "Limit the maximum battery charge"
+msgstr ""
+
+#: ui/GlobalConfig.qml:242
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -266,7 +278,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&Lopeta lataus:"
 
-#: ui/GlobalConfig.qml:257
+#: ui/GlobalConfig.qml:268
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -274,7 +286,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "&Aloita lataus, kun taso on:"
 
-#: ui/GlobalConfig.qml:314
+#: ui/GlobalConfig.qml:325
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -284,7 +296,7 @@ msgstr ""
 "Akun latauksen jatkaminen saattaa vaatia virtalähteen irrottamisen ja "
 "uudelleenkytkemisen."
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:336
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -296,7 +308,7 @@ msgstr ""
 "nopeuttaa akun kunnon heikkenemistä. Rajoittamalla enimmäislatausta akun "
 "elinkaarta voi pidentää."
 
-#: ui/GlobalConfig.qml:332
+#: ui/GlobalConfig.qml:344
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -304,53 +316,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Muut asetukset"
 
-#: ui/GlobalConfig.qml:340
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Me&diatoisto:"
 
-#: ui/GlobalConfig.qml:341
+#: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Keskeytä mediasoittimet valmiustilaan siirryttäessä"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Asiaan liittyvät sivut:"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Ilmoitukset: Virranhallinta"
 
-#: ui/GlobalConfig.qml:371
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Avaa ”Ilmoitusten” asetussivun ”Virranhallinta”-osio"
 
-#: ui/GlobalConfig.qml:378
+#: ui/GlobalConfig.qml:390
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Työpöytäistunto"
 
-#: ui/GlobalConfig.qml:379
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Avaa ”Työpöytäistunto”-asetussivu"
 
-#: ui/GlobalConfig.qml:386
+#: ui/GlobalConfig.qml:398
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Aktiviteetit"
 
-#: ui/GlobalConfig.qml:387
+#: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Avaa ”Aktiviteetit”-asetussivu"

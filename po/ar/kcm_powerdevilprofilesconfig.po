@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:40+0000\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
 "PO-Revision-Date: 2024-03-29 17:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: PowerKCM.cpp:445
+#: PowerKCM.cpp:451
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "يبدو أن خدمة إدارة الطاقة لا تعمل."
@@ -287,7 +287,19 @@ msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "حد الشحن"
 
-#: ui/GlobalConfig.qml:231
+#: ui/GlobalConfig.qml:233
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "&Battery protection:"
+msgstr ""
+
+#: ui/GlobalConfig.qml:234
+#, kde-format
+msgctxt "@text:checkbox"
+msgid "Limit the maximum battery charge"
+msgstr ""
+
+#: ui/GlobalConfig.qml:242
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -295,7 +307,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "أوقف ال&شحن عند:"
 
-#: ui/GlobalConfig.qml:257
+#: ui/GlobalConfig.qml:268
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -303,7 +315,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "ابدأ الشحن مرة وا&حدة أدناه:"
 
-#: ui/GlobalConfig.qml:314
+#: ui/GlobalConfig.qml:325
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -311,7 +323,7 @@ msgid ""
 "charging the battery again."
 msgstr "قد تضطر إلى فصل مصدر الطاقة وإعادة توصيله لبدء شحن البطارية مرة أخرى."
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:336
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -323,7 +335,7 @@ msgstr ""
 "تسريع تدهور صحة البطارية. عن طريق الحد الأقصى لشحن البطارية، يمكنك المساعدة "
 "في إطالة عمر البطارية."
 
-#: ui/GlobalConfig.qml:332
+#: ui/GlobalConfig.qml:344
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -331,53 +343,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "إعدادات أخرى"
 
-#: ui/GlobalConfig.qml:340
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&تشغيل الوسائط:"
 
-#: ui/GlobalConfig.qml:341
+#: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "ألبث مشغّلات الوسائط عند تعليق"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "صفحات ذات صلة:"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "الإخطارات: إدارة الطاقة"
 
-#: ui/GlobalConfig.qml:371
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "افتح صفحة إعدادات \"الإخطارات\"، قسم \"إدارة الطاقة\""
 
-#: ui/GlobalConfig.qml:378
+#: ui/GlobalConfig.qml:390
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "جلسة سطح المكتب"
 
-#: ui/GlobalConfig.qml:379
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "افتح صفحة إعدادات \"جلسة سطح المكتب\""
 
-#: ui/GlobalConfig.qml:386
+#: ui/GlobalConfig.qml:398
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "الأنشطة"
 
-#: ui/GlobalConfig.qml:387
+#: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "افتح صفحة إعدادات \"الأنشطة\""

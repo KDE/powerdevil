@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:40+0000\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
 "PO-Revision-Date: 2024-02-05 07:58-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: PowerKCM.cpp:445
+#: PowerKCM.cpp:451
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"
@@ -251,7 +251,19 @@ msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "ਚਾਰਜ ਦੀ ਹੱਦ"
 
-#: ui/GlobalConfig.qml:231
+#: ui/GlobalConfig.qml:233
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "&Battery protection:"
+msgstr ""
+
+#: ui/GlobalConfig.qml:234
+#, kde-format
+msgctxt "@text:checkbox"
+msgid "Limit the maximum battery charge"
+msgstr ""
+
+#: ui/GlobalConfig.qml:242
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -259,7 +271,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "ਇਸ ਤੋਂ ਚਾਰਜ ਕਰਨ ਤੋਂ ਰੋਕੋ(&S):"
 
-#: ui/GlobalConfig.qml:257
+#: ui/GlobalConfig.qml:268
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -267,7 +279,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "ਜਦੋਂ ਇਸ ਤੋਂ ਘੱਟ ਹੋਵੇ ਤਾਂ ਚਾਰਜ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ(&b):"
 
-#: ui/GlobalConfig.qml:314
+#: ui/GlobalConfig.qml:325
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -277,7 +289,7 @@ msgstr ""
 "ਬੈਟਰੀ ਚਾਰਜ ਕਰਨ ਨੂੰ ਸ਼ੁਰੂ ਕਰਨ ਵਾਸਤੇ ਤੁਹਾਨੂੰ ਪਾਵਰ ਸਰੋਤ ਨਾਲੋਂ ਡਿਸ-ਕਨੈਕਟ ਕਰਕੇ ਮੁੜ-ਕਨੈਕਟ ਕਰਨਾ ਪੈ "
 "ਸਕਦਾ ਹੈ।"
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:336
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -289,7 +301,7 @@ msgstr ""
 "ਵਿੱਚ ਜ਼ਿਆਦਾ ਤੇਜ਼ੀ ਆ ਸਕਦੀ ਹੈ। ਬੈਟਰੀ ਦੇ ਵੱਧ ਤੋਂ ਵੱਧ ਚਾਰਜ ਹੋਣ ਨੂੰ ਸੀਮਤ ਕਰਕੇ ਤੁਸੀਂ ਬੈਟਰੀ ਦੀ ਉਮਰ "
 "ਵਿੱਚ ਵਾਧਾ ਕਰ ਸਕਦੇ ਹੋ।"
 
-#: ui/GlobalConfig.qml:332
+#: ui/GlobalConfig.qml:344
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -297,53 +309,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "ਹੋਰ ਸੈਟਿੰਗਾਂ"
 
-#: ui/GlobalConfig.qml:340
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "ਮੀਡੀਆ ਪਲੇਅਬੈਕ(&M):"
 
-#: ui/GlobalConfig.qml:341
+#: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "ਜਦੋਂ ਸਸਪੈਂਡ ਕਰਨਾ ਹੋਵੇ ਤਾਂ ਸੰਗੀਤ ਪਲੇਅਰਾਂ ਨੂੰ ਵਿਰਾਮ ਕਰੋ"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "ਸੰਬੰਧਿਤ ਸਫ਼ੇ:"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ: ਪਾਵਰ ਇੰਤਜ਼ਾਮ"
 
-#: ui/GlobalConfig.qml:371
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "\"ਨੋਟੀਫਿਕੇਸ਼ਨ\" ਸੈਟਿੰਗਾਂ ਸਫ਼ੇ, \"ਪਾਵਰ ਇੰਤਜ਼ਾਮ\" ਭਾਗ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: ui/GlobalConfig.qml:378
+#: ui/GlobalConfig.qml:390
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "ਡੈਸਕਟਾਪ ਸ਼ੈਸ਼ਨ"
 
-#: ui/GlobalConfig.qml:379
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "\"ਡੈਸਕਟਾਪ ਸ਼ੈਸ਼ਨ\" ਸੈਟਿੰਗਾਂ ਸਫ਼ੇ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: ui/GlobalConfig.qml:386
+#: ui/GlobalConfig.qml:398
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "ਸਰਗਰਮੀਆਂ"
 
-#: ui/GlobalConfig.qml:387
+#: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "\"ਸਰਗਰਮੀਆਂ\" ਸੈਟਿੰਗਾਂ ਸਫ਼ੇ ਨੂੰ ਖੋਲ੍ਹੋ"

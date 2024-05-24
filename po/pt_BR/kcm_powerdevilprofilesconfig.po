@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:40+0000\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
 "PO-Revision-Date: 2024-04-04 14:59-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.02.1\n"
 
-#: PowerKCM.cpp:445
+#: PowerKCM.cpp:451
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "O Serviço de gerenciamento de energia parece não estar em execução."
@@ -260,7 +260,19 @@ msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "Limite de carga"
 
-#: ui/GlobalConfig.qml:231
+#: ui/GlobalConfig.qml:233
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "&Battery protection:"
+msgstr ""
+
+#: ui/GlobalConfig.qml:234
+#, kde-format
+msgctxt "@text:checkbox"
+msgid "Limit the maximum battery charge"
+msgstr ""
+
+#: ui/GlobalConfig.qml:242
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -268,7 +280,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&Parar de carregar em:"
 
-#: ui/GlobalConfig.qml:257
+#: ui/GlobalConfig.qml:268
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -276,7 +288,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "Começar a carregar assim que estiver &abaixo:"
 
-#: ui/GlobalConfig.qml:314
+#: ui/GlobalConfig.qml:325
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -286,7 +298,7 @@ msgstr ""
 "Talvez seja necessário desconectar e reconectar a fonte de alimentação para "
 "começar a carregar a bateria novamente."
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:336
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -298,7 +310,7 @@ msgstr ""
 "pode acelerar a deterioração da saúde da bateria. Ao limitar a carga máxima "
 "da bateria, você pode ajudar a prolongar a vida útil da bateria."
 
-#: ui/GlobalConfig.qml:332
+#: ui/GlobalConfig.qml:344
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -306,55 +318,55 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "Outras configurações"
 
-#: ui/GlobalConfig.qml:340
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "Reproduzir &mídia:"
 
-#: ui/GlobalConfig.qml:341
+#: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "Pausar reprodutores de mídia ao suspender"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Páginas relacionadas:"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Notificações: gerenciamento de energia"
 
-#: ui/GlobalConfig.qml:371
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Abrir a página de configurações de \"Notificações\", seção \"Gerenciamento "
 "de energia\""
 
-#: ui/GlobalConfig.qml:378
+#: ui/GlobalConfig.qml:390
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Sessão de área de trabalho"
 
-#: ui/GlobalConfig.qml:379
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Abrir a página de configurações da sessão de área de trabalho"
 
-#: ui/GlobalConfig.qml:386
+#: ui/GlobalConfig.qml:398
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Atividades"
 
-#: ui/GlobalConfig.qml:387
+#: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Abrir a página de configurações de \"Atividades\""

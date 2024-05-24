@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-23 00:40+0000\n"
-"PO-Revision-Date: 2024-05-22 06:41+0300\n"
+"POT-Creation-Date: 2024-05-24 00:40+0000\n"
+"PO-Revision-Date: 2024-05-23 08:21+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -20,7 +20,7 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: PowerKCM.cpp:445
+#: PowerKCM.cpp:451
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "נראה ששירות צריכת החשמל לא פועל."
@@ -30,128 +30,128 @@ msgstr "נראה ששירות צריכת החשמל לא פועל."
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "מילישנייה"
+msgstr[1] "מילשניות"
+msgstr[2] " מילישניות"
+msgstr[3] " מילישניות"
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שנייה"
+msgstr[1] "שניות"
+msgstr[2] "שניות"
+msgstr[3] "שניות"
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "דקה"
+msgstr[1] "דקות"
+msgstr[2] "דקות"
+msgstr[3] "דקות"
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שעה"
+msgstr[1] "שעתיים"
+msgstr[2] "שעות"
+msgstr[3] "שעות"
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "יום"
+msgstr[1] "יומיים"
+msgstr[2] "ימים"
+msgstr[3] "ימים"
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שבוע"
+msgstr[1] "שבועיים"
+msgstr[2] "שבועות"
+msgstr[3] "שבועות"
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "חודש"
+msgstr[1] "חודשיים"
+msgstr[2] "חודשים"
+msgstr[3] "חודשים"
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שנה"
+msgstr[1] "שנתיים"
+msgstr[2] "שנים"
+msgstr[3] "שנים"
 
 #: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr " מילישניות"
 
 #: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "שניות"
 
 #: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "דקות"
 
 #: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "שעות"
 
 #: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "ימים"
 
 #: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "שבועות"
 
 #: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "חודשים"
 
 #: ui/DurationPromptDialog.qml:185
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "שנים"
 
 #: ui/GlobalConfig.qml:16
 #, kde-format
@@ -271,7 +271,19 @@ msgctxt "@title:group"
 msgid "Charge Limit"
 msgstr "מגבלת טעינה"
 
-#: ui/GlobalConfig.qml:231
+#: ui/GlobalConfig.qml:233
+#, kde-format
+msgctxt "@label:checkbox"
+msgid "&Battery protection:"
+msgstr ""
+
+#: ui/GlobalConfig.qml:234
+#, kde-format
+msgctxt "@text:checkbox"
+msgid "Limit the maximum battery charge"
+msgstr ""
+
+#: ui/GlobalConfig.qml:242
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will stop charging when this charge percentage is "
@@ -279,7 +291,7 @@ msgctxt ""
 msgid "&Stop charging at:"
 msgstr "&להפסיק לטעון ב־:"
 
-#: ui/GlobalConfig.qml:257
+#: ui/GlobalConfig.qml:268
 #, kde-format
 msgctxt ""
 "@label:spinbox Battery will start charging again when this charge percentage "
@@ -287,7 +299,7 @@ msgctxt ""
 msgid "Start charging once &below:"
 msgstr "להתחיל לטעון רק מ&תחת ל־:"
 
-#: ui/GlobalConfig.qml:314
+#: ui/GlobalConfig.qml:325
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -297,7 +309,7 @@ msgstr ""
 "יכול להיות שצריך לנתק ולחבר את מקור החשמל מחדש כדי להתחיל לטעון שוב את "
 "הסוללה."
 
-#: ui/GlobalConfig.qml:324
+#: ui/GlobalConfig.qml:336
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -309,7 +321,7 @@ msgstr ""
 "בריאות הסוללה. הגבלת טעינת הסוללה לערך מרבי, אפשר לסייע בהארכת משך חיי "
 "הסוללה."
 
-#: ui/GlobalConfig.qml:332
+#: ui/GlobalConfig.qml:344
 #, kde-format
 msgctxt ""
 "@title:group Miscellaneous power management settings that didn't fit "
@@ -317,53 +329,53 @@ msgctxt ""
 msgid "Other Settings"
 msgstr "הגדרות אחרות"
 
-#: ui/GlobalConfig.qml:340
+#: ui/GlobalConfig.qml:352
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
 msgstr "&נגינת מדיה:"
 
-#: ui/GlobalConfig.qml:341
+#: ui/GlobalConfig.qml:353
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Pause media players when suspending"
 msgstr "להשהות ניגון מדיה בכניסה למצב השהיה"
 
-#: ui/GlobalConfig.qml:354
+#: ui/GlobalConfig.qml:366
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "עמודים קשורים:"
 
-#: ui/GlobalConfig.qml:369
+#: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "התראות: ניהול צריכת חשמל"
 
-#: ui/GlobalConfig.qml:371
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "יש לפתוח את עמוד ההגדרות „התראות”, סעיף „ניהול צריכת חשמל”"
 
-#: ui/GlobalConfig.qml:378
+#: ui/GlobalConfig.qml:390
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "הפעלת שולחן עבודה"
 
-#: ui/GlobalConfig.qml:379
+#: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "יש לפתוח את עמוד ההגדרות „הפעלת שולחן עבודה”"
 
-#: ui/GlobalConfig.qml:386
+#: ui/GlobalConfig.qml:398
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "פעילויות"
 
-#: ui/GlobalConfig.qml:387
+#: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "פתיחת עמוד ההגדרות „פעילויות”"
@@ -434,28 +446,24 @@ msgid "Action to perform when the system is idle"
 msgstr "פעולה לביצוע כשהמערכת בהמתנה"
 
 #: ui/ProfileConfig.qml:95
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 second"
 msgid_plural "after %1 seconds"
-msgstr[0] "אחרי שנייה"
-msgstr[1] "אחרי שתי שניות"
-msgstr[2] "אחרי %1 שניות"
-msgstr[3] "אחרי %1 שניות"
+msgstr[0] "לאחר שנייה"
+msgstr[1] "לאחר שתי שניות"
+msgstr[2] "לאחר %1 שניות"
+msgstr[3] "לאחר %1 שניות"
 
 #: ui/ProfileConfig.qml:97
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 minute"
 msgid_plural "after %1 minutes"
-msgstr[0] "אחרי דקה"
-msgstr[1] "אחרי שתי דקות"
-msgstr[2] "אחרי %1 דקות"
-msgstr[3] "אחרי %1 דקות"
+msgstr[0] "לאחר דקה"
+msgstr[1] "לאחר שתי דקות"
+msgstr[2] "לאחר %1 דקות"
+msgstr[3] "לאחר %1 דקות"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
@@ -463,7 +471,7 @@ msgstr[3] "אחרי %1 דקות"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "התאמה אישית…"
 
 #: ui/ProfileConfig.qml:148
 #, kde-format
@@ -560,95 +568,87 @@ msgid "Change scr&een brightness:"
 msgstr "שינוי &בהירות המסך:"
 
 #: ui/ProfileConfig.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "&עמעום אוטומטי:"
 
 #: ui/ProfileConfig.qml:362
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr "&עמעום אוטומטי:"
+msgstr "&עמעום אוטומטי לאחר:"
 
 #: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שנייה"
+msgstr[1] "שתי שניות"
+msgstr[2] "%1 שניות"
+msgstr[3] "%1 שניות"
 
 #: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "דקה"
+msgstr[1] "שתי דקות"
+msgstr[2] "%1 דקות"
+msgstr[3] "%1 דקות"
 
 #: ui/ProfileConfig.qml:376
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: ui/ProfileConfig.qml:428
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr ""
+msgstr "המסך לא יעומעם כיוון שהוא מוגדר לכבות בקרוב."
 
 #: ui/ProfileConfig.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "&כיבוי המסך:"
 
 #: ui/ProfileConfig.qml:446
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr "&כיבוי המסך:"
+msgstr "&כיבוי המסך לאחר:"
 
 #: ui/ProfileConfig.qml:450
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "שנייה"
+msgstr[1] "שתי שניות"
+msgstr[2] "%1 שניות"
+msgstr[3] "%1 שניות"
 
 #: ui/ProfileConfig.qml:452
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "דקה"
+msgstr[1] "שתי דקות"
+msgstr[2] "%1 דקות"
+msgstr[3] "%1 דקות"
 
 #: ui/ProfileConfig.qml:459
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "אף פעם"
 
 #: ui/ProfileConfig.qml:466
 #, kde-format
@@ -656,53 +656,47 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "התאמה אישית…"
 
 #: ui/ProfileConfig.qml:506
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr "כש&נעול, לכבות את המסך:"
+msgstr "כשנעול, לכבות את המסך לאחר:"
 
 #: ui/ProfileConfig.qml:510
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "כש&נעול, לכבות את המסך:"
-msgstr[1] "כש&נעול, לכבות את המסך:"
-msgstr[2] "כש&נעול, לכבות את המסך:"
-msgstr[3] "כש&נעול, לכבות את המסך:"
+msgstr[0] "תוך כדי נעילה: שנייה"
+msgstr[1] "תוך כדי נעילה: שתי שניות"
+msgstr[2] "תוך כדי נעילה: %1 שניות"
+msgstr[3] "תוך כדי נעילה: %1 שניות"
 
 #: ui/ProfileConfig.qml:512
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "תוך כדי נעילה: דקה"
+msgstr[1] "תוך כדי נעילה: שתי דקות"
+msgstr[2] "תוך כדי נעילה: %1 דקות"
+msgstr[3] "תוך כדי נעילה: %1 דקות"
 
 #: ui/ProfileConfig.qml:519
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "כש&נעול, לכבות את המסך:"
+msgstr "כשנעול ולא נעול"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "תוך כדי נעילה: מיידית"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
@@ -824,31 +818,27 @@ msgstr "משך חוסר פעילות עד שפקודת הסקריפט פועלת
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
-msgstr ""
+msgstr "הרתצ סקריפט לאחר:"
 
 #: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 seconds"
 msgid_plural "after %1 seconds"
 msgstr[0] "אחרי שנייה"
-msgstr[1] "אחרי שתי שניות"
-msgstr[2] "אחרי %1 שניות"
-msgstr[3] "אחרי %1 שניות"
+msgstr[1] "לאחר שתי שניות"
+msgstr[2] "לאחר %1 שניות"
+msgstr[3] "לאחר %1 שניות"
 
 #: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 minutes"
 msgid_plural "after %1 minutes"
-msgstr[0] "אחרי דקה"
-msgstr[1] "אחרי שתי דקות"
-msgstr[2] "אחרי %1 דקות"
-msgstr[3] "אחרי %1 דקות"
+msgstr[0] "לאחר דקה"
+msgstr[1] "לאחר שתי דקות"
+msgstr[2] "לאחר %1 דקות"
+msgstr[3] "לאחר %1 דקות"
 
 #: ui/RunScriptEdit.qml:33
 #, kde-format
@@ -869,7 +859,7 @@ msgstr "בחירת קובץ הפעלה"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "משך מותאם אישית"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "
