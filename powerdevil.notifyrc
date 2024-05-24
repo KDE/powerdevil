@@ -792,7 +792,7 @@ Comment[zh_CN]=电池已经充满
 Comment[zh_TW]=電池已充飽
 Contexts=stdnot
 Sound=battery-full
-Action=
+Action=Sound|Popup
 IconName=battery-100
 
 [Event/lowperipheralbattery]
