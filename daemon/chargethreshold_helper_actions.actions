@@ -232,16 +232,12 @@ Persistence=session
 
 [org.kde.powerdevil.chargethresholdhelper.getconservationmode]
 Name=Check battery conservation mode
-Name[de]=Batterie-Konservierungs-Modus prüfen
 Description=Authenticate to check the current state of battery conservation mode.
-Description[de]=Authentifizieren, um den aktuellen Status des Batterie-Konservierungs-Modus zu überprüfen.
 Policy=yes
 PolicyInactive=yes
 
 [org.kde.powerdevil.chargethresholdhelper.setconservationmode]
 Name=Set battery conservation mode
-Name[de]=Batterie-Konservierungs-Modus einstellen
 Description=Authenticate to set the battery conservation mode.
-Description[de]=Authentifizieren, um den Batterie-Konservierungs-Modus einzustellen.
 Policy=auth_admin
 Persistence=session
