@@ -26,6 +26,7 @@
 
 #include <KGlobalAccel>
 #include <Kirigami/Platform/TabletModeWatcher>
+#include <qdbusmessage.h>
 
 namespace PowerDevil::BundledActions
 {
@@ -169,6 +170,20 @@ void HandleButtonEvents::processAction(PowerDevil::PowerButtonAction action)
 
 void HandleButtonEvents::triggerAction(const QString &action, const QVariant &type)
 {
+    // Don't trigger a button action while a shutdown is already in progress,
+    // so that closing the laptop lid while shutting down wouldn't trigger suspend, interrupting shutdown and draining the battery
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.kde.ksmserver"))) {
+        qCDebug(POWERDEVIL) << "checking for isShuttingDown";
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.ksmserver"),
+                                                          QStringLiteral("/KSMServer"),
+                                                          QStringLiteral("org.kde.KSMServerInterface"),
+                                                          QStringLiteral("isShuttingDown"));
+        QDBusMessage call = QDBusConnection::sessionBus().call(msg);
+        if (call.arguments().at(0).toBool())
+            qCInfo(POWERDEVIL) << "shutdown in progress; aborting button event";
+        return;
+    }
+
     PowerDevil::Action *helperAction = core()->action(action);
     if (helperAction) {
         helperAction->trigger({
