@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-07 08:40+0200\n"
+"PO-Revision-Date: 2024-05-23 09:19+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -753,68 +753,54 @@ msgid "Choose run conditions for script command"
 msgstr "Sélectionnez des conditions d'exécution pour la commande de script"
 
 #: ui/ProfileConfig.qml:677
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&ntering this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr "Lors du passage dans ce mode de gestion d'énergie"
+msgstr "Lors du passage dans le mode « %1 »"
 
 #: ui/ProfileConfig.qml:695
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&xiting this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr "Lors de la sortie de cet état de gestion d'énergie"
+msgstr "Lors de la sortie de l'état « %1 »"
 
 #: ui/ProfileConfig.qml:713
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "After a period of inacti&vity"
+#, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
-msgstr "Après une période d'inacti&vité"
+msgstr "Après une période d'inactivité"
 
 #: ui/ProfileConfig.qml:736
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&ntering this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr "Lors du passage dans ce mode de gestion d'énergie :"
+msgstr "Lors du passage dans le mode « %1 » :"
 
 #: ui/ProfileConfig.qml:740
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when entering this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
-msgstr "Commande de script lors de l'entrée dans ce mode de gestion d'énergie"
+msgstr "Commande de script lors de l'entrée dans le mode « %1 »"
 
 #: ui/ProfileConfig.qml:771
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&xiting this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "Lors de la sortie de ce mode de gestion d'énergie :"
+msgstr "Lors de la sortie du mode « %1 » :"
 
 #: ui/ProfileConfig.qml:775
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when exiting this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
-msgstr "Commande de script lors de la sortie de cet état de gestion d'énergie"
+msgstr "Commande de script lors de la sortie du mode « %1 »"
 
 #: ui/ProfileConfig.qml:806
 #, kde-format

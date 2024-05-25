@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-23 13:17+0200\n"
+"PO-Revision-Date: 2024-05-24 18:04+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -264,13 +264,13 @@ msgstr "Límit de càrrega"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "Protecció de la &bateria:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Limita la càrrega màxima de la bateria"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format

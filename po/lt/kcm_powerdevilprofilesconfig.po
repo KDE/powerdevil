@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-04-23 11:30+0300\n"
+"PO-Revision-Date: 2024-05-24 16:34+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -32,128 +32,128 @@ msgstr "Atrodo, kad energijos valdymo tarnyba neveikia."
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "milisekundė"
+msgstr[1] "milisekundės"
+msgstr[2] "milisekundžių"
+msgstr[3] "milisekundė"
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "sekundė"
+msgstr[1] "sekundės"
+msgstr[2] "sekundžių"
+msgstr[3] "sekundė"
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "minutė"
+msgstr[1] "minutės"
+msgstr[2] "minučių"
+msgstr[3] "minutė"
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "valanda"
+msgstr[1] "valandos"
+msgstr[2] "valandų"
+msgstr[3] "valanda"
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "diena"
+msgstr[1] "dienos"
+msgstr[2] "dienų"
+msgstr[3] "diena"
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "savaitė"
+msgstr[1] "savaitės"
+msgstr[2] "savaičių"
+msgstr[3] "savaitė"
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "mėnesis"
+msgstr[1] "mėnesiai"
+msgstr[2] "mėnesių"
+msgstr[3] "mėnesis"
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "metai"
+msgstr[1] "metai"
+msgstr[2] "metų"
+msgstr[3] "metai"
 
 #: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr "milisekundės"
 
 #: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "sekundės"
 
 #: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "minutės"
 
 #: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "valandos"
 
 #: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "dienos"
 
 #: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "savaitės"
 
 #: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "mėnesiai"
 
 #: ui/DurationPromptDialog.qml:185
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "metai"
 
 #: ui/GlobalConfig.qml:16
 #, kde-format
@@ -281,13 +281,13 @@ msgstr "Įkrovimo riba"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "A&kumuliatoriaus apsauga:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Riboti didžiausią akumuliatoriaus įkrovą"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
@@ -453,28 +453,24 @@ msgid "Action to perform when the system is idle"
 msgstr "Veiksmas, kurį atlikti, kai sistema neveikli"
 
 #: ui/ProfileConfig.qml:95
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 second"
 msgid_plural "after %1 seconds"
-msgstr[0] "po %1 sek."
-msgstr[1] "po %1 sek."
-msgstr[2] "po %1 sek."
-msgstr[3] "po %1 sek."
+msgstr[0] "po %1 sekundės"
+msgstr[1] "po %1 sekundžių"
+msgstr[2] "po %1 sekundžių"
+msgstr[3] "po %1 sekundės"
 
 #: ui/ProfileConfig.qml:97
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 minute"
 msgid_plural "after %1 minutes"
-msgstr[0] "po %1 min."
-msgstr[1] "po %1 min."
-msgstr[2] "po %1 min."
-msgstr[3] "po %1 min."
+msgstr[0] "po %1 minutės"
+msgstr[1] "po %1 minučių"
+msgstr[2] "po %1 minučių"
+msgstr[3] "po %1 minutės"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
@@ -482,7 +478,7 @@ msgstr[3] "po %1 min."
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "Tinkinta…"
 
 #: ui/ProfileConfig.qml:148
 #, kde-format
@@ -586,46 +582,42 @@ msgid "Change scr&een brightness:"
 msgstr "Keisti &ekrano ryškumą:"
 
 #: ui/ProfileConfig.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Automatiškai prite&mdyti:"
 
 #: ui/ProfileConfig.qml:362
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr "Automatiškai prite&mdyti:"
+msgstr "Automatiškai prite&mdyti po:"
 
 #: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 sekundė"
+msgstr[1] "%1 sekundės"
+msgstr[2] "%1 sekundžių"
+msgstr[3] "%1 sekundė"
 
 #: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 minutė"
+msgstr[1] "%1 minutės"
+msgstr[2] "%1 minučių"
+msgstr[3] "%1 minutė"
 
 #: ui/ProfileConfig.qml:376
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: ui/ProfileConfig.qml:428
 #, kde-format
@@ -633,48 +625,46 @@ msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr ""
+"Ekranas nebus pritemdomas, nes jis sukonfigūruotas taip, kad išsijungtų "
+"greičiau."
 
 #: ui/ProfileConfig.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Išjung&ti ekraną:"
 
 #: ui/ProfileConfig.qml:446
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr "Išjung&ti ekraną:"
+msgstr "Išjungti ekraną po:"
 
 #: ui/ProfileConfig.qml:450
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 sekundė"
+msgstr[1] "%1 sekundės"
+msgstr[2] "%1 sekundžių"
+msgstr[3] "%1 sekundė"
 
 #: ui/ProfileConfig.qml:452
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%1 minutė"
+msgstr[1] "%1 minutės"
+msgstr[2] "%1 minučių"
+msgstr[3] "%1 minutė"
 
 #: ui/ProfileConfig.qml:459
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: ui/ProfileConfig.qml:466
 #, kde-format
@@ -682,53 +672,47 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "Tinkinta…"
 
 #: ui/ProfileConfig.qml:506
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr "Kai užra&kinta, išjungti ekraną:"
+msgstr "Kai užrakinta, išjungti ekraną po:"
 
 #: ui/ProfileConfig.qml:510
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "Kai užra&kinta, išjungti ekraną:"
-msgstr[1] "Kai užra&kinta, išjungti ekraną:"
-msgstr[2] "Kai užra&kinta, išjungti ekraną:"
-msgstr[3] "Kai užra&kinta, išjungti ekraną:"
+msgstr[0] "Kai užrakintas: %1 sekundė"
+msgstr[1] "Kai užrakintas: %1 sekundės"
+msgstr[2] "Kai užrakintas: %1 sekundžių"
+msgstr[3] "Kai užrakintas: %1 sekundė"
 
 #: ui/ProfileConfig.qml:512
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Kai užrakintas: %1 minutė"
+msgstr[1] "Kai užrakintas: %1 minutės"
+msgstr[2] "Kai užrakintas: %1 minučių"
+msgstr[3] "Kai užrakintas: %1 minutė"
 
 #: ui/ProfileConfig.qml:519
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "Kai užra&kinta, išjungti ekraną:"
+msgstr "Kai užrakintas ir atrakintas"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "Kai užrakintas: Nedelsiant"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
@@ -779,68 +763,54 @@ msgid "Choose run conditions for script command"
 msgstr "Pasirinkite scenarijaus komandos vykdymo sąlygas"
 
 #: ui/ProfileConfig.qml:677
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&ntering this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr "Kai į šią maiti&nimo būseną įžengiama"
+msgstr "Kai įžengiama į „%1“ būseną"
 
 #: ui/ProfileConfig.qml:695
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&xiting this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr "Kai iš šios maitinim&o būsenos išeinama"
+msgstr "Kai išeinama iš „%1“ būsenos"
 
 #: ui/ProfileConfig.qml:713
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "After a period of inacti&vity"
+#, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
-msgstr "Po ne&veiklumo laikotarpio"
+msgstr "Po neveiklumo laikotarpio"
 
 #: ui/ProfileConfig.qml:736
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&ntering this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr "Kai į šią maiti&nimo būseną įžengiama:"
+msgstr "Kai įže&ngiama į „%1“ būseną:"
 
 #: ui/ProfileConfig.qml:740
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when entering this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
-msgstr "Scenarijaus komanda, kuomet bus įžengiama į šią maitinimo būseną"
+msgstr "Scenarijaus komanda, kuomet įžengiama į „%1“ būseną"
 
 #: ui/ProfileConfig.qml:771
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&xiting this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "Kai iš šios maitinim&o būsenos išeinama:"
+msgstr "Kai iš&einama iš „%1“ būsenos:"
 
 #: ui/ProfileConfig.qml:775
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when exiting this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
-msgstr "Scenarijaus komanda, kuomet bus išeinama iš šios maitinimo būsenos"
+msgstr "Scenarijaus komanda, kuomet išeinama iš „%1“ būsenos"
 
 #: ui/ProfileConfig.qml:806
 #, kde-format
@@ -865,31 +835,27 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
-msgstr ""
+msgstr "Vykdyti scenarijų po:"
 
 #: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 seconds"
 msgid_plural "after %1 seconds"
-msgstr[0] "po %1 sek."
-msgstr[1] "po %1 sek."
-msgstr[2] "po %1 sek."
-msgstr[3] "po %1 sek."
+msgstr[0] "po %1 sekundės"
+msgstr[1] "po %1 sekundžių"
+msgstr[2] "po %1 sekundžių"
+msgstr[3] "po %1 sekundės"
 
 #: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 minutes"
 msgid_plural "after %1 minutes"
-msgstr[0] "po %1 min."
-msgstr[1] "po %1 min."
-msgstr[2] "po %1 min."
-msgstr[3] "po %1 min."
+msgstr[0] "po %1 minutės"
+msgstr[1] "po %1 minučių"
+msgstr[2] "po %1 minučių"
+msgstr[3] "po %1 minutės"
 
 #: ui/RunScriptEdit.qml:33
 #, kde-format
@@ -910,7 +876,7 @@ msgstr "Pasirinkti vykdomąjį failą"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "Tinkinta trukmė"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

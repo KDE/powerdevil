@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-23 12:58+0300\n"
+"PO-Revision-Date: 2024-05-24 15:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -278,13 +278,13 @@ msgstr "Обмеження заряджання"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "Захист &акумулятора:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Обмежити максимальний заряд акумулятора"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format

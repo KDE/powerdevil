@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-23 10:29+0200\n"
+"PO-Revision-Date: 2024-05-24 11:15+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -262,13 +262,13 @@ msgstr "Ladingslimiet"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "&Batterijbescherming:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Beperk de maximale batterijlading"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
