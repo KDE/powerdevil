@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-03-24 11:40+0100\n"
+"PO-Revision-Date: 2024-05-26 12:50+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.05.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: PowerKCM.cpp:451
@@ -28,120 +28,120 @@ msgstr "Zdá sa, že služba správy napájania nie je spustená."
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "milisekunda"
+msgstr[1] "milisekundy"
+msgstr[2] "milisekúnd"
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "sekunda"
+msgstr[1] "sekundy"
+msgstr[2] "sekúnd"
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "minúta"
+msgstr[1] "minúty"
+msgstr[2] "minút"
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "hodina"
+msgstr[1] "hodiny"
+msgstr[2] "hodín"
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "deň"
+msgstr[1] "dni"
+msgstr[2] "dni"
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "týždeň"
+msgstr[1] "týždne"
+msgstr[2] "týždňov"
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "mesiac"
+msgstr[1] "mesiace"
+msgstr[2] "mesiacov"
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "rok"
+msgstr[1] "roky"
+msgstr[2] "rokov"
 
 #: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr "milisekundy"
 
 #: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "sekundy"
 
 #: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "minúty"
 
 #: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "hodiny"
 
 #: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "dni"
 
 #: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "týždne"
 
 #: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "mesiace"
 
 #: ui/DurationPromptDialog.qml:185
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "roky"
 
 #: ui/GlobalConfig.qml:16
 #, kde-format
@@ -150,11 +150,7 @@ msgid "Advanced Power Settings"
 msgstr "Pokročilé nastavenia napájania"
 
 #: ui/GlobalConfig.qml:21
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Percentage value example, used for formatting brightness levels in the "
-#| "power management settings"
-#| msgid "10%"
+#, kde-format
 msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
@@ -363,7 +359,7 @@ msgstr "Sedenie plochy"
 #: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Otvoriť stránku nastavení \"Sedenie pracovnej plochy\""
 
 #: ui/GlobalConfig.qml:398
 #, kde-format
@@ -440,15 +436,13 @@ msgid "Action to perform when the system is idle"
 msgstr "Akcia, ktorá sa má vykonať, keď je systém nečinný"
 
 #: ui/ProfileConfig.qml:95
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 second"
 msgid_plural "after %1 seconds"
-msgstr[0] "po %1 sek"
-msgstr[1] "po %1 sek"
-msgstr[2] "po %1 sek"
+msgstr[0] "Po %1 sekunde"
+msgstr[1] "Po %1 sekundách"
+msgstr[2] "Po %1 sekundách"
 
 #: ui/ProfileConfig.qml:97
 #, fuzzy, kde-format
@@ -467,7 +461,7 @@ msgstr[2] "po %1 min"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "Vlastné…"
 
 #: ui/ProfileConfig.qml:148
 #, kde-format
@@ -560,9 +554,7 @@ msgid "Change scr&een brightness:"
 msgstr "Zmena jasu obrazovky:"
 
 #: ui/ProfileConfig.qml:359
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Stmaviť automaticky:"
@@ -580,24 +572,24 @@ msgstr "Stmaviť automaticky:"
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 sekunda"
+msgstr[1] "%1 sekundy"
+msgstr[2] "%1 sekúnd"
 
 #: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 minúta"
+msgstr[1] "%1 minúty"
+msgstr[2] "%1 minút"
 
 #: ui/ProfileConfig.qml:376
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: ui/ProfileConfig.qml:428
 #, kde-format
@@ -607,9 +599,7 @@ msgid ""
 msgstr ""
 
 #: ui/ProfileConfig.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Vypnúť obrazovku:"
@@ -627,24 +617,24 @@ msgstr "Vypnúť obrazovku:"
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 sekunda"
+msgstr[1] "%1 sekundy"
+msgstr[2] "%1 sekúnd"
 
 #: ui/ProfileConfig.qml:452
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 minúta"
+msgstr[1] "%1 minúty"
+msgstr[2] "%1 minút"
 
 #: ui/ProfileConfig.qml:459
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: ui/ProfileConfig.qml:466
 #, kde-format
@@ -652,7 +642,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "Vlastné…"
 
 #: ui/ProfileConfig.qml:506
 #, fuzzy, kde-format
@@ -767,9 +757,7 @@ msgid "When exiting \"%1\" state"
 msgstr "Pri odchode z tohto režimu napájania"
 
 #: ui/ProfileConfig.qml:713
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "After a period of inacti&vity"
+#, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
 msgstr "Po intervale nečinnosti"
@@ -835,15 +823,13 @@ msgid "Execute script after:"
 msgstr ""
 
 #: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 seconds"
 msgid_plural "after %1 seconds"
-msgstr[0] "po %1 sek"
-msgstr[1] "po %1 sek"
-msgstr[2] "po %1 sek"
+msgstr[0] "Po %1 sekunde"
+msgstr[1] "Po %1 sekundách"
+msgstr[2] "Po %1 sekundách"
 
 #: ui/ProfileConfig.qml:849
 #, fuzzy, kde-format
@@ -875,7 +861,7 @@ msgstr "Vybrať súbor na vykonanie"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "Vlastné trvanie"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "
