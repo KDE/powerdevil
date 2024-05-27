@@ -32,7 +32,7 @@ msgstr "Uyut"
 #: PowerButtonActionModel.cpp:49
 #, kde-format
 msgid "Hibernate"
-msgstr "Hazırda beklet"
+msgstr "Derin uykuya geç"
 
 #: PowerButtonActionModel.cpp:58
 #, kde-format
@@ -109,20 +109,10 @@ msgstr "Oturumu hem belleğe hem diske kaydet"
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr "Uyut, sonra hazırda beklet"
+msgstr "Uyut, sonra derin uykuya geç"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr "Bir süre hareketsizlikten sonra hazırda bekletmeye geç"
-
-#~ msgid ""
-#~ "Power Management configuration module could not be loaded.\n"
-#~ "%1"
-#~ msgstr ""
-#~ "Güç Yönetimi yapılandırma modülü yüklenemedi.\n"
-#~ "%1"
-
-#~ msgid "Prompt log out dialog"
-#~ msgstr "Oturumu kapat iletişim kutusunu göster"
+msgstr "Bir süre hareketsizlikten sonra derin uykuya geç"

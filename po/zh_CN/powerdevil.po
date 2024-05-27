@@ -63,7 +63,7 @@ msgstr "降低屏幕亮度 1%"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
-msgstr "息屏"
+msgstr "关闭屏幕"
 
 #: actions/bundled/handlebuttonevents.cpp:47
 #, kde-format
