@@ -253,7 +253,7 @@ msgstr "电池保护(&B)："
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr "限制最大充电百分比"
+msgstr "限制最大充电水平"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
@@ -396,7 +396,7 @@ msgctxt "@info:status"
 msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
-msgstr "您之前配置的不活动一段时间后操作现已不支持此系统。请选择其他操作。"
+msgstr "您之前配置的空闲一段时间后执行的操作现已不支持此系统。请选择其他操作。"
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -404,7 +404,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr "不活动一段时间后(&F)："
+msgstr "空闲一段时间后(&F)："
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -528,7 +528,7 @@ msgstr "更改屏幕亮度(&E)："
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "自动降低亮度(&M)："
 
 #: ui/ProfileConfig.qml:362
 #, kde-format
@@ -568,7 +568,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
-msgstr ""
+msgstr "关闭屏幕(&T)："
 
 #: ui/ProfileConfig.qml:446
 #, kde-format
@@ -706,7 +706,7 @@ msgstr "退出“%1”状态时"
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
-msgstr "不活动一段时间后"
+msgstr "空闲一段时间后"
 
 #: ui/ProfileConfig.qml:736
 #, kde-format
@@ -740,19 +740,19 @@ msgstr "退出“%1”状态时的脚本命令"
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr "不活动一段时间后(&V)："
+msgstr "空闲一段时间后(&V)："
 
 #: ui/ProfileConfig.qml:808
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr "不活动一段时间后的脚本命令"
+msgstr "空闲一段时间后执行脚本命令"
 
 #: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr "执行脚本命令之前的空闲等待时间"
+msgstr "执行脚本命令之前的空闲时间"
 
 #: ui/ProfileConfig.qml:842
 #, kde-format
