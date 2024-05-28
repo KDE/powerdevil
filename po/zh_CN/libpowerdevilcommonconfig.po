@@ -53,7 +53,7 @@ msgstr "显示注销屏幕"
 #: PowerButtonActionModel.cpp:82
 #, kde-format
 msgid "Turn off screen"
-msgstr "息屏"
+msgstr "关闭屏幕"
 
 #: PowerButtonActionModel.cpp:90
 #, kde-format
