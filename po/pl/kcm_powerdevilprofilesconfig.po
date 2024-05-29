@@ -14,9 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
-" || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #: PowerKCM.cpp:451
 #, kde-format
@@ -442,8 +441,6 @@ msgstr "Działanie do wykonania, gdy system jest w stanie bezczynności"
 
 #: ui/ProfileConfig.qml:95
 #, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
 msgid "after %1 second"
 msgid_plural "after %1 seconds"
@@ -453,8 +450,6 @@ msgstr[2] "po %1 sekundach"
 
 #: ui/ProfileConfig.qml:97
 #, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
 msgid "after %1 minute"
 msgid_plural "after %1 minutes"
@@ -568,16 +563,12 @@ msgstr "Zmień jasność &ekranu:"
 
 #: ui/ProfileConfig.qml:359
 #, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "Sa&m przyciemnij:"
 
 #: ui/ProfileConfig.qml:362
 #, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "Sa&m przyciemnij po:"
@@ -617,16 +608,12 @@ msgstr ""
 
 #: ui/ProfileConfig.qml:433
 #, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "&Wyłącz ekran:"
 
 #: ui/ProfileConfig.qml:446
 #, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "Wyłącz ekran po:"
@@ -665,16 +652,12 @@ msgstr "Własna…"
 
 #: ui/ProfileConfig.qml:506
 #, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "Po zablokowaniu, wyłącz ekran po:"
 
 #: ui/ProfileConfig.qml:510
 #, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
@@ -693,8 +676,6 @@ msgstr[2] "Gdy zablokowany: %1 minut"
 
 #: ui/ProfileConfig.qml:519
 #, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
@@ -757,8 +738,6 @@ msgstr "Wybierz warunku działania dla polecenia skryptowego"
 
 #: ui/ProfileConfig.qml:677
 #, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&ntering this power state"
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
@@ -767,8 +746,6 @@ msgstr "Przy wchodzeniu w stan \"%1\""
 
 #: ui/ProfileConfig.qml:695
 #, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&xiting this power state"
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
@@ -777,16 +754,12 @@ msgstr "Przy wychodzeniu ze stanu \"%1\""
 
 #: ui/ProfileConfig.qml:713
 #, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "After a period of inacti&vity"
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
 msgstr "Po pewnym okresie bezczynności"
 
 #: ui/ProfileConfig.qml:736
 #, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&ntering this power state:"
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
@@ -795,16 +768,12 @@ msgstr "Przy wchodzeniu w stan \"%1\":"
 
 #: ui/ProfileConfig.qml:740
 #, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when entering this power state"
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
 msgstr "Polecenie skryptowe przy wchodzeniu w ten stan \"%1\""
 
 #: ui/ProfileConfig.qml:771
 #, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&xiting this power state:"
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
@@ -813,8 +782,6 @@ msgstr "&Przy wychodzeniu ze stanu \"%1\":"
 
 #: ui/ProfileConfig.qml:775
 #, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when exiting this power state"
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
 msgstr "Polecenie skryptowe przy wychodzeniu ze stanu \"%1\""
@@ -845,8 +812,6 @@ msgstr "Wykonaj skrypt po:"
 
 #: ui/ProfileConfig.qml:847
 #, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
 msgid "after %1 seconds"
 msgid_plural "after %1 seconds"
@@ -856,8 +821,6 @@ msgstr[2] "po %1 sekundach"
 
 #: ui/ProfileConfig.qml:849
 #, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
 msgid "after %1 minutes"
 msgid_plural "after %1 minutes"
@@ -933,4 +896,3 @@ msgstr "Własny czas trwania"
 #~ "Wygląda na to, że usługa zarządzania energią nie jest uruchomiona.\n"
 #~ "Może to być rozwiązane przez uruchomienie planowania wewnątrz "
 #~ "\"Uruchamianie i wyłączanie\""
-
