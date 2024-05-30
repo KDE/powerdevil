@@ -269,7 +269,7 @@ void ScreenBrightnessController::setBrightness(const QString &displayId, int val
     }
 }
 
-int ScreenBrightnessController::brightnessSteps(const QString &displayId)
+int ScreenBrightnessController::brightnessSteps(const QString &displayId) const
 {
     if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
         return it->brightnessLogic.steps();
@@ -365,7 +365,7 @@ void ScreenBrightnessController::setBrightness(int value)
     }
 }
 
-int ScreenBrightnessController::brightnessSteps()
+int ScreenBrightnessController::brightnessSteps() const
 {
     return brightnessSteps(m_legacyDisplayIds.value(0, QString()));
 }

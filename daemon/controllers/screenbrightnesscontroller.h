@@ -53,7 +53,7 @@ public:
     int maxBrightness(const QString &displayId) const;
     int brightness(const QString &displayId) const;
     void setBrightness(const QString &displayId, int value);
-    int brightnessSteps(const QString &displayId);
+    int brightnessSteps(const QString &displayId) const;
 
     int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
 
@@ -64,7 +64,7 @@ public:
     int maxBrightness() const;
     int brightness() const;
     void setBrightness(int value);
-    int brightnessSteps();
+    int brightnessSteps() const;
 
 Q_SIGNALS:
     void detectionFinished();
