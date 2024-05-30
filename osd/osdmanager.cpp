@@ -32,9 +32,8 @@ OsdManager::OsdManager(QObject *parent)
     // free up memory when the osd hasn't been used for more than 1 minute
     m_cleanupTimer->setInterval(60000);
     m_cleanupTimer->setSingleShot(true);
-    connect(m_cleanupTimer, &QTimer::timeout, this, [this]() {
-        quit();
-    });
+    connect(m_cleanupTimer, &QTimer::timeout, this, &OsdManager::quit);
+
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/powerdevil/powerProfileOsdService"), this, QDBusConnection::ExportAdaptors);
     QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.powerdevil.powerProfileOsdService"));
 }
@@ -70,6 +69,7 @@ void OsdManager::showOsd()
 
     m_osd = new PowerDevil::Osd(this);
     m_osd->showActionSelector(currentProfile);
+    m_cleanupTimer->start();
 
     connect(m_osd, &Osd::osdActionSelected, this, [this](QString profile) {
         applyProfile(profile);
