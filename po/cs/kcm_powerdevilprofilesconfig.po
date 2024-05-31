@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-29 11:51+0200\n"
+"PO-Revision-Date: 2024-05-30 09:39+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -591,7 +591,7 @@ msgstr "Nikdy"
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr ""
+msgstr "Jas obrazovky bude ztlumen protože je nastaven aby byl dříve vypnut."
 
 #: ui/ProfileConfig.qml:433
 #, kde-format
@@ -641,16 +641,16 @@ msgstr "Vlastní…"
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr ""
+msgstr "Pokud uzamčeno, vypni obrazovku po:"
 
 #: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Pokud zamčeno: %1 sekundu"
+msgstr[1] "Pokud zamčeno: %1 sekundy"
+msgstr[2] "Pokud zamčeno: %1 sekund"
 
 #: ui/ProfileConfig.qml:512
 #, kde-format
@@ -667,13 +667,13 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr ""
+msgstr "Pokud zamčeno a odemčeno"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "Pokud zamčeno: Okamžitě"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
@@ -729,7 +729,7 @@ msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr ""
+msgstr "Při přechodu do stavu \"%1\""
 
 #: ui/ProfileConfig.qml:695
 #, kde-format
@@ -737,13 +737,13 @@ msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr ""
+msgstr "Při opuštění stavu \"%1\""
 
 #: ui/ProfileConfig.qml:713
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
-msgstr ""
+msgstr "Po době nečinnosti"
 
 #: ui/ProfileConfig.qml:736
 #, kde-format
@@ -751,7 +751,7 @@ msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr ""
+msgstr "Při přec&hodu do stavu \"%1\":"
 
 #: ui/ProfileConfig.qml:740
 #, kde-format
@@ -765,7 +765,7 @@ msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr ""
+msgstr "Při op&uštění stavu \"%1\""
 
 #: ui/ProfileConfig.qml:775
 #, kde-format
@@ -795,7 +795,7 @@ msgstr "Období nečinnosti než dojde ke spuštění skriptu"
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
-msgstr ""
+msgstr "Spustit skript po:"
 
 #: ui/ProfileConfig.qml:847
 #, kde-format
@@ -834,4 +834,4 @@ msgstr "Vyberte spustitelný soubor"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "Vlastní doba"
