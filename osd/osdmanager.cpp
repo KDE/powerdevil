@@ -77,7 +77,7 @@ void OsdManager::showOsd()
     });
 
     // Cancel and close, if focus was lost (eg. click outside of OSD)
-    connect(m_osd, &Osd::osdActiveChanged, this, [this](const bool active) {
+    connect(m_osd, &Osd::osdActiveChanged, this, [this](bool active) {
         if (!active) {
             quit();
         }
