@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-26 12:50+0200\n"
+"PO-Revision-Date: 2024-05-31 12:45+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -267,13 +267,13 @@ msgstr "Limit nabíjania"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "Ochrana batérie:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Obmedziť maximálne nabitie batérie"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
@@ -445,15 +445,13 @@ msgstr[1] "Po %1 sekundách"
 msgstr[2] "Po %1 sekundách"
 
 #: ui/ProfileConfig.qml:97
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 minute"
 msgid_plural "after %1 minutes"
-msgstr[0] "po %1 min"
-msgstr[1] "po %1 min"
-msgstr[2] "po %1 min"
+msgstr[0] "po %1 minúte"
+msgstr[1] "po %1 minútach"
+msgstr[2] "po %1 minútach"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
@@ -560,12 +558,10 @@ msgid "Di&m automatically:"
 msgstr "Stmaviť automaticky:"
 
 #: ui/ProfileConfig.qml:362
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr "Stmaviť automaticky:"
+msgstr "Stmaviť automaticky po:"
 
 #: ui/ProfileConfig.qml:367
 #, kde-format
@@ -596,7 +592,7 @@ msgstr "Nikdy"
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
-msgstr ""
+msgstr "Obrazovka sa nestlmí, pretože je nakonfigurovaná na skoršie vypnutie."
 
 #: ui/ProfileConfig.qml:433
 #, kde-format
@@ -605,12 +601,10 @@ msgid "&Turn off screen:"
 msgstr "Vypnúť obrazovku:"
 
 #: ui/ProfileConfig.qml:446
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr "Vypnúť obrazovku:"
+msgstr "Vypnúť obrazovku po:"
 
 #: ui/ProfileConfig.qml:450
 #, kde-format
@@ -645,48 +639,42 @@ msgid "Custom…"
 msgstr "Vlastné…"
 
 #: ui/ProfileConfig.qml:506
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr "Keď je obrazovka zamknutá, vypnúť ju:"
+msgstr "Keď je obrazovka zamknutá, vypnúť ju po:"
 
 #: ui/ProfileConfig.qml:510
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "Keď je obrazovka zamknutá, vypnúť ju:"
-msgstr[1] "Keď je obrazovka zamknutá, vypnúť ju:"
-msgstr[2] "Keď je obrazovka zamknutá, vypnúť ju:"
+msgstr[0] "Keď je zamknutý: %1 minútu"
+msgstr[1] "Keď je zamknutý: %1 minúty"
+msgstr[2] "Keď je zamknutý: %1 minút"
 
 #: ui/ProfileConfig.qml:512
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Keď je zamknutý: %1 minútu"
+msgstr[1] "Keď je zamknutý: %1 minúty"
+msgstr[2] "Keď je zamknutý: %1 minút"
 
 #: ui/ProfileConfig.qml:519
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "Keď je obrazovka zamknutá, vypnúť ju:"
+msgstr "Keď je obrazovka zamknutá a odomknutá:"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "Keď je zamknutý: Okamžite"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
@@ -737,24 +725,20 @@ msgid "Choose run conditions for script command"
 msgstr "Vybrať podmienky spustenia skriptu"
 
 #: ui/ProfileConfig.qml:677
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&ntering this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr "Pri vstupe do tohto režimu napájania"
+msgstr "Pri vstupe do režimu napájania \"%1\""
 
 #: ui/ProfileConfig.qml:695
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&xiting this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr "Pri odchode z tohto režimu napájania"
+msgstr "Pri odchode z režimu napájania \"%1\""
 
 #: ui/ProfileConfig.qml:713
 #, kde-format
@@ -763,40 +747,32 @@ msgid "After a period of inactivity"
 msgstr "Po intervale nečinnosti"
 
 #: ui/ProfileConfig.qml:736
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&ntering this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr "Pri vstupe do tohto režimu napájania:"
+msgstr "Pri vstupe do režimu napájania \"%1\""
 
 #: ui/ProfileConfig.qml:740
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when entering this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
-msgstr "Príkaz skriptu pri vstupe do tohto stavu napájania"
+msgstr "Príkaz skriptu pri vstupe do stavu napájania  \"%1\""
 
 #: ui/ProfileConfig.qml:771
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield Script command to execute"
-#| msgid "When e&xiting this power state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "Pri odchode z tohto režimu napájania:"
+msgstr "Pri odchode z režimu napájania \"%1\""
 
 #: ui/ProfileConfig.qml:775
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield"
-#| msgid "Script command when exiting this power state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
-msgstr "Príkaz skriptu pri ukončení tohto stavu napájania"
+msgstr "Príkaz skriptu pri odchode zo stavu napájania  \"%1\""
 
 #: ui/ProfileConfig.qml:806
 #, kde-format
@@ -820,7 +796,7 @@ msgstr "Doba nečinnosti, kým sa nevykoná príkaz skriptu"
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
-msgstr ""
+msgstr "Spustiť skript po:"
 
 #: ui/ProfileConfig.qml:847
 #, kde-format
@@ -832,15 +808,13 @@ msgstr[1] "Po %1 sekundách"
 msgstr[2] "Po %1 sekundách"
 
 #: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "after %1 minutes"
 msgid_plural "after %1 minutes"
-msgstr[0] "po %1 min"
-msgstr[1] "po %1 min"
-msgstr[2] "po %1 min"
+msgstr[0] "po %1 minúte"
+msgstr[1] "po %1 minútach"
+msgstr[2] "po %1 minútach"
 
 #: ui/RunScriptEdit.qml:33
 #, kde-format
