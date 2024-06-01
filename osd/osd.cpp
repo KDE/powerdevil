@@ -41,6 +41,10 @@ void Osd::showActionSelector(const QString &currentProfile)
             return;
         }
 
+        connect(m_osdActionSelector.get(), &QQuickView::activeChanged, this, [this]() {
+            Q_EMIT osdActiveChanged(m_osdActionSelector->isActive());
+        });
+
         auto rootObject = m_osdActionSelector->rootObject();
         connect(rootObject, SIGNAL(clicked(QString)), this, SLOT(onOsdActionSelected(QString)));
     }

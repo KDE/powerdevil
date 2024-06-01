@@ -34,6 +34,7 @@ public:
 
 Q_SIGNALS:
     void osdActionSelected(QString action);
+    void osdActiveChanged(const bool active);
 
 private Q_SLOTS:
     void onOsdActionSelected(const QString &action);
