@@ -466,10 +466,9 @@ void Core::onDeviceRemoved(const QString &udi)
 
     using namespace Solid;
     Device device(udi);
-    Battery *b = qobject_cast<Battery *>(device.asDeviceInterface(DeviceInterface::Battery));
-
-    disconnect(b, &Battery::chargePercentChanged, this, &Core::onBatteryChargePercentChanged);
-    disconnect(b, &Battery::chargeStateChanged, this, &Core::onBatteryChargeStateChanged);
+    // No need to undo the connections from onDeviceAdded,
+    // because the backend object has already been deleted.
+    Q_ASSERT(!device.isValid());
 
     qCDebug(POWERDEVIL) << "Battery with UDI" << udi << "has been removed";
 
