@@ -79,16 +79,21 @@ void KWinDisplayDetector::checkOutputs()
 
 void KWinDisplayDetector::scheduleSetConfig()
 {
+    if (m_setConfigOp) {
+        m_setConfigOutOfDate = true;
+    }
     m_setConfigTimer.start();
 }
 
 void KWinDisplayDetector::setConfig()
 {
     if (m_setConfigOp) {
-        m_setConfigOutOfDate = true;
         return;
     }
     m_setConfigOutOfDate = false;
+    for (const auto &[output, display] : m_displays) {
+        display->applyPendingBrightness();
+    }
     m_setConfigOp = new KScreen::SetConfigOperation(m_config);
     connect(m_setConfigOp, &KScreen::SetConfigOperation::finished, this, &KWinDisplayDetector::setConfigDone);
 }
@@ -104,6 +109,7 @@ void KWinDisplayDetector::setConfigDone()
 KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, KWinDisplayDetector *detector)
     : m_output(output)
     , m_detector(detector)
+    , m_desiredBrightness(m_output->brightness())
 {
     connect(m_output.get(), &KScreen::Output::brightnessChanged, this, &KWinDisplayBrightness::handleBrightnessChanged);
 }
@@ -125,11 +131,16 @@ int KWinDisplayBrightness::brightness() const
 
 void KWinDisplayBrightness::setBrightness(int brightness)
 {
-    m_output->setBrightness(brightness / 10'000.0);
+    m_desiredBrightness = brightness / 10'000.0;
     m_detector->scheduleSetConfig();
 }
 
 void KWinDisplayBrightness::handleBrightnessChanged()
 {
     Q_EMIT brightnessChanged(std::round(m_output->brightness() * 10'000), 10'000);
+}
+
+void KWinDisplayBrightness::applyPendingBrightness()
+{
+    m_output->setBrightness(m_desiredBrightness);
 }
