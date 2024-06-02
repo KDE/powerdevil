@@ -26,6 +26,7 @@ public:
     void setBrightness(int brightness) override;
 
     void applyPendingBrightness();
+    void setConfigOperationDone();
 
 private:
     void handleBrightnessChanged();
@@ -33,6 +34,7 @@ private:
     const KScreen::OutputPtr m_output;
     KWinDisplayDetector *const m_detector;
     double m_desiredBrightness;
+    bool m_inhibitChangeSignal = false;
 };
 
 class KWinDisplayDetector : public DisplayBrightnessDetector

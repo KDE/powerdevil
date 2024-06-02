@@ -103,6 +103,10 @@ void KWinDisplayDetector::setConfigDone()
     m_setConfigOp = nullptr;
     if (m_setConfigOutOfDate) {
         setConfig();
+    } else {
+        for (const auto &[output, display] : m_displays) {
+            display->setConfigOperationDone();
+        }
     }
 }
 
@@ -137,10 +141,23 @@ void KWinDisplayBrightness::setBrightness(int brightness)
 
 void KWinDisplayBrightness::handleBrightnessChanged()
 {
+    if (m_inhibitChangeSignal) {
+        return;
+    }
     Q_EMIT brightnessChanged(std::round(m_output->brightness() * 10'000), 10'000);
 }
 
 void KWinDisplayBrightness::applyPendingBrightness()
 {
+    // this will trigger handleBrightnessChanged
     m_output->setBrightness(m_desiredBrightness);
+    m_inhibitChangeSignal = true;
+}
+
+void KWinDisplayBrightness::setConfigOperationDone()
+{
+    m_inhibitChangeSignal = false;
+    if (m_desiredBrightness != std::round(m_output->brightness() * 10'000)) {
+        handleBrightnessChanged();
+    }
 }
