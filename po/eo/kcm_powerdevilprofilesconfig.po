@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-25 15:43+0200\n"
+"PO-Revision-Date: 2024-05-30 07:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -220,7 +220,7 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr "Ĉe kritika nivelo:"
+msgstr "Ĉe kri&tika nivelo:"
 
 #: ui/GlobalConfig.qml:156
 #, kde-format
@@ -318,7 +318,7 @@ msgstr "Aliaj Agordoj"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Media playback:"
-msgstr "Aŭdvidaĵa ludado:"
+msgstr "Aŭdvidaĵ-&media ludado:"
 
 #: ui/GlobalConfig.qml:353
 #, kde-format
@@ -549,7 +549,7 @@ msgstr "Ekrano kaj Brilo"
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr "Ŝanĝi ekranan brilon:"
+msgstr "Ŝanĝi &ekranan brilon:"
 
 #: ui/ProfileConfig.qml:359
 #, kde-format
