@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:40+0000\n"
+"POT-Creation-Date: 2024-06-03 00:40+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -195,24 +195,24 @@ msgstr "Smernice ove aktivnosti ne dopuštaju upravljanje napajanjem ekrana"
 msgid "Extra Battery Added"
 msgstr "Dodata dopunska baterija"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:676
+#: powerdevilcore.cpp:455 powerdevilcore.cpp:675
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:520
+#: powerdevilcore.cpp:519
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:523
+#: powerdevilcore.cpp:522
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Baterija u uređaju pri kraju (ostalo %1%)"
 
-#: powerdevilcore.cpp:525
+#: powerdevilcore.cpp:524
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -226,24 +226,24 @@ msgstr ""
 "Baterija u mišu („%1“) pri kraju je, te se uređaj svakog časa može sam "
 "ugasiti. Što pre zamenite ili dopunite bateriju."
 
-#: powerdevilcore.cpp:532
+#: powerdevilcore.cpp:531
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Baterija miša pri kraju (ostalo %1%)"
 
-#: powerdevilcore.cpp:536
+#: powerdevilcore.cpp:535
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Baterija tastature pri kraju (ostalo %1%)"
 
-#: powerdevilcore.cpp:540
+#: powerdevilcore.cpp:539
 #, fuzzy, kde-format
 #| msgctxt "The battery in an external device"
 #| msgid "Device Battery Low (%1% Remaining)"
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Baterija u uređaju pri kraju (ostalo %1%)"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:541
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is device name"
 #| msgid ""
@@ -257,7 +257,7 @@ msgstr ""
 "Baterija u mišu („%1“) pri kraju je, te se uređaj svakog časa može sam "
 "ugasiti. Što pre zamenite ili dopunite bateriju."
 
-#: powerdevilcore.cpp:584
+#: powerdevilcore.cpp:583
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
@@ -267,12 +267,12 @@ msgstr ""
 "Baterija je pri kraju. Ako želite da nastavite sa radom, ili utaknite "
 "računar u struju ili ga isključite i promenite bateriju."
 
-#: powerdevilcore.cpp:586
+#: powerdevilcore.cpp:585
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:605
+#: powerdevilcore.cpp:604
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
@@ -280,7 +280,7 @@ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Baterija je na kritičnom nivou, računar će biti ugašen za 60 sekundi."
 
 # >> @item:inlistbox
-#: powerdevilcore.cpp:607
+#: powerdevilcore.cpp:606
 #, fuzzy, kde-format
 #| msgid "Shut down"
 msgctxt ""
@@ -288,7 +288,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "ugasi"
 
-#: powerdevilcore.cpp:613
+#: powerdevilcore.cpp:612
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 60 "
@@ -301,7 +301,7 @@ msgstr ""
 "sekundi."
 
 # >> @item:inlistbox
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -310,28 +310,28 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "u hibernaciju"
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:620
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Baterija je na kritičnom nivou, računar će biti ugašen za 60 sekundi."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:622
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:628
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical, save your work as soon as possible."
 msgid "Please save your work."
 msgstr ""
 "Baterija je na kritičnom nivou, sačuvajte svoj rad što je prije moguće."
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:634
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Cancel timeout that will automatically suspend system because of low "
@@ -343,50 +343,50 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Odustani"
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:646
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Baterija pri kraju (ostalo %1%)"
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterija kritična (ostalo %1%)"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Strujni adapter utaknut"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Running on AC power"
 msgstr "Na zidnom napajanju"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:677
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "Strujni adapter je utaknut."
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:680
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Na baterijskom napajanju"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:680
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "Strujni adapter je izvučen."
 
-#: powerdevilcore.cpp:742
+#: powerdevilcore.cpp:741
 #, fuzzy, kde-format
 #| msgid "Charge Complete"
 msgid "Charging Complete"
 msgstr "Punjenje dovršeno"
 
-#: powerdevilcore.cpp:742
+#: powerdevilcore.cpp:741
 #, fuzzy, kde-format
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
