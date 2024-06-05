@@ -83,6 +83,10 @@ set_package_properties(LayerShellQt PROPERTIES
     TYPE REQUIRED
 )
 
+find_package(Qt6WaylandClient COMPONENTS Private)
+find_package(PlasmaWaylandProtocols 1.13 REQUIRED)
+find_package(Wayland REQUIRED COMPONENTS Client)
+
 include_directories (
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon

@@ -41,6 +41,9 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayM
     m_label = QString::fromLocal8Bit(displayInfo->model_name);
     m_ioPath = displayInfo->path;
     m_id = DDCutilDisplay::generatePathId(displayInfo->path);
+    // the EDID is always guaranteed to be at least 128 bytes long
+    static_assert(sizeof(DDCA_Display_Info::edid_bytes) == 128);
+    std::ranges::copy(std::span(displayInfo->edid_bytes, 128), std::back_inserter(m_edidData));
 
     ddca_free_display_info(displayInfo);
 
@@ -224,6 +227,15 @@ void DDCutilDisplay::onTimeout()
 {
 #ifdef WITH_DDCUTIL
     Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
+#endif
+}
+
+std::optional<QByteArray> DDCutilDisplay::edidData() const
+{
+#ifdef WITH_DDCUTIL
+    return m_edidData;
+#else
+    return std::nullopt;
 #endif
 }
 

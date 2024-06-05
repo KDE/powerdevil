@@ -16,4 +16,14 @@ DisplayBrightness::DisplayBrightness(QObject *parent)
 {
 }
 
+bool DisplayBrightness::isInternal() const
+{
+    return false;
+}
+
+std::optional<QByteArray> DisplayBrightness::edidData() const
+{
+    return std::nullopt;
+}
+
 #include "moc_displaybrightness.cpp"

@@ -51,6 +51,17 @@ public:
     virtual int brightness() const = 0;
     virtual void setBrightness(int brightness) = 0;
 
+    /**
+     * @returns if this object controls the brightness of an internal panel
+     */
+    virtual bool isInternal() const;
+
+    /**
+     * @returns the EDID data associated with the display this object controls the brightness of
+     *          or std::nullopt, if that's unknown
+     */
+    virtual std::optional<QByteArray> edidData() const;
+
 Q_SIGNALS:
     void externalBrightnessChangeObserved(DisplayBrightness *self, int brightness);
 };
