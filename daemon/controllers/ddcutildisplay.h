@@ -48,6 +48,7 @@ public:
     bool supportsBrightness() const;
     void resumeWorker();
     void pauseWorker();
+    std::optional<QByteArray> edidData() const override;
 
 Q_SIGNALS:
     void supportsBrightnessChanged(bool supportsBrightness);
@@ -71,6 +72,7 @@ private:
     int m_brightness;
     int m_maxBrightness;
     bool m_supportsBrightness;
+    QByteArray m_edidData;
 };
 
 class BrightnessWorker : public QObject

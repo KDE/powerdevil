@@ -242,4 +242,9 @@ void BacklightBrightness::setBrightness(int newBrightness)
     job->start();
 }
 
+bool BacklightBrightness::isInternal() const
+{
+    return true;
+}
+
 #include "moc_backlightbrightness.cpp"

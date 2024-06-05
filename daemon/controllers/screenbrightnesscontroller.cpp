@@ -16,12 +16,14 @@
 #include "ddcutildetector.h"
 #include "displaybrightness.h"
 #include "kwinbrightness.h"
+#include "externalbrightnesscontrol.h"
 
 #include <brightnessosdwidget.h>
 #include <powerdevil_debug.h>
 
 #include <QDebug>
 #include <QPropertyAnimation>
+#include <ranges>
 
 #include <algorithm> // std::ranges::find_if
 
@@ -44,6 +46,11 @@ ScreenBrightnessController::ScreenBrightnessController()
               .displayIdPrefix = "ddc:",
           },
       })
+    , m_externalBrightnessController(std::make_unique<ExternalBrightnessController>())
+{
+}
+
+ScreenBrightnessController::~ScreenBrightnessController()
 {
 }
 
@@ -98,6 +105,8 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     QStringList addedDisplayIds;
     QStringList brightnessChangedDisplayIds;
 
+    QList<DisplayBrightness *> forExternalControl;
+
     // for backwards compatibility with legacy API clients, set the same brightness to all displays
     // of the first detector - e.g. to only the backlight display, or to all external DDC monitors
     DisplayBrightnessDetector *firstSupportedDetector = nullptr;
@@ -114,7 +123,6 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
         }
         for (DisplayBrightness *display : std::as_const(detectorDisplays)) {
             const QString displayId = QString::fromLocal8Bit(detectorInfo.displayIdPrefix) + display->id();
-            m_sortedDisplayIds.append(displayId);
             bool replacing = false;
 
             if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd()) {
@@ -131,6 +139,11 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
                 }
             }
             if (replacing || !m_displaysById.contains(displayId)) {
+                if (m_externalBrightnessController->isActive() && !dynamic_cast<KWinDisplayDetector *>(detectorInfo.detector)) {
+                    // control over this display should be given to KWin
+                    forExternalControl.push_back(display);
+                    continue;
+                }
                 connect(display, &QObject::destroyed, this, &ScreenBrightnessController::onDisplayDestroyed);
                 connect(display, &DisplayBrightness::externalBrightnessChangeObserved, this, &ScreenBrightnessController::onExternalBrightnessChangeObserved);
 
@@ -145,12 +158,15 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
                     addedDisplayIds.append(displayId);
                 }
             }
+            m_sortedDisplayIds.append(displayId);
 
             if (detectorInfo.detector == firstSupportedDetector) {
                 legacyDisplayIds.append(displayId);
             }
         }
     }
+
+    m_externalBrightnessController->setDisplays(forExternalControl);
 
     // remove displays that were in the list before, but disappeared after the update
     for (const QString &displayId : m_displaysById.keys()) {
