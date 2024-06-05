@@ -54,12 +54,12 @@ void KWinDisplayDetector::checkOutputs()
             return output == other.get();
         });
     });
-    // remove all that aren't HDR (anymore)
+    // remove all that aren't HDR or enabled (anymore)
     changed |= std::erase_if(m_displays, [](const auto &pair) {
-        return !pair.first->isHdrEnabled();
+        return !pair.first->isHdrEnabled() || !pair.first->isEnabled();
     });
     for (const auto &output : outputs) {
-        if (!output->isHdrEnabled()) {
+        if (!output->isHdrEnabled() || !output->isEnabled()) {
             continue;
         }
         auto &brightness = m_displays[output.get()];
