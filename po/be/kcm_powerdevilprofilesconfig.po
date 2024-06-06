@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2024-05-29 17:09\n"
+"PO-Revision-Date: 2024-06-05 07:06\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -756,7 +756,7 @@ msgstr "Абраць умовы выканання…"
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr "Абраць умовы выканання для загаду скрыпта"
+msgstr "Абраць умовы выканання для каманды скрыпта"
 
 #: ui/ProfileConfig.qml:677
 #, kde-format
@@ -792,7 +792,7 @@ msgstr "Пры &ўваходзе ў стан \"%1\":"
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
-msgstr "Загад скрыпта пры ўваходзе ў стан \"%1\""
+msgstr "Каманда скрыпта пры ўваходзе ў стан \"%1\""
 
 #: ui/ProfileConfig.qml:771
 #, kde-format
@@ -806,7 +806,7 @@ msgstr "Пры выхадзе са стану \"%1\":"
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
-msgstr "Загад скрыпта пры выхадзе са стану \"%1\""
+msgstr "Каманда скрыпта пры выхадзе са стану \"%1\""
 
 #: ui/ProfileConfig.qml:806
 #, kde-format
@@ -818,13 +818,13 @@ msgstr "П&асля перыяду бяздзейнасці:"
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr "Загад скрыпта пасля перыяду бяздзейнасці"
+msgstr "Каманда скрыпта пасля перыяду бяздзейнасці"
 
 #: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr "Перыяд бяздзейнасці, пасля якога будзе выкананы загад скрыпта"
+msgstr "Перыяд бяздзейнасці, пасля якога будзе выкананая каманда скрыпта"
 
 #: ui/ProfileConfig.qml:842
 #, kde-format
@@ -855,7 +855,7 @@ msgstr[3] "праз %1 хвіліны"
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
-msgstr "Увесці загад або абраць файл…"
+msgstr ""
 
 #: ui/RunScriptEdit.qml:51
 #, kde-format

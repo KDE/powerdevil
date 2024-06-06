@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -116,6 +116,21 @@ msgstr "Μείωση λαμπρότητας οθόνης"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Εναλλαγή φωτισμού πληκτρολογίου"
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Locking Screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Κλείδωμα οθόνης"
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -694,9 +709,6 @@ msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμέν�
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "Νάρκη"
-
-#~ msgid "Locking Screen"
-#~ msgstr "Κλείδωμα οθόνης"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "Κλείδωμα της οθόνης"

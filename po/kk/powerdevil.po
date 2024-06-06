@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2013-06-21 05:51+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -132,6 +132,19 @@ msgstr "Пернетақта жарықтығын азайту"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Перенетақта жарықтық күйін ауыстыру"
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Экранды бұғаттау"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr ""
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -674,11 +687,6 @@ msgstr "Батареяңыз әбден толды."
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "Ұйықтау"
-
-#, fuzzy
-#~| msgid "Lock screen"
-#~ msgid "Locking Screen"
-#~ msgstr "Экранды бұғаттау"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "Экран бұғатталған"

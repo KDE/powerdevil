@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2023-11-11 13:56+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -107,6 +107,20 @@ msgstr "Zmniejsz jasność klawiatury"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Przełącz podświetlenie klawiatury"
+
+#: controllers/backlightbrightness.cpp:162
+#, kde-format
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr ""
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format

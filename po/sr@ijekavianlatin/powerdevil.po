@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -118,6 +118,20 @@ msgstr "Smanji osvjetljaj tastature"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Obrni osvetljenje tastature"
+
+#: controllers/backlightbrightness.cpp:162
+#, kde-format
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr ""
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, fuzzy, kde-format

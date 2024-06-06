@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2022-11-28 16:25+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -117,6 +117,20 @@ msgstr "Diminuir o Brilho do Teclado"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Comutar a Luz Traseira do Teclado"
+
+#: controllers/backlightbrightness.cpp:162
+#, kde-format
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr ""
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format

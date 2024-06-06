@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2024-05-07 09:37+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -112,6 +112,20 @@ msgstr "Snížit jas klávesnice"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Přepnout podsvícení klávesnice"
+
+#: controllers/backlightbrightness.cpp:162
+#, kde-format
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr ""
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format

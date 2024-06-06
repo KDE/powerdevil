@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -107,6 +107,18 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
+msgstr ""
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "തിരശ്ശീല പൂട്ടുക"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
 msgstr ""
 
 #: powerdevilapp.cpp:53
@@ -459,10 +471,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Suspend"
 #~ msgstr "റാമിലാക്കുക"
-
-#, fuzzy
-#~ msgid "Locking Screen"
-#~ msgstr "തിരശ്ശീല പൂട്ടുക"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "തിരശ്ശീല പൂട്ടിക്കൊണ്ടിരിയ്ക്കുന്നു"

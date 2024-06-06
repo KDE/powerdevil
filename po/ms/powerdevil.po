@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2010-07-23 21:16+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -109,6 +109,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
+msgstr ""
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Kunci Skrin"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
 msgstr ""
 
 #: powerdevilapp.cpp:53
@@ -376,11 +389,6 @@ msgstr ""
 #~| msgid "New Profile"
 #~ msgid "On Profile Load"
 #~ msgstr "Profail Baru"
-
-#, fuzzy
-#~| msgid "Lock Screen"
-#~ msgid "Locking Screen"
-#~ msgstr "Kunci Skrin"
 
 #, fuzzy
 #~| msgid "A Power Management tool for KDE4"

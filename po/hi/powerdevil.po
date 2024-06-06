@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde4 - powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2021-07-10 10:57+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -111,6 +111,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
+msgstr ""
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "स्क्रीन पर ताला लगाएँ"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
 msgstr ""
 
 #: powerdevilapp.cpp:53
@@ -502,11 +515,6 @@ msgstr ""
 #~| msgid "Suspend to RAM"
 #~ msgid "Suspend"
 #~ msgstr "रैम में सस्पेंड करें"
-
-#, fuzzy
-#~| msgid "Lock Screen"
-#~ msgid "Locking Screen"
-#~ msgstr "स्क्रीन पर ताला लगाएँ"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "स्क्रीन तालाबंद हो रहा है"

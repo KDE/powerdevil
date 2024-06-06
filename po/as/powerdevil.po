@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2009-01-15 15:43+0530\n"
 "Last-Translator: Amitakhya Phukan <অমিতাক্ষ ফুকন>\n"
 "Language-Team: Assamese <fedora-trans-as@redhat.com>\n"
@@ -107,6 +107,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
+msgstr ""
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "পৰ্দ্দা বন্ধ কৰক"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
 msgstr ""
 
 #: powerdevilapp.cpp:53
@@ -393,11 +406,6 @@ msgstr ""
 #~| msgid "The power adaptor has been plugged in"
 #~ msgid "All pending suspend actions have been canceled."
 #~ msgstr "বিদ্যুৎ সংযোগৰ এডাপ্টৰ সংযুক্ত কৰা হৈছে"
-
-#, fuzzy
-#~| msgid "Lock Screen"
-#~ msgid "Locking Screen"
-#~ msgstr "পৰ্দ্দা বন্ধ কৰক"
 
 #, fuzzy
 #~| msgid "The power adaptor has been plugged in"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2023-12-21 19:05+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -111,6 +111,21 @@ msgstr "Helligkeit der Tastatur-Hintergrundbeleuchtung verringern"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Hintergrundbeleuchtung der Tastatur umschalten"
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Bildschirm sperren"
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -660,11 +675,6 @@ msgstr "Der Akku ist nun vollständig geladen."
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "Tiefschlaf"
-
-#, fuzzy
-#~| msgid "Lock screen"
-#~ msgid "Locking Screen"
-#~ msgstr "Bildschirm sperren"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "Der Bildschirm wird gesperrt"

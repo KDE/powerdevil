@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2011-01-05 19:44+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -112,6 +112,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
+msgstr ""
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Eclawer waitroûle"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
 msgstr ""
 
 #: powerdevilapp.cpp:53
@@ -561,11 +574,6 @@ msgstr ""
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "Fordoirmi"
-
-#, fuzzy
-#~| msgid "Lock screen"
-#~ msgid "Locking Screen"
-#~ msgstr "Eclawer waitroûle"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "Li waitroûle est a l' eclawaedje"

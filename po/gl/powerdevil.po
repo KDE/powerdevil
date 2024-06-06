@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2023-10-30 18:23+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -113,6 +113,21 @@ msgstr "Diminuír o brillo do teclado"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Conmutar a luz do teclado"
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Trancar a pantalla"
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -641,11 +656,6 @@ msgstr "A batería ten a carga completa."
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "Hibernar"
-
-#, fuzzy
-#~| msgid "Lock screen"
-#~ msgid "Locking Screen"
-#~ msgstr "Trancar a pantalla"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "A pantalla está a ser trancada"

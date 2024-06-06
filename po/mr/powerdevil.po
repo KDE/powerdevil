@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2014-10-28 10:28+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -119,6 +119,19 @@ msgstr "कळफलक प्रखरता कमी करा"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "कळफलक मागील प्रकाश चालू/बंद करा"
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+#| msgid "Lock Screen"
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "लॉक स्क्रिन"
+
+#: controllers/kwinbrightness.cpp:132
+#, kde-format
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr ""
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -639,11 +652,6 @@ msgstr "तुमची बॅटरी पूर्ण चार्ज झा�
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "हायबरनेट"
-
-#, fuzzy
-#~| msgid "Lock Screen"
-#~ msgid "Locking Screen"
-#~ msgstr "लॉक स्क्रिन"
 
 #, fuzzy
 #~| msgid "The power adaptor has been plugged in"

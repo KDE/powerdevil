@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 00:40+0000\n"
+"POT-Creation-Date: 2024-06-06 00:40+0000\n"
 "PO-Revision-Date: 2024-02-18 10:10+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -121,6 +121,20 @@ msgstr "Уменьшить яркость подсветки клавиатур�
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Сменить состояние подсветки клавиатуры"
+
+#: controllers/backlightbrightness.cpp:162
+#, fuzzy, kde-format
+msgctxt "Display label"
+msgid "Built-in Screen"
+msgstr "Заблокировать экран"
+
+#: controllers/kwinbrightness.cpp:132
+#, fuzzy, kde-format
+#| msgctxt "%1 is vendor name, %2 is product name"
+#| msgid "%1 %2"
+msgctxt "Display label: vendor + product name"
+msgid "%1 %2"
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:53
 #, kde-format
@@ -671,10 +685,6 @@ msgstr "Батарея теперь полностью заряжена"
 #~ msgctxt "Global shortcut"
 #~ msgid "Hibernate"
 #~ msgstr "Спящий режим"
-
-#, fuzzy
-#~ msgid "Locking Screen"
-#~ msgstr "Заблокировать экран"
 
 #~ msgid "The screen is being locked"
 #~ msgstr "Экран блокируется"
