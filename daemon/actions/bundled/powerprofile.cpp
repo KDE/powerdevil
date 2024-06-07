@@ -87,7 +87,8 @@ bool PowerProfile::loadAction(const PowerDevil::ProfileSettings &profileSettings
 
 bool PowerProfile::isSupported()
 {
-    return QDBusConnection::systemBus().interface()->activatableServiceNames().value().contains(ppdName);
+    return QDBusConnection::systemBus().interface()->activatableServiceNames().value().contains(ppdName)
+        || QDBusConnection::systemBus().interface()->isServiceRegistered(ppdName).value();
 }
 
 QStringList PowerProfile::profileChoices() const
