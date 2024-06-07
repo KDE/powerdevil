@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2013, 2019, 2020, 2021, 2023.
+# g.sora <g.sora@tiscali.it>, 2010, 2011, 2012, 2013, 2019, 2020, 2021, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:40+0000\n"
-"PO-Revision-Date: 2023-11-02 12:34+0100\n"
+"PO-Revision-Date: 2024-06-06 10:19+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -109,16 +109,13 @@ msgid "Toggle Keyboard Backlight"
 msgstr "Commuta luce de retro (Backlight) de claviero"
 
 #: controllers/backlightbrightness.cpp:162
-#, fuzzy, kde-format
-#| msgid "Locking Screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "Blocante schermo"
+msgstr "Schermo includite"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
