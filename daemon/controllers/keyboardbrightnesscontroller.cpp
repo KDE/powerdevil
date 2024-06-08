@@ -49,6 +49,11 @@ KeyboardBrightnessController::KeyboardBrightnessController()
 
 bool KeyboardBrightnessController::isSupported() const
 {
+    if (!m_isSupported && m_kbdBacklight->isValid()) {
+        QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
+        rep.waitForFinished();
+        m_isSupported = rep.isValid();
+    }
     return m_isSupported;
 }
 

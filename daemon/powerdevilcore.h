@@ -44,6 +44,7 @@ namespace PowerDevil
 {
 class Action;
 class GlobalSettings;
+class ServicesWatcher;
 
 struct WakeupInfo {
     QString service;

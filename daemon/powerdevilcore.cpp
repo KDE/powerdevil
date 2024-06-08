@@ -12,6 +12,7 @@
 #include "powerdevilmigrateconfig.h"
 #include "powerdevilpolicyagent.h"
 #include "powerdevilpowermanagement.h"
+#include "serviceswatcher.h"
 
 #include <PowerDevilActivitySettings.h>
 #include <PowerDevilGlobalSettings.h>
@@ -46,6 +47,8 @@
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
 #endif
+
+using namespace Qt::StringLiterals;
 
 namespace PowerDevil
 {
@@ -209,21 +212,40 @@ void Core::initActions()
 {
     const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
     for (const KPluginMetaData &data : offers) {
-        if (auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, this).plugin) {
-            m_actionPool.insert(data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), plugin);
+        auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, this).plugin;
+        if (!plugin) {
+            continue;
         }
-    }
 
-    // Verify support
-    QHash<QString, Action *>::iterator i = m_actionPool.begin();
-    while (i != m_actionPool.end()) {
-        Action *action = i.value();
-        if (!action->isSupported()) {
-            i = m_actionPool.erase(i);
-            action->deleteLater();
-        } else {
-            ++i;
+        const QString id = data.value(u"X-KDE-PowerDevil-Action-ID"_s);
+        // Verify support
+        if (plugin->isSupported()) {
+            m_actionPool.insert(id, plugin);
+            continue;
         }
+        plugin->deleteLater();
+
+        const QStringList services = data.value(u"X-KDE-PowerDevil-Action-WatchedDBusServices"_s, QStringList());
+        if (services.empty()) {
+            continue;
+        }
+
+        auto watcher = std::make_shared<ServicesWatcher>(id, services, this);
+        auto initAgain = [this, watcher] {
+            const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(u"powerdevil/action"_s, [watcher = watcher.get()](const KPluginMetaData &data) {
+                return data.value(u"X-KDE-PowerDevil-Action-ID"_s) == watcher->action();
+            });
+            Q_ASSERT_X(!offers.empty(), Q_FUNC_INFO, qPrintable(watcher->action()));
+            auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(offers[0], this).plugin;
+            Q_ASSERT_X(plugin, Q_FUNC_INFO, qPrintable(watcher->action()));
+            Q_ASSERT_X(!m_actionPool.contains(watcher->action()), Q_FUNC_INFO, qPrintable(watcher->action()));
+            if (plugin->isSupported()) {
+                m_actionPool.insert(watcher->action(), plugin);
+            } else {
+                plugin->deleteLater();
+            }
+        };
+        connect(watcher.get(), &ServicesWatcher::allServicesOnline, this, initAgain, Qt::SingleShotConnection);
     }
 
     // Register DBus objects

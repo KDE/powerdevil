@@ -20,6 +20,7 @@ set(powerdevilcore_SRCS
     powerdevilsettingsdefaults.cpp
     brightnessosdwidget.cpp
     kwinkscreenhelpereffect.cpp
+    serviceswatcher.cpp
     upowerdevice.cpp
     controllers/lidcontroller.cpp
     controllers/batterycontroller.cpp

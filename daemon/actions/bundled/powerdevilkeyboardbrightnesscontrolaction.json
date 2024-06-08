@@ -101,5 +101,8 @@
     },
     "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
     "X-KDE-PowerDevil-Action-ID": "KeyboardBrightnessControl",
-    "X-KDE-PowerDevil-Action-RegistersDBusInterface": true
+    "X-KDE-PowerDevil-Action-RegistersDBusInterface": true,
+    "X-KDE-PowerDevil-Action-WatchedDBusServices": [
+        "org.freedesktop.UPower"
+    ]
 }

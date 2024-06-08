@@ -45,7 +45,7 @@ private:
     int m_maxBrightness;
     int m_cachedBrightness;
     int m_brightnessBeforeTogglingOff;
-    bool m_isSupported = false;
+    mutable bool m_isSupported = false;
 
     PowerDevil::KeyboardBrightnessLogic m_keyboardBrightnessLogic;
 
