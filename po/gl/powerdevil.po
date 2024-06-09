@@ -6,22 +6,22 @@
 # Marce Villarino <mvillarino@kde-espana.es>, 2009, 2011.
 # Marce Villarino <mvillarino@kde-espana.es>, 2011, 2012, 2013.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2015, 2016.
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:40+0000\n"
-"PO-Revision-Date: 2023-10-30 18:23+0100\n"
+"PO-Revision-Date: 2024-06-08 11:32+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -115,16 +115,13 @@ msgid "Toggle Keyboard Backlight"
 msgstr "Conmutar a luz do teclado"
 
 #: controllers/backlightbrightness.cpp:162
-#, fuzzy, kde-format
-#| msgid "Lock screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "Trancar a pantalla"
+msgstr "Pantalla incluída"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
