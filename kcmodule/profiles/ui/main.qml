@@ -55,6 +55,9 @@ KCM.AbstractKCM {
             Layout.fillWidth: true
             visible: kcm.supportsBatteryProfiles
 
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+
             property var selectedProfile: kcm.currentProfile || "AC"
             property bool allowAutoSwitchProfile: true // by binding to kcm.currentProfile
 
