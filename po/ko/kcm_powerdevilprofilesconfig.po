@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:40+0000\n"
+"POT-Creation-Date: 2024-06-11 00:40+0000\n"
 "PO-Revision-Date: 2024-02-06 00:36+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -362,17 +362,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "전원 관리 설정을 불러올 수 없음"
 
-#: ui/main.qml:62
+#: ui/main.qml:65
 #, kde-format
 msgid "On AC Power"
 msgstr "어댑터 사용 시"
 
-#: ui/main.qml:63
+#: ui/main.qml:66
 #, kde-format
 msgid "On Battery"
 msgstr "배터리 사용 시"
 
-#: ui/main.qml:64
+#: ui/main.qml:67
 #, kde-format
 msgid "On Low Battery"
 msgstr "배터리 부족 시"

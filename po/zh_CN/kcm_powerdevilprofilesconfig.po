@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:40+0000\n"
+"POT-Creation-Date: 2024-06-11 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -361,17 +361,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "电源管理设置无法加载"
 
-#: ui/main.qml:62
+#: ui/main.qml:65
 #, kde-format
 msgid "On AC Power"
 msgstr "交流供电"
 
-#: ui/main.qml:63
+#: ui/main.qml:66
 #, kde-format
 msgid "On Battery"
 msgstr "电池供电"
 
-#: ui/main.qml:64
+#: ui/main.qml:67
 #, kde-format
 msgid "On Low Battery"
 msgstr "电池电量低"

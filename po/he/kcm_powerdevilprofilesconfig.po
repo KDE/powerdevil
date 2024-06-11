@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:40+0000\n"
+"POT-Creation-Date: 2024-06-11 00:40+0000\n"
 "PO-Revision-Date: 2024-05-24 05:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -392,17 +392,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "לא ניתן לטעון את הגדרות ניהול צריכת החשמל"
 
-#: ui/main.qml:62
+#: ui/main.qml:65
 #, kde-format
 msgid "On AC Power"
 msgstr "מחובר למטען"
 
-#: ui/main.qml:63
+#: ui/main.qml:66
 #, kde-format
 msgid "On Battery"
 msgstr "פועל על סוללה"
 
-#: ui/main.qml:64
+#: ui/main.qml:67
 #, kde-format
 msgid "On Low Battery"
 msgstr "כשהסוללה חלשה"

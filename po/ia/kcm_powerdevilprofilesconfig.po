@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-24 00:40+0000\n"
+"POT-Creation-Date: 2024-06-11 00:40+0000\n"
 "PO-Revision-Date: 2024-06-06 10:18+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -380,17 +380,17 @@ msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Preferentias de Gestion de Energia non poteva esser cargate"
 
-#: ui/main.qml:62
+#: ui/main.qml:65
 #, kde-format
 msgid "On AC Power"
 msgstr "Sur alimentation AC"
 
-#: ui/main.qml:63
+#: ui/main.qml:66
 #, kde-format
 msgid "On Battery"
 msgstr "Sur batteria"
 
-#: ui/main.qml:64
+#: ui/main.qml:67
 #, kde-format
 msgid "On Low Battery"
 msgstr "Sur batteria basse"

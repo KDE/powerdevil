@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:40+0000\n"
-"PO-Revision-Date: 2024-02-25 18:12+0000\n"
+"PO-Revision-Date: 2024-06-09 15:16+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -111,16 +111,13 @@ msgid "Toggle Keyboard Backlight"
 msgstr "Comută iluminarea tastaturii"
 
 #: controllers/backlightbrightness.cpp:162
-#, fuzzy, kde-format
-#| msgid "Lock screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "Blochează ecranul"
+msgstr "Ecran încorporat"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
