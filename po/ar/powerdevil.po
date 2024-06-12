@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-06 00:40+0000\n"
-"PO-Revision-Date: 2024-02-10 21:13+0400\n"
+"PO-Revision-Date: 2024-06-08 11:32+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -112,17 +113,13 @@ msgid "Toggle Keyboard Backlight"
 msgstr "بدّل الإضاءة الخلفيّة للوحة المفاتيح"
 
 #: controllers/backlightbrightness.cpp:162
-#, fuzzy, kde-format
-#| msgctxt "Display label"
-#| msgid "Built-in Screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "الشاشة المُدْمَجة"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "Display label: vendor + product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
