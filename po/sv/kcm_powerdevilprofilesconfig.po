@@ -2,19 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Stefan Asserhall <stefan.asserhall@gmail.com>, 2010, 2011, 2020.
+# SPDX-FileCopyrightText: 2024 Stefan Asserhäll <stefan.asserhall@bredband.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-24 00:40+0000\n"
-"PO-Revision-Date: 2020-07-06 19:04+0200\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
+"PO-Revision-Date: 2024-06-14 21:56+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.04.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerKCM.cpp:451
@@ -162,11 +163,10 @@ msgid "&Low level:"
 msgstr ""
 
 #: ui/GlobalConfig.qml:73
-#, fuzzy, kde-format
-#| msgid "On Low Battery"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
-msgstr "Använder batteri med låg laddning"
+msgstr "Låg batterinivå"
 
 #: ui/GlobalConfig.qml:98
 #, kde-format
@@ -319,11 +319,10 @@ msgid "Related pages:"
 msgstr ""
 
 #: ui/GlobalConfig.qml:381
-#, fuzzy, kde-format
-#| msgid "Import Power Management Profiles"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Importera strömhanteringsprofiler"
+msgstr "Underrättelser: strömhantering"
 
 #: ui/GlobalConfig.qml:383
 #, kde-format
