@@ -15,6 +15,8 @@
 
 #include <KConfigGroup>
 
+using namespace Qt::StringLiterals;
+
 namespace PowerDevil
 {
 FdoConnector::FdoConnector(PowerDevil::Core *parent)
@@ -26,11 +28,11 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
 
     QDBusConnection c = QDBusConnection::sessionBus();
 
-    c.registerService("org.freedesktop.PowerManagement");
-    c.registerObject("/org/freedesktop/PowerManagement", this);
+    c.registerService(u"org.freedesktop.PowerManagement"_s);
+    c.registerObject(u"/org/freedesktop/PowerManagement"_s, this);
 
-    c.registerService("org.freedesktop.PowerManagement.Inhibit");
-    c.registerObject("/org/freedesktop/PowerManagement/Inhibit", this);
+    c.registerService(u"org.freedesktop.PowerManagement.Inhibit"_s);
+    c.registerObject(u"/org/freedesktop/PowerManagement/Inhibit"_s, this);
 
     connect(m_core->batteryController(), &BatteryController::acAdapterStateChanged, this, &FdoConnector::onAcAdapterStateChanged);
     connect(PolicyAgent::instance(),
@@ -112,11 +114,11 @@ void FdoConnector::onUnavailablePoliciesChanged(PowerDevil::PolicyAgent::Require
 
 void FdoConnector::triggerSuspendSession(PowerButtonAction action)
 {
-    PowerDevil::Action *helperAction = m_core->action("SuspendSession");
+    PowerDevil::Action *helperAction = m_core->action(u"SuspendSession"_s);
     if (helperAction) {
         QVariantMap args;
-        args["Type"] = qToUnderlying(action);
-        args["Explicit"] = true;
+        args[u"Type"_s] = qToUnderlying(action);
+        args[u"Explicit"_s] = true;
         helperAction->trigger(args);
     }
 }

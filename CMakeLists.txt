@@ -7,7 +7,6 @@ set(PROJECT_VERSION_MAJOR 6)
 set(PROJECT_DEP_VERSION "6.0.90")
 set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "6.2.0")
-set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -69,9 +68,6 @@ include_directories (
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/daemon
 )
-
-add_definitions(-DQT_NO_KEYWORDS)
-add_definitions(-DQT_NO_FOREACH)
 
 ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX POWERDEVIL
                   VERSION_HEADER "${CMAKE_BINARY_DIR}/powerdevil_version.h"

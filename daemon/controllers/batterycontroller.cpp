@@ -13,29 +13,31 @@
 
 #include <QDBusConnection>
 
-#define UPOWER_SERVICE "org.freedesktop.UPower"
-#define UPOWER_PATH "/org/freedesktop/UPower"
-#define UPOWER_IFACE "org.freedesktop.UPower"
-#define UPOWER_IFACE_DEVICE "org.freedesktop.UPower.Device"
+using namespace Qt::StringLiterals;
+
+inline constexpr QLatin1StringView UPOWER_SERVICE("org.freedesktop.UPower");
+inline constexpr QLatin1StringView UPOWER_PATH("/org/freedesktop/UPower");
+inline constexpr QLatin1StringView UPOWER_IFACE("org.freedesktop.UPower");
+inline constexpr QLatin1StringView UPOWER_IFACE_DEVICE("org.freedesktop.UPower.Device");
 
 BatteryController::BatteryController()
     : QObject()
 {
     QDBusConnection::systemBus().connect(UPOWER_SERVICE,
                                          UPOWER_PATH,
-                                         "org.freedesktop.DBus.Properties",
-                                         "PropertiesChanged",
+                                         u"org.freedesktop.DBus.Properties"_s,
+                                         u"PropertiesChanged"_s,
                                          this,
                                          SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
 
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceAdded", this, SLOT(slotDeviceAdded(QDBusObjectPath)));
-    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, "DeviceRemoved", this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, u"DeviceAdded"_s, this, SLOT(slotDeviceAdded(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(UPOWER_SERVICE, UPOWER_PATH, UPOWER_IFACE, u"DeviceRemoved"_s, this, SLOT(slotDeviceRemoved(QDBusObjectPath)));
 
-    m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
+    m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, u"/org/freedesktop/UPower"_s, QDBusConnection::systemBus(), this);
 
     m_onBattery = m_upowerInterface->onBattery();
 
-    QDBusReply<QDBusObjectPath> reply = m_upowerInterface->call("GetDisplayDevice");
+    QDBusReply<QDBusObjectPath> reply = m_upowerInterface->call(u"GetDisplayDevice"_s);
     if (reply.isValid()) {
         const QString path = reply.value().path();
         if (!path.isEmpty() && path != QStringLiteral("/")) {

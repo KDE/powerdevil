@@ -31,6 +31,7 @@
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DPMS, "powerdevildpmsaction.json")
 
 using namespace std::chrono_literals;
+using namespace Qt::StringLiterals;
 
 // always make sure to allow meaningful interaction and for lock screens, time for authentication methods
 static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenUnlocked = 30s;
@@ -140,13 +141,13 @@ void DPMS::turnOffOnIdleTimeout()
 
 void DPMS::setKeyboardBrightnessHelper(int brightness)
 {
-    trigger({{"KeyboardBrightness", QVariant::fromValue(brightness)}});
+    trigger({{u"KeyboardBrightness"_s, QVariant::fromValue(brightness)}});
 }
 
 void DPMS::triggerImpl(const QVariantMap &args)
 {
     QString type = args.value(QStringLiteral("Type")).toString();
-    qCDebug(POWERDEVIL) << "DPMS: triggered from externally, type:" << (type.isEmpty() ? "TurnOn" : type);
+    qCDebug(POWERDEVIL) << "DPMS: triggered from externally, type:" << (type.isEmpty() ? u"TurnOn"_s : type);
 
     QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
     if (args.contains(KEYBOARD_BRIGHTNESS)) {
@@ -157,7 +158,7 @@ void DPMS::triggerImpl(const QVariantMap &args)
     if (!isSupported()) {
         return;
     }
-    if (m_lockBeforeTurnOff && (type == "TurnOff" || type == "ToggleOnOff")) {
+    if (m_lockBeforeTurnOff && (type == u"TurnOff" || type == u"ToggleOnOff")) {
         lockScreen();
     }
     KScreen::Dpms::Mode level = KScreen::Dpms::Mode::On;
@@ -263,14 +264,15 @@ void DPMS::onResumeFromSuspend()
 static std::chrono::milliseconds dimAnimationTime()
 {
     // See kscreen.kcfg from kwin
-    return std::chrono::milliseconds(KSharedConfig::openConfig("kwinrc")->group(QStringLiteral("Effect-Kscreen")).readEntry("Duration", 250));
+    return std::chrono::milliseconds(KSharedConfig::openConfig(u"kwinrc"_s)->group(u"Effect-Kscreen"_s).readEntry("Duration", 250));
 }
 
 void DPMS::lockScreen()
 {
     // We need to delay locking until the screen has dimmed, otherwise it looks all clunky
     QTimer::singleShot(dimAnimationTime(), this, [] {
-        const QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver", "org.freedesktop.ScreenSaver", "Lock");
+        const QDBusMessage msg =
+            QDBusMessage::createMethodCall(u"org.freedesktop.ScreenSaver"_s, u"/ScreenSaver"_s, u"org.freedesktop.ScreenSaver"_s, u"Lock"_s);
         QDBusConnection::sessionBus().asyncCall(msg);
     });
 }

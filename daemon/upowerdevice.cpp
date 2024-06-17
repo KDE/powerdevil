@@ -11,8 +11,8 @@
 #include <QDBusMessage>
 #include <QDBusPendingReply>
 
-#define UPOWER_SERVICE "org.freedesktop.UPower"
-#define UPOWER_IFACE_DEVICE "org.freedesktop.UPower.Device"
+inline constexpr QLatin1StringView UPOWER_SERVICE("org.freedesktop.UPower");
+inline constexpr QLatin1StringView UPOWER_IFACE_DEVICE("org.freedesktop.UPower.Device");
 
 UPowerDevice::UPowerDevice(const QString &dbusObjectPath)
 {
@@ -25,7 +25,7 @@ UPowerDevice::UPowerDevice(const QString &dbusObjectPath)
                                          SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
 
     auto call = QDBusMessage::createMethodCall(UPOWER_SERVICE, dbusObjectPath, QStringLiteral("org.freedesktop.DBus.Properties"), QStringLiteral("GetAll"));
-    call << QStringLiteral(UPOWER_IFACE_DEVICE);
+    call << UPOWER_IFACE_DEVICE;
 
     QDBusPendingReply<QVariantMap> reply = QDBusConnection::systemBus().asyncCall(call);
     reply.waitForFinished();
@@ -54,29 +54,29 @@ bool UPowerDevice::updateProperties(const QVariantMap &properties)
     bool updated = false;
 
     for (auto it = properties.begin(); it != properties.end(); it++) {
-        if (it.key() == "UpdateTime") {
+        if (it.key() == u"UpdateTime") {
             m_updateTime = it.value().toULongLong();
-        } else if (it.key() == "Energy") {
+        } else if (it.key() == u"Energy") {
             m_energy = it.value().toDouble();
             updated = true;
-        } else if (it.key() == "EnergyRate") {
+        } else if (it.key() == u"EnergyRate") {
             m_energyRate = it.value().toDouble();
             updated = true;
-        } else if (it.key() == "EnergyFull") {
+        } else if (it.key() == u"EnergyFull") {
             m_energyFull = it.value().toDouble();
             updated = true;
-        } else if (it.key() == "State") {
+        } else if (it.key() == u"State") {
             auto state = it.value().toInt();
             m_state = (state == 1) ? State::Charging : (state == 2) ? State::Discharging : (state == 4) ? State::FullyCharged : State::Unknown;
             updated = true;
-        } else if (it.key() == "Type") {
+        } else if (it.key() == u"Type") {
             auto type = it.value().toInt();
             m_type = (type == 2) ? Type::Battery : (type == 3) ? Type::Ups : Type::Unknown;
             updated = true;
-        } else if (it.key() == "PowerSupply") {
+        } else if (it.key() == u"PowerSupply") {
             m_isPowerSupply = it.value().toBool();
             updated = true;
-        } else if (it.key() == "IsPresent") {
+        } else if (it.key() == u"IsPresent") {
             m_isPresent = it.value().toBool();
             updated = true;
         }

@@ -18,8 +18,10 @@
 #include <climits>
 #include <sys/utsname.h>
 
-#define BACKLIGHT_SYSFS_PATH "/sys/class/backlight/"
-#define LED_SYSFS_PATH "/sys/class/leds/"
+using namespace Qt::StringLiterals;
+
+inline constexpr QLatin1StringView BACKLIGHT_SYSFS_PATH("/sys/class/backlight/");
+inline constexpr QLatin1StringView LED_SYSFS_PATH("/sys/class/leds/");
 
 BacklightHelper::BacklightHelper(QObject *parent)
     : QObject(parent)
@@ -51,7 +53,7 @@ int BacklightHelper::readFromDevice(const QString &device, const QString &proper
 {
     int value = -1;
 
-    QFile file(device + "/" + property);
+    QFile file(QString(device + u'/' + property));
     if (!file.open(QIODevice::ReadOnly)) {
         qCWarning(POWERDEVIL) << "reading from device " << device << "/" << property << " failed with error code " << file.error() << file.errorString();
         return value;
@@ -108,7 +110,7 @@ QStringList BacklightHelper::getBacklightTypeDevices() const
     QStringList firmware, platform, rawEnabled, rawAll;
 
     for (const QString &interface : interfaces) {
-        file.setFileName(BACKLIGHT_SYSFS_PATH + interface + "/type");
+        file.setFileName(BACKLIGHT_SYSFS_PATH + interface + u"/type");
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             continue;
         }
@@ -119,7 +121,7 @@ QStringList BacklightHelper::getBacklightTypeDevices() const
         } else if (buffer == "platform") {
             platform.append(BACKLIGHT_SYSFS_PATH + interface);
         } else if (buffer == "raw") {
-            QFile enabled(BACKLIGHT_SYSFS_PATH + interface + "/device/enabled");
+            QFile enabled(BACKLIGHT_SYSFS_PATH + interface + u"/device/enabled");
             rawAll.append(BACKLIGHT_SYSFS_PATH + interface);
             if (enabled.open(QIODevice::ReadOnly | QIODevice::Text) && enabled.readLine().trimmed() == "enabled") {
                 // this backlight device is connected to a display, so append
@@ -154,7 +156,7 @@ void BacklightHelper::initUsingBacklightType()
     QStringList devices = getBacklightTypeDevices();
 
     for (const QString &interface : devices) {
-        int max_brightness = readFromDevice(interface, "max_brightness");
+        int max_brightness = readFromDevice(interface, u"max_brightness"_s);
         m_devices.append(qMakePair(interface, max_brightness));
     }
 

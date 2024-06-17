@@ -113,7 +113,7 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
             qCDebug(POWERDEVIL) << "Using" << detectorInfo.debugName << "for brightness controls.";
         }
         for (DisplayBrightness *display : std::as_const(detectorDisplays)) {
-            const QString displayId = detectorInfo.displayIdPrefix + display->id();
+            const QString displayId = QString::fromLocal8Bit(detectorInfo.displayIdPrefix) + display->id();
             m_sortedDisplayIds.append(displayId);
             bool replacing = false;
 

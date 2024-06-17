@@ -37,7 +37,7 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef)
         qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_get_display_info" << status;
         return;
     }
-    m_label = displayInfo->model_name;
+    m_label = QString::fromLocal8Bit(displayInfo->model_name);
     m_ioPath = displayInfo->path;
     m_id = DDCutilDisplay::generatePathId(displayInfo->path);
 
@@ -94,9 +94,9 @@ QString DDCutilDisplay::generatePathId(const DDCA_IO_Path &displayPath)
 {
     switch (displayPath.io_mode) {
     case DDCA_IO_I2C:
-        return QString("i2c:%1").arg(displayPath.path.i2c_busno);
+        return QStringLiteral("i2c:%1").arg(displayPath.path.i2c_busno);
     case DDCA_IO_USB:
-        return QString("usb:%1").arg(displayPath.path.hiddev_devno);
+        return QStringLiteral("usb:%1").arg(displayPath.path.hiddev_devno);
     }
     return QString();
 }

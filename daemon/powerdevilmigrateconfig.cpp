@@ -19,6 +19,8 @@
 #include <functional> // std::invoke
 #include <type_traits> // std::remove_cvref_t
 
+using namespace Qt::StringLiterals;
+
 namespace
 {
 
@@ -53,7 +55,7 @@ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
         const KConfigGroup oldConfig = oldActivitiesGroup.group(activityId);
         PowerDevil::ActivitySettings newConfig(activityId);
 
-        if (oldConfig.readEntry("mode", "None") == "SpecialBehavior") {
+        if (oldConfig.readEntry("mode", "None") == u"SpecialBehavior") {
             if (const KConfigGroup oldSB = oldConfig.group(QStringLiteral("SpecialBehavior")); oldSB.exists()) {
                 newConfig.setInhibitScreenManagement(oldSB.readEntry("noScreenManagement", false));
                 newConfig.setInhibitSuspend(oldSB.readEntry("noSuspend", false));
@@ -106,21 +108,21 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("KeyboardBrightnessControl")); group.exists()) {
             profileSettings.setUseProfileSpecificKeyboardBrightness(true);
-            migrateEntry(group, "value", &ProfileSettings::setKeyboardBrightness);
+            migrateEntry(group, u"value"_s, &ProfileSettings::setKeyboardBrightness);
         } else {
             profileSettings.setUseProfileSpecificKeyboardBrightness(false);
         }
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("BrightnessControl")); group.exists()) {
             profileSettings.setUseProfileSpecificDisplayBrightness(true);
-            migrateEntry(group, "value", &ProfileSettings::setDisplayBrightness);
+            migrateEntry(group, u"value"_s, &ProfileSettings::setDisplayBrightness);
         } else {
             profileSettings.setUseProfileSpecificDisplayBrightness(false);
         }
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("DimDisplay")); group.exists()) {
             profileSettings.setDimDisplayWhenIdle(true);
-            migrateEntry(group, "idleTime", &ProfileSettings::setDimDisplayIdleTimeoutSec, [](int oldMsec) {
+            migrateEntry(group, u"idleTime"_s, &ProfileSettings::setDimDisplayIdleTimeoutSec, [](int oldMsec) {
                 return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
             });
         } else {
@@ -131,9 +133,9 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             profileSettings.setTurnOffDisplayWhenIdle(true);
             // The "DPMSControl" group used seconds for "idleTime". Unlike other groups which
             // used milliseconds in Plasma 5, this one doesn't need division by 1000.
-            migrateEntry(group, "idleTime", &ProfileSettings::setTurnOffDisplayIdleTimeoutSec);
-            migrateEntry(group, "idleTimeoutWhenLocked", &ProfileSettings::setTurnOffDisplayIdleTimeoutWhenLockedSec);
-            migrateEntry(group, "lockBeforeTurnOff", &ProfileSettings::setLockBeforeTurnOffDisplay);
+            migrateEntry(group, u"idleTime"_s, &ProfileSettings::setTurnOffDisplayIdleTimeoutSec);
+            migrateEntry(group, u"idleTimeoutWhenLocked"_s, &ProfileSettings::setTurnOffDisplayIdleTimeoutWhenLockedSec);
+            migrateEntry(group, u"lockBeforeTurnOff"_s, &ProfileSettings::setLockBeforeTurnOffDisplay);
         } else {
             profileSettings.setTurnOffDisplayWhenIdle(false);
         }
@@ -146,7 +148,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
             if (group.readEntry("suspendThenHibernate", false)) {
                 suspendThenHibernate = true;
             }
-            migrateEntry(group, "suspendType", &ProfileSettings::setAutoSuspendAction, [&](uint oldAction) {
+            migrateEntry(group, u"suspendType"_s, &ProfileSettings::setAutoSuspendAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
                     return qToUnderlying(PowerButtonAction::Sleep);
@@ -157,7 +159,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
                 }
                 return oldAction;
             });
-            migrateEntry(group, "idleTime", &ProfileSettings::setAutoSuspendIdleTimeoutSec, [](int oldMsec) {
+            migrateEntry(group, u"idleTime"_s, &ProfileSettings::setAutoSuspendIdleTimeoutSec, [](int oldMsec) {
                 return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
             });
             // Note: setSleepMode() is called at the end, completing this section.
@@ -166,21 +168,21 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         }
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("HandleButtonEvents")); group.exists()) {
-            migrateEntry(group, "powerButtonAction", &ProfileSettings::setPowerButtonAction, [&](uint oldAction) {
+            migrateEntry(group, u"powerButtonAction"_s, &ProfileSettings::setPowerButtonAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
                     return qToUnderlying(PowerButtonAction::Sleep);
                 }
                 return oldAction;
             });
-            migrateEntry(group, "powerDownAction", &ProfileSettings::setPowerDownAction, [&](uint oldAction) {
+            migrateEntry(group, u"powerDownAction"_s, &ProfileSettings::setPowerDownAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
                     return qToUnderlying(PowerButtonAction::Sleep);
                 }
                 return oldAction;
             });
-            migrateEntry(group, "lidAction", &ProfileSettings::setLidAction, [&](uint oldAction) {
+            migrateEntry(group, u"lidAction"_s, &ProfileSettings::setLidAction, [&](uint oldAction) {
                 if (oldAction == 4 /* the old PowerButtonAction::SuspendHybrid */) {
                     hybridSuspend = true;
                     return qToUnderlying(PowerButtonAction::Sleep);
@@ -188,7 +190,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
                 return oldAction;
             });
             migrateEntry(group,
-                         "triggerLidActionWhenExternalMonitorPresent",
+                         u"triggerLidActionWhenExternalMonitorPresent"_s,
                          &ProfileSettings::setInhibitLidActionWhenExternalMonitorPresent,
                          [](bool shouldTrigger) {
                              return !shouldTrigger;
@@ -200,22 +202,22 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         }
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("PowerProfile")); group.exists()) {
-            migrateEntry(group, "profile", &ProfileSettings::setPowerProfile);
+            migrateEntry(group, u"profile"_s, &ProfileSettings::setPowerProfile);
         }
 
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("RunScript")); group.exists()) {
             switch (group.readEntry("scriptPhase", 0)) {
             case 0: // on profile load
-                migrateEntry(group, "scriptCommand", &ProfileSettings::setProfileLoadCommand);
+                migrateEntry(group, u"scriptCommand"_s, &ProfileSettings::setProfileLoadCommand);
                 break;
             case 1: // on profile unload
-                migrateEntry(group, "scriptCommand", &ProfileSettings::setProfileUnloadCommand);
+                migrateEntry(group, u"scriptCommand"_s, &ProfileSettings::setProfileUnloadCommand);
                 break;
             case 2: // on idle timeout
-                migrateEntry(group, "scriptCommand", &ProfileSettings::setIdleTimeoutCommand);
+                migrateEntry(group, u"scriptCommand"_s, &ProfileSettings::setIdleTimeoutCommand);
                 break;
             }
-            migrateEntry(group, "idleTime", &ProfileSettings::setRunScriptIdleTimeoutSec, [](int oldMsec) {
+            migrateEntry(group, u"idleTime"_s, &ProfileSettings::setRunScriptIdleTimeoutSec, [](int oldMsec) {
                 return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
             });
         }

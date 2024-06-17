@@ -27,7 +27,9 @@
 
 #include "udevqt.h"
 
-#define HELPER_ID "org.kde.powerdevil.backlighthelper"
+using namespace Qt::StringLiterals;
+
+inline constexpr QLatin1StringView HELPER_ID("org.kde.powerdevil.backlighthelper");
 
 BacklightDetector::BacklightDetector(QObject *parent)
     : DisplayBrightnessDetector(parent)
@@ -41,7 +43,7 @@ void BacklightDetector::detect()
     }
     std::shared_ptr<BacklightBrightness> deleteOld(m_display.release());
 
-    KAuth::Action brightnessAction("org.kde.powerdevil.backlighthelper.brightness");
+    KAuth::Action brightnessAction(u"org.kde.powerdevil.backlighthelper.brightness"_s);
     brightnessAction.setHelperId(HELPER_ID);
     KAuth::ExecuteJob *brightnessJob = brightnessAction.execute();
     connect(brightnessJob, &KJob::result, this, [this, brightnessJob, deleteOld = std::move(deleteOld)] {
@@ -51,9 +53,9 @@ void BacklightDetector::detect()
             Q_EMIT detectionFinished(false);
             return;
         }
-        int cachedBrightness = brightnessJob->data()["brightness"].toInt();
+        int cachedBrightness = brightnessJob->data()[u"brightness"_s].toInt();
 
-        KAuth::Action brightnessMaxAction("org.kde.powerdevil.backlighthelper.brightnessmax");
+        KAuth::Action brightnessMaxAction(u"org.kde.powerdevil.backlighthelper.brightnessmax"_s);
         brightnessMaxAction.setHelperId(HELPER_ID);
         KAuth::ExecuteJob *brightnessMaxJob = brightnessMaxAction.execute();
         connect(brightnessMaxJob, &KJob::result, this, [this, brightnessMaxJob, cachedBrightness, deleteOld = std::move(deleteOld)] {
@@ -63,7 +65,7 @@ void BacklightDetector::detect()
                 Q_EMIT detectionFinished(false);
                 return;
             }
-            int maxBrightness = brightnessMaxJob->data()["brightnessmax"].toInt();
+            int maxBrightness = brightnessMaxJob->data()[u"brightnessmax"_s].toInt();
 
 #ifdef Q_OS_FREEBSD
             // FreeBSD doesn't have the sysfs interface that the bits below expect;
@@ -74,7 +76,7 @@ void BacklightDetector::detect()
             }
             Q_EMIT detectionFinished(m_display != nullptr);
 #else
-            KAuth::Action syspathAction("org.kde.powerdevil.backlighthelper.syspath");
+            KAuth::Action syspathAction(u"org.kde.powerdevil.backlighthelper.syspath"_s);
             syspathAction.setHelperId(HELPER_ID);
             KAuth::ExecuteJob* syspathJob = syspathAction.execute();
             connect(syspathJob, &KJob::result, this, [this, syspathJob, cachedBrightness, maxBrightness, deleteOld = std::move(deleteOld)] {
@@ -85,7 +87,7 @@ void BacklightDetector::detect()
                     return;
                 }
                 if (maxBrightness > 0) {
-                    QString syspath = syspathJob->data()["syspath"].toString();
+                    QString syspath = syspathJob->data()[u"syspath"_s].toString();
                     syspath = QFileInfo(syspath).symLinkTarget();
                     m_display.reset(new BacklightBrightness(cachedBrightness, maxBrightness, syspath));
                 }
@@ -115,7 +117,7 @@ BacklightBrightness::BacklightBrightness(int cachedBrightness, int maxBrightness
     // claimed (although the monitored subsystem was already hardcoded to "backlight" then).
     // Keep track of backlight devices for changes not initiated by this class.
     if (!m_syspath.contains(QLatin1String("/leds/"))) {
-        UdevQt::Client *client = new UdevQt::Client(QStringList("backlight"), this);
+        UdevQt::Client *client = new UdevQt::Client(QStringList{u"backlight"_s}, this);
         connect(client, &UdevQt::Client::deviceChanged, this, &BacklightBrightness::onDeviceChanged);
     }
 #endif
@@ -138,11 +140,11 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
         return;
     }
 
-    int maxBrightness = device.sysfsProperty("max_brightness").toInt();
+    int maxBrightness = device.sysfsProperty(u"max_brightness"_s).toInt();
     if (maxBrightness <= 0) {
         return;
     }
-    int newBrightness = device.sysfsProperty("brightness").toInt();
+    int newBrightness = device.sysfsProperty(u"brightness"_s).toInt();
 
     if (newBrightness != m_cachedBrightness) {
         m_cachedBrightness = newBrightness;
@@ -154,7 +156,7 @@ void BacklightBrightness::onDeviceChanged(const UdevQt::Device &device)
 QString BacklightBrightness::id() const
 {
     // BacklightDetector only ever owns one BacklightBrightness object, so this is necessarily unique
-    return "display";
+    return u"display"_s;
 }
 
 QString BacklightBrightness::label() const
@@ -188,11 +190,11 @@ void BacklightBrightness::setBrightness(int newBrightness)
         return;
     }
 
-    KAuth::Action action("org.kde.powerdevil.backlighthelper.setbrightness");
+    KAuth::Action action(u"org.kde.powerdevil.backlighthelper.setbrightness"_s);
     action.setHelperId(HELPER_ID);
-    action.addArgument("brightness", newBrightness);
+    action.addArgument(u"brightness"_s, newBrightness);
     if (brightness() >= m_brightnessAnimationThreshold) {
-        action.addArgument("animationDuration", m_brightnessAnimationDurationMsec);
+        action.addArgument(u"animationDuration"_s, m_brightnessAnimationDurationMsec);
     }
     auto *job = action.execute();
 

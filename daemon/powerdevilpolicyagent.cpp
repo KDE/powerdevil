@@ -28,6 +28,8 @@
 
 #include "screenlocker_interface.h"
 
+using namespace Qt::StringLiterals;
+
 struct NamedDBusObjectPath {
     QString name;
     QDBusObjectPath path;
@@ -237,9 +239,9 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
         }
 
         // now let's obtain the seat
-        QString seatPath = getNamedPathProperty(sessionPath, SYSTEMD_LOGIN1_SESSION_IFACE, "Seat");
+        QString seatPath = getNamedPathProperty(sessionPath, SYSTEMD_LOGIN1_SESSION_IFACE, u"Seat"_s);
 
-        if (seatPath.isEmpty() || seatPath == "/") {
+        if (seatPath.isEmpty() || seatPath == u'/') {
             qCDebug(POWERDEVIL) << "Unable to associate systemd session with a seat" << seatPath;
             m_sdAvailable = false;
             return;
@@ -257,13 +259,13 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
         }
 
         // finally get the active session path and watch for its changes
-        m_activeSessionPath = getNamedPathProperty(seatPath, SYSTEMD_LOGIN1_SEAT_IFACE, "ActiveSession");
+        m_activeSessionPath = getNamedPathProperty(seatPath, SYSTEMD_LOGIN1_SEAT_IFACE, u"ActiveSession"_s);
 
         qCDebug(POWERDEVIL) << "ACTIVE SESSION PATH:" << m_activeSessionPath;
         QDBusConnection::systemBus().connect(SYSTEMD_LOGIN1_SERVICE,
                                              seatPath,
-                                             "org.freedesktop.DBus.Properties",
-                                             "PropertiesChanged",
+                                             u"org.freedesktop.DBus.Properties"_s,
+                                             u"PropertiesChanged"_s,
                                              this,
                                              SLOT(onActiveSessionChanged(QString, QVariantMap, QStringList)));
 
@@ -274,8 +276,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
         // and then track logind's ihibitions, too
         QDBusConnection::systemBus().connect(SYSTEMD_LOGIN1_SERVICE,
                                              SYSTEMD_LOGIN1_PATH,
-                                             "org.freedesktop.DBus.Properties",
-                                             "PropertiesChanged",
+                                             u"org.freedesktop.DBus.Properties"_s,
+                                             u"PropertiesChanged"_s,
                                              this,
                                              SLOT(onManagerPropertyChanged(QString, QVariantMap, QStringList)));
         checkLogindInhibitions();
@@ -293,7 +295,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
             return;
         }
 
-        QDBusPendingReply<QDBusObjectPath> sessionPath = m_managerIface.data()->asyncCall("GetCurrentSession");
+        QDBusPendingReply<QDBusObjectPath> sessionPath = m_managerIface.data()->asyncCall(u"GetCurrentSession"_s);
 
         sessionPath.waitForFinished();
 
@@ -304,7 +306,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
         }
 
         m_ckSessionInterface =
-            new QDBusInterface(CONSOLEKIT_SERVICE, sessionPath.value().path(), "org.freedesktop.ConsoleKit.Session", QDBusConnection::systemBus());
+            new QDBusInterface(CONSOLEKIT_SERVICE, sessionPath.value().path(), u"org.freedesktop.ConsoleKit.Session"_s, QDBusConnection::systemBus());
 
         if (!m_ckSessionInterface.data()->isValid()) {
             // As above
@@ -325,8 +327,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
 
         if (!QDBusConnection::systemBus().connect(CONSOLEKIT_SERVICE,
                                                   seatPath.value().path(),
-                                                  "org.freedesktop.ConsoleKit.Seat",
-                                                  "ActiveSessionChanged",
+                                                  u"org.freedesktop.ConsoleKit.Seat"_s,
+                                                  u"ActiveSessionChanged"_s,
                                                   this,
                                                   SLOT(onActiveSessionChanged(QString)))) {
             qCDebug(POWERDEVIL) << "Unable to connect to ActiveSessionChanged";
@@ -335,7 +337,8 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
         }
 
         // Force triggering of active session changed
-        QDBusMessage call = QDBusMessage::createMethodCall(CONSOLEKIT_SERVICE, seatPath.value().path(), "org.freedesktop.ConsoleKit.Seat", "GetActiveSession");
+        QDBusMessage call =
+            QDBusMessage::createMethodCall(CONSOLEKIT_SERVICE, seatPath.value().path(), u"org.freedesktop.ConsoleKit.Seat"_s, u"GetActiveSession"_s);
         QDBusPendingReply<QDBusObjectPath> activeSession = QDBusConnection::systemBus().asyncCall(call);
         activeSession.waitForFinished();
 
@@ -350,7 +353,7 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
 
 void PolicyAgent::onSessionHandlerUnregistered(const QString &serviceName)
 {
-    if (serviceName == QLatin1String(SYSTEMD_LOGIN1_SERVICE)) {
+    if (serviceName == SYSTEMD_LOGIN1_SERVICE) {
         m_sdAvailable = false;
         delete m_sdSessionInterface.data();
     } else if (serviceName == QLatin1String(CONSOLEKIT_SERVICE)) {

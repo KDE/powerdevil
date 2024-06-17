@@ -116,7 +116,7 @@ void BacklightHelper::initUsingSysctl()
     if (!levels) {
         return;
     }
-    if (sysctlbyname(qPrintable(QString("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), levels, &len, nullptr, 0) != 0) {
+    if (sysctlbyname(qPrintable(QStringLiteral("hw.acpi.video.%1.levels").arg(m_sysctlDevice)), levels, &len, nullptr, 0) != 0) {
         free(levels);
         return;
     }

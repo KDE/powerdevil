@@ -28,6 +28,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::KeyboardBrightnessControl, "powerdevilkeyboardbrightnesscontrolaction.json")
 
+using namespace Qt::StringLiterals;
+
 namespace PowerDevil::BundledActions
 {
 KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
@@ -55,7 +57,7 @@ KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardBrightnessDown);
     connect(globalAction, &QAction::triggered, this, &KeyboardBrightnessControl::decreaseKeyboardBrightness);
 
-    globalAction = actionCollection->addAction("Toggle Keyboard Backlight");
+    globalAction = actionCollection->addAction(u"Toggle Keyboard Backlight"_s);
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Toggle Keyboard Backlight"));
     accel->setGlobalShortcut(globalAction, Qt::Key_KeyboardLightOnOff);
     connect(globalAction, &QAction::triggered, this, &KeyboardBrightnessControl::toggleKeyboardBacklight);

@@ -34,6 +34,8 @@
 
 #include <qnamespace.h>
 
+using namespace Qt::StringLiterals;
+
 PowerDevilApp::PowerDevilApp(int &argc, char **argv)
     : QGuiApplication(argc, argv)
     , m_core(nullptr)
@@ -86,7 +88,7 @@ void PowerDevilApp::onCoreReady()
     QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement"));
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement"), m_core);
 
-    QDBusConnection::systemBus().interface()->registerService("org.freedesktop.Policy.Power");
+    QDBusConnection::systemBus().interface()->registerService(u"org.freedesktop.Policy.Power"_s);
 
     // Start the Policy Agent service
     qDBusRegisterMetaType<QList<InhibitionInfo>>();

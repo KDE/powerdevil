@@ -16,6 +16,8 @@
 #include <QDir>
 #include <QFile>
 
+using namespace Qt::StringLiterals;
+
 static const QString s_powerSupplySysFsPath = QStringLiteral("/sys/class/power_supply");
 static const QString s_conservationModeSysFsPath = QStringLiteral("/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode");
 
@@ -37,8 +39,8 @@ static QStringList getBatteries()
     QStringList batteries;
 
     for (const QString &psu : power_supplies) {
-        QDir psuDir(s_powerSupplySysFsPath + QLatin1Char('/') + psu);
-        QFile file(psuDir.filePath("type"));
+        QDir psuDir(QString(s_powerSupplySysFsPath + u'/' + psu));
+        QFile file(psuDir.filePath(u"type"_s));
         if (!file.open(QIODevice::ReadOnly)) {
             continue;
         }

@@ -27,6 +27,8 @@
 #include <KGlobalAccel>
 #include <Kirigami/Platform/TabletModeWatcher>
 
+using namespace Qt::StringLiterals;
+
 namespace PowerDevil::BundledActions
 {
 HandleButtonEvents::HandleButtonEvents(QObject *parent)
@@ -43,17 +45,17 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
 
     KGlobalAccel *accel = KGlobalAccel::self();
 
-    QAction *globalAction = actionCollection->addAction("Sleep");
+    QAction *globalAction = actionCollection->addAction(u"Sleep"_s);
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Suspend"));
     accel->setGlobalShortcut(globalAction, Qt::Key_Sleep);
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::sleep);
 
-    globalAction = actionCollection->addAction("Hibernate");
+    globalAction = actionCollection->addAction(u"Hibernate"_s);
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Hibernate"));
     accel->setGlobalShortcut(globalAction, Qt::Key_Hibernate);
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::hibernate);
 
-    globalAction = actionCollection->addAction("PowerOff");
+    globalAction = actionCollection->addAction(u"PowerOff"_s);
     globalAction->setText(i18nc("@action:inmenu Global shortcut", "Power Off"));
     auto powerButtonMode = [globalAction](bool isTablet) {
         if (!isTablet) {
@@ -67,7 +69,7 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     powerButtonMode(interface->isTabletMode());
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerOffButtonTriggered);
 
-    globalAction = actionCollection->addAction("PowerDown");
+    globalAction = actionCollection->addAction(u"PowerDown"_s);
     globalAction->setText(i18nc("@action:inmenu Global shortcut, used for long presses of the power button", "Power Down"));
     accel->setGlobalShortcut(globalAction, Qt::Key_PowerDown);
     connect(globalAction, &QAction::triggered, this, &HandleButtonEvents::powerDownButtonTriggered);
@@ -155,14 +157,14 @@ void HandleButtonEvents::processAction(PowerDevil::PowerButtonAction action)
     switch (action) {
     case PowerDevil::PowerButtonAction::TurnOffScreen:
         // Turn off screen
-        triggerAction("DPMSControl", QStringLiteral("TurnOff"));
+        triggerAction(u"DPMSControl"_s, u"TurnOff"_s);
         break;
     case PowerDevil::PowerButtonAction::ToggleScreenOnOff:
         // Toggle screen on/off
-        triggerAction("DPMSControl", QStringLiteral("ToggleOnOff"));
+        triggerAction(u"DPMSControl"_s, u"ToggleOnOff"_s);
         break;
     default:
-        triggerAction("SuspendSession", qToUnderlying(action));
+        triggerAction(u"SuspendSession"_s, qToUnderlying(action));
         break;
     }
 }

@@ -11,9 +11,11 @@
 
 #include "lidcontroller.h"
 
-#define UPOWER_SERVICE "org.freedesktop.UPower"
-#define UPOWER_PATH "/org/freedesktop/UPower"
-#define UPOWER_IFACE "org.freedesktop.UPower"
+using namespace Qt::StringLiterals;
+
+inline constexpr QLatin1StringView UPOWER_SERVICE("org.freedesktop.UPower");
+inline constexpr QLatin1StringView UPOWER_PATH("/org/freedesktop/UPower");
+inline constexpr QLatin1StringView UPOWER_IFACE("org.freedesktop.UPower");
 
 LidController::LidController()
     : QObject()
@@ -23,12 +25,12 @@ LidController::LidController()
         QDBusConnection::systemBus().interface()->startService(UPOWER_SERVICE);
     }
 
-    m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, "/org/freedesktop/UPower", QDBusConnection::systemBus(), this);
+    m_upowerInterface = new OrgFreedesktopUPowerInterface(UPOWER_SERVICE, u"/org/freedesktop/UPower"_s, QDBusConnection::systemBus(), this);
 
     QDBusConnection::systemBus().connect(UPOWER_SERVICE,
                                          UPOWER_PATH,
-                                         "org.freedesktop.DBus.Properties",
-                                         "PropertiesChanged",
+                                         u"org.freedesktop.DBus.Properties"_s,
+                                         u"PropertiesChanged"_s,
                                          this,
                                          SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
 

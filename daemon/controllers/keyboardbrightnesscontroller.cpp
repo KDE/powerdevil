@@ -19,14 +19,17 @@
 
 #include "brightnessosdwidget.h"
 
-#define UPOWER_SERVICE "org.freedesktop.UPower"
+using namespace Qt::StringLiterals;
+
+inline constexpr QLatin1StringView UPOWER_SERVICE("org.freedesktop.UPower");
 
 KeyboardBrightnessController::KeyboardBrightnessController()
     : m_maxBrightness(0)
     , m_cachedBrightness(0)
     , m_kbdBacklight(nullptr)
 {
-    m_kbdBacklight = new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, "/org/freedesktop/UPower/KbdBacklight", QDBusConnection::systemBus(), this);
+    m_kbdBacklight =
+        new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, u"/org/freedesktop/UPower/KbdBacklight"_s, QDBusConnection::systemBus(), this);
     if (m_kbdBacklight->isValid()) {
         // Cache max value
         QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();

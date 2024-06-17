@@ -14,6 +14,8 @@
 
 #include <type_traits> // std::is_same_v, std::underlying_type_t
 
+using namespace Qt::StringLiterals;
+
 PowerButtonActionModel::PowerButtonActionModel(QObject *parent, PowerDevil::PowerManagement *pm, std::initializer_list<PowerDevil::PowerButtonAction> actions)
     : QAbstractListModel(parent)
 {
@@ -28,7 +30,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::NoAction:
         m_data.append(Data{
             .name = i18n("Do nothing"),
-            .iconName = "dialog-cancel-symbolic",
+            .iconName = u"dialog-cancel-symbolic"_s,
             .value = qToUnderlying(PowerDevil::PowerButtonAction::NoAction),
         });
         break;
@@ -37,7 +39,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
         if (pm->canSuspend()) {
             m_data.append(Data{
                 .name = i18nc("Suspend to RAM", "Sleep"),
-                .iconName = "system-suspend-symbolic",
+                .iconName = u"system-suspend-symbolic"_s,
                 .value = qToUnderlying(PowerDevil::PowerButtonAction::Sleep),
             });
         }
@@ -47,7 +49,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
         if (pm->canHibernate()) {
             m_data.append(Data{
                 .name = i18n("Hibernate"),
-                .iconName = "system-suspend-hibernate-symbolic",
+                .iconName = u"system-suspend-hibernate-symbolic"_s,
                 .value = qToUnderlying(PowerDevil::PowerButtonAction::Hibernate),
             });
         }
@@ -56,7 +58,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::Shutdown:
         m_data.append(Data{
             .name = i18nc("Power down the computer", "Shut down"),
-            .iconName = "system-shutdown-symbolic",
+            .iconName = u"system-shutdown-symbolic"_s,
             .value = qToUnderlying(PowerDevil::PowerButtonAction::Shutdown),
         });
         break;
@@ -64,7 +66,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::LockScreen:
         m_data.append(Data{
             .name = i18n("Lock screen"),
-            .iconName = "system-lock-screen-symbolic",
+            .iconName = u"system-lock-screen-symbolic"_s,
             .value = qToUnderlying(PowerDevil::PowerButtonAction::LockScreen),
         });
         break;
@@ -72,7 +74,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::PromptLogoutDialog:
         m_data.append(Data{
             .name = i18n("Show logout screen"),
-            .iconName = "system-log-out-symbolic",
+            .iconName = u"system-log-out-symbolic"_s,
             .value = qToUnderlying(PowerDevil::PowerButtonAction::PromptLogoutDialog),
         });
         break;
@@ -80,7 +82,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::TurnOffScreen:
         m_data.append(Data{
             .name = i18n("Turn off screen"),
-            .iconName = "preferences-desktop-screensaver-symbolic",
+            .iconName = u"preferences-desktop-screensaver-symbolic"_s,
             .value = qToUnderlying(PowerDevil::PowerButtonAction::TurnOffScreen),
         });
         break;
@@ -88,7 +90,7 @@ void PowerButtonActionModel::appendAction(PowerDevil::PowerButtonAction action, 
     case PowerDevil::PowerButtonAction::ToggleScreenOnOff:
         m_data.append(Data{
             .name = i18n("Toggle screen on/off"),
-            .iconName = "osd-shutd-screen-symbolic",
+            .iconName = u"osd-shutd-screen-symbolic"_s,
             .value = qToUnderlying(PowerDevil::PowerButtonAction::TurnOffScreen),
         });
         break;
@@ -124,5 +126,5 @@ int PowerButtonActionModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> PowerButtonActionModel::roleNames() const
 {
-    return QHash<int, QByteArray>{{Icon, "icon"}, {Name, "name"}, {Value, "value"}, {IconName, "iconName"}};
+    return QHash<int, QByteArray>{{Icon, "icon"_ba}, {Name, "name"_ba}, {Value, "value"_ba}, {IconName, "iconName"_ba}};
 }

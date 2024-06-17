@@ -15,8 +15,10 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 
-#define LOGIN1_SERVICE "org.freedesktop.login1"
-#define CONSOLEKIT2_SERVICE "org.freedesktop.ConsoleKit"
+using namespace Qt::StringLiterals;
+
+inline constexpr QLatin1StringView LOGIN1_SERVICE("org.freedesktop.login1");
+inline constexpr QLatin1StringView CONSOLEKIT2_SERVICE("org.freedesktop.ConsoleKit");
 
 SuspendController::SuspendController()
     : QObject()
@@ -33,14 +35,15 @@ SuspendController::SuspendController()
     }
 
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(LOGIN1_SERVICE)) {
-        m_login1Interface = new QDBusInterface(LOGIN1_SERVICE, "/org/freedesktop/login1", "org.freedesktop.login1.Manager", QDBusConnection::systemBus(), this);
+        m_login1Interface =
+            new QDBusInterface(LOGIN1_SERVICE, u"/org/freedesktop/login1"_s, u"org.freedesktop.login1.Manager"_s, QDBusConnection::systemBus(), this);
     }
 
     // if login1 isn't available, try using the same interface with ConsoleKit2
     if (!m_login1Interface && QDBusConnection::systemBus().interface()->isServiceRegistered(CONSOLEKIT2_SERVICE)) {
         m_login1Interface = new QDBusInterface(CONSOLEKIT2_SERVICE,
-                                               "/org/freedesktop/ConsoleKit/Manager",
-                                               "org.freedesktop.ConsoleKit.Manager",
+                                               u"/org/freedesktop/ConsoleKit/Manager"_s,
+                                               u"org.freedesktop.ConsoleKit.Manager"_s,
                                                QDBusConnection::systemBus(),
                                                this);
     }

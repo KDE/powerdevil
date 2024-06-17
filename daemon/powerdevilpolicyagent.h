@@ -23,15 +23,15 @@ class QDBusInterface;
 
 class OrgFreedesktopScreenSaverInterface;
 
-#define SYSTEMD_LOGIN1_SERVICE "org.freedesktop.login1"
-#define SYSTEMD_LOGIN1_PATH "/org/freedesktop/login1"
-#define SYSTEMD_LOGIN1_MANAGER_IFACE "org.freedesktop.login1.Manager"
-#define SYSTEMD_LOGIN1_SESSION_IFACE "org.freedesktop.login1.Session"
-#define SYSTEMD_LOGIN1_SEAT_IFACE "org.freedesktop.login1.Seat"
+inline constexpr QLatin1StringView SYSTEMD_LOGIN1_SERVICE("org.freedesktop.login1");
+inline constexpr QLatin1StringView SYSTEMD_LOGIN1_PATH("/org/freedesktop/login1");
+inline constexpr QLatin1StringView SYSTEMD_LOGIN1_MANAGER_IFACE("org.freedesktop.login1.Manager");
+inline constexpr QLatin1StringView SYSTEMD_LOGIN1_SESSION_IFACE("org.freedesktop.login1.Session");
+inline constexpr QLatin1StringView SYSTEMD_LOGIN1_SEAT_IFACE("org.freedesktop.login1.Seat");
 
-#define CONSOLEKIT_SERVICE "org.freedesktop.ConsoleKit"
-#define CONSOLEKIT_MANAGER_PATH "/org/freedesktop/ConsoleKit/Manager"
-#define CONSOLEKIT_MANAGER_IFACE "org.freedesktop.ConsoleKit.Manager"
+inline constexpr QLatin1StringView CONSOLEKIT_SERVICE("org.freedesktop.ConsoleKit");
+inline constexpr QLatin1StringView CONSOLEKIT_MANAGER_PATH("/org/freedesktop/ConsoleKit/Manager");
+inline constexpr QLatin1StringView CONSOLEKIT_MANAGER_IFACE("org.freedesktop.ConsoleKit.Manager");
 
 using InhibitionInfo = QPair<QString, QString>;
 

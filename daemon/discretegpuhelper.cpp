@@ -11,7 +11,7 @@
 
 #include <QFile>
 
-#define SWITCHEROO_SYSFS_PATH "/sys/kernel/debug/vgaswitcheroo/switch"
+inline static constexpr QLatin1String SWITCHEROO_SYSFS_PATH("/sys/kernel/debug/vgaswitcheroo/switch");
 
 DiscreteGpuHelper::DiscreteGpuHelper(QObject *parent)
     : QObject(parent)

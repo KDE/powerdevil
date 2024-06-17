@@ -45,6 +45,8 @@ K_PLUGIN_FACTORY_WITH_JSON(PowerDevilProfilesConfigFactory, "kcm_powerdevilprofi
     registerPlugin<PowerDevil::PowerConfigData>();
 })
 
+using namespace Qt::StringLiterals;
+
 namespace PowerDevil
 {
 
@@ -61,9 +63,9 @@ PowerConfigData::PowerConfigData(QObject *parent, const KPluginMetaData &metaDat
 PowerConfigData::PowerConfigData(QObject *parent, bool isMobile, bool isVM, bool canSuspend, bool canHibernate)
     : KCModuleData(parent)
     , m_globalSettings(new GlobalSettings(canSuspend, canHibernate, this))
-    , m_settingsAC(new ProfileSettings("AC", isMobile, isVM, canSuspend, this))
-    , m_settingsBattery(new ProfileSettings("Battery", isMobile, isVM, canSuspend, this))
-    , m_settingsLowBattery(new ProfileSettings("LowBattery", isMobile, isVM, canSuspend, this))
+    , m_settingsAC(new ProfileSettings(u"AC"_s, isMobile, isVM, canSuspend, this))
+    , m_settingsBattery(new ProfileSettings(u"Battery"_s, isMobile, isVM, canSuspend, this))
+    , m_settingsLowBattery(new ProfileSettings(u"LowBattery"_s, isMobile, isVM, canSuspend, this))
 {
     autoRegisterSkeletons();
 }
@@ -172,7 +174,7 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
     }
 
     // Look for PowerDevil's own service
-    QDBusServiceWatcher *watcher = new QDBusServiceWatcher("org.kde.Solid.PowerManagement",
+    QDBusServiceWatcher *watcher = new QDBusServiceWatcher(u"org.kde.Solid.PowerManagement"_s,
                                                            QDBusConnection::sessionBus(),
                                                            QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration,
                                                            this);
@@ -180,10 +182,10 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
     connect(watcher, &QDBusServiceWatcher::serviceRegistered, this, &PowerKCM::onServiceRegistered);
     connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &PowerKCM::onServiceUnregistered);
 
-    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.Solid.PowerManagement")) {
-        onServiceRegistered("org.kde.Solid.PowerManagement");
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(u"org.kde.Solid.PowerManagement"_s)) {
+        onServiceRegistered(u"org.kde.Solid.PowerManagement"_s);
     } else {
-        onServiceUnregistered("org.kde.Solid.PowerManagement");
+        onServiceUnregistered(u"org.kde.Solid.PowerManagement"_s);
     }
 
     // Load all the plugins, so we can tell the UI which ones are supported
@@ -197,10 +199,10 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
         if (offer.value(QStringLiteral("X-KDE-PowerDevil-Action-HasRuntimeRequirement"), false)) {
             qCDebug(POWERDEVIL) << offer.name() << " has a runtime requirement";
 
-            QDBusMessage call = QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement",
-                                                               "/org/kde/Solid/PowerManagement",
-                                                               "org.kde.Solid.PowerManagement",
-                                                               "isActionSupported");
+            QDBusMessage call = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
+                                                               u"/org/kde/Solid/PowerManagement"_s,
+                                                               u"org.kde.Solid.PowerManagement"_s,
+                                                               u"isActionSupported"_s);
             call.setArguments(QVariantList() << actionId);
             QDBusPendingReply<bool> reply = QDBusConnection::sessionBus().asyncCall(call);
             reply.waitForFinished();
@@ -238,8 +240,10 @@ void PowerKCM::save()
     m_externalServiceSettings->save(renderWindowAsKAuthParent);
 
     // Notify daemon
-    QDBusMessage call =
-        QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement", "org.kde.Solid.PowerManagement", "refreshStatus");
+    QDBusMessage call = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
+                                                       u"/org/kde/Solid/PowerManagement"_s,
+                                                       u"org.kde.Solid.PowerManagement"_s,
+                                                       u"refreshStatus"_s);
     QDBusConnection::sessionBus().asyncCall(call);
 }
 

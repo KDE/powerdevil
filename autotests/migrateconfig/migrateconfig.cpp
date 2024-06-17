@@ -14,6 +14,8 @@
 #include <QTemporaryDir>
 #include <QTimer>
 
+using namespace Qt::StringLiterals;
+
 int main(int argc, char **argv)
 {
     // Set XDG_CONFIG_HOME to ~/.qttest/config (and other XDG homes), which we're using to
@@ -21,51 +23,51 @@ int main(int argc, char **argv)
     QStandardPaths::setTestModeEnabled(true);
 
     QCoreApplication app(argc, argv);
-    QCoreApplication::setApplicationName("migrateconfig");
+    QCoreApplication::setApplicationName(u"migrateconfig"_s);
 
     QCommandLineParser parser;
     parser.setApplicationDescription(
-        "Test helper: Migrate an existing Plasma 5 PowerDevil configuration its Plasma 6 equivalent, but write the output to a user-specified path.");
+        u"Test helper: Migrate an existing Plasma 5 PowerDevil configuration its Plasma 6 equivalent, but write the output to a user-specified path."_s);
 
     parser.addOption(
-        {"src-powerdevilrc",
-         "Path of an original global configuration file from Plasma 5 times. Doesn't have to be called powerdevilrc, but will be interpreted as such.",
-         "path"});
-    parser.addOption({"src-profilesrc",
-                      "Path of an original profile configuration file from Plasma 5 times. Doesn't have to be called powermanagementprofilesrc, but will be "
-                      "interpreted as such.",
-                      "path"});
-    parser.addOption({"dest-powerdevilrc",
-                      "Path of the newly migrated config file for global settings. The PowerDevil daemon would overwrite the existing powerdevilrc, but this "
-                      "tool can save it under any name.",
-                      "path"});
-    parser.addOption({"dest-profilesrc",
-                      "Path of the newly migrated config file for profile-specific settings. The PowerDevil daemon would overwrite the existing "
-                      "powermanagementprofilesrc, but this tool can save it under any name.",
-                      "path"});
+        {u"src-powerdevilrc"_s,
+         u"Path of an original global configuration file from Plasma 5 times. Doesn't have to be called powerdevilrc, but will be interpreted as such."_s,
+         u"path"_s});
+    parser.addOption({u"src-profilesrc"_s,
+                      u"Path of an original profile configuration file from Plasma 5 times. Doesn't have to be called powermanagementprofilesrc, but will be "
+                      "interpreted as such."_s,
+                      u"path"_s});
+    parser.addOption({u"dest-powerdevilrc"_s,
+                      u"Path of the newly migrated config file for global settings. The PowerDevil daemon would overwrite the existing powerdevilrc, but this "
+                      "tool can save it under any name."_s,
+                      u"path"_s});
+    parser.addOption({u"dest-profilesrc"_s,
+                      u"Path of the newly migrated config file for profile-specific settings. The PowerDevil daemon would overwrite the existing "
+                      "powermanagementprofilesrc, but this tool can save it under any name."_s,
+                      u"path"_s});
 
-    parser.addOption({"assert-no-powerdevilrc-after-migration", "Abort with a non-zero error code if powerdevilrc exists after migrating."});
+    parser.addOption({u"assert-no-powerdevilrc-after-migration"_s, u"Abort with a non-zero error code if powerdevilrc exists after migrating."_s});
 
-    parser.addOption({"mobile", "Assume running on a mobile device (i.e. phones, tablets running Plasma Mobile) instead of regular desktop/laptop."});
-    parser.addOption({"vm", "Assume running in a virtual machine environment instead of bare metal."});
-    parser.addOption({"cannot-suspend", "Assume that the device does not support suspending to RAM a.k.a. Sleep."});
+    parser.addOption({u"mobile"_s, u"Assume running on a mobile device (i.e. phones, tablets running Plasma Mobile) instead of regular desktop/laptop."_s});
+    parser.addOption({u"vm"_s, u"Assume running in a virtual machine environment instead of bare metal."_s});
+    parser.addOption({u"cannot-suspend"_s, u"Assume that the device does not support suspending to RAM a.k.a. Sleep."_s});
 
     parser.addHelpOption();
     parser.process(app);
 
-    bool assertNoPowerdevilrcAfterMigration = parser.isSet("assert-no-powerdevilrc-after-migration");
-    bool isMobile = parser.isSet("mobile");
-    bool isVM = parser.isSet("vm");
-    bool canSuspend = !parser.isSet("cannot-suspend");
+    bool assertNoPowerdevilrcAfterMigration = parser.isSet(u"assert-no-powerdevilrc-after-migration"_s);
+    bool isMobile = parser.isSet(u"mobile"_s);
+    bool isVM = parser.isSet(u"vm"_s);
+    bool canSuspend = !parser.isSet(u"cannot-suspend"_s);
 
-    QString src_powerdevilrc_path = parser.value("src-powerdevilrc");
-    QString src_profilesrc_path = parser.value("src-profilesrc");
-    QString dest_powerdevilrc_path = parser.value("dest-powerdevilrc");
-    QString dest_profilesrc_path = parser.value("dest-profilesrc");
+    QString src_powerdevilrc_path = parser.value(u"src-powerdevilrc"_s);
+    QString src_profilesrc_path = parser.value(u"src-profilesrc"_s);
+    QString dest_powerdevilrc_path = parser.value(u"dest-powerdevilrc"_s);
+    QString dest_profilesrc_path = parser.value(u"dest-profilesrc"_s);
 
     QString test_config_dir = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
-    QString temp_powerdevilrc_path = test_config_dir + "/powerdevilrc";
-    QString temp_profilesrc_path = test_config_dir + "/powermanagementprofilesrc";
+    QString temp_powerdevilrc_path = test_config_dir + u"/powerdevilrc";
+    QString temp_profilesrc_path = test_config_dir + u"/powermanagementprofilesrc";
 
     QTimer::singleShot(0, [&] {
         // Successful or not, make sure we never end up with configs from a previous run.

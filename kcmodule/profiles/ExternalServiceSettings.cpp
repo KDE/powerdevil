@@ -26,6 +26,8 @@
 // debug category for qCInfo()
 #include <powerdevil_debug.h>
 
+using namespace Qt::StringLiterals;
+
 namespace
 {
 constexpr int ChargeThresholdUnsupported = -1;
@@ -76,7 +78,7 @@ void ExternalServiceSettings::executeChargeThresholdHelperAction(const QString &
 void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
 {
     // Battery thresholds (start / stop)
-    executeChargeThresholdHelperAction("getthreshold", parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
+    executeChargeThresholdHelperAction(u"getthreshold"_s, parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
         if (job->error()) {
             setSavedChargeStartThreshold(ChargeThresholdUnsupported);
             setSavedChargeStopThreshold(ChargeThresholdUnsupported);
@@ -91,7 +93,7 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
     });
 
     // Battery Conservation Mode (fixed)
-    executeChargeThresholdHelperAction("getconservationmode", parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
+    executeChargeThresholdHelperAction(u"getconservationmode"_s, parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
         if (job->error()) {
             setSavedBatteryConservationMode(false);
             m_isBatteryConservationModeSupported = false;
@@ -113,7 +115,7 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
         int newChargeStartThreshold = isChargeStartThresholdSupported() ? m_chargeStartThreshold : ChargeThresholdUnsupported;
         int newChargeStopThreshold = isChargeStopThresholdSupported() ? m_chargeStopThreshold : ChargeThresholdUnsupported;
 
-        executeChargeThresholdHelperAction("setthreshold",
+        executeChargeThresholdHelperAction(u"setthreshold"_s,
                                            parentWindowForKAuth,
                                            {
                                                {QStringLiteral("chargeStartThreshold"), newChargeStartThreshold},
@@ -133,7 +135,7 @@ void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
 
     // Battery Conservation Mode (fixed)
     if (isBatteryConservationModeSupported() && m_batteryConservationMode != m_savedBatteryConservationMode) {
-        executeChargeThresholdHelperAction("setconservationmode",
+        executeChargeThresholdHelperAction(u"setconservationmode"_s,
                                            parentWindowForKAuth,
                                            {
                                                {QStringLiteral("batteryConservationModeEnabled"), m_batteryConservationMode},

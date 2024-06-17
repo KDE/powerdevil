@@ -22,6 +22,7 @@
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::SuspendSession, "powerdevilsuspendsessionaction.json")
 
 using namespace std::chrono_literals;
+using namespace Qt::StringLiterals;
 
 namespace PowerDevil::BundledActions
 {
@@ -72,7 +73,7 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
 {
     qCDebug(POWERDEVIL) << "Suspend session triggered with" << args;
 
-    const auto mode = static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt());
+    const auto mode = static_cast<PowerDevil::PowerButtonAction>(args[u"Type"_s].toUInt());
 
     if (mode == PowerDevil::PowerButtonAction::Sleep || mode == PowerDevil::PowerButtonAction::Hibernate) {
         // don't suspend if shutting down
@@ -83,10 +84,10 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
     }
 
     // Switch for real action
-    switch (static_cast<PowerDevil::PowerButtonAction>(args["Type"].toUInt())) {
+    switch (static_cast<PowerDevil::PowerButtonAction>(args[u"Type"_s].toUInt())) {
     case PowerDevil::PowerButtonAction::Sleep: {
         Q_EMIT aboutToSuspend();
-        auto sleepMode = args.contains("SleepMode") ? static_cast<PowerDevil::SleepMode>(args["SleepMode"].toUInt()) : m_sleepMode;
+        auto sleepMode = args.contains(u"SleepMode"_s) ? static_cast<PowerDevil::SleepMode>(args[u"SleepMode"_s].toUInt()) : m_sleepMode;
 
         if (sleepMode == PowerDevil::SleepMode::SuspendThenHibernate) {
             core()->suspendController()->suspendThenHibernate();

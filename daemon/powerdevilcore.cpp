@@ -47,6 +47,8 @@
 #include <sys/timerfd.h>
 #endif
 
+using namespace Qt::StringLiterals;
+
 namespace PowerDevil
 {
 Core::Core(QObject *parent)
@@ -1043,10 +1045,10 @@ uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, q
     int cookie = m_lastWakeupCookie;
     // if some one is trying to time travel, deny them
     if (timeout < QDateTime::currentSecsSinceEpoch()) {
-        sendErrorReply(QDBusError::InvalidArgs, "You can not schedule wakeup in past");
+        sendErrorReply(QDBusError::InvalidArgs, u"You can not schedule wakeup in past"_s);
     } else {
 #ifndef Q_OS_LINUX
-        sendErrorReply(QDBusError::NotSupported, "Scheduled wakeups are available only on Linux platforms");
+        sendErrorReply(QDBusError::NotSupported, u"Scheduled wakeups are available only on Linux platforms"_s);
 #else
         WakeupInfo wakeup{service, path, cookie, timeout};
         m_scheduledWakeups << wakeup;
@@ -1065,7 +1067,7 @@ void Core::wakeup()
         QVariantMap args;
         // we pass empty string as type because when empty type is passed,
         // it turns screen on.
-        args[QStringLiteral("Type")] = "";
+        args[u"Type"_s] = QString();
         helperAction->trigger(args);
     }
 }
@@ -1088,7 +1090,7 @@ void Core::clearWakeup(int cookie)
                              m_scheduledWakeups.end());
 
     if (oldListSize == m_scheduledWakeups.size()) {
-        sendErrorReply(QDBusError::InvalidArgs, "Can not clear the invalid wakeup");
+        sendErrorReply(QDBusError::InvalidArgs, u"Can not clear the invalid wakeup"_s);
         return;
     }
 
