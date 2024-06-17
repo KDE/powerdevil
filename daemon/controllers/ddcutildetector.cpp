@@ -63,6 +63,7 @@ private Q_SLOTS:
 private:
     std::map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
     bool m_performedDetection = false;
+    bool m_noDdcutil = false;
 };
 
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
@@ -80,6 +81,10 @@ DDCutilPrivateSingleton &DDCutilPrivateSingleton::instance()
 
 DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 {
+    m_noDdcutil = qEnvironmentVariableIntValue("POWERDEVIL_NO_DDCUTIL") > 0;
+    if (m_noDdcutil) {
+        return;
+    }
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 0, 0)
     qCDebug(POWERDEVIL) << "[DDCutilDetector]: Initializing ddcutil API (create ddcutil configuration file for tracing & more)...";
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
@@ -109,6 +114,9 @@ DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 
 DDCutilPrivateSingleton::~DDCutilPrivateSingleton()
 {
+    if (m_noDdcutil) {
+        return;
+    }
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     ddca_stop_watch_displays(false);
     ddca_unregister_display_status_callback(ddcaCallback);
@@ -120,7 +128,7 @@ DDCutilPrivateSingleton::~DDCutilPrivateSingleton()
 
 void DDCutilPrivateSingleton::detect()
 {
-    if (m_performedDetection || qEnvironmentVariableIntValue("POWERDEVIL_NO_DDCUTIL") > 0) {
+    if (m_performedDetection || m_noDdcutil) {
         return;
     }
     m_performedDetection = true;
