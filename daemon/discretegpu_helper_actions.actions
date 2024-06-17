@@ -131,6 +131,7 @@ Description[ru]=Аутентификация для проверки налич�
 Description[sk]=Overenie totožnosti na zistenie existencie samostatnej grafiky.
 Description[sl]=Avtenticirajte se, da bi preverili obstoj ločenega grafičnega procesorja.
 Description[sv]=Ange behörighet för att se om diskret grafikprocessor finns.
+Description[ta]=பிரிநிலை வரைகலை அட்டை உள்ளதா என பார்க்க சான்றளிக்கவும்.
 Description[tr]=Ayrı bir GPU'nun varlığını denetlemek için kimliğinizi doğrulayın.
 Description[uk]=Пройдіть розпізнавання, щоб перевірити наявність дискретного графічного процесора.
 Description[x-test]=xxAuthenticate to check for the existence of a discrete GPU.xx
