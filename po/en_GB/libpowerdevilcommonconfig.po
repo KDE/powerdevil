@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 01:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:41+0000\n"
 "PO-Revision-Date: 2024-05-24 17:27+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -17,44 +17,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: PowerButtonActionModel.cpp:30
+#: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
 msgstr "Do nothing"
 
-#: PowerButtonActionModel.cpp:39
+#: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Sleep"
 
-#: PowerButtonActionModel.cpp:49
+#: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
 msgstr "Hibernate"
 
-#: PowerButtonActionModel.cpp:58
+#: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Shut down"
 
-#: PowerButtonActionModel.cpp:66
+#: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
 msgstr "Lock screen"
 
-#: PowerButtonActionModel.cpp:74
+#: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
 msgstr "Show logout screen"
 
-#: PowerButtonActionModel.cpp:82
+#: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
 msgstr "Turn off screen"
 
-#: PowerButtonActionModel.cpp:90
+#: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Toggle screen on/off"

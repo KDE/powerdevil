@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-06 00:40+0000\n"
+"POT-Creation-Date: 2024-06-18 00:41+0000\n"
 "PO-Revision-Date: 2023-12-16 08:33+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -32,9 +32,9 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus,Hizpol@ej-gv.es"
 
-#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:72
-#: actions/bundled/handlebuttonevents.cpp:42
-#: actions/bundled/keyboardbrightnesscontrol.cpp:45
+#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:73
+#: actions/bundled/handlebuttonevents.cpp:44
+#: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -64,56 +64,56 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Txikitu pantailaren distira % 1"
 
-#: actions/bundled/dpms.cpp:75
+#: actions/bundled/dpms.cpp:76
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Itzali pantaila"
 
-#: actions/bundled/handlebuttonevents.cpp:47
+#: actions/bundled/handlebuttonevents.cpp:49
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "Eseki"
 
-#: actions/bundled/handlebuttonevents.cpp:52
+#: actions/bundled/handlebuttonevents.cpp:54
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Hibernatu"
 
-#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/handlebuttonevents.cpp:59
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "Itzali"
 
-#: actions/bundled/handlebuttonevents.cpp:71
+#: actions/bundled/handlebuttonevents.cpp:73
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
 msgstr "Erabat itzali"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:49
+#: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
 msgstr "Handitu pantailaren distira"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:54
+#: actions/bundled/keyboardbrightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
 msgstr "Txikitu pantailaren distira"
 
-#: actions/bundled/keyboardbrightnesscontrol.cpp:59
+#: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Aktibatu/Desaktibatu teklatuaren atzeko argia"
 
-#: controllers/backlightbrightness.cpp:162
+#: controllers/backlightbrightness.cpp:164
 #, fuzzy, kde-format
 #| msgid "Lock screen"
 msgctxt "Display label"
@@ -128,97 +128,97 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:53
+#: powerdevilapp.cpp:55
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDEren energia kudeatzeko systema"
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil, energia kudeatzeko daimon aurreratu, modular eta arina"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mantentzailea"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:61
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:61
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Aurreko mantentzailea"
 
-#: powerdevilapp.cpp:101
+#: powerdevilapp.cpp:103
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "Trukatu energia profila"
 
-#: powerdevilapp.cpp:116
+#: powerdevilapp.cpp:118
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Ordezkatu existitzen den instantzia bat"
 
-#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
+#: powerdevilcore.cpp:382 powerdevilcore.cpp:393
 #, kde-format
 msgid "Activity Manager"
 msgstr "Jarduera-kudeatzailea"
 
-#: powerdevilcore.cpp:381
+#: powerdevilcore.cpp:383
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Jarduera honen gidalerroek sistema lokartzea galarazten dute"
 
-#: powerdevilcore.cpp:392
+#: powerdevilcore.cpp:394
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Jarduera honen gidalerroek pantailaren energia kudeatzea galarazten dute"
 
-#: powerdevilcore.cpp:454
+#: powerdevilcore.cpp:456
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Bateria gehigarria erantsi da"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:457 powerdevilcore.cpp:677
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Konputagailuak ez da aurrerantzean lokartuko."
 
-#: powerdevilcore.cpp:519
+#: powerdevilcore.cpp:521
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:524
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Gailuaren bateria apal dago (%%1 gelditzen da)"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -228,22 +228,22 @@ msgstr ""
 "\"%1\"(e)ko bateria apaltzen ari da, eta gailua edozein unetan itzal "
 "daiteke. Bateria kargatu, edo alda ezazu."
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:533
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Saguaren bateria apal dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:537
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Teklatuaren bateria apal dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:541
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth gailuaren bateria apal dago (% %1 gelditzen zaio)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:543
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -253,31 +253,31 @@ msgstr ""
 "\"%1\" bluetooth gailuko bateria apaltzen ari da, eta gailua edozein unetan "
 "itzal daiteke. Bateria zamatu edo aldatu beharra dago."
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:585
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Ziurtatu energia egokigailua entxufatuta dagoela eta behar adina energia "
 "hornitzen duela."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:587
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Entxufatu ordenagailua."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:606
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Bateria maila larria. Zure ordenagailua 60 segundo barru itzaliko da."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:608
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Itzali orain"
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:614
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -285,7 +285,7 @@ msgid ""
 msgstr ""
 "Bateria maila larria. Zure ordenagailua 60 segundo barru hibernatuko da."
 
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:616
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -293,25 +293,25 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernatu orain"
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:622
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Bateria maila larria. Zure ordenagailuak 60 segundo barru lokartuko da."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Egin lo orain"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "Please save your work."
 msgstr "Mesedez, gorde zure lana."
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:636
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -319,47 +319,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Utzi"
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Bateria apal dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria larri dago (% %1 gelditzen da)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:676
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Korronte alternoko egokigailua konektatuta"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "Running on AC power"
 msgstr "Korronte alternoarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:679
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Elikagailua entxufatu egin da."
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Bateria-energiarekin ibiltzen ari da"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:682
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Elikagailua desentxufatu egin da."
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Charging Complete"
 msgstr "Zamatzea osatu da"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:743
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Bateria erabat zamatuta dago orain."

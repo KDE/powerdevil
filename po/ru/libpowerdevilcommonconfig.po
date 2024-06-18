@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 01:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:41+0000\n"
 "PO-Revision-Date: 2024-02-18 10:31+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -20,44 +20,44 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.08.3\n"
 
-#: PowerButtonActionModel.cpp:30
+#: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
 msgstr "Ничего не делать"
 
-#: PowerButtonActionModel.cpp:39
+#: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Спящий режим"
 
-#: PowerButtonActionModel.cpp:49
+#: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
 msgstr "Гибернация"
 
-#: PowerButtonActionModel.cpp:58
+#: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Выключить компьютер"
 
-#: PowerButtonActionModel.cpp:66
+#: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
 msgstr "Заблокировать экран"
 
-#: PowerButtonActionModel.cpp:74
+#: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
 msgstr "Экран завершения работы"
 
-#: PowerButtonActionModel.cpp:82
+#: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
 msgstr "Выключить монитор"
 
-#: PowerButtonActionModel.cpp:90
+#: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Включить или отключить экран"

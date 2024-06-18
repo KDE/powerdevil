@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 01:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:41+0000\n"
 "PO-Revision-Date: 2023-11-01 09:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,44 +21,44 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: PowerButtonActionModel.cpp:30
+#: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
 msgstr "No facis res"
 
-#: PowerButtonActionModel.cpp:39
+#: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Suspèn"
 
-#: PowerButtonActionModel.cpp:49
+#: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
 msgstr "Hiberna"
 
-#: PowerButtonActionModel.cpp:58
+#: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Atura"
 
-#: PowerButtonActionModel.cpp:66
+#: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
 msgstr "Bloqueja la pantalla"
 
-#: PowerButtonActionModel.cpp:74
+#: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
 msgstr "Mostra la pantalla de sortida"
 
-#: PowerButtonActionModel.cpp:82
+#: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
 msgstr "Apaga la pantalla"
 
-#: PowerButtonActionModel.cpp:90
+#: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Engega/apaga la pantalla"

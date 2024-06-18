@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libpowerdevilcommonconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-16 01:39+0000\n"
+"POT-Creation-Date: 2024-06-18 00:41+0000\n"
 "PO-Revision-Date: 2023-11-08 11:30+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -19,44 +19,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.2\n"
 
-#: PowerButtonActionModel.cpp:30
+#: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
 msgstr "Non fare nulla"
 
-#: PowerButtonActionModel.cpp:39
+#: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Sospendi"
 
-#: PowerButtonActionModel.cpp:49
+#: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
 msgstr "Iberna"
 
-#: PowerButtonActionModel.cpp:58
+#: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Spegni"
 
-#: PowerButtonActionModel.cpp:66
+#: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
 msgstr "Blocca lo schermo"
 
-#: PowerButtonActionModel.cpp:74
+#: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
 msgstr "Schermata di chiusura della sessione"
 
-#: PowerButtonActionModel.cpp:82
+#: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
 msgstr "Spegni lo schermo"
 
-#: PowerButtonActionModel.cpp:90
+#: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Attiva/Disattiva lo schermo"
