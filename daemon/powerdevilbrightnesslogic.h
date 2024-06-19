@@ -19,14 +19,12 @@ public:
      *
      * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
      * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
-     * - Toggle: Key to toggle backlight (Qt::Key_KeyboardBacklightOnOff)
      * - IncreaseSmall: Key to increase brightness by 1% (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp + Qt::ShiftModifier)
      * - DecreaseSmall: Key to decrease brightness by 1% (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown + Qt::ShiftModifier)
      */
     enum BrightnessKeyType {
         Increase,
         Decrease,
-        Toggle,
         IncreaseSmall,
         DecreaseSmall,
     };
@@ -46,8 +44,6 @@ public:
         int valueMin = -1;
         /** The maximum possible brightness value for this device */
         int valueMax = -1;
-        /** The most recent brightness before toggling off */
-        int valueBeforeTogglingOff = -1;
         /** The maximum possible brightness step for this device */
         int steps = -1;
     };
@@ -66,13 +62,6 @@ public:
      * @param valueMax Maximum brightness value
      */
     void setValueRange(int valueMin, int valueMax);
-
-    /**
-     * Sets the last active brightness value.
-     *
-     * @param value Last active brightness value
-     */
-    void setValueBeforeTogglingOff(int valueBeforeTogglingOff);
 
     /**
      * Calculate new brightness value that should be set by an action.
@@ -97,14 +86,6 @@ public:
      * @return The brightness value of the closest step downwards
      */
     int decreased() const;
-
-    /**
-     * Calculates the brightness value of the toggled state.
-     * (Sets the brightness value to either minimum, last active brightness or maximum).
-     *
-     * @return The brightness value that should be set, or -1 if nothing should be done
-     */
-    virtual int toggled() const;
 
     /**
      * Calculates the brightness value of the closest step upwards.

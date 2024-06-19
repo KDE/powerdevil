@@ -10,11 +10,6 @@
 
 namespace PowerDevil
 {
-int ScreenBrightnessLogic::toggled() const
-{
-    // ignore, we won't toggle the display off
-    return -1;
-}
 
 int ScreenBrightnessLogic::calculateSteps(int maxValue) const
 {

@@ -127,7 +127,7 @@ void KeyboardBrightnessControl::decreaseKeyboardBrightness()
 
 void KeyboardBrightnessControl::toggleKeyboardBacklight()
 {
-    core()->keyboardBrightnessController()->keyboardBrightnessKeyPressed(BrightnessLogic::Toggle);
+    core()->keyboardBrightnessController()->toggleBacklight();
     BrightnessOSDWidget::show(keyboardBrightnessPercent(), PowerDevil::BrightnessControlType::Keyboard);
 }
 
