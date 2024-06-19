@@ -28,10 +28,10 @@ public:
     int brightness() const;
     int maxBrightness() const;
     void setBrightness(int value);
-    void setBrightnessOff();
     int brightnessSteps();
 
     int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment);
+    int toggleBacklight();
 
 Q_SIGNALS:
     void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);

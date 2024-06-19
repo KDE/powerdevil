@@ -20,14 +20,12 @@ public:
      *
      * - Increase: Increase brightness by one step (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
      * - Decrease: Decrease brightness by one step (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
-     * - Toggle: Toggle backlight (Qt::Key_KeyboardBacklightOnOff)
      * - IncreaseSmall: Increase brightness by a small step such as 1% (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp + Qt::ShiftModifier)
      * - DecreaseSmall: Decrease brightness by a small step such as 1% (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown + Qt::ShiftModifier)
      */
     enum StepAdjustmentAction {
         Increase,
         Decrease,
-        Toggle,
         IncreaseSmall,
         DecreaseSmall,
     };
@@ -47,8 +45,6 @@ public:
         int valueMin = -1;
         /** The maximum possible brightness value for this device */
         int valueMax = -1;
-        /** The most recent brightness before toggling off */
-        int valueBeforeTogglingOff = -1;
         /** The maximum possible brightness step for this device */
         int steps = -1;
     };
@@ -67,13 +63,6 @@ public:
      * @param valueMax Maximum brightness value
      */
     void setValueRange(int valueMin, int valueMax);
-
-    /**
-     * Sets the last active brightness value.
-     *
-     * @param value Last active brightness value
-     */
-    void setValueBeforeTogglingOff(int valueBeforeTogglingOff);
 
     /**
      * Calculate new brightness value that should be set by a discrete brightness adjustment action.
@@ -98,14 +87,6 @@ public:
      * @return The brightness value of the closest step downwards
      */
     int decreased() const;
-
-    /**
-     * Calculates the brightness value of the toggled state.
-     * (Sets the brightness value to either minimum, last active brightness or maximum).
-     *
-     * @return The brightness value that should be set, or -1 if nothing should be done
-     */
-    virtual int toggled() const;
 
     /**
      * Calculates the brightness value of the closest step upwards.

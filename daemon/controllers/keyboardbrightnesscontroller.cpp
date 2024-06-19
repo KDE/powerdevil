@@ -65,7 +65,6 @@ int KeyboardBrightnessController::calculateNextBrightnessStep(int value, int val
 {
     m_keyboardBrightnessLogic.setValueRange(0, valueMax);
     m_keyboardBrightnessLogic.setValue(value);
-    m_keyboardBrightnessLogic.setValueBeforeTogglingOff(m_brightnessBeforeTogglingOff);
 
     return m_keyboardBrightnessLogic.adjusted(adjustment);
 }
@@ -86,17 +85,15 @@ int KeyboardBrightnessController::maxBrightness() const
 
 void KeyboardBrightnessController::setBrightness(int value)
 {
+    if (value == 0) {
+        // save value before toggling so that we can restore it later
+        m_brightnessBeforeTogglingOff = brightness();
+    }
     qCDebug(POWERDEVIL) << "set kbd backlight value: " << value;
     m_kbdBacklight->SetBrightness(value);
-    m_brightnessBeforeTogglingOff = brightness();
-}
-
-void KeyboardBrightnessController::setBrightnessOff()
-{
-    // save value before toggling so that we can restore it later
-    m_brightnessBeforeTogglingOff = brightness();
-    qCDebug(POWERDEVIL) << "set kbd backlight value: " << 0;
-    m_kbdBacklight->SetBrightness(0);
+    if (value > 0) {
+        m_brightnessBeforeTogglingOff = brightness();
+    }
 }
 
 int KeyboardBrightnessController::keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment)
@@ -116,11 +113,33 @@ int KeyboardBrightnessController::keyboardBrightnessKeyPressed(PowerDevil::Brigh
         return -1;
     }
 
-    if (adjustment == PowerDevil::BrightnessLogic::Toggle && newBrightness == 0) {
-        setBrightnessOff();
-    } else {
-        setBrightness(newBrightness);
+    setBrightness(newBrightness);
+    return newBrightness;
+}
+
+int KeyboardBrightnessController::toggleBacklight()
+{
+    if (!m_isSupported) {
+        return -1; // ignore as we are not able to determine the brightness level
     }
+
+    int currentBrightness = brightness();
+    if (currentBrightness != m_cachedBrightness) {
+        m_cachedBrightness = currentBrightness;
+        return currentBrightness;
+    }
+
+    int newBrightness = 0;
+
+    if (currentBrightness > 0) {
+        newBrightness = 0; // currently on: toggle off
+    } else if (m_brightnessBeforeTogglingOff > 0) {
+        newBrightness = m_brightnessBeforeTogglingOff; // currently off and was on before toggling: restore
+    } else {
+        newBrightness = maxBrightness(); // currently off and would stay off if restoring: toggle to max
+    }
+
+    setBrightness(newBrightness);
     return newBrightness;
 }
 

@@ -28,11 +28,6 @@ void BrightnessLogic::setValueRange(int valueMin, int valueMax)
     }
 }
 
-void BrightnessLogic::setValueBeforeTogglingOff(int valueBeforeTogglingOff)
-{
-    m_current.valueBeforeTogglingOff = valueBeforeTogglingOff;
-}
-
 int BrightnessLogic::adjusted(StepAdjustmentAction adjustment) const
 {
     switch (adjustment) {
@@ -40,8 +35,6 @@ int BrightnessLogic::adjusted(StepAdjustmentAction adjustment) const
         return increased();
     case Decrease:
         return decreased();
-    case Toggle:
-        return toggled();
     case IncreaseSmall:
         return increasedSmall();
     case DecreaseSmall:
@@ -97,17 +90,6 @@ int BrightnessLogic::decreasedSmall() const
 {
     const double newPercent = (std::round(m_current.value * 100 / double(m_current.valueMax)) - 1) / 100.0;
     return std::max<int>(m_current.valueMin, std::round(m_current.valueMax * newPercent));
-}
-
-int BrightnessLogic::toggled() const
-{
-    if (m_current.value > 0) {
-        return 0; // currently on: toggle off
-    } else if (m_current.valueBeforeTogglingOff > 0) {
-        return m_current.valueBeforeTogglingOff; // currently off and was on before toggling: restore
-    } else {
-        return m_current.valueMax; // currently off and would stay off if restoring: toggle to max
-    }
 }
 
 int BrightnessLogic::steps() const
