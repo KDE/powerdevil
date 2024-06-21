@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:41+0000\n"
-"PO-Revision-Date: 2024-06-05 07:06\n"
+"PO-Revision-Date: 2024-06-20 05:36\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -117,12 +117,10 @@ msgstr "Пераключыць яркасць клавіятуры"
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Убудаваны экран"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1%2"
