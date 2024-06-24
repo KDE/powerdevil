@@ -100,7 +100,7 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
 
         const auto data = job->data();
         setSavedBatteryConservationMode(data.value(QStringLiteral("batteryConservationModeEnabled")).toBool());
-        setBatteryConservationMode(m_batteryConservationMode);
+        setBatteryConservationMode(m_savedBatteryConservationMode);
         m_isBatteryConservationModeSupported = true;
     });
 }
