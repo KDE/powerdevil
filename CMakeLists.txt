@@ -26,13 +26,32 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
+include(ECMQmlModule)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS Widgets DBus)
-find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS Auth Config Crash DBusAddons DocTools I18n IdleTime ItemModels GlobalAccel KIO Kirigami2 KCMUtils Notifications Solid WindowSystem XmlGui)
+find_package(QCoro6 REQUIRED COMPONENTS Core DBus)
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
+    Auth
+    Config
+    Crash
+    DBusAddons
+    DocTools
+    I18n
+    IdleTime
+    ItemModels
+    GlobalAccel
+    KIO
+    Kirigami2
+    KCMUtils
+    Notifications
+    Runner
+    Solid
+    WindowSystem
+    XmlGui
+)
+find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(PlasmaActivities ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(KF6Screen CONFIG REQUIRED)
-find_package(LibKWorkspace CONFIG REQUIRED)
-
 find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
 
 find_package(UDev REQUIRED)
@@ -76,11 +95,13 @@ ecm_set_disabled_deprecation_versions(QT 5.15.2
     KF 5.101
 )
 
+add_subdirectory(applets)
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
 kdoctools_install(po)
 add_subdirectory(osd)
+add_subdirectory(runners)
 
 add_subdirectory(autotests)
 

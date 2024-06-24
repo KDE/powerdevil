@@ -27,5 +27,10 @@ Dependencies:
     'plasma/libkscreen': '@same'
     'plasma/plasma-activities': '@latest-kf6' # Different branch scheme due to formerly being a Framework
 
+RuntimeDependencies:
+- 'on': ['Linux']
+  'require':
+    'sdk/selenium-webdriver-at-spi': '@latest-kf6'
+
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
