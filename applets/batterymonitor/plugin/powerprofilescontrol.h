@@ -28,6 +28,7 @@ class PowerProfilesControl : public QObject
     Q_PROPERTY(QString degradationReason READ default NOTIFY degradationReasonChanged BINDABLE bindableDegradationReason)
     Q_PROPERTY(QList<QVariantMap> profileHolds READ default NOTIFY profileHoldsChanged BINDABLE bindableProfileHolds)
     Q_PROPERTY(bool isSilent READ isSilent WRITE setIsSilent)
+    Q_PROPERTY(bool isTlpInstalled READ isTlpInstalled CONSTANT)
 
 public:
     explicit PowerProfilesControl(QObject *parent = nullptr);
@@ -39,6 +40,7 @@ private:
     bool isSilent();
     void setIsSilent(bool status);
     void showPowerProfileOsd(const QString &reason);
+    bool isTlpInstalled() const;
 
     QBindable<bool> bindableIsPowerProfileDaemonInstalled();
     QBindable<QStringList> bindableProfiles();
@@ -82,6 +84,7 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QList<QVariantMap>, m_profileHolds, &PowerProfilesControl::profileHoldsChanged)
 
     bool m_isSilent = false;
+    bool m_isTlpInstalled = false;
 
     ApplicationData m_data;
 };

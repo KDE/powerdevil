@@ -285,6 +285,7 @@ PlasmoidItem {
         inhibitionReason: powerProfilesControl.inhibitionReason
         degradationReason: powerProfilesControl.degradationReason
         profileHolds: powerProfilesControl.profileHolds
+        isTlpInstalled: powerProfilesControl.isTlpInstalled
 
         onActivateProfileRequested: profile => {
             batterymonitor.activateProfileRequested(profile);

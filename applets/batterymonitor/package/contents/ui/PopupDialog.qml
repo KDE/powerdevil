@@ -28,6 +28,8 @@ PlasmaExtras.Representation {
     property string activeProfileError
     property var profiles
 
+    property bool isTlpInstalled
+
     // List of active power management inhibitions (applications that are
     // blocking sleep and screen locking).
     //
@@ -93,6 +95,8 @@ PlasmaExtras.Representation {
                     inhibitionReason: dialog.inhibitionReason
                     degradationReason: dialog.degradationReason
                     profileHolds: dialog.profileHolds
+
+                    isTlpInstalled: dialog.isTlpInstalled
 
                     onActivateProfileRequested: profile => {
                         dialog.activateProfileRequested(profile);

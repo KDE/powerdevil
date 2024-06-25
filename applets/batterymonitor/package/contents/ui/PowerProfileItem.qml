@@ -17,6 +17,8 @@ PlasmaComponents3.ItemDelegate {
 
     property alias slider: slider
 
+    property bool isTlpInstalled
+
     property bool profilesInstalled
     property bool profilesAvailable
 
@@ -101,6 +103,7 @@ PlasmaComponents3.ItemDelegate {
 
         PlasmaComponents3.Label {
             id: activeProfileLabel
+            visible: !root.isTlpInstalled && !root.profilesInstalled
             Layout.alignment: Qt.AlignRight
             text: !root.profilesAvailable ? i18nc("Power profile", "Not available") : activeProfileData ? activeProfileData.label : ""
             textFormat: Text.PlainText
@@ -289,7 +292,9 @@ PlasmaComponents3.ItemDelegate {
 
         PlasmaComponents3.Label {
             visible: !root.profilesInstalled
-            text: xi18n("Power profiles may be supported on your device.<nl/>Try installing the <command>power-profiles-daemon</command> package using your distribution's package manager and restarting the system.")
+            text: root.isTlpInstalled
+                ? i18n("The TLP service automatically controls power profiles")
+                : xi18n("Power profiles may be supported on your device.<nl/>Try installing the <command>power-profiles-daemon</command> package using your distribution's package manager and restarting the system.")
             textFormat: Text.PlainText
             enabled: false
             font: Kirigami.Theme.smallFont
