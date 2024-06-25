@@ -54,7 +54,7 @@ void ExternalServiceSettings::executeChargeThresholdHelperAction(const QString &
                                                                  const QVariantMap &arguments,
                                                                  const std::function<void(KAuth::ExecuteJob *job)> callback)
 {
-    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.") + actionName);
+    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.%1").arg(actionName));
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
     action.setParentWindow(parentWindowForKAuth);
     action.setArguments(arguments);
@@ -165,11 +165,7 @@ bool ExternalServiceSettings::isBatteryConservationModeSupported() const
 
 void ExternalServiceSettings::setSavedBatteryConservationMode(bool enabled)
 {
-    bool wasSavedBatteryConservationModeSupported = isBatteryConservationModeSupported();
     m_savedBatteryConservationMode = enabled;
-    if (wasSavedBatteryConservationModeSupported != isBatteryConservationModeSupported()) {
-        Q_EMIT isBatteryConservationModeSupportedChanged();
-    }
 }
 
 bool ExternalServiceSettings::isChargeStartThresholdSupported() const
