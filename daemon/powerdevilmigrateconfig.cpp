@@ -247,24 +247,6 @@ void migrateConfig(bool isMobile, bool isVM, bool canSuspend)
 
     migrateActivitiesConfig(profilesConfig);
     migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspend);
-
-#if POWERDEVIL_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    // quick-fixes for configs migrated prior to Plasma 6 RC1 (which we tweaked before final release)
-    KSharedConfig::Ptr globalConfig = KSharedConfig::openConfig(QStringLiteral("powerdevilrc"));
-    KConfigGroup batteryManagementGroup = globalConfig->group(QStringLiteral("BatteryManagement"));
-    if (batteryManagementGroup.readEntry("BatteryCriticalAction", 0) == 4 /* the old PowerButtonAction::SuspendHybrid */) {
-        batteryManagementGroup.writeEntry("BatteryCriticalAction", qToUnderlying(PowerButtonAction::Hibernate));
-        globalConfig->sync();
-    }
-    for (const auto &profileName : {QStringLiteral("AC"), QStringLiteral("Battery"), QStringLiteral("LowBattery")}) {
-        PowerDevil::ProfileSettings profileSettings(profileName, isMobile, isVM, canSuspend);
-        if (profileSettings.autoSuspendAction() == qToUnderlying(PowerButtonAction::LockScreen)) {
-            profileSettings.setAutoSuspendAction(qToUnderlying(PowerButtonAction::NoAction));
-            ensureLockScreenIdleTimeoutInKScreenLockerKCM(profileSettings.autoSuspendIdleTimeoutSec());
-            profileSettings.save();
-        }
-    }
-#endif
 }
 
 } // namespace PowerDevil
