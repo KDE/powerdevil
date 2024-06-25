@@ -38,14 +38,14 @@ namespace PowerDevil
 
 ExternalServiceSettings::ExternalServiceSettings(QObject *parent)
     : QObject(parent)
-    , m_batteryConservationMode(false)
     , m_chargeStartThreshold(ChargeThresholdUnsupported)
     , m_chargeStopThreshold(ChargeThresholdUnsupported)
-    , m_savedBatteryConservationMode(false)
     , m_savedChargeStartThreshold(ChargeThresholdUnsupported)
     , m_savedChargeStopThreshold(ChargeThresholdUnsupported)
-    , m_isBatteryConservationModeSupported(false)
     , m_chargeStopThresholdMightNeedReconnect(false)
+    , m_isBatteryConservationModeSupported(false)
+    , m_batteryConservationMode(false)
+    , m_savedBatteryConservationMode(false)
 {
 }
 
@@ -54,7 +54,7 @@ void ExternalServiceSettings::executeChargeThresholdHelperAction(const QString &
                                                                  const QVariantMap &arguments,
                                                                  const std::function<void(KAuth::ExecuteJob *job)> callback)
 {
-    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.") + actionName);
+    KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.%1").arg(actionName));
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
     action.setParentWindow(parentWindowForKAuth);
     action.setArguments(arguments);
@@ -95,15 +95,15 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
     // Battery Conservation Mode (fixed)
     executeChargeThresholdHelperAction(u"getconservationmode"_s, parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
         if (job->error()) {
+            setBatteryConservationModeSupported(false);
             setSavedBatteryConservationMode(false);
-            m_isBatteryConservationModeSupported = false;
             return;
         }
 
         const auto data = job->data();
         setSavedBatteryConservationMode(data.value(QStringLiteral("batteryConservationModeEnabled")).toBool());
         setBatteryConservationMode(m_savedBatteryConservationMode);
-        m_isBatteryConservationModeSupported = true;
+        setBatteryConservationModeSupported(true);
     });
 }
 
@@ -158,6 +158,14 @@ bool ExternalServiceSettings::isSaveNeeded() const
         || (isBatteryConservationModeSupported() && m_batteryConservationMode != m_savedBatteryConservationMode);
 }
 
+void ExternalServiceSettings::setBatteryConservationModeSupported(bool supported)
+{
+    if (m_isBatteryConservationModeSupported != supported) {
+        m_isBatteryConservationModeSupported = supported;
+        Q_EMIT isBatteryConservationModeSupportedChanged();
+    }
+}
+
 bool ExternalServiceSettings::isBatteryConservationModeSupported() const
 {
     return m_isBatteryConservationModeSupported;
@@ -165,11 +173,7 @@ bool ExternalServiceSettings::isBatteryConservationModeSupported() const
 
 void ExternalServiceSettings::setSavedBatteryConservationMode(bool enabled)
 {
-    bool wasSavedBatteryConservationModeSupported = isBatteryConservationModeSupported();
     m_savedBatteryConservationMode = enabled;
-    if (wasSavedBatteryConservationModeSupported != isBatteryConservationModeSupported()) {
-        Q_EMIT isBatteryConservationModeSupportedChanged();
-    }
 }
 
 bool ExternalServiceSettings::isChargeStartThresholdSupported() const

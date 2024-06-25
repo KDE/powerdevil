@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <QObject>
 #include <KAuth/ExecuteJob>
+#include <QObject>
 
 class QWindow;
 
@@ -61,7 +61,9 @@ Q_SIGNALS:
     void chargeStopThresholdMightNeedReconnectChanged();
 
 private:
+    void setBatteryConservationModeSupported(bool);
     void setSavedBatteryConservationMode(bool);
+
     void setSavedChargeStartThreshold(int);
     void setSavedChargeStopThreshold(int);
     void setChargeStopThresholdMightNeedReconnect(bool);
@@ -71,16 +73,17 @@ private:
                                             const QVariantMap &arguments,
                                             const std::function<void(KAuth::ExecuteJob *job)> callback);
 
-    bool m_batteryConservationMode;
     int m_chargeStartThreshold;
     int m_chargeStopThreshold;
 
-    bool m_savedBatteryConservationMode;
     int m_savedChargeStartThreshold;
     int m_savedChargeStopThreshold;
 
-    bool m_isBatteryConservationModeSupported;
     bool m_chargeStopThresholdMightNeedReconnect;
+
+    bool m_isBatteryConservationModeSupported;
+    bool m_batteryConservationMode;
+    bool m_savedBatteryConservationMode;
 };
 
 } // namespace PowerDevil
