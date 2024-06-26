@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:40+0000\n"
+"POT-Creation-Date: 2024-06-26 00:41+0000\n"
 "PO-Revision-Date: 2024-04-24 19:18+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: eo <kde-i18n-doc@kde.org>\n"
@@ -109,7 +109,7 @@ msgstr ""
 
 #: package/contents/ui/main.qml:97
 #: package/contents/ui/PowerManagementItem.qml:51
-#: package/contents/ui/PowerProfileItem.qml:74
+#: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "Energiadministrado"
@@ -212,17 +212,17 @@ msgstr "Sistemo estas en Energi-Ŝpara reĝimo"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistemo estas en Energi-Ekvilibra reĝimo; rulumu por ŝanĝi"
 
-#: package/contents/ui/main.qml:300
+#: package/contents/ui/main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Montri Energiinformon…"
 
-#: package/contents/ui/main.qml:306
+#: package/contents/ui/main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Montri Baterian Procenton sur Piktogramo Kiam Ne Plene Ŝarĝita"
 
-#: package/contents/ui/main.qml:319
+#: package/contents/ui/main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Agordi Energimastrumadon…"
@@ -326,38 +326,38 @@ msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "Nekonata aplikaĵo: nekonata kialo"
 
-#: package/contents/ui/PowerProfileItem.qml:39
+#: package/contents/ui/PowerProfileItem.qml:41
 #, kde-format
 msgid "Power Save"
 msgstr "Energiŝparo"
 
-#: package/contents/ui/PowerProfileItem.qml:43
+#: package/contents/ui/PowerProfileItem.qml:45
 #, kde-format
 msgid "Balanced"
 msgstr "Balancita"
 
-#: package/contents/ui/PowerProfileItem.qml:47
+#: package/contents/ui/PowerProfileItem.qml:49
 #, kde-format
 msgid "Performance"
 msgstr "Rendimento"
 
-#: package/contents/ui/PowerProfileItem.qml:64
+#: package/contents/ui/PowerProfileItem.qml:66
 #, kde-format
 msgid "Power Profile"
 msgstr "Energioprofilo"
 
-#: package/contents/ui/PowerProfileItem.qml:105
+#: package/contents/ui/PowerProfileItem.qml:108
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Ne disponebla"
 
-#: package/contents/ui/PowerProfileItem.qml:146
+#: package/contents/ui/PowerProfileItem.qml:149
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Malsukcesis aktivigi %1 reĝimon"
 
-#: package/contents/ui/PowerProfileItem.qml:222
+#: package/contents/ui/PowerProfileItem.qml:225
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -366,18 +366,18 @@ msgstr ""
 "Reĝimo de rendimento estis malŝaltita por redukti varmegon ĉar la komputilo "
 "detektis, ke ĝi povas sidas sur via sino."
 
-#: package/contents/ui/PowerProfileItem.qml:224
+#: package/contents/ui/PowerProfileItem.qml:227
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr "Rendimenta reĝimo ne haveblas ĉar la komputilo estas tro varma."
 
-#: package/contents/ui/PowerProfileItem.qml:226
+#: package/contents/ui/PowerProfileItem.qml:229
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Rendimenta reĝimo ne haveblas."
 
-#: package/contents/ui/PowerProfileItem.qml:240
+#: package/contents/ui/PowerProfileItem.qml:243
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -386,24 +386,24 @@ msgstr ""
 "Efikeco povas esti malaltigita por redukti varmegon ĉar la komputilo "
 "detektis, ke ĝi povas sidas sur via sino."
 
-#: package/contents/ui/PowerProfileItem.qml:242
+#: package/contents/ui/PowerProfileItem.qml:245
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "Rendimento povas esti reduktita ĉar la komputilo estas tro varma."
 
-#: package/contents/ui/PowerProfileItem.qml:244
+#: package/contents/ui/PowerProfileItem.qml:247
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Rendimento povas esti reduktita."
 
-#: package/contents/ui/PowerProfileItem.qml:256
+#: package/contents/ui/PowerProfileItem.qml:259
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] "Unu aplikaĵo petis aktivigon de %2:"
 msgstr[1] "%1 aplikaĵoj petis aktivigon de %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:275
+#: package/contents/ui/PowerProfileItem.qml:278
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -411,7 +411,12 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerProfileItem.qml:292
+#: package/contents/ui/PowerProfileItem.qml:296
+#, kde-format
+msgid "The TLP service automatically controls power profiles"
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

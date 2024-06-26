@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:40+0000\n"
+"POT-Creation-Date: 2024-06-26 00:41+0000\n"
 "PO-Revision-Date: 2017-02-17 16:54+0200\n"
 "Last-Translator: Dimitris Kardarakos <dimkard@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -118,7 +118,7 @@ msgstr "Η μικροεφαρμογή μπαταρίας έχει ενεργοπ
 
 #: package/contents/ui/main.qml:97
 #: package/contents/ui/PowerManagementItem.qml:51
-#: package/contents/ui/PowerProfileItem.qml:74
+#: package/contents/ui/PowerProfileItem.qml:76
 #, fuzzy, kde-format
 #| msgid "Enable Power Management"
 msgid "Power Management"
@@ -232,19 +232,19 @@ msgstr ""
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 
-#: package/contents/ui/main.qml:300
+#: package/contents/ui/main.qml:301
 #, fuzzy, kde-format
 #| msgid "Show charge &information"
 msgid "&Show Energy Information…"
 msgstr "Εμφάνιση &πληροφοριών φόρτισης"
 
-#: package/contents/ui/main.qml:306
+#: package/contents/ui/main.qml:307
 #, fuzzy, kde-format
 #| msgid "Show percentage"
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Εμφάνιση ποσοστού"
 
-#: package/contents/ui/main.qml:319
+#: package/contents/ui/main.qml:320
 #, fuzzy, kde-format
 #| msgid "&Configure Power Saving..."
 msgid "&Configure Power Management…"
@@ -351,85 +351,85 @@ msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:39
+#: package/contents/ui/PowerProfileItem.qml:41
 #, fuzzy, kde-format
 #| msgid "Power Settings"
 msgid "Power Save"
 msgstr "Ρυθμίσεις ενέργειας"
 
-#: package/contents/ui/PowerProfileItem.qml:43
+#: package/contents/ui/PowerProfileItem.qml:45
 #, kde-format
 msgid "Balanced"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:47
+#: package/contents/ui/PowerProfileItem.qml:49
 #, kde-format
 msgid "Performance"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:64
+#: package/contents/ui/PowerProfileItem.qml:66
 #, fuzzy, kde-format
 #| msgid "Power Profile:"
 msgid "Power Profile"
 msgstr "Προφίλ ενέργειας:"
 
-#: package/contents/ui/PowerProfileItem.qml:105
+#: package/contents/ui/PowerProfileItem.qml:108
 #, fuzzy, kde-format
 #| msgid "No Batteries Available"
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Καμιά μπαταρία διαθέσιμη"
 
-#: package/contents/ui/PowerProfileItem.qml:146
+#: package/contents/ui/PowerProfileItem.qml:149
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:222
+#: package/contents/ui/PowerProfileItem.qml:225
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
 "computer has detected that it may be sitting on your lap."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:224
+#: package/contents/ui/PowerProfileItem.qml:227
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:226
+#: package/contents/ui/PowerProfileItem.qml:229
 #, fuzzy, kde-format
 #| msgid "Power management is disabled"
 msgid "Performance mode is unavailable."
 msgstr "Η διαχείριση ενέργειας είναι απενεργοποιημένη"
 
-#: package/contents/ui/PowerProfileItem.qml:240
+#: package/contents/ui/PowerProfileItem.qml:243
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:242
+#: package/contents/ui/PowerProfileItem.qml:245
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:244
+#: package/contents/ui/PowerProfileItem.qml:247
 #, fuzzy, kde-format
 #| msgid "Power management is disabled"
 msgid "Performance may be reduced."
 msgstr "Η διαχείριση ενέργειας είναι απενεργοποιημένη"
 
-#: package/contents/ui/PowerProfileItem.qml:256
+#: package/contents/ui/PowerProfileItem.qml:259
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: package/contents/ui/PowerProfileItem.qml:275
+#: package/contents/ui/PowerProfileItem.qml:278
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -437,7 +437,12 @@ msgctxt ""
 msgid "%1: %2"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:292
+#: package/contents/ui/PowerProfileItem.qml:296
+#, kde-format
+msgid "The TLP service automatically controls power profiles"
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "
