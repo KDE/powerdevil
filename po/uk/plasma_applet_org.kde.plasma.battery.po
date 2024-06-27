@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-04-24 10:50+0300\n"
+"PO-Revision-Date: 2024-06-26 20:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -440,7 +440,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Служба TLP автоматично керує профілями живлення"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format

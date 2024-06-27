@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-04-24 06:45+0200\n"
+"PO-Revision-Date: 2024-06-26 05:46+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -412,7 +412,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "სერვისი TLP კვების პროფილებს ავტომატურად მართავს"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format

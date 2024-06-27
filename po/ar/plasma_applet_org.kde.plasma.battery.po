@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-05-02 10:15+0400\n"
+"PO-Revision-Date: 2024-06-26 18:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: package/contents/ui/BatteryItem.qml:100
 #, kde-format
@@ -420,7 +421,7 @@ msgstr "‏%1:‏ %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "تتحكم خدمة TLP تلقائيًا في تشكيلات الطاقة"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format
