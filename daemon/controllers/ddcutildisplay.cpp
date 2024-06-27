@@ -192,7 +192,10 @@ void DDCutilDisplay::resumeWorker()
 #ifdef WITH_DDCUTIL
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
-    Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
+
+    // Allow some delay before starting to work with the monitor
+    // because the monitor may not yet be ready to work through DDC/CI after waking up
+    m_timer->start();
 #endif
 #endif
 }
