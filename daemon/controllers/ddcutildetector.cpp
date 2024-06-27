@@ -10,6 +10,8 @@
 
 #include <powerdevil_debug.h>
 
+#include <QMutex>
+
 #include <map>
 #include <memory> // std::unique_ptr
 #include <span>
@@ -61,6 +63,8 @@ private Q_SLOTS:
 
 private:
     std::map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
+    // ddcutil has global state, let's avoid simultaneous access to its open display map
+    QMutex m_openDisplayMutex;
     bool m_performedDetection = false;
     bool m_noDdcutil = false;
 };
@@ -144,7 +148,7 @@ void DDCutilPrivateSingleton::detect()
     qCInfo(POWERDEVIL) << "[DDCutilDetector]:" << displayCount << "display(s) were detected";
 
     for (int i = 0; i < displayCount; ++i) {
-        auto display = std::make_unique<DDCutilDisplay>(displayRefs[i]);
+        auto display = std::make_unique<DDCutilDisplay>(displayRefs[i], &m_openDisplayMutex);
 
         QString id = DDCutilDisplay::generatePathId(display->ioPath());
         if (id.isEmpty()) {

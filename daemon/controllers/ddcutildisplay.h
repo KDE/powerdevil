@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <QMutex>
 #include <QObject>
 #include <QString>
 #include <QThread>
@@ -32,7 +33,7 @@ class DDCutilDisplay : public DisplayBrightness
 
 public:
 #ifdef WITH_DDCUTIL
-    DDCutilDisplay(DDCA_Display_Ref);
+    DDCutilDisplay(DDCA_Display_Ref, QMutex *openDisplayMutex);
     DDCA_IO_Path ioPath() const;
     static QString generatePathId(const DDCA_IO_Path &displayPath);
 #endif
@@ -66,6 +67,7 @@ private:
     BrightnessWorker *m_brightnessWorker;
     QThread m_brightnessWorkerThread;
     QTimer *m_timer;
+    QMutex *m_openDisplayMutex;
     int m_brightness;
     int m_maxBrightness;
     bool m_supportsBrightness;
