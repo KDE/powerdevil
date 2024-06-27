@@ -91,6 +91,8 @@ void Core::loadCore()
     m_screenBrightnessController = std::make_unique<ScreenBrightnessController>();
 
     connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onControllersReady);
+    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::displayAdded, this, &Core::refreshActions);
+    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::displayRemoved, this, &Core::refreshActions);
     m_screenBrightnessController->detectDisplays();
 }
 
@@ -157,7 +159,7 @@ void Core::onControllersReady()
     });
 
     // Initialize the action pool, which will also load the needed startup actions.
-    initActions();
+    refreshActions();
 
     // Set up the critical battery timer
     m_criticalBatteryTimer->setSingleShot(true);
@@ -207,34 +209,28 @@ void Core::onControllersReady()
     refreshStatus();
 }
 
-void Core::initActions()
+void Core::refreshActions()
 {
     const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
     for (const KPluginMetaData &data : offers) {
-        if (auto plugin = KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, this).plugin) {
-            m_actionPool.insert(data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID")), plugin);
+        const QString actionId = data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
+        if (m_actionPool.contains(actionId)) {
+            continue;
+        }
+        std::unique_ptr<PowerDevil::Action> action{KPluginFactory::instantiatePlugin<PowerDevil::Action>(data, this).plugin};
+        if (action && action->isSupported()) {
+            if (data.value(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), false)) {
+                QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, action.get());
+            }
+            m_actionPool.emplace(actionId, std::move(action));
         }
     }
 
-    // Verify support
-    QHash<QString, Action *>::iterator i = m_actionPool.begin();
-    while (i != m_actionPool.end()) {
-        Action *action = i.value();
-        if (!action->isSupported()) {
-            i = m_actionPool.erase(i);
-            action->deleteLater();
-        } else {
-            ++i;
-        }
-    }
-
-    // Register DBus objects
-    for (const KPluginMetaData &offer : offers) {
-        QString actionId = offer.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
-        if (offer.value(QStringLiteral("X-KDE-PowerDevil-Action-RegistersDBusInterface"), false) && m_actionPool.contains(actionId)) {
-            QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, m_actionPool[actionId]);
-        }
-    }
+    // Remove now-unsupported actions
+    std::erase_if(m_actionPool, [](const auto &pair) {
+        const auto &[name, action] = pair;
+        return !action->isSupported();
+    });
 }
 
 bool Core::isActionSupported(const QString &actionName)
@@ -361,10 +357,10 @@ void Core::loadProfile(bool force)
         }
 
         // Cool, now let's load the needed actions. Mark the ones as active that want to be loaded
-        for (auto it = m_actionPool.begin(); it != m_actionPool.end(); ++it) {
-            if (it.value()->loadAction(profileSettings)) {
-                m_activeActions.append(it.key());
-                it.value()->onProfileLoad(m_currentProfile, profileId);
+        for (const auto &[id, action] : m_actionPool) {
+            if (action->loadAction(profileSettings)) {
+                m_activeActions.append(id);
+                action->onProfileLoad(m_currentProfile, profileId);
             }
         }
 
@@ -991,7 +987,8 @@ BatteryController *Core::batteryController()
 
 Action *Core::action(const QString actionId)
 {
-    return m_actionPool.value(actionId, nullptr);
+    const auto it = m_actionPool.find(actionId);
+    return it == m_actionPool.end() ? nullptr : it->second.get();
 }
 
 void Core::unloadAllActiveActions()
