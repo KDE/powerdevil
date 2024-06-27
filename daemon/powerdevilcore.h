@@ -149,7 +149,8 @@ private:
 
     friend class Action;
 
-    bool m_hasDualGpu;
+    bool m_isSessionActive = true;
+    bool m_hasDualGpu = false;
     bool m_batteryConservationModeEnabled = false;
     int m_chargeStartThreshold = 0;
     int m_chargeStopThreshold = 100;

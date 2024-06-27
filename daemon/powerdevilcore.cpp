@@ -53,7 +53,6 @@ namespace PowerDevil
 {
 Core::Core(QObject *parent)
     : QObject(parent)
-    , m_hasDualGpu(false)
     , m_criticalBatteryTimer(new QTimer(this))
     , m_activityConsumer(new KActivities::Consumer(this))
     , m_pendingWakeupEvent(true)
@@ -147,6 +146,7 @@ void Core::onControllersReady()
     // this keeps us from sending the computer to sleep when switching to an idle session.
     // (this is just being lazy as it will result in us clearing everything
     connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::sessionActiveChanged, this, [this](bool active) {
+        m_isSessionActive = active;
         if (active) {
             // force reload profile so all actions re-register their idle timeouts
             loadProfile(true /*force*/);
@@ -285,6 +285,14 @@ QString Core::currentProfile() const
 
 void Core::loadProfile(bool force)
 {
+    if (!m_isSessionActive) {
+        // Don't update any settings and actions if the session is inactive.
+        // In particular, we don't want to reinstate any idle timeouts for actions.
+        // Things like autosuspend and screen dimming are now the other session's responsibility.
+        // PowerDevil::PolicyAgent::sessionActiveChanged will trigger a loadProfile(true) call later.
+        return;
+    }
+
     QString profileId;
 
     // Check the activity in which we are in
