@@ -35,7 +35,8 @@ public:
      * Actively look for connected displays.
      *
      * This will emit detectionFinished signal once all candidates were checked, and after initial
-     * detection, displaysChanged can be emitted whenever a change in display connections is observed.
+     * detection, displayAdded/displayRemoved can be emitted whenever a change in display
+     * connections is observed.
      */
     void detectDisplays();
     bool isSupported() const;
