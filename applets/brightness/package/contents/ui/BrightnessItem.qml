@@ -21,6 +21,7 @@ PlasmaComponents3.ItemDelegate {
 
     property alias slider: control
     property alias value: control.value
+    property alias minimumValue: control.from
     property alias maximumValue: control.to
     property alias stepSize: control.stepSize
     required property /*BrightnessItem.Type*/ int type
@@ -80,11 +81,20 @@ PlasmaComponents3.ItemDelegate {
                     Layout.fillWidth: true
                     text: root.text
                     textFormat: Text.PlainText
+                    elide: Text.ElideRight
                     Accessible.ignored: true
                 }
 
                 PlasmaComponents3.Label {
-                    id: percent
+                    id: hint
+                    text: i18nc("Display brightness", "Brightness")
+                    textFormat: Text.PlainText
+                    enabled: false
+                    visible: labelText != brightnessLevelOff && labelText != brightnessLevelOn
+                }
+
+                PlasmaComponents3.Label {
+                    id: brightnessValue
                     Layout.alignment: Qt.AlignRight
                     text: root.labelText
                     textFormat: Text.PlainText
@@ -97,14 +107,12 @@ PlasmaComponents3.ItemDelegate {
                 Layout.fillWidth: true
 
                 activeFocusOnTab: false
-                // Don't allow the slider to turn off the screen
-                // Please see https://git.reviewboard.kde.org/r/122505/ for more information
-                from: root.type == BrightnessItem.Type.Screen ? 1 : 0
+                from: 0
                 stepSize: 1
 
-                Accessible.name: root.text
-                Accessible.description: percent.text
-                Accessible.onPressAction: moved()
+                Accessible.name: root.type === BrightnessItem.Type.Screen ? i18nc("Placeholder is display name", "Display Brightness - %1", root.text) : root.text
+                Accessible.description: brightnessValue.text
+                Accessible.onPressAction: this.moved()
 
                 onMoved: root.moved()
             }

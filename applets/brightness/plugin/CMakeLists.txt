@@ -7,6 +7,7 @@ target_sources(brightnesscontrolplugin PRIVATE
     nightlightinhibitor.cpp
     nightlightcontrol.cpp
     screenbrightnesscontrol.cpp
+    screenbrightnessdisplaymodel.cpp
     keyboardbrightnesscontrol.cpp
     keyboardcolorcontrol.cpp
 )
