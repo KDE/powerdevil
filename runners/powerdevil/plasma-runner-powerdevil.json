@@ -5,22 +5,8 @@
                 "Email": "drf@kdemod.ath.cx",
                 "Name": "Dario Freddi",
                 "Name[ar]": "داريو فريدي",
-                "Name[bg]": "Dario Freddi",
-                "Name[ca]": "Dario Freddi",
-                "Name[cs]": "Dario Freddi",
-                "Name[es]": "Dario Freddi",
                 "Name[he]": "דריו פרדי",
-                "Name[ia]": "Dario Freddi",
-                "Name[it]": "Dario Freddi",
-                "Name[ka]": "Dario Freddi",
-                "Name[nl]": "Dario Freddi",
-                "Name[sl]": "Dario Freddi",
-                "Name[sv]": "Dario Freddi",
-                "Name[tr]": "Dario Freddi",
-                "Name[uk]": "Dario Freddi",
-                "Name[x-test]": "xxDario Freddixx",
-                "Name[zh_CN]": "Dario Freddi",
-                "Name[zh_TW]": "Dario Freddi"
+                "Name[x-test]": "xxDario Freddixx"
             }
         ],
         "Description": "Basic Power Management Operations",
