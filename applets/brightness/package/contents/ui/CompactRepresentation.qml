@@ -18,7 +18,7 @@ MouseArea {
     id: root
 
     readonly property bool isConstrained: Plasmoid.formFactor === PlasmaCore.Types.Vertical || Plasmoid.formFactor === PlasmaCore.Types.Horizontal
-    property real brightnessError: 0
+    property var brightnessTrackingErrors: []
     property bool isBrightnessAvailable: false
 
     activeFocusOnTab: true

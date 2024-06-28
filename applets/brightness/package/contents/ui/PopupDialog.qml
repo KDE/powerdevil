@@ -16,7 +16,8 @@ import org.kde.kirigami as Kirigami
 PlasmaExtras.Representation {
     id: dialog
 
-    KeyNavigation.down: screenBrightnessSlider.Visible ? screenBrightnessSlider : screenBrightnessSlider.KeyNavigation.down
+    readonly property Item firstItemAfterScreenBrightnessRepeater: keyboardBrightnessSlider.visible ? keyboardBrightnessSlider : keyboardBrightnessSlider.KeyNavigation.down
+    KeyNavigation.down: screenBrightnessRepeater.count > 0 ? screenBrightnessRepeater.itemAt(0) : firstItemAfterScreenBrightnessRepeater
 
     contentItem: PlasmaComponents3.ScrollView {
         id: scrollView
@@ -41,8 +42,8 @@ PlasmaExtras.Representation {
             spacing: Kirigami.Units.smallSpacing * 2
 
             readonly property Item firstHeaderItem: {
-                if (screenBrightnessSlider.visible) {
-                    return screenBrightnessSlider;
+                if (screenBrightnessRepeater.count > 0) {
+                    return screenBrightnessRepeater.itemAt(0);
                 } else if (keyboardBrightnessSlider.visible) {
                     return keyboardBrightnessSlider;
                 }
@@ -51,40 +52,42 @@ PlasmaExtras.Representation {
             readonly property Item lastHeaderItem: {
                 if (keyboardBrightnessSlider.visible) {
                     return keyboardBrightnessSlider;
-                } else if (screenBrightnessSlider.visible) {
-                    return screenBrightnessSlider;
+                } else if (screenBrightnessRepeater.count > 0) {
+                    return screenBrightnessRepeater.itemAt(screenBrightnessRepeater.count - 1);
                 }
                 return null;
             }
 
-            BrightnessItem {
-                id: screenBrightnessSlider
+            Repeater {
+                id: screenBrightnessRepeater
+                model: screenBrightnessControl.displays
 
-                width: scrollView.availableWidth
+                BrightnessItem {
+                    id: screenBrightnessSlider
 
-                icon.name: "video-display-brightness"
-                text: i18n("Display Brightness")
-                type: BrightnessItem.Type.Screen
-                visible: screenBrightnessControl.isBrightnessAvailable
-                value: screenBrightnessControl.brightness
-                maximumValue: screenBrightnessControl.brightnessMax
+                    required property int index
+                    required property string displayId
+                    required property string label
+                    required property int brightness
+                    required property int maxBrightness
 
-                KeyNavigation.up: dialog.KeyNavigation.up
-                KeyNavigation.down: keyboardBrightnessSlider.visible ? keyboardBrightnessSlider : keyboardBrightnessSlider.KeyNavigation.down
-                KeyNavigation.backtab: dialog.KeyNavigation.backtab
-                KeyNavigation.tab: KeyNavigation.down
+                    width: scrollView.availableWidth
 
-                stepSize: screenBrightnessControl.brightnessMax/100
+                    icon.name: "video-display-brightness"
+                    text: screenBrightnessRepeater.count === 1 ? i18n("Display Brightness") : i18n("Display Brightness - %1", label)
+                    type: BrightnessItem.Type.Screen
+                    value: brightness
+                    maximumValue: maxBrightness
 
-                onMoved: screenBrightnessControl.brightness = value
-                onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
+                    KeyNavigation.up: screenBrightnessRepeater.itemAt(index - 1) ?? dialog.KeyNavigation.up
+                    KeyNavigation.down: screenBrightnessRepeater.itemAt(index + 1) ?? firstItemAfterScreenBrightnessRepeater
+                    KeyNavigation.backtab: screenBrightnessRepeater.itemAt(index - 1) ?? dialog.KeyNavigation.backtab
+                    KeyNavigation.tab: KeyNavigation.down
 
-                // Manually dragging the slider around breaks the binding
-                Connections {
-                    target: screenBrightnessControl
-                    function onBrightnessChanged() {
-                        screenBrightnessSlider.value = screenBrightnessControl.brightness;
-                    }
+                    stepSize: maxBrightness/100
+
+                    onMoved: screenBrightnessControl.setBrightness(displayId, value)
+                    onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
                 }
             }
 
@@ -100,7 +103,7 @@ PlasmaExtras.Representation {
                 maximumValue: keyboardBrightnessControl.brightnessMax
                 visible: keyboardBrightnessControl.isBrightnessAvailable
 
-                KeyNavigation.up: screenBrightnessSlider.visible ? screenBrightnessSlider : screenBrightnessSlider.KeyNavigation.up
+                KeyNavigation.up: screenBrightnessRepeater.itemAt(screenBrightnessRepeater.count - 1) ?? dialog.KeyNavigation.up
                 KeyNavigation.down: keyboardColorItem.visible ? keyboardColorItem : keyboardColorItem.KeyNavigation.down
                 KeyNavigation.backtab: KeyNavigation.up
                 KeyNavigation.tab: KeyNavigation.down
