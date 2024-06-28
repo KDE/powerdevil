@@ -285,16 +285,25 @@ class BrightnessTests(unittest.TestCase):
         """
         Can change the keyboard brightness
         """
-        slider_element = self.driver.find_element(AppiumBy.NAME, "Keyboard Brightness")
+        slider_element = self.driver.find_element(AppiumBy.NAME, "Keyboard Backlight")
         wait = WebDriverWait(self.driver, 5)
         for target_brightness in range(0, 3 + 1):
             self.driver.set_value(slider_element, str(target_brightness))
             slider_element.click()
             wait.until(lambda _: self.upower_interface.current_keyboard_brightness == target_brightness)
 
+    def read_powerdevil_first_display_id(self) -> int:
+        session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.freedesktop.PowerManagement", "/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl", "org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl", "GetDisplayIds")
+        reply, _ = session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 1000)
+        if not reply or reply.get_signature() != 'as':
+            return -1
+        return reply.get_body().get_child_value(0).get_child_value(0).get_string()
+
     def read_powerdevil_brightness(self) -> int:
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
-        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.freedesktop.PowerManagement", "/org/kde/Solid/PowerManagement/Actions/BrightnessControl", "org.kde.Solid.PowerManagement.Actions.BrightnessControl", "brightness")
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.freedesktop.PowerManagement", "/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl", "org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl", "GetBrightness")
+        message.set_body(GLib.Variant("(s)", [self.read_powerdevil_first_display_id()]))
         reply, _ = session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 1000)
         if not reply or reply.get_signature() != 'i':
             return -1
@@ -304,8 +313,8 @@ class BrightnessTests(unittest.TestCase):
         """
         Can change the display brightness
         """
-        slider_element = self.driver.find_element(AppiumBy.NAME, "Display Brightness")
-        for target_brightness in (1, 100, 255):
+        slider_element = self.driver.find_element(AppiumBy.NAME, "Display Brightness - Built-in Screen")
+        for target_brightness in (0, 99, 254):
             self.driver.set_value(slider_element, str(target_brightness))
             slider_element.click()
             wait = WebDriverWait(self.driver, 5)

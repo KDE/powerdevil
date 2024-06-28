@@ -44,7 +44,6 @@ PlasmoidItem {
 
     property bool isNightLightActive: nightLightControl.running && nightLightControl.currentTemperature != 6500
     property bool isNightLightInhibited: nightLightControl.inhibited && nightLightControl.targetTemperature != 6500
-    property int screenBrightnessPercent: screenBrightnessControl.brightnessMax ? Math.round(100 * screenBrightnessControl.brightness / screenBrightnessControl.brightnessMax) : 0
     property int keyboardBrightnessPercent: keyboardBrightnessControl.brightnessMax ? Math.round(100 * keyboardBrightnessControl.brightness / keyboardBrightnessControl.brightnessMax) : 0
 
     function symbolicizeIconName(iconName) {
@@ -68,14 +67,46 @@ PlasmoidItem {
         return screenBrightnessControl.isBrightnessAvailable || keyboardBrightnessControl.isBrightnessAvailable || isNightLightActive || isNightLightInhibited ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus;
     }
 
+    // QAbstractItemModel doesn't provide bindable properties for QML, let's make sure
+    // toolTipMainText gets updated anyway by (re)setting a variable used in the binding
+    Connections {
+        id: displayModelConnections
+        target: screenBrightnessControl.displays
+        property var screenBrightnessInfo: []
+
+        function update() {
+            const [labelRole, brightnessRole, maxBrightnessRole] = ["label", "brightness", "maxBrightness"].map(
+                (roleName) => target.KItemModels.KRoleNames.role(roleName));
+
+            screenBrightnessInfo = [...Array(target.rowCount()).keys()].map((i) => { // for each display index
+                const modelIndex = target.index(i, 0);
+                return {
+                    label: target.data(modelIndex, labelRole),
+                    brightness: target.data(modelIndex, brightnessRole),
+                    maxBrightness: target.data(modelIndex, maxBrightnessRole),
+                };
+            });
+        }
+        function onDataChanged() { update(); }
+        function onModelReset() { update(); }
+        function onRowsInserted() { update(); }
+        function onRowsMoved() { update(); }
+        function onRowsRemoved() { update(); }
+    }
     toolTipMainText: {
         const parts = [];
-        if (screenBrightnessControl.isBrightnessAvailable) {
-            parts.push(i18n("Screen brightness at %1%", screenBrightnessPercent));
+        for (const screen of displayModelConnections.screenBrightnessInfo) {
+            const brightnessPercent = screen.maxBrightness ? Math.round(100 * screen.brightness / screen.maxBrightness) : 0
+            const text = displayModelConnections.screenBrightnessInfo.length === 1
+                ? i18n("Screen brightness at %1%", brightnessPercent)
+                : i18nc("Brightness of named display at percentage", "Brightness of %1 at %2%", screen.label, brightnessPercent);
+            parts.push(text);
         }
+
         if (keyboardBrightnessControl.isBrightnessAvailable) {
             parts.push(i18n("Keyboard brightness at %1%", keyboardBrightnessPercent));
         }
+
         if (nightLightControl.enabled) {
             if (!nightLightControl.running) {
                 if (nightLightControl.inhibitedFromApplet) {
@@ -102,6 +133,9 @@ PlasmoidItem {
         }
 
         return parts.join("\n");
+    }
+    Connections {
+        target: screenBrightnessControl
     }
 
     toolTipSubText: {
@@ -154,26 +188,18 @@ PlasmoidItem {
             }
             const delta = (wheel.inverted ? -1 : 1) * (wheel.angleDelta.y ? wheel.angleDelta.y : -wheel.angleDelta.x);
 
-            const brightnessMax = screenBrightnessControl.brightnessMax
-            // Don't allow the UI to turn off the screen
-            // Please see https://git.reviewboard.kde.org/r/122505/ for more information
-            const brightnessMin = (brightnessMax > 100 ? 1 : 0)
-            const stepSize = Math.max(1, brightnessMax / 20)
-
-            let newBrightness;
             if (Math.abs(delta) < 120) {
                 // Touchpad scrolling
-                brightnessError += delta * stepSize / 120;
-                const change = Math.round(brightnessError);
-                brightnessError -= change;
-                newBrightness = screenBrightnessControl.brightness + change;
+                screenBrightnessControl.adjustBrightnessRatio((delta/120) * 0.05);
             } else if (wheel.modifiers & Qt.ShiftModifier) {
-                newBrightness = Math.round((Math.round(screenBrightnessControl.brightness * 100 / brightnessMax) + delta/120) / 100 * maximumBrightness)
+                // Discrete/wheel scrolling - round to next small step (e.g. percentage point)
+                screenBrightnessControl.adjustBrightnessStep(
+                    delta < 0 ? ScreenBrightnessControl.DecreaseSmall : ScreenBrightnessControl.IncreaseSmall);
             } else {
-                // Discrete/wheel scrolling
-                newBrightness = Math.round(screenBrightnessControl.brightness/stepSize + delta/120) * stepSize;
+                // Discrete/wheel scrolling - round to next large step (e.g. 5%, 10%)
+                screenBrightnessControl.adjustBrightnessStep(
+                    delta < 0 ? ScreenBrightnessControl.Decrease : ScreenBrightnessControl.Increase);
             }
-            screenBrightnessControl.brightness = Math.max(brightnessMin, Math.min(brightnessMax, newBrightness));
         }
 
         acceptedButtons: Qt.LeftButton | Qt.MiddleButton
