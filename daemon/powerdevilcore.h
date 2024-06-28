@@ -94,6 +94,7 @@ public Q_SLOTS:
     void refreshStatus();
     void reparseConfiguration();
     void onControllersReady();
+    void refreshActions();
 
     QString currentProfile() const;
     void loadProfile(bool force = false);
@@ -129,7 +130,6 @@ Q_SIGNALS:
     void chargeStopThresholdChanged(int threshold);
 
 private:
-    void initActions();
     void unloadAllActiveActions();
     void registerActionTimeout(Action *action, std::chrono::milliseconds timeout);
     void unregisterActionTimeouts(Action *action);
@@ -192,7 +192,7 @@ private:
     QHash<QString, int> m_sessionActivityInhibit;
     QHash<QString, int> m_screenActivityInhibit;
 
-    QHash<QString, Action *> m_actionPool;
+    std::unordered_map<QString, std::unique_ptr<Action>> m_actionPool;
     QStringList m_activeActions;
 
 private Q_SLOTS:

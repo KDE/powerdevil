@@ -43,6 +43,7 @@ public:
 Q_SIGNALS:
     void detectionFinished();
     void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void supportedChanged();
 
 private:
     int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);

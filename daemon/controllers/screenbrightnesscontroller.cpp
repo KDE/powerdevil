@@ -63,6 +63,7 @@ bool ScreenBrightnessController::isSupported() const
 
 void ScreenBrightnessController::onDisplaysChanged()
 {
+    const bool supportedBefore = isSupported();
     DisplayBrightness *previousFirstDisplay = m_displays.isEmpty() ? nullptr : m_displays.first();
     m_displays.clear();
 
@@ -91,6 +92,9 @@ void ScreenBrightnessController::onDisplaysChanged()
             onBrightnessChanged(newBrightness, maxBrightness());
             qCDebug(POWERDEVIL) << "screen brightness value after display detection/reconfiguration:" << newBrightness;
         }
+    }
+    if (isSupported() != supportedBefore) {
+        Q_EMIT supportedChanged();
     }
 }
 
