@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-04-24 19:18+0100\n"
+"PO-Revision-Date: 2024-06-28 16:51+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: eo <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -414,7 +414,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "La TLP-servo aŭtomate regas energiprofilojn"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format
@@ -426,10 +426,3 @@ msgstr ""
 "Energiprofiloj povas esti subtenataj en via aparato.<nl/>Provu instali la "
 "pakon <command>power-profiles-daemon</command> uzante la pakadministrilon de "
 "via distribuado kaj rekomencante la sistemon."
-
-#~ msgctxt "Placeholder is the battery number"
-#~ msgid "Battery %1"
-#~ msgstr "Baterio %1"
-
-#~ msgid "Battery"
-#~ msgstr "Baterio"

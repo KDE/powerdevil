@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-06-29 00:40+0000\n"
 "PO-Revision-Date: 2023-11-11 13:04+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -175,44 +175,44 @@ msgstr "Prepnúť profil napájania"
 msgid "Replace an existing instance"
 msgstr "Nahradiť existujúcu inštanciu"
 
-#: powerdevilcore.cpp:382 powerdevilcore.cpp:393
+#: powerdevilcore.cpp:378 powerdevilcore.cpp:389
 #, kde-format
 msgid "Activity Manager"
 msgstr "Správca aktivít"
 
-#: powerdevilcore.cpp:383
+#: powerdevilcore.cpp:379
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Tieto politiky aktivít zabraňujú systému prejsť do režimu spánku"
 
-#: powerdevilcore.cpp:394
+#: powerdevilcore.cpp:390
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Tieto politiky aktivít nepovoľujú správu napájania obrazovky"
 
-#: powerdevilcore.cpp:456
+#: powerdevilcore.cpp:452
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Pridaná dodatočná batéria"
 
-#: powerdevilcore.cpp:457 powerdevilcore.cpp:677
+#: powerdevilcore.cpp:453 powerdevilcore.cpp:673
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tento počítač sa viac neuspí."
 
-#: powerdevilcore.cpp:521
+#: powerdevilcore.cpp:517
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie zariadenia (%1% zostáva)"
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:522
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -222,22 +222,22 @@ msgstr ""
 "Batéria v \"%1\" je slabá a zariadenie sa môže každú chvíľu samo vypnúť. "
 "Prosím, vymeňte alebo nabite batériu čo najskôr."
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:529
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie myši (%1% zostáva)"
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:533
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie klávesnice (%1% zostáva)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:537
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie zariadenia Bluetooth (%1% zostáva)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:539
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -247,38 +247,38 @@ msgstr ""
 "Batéria v zariadení Bluetooth (\"%1\") je slabá a zariadenie sa môže každú "
 "chvíľu vypnúť. Prosím, vymeňte alebo opätovne nabite batériu."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:581
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Skontrolujte, či je napájací adaptér zapojený a či poskytuje dostatok "
 "energie."
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:583
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Zapojte počítač do siete."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:602
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Úroveň batérie je kritická, počítač bude vypnutý za 60 sekúnd."
 
-#: powerdevilcore.cpp:608
+#: powerdevilcore.cpp:604
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Vypnúť teraz"
 
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:610
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
 msgstr "Úroveň batérie je kritická, počítač bude hibernovaný za 60 sekúnd."
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:612
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -286,24 +286,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hibernovať teraz"
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:618
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "Úroveň batérie je kritická, počítač bude uspatý za 60 sekúnd."
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:620
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Uspať teraz"
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:626
 #, kde-format
 msgid "Please save your work."
 msgstr "Uložte si svoju prácu."
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:632
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -311,47 +311,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: powerdevilcore.cpp:648
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Nízka úroveň batérie (%1% zostáva)"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:648
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritická úroveň batérie (%1% zostáva)"
 
-#: powerdevilcore.cpp:676
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Napájací adaptér zapojený"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on AC power"
 msgstr "Spustené s napájaním zo siete"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Napájanie zo siete bolo pripojené."
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Spustené s napájaním z batérie"
 
-#: powerdevilcore.cpp:682
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Napájanie zo siete bolo odpojené."
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Charging Complete"
 msgstr "Nabíjanie dokončené"
 
-#: powerdevilcore.cpp:743
+#: powerdevilcore.cpp:739
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batéria je teraz plne nabitá."
