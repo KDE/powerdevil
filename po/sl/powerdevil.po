@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 02:23+0000\n"
+"POT-Creation-Date: 2024-06-29 02:27+0000\n"
 "PO-Revision-Date: 2024-04-03 09:50+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -170,45 +170,45 @@ msgstr "Preklopi profil moči"
 msgid "Replace an existing instance"
 msgstr "Zamenjaj obstoječi primerek"
 
-#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
+#: powerdevilcore.cpp:375 powerdevilcore.cpp:386
 #, kde-format
 msgid "Activity Manager"
 msgstr "Upravljalnik dejavnosti"
 
-#: powerdevilcore.cpp:381
+#: powerdevilcore.cpp:376
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Pravila te dejavnosti sistemu onemogočajo prehod v spanje"
 
-#: powerdevilcore.cpp:392
+#: powerdevilcore.cpp:387
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Pravila te dejavnosti sistemu onemogočajo upravljanje z energijo zaslona"
 
-#: powerdevilcore.cpp:454
+#: powerdevilcore.cpp:449
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Dodana dodatna baterija"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:450 powerdevilcore.cpp:670
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Računalnik ne bo več šel v spanje."
 
-#: powerdevilcore.cpp:519
+#: powerdevilcore.cpp:514
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:517
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Nizka raven baterije naprave (%1 % preostalo)"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:519
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -218,22 +218,22 @@ msgstr ""
 "Baterija v »%1« je skoraj prazna, zato se lahko naprava kadarkoli izklopi. "
 "Napolnite ali zamenjajte baterijo."
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:526
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Nizka raven baterije miške (%1 % preostalo)"
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:530
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Nizka raven baterije tipkovnice (%1 % preostalo)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:534
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Nizka raven baterije naprave Bluetooth (%1 % preostalo)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:536
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -243,30 +243,30 @@ msgstr ""
 "Baterija naprave Bluetooth »%1« je skoraj prazna, zato se lahko kadarkoli "
 "izklopi. Napolnite ali zamenjajte baterijo."
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:578
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "Prepričajte se, da je napajalnik priključen in zagotavlja dovolj energije."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:580
 #, kde-format
 msgid "Plug in the computer."
 msgstr "Priključite računalnik."
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "Raven baterije je kritična. Računalnik se bo izklopil čez 60 sekund."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Izklopi zdaj"
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:607
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -275,7 +275,7 @@ msgstr ""
 "Raven baterije je kritična. Vaš računalnik bo v 60 sekundah preklopil v "
 "stanje mirovanja."
 
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:609
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -283,26 +283,26 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "V mirovanje zdaj"
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Raven baterije je kritična. Vaš računalnik bo prešel v stanje spanja v 60 "
 "sekundah."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:617
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "V spanje zdaj"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:623
 #, kde-format
 msgid "Please save your work."
 msgstr "Prosimo, shranite svoje delo."
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:629
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -310,47 +310,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:641
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Nizka raven baterije (%1 % preostalo)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritična raven baterije (%1 % preostalo)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:669
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "Za napajanje se uporablja električno omrežje"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "Running on AC power"
 msgstr "Priključen na električno napajanje"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Priključeno je bilo napajanje iz električnega omrežja."
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Za napajanje se uporablja baterija"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Napajanje iz električnega omrežja je bilo prekinjeno."
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Charging Complete"
 msgstr "Polnjenje je zaključeno"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterija je sedaj povsem polna."

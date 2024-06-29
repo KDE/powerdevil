@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-03 02:23+0000\n"
+"POT-Creation-Date: 2024-06-29 02:27+0000\n"
 "PO-Revision-Date: 2023-11-04 20:10+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -165,45 +165,45 @@ msgstr "Перемкнути профіль живлення"
 msgid "Replace an existing instance"
 msgstr "Замінити наявний екземпляр"
 
-#: powerdevilcore.cpp:380 powerdevilcore.cpp:391
+#: powerdevilcore.cpp:375 powerdevilcore.cpp:386
 #, kde-format
 msgid "Activity Manager"
 msgstr "Керування просторами дій"
 
-#: powerdevilcore.cpp:381
+#: powerdevilcore.cpp:376
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
 "Правила простору дій забороняють переведення системи у режим присипляння"
 
-#: powerdevilcore.cpp:392
+#: powerdevilcore.cpp:387
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Правила простору дій забороняють керування живленням екрана"
 
-#: powerdevilcore.cpp:454
+#: powerdevilcore.cpp:449
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Додано додатковий акумулятор"
 
-#: powerdevilcore.cpp:455 powerdevilcore.cpp:675
+#: powerdevilcore.cpp:450 powerdevilcore.cpp:670
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Комп'ютер надалі не переходитиме до режиму сну."
 
-#: powerdevilcore.cpp:519
+#: powerdevilcore.cpp:514
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:522
+#: powerdevilcore.cpp:517
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора пристрою (лишилося %1%)"
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:519
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -214,22 +214,22 @@ msgstr ""
 "дуже скоро. Будь ласка, замініть або перезарядіть джерело живлення якомога "
 "скоріше."
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:526
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора миші (лишилося %1%)"
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:530
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора клавіатури (лишилося %1%)"
 
-#: powerdevilcore.cpp:539
+#: powerdevilcore.cpp:534
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора пристрою Bluetooth (лишилося %1%)"
 
-#: powerdevilcore.cpp:541
+#: powerdevilcore.cpp:536
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -240,33 +240,33 @@ msgstr ""
 "припинити роботу дуже скоро. Будь ласка, замініть або перезарядіть джерело "
 "живлення якомога скоріше."
 
-#: powerdevilcore.cpp:583
+#: powerdevilcore.cpp:578
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 "З'єднайте комп'ютер його із адаптером живлення і переконайтеся, що джерело "
 "живлення дає достатню напругу."
 
-#: powerdevilcore.cpp:585
+#: powerdevilcore.cpp:580
 #, kde-format
 msgid "Plug in the computer."
 msgstr "З'єднайте комп'ютер із джерелом живлення"
 
-#: powerdevilcore.cpp:604
+#: powerdevilcore.cpp:599
 #, kde-format
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
 "вимкнено за 60 секунд."
 
-#: powerdevilcore.cpp:606
+#: powerdevilcore.cpp:601
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Вимкнути зараз"
 
-#: powerdevilcore.cpp:612
+#: powerdevilcore.cpp:607
 #, kde-format
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
@@ -275,7 +275,7 @@ msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
 "приспано за 60 секунд."
 
-#: powerdevilcore.cpp:614
+#: powerdevilcore.cpp:609
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -283,26 +283,26 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Приспати зараз"
 
-#: powerdevilcore.cpp:620
+#: powerdevilcore.cpp:615
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr ""
 "Акумулятори вашого комп’ютера розряджено до критичного рівня, комп’ютер буде "
 "вимкнено за 60 секунд."
 
-#: powerdevilcore.cpp:622
+#: powerdevilcore.cpp:617
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Призупинити зараз"
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:623
 #, kde-format
 msgid "Please save your work."
 msgstr "Якомога швидше збережіть результати вашої роботи."
 
-#: powerdevilcore.cpp:634
+#: powerdevilcore.cpp:629
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -310,47 +310,47 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:641
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Низький рівень заряду акумулятора (лишилося %1%)"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:645
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Критичний рівень заряду акумулятора (лишилося %1%)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:669
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr "З’єднано з джерелом зовнішнього живлення"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "Running on AC power"
 msgstr "Працюємо від мережі живлення"
 
-#: powerdevilcore.cpp:677
+#: powerdevilcore.cpp:672
 #, kde-format
 msgid "The power adapter has been plugged in."
 msgstr "Було увімкнено живлення від мережі."
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Працюємо від акумулятора"
 
-#: powerdevilcore.cpp:680
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "The power adapter has been unplugged."
 msgstr "Було вимкнено живлення від мережі."
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Charging Complete"
 msgstr "Заряджання завершено"
 
-#: powerdevilcore.cpp:741
+#: powerdevilcore.cpp:736
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Акумулятор повністю заряджено."
