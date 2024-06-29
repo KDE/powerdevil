@@ -17,6 +17,7 @@
 #include <QFileInfo>
 #include <QIcon>
 #include <QProcess>
+#include <QStandardPaths>
 
 #include <sys/socket.h>
 
@@ -182,16 +183,7 @@ PowerProfilesControl::PowerProfilesControl(QObject *parent)
             }
             m_isPowerProfileDaemonInstalled = true;
         } else {
-            QString path = qEnvironmentVariable("PATH");
-            QList<QStringView> findPath = QStringView(path).split(u':');
-
-            for (auto check : findPath) {
-                QFileInfo info(check + QLatin1String("/tlp"));
-                if (info.exists() && info.isFile()) {
-                    m_isTlpInstalled = true; // Found!
-                    break;
-                }
-            }
+            m_isTlpInstalled = !QStandardPaths::findExecutable(QStringLiteral("tlp")).isEmpty();
         }
     }
 }
