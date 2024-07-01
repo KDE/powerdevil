@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-06-20 12:21+0300\n"
+"PO-Revision-Date: 2024-06-27 20:33+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -113,10 +113,10 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/main.qml:75
-#, fuzzy, kde-format
-#| msgid "An application is preventing sleep and screen locking:"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "Приложение препятствует блокированию экрана и переходу в спящий режим:"
+msgstr ""
+"Виджет батареи препятствует блокированию экрана и переходу в спящий режим"
 
 #: package/contents/ui/main.qml:97
 #: package/contents/ui/PowerManagementItem.qml:51
@@ -192,11 +192,11 @@ msgstr ""
 "щёлкните средней кнопкой мыши для включения"
 
 #: package/contents/ui/main.qml:168
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "Запретить блокировку экрана и переход в спящий режим"
+msgstr ""
+"Щёлкните средней кнопкой мыши чтобы запретить блокировку экрана и переход в "
+"спящий режим"
 
 #: package/contents/ui/main.qml:173
 #, kde-format
@@ -276,18 +276,14 @@ msgid "Manually block"
 msgstr "Запретить"
 
 #: package/contents/ui/PowerManagementItem.qml:133
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "Запретить блокировку экрана и переход в спящий режим"
+msgstr "Не удалось разрешить блокировку экрана и переход в спящий режим"
 
 #: package/contents/ui/PowerManagementItem.qml:136
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "Запретить блокировку экрана и переход в спящий режим"
+msgstr "Не удалось запретить блокировку экрана и переход в спящий режим"
 
 #: package/contents/ui/PowerManagementItem.qml:174
 #, kde-format
@@ -459,7 +455,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Профили питания управляются службой TLP"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format
