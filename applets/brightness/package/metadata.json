@@ -8,6 +8,7 @@
                 "Name[ar]": "سيباستيان كوغلر",
                 "Name[he]": "סבסטיאן קיגלר",
                 "Name[ka]": "სებასტიან კუგლერი",
+                "Name[ta]": "ஸெபாஸ்டியன் கூக்லர்",
                 "Name[x-test]": "xxSebastian Küglerxx"
             },
             {
@@ -16,6 +17,7 @@
                 "Name[ar]": "كاي أوي بروليك",
                 "Name[he]": "קאי אווה ברוליק",
                 "Name[ka]": "კაი უვე ბროულიკი",
+                "Name[ta]": "காய் ஊவே புரோலிக்",
                 "Name[x-test]": "xxKai Uwe Broulikxx"
             },
             {
@@ -24,6 +26,7 @@
                 "Name[ar]": "ناتالي كلاريوس",
                 "Name[he]": "נטלי קלריוס",
                 "Name[ka]": "ნატალი კლარიუსი",
+                "Name[ta]": "நாட்டலி கிளாரியசு",
                 "Name[x-test]": "xxNatalie Clariusxx"
             }
         ],
@@ -38,6 +41,7 @@
         "Description[eo]": "Mastrumu brliecon kaj koloron de viaj ekranoj kaj klavarojn",
         "Description[es]": "Control del brillo y del color de las pantallas y teclados",
         "Description[eu]": "Kontrolatu zure pantailetako eta teklatuetako distira eta kolorea",
+        "Description[fr]": "Contrôler la luminosité et les couleurs de vos écrans et de vos claviers",
         "Description[he]": "שליטה בבהירות ובצבע של המסכים והמקלדות שלך",
         "Description[ia]": "Controla brillantia e color de tu schermos e clavieros",
         "Description[it]": "Controlla la luminosità e il colore dei tuoi schermi e delle tue tastiere",
@@ -45,6 +49,7 @@
         "Description[nl]": "Helderheid en kleur van uw scherm en toetsenborden besturen",
         "Description[sl]": "Nadzor svetlost in barve svojih zaslonov in tipkovnic",
         "Description[sv]": "Styr ljusstyrka och färg på skärmar och tangentbord",
+        "Description[ta]": "உங்கள் திரைகளின் மற்றும் விசைப்பலகைகளின் பிரகாசத்தை கட்டுப்படுத்த உதவும்",
         "Description[tr]": "Ekranların veya klavyelerin parlaklığını ve rengini denetle",
         "Description[uk]": "Керування яскравістю і кольором екранів та підсвічування клавіатури",
         "Description[x-test]": "xxControl brightness and color of your screens and keyboardsxx",
@@ -66,6 +71,7 @@
         "Name[eo]": "Brileco kaj Koloro",
         "Name[es]": "Brillo y color",
         "Name[eu]": "Distira eta kolorea",
+        "Name[fr]": "Luminosité et couleurs",
         "Name[he]": "בהירות וצבע",
         "Name[ia]": "Brillantia e Color",
         "Name[it]": "Luminosità e colore",
@@ -73,6 +79,7 @@
         "Name[nl]": "Helderheid en kleur",
         "Name[sl]": "Svetlost in barva",
         "Name[sv]": "Ljusstyrka och färg",
+        "Name[ta]": "நிறமும் பிரகாசமும்",
         "Name[tr]": "Parlaklık ve Renk",
         "Name[uk]": "Яскравість і колір",
         "Name[x-test]": "xxBrightness and Colorxx",

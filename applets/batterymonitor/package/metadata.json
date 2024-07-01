@@ -8,6 +8,7 @@
                 "Name[ar]": "سيباستيان كوغلر",
                 "Name[he]": "סבסטיאן קיגלר",
                 "Name[ka]": "სებასტიან კუგლერი",
+                "Name[ta]": "ஸெபாஸ்டியன் கூக்லர்",
                 "Name[x-test]": "xxSebastian Küglerxx"
             },
             {
@@ -16,6 +17,7 @@
                 "Name[ar]": "كاي أوي بروليك",
                 "Name[he]": "קאי אווה ברוליק",
                 "Name[ka]": "კაი უვე ბროულიკი",
+                "Name[ta]": "காய் ஊவே புரோலிக்",
                 "Name[x-test]": "xxKai Uwe Broulikxx"
             }
         ],
@@ -29,6 +31,7 @@
         "Description[eo]": "Mastrumu energiadministran agordon kaj vidu la energiostaton de via baterio",
         "Description[es]": "Control de los ajustes de gestión de energía y ver el estado de energía de la batería",
         "Description[eu]": "Kontrolatu energia kudeatzeko ezarpenak eta ikusi zure bateriaren energia-egoera",
+        "Description[fr]": "Contrôler la configuration de la gestion de l'énergie et regarder l'état de charge de votre batterie",
         "Description[he]": "שליטה בהגדרות ניהול צריכת חשמל וצפייה במצב החשמלי של הסוללה שלך",
         "Description[ia]": "Controla preferentias de gestion de energia e vide le stato de tu batteria",
         "Description[it]": "Controlla le impostazioni di gestione dell'alimentazione e visualizza lo stato di alimentazione della batteria",
@@ -36,6 +39,7 @@
         "Description[nl]": "Instellingen voor besturing van energiebeheer en zie de energiestatus van uw batterij",
         "Description[sl]": "Nadzorujte nastavitve upravljanja porabe energije in si oglejte stanje porabe energije baterije",
         "Description[sv]": "Styr strömhanteringsinställningar och se batteriets status",
+        "Description[ta]": "ஆற்றல் மேலாண் அமைப்புகளை மாற்றி உங்கள் மின்கலத்தின் ஆற்றல் நிலையைப் பாருங்கள்",
         "Description[tr]": "Güç yönetimi ayarlarını denetle ve pilin güç durumunu gör",
         "Description[uk]": "Керування параметрами керування живленням та перегляд стану заряду акумулятора",
         "Description[x-test]": "xxControl power management settings and see the power status of your batteryxx",
@@ -56,6 +60,7 @@
         "Name[eo]": "Energio kaj Paterio",
         "Name[es]": "Energía y batería",
         "Name[eu]": "Energia eta bateria",
+        "Name[fr]": "Énergie et batterie",
         "Name[he]": "חשמל וסוללה",
         "Name[ia]": "Energia (Power) e Batteria",
         "Name[it]": "Alimentazione e batteria",
@@ -63,6 +68,7 @@
         "Name[nl]": "Energie en batterij",
         "Name[sl]": "Napajanje in baterija",
         "Name[sv]": "Strömhantering och batteri",
+        "Name[ta]": "ஆற்றலும் மின்கலமும்",
         "Name[tr]": "Güç ve Pil",
         "Name[uk]": "Живлення і акумулятор",
         "Name[x-test]": "xxPower and Batteryxx",
