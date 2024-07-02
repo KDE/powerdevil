@@ -9,10 +9,10 @@
 # Josep M. Ferrer <txemaq@gmail.com>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma-workspace\n"
+"Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-04-24 11:21+0200\n"
+"PO-Revision-Date: 2024-06-26 10:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -440,7 +440,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "El servei TLP controla automàticament els perfils d'energia"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format
@@ -452,10 +452,3 @@ msgstr ""
 "Els perfils d'energia poden ser compatibles amb este dispositiu.<nl/>Proveu "
 "instal·lant el paquet <command>power-profiles-daemon</command> utilitzant el "
 "gestor de paquets de la vostra distribució i reiniciant el sistema."
-
-#~ msgctxt "Placeholder is the battery number"
-#~ msgid "Battery %1"
-#~ msgstr "Bateria %1"
-
-#~ msgid "Battery"
-#~ msgstr "Bateria"
