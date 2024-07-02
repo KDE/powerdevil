@@ -215,8 +215,10 @@ PlasmoidItem {
         isDischarging: !batteryControl.pluggedIn
 
         isManuallyInhibited: powerManagementControl.isManuallyInhibited
-        activeProfile: powerProfilesControl.activeProfile
         isInDefaultPowerProfile: powerProfilesControl.isInDefaultPowerProfile
+        isInPowersaveProfile: powerProfilesControl.isInPowersaveProfile
+        isInBalancedProfile: powerProfilesControl.isInBalancedProfile
+        isInPerformanceProfile: powerProfilesControl.isInPerformanceProfile
 
         model: batteryControl
 

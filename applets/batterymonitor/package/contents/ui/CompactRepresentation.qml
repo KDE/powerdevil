@@ -31,8 +31,10 @@ MouseArea {
     required property bool isDischarging
 
     required property bool isManuallyInhibited
-    required property string activeProfile
     required property bool isInDefaultPowerProfile
+    required property bool isInPowersaveProfile
+    required property bool isInBalancedProfile
+    required property bool isInPerformanceProfile
 
     property alias model: view.model
 
@@ -43,13 +45,10 @@ MouseArea {
     Accessible.description: `${toolTipMainText}; ${toolTipSubText}`
     Accessible.role: Accessible.Button
 
-    readonly property string activeProfileIconSrc: activeProfile === "balanced"
-            ? "speedometer"
-            : activeProfile === "performance"
-            ? "battery-profile-performance-symbolic"
-            : activeProfile === "power-saver"
-            ? "battery-profile-powersave-symbolic"
-            : Plasmoid.icon
+    property string activeProfileIconSrc: isInPowersaveProfile   ? "battery-profile-powersave-symbolic"
+                                        : isInBalancedProfile    ? "speedometer"
+                                        : isInPerformanceProfile ? "battery-profile-performance-symbolic"
+                                        : Plasmoid.icon
 
     readonly property string powerModeIconSrc: isManuallyInhibited
             ? "system-suspend-inhibited-symbolic"
@@ -57,23 +56,13 @@ MouseArea {
             ? activeProfileIconSrc
             : Plasmoid.icon
 
-    //Show only overall battery
-    // "No Batteries" case
-    Kirigami.Icon {
-        anchors.fill: parent
-        visible: root.isConstrained && !root.hasBatteries || (root.isConstrained && !root.hasInternalBatteries)
-        source: root.powerModeIconSrc
-        active: root.containsMouse
-    }
-
-    // Manual inhibition or power profile active while not discharging:
-    // Show the active mode so the user can notice this at a glance
+    // Shown for no batteries or manual inhibition while not discharging
     Kirigami.Icon {
         id: powerModeIcon
 
         anchors.fill: parent
 
-        visible: root.isConstrained && !root.isDischarging && (root.isManuallyInhibited || !root.isInDefaultPowerProfile)
+        visible: root.isConstrained && (!root.hasBatteries || (root.isManuallyInhibited && !root.isDischarging))
         source: root.powerModeIconSrc
         active: root.containsMouse
     }
@@ -95,6 +84,11 @@ MouseArea {
             hasBattery: root.hasCumulative
             percent: root.batteryPercent
             pluggedIn: root.batteryPluggedIn
+            powerProfileIconName: root.isInDefaultPowerProfile ? ""
+                                : root.isInPowersaveProfile    ? "powersave"
+                                : root.isInBalancedProfile     ? "balanced"
+                                : root.isInPerformanceProfile  ? "performance"
+                                : ""
         }
 
         WorkspaceComponents.BadgeOverlay {
