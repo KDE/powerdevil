@@ -16,10 +16,11 @@ using namespace std::chrono_literals;
 #define BRIGHTNESS_VCP_FEATURE_CODE 0x10
 
 #ifdef WITH_DDCUTIL
-DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef)
+DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayMutex)
     : m_displayRef(displayRef)
     , m_brightnessWorker(new BrightnessWorker)
     , m_timer(new QTimer(this))
+    , m_openDisplayMutex(openDisplayMutex)
     , m_brightness(-1)
     , m_maxBrightness(-1)
     , m_supportsBrightness(false)
@@ -48,26 +49,32 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef)
     // We don't want to keep it open permanently, because doing so will block other programs
     // backed by libddcutil (like the ddcutil CLI itself) from functioning.
 
-    DDCA_Display_Handle displayHandle = nullptr;
-    if (status = ddca_open_display2(m_displayRef, true, &displayHandle); status != DDCRC_OK) {
-        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
-        return;
-    }
+    {
+        // We can't conflict with this object's own brightness setter, but we could conflict with
+        // the brightness setter of a different, previously created object running simultaneously.
+        QMutexLocker locker(m_openDisplayMutex);
 
-    DDCA_Non_Table_Vcp_Value value;
-    if (status = ddca_get_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, &value); status != DDCRC_OK) {
-        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_get_non_table_vcp_value" << status;
-    } else {
-        m_brightness = value.sh << 8 | value.sl;
-        m_maxBrightness = value.mh << 8 | value.ml;
-        m_supportsBrightness = true;
-    }
+        DDCA_Display_Handle displayHandle = nullptr;
+        if (status = ddca_open_display2(m_displayRef, true, &displayHandle); status != DDCRC_OK) {
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
+            return;
+        }
 
-    if (status = ddca_close_display(displayHandle); status != DDCRC_OK) {
-        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << status;
-    }
-    if (status != DDCRC_OK || !m_supportsBrightness) {
-        return;
+        DDCA_Non_Table_Vcp_Value value;
+        if (status = ddca_get_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, &value); status != DDCRC_OK) {
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_get_non_table_vcp_value" << status;
+        } else {
+            m_brightness = value.sh << 8 | value.sl;
+            m_maxBrightness = value.mh << 8 | value.ml;
+            m_supportsBrightness = true;
+        }
+
+        if (status = ddca_close_display(displayHandle); status != DDCRC_OK) {
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << status;
+        }
+        if (status != DDCRC_OK || !m_supportsBrightness) {
+            return;
+        }
     }
 
     //
@@ -146,19 +153,23 @@ void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)
     DDCA_Display_Handle displayHandle = nullptr;
     DDCA_Status status = DDCRC_OK;
 
-    if (status = ddca_open_display2(display->m_displayRef, true, &displayHandle); status != DDCRC_OK) {
-        qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
-    } else {
-        uint8_t sh = value >> 8 & 0xff;
-        uint8_t sl = value & 0xff;
+    {
+        QMutexLocker locker(display->m_openDisplayMutex);
 
-        if (status = ddca_set_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl); status != DDCRC_OK) {
-            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_set_non_table_vcp_value" << status;
-        }
+        if (status = ddca_open_display2(display->m_displayRef, true, &displayHandle); status != DDCRC_OK) {
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
+        } else {
+            uint8_t sh = value >> 8 & 0xff;
+            uint8_t sl = value & 0xff;
 
-        if (DDCA_Status closeStatus = ddca_close_display(displayHandle); closeStatus != DDCRC_OK) {
-            qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << closeStatus;
-            status = closeStatus;
+            if (status = ddca_set_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl); status != DDCRC_OK) {
+                qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_set_non_table_vcp_value" << status;
+            }
+
+            if (DDCA_Status closeStatus = ddca_close_display(displayHandle); closeStatus != DDCRC_OK) {
+                qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_close_display" << closeStatus;
+                status = closeStatus;
+            }
         }
     }
 
