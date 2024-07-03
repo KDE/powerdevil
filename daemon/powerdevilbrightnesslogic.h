@@ -15,15 +15,16 @@ public:
     virtual ~BrightnessLogic() = default;
 
     /**
-     * This enum defines the different types brightness keys.
+     * This enum defines different types of discrete brightness adjustment actions.
+     * These will usually get triggered by brightness keys or scroll wheel events.
      *
-     * - Increase: Key to increase brightness (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
-     * - Decrease: Key to decrease brightness (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
-     * - Toggle: Key to toggle backlight (Qt::Key_KeyboardBacklightOnOff)
-     * - IncreaseSmall: Key to increase brightness by 1% (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp + Qt::ShiftModifier)
-     * - DecreaseSmall: Key to decrease brightness by 1% (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown + Qt::ShiftModifier)
+     * - Increase: Increase brightness by one step (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp)
+     * - Decrease: Decrease brightness by one step (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown)
+     * - Toggle: Toggle backlight (Qt::Key_KeyboardBacklightOnOff)
+     * - IncreaseSmall: Increase brightness by a small step such as 1% (Qt::Key_MonBrightnessUp or Qt::Key_KeyboardBrightnessUp + Qt::ShiftModifier)
+     * - DecreaseSmall: Decrease brightness by a small step such as 1% (Qt::Key_MonBrightnessDown or Qt::Key_KeyboardBrightnessDown + Qt::ShiftModifier)
      */
-    enum BrightnessKeyType {
+    enum StepAdjustmentAction {
         Increase,
         Decrease,
         Toggle,
@@ -75,12 +76,12 @@ public:
     void setValueBeforeTogglingOff(int valueBeforeTogglingOff);
 
     /**
-     * Calculate new brightness value that should be set by an action.
+     * Calculate new brightness value that should be set by a discrete brightness adjustment action.
      *
-     * @param type The action type of the key that was pressed.
+     * @param adjustment The adjustment action, defining the step size and direction.
      * @return The brightness value that the action should set, or -1 if nothing should be done
      */
-    int action(BrightnessKeyType type) const;
+    int adjusted(StepAdjustmentAction adjustment) const;
 
     /**
      * Calculates the brightness value of the closest step upwards.

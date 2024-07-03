@@ -33,9 +33,9 @@ void BrightnessLogic::setValueBeforeTogglingOff(int valueBeforeTogglingOff)
     m_current.valueBeforeTogglingOff = valueBeforeTogglingOff;
 }
 
-int BrightnessLogic::action(BrightnessKeyType type) const
+int BrightnessLogic::adjusted(StepAdjustmentAction adjustment) const
 {
-    switch (type) {
+    switch (adjustment) {
     case Increase:
         return increased();
     case Decrease:

@@ -29,7 +29,20 @@ class ExternalBrightnessController;
 class POWERDEVILCORE_EXPORT ScreenBrightnessController : public QObject
 {
     Q_OBJECT
+
 public:
+    enum BrightnessStepSize {
+        RegularStepSize,
+        SmallStepSize,
+    };
+
+    /// This hint will be ignored by ScreenBrightnessController itself, but forwarded to any
+    /// signals emitted by the corresponding brightness setter call.
+    enum IndicatorHint {
+        ShowIndicator = 0,
+        SuppressIndicator = 1,
+    };
+
     explicit ScreenBrightnessController();
     ~ScreenBrightnessController() override;
 
@@ -55,10 +68,30 @@ public:
     int minBrightness(const QString &displayId) const;
     int maxBrightness(const QString &displayId) const;
     int brightness(const QString &displayId) const;
-    void setBrightness(const QString &displayId, int value);
-    int brightnessSteps(const QString &displayId) const;
 
-    int screenBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
+    /**
+     * Set display brightness for this @p displayId to the given @p value.
+     *
+     * The @p value will be clamped to the range within minBrightness(@p displayId) and
+     * maxBrightness(@p displayId).
+     *
+     * @see brightnessChanged
+     */
+    void setBrightness(const QString &displayId, int value, IndicatorHint hint = SuppressIndicator);
+
+    /**
+     * Adjust display brightness for a predetermined set of displays by a step up or down the
+     * brightness scale.
+     *
+     * The direction and size of each step are specified by @p adjustment. The exact behavior
+     * of step movement and the set of affected displays are an implementation detail that may
+     * change over time.
+     *
+     * @see brightnessChanged
+     */
+    void adjustBrightnessStep(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment, IndicatorHint hint = SuppressIndicator);
+
+    int brightnessSteps(const QString &displayId) const;
 
     // legacy API without displayId parameter, kept for backward compatibility
     QStringList legacyDisplayIds() const;
@@ -66,22 +99,19 @@ public:
     int minBrightness() const;
     int maxBrightness() const;
     int brightness() const;
-    void setBrightness(int value);
+    void setBrightness(int value, IndicatorHint hint = SuppressIndicator);
     int brightnessSteps() const;
 
 Q_SIGNALS:
     void detectionFinished();
     void displayAdded(const QString &displayId);
     void displayRemoved(const QString &displayId);
-    void brightnessInfoChanged(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &);
+    void brightnessChanged(const QString &displayId, const PowerDevil::BrightnessLogic::BrightnessInfo &, IndicatorHint);
 
     // legacy API without displayId parameter, kept for backward compatibility.
     // include legacy prefix to avoid function overload errors when used in connect()
     void legacyDisplayIdsChanged(const QStringList &);
-    void legacyBrightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &);
-
-private:
-    int calculateNextBrightnessStep(const QString &displayId, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
+    void legacyBrightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &, IndicatorHint);
 
 private Q_SLOTS:
     void onDisplayDestroyed(QObject *);

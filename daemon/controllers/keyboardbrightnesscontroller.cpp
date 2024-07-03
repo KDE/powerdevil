@@ -61,13 +61,13 @@ int KeyboardBrightnessController::brightnessSteps()
     return m_keyboardBrightnessLogic.steps();
 }
 
-int KeyboardBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType)
+int KeyboardBrightnessController::calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment)
 {
     m_keyboardBrightnessLogic.setValueRange(0, valueMax);
     m_keyboardBrightnessLogic.setValue(value);
     m_keyboardBrightnessLogic.setValueBeforeTogglingOff(m_brightnessBeforeTogglingOff);
 
-    return m_keyboardBrightnessLogic.action(keyType);
+    return m_keyboardBrightnessLogic.adjusted(adjustment);
 }
 
 int KeyboardBrightnessController::brightness() const
@@ -99,7 +99,7 @@ void KeyboardBrightnessController::setBrightnessOff()
     m_kbdBacklight->SetBrightness(0);
 }
 
-int KeyboardBrightnessController::keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type)
+int KeyboardBrightnessController::keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment)
 {
     if (!m_isSupported) {
         return -1; // ignore as we are not able to determine the brightness level
@@ -111,12 +111,12 @@ int KeyboardBrightnessController::keyboardBrightnessKeyPressed(PowerDevil::Brigh
         return currentBrightness;
     }
 
-    int newBrightness = calculateNextBrightnessStep(currentBrightness, maxBrightness(), type);
+    int newBrightness = calculateNextBrightnessStep(currentBrightness, maxBrightness(), adjustment);
     if (newBrightness < 0) {
         return -1;
     }
 
-    if (type == PowerDevil::BrightnessLogic::BrightnessKeyType::Toggle && newBrightness == 0) {
+    if (adjustment == PowerDevil::BrightnessLogic::Toggle && newBrightness == 0) {
         setBrightnessOff();
     } else {
         setBrightness(newBrightness);

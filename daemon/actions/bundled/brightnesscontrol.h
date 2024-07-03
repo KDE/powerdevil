@@ -9,6 +9,8 @@
 #include <powerdevilaction.h>
 #include <powerdevilbrightnesslogic.h>
 
+#include <controllers/screenbrightnesscontroller.h> // ScreenBrightnessController::IndicatorHint enum
+
 namespace PowerDevil::BundledActions
 {
 class BrightnessControl : public PowerDevil::Action
@@ -43,7 +45,7 @@ public Q_SLOTS:
     void setBrightnessSilent(int percent);
 
 private Q_SLOTS:
-    void onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &brightnessInfo);
+    void onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &brightnessInfo, ScreenBrightnessController::IndicatorHint hint);
 
 Q_SIGNALS:
     void brightnessChanged(int value);

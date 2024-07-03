@@ -31,7 +31,7 @@ public:
     void setBrightnessOff();
     int brightnessSteps();
 
-    int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::BrightnessKeyType type);
+    int keyboardBrightnessKeyPressed(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment);
 
 Q_SIGNALS:
     void brightnessInfoChanged(const PowerDevil::BrightnessLogic::BrightnessInfo &brightnessInfo);
@@ -40,7 +40,7 @@ private Q_SLOTS:
     void onBrightnessChanged(int value, const QString &source);
 
 private:
-    int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::BrightnessKeyType keyType);
+    int calculateNextBrightnessStep(int value, int valueMax, PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment);
 
     int m_maxBrightness;
     int m_cachedBrightness;
