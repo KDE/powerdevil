@@ -844,9 +844,9 @@ Kirigami.FormLayout {
 
         function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
             return formatUnit == DurationPromptDialog.Unit.Minutes
-                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "After %1 seconds", "After %1 seconds", n);
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "After %1 second", "After %1 seconds", n);
         }
-        function translateMinutes(n) { return i18ncp("@option:combobox", "After %1 minutes", "After %1 minutes", n); }
+        function translateMinutes(n) { return i18ncp("@option:combobox", "After %1 minute", "After %1 minutes", n); }
 
         valueRole: "seconds"
         textRole: "text"
