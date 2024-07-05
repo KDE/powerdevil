@@ -19,6 +19,16 @@ void BrightnessLogic::setValue(int value)
     m_current.value = value;
 }
 
+double BrightnessLogic::valueAsRatio() const
+{
+    return m_current.value / static_cast<double>(m_current.valueMax);
+}
+
+int BrightnessLogic::valueFromRatio(double ratio) const
+{
+    return std::round(std::clamp(ratio, 0.0, 1.0) * m_current.valueMax);
+}
+
 void BrightnessLogic::setValueRange(int valueMin, int valueMax)
 {
     if (valueMax != m_current.valueMax || valueMin != m_current.valueMin) {
@@ -53,7 +63,7 @@ int BrightnessLogic::increased() const
     // Add 1 and round upwards to the nearest step
     int step = m_current.steps - (m_current.valueMax - m_current.value - 1) * m_current.steps / m_current.valueMax;
 
-    if (m_current.valueMax > 100 && qRound(percentage(stepToValue(step))) <= qRound(percentage(m_current.value))) {
+    if (m_current.valueMax > 100 && qRound(ratio(stepToValue(step)) * 100.0) <= qRound(ratio(m_current.value) * 100.0)) {
         // When no visible change was made, add 1 step.
         // This can happen only if valueMax > 100, else 1 >= 1%.
         step++;
@@ -77,7 +87,7 @@ int BrightnessLogic::decreased() const
     // Subtract 1 and round downwards to the nearest Step
     int step = (m_current.value - 1) * m_current.steps / m_current.valueMax;
 
-    if (m_current.valueMax > 100 && qRound(percentage(stepToValue(step))) >= qRound(percentage(m_current.value))) {
+    if (m_current.valueMax > 100 && qRound(ratio(stepToValue(step)) * 100.0) >= qRound(ratio(m_current.value) * 100.0)) {
         // When no visible change was made, subtract 1 step.
         // This can happen only if valueMax > 100, else 1 >= 1%.
         step--;
@@ -97,9 +107,9 @@ int BrightnessLogic::steps() const
     return m_current.steps;
 }
 
-float BrightnessLogic::percentage(int value) const
+double BrightnessLogic::ratio(int value) const
 {
-    return value * 100.0 / m_current.valueMax;
+    return value / static_cast<double>(m_current.valueMax);
 }
 
 const BrightnessLogic::BrightnessInfo BrightnessLogic::info() const

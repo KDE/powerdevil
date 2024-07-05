@@ -80,6 +80,25 @@ public:
     void setBrightness(const QString &displayId, int value, IndicatorHint hint = SuppressIndicator);
 
     /**
+     * Adjust display brightness for this @p displayId by a @p delta between -1.0 and 1.0.
+     *
+     * The @p delta will be converted to and clamped to the valid brightness range for this display.
+     *
+     * @see brightnessChanged
+     */
+    void adjustBrightnessRatio(const QString &displayId, double delta, IndicatorHint hint);
+
+    /**
+     * Adjust display brightness for a predetermined set of displays by a @p delta between -1.0 and 1.0.
+     *
+     * The @p delta will be converted to and clamped to the valid brightness range for each
+     * affected display.
+     *
+     * @see brightnessChanged
+     */
+    void adjustBrightnessRatio(double delta, IndicatorHint hint = SuppressIndicator);
+
+    /**
      * Adjust display brightness for a predetermined set of displays by a step up or down the
      * brightness scale.
      *
@@ -123,6 +142,7 @@ private:
         DisplayBrightness *display = nullptr;
         DisplayBrightnessDetector *detector = nullptr;
         PowerDevil::ScreenBrightnessLogic brightnessLogic = {};
+        double trackingError = 0.0;
         bool zombie = false;
     };
     QStringList m_sortedDisplayIds;

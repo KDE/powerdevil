@@ -57,6 +57,19 @@ public:
     void setValue(int value);
 
     /**
+     * Retrieve the current brightness value, expressed as a ratio from 0.0 to 1.0
+     */
+    double valueAsRatio() const;
+
+    /**
+     * Return the discrete brightness value corresponding to a ratio from 0.0 to 1.0
+     *
+     * @param ratio Brightness value expressed as a ratio, on a scale from 0.0 to 1.0
+     * @return The brightness value for the supplied ratio, clamped to the range from 0 to valueMax
+     */
+    int valueFromRatio(double ratio) const;
+
+    /**
      * Sets the minimum and maximum brightness value.
      *
      * @param valueMin Minimum brightness value
@@ -112,12 +125,12 @@ public:
     int steps() const;
 
     /**
-     * Retrieve the supplied brightness value expressed as a percentage from 0 to 100
+     * Retrieve the supplied brightness value expressed as a ratio from 0.0 to 1.0
      *
      * @param value Brightness value, from 0 to valueMax
      * @return The brightness percentage for the supplied value
      */
-    float percentage(int value) const;
+    double ratio(int value) const;
 
     /**
      * Retrieve a copy of the current brightness state
