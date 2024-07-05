@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-02-25 17:43+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -439,24 +439,24 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Acțiune de efectuat când sistemul e inactiv"
 
-#: ui/ProfileConfig.qml:95
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, fuzzy, kde-format
 #| msgid "after %1 sec"
 #| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "după %1 sec"
 msgstr[1] "după %1 sec"
 msgstr[2] "după %1 de sec"
 
-#: ui/ProfileConfig.qml:97
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, fuzzy, kde-format
 #| msgid "after %1 min"
 #| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "după %1 min"
 msgstr[1] "după %1 min"
 msgstr[2] "după %1 de min"
@@ -836,28 +836,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "după %1 sec"
-msgstr[1] "după %1 sec"
-msgstr[2] "după %1 de sec"
-
-#: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "după %1 min"
-msgstr[1] "după %1 min"
-msgstr[2] "după %1 de min"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -878,6 +856,26 @@ msgstr "Alege fișierul executabil"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
+
+#, fuzzy
+#~| msgid "after %1 sec"
+#~| msgid_plural "after %1 sec"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "după %1 sec"
+#~ msgstr[1] "după %1 sec"
+#~ msgstr[2] "după %1 de sec"
+
+#, fuzzy
+#~| msgid "after %1 min"
+#~| msgid_plural "after %1 min"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "după %1 min"
+#~ msgstr[1] "după %1 min"
+#~ msgstr[2] "după %1 de min"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

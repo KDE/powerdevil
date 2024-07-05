@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2011-03-05 16:21+0100\n"
 "Last-Translator: Marko Dimjasevic <marko@dimjasevic.net>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -428,20 +428,20 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr ""
 
-#: ui/ProfileConfig.qml:95
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, kde-format
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: ui/ProfileConfig.qml:97
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, kde-format
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -790,24 +790,6 @@ msgstr ""
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr ""
-
-#: ui/ProfileConfig.qml:847
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: ui/ProfileConfig.qml:849
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
 
 #: ui/RunScriptEdit.qml:33
 #, kde-format

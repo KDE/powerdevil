@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-05-25 11:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -443,19 +443,25 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Action à réaliser lorsque le système est inactif"
 
-#: ui/ProfileConfig.qml:95
-#, kde-format
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 second"
+#| msgid_plural "after %1 seconds"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "après %1 secondes"
 msgstr[1] "après %1 secondes"
 
-#: ui/ProfileConfig.qml:97
-#, kde-format
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 minute"
+#| msgid_plural "after %1 minutes"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "après %1 minutes"
 msgstr[1] "après %1 minutes"
 
@@ -810,22 +816,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr "Exécuter un script après :"
 
-#: ui/ProfileConfig.qml:847
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "après %1 secondes"
-msgstr[1] "après %1 secondes"
-
-#: ui/ProfileConfig.qml:849
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "après %1 minutes"
-msgstr[1] "après %1 minutes"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -846,6 +836,18 @@ msgstr "Sélectionnez un fichier exécutable"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Durée personnalisée"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "après %1 secondes"
+#~ msgstr[1] "après %1 secondes"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "après %1 minutes"
+#~ msgstr[1] "après %1 minutes"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

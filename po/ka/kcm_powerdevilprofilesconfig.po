@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-05-24 16:51+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -430,19 +430,25 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "ქმედება, რომელიც შესრულდება, როცა სისტემა უქმადაა"
 
-#: ui/ProfileConfig.qml:95
-#, kde-format
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 second"
+#| msgid_plural "after %1 seconds"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "%1 წამის შემდეგ"
 msgstr[1] "%1 წამის შემდეგ"
 
-#: ui/ProfileConfig.qml:97
-#, kde-format
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 minute"
+#| msgid_plural "after %1 minutes"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "%1 წუთის შემდეგ"
 msgstr[1] "%1 წუთის შემდეგ"
 
@@ -792,22 +798,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr "სკრიპტის შესრულება დროის შემდეგ:"
 
-#: ui/ProfileConfig.qml:847
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "%1 წამის შემდეგ"
-msgstr[1] "%1 წამის შემდეგ"
-
-#: ui/ProfileConfig.qml:849
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "%1 წუთის შემდეგ"
-msgstr[1] "%1 წუთის შემდეგ"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -828,6 +818,18 @@ msgstr "აირჩიეთ გამშვები ფაილი"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "ხანგრძლივობის მორგება"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "%1 წამის შემდეგ"
+#~ msgstr[1] "%1 წამის შემდეგ"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "%1 წუთის შემდეგ"
+#~ msgstr[1] "%1 წუთის შემდეგ"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

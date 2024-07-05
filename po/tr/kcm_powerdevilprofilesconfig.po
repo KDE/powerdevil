@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-05-24 06:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -433,19 +433,25 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Sistem boştayken gerçekleştirilecek eylem"
 
-#: ui/ProfileConfig.qml:95
-#, kde-format
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 second"
+#| msgid_plural "after %1 seconds"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "%1 saniye sonra"
 msgstr[1] "%1 saniye sonra"
 
-#: ui/ProfileConfig.qml:97
-#, kde-format
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 minute"
+#| msgid_plural "after %1 minutes"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "%1 dakika sonra"
 msgstr[1] "%1 dakika sonra"
 
@@ -799,22 +805,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr "Şundan sonra betik yürüt:"
 
-#: ui/ProfileConfig.qml:847
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "%1 saniye sonra"
-msgstr[1] "%1 saniye sonra"
-
-#: ui/ProfileConfig.qml:849
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "%1 dakika sonra"
-msgstr[1] "%1 dakika sonra"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -835,6 +825,18 @@ msgstr "Yürütülebilir Dosya Seç"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Özel Süre"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "%1 saniye sonra"
+#~ msgstr[1] "%1 saniye sonra"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "%1 dakika sonra"
+#~ msgstr[1] "%1 dakika sonra"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

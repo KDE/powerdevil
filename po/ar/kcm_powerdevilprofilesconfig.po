@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-05-25 17:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: \n"
@@ -458,11 +458,14 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "الإجراء الذي يجب تنفيذه عندما يكون النظام خاملا"
 
-#: ui/ProfileConfig.qml:95
-#, kde-format
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 second"
+#| msgid_plural "after %1 seconds"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "بعد ثانية"
 msgstr[1] "بعد ثانيتين"
 msgstr[2] "بعد %1 ثواني"
@@ -470,11 +473,14 @@ msgstr[3] "بعد %1 ثانية"
 msgstr[4] "بعد %1 ثانية"
 msgstr[5] "بعد %1 ثانية"
 
-#: ui/ProfileConfig.qml:97
-#, kde-format
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 minute"
+#| msgid_plural "after %1 minutes"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "بعد 0 دقائق"
 msgstr[1] "بعد دقيقة واحدة"
 msgstr[2] "بعد دقيقتين"
@@ -850,30 +856,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr "نفذ السكربت بعد:"
 
-#: ui/ProfileConfig.qml:847
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "بعد 0 ثانية"
-msgstr[1] "بعد دقيقة واحدة"
-msgstr[2] "بعد ثانيتين"
-msgstr[3] "بعد %1 ثواني"
-msgstr[4] "بعد %1 ثانية"
-msgstr[5] "بعد %1 ثانية"
-
-#: ui/ProfileConfig.qml:849
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "بعد 0 دقائق"
-msgstr[1] "بعد دقيقة واحدة"
-msgstr[2] "بعد دقيقتين"
-msgstr[3] "بعد %1 دقائق"
-msgstr[4] "بعد %1 دقيقة"
-msgstr[5] "بعد %1 دقيقة"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -894,6 +876,26 @@ msgstr "حدد ملفا قابلا للتنفيذ"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "مدة مخصّصة"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "بعد 0 ثانية"
+#~ msgstr[1] "بعد دقيقة واحدة"
+#~ msgstr[2] "بعد ثانيتين"
+#~ msgstr[3] "بعد %1 ثواني"
+#~ msgstr[4] "بعد %1 ثانية"
+#~ msgstr[5] "بعد %1 ثانية"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "بعد 0 دقائق"
+#~ msgstr[1] "بعد دقيقة واحدة"
+#~ msgstr[2] "بعد دقيقتين"
+#~ msgstr[3] "بعد %1 دقائق"
+#~ msgstr[4] "بعد %1 دقيقة"
+#~ msgstr[5] "بعد %1 دقيقة"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

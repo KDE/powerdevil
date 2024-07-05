@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-05-12 16:52+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -458,25 +458,25 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Действие, выполняемое при простое системы"
 
-#: ui/ProfileConfig.qml:95
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, fuzzy, kde-format
 #| msgid "after %1 sec"
 #| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "через %1 секунду"
 msgstr[1] "через %1 секунды"
 msgstr[2] "через %1 секунд"
 msgstr[3] "через %1 секунду"
 
-#: ui/ProfileConfig.qml:97
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, fuzzy, kde-format
 #| msgid "after %1 min"
 #| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "через %1 минуту"
 msgstr[1] "через %1 минуты"
 msgstr[2] "через %1 минут"
@@ -871,30 +871,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "через %1 секунду"
-msgstr[1] "через %1 секунды"
-msgstr[2] "через %1 секунд"
-msgstr[3] "через %1 секунду"
-
-#: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "через %1 минуту"
-msgstr[1] "через %1 минуты"
-msgstr[2] "через %1 минут"
-msgstr[3] "через %1 минуту"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -915,6 +891,28 @@ msgstr "Выбор исполняемого файла"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
+
+#, fuzzy
+#~| msgid "after %1 sec"
+#~| msgid_plural "after %1 sec"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "через %1 секунду"
+#~ msgstr[1] "через %1 секунды"
+#~ msgstr[2] "через %1 секунд"
+#~ msgstr[3] "через %1 секунду"
+
+#, fuzzy
+#~| msgid "after %1 min"
+#~| msgid_plural "after %1 min"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "через %1 минуту"
+#~ msgstr[1] "через %1 минуты"
+#~ msgstr[2] "через %1 минут"
+#~ msgstr[3] "через %1 минуту"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

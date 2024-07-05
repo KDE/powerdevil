@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-04-04 14:59-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -438,23 +438,23 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Ação a ser executada quando o sistema estiver ocioso"
 
-#: ui/ProfileConfig.qml:95
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, fuzzy, kde-format
 #| msgid "after %1 sec"
 #| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "depois de %1 segundo"
 msgstr[1] "depois de %1 segundos"
 
-#: ui/ProfileConfig.qml:97
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, fuzzy, kde-format
 #| msgid "after %1 min"
 #| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "depois de %1 minuto"
 msgstr[1] "depois de %1 minutos"
 
@@ -835,26 +835,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "depois de %1 segundo"
-msgstr[1] "depois de %1 segundos"
-
-#: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "depois de %1 minuto"
-msgstr[1] "depois de %1 minutos"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -875,6 +855,24 @@ msgstr "Selecionar o arquivo executável"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
+
+#, fuzzy
+#~| msgid "after %1 sec"
+#~| msgid_plural "after %1 sec"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "depois de %1 segundo"
+#~ msgstr[1] "depois de %1 segundos"
+
+#, fuzzy
+#~| msgid "after %1 min"
+#~| msgid_plural "after %1 min"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "depois de %1 minuto"
+#~ msgstr[1] "depois de %1 minutos"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

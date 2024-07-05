@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-05-24 06:48+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -449,21 +449,27 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Dejanje, ki se izvede, ko je sistem nedejaven"
 
-#: ui/ProfileConfig.qml:95
-#, kde-format
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 second"
+#| msgid_plural "after %1 seconds"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "po %1 sekundah"
 msgstr[1] "po %1 sekundi"
 msgstr[2] "po %1 sekundah"
 msgstr[3] "po %1 sekundah"
 
-#: ui/ProfileConfig.qml:97
-#, kde-format
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 minute"
+#| msgid_plural "after %1 minutes"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "po %1 minutah"
 msgstr[1] "po %1 minuti"
 msgstr[2] "po %1 minutah"
@@ -828,26 +834,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr "Izvedi skript po:"
 
-#: ui/ProfileConfig.qml:847
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "po %1 sekundah"
-msgstr[1] "po %1 sekundi"
-msgstr[2] "po %1 sekundah"
-msgstr[3] "po %1 sekundah"
-
-#: ui/ProfileConfig.qml:849
-#, kde-format
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "po %1 minutah"
-msgstr[1] "po %1 minuti"
-msgstr[2] "po %1 minutah"
-msgstr[3] "po %1 minutah"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -868,6 +854,22 @@ msgstr "Izberite izvršljivo datoteko"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Trajanje po meri"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "po %1 sekundah"
+#~ msgstr[1] "po %1 sekundi"
+#~ msgstr[2] "po %1 sekundah"
+#~ msgstr[3] "po %1 sekundah"
+
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "po %1 minutah"
+#~ msgstr[1] "po %1 minuti"
+#~ msgstr[2] "po %1 minutah"
+#~ msgstr[3] "po %1 minutah"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

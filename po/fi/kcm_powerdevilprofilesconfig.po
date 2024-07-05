@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-01-29 22:06+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -430,23 +430,23 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Järjestelmän joutoaikana suoritettava toiminto"
 
-#: ui/ProfileConfig.qml:95
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, fuzzy, kde-format
 #| msgid "after %1 sec"
 #| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "%1 s kuluttua"
 msgstr[1] "%1 s kuluttua"
 
-#: ui/ProfileConfig.qml:97
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, fuzzy, kde-format
 #| msgid "after %1 min"
 #| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "%1 min kuluttua"
 msgstr[1] "%1 min kuluttua"
 
@@ -817,26 +817,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "%1 s kuluttua"
-msgstr[1] "%1 s kuluttua"
-
-#: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "%1 min kuluttua"
-msgstr[1] "%1 min kuluttua"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -857,6 +837,24 @@ msgstr "Valitse ohjelmatiedosto"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
+
+#, fuzzy
+#~| msgid "after %1 sec"
+#~| msgid_plural "after %1 sec"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "%1 s kuluttua"
+#~ msgstr[1] "%1 s kuluttua"
+
+#, fuzzy
+#~| msgid "after %1 min"
+#~| msgid_plural "after %1 min"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "%1 min kuluttua"
+#~ msgstr[1] "%1 min kuluttua"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:41+0000\n"
+"POT-Creation-Date: 2024-07-05 00:40+0000\n"
 "PO-Revision-Date: 2024-03-24 11:40+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -439,24 +439,24 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Akcia, ktorá sa má vykonať, keď je systém nečinný"
 
-#: ui/ProfileConfig.qml:95
+#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, fuzzy, kde-format
 #| msgid "after %1 sec"
 #| msgid_plural "after %1 sec"
 msgctxt "@option:combobox"
-msgid "after %1 second"
-msgid_plural "after %1 seconds"
+msgid "After %1 second"
+msgid_plural "After %1 seconds"
 msgstr[0] "po %1 sek"
 msgstr[1] "po %1 sek"
 msgstr[2] "po %1 sek"
 
-#: ui/ProfileConfig.qml:97
+#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, fuzzy, kde-format
 #| msgid "after %1 min"
 #| msgid_plural "after %1 min"
 msgctxt "@option:combobox"
-msgid "after %1 minute"
-msgid_plural "after %1 minutes"
+msgid "After %1 minute"
+msgid_plural "After %1 minutes"
 msgstr[0] "po %1 min"
 msgstr[1] "po %1 min"
 msgstr[2] "po %1 min"
@@ -834,28 +834,6 @@ msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
 msgstr ""
 
-#: ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
-msgctxt "@option:combobox"
-msgid "after %1 seconds"
-msgid_plural "after %1 seconds"
-msgstr[0] "po %1 sek"
-msgstr[1] "po %1 sek"
-msgstr[2] "po %1 sek"
-
-#: ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
-msgctxt "@option:combobox"
-msgid "after %1 minutes"
-msgid_plural "after %1 minutes"
-msgstr[0] "po %1 min"
-msgstr[1] "po %1 min"
-msgstr[2] "po %1 min"
-
 #: ui/RunScriptEdit.qml:33
 #, kde-format
 msgid "Enter command or select file…"
@@ -876,6 +854,26 @@ msgstr "Vybrať súbor na vykonanie"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
+
+#, fuzzy
+#~| msgid "after %1 sec"
+#~| msgid_plural "after %1 sec"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 seconds"
+#~ msgid_plural "after %1 seconds"
+#~ msgstr[0] "po %1 sek"
+#~ msgstr[1] "po %1 sek"
+#~ msgstr[2] "po %1 sek"
+
+#, fuzzy
+#~| msgid "after %1 min"
+#~| msgid_plural "after %1 min"
+#~ msgctxt "@option:combobox"
+#~ msgid "after %1 minutes"
+#~ msgid_plural "after %1 minutes"
+#~ msgstr[0] "po %1 min"
+#~ msgstr[1] "po %1 min"
+#~ msgstr[2] "po %1 min"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "
