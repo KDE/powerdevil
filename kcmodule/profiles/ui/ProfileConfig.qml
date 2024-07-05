@@ -45,14 +45,14 @@ Kirigami.FormLayout {
         visible: autoSuspendActionCombo.visible && !autoSuspendActionCombo.isConfiguredValueSupported
         Layout.fillWidth: true
         type: Kirigami.MessageType.Warning
-        text: i18nc("@info:status", "The action you had previously configured for after a period of inactivity is now unsupported on your system. Please select a different one.")
+        text: i18nc("@info:status", "The action you had previously configured to happen when inactive is now unsupported on your system. Please select a different one.")
     }
 
     RowLayout {
         id: autoSuspendActionRow
         Kirigami.FormData.label: i18nc(
             "@label:combobox Suspend action such as sleep/hibernate to perform when the system is idle",
-            "A&fter a period of inactivity:"
+            "When &inactive:"
         )
         visible: kcm.supportedActions["SuspendSession"] === true
         Layout.fillWidth: true
@@ -706,7 +706,7 @@ Kirigami.FormLayout {
                 id: idleTimeoutCommandEditAction
                 text: i18nc(
                     "@text:action:menu Script command to execute",
-                    "After a period of inactivity"
+                    "When inactive"
                 )
                 checkable: true
                 Component.onCompleted: {
@@ -799,9 +799,9 @@ Kirigami.FormLayout {
         id: idleTimeoutCommandEdit
         Kirigami.FormData.label: i18nc(
             "@label:textfield Script command to execute",
-            "After a period of inacti&vity:"
+            "When i&nactive:"
         )
-        Accessible.name: i18nc("@@accessible:name:textfield", "Script command after a period of inactivity")
+        Accessible.name: i18nc("@@accessible:name:textfield", "Script command when inactive")
 
         visible: idleTimeoutCommandEditAction.checked
         Layout.fillWidth: true
@@ -830,7 +830,7 @@ Kirigami.FormLayout {
 
     TimeDurationComboBox {
         id: idleTimeoutCommandTimeDelayCombo
-        Accessible.name: i18nc("@accessible:name:spinbox", "Period of inactivity until the script command executes")
+        Accessible.name: i18nc("@accessible:name:spinbox", "Duration of inactivity before the script command executes")
         Layout.fillWidth: true
         visible: idleTimeoutCommandEdit.visible
 
