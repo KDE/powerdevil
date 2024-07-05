@@ -154,7 +154,7 @@ void KeyboardBrightnessController::onBrightnessChanged(int value, const QString 
         m_keyboardBrightnessLogic.setValue(value);
 
         if (source == QLatin1String("internal")) {
-            BrightnessOSDWidget::show(m_keyboardBrightnessLogic.percentage(value), PowerDevil::BrightnessControlType::Keyboard);
+            BrightnessOSDWidget::show(m_keyboardBrightnessLogic.valueAsRatio() * 100.0, PowerDevil::BrightnessControlType::Keyboard);
         }
 
         Q_EMIT brightnessInfoChanged(m_keyboardBrightnessLogic.info());

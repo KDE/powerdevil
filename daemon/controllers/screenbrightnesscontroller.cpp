@@ -15,8 +15,8 @@
 #include "backlightbrightness.h"
 #include "ddcutildetector.h"
 #include "displaybrightness.h"
-#include "kwinbrightness.h"
 #include "externalbrightnesscontrol.h"
+#include "kwinbrightness.h"
 
 #include <brightnessosdwidget.h>
 #include <powerdevil_debug.h>
@@ -270,6 +270,7 @@ void ScreenBrightnessController::setBrightness(const QString &displayId, int val
         // notify only when the internally tracked brightness value is actually different
         if (bi.value != boundedValue) {
             it->brightnessLogic.setValue(boundedValue);
+            it->trackingError = 0.0;
             Q_EMIT brightnessChanged(displayId, it->brightnessLogic.info(), hint);
 
             // legacy API without displayId parameter: notify only if the first supported display changed
@@ -285,22 +286,76 @@ void ScreenBrightnessController::setBrightness(const QString &displayId, int val
     }
 }
 
-void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment, IndicatorHint hint)
+void ScreenBrightnessController::adjustBrightnessRatio(const QString &displayId, double delta, IndicatorHint hint)
 {
-    if (!isSupported()) {
-        qCWarning(POWERDEVIL) << "Adjust brightness step failed: no displays available to adjust";
+    if (auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->zombie) {
+        float oldRatio = it->brightnessLogic.valueAsRatio();
+        float targetRatio = oldRatio + delta + it->trackingError;
+
+        setBrightness(displayId, it->brightnessLogic.valueFromRatio(targetRatio), hint);
+        it->trackingError = targetRatio - it->brightnessLogic.valueAsRatio();
+    } else {
+        qCWarning(POWERDEVIL) << "Adjust screen brightness ratio failed: no display with id" << displayId;
+    }
+}
+
+void ScreenBrightnessController::adjustBrightnessRatio(double delta, IndicatorHint hint)
+{
+    // FIXME: adjust all displays once we figure out how to display OSD popups for all of them
+    if (m_legacyDisplayIds.isEmpty()) {
+        qCWarning(POWERDEVIL) << "Adjust screen brightness ratio failed: no displays available to adjust";
         return;
     }
 
-    if (const auto it = m_displaysById.constFind(m_sortedDisplayIds.first()); it != m_displaysById.constEnd()) {
-        int firstDisplayBrightness = it->brightnessLogic.adjusted(adjustment);
-        if (firstDisplayBrightness < 0) {
-            return;
+    // if we're going to adjust brightness and accumulate tracking errors, let's make sure at least
+    // one display will actually change its brightness as a result
+    bool any = std::ranges::any_of(std::as_const(m_legacyDisplayIds), [this, delta](const QString &displayId) {
+        if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd() && !it->zombie) {
+            // return true if the display still has room to go in the direction of the delta
+            const PowerDevil::BrightnessLogic::BrightnessInfo bi = it->brightnessLogic.info();
+            return (bi.value < bi.valueMax && delta > 0.0) || (bi.value > bi.valueMin && delta < 0.0);
         }
+        return false;
+    });
+    if (!any) {
+        return;
+    }
 
-        setBrightness(m_sortedDisplayIds.first(), firstDisplayBrightness, hint);
-    } else {
-        qCWarning(POWERDEVIL) << "Adjust brightness step failed: no display with id" << m_sortedDisplayIds.first();
+    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
+        adjustBrightnessRatio(displayId, delta, hint);
+    }
+}
+
+void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment, IndicatorHint hint)
+{
+    // FIXME: adjust all displays once we figure out how to display OSD popups for all of them
+    if (m_legacyDisplayIds.isEmpty()) {
+        qCWarning(POWERDEVIL) << "Adjust screen brightness step failed: no displays available to adjust";
+        return;
+    }
+
+    float referenceDisplayDelta = 0.0;
+
+    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
+        if (const auto it = m_displaysById.constFind(displayId); it != m_displaysById.constEnd() && !it->zombie) {
+            float oldRatio = it->brightnessLogic.valueAsRatio();
+
+            int referenceDisplayBrightness = it->brightnessLogic.adjusted(adjustment);
+            if (referenceDisplayBrightness < 0) {
+                return;
+            }
+            if (referenceDisplayBrightness != it->brightnessLogic.info().value) {
+                referenceDisplayDelta = it->brightnessLogic.ratio(referenceDisplayBrightness) - oldRatio;
+                break;
+            }
+        }
+    }
+
+    if (referenceDisplayDelta == 0.0) {
+        return;
+    }
+    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
+        adjustBrightnessRatio(displayId, referenceDisplayDelta, hint);
     }
 }
 
@@ -329,6 +384,7 @@ void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrigh
     qCDebug(POWERDEVIL) << "External brightness change of display" << it.key() << "to" << value << "/" << it->brightnessLogic.info().valueMax;
 
     it->brightnessLogic.setValue(value);
+    it->trackingError = 0.0;
 
     Q_EMIT brightnessChanged(it.key(), it->brightnessLogic.info(), SuppressIndicator);
 
