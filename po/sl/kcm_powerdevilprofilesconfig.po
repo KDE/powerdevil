@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-05-24 06:48+0200\n"
+"PO-Revision-Date: 2024-07-05 07:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -450,30 +450,24 @@ msgid "Action to perform when the system is idle"
 msgstr "Dejanje, ki se izvede, ko je sistem nedejaven"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "po %1 sekundah"
-msgstr[1] "po %1 sekundi"
-msgstr[2] "po %1 sekundah"
-msgstr[3] "po %1 sekundah"
+msgstr[0] "Po %1 sekundah"
+msgstr[1] "Po %1 sekundi"
+msgstr[2] "Po %1 sekundah"
+msgstr[3] "Po %1 sekundah"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "po %1 minutah"
-msgstr[1] "po %1 minuti"
-msgstr[2] "po %1 minutah"
-msgstr[3] "po %1 minutah"
+msgstr[0] "Po %1 minutah"
+msgstr[1] "Po %1 minuti"
+msgstr[2] "Po %1 minutah"
+msgstr[3] "Po %1 minutah"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862

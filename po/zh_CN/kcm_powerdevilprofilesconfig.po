@@ -413,24 +413,18 @@ msgid "Action to perform when the system is idle"
 msgstr "系统空闲时执行的操作"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "空闲 %1 秒后"
+msgstr[0] ""
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "空闲 %1 分钟后"
+msgstr[0] ""
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
@@ -786,13 +780,3 @@ msgstr "选择可执行文件"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "自定义时间长度"
-
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 seconds"
-#~ msgid_plural "after %1 seconds"
-#~ msgstr[0] "空闲 %1 秒后"
-
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 minutes"
-#~ msgid_plural "after %1 minutes"
-#~ msgstr[0] "空闲 %1 分钟后"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-05-24 15:36+0300\n"
+"PO-Revision-Date: 2024-07-05 13:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -450,30 +450,24 @@ msgid "Action to perform when the system is idle"
 msgstr "Дію, яку слід виконати, якщо система бездіяльна"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "за %1 секунду"
-msgstr[1] "за %1 секунди"
-msgstr[2] "за %1 секунд"
-msgstr[3] "за секунду"
+msgstr[0] "За %1 секунду"
+msgstr[1] "За %1 секунди"
+msgstr[2] "За %1 секунд"
+msgstr[3] "За секунду"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "за %1 хвилину"
-msgstr[1] "за %1 хвилини"
-msgstr[2] "за %1 хвилин"
-msgstr[3] "за хвилину"
+msgstr[0] "За %1 хвилину"
+msgstr[1] "За %1 хвилини"
+msgstr[2] "За %1 хвилин"
+msgstr[3] "За хвилину"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862

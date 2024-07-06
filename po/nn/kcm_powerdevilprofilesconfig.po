@@ -801,21 +801,3 @@ msgstr "Vel programfil"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr ""
-
-#, fuzzy
-#~| msgid "after %1 sec"
-#~| msgid_plural "after %1 sec"
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 seconds"
-#~ msgid_plural "after %1 seconds"
-#~ msgstr[0] "etter %1 sekund"
-#~ msgstr[1] "etter %1 sekund"
-
-#, fuzzy
-#~| msgid "after %1 min"
-#~| msgid_plural "after %1 min"
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 minutes"
-#~ msgid_plural "after %1 minutes"
-#~ msgstr[0] "etter %1 minutt"
-#~ msgstr[1] "etter %1 minutt"

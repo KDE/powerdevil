@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-05-24 16:34+0300\n"
+"PO-Revision-Date: 2024-07-06 00:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -453,30 +453,24 @@ msgid "Action to perform when the system is idle"
 msgstr "Veiksmas, kurį atlikti, kai sistema neveikli"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "po %1 sekundės"
-msgstr[1] "po %1 sekundžių"
-msgstr[2] "po %1 sekundžių"
-msgstr[3] "po %1 sekundės"
+msgstr[0] "Po %1 sekundės"
+msgstr[1] "Po %1 sekundžių"
+msgstr[2] "Po %1 sekundžių"
+msgstr[3] "Po %1 sekundės"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "po %1 minutės"
-msgstr[1] "po %1 minučių"
-msgstr[2] "po %1 minučių"
-msgstr[3] "po %1 minutės"
+msgstr[0] "Po %1 minutės"
+msgstr[1] "Po %1 minučių"
+msgstr[2] "Po %1 minučių"
+msgstr[3] "Po %1 minutės"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
