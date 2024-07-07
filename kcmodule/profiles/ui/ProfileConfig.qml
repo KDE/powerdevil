@@ -801,7 +801,7 @@ Kirigami.FormLayout {
             "@label:textfield Script command to execute",
             "When i&nactive:"
         )
-        Accessible.name: i18nc("@@accessible:name:textfield", "Script command when inactive")
+        Accessible.name: i18nc("@accessible:name:textfield", "Script command when inactive")
 
         visible: idleTimeoutCommandEditAction.checked
         Layout.fillWidth: true
