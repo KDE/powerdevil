@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-06-16 18:57+0530\n"
+"PO-Revision-Date: 2024-07-06 21:39+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -428,10 +428,7 @@ msgid "Action to perform when the system is idle"
 msgstr "கணினியை குறிப்பிட்ட இடைவெளிக்கு பயன்படுத்தாதபோது செய்யவேண்டியது"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
@@ -439,10 +436,7 @@ msgstr[0] "%1 நொடிக்கு பின்"
 msgstr[1] "%1 நொடிக்கு பின்"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"

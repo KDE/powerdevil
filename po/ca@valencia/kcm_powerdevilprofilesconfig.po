@@ -5,19 +5,20 @@
 #
 # SPDX-FileCopyrightText: 2023, 2024 Antoni Bella Pérez <antonibella5@yahoo.com>
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2017, 2020, 2021, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# Josep M. Ferrer <txemaq@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-05-24 18:04+0200\n"
+"PO-Revision-Date: 2024-07-05 09:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -437,26 +438,20 @@ msgid "Action to perform when the system is idle"
 msgstr "Acció a portar a terme quan el sistema no estiga ocupat"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "després d'1 segon"
-msgstr[1] "després de %1 segons"
+msgstr[0] "Després d'%1 segon"
+msgstr[1] "Després de %1 segons"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "després d'1 minut"
-msgstr[1] "després de %1 minuts"
+msgstr[0] "Després d'%1 minut"
+msgstr[1] "Després de %1 minuts"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
@@ -827,15 +822,3 @@ msgstr "Seleccioneu un fitxer executable"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Duració personalitzada"
-
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 seconds"
-#~ msgid_plural "after %1 seconds"
-#~ msgstr[0] "després d'%1 segon"
-#~ msgstr[1] "després de %1 segons"
-
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 minutes"
-#~ msgid_plural "after %1 minutes"
-#~ msgstr[0] "després d'%1 minut"
-#~ msgstr[1] "després de %1 minuts"
