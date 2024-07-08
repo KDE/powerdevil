@@ -417,14 +417,14 @@ msgstr "系统空闲时执行的操作"
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] ""
+msgstr[0] "空闲 %1 秒后"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] ""
+msgstr[0] "空闲 %1 分钟后"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
