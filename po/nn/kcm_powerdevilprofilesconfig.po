@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-03-17 11:11+0100\n"
+"PO-Revision-Date: 2024-07-08 22:02+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -30,112 +30,112 @@ msgstr "Det ser ikkje ut til at straumstyrings­tenesta køyrer."
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "millisekund"
+msgstr[1] "millisekund"
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "sekund"
+msgstr[1] " sekund"
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "minutt"
+msgstr[1] "minutt"
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "time"
+msgstr[1] "timar"
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "dag"
+msgstr[1] "dagar"
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "veke"
+msgstr[1] "veker"
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "månad"
+msgstr[1] "månadar"
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "år"
+msgstr[1] "år"
 
 #: ui/DurationPromptDialog.qml:171
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr "millisekund"
 
 #: ui/DurationPromptDialog.qml:173
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "sekund"
 
 #: ui/DurationPromptDialog.qml:175
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "minutt"
 
 #: ui/DurationPromptDialog.qml:177
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "timar"
 
 #: ui/DurationPromptDialog.qml:179
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "dagar"
 
 #: ui/DurationPromptDialog.qml:181
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "veker"
 
 #: ui/DurationPromptDialog.qml:183
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "månadar"
 
 #: ui/DurationPromptDialog.qml:185
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "år"
 
 #: ui/GlobalConfig.qml:16
 #, kde-format
@@ -177,6 +177,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
+"Batterinivået vert rekna som lågt når det fell til dette nivået. "
+"Innstillingane for lågt batterinivå vert då automatisk brukte."
 
 #: ui/GlobalConfig.qml:105
 #, kde-format
@@ -200,6 +202,9 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
+"Batterinivået vert rekna som kritisk lågt når det fell til dette nivået. "
+"Etter ei kort vising av ei åtvaring vil systemet automatisk gå i dvalemodus "
+"eller verta slått av, avhengig av innstillingane for kritisk batterinivå."
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -208,6 +213,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
+"Handlinga du tidlegare har valt for kritisk lågt batterinivå, er ikkje "
+"lenger støtta. Vel ei ny handling."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -221,19 +228,19 @@ msgstr "Ved &kritisk lågt batterinivå:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action performed at critical battery level"
-msgstr ""
+msgstr "Handling som skal utførast ved kritisk lågt batterinivå"
 
 #: ui/GlobalConfig.qml:181
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr ""
+msgstr "Lågt batterinivå for tilkopla &einingar:"
 
 #: ui/GlobalConfig.qml:189
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr ""
+msgstr "Lågt batterinivå for tilkopla einingar"
 
 #: ui/GlobalConfig.qml:214
 #, kde-format
@@ -242,6 +249,8 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
+"Batteriet for tilkopla einingar vert rekna å vera på lågt nivå når det når "
+"dette nivået."
 
 #: ui/GlobalConfig.qml:222
 #, kde-format
@@ -253,13 +262,13 @@ msgstr "Ladegrense"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "&Batterivern:"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr ""
+msgstr "Avgrensa høgste batterilading"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
@@ -295,6 +304,9 @@ msgid ""
 "accelerate deterioration of battery health. By limiting the maximum battery "
 "charge, you can help extend the battery lifespan."
 msgstr ""
+"Viss du ofte ladar batteriet nær 100 % eller ofte ladar det heilt ut, kan "
+"det mista lade­kapasiteten raskare. Viss du passar på at batteriet aldri vert "
+"lada over eit visst nivå, kan det hjelpa til å oppretthalda kapasiteten."
 
 #: ui/GlobalConfig.qml:344
 #, kde-format
@@ -320,18 +332,18 @@ msgstr "Set mediespelarar på pause ved kvile-/dvalemodus"
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr ""
+msgstr "Nærskylde sider:"
 
 #: ui/GlobalConfig.qml:381
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr ""
+msgstr "Varslingar: Straumstyring"
 
 #: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr ""
+msgstr "Opna kategorien «Straumstyring» i «Varslingar»-innstillingane"
 
 #: ui/GlobalConfig.qml:390
 #, kde-format
@@ -342,7 +354,7 @@ msgstr "Skrivebordsøkt"
 #: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr ""
+msgstr "Opna «Skrivebordsøkt»-innstillingane"
 
 #: ui/GlobalConfig.qml:398
 #, kde-format
@@ -353,7 +365,7 @@ msgstr "Aktivitetar"
 #: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr ""
+msgstr "Opna «Aktivitetar»-innstillingane"
 
 #: ui/main.qml:19
 #, kde-format
@@ -419,24 +431,20 @@ msgid "Action to perform when the system is idle"
 msgstr ""
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "etter %1 sekund"
+msgstr[0] "Etter %1 sekund"
 msgstr[1] "etter %1 sekund"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "etter %1 minutt"
-msgstr[1] "etter %1 minutt"
+msgstr[0] "Etter %1 minutt"
+msgstr[1] "Etter %1 minutt"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
@@ -568,7 +576,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "Aldri"
 
 #: ui/ProfileConfig.qml:428
 #, kde-format
@@ -578,42 +586,38 @@ msgid ""
 msgstr ""
 
 #: ui/ProfileConfig.qml:433
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Slå &av skjermen:"
 
 #: ui/ProfileConfig.qml:446
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr "Slå &av skjermen:"
+msgstr "Slå av skjermen etter:"
 
 #: ui/ProfileConfig.qml:450
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sekund"
+msgstr[1] "%1 sekund"
 
 #: ui/ProfileConfig.qml:452
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minutt"
+msgstr[1] "%1 minutt"
 
 #: ui/ProfileConfig.qml:459
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "Aldri"
 
 #: ui/ProfileConfig.qml:466
 #, kde-format
@@ -621,7 +625,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "Tilpassa …"
 
 #: ui/ProfileConfig.qml:506
 #, kde-format
@@ -634,16 +638,16 @@ msgstr ""
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Når låst: %1 sekund"
+msgstr[1] "Når låst: %1 sekund"
 
 #: ui/ProfileConfig.qml:512
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Når låst: %1 minutt"
+msgstr[1] "Når låst: %1 minutt"
 
 #: ui/ProfileConfig.qml:519
 #, kde-format
@@ -651,19 +655,19 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr ""
+msgstr "Når låst eller ulåst"
 
 #: ui/ProfileConfig.qml:521
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "Når låst: med ein gong"
 
 #: ui/ProfileConfig.qml:560
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
-msgstr ""
+msgstr "Byt &tastaturlysstyrke:"
 
 #: ui/ProfileConfig.qml:607
 #, kde-format
@@ -779,7 +783,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
-msgstr ""
+msgstr "Køyr skript etter:"
 
 #: ui/RunScriptEdit.qml:33
 #, kde-format
@@ -800,4 +804,4 @@ msgstr "Vel programfil"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "Sjølvvalt tidslengd"
