@@ -795,53 +795,25 @@ Kirigami.FormLayout {
         }
     }
 
-    RunScriptEdit {
-        id: idleTimeoutCommandEdit
-        Kirigami.FormData.label: i18nc(
-            "@label:textfield Script command to execute",
-            "When i&nactive:"
-        )
-        Accessible.name: i18nc("@accessible:name:textfield", "Script command when inactive")
-
-        visible: idleTimeoutCommandEditAction.checked
-        Layout.fillWidth: true
-
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "IdleTimeoutCommand"
-        }
-        command: profileSettings.idleTimeoutCommand
-        onCommandChanged: {
-            profileSettings.idleTimeoutCommand = command;
-        }
-        function resetToProfileSettings() {
-            command = profileSettings.idleTimeoutCommand;
-            idleTimeoutCommandEditAction.checked |= profileSettings.idleTimeoutCommand !== "";
-        }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
-        }
-    }
-
     TimeDurationComboBox {
         id: idleTimeoutCommandTimeDelayCombo
         Accessible.name: i18nc("@accessible:name:spinbox", "Duration of inactivity before the script command executes")
         Layout.fillWidth: true
         visible: idleTimeoutCommandEdit.visible
 
+        Kirigami.FormData.label: i18nc(
+            "@label:textfield Script command to execute",
+            "When i&nactive:"
+        )
+        
         durationPromptLabel: i18nc("@label:spinbox After X minutes", "Execute script after:")
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
         function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
             return formatUnit == DurationPromptDialog.Unit.Minutes
-                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "After %1 second", "After %1 seconds", n);
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "Run after %1 second", "Run after %1 seconds", n);
         }
-        function translateMinutes(n) { return i18ncp("@option:combobox", "After %1 minute", "After %1 minutes", n); }
+        function translateMinutes(n) { return i18ncp("@option:combobox", "Run after %1 minute", "Run after %1 minutes", n); }
 
         valueRole: "seconds"
         textRole: "text"
@@ -878,7 +850,37 @@ Kirigami.FormLayout {
             }];
             customDuration = null;
         }
+    }
 
+    RunScriptEdit {
+        id: idleTimeoutCommandEdit
+        
+        Accessible.name: i18nc("@accessible:name:textfield", "Script command when inactive")
+
+        visible: idleTimeoutCommandEditAction.checked
+        Layout.fillWidth: true
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "IdleTimeoutCommand"
+        }
+        command: profileSettings.idleTimeoutCommand
+        onCommandChanged: {
+            profileSettings.idleTimeoutCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.idleTimeoutCommand;
+            idleTimeoutCommandEditAction.checked |= profileSettings.idleTimeoutCommand !== "";
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
+        }
+        Connections {
+            target: profileSettings
+            function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
+        }
+        
         KCM.SettingStateBinding {
             configObject: profileSettings
             settingName: "RunScriptIdleTimeoutSec"
