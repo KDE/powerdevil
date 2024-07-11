@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-07-08 22:02+0200\n"
+"PO-Revision-Date: 2024-07-10 21:53+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -406,7 +406,7 @@ msgstr "10 %"
 #, kde-format
 msgctxt "@title:group"
 msgid "Suspend Session"
-msgstr ""
+msgstr "Lås økta"
 
 #: ui/ProfileConfig.qml:48
 #, kde-format
@@ -415,6 +415,8 @@ msgid ""
 "The action you had previously configured for after a period of inactivity is "
 "now unsupported on your system. Please select a different one."
 msgstr ""
+"Handlinga du tidlegare har valt for køyring etter periode utan aktivitet, er "
+"ikkje lenger støtta. Vel ei ny handling."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -422,7 +424,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "A&fter a period of inactivity:"
-msgstr ""
+msgstr "&Etter periode utan aktivitet:"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -452,7 +454,7 @@ msgstr[1] "Etter %1 minutt"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "Tilpassa …"
 
 #: ui/ProfileConfig.qml:148
 #, kde-format
@@ -561,16 +563,16 @@ msgstr ""
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 sekund"
+msgstr[1] "%1 sekund"
 
 #: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 minutt"
+msgstr[1] "%1 minutt"
 
 #: ui/ProfileConfig.qml:376
 #, kde-format
@@ -731,7 +733,7 @@ msgstr ""
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
-msgstr ""
+msgstr "Etter periode utan aktivitet"
 
 #: ui/ProfileConfig.qml:736
 #, kde-format
@@ -765,19 +767,19 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
-msgstr ""
+msgstr "Etter periode utan akti&vitet:"
 
 #: ui/ProfileConfig.qml:808
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
-msgstr ""
+msgstr "Skriptkommando etter periode utan aktivitet"
 
 #: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
-msgstr ""
+msgstr "Periode utan aktivitet før skriptkommandoen skal køyrast"
 
 #: ui/ProfileConfig.qml:842
 #, kde-format
