@@ -52,6 +52,7 @@ PlasmaExtras.Representation {
     collapseMarginsHint: true
 
     KeyNavigation.down: batteryRepeater.headerItem
+    KeyNavigation.up: batteryRepeater.footerItem
 
     contentItem: PlasmaComponents3.ScrollView {
         id: scrollView
@@ -120,7 +121,7 @@ PlasmaExtras.Representation {
                 remainingTime: dialog.remainingTime
 
 
-                KeyNavigation.up: index === 0 ? (batteryRepeater.headerItem.visible ? batteryRepeater.headerItem : batteryRepeater.headerItem.KeyNavigation.up) : batteryRepeater.itemAtIndex(index - 1)
+                KeyNavigation.up: index === 0 ? (batteryRepeater.headerItem) : batteryRepeater.itemAtIndex(index - 1)
                 KeyNavigation.down: index + 1 < batteryRepeater.count ? batteryRepeater.itemAtIndex(index + 1) : batteryRepeater.footerItem
 
                 pluggedIn: dialog.pluggedIn
@@ -146,8 +147,8 @@ PlasmaExtras.Representation {
 
                 width: scrollView.availableWidth
 
-                KeyNavigation.up: batteryRepeater.itemAtIndex(batteryRepeater.count - 1)
-                KeyNavigation.down: null
+                KeyNavigation.up: batteryRepeater.count > 0 ? batteryRepeater.itemAtIndex(batteryRepeater.count - 1) : batteryRepeater.headerItem
+                KeyNavigation.down: batteryRepeater.headerItem
                 KeyNavigation.backtab:KeyNavigation.up
                 KeyNavigation.tab: powerManagementItem.manualInhibitionSwitch
 
