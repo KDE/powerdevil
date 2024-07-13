@@ -669,7 +669,7 @@ Kirigami.FormLayout {
             Kirigami.Action {
                 id: profileLoadCommandEditAction
                 text: i18nc(
-                    "@text:action:menu Script command to execute for power state (On AC Power, On Battery, ...)",
+                    "@text:action:menu Script command to run for power state (On AC Power, On Battery, ...)",
                     "When entering \"%1\" state", root.profileLabel
                 )
                 checkable: true
@@ -687,7 +687,7 @@ Kirigami.FormLayout {
             Kirigami.Action {
                 id: profileUnloadCommandEditAction
                 text: i18nc(
-                    "@text:action:menu Script command to execute for power state (On AC Power, On Battery, ...)",
+                    "@text:action:menu Script command to run for power state (On AC Power, On Battery, ...)",
                     "When exiting \"%1\" state", root.profileLabel
                 )
                 checkable: true
@@ -705,7 +705,7 @@ Kirigami.FormLayout {
             Kirigami.Action {
                 id: idleTimeoutCommandEditAction
                 text: i18nc(
-                    "@text:action:menu Script command to execute",
+                    "@text:action:menu Script command to run",
                     "When inactive"
                 )
                 checkable: true
@@ -728,7 +728,7 @@ Kirigami.FormLayout {
     RunScriptEdit {
         id: profileLoadCommandEdit
         Kirigami.FormData.label: i18nc(
-            "@label:textfield Script command to execute for power state (On AC Power, On Battery, ...)",
+            "@label:textfield Script command to run for power state (On AC Power, On Battery, ...)",
             "When e&ntering \"%1\" state:", root.profileLabel
         )
         Accessible.name: i18nc(
@@ -763,7 +763,7 @@ Kirigami.FormLayout {
     RunScriptEdit {
         id: profileUnloadCommandEdit
         Kirigami.FormData.label: i18nc(
-            "@label:textfield Script command to execute for power state (On AC Power, On Battery, ...)",
+            "@label:textfield Script command to run for power state (On AC Power, On Battery, ...)",
             "When e&xiting \"%1\" state:", root.profileLabel
         )
         Accessible.name: i18nc(
@@ -797,16 +797,16 @@ Kirigami.FormLayout {
 
     TimeDurationComboBox {
         id: idleTimeoutCommandTimeDelayCombo
-        Accessible.name: i18nc("@accessible:name:spinbox", "Duration of inactivity before the script command executes")
+        Accessible.name: i18nc("@accessible:name:spinbox", "Duration of inactivity before the script command runs")
         Layout.fillWidth: true
         visible: idleTimeoutCommandEdit.visible
 
         Kirigami.FormData.label: i18nc(
-            "@label:textfield Script command to execute",
+            "@label:textfield Script command to run",
             "When i&nactive:"
         )
         
-        durationPromptLabel: i18nc("@label:spinbox After X minutes", "Execute script after:")
+        durationPromptLabel: i18nc("@label:spinbox After X minutes", "Run script after:")
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
         function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
