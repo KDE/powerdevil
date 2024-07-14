@@ -30,7 +30,8 @@ FocusScope {
             Layout.fillWidth: true
 
             text: root.command
-            placeholderText: i18n("Enter command or select file…")
+            placeholderText: i18nc("@info:placeholder", "Enter command or script file")
+            Accessible.name: i18nc("@label:textbox accessible", "Enter command or choose script file")
 
             onEditingFinished: { root.command = text; }
 
@@ -48,9 +49,8 @@ FocusScope {
         QQC2.Button {
             id: selectFileButton
             icon.name: "document-open"
-            text: i18n("Select executable file…")
-            display: QQC2.AbstractButton.IconOnly
-            implicitWidth: implicitHeight
+            text: i18nc("@action:button opens file picker", "Choose…")
+            Accessible.name: i18nc("@action:button opens file picker", "Choose script file")
             onClicked: { fileDialogComponent.incubateObject(root); }
 
             QQC2.ToolTip.visible: hovered
@@ -63,7 +63,7 @@ FocusScope {
 
             FileDialog {
                 id: fileDialog
-                title: i18n("Select executable file")
+                title: i18nc("@title:window", "Choose script file")
 
                 currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
 
