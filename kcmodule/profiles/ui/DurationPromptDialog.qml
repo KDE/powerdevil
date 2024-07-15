@@ -212,12 +212,12 @@ Kirigami.Dialog {
                             }
                         }
                         Keys.onLeftPressed: event => {
-                            if (!LayoutMirroring.enabled) {
+                            if (!mirrored) {
                                 durationValueSpinBox.forceActiveFocus();
                             }
                         }
                         Keys.onRightPressed: event => {
-                            if (LayoutMirroring.enabled) {
+                            if (mirrored) {
                                 durationValueSpinBox.forceActiveFocus();
                             }
                         }
