@@ -150,10 +150,7 @@ Kirigami.Dialog {
                 visible: acceptsUnits.length == 1
                 text: parent.unitSuffixForValue(value, acceptsUnits[0])
 
-                // Try not to shrink. The +1 is there because I couldn't figure out why actual
-                // plural metrics were 49 but implicitWidth for the plural string 49.78125.
-                // An extra pixel shouldn't hurt either way, and hopefully metrics are close enough.
-                Layout.preferredWidth: Math.max(implicitWidth, pluralUnitLabelMetrics.width + leftPadding + rightPadding + 1)
+                Layout.preferredWidth: Math.max(implicitWidth, pluralUnitLabelMetrics.advanceWidth + leftPadding + rightPadding)
                 TextMetrics {
                     id: pluralUnitLabelMetrics
                     text: unitSelectionRadios.labelForUnit(acceptsUnits[0])
