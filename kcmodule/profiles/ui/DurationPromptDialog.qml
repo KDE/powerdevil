@@ -121,7 +121,7 @@ Kirigami.Dialog {
                     sequence: labelItem.Kirigami.MnemonicData.sequence
                     onActivated: { durationValueSpinBox.forceActiveFocus(); }
                 }
-                Keys.onReturnPressed: { root.accept(); }
+                Keys.onReturnPressed: event => root.accept()
             }
 
             function unitSuffixForValue(val, unit) {
@@ -197,13 +197,33 @@ Kirigami.Dialog {
 
                         text: parent.labelForUnit(modelData)
                         checked: unit === modelData
-                        onClicked: unit = modelData
+                        onClicked: {
+                            unit = modelData;
+                        }
 
-                        Keys.onReturnPressed: { root.accept(); }
-                        Keys.onUpPressed: { const prev = repeater.itemAt(index - 1); prev && (prev.focus = true); }
-                        Keys.onDownPressed: { const next = repeater.itemAt(index + 1); next && (next.focus = true); }
-                        Keys.onLeftPressed: { if (!LayoutMirroring.enabled) durationValueSpinBox.forceActiveFocus(); }
-                        Keys.onRightPressed: { if (LayoutMirroring.enabled) durationValueSpinBox.forceActiveFocus(); }
+                        Keys.onReturnPressed: event => root.accept()
+                        Keys.onUpPressed: event => {
+                            const prev = repeater.itemAt(index - 1);
+                            if (prev) {
+                                prev.focus = true;
+                            }
+                        }
+                        Keys.onDownPressed: event => {
+                            const next = repeater.itemAt(index + 1);
+                            if (next) {
+                                next.focus = true;
+                            }
+                        }
+                        Keys.onLeftPressed: event => {
+                            if (!LayoutMirroring.enabled) {
+                                durationValueSpinBox.forceActiveFocus();
+                            }
+                        }
+                        Keys.onRightPressed: event => {
+                            if (LayoutMirroring.enabled) {
+                                durationValueSpinBox.forceActiveFocus();
+                            }
+                        }
                     }
                 }
             }
