@@ -1,14 +1,13 @@
 # Translation of powerdevil to Norwegian Nynorsk
 #
 # Eirik U. Birkeland <eirbir@gmail.com>, 2009, 2010, 2011.
-# Karl Ove Hufthammer <karl@huftis.org>, 2009, 2015, 2016, 2018, 2019, 2020, 2022, 2023.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-29 02:27+0000\n"
-"PO-Revision-Date: 2023-09-02 13:26+0200\n"
+"PO-Revision-Date: 2024-07-14 12:35+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -16,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 24.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -238,19 +237,14 @@ msgstr ""
 "mogleg."
 
 #: powerdevilcore.cpp:578
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery running low - to continue using your computer, make sure that the "
-#| "power adapter is plugged in and that it provides enough power."
+#, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
-msgstr ""
-"Lågt batterinivå. Viss du vil halda fram med å bruka maskina, sjå til at "
-"straum­kabelen er kopla til og gjev nok straum."
+msgstr "Sjå til at straum­kabelen er kopla til og gjev nok straum."
 
 #: powerdevilcore.cpp:580
 #, kde-format
 msgid "Plug in the computer."
-msgstr ""
+msgstr "Kopla maskina til eit straumuttak."
 
 #: powerdevilcore.cpp:599
 #, kde-format
@@ -297,11 +291,9 @@ msgid "Sleep Now"
 msgstr "Gå i kvilemodus no"
 
 #: powerdevilcore.cpp:623
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Please save your work."
+#, kde-format
 msgid "Please save your work."
-msgstr ""
-"Batterinivået er kritisk lågt. Lagra arbeidet ditt så snart som mogleg."
+msgstr "Lagra arbeidet ditt."
 
 #: powerdevilcore.cpp:629
 #, kde-format
