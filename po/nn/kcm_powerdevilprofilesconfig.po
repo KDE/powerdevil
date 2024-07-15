@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-07-10 21:53+0200\n"
+"PO-Revision-Date: 2024-07-14 13:00+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -249,8 +249,8 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
-"Batteriet for tilkopla einingar vert rekna å vera på lågt nivå når det når "
-"dette nivået."
+"Batteriet for tilkopla einingar vert rekna for å vera på lågt nivå når det "
+"når dette nivået."
 
 #: ui/GlobalConfig.qml:222
 #, kde-format
@@ -268,7 +268,7 @@ msgstr "&Batterivern:"
 #, kde-format
 msgctxt "@text:checkbox"
 msgid "Limit the maximum battery charge"
-msgstr "Avgrensa høgste batterilading"
+msgstr "Avgrensa høgaste batterilading"
 
 #: ui/GlobalConfig.qml:242
 #, kde-format
@@ -430,7 +430,7 @@ msgstr "&Etter periode utan aktivitet:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
-msgstr ""
+msgstr "Handling å gjera etter periode utan aktivitet"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
 #, kde-format
@@ -463,6 +463,8 @@ msgid ""
 "The action you had previously configured for when the power button is "
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
+"Handlinga du tidlegare har valt for køyring når på/av-knappen vert trykt "
+"inn, er ikkje lenger støtta. Vel ei ny handling."
 
 #: ui/ProfileConfig.qml:155
 #, kde-format
@@ -470,13 +472,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When &power button pressed:"
-msgstr "Ved trykk på straum&knappen:"
+msgstr "Ved trykk på &på/av-knappen:"
 
 #: ui/ProfileConfig.qml:157
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
-msgstr ""
+msgstr "Handling å gjera når på/av-knappen vert trykt inn"
 
 #: ui/ProfileConfig.qml:187
 #, kde-format
@@ -485,6 +487,8 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
+"Handlinga du tidlegare har valt for når lokket vert lukka, er ikkje lenger "
+"støtta. Vel ei ny handling."
 
 #: ui/ProfileConfig.qml:194
 #, kde-format
@@ -498,7 +502,7 @@ msgstr "Når lokket vert &lukka:"
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr ""
+msgstr "Handling å gjera når lokket vert lukka"
 
 #: ui/ProfileConfig.qml:225
 #, kde-format
@@ -506,13 +510,15 @@ msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
 "connected"
 msgid "Even when an external monitor is connected"
-msgstr ""
+msgstr "Sjølv om ein ekstern skjerm er kopla til"
 
 #: ui/ProfileConfig.qml:227
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
+"Gjer handlinga ved lukking av lokk sjølv om ein ekstern skjerm er kopla til"
 
+# Ventemodus = kvilemodus eller dvalemodus
 #: ui/ProfileConfig.qml:245
 #, kde-format
 msgctxt "@info:status"
@@ -520,25 +526,26 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
+"Ventemodusen du tidlegare har valt, er ikkje lenger støtta. Vel ein ny modus."
 
 #: ui/ProfileConfig.qml:252
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr ""
+msgstr "Ved ventemodus, gå i:"
 
 #: ui/ProfileConfig.qml:254
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr ""
+msgstr "Ved ventemodus, gå i denne straumsparemodusen"
 
 #: ui/ProfileConfig.qml:303
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
-msgstr ""
+msgstr "Skjerm og lysstyrke"
 
 #: ui/ProfileConfig.qml:313
 #, kde-format
@@ -550,13 +557,13 @@ msgstr "Endra &lysstyrken på skjermen:"
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr ""
+msgstr "Di&m automatisk:"
 
 #: ui/ProfileConfig.qml:362
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr ""
+msgstr "Di&m automatisk etter:"
 
 #: ui/ProfileConfig.qml:367
 #, kde-format
@@ -586,6 +593,7 @@ msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr ""
+"Skjermen vert ikkje dimma, då han er sett opp til å slåast av tidlegare."
 
 #: ui/ProfileConfig.qml:433
 #, kde-format
@@ -633,7 +641,7 @@ msgstr "Tilpassa …"
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr ""
+msgstr "Når låst, slå av skjermen etter:"
 
 #: ui/ProfileConfig.qml:510
 #, kde-format
@@ -705,13 +713,13 @@ msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
 "power state"
 msgid "Choose run conditions…"
-msgstr ""
+msgstr "Vel køyrevilkår …"
 
 #: ui/ProfileConfig.qml:658
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
-msgstr ""
+msgstr "Vel køyrevilkår for skriptkommando"
 
 #: ui/ProfileConfig.qml:677
 #, kde-format
@@ -719,7 +727,7 @@ msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr ""
+msgstr "Når maskina går inn i «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:695
 #, kde-format
@@ -727,7 +735,7 @@ msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr ""
+msgstr "Når maskina går ut av «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:713
 #, kde-format
@@ -741,13 +749,13 @@ msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr ""
+msgstr "Når maskina går &inn i «%1»-tilstand:"
 
 #: ui/ProfileConfig.qml:740
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
-msgstr ""
+msgstr "Skriptkommando som skal køyrast når maskina går inn i «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:771
 #, kde-format
@@ -755,13 +763,13 @@ msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr ""
+msgstr "Når maskina går &ut av «%1»-tilstand:"
 
 #: ui/ProfileConfig.qml:775
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
-msgstr ""
+msgstr "Skriptkommando som skal køyrast når maskina går ut av «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:806
 #, kde-format

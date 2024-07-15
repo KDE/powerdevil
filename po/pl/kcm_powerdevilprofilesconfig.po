@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-05 00:40+0000\n"
-"PO-Revision-Date: 2024-05-26 11:13+0200\n"
+"PO-Revision-Date: 2024-07-14 13:35+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -440,28 +441,22 @@ msgid "Action to perform when the system is idle"
 msgstr "Działanie do wykonania, gdy system jest w stanie bezczynności"
 
 #: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "po %1 sekundzie"
+msgstr[0] "Po %1 sekundzie"
 msgstr[1] "po %1 sekundach"
 msgstr[2] "po %1 sekundach"
 
 #: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "po %1 minucie"
-msgstr[1] "po %1 minutach"
-msgstr[2] "po %1 minutach"
+msgstr[0] "Po %1 minucie"
+msgstr[1] "Po %1 minutach"
+msgstr[2] "Po %1 minutach"
 
 #: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
 #: ui/ProfileConfig.qml:862
