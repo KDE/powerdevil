@@ -17,7 +17,6 @@ import QtQuick.Controls as QQC2
 ComboBoxWithCustomValue {
     id: root
 
-    property QQC2.Overlay overlay
     property string durationPromptLabel
     property string durationPromptTitle: i18nc("@title:window", "Custom Duration")
 
@@ -127,7 +126,7 @@ ComboBoxWithCustomValue {
         DurationPromptDialog {
             title: root.durationPromptTitle
             label: root.durationPromptLabel
-            parent: root.overlay ?? root.parent
+            parent: root.QQC2.Overlay.overlay
 
             acceptsUnits: root.durationPromptAcceptsUnits
             from: Math.ceil(root.valueToUnit(root.durationPromptFromValue, root.unitOfValueRole, unit))

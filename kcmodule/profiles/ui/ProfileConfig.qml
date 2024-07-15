@@ -86,7 +86,6 @@ Kirigami.FormLayout {
 
         TimeDurationComboBox {
             id: autoSuspendIdleTimeoutCombo
-            overlay: QQC2.Overlay.overlay
             durationPromptLabel: autoSuspendActionRow.Kirigami.FormData.label
             durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
@@ -358,7 +357,6 @@ Kirigami.FormLayout {
         Layout.fillWidth: true
         Kirigami.FormData.label: i18nc("@label:combobox Dim screen after X minutes", "Di&m automatically:")
 
-        overlay: QQC2.Overlay.overlay
         durationPromptLabel: i18nc("@label:spinbox Dim screen after X minutes", "Di&m automatically after:")
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
@@ -441,7 +439,6 @@ Kirigami.FormLayout {
             id: turnOffDisplayIdleTimeoutCombo
             Layout.fillWidth: true
 
-            overlay: QQC2.Overlay.overlay
             durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
             durationPromptLabel: i18nc("@label:spinbox After X minutes", "Turn off screen after:")
 
@@ -501,7 +498,6 @@ Kirigami.FormLayout {
         TimeDurationComboBox {
             id: turnOffDisplayIdleTimeoutWhenLockedCombo
 
-            overlay: QQC2.Overlay.overlay
             durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
             durationPromptLabel: i18nc("@label:spinbox After X minutes", "When locked, turn off screen after:")
 
@@ -838,7 +834,6 @@ Kirigami.FormLayout {
         Layout.fillWidth: true
         visible: idleTimeoutCommandEdit.visible
 
-        overlay: QQC2.Overlay.overlay
         durationPromptLabel: i18nc("@label:spinbox After X minutes", "Execute script after:")
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
