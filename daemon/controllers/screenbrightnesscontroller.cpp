@@ -351,15 +351,14 @@ void ScreenBrightnessController::adjustBrightnessRatio(const QString &displayId,
 
 void ScreenBrightnessController::adjustBrightnessRatio(double delta, const QString &sourceClientName, const QString &sourceClientContext, IndicatorHint hint)
 {
-    // FIXME: adjust all displays once we figure out how to display OSD popups for all of them
-    if (m_legacyDisplayIds.isEmpty()) {
+    if (m_sortedDisplayIds.isEmpty()) {
         qCWarning(POWERDEVIL) << "Adjust screen brightness ratio failed: no displays available to adjust";
         return;
     }
 
     // if we're going to adjust brightness and accumulate tracking errors, let's make sure at least
     // one display will actually change its brightness as a result
-    bool any = std::ranges::any_of(std::as_const(m_legacyDisplayIds), [this, delta](const QString &displayId) {
+    bool any = std::ranges::any_of(std::as_const(m_sortedDisplayIds), [this, delta](const QString &displayId) {
         if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie) {
             // return true if the display still has room to go in the direction of the delta
             const PowerDevil::BrightnessLogic::BrightnessInfo bi = it->second.brightnessLogic.info();
@@ -371,7 +370,7 @@ void ScreenBrightnessController::adjustBrightnessRatio(double delta, const QStri
         return;
     }
 
-    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
+    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
         adjustBrightnessRatio(displayId, delta, sourceClientName, sourceClientContext, hint);
     }
 }
@@ -381,15 +380,14 @@ void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogi
                                                       const QString &sourceClientContext,
                                                       IndicatorHint hint)
 {
-    // FIXME: adjust all displays once we figure out how to display OSD popups for all of them
-    if (m_legacyDisplayIds.isEmpty()) {
+    if (m_sortedDisplayIds.isEmpty()) {
         qCWarning(POWERDEVIL) << "Adjust screen brightness step failed: no displays available to adjust";
         return;
     }
 
     double referenceDisplayDelta = 0.0;
 
-    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
+    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
         if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie) {
             const auto &[id, info] = *it;
             double oldRatio = info.brightnessLogic.valueAsRatio();
@@ -408,7 +406,7 @@ void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogi
     if (referenceDisplayDelta == 0.0) {
         return;
     }
-    for (const QString &displayId : std::as_const(m_legacyDisplayIds)) {
+    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
         adjustBrightnessRatio(displayId, referenceDisplayDelta, sourceClientName, sourceClientContext, hint);
     }
 }
