@@ -69,12 +69,11 @@ void KWinDisplayDetector::checkOutputs()
         }
     }
     if (changed) {
-        QList<DisplayBrightness *> newList;
-        newList.reserve(m_displays.size());
+        QMap<uint32_t, DisplayBrightness *> newList; // ordered by priority
         for (const auto &[output, brightness] : m_displays) {
-            newList.push_back(brightness.get());
+            newList.insert(output->priority(), brightness.get());
         }
-        m_displayList = newList;
+        m_displayList = newList.values();
         Q_EMIT displaysChanged();
     }
 }
