@@ -1,6 +1,5 @@
 # Translation of powerdevil_osd to Norwegian Nynorsk
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
