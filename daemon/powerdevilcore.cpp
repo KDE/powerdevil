@@ -227,10 +227,16 @@ void Core::refreshActions()
     }
 
     // Remove now-unsupported actions
-    std::erase_if(m_actionPool, [](const auto &pair) {
-        const auto &[name, action] = pair;
-        return !action->isSupported();
-    });
+    for (auto it = m_actionPool.begin(); it != m_actionPool.end();) {
+        Action *action = it->second.get();
+        if (!action->isSupported()) {
+            m_registeredActionTimeouts.remove(action);
+            m_pendingResumeFromIdleActions.remove(action);
+            it = m_actionPool.erase(it);
+        } else {
+            ++it;
+        }
+    }
 }
 
 bool Core::isActionSupported(const QString &actionName)
