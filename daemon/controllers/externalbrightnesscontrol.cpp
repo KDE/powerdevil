@@ -51,5 +51,5 @@ ExternalBrightnessControl::~ExternalBrightnessControl()
 
 void ExternalBrightnessControl::kde_external_brightness_device_v1_requested_brightness(uint32_t value)
 {
-    m_display->setBrightness(value);
+    m_display->setBrightness(value, false);
 }
