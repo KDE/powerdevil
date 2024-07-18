@@ -183,7 +183,7 @@ int BacklightBrightness::brightness() const
     return m_cachedBrightness;
 }
 
-void BacklightBrightness::setBrightness(int newBrightness)
+void BacklightBrightness::setBrightness(int newBrightness, bool allowAnimations)
 {
     if (!isSupported()) {
         qCWarning(POWERDEVIL) << "[BacklightBrightness]: Not supported, setBrightness() should not be called";
@@ -206,7 +206,7 @@ void BacklightBrightness::setBrightness(int newBrightness)
 
     // Make sure there are enough integer steps of difference to run a smooth animation
     const int brightnessDiff = qAbs(brightness() - newBrightness);
-    const bool willAnimate = brightnessDiff >= m_brightnessAnimationThreshold;
+    const bool willAnimate = brightnessDiff >= m_brightnessAnimationThreshold && allowAnimations;
 
     KAuth::Action action(u"org.kde.powerdevil.backlighthelper.setbrightness"_s);
     action.setHelperId(HELPER_ID);
@@ -236,7 +236,7 @@ void BacklightBrightness::setBrightness(int newBrightness)
 
         if (m_requestedBrightness != m_cachedBrightness) {
             // We had another setBrightness() request come in in the meantime, apply it now
-            setBrightness(m_requestedBrightness);
+            setBrightness(m_requestedBrightness, willAnimate);
         }
     });
     job->start();

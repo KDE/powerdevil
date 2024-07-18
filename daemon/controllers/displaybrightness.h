@@ -49,7 +49,7 @@ public:
      * It's acceptable if this class does not pick up on brightness changes by external actors.
      */
     virtual int brightness() const = 0;
-    virtual void setBrightness(int brightness) = 0;
+    virtual void setBrightness(int brightness, bool allowAnimations = true) = 0;
 
     /**
      * @returns if this object controls the brightness of an internal panel
