@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-29 02:27+0000\n"
+"POT-Creation-Date: 2024-07-19 02:29+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -188,45 +188,45 @@ msgstr "បិទ​ក្រោយ​ពេល​"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:375 powerdevilcore.cpp:386
+#: powerdevilcore.cpp:381 powerdevilcore.cpp:392
 #, kde-format
 msgid "Activity Manager"
 msgstr "កម្មវិធី​គ្រប់គ្រង​សកម្មភាព"
 
-#: powerdevilcore.cpp:376
+#: powerdevilcore.cpp:382
 #, fuzzy, kde-format
 #| msgid "This activity's policies prevent the system from suspending"
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "គោលនយោបាយ​របស់​សកម្មភាព​នេះ​ការពារ​ប្រព័ន្ធ​មិន​ឲ្យ​ផ្អាក"
 
-#: powerdevilcore.cpp:387
+#: powerdevilcore.cpp:393
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "គោលនយោបាយ​របស់​សកម្មភាព​នេះ​ការពារ​ការ​គ្រប់គ្រង់​ថាមពល​អេក្រង់"
 
-#: powerdevilcore.cpp:449
+#: powerdevilcore.cpp:455
 #, kde-format
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:450 powerdevilcore.cpp:670
+#: powerdevilcore.cpp:456 powerdevilcore.cpp:676
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:514
+#: powerdevilcore.cpp:520
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:517
+#: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:519
+#: powerdevilcore.cpp:525
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -234,22 +234,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:532
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:530
+#: powerdevilcore.cpp:536
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:534
+#: powerdevilcore.cpp:540
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:536
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -257,17 +257,17 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:578
+#: powerdevilcore.cpp:584
 #, kde-format
 msgid "Ensure that the power adapter is plugged in and provides enough power."
 msgstr ""
 
-#: powerdevilcore.cpp:580
+#: powerdevilcore.cpp:586
 #, kde-format
 msgid "Plug in the computer."
 msgstr ""
 
-#: powerdevilcore.cpp:599
+#: powerdevilcore.cpp:605
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be suspended in 30 "
@@ -275,7 +275,7 @@ msgstr ""
 msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:601
+#: powerdevilcore.cpp:607
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -283,7 +283,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "បិទ"
 
-#: powerdevilcore.cpp:607
+#: powerdevilcore.cpp:613
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be suspended in 30 "
@@ -293,7 +293,7 @@ msgid ""
 "seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:609
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -302,7 +302,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "សម្ងំ"
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:621
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be suspended in 30 "
@@ -310,7 +310,7 @@ msgstr "សម្ងំ"
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -318,13 +318,13 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "ដេក"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:629
 #, fuzzy, kde-format
 #| msgid "Your battery level is critical: save your work as soon as possible."
 msgid "Please save your work."
 msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ រក្សាទុក​ការងារ​របស់​អ្នក​ឲ្យ​បាន​ឆាប់​តាមដែល​អាច​ធ្វើ​បាន ។"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -332,49 +332,49 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:647
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:651
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:669
+#: powerdevilcore.cpp:675
 #, kde-format
 msgid "AC Adapter Plugged In"
 msgstr ""
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:678
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:672
+#: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power adapter has been plugged in."
 msgstr "អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត ។"
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on Battery Power"
 msgstr ""
 
-#: powerdevilcore.cpp:675
+#: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power adapter has been unplugged."
 msgstr "អាដាប់ទ័រ​ថាមពល​បាន​ដក​ចេញ ។"
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:736
+#: powerdevilcore.cpp:742
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
