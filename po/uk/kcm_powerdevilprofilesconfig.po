@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-05 00:40+0000\n"
+"POT-Creation-Date: 2024-07-20 00:41+0000\n"
 "PO-Revision-Date: 2024-07-05 13:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -103,49 +103,49 @@ msgstr[1] "роки"
 msgstr[2] "років"
 msgstr[3] "рік"
 
-#: ui/DurationPromptDialog.qml:171
+#: ui/DurationPromptDialog.qml:168
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
 msgstr "мілісекунди"
 
-#: ui/DurationPromptDialog.qml:173
+#: ui/DurationPromptDialog.qml:170
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
 msgstr "секунди"
 
-#: ui/DurationPromptDialog.qml:175
+#: ui/DurationPromptDialog.qml:172
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
 msgstr "хвилини"
 
-#: ui/DurationPromptDialog.qml:177
+#: ui/DurationPromptDialog.qml:174
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
 msgstr "години"
 
-#: ui/DurationPromptDialog.qml:179
+#: ui/DurationPromptDialog.qml:176
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
 msgstr "дні"
 
-#: ui/DurationPromptDialog.qml:181
+#: ui/DurationPromptDialog.qml:178
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
 msgstr "тижні"
 
-#: ui/DurationPromptDialog.qml:183
+#: ui/DurationPromptDialog.qml:180
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
 msgstr "місяці"
 
-#: ui/DurationPromptDialog.qml:185
+#: ui/DurationPromptDialog.qml:182
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
@@ -449,7 +449,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Дію, яку слід виконати, якщо система бездіяльна"
 
-#: ui/ProfileConfig.qml:95 ui/ProfileConfig.qml:847
+#: ui/ProfileConfig.qml:94 ui/ProfileConfig.qml:842
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
@@ -459,7 +459,7 @@ msgstr[1] "За %1 секунди"
 msgstr[2] "За %1 секунд"
 msgstr[3] "За секунду"
 
-#: ui/ProfileConfig.qml:97 ui/ProfileConfig.qml:849
+#: ui/ProfileConfig.qml:96 ui/ProfileConfig.qml:844
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
@@ -469,15 +469,15 @@ msgstr[1] "За %1 хвилини"
 msgstr[2] "За %1 хвилин"
 msgstr[3] "За хвилину"
 
-#: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:526
-#: ui/ProfileConfig.qml:862
+#: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
+#: ui/ProfileConfig.qml:857
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "Нетипове…"
 
-#: ui/ProfileConfig.qml:148
+#: ui/ProfileConfig.qml:147
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -487,7 +487,7 @@ msgstr ""
 "Підтримку вибраної вами раніше дії у відповідь на натискання кнопки живлення "
 "у вашій системі припинено. Будь ласка, виберіть іншу дію."
 
-#: ui/ProfileConfig.qml:155
+#: ui/ProfileConfig.qml:154
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -495,13 +495,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "Якщо натиснуто кнопку &вимикання:"
 
-#: ui/ProfileConfig.qml:157
+#: ui/ProfileConfig.qml:156
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "Дія, яку слід виконати, якщо натиснуто кнопку вимикання"
 
-#: ui/ProfileConfig.qml:187
+#: ui/ProfileConfig.qml:186
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -511,7 +511,7 @@ msgstr ""
 "Підтримку вибраної вами раніше дії у відповідь на закриття кришки у вашій "
 "системі припинено. Будь ласка, виберіть іншу дію."
 
-#: ui/ProfileConfig.qml:194
+#: ui/ProfileConfig.qml:193
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -519,13 +519,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "Якщо закрито &кришку ноутбука:"
 
-#: ui/ProfileConfig.qml:196
+#: ui/ProfileConfig.qml:195
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "Дію, яку слід виконати, якщо закрито кришку ноутбука"
 
-#: ui/ProfileConfig.qml:225
+#: ui/ProfileConfig.qml:224
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -533,14 +533,14 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "Навіть якщо з’єднано зовнішній монітор"
 
-#: ui/ProfileConfig.qml:227
+#: ui/ProfileConfig.qml:226
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "Виконувати дію у відповідь дію з кришкою ноутбука, навіть якщо з’єднано "
 "зовнішній монітор"
 
-#: ui/ProfileConfig.qml:245
+#: ui/ProfileConfig.qml:244
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -550,44 +550,44 @@ msgstr ""
 "Підтримку вибраного вами режиму присипляння у вашій системі припинено. Будь "
 "ласка, виберіть інший режим."
 
-#: ui/ProfileConfig.qml:252
+#: ui/ProfileConfig.qml:251
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "При присиплянні увійти:"
 
-#: ui/ProfileConfig.qml:254
+#: ui/ProfileConfig.qml:253
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "При присиплянні увійти до цього режиму заощадження"
 
-#: ui/ProfileConfig.qml:303
+#: ui/ProfileConfig.qml:302
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "Дисплей і яскравість"
 
-#: ui/ProfileConfig.qml:313
+#: ui/ProfileConfig.qml:312
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "Змінити яскравість &екрана:"
 
-#: ui/ProfileConfig.qml:359
+#: ui/ProfileConfig.qml:358
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "При&тлумлювати автоматично:"
 
-#: ui/ProfileConfig.qml:362
+#: ui/ProfileConfig.qml:360
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "При&тлумлювати автоматично за:"
 
-#: ui/ProfileConfig.qml:367
+#: ui/ProfileConfig.qml:365
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
@@ -597,7 +597,7 @@ msgstr[1] "%1 секунди"
 msgstr[2] "%1 секунд"
 msgstr[3] "%1 секунду"
 
-#: ui/ProfileConfig.qml:369
+#: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
@@ -607,13 +607,13 @@ msgstr[1] "%1 хвилини"
 msgstr[2] "%1 хвилин"
 msgstr[3] "%1 хвилину"
 
-#: ui/ProfileConfig.qml:376
+#: ui/ProfileConfig.qml:374
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "Ніколи"
 
-#: ui/ProfileConfig.qml:428
+#: ui/ProfileConfig.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -622,19 +622,19 @@ msgstr ""
 "Яскравість екрана не буде притлумлено, оскільки за налаштуваннями його буде "
 "раніше вимкнено."
 
-#: ui/ProfileConfig.qml:433
+#: ui/ProfileConfig.qml:431
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "Ви&мкнути екран:"
 
-#: ui/ProfileConfig.qml:446
+#: ui/ProfileConfig.qml:443
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "Вимкнути екран за:"
 
-#: ui/ProfileConfig.qml:450
+#: ui/ProfileConfig.qml:447
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
@@ -644,7 +644,7 @@ msgstr[1] "%1 секунди"
 msgstr[2] "%1 секунд"
 msgstr[3] "%1 секунду"
 
-#: ui/ProfileConfig.qml:452
+#: ui/ProfileConfig.qml:449
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
@@ -654,13 +654,13 @@ msgstr[1] "%1 хвилини"
 msgstr[2] "%1 хвилин"
 msgstr[3] "%1 хвилину"
 
-#: ui/ProfileConfig.qml:459
+#: ui/ProfileConfig.qml:456
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "Ніколи"
 
-#: ui/ProfileConfig.qml:466
+#: ui/ProfileConfig.qml:463
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -668,13 +668,13 @@ msgctxt ""
 msgid "Custom…"
 msgstr "Нетипове…"
 
-#: ui/ProfileConfig.qml:506
+#: ui/ProfileConfig.qml:502
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "Якщо заблоковано, вимкнути екран за:"
 
-#: ui/ProfileConfig.qml:510
+#: ui/ProfileConfig.qml:506
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
@@ -684,7 +684,7 @@ msgstr[1] "Якщо заблоковано: %1 секунди"
 msgstr[2] "Якщо заблоковано: %1 секунд"
 msgstr[3] "Якщо заблоковано: %1 секунда"
 
-#: ui/ProfileConfig.qml:512
+#: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
@@ -694,7 +694,7 @@ msgstr[1] "Якщо заблоковано: %1 хвилини"
 msgstr[2] "Якщо заблоковано: %1 хвилин"
 msgstr[3] "Якщо заблоковано: %1 хвилина"
 
-#: ui/ProfileConfig.qml:519
+#: ui/ProfileConfig.qml:515
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -702,25 +702,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "Якщо заблоковано і розблоковано"
 
-#: ui/ProfileConfig.qml:521
+#: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "Якщо заблоковано: негайно"
 
-#: ui/ProfileConfig.qml:560
+#: ui/ProfileConfig.qml:556
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "Змінити яскравість підсвічування к&лавіатури:"
 
-#: ui/ProfileConfig.qml:607
+#: ui/ProfileConfig.qml:603
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "Інші параметри"
 
-#: ui/ProfileConfig.qml:615
+#: ui/ProfileConfig.qml:611
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -728,7 +728,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "Перемкнутися на п&рофіль живлення:"
 
-#: ui/ProfileConfig.qml:619
+#: ui/ProfileConfig.qml:615
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -736,13 +736,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "Перемкнутися на профіль живлення"
 
-#: ui/ProfileConfig.qml:646
+#: ui/ProfileConfig.qml:642
 #, kde-format
 msgctxt "@label:button"
 msgid "Run custom script:"
 msgstr "Виконати нетиповий скрипт:"
 
-#: ui/ProfileConfig.qml:656
+#: ui/ProfileConfig.qml:652
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a script command to run in this "
@@ -750,13 +750,13 @@ msgctxt ""
 msgid "Choose run conditions…"
 msgstr "Вибрати умови запуску…"
 
-#: ui/ProfileConfig.qml:658
+#: ui/ProfileConfig.qml:654
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for script command"
 msgstr "Виберіть умови запуску для скрипту"
 
-#: ui/ProfileConfig.qml:677
+#: ui/ProfileConfig.qml:673
 #, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
@@ -764,7 +764,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "При вході до стану «%1»"
 
-#: ui/ProfileConfig.qml:695
+#: ui/ProfileConfig.qml:691
 #, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
@@ -772,13 +772,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "При виходу зі стану «%1»"
 
-#: ui/ProfileConfig.qml:713
+#: ui/ProfileConfig.qml:709
 #, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
 msgstr "Якщо не буде активності певний період часу"
 
-#: ui/ProfileConfig.qml:736
+#: ui/ProfileConfig.qml:732
 #, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
@@ -786,13 +786,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "При в&ході до стану «%1»:"
 
-#: ui/ProfileConfig.qml:740
+#: ui/ProfileConfig.qml:736
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when entering \"%1\" state"
 msgstr "Команда-скрипт при вході до стану «%1»"
 
-#: ui/ProfileConfig.qml:771
+#: ui/ProfileConfig.qml:767
 #, kde-format
 msgctxt ""
 "@label:textfield Script command to execute for power state (On AC Power, On "
@@ -800,31 +800,31 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "При в&иході зі стану «%1»:"
 
-#: ui/ProfileConfig.qml:775
+#: ui/ProfileConfig.qml:771
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Script command when exiting \"%1\" state"
 msgstr "Команда-скрипт при виході зі стану «%1»"
 
-#: ui/ProfileConfig.qml:806
+#: ui/ProfileConfig.qml:802
 #, kde-format
 msgctxt "@label:textfield Script command to execute"
 msgid "After a period of inacti&vity:"
 msgstr "Якщо не буде а&ктивності певний період часу:"
 
-#: ui/ProfileConfig.qml:808
+#: ui/ProfileConfig.qml:804
 #, kde-format
 msgctxt "@@accessible:name:textfield"
 msgid "Script command after a period of inactivity"
 msgstr "Команда-скрипт, якщо не буде активності певний період часу"
 
-#: ui/ProfileConfig.qml:837
+#: ui/ProfileConfig.qml:833
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Period of inactivity until the script command executes"
 msgstr "Період бездіяльності, після якого буде виконано команду-скрипт"
 
-#: ui/ProfileConfig.qml:842
+#: ui/ProfileConfig.qml:837
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Execute script after:"
@@ -845,7 +845,7 @@ msgstr "Вибрати виконуваний файл…"
 msgid "Select executable file"
 msgstr "Вибір виконуваного файла"
 
-#: ui/TimeDurationComboBox.qml:22
+#: ui/TimeDurationComboBox.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
