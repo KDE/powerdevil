@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-20 00:41+0000\n"
-"PO-Revision-Date: 2024-05-29 11:21+0200\n"
+"PO-Revision-Date: 2024-07-20 15:20+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -434,10 +434,7 @@ msgid "Action to perform when the system is idle"
 msgstr "A rendszer üresjáratában végrehajtandó művelet"
 
 #: ui/ProfileConfig.qml:94 ui/ProfileConfig.qml:842
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
@@ -445,10 +442,7 @@ msgstr[0] "%1 másodperc után"
 msgstr[1] "%1 másodperc után"
 
 #: ui/ProfileConfig.qml:96 ui/ProfileConfig.qml:844
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
