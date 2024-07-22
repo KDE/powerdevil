@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-19 00:41+0000\n"
-"PO-Revision-Date: 2024-02-18 10:10+0300\n"
+"PO-Revision-Date: 2024-07-21 12:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -123,15 +123,13 @@ msgid "Toggle Keyboard Backlight"
 msgstr "Сменить состояние подсветки клавиатуры"
 
 #: controllers/backlightbrightness.cpp:164
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "Заблокировать экран"
+msgstr "Встроенный экран"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
