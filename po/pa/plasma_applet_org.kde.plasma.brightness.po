@@ -1,26 +1,24 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2023 A S Alam <aalam@punlinux.org>
+# SPDX-FileCopyrightText: 2023, 2024 A S Alam <aalam@punlinux.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-25 00:40+0000\n"
-"PO-Revision-Date: 2023-12-26 08:28-0600\n"
-"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"PO-Revision-Date: 2024-07-21 21:41-0500\n"
+"Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: package/contents/ui/BrightnessItem.qml:29
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Off"
+#, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "ਬੰਦ"
@@ -29,24 +27,22 @@ msgstr "ਬੰਦ"
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
-msgstr ""
+msgstr "ਘੱਟ"
 
 #: package/contents/ui/BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
-msgstr ""
+msgstr "ਮੱਧਮ"
 
 #: package/contents/ui/BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
-msgstr ""
+msgstr "ਵੱਧ"
 
 #: package/contents/ui/BrightnessItem.qml:33
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "On"
+#, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "ਚਾਲੂ"
@@ -84,11 +80,10 @@ msgid "Night Light suspended; middle-click to resume"
 msgstr ""
 
 #: package/contents/ui/main.qml:84
-#, fuzzy, kde-format
-#| msgid "Night Light"
+#, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
-msgstr "ਰਾਤ ਦੇ ਰੰਗ"
+msgstr "ਰਾਤ ਦਾ ਰੰਗ ਸਸਪੈਂਡ ਹੈ"
 
 #: package/contents/ui/main.qml:89
 #, kde-format
@@ -147,7 +142,7 @@ msgstr "ਰਾਤ ਦੇ ਰੰਗ ਦੀ ਸੰਰਚਨਾ…"
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
-msgstr ""
+msgstr "ਸਸਪੈਂਡ ਹੈ"
 
 #: package/contents/ui/NightLightItem.qml:78
 #, kde-format
@@ -207,7 +202,7 @@ msgstr "%1K"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
-msgstr ""
+msgstr "ਸਸਪੈਂਡ ਹੈ"
 
 #: package/contents/ui/NightLightItem.qml:146
 #, kde-format

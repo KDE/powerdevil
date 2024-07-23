@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-26 00:41+0000\n"
-"PO-Revision-Date: 2024-04-24 18:07+0200\n"
+"PO-Revision-Date: 2024-06-28 03:30+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: package/contents/ui/BatteryItem.qml:100
 #, kde-format
@@ -441,7 +441,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:296
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Il servizio TLP controlla automaticamente i profili di alimentazione"
 
 #: package/contents/ui/PowerProfileItem.qml:297
 #, kde-kuit-format

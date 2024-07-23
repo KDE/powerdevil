@@ -2,14 +2,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Pino Toscano <toscano.pino@tiscali.it>, 2013.
-# SPDX-FileCopyrightText: 2023 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: libpowerdevilcommonconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:41+0000\n"
-"PO-Revision-Date: 2023-11-08 11:30+0100\n"
+"PO-Revision-Date: 2024-06-30 00:21+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -49,7 +49,7 @@ msgstr "Blocca lo schermo"
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr "Schermata di chiusura della sessione"
+msgstr "Mostra la schermata di chiusura della sessione"
 
 #: PowerButtonActionModel.cpp:84
 #, kde-format
@@ -88,7 +88,7 @@ msgstr "Lascia invariato"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr "Sospensione"
+msgstr "Sospensione in RAM"
 
 #: SleepModeModel.cpp:22
 #, kde-format

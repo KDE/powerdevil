@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-20 00:41+0000\n"
-"PO-Revision-Date: 2024-02-05 07:58-0600\n"
-"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"PO-Revision-Date: 2024-07-21 22:00-0500\n"
+"Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerKCM.cpp:455
@@ -27,112 +27,112 @@ msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ
 msgctxt "The unit of the time input field"
 msgid "millisecond"
 msgid_plural "milliseconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਮਿਲੀਸਕਿੰਟ"
+msgstr[1] "ਮਿਲੀਸਕਿੰਟ"
 
 #: ui/DurationPromptDialog.qml:132
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "second"
 msgid_plural "seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਸਕਿੰਟ"
+msgstr[1] "ਸਕਿੰਟ"
 
 #: ui/DurationPromptDialog.qml:134
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "minute"
 msgid_plural "minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਮਿੰਟ"
+msgstr[1] "ਮਿੰਟ"
 
 #: ui/DurationPromptDialog.qml:136
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "hour"
 msgid_plural "hours"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਘੰਟਾ"
+msgstr[1] "ਘੰਟੇ"
 
 #: ui/DurationPromptDialog.qml:138
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "day"
 msgid_plural "days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਦਿਨ"
+msgstr[1] "ਦਿਨ"
 
 #: ui/DurationPromptDialog.qml:140
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "week"
 msgid_plural "weeks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਹਫ਼ਤਾ"
+msgstr[1] "ਹਫ਼ਤੇ"
 
 #: ui/DurationPromptDialog.qml:142
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "month"
 msgid_plural "months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਮਹੀਨਾ"
+msgstr[1] "ਮਹੀਨੇ"
 
 #: ui/DurationPromptDialog.qml:144
 #, kde-format
 msgctxt "The unit of the time input field"
 msgid "year"
 msgid_plural "years"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਸਾਲ"
+msgstr[1] "ਸਾਲ"
 
 #: ui/DurationPromptDialog.qml:168
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "milliseconds"
-msgstr ""
+msgstr "ਮਿਲੀਸਕਿੰਟ"
 
 #: ui/DurationPromptDialog.qml:170
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "seconds"
-msgstr ""
+msgstr "ਸਕਿੰਟ"
 
 #: ui/DurationPromptDialog.qml:172
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "minutes"
-msgstr ""
+msgstr "ਮਿੰਟ"
 
 #: ui/DurationPromptDialog.qml:174
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "hours"
-msgstr ""
+msgstr "ਘੰਟੇ"
 
 #: ui/DurationPromptDialog.qml:176
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "days"
-msgstr ""
+msgstr "ਦਿਨ"
 
 #: ui/DurationPromptDialog.qml:178
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "weeks"
-msgstr ""
+msgstr "ਹਫ਼ਤੇ"
 
 #: ui/DurationPromptDialog.qml:180
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "months"
-msgstr ""
+msgstr "ਮਹੀਨੇ"
 
 #: ui/DurationPromptDialog.qml:182
 #, kde-format
 msgctxt "@text:radiobutton Unit of the time input field"
 msgid "years"
-msgstr ""
+msgstr "ਸਾਲ"
 
 #: ui/GlobalConfig.qml:16
 #, kde-format
@@ -255,7 +255,7 @@ msgstr "ਚਾਰਜ ਦੀ ਹੱਦ"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr ""
+msgstr "ਬੈਟਰੀ ਸੁਰੱਖਿਆ(&B):"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
@@ -424,24 +424,20 @@ msgid "Action to perform when the system is idle"
 msgstr "ਜਦੋਂ ਸਿਸਟਮ ਬਿਨਾਂ ਸਰਗਰਮ ਦੇ ਹੋਵੇ ਤਾਂ ਕਾਰਵਾਈ ਕਰੋ"
 
 #: ui/ProfileConfig.qml:94 ui/ProfileConfig.qml:842
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
 msgstr[0] "%1 ਸਕਿੰਟ ਬਾਅਦ"
-msgstr[1] "%1 ਸਕਿੰਟ ਬਾਅਦ"
+msgstr[1] "%1 ਸਕਿੰਟਾਂ ਬਾਅਦ"
 
 #: ui/ProfileConfig.qml:96 ui/ProfileConfig.qml:844
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
 msgstr[0] "%1 ਮਿੰਟ ਬਾਅਦ"
-msgstr[1] "%1 ਮਿੰਟ ਬਾਅਦ"
+msgstr[1] "%1 ਮਿੰਟਾਂ ਬਾਅਦ"
 
 #: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
 #: ui/ProfileConfig.qml:857
@@ -449,7 +445,7 @@ msgstr[1] "%1 ਮਿੰਟ ਬਾਅਦ"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr ""
+msgstr "…ਕਸਟਮ"
 
 #: ui/ProfileConfig.qml:147
 #, kde-format
@@ -542,42 +538,38 @@ msgid "Change scr&een brightness:"
 msgstr "ਸਕਰੀਨ ਦੀ ਚਮਕ ਨੂੰ ਬਦਲੋ(&e):"
 
 #: ui/ProfileConfig.qml:358
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "ਆਪਣੇ-ਆਪ ਡਿਮ ਕਰੋ(&m):"
 
 #: ui/ProfileConfig.qml:360
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox Dim screen after X minutes"
-#| msgid "Di&m automatically:"
+#, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr "ਆਪਣੇ-ਆਪ ਡਿਮ ਕਰੋ(&m):"
+msgstr "ਆਪਣੇ-ਆਪ ਡਿਮ ਇਸ ਦੇ ਬਾਅਦ ਕਰੋ(&m):"
 
 #: ui/ProfileConfig.qml:365
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ਸਕਿੰਟ"
+msgstr[1] "%1 ਸਕਿੰਟ"
 
 #: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ਮਿੰਟ"
+msgstr[1] "%1 ਮਿੰਟ"
 
 #: ui/ProfileConfig.qml:374
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
-msgstr ""
+msgstr "ਕਦੇ ਨਹੀਂ"
 
 #: ui/ProfileConfig.qml:426
 #, kde-format
@@ -587,42 +579,38 @@ msgid ""
 msgstr ""
 
 #: ui/ProfileConfig.qml:431
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "ਸਕਰੀਨ ਬੰਦ ਕਰੋ(&T):"
 
 #: ui/ProfileConfig.qml:443
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
-msgstr "ਸਕਰੀਨ ਬੰਦ ਕਰੋ(&T):"
+msgstr "ਇਸ ਦੇ ਬਾਅਦ ਸਕਰੀਨ ਬੰਦ ਕਰੋ:"
 
 #: ui/ProfileConfig.qml:447
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ਸਕਿੰਟ"
+msgstr[1] "%1 ਸਕਿੰਟ"
 
 #: ui/ProfileConfig.qml:449
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ਮਿੰਟ"
+msgstr[1] "%1 ਮਿੰਟ"
 
 #: ui/ProfileConfig.qml:456
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
-msgstr ""
+msgstr "ਕਦੇ ਨਹੀਂ"
 
 #: ui/ProfileConfig.qml:463
 #, kde-format
@@ -630,49 +618,43 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr ""
+msgstr "…ਕਸਟਮ"
 
 #: ui/ProfileConfig.qml:502
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr "ਜਦੋਂ ਲਾਕ ਹੋਵੇ ਤਾਂ ਸਕਰੀਨ ਨੂੰ ਬੰਦ ਕਰੋ(&k):"
+msgstr "ਜਦੋਂ ਲਾਕ ਹੋਵੇ ਤਾਂ ਸਕਰੀਨ ਨੂੰ ਇਸ ਦੇ ਬੰਦ ਕਰੋ:"
 
 #: ui/ProfileConfig.qml:506
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ ਤਾਂ ਸਕਰੀਨ ਨੂੰ ਬੰਦ ਕਰੋ(&k):"
-msgstr[1] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ ਤਾਂ ਸਕਰੀਨ ਨੂੰ ਬੰਦ ਕਰੋ(&k):"
+msgstr[0] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਸਕਿੰਟ"
+msgstr[1] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਸਕਿੰਟ"
 
 #: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਮਿੰਟ"
+msgstr[1] "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: %1 ਮਿੰਟ"
 
 #: ui/ProfileConfig.qml:515
-#, fuzzy, kde-format
-#| msgctxt "@label:spinbox After X seconds"
-#| msgid "When loc&ked, turn off screen:"
+#, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "ਜਦੋਂ ਲਾਕ ਹੋਵੇ ਤਾਂ ਸਕਰੀਨ ਨੂੰ ਬੰਦ ਕਰੋ(&k):"
+msgstr "ਜਦੋਂ ਲਾਕ ਅਤੇ ਅਣ-ਲਾਕ ਹੈ"
 
 #: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr ""
+msgstr "ਜਦੋਂ ਲਾਕ ਹੋਵੇ: ਫ਼ੌਰਨ"
 
 #: ui/ProfileConfig.qml:556
 #, kde-format
@@ -723,32 +705,26 @@ msgid "Choose run conditions for script command"
 msgstr "ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ ਚਲਾਉਣ ਲਈ ਸ਼ਰਤਾਂ ਚੁਣੋ"
 
 #: ui/ProfileConfig.qml:673
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&ntering this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr "ਜਦੋਂ ਇਸ ਪਾਵਰ ਹਾਲਤ ਵਿੱਚ ਜਾਓ ਤਾਂ(&n)"
+msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਵਿੱਚ ਜਾਵੇ"
 
 #: ui/ProfileConfig.qml:691
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "When e&xiting this power state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Script command to execute for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr "ਜਦੋਂ ਇਹ ਪਾਵਰ ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਜਾਓ(&x)"
+msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਆਉਣਾ ਹੋਵੇ"
 
 #: ui/ProfileConfig.qml:709
-#, fuzzy, kde-format
-#| msgctxt "@text:action:menu Script command to execute"
-#| msgid "After a period of inacti&vity"
+#, kde-format
 msgctxt "@text:action:menu Script command to execute"
 msgid "After a period of inactivity"
-msgstr "ਇਸ ਸਮੇਂ ਦੀ ਗ਼ੈਰ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ(&v)"
+msgstr "ਇਸ ਸਮੇਂ ਦੀ ਗ਼ੈਰ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ"
 
 #: ui/ProfileConfig.qml:732
 #, fuzzy, kde-format

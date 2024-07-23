@@ -2,7 +2,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Amanpreet Singh <aalam@users.sf.net>, 2008.
+# SPDX-FileCopyrightText: 2008, 2024 Amanpreet Singh <aalam@users.sf.net>
 # Amanpreet Singh Alam <aalam@users.sf.net>, 2009.
 # SPDX-FileCopyrightText: 2009, 2010, 2011, 2012, 2013, 2014, 2016, 2019, 2020, 2022, 2023, 2024 A S Alam <aalam@users.sf.net>
 msgid ""
@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-19 00:41+0000\n"
-"PO-Revision-Date: 2024-02-05 08:01-0600\n"
-"Last-Translator: A S Alam <aalam@punlinux.org>\n"
+"PO-Revision-Date: 2024-07-21 21:49-0500\n"
+"Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -112,16 +112,13 @@ msgid "Toggle Keyboard Backlight"
 msgstr "ਕੀਬੋਰਡ ਬੈਕਲਾਈਟ ਬਦਲੋ"
 
 #: controllers/backlightbrightness.cpp:164
-#, fuzzy, kde-format
-#| msgid "Lock screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "ਸਕਰੀਨ ਲਾਕ"
+msgstr "ਬਿਲਟ-ਇਨ ਸਕਰੀਨ"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
