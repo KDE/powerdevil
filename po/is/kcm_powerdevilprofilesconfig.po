@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-20 00:41+0000\n"
-"PO-Revision-Date: 2024-06-30 15:36+0000\n"
+"PO-Revision-Date: 2024-07-22 13:06+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -430,26 +430,20 @@ msgid "Action to perform when the system is idle"
 msgstr "Aðgerð sem á að gera þegar tölvan er aðgerðarlaus"
 
 #: ui/ProfileConfig.qml:94 ui/ProfileConfig.qml:842
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "eftir %1 sekúndu"
-msgstr[1] "eftir %1 sekúndur"
+msgstr[0] "Eftir %1 sekúndu"
+msgstr[1] "Eftir %1 sekúndur"
 
 #: ui/ProfileConfig.qml:96 ui/ProfileConfig.qml:844
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "eftir %1 mínútu"
-msgstr[1] "eftir %1 mínútur"
+msgstr[0] "Eftir %1 mínútu"
+msgstr[1] "Eftir %1 mínútur"
 
 #: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
 #: ui/ProfileConfig.qml:857
