@@ -649,9 +649,10 @@ Kirigami.FormLayout {
         icon.name: "settings-configure"
         text: i18nc(
             "@text:button Determine what will trigger a command or script to run in this power state",
-            "Choose run conditions…"
+            "Choose run conditions"
         )
         Accessible.name: i18nc("@accessible:name:button", "Choose run conditions for command or script")
+        Accessible.role: Accessible.ButtonMenu
 
         onClicked: {
             if (addScriptCommandMenu.opened) {
