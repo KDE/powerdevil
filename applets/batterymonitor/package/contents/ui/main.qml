@@ -105,7 +105,7 @@ PlasmoidItem {
             return PlasmaCore.Types.ActiveStatus;
         }
 
-        if (batteryControl.hasCumulative && batteryControl.state === BatteryControlModel.Discharging) {
+        if (batteryControl.hasCumulative && (batteryControl.state === BatteryControlModel.Discharging || batteryControl.state === BatteryControlModel.Charging)) {
             return PlasmaCore.Types.ActiveStatus;
         }
 
