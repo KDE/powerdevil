@@ -26,6 +26,7 @@ public:
     int maxBrightness() const override;
     int brightness() const override;
     void setBrightness(int brightness) override;
+    bool isInternal() const override;
 
     void applyPendingBrightness();
     void setConfigOperationDone();
