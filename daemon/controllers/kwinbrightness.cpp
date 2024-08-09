@@ -126,6 +126,10 @@ QString KWinDisplayBrightness::id() const
 
 QString KWinDisplayBrightness::label() const
 {
+    if (isInternal()) {
+        // FIXME: use KWin's output name once it returns a nicer name for internal outputs
+        return i18nc("Display label", "Built-in Screen");
+    }
     if (KScreen::Edid *edid = m_output->edid()) {
         if (!edid->vendor().isEmpty() || !edid->name().isEmpty()) {
             return i18nc("Display label: vendor + product name", "%1 %2", edid->vendor(), edid->name()).simplified();
@@ -153,6 +157,11 @@ void KWinDisplayBrightness::setBrightness(int brightness)
 {
     m_desiredBrightness = brightness / 10'000.0;
     m_detector->scheduleSetConfig();
+}
+
+bool KWinDisplayBrightness::isInternal() const
+{
+    return m_output->type() == KScreen::Output::Panel;
 }
 
 void KWinDisplayBrightness::handleBrightnessChanged()
