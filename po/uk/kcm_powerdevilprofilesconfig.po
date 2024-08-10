@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-20 00:41+0000\n"
+"POT-Creation-Date: 2024-08-10 00:43+0000\n"
 "PO-Revision-Date: 2024-07-05 13:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -426,22 +426,26 @@ msgid "Suspend Session"
 msgstr "Призупинити сеанс"
 
 #: ui/ProfileConfig.qml:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid ""
+#| "The action you had previously configured for when the lid is closed is "
+#| "now unsupported on your system. Please select a different one."
 msgctxt "@info:status"
 msgid ""
-"The action you had previously configured for after a period of inactivity is "
-"now unsupported on your system. Please select a different one."
+"The action you had previously configured to happen when inactive is now "
+"unsupported on your system. Please select a different one."
 msgstr ""
-"Підтримку вибраної вами раніше дії у відповідь на певний період "
-"бездіяльності у вашій системі припинено. Будь ласка, виберіть іншу дію."
+"Підтримку вибраної вами раніше дії у відповідь на закриття кришки у вашій "
+"системі припинено. Будь ласка, виберіть іншу дію."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
-msgid "A&fter a period of inactivity:"
-msgstr "Якщо не буде &активності певний період часу:"
+msgid "When &inactive:"
+msgstr ""
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -449,7 +453,7 @@ msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "Дію, яку слід виконати, якщо система бездіяльна"
 
-#: ui/ProfileConfig.qml:94 ui/ProfileConfig.qml:842
+#: ui/ProfileConfig.qml:94
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
@@ -459,7 +463,7 @@ msgstr[1] "За %1 секунди"
 msgstr[2] "За %1 секунд"
 msgstr[3] "За секунду"
 
-#: ui/ProfileConfig.qml:96 ui/ProfileConfig.qml:844
+#: ui/ProfileConfig.qml:96
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
@@ -470,7 +474,7 @@ msgstr[2] "За %1 хвилин"
 msgstr[3] "За хвилину"
 
 #: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
-#: ui/ProfileConfig.qml:857
+#: ui/ProfileConfig.qml:830
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
@@ -737,113 +741,188 @@ msgid "Switch to power profile"
 msgstr "Перемкнутися на профіль живлення"
 
 #: ui/ProfileConfig.qml:642
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:button"
+#| msgid "Run custom script:"
 msgctxt "@label:button"
-msgid "Run custom script:"
+msgid "Run command or script:"
 msgstr "Виконати нетиповий скрипт:"
 
 #: ui/ProfileConfig.qml:652
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@text:button Determine what will trigger a script command to run in this "
+#| "power state"
+#| msgid "Choose run conditions…"
 msgctxt ""
-"@text:button Determine what will trigger a script command to run in this "
+"@text:button Determine what will trigger a command or script to run in this "
 "power state"
-msgid "Choose run conditions…"
+msgid "Choose run conditions"
 msgstr "Вибрати умови запуску…"
 
 #: ui/ProfileConfig.qml:654
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@accessible:name:button"
+#| msgid "Choose run conditions for script command"
 msgctxt "@accessible:name:button"
-msgid "Choose run conditions for script command"
+msgid "Choose run conditions for command or script"
 msgstr "Виберіть умови запуску для скрипту"
 
-#: ui/ProfileConfig.qml:673
-#, kde-format
+#: ui/ProfileConfig.qml:674
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@text:action:menu Script command to execute for power state (On AC Power, "
+#| "On Battery, ...)"
+#| msgid "When entering \"%1\" state"
 msgctxt ""
-"@text:action:menu Script command to execute for power state (On AC Power, On "
+"@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
 msgstr "При вході до стану «%1»"
 
-#: ui/ProfileConfig.qml:691
-#, kde-format
+#: ui/ProfileConfig.qml:692
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@text:action:menu Script command to execute for power state (On AC Power, "
+#| "On Battery, ...)"
+#| msgid "When exiting \"%1\" state"
 msgctxt ""
-"@text:action:menu Script command to execute for power state (On AC Power, On "
+"@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
 msgstr "При виходу зі стану «%1»"
 
-#: ui/ProfileConfig.qml:709
+#: ui/ProfileConfig.qml:710
 #, kde-format
-msgctxt "@text:action:menu Script command to execute"
-msgid "After a period of inactivity"
-msgstr "Якщо не буде активності певний період часу"
+msgctxt "@text:action:menu Command or script to run"
+msgid "When inactive"
+msgstr ""
 
-#: ui/ProfileConfig.qml:732
-#, kde-format
+#: ui/ProfileConfig.qml:733
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@label:textfield Script command to execute for power state (On AC Power, "
+#| "On Battery, ...)"
+#| msgid "When e&ntering \"%1\" state:"
 msgctxt ""
-"@label:textfield Script command to execute for power state (On AC Power, On "
+"@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
 msgstr "При в&ході до стану «%1»:"
 
-#: ui/ProfileConfig.qml:736
-#, kde-format
+#: ui/ProfileConfig.qml:737
+#, fuzzy, kde-format
+#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
+#| msgid "Script command when entering \"%1\" state"
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-msgid "Script command when entering \"%1\" state"
+msgid "Command or script when entering \"%1\" state"
 msgstr "Команда-скрипт при вході до стану «%1»"
 
-#: ui/ProfileConfig.qml:767
-#, kde-format
+#: ui/ProfileConfig.qml:768
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@label:textfield Script command to execute for power state (On AC Power, "
+#| "On Battery, ...)"
+#| msgid "When e&xiting \"%1\" state:"
 msgctxt ""
-"@label:textfield Script command to execute for power state (On AC Power, On "
+"@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
 msgstr "При в&иході зі стану «%1»:"
 
-#: ui/ProfileConfig.qml:771
-#, kde-format
+#: ui/ProfileConfig.qml:772
+#, fuzzy, kde-format
+#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
+#| msgid "Script command when exiting \"%1\" state"
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-msgid "Script command when exiting \"%1\" state"
+msgid "Command or script when exiting \"%1\" state"
 msgstr "Команда-скрипт при виході зі стану «%1»"
 
-#: ui/ProfileConfig.qml:802
-#, kde-format
-msgctxt "@label:textfield Script command to execute"
-msgid "After a period of inacti&vity:"
-msgstr "Якщо не буде а&ктивності певний період часу:"
-
-#: ui/ProfileConfig.qml:804
-#, kde-format
-msgctxt "@@accessible:name:textfield"
-msgid "Script command after a period of inactivity"
-msgstr "Команда-скрипт, якщо не буде активності певний період часу"
-
-#: ui/ProfileConfig.qml:833
-#, kde-format
+#: ui/ProfileConfig.qml:801
+#, fuzzy, kde-format
+#| msgctxt "@accessible:name:spinbox"
+#| msgid "Period of inactivity until the script command executes"
 msgctxt "@accessible:name:spinbox"
-msgid "Period of inactivity until the script command executes"
+msgid "Duration of inactivity before the command or script runs"
 msgstr "Період бездіяльності, після якого буде виконано команду-скрипт"
 
-#: ui/ProfileConfig.qml:837
+#: ui/ProfileConfig.qml:807
 #, kde-format
+msgctxt "@label:textfield Command or script to run"
+msgid "When i&nactive:"
+msgstr ""
+
+#: ui/ProfileConfig.qml:810
+#, fuzzy, kde-format
+#| msgctxt "@label:button"
+#| msgid "Run custom script:"
 msgctxt "@label:spinbox After X minutes"
-msgid "Execute script after:"
-msgstr "Виконати скрипт за:"
+msgid "Run command or script after:"
+msgstr "Виконати нетиповий скрипт:"
+
+#: ui/ProfileConfig.qml:815
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 seconds"
+#| msgid_plural "after %1 seconds"
+msgctxt "@option:combobox"
+msgid "Run after %1 second"
+msgid_plural "Run after %1 seconds"
+msgstr[0] "за %1 секунду"
+msgstr[1] "за %1 секунди"
+msgstr[2] "за %1 секунд"
+msgstr[3] "за секунду"
+
+#: ui/ProfileConfig.qml:817
+#, fuzzy, kde-format
+#| msgctxt "@option:combobox"
+#| msgid "after %1 minutes"
+#| msgid_plural "after %1 minutes"
+msgctxt "@option:combobox"
+msgid "Run after %1 minute"
+msgid_plural "Run after %1 minutes"
+msgstr[0] "за %1 хвилину"
+msgstr[1] "за %1 хвилини"
+msgstr[2] "за %1 хвилин"
+msgstr[3] "за хвилину"
+
+#: ui/ProfileConfig.qml:859
+#, kde-format
+msgctxt "@accessible:name:textfield"
+msgid "Command or script when inactive"
+msgstr ""
 
 #: ui/RunScriptEdit.qml:33
-#, kde-format
-msgid "Enter command or select file…"
+#, fuzzy, kde-format
+#| msgid "Enter command or select file…"
+msgctxt "@info:placeholder"
+msgid "Enter command or script file"
 msgstr "Введіть команду або виберіть файл…"
 
-#: ui/RunScriptEdit.qml:51
+#: ui/RunScriptEdit.qml:34
+#, fuzzy, kde-format
+#| msgid "Enter command or select file…"
+msgctxt "@label:textbox accessible"
+msgid "Enter command or choose script file"
+msgstr "Введіть команду або виберіть файл…"
+
+#: ui/RunScriptEdit.qml:52
 #, kde-format
-msgid "Select executable file…"
-msgstr "Вибрати виконуваний файл…"
+msgctxt "@action:button opens file picker"
+msgid "Choose…"
+msgstr ""
+
+#: ui/RunScriptEdit.qml:53
+#, kde-format
+msgctxt "@action:button opens file picker"
+msgid "Choose script file"
+msgstr ""
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
-msgid "Select executable file"
-msgstr "Вибір виконуваного файла"
+msgctxt "@title:window"
+msgid "Choose script file"
+msgstr ""
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
@@ -851,21 +930,41 @@ msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Нетипова тривалість"
 
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 seconds"
-#~ msgid_plural "after %1 seconds"
-#~ msgstr[0] "за %1 секунду"
-#~ msgstr[1] "за %1 секунди"
-#~ msgstr[2] "за %1 секунд"
-#~ msgstr[3] "за секунду"
+#~ msgctxt "@info:status"
+#~ msgid ""
+#~ "The action you had previously configured for after a period of inactivity "
+#~ "is now unsupported on your system. Please select a different one."
+#~ msgstr ""
+#~ "Підтримку вибраної вами раніше дії у відповідь на певний період "
+#~ "бездіяльності у вашій системі припинено. Будь ласка, виберіть іншу дію."
 
-#~ msgctxt "@option:combobox"
-#~ msgid "after %1 minutes"
-#~ msgid_plural "after %1 minutes"
-#~ msgstr[0] "за %1 хвилину"
-#~ msgstr[1] "за %1 хвилини"
-#~ msgstr[2] "за %1 хвилин"
-#~ msgstr[3] "за хвилину"
+#~ msgctxt ""
+#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
+#~ "the system is idle"
+#~ msgid "A&fter a period of inactivity:"
+#~ msgstr "Якщо не буде &активності певний період часу:"
+
+#~ msgctxt "@text:action:menu Script command to execute"
+#~ msgid "After a period of inactivity"
+#~ msgstr "Якщо не буде активності певний період часу"
+
+#~ msgctxt "@label:textfield Script command to execute"
+#~ msgid "After a period of inacti&vity:"
+#~ msgstr "Якщо не буде а&ктивності певний період часу:"
+
+#~ msgctxt "@@accessible:name:textfield"
+#~ msgid "Script command after a period of inactivity"
+#~ msgstr "Команда-скрипт, якщо не буде активності певний період часу"
+
+#~ msgctxt "@label:spinbox After X minutes"
+#~ msgid "Execute script after:"
+#~ msgstr "Виконати скрипт за:"
+
+#~ msgid "Select executable file…"
+#~ msgstr "Вибрати виконуваний файл…"
+
+#~ msgid "Select executable file"
+#~ msgstr "Вибір виконуваного файла"
 
 #~ msgctxt ""
 #~ "List of recognized strings for 'minutes' in a time delay expression such "
