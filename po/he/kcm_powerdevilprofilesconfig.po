@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-05 08:01+0300\n"
+"PO-Revision-Date: 2024-08-10 22:14+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -422,18 +422,14 @@ msgid "Suspend Session"
 msgstr "השהיית הפעלה"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"הפעולה שהגדרת בעבר לסגירת מסך המחשב הנייד אינה נתמכת עוד במערכת שלך. נא "
-"לבחור בפעולה אחרת."
+"הפעולה שהגדרת בעבר שתתרחש בעת חוסר פעילות אינה נתמכת מעתה במערכת שלך. נא "
+"לבחור באחת אחרת."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -441,7 +437,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "בעת &חוסר פעילות:"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -731,39 +727,27 @@ msgid "Switch to power profile"
 msgstr "מעבר לפרופיל צריכת חשמל"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "הרצת סקריפט מותאם אישית:"
+msgstr "הרצת פקודה או סקריפט:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "בחירת תנאי ריצה…"
+msgstr "בחירת תנאי ריצה"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "בחירת תנאי ריצה לפקודת סקריפט"
+msgstr "נא לבחור תנאים לפקודה או לסקריפט"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -771,11 +755,7 @@ msgid "When entering \"%1\" state"
 msgstr "ב&כניסה למצב „%1”"
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -786,14 +766,10 @@ msgstr "בי&ציאה ממצב „%1”"
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "בעת חוסר פעילות"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -801,19 +777,13 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "בכניסה למ&צב „%1”:"
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "פקודת סקריפט בכניסה למצב „%1”"
+msgstr "פקודה או סקריפט בכניסה למצב „%1”"
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -821,98 +791,84 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "&ביציאה ממצב „%1”:"
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "פקודת סקריפט להרצה ביציאה ממצב „%1”"
+msgstr "פקודה או סקריפט להרצה ביציאה ממצב „%1”"
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "משך חוסר פעילות עד שפקודת הסקריפט פועלת"
+msgstr "משך חוסר פעילות עד שהפקודה או הסקריפט יופעלו"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "בעת חוסר &פעילות:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "הרצת סקריפט מותאם אישית:"
+msgstr "הרצת פקודה או סקריפט לאחר:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 seconds"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "אחרי שנייה"
-msgstr[1] "לאחר שתי שניות"
-msgstr[2] "לאחר %1 שניות"
-msgstr[3] "לאחר %1 שניות"
+msgstr[0] "להריץ לאחר שנייה"
+msgstr[1] "להריץ לאחר שתי שניות"
+msgstr[2] "להריץ לאחר %1 שניות"
+msgstr[3] "להריץ לאחר %1 שניות"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minutes"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "לאחר דקה"
-msgstr[1] "לאחר שתי דקות"
-msgstr[2] "לאחר %1 דקות"
-msgstr[3] "לאחר %1 דקות"
+msgstr[0] "לרוץ לאחר דקה"
+msgstr[1] "לרוץ לאחר שתי דקות"
+msgstr[2] "לרוץ לאחר %1 דקות"
+msgstr[3] "לרוץ לאחר %1 דקות"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "פקודה או סקריפט בעת חוסר פעילות"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "יש למלא את הפקודה או לבחור קובץ…"
+msgstr "נא לבחור פקודה או קובץ סקריפט"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "יש למלא את הפקודה או לבחור קובץ…"
+msgstr "נא למלא פקודה או לבחור בקובץ סקריפט"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "בחירה…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "בחירת קובץ סקריפט"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "בחירת קובץ סקריפט"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
