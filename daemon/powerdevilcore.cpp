@@ -456,7 +456,7 @@ void Core::onDeviceAdded(const QString &udi)
             m_criticalBatteryTimer->stop();
             emitRichNotification(QStringLiteral("pluggedin"), //
                                  i18n("Extra Battery Added"),
-                                 i18n("The computer will no longer go to sleep."));
+                                 i18n("The system will no longer go to sleep."));
         }
     }
 }
@@ -584,9 +584,9 @@ void Core::handleLowBattery(int percent)
     m_lowBatteryNotification->setComponentName(QStringLiteral("powerdevil"));
     updateBatteryNotifications(percent); // sets title
     if (m_batteryController->acAdapterState() == BatteryController::Plugged) {
-        m_lowBatteryNotification->setText(i18n("Ensure that the power adapter is plugged in and provides enough power."));
+        m_lowBatteryNotification->setText(i18n("Ensure that the power cord is plugged in all the way and provides enough power."));
     } else {
-        m_lowBatteryNotification->setText(i18n("Plug in the computer."));
+        m_lowBatteryNotification->setText(i18n("Plug in the power cord."));
     }
     m_lowBatteryNotification->setUrgency(KNotification::CriticalUrgency);
     m_lowBatteryNotification->sendEvent();
@@ -605,7 +605,7 @@ void Core::handleCriticalBattery(int percent)
 
     switch (static_cast<PowerButtonAction>(m_globalSettings->batteryCriticalAction())) {
     case PowerButtonAction::Shutdown: {
-        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will shut down in 60 seconds."));
+        m_criticalBatteryNotification->setText(i18n("The system will shut down in 60 seconds."));
         auto action =
             m_criticalBatteryNotification->addAction(i18nc("@action:button Shut down without waiting for the battery critical timer", "Shut Down Now"));
         connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
@@ -613,7 +613,7 @@ void Core::handleCriticalBattery(int percent)
         break;
     }
     case PowerButtonAction::Hibernate: {
-        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will enter hibernation mode in 60 seconds."));
+        m_criticalBatteryNotification->setText(i18n("The system will hibernate in 60 seconds."));
         auto action = m_criticalBatteryNotification->addAction(
             i18nc("@action:button Enter hibernation mode without waiting for the battery critical timer", "Hibernate Now"));
         connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
@@ -621,7 +621,7 @@ void Core::handleCriticalBattery(int percent)
         break;
     }
     case PowerButtonAction::Sleep: {
-        m_criticalBatteryNotification->setText(i18n("Battery level critical. Your computer will go to sleep in 60 seconds."));
+        m_criticalBatteryNotification->setText(i18n("The system will go to sleep in 60 seconds."));
         auto action =
             m_criticalBatteryNotification->addAction(i18nc("@action:button Suspend to ram without waiting for the battery critical timer", "Sleep Now"));
         connect(action, &KNotificationAction::activated, this, &Core::triggerCriticalBatteryAction);
@@ -675,13 +675,13 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
             emitRichNotification(QStringLiteral("pluggedin"), //
-                                 i18n("AC Adapter Plugged In"),
+                                 i18n("Power Cord Plugged In"),
                                  i18n("The computer will no longer go to sleep."));
         } else {
-            emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power adapter has been plugged in."));
+            emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power cord has been plugged in."));
         }
     } else if (state == BatteryController::Unplugged) {
-        emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power adapter has been unplugged."));
+        emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power cord has been unplugged."));
     }
 }
 
