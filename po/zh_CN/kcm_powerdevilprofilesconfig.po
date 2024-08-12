@@ -391,16 +391,12 @@ msgid "Suspend Session"
 msgstr "挂起会话"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
-msgstr "您之前配置的合上笔记本盖时操作现已不支持此系统。请选择其他操作。"
+msgstr "您之前配置的空闲时执行的操作现已不支持此系统。请选择其他操作。"
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -408,7 +404,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "空闲时(&I)："
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -671,39 +667,27 @@ msgid "Switch to power profile"
 msgstr "切换到指定的电源管理方案"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "运行自定义脚本："
+msgstr "运行命令或者脚本："
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "选择运行条件…"
+msgstr "选择运行条件"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "选择脚本命令的运行条件"
+msgstr "选择命令或者脚本的运行条件"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -711,11 +695,7 @@ msgid "When entering \"%1\" state"
 msgstr "进入“%1”状态时"
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -726,14 +706,10 @@ msgstr "退出“%1”状态时"
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "空闲时"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -741,19 +717,13 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "进入“%1”状态时(&N)："
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "进入“%1”状态时的脚本命令"
+msgstr "进入“%1”状态时运行的命令或者脚本"
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -761,130 +731,81 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "退出“%1”状态时(&X)："
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "退出“%1”状态时的脚本命令"
+msgstr "退出“%1”状态时运行的命令或者脚本"
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "执行脚本命令之前的空闲时间"
+msgstr "命令或者脚本运行前的空闲等待时长"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "空闲时(&N)："
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "运行自定义脚本："
+msgstr "空闲一段时间后运行命令或者脚本："
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "After %1 second"
-#| msgid_plural "After %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "空闲 %1 秒后"
+msgstr[0] "空闲 %1 秒后运行"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "After %1 minute"
-#| msgid_plural "After %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "空闲 %1 分钟后"
+msgstr[0] "空闲 %1 分钟后运行"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "非活动时的命令或者脚本"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "输入命令或选择文件…"
+msgstr "输入命令或者脚本文件"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "输入命令或选择文件…"
+msgstr "输入命令或者选择脚本文件"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "选择…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "选择脚本文件"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "选择脚本文件"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "自定义时间长度"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "The action you had previously configured for after a period of inactivity "
-#~ "is now unsupported on your system. Please select a different one."
-#~ msgstr ""
-#~ "您之前配置的空闲一段时间后执行的操作现已不支持此系统。请选择其他操作。"
-
-#~ msgctxt ""
-#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
-#~ "the system is idle"
-#~ msgid "A&fter a period of inactivity:"
-#~ msgstr "空闲一段时间后(&F)："
-
-#~ msgctxt "@text:action:menu Script command to execute"
-#~ msgid "After a period of inactivity"
-#~ msgstr "空闲一段时间后"
-
-#~ msgctxt "@label:textfield Script command to execute"
-#~ msgid "After a period of inacti&vity:"
-#~ msgstr "空闲一段时间后(&V)："
-
-#~ msgctxt "@@accessible:name:textfield"
-#~ msgid "Script command after a period of inactivity"
-#~ msgstr "空闲一段时间后执行脚本命令"
-
-#~ msgctxt "@label:spinbox After X minutes"
-#~ msgid "Execute script after:"
-#~ msgstr "执行脚本文件："
-
-#~ msgid "Select executable file…"
-#~ msgstr "选择可执行文件…"
-
-#~ msgid "Select executable file"
-#~ msgstr "选择可执行文件"
