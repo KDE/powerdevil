@@ -125,6 +125,8 @@ MouseArea {
         // Don't block events from MouseArea, and don't let users drag the batteries around
         interactive: false
 
+        clip: true
+
         // We have any batteries; show their status
         delegate: Item {
             id: batteryContainer
