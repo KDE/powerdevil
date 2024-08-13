@@ -122,6 +122,9 @@ MouseArea {
         cellWidth: Math.min(height, width)
         cellHeight: cellWidth
 
+        // Don't block events from MouseArea, and don't let users drag the batteries around
+        interactive: false
+
         // We have any batteries; show their status
         delegate: Item {
             id: batteryContainer
