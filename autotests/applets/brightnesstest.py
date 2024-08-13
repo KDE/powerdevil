@@ -279,6 +279,8 @@ class BrightnessTests(unittest.TestCase):
 
         cls.driver.quit()
 
+        assert cls.backlighthelper.wait(10) == 0, cls.backlighthelper.returncode
+
     def test_1_bug487743_set_keyboard_brightness(self) -> None:
         """
         Can change the keyboard brightness
