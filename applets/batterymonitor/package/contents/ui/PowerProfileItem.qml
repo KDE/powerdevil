@@ -130,22 +130,21 @@ PlasmaComponents3.ItemDelegate {
             onMoved: {
                 const { canBeInhibited, profile } = root.profileData[value];
                 if (!(canBeInhibited && root.inhibited)) {
-                    activateProfileRequested(profile);
+                    root.activateProfileRequested(profile);
                 }
             }
 
             Connections {
                 target: root
-                function onActiveProfileChanged(){
+                function onActiveProfileChanged() {
                     slider.value = root.activeProfileIndex
                 }
             }
 
-
             Connections {
                 target: root
-                function onActiveProfileErrorChanged(){
-                    if(root.activeProfileError !== "") {
+                function onActiveProfileErrorChanged() {
+                    if (root.activeProfileError !== "") {
                         powerProfileError.text = i18n("Failed to activate %1 mode", root.activeProfileError);
                         powerProfileError.sendEvent();
                         slider.value = root.activeProfileIndex;
@@ -220,13 +219,15 @@ PlasmaComponents3.ItemDelegate {
 
             visible: root.inhibited
             iconSource: "dialog-information"
-            text: switch(root.inhibitionReason) {
+            text: {
+                switch (root.inhibitionReason) {
                 case "lap-detected":
                     return i18n("Performance mode has been disabled to reduce heat generation because the computer has detected that it may be sitting on your lap.")
                 case "high-operating-temperature":
                     return i18n("Performance mode is unavailable because the computer is running too hot.")
                 default:
                     return i18n("Performance mode is unavailable.")
+                }
             }
         }
 
@@ -238,13 +239,15 @@ PlasmaComponents3.ItemDelegate {
 
             visible: root.activeProfile === "performance" && root.degradationReason !== ""
             iconSource: "dialog-information"
-            text: switch(root.degradationReason) {
+            text: {
+                switch (root.degradationReason) {
                 case "lap-detected":
                     return i18n("Performance may be lowered to reduce heat generation because the computer has detected that it may be sitting on your lap.")
                 case "high-operating-temperature":
                     return i18n("Performance may be reduced because the computer is running too hot.")
                 default:
                     return i18n("Performance may be reduced.")
+                }
             }
         }
 
@@ -259,7 +262,7 @@ PlasmaComponents3.ItemDelegate {
                 ? i18np("One application has requested activating %2:",
                         "%1 applications have requested activating %2:",
                         root.activeHolds.length,
-                        i18n(root.activeProfileData.label))
+                        root.activeProfileData.label)
                 : ""
         }
 

@@ -10,11 +10,10 @@ import QtQuick.Layouts
 
 import org.kde.coreaddons as KCoreAddons
 import org.kde.plasma.components as PlasmaComponents3
-import org.kde.plasma.workspace.components
+import org.kde.plasma.workspace.components as WorkspaceComponents
 import org.kde.kirigami as Kirigami
 
 import org.kde.plasma.private.battery
-
 
 PlasmaComponents3.ItemDelegate {
     id: root
@@ -63,13 +62,13 @@ PlasmaComponents3.ItemDelegate {
     contentItem: RowLayout {
         spacing: Kirigami.Units.gridUnit
 
-        BatteryIcon {
+        WorkspaceComponents.BatteryIcon {
             id: batteryIcon
 
             Layout.alignment: Qt.AlignTop
             Layout.preferredWidth: Kirigami.Units.iconSizes.medium
             Layout.preferredHeight: Kirigami.Units.iconSizes.medium
-            
+
             batteryType: root.batteryType
             percent: root.batteryPercent
             hasBattery: root.batteryPluggedIn
@@ -94,19 +93,19 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Label {
                     id: isPowerSupplyLabel
                     text: {
-                        if(batteryPluggedIn) {
+                        if (root.batteryPluggedIn) {
                             switch (root.batteryChargeState) {
-                                case BatteryControlModel.Charging:
-                                    return i18n("Charging");
-                                case BatteryControlModel.Discharging:
-                                    return i18n("Discharging");
-                                case BatteryControlModel.FullyCharged:
-                                    return i18n("Fully Charged");
-                                default:
-                                    return i18n("Not Charging");
+                            case BatteryControlModel.Charging:
+                                return i18n("Charging");
+                            case BatteryControlModel.Discharging:
+                                return i18n("Discharging");
+                            case BatteryControlModel.FullyCharged:
+                                return i18n("Fully Charged");
+                            default:
+                                return i18n("Not Charging");
                             }
                         }
-                            return i18nc("Battery is currently not present in the bay", "Not present");
+                        return i18nc("Battery is currently not present in the bay", "Not present");
                     }
                     textFormat: Text.PlainText
                     // For non-power supply batteries only show label for known-good states
@@ -151,9 +150,9 @@ PlasmaComponents3.ItemDelegate {
 
                 Accessible.description: {
                     let description = [];
-                    for (let i = 0; i < children.length; i++) {
-                        if (children[i].visible && children[i].hasOwnProperty("text")) {
-                            description.push(children[i].text);
+                    for (const child of children) {
+                        if (child.visible && child instanceof Text) {
+                            description.push(child.text);
                         }
                     }
                     return description.join(" ");

@@ -10,7 +10,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 
 import org.kde.notification
-import org.kde.kwindowsystem
+import org.kde.kwindowsystem as KWindowSystem
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.ksvg as KSvg
 import org.kde.kirigami as Kirigami
@@ -105,8 +105,9 @@ PlasmaComponents3.ItemDelegate {
                     KeyNavigation.tab: root.KeyNavigation.down
                     KeyNavigation.backtab: root.KeyNavigation.backtab
 
-                    Keys.onPressed: (event) => {
-                        if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
+                    Keys.onPressed: event => {
+                        if (event.key === Qt.Key_Space || event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                            event.accepted = true;
                             toggle();
                         }
                     }
@@ -141,24 +142,24 @@ PlasmaComponents3.ItemDelegate {
                     }
                 }
 
-            BusyIndicator {
-                id: busyIndicator
-                visible: false
-                Layout.preferredHeight: manualInhibitionSwitch.implicitHeight
+                BusyIndicator {
+                    id: busyIndicator
+                    visible: false
+                    Layout.preferredHeight: manualInhibitionSwitch.implicitHeight
 
-                Connections {
-                    target: root
+                    Connections {
+                        target: root
 
-                    function onInhibitionChangeRequested(inhibit) {
-                        busyIndicator.visible = inhibit != root.isManuallyInhibited;
-                    }
+                        function onInhibitionChangeRequested(inhibit) {
+                            busyIndicator.visible = inhibit !== root.isManuallyInhibited;
+                        }
 
-                    function onIsManuallyInhibitedChanged(val) {
-                        busyIndicator.visible = false;
+                        function onIsManuallyInhibitedChanged(val) {
+                            busyIndicator.visible = false;
+                        }
                     }
                 }
             }
-        }
 
             // list of automatic inhibitions
             ColumnLayout {
@@ -193,7 +194,7 @@ PlasmaComponents3.ItemDelegate {
 
                     InhibitionHint {
                         property string icon: modelData.Icon
-                            || (KWindowSystem.isPlatformWayland ? "wayland" : "xorg")
+                            || (KWindowSystem.KWindowSystem.isPlatformWayland ? "wayland" : "xorg")
                         property string name: modelData.PrettyName
                         property string reason: modelData.Reason
 

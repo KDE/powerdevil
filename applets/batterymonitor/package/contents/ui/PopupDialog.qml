@@ -58,7 +58,7 @@ PlasmaExtras.Representation {
 
         focus: false
 
-        function positionViewAtItem(item) {
+        function positionViewAtItem(item: Item): void {
             if (!PlasmaComponents3.ScrollBar.vertical.visible) {
                 return;
             }
@@ -71,14 +71,12 @@ PlasmaExtras.Representation {
         }
 
         ListView {
-
             id: batteryRepeater
 
             spacing: Kirigami.Units.smallSpacing * 2
 
-
             header: Column {
-                    PowerProfileItem {
+                PowerProfileItem {
                     id: powerProfileItem
 
                     width: scrollView.availableWidth
@@ -141,7 +139,7 @@ PlasmaExtras.Representation {
                 onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
             }
 
-            footer:  PowerManagementItem {
+            footer: PowerManagementItem {
                 id: powerManagementItem
 
                 width: scrollView.availableWidth
@@ -164,4 +162,3 @@ PlasmaExtras.Representation {
         }
     }
 }
-

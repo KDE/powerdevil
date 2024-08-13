@@ -12,8 +12,8 @@ import QtQuick
 import QtQuick.Layouts
 
 import org.kde.coreaddons as KCoreAddons
-import org.kde.kcmutils // KCMLauncher
-import org.kde.config // KAuthorized
+import org.kde.kcmutils as KCMUtils
+import org.kde.config as KConfig
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import org.kde.kirigami as Kirigami
@@ -28,35 +28,36 @@ PlasmoidItem {
     PowerProfilesControl {
         id: powerProfilesControl
 
-        readonly property bool isInBalancedProfile: powerProfilesControl.activeProfile === "balanced"
-        readonly property bool isInPerformanceProfile: powerProfilesControl.activeProfile === "performance"
-        readonly property bool isInPowersaveProfile: powerProfilesControl.activeProfile === "power-saver"
-        readonly property bool isHeldOnPowerProfile: powerProfilesControl.profileHolds.length > 0
-        readonly property string defaultPowerProfile: powerProfilesControl.configuredProfile ? powerProfilesControl.configuredProfile : "balanced"
-        readonly property bool isInDefaultPowerProfile: powerProfilesControl.activeProfile && powerProfilesControl.activeProfile == powerProfilesControl.defaultPowerProfile
+        readonly property bool isInBalancedProfile: activeProfile === "balanced"
+        readonly property bool isInPerformanceProfile: activeProfile === "performance"
+        readonly property bool isInPowersaveProfile: activeProfile === "power-saver"
+        readonly property bool isHeldOnPowerProfile: profileHolds.length > 0
+        readonly property string defaultPowerProfile: configuredProfile ? configuredProfile : "balanced"
+        readonly property bool isInDefaultPowerProfile: activeProfile && activeProfile === defaultPowerProfile
     }
 
     BatteryControlModel {
         id: batteryControl
 
-        readonly property int remainingTime: batteryControl.smoothedRemainingMsec
-        readonly property bool isSomehowFullyCharged: batteryControl.pluggedIn && batteryControl.state === BatteryControlModel.FullyCharged
+        readonly property int remainingTime: smoothedRemainingMsec
+        readonly property bool isSomehowFullyCharged: pluggedIn && state === BatteryControlModel.FullyCharged
     }
 
     PowerManagementControl {
         id: powerManagementControl
     }
 
-    readonly property bool kcmAuthorized: KAuthorized.authorizeControlModule("powerdevilprofilesconfig")
-    readonly property bool kcmEnergyInformationAuthorized: KAuthorized.authorizeControlModule("kcm_energyinfo")
+    readonly property bool kcmAuthorized: KConfig.KAuthorized.authorizeControlModule("powerdevilprofilesconfig")
+    readonly property bool kcmEnergyInformationAuthorized: KConfig.KAuthorized.authorizeControlModule("kcm_energyinfo")
 
-    readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
-        || Plasmoid.location === PlasmaCore.Types.RightEdge
-        || Plasmoid.location === PlasmaCore.Types.BottomEdge
-        || Plasmoid.location === PlasmaCore.Types.LeftEdge)
+    readonly property bool inPanel: [
+        PlasmaCore.Types.TopEdge,
+        PlasmaCore.Types.RightEdge,
+        PlasmaCore.Types.BottomEdge,
+        PlasmaCore.Types.LeftEdge,
+    ].includes(Plasmoid.location)
 
-
-    function symbolicizeIconName(iconName) {
+    function symbolicizeIconName(iconName: string): string {
         const symbolicSuffix = "-symbolic";
         if (iconName.endsWith(symbolicSuffix)) {
             return iconName;
@@ -68,8 +69,7 @@ PlasmoidItem {
     signal inhibitionChangeRequested(bool inhibit)
 
     onInhibitionChangeRequested: inhibit => {
-
-        powerManagementControl.isSilent = batterymonitor.expanded; // show OSD only when the plasmoid isn't expanded since the changing switch is feedback enough
+        powerManagementControl.isSilent = expanded; // show OSD only when the plasmoid isn't expanded since the changing switch is feedback enough
 
         if (inhibit) {
             const reason = i18n("The battery applet has enabled suppressing sleep and screen locking");
@@ -82,7 +82,7 @@ PlasmoidItem {
     signal activateProfileRequested(string profile)
 
     onActivateProfileRequested: profile => {
-        powerProfilesControl.isSilent = batterymonitor.expanded;
+        powerProfilesControl.isSilent = expanded;
 
         if (profile === powerProfilesControl.activeProfile) {
             return;
@@ -90,17 +90,15 @@ PlasmoidItem {
         powerProfilesControl.setProfile(profile);
     }
 
-
     switchWidth: Kirigami.Units.gridUnit * 10
     switchHeight: Kirigami.Units.gridUnit * 10
 
     Plasmoid.title: batteryControl.hasBatteries ? i18n("Power and Battery") : i18n("Power Management")
 
-    LayoutMirroring.enabled: Qt.application.layoutDirection == Qt.RightToLeft
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     Plasmoid.status: {
-
         if (powerManagementControl.isManuallyInhibited || !powerProfilesControl.isInDefaultPowerProfile) {
             return PlasmaCore.Types.ActiveStatus;
         }
@@ -113,7 +111,7 @@ PlasmoidItem {
     }
 
     toolTipMainText: {
-        if(batteryControl.hasInternalBatteries && !batteryControl.hasCumulative){
+        if (batteryControl.hasInternalBatteries && !batteryControl.hasCumulative) {
             return i18n("Battery is not present in the bay");
         }
 
@@ -147,7 +145,7 @@ PlasmoidItem {
 
         if (!batteryControl.hasBatteries) {
             parts.push(i18n("No Batteries Available"));
-        } else if(batteryControl.hasInternalBatteries) {
+        } else if (batteryControl.hasInternalBatteries) {
             if (batteryControl.remainingTime > 0) {
                 const remainingTimeString = KCoreAddons.Format.formatDuration(batteryControl.remainingTime, KCoreAddons.FormatTypes.HideSeconds);
                 if (batteryControl.state === BatteryControlModel.FullyCharged) {
@@ -226,7 +224,7 @@ PlasmoidItem {
         property bool wasExpanded: false
         onPressed: wasExpanded = batterymonitor.expanded
         onClicked: mouse => {
-            if (mouse.button == Qt.MiddleButton) {
+            if (mouse.button === Qt.MiddleButton) {
                 batterymonitor.inhibitionChangeRequested(!powerManagementControl.isManuallyInhibited);
             } else {
                 batterymonitor.expanded = !wasExpanded;
@@ -234,17 +232,16 @@ PlasmoidItem {
         }
 
         onWheel: wheel => {
-
-            if(!powerProfilesControl.isPowerProfileDaemonInstalled){
+            if (!powerProfilesControl.isPowerProfileDaemonInstalled) {
                 return;
             }
 
-            let profiles = powerProfilesControl.profiles;
-            if (!profiles.length) {
+            let { profiles } = powerProfilesControl;
+            if (profiles.length === 0) {
                 return;
             }
 
-            let activeProfile = powerProfilesControl.activeProfile;
+            let { activeProfile } = powerProfilesControl;
             let newProfile = activeProfile;
 
             const delta = (wheel.inverted ? -1 : 1) * (wheel.angleDelta.y ? wheel.angleDelta.y : -wheel.angleDelta.x);
@@ -301,7 +298,7 @@ PlasmoidItem {
             text: i18n("&Show Energy Information…")
             icon.name: "documentinfo"
             visible: batterymonitor.kcmEnergyInformationAuthorized
-            onTriggered: KCMLauncher.openInfoCenter("kcm_energyinfo")
+            onTriggered: checked => KCMUtils.KCMLauncher.openInfoCenter("kcm_energyinfo")
         },
         PlasmaCore.Action {
             text: i18n("Show Battery Percentage on Icon When Not Fully Charged")
@@ -310,7 +307,7 @@ PlasmoidItem {
             checkable: true
             checked: Plasmoid.configuration.showPercentage
             onTriggered: checked => {
-                Plasmoid.configuration.showPercentage = checked
+                Plasmoid.configuration.showPercentage = checked;
             }
         }
     ]
@@ -320,8 +317,8 @@ PlasmoidItem {
         text: i18n("&Configure Power Management…")
         icon.name: "configure"
         shortcut: "alt+d, s"
-        onTriggered: {
-            KCMLauncher.openSystemSettings("kcm_powerdevilprofilesconfig");
+        onTriggered: checked => {
+            KCMUtils.KCMLauncher.openSystemSettings("kcm_powerdevilprofilesconfig");
         }
     }
 

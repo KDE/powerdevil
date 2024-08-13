@@ -20,11 +20,11 @@ import org.kde.plasma.private.battery
 MouseArea {
     id: root
 
-    readonly property bool isConstrained: Plasmoid.formFactor === PlasmaCore.Types.Vertical || Plasmoid.formFactor === PlasmaCore.Types.Horizontal
-    property int batteryPercent : 0
-    property bool batteryPluggedIn : false
+    readonly property bool isConstrained: [PlasmaCore.Types.Vertical, PlasmaCore.Types.Horizontal].includes(Plasmoid.formFactor)
+    property int batteryPercent: 0
+    property bool batteryPluggedIn: false
     property bool hasBatteries: false
-    property bool hasInternalBatteries : false
+    property bool hasInternalBatteries: false
     property bool hasCumulative: false
 
     required property bool isSomehowFullyCharged
@@ -43,18 +43,18 @@ MouseArea {
     Accessible.description: `${toolTipMainText}; ${toolTipSubText}`
     Accessible.role: Accessible.Button
 
-    property string activeProfileIconSrc: root.activeProfile === "balanced"
+    readonly property string activeProfileIconSrc: activeProfile === "balanced"
             ? "speedometer"
-            : root.activeProfile === "performance"
+            : activeProfile === "performance"
             ? "battery-profile-performance-symbolic"
-            : root.activeProfile === "power-saver"
+            : activeProfile === "power-saver"
             ? "battery-profile-powersave-symbolic"
             : Plasmoid.icon
 
-    property string powerModeIconSrc: root.isManuallyInhibited
-            ? "system-suspend-inhibited-symbolic" 
-            : !root.isInDefaultPowerProfile
-            ? root.activeProfileIconSrc
+    readonly property string powerModeIconSrc: isManuallyInhibited
+            ? "system-suspend-inhibited-symbolic"
+            : !isInDefaultPowerProfile
+            ? activeProfileIconSrc
             : Plasmoid.icon
 
     //Show only overall battery
@@ -114,12 +114,12 @@ MouseArea {
 
         visible: !root.isConstrained
 
-        height: root.height
-        width: root.width
+        anchors.fill: parent
+
         contentHeight: height
         contentWidth: width
 
-        cellWidth: Math.min(view.height, view.width)
+        cellWidth: Math.min(height, width)
         cellHeight: cellWidth
 
         // We have any batteries; show their status
