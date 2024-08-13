@@ -62,7 +62,7 @@ PlasmaExtras.Representation {
             if (!PlasmaComponents3.ScrollBar.vertical.visible) {
                 return;
             }
-            const rect = powerItemList.mapFromItem(item, 0, 0, item.width, item.height);
+            const rect = batteryRepeater.contentItem.mapFromItem(item, 0, 0, item.width, item.height);
             if (rect.y < scrollView.contentItem.contentY) {
                 scrollView.contentItem.contentY = rect.y;
             } else if (rect.y + rect.height > scrollView.contentItem.contentY + scrollView.height) {
@@ -75,11 +75,15 @@ PlasmaExtras.Representation {
 
             spacing: Kirigami.Units.smallSpacing * 2
 
+            // Note: this Column prevents ListView from throwing a cryptic warning and breaking CI:
+            // > QQmlComponent: Cannot create new component instance before completing the previous
+            // However, it also the source of a bug that the view is slightly scrollable for no reason.
             header: Column {
-                PowerProfileItem {
-                    id: powerProfileItem
+                width: scrollView.availableWidth
 
-                    width: scrollView.availableWidth
+                PowerProfileItem {
+                    anchors.left: parent.left
+                    anchors.right: parent.right
 
                     KeyNavigation.up: batteryRepeater.footerItem
                     KeyNavigation.down: batteryRepeater.count > 0 ? batteryRepeater.itemAtIndex(0) : batteryRepeater.footerItem
@@ -117,7 +121,6 @@ PlasmaExtras.Representation {
                 batteryType: Type
                 remainingTime: dialog.remainingTime
 
-
                 KeyNavigation.up: index === 0 ? (batteryRepeater.headerItem.visible ? batteryRepeater.headerItem : batteryRepeater.headerItem.KeyNavigation.up) : batteryRepeater.itemAtIndex(index - 1)
                 KeyNavigation.down: index + 1 < batteryRepeater.count ? batteryRepeater.itemAtIndex(index + 1) : batteryRepeater.footerItem
 
@@ -140,14 +143,12 @@ PlasmaExtras.Representation {
             }
 
             footer: PowerManagementItem {
-                id: powerManagementItem
-
                 width: scrollView.availableWidth
 
                 KeyNavigation.up: batteryRepeater.itemAtIndex(batteryRepeater.count - 1)
                 KeyNavigation.down: null
                 KeyNavigation.backtab:KeyNavigation.up
-                KeyNavigation.tab: powerManagementItem.manualInhibitionSwitch
+                KeyNavigation.tab: manualInhibitionSwitch
 
                 inhibitions: dialog.inhibitions
                 isManuallyInhibited: dialog.isManuallyInhibited
@@ -158,6 +159,8 @@ PlasmaExtras.Representation {
                 onInhibitionChangeRequested: inhibit => {
                     batterymonitor.inhibitionChangeRequested(inhibit);
                 }
+
+                onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
             }
         }
     }
