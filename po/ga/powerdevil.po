@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase/powerdevil.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:41+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -188,7 +188,7 @@ msgstr "Cothaitheoir"
 msgid "Switch Power Profile"
 msgstr "Iompórtáil Próifílí PowerDevil"
 
-#: powerdevilapp.cpp:118
+#: powerdevilapp.cpp:117
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""

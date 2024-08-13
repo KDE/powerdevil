@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:41+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2021-07-22 11:40+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -175,7 +175,7 @@ msgstr "Əvvəlki müşayətçi"
 msgid "Switch Power Profile"
 msgstr "Sönmə vaxtı"
 
-#: powerdevilapp.cpp:118
+#: powerdevilapp.cpp:117
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Mövcud nümunə ilə əvəzləmək"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-19 00:41+0000\n"
+"POT-Creation-Date: 2024-08-13 00:41+0000\n"
 "PO-Revision-Date: 2024-06-09 15:16+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -170,7 +170,7 @@ msgstr "Responsabil anterior"
 msgid "Switch Power Profile"
 msgstr "Schimbă profilul de energie"
 
-#: powerdevilapp.cpp:118
+#: powerdevilapp.cpp:117
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Înlocuiește o instanță existentă"

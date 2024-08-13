@@ -890,39 +890,3 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Sjølvvalt tidslengd"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "The action you had previously configured for after a period of inactivity "
-#~ "is now unsupported on your system. Please select a different one."
-#~ msgstr ""
-#~ "Handlinga du tidlegare har valt for køyring etter periode utan aktivitet, "
-#~ "er ikkje lenger støtta. Vel ei ny handling."
-
-#~ msgctxt ""
-#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
-#~ "the system is idle"
-#~ msgid "A&fter a period of inactivity:"
-#~ msgstr "&Etter periode utan aktivitet:"
-
-#~ msgctxt "@text:action:menu Script command to execute"
-#~ msgid "After a period of inactivity"
-#~ msgstr "Etter periode utan aktivitet"
-
-#~ msgctxt "@label:textfield Script command to execute"
-#~ msgid "After a period of inacti&vity:"
-#~ msgstr "Etter periode utan akti&vitet:"
-
-#~ msgctxt "@@accessible:name:textfield"
-#~ msgid "Script command after a period of inactivity"
-#~ msgstr "Skriptkommando etter periode utan aktivitet"
-
-#~ msgctxt "@label:spinbox After X minutes"
-#~ msgid "Execute script after:"
-#~ msgstr "Køyr skript etter:"
-
-#~ msgid "Select executable file…"
-#~ msgstr "Vel programfil …"
-
-#~ msgid "Select executable file"
-#~ msgstr "Vel programfil"
