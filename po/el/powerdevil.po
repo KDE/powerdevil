@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2021-07-24 09:16+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -211,9 +211,10 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Προστέθηκε επιπλέον μπαταρία"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Ο υπολογιστής δεν θα εισέρχεται πλέον σε κοίμηση."
 
 #: powerdevilcore.cpp:523
@@ -273,7 +274,9 @@ msgstr ""
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
 #| "it down and change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Η ισχύς της μπαταρίας σας είναι χαμηλή - gia na xrhsimopoi;hsete τον "
 "υπολογιστή σας, συνδέστε τον στο ρεύμα ή απενεργοποιήστε τον και αλλάξτε τη "
@@ -281,15 +284,15 @@ msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα κλείσει σε 60 "
-"δευτερόλεπτα."
+#, fuzzy, kde-format
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Ο υπολογιστής θα μεταβεί σε κατάσταση αναμονής σε 1 δευτερόλεπτο."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -300,13 +303,11 @@ msgid "Shut Down Now"
 msgstr "Τερματισμός"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κατάσταση "
-"νάρκης σε 60 δευτερόλεπτα."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Θα γίνει αναστολή του υπολογιστή στη μνήμη RAM σε 1 δευτερόλεπτο."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -318,11 +319,11 @@ msgid "Hibernate Now"
 msgstr "Νάρκη"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κοίμηση σε "
-"60 δευτερόλεπτα."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Θα γίνει αναστολή του υπολογιστή στη μνήμη RAM σε 1 δευτερόλεπτο."
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -358,9 +359,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Ισχύς μπαταρίας κρίσιμη (%1% απομένει)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Ο μετασχηματιστής AC είναι συνδεδεμένος"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Ο υπολογιστής δεν θα εισέρχεται πλέον σε κοίμηση."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -368,8 +375,9 @@ msgid "Running on AC power"
 msgstr "Εκτελείται με ισχύ εναλλασσόμενου ρεύματος"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Ο φορτιστής ρεύματος συνδέθηκε."
 
 #: powerdevilcore.cpp:684
@@ -378,8 +386,9 @@ msgid "Running on Battery Power"
 msgstr "Εκτελείται με την ισχύ της μπαταρίας"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Ο φορτιστής ρεύματος αποσυνδέθηκε."
 
 #: powerdevilcore.cpp:745
@@ -391,6 +400,24 @@ msgstr "Φόρτιση πλήρης"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμένη."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα κλείσει σε 60 "
+#~ "δευτερόλεπτα."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε "
+#~ "κατάσταση νάρκης σε 60 δευτερόλεπτα."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Η μπαταρία είναι σε κρίσιμο επίπεδο. Ο υπολογιστής θα εισέλθει σε κοίμηση "
+#~ "σε 60 δευτερόλεπτα."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -491,24 +518,6 @@ msgstr "Η μπαταρία είναι τώρα πλήρως φορτισμέν�
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Όταν πιεστεί το κουμπι νάρκης"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Ο υπολογιστής θα μεταβεί σε κατάσταση αναμονής σε 1 δευτερόλεπτο."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Θα γίνει αναστολή του υπολογιστή στη μνήμη RAM σε 1 δευτερόλεπτο."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Θα γίνει αναστολή του υπολογιστή στη μνήμη RAM σε 1 δευτερόλεπτο."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Υβριδική κοίμηση"

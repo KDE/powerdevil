@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2011-01-05 19:44+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -204,11 +204,11 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Livea critike del batreye"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Li copiutrece si distindrè dins %1 segondes."
 
 #: powerdevilcore.cpp:523
@@ -256,21 +256,22 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Vosse livea batreye est critike, li copiutrece s' arestêyrè dins 30 segondes."
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Li copiutrece serè metou e woeye dins %1 segondes."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -282,15 +283,10 @@ msgstr "Arester"
 
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Vosse livea batreye est critike, li copiutrece serè metou fordoirmi dins 30 "
-"segondes."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Li copiutrece serè metou e woeye sol RAM dins %1 segondes."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -303,11 +299,10 @@ msgstr "Fordoirmi"
 
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Vosse livea batreye est critike, li copiutrece s' arestêyrè dins 30 segondes."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Li copiutrece serè metou e woeye sol RAM dins %1 segondes."
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -348,8 +343,15 @@ msgstr ""
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Cwand l' adaptateu AC est tchôkî"
+
+#: powerdevilcore.cpp:679
+#, fuzzy, kde-format
+#| msgid "The computer will be halted in 1 second."
+#| msgid_plural "The computer will be halted in %1 seconds."
+msgid "The computer will no longer go to sleep."
+msgstr "Li copiutrece si distindrè dins %1 segondes."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -359,7 +361,7 @@ msgstr ""
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "L' adaptateu d' corant a stî tchôkî."
 
 #: powerdevilcore.cpp:684
@@ -371,7 +373,7 @@ msgstr "Cwand dj' so sol batreye"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "L' adaptateu d' corant a stî distchôkî."
 
 #: powerdevilcore.cpp:745
@@ -383,6 +385,36 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Vosse livea batreye est critike, li copiutrece s' arestêyrè dins 30 "
+#~ "segondes."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be hibernated in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Vosse livea batreye est critike, li copiutrece serè metou fordoirmi dins "
+#~ "30 segondes."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Vosse livea batreye est critike, li copiutrece s' arestêyrè dins 30 "
+#~ "segondes."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -477,24 +509,6 @@ msgstr ""
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Cwand l' boutoe Doirmi est tchôkî"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Li copiutrece serè metou e woeye dins %1 segondes."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Li copiutrece serè metou e woeye sol RAM dins %1 segondes."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Li copiutrece serè metou e woeye sol RAM dins %1 segondes."
 
 #~ msgid "On Profile Load"
 #~ msgstr "Å tcherdjaedje do profil"

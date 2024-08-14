@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2019-12-12 22:25+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -194,9 +194,9 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "ഗുരുതരമായ ബാറ്ററി നില"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
 #: powerdevilcore.cpp:523
@@ -244,18 +244,22 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ പിന്നീടു് തുടരാവുന്ന അവസ്ഥയിലേയ്ക്കു് മാറും."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -266,10 +270,10 @@ msgstr "നിര്‍ത്തി വയ്ക്കുക"
 
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ റാമിലാക്കി തത്കാലം നിര്‍ത്തുന്നതായിരിയ്ക്കും."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -281,8 +285,10 @@ msgstr ""
 
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ റാമിലാക്കി തത്കാലം നിര്‍ത്തുന്നതായിരിയ്ക്കും."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -316,8 +322,13 @@ msgstr ""
 
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "എസി അഡാപ്റ്റര്‍ കുത്തിയിരിയ്ക്കുമ്പോള്‍"
+
+#: powerdevilcore.cpp:679
+#, fuzzy, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -326,7 +337,7 @@ msgstr ""
 
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "വൈദ്യുതി അഡാപ്റ്റര്‍ കുത്തിയിരിയ്ക്കുന്നു."
 
 #: powerdevilcore.cpp:684
@@ -336,7 +347,7 @@ msgstr "ബാറ്ററി വൈദ്യുതിയിലായിരി�
 
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "വൈദ്യുതി അഡാപ്റ്റര്‍ നീക്കം ചെയ്തിരിയ്ക്കുന്നു."
 
 #: powerdevilcore.cpp:745
@@ -348,6 +359,24 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
+
+#, fuzzy
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
+
+#, fuzzy
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "നിങ്ങളുടെ ബാറ്ററി ഗുരുതരാവസ്ഥയിലാണു്, പിസി %1 സെക്കന്റിനുള്ളില്‍ നില്‍ക്കുന്നതായിരിയ്ക്കും."
 
 #~ msgid " min"
 #~ msgstr " മിനിറ്റ്"
@@ -404,24 +433,6 @@ msgstr ""
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "ഉറങ്ങാനുള്ള ബട്ടണ്‍ അമര്‍ത്തിയാല്‍"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ പിന്നീടു് തുടരാവുന്ന അവസ്ഥയിലേയ്ക്കു് മാറും."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ റാമിലാക്കി തത്കാലം നിര്‍ത്തുന്നതായിരിയ്ക്കും."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "കമ്പ്യൂട്ടര്‍ %1 സെക്കന്റിനുള്ളില്‍ റാമിലാക്കി തത്കാലം നിര്‍ത്തുന്നതായിരിയ്ക്കും."
 
 #, fuzzy
 #~ msgid "On Profile Load"

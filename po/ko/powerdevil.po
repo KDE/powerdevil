@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2023-10-08 23:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -192,9 +192,10 @@ msgstr "이 활동 정책으로 인하여 화면 전원 관리를 사용할 수 
 msgid "Extra Battery Added"
 msgstr "여분의 배터리 추가됨"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
 
 #: powerdevilcore.cpp:523
@@ -245,19 +246,25 @@ msgstr ""
 "터리를 충전하거나 교체하십시오."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr "어댑터가 연결되어 있고 충분한 전력 공급이 가능한지 확인하십시오."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "컴퓨터를 전원에 연결하십시오."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 종료됩니다."
+#, fuzzy, kde-format
+#| msgid "The computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "컴퓨터가 60초 후에 종료됩니다."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -267,12 +274,10 @@ msgid "Shut Down Now"
 msgstr "지금 컴퓨터 끄기"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 최대 절전 모드로 전환됩니다."
+#, fuzzy, kde-format
+#| msgid "The computer will hibernate in 60 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "컴퓨터가 60초 후에 최대 절전 모드로 진입합니다."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -283,10 +288,10 @@ msgid "Hibernate Now"
 msgstr "지금 최대 절전 모드로 전환"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 대기 모드로 전환됩니다."
+#, fuzzy, kde-format
+#| msgid "The computer will sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "60초 후에 컴퓨터가 대기 모드로 전환됩니다."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -319,9 +324,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "배터리 바닥남(%1% 남음)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "AC 어댑터가 연결됨"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -329,8 +340,9 @@ msgid "Running on AC power"
 msgstr "AC 어댑터 전원으로 실행 중"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "전원 어댑터가 연결되었습니다."
 
 #: powerdevilcore.cpp:684
@@ -339,8 +351,9 @@ msgid "Running on Battery Power"
 msgstr "배터리 전원으로 실행 중"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "전원 어댑터의 연결이 해제되었습니다."
 
 #: powerdevilcore.cpp:745
@@ -352,6 +365,21 @@ msgstr "충전 완료"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "배터리가 완전히 충전되었습니다."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "배터리가 위험 수준에 도달하여 컴퓨터가 60초 후에 종료됩니다."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 최대 절전 모드로 전환됩니"
+#~ "다."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "배터리가 위험 수준에 도달하여 60초 후에 컴퓨터가 대기 모드로 전환됩니다."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -448,15 +476,6 @@ msgstr "배터리가 완전히 충전되었습니다."
 #~ msgid "Standby, then hibernate after a period of inactivity"
 #~ msgstr ""
 #~ "절전 모드에 있는 동안 일정 기간 동안 활동이 없으면 최대 절전 모드로 진입"
-
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "컴퓨터가 60초 후에 종료됩니다."
-
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "컴퓨터가 60초 후에 최대 절전 모드로 진입합니다."
-
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "60초 후에 컴퓨터가 대기 모드로 전환됩니다."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "하이브리드 대기 모드"

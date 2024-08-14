@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-06 12:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -199,9 +199,10 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "S'ha afegit una bateria extra"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "L'ordinador ja no es tornarà a suspendre."
 
 #: powerdevilcore.cpp:523
@@ -253,20 +254,26 @@ msgstr ""
 "la bateria."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Assegureu-vos que el carregador estigui endollat i que subministri prou "
 "electricitat."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Endolleu l'ordinador."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
 "La bateria ha arribat al nivell crític. L'ordinador s'aturarà en 60 segons."
 
@@ -279,12 +286,8 @@ msgstr "Atura ara"
 
 #: powerdevilcore.cpp:616
 #, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"La bateria ha arribat al nivell crític. L'ordinador passarà al mode "
-"hibernació en 60 segons."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -295,8 +298,10 @@ msgid "Hibernate Now"
 msgstr "Hiberna ara"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
 "La bateria ha arribat al nivell crític. L'ordinador se suspendrà en 60 "
 "segons."
@@ -332,9 +337,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria crítica (resta %1%)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Adaptador de CA endollat"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "L'ordinador ja no es tornarà a suspendre."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -342,8 +353,9 @@ msgid "Running on AC power"
 msgstr "Funcionant amb alimentació CA"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "L'adaptador de corrent s'ha endollat."
 
 #: powerdevilcore.cpp:684
@@ -352,8 +364,9 @@ msgid "Running on Battery Power"
 msgstr "Funcionant amb alimentació per bateria"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "L'adaptador de corrent s'ha desendollat."
 
 #: powerdevilcore.cpp:745
@@ -365,6 +378,13 @@ msgstr "Càrrega completada"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La bateria ara està completament carregada."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "La bateria ha arribat al nivell crític. L'ordinador passarà al mode "
+#~ "hibernació en 60 segons."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"

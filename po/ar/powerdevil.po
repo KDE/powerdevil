@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-08 11:32+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -196,9 +196,10 @@ msgstr "سياسات النشاط منعت إدارة طاقة الشاشة"
 msgid "Extra Battery Added"
 msgstr "أضيفت بطارية إضافية"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "لن ينتقل الحاسوب إلى وضع السكون بعد الآن."
 
 #: powerdevilcore.cpp:523
@@ -249,19 +250,26 @@ msgstr ""
 "في أي وقت. يرجى إعادة شحن البطارية أو استبدالها."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr "صِل شاحن الطاقة وتأكد أنه يزود طاقة كافية."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "اشحن الحاسوب"
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "بلغت البطارية المستوى الحرج، سيطفئ الحاسوب في  60 ثانية."
+#, fuzzy, kde-format
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "سيوضع الحاسوب في الوضع الاستعداد في %1 ثانية."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -271,11 +279,11 @@ msgid "Shut Down Now"
 msgstr "أطفئ الآن"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "بلغت البطارية المستوى الحرج، سيُسبت الحاسوب في 60 ثانية."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "سيعلق هذا الحاسوب إلى الذاكرة العشوائية في %1 ثانية."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -286,9 +294,11 @@ msgid "Hibernate Now"
 msgstr "أسبت الآن"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "بلغت البطارية المستوى الحرج، سينام الحاسوب في 60 ثانية."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "سيعلق هذا الحاسوب إلى الذاكرة العشوائية في %1 ثانية."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -321,9 +331,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "البطارية في مستوى حرج (%1% متبقية)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "وصل قابس الطاقة"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "لن ينتقل الحاسوب إلى وضع السكون بعد الآن."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -331,8 +347,9 @@ msgid "Running on AC power"
 msgstr "يعمل على قابس الطاقة"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "وُصِل محول الطاقة."
 
 #: powerdevilcore.cpp:684
@@ -341,8 +358,9 @@ msgid "Running on Battery Power"
 msgstr "يعمل على طاقة البطارية"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "فُصل محول الطاقة."
 
 #: powerdevilcore.cpp:745
@@ -354,6 +372,18 @@ msgstr "اكتمل الشحن"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "بطاريتك الآن مشحونة كليًّا."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "بلغت البطارية المستوى الحرج، سيطفئ الحاسوب في  60 ثانية."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "بلغت البطارية المستوى الحرج، سيُسبت الحاسوب في 60 ثانية."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "بلغت البطارية المستوى الحرج، سينام الحاسوب في 60 ثانية."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -455,24 +485,6 @@ msgstr "بطاريتك الآن مشحونة كليًّا."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "عند ضغط زر النوم"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "سيوضع الحاسوب في الوضع الاستعداد في %1 ثانية."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "سيعلق هذا الحاسوب إلى الذاكرة العشوائية في %1 ثانية."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "سيعلق هذا الحاسوب إلى الذاكرة العشوائية في %1 ثانية."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "نوم هجين"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2008-11-06 22:08+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -197,9 +197,9 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr ""
 
 #: powerdevilcore.cpp:523
@@ -258,20 +258,22 @@ msgstr ""
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
 #| "it down and change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Aku je chětro prózdny - hdyž chceće dale z kompjuterom dźěłać, přizamkńće "
 "jón na milinu abo hasńće jón a narunajće aku. "
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr "Aku je nimale cyle prózdny. Waš kompjuter so za 60 sekundow hasnje."
 
 #: powerdevilcore.cpp:610
@@ -283,16 +285,9 @@ msgid "Shut Down Now"
 msgstr "Hasnyć"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#, kde-format
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Aku je nimale cyle prózdny. Kompjuter póńdźe do zymskeho spara za 60 "
-"sekundow."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -307,7 +302,7 @@ msgstr "Zymski spar"
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr "Aku je nimale cyle prózdny. Kompjuter póńdźe spinkać za 60 sekundow."
 
 #: powerdevilcore.cpp:626
@@ -344,9 +339,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Aku je nimale cyle prózdny (%1 wostanje)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Milinowy adapter přizamknjeny"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr ""
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -354,8 +355,9 @@ msgid "Running on AC power"
 msgstr "Wužiwam syćowu milinu"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Milinowy adapter je so přityknył."
 
 #: powerdevilcore.cpp:684
@@ -364,8 +366,9 @@ msgid "Running on Battery Power"
 msgstr "Wužiwam aku"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Milinowy adapter je so wućahnył."
 
 #: powerdevilcore.cpp:745
@@ -377,6 +380,17 @@ msgstr "Donabity"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku je nětko cyle połny."
+
+#, fuzzy
+#~| msgid ""
+#~| "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Aku je nimale cyle prózdny. Kompjuter póńdźe do zymskeho spara za 60 "
+#~ "sekundow."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"

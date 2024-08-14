@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-07 11:10+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -197,9 +197,10 @@ msgstr "Tyto zásady aktivit brání vypnutí obrazovky"
 msgid "Extra Battery Added"
 msgstr "Přidána extra baterie"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Počítač už nebude uspán."
 
 #: powerdevilcore.cpp:523
@@ -250,19 +251,25 @@ msgstr ""
 "kdykoliv vypnout. Prosím nabijte nebo vyměňte baterii."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Zajistěte, že napájecí adapter je zapojen a poskytuje dostatek energie."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Zapojen v počítači."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
 "Vaše baterie dosáhla kritické úrovně. Počítač bude vypnut za 60 sekund."
 
@@ -275,11 +282,8 @@ msgstr "Vypnout nyní"
 
 #: powerdevilcore.cpp:616
 #, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Vaše baterie dosáhla kritické úrovně. Počítač bude hibernován za 60 sekund."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -290,8 +294,10 @@ msgid "Hibernate Now"
 msgstr "Hibernovat nyní"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr "Vaše baterie dosáhla kritické úrovně. Počítač bude uspán za 60 sekund."
 
 #: powerdevilcore.cpp:626
@@ -325,9 +331,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterie je v kritickém stavu (zbývá %1%)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Síťový adaptér je zapojen"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Počítač už nebude uspán."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -335,8 +347,9 @@ msgid "Running on AC power"
 msgstr "Napájeno ze sítě"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Zdroj napájení byl připojen."
 
 #: powerdevilcore.cpp:684
@@ -345,8 +358,9 @@ msgid "Running on Battery Power"
 msgstr "Napájeno z baterie"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Zdroj napájení byl odpojen."
 
 #: powerdevilcore.cpp:745
@@ -358,3 +372,10 @@ msgstr "Nabití bylo dokončeno"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Vaše baterie je nyní plně nabitá."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Vaše baterie dosáhla kritické úrovně. Počítač bude hibernován za 60 "
+#~ "sekund."

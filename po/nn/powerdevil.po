@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-07-14 12:35+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -195,9 +195,10 @@ msgstr "Reglar for denne aktiviteten hindrar straumstyring for skjerm"
 msgid "Extra Battery Added"
 msgstr "Eit ekstra batteri er kopla til"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Datamaskina vil ikkje lenger gå i kvilemodus."
 
 #: powerdevilcore.cpp:523
@@ -249,18 +250,24 @@ msgstr ""
 "mogleg."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr "Sjå til at straum­kabelen er kopla til og gjev nok straum."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Kopla maskina til eit straumuttak."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
 "Batterinivået er kritisk lågt. Maskina vert automatisk slått av om 60 sekund."
 
@@ -273,12 +280,8 @@ msgstr "Slå av no"
 
 #: powerdevilcore.cpp:616
 #, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Batterinivået er kritisk lågt. Maskina går automatisk i dvalemodus om "
-"60 sekund."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -289,8 +292,10 @@ msgid "Hibernate Now"
 msgstr "Gå i dvalemodus no"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
 "Batterinivået er kritisk lågt. Maskina går automatisk i kvilemodus om 60 "
 "sekund."
@@ -326,9 +331,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteri på kritisk nivå (%1 % att)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Straumkabelen er kopla til"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Datamaskina vil ikkje lenger gå i kvilemodus."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -336,8 +347,9 @@ msgid "Running on AC power"
 msgstr "Køyrer på nettstraum"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Straumkabelen er kopla til."
 
 #: powerdevilcore.cpp:684
@@ -346,8 +358,9 @@ msgid "Running on Battery Power"
 msgstr "Køyrer på batteri"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Straumkabelen er kopla frå."
 
 #: powerdevilcore.cpp:745
@@ -359,3 +372,10 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Batterinivået er kritisk lågt. Maskina går automatisk i dvalemodus om "
+#~ "60 sekund."

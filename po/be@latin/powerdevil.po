@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2008-11-20 22:42+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <i18n@mova.org>\n"
@@ -205,12 +205,12 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Vielmi nizki zarad batarei"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
 #| "process."
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr ""
 "Kamputar budzie vyklučany praz %1 sekund. Klikni siudy, kab anulavać hetuju "
 "dzieju."
@@ -260,23 +260,25 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#| "The computer will be put into standby in %1 seconds. Click here to block "
+#| "the process."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
-"Tvaja batareja maje vielmi nizki zarad. Kamputar budzie vyłučany praz %1 "
-"sekund. Klikni siudy, kab anulavać hetuju dzieju."
+"Kamputar pačnie čakać praz %1 sekund. Klikni siudy, kab anulavać hetuju "
+"dzieju."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -289,14 +291,12 @@ msgstr "Vyklučy kamputar"
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#| "The computer will be suspended to RAM in %1 seconds. Click here to block "
+#| "the process."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Tvaja batareja maje vielmi nizki zarad. Kamputar budzie vyłučany praz %1 "
-"sekund. Klikni siudy, kab anulavać hetuju dzieju."
+"Kamputar zaśnie ŭ pamiaci praz %1 sekund. Klikni siudy, kab anulavać hetuju "
+"dzieju."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -309,12 +309,12 @@ msgstr ""
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#| "The computer will be suspended to RAM in %1 seconds. Click here to block "
+#| "the process."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
-"Tvaja batareja maje vielmi nizki zarad. Kamputar budzie vyłučany praz %1 "
-"sekund. Klikni siudy, kab anulavać hetuju dzieju."
+"Kamputar zaśnie ŭ pamiaci praz %1 sekund. Klikni siudy, kab anulavać hetuju "
+"dzieju."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -354,8 +354,18 @@ msgstr ""
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Kali padłučany blok siłkavańnia"
+
+#: powerdevilcore.cpp:679
+#, fuzzy, kde-format
+#| msgid ""
+#| "The computer will be halted in %1 seconds. Click here to block the "
+#| "process."
+msgid "The computer will no longer go to sleep."
+msgstr ""
+"Kamputar budzie vyklučany praz %1 sekund. Klikni siudy, kab anulavać hetuju "
+"dzieju."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -365,7 +375,7 @@ msgstr ""
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Blok siłkavańnia padłučany."
 
 #: powerdevilcore.cpp:684
@@ -377,7 +387,7 @@ msgstr "Kali kamputar pracuje z batarei"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Blok siłkavańnia adłučany."
 
 #: powerdevilcore.cpp:745
@@ -389,6 +399,36 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Tvaja batareja maje vielmi nizki zarad. Kamputar budzie vyłučany praz %1 "
+#~ "sekund. Klikni siudy, kab anulavać hetuju dzieju."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Tvaja batareja maje vielmi nizki zarad. Kamputar budzie vyłučany praz %1 "
+#~ "sekund. Klikni siudy, kab anulavać hetuju dzieju."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Tvaja batareja maje vielmi nizki zarad. Kamputar budzie vyłučany praz %1 "
+#~ "sekund. Klikni siudy, kab anulavać hetuju dzieju."
 
 #~ msgid " min"
 #~ msgstr " chv"
@@ -454,33 +494,6 @@ msgstr ""
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Kali nacisnutaja knopka snu"
-
-#, fuzzy
-#~| msgid ""
-#~| "The computer will be put into standby in %1 seconds. Click here to block "
-#~| "the process."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Kamputar pačnie čakać praz %1 sekund. Klikni siudy, kab anulavać hetuju "
-#~ "dzieju."
-
-#, fuzzy
-#~| msgid ""
-#~| "The computer will be suspended to RAM in %1 seconds. Click here to block "
-#~| "the process."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr ""
-#~ "Kamputar zaśnie ŭ pamiaci praz %1 sekund. Klikni siudy, kab anulavać "
-#~ "hetuju dzieju."
-
-#, fuzzy
-#~| msgid ""
-#~| "The computer will be suspended to RAM in %1 seconds. Click here to block "
-#~| "the process."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr ""
-#~ "Kamputar zaśnie ŭ pamiaci praz %1 sekund. Klikni siudy, kab anulavać "
-#~ "hetuju dzieju."
 
 #, fuzzy
 #~| msgid "New Profile"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2010-01-29 16:32+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -210,11 +210,11 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "बैटरीक गंभीर स्तर"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "कम्प्यूटर 1 सेकण्डमे हाल्ट भए जएताह. "
 
 #: powerdevilcore.cpp:523
@@ -262,22 +262,22 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "अहाँक बैटरीक स्तर गंभीर भए गेल अछि. पीसी 1 सेकण्ड मे हाल्ट भए जएताह. "
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "कम्प्यूटर 1 सेकण्ड मे स्टैण्डबाइ भए जएताह."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -289,14 +289,10 @@ msgstr "बन्न करू"
 
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "अहाँक बैटरीक स्तर गंभीर भए गेल अछि. पीसी 1 सेकण्ड मे हाल्ट भए जएताह. "
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "कम्प्यूटर 1 सेकण्ड मे रैममे सस्पेंड भए जएताह."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -308,12 +304,10 @@ msgstr ""
 
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 1 second."
-#| msgid_plural ""
-#| "Your battery level is critical, the computer will be halted in %1 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "अहाँक बैटरीक स्तर गंभीर भए गेल अछि. पीसी 1 सेकण्ड मे हाल्ट भए जएताह. "
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "कम्प्यूटर 1 सेकण्ड मे रैममे सस्पेंड भए जएताह."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -351,8 +345,15 @@ msgstr ""
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "जखन पावर एडाप्टर प्लगमे लगाएल गेल अछि"
+
+#: powerdevilcore.cpp:679
+#, fuzzy, kde-format
+#| msgid "The computer will be halted in 1 second."
+#| msgid_plural "The computer will be halted in %1 seconds."
+msgid "The computer will no longer go to sleep."
+msgstr "कम्प्यूटर 1 सेकण्डमे हाल्ट भए जएताह. "
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -362,7 +363,7 @@ msgstr ""
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "पावर एडाप्टर केँ प्लग मे लगाएल गेल अछि"
 
 #: powerdevilcore.cpp:684
@@ -374,7 +375,7 @@ msgstr "जखन बैटरी पावर पर अछि"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "पावर एडाप्टर केँ प्लग सँ निकालल गेल अछि"
 
 #: powerdevilcore.cpp:745
@@ -386,6 +387,36 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 1 second."
+#~| msgid_plural ""
+#~| "Your battery level is critical, the computer will be halted in %1 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "अहाँक बैटरीक स्तर गंभीर भए गेल अछि. पीसी 1 सेकण्ड मे हाल्ट भए जएताह. "
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 1 second."
+#~| msgid_plural ""
+#~| "Your battery level is critical, the computer will be halted in %1 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "अहाँक बैटरीक स्तर गंभीर भए गेल अछि. पीसी 1 सेकण्ड मे हाल्ट भए जएताह. "
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 1 second."
+#~| msgid_plural ""
+#~| "Your battery level is critical, the computer will be halted in %1 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "अहाँक बैटरीक स्तर गंभीर भए गेल अछि. पीसी 1 सेकण्ड मे हाल्ट भए जएताह. "
 
 #, fuzzy
 #~| msgid "min"
@@ -447,24 +478,6 @@ msgstr ""
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "जखन स्लीप बटन दबाएल जाए"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "कम्प्यूटर 1 सेकण्ड मे स्टैण्डबाइ भए जएताह."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "कम्प्यूटर 1 सेकण्ड मे रैममे सस्पेंड भए जएताह."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "कम्प्यूटर 1 सेकण्ड मे रैममे सस्पेंड भए जएताह."
 
 #, fuzzy
 #~| msgid "New Profile"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: potwerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2010-06-01 18:58+0530\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: American English <kde-translation@bengalinux.org>\n"
@@ -205,9 +205,9 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "সঙ্কটজনক ব্যাটারি মাত্রা"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "গণক যন্ত্র %1 সেকেন্ডে haltওয়া হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #: powerdevilcore.cpp:523
@@ -255,23 +255,21 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
-"আপনার ব্যাটারি সঙ্কটজনক মাত্রায় পৌঁছে গেছে, তাই %1 সেকেণ্ড পরে আপনার পিসি বন্ধ করে "
-"দেওয়া হবে। আটকাতে চাইলে এখানে ক্লিক করুন।"
+"গণক যন্ত্র %1 সেকেন্ডে অতিরিক্তের দিকে রাখা হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -283,15 +281,9 @@ msgstr "বন্ধ"
 
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"আপনার ব্যাটারি সঙ্কটজনক মাত্রায় পৌঁছে গেছে, তাই %1 সেকেণ্ড পরে আপনার পিসি বন্ধ করে "
-"দেওয়া হবে। আটকাতে চাইলে এখানে ক্লিক করুন।"
+"গণক যন্ত্র %1 সেকেন্ডে রামে নিলম্বন করা হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -303,13 +295,9 @@ msgstr ""
 
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery has reached critical level, the PC will be halted in %1 "
-#| "seconds. Click here to block the process."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
-"আপনার ব্যাটারি সঙ্কটজনক মাত্রায় পৌঁছে গেছে, তাই %1 সেকেণ্ড পরে আপনার পিসি বন্ধ করে "
-"দেওয়া হবে। আটকাতে চাইলে এখানে ক্লিক করুন।"
+"গণক যন্ত্র %1 সেকেন্ডে রামে নিলম্বন করা হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -346,8 +334,13 @@ msgstr ""
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "যখন এ-সি অ্যাডাপ্টার লাগানো আছে"
+
+#: powerdevilcore.cpp:679
+#, fuzzy, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "গণক যন্ত্র %1 সেকেন্ডে haltওয়া হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -357,7 +350,7 @@ msgstr ""
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "পাওয়ার অ্যাডাপ্টার লাগানো হয়েছে"
 
 #: powerdevilcore.cpp:684
@@ -369,7 +362,7 @@ msgstr "যখন ব্যাটারিতে চলছে"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "পাওয়ার অ্যাডাপ্টার খুলে ফেলা হয়েছে"
 
 #: powerdevilcore.cpp:745
@@ -381,6 +374,36 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "আপনার ব্যাটারি সঙ্কটজনক মাত্রায় পৌঁছে গেছে, তাই %1 সেকেণ্ড পরে আপনার পিসি বন্ধ "
+#~ "করে দেওয়া হবে। আটকাতে চাইলে এখানে ক্লিক করুন।"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "আপনার ব্যাটারি সঙ্কটজনক মাত্রায় পৌঁছে গেছে, তাই %1 সেকেণ্ড পরে আপনার পিসি বন্ধ "
+#~ "করে দেওয়া হবে। আটকাতে চাইলে এখানে ক্লিক করুন।"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery has reached critical level, the PC will be halted in %1 "
+#~| "seconds. Click here to block the process."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "আপনার ব্যাটারি সঙ্কটজনক মাত্রায় পৌঁছে গেছে, তাই %1 সেকেণ্ড পরে আপনার পিসি বন্ধ "
+#~ "করে দেওয়া হবে। আটকাতে চাইলে এখানে ক্লিক করুন।"
 
 #, fuzzy
 #~| msgid "min"
@@ -445,22 +468,6 @@ msgstr ""
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "স্লীপ বাটন চাপলে"
-
-#, fuzzy
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "গণক যন্ত্র %1 সেকেন্ডে অতিরিক্তের দিকে রাখা হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক "
-#~ "করো।"
-
-#, fuzzy
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr ""
-#~ "গণক যন্ত্র %1 সেকেন্ডে রামে নিলম্বন করা হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
-
-#, fuzzy
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr ""
-#~ "গণক যন্ত্র %1 সেকেন্ডে রামে নিলম্বন করা হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #, fuzzy
 #~| msgid "New Profile"

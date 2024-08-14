@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2010-06-22 16:52+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -215,9 +215,9 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "સંકટમય બેટરી સ્તર"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr ""
 
 #: powerdevilcore.cpp:523
@@ -265,21 +265,22 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
-#| "seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં સસ્પેન્ડ થઈ જશે."
+#| "Your battery level is critical, the computer will be halted in 30 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે: તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં બંધ થઈ જશે."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -292,12 +293,10 @@ msgstr "બંધ કરો"
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
+#| "Your battery level is critical, the computer will be hibernated in 30 "
 #| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં સસ્પેન્ડ થઈ જશે."
+msgid "The system will hibernate in 60 seconds."
+msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં હાઈબરનેટ થઈ જશે."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -311,10 +310,9 @@ msgstr "હાઈબરનેટ"
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
-#| "seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં સસ્પેન્ડ થઈ જશે."
+#| "Your battery level is critical, the computer will be halted in 30 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે: તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં બંધ થઈ જશે."
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -353,8 +351,13 @@ msgstr ""
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "જ્યારે AC એડેપ્ટર પ્લગઇન થયેલ છે"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr ""
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -364,7 +367,7 @@ msgstr ""
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "પાવર એડેપ્ટર લગાવવામાં આવ્યું છે."
 
 #: powerdevilcore.cpp:684
@@ -376,7 +379,7 @@ msgstr "જ્યારે બેટરી પાવર પર હોય"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "પાવર એડેપ્ટર કાઢી નાખવામાં આવેલ છે."
 
 #: powerdevilcore.cpp:745
@@ -388,6 +391,30 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં સસ્પેન્ડ થઈ જશે."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં સસ્પેન્ડ થઈ જશે."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં સસ્પેન્ડ થઈ જશે."
 
 #, fuzzy
 #~| msgid "Level"
@@ -483,27 +510,6 @@ msgstr ""
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "જ્યારે સ્લિપ બટન દબાવ્યું છે"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 30 "
-#~| "seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે: તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં બંધ થઈ જશે."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be hibernated in 30 "
-#~| "seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે, તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં હાઈબરનેટ થઈ જશે."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 30 "
-#~| "seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "તમારી બેટરીનું સ્તર ભયાનક નીચું છે: તમારું કોમ્પ્યુટર ૩૦ સેકન્ડ્સમાં બંધ થઈ જશે."
 
 #~ msgid "On Profile Load"
 #~ msgstr "પ્રોફાઇલ લાવવા પર"

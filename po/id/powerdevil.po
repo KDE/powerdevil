@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2023-02-18 15:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -203,9 +203,10 @@ msgstr "Kebijakan aktivitas ini mencegah pengelolaan daya layar"
 msgid "Extra Battery Added"
 msgstr "Baterai Ekstra Ditambahkan"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Komputer tidak lama lagi akan tidur."
 
 #: powerdevilcore.cpp:523
@@ -264,20 +265,24 @@ msgstr ""
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
 #| "it down and change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Baterai berjalan lemah - untuk meneruskan penggunaan komputermu, colokkanlah "
 "atau matikanlah dan ubah baterainya."
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Tingkat baterai kritis. Komputermu akan mati dalam 60 detik."
+#, fuzzy, kde-format
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Komputer akan diletakkan ke posisi siap dalam %1 detik."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -288,13 +293,11 @@ msgid "Shut Down Now"
 msgstr "Matikan"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Tingkat baterai kritis. Komputermu akan memasuki mode hibernasi dalam 60 "
-"detik."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Komputer akan disuspensi ke RAM dalam %1 detik."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -306,9 +309,11 @@ msgid "Hibernate Now"
 msgstr "Hibernasi"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "Tingkat baterai kritis. Komputermu akan tidur dalam 60 detik."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Komputer akan disuspensi ke RAM dalam %1 detik."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -342,9 +347,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterai Kritis (%1% Tersisa)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Adaptor AC Dicolokkan"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Komputer tidak lama lagi akan tidur."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -352,8 +363,9 @@ msgid "Running on AC power"
 msgstr "Berjalan dalam daya AC"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Adaptor daya telah dicolokkan."
 
 #: powerdevilcore.cpp:684
@@ -362,8 +374,9 @@ msgid "Running on Battery Power"
 msgstr "Berjalan dalam Daya Baterai"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Adaptor daya telah dicabut."
 
 #: powerdevilcore.cpp:745
@@ -375,6 +388,20 @@ msgstr "Pengecasan Rampung"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterai sekarang tercas penuh."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "Tingkat baterai kritis. Komputermu akan mati dalam 60 detik."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Tingkat baterai kritis. Komputermu akan memasuki mode hibernasi dalam 60 "
+#~ "detik."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "Tingkat baterai kritis. Komputermu akan tidur dalam 60 detik."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -475,24 +502,6 @@ msgstr "Baterai sekarang tercas penuh."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Jika tombol tidur ditekan"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Komputer akan diletakkan ke posisi siap dalam %1 detik."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Komputer akan disuspensi ke RAM dalam %1 detik."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Komputer akan disuspensi ke RAM dalam %1 detik."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Tidur hibrida"

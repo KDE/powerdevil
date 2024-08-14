@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-07 14:05+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -196,9 +196,10 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Aggiunta batteria supplementare"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Il computer non andrà più in sospensione"
 
 #: powerdevilcore.cpp:523
@@ -250,21 +251,26 @@ msgstr ""
 "la batteria."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Assicurati che l'alimentatore sia collegato e fornisca energia sufficiente."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Collega il computer."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr ""
-"Livello critico della batteria. Il computer sarà spento fra 60 secondi."
+#, fuzzy, kde-format
+#| msgid "The computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Il computer si spegnerà tra 60 secondi."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -274,12 +280,10 @@ msgid "Shut Down Now"
 msgstr "Spegni subito"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Livello critico della batteria. Il computer sarà ibernato fra 60 secondi."
+#, fuzzy, kde-format
+#| msgid "The computer will hibernate in 60 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Il computer sarà ibernato tra 60 secondi."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -290,10 +294,10 @@ msgid "Hibernate Now"
 msgstr "Iberna subito"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Livello critico della batteria. Il computer sarà sospeso fra 60 secondi."
+#, fuzzy, kde-format
+#| msgid "The computer will sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Il computer sarà sospeso fra 60 secondi."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -326,9 +330,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Livello batteria critico (%1% rimanenti)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Cavo di alimentazione inserito"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Il computer non andrà più in sospensione"
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -336,8 +346,9 @@ msgid "Running on AC power"
 msgstr "PC collegato all'alimentatore"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Il cavo di alimentazione è stato collegato."
 
 #: powerdevilcore.cpp:684
@@ -346,8 +357,9 @@ msgid "Running on Battery Power"
 msgstr "Batteria in uso"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Il cavo di alimentazione è stato scollegato."
 
 #: powerdevilcore.cpp:745
@@ -359,6 +371,21 @@ msgstr "Carica completata"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batteria è ora completamente carica."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Livello critico della batteria. Il computer sarà spento fra 60 secondi."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Livello critico della batteria. Il computer sarà ibernato fra 60 secondi."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Livello critico della batteria. Il computer sarà sospeso fra 60 secondi."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -467,15 +494,6 @@ msgstr "La batteria è ora completamente carica."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Durante la sospensione, entra"
-
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Il computer si spegnerà tra 60 secondi."
-
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Il computer sarà ibernato tra 60 secondi."
-
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Il computer sarà sospeso fra 60 secondi."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Sospensione ibrida"

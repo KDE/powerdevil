@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2022-05-14 17:18+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -200,9 +200,10 @@ msgstr "Denne aktivitets politikker forhindrer strømstyring for skærm"
 msgid "Extra Battery Added"
 msgstr "Ekstra batteri tilføjet"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Computeren vil ikke længere gå i slumretilstand."
 
 #: powerdevilcore.cpp:523
@@ -261,20 +262,24 @@ msgstr ""
 #| msgid ""
 #| "Battery running low - to continue using your computer, plug it in or shut "
 #| "it down and change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Dit batteriniveau er ved at være lavt. Hvis du vil fortsætte med at bruge "
 "din computer, så sæt den i stikkontakten eller luk ned og udskift batteriet."
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Batteriniveauet er kritisk. Computeren vil lukke ned om 60 sekunder."
+#, fuzzy, kde-format
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Computeren vil blive sat på standby om 1 sekund."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -285,12 +290,11 @@ msgid "Shut Down Now"
 msgstr "Luk ned"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Batteriniveauet er kritisk. Computeren vil gå i dvaletilstand om 60 sekunder."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -302,11 +306,11 @@ msgid "Hibernate Now"
 msgstr "Dvale"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Batteriniveauet er kritisk. Computeren vil gå i slumretilstand om 60 "
-"sekunder."
+#, fuzzy, kde-format
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -342,9 +346,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteri kritisk (%1% tilbage)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Strømforsyning tilsluttet"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Computeren vil ikke længere gå i slumretilstand."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -352,8 +362,9 @@ msgid "Running on AC power"
 msgstr "Kører på strømforsyning"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Strømforsyningen er blevet tilsluttet."
 
 #: powerdevilcore.cpp:684
@@ -362,8 +373,9 @@ msgid "Running on Battery Power"
 msgstr "Kører på batteri"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Strømforsyningen er blevet frakoblet."
 
 #: powerdevilcore.cpp:745
@@ -375,6 +387,23 @@ msgstr "Opladning fuldført"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er nu fuldt opladet."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Batteriniveauet er kritisk. Computeren vil lukke ned om 60 sekunder."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Batteriniveauet er kritisk. Computeren vil gå i dvaletilstand om 60 "
+#~ "sekunder."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Batteriniveauet er kritisk. Computeren vil gå i slumretilstand om 60 "
+#~ "sekunder."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -473,24 +502,6 @@ msgstr "Batteriet er nu fuldt opladet."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Når der trykkes på soveknappen"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Computeren vil blive sat på standby om 1 sekund."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Computeren vil blive suspenderet til ram om 1 sekund."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hybrid-slumre"

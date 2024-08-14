@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-07 08:34+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -208,9 +208,10 @@ msgstr "Ces règles d'activité empêchent la gestion de l'énergie de l'écran"
 msgid "Extra Battery Added"
 msgstr "Batterie supplémentaire ajoutée"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "L'ordinateur ne sera plus mis en veille."
 
 #: powerdevilcore.cpp:523
@@ -262,21 +263,27 @@ msgstr ""
 "batterie."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Veuillez vous assurer que l'adaptateur secteur est branché et qu'il fournit "
 "assez d'énergie."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Branchez l'ordinateur."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Batterie critique. Votre ordinateur s'éteindra dans 60 secondes."
+#, fuzzy, kde-format
+#| msgid "The computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Votre ordinateur s'éteindra dans 60 secondes."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -286,12 +293,10 @@ msgid "Shut Down Now"
 msgstr "Éteindre maintenant"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Batterie critique. Votre ordinateur passera en hibernation dans 60 secondes."
+#, fuzzy, kde-format
+#| msgid "The computer will hibernate in 60 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Votre ordinateur sera mis en hibernation dans 60 secondes."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -302,10 +307,10 @@ msgid "Hibernate Now"
 msgstr "Mettre en hibernation maintenant"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Batterie critique. Votre ordinateur sera mis en veille dans 60 secondes."
+#, fuzzy, kde-format
+#| msgid "The computer will sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Votre ordinateur sera mis en veille dans 60 secondes."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -339,9 +344,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Niveau de la batterie critique (%1 % restant)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Prise d'alimentation branchée"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "L'ordinateur ne sera plus mis en veille."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -349,8 +360,9 @@ msgid "Running on AC power"
 msgstr "Fonctionnement sur secteur"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "La prise d'alimentation a été branchée."
 
 #: powerdevilcore.cpp:684
@@ -359,8 +371,9 @@ msgid "Running on Battery Power"
 msgstr "Fonctionnement sur batterie"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "La prise d'alimentation a été débranchée."
 
 #: powerdevilcore.cpp:745
@@ -372,6 +385,21 @@ msgstr "Charge complète"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batterie est maintenant complètement chargée."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "Batterie critique. Votre ordinateur s'éteindra dans 60 secondes."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Batterie critique. Votre ordinateur passera en hibernation dans 60 "
+#~ "secondes."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Batterie critique. Votre ordinateur sera mis en veille dans 60 secondes."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -481,15 +509,6 @@ msgstr "La batterie est maintenant complètement chargée."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Lors de la veille, saisir"
-
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Votre ordinateur s'éteindra dans 60 secondes."
-
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Votre ordinateur sera mis en hibernation dans 60 secondes."
-
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Votre ordinateur sera mis en veille dans 60 secondes."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Mise en veille hybride"

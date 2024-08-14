@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2014-08-11 12:48+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -202,9 +202,9 @@ msgstr "De Regeln för disse Aktiviteet verhöödt de Schirmstroompleeg."
 msgid "Extra Battery Added"
 msgstr "Batterie bito toföögt"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr ""
 
 #: powerdevilcore.cpp:523
@@ -259,23 +259,25 @@ msgstr ""
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
 #| "plug in your computer, or shut it down and then change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Dien Batterieladen is siet. Wenn Du Dien Reekner wiederbruken muttst, koppel "
 "em Nettstroom to oder maak em ut un wessel de Batterie."
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
-#| "seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Dien Batteriestoop is kritisch, de Reekner slöppt in 30 Sekunnen in."
+#| "Your battery level is critical, the computer will be halted in 30 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr ""
+"Dien Batteriestoop is kritisch, de Reekner warrt in 30 Sekunnen daalfohrt."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -288,12 +290,11 @@ msgstr "Utmaken"
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
+#| "Your battery level is critical, the computer will be hibernated in 30 "
 #| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "Dien Batteriestoop is kritisch, de Reekner slöppt in 30 Sekunnen in."
+msgid "The system will hibernate in 60 seconds."
+msgstr ""
+"Dien Batteriestoop is kritisch, de Reekner warrt in 30 Sekunn infroren."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -307,10 +308,10 @@ msgstr "Infreren"
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
-#| "seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "Dien Batteriestoop is kritisch, de Reekner slöppt in 30 Sekunnen in."
+#| "Your battery level is critical, the computer will be halted in 30 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr ""
+"Dien Batteriestoop is kritisch, de Reekner warrt in 30 Sekunnen daalfohrt."
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -345,9 +346,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Batterie is \"Kritisch\" (%1% över)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Stroomkavel is dat Nett tokoppelt"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr ""
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -357,7 +364,7 @@ msgstr "Löppt över Wesselstroom"
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Dat Stroomkavel wöör insteken."
 
 #: powerdevilcore.cpp:684
@@ -368,7 +375,7 @@ msgstr "Löppt op Batterie"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Dat Stroomkavel wöör ruttrocken."
 
 #: powerdevilcore.cpp:745
@@ -382,6 +389,33 @@ msgstr "Opladen afslaten"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Dien Batterie is heel laadt."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Dien Batteriestoop is kritisch, de Reekner slöppt in 30 Sekunnen in."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Dien Batteriestoop is kritisch, de Reekner slöppt in 30 Sekunnen in."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Dien Batteriestoop is kritisch, de Reekner slöppt in 30 Sekunnen in."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -448,30 +482,6 @@ msgstr "Dien Batterie is heel laadt."
 #~| msgid "After"
 #~ msgid "after "
 #~ msgstr "Na"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 30 "
-#~| "seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr ""
-#~ "Dien Batteriestoop is kritisch, de Reekner warrt in 30 Sekunnen daalfohrt."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be hibernated in 30 "
-#~| "seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr ""
-#~ "Dien Batteriestoop is kritisch, de Reekner warrt in 30 Sekunn infroren."
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 30 "
-#~| "seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr ""
-#~ "Dien Batteriestoop is kritisch, de Reekner warrt in 30 Sekunnen daalfohrt."
 
 #~ msgid "On Profile Load"
 #~ msgstr "Bi't Laden vun en Profil"

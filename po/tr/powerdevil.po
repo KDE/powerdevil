@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-06 11:17+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -193,9 +193,10 @@ msgstr "Bu etkinliğin kuralları ekran güç yönetimini engeller"
 msgid "Extra Battery Added"
 msgstr "İlave Pil Eklendi"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Bilgisayar artık uyku kipine geçmeyecek."
 
 #: powerdevilcore.cpp:523
@@ -246,20 +247,26 @@ msgstr ""
 "pili şarj edin veya değiştirin."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Güç bağdaştırıcısının takılı olduğundan ve yeterli güç sağladığından emin "
 "olun."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Bilgisayarı fişe takın."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr "Pil düzeyi kritik. Bilgisayar 60 saniye içinde kapanacak."
 
 #: powerdevilcore.cpp:610
@@ -271,11 +278,8 @@ msgstr "Şimdi Kapat"
 
 #: powerdevilcore.cpp:616
 #, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Pil düzeyi kritik. Bilgisayar 60 saniye içinde derin uyku kipine geçecek."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -286,8 +290,10 @@ msgid "Hibernate Now"
 msgstr "Şimdi Derin Uykuya Geç"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr "Pil düzeyi kritik. Bilgisayar 60 saniye içinde uyuyacak."
 
 #: powerdevilcore.cpp:626
@@ -321,9 +327,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Pil Kritik (%​%1 Kaldı)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Bağdaştırıcı Takılı"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Bilgisayar artık uyku kipine geçmeyecek."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -331,8 +343,9 @@ msgid "Running on AC power"
 msgstr "Fişe Takılı"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Güç bağdaştırıcısı takılı."
 
 #: powerdevilcore.cpp:684
@@ -341,8 +354,9 @@ msgid "Running on Battery Power"
 msgstr "Pille Çalışıyor"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Güç bağdaştırıcısı takılı değil."
 
 #: powerdevilcore.cpp:745
@@ -354,3 +368,9 @@ msgstr "Şarj Tamamlandı"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Piliniz tümüyle şarj edildi."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Pil düzeyi kritik. Bilgisayar 60 saniye içinde derin uyku kipine geçecek."

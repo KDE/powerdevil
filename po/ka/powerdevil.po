@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-06 05:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -193,9 +193,10 @@ msgstr "აქტივობის წესები ხელს უშლი
 msgid "Extra Battery Added"
 msgstr "დამატებულია დამატებითი ელემენტი"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "კომპიუტერი აღარ დაიძინებს."
 
 #: powerdevilcore.cpp:523
@@ -246,19 +247,25 @@ msgstr ""
 "შეიძლება გამოირთოს. საჭიროა ელემენტის გამოცვლა ან დატენვა."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "დარწმუნდით, რომ კვება შეერთებულია და მას საკმარისი სიმძლავრე მიეწოდება."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "მიუერთეთ კომპიუტერს კვების ბლოკი."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
 "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში "
 "გამოირთვება."
@@ -272,12 +279,8 @@ msgstr "ახლავე გამორთვა"
 
 #: powerdevilcore.cpp:616
 #, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი დისკზე პროგრამულ "
-"ძილში 60 წამში გადავა."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -288,8 +291,10 @@ msgid "Hibernate Now"
 msgstr "პროგრამული ძილი ახლავე"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
 "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი 60 წამში დაიძინებს."
 
@@ -324,9 +329,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "ელემენტის მუხტის დონე კრიტიკულია (დარჩენილია %1%)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "დამტენი შეერთბულია"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "კომპიუტერი აღარ დაიძინებს."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -334,8 +345,9 @@ msgid "Running on AC power"
 msgstr "იყენებს დენის წყაროს"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "დამტენის კაბელი შეერთებულია."
 
 #: powerdevilcore.cpp:684
@@ -344,8 +356,9 @@ msgid "Running on Battery Power"
 msgstr "იყენებს ელემენტის კვებას"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "დამტენის კაბელი გამოერთებულია."
 
 #: powerdevilcore.cpp:745
@@ -357,6 +370,13 @@ msgstr "დატენვა დასრულდა"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "ელემენტი სრულად დაიტენა."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "ელემენტის მუხტი კრიტიკულ დონეზე დავიდა. თქვენი კომპიუტერი დისკზე "
+#~ "პროგრამულ ძილში 60 წამში გადავა."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"

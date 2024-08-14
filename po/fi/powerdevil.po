@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2023-10-12 18:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -203,9 +203,10 @@ msgstr "Tämän aktiviteetin asetukset estävät näytön virranhallinnan"
 msgid "Extra Battery Added"
 msgstr "Lisäakku lisätty"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Tietokone ei enää siirry keskeytystilaan."
 
 #: powerdevilcore.cpp:523
@@ -256,18 +257,24 @@ msgstr ""
 "hyvänsä. Lataa tai vaihda sen akku."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr "Varmista, että virtalähde on kytketty ja tarjoaa tarpeeksi virtaa."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Kytke tietokone verkkovirtaan."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr "Akku on kriittisen vähissä. Järjestelmä sammutetaan 60 sekunnissa."
 
 #: powerdevilcore.cpp:610
@@ -278,10 +285,11 @@ msgid "Shut Down Now"
 msgstr "Sammuta nyt"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will enter hibernation mode in 60 "
+#| "seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
 "Akku on kriittisen vähissä. Järjestelmä siirtyy keskeytystilaan 60 "
 "sekunnissa."
@@ -295,8 +303,10 @@ msgid "Hibernate Now"
 msgstr "Siirry lepotilaan nyt"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
 "Akku on kriittisen vähissä. Järjestelmä siirtyy valmiustilaan 60 sekunnissa."
 
@@ -331,9 +341,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Akku kriittisen vähissä (%1 % jäljellä)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Verkkovirta kytketty"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Tietokone ei enää siirry keskeytystilaan."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -341,8 +357,9 @@ msgid "Running on AC power"
 msgstr "Verkkovirta käytössä"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Kytkeydyttiin verkkovirtaan."
 
 #: powerdevilcore.cpp:684
@@ -351,8 +368,9 @@ msgid "Running on Battery Power"
 msgstr "Akku käytössä"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Irtauduttiin verkkovirrasta."
 
 #: powerdevilcore.cpp:745
@@ -364,6 +382,22 @@ msgstr "Lataus valmis"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Akku on nyt ladattu täyteen."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "Akku on kriittisen vähissä. Järjestelmä sammutetaan 60 sekunnissa."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Akku on kriittisen vähissä. Järjestelmä siirtyy keskeytystilaan 60 "
+#~ "sekunnissa."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Akku on kriittisen vähissä. Järjestelmä siirtyy valmiustilaan 60 "
+#~ "sekunnissa."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -460,28 +494,6 @@ msgstr "Akku on nyt ladattu täyteen."
 #~ msgid "Standby, then hibernate after a period of inactivity"
 #~ msgstr ""
 #~ "Siirry valmiustilasta lepotilaan, kun on oltu tietty aika passiivisia"
-
-#, fuzzy
-#~| msgid "Battery level critical. Your computer will shut down in 60 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Akku on kriittisen vähissä. Järjestelmä sammutetaan 60 sekunnissa."
-
-#, fuzzy
-#~| msgid ""
-#~| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~| "seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr ""
-#~ "Akku on kriittisen vähissä. Järjestelmä siirtyy keskeytystilaan 60 "
-#~ "sekunnissa."
-
-#, fuzzy
-#~| msgid ""
-#~| "Battery level critical. Your computer will go to sleep in 60 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr ""
-#~ "Akku on kriittisen vähissä. Järjestelmä siirtyy valmiustilaan 60 "
-#~ "sekunnissa."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hybridikeskeytys"

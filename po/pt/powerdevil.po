@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2022-11-28 16:25+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -206,9 +206,10 @@ msgstr "As políticas desta actividade impedem a gestão de energia do ecrã"
 msgid "Extra Battery Added"
 msgstr "Bateria Extra Adicionada"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "O computador não entrará mais em suspensão."
 
 #: powerdevilcore.cpp:523
@@ -264,20 +265,22 @@ msgstr ""
 #| msgid ""
 #| "Battery running low - to continue using your computer, make sure that the "
 #| "power adapter is plugged in and that it provides enough power."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "A bateria está fraca - para continuar a usar o seu computador, certifique-se "
 "que o mesmo está ligado à corrente e que tem potência suficiente."
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr ""
 "A bateria atingiu um nível crítico. O seu computador será encerrado daqui a "
 "60 segundos."
@@ -290,16 +293,9 @@ msgid "Shut Down Now"
 msgstr "Desligar Agora"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#, kde-format
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"A bateria atingiu um nível crítico. O seu computador irá hibernar daqui a 60 "
-"segundos."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -313,7 +309,7 @@ msgstr "Hibernar Agora"
 #, fuzzy, kde-format
 #| msgid ""
 #| "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr ""
 "A bateria atingiu um nível crítico. O seu computador será suspenso daqui a "
 "60 segundos."
@@ -350,9 +346,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria Crítica (Falta %1%)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Ligação à Corrente Activa"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "O computador não entrará mais em suspensão."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -360,8 +362,9 @@ msgid "Running on AC power"
 msgstr "A funcionar ligado à corrente"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "O computador foi ligado à corrente."
 
 #: powerdevilcore.cpp:684
@@ -370,8 +373,9 @@ msgid "Running on Battery Power"
 msgstr "A funcionar com a bateria"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "O computador foi desligado da corrente."
 
 #: powerdevilcore.cpp:745
@@ -383,6 +387,17 @@ msgstr "Carga Completa"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "A bateria está agora completamente carregada."
+
+#, fuzzy
+#~| msgid ""
+#~| "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "A bateria atingiu um nível crítico. O seu computador irá hibernar daqui a "
+#~ "60 segundos."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"

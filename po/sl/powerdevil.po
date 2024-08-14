@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-06 06:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -203,9 +203,10 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Dodana dodatna baterija"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Računalnik ne bo več šel v spanje."
 
 #: powerdevilcore.cpp:523
@@ -256,20 +257,26 @@ msgstr ""
 "izklopi. Napolnite ali zamenjajte baterijo."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Prepričajte se, da je napajalnik priključen in zagotavlja dovolj energije."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Priključite računalnik."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Raven baterije je kritična. Računalnik se bo izklopil čez 60 sekund."
+#, fuzzy, kde-format
+#| msgid "The computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Vaš računalnik se bo izklopil čez 60 sekund."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -279,13 +286,10 @@ msgid "Shut Down Now"
 msgstr "Izklopi zdaj"
 
 #: powerdevilcore.cpp:616
-#, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr ""
-"Raven baterije je kritična. Vaš računalnik bo v 60 sekundah preklopil v "
-"stanje mirovanja."
+#, fuzzy, kde-format
+#| msgid "The computer will hibernate in 60 seconds."
+msgid "The system will hibernate in 60 seconds."
+msgstr "Računalnik bo prešel v hibernacijo čez 60 sekund."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -296,11 +300,10 @@ msgid "Hibernate Now"
 msgstr "V mirovanje zdaj"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Raven baterije je kritična. Vaš računalnik bo prešel v stanje spanja v 60 "
-"sekundah."
+#, fuzzy, kde-format
+#| msgid "The computer will sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "Računalnik bo prešel v stanje spanja čez 60 sekund."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -333,9 +336,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritična raven baterije (%1 % preostalo)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Za napajanje se uporablja električno omrežje"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Računalnik ne bo več šel v spanje."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -343,8 +352,9 @@ msgid "Running on AC power"
 msgstr "Priključen na električno napajanje"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Priključeno je bilo napajanje iz električnega omrežja."
 
 #: powerdevilcore.cpp:684
@@ -353,8 +363,9 @@ msgid "Running on Battery Power"
 msgstr "Za napajanje se uporablja baterija"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Napajanje iz električnega omrežja je bilo prekinjeno."
 
 #: powerdevilcore.cpp:745
@@ -366,6 +377,23 @@ msgstr "Polnjenje je zaključeno"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterija je sedaj povsem polna."
+
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr ""
+#~ "Raven baterije je kritična. Računalnik se bo izklopil čez 60 sekund."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Raven baterije je kritična. Vaš računalnik bo v 60 sekundah preklopil v "
+#~ "stanje mirovanja."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr ""
+#~ "Raven baterije je kritična. Vaš računalnik bo prešel v stanje spanja v 60 "
+#~ "sekundah."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -473,15 +501,6 @@ msgstr "Baterija je sedaj povsem polna."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Ob spanju, vstopi"
-
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Vaš računalnik se bo izklopil čez 60 sekund."
-
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "Računalnik bo prešel v hibernacijo čez 60 sekund."
-
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "Računalnik bo prešel v stanje spanja čez 60 sekund."
 
 #~ msgid "Hybrid sleep"
 #~ msgstr "Hibridno spanje"

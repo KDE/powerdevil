@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-06-30 15:38+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -196,9 +196,10 @@ msgstr "Reglur sem gilda í þessari athöfn koma í veg fyrir umsjón með skj�
 msgid "Extra Battery Added"
 msgstr "Aukarafhlöðu bætt við"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
-#, kde-format
-msgid "The computer will no longer go to sleep."
+#: powerdevilcore.cpp:459
+#, fuzzy, kde-format
+#| msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
 #: powerdevilcore.cpp:523
@@ -249,18 +250,24 @@ msgstr ""
 "tækinu hvenær sem er. Settu rafhlöðuna í hleðslu eða skiptu um hana."
 
 #: powerdevilcore.cpp:587
-#, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr "Gakktu úr skugga um að spennugjafinn sé í sambandi og veiti næga orku."
 
 #: powerdevilcore.cpp:589
-#, kde-format
-msgid "Plug in the computer."
+#, fuzzy, kde-format
+#| msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr "Settu tölvuna í samband."
 
 #: powerdevilcore.cpp:608
-#, kde-format
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, fuzzy, kde-format
+#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr "Rafhlaðan er nánast tóm. Tölvan slekkur á sér eftir 60 sekúndur."
 
 #: powerdevilcore.cpp:610
@@ -272,10 +279,8 @@ msgstr "Slökkva núna"
 
 #: powerdevilcore.cpp:616
 #, kde-format
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "Rafhlaðan er nánast tóm. Tölvan leggst í dvala eftir 60 sekúndur."
+msgid "The system will hibernate in 60 seconds."
+msgstr ""
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -286,8 +291,10 @@ msgid "Hibernate Now"
 msgstr "Setja í dvala núna"
 
 #: powerdevilcore.cpp:624
-#, kde-format
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, fuzzy, kde-format
+#| msgid ""
+#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr "Rafhlaðan er nánast tóm. Tölvan verður svæfð eftir 60 sekúndur."
 
 #: powerdevilcore.cpp:626
@@ -321,9 +328,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Rafhlaða nánast tóm (%1% eftir)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "AC-spennugjafi í sambandi"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr "Tölvan verður ekki lengur svæfð."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -331,8 +344,9 @@ msgid "Running on AC power"
 msgstr "Keyri á AC-spennugjafa"
 
 #: powerdevilcore.cpp:681
-#, kde-format
-msgid "The power adapter has been plugged in."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Spennugjafanum var stungið í samband."
 
 #: powerdevilcore.cpp:684
@@ -341,8 +355,9 @@ msgid "Running on Battery Power"
 msgstr "Keyrir á rafhlöðu"
 
 #: powerdevilcore.cpp:684
-#, kde-format
-msgid "The power adapter has been unplugged."
+#, fuzzy, kde-format
+#| msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Spennugjafinn var tekinn úr sambandi."
 
 #: powerdevilcore.cpp:745
@@ -354,6 +369,11 @@ msgstr "Hleðslu lokið"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Rafhlaðan er nú fullhlaðin."
+
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "Rafhlaðan er nánast tóm. Tölvan leggst í dvala eftir 60 sekúndur."
 
 #, fuzzy
 #~ msgid " min"

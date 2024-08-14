@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -222,9 +222,9 @@ msgstr "គោលនយោបាយ​របស់​សកម្មភាព​
 msgid "Extra Battery Added"
 msgstr ""
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr ""
 
 #: powerdevilcore.cpp:523
@@ -272,21 +272,22 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, kde-format
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
-#| "seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
+#| "Your battery level is critical, the computer will be halted in 30 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់​ កុំព្យូទ័រ​នឹង​​ត្រូវ​បាន​បញ្ឈប់​នៅ​​ក្នុង​រយៈ​ពេល​ ៣០ វិនាទី ។"
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -299,12 +300,10 @@ msgstr "បិទ"
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
+#| "Your battery level is critical, the computer will be hibernated in 30 "
 #| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
-msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
+msgid "The system will hibernate in 60 seconds."
+msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​ក្នុងរយៈពេល ៣០ វិនាទី ។"
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -318,10 +317,9 @@ msgstr "សម្ងំ"
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgid ""
-#| "Your battery level is critical, the computer will be suspended in 30 "
-#| "seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
+#| "Your battery level is critical, the computer will be halted in 30 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់​ កុំព្យូទ័រ​នឹង​​ត្រូវ​បាន​បញ្ឈប់​នៅ​​ក្នុង​រយៈ​ពេល​ ៣០ វិនាទី ។"
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -357,7 +355,12 @@ msgstr ""
 
 #: powerdevilcore.cpp:678
 #, kde-format
-msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
+msgstr ""
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
 msgstr ""
 
 #: powerdevilcore.cpp:681
@@ -368,7 +371,7 @@ msgstr ""
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "អាដាប់ទ័រ​ថាមពល​ត្រូវ​បាន​ដោត ។"
 
 #: powerdevilcore.cpp:684
@@ -379,7 +382,7 @@ msgstr ""
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "អាដាប់ទ័រ​ថាមពល​បាន​ដក​ចេញ ។"
 
 #: powerdevilcore.cpp:745
@@ -391,6 +394,30 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be suspended in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​​​ក្នុង​រយៈពេល ៣០ វិនាទី ។"
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -465,27 +492,6 @@ msgstr ""
 #~| msgid "After"
 #~ msgid "after "
 #~ msgstr "ក្រោយ​ពេល​​"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 30 "
-#~| "seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់​ កុំព្យូទ័រ​នឹង​​ត្រូវ​បាន​បញ្ឈប់​នៅ​​ក្នុង​រយៈ​ពេល​ ៣០ វិនាទី ។"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be hibernated in 30 "
-#~| "seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់ កុំព្យូទ័រ​នឹង​ផ្អាក​ក្នុងរយៈពេល ៣០ វិនាទី ។"
-
-#, fuzzy
-#~| msgid ""
-#~| "Your battery level is critical, the computer will be halted in 30 "
-#~| "seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr "ថ្ម​របស់​អ្នក​បាន​ដល់​កម្រិត​គ្រោះថ្នាក់​ កុំព្យូទ័រ​នឹង​​ត្រូវ​បាន​បញ្ឈប់​នៅ​​ក្នុង​រយៈ​ពេល​ ៣០ វិនាទី ។"
 
 #~ msgid "On Profile Load"
 #~ msgstr "លើ​ទម្រង់​ផ្ទុក​"

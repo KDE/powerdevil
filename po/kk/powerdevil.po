@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2013-06-21 05:51+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -230,11 +230,11 @@ msgstr ""
 msgid "Extra Battery Added"
 msgstr "Батареяның әбден сарқылған деңгейі"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
 #| msgid "The computer will be halted in 1 second."
 #| msgid_plural "The computer will be halted in %1 seconds."
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr "Компьютер %1 секундтан кейін сөндіріледі."
 
 #: powerdevilcore.cpp:523
@@ -289,22 +289,24 @@ msgstr ""
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
 #| "plug in your computer, or shut it down and then change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Батареяңыз сарқылды. Компьютерді қолдануын жалғастыру үшін оны немесе тоққа "
 "қосыңыз немесе шығып, батареяңызды толтырып алыңыз."
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
-msgstr "Батареяңыз сарқылды, компьютер 30 секундтан кейін тоқтатылады."
+#| msgid "The computer will be put into standby in 1 second."
+#| msgid_plural "The computer will be put into standby in %1 seconds."
+msgid "The system will shut down in 60 seconds."
+msgstr "Компьютер %1 секундтан кейін күту режіміне ауысады."
 
 #: powerdevilcore.cpp:610
 #, fuzzy, kde-format
@@ -316,14 +318,11 @@ msgstr "Сөндіру"
 
 #: powerdevilcore.cpp:616
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Батареяңыз сарқылды, компьютер 30 секундтан кейін ұйықтау режіміне ауысады."
+"Компьютер %1 секундтан кейін күйін RAM жадына сақтап, қалғу режіміне ауысады."
 
 #: powerdevilcore.cpp:618
 #, fuzzy, kde-format
@@ -336,10 +335,11 @@ msgstr "Ұйықтау"
 
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr "Батареяңыз сарқылды, компьютер 30 секундтан кейін тоқтатылады."
+#| msgid "The computer will be suspended to RAM in 1 second."
+#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+msgid "The system will go to sleep in 60 seconds."
+msgstr ""
+"Компьютер %1 секундтан кейін күйін RAM жадына сақтап, қалғу режіміне ауысады."
 
 #: powerdevilcore.cpp:626
 #, fuzzy, kde-format
@@ -376,9 +376,17 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Батареясы дағдарысты деңгейде (%1% қалды)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Айнымалы тоқ адаптері қосылған"
+
+#: powerdevilcore.cpp:679
+#, fuzzy, kde-format
+#| msgid "The computer will be halted in 1 second."
+#| msgid_plural "The computer will be halted in %1 seconds."
+msgid "The computer will no longer go to sleep."
+msgstr "Компьютер %1 секундтан кейін сөндіріледі."
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -388,7 +396,7 @@ msgstr "Токтан істеп тұр"
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Қуаттандыру адаптері қосылды."
 
 #: powerdevilcore.cpp:684
@@ -399,7 +407,7 @@ msgstr "Батареядан қуаттандыруда"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Қуаттандыру адаптері ажыратылды."
 
 #: powerdevilcore.cpp:745
@@ -413,6 +421,32 @@ msgstr "Толтыруы бітті"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Батареяңыз әбден толды."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#~ msgstr "Батареяңыз сарқылды, компьютер 30 секундтан кейін тоқтатылады."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be hibernated in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Батареяңыз сарқылды, компьютер 30 секундтан кейін ұйықтау режіміне "
+#~ "ауысады."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be halted in 30 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will go to sleep in 60 seconds."
+#~ msgstr "Батареяңыз сарқылды, компьютер 30 секундтан кейін тоқтатылады."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
@@ -501,28 +535,6 @@ msgstr "Батареяңыз әбден толды."
 #~ "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 #~ msgid "When sleeping, enter"
 #~ msgstr "Ұйықтау батырмасын қосқанда"
-
-#, fuzzy
-#~| msgid "The computer will be put into standby in 1 second."
-#~| msgid_plural "The computer will be put into standby in %1 seconds."
-#~ msgid "The computer will shut down in 60 seconds."
-#~ msgstr "Компьютер %1 секундтан кейін күту режіміне ауысады."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will hibernate in 60 seconds."
-#~ msgstr ""
-#~ "Компьютер %1 секундтан кейін күйін RAM жадына сақтап, қалғу режіміне "
-#~ "ауысады."
-
-#, fuzzy
-#~| msgid "The computer will be suspended to RAM in 1 second."
-#~| msgid_plural "The computer will be suspended to RAM in %1 seconds."
-#~ msgid "The computer will sleep in 60 seconds."
-#~ msgstr ""
-#~ "Компьютер %1 секундтан кейін күйін RAM жадына сақтап, қалғу режіміне "
-#~ "ауысады."
 
 #~ msgid "On Profile Load"
 #~ msgstr "Профилін жүктенде"

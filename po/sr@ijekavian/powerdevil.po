@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 00:41+0000\n"
+"POT-Creation-Date: 2024-08-14 00:41+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -209,9 +209,9 @@ msgstr "Смернице ове активности не допуштају у�
 msgid "Extra Battery Added"
 msgstr "Додата допунска батерија"
 
-#: powerdevilcore.cpp:459 powerdevilcore.cpp:679
+#: powerdevilcore.cpp:459
 #, kde-format
-msgid "The computer will no longer go to sleep."
+msgid "The system will no longer go to sleep."
 msgstr ""
 
 #: powerdevilcore.cpp:523
@@ -276,21 +276,23 @@ msgstr ""
 #| msgid ""
 #| "Your battery is low. If you need to continue using your computer, either "
 #| "plug in your computer, or shut it down and then change the battery."
-msgid "Ensure that the power adapter is plugged in and provides enough power."
+msgid ""
+"Ensure that the power cord is plugged in all the way and provides enough "
+"power."
 msgstr ""
 "Батерија је при крају. Ако желите да наставите са радом, или утакните "
 "рачунар у струју или га искључите и промените батерију."
 
 #: powerdevilcore.cpp:589
 #, kde-format
-msgid "Plug in the computer."
+msgid "Plug in the power cord."
 msgstr ""
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
-msgid "Battery level critical. Your computer will shut down in 60 seconds."
+msgid "The system will shut down in 60 seconds."
 msgstr "Батерија је на критичном нивоу, рачунар ће бити угашен за 60 секунди."
 
 # >> @item:inlistbox
@@ -303,16 +305,9 @@ msgid "Shut Down Now"
 msgstr "угаси"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 60 "
-#| "seconds."
-msgid ""
-"Battery level critical. Your computer will enter hibernation mode in 60 "
-"seconds."
+#, kde-format
+msgid "The system will hibernate in 60 seconds."
 msgstr ""
-"Батерија је на критичном нивоу, рачунар ће бити послат у хибернацију за 60 "
-"секунди."
 
 # >> @item:inlistbox
 #: powerdevilcore.cpp:618
@@ -328,7 +323,7 @@ msgstr "у хибернацију"
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 60 seconds."
-msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
+msgid "The system will go to sleep in 60 seconds."
 msgstr "Батерија је на критичном нивоу, рачунар ће бити угашен за 60 секунди."
 
 #: powerdevilcore.cpp:626
@@ -368,9 +363,15 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Батерија критична (остало %1%)"
 
 #: powerdevilcore.cpp:678
-#, kde-format
-msgid "AC Adapter Plugged In"
+#, fuzzy, kde-format
+#| msgid "AC Adapter Plugged In"
+msgid "Power Cord Plugged In"
 msgstr "Струјни адаптер утакнут"
+
+#: powerdevilcore.cpp:679
+#, kde-format
+msgid "The computer will no longer go to sleep."
+msgstr ""
 
 #: powerdevilcore.cpp:681
 #, kde-format
@@ -380,7 +381,7 @@ msgstr "На зидном напајању"
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
-msgid "The power adapter has been plugged in."
+msgid "The power cord has been plugged in."
 msgstr "Струјни адаптер је утакнут."
 
 #: powerdevilcore.cpp:684
@@ -391,7 +392,7 @@ msgstr "На батеријском напајању"
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
-msgid "The power adapter has been unplugged."
+msgid "The power cord has been unplugged."
 msgstr "Струјни адаптер је извучен."
 
 #: powerdevilcore.cpp:745
@@ -405,6 +406,17 @@ msgstr "Пуњење довршено"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Батерија је сада потпуно напуњена."
+
+#, fuzzy
+#~| msgid ""
+#~| "Your battery level is critical, the computer will be hibernated in 60 "
+#~| "seconds."
+#~ msgid ""
+#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
+#~ "seconds."
+#~ msgstr ""
+#~ "Батерија је на критичном нивоу, рачунар ће бити послат у хибернацију за "
+#~ "60 секунди."
 
 #~ msgctxt "Brightness level, label for the slider"
 #~ msgid "Level"
