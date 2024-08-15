@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 11:17+0300\n"
+"PO-Revision-Date: 2024-08-14 14:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -194,10 +194,9 @@ msgid "Extra Battery Added"
 msgstr "İlave Pil Eklendi"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Bilgisayar artık uyku kipine geçmeyecek."
+msgstr "Sistem artık uykuya geçmeyecek."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -247,27 +246,22 @@ msgstr ""
 "pili şarj edin veya değiştirin."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Güç bağdaştırıcısının takılı olduğundan ve yeterli güç sağladığından emin "
-"olun."
+"Güç kablosunun takılı olduğundan ve yeterli güç sağladığından emin olun."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Bilgisayarı fişe takın."
+msgstr "Güç kablosunu takın."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Pil düzeyi kritik. Bilgisayar 60 saniye içinde kapanacak."
+msgstr "Sistem 60 saniye içinde kapanacak."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -279,7 +273,7 @@ msgstr "Şimdi Kapat"
 #: powerdevilcore.cpp:616
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "Sistem 60 saniye içinde derin uykuya geçecek."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -290,11 +284,9 @@ msgid "Hibernate Now"
 msgstr "Şimdi Derin Uykuya Geç"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Pil düzeyi kritik. Bilgisayar 60 saniye içinde uyuyacak."
+msgstr "Sistem 60 saniye içinde uykuya geçecek."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -327,10 +319,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Pil Kritik (%​%1 Kaldı)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Bağdaştırıcı Takılı"
+msgstr "Güç Kablosu Takılı"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -343,10 +334,9 @@ msgid "Running on AC power"
 msgstr "Fişe Takılı"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Güç bağdaştırıcısı takılı."
+msgstr "Güç kablosu takıldı."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -354,10 +344,9 @@ msgid "Running on Battery Power"
 msgstr "Pille Çalışıyor"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Güç bağdaştırıcısı takılı değil."
+msgstr "Güç kablosu çıkarıldı."
 
 #: powerdevilcore.cpp:745
 #, kde-format

@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-21 08:16+0200\n"
+"PO-Revision-Date: 2024-08-14 10:06+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -196,10 +196,9 @@ msgid "Extra Battery Added"
 msgstr "Extrabatteri tillagt"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Datorn kommer inte längre gå till viloläge."
+msgstr "Systemet kommer inte längre gå till viloläge."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -249,28 +248,23 @@ msgstr ""
 "som helst. Ladda eller ersätt batteriet så snart som möjligt."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Säkerställ att strömadaptern är inkopplad och att den ger tillräckligt med "
+"Säkerställ att nätsladden är inkopplad hela vägen och ger tillräckligt med "
 "ström."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Koppla in datorn."
+msgstr "Koppla in nätsladden."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Datorn kommer att gå till vänteläge om 1 sekund."
+msgstr "Systemet kommer att stängas av om 60 sekunder."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -280,11 +274,9 @@ msgid "Shut Down Now"
 msgstr "Stäng av nu"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
+msgstr "Systemet kommer att gå till dvala om 60 sekunder."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -295,11 +287,9 @@ msgid "Hibernate Now"
 msgstr "Dvala nu"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Datorn kommer att gå till viloläge i minne om 1 sekund."
+msgstr "Systemet kommer att gå till viloläge om 60 sekunder."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -332,10 +322,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritiskt batteri (%1 % återstår)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Nätadapter inkopplad"
+msgstr "Nätsladd inkopplad"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -348,10 +337,9 @@ msgid "Running on AC power"
 msgstr "Använder nätström"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Nätadaptern har kopplats in."
+msgstr "Nätsladden har kopplats in."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -359,10 +347,9 @@ msgid "Running on Battery Power"
 msgstr "Använder batteriström"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Nätadaptern har kopplats bort."
+msgstr "Nätsladden har kopplats ur."
 
 #: powerdevilcore.cpp:745
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-08 16:54+0200\n"
+"PO-Revision-Date: 2024-08-14 15:39+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -347,7 +347,7 @@ msgstr "Oznámení: Správa napájení"
 #: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "Otevřít nastavení \"Oznamování\", \"Správa napájení\""
+msgstr "Otevřít nastavení \"Upozornění\", \"Správa napájení\""
 
 #: ui/GlobalConfig.qml:390
 #, kde-format
@@ -426,7 +426,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "Pokud neakt&ivní"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -704,39 +704,27 @@ msgid "Switch to power profile"
 msgstr "Přepnout na profil napájení"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "Spustit vlastní skript:"
+msgstr "Spustit příkaz nebo skript:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Zvolte podmínky spuštění.."
+msgstr "Zvolte podmínky spuštění"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Zvolte podmínky spuštění příkazu skriptu"
+msgstr ""
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -744,11 +732,7 @@ msgid "When entering \"%1\" state"
 msgstr "Při přechodu do stavu \"%1\""
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -759,14 +743,10 @@ msgstr "Při opuštění stavu \"%1\""
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "Pokud neaktivní"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -774,21 +754,13 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "Při přec&hodu do stavu \"%1\":"
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Při přechodu do stavu \"%1\""
+msgstr ""
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -796,60 +768,46 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "Při op&uštění stavu \"%1\""
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Při opuštění stavu \"%1\""
+msgstr ""
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "Období nečinnosti než dojde ke spuštění skriptu"
+msgstr ""
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "Pokud neakt&ivní:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "Spustit vlastní skript:"
+msgstr "Spustit příkaz nebo skript po:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "After %1 second"
-#| msgid_plural "After %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "Po %1 sekundě"
-msgstr[1] "Po %1 sekundách"
-msgstr[2] "Po %1 sekundách"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "After %1 minute"
-#| msgid_plural "After %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "Po %1 minutě"
-msgstr[1] "Po %1 minutách"
-msgstr[2] "Po %1 minutách"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
@@ -858,63 +816,37 @@ msgid "Command or script when inactive"
 msgstr ""
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Zadejte příkaz nebo vyberte soubor..."
+msgstr ""
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Zadejte příkaz nebo vyberte soubor..."
+msgstr "Zadejte příkaz nebo vyberte soubor skriptu"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Vybrat…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Vyberte soubor skriptu"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Vyberte soubor skriptu"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Vlastní doba"
-
-#~ msgctxt ""
-#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
-#~ "the system is idle"
-#~ msgid "A&fter a period of inactivity:"
-#~ msgstr "Po &době nečinnosti:"
-
-#~ msgctxt "@text:action:menu Script command to execute"
-#~ msgid "After a period of inactivity"
-#~ msgstr "Po době nečinnosti"
-
-#~ msgctxt "@label:textfield Script command to execute"
-#~ msgid "After a period of inacti&vity:"
-#~ msgstr "Po &době nečinnosti:"
-
-#~ msgctxt "@label:spinbox After X minutes"
-#~ msgid "Execute script after:"
-#~ msgstr "Spustit skript po:"
-
-#~ msgid "Select executable file…"
-#~ msgstr "Vyberte spustitelný soubor..."
-
-#~ msgid "Select executable file"
-#~ msgstr "Vyberte spustitelný soubor"

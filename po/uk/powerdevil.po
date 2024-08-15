@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 11:25+0300\n"
+"PO-Revision-Date: 2024-08-14 19:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,10 +199,9 @@ msgid "Extra Battery Added"
 msgstr "Додано додатковий акумулятор"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Комп'ютер надалі не переходитиме до режиму сну."
+msgstr "Система надалі не переходитиме до режиму сну."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -254,27 +253,23 @@ msgstr ""
 "живлення якомога скоріше."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"З'єднайте комп'ютер його із адаптером живлення і переконайтеся, що джерело "
-"живлення дає достатню напругу."
+"Надійно з'єднайте комп'ютер із адаптером живлення і переконайтеся, що "
+"джерело живлення дає достатню напругу."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "З'єднайте комп'ютер із джерелом живлення"
+msgstr "З'єднайте комп'ютер із джерелом живлення."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Комп’ютер буде вимкнено за 60 секунд."
+msgstr "Систему буде вимкнено за 60 секунд."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -284,10 +279,9 @@ msgid "Shut Down Now"
 msgstr "Вимкнути зараз"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Комп’ютер буде приспано за 60 секунд."
+msgstr "Систему буде приспано за 60 секунд."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -298,10 +292,9 @@ msgid "Hibernate Now"
 msgstr "Приспати зараз"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Комп’ютер буде вимкнено за 60 секунд."
+msgstr "Систему буде переведено до сну за 60 секунд."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -334,10 +327,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Критичний рівень заряду акумулятора (лишилося %1%)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "З’єднано з джерелом зовнішнього живлення"
+msgstr "З’єднано зі шнуром живлення"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -350,8 +342,7 @@ msgid "Running on AC power"
 msgstr "Працюємо від мережі живлення"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Було увімкнено живлення від мережі."
 
@@ -361,8 +352,7 @@ msgid "Running on Battery Power"
 msgstr "Працюємо від акумулятора"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Було вимкнено живлення від мережі."
 

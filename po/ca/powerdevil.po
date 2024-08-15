@@ -3,21 +3,21 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 12:19+0200\n"
+"PO-Revision-Date: 2024-08-14 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -200,10 +200,9 @@ msgid "Extra Battery Added"
 msgstr "S'ha afegit una bateria extra"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "L'ordinador ja no es tornarà a suspendre."
+msgstr "El sistema ja no es tornarà a suspendre."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -254,28 +253,23 @@ msgstr ""
 "la bateria."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Assegureu-vos que el carregador estigui endollat i que subministri prou "
-"electricitat."
+"Assegureu-vos que el cable d'alimentació estigui endollat i que subministri "
+"prou electricitat."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Endolleu l'ordinador."
+msgstr "Endolleu el cable d'alimentació."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr ""
-"La bateria ha arribat al nivell crític. L'ordinador s'aturarà en 60 segons."
+msgstr "El sistema s'aturarà en 60 segons."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -287,7 +281,7 @@ msgstr "Atura ara"
 #: powerdevilcore.cpp:616
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "El sistema hibernarà en 60 segons."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -298,13 +292,9 @@ msgid "Hibernate Now"
 msgstr "Hiberna ara"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr ""
-"La bateria ha arribat al nivell crític. L'ordinador se suspendrà en 60 "
-"segons."
+msgstr "El sistema se suspendrà en 60 segons."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -337,10 +327,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria crítica (resta %1%)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Adaptador de CA endollat"
+msgstr "El cable d'alimentació està endollat"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -353,10 +342,9 @@ msgid "Running on AC power"
 msgstr "Funcionant amb alimentació CA"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "L'adaptador de corrent s'ha endollat."
+msgstr "El cable d'alimentació s'ha endollat."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -364,10 +352,9 @@ msgid "Running on Battery Power"
 msgstr "Funcionant amb alimentació per bateria"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "L'adaptador de corrent s'ha desendollat."
+msgstr "El cable d'alimentació s'ha desendollat."
 
 #: powerdevilcore.cpp:745
 #, kde-format

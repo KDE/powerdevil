@@ -372,10 +372,3 @@ msgstr "Fullført lading"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteriet er no fullada."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Batterinivået er kritisk lågt. Maskina går automatisk i dvalemodus om "
-#~ "60 sekund."

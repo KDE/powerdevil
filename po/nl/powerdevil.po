@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 09:15+0200\n"
+"PO-Revision-Date: 2024-08-14 11:17+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -195,10 +195,9 @@ msgid "Extra Battery Added"
 msgstr "Extra batterij toegevoegd"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "De computer zal niet langer gaan slapen."
+msgstr "Het systeem zal niet langer gaan slapen."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -249,26 +248,21 @@ msgstr ""
 "mogelijk op of vervang deze."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr ""
-"Ga na dat uw computer aan de netstroom hangt en lever voldoende vermogen."
+msgstr "Ga na dat de stekker geheel is ingeplugd en voldoende vermogen levert."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Hang de computer aan de netstroom"
+msgstr "De stekker inpluggen."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "De computer zal worden afgesloten na 60 seconden."
+msgstr "Het systeem zal worden afgesloten na 60 seconden."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -278,10 +272,9 @@ msgid "Shut Down Now"
 msgstr "Nu afsluiten"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "De computer zal in slaapstand naar schijf gaan na 60 seconden."
+msgstr "Het systeem zal in slaapstand naar schijf gaan na 60 seconden."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -292,10 +285,9 @@ msgid "Hibernate Now"
 msgstr "Nu naar slaapstand naar schijf"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "De computer zal in slaap gaan na 60 seconden."
+msgstr "Het systeem zal in slaap gaan na 60 seconden."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -328,10 +320,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Accu op kritiek niveau (%1% resteert nog)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Netstroomadapter is aangesloten"
+msgstr "Stekker is ingeplugd"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -344,10 +335,9 @@ msgid "Running on AC power"
 msgstr "Werkt op netstroom"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "De netstroomadapter is aangesloten."
+msgstr "De stekker is ingeplugd."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -355,10 +345,9 @@ msgid "Running on Battery Power"
 msgstr "Werkt op de accu"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "De netstroomadapter is losgekoppeld."
+msgstr "De stekker is losgekoppeld."
 
 #: powerdevilcore.cpp:745
 #, kde-format

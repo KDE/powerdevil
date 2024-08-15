@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 19:50+0200\n"
+"PO-Revision-Date: 2024-08-14 12:37+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -197,10 +197,9 @@ msgid "Extra Battery Added"
 msgstr "Batería adicional añadida"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "El equipo ya no entrará en reposo."
+msgstr "El sistema ya no entrará en reposo."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -251,27 +250,23 @@ msgstr ""
 "batería."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Asegúrese de que está conectado a la red eléctrica y de que proporciona "
-"suficiente energía."
+"Asegúrese de que el cable de alimentación esté completamente conectado y de "
+"que proporciona suficiente energía."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Conecte el equipo."
+msgstr "Conecte el cable de alimentación."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "El equipo se apagará en 60 segundos."
+msgstr "El sistema se apagará en 60 segundos."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -281,10 +276,9 @@ msgid "Shut Down Now"
 msgstr "Apagar ahora"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "El equipo entrará en hibernación en 60 segundos."
+msgstr "El sistema entrará en hibernación en 60 segundos."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -295,10 +289,9 @@ msgid "Hibernate Now"
 msgstr "Hibernar ahora"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "El equipo entrará en reposo en 60 segundos."
+msgstr "El sistema entrará en reposo en 60 segundos."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -331,10 +324,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Batería en estado crítico (queda el %1%)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Adaptador AC conectado"
+msgstr "Cable de alimentación conectado"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -347,10 +339,9 @@ msgid "Running on AC power"
 msgstr "Funcionando con energía AC"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Se ha conectado el adaptador de alimentación de energía."
+msgstr "Se ha conectado el cable de alimentación."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -358,10 +349,9 @@ msgid "Running on Battery Power"
 msgstr "Funcionando con batería"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Se ha desconectado el adaptador de alimentación de energía."
+msgstr "Se ha desconectado el cable de alimentación."
 
 #: powerdevilcore.cpp:745
 #, kde-format
