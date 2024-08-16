@@ -22,6 +22,11 @@
 #include <brightnessosdwidget.h>
 #include <powerdevil_debug.h>
 
+#include <KScreen/ConfigMonitor>
+#include <KScreen/EDID>
+#include <KScreen/GetConfigOperation>
+#include <KScreen/Output>
+
 #include <QDebug>
 #include <QPropertyAnimation>
 #include <ranges>
@@ -50,6 +55,15 @@ ScreenBrightnessController::ScreenBrightnessController()
     , m_externalBrightnessController(std::make_unique<ExternalBrightnessController>())
 {
     connect(m_externalBrightnessController.get(), &ExternalBrightnessController::activeChanged, this, &ScreenBrightnessController::onDetectorDisplaysChanged);
+
+    const auto op = new KScreen::GetConfigOperation(KScreen::GetConfigOperation::NoOptions, this);
+    connect(op, &KScreen::GetConfigOperation::finished, this, [this](KScreen::ConfigOperation *configOp) {
+        if (configOp->hasError()) {
+            return;
+        }
+        m_kscreenConfig = static_cast<KScreen::GetConfigOperation *>(configOp)->config();
+        KScreen::ConfigMonitor::instance()->addConfig(m_kscreenConfig);
+    });
 }
 
 ScreenBrightnessController::~ScreenBrightnessController()
@@ -406,6 +420,33 @@ int ScreenBrightnessController::brightnessSteps(const QString &displayId) const
     }
     qCWarning(POWERDEVIL) << "Query screen brightnessSteps failed: no display with id" << displayId;
     return 1;
+}
+
+KScreen::OutputPtr ScreenBrightnessController::tryMatchKScreenOutput(const QString &displayId) const
+{
+    if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie && m_kscreenConfig) {
+        const DisplayBrightness *display = it->second.display;
+        for (const KScreen::OutputPtr &output : m_kscreenConfig->outputs()) {
+            if (display->id() == output->name()) { // for KWinDisplayDetector, primarily
+                return output;
+            }
+            if (output->type() == KScreen::Output::Panel && display->isInternal()) {
+                return output;
+            }
+            const std::optional<QByteArray> displayEdid = display->edidData();
+            if (displayEdid && output->edid() && output->edid()->rawData().startsWith(*displayEdid)) {
+                return output;
+            }
+        }
+    } else if (!m_kscreenConfig) {
+        qCWarning(POWERDEVIL) << "Match KScreen::Output failed: config not initialized";
+        return KScreen::OutputPtr{};
+    } else {
+        qCWarning(POWERDEVIL) << "Match KScreen::Output failed: no display with id" << displayId;
+        return KScreen::OutputPtr{};
+    }
+    // no match found (not an error)
+    return KScreen::OutputPtr{};
 }
 
 void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrightness *display, int value)

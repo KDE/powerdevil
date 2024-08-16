@@ -86,7 +86,7 @@ Q_SIGNALS:
     void BrightnessRangeChanged(const QString &displayId, int maxBrightness, int brightness);
 
 private:
-    int brightnessPercent(const QString &displayId, double value) const;
+    int brightnessPercent(double value, double max) const;
 };
 
 }

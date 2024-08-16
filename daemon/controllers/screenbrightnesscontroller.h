@@ -11,6 +11,8 @@
 
 #pragma once
 
+#include <KScreen/Types>
+
 #include <QHash>
 #include <QObject>
 #include <QStringList>
@@ -135,6 +137,8 @@ public:
 
     int brightnessSteps(const QString &displayId) const;
 
+    KScreen::OutputPtr tryMatchKScreenOutput(const QString &displayId) const;
+
     // legacy API without displayId parameter, kept for backward compatibility
     QStringList legacyDisplayIds() const;
     int knownSafeMinBrightness() const;
@@ -184,4 +188,6 @@ private:
     QList<DetectorInfo> m_detectors;
     int m_finishedDetectingCount = 0;
     std::unique_ptr<ExternalBrightnessController> m_externalBrightnessController;
+
+    KScreen::ConfigPtr m_kscreenConfig = nullptr;
 };

@@ -17,6 +17,7 @@
 
 #include <KLocalizedString>
 #include <KPluginFactory>
+#include <KScreen/Output>
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::ScreenBrightnessControl, "powerdevilscreenbrightnesscontrolaction.json")
 
@@ -77,12 +78,19 @@ void ScreenBrightnessControl::onBrightnessChanged(const QString &displayId,
 {
     Q_EMIT BrightnessChanged(displayId, info.value - info.valueMin, sourceClientName, sourceClientContext);
 
-    // OSD here is currently disabled to avoid duplicating BrightnessControl's OSD.
-    // TODO: Implement per-display OSDs here and remove code to show the OSD from BrightnessControl.
-    Q_UNUSED(hint)
-    // if (hint == ScreenBrightnessController::ShowIndicator) {
-    //     BrightnessOSDWidget::show(brightnessPercent(info.value - info.valueMin));
-    // }
+    if (hint == ScreenBrightnessController::ShowIndicator) {
+        // Try to match the controller's display to a KScreen display for optimized OSD presentation.
+        const KScreen::OutputPtr matchedOutput = core()->screenBrightnessController()->tryMatchKScreenOutput(displayId);
+
+        QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
+                                                          QStringLiteral("/org/kde/osdService"),
+                                                          QStringLiteral("org.kde.osdService"),
+                                                          QLatin1String("screenBrightnessChanged"));
+        msg << brightnessPercent(info.value - info.valueMin, info.valueMax - info.valueMin) << (matchedOutput ? matchedOutput->name() : displayId)
+            << GetLabel(displayId) << static_cast<int>(core()->screenBrightnessController()->displayIds().indexOf(displayId))
+            << (matchedOutput && matchedOutput->isPositionable() ? matchedOutput->geometry() : QRect());
+        QDBusConnection::sessionBus().asyncCall(msg);
+    }
 }
 
 void ScreenBrightnessControl::onBrightnessRangeChanged(const QString &displayId, const BrightnessLogic::BrightnessInfo &info)
@@ -186,12 +194,10 @@ void ScreenBrightnessControl::SetBrightnessWithContext(const QString &displayId,
                                                         hint);
 }
 
-int ScreenBrightnessControl::brightnessPercent(const QString &displayId, double value) const
+int ScreenBrightnessControl::brightnessPercent(double value, double max) const
 {
-    const double max = GetMaxBrightness(displayId);
     return max > 0 ? qRound(value / max * 100) : 0;
 }
-
 }
 
 #include "screenbrightnesscontrol.moc"

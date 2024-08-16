@@ -97,7 +97,7 @@ bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSet
     return true;
 }
 
-void BrightnessControl::onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &info, ScreenBrightnessController::IndicatorHint hint)
+void BrightnessControl::onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &info, ScreenBrightnessController::IndicatorHint)
 {
     if (info.value != m_lastBrightnessInfo.value) {
         Q_EMIT brightnessChanged(info.value);
@@ -110,10 +110,6 @@ void BrightnessControl::onBrightnessChangedFromController(const BrightnessLogic:
     }
 
     m_lastBrightnessInfo = info;
-
-    if (hint == ScreenBrightnessController::ShowIndicator) {
-        BrightnessOSDWidget::show(brightnessPercent(m_lastBrightnessInfo.value));
-    }
 }
 
 int BrightnessControl::brightness() const
