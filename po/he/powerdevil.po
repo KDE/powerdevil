@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-06 05:56+0300\n"
+"PO-Revision-Date: 2024-08-14 07:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -195,10 +195,9 @@ msgid "Extra Battery Added"
 msgstr "נוספה סוללה נוספת"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "המחשב לא יישן עוד."
+msgstr "המערכת לא תישן עוד."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -248,25 +247,21 @@ msgstr ""
 "להחליף סוללות או להטעין אותו."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr "נא לוודא שהמטען מחובר ומספק מספיק חשמל."
+msgstr "נא לוודא שכבל החשמל מחובר לכל אורכו ומספק מספיק חשמל."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "לחבר את המחשב."
+msgstr "לחבר את כבל החשמל."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "המחשב ייכבה תוך 60 שניות."
+msgstr "המערכת תיכבה תוך 60 שניות."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -276,10 +271,9 @@ msgid "Shut Down Now"
 msgstr "לכבות כעת"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "המחשב יירדם תוך 60 שניות."
+msgstr "במערכת תירדם תוך 60 שניות."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -290,10 +284,9 @@ msgid "Hibernate Now"
 msgstr "להרדים כעת"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "המחשב יישן תוך 60 שניות."
+msgstr "המערכת תישן תוך 60 שניות."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -326,10 +319,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "עוצמת הסוללה במצב קריטי (נותרו %1% אחוז)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "המטען מחובר"
+msgstr "הכבל החשמלי מחובר"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -342,10 +334,9 @@ msgid "Running on AC power"
 msgstr "פועל על מטען"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "המטען חובר."
+msgstr "כבל החשמל חובר."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -353,10 +344,9 @@ msgid "Running on Battery Power"
 msgstr "פועל על סוללה"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "המטען נותק."
+msgstr "כבל החשמל נותק."
 
 #: powerdevilcore.cpp:745
 #, kde-format

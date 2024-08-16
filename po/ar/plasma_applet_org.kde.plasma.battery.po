@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:41+0000\n"
+"POT-Creation-Date: 2024-08-16 00:41+0000\n"
 "PO-Revision-Date: 2024-06-26 18:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -19,79 +19,79 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: package/contents/ui/BatteryItem.qml:100
+#: package/contents/ui/BatteryItem.qml:99
 #, kde-format
 msgid "Charging"
 msgstr "تشحن"
 
-#: package/contents/ui/BatteryItem.qml:102
+#: package/contents/ui/BatteryItem.qml:101
 #, kde-format
 msgid "Discharging"
 msgstr "تفرّغ الشّحن"
 
-#: package/contents/ui/BatteryItem.qml:104 package/contents/ui/main.qml:123
+#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:121
 #, kde-format
 msgid "Fully Charged"
 msgstr "مشحونة بالكامل"
 
-#: package/contents/ui/BatteryItem.qml:106
+#: package/contents/ui/BatteryItem.qml:105
 #, kde-format
 msgid "Not Charging"
 msgstr "لا تشحن"
 
-#: package/contents/ui/BatteryItem.qml:109
+#: package/contents/ui/BatteryItem.qml:108
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
 msgstr "غير موجودة"
 
-#: package/contents/ui/BatteryItem.qml:121
+#: package/contents/ui/BatteryItem.qml:120
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
 msgstr "%1٪"
 
-#: package/contents/ui/BatteryItem.qml:185
+#: package/contents/ui/BatteryItem.qml:184
 #, kde-format
 msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr "صحة هذه البطارية %1٪ فقط ويجب استبدالها. الرجاء الاتصال بالمصّنّع."
 
-#: package/contents/ui/BatteryItem.qml:204
+#: package/contents/ui/BatteryItem.qml:203
 #, kde-format
 msgid "Time To Full:"
 msgstr "الوقت حتّى الامتلاء:"
 
-#: package/contents/ui/BatteryItem.qml:205
+#: package/contents/ui/BatteryItem.qml:204
 #, kde-format
 msgid "Remaining Time:"
 msgstr "الوقت المتبقي:"
 
-#: package/contents/ui/BatteryItem.qml:211
+#: package/contents/ui/BatteryItem.qml:210
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
 msgstr "يقدر…"
 
-#: package/contents/ui/BatteryItem.qml:221
+#: package/contents/ui/BatteryItem.qml:220
 #, kde-format
 msgid "Battery Health:"
 msgstr "صحة البطارية:"
 
-#: package/contents/ui/BatteryItem.qml:227
+#: package/contents/ui/BatteryItem.qml:226
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1٪"
 
-#: package/contents/ui/BatteryItem.qml:239
+#: package/contents/ui/BatteryItem.qml:238
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "ضبطت بطاريتك لتشحن إلى %1٪ تقريبا."
 
 #: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:150
+#: package/contents/ui/CompactRepresentation.qml:155
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -102,83 +102,83 @@ msgstr "%1٪"
 msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "عطل تطبيق البطارية وضع السكون وقفل الشاشة."
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:96
 #: package/contents/ui/PowerManagementItem.qml:51
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "إدارة الطّاقة"
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:96
 #, kde-format
 msgid "Power and Battery"
 msgstr "الطاقة والبطارية"
 
-#: package/contents/ui/main.qml:117
+#: package/contents/ui/main.qml:115
 #, kde-format
 msgid "Battery is not present in the bay"
 msgstr "البطارية غير موجودة في مخزن البطاريات"
 
-#: package/contents/ui/main.qml:130
+#: package/contents/ui/main.qml:128
 #, kde-format
 msgid "Battery at %1%, not Charging"
 msgstr "البطارية عند %1٪، لا تشحن."
 
-#: package/contents/ui/main.qml:132
+#: package/contents/ui/main.qml:130
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr "البطارية عند %1٪، موصولة لكن ما زالت تفرغ."
 
-#: package/contents/ui/main.qml:134
+#: package/contents/ui/main.qml:132
 #, kde-format
 msgid "Battery at %1%, Charging"
 msgstr "البطارية عند %1٪، تشحن."
 
-#: package/contents/ui/main.qml:137
+#: package/contents/ui/main.qml:135
 #, kde-format
 msgid "Battery at %1%"
 msgstr "البطارية عند %1٪"
 
-#: package/contents/ui/main.qml:145
+#: package/contents/ui/main.qml:143
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr "مصدر الطاقة ليس قويًا بما يكفي لشحن البطارية"
 
-#: package/contents/ui/main.qml:149
+#: package/contents/ui/main.qml:147
 #, kde-format
 msgid "No Batteries Available"
 msgstr "لا بطّاريّات متوفّرة"
 
-#: package/contents/ui/main.qml:156
+#: package/contents/ui/main.qml:154
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
 msgstr "%1 حتى يكتمل الشحن"
 
-#: package/contents/ui/main.qml:158
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
 msgstr "تبقّى %1"
 
-#: package/contents/ui/main.qml:161
+#: package/contents/ui/main.qml:159
 #, kde-format
 msgid "Not charging"
 msgstr "لا تشحن"
 
-#: package/contents/ui/main.qml:166
+#: package/contents/ui/main.qml:164
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
 "عُطل السكون التلقائي وقفل الشاشة، انقر بالزر الفأرة الأوسط لإعادة التفعيل"
 
-#: package/contents/ui/main.qml:168
+#: package/contents/ui/main.qml:166
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "انقر بزر الفأرة الأوسط لتعطيل وضع السكون التلقائي وقفل الشاشة"
 
-#: package/contents/ui/main.qml:173
+#: package/contents/ui/main.qml:171
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -189,12 +189,12 @@ msgstr[3] "%1 تطبيقات طلبت تنشيط وضع الأداء"
 msgstr[4] "%1 تطبيقا طلب تنشيط وضع الأداء"
 msgstr[5] "%1 تطبيق طلب تنشيط وضع الأداء"
 
-#: package/contents/ui/main.qml:177
+#: package/contents/ui/main.qml:175
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "النظام في وضع الأداء، مرر لتغير الوضع"
 
-#: package/contents/ui/main.qml:181
+#: package/contents/ui/main.qml:179
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -205,27 +205,27 @@ msgstr[3] "%1 تطبيقات طلبت تنشيط وضع حفظ الطاقة"
 msgstr[4] "%1 تطبيقا طلب تنشيط وضع حفظ الطاقة"
 msgstr[5] "%1 تطبيق طلب تنشيط وضع حفظ الطاقة"
 
-#: package/contents/ui/main.qml:185
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "النظام في وضع توفير الطاقة، مرر لتغير الوضع"
 
-#: package/contents/ui/main.qml:188
+#: package/contents/ui/main.qml:186
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "النظام في وضع التوازن، مرر لتغير الوضع"
 
-#: package/contents/ui/main.qml:301
+#: package/contents/ui/main.qml:298
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "أ&ظهر معلومات الطاقة..."
 
-#: package/contents/ui/main.qml:307
+#: package/contents/ui/main.qml:304
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "إظهار نسبة البطارية على الأيقونة إن لم يكن مشحون بالكامل"
 
-#: package/contents/ui/main.qml:320
+#: package/contents/ui/main.qml:317
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "ا&ضبط إدارة الطّاقة..."
@@ -255,17 +255,17 @@ msgctxt ""
 msgid "Manually block"
 msgstr "حظر يدوي"
 
-#: package/contents/ui/PowerManagementItem.qml:133
+#: package/contents/ui/PowerManagementItem.qml:134
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "فشل في إلغاء حظر وضع السكون التلقائي وقفل الشاشة"
 
-#: package/contents/ui/PowerManagementItem.qml:136
+#: package/contents/ui/PowerManagementItem.qml:137
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "فشل في منع وضع السكون التلقائي وقفل الشاشة"
 
-#: package/contents/ui/PowerManagementItem.qml:174
+#: package/contents/ui/PowerManagementItem.qml:175
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -274,7 +274,7 @@ msgid ""
 msgstr ""
 "ضُبط الجهاز الدّفتريّ لألا ينام عند إغلاق الغطاء إن كانت هناك شاشة خارجيّة متّصلة."
 
-#: package/contents/ui/PowerManagementItem.qml:185
+#: package/contents/ui/PowerManagementItem.qml:186
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
@@ -285,47 +285,47 @@ msgstr[3] "%1 تطبيقات يمنعن النوم وقفل الشاشة:"
 msgstr[4] "%1 تطبيقا يمنع النوم وقفل الشاشة:"
 msgstr[5] "%1 تطبيق يمنع النوم وقفل الشاشة:"
 
-#: package/contents/ui/PowerManagementItem.qml:205
+#: package/contents/ui/PowerManagementItem.qml:206
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "‏%1 يمنع النوم وقفل الشاشة (%2)"
 
-#: package/contents/ui/PowerManagementItem.qml:207
+#: package/contents/ui/PowerManagementItem.qml:208
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr "‏%1 يمنع النوم وقفل الشاشة (سبب مجهول)"
 
-#: package/contents/ui/PowerManagementItem.qml:209
+#: package/contents/ui/PowerManagementItem.qml:210
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr "هناك تطبيق يمنع وضع السكون وقفل الشاشة (‏%1)"
 
-#: package/contents/ui/PowerManagementItem.qml:211
+#: package/contents/ui/PowerManagementItem.qml:212
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
 msgstr "‏هناك تطبيق يمنع وضع السكون وقفل الشاشة (سبب مجهول)"
 
-#: package/contents/ui/PowerManagementItem.qml:215
+#: package/contents/ui/PowerManagementItem.qml:216
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "‏%1:‏ %2"
 
-#: package/contents/ui/PowerManagementItem.qml:217
+#: package/contents/ui/PowerManagementItem.qml:218
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "‏%1: سبب مجهول"
 
-#: package/contents/ui/PowerManagementItem.qml:219
+#: package/contents/ui/PowerManagementItem.qml:220
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "تطبيق مجهول: %1"
 
-#: package/contents/ui/PowerManagementItem.qml:221
+#: package/contents/ui/PowerManagementItem.qml:222
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
@@ -357,7 +357,7 @@ msgctxt "Power profile"
 msgid "Not available"
 msgstr "غير متوفّر"
 
-#: package/contents/ui/PowerProfileItem.qml:149
+#: package/contents/ui/PowerProfileItem.qml:148
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "فشل تفعيل نمط %1"
@@ -381,7 +381,7 @@ msgstr "وضع الأداء غير متاح لأن الحاسوب يعمل عل�
 msgid "Performance mode is unavailable."
 msgstr "وضع الأداء غير متوفر"
 
-#: package/contents/ui/PowerProfileItem.qml:243
+#: package/contents/ui/PowerProfileItem.qml:245
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -389,17 +389,17 @@ msgid ""
 msgstr ""
 "قُلل الأداء لتقليل توليد الحرارة لأن الحاسوب اكتشف أنه قد يكون على حُجرك."
 
-#: package/contents/ui/PowerProfileItem.qml:245
+#: package/contents/ui/PowerProfileItem.qml:247
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "قُلل الأداء لأن الحاسوب يعمل على درجة حرارة عالية جدًا."
 
-#: package/contents/ui/PowerProfileItem.qml:247
+#: package/contents/ui/PowerProfileItem.qml:249
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "قد قُلل الأداء."
 
-#: package/contents/ui/PowerProfileItem.qml:259
+#: package/contents/ui/PowerProfileItem.qml:262
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
@@ -410,7 +410,7 @@ msgstr[3] "%1 تطبيقات طلبت تنشيط %2:"
 msgstr[4] "%1 تطبيقا طلب تنشيط %2:"
 msgstr[5] "%1 تطبيق طلب تنشيط %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:278
+#: package/contents/ui/PowerProfileItem.qml:281
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -418,12 +418,12 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "‏%1:‏ %2"
 
-#: package/contents/ui/PowerProfileItem.qml:296
+#: package/contents/ui/PowerProfileItem.qml:299
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "تتحكم خدمة TLP تلقائيًا في تشكيلات الطاقة"
 
-#: package/contents/ui/PowerProfileItem.qml:297
+#: package/contents/ui/PowerProfileItem.qml:300
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

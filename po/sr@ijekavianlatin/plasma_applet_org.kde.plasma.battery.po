@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-26 00:41+0000\n"
+"POT-Creation-Date: 2024-08-16 00:41+0000\n"
 "PO-Revision-Date: 2017-02-19 13:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -20,44 +20,44 @@ msgstr ""
 "X-Environment: kde\n"
 
 # >> @item:intext
-#: package/contents/ui/BatteryItem.qml:100
+#: package/contents/ui/BatteryItem.qml:99
 #, kde-format
 msgid "Charging"
 msgstr "puni se"
 
 # >> @item:intext
-#: package/contents/ui/BatteryItem.qml:102
+#: package/contents/ui/BatteryItem.qml:101
 #, kde-format
 msgid "Discharging"
 msgstr "prazni se"
 
 # >> @item:intext
-#: package/contents/ui/BatteryItem.qml:104 package/contents/ui/main.qml:123
+#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:121
 #, kde-format
 msgid "Fully Charged"
 msgstr "skroz puna"
 
 # >> @item:intext
-#: package/contents/ui/BatteryItem.qml:106
+#: package/contents/ui/BatteryItem.qml:105
 #, kde-format
 msgid "Not Charging"
 msgstr "ne puni se"
 
 # >> @item:intext
-#: package/contents/ui/BatteryItem.qml:109
+#: package/contents/ui/BatteryItem.qml:108
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
 msgstr "nema je"
 
-#: package/contents/ui/BatteryItem.qml:121
+#: package/contents/ui/BatteryItem.qml:120
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
 msgstr "%1%"
 
 # rewrite-msgid: /hardware vendor/manufacturer/
-#: package/contents/ui/BatteryItem.qml:185
+#: package/contents/ui/BatteryItem.qml:184
 #, fuzzy, kde-format
 #| msgid ""
 #| "The capacity of this battery is %1%. This means it is broken and needs a "
@@ -69,28 +69,28 @@ msgstr ""
 "Kapacitet ove baterije je %1%. To znači da je pokvarena i da je treba "
 "zameniti. Obratite se proizvođaču za više detalja."
 
-#: package/contents/ui/BatteryItem.qml:204
+#: package/contents/ui/BatteryItem.qml:203
 #, kde-format
 msgid "Time To Full:"
 msgstr "Vreme punjenja:"
 
-#: package/contents/ui/BatteryItem.qml:205
+#: package/contents/ui/BatteryItem.qml:204
 #, kde-format
 msgid "Remaining Time:"
 msgstr ""
 
-#: package/contents/ui/BatteryItem.qml:211
+#: package/contents/ui/BatteryItem.qml:210
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
 msgstr ""
 
-#: package/contents/ui/BatteryItem.qml:221
+#: package/contents/ui/BatteryItem.qml:220
 #, kde-format
 msgid "Battery Health:"
 msgstr ""
 
-#: package/contents/ui/BatteryItem.qml:227
+#: package/contents/ui/BatteryItem.qml:226
 #, fuzzy, kde-format
 #| msgctxt "Placeholder is battery percentage"
 #| msgid "%1%"
@@ -98,13 +98,13 @@ msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/BatteryItem.qml:239
+#: package/contents/ui/BatteryItem.qml:238
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 
 #: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:150
+#: package/contents/ui/CompactRepresentation.qml:155
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -116,61 +116,61 @@ msgstr "%1%"
 msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "Aplet baterije je aktivirao zabranu širom sistema"
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:96
 #: package/contents/ui/PowerManagementItem.qml:51
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr ""
 
-#: package/contents/ui/main.qml:97
+#: package/contents/ui/main.qml:96
 #, kde-format
 msgid "Power and Battery"
 msgstr ""
 
-#: package/contents/ui/main.qml:117
+#: package/contents/ui/main.qml:115
 #, kde-format
 msgid "Battery is not present in the bay"
 msgstr ""
 
 # >> @info:tooltip
-#: package/contents/ui/main.qml:130
+#: package/contents/ui/main.qml:128
 #, fuzzy, kde-format
 #| msgid "%1%. Plugged in, not Charging"
 msgid "Battery at %1%, not Charging"
 msgstr "%1%, utaknut, ne puni se."
 
 # >> @info:tooltip
-#: package/contents/ui/main.qml:132
+#: package/contents/ui/main.qml:130
 #, fuzzy, kde-format
 #| msgid "%1%. Plugged in, not Charging"
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr "%1%, utaknut, ne puni se."
 
 # >> @info:tooltip
-#: package/contents/ui/main.qml:134
+#: package/contents/ui/main.qml:132
 #, fuzzy, kde-format
 #| msgid "%1%. Charging"
 msgid "Battery at %1%, Charging"
 msgstr "%1%, puni se."
 
-#: package/contents/ui/main.qml:137
+#: package/contents/ui/main.qml:135
 #, kde-format
 msgid "Battery at %1%"
 msgstr ""
 
-#: package/contents/ui/main.qml:145
+#: package/contents/ui/main.qml:143
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr ""
 
-#: package/contents/ui/main.qml:149
+#: package/contents/ui/main.qml:147
 #, kde-format
 msgid "No Batteries Available"
 msgstr ""
 
 # >> @item:intext
-#: package/contents/ui/main.qml:156
+#: package/contents/ui/main.qml:154
 #, fuzzy, kde-format
 #| msgid "Fully Charged"
 msgctxt "time until fully charged - HH:MM"
@@ -178,7 +178,7 @@ msgid "%1 until fully charged"
 msgstr "skroz puna"
 
 # >> @info:tooltip
-#: package/contents/ui/main.qml:158
+#: package/contents/ui/main.qml:156
 #, fuzzy, kde-format
 #| msgctxt "%1 is remaining time, %2 is percentage"
 #| msgid "%1 Remaining (%2%)"
@@ -187,24 +187,24 @@ msgid "%1 remaining"
 msgstr "%1 preostalo (%2%)."
 
 # >> @item:intext
-#: package/contents/ui/main.qml:161
+#: package/contents/ui/main.qml:159
 #, fuzzy, kde-format
 #| msgid "Not Charging"
 msgid "Not charging"
 msgstr "ne puni se"
 
-#: package/contents/ui/main.qml:166
+#: package/contents/ui/main.qml:164
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
 
-#: package/contents/ui/main.qml:168
+#: package/contents/ui/main.qml:166
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 
-#: package/contents/ui/main.qml:173
+#: package/contents/ui/main.qml:171
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -213,12 +213,12 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: package/contents/ui/main.qml:177
+#: package/contents/ui/main.qml:175
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr ""
 
-#: package/contents/ui/main.qml:181
+#: package/contents/ui/main.qml:179
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -227,27 +227,27 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: package/contents/ui/main.qml:185
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr ""
 
-#: package/contents/ui/main.qml:188
+#: package/contents/ui/main.qml:186
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 
-#: package/contents/ui/main.qml:301
+#: package/contents/ui/main.qml:298
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr ""
 
-#: package/contents/ui/main.qml:307
+#: package/contents/ui/main.qml:304
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 
-#: package/contents/ui/main.qml:320
+#: package/contents/ui/main.qml:317
 #, fuzzy, kde-format
 #| msgid "&Configure Power Saving..."
 msgid "&Configure Power Management…"
@@ -278,17 +278,17 @@ msgctxt ""
 msgid "Manually block"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:133
+#: package/contents/ui/PowerManagementItem.qml:134
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:136
+#: package/contents/ui/PowerManagementItem.qml:137
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:174
+#: package/contents/ui/PowerManagementItem.qml:175
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your notebook is configured not to suspend when closing the lid while an "
@@ -301,7 +301,7 @@ msgstr ""
 "Laptop je podešen da se ne suspenduje pri spuštanju poklopca dok je "
 "priključen spoljašnji monitor."
 
-#: package/contents/ui/PowerManagementItem.qml:185
+#: package/contents/ui/PowerManagementItem.qml:186
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
@@ -310,47 +310,47 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: package/contents/ui/PowerManagementItem.qml:205
+#: package/contents/ui/PowerManagementItem.qml:206
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:207
+#: package/contents/ui/PowerManagementItem.qml:208
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:209
+#: package/contents/ui/PowerManagementItem.qml:210
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:211
+#: package/contents/ui/PowerManagementItem.qml:212
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:215
+#: package/contents/ui/PowerManagementItem.qml:216
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:217
+#: package/contents/ui/PowerManagementItem.qml:218
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:219
+#: package/contents/ui/PowerManagementItem.qml:220
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:221
+#: package/contents/ui/PowerManagementItem.qml:222
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
@@ -382,7 +382,7 @@ msgctxt "Power profile"
 msgid "Not available"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:149
+#: package/contents/ui/PowerProfileItem.qml:148
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr ""
@@ -405,24 +405,24 @@ msgstr ""
 msgid "Performance mode is unavailable."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:243
+#: package/contents/ui/PowerProfileItem.qml:245
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:245
+#: package/contents/ui/PowerProfileItem.qml:247
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:247
+#: package/contents/ui/PowerProfileItem.qml:249
 #, kde-format
 msgid "Performance may be reduced."
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:259
+#: package/contents/ui/PowerProfileItem.qml:262
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
@@ -431,7 +431,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: package/contents/ui/PowerProfileItem.qml:278
+#: package/contents/ui/PowerProfileItem.qml:281
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -439,12 +439,12 @@ msgctxt ""
 msgid "%1: %2"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:296
+#: package/contents/ui/PowerProfileItem.qml:299
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:297
+#: package/contents/ui/PowerProfileItem.qml:300
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "
