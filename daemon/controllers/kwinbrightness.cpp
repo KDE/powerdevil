@@ -24,7 +24,7 @@ KWinDisplayDetector::~KWinDisplayDetector()
 
 void KWinDisplayDetector::detect()
 {
-    const auto op = new KScreen::GetConfigOperation(KScreen::GetConfigOperation::Option::NoEDID, this);
+    const auto op = new KScreen::GetConfigOperation(KScreen::GetConfigOperation::Option::NoOptions, this);
     connect(op, &KScreen::GetConfigOperation::finished, this, [this](KScreen::ConfigOperation *configOp) {
         if (configOp->hasError()) {
             Q_EMIT detectionFinished(false);
