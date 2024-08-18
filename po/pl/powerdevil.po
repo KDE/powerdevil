@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-07-20 09:30+0200\n"
+"PO-Revision-Date: 2024-08-17 09:59+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -194,10 +194,9 @@ msgid "Extra Battery Added"
 msgstr "Dodano dodatkową baterię"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Komputer nie przejdzie już w stan uśpienia."
+msgstr "System nie przejdzie już w stan uśpienia."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -247,9 +246,7 @@ msgstr ""
 "może się samo wyłączyć w każdej chwili. Wymień baterię lub ją naładuj."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
@@ -257,16 +254,14 @@ msgstr ""
 "Upewnij się, ze zasilacz jest podłączony i dostarcza wystarczająco mocy."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Podłącz komputer."
+msgstr "Podłącz zasilacz sieciowy."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Komputer wyłączy się za 60 sekund."
+msgstr "System wyłączy się za 60 sekund."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -276,10 +271,9 @@ msgid "Shut Down Now"
 msgstr "Wyłącz teraz"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Komputer zahibernuje się za 60 sekund."
+msgstr "System przejdzie w stan hibernacji za 60 sekund."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -290,10 +284,9 @@ msgid "Hibernate Now"
 msgstr "Zahibernuj teraz"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Komputer zostanie uśpiony za 60 sekund."
+msgstr "System przejdzie w stan uśpienia za 60 sekund."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -326,8 +319,7 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Bateria jest rozładowana (Pozostało %1%)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Podłączono zasilacz sieciowy"
 
@@ -342,8 +334,7 @@ msgid "Running on AC power"
 msgstr "Zasilany z sieci"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Podłączono zasilacz sieciowy."
 
@@ -353,8 +344,7 @@ msgid "Running on Battery Power"
 msgstr "Zasilany z baterii"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Odłączono zasilacz sieciowy."
 
