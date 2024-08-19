@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2024-06-16 17:39+0530\n"
+"PO-Revision-Date: 2024-08-18 17:08+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -193,8 +193,7 @@ msgid "Extra Battery Added"
 msgstr "கூடுதல் மின்கலம் சேர்க்கப்பட்டது"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "கணினி இனிமேல் தூங்காது."
 
@@ -246,26 +245,22 @@ msgstr ""
 "முடங்கலாம். ஆற்றலை ஏற்றுங்கள், அல்லது மின்கலத்தை மாற்றுங்கள்."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"கணினியை மின்னூற்றில் செருகி அம்மின்னூற்று போதுமான ஆற்றலை வழுங்குவதை உறுதி செய்யுங்கள்."
+"கணினியில் மின்னூற்றை செருகி அம்மின்னூற்று போதுமான ஆற்றலை வழுங்குவதை உறுதி செய்யவும்."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
 msgstr "கணினியை மின்னூற்றில் செருகவும்."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "மின்கல ஆற்றலளவு நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் நிற்கும்."
+msgstr " கணினி 60 நொடிகளில் நிற்கும்."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -277,7 +272,7 @@ msgstr "இப்போதே கணினியை நிறுத்து"
 #: powerdevilcore.cpp:616
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "கணினி 60 நொடிகளில் ஆழுறங்கும்."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -288,11 +283,9 @@ msgid "Hibernate Now"
 msgstr "இப்போதே ஆழுறங்கு"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "மின்கல ஆற்றலளவு நெருக்கடியாக உள்ளது. கணினி 60 நொடிகளில் உறங்கும்."
+msgstr "கணினி 60 நொடிகளில் உறங்கும்."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -325,10 +318,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "மின்கல நெருக்கடி (மீதம் %1%)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "மின் செருகி சொருகப்பட்டுள்ளது"
+msgstr "மின்னூற்று சொருகப்பட்டுள்ளது"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -341,10 +333,9 @@ msgid "Running on AC power"
 msgstr "மின்னூற்றின் ஆற்றலில் இயங்குகிறது"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "மின் செருகி சொருகப்பட்டுள்ளது."
+msgstr "மின்னூற்று கணினியில் சொருகப்பட்டுள்ளது."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -352,10 +343,9 @@ msgid "Running on Battery Power"
 msgstr "மின்கல ஆற்றலில் இயங்குகிறது"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "மின் செருகி கழற்றப்பட்டுள்ளது."
+msgstr "மின்னூற்று கழற்றப்பட்டுள்ளது."
 
 #: powerdevilcore.cpp:745
 #, kde-format
