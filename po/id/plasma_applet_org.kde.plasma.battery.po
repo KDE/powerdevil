@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
 "PO-Revision-Date: 2024-07-22 08:35+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -94,8 +94,8 @@ msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 "Baterai Anda telah dikonfigurasi ke hanya pengisian kira-kira sampai %1%."
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -212,17 +212,17 @@ msgstr "Sistem dalam mode Hemat Daya; gulir untuk mengubah"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Sistem dalam mode Daya Seimbang; gulir untuk mengubah"
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Tampilkan Informasi Energi..."
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Tampilkan Persentase Baterai pada Ikon Ketika Belum Terisi Penuh"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Konfigurasi Pengelolaan Daya..."

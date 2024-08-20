@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
 "PO-Revision-Date: 2024-06-30 12:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -90,8 +90,8 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "ஏறத்தாழ %1% வரை மட்டும் ஆற்றல் ஏறுமாறு உங்கள் மின்கலம் அமைக்கப்பட்டுள்ளது."
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -206,17 +206,17 @@ msgstr "கணினி ஆற்றல் சேமிப்பு பயன்
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "கணினி நடுநிலையான ஆற்றல் பயன்முறையில் உள்ளது; மாற்ற உருளவும்"
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "ஆற்றல் விவரங்களை காட்டு…"
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "ஆற்றல் நிறைந்திராத பட்சத்தில் சின்னத்தில் மின்கல சதவீதத்தைக் காட்டு"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&ஆற்றல் மேலாண்மையை அமை…"

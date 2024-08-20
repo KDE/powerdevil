@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
 "PO-Revision-Date: 2024-06-26 10:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -97,8 +97,8 @@ msgid "Battery is configured to charge up to approximately %1%."
 msgstr ""
 "La bateria està configurada per a carregar només fins al %1% aproximadament."
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -224,19 +224,19 @@ msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "El sistema està en mode d'energia equilibrat. Desplaceu per a canviar-ho"
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Mo&stra la informació de l'energia…"
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Mostra el percentatge de la bateria en la icona quan no estiga completament "
 "carregada"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configura la gestió de l'energia…"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
 "PO-Revision-Date: 2024-07-19 13:10-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -98,8 +98,8 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "A bateria está configurada para carregar até aproximadamente %1%."
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -218,19 +218,19 @@ msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "O sistema está no modo balanceado de energia; use a rolagem para trocar"
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Mo&strar informações de energia..."
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Mostrar porcentagem da bateria no ícone quando não estiver completamente "
 "carregada"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configurar o gerenciamento de energia..."

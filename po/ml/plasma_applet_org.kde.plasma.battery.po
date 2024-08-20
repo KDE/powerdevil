@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
 "PO-Revision-Date: 2021-08-17 12:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: SMC <smc.org.in>\n"
@@ -95,8 +95,8 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "നിങ്ങളുടെ ബാറ്ററി ക്രമീകരിച്ചിരിക്കുന്നത് %1% വരെ ചാർജ് ചെയ്യാൻ മാത്രമാണ്."
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -211,18 +211,18 @@ msgstr ""
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "ഊർജ്ജ വിവരങ്ങൾ കാണിക്കുക… (&S)"
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, fuzzy, kde-format
 #| msgid "Show Battery Percentage on Icon"
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "ചിഹ്നത്തിൽ ബാറ്ററി ശതമാനം കാണിക്കുക"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, fuzzy, kde-format
 #| msgid "&Configure Energy Saving…"
 msgid "&Configure Power Management…"

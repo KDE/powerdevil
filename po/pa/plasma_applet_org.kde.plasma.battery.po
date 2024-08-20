@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
 "PO-Revision-Date: 2024-07-21 21:39-0500\n"
 "Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -91,8 +91,8 @@ msgstr "%1%"
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "ਤੁਹਾਡੀ ਬੈਟਰੀ ਲਗਭਗ %1 ਤੱਕ ਚਾਰਜ ਹੋਣ ਲਈ ਸੰਰਚਿਤ ਕੀਤੀ ਹੈ।"
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -213,17 +213,17 @@ msgstr "ਸਿਸਟਮ ਊਰਜਾ ਬੱਚਤ ਮੋਡ ਵਿੱਚ ਹੈ"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "…ਊਰਜਾ ਜਾਣਕਾਰੀ ਵੇਖਾਓ(&S)"
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "ਜਦੋਂ ਬੈਟਰੀ ਪੂਰੀ ਚਾਰਜ ਨਾ ਹੋਵੇ ਤਾਂ ਆਈਕਾਨ ਉੱਤੇ ਬੈਟਰੀ ਫ਼ੀਸਦੀ ਵੇਖਾਓ"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "…ਪਾਵਰ ਬੱਚਤ ਦਾ ਇੰਤਜ਼ਾਮ(&C)"

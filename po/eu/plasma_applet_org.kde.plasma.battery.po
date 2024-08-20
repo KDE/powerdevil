@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-16 00:41+0000\n"
-"PO-Revision-Date: 2024-06-28 13:52+0200\n"
+"POT-Creation-Date: 2024-08-20 00:42+0000\n"
+"PO-Revision-Date: 2024-08-19 11:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: package/contents/ui/BatteryItem.qml:99
@@ -96,8 +96,8 @@ msgstr ""
 "Zure bateria gutxi gorabehera %%1(e)ko karga arte kargatzeko konfiguratuta "
 "dago."
 
-#: package/contents/ui/CompactRepresentation.qml:106
-#: package/contents/ui/CompactRepresentation.qml:155
+#: package/contents/ui/CompactRepresentation.qml:100
+#: package/contents/ui/CompactRepresentation.qml:149
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
@@ -130,17 +130,17 @@ msgstr "Bateria ez dago badian"
 #: package/contents/ui/main.qml:128
 #, kde-format
 msgid "Battery at %1%, not Charging"
-msgstr "Bateria %%1(e)an, ez da zamatzen ari"
+msgstr "Bateria %%1(e)an, ez da kargatzen ari"
 
 #: package/contents/ui/main.qml:130
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
-msgstr "Bateria %%1(e)an, entxufatuta egon arren zama galtzen ari da"
+msgstr "Bateria %%1(e)an, entxufatuta egon arren karga galtzen ari da"
 
 #: package/contents/ui/main.qml:132
 #, kde-format
 msgid "Battery at %1%, Charging"
-msgstr "Bateria %%1(e)an, zamatzen"
+msgstr "Bateria %%1(e)an, kargatzen"
 
 #: package/contents/ui/main.qml:135
 #, kde-format
@@ -150,7 +150,7 @@ msgstr "bateria %%1(e)an"
 #: package/contents/ui/main.qml:143
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
-msgstr "Elikadura-iturria ez da bateria zamatzeko behar bezain indartsua"
+msgstr "Elikadura-iturria ez da bateria kargatzeko behar bezain indartsua"
 
 #: package/contents/ui/main.qml:147
 #, kde-format
@@ -161,7 +161,7 @@ msgstr "Ez dago bateria erabilgarririk"
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
-msgstr "%1 erabat zamatzeko"
+msgstr "%1 erabat kargatzeko"
 
 #: package/contents/ui/main.qml:156
 #, kde-format
@@ -172,20 +172,20 @@ msgstr "%1 geratzen zaio"
 #: package/contents/ui/main.qml:159
 #, kde-format
 msgid "Not charging"
-msgstr "Ez da zamatzen ari"
+msgstr "Ez da kargatzen ari"
 
 #: package/contents/ui/main.qml:164
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
 msgstr ""
-"Lokartze automatikoa eta pantaila-giltzatea ezgaituta daude; erdiko klik "
+"Lokartze eta pantaila-giltzatze automatikoa ezgaituta daude; erdiko klik "
 "berriz gaitzeko"
 
 #: package/contents/ui/main.qml:166
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "Erdiko klik lokartze eta pantaila-giltzatze automatikoa ezgaitzeko"
+msgstr "Erdiko klik, lokartze eta pantaila-giltzatze automatikoa ezgaitzeko"
 
 #: package/contents/ui/main.qml:171
 #, kde-format
@@ -214,19 +214,19 @@ msgstr "Sistema Energia aurrezteko moduan dago; kiribildu aldatzeko"
 #: package/contents/ui/main.qml:186
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
-msgstr "Sistema Energia oreketauko moduan dago; kiribildu aldatzeko"
+msgstr "Sistema, Energia orekatua moduan dago; kiribildu aldatzeko"
 
-#: package/contents/ui/main.qml:298
+#: package/contents/ui/main.qml:300
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Erakut&si energiari buruzko informazioa..."
 
-#: package/contents/ui/main.qml:304
+#: package/contents/ui/main.qml:306
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Erakutsi bateriaren ehunekoa ikonoan, osorik kargatu gabe dagoenean"
 
-#: package/contents/ui/main.qml:317
+#: package/contents/ui/main.qml:319
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Konfiguratu energia-kudeaketa..."
@@ -235,7 +235,7 @@ msgstr "&Konfiguratu energia-kudeaketa..."
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr "Lokartzea eta pantaila-giltzatzea, ekintza ezagatik"
+msgstr "Jarduera ezagatik, Lokartzea eta Pantaila-giltzatzea"
 
 #: package/contents/ui/PowerManagementItem.qml:89
 #, kde-format
