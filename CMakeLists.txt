@@ -75,14 +75,6 @@ if(DDCUtil_FOUND)
     )
 endif()
 
-find_package(LayerShellQt)
-set_package_properties(LayerShellQt PROPERTIES
-    DESCRIPTION "Layer shell Qt bindings"
-    URL "https://invent.kde.org/plasma/layer-shell-qt"
-    PURPOSE "Required for the power profile selection osd"
-    TYPE REQUIRED
-)
-
 find_package(Qt6WaylandClient COMPONENTS Private)
 find_package(PlasmaWaylandProtocols 1.13 REQUIRED)
 find_package(Wayland REQUIRED COMPONENTS Client)
@@ -104,7 +96,6 @@ add_subdirectory(daemon)
 add_subdirectory(kcmodule)
 add_subdirectory(doc)
 kdoctools_install(po)
-add_subdirectory(osd)
 add_subdirectory(runners)
 
 add_subdirectory(autotests)

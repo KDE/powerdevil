@@ -32,5 +32,4 @@ private Q_SLOTS:
 
 private:
     PowerDevil::Core *m_core;
-    void showOsd();
 };

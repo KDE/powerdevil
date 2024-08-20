@@ -12,10 +12,14 @@
 class OrgFreedesktopDBusPropertiesInterface;
 class NetHadessPowerProfilesInterface;
 
-namespace PowerDevil
+namespace PowerDevil::BundledActions
 {
-namespace BundledActions
-{
+
+enum class ProfileIndicatorVisibility : uint { // change indicator such as OSD, notification, etc.
+    ShowIndicator,
+    SuppressIndicator,
+};
+
 class PowerProfile : public PowerDevil::Action, protected QDBusContext
 {
     Q_OBJECT
@@ -34,7 +38,7 @@ public:
     QStringList profileChoices() const;
     QString configuredProfile() const;
     QString currentProfile() const;
-    void setProfile(const QString &profile);
+    void setProfile(const QString &profile, ProfileIndicatorVisibility = ProfileIndicatorVisibility::SuppressIndicator);
     QString performanceInhibitedReason() const;
     QString performanceDegradedReason() const;
     QList<QVariantMap> profileHolds() const;
@@ -73,5 +77,4 @@ private:
     QString m_configuredProfile;
 };
 
-} // namespace BundledActions
-} // namespace PowerDevil
+} // namespace PowerDevil::BundledActions

@@ -14,6 +14,9 @@
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 
+#include <KActionCollection>
+#include <KGlobalAccel>
+#include <KLocalizedString>
 #include <KPluginFactory>
 
 using namespace PowerDevil::BundledActions;
@@ -59,6 +62,23 @@ PowerProfile::PowerProfile(QObject *parent)
         readProperties(reply.value());
     });
     qDBusRegisterMetaType<QList<QVariantMap>>();
+
+    KActionCollection *actionCollection = new KActionCollection(this);
+    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
+
+    QAction *globalAction = actionCollection->addAction(QStringLiteral("powerProfile"));
+    globalAction->setText(i18n("Switch Power Profile"));
+    KGlobalAccel::setGlobalShortcut(globalAction, QList<QKeySequence>{Qt::Key_Battery, Qt::MetaModifier | Qt::Key_B});
+    connect(globalAction, &QAction::triggered, this, [this] {
+        auto newIndex = m_profileChoices.indexOf(m_currentProfile);
+        if (newIndex != -1) { // cycle through profiles
+            setProfile(m_profileChoices[(newIndex + 1) % m_profileChoices.size()], ProfileIndicatorVisibility::ShowIndicator);
+        } else {
+            // This can happen mainly if m_profileChoices is empty, e.g. power-profiles-daemon isn't available
+            qCDebug(POWERDEVIL) << "Error cycling through power profiles: current profile" << m_currentProfile << "not found in list of available profiles"
+                                << m_profileChoices;
+        }
+    });
 }
 
 PowerProfile::~PowerProfile() = default;
@@ -121,22 +141,34 @@ QList<QVariantMap> PowerProfile::profileHolds() const
     return m_profileHolds;
 }
 
-void PowerProfile::setProfile(const QString &profile)
+void PowerProfile::setProfile(const QString &profile, ProfileIndicatorVisibility indicatorVisibility)
 {
     auto call = m_powerProfilesPropertiesInterface->Set(m_powerProfilesInterface->interface(), activeProfileProperty, QDBusVariant(profile));
-    if (calledFromDBus()) {
+    bool needsReply = calledFromDBus();
+    QDBusMessage receivedMsg;
+    if (needsReply) {
         setDelayedReply(true);
-        const auto msg = message();
-        auto watcher = new QDBusPendingCallWatcher(call);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [msg, watcher] {
-            watcher->deleteLater();
-            if (watcher->isError()) {
-                QDBusConnection::sessionBus().send(msg.createErrorReply(watcher->error()));
-            } else {
-                QDBusConnection::sessionBus().send(msg.createReply());
-            }
-        });
+        receivedMsg = message();
     }
+    auto watcher = new QDBusPendingCallWatcher(call);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, needsReply, receivedMsg, profile, indicatorVisibility] {
+        watcher->deleteLater();
+        if (needsReply) {
+            if (watcher->isError()) {
+                QDBusConnection::sessionBus().send(receivedMsg.createErrorReply(watcher->error()));
+            } else {
+                QDBusConnection::sessionBus().send(receivedMsg.createReply());
+            }
+        }
+        if (indicatorVisibility == ProfileIndicatorVisibility::ShowIndicator && !watcher->isError()) {
+            QDBusMessage osdMsg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
+                                                                 QStringLiteral("/org/kde/osdService"),
+                                                                 QStringLiteral("org.kde.osdService"),
+                                                                 QLatin1String("powerProfileChanged"));
+            osdMsg << profile;
+            QDBusConnection::sessionBus().asyncCall(osdMsg);
+        }
+    });
 }
 
 unsigned int PowerProfile::holdProfile(const QString &profile, const QString &reason, const QString &applicationId)
