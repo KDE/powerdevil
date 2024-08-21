@@ -49,6 +49,7 @@ ScreenBrightnessController::ScreenBrightnessController()
       })
     , m_externalBrightnessController(std::make_unique<ExternalBrightnessController>())
 {
+    connect(m_externalBrightnessController.get(), &ExternalBrightnessController::activeChanged, this, &ScreenBrightnessController::onDetectorDisplaysChanged);
 }
 
 ScreenBrightnessController::~ScreenBrightnessController()
