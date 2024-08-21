@@ -1,11 +1,11 @@
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
-# Shinjo Park <kde@peremen.name>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-14 00:41+0000\n"
-"PO-Revision-Date: 2023-10-08 23:55+0200\n"
+"PO-Revision-Date: 2024-08-21 00:04+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -110,12 +110,10 @@ msgstr "키보드 백라이트 켬/끔"
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "내장 화면"
 
 #: controllers/kwinbrightness.cpp:132
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
@@ -193,10 +191,9 @@ msgid "Extra Battery Added"
 msgstr "여분의 배터리 추가됨"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
+msgstr "시스템이 더 이상 절전 모드로 전환되지 않습니다."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -246,25 +243,21 @@ msgstr ""
 "터리를 충전하거나 교체하십시오."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr "어댑터가 연결되어 있고 충분한 전력 공급이 가능한지 확인하십시오."
+msgstr "전원에 연결되어 있고 충분한 전력 공급이 가능한지 확인하십시오."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "컴퓨터를 전원에 연결하십시오."
+msgstr "전원 코드를 연결하십시오."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "컴퓨터가 60초 후에 종료됩니다."
+msgstr "시스템이 60초 후에 종료됩니다."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -274,10 +267,9 @@ msgid "Shut Down Now"
 msgstr "지금 컴퓨터 끄기"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "컴퓨터가 60초 후에 최대 절전 모드로 진입합니다."
+msgstr "시스템이 60초 후에 최대 절전 모드로 진입합니다."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -288,10 +280,9 @@ msgid "Hibernate Now"
 msgstr "지금 최대 절전 모드로 전환"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "60초 후에 컴퓨터가 대기 모드로 전환됩니다."
+msgstr "시스템이 60초 후에 대기 모드로 전환됩니다."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -324,10 +315,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "배터리 바닥남(%1% 남음)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "AC 어댑터가 연결됨"
+msgstr "전원 코드가 연결됨"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -340,10 +330,9 @@ msgid "Running on AC power"
 msgstr "AC 어댑터 전원으로 실행 중"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "전원 어댑터가 연결되었습니다."
+msgstr "전원 코드가 연결되었습니다."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -351,10 +340,9 @@ msgid "Running on Battery Power"
 msgstr "배터리 전원으로 실행 중"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "전원 어댑터의 연결이 해제되었습니다."
+msgstr "전원 코드의 연결이 해제되었습니다."
 
 #: powerdevilcore.cpp:745
 #, kde-format
