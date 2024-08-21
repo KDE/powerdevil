@@ -14,6 +14,7 @@ ExternalBrightnessController::ExternalBrightnessController()
 void ExternalBrightnessController::setDisplays(const QList<DisplayBrightness *> &displays)
 {
     if (!isActive()) {
+        m_waylandObjects.clear();
         return;
     }
     std::erase_if(m_waylandObjects, [&displays](const auto &pair) {

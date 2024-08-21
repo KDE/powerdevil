@@ -15,7 +15,7 @@
 #include <QObject>
 #include <QStringList>
 
-#include <utility> // std::pair
+#include <unordered_map>
 
 #include <powerdevilcore_export.h>
 
@@ -127,7 +127,7 @@ private:
     };
     QStringList m_sortedDisplayIds;
     QStringList m_legacyDisplayIds;
-    QHash<QString, DisplayInfo> m_displaysById;
+    std::unordered_map<QString, DisplayInfo> m_displaysById;
 
     struct DetectorInfo {
         DisplayBrightnessDetector *detector = nullptr;
