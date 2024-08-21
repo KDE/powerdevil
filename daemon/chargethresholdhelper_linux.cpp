@@ -59,27 +59,37 @@ static QStringList getBatteries()
     return batteries;
 }
 
-static QList<int> getThresholds(const QString &which)
+static int getThreshold(const QString &battery, const QString &which)
 {
-    QList<int> thresholds;
+    QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + battery + QLatin1Char('/') + which);
 
-    const QStringList batteries = getBatteries();
-    for (const QString &battery : batteries) {
-        QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + battery + QLatin1Char('/') + which);
-        if (!file.open(QIODevice::ReadOnly)) {
-            continue;
+    // We don't need write access here, but if we can't write then it's better to mark this
+    // threshold as unsupported so we won't try to write to it later. To the user, a read-only
+    // value that's fixed by the firmware won't be very interesting anyway.
+    if (!file.open(QIODevice::ReadWrite)) {
+        return -1;
+    }
+
+    int threshold = -1;
+    QTextStream stream(&file);
+    stream >> threshold;
+
+    if (threshold < 0 || threshold > 100) {
+        qWarning() << file.fileName() << "contains invalid threshold" << threshold;
+        return -1;
+    }
+
+    return threshold;
+}
+
+static QMap<QString, int> getThresholds(const QString &which)
+{
+    QMap<QString, int> thresholds;
+
+    for (const QString &battery : getBatteries()) {
+        if (int threshold = getThreshold(battery, which); threshold != -1) {
+            thresholds.insert(battery, threshold);
         }
-
-        int threshold = -1;
-        QTextStream stream(&file);
-        stream >> threshold;
-
-        if (threshold < 0 || threshold > 100) {
-            qWarning() << file.fileName() << "contains invalid threshold" << threshold;
-            continue;
-        }
-
-        thresholds.append(threshold);
     }
 
     return thresholds;
@@ -87,8 +97,7 @@ static QList<int> getThresholds(const QString &which)
 
 static bool setThresholds(const QString &which, int threshold)
 {
-    const QStringList batteries = getBatteries();
-    for (const QString &battery : batteries) {
+    for (const QString &battery : getBatteries()) {
         QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + battery + QLatin1Char('/') + which);
         // TODO should we check the current value before writing the new one or is it clever
         // enough not to shred some chip by writing the same thing again?
@@ -110,29 +119,23 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
 {
     Q_UNUSED(args);
 
-    auto startThresholds = getThresholds(s_chargeStartThreshold);
-    auto stopThresholds = getThresholds(s_chargeEndThreshold);
-
-    if (startThresholds.isEmpty() && stopThresholds.isEmpty()) {
-        auto reply = ActionReply::HelperErrorReply();
-        reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
-        return reply;
-    }
-
-    if (!startThresholds.isEmpty() && !stopThresholds.isEmpty() && startThresholds.count() != stopThresholds.count()) {
-        auto reply = ActionReply::HelperErrorReply();
-        reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
-        return reply;
-    }
+    QMap<QString, int> stopThresholds = getThresholds(s_chargeEndThreshold);
 
     // In the rare case there are multiple batteries with varying charge thresholds, try to use something sensible
-    const int startThreshold = !startThresholds.empty() ? *std::max_element(startThresholds.begin(), startThresholds.end()) : -1;
-    const int stopThreshold = !stopThresholds.empty() ? *std::min_element(stopThresholds.begin(), stopThresholds.end()) : -1;
+    const auto stopThresholdIt = std::ranges::min_element(std::as_const(stopThresholds));
+    if (stopThresholdIt == stopThresholds.end()) {
+        auto reply = ActionReply::HelperErrorReply();
+        reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
+        return reply;
+    }
+
+    const int stopThreshold = *stopThresholdIt;
+    const int startThreshold = getThreshold(stopThresholdIt.key(), s_chargeStartThreshold);
 
     ActionReply reply;
     reply.setData({
-        {QStringLiteral("chargeStartThreshold"), startThreshold},
-        {QStringLiteral("chargeStopThreshold"), stopThreshold},
+        {u"chargeStartThreshold"_s, startThreshold},
+        {u"chargeStopThreshold"_s, stopThreshold},
     });
     return reply;
 }
