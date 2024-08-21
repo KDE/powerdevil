@@ -24,10 +24,6 @@ static const QString s_conservationModeSysFsPath = QStringLiteral("/sys/bus/plat
 static const QString s_chargeStartThreshold = QStringLiteral("charge_control_start_threshold");
 static const QString s_chargeEndThreshold = QStringLiteral("charge_control_end_threshold");
 
-// kept for thinkpad driver retro compat for kernels < 5.9
-static const QString s_oldChargeStartThreshold = QStringLiteral("charge_start_threshold");
-static const QString s_oldChargeStopThreshold = QStringLiteral("charge_stop_threshold");
-
 ChargeThresholdHelper::ChargeThresholdHelper(QObject *parent)
     : QObject(parent)
 {
@@ -53,8 +49,7 @@ static QStringList getBatteries()
             continue; // Not a battery, skip
         }
 
-        if (!psuDir.exists(s_chargeStartThreshold) && !psuDir.exists(s_oldChargeStartThreshold) && !psuDir.exists(s_chargeEndThreshold)
-            && !psuDir.exists(s_oldChargeStopThreshold)) {
+        if (!psuDir.exists(s_chargeStartThreshold) && !psuDir.exists(s_chargeEndThreshold)) {
             continue; // No charge thresholds, skip
         }
 
@@ -119,11 +114,6 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
     auto stopThresholds = getThresholds(s_chargeEndThreshold);
 
     if (startThresholds.isEmpty() && stopThresholds.isEmpty()) {
-        startThresholds = getThresholds(s_oldChargeStartThreshold);
-        stopThresholds = getThresholds(s_oldChargeStopThreshold);
-    }
-
-    if (startThresholds.isEmpty() && stopThresholds.isEmpty()) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
         return reply;
@@ -164,13 +154,13 @@ ActionReply ChargeThresholdHelper::setthreshold(const QVariantMap &args)
         return reply;
     }
 
-    if (hasStartThreshold && !(setThresholds(s_chargeStartThreshold, startThreshold) || setThresholds(s_oldChargeStartThreshold, startThreshold))) {
+    if (hasStartThreshold && !setThresholds(s_chargeStartThreshold, startThreshold)) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Failed to write start charge threshold"));
         return reply;
     }
 
-    if (hasStopThreshold && !(setThresholds(s_chargeEndThreshold, stopThreshold) || setThresholds(s_oldChargeStopThreshold, stopThreshold))) {
+    if (hasStopThreshold && !setThresholds(s_chargeEndThreshold, stopThreshold)) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Failed to write stop charge threshold"));
         return reply;
@@ -203,9 +193,7 @@ ActionReply ChargeThresholdHelper::getconservationmode(const QVariantMap &args)
     }
 
     ActionReply reply;
-    reply.setData({
-        {QStringLiteral("batteryConservationModeEnabled"), !!state}
-    });
+    reply.setData({{QStringLiteral("batteryConservationModeEnabled"), !!state}});
     return reply;
 }
 
