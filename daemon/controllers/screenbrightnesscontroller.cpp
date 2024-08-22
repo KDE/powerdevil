@@ -185,6 +185,11 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     for (const QString &added : addedDisplayIds) {
         Q_EMIT displayAdded(added);
     }
+    for (const QString &changed : brightnessChangedDisplayIds) {
+        const auto &[id, info] = *m_displaysById.find(changed);
+        qCDebug(POWERDEVIL) << "Screen brightness of display" << changed << "after detection/reconfiguration:" << info.brightnessLogic.info().value;
+        Q_EMIT brightnessChanged(changed, info.brightnessLogic.info(), SuppressIndicator);
+    }
 
     const QString previousFirstDisplayId = m_legacyDisplayIds.value(0, QString());
 
