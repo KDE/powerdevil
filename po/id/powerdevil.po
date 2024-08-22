@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:41+0000\n"
+"POT-Creation-Date: 2024-08-22 00:41+0000\n"
 "PO-Revision-Date: 2023-02-18 15:41+0700\n"
 "Last-Translator: Linerly <linerly@protonmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -115,14 +115,14 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Ubah Warna Cahayabelakang Keyboard"
 
-#: controllers/backlightbrightness.cpp:164
+#: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, fuzzy, kde-format
 #| msgid "Lock Screen"
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "Kunci Layar"
 
-#: controllers/kwinbrightness.cpp:132
+#: controllers/kwinbrightness.cpp:135
 #, fuzzy, kde-format
 #| msgctxt "%1 is vendor name, %2 is product name"
 #| msgid "%1 %2"

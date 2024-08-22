@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:41+0000\n"
+"POT-Creation-Date: 2024-08-22 00:41+0000\n"
 "PO-Revision-Date: 2024-06-20 05:36\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -113,13 +113,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Пераключыць яркасць клавіятуры"
 
-#: controllers/backlightbrightness.cpp:164
+#: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "Убудаваны экран"
 
-#: controllers/kwinbrightness.cpp:132
+#: controllers/kwinbrightness.cpp:135
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:41+0000\n"
+"POT-Creation-Date: 2024-08-22 00:41+0000\n"
 "PO-Revision-Date: 2010-06-22 16:52+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -125,14 +125,14 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr ""
 
-#: controllers/backlightbrightness.cpp:164
+#: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, fuzzy, kde-format
 #| msgid "Lock screen"
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "સ્ક્રીનને તાળુ મારો"
 
-#: controllers/kwinbrightness.cpp:132
+#: controllers/kwinbrightness.cpp:135
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"

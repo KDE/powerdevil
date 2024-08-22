@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-14 00:41+0000\n"
+"POT-Creation-Date: 2024-08-22 00:41+0000\n"
 "PO-Revision-Date: 2014-08-11 12:48+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -115,13 +115,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Tastatuur-Achterlicht an-/utmaken"
 
-#: controllers/backlightbrightness.cpp:164
+#: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr ""
 
-#: controllers/kwinbrightness.cpp:132
+#: controllers/kwinbrightness.cpp:135
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
