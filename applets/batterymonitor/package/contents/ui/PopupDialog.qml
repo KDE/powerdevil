@@ -39,6 +39,7 @@ PlasmaExtras.Representation {
     //  Reason: string,
     // }]
     property var inhibitions: []
+    property var blockedInhibitions: []
     property bool inhibitsLidAction
 
     property string inhibitionReason
@@ -143,6 +144,8 @@ PlasmaExtras.Representation {
             }
 
             footer: PowerManagementItem {
+                readonly property var pmControl: dialog.pmControl
+
                 width: scrollView.availableWidth
 
                 KeyNavigation.up: batteryRepeater.itemAtIndex(batteryRepeater.count - 1)
@@ -151,6 +154,7 @@ PlasmaExtras.Representation {
                 KeyNavigation.tab: manualInhibitionSwitch
 
                 inhibitions: dialog.inhibitions
+                blockedInhibitions: dialog.blockedInhibitions
                 isManuallyInhibited: dialog.isManuallyInhibited
                 isManuallyInhibitedError: dialog.isManuallyInhibitedError
                 inhibitsLidAction: dialog.inhibitsLidAction
