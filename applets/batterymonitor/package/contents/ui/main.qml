@@ -258,7 +258,7 @@ PlasmoidItem {
     fullRepresentation: PopupDialog {
         id: dialogItem
 
-        readonly property var appletInterface: batterymonitor
+        readonly property var pmControl: powerManagementControl
 
         Layout.minimumWidth: Kirigami.Units.gridUnit * 10
         Layout.maximumWidth: Kirigami.Units.gridUnit * 80
@@ -278,6 +278,7 @@ PlasmoidItem {
         activeProfile: powerProfilesControl.activeProfile
         activeProfileError: powerProfilesControl.profileError
         inhibitions: powerManagementControl.inhibitions
+        blockedInhibitions: powerManagementControl.blockedInhibitions
         inhibitsLidAction: powerManagementControl.isLidPresent && !powerManagementControl.triggersLidAction
         profilesInstalled: powerProfilesControl.isPowerProfileDaemonInstalled
         profiles: powerProfilesControl.profiles
