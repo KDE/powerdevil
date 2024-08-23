@@ -151,7 +151,6 @@ PlasmaExtras.Representation {
                 KeyNavigation.up: batteryRepeater.itemAtIndex(batteryRepeater.count - 1)
                 KeyNavigation.down: null
                 KeyNavigation.backtab:KeyNavigation.up
-                KeyNavigation.tab: manualInhibitionSwitch
 
                 inhibitions: dialog.inhibitions
                 blockedInhibitions: dialog.blockedInhibitions
