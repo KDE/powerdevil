@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-22 00:41+0000\n"
-"PO-Revision-Date: 2024-06-08 10:47+0200\n"
+"PO-Revision-Date: 2024-08-22 17:49+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -194,10 +194,9 @@ msgid "Extra Battery Added"
 msgstr "Kroma Baterio Aldonita"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "La komputilo ne plu ekdormos."
+msgstr "La sistemo ne plu ekdormos."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -247,27 +246,22 @@ msgstr ""
 "malŝalti iam ajn. Bonvolu reŝargi aŭ anstataŭigi la baterion."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Certigu, ke la elektra adaptilo estas enŝtopita kaj provizas sufiĉan "
-"potencon."
+"Certigu, ke la elektra ŝnuro estas enŝtopita kaj provizas sufiĉan potencon."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Enŝtopu la komputilon."
+msgstr "Enŝtopu la potencoŝnuron."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Baterinivelo estas kritika. La komputilo malŝaltos post 60 sekundoj."
+msgstr "La sistemo malŝaltos post 60 sekundoj."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -279,7 +273,7 @@ msgstr "Fermi Nun"
 #: powerdevilcore.cpp:616
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "La sistemo pasivumos post 60 sekundoj."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -287,14 +281,12 @@ msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr "Hibernate Nun"
+msgstr "Pasivumi Nun"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Baterinivelo kritika. Via komputilo ekdormos post 60 sekundoj."
+msgstr "La sistemo ekdormos post 60 sekundoj."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -327,10 +319,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Baterio Kritika (%1% Restanta)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "AC-Adaptilo Konektita"
+msgstr "Elektra Ŝnuro Konektita"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -340,11 +331,10 @@ msgstr "La komputilo ne plu ekdormos."
 #: powerdevilcore.cpp:681
 #, kde-format
 msgid "Running on AC power"
-msgstr "Funkcianta sur AC-potenco"
+msgstr "Funkcianta je AC-potenco"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
 msgstr "La elektra adaptilo estis enŝovita."
 
@@ -354,10 +344,9 @@ msgid "Running on Battery Power"
 msgstr "Funkcianta sur Bateria Potenco"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "La elektra adaptilo estis malkonektita."
+msgstr "La elektra ŝnuro estis malkonektita."
 
 #: powerdevilcore.cpp:745
 #, kde-format
@@ -368,8 +357,3 @@ msgstr "Ŝargado Kompleta"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Baterio nun plene ŝargita."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr "Baterinivelo kritika. Via komputilo pasivumiĝos post 60 sekundoj."
