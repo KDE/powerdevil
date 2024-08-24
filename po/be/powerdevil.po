@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-22 00:41+0000\n"
+"POT-Creation-Date: 2024-08-24 00:41+0000\n"
 "PO-Revision-Date: 2024-06-20 05:36\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -32,7 +32,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "nashtlumach@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:73
+#: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #, kde-format
@@ -40,25 +40,25 @@ msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Кіраванне сілкаваннем"
 
-#: actions/bundled/brightnesscontrol.cpp:42
+#: actions/bundled/brightnesscontrol.cpp:45
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Павялічыць яркасць экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:47
+#: actions/bundled/brightnesscontrol.cpp:50
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Павялічыць яркасць экрана на 1%"
 
-#: actions/bundled/brightnesscontrol.cpp:52
+#: actions/bundled/brightnesscontrol.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Паменшыць яркасць экрана"
 
-#: actions/bundled/brightnesscontrol.cpp:57
+#: actions/bundled/brightnesscontrol.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"

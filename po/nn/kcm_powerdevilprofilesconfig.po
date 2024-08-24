@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-14 13:00+0200\n"
+"PO-Revision-Date: 2024-08-19 20:52+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -409,18 +409,14 @@ msgid "Suspend Session"
 msgstr "Lås økta"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"Handlinga du tidlegare har valt for når lokket vert lukka, er ikkje lenger "
-"støtta. Vel ei ny handling."
+"Handlinga du tidlegare har valt skal gjerast etter ein periode utan "
+"aktivitet, er ikkje lenger støtta. Vel ei ny handling."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -706,39 +702,27 @@ msgid "Switch to power profile"
 msgstr "Byt straumprofil"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "Køyr sjølvvalt skript:"
+msgstr "Køyr kommando eller skript:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Vel køyrevilkår …"
+msgstr "Vel køyrevilkår"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Vel køyrevilkår for skriptkommando"
+msgstr "Vel køyrevilkår for kommando eller skript"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -746,11 +730,7 @@ msgid "When entering \"%1\" state"
 msgstr "Når maskina går inn i «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"

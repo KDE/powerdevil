@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:40+0000\n"
+"POT-Creation-Date: 2024-08-24 00:41+0000\n"
 "PO-Revision-Date: 2024-05-03 16:53+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,122 +17,143 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: package/contents/ui/BrightnessItem.qml:29
+#: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Disattivata"
 
-#: package/contents/ui/BrightnessItem.qml:30
+#: package/contents/ui/BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Basso"
 
-#: package/contents/ui/BrightnessItem.qml:31
+#: package/contents/ui/BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Medio"
 
-#: package/contents/ui/BrightnessItem.qml:32
+#: package/contents/ui/BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Alto"
 
-#: package/contents/ui/BrightnessItem.qml:33
+#: package/contents/ui/BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "Attivata"
 
-#: package/contents/ui/BrightnessItem.qml:45
+#: package/contents/ui/BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
+
+#: package/contents/ui/BrightnessItem.qml:90
+#, fuzzy, kde-format
+#| msgid "Display Brightness"
+msgctxt "Display brightness"
+msgid "Brightness"
+msgstr "Luminosità dello schermo"
+
+#: package/contents/ui/BrightnessItem.qml:113
+#, fuzzy, kde-format
+#| msgid "Display Brightness"
+msgctxt "Placeholder is display name"
+msgid "Display Brightness - %1"
+msgstr "Luminosità dello schermo"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
 msgid "Follow accent color"
 msgstr "Segui il colore secondario"
 
-#: package/contents/ui/main.qml:62
+#: package/contents/ui/main.qml:61
 #, kde-format
 msgid "Brightness and Color"
 msgstr "Luminosità e colore"
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:101
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "Luminosità dello schermo al %1%"
 
-#: package/contents/ui/main.qml:77
+#: package/contents/ui/main.qml:102
+#, fuzzy, kde-format
+#| msgid "Screen brightness at %1%"
+msgctxt "Brightness of named display at percentage"
+msgid "Brightness of %1 at %2%"
+msgstr "Luminosità dello schermo al %1%"
+
+#: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "Luminosità della tastiera al %1%"
 
-#: package/contents/ui/main.qml:82
+#: package/contents/ui/main.qml:113
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr ""
 "Luce notturna sospesa; fai clic con il pulsante centrale per riprendere"
 
-#: package/contents/ui/main.qml:84
+#: package/contents/ui/main.qml:115
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "Luce notturna sospesa"
 
-#: package/contents/ui/main.qml:89
+#: package/contents/ui/main.qml:120
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "Luce notturna con temperatura del colore diurna"
 
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:122
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "Luce notturna con temperatura del colore notturna"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:127
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "Luce notturna nella transizione del mattino (completa dalle %1)"
 
-#: package/contents/ui/main.qml:98
+#: package/contents/ui/main.qml:129
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "Luce notturna nella transizione della sera (completa dalle %1)"
 
-#: package/contents/ui/main.qml:113
+#: package/contents/ui/main.qml:147
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "Transizione della sera di Luce notturna pianificata per le %1"
 
-#: package/contents/ui/main.qml:115
+#: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "Transizione della mattina di Luce notturna pianificata per le %1"
 
-#: package/contents/ui/main.qml:119
+#: package/contents/ui/main.qml:153
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "Scorri per regolare la luminosità dello schermo"
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "Fai clic con il tasto centrale per sospendere Luce notturna"
 
-#: package/contents/ui/main.qml:210
+#: package/contents/ui/main.qml:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
@@ -238,22 +259,18 @@ msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "Passaggio al giorno pianificato per le:"
 
-#: package/contents/ui/PopupDialog.qml:66
-#, kde-format
-msgid "Display Brightness"
-msgstr "Luminosità dello schermo"
-
-#: package/contents/ui/PopupDialog.qml:97
-#, kde-format
-msgid "Keyboard Brightness"
+#: package/contents/ui/PopupDialog.qml:121
+#, fuzzy, kde-format
+#| msgid "Keyboard Brightness"
+msgid "Keyboard Backlight"
 msgstr "Luminosità della tastiera"
 
-#: package/contents/ui/PopupDialog.qml:130
+#: package/contents/ui/PopupDialog.qml:154
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Colore della tastiera"
 
-#: package/contents/ui/PopupDialog.qml:140
+#: package/contents/ui/PopupDialog.qml:165
 #, kde-format
 msgid "Night Light"
 msgstr "Luce notturna"

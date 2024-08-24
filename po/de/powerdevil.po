@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-22 00:41+0000\n"
+"POT-Creation-Date: 2024-08-24 00:41+0000\n"
 "PO-Revision-Date: 2023-12-21 19:05+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "tr@erdfunkstelle.de"
 
-#: actions/bundled/brightnesscontrol.cpp:39 actions/bundled/dpms.cpp:73
+#: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #, kde-format
@@ -39,25 +39,25 @@ msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Energieverwaltung"
 
-#: actions/bundled/brightnesscontrol.cpp:42
+#: actions/bundled/brightnesscontrol.cpp:45
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
 msgstr "Bildschirmhelligkeit erhöhen"
 
-#: actions/bundled/brightnesscontrol.cpp:47
+#: actions/bundled/brightnesscontrol.cpp:50
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
 msgstr "Bildschirmhelligkeit um 1 % erhöhen"
 
-#: actions/bundled/brightnesscontrol.cpp:52
+#: actions/bundled/brightnesscontrol.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
 msgstr "Bildschirmhelligkeit verringern"
 
-#: actions/bundled/brightnesscontrol.cpp:57
+#: actions/bundled/brightnesscontrol.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"

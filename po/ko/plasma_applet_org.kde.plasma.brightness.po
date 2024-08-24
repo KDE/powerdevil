@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:40+0000\n"
+"POT-Creation-Date: 2024-08-24 00:41+0000\n"
 "PO-Revision-Date: 2024-08-21 00:01+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,121 +17,142 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: package/contents/ui/BrightnessItem.qml:29
+#: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "꺼짐"
 
-#: package/contents/ui/BrightnessItem.qml:30
+#: package/contents/ui/BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "낮음"
 
-#: package/contents/ui/BrightnessItem.qml:31
+#: package/contents/ui/BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "중간"
 
-#: package/contents/ui/BrightnessItem.qml:32
+#: package/contents/ui/BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "높음"
 
-#: package/contents/ui/BrightnessItem.qml:33
+#: package/contents/ui/BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "켬"
 
-#: package/contents/ui/BrightnessItem.qml:45
+#: package/contents/ui/BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
+
+#: package/contents/ui/BrightnessItem.qml:90
+#, fuzzy, kde-format
+#| msgid "Display Brightness"
+msgctxt "Display brightness"
+msgid "Brightness"
+msgstr "화면 밝기"
+
+#: package/contents/ui/BrightnessItem.qml:113
+#, fuzzy, kde-format
+#| msgid "Display Brightness"
+msgctxt "Placeholder is display name"
+msgid "Display Brightness - %1"
+msgstr "화면 밝기"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
 msgid "Follow accent color"
 msgstr "강조색 따르기"
 
-#: package/contents/ui/main.qml:62
+#: package/contents/ui/main.qml:61
 #, kde-format
 msgid "Brightness and Color"
 msgstr "밝기와 색상"
 
-#: package/contents/ui/main.qml:74
+#: package/contents/ui/main.qml:101
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "화면 밝기: %1%"
 
-#: package/contents/ui/main.qml:77
+#: package/contents/ui/main.qml:102
+#, fuzzy, kde-format
+#| msgid "Screen brightness at %1%"
+msgctxt "Brightness of named display at percentage"
+msgid "Brightness of %1 at %2%"
+msgstr "화면 밝기: %1%"
+
+#: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "키보드 밝기: %1%"
 
-#: package/contents/ui/main.qml:82
+#: package/contents/ui/main.qml:113
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr "야간 조명 중단됨. 가운데 단추로 클릭하여 다시 시작"
 
-#: package/contents/ui/main.qml:84
+#: package/contents/ui/main.qml:115
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "야간 조명 중단됨"
 
-#: package/contents/ui/main.qml:89
+#: package/contents/ui/main.qml:120
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "야간 조명이 주간 색온도임"
 
-#: package/contents/ui/main.qml:91
+#: package/contents/ui/main.qml:122
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "야간 조명이 야간 색온도임"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:127
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "야간 조명이 일출 전환 중(%1에 완료됨)"
 
-#: package/contents/ui/main.qml:98
+#: package/contents/ui/main.qml:129
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "야간 조명이 일몰 전환 중(%1에 완료됨)"
 
-#: package/contents/ui/main.qml:113
+#: package/contents/ui/main.qml:147
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "야간 조명 일몰 전환이 %1에 예정됨"
 
-#: package/contents/ui/main.qml:115
+#: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "야간 조명 일출 전환이 %1에 예정됨"
 
-#: package/contents/ui/main.qml:119
+#: package/contents/ui/main.qml:153
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "스크롤하여 화면 밝기 조정"
 
-#: package/contents/ui/main.qml:122
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
 
-#: package/contents/ui/main.qml:210
+#: package/contents/ui/main.qml:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
@@ -237,22 +258,18 @@ msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "일출 전환 시작 시간:"
 
-#: package/contents/ui/PopupDialog.qml:66
-#, kde-format
-msgid "Display Brightness"
-msgstr "화면 밝기"
-
-#: package/contents/ui/PopupDialog.qml:97
-#, kde-format
-msgid "Keyboard Brightness"
+#: package/contents/ui/PopupDialog.qml:121
+#, fuzzy, kde-format
+#| msgid "Keyboard Brightness"
+msgid "Keyboard Backlight"
 msgstr "키보드 밝기"
 
-#: package/contents/ui/PopupDialog.qml:130
+#: package/contents/ui/PopupDialog.qml:154
 #, kde-format
 msgid "Keyboard Color"
 msgstr "키보드 색상"
 
-#: package/contents/ui/PopupDialog.qml:140
+#: package/contents/ui/PopupDialog.qml:165
 #, kde-format
 msgid "Night Light"
 msgstr "야간 조명"
