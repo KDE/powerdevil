@@ -35,7 +35,12 @@
       <arg name="permanently" type="b" direction="in" />
     </method>
 
-    <method name="ListBlockedInhibitions">
+    <method name="ListPermanentlyBlockedInhibitions">
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg name="blocked" type="a{ss}" direction="out" />
+    </method>
+
+    <method name="ListTemporarilyBlockedInhibitions">
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
         <arg name="blocked" type="a{ss}" direction="out" />
     </method>
@@ -46,7 +51,14 @@
         <arg name="removed" type="as" />
     </signal>
 
-    <signal name="BlockedInhibitionsChanged">
+    <signal name="PermanentlyBlockedInhibitionsChanged">
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
+        <arg name="added" type="a{ss}" />
+        <arg name="removed" type="a{ss}" />
+    </signal>
+
+    <signal name="TemporarilyBlockedInhibitionsChanged">
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
         <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
         <arg name="added" type="a{ss}" />

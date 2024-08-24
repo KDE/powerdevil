@@ -99,12 +99,14 @@ public Q_SLOTS:
 
     void BlockInhibition(const QString &appName, const QString &reason, bool permanently);
     void UnblockInhibition(const QString &appName, const QString &reason, bool permanently);
-    QList<InhibitionInfo> ListBlockedInhibitions() const;
+    QList<InhibitionInfo> ListPermanentlyBlockedInhibitions() const;
+    QList<InhibitionInfo> ListTemporarilyBlockedInhibitions() const;
 
 Q_SIGNALS:
     // Exported signals
     void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
-    void BlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
+    void PermanentlyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
+    void TemporarilyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
     void sessionActiveChanged(bool active);

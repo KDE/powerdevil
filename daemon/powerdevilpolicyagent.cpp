@@ -25,7 +25,8 @@
 #include <KSharedConfig>
 
 #include <algorithm>
-#include <unitsd.h>
+#include <qvariant.h>
+#include <unistd.h>
 
 #include "PowerDevilGlobalSettings.h"
 #include "powerdevil_debug.h"
@@ -197,7 +198,6 @@ void PolicyAgent::init(GlobalSettings *globalSettings)
                                const QString reason = inhibition.section(QLatin1Char(':'), 1);
                                return qMakePair(app, reason);
                            });
-    Q_EMIT BlockedInhibitionsChanged(m_configuredToBlockInhibitions.values(), {});
 }
 
 QString PolicyAgent::getNamedPathProperty(const QString &path, const QString &iface, const QString &prop) const
@@ -648,7 +648,11 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
                     ReleaseInhibition(cookie, true);
                     m_blockedInhibitions.insert(cookie);
-                    Q_EMIT BlockedInhibitionsChanged({blockedInfo}, QList<InhibitionInfo>());
+                    if (m_configuredToBlockInhibitions.contains(info)) {
+                        Q_EMIT PermanentlyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                    } else {
+                        Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                    }
                 }
             }));
 
@@ -667,7 +671,11 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
                     m_pendingInhibitions.removeOne(cookie);
 
                     m_blockedInhibitions.remove(cookie);
-                    Q_EMIT BlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                    if (m_configuredToBlockInhibitions.contains(info)) {
+                        Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
+                    } else {
+                        Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                    }
                 }
             }));
 
@@ -678,7 +686,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
 
             m_pendingInhibitions.removeOne(cookie);
             m_blockedInhibitions.insert(cookie);
-            Q_EMIT BlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+            Q_EMIT PermanentlyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
             return;
         }
 
@@ -749,7 +757,11 @@ void PolicyAgent::ReleaseInhibition(uint cookie, bool retainCookie)
     if (m_blockedInhibitions.remove(cookie)) {
         qCDebug(POWERDEVIL) << "It was blocked, just discarding it";
         m_cookieToAppName.remove(cookie);
-        Q_EMIT BlockedInhibitionsChanged(QList<InhibitionInfo>(), {m_cookieToAppName.value(cookie)});
+        if (m_configuredToBlockInhibitions.contains(m_cookieToAppName.value(cookie))) {
+            Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {m_cookieToAppName.value(cookie)});
+        } else {
+            Q_EMIT TemporarilyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {m_cookieToAppName.value(cookie)});
+        }
         return;
     }
 
@@ -891,10 +903,29 @@ void PolicyAgent::UnblockInhibition(const QString &appName, const QString &reaso
     m_config->setBlockedInhibitions(configuredBlockedInhibitions);
 }
 
-QList<InhibitionInfo> PolicyAgent::ListBlockedInhibitions() const
+QList<InhibitionInfo> PolicyAgent::ListPermanentlyBlockedInhibitions() const
 {
-    return std::transform_reduce(m_blockedInhibitions.constBegin(),
-                                 m_blockedInhibitions.constEnd(),
+    QList<uint> permanentlyBlockedInhibitions;
+    std::copy_if(m_blockedInhibitions.begin(), m_blockedInhibitions.end(), std::back_inserter(permanentlyBlockedInhibitions), [this](uint cookie) {
+        return m_configuredToBlockInhibitions.contains(m_cookieToAppName.value(cookie));
+    });
+    return std::transform_reduce(permanentlyBlockedInhibitions.constBegin(),
+                                 permanentlyBlockedInhibitions.constEnd(),
+                                 QList<InhibitionInfo>(),
+                                 std::plus<>(),
+                                 [this](uint cookie) {
+                                     return QList<InhibitionInfo>{m_cookieToAppName.value(cookie)};
+                                 });
+}
+
+QList<InhibitionInfo> PolicyAgent::ListTemporarilyBlockedInhibitions() const
+{
+    QList<uint> temporarilyBlockedInhibitions;
+    std::copy_if(m_blockedInhibitions.begin(), m_blockedInhibitions.end(), std::back_inserter(temporarilyBlockedInhibitions), [this](uint cookie) {
+        return !m_configuredToBlockInhibitions.contains(m_cookieToAppName.value(cookie));
+    });
+    return std::transform_reduce(temporarilyBlockedInhibitions.constBegin(),
+                                 temporarilyBlockedInhibitions.constEnd(),
                                  QList<InhibitionInfo>(),
                                  std::plus<>(),
                                  [this](uint cookie) {
