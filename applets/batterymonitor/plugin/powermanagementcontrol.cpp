@@ -75,7 +75,8 @@ PowerManagementControl::PowerManagementControl(QObject *parent)
         });
 
         onInhibitionsChanged({}, {});
-        onBlockedInhibitionsChanged({}, {});
+        onPermanentlyBlockedInhibitionsChanged({}, {});
+        onTemporarilyBlockedInhibitionsChanged({}, {});
 
         QDBusMessage hasInhibitMessage = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                         QStringLiteral("/org/freedesktop/PowerManagement"),
@@ -104,10 +105,18 @@ PowerManagementControl::PowerManagementControl(QObject *parent)
         if (!QDBusConnection::sessionBus().connect(SOLID_POWERMANAGEMENT_SERVICE,
                                                    QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
                                                    QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                   QStringLiteral("BlockedInhibitionsChanged"),
+                                                   QStringLiteral("PermanentlyBlockedInhibitionsChanged"),
                                                    this,
-                                                   SLOT(onBlockedInhibitionsChanged(QList<InhibitionInfo>, QList<InhibitionInfo>)))) {
-            qCDebug(APPLETS::BATTERYMONITOR) << "Error connecting to blocked inhibition changes via dbus";
+                                                   SLOT(onPermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>, QList<InhibitionInfo>)))) {
+            qCDebug(APPLETS::BATTERYMONITOR) << "Error connecting to permanently blocked inhibition changes via dbus";
+        }
+        if (!QDBusConnection::sessionBus().connect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                   QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                   QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                   QStringLiteral("TemporarilyBlockedInhibitionsChanged"),
+                                                   this,
+                                                   SLOT(onTemporarilyBlockedInhibitionsChanged(QList<InhibitionInfo>, QList<InhibitionInfo>)))) {
+            qCDebug(APPLETS::BATTERYMONITOR) << "Error connecting to temporarily blocked inhibition changes via dbus";
         }
     }
 
@@ -174,9 +183,14 @@ QBindable<QList<QVariantMap>> PowerManagementControl::bindableInhibitions()
     return &m_inhibitions;
 }
 
-QBindable<QList<QVariantMap>> PowerManagementControl::bindableBlockedInhibitions()
+QBindable<QList<QVariantMap>> PowerManagementControl::bindablePermanentlyBlockedInhibitions()
 {
-    return &m_blockedInhibitions;
+    return &m_permanentlyBlockedInhibitions;
+}
+
+QBindable<QList<QVariantMap>> PowerManagementControl::bindableTemporarilyBlockedInhibitions()
+{
+    return &m_temporarilyBlockedInhibitions;
 }
 
 QBindable<bool> PowerManagementControl::bindableHasInhibition()
@@ -226,23 +240,45 @@ void PowerManagementControl::onInhibitionsChanged(const QList<InhibitionInfo> &a
     });
 }
 
-void PowerManagementControl::onBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed)
+void PowerManagementControl::onPermanentlyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed)
 {
     Q_UNUSED(added);
     Q_UNUSED(removed);
 
-    QDBusMessage blockedInhibitionsMessage = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
-                                                                            QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
-                                                                            QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
-                                                                            QStringLiteral("ListBlockedInhibitions"));
-    QDBusPendingCall blockedInhibitionsCall = QDBusConnection::sessionBus().asyncCall(blockedInhibitionsMessage);
-    auto blockedInhibitionsWatcher = new QDBusPendingCallWatcher(blockedInhibitionsCall, this);
-    connect(blockedInhibitionsWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+    QDBusMessage permanentlyBlockedInhibitionsMessage = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
+                                                                                       QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                                                       QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                                                       QStringLiteral("ListPermanentlyBlockedInhibitions"));
+    QDBusPendingCall permanentlyBlockedInhibitionsCall = QDBusConnection::sessionBus().asyncCall(permanentlyBlockedInhibitionsMessage);
+    auto permanentlyBlockedInhibitionsWatcher = new QDBusPendingCallWatcher(permanentlyBlockedInhibitionsCall, this);
+    connect(permanentlyBlockedInhibitionsWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
         QDBusReply<QList<InhibitionInfo>> reply = *watcher;
         if (reply.isValid()) {
-            updateBlockedInhibitions(reply.value());
+            updatePermanentlyBlockedInhibitions(reply.value());
         } else {
-            qCDebug(APPLETS::BATTERYMONITOR) << "Failed to retrieve blocked inhibitions";
+            qCDebug(APPLETS::BATTERYMONITOR) << "Failed to retrieve permanently blocked inhibitions";
+        }
+        watcher->deleteLater();
+    });
+}
+
+void PowerManagementControl::onTemporarilyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed)
+{
+    Q_UNUSED(added);
+    Q_UNUSED(removed);
+
+    QDBusMessage temporarilyBlockedInhibitionsMessage = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
+                                                                                       QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                                                       QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                                                       QStringLiteral("ListTemporarilyBlockedInhibitions"));
+    QDBusPendingCall temporarilyBlockedInhibitionsCall = QDBusConnection::sessionBus().asyncCall(temporarilyBlockedInhibitionsMessage);
+    auto temporarilyBlockedInhibitionsWatcher = new QDBusPendingCallWatcher(temporarilyBlockedInhibitionsCall, this);
+    connect(temporarilyBlockedInhibitionsWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
+        QDBusReply<QList<InhibitionInfo>> reply = *watcher;
+        if (reply.isValid()) {
+            updateTemporarilyBlockedInhibitions(reply.value());
+        } else {
+            qCDebug(APPLETS::BATTERYMONITOR) << "Failed to retrieve temporarily blocked inhibitions";
         }
         watcher->deleteLater();
     });
@@ -287,7 +323,7 @@ void PowerManagementControl::updateInhibitions(const QList<InhibitionInfo> &inhi
     m_inhibitions = out;
 }
 
-void PowerManagementControl::updateBlockedInhibitions(const QList<InhibitionInfo> &inhibitions)
+void PowerManagementControl::updatePermanentlyBlockedInhibitions(const QList<InhibitionInfo> &inhibitions)
 {
     QList<QVariantMap> out;
 
@@ -308,7 +344,31 @@ void PowerManagementControl::updateBlockedInhibitions(const QList<InhibitionInfo
         }
     }
 
-    m_blockedInhibitions = std::move(out);
+    m_permanentlyBlockedInhibitions = std::move(out);
+}
+
+void PowerManagementControl::updateTemporarilyBlockedInhibitions(const QList<InhibitionInfo> &inhibitions)
+{
+    QList<QVariantMap> out;
+
+    for (auto it = inhibitions.constBegin(); it != inhibitions.constEnd(); ++it) {
+        const QString &name = (*it).first;
+        QString prettyName;
+        QString icon;
+        const QString &reason = (*it).second;
+
+        m_data.populateApplicationData(name, &prettyName, &icon);
+
+        QVariantMap blockedInhibition{{QStringLiteral("Name"), name},
+                                      {QStringLiteral("PrettyName"), prettyName},
+                                      {QStringLiteral("Icon"), icon},
+                                      {QStringLiteral("Reason"), reason}};
+        if (!out.contains(blockedInhibition)) {
+            out.append(blockedInhibition);
+        }
+    }
+
+    m_permanentlyBlockedInhibitions = std::move(out);
 }
 
 #include "moc_powermanagementcontrol.cpp"
