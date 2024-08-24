@@ -6,24 +6,19 @@
 
 #include "brightnesscontrol.h"
 
+#include <powerdevilcore.h>
+
 #include <PowerDevilProfileSettings.h>
 #include <brightnesscontroladaptor.h>
-#include <brightnessosdwidget.h>
 #include <powerdevil_debug.h>
-#include <powerdevilcore.h>
 
 #include <QAction>
 #include <QDebug>
 
-#include <KActionCollection>
-#include <KGlobalAccel>
 #include <KLocalizedString>
 #include <KPluginFactory>
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::BrightnessControl, "powerdevilbrightnesscontrolaction.json")
-
-static const auto InternalClientName = QStringLiteral("(internal)");
-static const auto BrightnessKeyClientContext = QStringLiteral("brightness_key");
 
 namespace PowerDevil::BundledActions
 {
@@ -37,29 +32,6 @@ BrightnessControl::BrightnessControl(QObject *parent)
             &ScreenBrightnessController::legacyBrightnessInfoChanged,
             this,
             &PowerDevil::BundledActions::BrightnessControl::onBrightnessChangedFromController);
-
-    KActionCollection *actionCollection = new KActionCollection(this);
-    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
-
-    QAction *globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness"));
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
-    KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
-    connect(globalAction, &QAction::triggered, this, &BrightnessControl::increaseBrightness);
-
-    globalAction = actionCollection->addAction(QLatin1String("Increase Screen Brightness Small"));
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness by 1%"));
-    KGlobalAccel::setGlobalShortcut(globalAction, Qt::ShiftModifier | Qt::Key_MonBrightnessUp);
-    connect(globalAction, &QAction::triggered, this, &BrightnessControl::increaseBrightnessSmall);
-
-    globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness"));
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
-    KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessDown);
-    connect(globalAction, &QAction::triggered, this, &BrightnessControl::decreaseBrightness);
-
-    globalAction = actionCollection->addAction(QLatin1String("Decrease Screen Brightness Small"));
-    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness by 1%"));
-    KGlobalAccel::setGlobalShortcut(globalAction, Qt::ShiftModifier | Qt::Key_MonBrightnessDown);
-    connect(globalAction, &QAction::triggered, this, &BrightnessControl::decreaseBrightnessSmall);
 }
 
 void BrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)
@@ -148,51 +120,28 @@ void BrightnessControl::setBrightnessSilent(int value)
 
 void BrightnessControl::increaseBrightness()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Increase,
-                                                               InternalClientName,
-                                                               BrightnessKeyClientContext,
-                                                               ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Increase, QString(), QString(), ScreenBrightnessController::ShowIndicator);
 }
 
 void BrightnessControl::increaseBrightnessSmall()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::IncreaseSmall,
-                                                               InternalClientName,
-                                                               BrightnessKeyClientContext,
-                                                               ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::IncreaseSmall, QString(), QString(), ScreenBrightnessController::ShowIndicator);
 }
 
 void BrightnessControl::decreaseBrightness()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Decrease,
-                                                               InternalClientName,
-                                                               BrightnessKeyClientContext,
-                                                               ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::Decrease, QString(), QString(), ScreenBrightnessController::ShowIndicator);
 }
 
 void BrightnessControl::decreaseBrightnessSmall()
 {
-    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::DecreaseSmall,
-                                                               InternalClientName,
-                                                               BrightnessKeyClientContext,
-                                                               ScreenBrightnessController::ShowIndicator);
+    core()->screenBrightnessController()->adjustBrightnessStep(BrightnessLogic::DecreaseSmall, QString(), QString(), ScreenBrightnessController::ShowIndicator);
 }
 
 int BrightnessControl::brightnessSteps() const
 {
     return core()->screenBrightnessController()->brightnessSteps();
 }
-
-int BrightnessControl::brightnessPercent(float value) const
-{
-    const float maxBrightness = brightnessMax();
-    if (maxBrightness <= 0) {
-        return 0;
-    }
-
-    return qRound(value / maxBrightness * 100);
-}
-
 }
 
 #include "brightnesscontrol.moc"

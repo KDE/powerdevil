@@ -56,8 +56,6 @@ Q_SIGNALS:
     void brightnessMinChanged(int valueMin);
 
 private:
-    int brightnessPercent(float value) const;
-
     int m_defaultValue = -1;
     BrightnessLogic::BrightnessInfo m_lastBrightnessInfo;
 };

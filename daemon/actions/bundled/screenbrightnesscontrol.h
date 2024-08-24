@@ -86,6 +86,7 @@ Q_SIGNALS:
     void BrightnessRangeChanged(const QString &displayId, int maxBrightness, int brightness);
 
 private:
+    void actOnBrightnessKey(BrightnessLogic::StepAdjustmentAction action);
     int brightnessPercent(double value, double max) const;
 };
 
