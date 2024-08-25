@@ -14,6 +14,7 @@ set(powerdevilcore_SRCS
     powerdevilmigrateconfig.cpp
     powerdevilpolicyagent.cpp
     powerdevilbrightnesslogic.cpp
+    powerdevilscreenbrightnessagent.cpp
     powerdevilscreenbrightnesslogic.cpp
     powerdevilkeyboardbrightnesslogic.cpp
     powerdevilpowermanagement.cpp
@@ -54,7 +55,7 @@ kconfig_add_kcfg_files(powerdevilcore_SRCS
     GENERATE_MOC
 )
 
-# Action DBus Adaptors
+# DBus Adaptors
 
 set_source_files_properties(
         dbus/org.freedesktop.UPower.xml
@@ -67,6 +68,10 @@ qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.ScreenSaver.xml s
 qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.UPower.xml upower_interface)
 
 qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.UPower.KbdBacklight.xml upower_kbdbacklight_interface)
+
+qt_add_dbus_adaptor(powerdevilcore_SRCS dbus/org.kde.ScreenBrightness.xml
+                                        powerdevilscreenbrightnessagent.h PowerDevil::ScreenBrightnessAgent
+                                        screenbrightnessadaptor ScreenBrightnessAdaptor)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)

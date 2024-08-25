@@ -294,7 +294,7 @@ class BrightnessTests(unittest.TestCase):
 
     def read_powerdevil_first_display_id(self) -> int:
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
-        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.freedesktop.PowerManagement", "/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl", "org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl", "GetDisplayIds")
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.ScreenBrightness", "/org/kde/ScreenBrightness", "org.kde.ScreenBrightness", "GetDisplayIds")
         reply, _ = session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 1000)
         if not reply or reply.get_signature() != 'as':
             return -1
@@ -302,7 +302,7 @@ class BrightnessTests(unittest.TestCase):
 
     def read_powerdevil_brightness(self) -> int:
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
-        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.freedesktop.PowerManagement", "/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl", "org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl", "GetBrightness")
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.ScreenBrightness", "/org/kde/ScreenBrightness", "org.kde.ScreenBrightness", "GetBrightness")
         message.set_body(GLib.Variant("(s)", [self.read_powerdevil_first_display_id()]))
         reply, _ = session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 1000)
         if not reply or reply.get_signature() != 'i':

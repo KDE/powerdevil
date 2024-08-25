@@ -17,8 +17,10 @@ using namespace Qt::StringLiterals;
 
 namespace
 {
-constexpr QLatin1String SOLID_POWERMANAGEMENT_SERVICE("org.kde.Solid.PowerManagement");
-static const QString ALREADY_CHANGED_CONTEXT = QStringLiteral("AlreadyChanged");
+static const QString SCREENBRIGHTNESS_SERVICE = u"org.kde.ScreenBrightness"_s;
+static const QString SCREENBRIGHTNESS_PATH = u"/org/kde/ScreenBrightness"_s;
+static const QString SCREENBRIGHTNESS_IFACE = u"org.kde.ScreenBrightness"_s;
+static const QString ALREADY_CHANGED_CONTEXT = u"AlreadyChanged"_s;
 }
 
 ScreenBrightnessControl::ScreenBrightnessControl(QObject *parent)
@@ -43,10 +45,7 @@ const ScreenBrightnessDisplayModel *ScreenBrightnessControl::displays() const
 
 void ScreenBrightnessControl::adjustBrightnessRatio(double delta)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
-                                                      u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                      u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                      u"AdjustBrightnessRatio"_s);
+    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"AdjustBrightnessRatio"_s);
     uint flags = m_isSilent ? 0x1 : 0x0;
 
     msg << delta << flags;
@@ -55,10 +54,7 @@ void ScreenBrightnessControl::adjustBrightnessRatio(double delta)
 
 void ScreenBrightnessControl::adjustBrightnessStep(ScreenBrightnessControl::StepAction stepAction)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
-                                                      u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                      u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                      u"AdjustBrightnessStep"_s);
+    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"AdjustBrightnessStep"_s);
     uint flags = m_isSilent ? 0x1 : 0x0;
 
     msg << qToUnderlying(stepAction) << flags;
@@ -73,10 +69,7 @@ void ScreenBrightnessControl::setBrightness(const QString &displayId, int value)
         return;
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
-                                                      u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                      u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                      u"SetBrightnessWithContext"_s);
+    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"SetBrightnessWithContext"_s);
     uint flags = m_isSilent ? 0x1 : 0x0;
 
     msg << displayId << value << flags << ALREADY_CHANGED_CONTEXT;
@@ -128,10 +121,7 @@ void ScreenBrightnessControl::onDisplayRemoved(const QString &displayId)
 
 QCoro::Task<void> ScreenBrightnessControl::init()
 {
-    QDBusMessage displayIdsMsg = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
-                                                                u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                                u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                                u"GetDisplayIds"_s);
+    QDBusMessage displayIdsMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetDisplayIds"_s);
     QPointer<ScreenBrightnessControl> alive{this};
     const QDBusReply<QList<QString>> displayIdsReply = co_await QDBusConnection::sessionBus().asyncCall(displayIdsMsg);
     if (!alive || !displayIdsReply.isValid()) {
@@ -144,9 +134,9 @@ QCoro::Task<void> ScreenBrightnessControl::init()
         queryAndAppendDisplay(displayId);
     }
 
-    if (!QDBusConnection::sessionBus().connect(SOLID_POWERMANAGEMENT_SERVICE,
-                                               u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                               u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
+    if (!QDBusConnection::sessionBus().connect(SCREENBRIGHTNESS_SERVICE,
+                                               SCREENBRIGHTNESS_PATH,
+                                               SCREENBRIGHTNESS_IFACE,
                                                u"BrightnessChanged"_s,
                                                this,
                                                SLOT(onBrightnessChanged(QString, int, QString, QString)))) {
@@ -154,9 +144,9 @@ QCoro::Task<void> ScreenBrightnessControl::init()
         co_return;
     }
 
-    if (!QDBusConnection::sessionBus().connect(SOLID_POWERMANAGEMENT_SERVICE,
-                                               u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                               u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
+    if (!QDBusConnection::sessionBus().connect(SCREENBRIGHTNESS_SERVICE,
+                                               SCREENBRIGHTNESS_PATH,
+                                               SCREENBRIGHTNESS_IFACE,
                                                u"BrightnessRangeChanged"_s,
                                                this,
                                                SLOT(onBrightnessRangeChanged(QString, int, int)))) {
@@ -164,22 +154,14 @@ QCoro::Task<void> ScreenBrightnessControl::init()
         co_return;
     }
 
-    if (!QDBusConnection::sessionBus().connect(SOLID_POWERMANAGEMENT_SERVICE,
-                                               u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                               u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                               u"DisplayAdded"_s,
-                                               this,
-                                               SLOT(onDisplayAdded(QString)))) {
+    if (!QDBusConnection::sessionBus()
+             .connect(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"DisplayAdded"_s, this, SLOT(onDisplayAdded(QString)))) {
         qDebug() << "error connecting to brightness range changes via dbus:";
         co_return;
     }
 
-    if (!QDBusConnection::sessionBus().connect(SOLID_POWERMANAGEMENT_SERVICE,
-                                               u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                               u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                               u"DisplayRemoved"_s,
-                                               this,
-                                               SLOT(onDisplayRemoved(QString)))) {
+    if (!QDBusConnection::sessionBus()
+             .connect(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"DisplayRemoved"_s, this, SLOT(onDisplayRemoved(QString)))) {
         qDebug() << "error connecting to brightness range changes via dbus:";
         co_return;
     }
@@ -189,10 +171,7 @@ QCoro::Task<void> ScreenBrightnessControl::init()
 
 QCoro::Task<void> ScreenBrightnessControl::queryAndAppendDisplay(const QString &displayId)
 {
-    QDBusMessage labelMsg = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
-                                                           u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                           u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                           u"GetLabel"_s);
+    QDBusMessage labelMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetLabel"_s);
     labelMsg << displayId;
     QPointer<ScreenBrightnessControl> alive{this};
     const QDBusReply<QString> labelReply = QDBusConnection::sessionBus().call(labelMsg);
@@ -202,10 +181,7 @@ QCoro::Task<void> ScreenBrightnessControl::queryAndAppendDisplay(const QString &
     }
     QString label = labelReply.value();
 
-    QDBusMessage isInternalMsg = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
-                                                                u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                                u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                                u"GetIsInternal"_s);
+    QDBusMessage isInternalMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetIsInternal"_s);
     isInternalMsg << displayId;
     const QDBusReply<bool> isInternalReply = QDBusConnection::sessionBus().call(isInternalMsg);
     if (!alive || !isInternalReply.isValid()) {
@@ -214,10 +190,8 @@ QCoro::Task<void> ScreenBrightnessControl::queryAndAppendDisplay(const QString &
     }
     bool isInternal = isInternalReply.value();
 
-    QDBusMessage maxBrightnessMsg = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
-                                                                   u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                                   u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                                   u"GetMaxBrightness"_s);
+    QDBusMessage maxBrightnessMsg =
+        QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetMaxBrightness"_s);
     maxBrightnessMsg << displayId;
     const QDBusReply<int> maxBrightnessReply = QDBusConnection::sessionBus().call(maxBrightnessMsg);
     if (!alive || !maxBrightnessReply.isValid()) {
@@ -226,10 +200,7 @@ QCoro::Task<void> ScreenBrightnessControl::queryAndAppendDisplay(const QString &
     }
     int maxBrightness = maxBrightnessReply.value();
 
-    QDBusMessage brightnessMsg = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
-                                                                u"/org/kde/Solid/PowerManagement/Actions/ScreenBrightnessControl"_s,
-                                                                u"org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl"_s,
-                                                                u"GetBrightness"_s);
+    QDBusMessage brightnessMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetBrightness"_s);
     brightnessMsg << displayId;
     const QDBusReply<int> brightnessReply = QDBusConnection::sessionBus().call(brightnessMsg);
     if (!alive || !brightnessReply.isValid()) {

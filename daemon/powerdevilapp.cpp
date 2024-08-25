@@ -6,13 +6,15 @@
 
 #include "powerdevilapp.h"
 
+#include "powerdevilcore.h"
 #include "powerdevilfdoconnector.h"
-#include "powermanagementadaptor.h"
-#include "powermanagementpolicyagentadaptor.h"
+#include "powerdevilscreenbrightnessagent.h"
+
+#include <powermanagementadaptor.h>
+#include <powermanagementpolicyagentadaptor.h>
 
 #include "powerdevil_debug.h"
 #include "powerdevil_version.h"
-#include "powerdevilcore.h"
 
 #include <QAction>
 #include <QDBusConnection>
@@ -93,6 +95,10 @@ void PowerDevilApp::onCoreReady()
 
     QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"), PowerDevil::PolicyAgent::instance());
+
+    // Start the ScreenBrightness service
+    QDBusConnection::sessionBus().registerService(u"org.kde.ScreenBrightness"_s);
+    new PowerDevil::ScreenBrightnessAgent(m_core->screenBrightnessController(), m_core->screenBrightnessController());
 }
 
 int main(int argc, char **argv)

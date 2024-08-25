@@ -21,9 +21,6 @@ target_dbus_files(powerdevil_brightnesscontrolaction
     brightnesscontrol.h PowerDevil::BundledActions::BrightnessControl)
 
 add_powerdevil_bundled_action(screenbrightnesscontrol)
-target_dbus_files(powerdevil_screenbrightnesscontrolaction
-    org.kde.Solid.PowerManagement.Actions.ScreenBrightnessControl.xml
-    screenbrightnesscontrol.h PowerDevil::BundledActions::ScreenBrightnessControl)
 
 add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 target_dbus_files(powerdevil_keyboardbrightnesscontrolaction
