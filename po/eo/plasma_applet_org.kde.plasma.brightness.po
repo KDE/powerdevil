@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-05-04 13:23+0100\n"
+"PO-Revision-Date: 2024-08-24 09:18+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -55,18 +55,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Ekranbrileco"
+msgstr "Brileco"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Ekranbrileco"
+msgstr "Ekranbrileco - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -84,11 +82,10 @@ msgid "Screen brightness at %1%"
 msgstr "Ekranbrileco ĉe %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Ekranbrileco ĉe %1%"
+msgstr "Brileco de %1 ĉe %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -260,10 +257,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Transiĝo al tago planita por:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Klavara Brileco"
+msgstr "Klavara Fonlumo"
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format

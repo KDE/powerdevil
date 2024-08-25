@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2023, 2024.
+# SPDX-FileCopyrightText: 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-05-03 09:10+0200\n"
+"PO-Revision-Date: 2024-08-24 11:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
@@ -56,18 +56,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Lluminositat de la pantalla"
+msgstr "Lluminositat"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Lluminositat de la pantalla"
+msgstr "Lluminositat de la pantalla - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -85,11 +83,10 @@ msgid "Screen brightness at %1%"
 msgstr "Lluminositat de la pantalla al %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Lluminositat de la pantalla al %1%"
+msgstr "Lluminositat de %1 al %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -261,10 +258,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Transició al dia programada a les:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Lluminositat del teclat"
+msgstr "Retroil·luminació del teclat"
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format
