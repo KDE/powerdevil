@@ -14,7 +14,8 @@
 namespace PowerDevil::BundledActions
 {
 
-// Legacy D-Bus API and brightness management, operating on a single value instead of per-display.
+// Legacy D-Bus API, operating on a single value instead of per-display.
+// TODO KF7 (or earlier): remove this class and API, we have org.kde.ScreenBrightness instead
 class BrightnessControl : public PowerDevil::Action
 {
     Q_OBJECT
@@ -56,7 +57,6 @@ Q_SIGNALS:
     void brightnessMinChanged(int valueMin);
 
 private:
-    int m_defaultValue = -1;
     BrightnessLogic::BrightnessInfo m_lastBrightnessInfo;
 };
 

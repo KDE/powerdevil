@@ -30,6 +30,7 @@ public:
 
 private:
     void actOnBrightnessKey(BrightnessLogic::StepAdjustmentAction action);
-};
 
+    double m_configuredBrightnessRatio = 0.0;
+};
 }

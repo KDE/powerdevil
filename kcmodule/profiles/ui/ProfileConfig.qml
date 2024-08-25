@@ -301,17 +301,17 @@ Kirigami.FormLayout {
         Kirigami.FormData.isSection: true
         Kirigami.FormData.label: i18nc("@title:group", "Display and Brightness")
         visible: (
-            kcm.supportedActions["BrightnessControl"] === true
-            || kcm.supportedActions["DimDisplay"] === true
+            kcm.supportedActions["DimDisplay"] === true
             || kcm.supportedActions["DPMSControl"] === true
             || kcm.supportedActions["KeyboardBrightnessControl"] === true
+            || kcm.supportedActions["ScreenBrightnessControl"] === true
         )
     }
 
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change scr&een brightness:")
 
-        visible: kcm.supportedActions["BrightnessControl"] === true
+        visible: kcm.supportedActions["ScreenBrightnessControl"] === true
         Layout.fillWidth: true
         spacing: Kirigami.Units.smallSpacing
 

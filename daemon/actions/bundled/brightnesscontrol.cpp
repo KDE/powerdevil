@@ -8,12 +8,9 @@
 
 #include <powerdevilcore.h>
 
-#include <PowerDevilProfileSettings.h>
 #include <brightnesscontroladaptor.h>
-#include <powerdevil_debug.h>
 
 #include <QAction>
-#include <QDebug>
 
 #include <KLocalizedString>
 #include <KPluginFactory>
@@ -36,18 +33,10 @@ BrightnessControl::BrightnessControl(QObject *parent)
 
 void BrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)
 {
-    const int absoluteBrightnessValue = qRound(m_defaultValue / 100.0 * brightnessMax());
-
-    // if the current profile is more conservative than the previous one and the
-    // current brightness is lower than the new profile
-    if (((newProfile == QLatin1String("Battery") && previousProfile == QLatin1String("AC"))
-         || (newProfile == QLatin1String("LowBattery") && (previousProfile == QLatin1String("AC") || previousProfile == QLatin1String("Battery"))))
-        && absoluteBrightnessValue > brightness()) {
-        // We don't want to change anything here
-        qCDebug(POWERDEVIL) << "Not changing brightness, the current one is lower and the profile is more conservative";
-    } else if (absoluteBrightnessValue >= 0) {
-        core()->screenBrightnessController()->setBrightness(absoluteBrightnessValue);
-    }
+    // profile-based brightness changes were moved to the ScreenBrightnessControl action
+    // in order to be independent of the (deprecated) D-Bus interface getting exposed
+    Q_UNUSED(previousProfile)
+    Q_UNUSED(newProfile)
 }
 
 void BrightnessControl::triggerImpl(const QVariantMap & /*args*/)
@@ -61,12 +50,8 @@ bool BrightnessControl::isSupported()
 
 bool BrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
-    if (!profileSettings.useProfileSpecificDisplayBrightness()) {
-        return false;
-    }
-
-    m_defaultValue = profileSettings.displayBrightness();
-    return true;
+    Q_UNUSED(profileSettings)
+    return false;
 }
 
 void BrightnessControl::onBrightnessChangedFromController(const BrightnessLogic::BrightnessInfo &info, ScreenBrightnessController::IndicatorHint)
