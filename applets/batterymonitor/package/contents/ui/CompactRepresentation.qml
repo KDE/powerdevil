@@ -62,7 +62,7 @@ MouseArea {
 
         anchors.fill: parent
 
-        visible: root.isConstrained && (!root.hasBatteries || (root.isManuallyInhibited && !root.isDischarging))
+        visible: root.isConstrained && (!root.hasInternalBatteries || (root.isManuallyInhibited && !root.isDischarging))
         source: root.powerModeIconSrc
         active: root.containsMouse
     }
