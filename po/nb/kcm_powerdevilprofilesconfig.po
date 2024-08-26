@@ -166,7 +166,6 @@ msgstr ""
 
 #: ui/GlobalConfig.qml:73
 #, fuzzy, kde-format
-#| msgid "On Low Battery"
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level"
 msgstr "Lavt batterinivå"
