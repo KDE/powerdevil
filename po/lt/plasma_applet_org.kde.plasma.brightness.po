@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-05-08 21:57+0300\n"
+"PO-Revision-Date: 2024-08-25 22:57+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -56,18 +56,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Ekrano ryškumas"
+msgstr "Ryškumas"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Ekrano ryškumas"
+msgstr "Ekrano ryškumas – %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -85,11 +83,10 @@ msgid "Screen brightness at %1%"
 msgstr "Ekrano ryškumas ties %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Ekrano ryškumas ties %1%"
+msgstr "%1: ryškumas ties %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -264,10 +261,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Perėjimas į dieną suplanuotas:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Klaviatūros ryškumas"
+msgstr "Klaviatūros foninis apšvietimas"
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format

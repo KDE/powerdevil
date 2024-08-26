@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-08-19 20:52+0200\n"
+"PO-Revision-Date: 2024-08-25 12:24+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -745,10 +745,6 @@ msgstr ""
 
 #: ui/ProfileConfig.qml:733
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -757,18 +753,12 @@ msgstr "Når maskina går &inn i «%1»-tilstand:"
 
 #: ui/ProfileConfig.qml:737
 #, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "Skriptkommando som skal køyrast når maskina går inn i «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:768
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -777,16 +767,12 @@ msgstr "Når maskina går &ut av «%1»-tilstand:"
 
 #: ui/ProfileConfig.qml:772
 #, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "Skriptkommando som skal køyrast når maskina går ut av «%1»-tilstand"
 
 #: ui/ProfileConfig.qml:801
 #, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "Periode utan aktivitet før skriptkommandoen skal køyrast"
@@ -799,33 +785,25 @@ msgstr ""
 
 #: ui/ProfileConfig.qml:810
 #, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "Køyr sjølvvalt skript:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "After %1 second"
-#| msgid_plural "After %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "Etter %1 sekund"
-msgstr[1] "etter %1 sekund"
+msgstr[0] "Køyr etter %1 sekund"
+msgstr[1] "Køyr etter %1 sekund"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "After %1 minute"
-#| msgid_plural "After %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "Etter %1 minutt"
-msgstr[1] "Etter %1 minutt"
+msgstr[0] "Køyr etter %1 minutt"
+msgstr[1] "Køyr etter %1 minutt"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
@@ -835,14 +813,12 @@ msgstr ""
 
 #: ui/RunScriptEdit.qml:33
 #, fuzzy, kde-format
-#| msgid "Enter command or select file…"
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
 msgstr "Skriv inn kommando eller vel fil …"
 
 #: ui/RunScriptEdit.qml:34
 #, fuzzy, kde-format
-#| msgid "Enter command or select file…"
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
 msgstr "Skriv inn kommando eller vel fil …"
@@ -851,19 +827,19 @@ msgstr "Skriv inn kommando eller vel fil …"
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Vel …"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Vel skriptfil"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Vel skriptfil"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format

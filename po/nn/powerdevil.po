@@ -197,7 +197,6 @@ msgstr "Eit ekstra batteri er kopla til"
 
 #: powerdevilcore.cpp:459
 #, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
 msgid "The system will no longer go to sleep."
 msgstr "Datamaskina vil ikkje lenger gå i kvilemodus."
 
@@ -251,8 +250,6 @@ msgstr ""
 
 #: powerdevilcore.cpp:587
 #, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
@@ -260,13 +257,11 @@ msgstr "Sjå til at straum­kabelen er kopla til og gjev nok straum."
 
 #: powerdevilcore.cpp:589
 #, fuzzy, kde-format
-#| msgid "Plug in the computer."
 msgid "Plug in the power cord."
 msgstr "Kopla maskina til eit straumuttak."
 
 #: powerdevilcore.cpp:608
 #, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
 msgid "The system will shut down in 60 seconds."
 msgstr ""
 "Batterinivået er kritisk lågt. Maskina vert automatisk slått av om 60 sekund."
@@ -293,8 +288,6 @@ msgstr "Gå i dvalemodus no"
 
 #: powerdevilcore.cpp:624
 #, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
 msgid "The system will go to sleep in 60 seconds."
 msgstr ""
 "Batterinivået er kritisk lågt. Maskina går automatisk i kvilemodus om 60 "
@@ -332,7 +325,6 @@ msgstr "Batteri på kritisk nivå (%1 % att)"
 
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
 msgid "Power Cord Plugged In"
 msgstr "Straumkabelen er kopla til"
 
@@ -348,7 +340,6 @@ msgstr "Køyrer på nettstraum"
 
 #: powerdevilcore.cpp:681
 #, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
 msgid "The power cord has been plugged in."
 msgstr "Straumkabelen er kopla til."
 
@@ -359,7 +350,6 @@ msgstr "Køyrer på batteri"
 
 #: powerdevilcore.cpp:684
 #, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
 msgid "The power cord has been unplugged."
 msgstr "Straumkabelen er kopla frå."
 

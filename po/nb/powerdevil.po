@@ -123,8 +123,6 @@ msgstr ""
 
 #: controllers/kwinbrightness.cpp:135
 #, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
@@ -323,7 +321,6 @@ msgstr "Batteri på kritisk nivå (%1 % gjenstår)"
 
 #: powerdevilcore.cpp:678
 #, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
 msgid "Power Cord Plugged In"
 msgstr "Strømadapteret er koblet til"
 

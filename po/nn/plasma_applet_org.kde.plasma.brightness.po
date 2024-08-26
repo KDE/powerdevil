@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-07-06 16:42+0200\n"
+"PO-Revision-Date: 2024-08-25 12:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -55,18 +55,16 @@ msgid "%1%"
 msgstr "%1 %"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Lysstyrke skjerm"
+msgstr "Lysstyrke"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Lysstyrke skjerm"
+msgstr "Lysstyrke skjerm – %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -84,11 +82,10 @@ msgid "Screen brightness at %1%"
 msgstr "Skjermlysstyrken er %1 %"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Skjermlysstyrken er %1 %"
+msgstr "Lysstyrken til %1 er på %2 %"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -261,10 +258,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Overgang til dagfargar tek til:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Lysstyrke tastatur"
+msgstr "Tastaturbaklys"
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format
