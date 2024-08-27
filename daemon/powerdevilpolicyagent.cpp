@@ -638,46 +638,62 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
         m_cookieToAppName.insert(cookie, info);
 
         // when inhibition gets blocked later, revoke it if it is still active
-        m_blockInhibitionConnections.insert(
-            cookie,
-            connect(this, &PolicyAgent::blockInhibitionRequested, this, [this, cookie, service, appName, reason](const InhibitionInfo &blockedInfo) {
-                InhibitionInfo info = qMakePair(appName, reason);
-                if (blockedInfo == info && m_activeInhibitions.contains(cookie)) {
-                    qCDebug(POWERDEVIL) << "Inhibition with cookie" << cookie << "from" << service << appName << "with reason" << reason
-                                        << "was configured by the user to be blocked; releasing";
+        m_blockInhibitionConnections.insert(cookie,
+                                            connect(this,
+                                                    &PolicyAgent::blockInhibitionRequested,
+                                                    this,
+                                                    [this, cookie, service, appName, reason](const InhibitionInfo &blockedInfo, const bool permanently) {
+                                                        InhibitionInfo info = qMakePair(appName, reason);
+                                                        if (blockedInfo == info && m_activeInhibitions.contains(cookie)) {
+                                                            qCDebug(POWERDEVIL)
+                                                                << "Inhibition with cookie" << cookie << "from" << service << appName << "with reason" << reason
+                                                                << "was configured by the user to be blocked; releasing";
 
-                    ReleaseInhibition(cookie, true);
-                    m_blockedInhibitions.insert(cookie);
-                    if (m_configuredToBlockInhibitions.contains(info)) {
-                        Q_EMIT PermanentlyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
-                    } else {
-                        Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
-                    }
-                }
-            }));
+                                                            ReleaseInhibition(cookie, true);
+
+                                                            if (m_blockedInhibitions.contains(cookie)) {
+                                                                // was already blocked but differently (temporarily vs permanently)
+                                                                m_blockedInhibitions.remove(cookie);
+                                                                if (m_configuredToBlockInhibitions.contains(info)) {
+                                                                    Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
+                                                                } else {
+                                                                    Q_EMIT TemporarilyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
+                                                                }
+                                                            }
+                                                            m_blockedInhibitions.insert(cookie);
+                                                            if (permanently) {
+                                                                Q_EMIT PermanentlyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                                                            } else {
+                                                                Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                                                            }
+                                                        }
+                                                    }));
 
         // when inhibition gets unblocked later, retroactively add it if it still exists
         m_unblockInhibitionConnections.insert(
             cookie,
-            connect(this, &PolicyAgent::unblockInhibitionRequested, this, [this, cookie, service, appName, reason, types](const InhibitionInfo &unblockedInfo) {
-                InhibitionInfo info = qMakePair(appName, reason);
-                if (unblockedInfo == info && m_blockedInhibitions.contains(cookie) && m_cookieToAppName.contains(cookie)) {
-                    qCDebug(POWERDEVIL) << "Inhibition with cookie" << cookie << "from" << service << appName << "with reason" << reason
-                                        << "was configured by the user to be unblocked; adding retroactively";
+            connect(this,
+                    &PolicyAgent::unblockInhibitionRequested,
+                    this,
+                    [this, cookie, service, appName, reason, types](const InhibitionInfo &unblockedInfo, const bool permanently) {
+                        InhibitionInfo info = qMakePair(appName, reason);
+                        if (unblockedInfo == info && m_blockedInhibitions.contains(cookie) && m_cookieToAppName.contains(cookie)) {
+                            qCDebug(POWERDEVIL) << "Inhibition with cookie" << cookie << "from" << service << appName << "with reason" << reason
+                                                << "was configured by the user to be unblocked; adding retroactively";
 
-                    addInhibitionTypeHelper(cookie, static_cast<PolicyAgent::RequiredPolicies>(types));
-                    m_activeInhibitions.insert(cookie);
-                    Q_EMIT InhibitionsChanged({{info}}, {});
-                    m_pendingInhibitions.removeOne(cookie);
+                            addInhibitionTypeHelper(cookie, static_cast<PolicyAgent::RequiredPolicies>(types));
+                            m_activeInhibitions.insert(cookie);
+                            Q_EMIT InhibitionsChanged({{info}}, {});
+                            m_pendingInhibitions.removeOne(cookie);
 
-                    m_blockedInhibitions.remove(cookie);
-                    if (m_configuredToBlockInhibitions.contains(info)) {
-                        Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
-                    } else {
-                        Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
-                    }
-                }
-            }));
+                            m_blockedInhibitions.remove(cookie);
+                            if (permanently) {
+                                Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
+                            } else {
+                                Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                            }
+                        }
+                    }));
 
         // reject inhibitions configured as blocked
         if (m_configuredToBlockInhibitions.contains(info)) {
@@ -857,7 +873,7 @@ void PolicyAgent::BlockInhibition(const QString &appName, const QString &reason,
 {
     InhibitionInfo info = qMakePair(appName, reason);
     qCDebug(POWERDEVIL) << "Blocking inhibitions from" << appName << "with reason" << reason;
-    Q_EMIT blockInhibitionRequested(info);
+    Q_EMIT blockInhibitionRequested(info, permanently);
     if (!permanently) {
         return;
     }
@@ -876,13 +892,14 @@ void PolicyAgent::BlockInhibition(const QString &appName, const QString &reason,
                                return inhibition.first + QLatin1Char(':') + inhibition.second;
                            });
     m_config->setBlockedInhibitions(configuredBlockedInhibitions);
+    m_config->save();
 }
 
 void PolicyAgent::UnblockInhibition(const QString &appName, const QString &reason, bool permanently)
 {
     InhibitionInfo info = qMakePair(appName, reason);
     qCDebug(POWERDEVIL) << "Unblocking inhibitions from" << appName << "with reason" << reason;
-    Q_EMIT unblockInhibitionRequested(info);
+    Q_EMIT unblockInhibitionRequested(info, permanently);
     if (!permanently) {
         return;
     }
@@ -901,6 +918,7 @@ void PolicyAgent::UnblockInhibition(const QString &appName, const QString &reaso
                                return inhibition.first + QLatin1Char(':') + inhibition.second;
                            });
     m_config->setBlockedInhibitions(configuredBlockedInhibitions);
+    m_config->save();
 }
 
 QList<InhibitionInfo> PolicyAgent::ListPermanentlyBlockedInhibitions() const

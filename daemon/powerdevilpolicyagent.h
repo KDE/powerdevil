@@ -187,7 +187,7 @@ private:
     friend class FdoConnector;
 
 Q_SIGNALS:
-    void blockInhibitionRequested(InhibitionInfo info);
-    void unblockInhibitionRequested(InhibitionInfo info);
+    void blockInhibitionRequested(InhibitionInfo info, bool permanently);
+    void unblockInhibitionRequested(InhibitionInfo info, bool permanently);
 };
 }
