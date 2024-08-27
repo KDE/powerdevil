@@ -662,7 +662,10 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
                                                             }
                                                             m_blockedInhibitions.insert(cookie);
                                                             if (permanently) {
-                                                                Q_EMIT PermanentlyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                                                                if (!m_configuredToBlockInhibitions.contains(info)) {
+                                                                    // newly permaanently blocked, ie not reblocked after temporarily unblocked
+                                                                    Q_EMIT PermanentlyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                                                                }
                                                             } else {
                                                                 Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
                                                             }
