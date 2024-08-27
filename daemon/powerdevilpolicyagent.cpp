@@ -690,7 +690,11 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
                             if (permanently) {
                                 Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
                             } else {
-                                Q_EMIT TemporarilyBlockedInhibitionsChanged({info}, QList<InhibitionInfo>());
+                                Q_EMIT TemporarilyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
+                                if (m_configuredToBlockInhibitions.contains(info)) {
+                                    // configured to be blocked but temporarily unblocked, so don't show as blocked
+                                    Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
+                                }
                             }
                         }
                     }));
@@ -770,6 +774,9 @@ void PolicyAgent::ReleaseInhibition(uint cookie, bool retainCookie)
         return;
     }
 
+    m_activeInhibitions.remove(cookie);
+    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), {{m_cookieToAppName.value(cookie).first}});
+
     if (m_blockedInhibitions.remove(cookie)) {
         qCDebug(POWERDEVIL) << "It was blocked, just discarding it";
         m_cookieToAppName.remove(cookie);
@@ -780,9 +787,6 @@ void PolicyAgent::ReleaseInhibition(uint cookie, bool retainCookie)
         }
         return;
     }
-
-    m_activeInhibitions.remove(cookie);
-    Q_EMIT InhibitionsChanged(QList<InhibitionInfo>(), {{m_cookieToAppName.value(cookie).first}});
 
     // Delete information about the inhibition,
     // but not when it is being released because it has been blocked,
