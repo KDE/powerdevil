@@ -129,6 +129,11 @@ PlasmaComponents3.ItemDelegate {
                         property string app: modelData.Name
                         property string name: modelData.PrettyName
                         property string reason: modelData.Reason
+                        property bool permanentlyBlocked: {
+                            return root.blockedInhibitions.some(function (blockedInhibition) {
+                                return blockedInhibition.Name === app && blockedInhibition.Reason === reason && blockedInhibition.Permanently;
+                            });
+                        }
 
                         Layout.fillWidth: true
                         iconSource: icon
@@ -157,6 +162,7 @@ PlasmaComponents3.ItemDelegate {
                         }
 
                         Item {
+                            visible: !permanentlyBlocked
                             width: blockMenuButton.width
                             height: blockMenuButton.height
 
@@ -181,6 +187,19 @@ PlasmaComponents3.ItemDelegate {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Every time for this app and reason")
                                     onTriggered: pmControl.blockInhibition(app, reason, true)
                                 }
+                            }
+                        }
+
+                        Item {
+                            visible: permanentlyBlocked
+                            width: blockButton.width
+                            height: blockButton.height
+
+                            PlasmaComponents3.Button {
+                                id: blockButton
+                                text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Unblock")
+                                icon.name: "edit-delete-remove"
+                                onClicked: pmControl.blockInhibition(app, reason, true)
                             }
                         }
                     }
@@ -252,6 +271,12 @@ PlasmaComponents3.ItemDelegate {
                         property string name: modelData.PrettyName
                         property string reason: modelData.Reason
                         property bool permanently: modelData.Permanently
+                        property bool temporarilyUnblocked: {
+                            return root.inhibitions.some(function (inhibition) {
+                                return inhibition.Name === app && inhibition.Reason === reason;
+                            });
+                        }
+                        visible: !temporarilyUnblocked
 
                         Layout.fillWidth: true
                         iconSource: icon
