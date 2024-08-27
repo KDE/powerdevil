@@ -691,10 +691,7 @@ uint PolicyAgent::addInhibitionWithExplicitDBusService(uint types, const QString
                                 Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
                             } else {
                                 Q_EMIT TemporarilyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
-                                if (m_configuredToBlockInhibitions.contains(info)) {
-                                    // configured to be blocked but temporarily unblocked, so don't show as blocked
-                                    Q_EMIT PermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>(), {info});
-                                }
+                                if (m_configuredToBlockInhibitions.contains(info)) { }
                             }
                         }
                     }));
