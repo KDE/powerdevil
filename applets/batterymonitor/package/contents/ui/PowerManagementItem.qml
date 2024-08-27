@@ -295,7 +295,7 @@ PlasmaComponents3.ItemDelegate {
 
                             PlasmaComponents3.Button {
                                 id: unblockMenuButton
-                                text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block again…")
+                                text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block Again…")
                                 icon.name: "dialog-cancel"
                                 onClicked: unblockButtonMenu.open()
                             }
@@ -324,7 +324,7 @@ PlasmaComponents3.ItemDelegate {
 
                             PlasmaComponents3.Button {
                                 id: unblockButton
-                                text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block again")
+                                text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block Again")
                                 icon.name: "dialog-cancel"
                                 onClicked: pmControl.unblockInhibition(app, reason, false)
                             }
@@ -339,7 +339,7 @@ PlasmaComponents3.ItemDelegate {
                     PlasmaComponents3.Button {
                         id: manualInhibitionButton
                         Layout.alignment: Qt.AlignRight
-                        text: i18nc("@action:button Block sleep and screen locking after inactivity", "Add manual block")
+                        text: i18nc("@action:button Block sleep and screen locking after inactivity", "Manually Block")
                         icon.name: "dialog-cancel"
 
                         Keys.onPressed: (event) => {
