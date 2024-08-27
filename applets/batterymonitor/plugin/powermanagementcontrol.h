@@ -26,10 +26,7 @@ class PowerManagementControl : public QObject
     QML_ELEMENT
 
     Q_PROPERTY(QList<QVariantMap> inhibitions READ default NOTIFY inhibitionsChanged BINDABLE bindableInhibitions)
-    Q_PROPERTY(QList<QVariantMap> permanentlyBlockedInhibitions READ default NOTIFY permanentlyBlockedInhibitionsChanged BINDABLE
-                   bindablePermanentlyBlockedInhibitions)
-    Q_PROPERTY(QList<QVariantMap> temporarilyBlockedInhibitions READ default NOTIFY temporarilyBlockedInhibitionsChanged BINDABLE
-                   bindableTemporarilyBlockedInhibitions)
+    Q_PROPERTY(QList<QVariantMap> blockedInhibitions READ default NOTIFY blockedInhibitionsChanged BINDABLE bindableBlockedInhibitions)
     Q_PROPERTY(bool hasInhibition READ default NOTIFY hasInhibitionChanged BINDABLE bindableHasInhibition)
     Q_PROPERTY(bool isLidPresent READ default NOTIFY isLidPresentChanged BINDABLE bindableIsLidPresent)
     Q_PROPERTY(bool triggersLidAction READ default NOTIFY triggersLidActionChanged BINDABLE bindableTriggersLidAction)
@@ -48,8 +45,7 @@ public:
 
 Q_SIGNALS:
     void inhibitionsChanged(const QList<QVariantMap> &inhibitions);
-    void permanentlyBlockedInhibitionsChanged(const QList<QVariantMap> &inhibitions);
-    void temporarilyBlockedInhibitionsChanged(const QList<QVariantMap> &inhibitions);
+    void blockedInhibitionsChanged(const QList<QVariantMap> &inhibitions);
     void hasInhibitionChanged(bool status);
     void isLidPresentChanged(bool status);
     void triggersLidActionChanged(bool status);
@@ -68,12 +64,13 @@ private:
     bool isSilent();
     void setIsSilent(bool status);
     void updateInhibitions(const QList<InhibitionInfo> &inhibitions);
-    void updatePermanentlyBlockedInhibitions(const QList<InhibitionInfo> &inhibitions);
-    void updateTemporarilyBlockedInhibitions(const QList<InhibitionInfo> &inhibitions);
+    void updateBlockedInhibitions(const QList<InhibitionInfo> &permanentlyBlockedAdded,
+                                  const QList<InhibitionInfo> &permanentlyBlockedRemoved,
+                                  const QList<InhibitionInfo> &temporarilyBlockedAdded,
+                                  const QList<InhibitionInfo> &temporarilyBlockedRemoved);
 
     QBindable<QList<QVariantMap>> bindableInhibitions();
-    QBindable<QList<QVariantMap>> bindablePermanentlyBlockedInhibitions();
-    QBindable<QList<QVariantMap>> bindableTemporarilyBlockedInhibitions();
+    QBindable<QList<QVariantMap>> bindableBlockedInhibitions();
     QBindable<bool> bindableHasInhibition();
     QBindable<bool> bindableIsLidPresent();
     QBindable<bool> bindableTriggersLidAction();
@@ -81,15 +78,8 @@ private:
     QBindable<bool> bindableIsManuallyInhibitedError();
 
     Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, QList<QVariantMap>, m_inhibitions, &PowerManagementControl::inhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl,
-                               QList<QVariantMap>,
-                               m_permanentlyBlockedInhibitions,
-                               &PowerManagementControl::permanentlyBlockedInhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl,
-                               QList<QVariantMap>,
-                               m_temporarilyBlockedInhibitions,
-                               &PowerManagementControl::temporarilyBlockedInhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, bool, m_hasInhibition, &PowerManagementControl::hasInhibitionChanged);
+    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, QList<QVariantMap>, m_blockedInhibitions, &PowerManagementControl::blockedInhibitionsChanged)
+    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, bool, m_hasInhibition, &PowerManagementControl::hasInhibitionChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_isLidPresent, false, &PowerManagementControl::isLidPresentChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_triggersLidAction, false, &PowerManagementControl::triggersLidActionChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_isManuallyInhibited, false, &PowerManagementControl::isManuallyInhibitedChanged)

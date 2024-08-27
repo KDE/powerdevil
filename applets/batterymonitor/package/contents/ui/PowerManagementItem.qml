@@ -157,20 +157,20 @@ PlasmaComponents3.ItemDelegate {
                         }
 
                         Item {
-                            width: blockButton.width
-                            height: blockButton.height
+                            width: blockMenuButton.width
+                            height: blockMenuButton.height
 
                             PlasmaComponents3.Button {
-                                id: blockButton
+                                id: blockMenuButton
                                 text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Unblock…")
                                 icon.name: "edit-delete-remove"
-                                onClicked: blockButtonMenu.open()
+                                onClicked: blockMenuButtonMenu.open()
                             }
 
                             Menu {
-                                id: blockButtonMenu
-                                x: blockButton.x + blockButton.width - blockButtonMenu.width
-                                y: blockButton.y + blockButton.height
+                                id: blockMenuButtonMenu
+                                x: blockMenuButton.x + blockMenuButton.width - blockMenuButtonMenu.width
+                                y: blockMenuButton.y + blockMenuButton.height
 
                                 MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Only this time")
@@ -251,6 +251,7 @@ PlasmaComponents3.ItemDelegate {
                         property string app: modelData.Name
                         property string name: modelData.PrettyName
                         property string reason: modelData.Reason
+                        property bool permanently: modelData.Permanently
 
                         Layout.fillWidth: true
                         iconSource: icon
@@ -263,11 +264,12 @@ PlasmaComponents3.ItemDelegate {
                         }
 
                         Item {
-                            width: unblockButton.width
-                            height: unblockButton.height
+                            visible: permanently
+                            width: unblockMenuButton.width
+                            height: unblockMenuButton.height
 
                             PlasmaComponents3.Button {
-                                id: unblockButton
+                                id: unblockMenuButton
                                 text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block again…")
                                 icon.name: "dialog-cancel"
                                 onClicked: unblockButtonMenu.open()
@@ -275,8 +277,8 @@ PlasmaComponents3.ItemDelegate {
 
                             Menu {
                                 id: unblockButtonMenu
-                                x: unblockButton.x + unblockButton.width - unblockButtonMenu.width
-                                y: unblockButton.y + unblockButton.height
+                                x: unblockMenuButton.x + unblockMenuButton.width - unblockMenuButton.width
+                                y: unblockMenuButton.y + unblockMenuButton.height
 
                                 MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Only this time")
@@ -287,6 +289,19 @@ PlasmaComponents3.ItemDelegate {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Every time for this app and reason")
                                     onTriggered: pmControl.unblockInhibition(app, reason, true)
                                 }
+                            }
+                        }
+
+                        Item {
+                            visible: !permanently
+                            width: unblockButton.width
+                            height: unblockButton.height
+
+                            PlasmaComponents3.Button {
+                                id: unblockButton
+                                text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block again")
+                                icon.name: "dialog-cancel"
+                                onClicked: pmControl.unblockInhibition(app, reason, false)
                             }
                         }
                     }
