@@ -72,6 +72,29 @@ public:
     };
     Q_DECLARE_FLAGS(RequiredPolicies, RequiredPolicy)
 
+    struct Inhibition {
+        QString app;
+        QString reason;
+        RequiredPolicies types;
+
+        bool operator==(const Inhibition &other) const
+        {
+            return app == other.app && reason == other.reason && types == other.types;
+        }
+    };
+
+    struct BlockedInhibition {
+        QString app;
+        QString reason;
+        RequiredPolicies types;
+        bool permanently;
+
+        bool operator==(const BlockedInhibition &other) const
+        {
+            return app == other.app && reason == other.reason && types == other.types && permanently == other.permanently;
+        }
+    };
+
     static PolicyAgent *instance();
 
     ~PolicyAgent() override;
@@ -92,7 +115,9 @@ public Q_SLOTS:
     // Exported slots
     uint AddInhibition(uint types, const QString &appName, const QString &reason);
     void ReleaseInhibition(uint cookie, bool retainCookie = false);
-    QList<InhibitionInfo> ListInhibitions() const;
+    QList<InhibitionInfo> ListInhibitions() const; // TODO KF7: remove
+    QList<Inhibition> ListActiveInhibitions() const;
+    QList<BlockedInhibition> ListBlockedInhibitions() const;
     bool HasInhibition(uint types);
 
     void releaseAllInhibitions();
@@ -104,9 +129,11 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     // Exported signals
-    void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
-    void PermanentlyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
-    void TemporarilyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
+    void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed); // TODO KF7: remove
+    void ActiveInhibitionAdded(const Inhibition &info);
+    void ActiveInhibitionRemoved(const Inhibition &info);
+    void BlockedInhibitionAdded(const BlockedInhibition &info);
+    void BlockedInhibitionRemoved(const BlockedInhibition &info);
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
     void sessionActiveChanged(bool active);

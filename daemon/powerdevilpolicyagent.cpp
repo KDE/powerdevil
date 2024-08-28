@@ -80,6 +80,10 @@ Q_DECLARE_METATYPE(LogindInhibition)
 Q_DECLARE_METATYPE(QList<LogindInhibition>)
 Q_DECLARE_METATYPE(InhibitionInfo)
 Q_DECLARE_METATYPE(QList<InhibitionInfo>)
+Q_DECLARE_METATYPE(PowerDevil::PolicyAgent::Inhibition)
+Q_DECLARE_METATYPE(QList<PowerDevil::PolicyAgent::Inhibition>)
+Q_DECLARE_METATYPE(PowerDevil::PolicyAgent::BlockedInhibition)
+Q_DECLARE_METATYPE(QList<PowerDevil::PolicyAgent::BlockedInhibition>)
 
 namespace PowerDevil
 {
@@ -225,6 +229,10 @@ void PolicyAgent::onSessionHandlerRegistered(const QString &serviceName)
         qDBusRegisterMetaType<NamedDBusObjectPath>();
         qDBusRegisterMetaType<LogindInhibition>();
         qDBusRegisterMetaType<QList<LogindInhibition>>();
+        qDBusRegisterMetaType<PowerDevil::PolicyAgent::Inhibition>();
+        qDBusRegisterMetaType<QList<PowerDevil::PolicyAgent::Inhibition>>();
+        qDBusRegisterMetaType<PowerDevil::PolicyAgent::BlockedInhibition>();
+        qDBusRegisterMetaType<QList<PowerDevil::PolicyAgent::BlockedInhibition>>();
 
         // get the current session
         m_managerIface.reset(new QDBusInterface(SYSTEMD_LOGIN1_SERVICE, SYSTEMD_LOGIN1_PATH, SYSTEMD_LOGIN1_MANAGER_IFACE, QDBusConnection::systemBus()));
