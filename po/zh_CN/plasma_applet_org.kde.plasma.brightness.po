@@ -55,16 +55,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "显示器亮度"
+msgstr ""
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "显示器亮度"
+msgstr ""
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -82,10 +82,10 @@ msgid "Screen brightness at %1%"
 msgstr "屏幕亮度 %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "屏幕亮度 %1%"
+msgstr ""
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -257,9 +257,9 @@ msgid "Transition to day scheduled for:"
 msgstr "过渡到白天状态的计划时间："
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "键盘亮度"
+msgstr ""
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format
