@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-20 00:42+0000\n"
+"POT-Creation-Date: 2024-08-29 00:41+0000\n"
 "PO-Revision-Date: 2024-05-28 12:02+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -215,17 +215,17 @@ msgstr "A rendszer Energiatakarékos módban van; görgessen a módosításhoz"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "A rendszer Kiegyensúlyozott módban van; görgessen a módosításhoz"
 
-#: package/contents/ui/main.qml:300
+#: package/contents/ui/main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Energiakezelési jellemzők megjelenítése…"
 
-#: package/contents/ui/main.qml:306
+#: package/contents/ui/main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Százalékos érték megjelenítése az ikonon, ha nincs teljesen feltöltve"
 
-#: package/contents/ui/main.qml:319
+#: package/contents/ui/main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Energiatkezelési beállítások…"
@@ -236,37 +236,19 @@ msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Alvó állapot és képernyőzárolás inaktivitás után"
 
-#: package/contents/ui/PowerManagementItem.qml:89
+#: package/contents/ui/PowerManagementItem.qml:88
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr "Tiltva"
 
-#: package/contents/ui/PowerManagementItem.qml:89
+#: package/contents/ui/PowerManagementItem.qml:88
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr "Automatikus"
 
-#: package/contents/ui/PowerManagementItem.qml:99
-#, kde-format
-msgctxt ""
-"@option:check Manually block sleep and screen locking after inactivity"
-msgid "Manually block"
-msgstr "Tiltás saját kezűleg"
-
-#: package/contents/ui/PowerManagementItem.qml:134
-#, kde-format
-msgid "Failed to unblock automatic sleep and screen locking"
-msgstr ""
-"Automatikus alvó állapot és képernyőzárolás tiltásának feloldása sikertelen"
-
-#: package/contents/ui/PowerManagementItem.qml:137
-#, kde-format
-msgid "Failed to block automatic sleep and screen locking"
-msgstr "Automatikus alvó állapot és képernyőzárolás tiltása sikertelen"
-
-#: package/contents/ui/PowerManagementItem.qml:175
+#: package/contents/ui/PowerManagementItem.qml:105
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -276,30 +258,30 @@ msgstr ""
 "A laptop úgy van beállítva, hogy ne menjen alvó állapotva a fedél "
 "lecsukásakor, ha külső monitor van csatlakoztatva."
 
-#: package/contents/ui/PowerManagementItem.qml:186
+#: package/contents/ui/PowerManagementItem.qml:117
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
 msgstr[0] "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást:"
 msgstr[1] "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást:"
 
-#: package/contents/ui/PowerManagementItem.qml:206
+#: package/contents/ui/PowerManagementItem.qml:143
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást (%2)"
 
-#: package/contents/ui/PowerManagementItem.qml:208
+#: package/contents/ui/PowerManagementItem.qml:145
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr ""
 "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást (ismeretlen ok)"
 
-#: package/contents/ui/PowerManagementItem.qml:210
+#: package/contents/ui/PowerManagementItem.qml:147
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr "Egy alkalmazás blokkolja a felfüggesztést és képernyőzárolást (%1)"
 
-#: package/contents/ui/PowerManagementItem.qml:212
+#: package/contents/ui/PowerManagementItem.qml:149
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
@@ -307,29 +289,122 @@ msgid ""
 msgstr ""
 "Egy alkalmazás blokkolja a felfüggesztést és képernyőzárolást (ismeretlen ok)"
 
-#: package/contents/ui/PowerManagementItem.qml:216
+#: package/contents/ui/PowerManagementItem.qml:153
+#: package/contents/ui/PowerManagementItem.qml:288
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerManagementItem.qml:218
+#: package/contents/ui/PowerManagementItem.qml:155
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1: ismeretlen ok"
 
-#: package/contents/ui/PowerManagementItem.qml:220
+#: package/contents/ui/PowerManagementItem.qml:157
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "Ismeretlen alkalmazás: %1"
 
-#: package/contents/ui/PowerManagementItem.qml:222
+#: package/contents/ui/PowerManagementItem.qml:159
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "Ismeretlen alkalmazás: ismeretlen ok"
+
+#: package/contents/ui/PowerManagementItem.qml:171
+#: package/contents/ui/PowerManagementItem.qml:201
+#, kde-format
+msgctxt ""
+"@action:button Prevent an app from blocking automatic sleep and screen "
+"locking after inactivity"
+msgid "Unblock"
+msgstr ""
+
+#: package/contents/ui/PowerManagementItem.qml:183
+#: package/contents/ui/PowerManagementItem.qml:311
+#, kde-format
+msgctxt ""
+"@action:button Prevent an app from blocking automatic sleep and screen "
+"locking after inactivity"
+msgid "Only this time"
+msgstr ""
+
+#: package/contents/ui/PowerManagementItem.qml:188
+#: package/contents/ui/PowerManagementItem.qml:316
+#, kde-format
+msgctxt ""
+"@action:button Prevent an app from blocking automatic sleep and screen "
+"locking after inactivity"
+msgid "Every time for this app and reason"
+msgstr ""
+
+#: package/contents/ui/PowerManagementItem.qml:214
+#, fuzzy, kde-format
+#| msgctxt "Minimize the length of this string as much as possible"
+#| msgid "Manually block sleep and screen locking"
+msgctxt "Minimize the length of this string as much as possible"
+msgid "You have manually blocked sleep and screen locking."
+msgstr "Felfüggesztés és képernyőzárolás blokkolása kézzel"
+
+#: package/contents/ui/PowerManagementItem.qml:219
+#, kde-format
+msgctxt ""
+"@action:button Undo blocking sleep and screen locking after inactivity"
+msgid "Unblock"
+msgstr ""
+
+#: package/contents/ui/PowerManagementItem.qml:238
+#: package/contents/ui/PowerManagementItem.qml:363
+#, kde-format
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr ""
+"Automatikus alvó állapot és képernyőzárolás tiltásának feloldása sikertelen"
+
+#: package/contents/ui/PowerManagementItem.qml:241
+#: package/contents/ui/PowerManagementItem.qml:366
+#, kde-format
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "Automatikus alvó állapot és képernyőzárolás tiltása sikertelen"
+
+#: package/contents/ui/PowerManagementItem.qml:259
+#, fuzzy, kde-format
+#| msgid "%1 application is currently blocking sleep and screen locking:"
+#| msgid_plural ""
+#| "%1 applications are currently blocking sleep and screen locking:"
+msgid ""
+"%1 application has been prevented from blocking sleep and screen locking:"
+msgid_plural ""
+"%1 applications have been prevented from blocking sleep and screen locking:"
+msgstr[0] "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást:"
+msgstr[1] "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást:"
+
+#: package/contents/ui/PowerManagementItem.qml:286
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt "Application name; reason"
+msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+msgstr "%1 alkalmazás blokkolja a felfüggesztést és képernyőzárolást (%2)"
+
+#: package/contents/ui/PowerManagementItem.qml:299
+#: package/contents/ui/PowerManagementItem.qml:329
+#, kde-format
+msgctxt ""
+"@action:button Undo preventing an app from blocking automatic sleep and "
+"screen locking after inactivity"
+msgid "Block Again"
+msgstr ""
+
+#: package/contents/ui/PowerManagementItem.qml:344
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@option:check Manually block sleep and screen locking after inactivity"
+#| msgid "Manually block"
+msgctxt "@action:button Block sleep and screen locking after inactivity"
+msgid "Manually Block"
+msgstr "Tiltás saját kezűleg"
 
 #: package/contents/ui/PowerProfileItem.qml:41
 #, kde-format
@@ -447,10 +522,6 @@ msgstr ""
 
 #~ msgid "The battery applet has enabled system-wide inhibition"
 #~ msgstr "Az akkumulátor kisalkalmazás engedélyezte a rendszerszintű tiltást"
-
-#~ msgctxt "Minimize the length of this string as much as possible"
-#~ msgid "Manually block sleep and screen locking"
-#~ msgstr "Felfüggesztés és képernyőzárolás blokkolása kézzel"
 
 #~ msgctxt "Placeholder is brightness percentage"
 #~ msgid "%1%"
