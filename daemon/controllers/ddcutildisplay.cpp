@@ -10,6 +10,7 @@
 #include <powerdevil_debug.h>
 
 #include <chrono>
+#include <span>
 
 using namespace std::chrono_literals;
 
