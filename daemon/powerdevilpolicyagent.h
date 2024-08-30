@@ -38,7 +38,18 @@ inline constexpr QLatin1StringView CONSOLEKIT_SERVICE("org.freedesktop.ConsoleKi
 inline constexpr QLatin1StringView CONSOLEKIT_MANAGER_PATH("/org/freedesktop/ConsoleKit/Manager");
 inline constexpr QLatin1StringView CONSOLEKIT_MANAGER_IFACE("org.freedesktop.ConsoleKit.Manager");
 
-using InhibitionInfo = QPair<QString, QString>;
+struct PolicyAgentInhibition {
+    enum Flag {
+        ConfiguredToSuppress = 0x1,
+    };
+    Q_DECLARE_FLAGS(Flags, Flag)
+
+    QString what;
+    QString who;
+    QString why;
+    QString mode;
+    uint flags;
+};
 
 struct LogindInhibition {
     QString what;
@@ -65,6 +76,9 @@ class POWERDEVILCORE_EXPORT PolicyAgent : public QObject, protected QDBusContext
     Q_CLASSINFO("D-Bus Interface", "org.kde.Solid.PowerManagement.PolicyAgent")
 
 public:
+    Q_PROPERTY(QList<PolicyAgentInhibition> ActiveInhibitions READ listActiveInhibitions)
+    Q_PROPERTY(QList<PolicyAgentInhibition> SuppressedInhibitions READ listSuppressedInhibitions)
+
     enum RequiredPolicy {
         None = 0,
         InterruptSession = 1,
@@ -88,25 +102,24 @@ public:
 
     void setupSystemdInhibition();
 
+    // DEPRECATED: D-Bus getter method, returns array of {who, why}. Use properties instead
+    QList<QStringList> ListInhibitions() const;
+
 public Q_SLOTS:
     // Exported slots
-    uint AddInhibition(uint types, const QString &appName, const QString &reason);
+    uint AddInhibition(uint types, const QString &who, const QString &why);
     void ReleaseInhibition(uint cookie, bool retainCookie = false);
-    QList<InhibitionInfo> ListInhibitions() const;
     bool HasInhibition(uint types);
 
     void releaseAllInhibitions();
 
-    void BlockInhibition(const QString &appName, const QString &reason, bool permanently);
-    void UnblockInhibition(const QString &appName, const QString &reason, bool permanently);
-    QList<InhibitionInfo> ListPermanentlyBlockedInhibitions() const;
-    QList<InhibitionInfo> ListTemporarilyBlockedInhibitions() const;
+    void SuppressInhibition(const QString &who, const QString &why, bool permanently);
+    void UnsuppressInhibition(const QString &who, const QString &why, bool permanently);
 
 Q_SIGNALS:
     // Exported signals
-    void InhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
-    void PermanentlyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
-    void TemporarilyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
+    void dbusPropertiesChanged(const QStringList &props);
+    void InhibitionsChanged(const QList<QStringList> &added, const QStringList &removed); // DEPRECATED: array of {who, why} in `added`
 
     void unavailablePoliciesChanged(PowerDevil::PolicyAgent::RequiredPolicies newpolicies);
     void sessionActiveChanged(bool active);
@@ -122,12 +135,22 @@ private Q_SLOTS:
     void onManagerPropertyChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
 
 private:
+    using InhibitionSuppressId = QPair<QString, QString>;
+
+    struct InhibitionInternals {
+        RequiredPolicies policies;
+        QString who;
+        QString why;
+    };
+
     explicit PolicyAgent(QObject *parent = nullptr);
 
     void init(GlobalSettings *globalSettings);
 
     void addInhibitionTypeHelper(uint cookie, RequiredPolicies types);
 
+    RequiredPolicies policiesInLogindWhat(const QString &what) const;
+    QString logindWhatForPolicies(RequiredPolicies policies) const;
     void checkLogindInhibitions();
 
     // Screen locker integration
@@ -139,7 +162,11 @@ private:
     bool m_screenLockerActive = false;
 
     // This function serves solely for fd.o connector
-    uint addInhibitionWithExplicitDBusService(uint types, const QString &appName, const QString &reason, const QString &service);
+    uint addInhibitionWithExplicitDBusService(uint types, const QString &who, const QString &why, const QString &service);
+
+    // D-Bus property getters
+    QList<PolicyAgentInhibition> listActiveInhibitions() const;
+    QList<PolicyAgentInhibition> listSuppressedInhibitions() const;
 
     // used by systemd and ConsoleKit
     QScopedPointer<QDBusInterface> m_managerIface;
@@ -158,7 +185,7 @@ private:
     QPointer<QDBusInterface> m_ckSeatInterface;
     bool m_sessionIsBeingInterrupted;
 
-    QHash<uint, QPair<QString, QString>> m_cookieToAppName;
+    QHash<uint, InhibitionInternals> m_cookieToInhibition;
     QHash<uint, QString> m_cookieToBusService;
     QHash<RequiredPolicy, QList<uint>> m_typesToCookie;
 
@@ -166,8 +193,7 @@ private:
 
     QList<int> m_pendingInhibitions;
     QSet<uint> m_activeInhibitions;
-    QSet<uint> m_blockedInhibitions;
-    QSet<uint> m_pendingBlockedInhibitions;
+    QSet<uint> m_suppressedInhibitions;
 
     uint m_lastCookie;
 
@@ -178,16 +204,16 @@ private:
     bool m_wasLastActiveSession;
 
     GlobalSettings *m_config = nullptr;
-    QSet<InhibitionInfo> m_configuredToBlockInhibitions;
+    QSet<InhibitionSuppressId> m_configuredToSuppressInhibitions;
 
-    QHash<uint, QMetaObject::Connection> m_blockInhibitionConnections;
-    QHash<uint, QMetaObject::Connection> m_unblockInhibitionConnections;
+    QHash<uint, QMetaObject::Connection> m_suppressInhibitionConnections;
+    QHash<uint, QMetaObject::Connection> m_unsuppressInhibitionConnections;
 
     friend class Core;
     friend class FdoConnector;
 
 Q_SIGNALS:
-    void blockInhibitionRequested(InhibitionInfo info, bool permanently);
-    void unblockInhibitionRequested(InhibitionInfo info, bool permanently);
+    void suppressInhibitionRequested(const InhibitionSuppressId &info);
+    void unsuppressInhibitionRequested(const InhibitionSuppressId &info);
 };
 }

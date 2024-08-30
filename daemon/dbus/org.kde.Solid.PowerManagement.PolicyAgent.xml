@@ -1,6 +1,47 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
-<node>
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
   <interface name="org.kde.Solid.PowerManagement.PolicyAgent">
+    <property name="ActiveInhibitions" type="a(ssssu)" access="read">
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QList&lt;PolicyAgentInhibition&gt;"/>
+      <doc:doc>
+        <doc:summary>A list of inhibition locks that block certain session transitions. It returns an array of structures consisting of "what", "who", "why", "mode" and extra flags.</doc:summary>
+        <doc:para>
+          The format of this structure roughly follows that of org.freedesktop.login1 inhibitors, but the returned list does not necessarily return the same elements. It may be missing some (e.g. delay inhibitors, the service's own inhibitors, unsupported "what" policies) or may include additional elements that did not pass through the org.freedesktop.login1 interface in the first place.
+          <doc:list>
+            <doc:item>"what" is one or more of "sleep", "idle", separated by colons, for inhibiting suspend/hibernate or automatic dimming/screen-locking on idle, respectively. More types may be supported in the future.</doc:item>
+            <doc:item>"who" identifies the application taking the lock.</doc:item>
+            <doc:item>"why" identifies the reason why the lock is taken.</doc:item>
+            <doc:item>"mode" is either "block" or "delay", which identifies whether an inhibition shall be considered mandatory or whether it should just delay the operation to a certain maximum time.</doc:item>
+            <doc:item>Flags are any of the following booleans combined with binary OR:
+              <doc:list>
+                <doc:item>0x1: configured to suppress - this is set if subsequent appearances of this inhibitor lock will be suppressed. If an active inhibition contains this flag, a temporary exception has been made.</doc:item>
+              </doc:list>
+            </doc:item>
+          </doc:list>
+        </doc:para>
+      </doc:doc>
+    </property>
+
+    <property name="SuppressedInhibitions" type="a(ssssu)" access="read">
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QList&lt;PolicyAgentInhibition&gt;"/>
+      <doc:doc>
+        <doc:summary>A list of inhibition locks that have been prevented from blocking certain session transitions. It returns an array of structures consisting of "what", "who", "why", "mode" and extra flags.</doc:summary>
+        <doc:para>
+          <doc:list>
+            <doc:item>"what" is one or more of "sleep", "idle", separated by colons, for inhibiting suspend/hibernate or automatic dimming/screen-locking on idle, respectively. More types may be supported in the future.</doc:item>
+            <doc:item>"who" identifies the application taking the lock.</doc:item>
+            <doc:item>"why" identifies the reason why the lock is taken.</doc:item>
+            <doc:item>"mode" is either "block" or "delay", which identifies whether an inhibition shall be considered mandatory or whether it should just delay the operation to a certain maximum time.</doc:item>
+            <doc:item>Flags are any of the following booleans combined with binary OR:
+              <doc:list>
+                <doc:item>0x1: configured to suppress - this is set if subsequent appearances of this inhibitor lock will also be suppressed.</doc:item>
+              </doc:list>
+            </doc:item>
+          </doc:list>
+        </doc:para>
+      </doc:doc>
+    </property>
+
     <method name="AddInhibition">
       <arg name="types" type="u" direction="in" />
       <arg name="app_name" type="s" direction="in" />
@@ -13,64 +54,38 @@
       <arg name="cookie" type="u" direction="in" />
     </method>
 
-    <method name="ListInhibitions">
-        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg name="inhibited" type="a{ss}" direction="out" />
-    </method>
-
     <method name="HasInhibition">
       <arg name="types" type="u" direction="in" />
       <arg name="has_inhibition" type="b" direction="out" />
     </method>
 
-    <method name="BlockInhibition">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <arg name="app_name" type="s" direction="in" />
-      <arg name="reason" type="s" direction="in" />
+    <method name="SuppressInhibition">
+      <arg name="who" type="s" direction="in" />
+      <arg name="why" type="s" direction="in" />
       <arg name="permanently" type="b" direction="in" />
     </method>
 
-    <method name="UnblockInhibition">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <arg name="app_name" type="s" direction="in" />
-      <arg name="reason" type="s" direction="in" />
+    <method name="UnsuppressInhibition">
+      <arg name="who" type="s" direction="in" />
+      <arg name="why" type="s" direction="in" />
       <arg name="permanently" type="b" direction="in" />
     </method>
 
-    <method name="ListPermanentlyBlockedInhibitions">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-      <arg name="blocked" type="a{ss}" direction="out" />
-    </method>
+    <!--
+    DEPRECATED:
+    -->
 
-    <method name="ListTemporarilyBlockedInhibitions">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-      <arg name="blocked" type="a{ss}" direction="out" />
+    <method name="ListInhibitions">
+        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;QStringList&gt;"/>
+        <arg name="inhibited" type="a{ss}" direction="out" />
     </method>
 
     <signal name="InhibitionsChanged">
         <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;QStringList&gt;"/>
         <arg name="added" type="a{ss}" />
         <arg name="removed" type="as" />
-    </signal>
-
-    <signal name="PermanentlyBlockedInhibitionsChanged">
-        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg name="added" type="a{ss}" />
-        <arg name="removed" type="a{ss}" />
-    </signal>
-
-    <signal name="TemporarilyBlockedInhibitionsChanged">
-        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg name="added" type="a{ss}" />
-        <arg name="removed" type="a{ss}" />
     </signal>
 
   </interface>

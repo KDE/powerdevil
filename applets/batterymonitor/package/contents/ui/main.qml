@@ -278,7 +278,7 @@ PlasmoidItem {
         activeProfile: powerProfilesControl.activeProfile
         activeProfileError: powerProfilesControl.profileError
         inhibitions: inhibitionControl.inhibitions
-        blockedInhibitions: inhibitionControl.blockedInhibitions
+        suppressedInhibitions: inhibitionControl.suppressedInhibitions
         inhibitsLidAction: inhibitionControl.isLidPresent && !inhibitionControl.triggersLidAction
         profilesInstalled: powerProfilesControl.isPowerProfileDaemonInstalled
         profiles: powerProfilesControl.profiles

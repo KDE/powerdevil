@@ -36,7 +36,7 @@ PlasmaComponents3.ItemDelegate {
     //  Reason: string,
     // }]
     property var inhibitions: []
-    property var blockedInhibitions: []
+    property var suppressedInhibitions: []
     property bool inhibitsLidAction
 
     background.visible: highlighted
@@ -130,11 +130,7 @@ PlasmaComponents3.ItemDelegate {
                         property string app: modelData.Name
                         property string name: modelData.PrettyName
                         property string reason: modelData.Reason
-                        property bool permanentlyBlocked: {
-                            return root.blockedInhibitions.some(function (blockedInhibition) {
-                                return blockedInhibition.Name === app && blockedInhibition.Reason === reason && blockedInhibition.Permanently;
-                            });
-                        }
+                        property bool configuredToSuppress: modelData.ConfiguredToSuppress
 
                         Layout.fillWidth: true
                         iconSource: icon
@@ -163,43 +159,43 @@ PlasmaComponents3.ItemDelegate {
                         }
 
                         Item {
-                            visible: !permanentlyBlocked
-                            width: blockMenuButton.width
-                            height: blockMenuButton.height
+                            visible: !configuredToSuppress
+                            width: suppressMenuButton.width
+                            height: suppressMenuButton.height
 
                             PlasmaComponents3.Button {
-                                id: blockMenuButton
+                                id: suppressMenuButton
                                 text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Unblock")
                                 icon.name: "edit-delete-remove"
                                 Accessible.role: Accessible.ButtonMenu
-                                onClicked: blockMenuButtonMenu.open()
+                                onClicked: suppressMenuButtonMenu.open()
                             }
 
                             PlasmaExtras.Menu {
-                                id: blockMenuButtonMenu
+                                id: suppressMenuButtonMenu
 
                                 PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Only this time")
-                                    onClicked: pmControl.blockInhibition(app, reason, false)
+                                    onClicked: pmControl.suppressInhibition(app, reason, false)
                                 }
 
                                 PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Every time for this app and reason")
-                                    onClicked: pmControl.blockInhibition(app, reason, true)
+                                    onClicked: pmControl.suppressInhibition(app, reason, true)
                                 }
                             }
                         }
 
                         Item {
-                            visible: permanentlyBlocked
-                            width: blockButton.width
-                            height: blockButton.height
+                            visible: configuredToSuppress
+                            width: suppressButton.width
+                            height: suppressButton.height
 
                             PlasmaComponents3.Button {
-                                id: blockButton
+                                id: suppressButton
                                 text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Unblock")
                                 icon.name: "edit-delete-remove"
-                                onClicked: pmControl.blockInhibition(app, reason, true)
+                                onClicked: pmControl.suppressInhibition(app, reason, true)
                             }
                         }
                     }
@@ -246,23 +242,23 @@ PlasmaComponents3.ItemDelegate {
                     }
                 }
 
-                // list of blocked inhibitions
+                // list of suppressed inhibitions
                 PlasmaComponents3.Label {
-                    id: blockedInhibitionExplanation
+                    id: suppressedInhibitionExplanation
                     Layout.fillWidth: true
-                    visible: root.blockedInhibitions.length > 1
+                    visible: root.suppressedInhibitions.length > 1
                     font: Kirigami.Theme.smallFont
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 3
                     text: i18np("%1 application has been prevented from blocking sleep and screen locking:",
                                 "%1 applications have been prevented from blocking sleep and screen locking:",
-                                root.blockedInhibitions.length)
+                                root.suppressedInhibitions.length)
                     textFormat: Text.PlainText
                 }
 
                 Repeater {
-                    model: root.blockedInhibitions
+                    model: root.suppressedInhibitions
 
                     InhibitionHint {
                         property string icon: modelData.Icon
@@ -270,18 +266,18 @@ PlasmaComponents3.ItemDelegate {
                         property string app: modelData.Name
                         property string name: modelData.PrettyName
                         property string reason: modelData.Reason
-                        property bool permanently: modelData.Permanently
-                        property bool temporarilyUnblocked: {
-                            return root.inhibitions.some(function (inhibition) {
+                        property bool configuredToSuppress: modelData.ConfiguredToSuppress
+                        property bool currentlySuppressed: {
+                            return !root.inhibitions.some(function (inhibition) {
                                 return inhibition.Name === app && inhibition.Reason === reason;
                             });
                         }
-                        visible: !temporarilyUnblocked
+                        visible: currentlySuppressed
 
                         Layout.fillWidth: true
                         iconSource: icon
                         text: {
-                            if (root.blockedInhibitions.length === 1) {
+                            if (root.suppressedInhibitions.length === 1) {
                                 return i18nc("Application name; reason", "%1 has been prevented from blocking sleep and screen locking for %2", name, reason)
                             } else {
                                 return i18nc("Application name: reason for preventing sleep and screen locking", "%1: %2", name, reason)
@@ -289,43 +285,43 @@ PlasmaComponents3.ItemDelegate {
                         }
 
                         Item {
-                            visible: permanently
-                            width: unblockMenuButton.width
-                            height: unblockMenuButton.height
+                            visible: configuredToSuppress
+                            width: unsuppressMenuButton.width
+                            height: unsuppressMenuButton.height
 
                             PlasmaComponents3.Button {
-                                id: unblockMenuButton
+                                id: unsuppressMenuButton
                                 text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block Again")
                                 icon.name: "dialog-cancel"
                                 Accessible.role: Accessible.ButtonMenu
-                                onClicked: unblockButtonMenu.open()
+                                onClicked: unsuppressButtonMenu.open()
                             }
 
                             PlasmaExtras.Menu {
-                                id: unblockButtonMenu
+                                id: unsuppressButtonMenu
 
                                 PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Only this time")
-                                    onClicked: pmControl.unblockInhibition(app, reason, false)
+                                    onClicked: pmControl.unsuppressInhibition(app, reason, false)
                                 }
 
                                 PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Every time for this app and reason")
-                                    onClicked: pmControl.unblockInhibition(app, reason, true)
+                                    onClicked: pmControl.unsuppressInhibition(app, reason, true)
                                 }
                             }
                         }
 
                         Item {
-                            visible: !permanently
-                            width: unblockButton.width
-                            height: unblockButton.height
+                            visible: !configuredToSuppress
+                            width: unsuppressButton.width
+                            height: unsuppressButton.height
 
                             PlasmaComponents3.Button {
-                                id: unblockButton
+                                id: unsuppressButton
                                 text: i18nc("@action:button Undo preventing an app from blocking automatic sleep and screen locking after inactivity", "Block Again")
                                 icon.name: "dialog-cancel"
-                                onClicked: pmControl.unblockInhibition(app, reason, false)
+                                onClicked: pmControl.unsuppressInhibition(app, reason, false)
                             }
                         }
                     }

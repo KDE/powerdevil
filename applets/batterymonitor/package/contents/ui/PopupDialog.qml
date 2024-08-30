@@ -39,7 +39,7 @@ PlasmaExtras.Representation {
     //  Reason: string,
     // }]
     property var inhibitions: []
-    property var blockedInhibitions: []
+    property var suppressedInhibitions: []
     property bool inhibitsLidAction
 
     property string inhibitionReason
@@ -153,7 +153,7 @@ PlasmaExtras.Representation {
                 KeyNavigation.backtab:KeyNavigation.up
 
                 inhibitions: dialog.inhibitions
-                blockedInhibitions: dialog.blockedInhibitions
+                suppressedInhibitions: dialog.suppressedInhibitions
                 isManuallyInhibited: dialog.isManuallyInhibited
                 isManuallyInhibitedError: dialog.isManuallyInhibitedError
                 inhibitsLidAction: dialog.inhibitsLidAction

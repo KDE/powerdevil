@@ -36,7 +36,7 @@
   </group>
 
   <group name="Inhibitions">
-    <entry name="BlockedInhibitions" type="StringList">
+    <entry name="SuppressedInhibitions" type="StringList">
       <default></default>
     </entry>
   </group>
