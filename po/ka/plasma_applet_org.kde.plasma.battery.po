@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:41+0000\n"
-"PO-Revision-Date: 2024-06-26 05:46+0200\n"
+"PO-Revision-Date: 2024-08-29 06:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -314,7 +314,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "განბლოკვა"
 
 #: package/contents/ui/PowerManagementItem.qml:183
 #: package/contents/ui/PowerManagementItem.qml:311
@@ -323,7 +323,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "მხოლოდ ახლა"
 
 #: package/contents/ui/PowerManagementItem.qml:188
 #: package/contents/ui/PowerManagementItem.qml:316
@@ -332,22 +332,20 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Every time for this app and reason"
-msgstr ""
+msgstr "ყოველთვის ამ აპისთვის და მიზეზისთვის"
 
 #: package/contents/ui/PowerManagementItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
-msgstr "ძილისა და ეკრანის ჩაკეტვის ხელით დაბლოკვა"
+msgstr "თქვენ ხელით დაბლოკეთ ძილი და ეკრანის ჩაკეტვა."
 
 #: package/contents/ui/PowerManagementItem.qml:219
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "განბლოკვა"
 
 #: package/contents/ui/PowerManagementItem.qml:238
 #: package/contents/ui/PowerManagementItem.qml:363
@@ -362,10 +360,7 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "ავტომატური ძილისა და ეკრანის დაბლოკვა ჩავარდა"
 
 #: package/contents/ui/PowerManagementItem.qml:259
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
@@ -374,11 +369,10 @@ msgstr[0] "ამჟამად %1 აპლიკაცია ბლოკა�
 msgstr[1] "ამჟამად %1 აპლიკაცია ბლოკავს ძილს და ეკრანის დაბლოკვას:"
 
 #: package/contents/ui/PowerManagementItem.qml:286
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "ამჟამად %1 ბლოკავს ძილს და ეკრანის დაბლოკვას (%2)"
+msgstr "%1- აეკრძალა ძილისა და ეკრანის ჩაკეტვის დაბლოკვა %2-სთვის"
 
 #: package/contents/ui/PowerManagementItem.qml:299
 #: package/contents/ui/PowerManagementItem.qml:329
@@ -387,13 +381,10 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "თავიდან დაბლოკვა"
 
 #: package/contents/ui/PowerManagementItem.qml:344
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Manually block sleep and screen locking after inactivity"
-#| msgid "Manually block"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
 msgstr "ხელით დაბლოკვა"
