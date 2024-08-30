@@ -1,6 +1,7 @@
 /*
  * SPDX-FileCopyrightText: 2024 Bohdan Onofriichuk <bogdan.onofriuchuk@gmail.com>
  * SPDX-FileCopyrightText: 2024 Natalie Clarius <natalie.clarius@kde.org>
+ * SPDX-FileCopyrightText: 2025 Jakob Petsovits <jpetso@petsovits.com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
@@ -14,23 +15,57 @@
 #include <QObject>
 #include <QObjectBindableProperty>
 #include <QProperty>
-
-#include <qqmlregistration.h>
-#include <qtmetamacros.h>
+#include <QtQml/qqmlregistration.h>
 
 #include <memory>
 
-using InhibitionInfo = QPair<QString, QString>;
+struct PolicyAgentInhibition {
+    enum Flag {
+        Active = 0x1,
+        Allowed = 0x2,
+    };
+    Q_DECLARE_FLAGS(Flags, Flag)
+
+    QString what;
+    QString who;
+    QString why;
+    QString mode;
+    uint flags;
+};
 
 class QDBusServiceWatcher;
+
+class RequestedInhibition
+{
+    Q_GADGET
+
+    Q_PROPERTY(QString appName MEMBER appName CONSTANT FINAL)
+    Q_PROPERTY(QString prettyName MEMBER prettyName CONSTANT FINAL)
+    Q_PROPERTY(QString icon MEMBER icon CONSTANT FINAL)
+    Q_PROPERTY(QString reason MEMBER reason CONSTANT FINAL)
+    Q_PROPERTY(QStringList what MEMBER what CONSTANT FINAL)
+    Q_PROPERTY(bool active MEMBER active CONSTANT FINAL)
+    Q_PROPERTY(bool allowed MEMBER allowed CONSTANT FINAL)
+
+public:
+    bool operator==(const RequestedInhibition &) const = default;
+    bool operator!=(const RequestedInhibition &) const = default;
+
+    QString appName;
+    QString prettyName;
+    QString icon;
+    QString reason;
+    QStringList what;
+    bool active;
+    bool allowed;
+};
 
 class InhibitionControl : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(QList<QVariantMap> inhibitions READ default NOTIFY inhibitionsChanged BINDABLE bindableInhibitions)
-    Q_PROPERTY(QList<QVariantMap> blockedInhibitions READ default NOTIFY blockedInhibitionsChanged BINDABLE bindableBlockedInhibitions)
+    Q_PROPERTY(QList<RequestedInhibition> requestedInhibitions READ default NOTIFY requestedInhibitionsChanged BINDABLE bindableRequestedInhibitions)
     Q_PROPERTY(bool hasInhibition READ default NOTIFY hasInhibitionChanged BINDABLE bindableHasInhibition)
     Q_PROPERTY(bool isLidPresent READ default NOTIFY isLidPresentChanged BINDABLE bindableIsLidPresent)
     Q_PROPERTY(bool triggersLidAction READ default NOTIFY triggersLidActionChanged BINDABLE bindableTriggersLidAction)
@@ -41,15 +76,13 @@ class InhibitionControl : public QObject
 public:
     Q_INVOKABLE void inhibit(const QString &reason);
     Q_INVOKABLE void uninhibit();
-    Q_INVOKABLE void blockInhibition(const QString &appName, const QString &reason, bool permanently = false);
-    Q_INVOKABLE void unblockInhibition(const QString &appName, const QString &reason, bool permanently = false);
+    Q_INVOKABLE void setInhibitionAllowed(const QString &appName, const QString &reason, bool allowed);
 
     explicit InhibitionControl(QObject *parent = nullptr);
     ~InhibitionControl() override;
 
 Q_SIGNALS:
-    void inhibitionsChanged(const QList<QVariantMap> &inhibitions);
-    void blockedInhibitionsChanged(const QList<QVariantMap> &inhibitions);
+    void requestedInhibitionsChanged(const QList<RequestedInhibition> &inhibitions);
     void hasInhibitionChanged(bool status);
     void isLidPresentChanged(bool status);
     void triggersLidActionChanged(bool status);
@@ -59,9 +92,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onServiceRegistered(const QString &serviceName);
     void onServiceUnregistered(const QString &serviceName);
-    void onInhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
-    void onPermanentlyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
-    void onTemporarilyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
+    void onPolicyAgentPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
     void onHasInhibitionChanged(bool status);
     void onIsManuallyInhibitedChanged(bool status);
     void onisManuallyInhibitedErrorChanged(bool status);
@@ -69,23 +100,18 @@ private Q_SLOTS:
 private:
     bool isSilent();
     void setIsSilent(bool status);
-    void updateInhibitions(const QList<InhibitionInfo> &inhibitions);
-    void updateBlockedInhibitions(const QList<InhibitionInfo> &permanentlyBlockedAdded,
-                                  const QList<InhibitionInfo> &permanentlyBlockedRemoved,
-                                  const QList<InhibitionInfo> &temporarilyBlockedAdded,
-                                  const QList<InhibitionInfo> &temporarilyBlockedRemoved);
+    void checkInhibitions();
+    QList<RequestedInhibition> updatedInhibitions(const QList<PolicyAgentInhibition> &inhibitions);
 
-    QBindable<QList<QVariantMap>> bindableInhibitions();
-    QBindable<QList<QVariantMap>> bindableBlockedInhibitions();
+    QBindable<QList<RequestedInhibition>> bindableRequestedInhibitions();
     QBindable<bool> bindableHasInhibition();
     QBindable<bool> bindableIsLidPresent();
     QBindable<bool> bindableTriggersLidAction();
     QBindable<bool> bindableIsManuallyInhibited();
     QBindable<bool> bindableIsManuallyInhibitedError();
 
-    Q_OBJECT_BINDABLE_PROPERTY(InhibitionControl, QList<QVariantMap>, m_inhibitions, &InhibitionControl::inhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY(InhibitionControl, QList<QVariantMap>, m_blockedInhibitions, &InhibitionControl::blockedInhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_hasInhibition, &InhibitionControl::hasInhibitionChanged)
+    Q_OBJECT_BINDABLE_PROPERTY(InhibitionControl, QList<RequestedInhibition>, m_requestedInhibitions, &InhibitionControl::requestedInhibitionsChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_hasInhibition, false, &InhibitionControl::hasInhibitionChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_isLidPresent, false, &InhibitionControl::isLidPresentChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_triggersLidAction, false, &InhibitionControl::triggersLidActionChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_isManuallyInhibited, false, &InhibitionControl::isManuallyInhibitedChanged)

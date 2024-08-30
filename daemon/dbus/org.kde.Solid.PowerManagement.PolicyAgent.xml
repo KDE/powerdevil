@@ -1,6 +1,35 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
-<node>
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
   <interface name="org.kde.Solid.PowerManagement.PolicyAgent">
+    <property name="RequestedInhibitions" type="a(ssssu)" access="read">
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QList&lt;PolicyAgentInhibition&gt;"/>
+      <doc:doc>
+        <doc:summary>A list of currently requested inhibition locks to prevent certain session transitions. Includes inhibitions that were requested, but are currently inactive. It returns an array of structures consisting of "what", "who", "why", "mode" and status flags.</doc:summary>
+        <doc:para>
+          The format of this structure roughly follows that of org.freedesktop.login1 inhibitors, but the returned list does not necessarily return the same elements. It may be missing some (e.g. delay inhibitors, the service's own inhibitors, unsupported "what" policies) or may include additional elements that did not pass through the org.freedesktop.login1 interface in the first place.
+          <doc:list>
+            <doc:item>"what" is one or more of "sleep", "idle", separated by colons, for inhibiting suspend/hibernate or automatic dimming/screen-locking on idle, respectively. More types may be supported in the future.</doc:item>
+            <doc:item>"who" identifies the application taking the lock.</doc:item>
+            <doc:item>"why" identifies the reason why the lock is taken.</doc:item>
+            <doc:item>"mode" is either "block" or "delay", which identifies whether an inhibition shall be considered mandatory or whether it should just delay the operation to a certain maximum time.</doc:item>
+            <doc:item>Flags are any of the following booleans combined with binary OR:
+              <doc:list>
+                <doc:item>0x1: Active - if this is set, this inhibitor lock is active. If this is unset, other flags may indicate why the inhibition is not active.</doc:item>
+                <doc:item>0x2: Allowed - this is set by default, but can be changed by calling SetInhibitionAllowed. If unset, this inhibitor lock is suppressed and will not turn active.</doc:item>
+              </doc:list>
+            </doc:item>
+          </doc:list>
+        </doc:para>
+      </doc:doc>
+    </property>
+
+    <property name="ActiveInhibitions" type="a(ssssu)" access="read">
+      <annotation name="org.qtproject.QtDBus.QtTypeName" value="QList&lt;PolicyAgentInhibition&gt;"/>
+      <doc:doc>
+        <doc:summary>Like RequestedInhibitions, but includes only inhibitions that have the Active flag set.</doc:summary>
+      </doc:doc>
+    </property>
+
     <method name="AddInhibition">
       <arg name="types" type="u" direction="in" />
       <arg name="app_name" type="s" direction="in" />
@@ -13,64 +42,38 @@
       <arg name="cookie" type="u" direction="in" />
     </method>
 
-    <method name="ListInhibitions">
-        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg name="inhibited" type="a{ss}" direction="out" />
-    </method>
-
     <method name="HasInhibition">
       <arg name="types" type="u" direction="in" />
       <arg name="has_inhibition" type="b" direction="out" />
     </method>
 
-    <method name="BlockInhibition">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <arg name="app_name" type="s" direction="in" />
-      <arg name="reason" type="s" direction="in" />
-      <arg name="permanently" type="b" direction="in" />
+    <method name="SetInhibitionAllowed">
+      <arg name="who" type="s" direction="in" />
+      <arg name="why" type="s" direction="in" />
+      <arg name="allowed" type="b" direction="in" />
+      <doc:doc>
+        <doc:summary>Requested inhibitions are allowed by default, but they can be suppressed with this method by setting allowed to false.</doc:summary>
+        <doc:para>
+          An inhibition may only become active if allowed. When calling this method with allowed set to false, a currenly requested active inhibition will stop being active and disappear from the ActiveInhibitions property, but will continue to be listed in the RequestedInhibitions property. This setting is persisted and will apply to future inhibitions of the same name and reason. Within RequestedInhibitions, each item's flags describe whether or not the inhibition is allowed (and active).
+        </doc:para>
+      </doc:doc>
     </method>
 
-    <method name="UnblockInhibition">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <arg name="app_name" type="s" direction="in" />
-      <arg name="reason" type="s" direction="in" />
-      <arg name="permanently" type="b" direction="in" />
-    </method>
+    <!--
+    DEPRECATED:
+    -->
 
-    <method name="ListPermanentlyBlockedInhibitions">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-      <arg name="blocked" type="a{ss}" direction="out" />
-    </method>
-
-    <method name="ListTemporarilyBlockedInhibitions">
-      <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-      <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-      <arg name="blocked" type="a{ss}" direction="out" />
+    <method name="ListInhibitions">
+        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;QStringList&gt;"/>
+        <arg name="inhibited" type="a{ss}" direction="out" />
     </method>
 
     <signal name="InhibitionsChanged">
         <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;QStringList&gt;"/>
         <arg name="added" type="a{ss}" />
         <arg name="removed" type="as" />
-    </signal>
-
-    <signal name="PermanentlyBlockedInhibitionsChanged">
-        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg name="added" type="a{ss}" />
-        <arg name="removed" type="a{ss}" />
-    </signal>
-
-    <signal name="TemporarilyBlockedInhibitionsChanged">
-        <annotation name="org.freedesktop.DBus.Deprecated" value="true"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QList&lt;InhibitionInfo&gt;"/>
-        <annotation name="org.qtproject.QtDBus.QtTypeName.Out1" value="QList&lt;InhibitionInfo&gt;"/>
-        <arg name="added" type="a{ss}" />
-        <arg name="removed" type="a{ss}" />
     </signal>
 
   </interface>

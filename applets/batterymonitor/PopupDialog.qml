@@ -30,16 +30,19 @@ PlasmaExtras.Representation {
 
     property bool isTlpInstalled
 
-    // List of active power management inhibitions (applications that are
-    // blocking sleep and screen locking).
+    // List of currently requested power management inhibitions (applications that
+    // are blocking sleep and screen locking). Not all are necessarily active.
     //
     // type: [{
-    //  Icon: string,
-    //  Name: string,
-    //  Reason: string,
+    //  appName: string,
+    //  prettyName: string,
+    //  icon: string,
+    //  reason: string,
+    //  what: array<string>, // what's inhibited: "idle", "sleep", both, or any future inhibition types
+    //  active: bool,
+    //  allowed: bool,
     // }]
-    property var inhibitions: []
-    property var blockedInhibitions: []
+    property var requestedInhibitions: []
     property bool inhibitsLidAction
 
     property string inhibitionReason
@@ -152,8 +155,7 @@ PlasmaExtras.Representation {
                 KeyNavigation.down: null
                 KeyNavigation.backtab:KeyNavigation.up
 
-                inhibitions: dialog.inhibitions
-                blockedInhibitions: dialog.blockedInhibitions
+                requestedInhibitions: dialog.requestedInhibitions
                 isManuallyInhibited: dialog.isManuallyInhibited
                 isManuallyInhibitedError: dialog.isManuallyInhibitedError
                 inhibitsLidAction: dialog.inhibitsLidAction
