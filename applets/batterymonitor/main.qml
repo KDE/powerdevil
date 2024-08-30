@@ -278,8 +278,7 @@ PlasmoidItem {
         remainingTime: batteryControl.remainingTime
         activeProfile: powerProfilesControl.activeProfile
         activeProfileError: powerProfilesControl.profileError
-        inhibitions: inhibitionControl.inhibitions
-        blockedInhibitions: inhibitionControl.blockedInhibitions
+        requestedInhibitions: inhibitionControl.requestedInhibitions
         inhibitsLidAction: inhibitionControl.isLidPresent && !inhibitionControl.triggersLidAction
         profilesInstalled: powerProfilesControl.isPowerProfileDaemonInstalled
         profiles: powerProfilesControl.profiles
