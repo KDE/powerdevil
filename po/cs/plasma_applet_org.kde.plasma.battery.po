@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020.
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2024 Vít Pelčák <vit@pelcak.org>
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011, 2012.
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 #
@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:41+0000\n"
-"PO-Revision-Date: 2024-04-17 09:54+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2024-08-30 16:27+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -319,7 +319,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Odblokovat"
 
 #: package/contents/ui/PowerManagementItem.qml:183
 #: package/contents/ui/PowerManagementItem.qml:311
@@ -328,7 +328,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "Pouze tentokrát"
 
 #: package/contents/ui/PowerManagementItem.qml:188
 #: package/contents/ui/PowerManagementItem.qml:316
@@ -340,18 +340,17 @@ msgid "Every time for this app and reason"
 msgstr ""
 
 #: package/contents/ui/PowerManagementItem.qml:214
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: package/contents/ui/PowerManagementItem.qml:219
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Odblokovat"
 
 #: package/contents/ui/PowerManagementItem.qml:238
 #: package/contents/ui/PowerManagementItem.qml:363
@@ -366,24 +365,20 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Neúspěšný pokus zabránit automatickému spánku a zamčení obrazovky"
 
 #: package/contents/ui/PowerManagementItem.qml:259
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "%1 aplikace právě brání spánku nebo zamčení obrazovky:"
-msgstr[1] "%1 aplikace právě brání spánku nebo zamčení obrazovky:"
-msgstr[2] "%1 aplikací právě brání spánku nebo zamčení obrazovky:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: package/contents/ui/PowerManagementItem.qml:286
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 právě brání spánku a zamčení obrazovky (%2)"
+msgstr ""
 
 #: package/contents/ui/PowerManagementItem.qml:299
 #: package/contents/ui/PowerManagementItem.qml:329
@@ -395,10 +390,7 @@ msgid "Block Again"
 msgstr ""
 
 #: package/contents/ui/PowerManagementItem.qml:344
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Manually block sleep and screen locking after inactivity"
-#| msgid "Manually block"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
 msgstr "Ručně zablokovat"
