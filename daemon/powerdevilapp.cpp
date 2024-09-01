@@ -42,6 +42,7 @@ PowerDevilApp::PowerDevilApp(int &argc, char **argv)
 
 PowerDevilApp::~PowerDevilApp()
 {
+    QDBusConnection::sessionBus().unregisterObject(u"/org/kde/ScreenBrightness"_s, QDBusConnection::UnregisterTree);
     delete m_core;
 }
 

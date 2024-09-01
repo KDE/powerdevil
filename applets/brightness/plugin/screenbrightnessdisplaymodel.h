@@ -17,7 +17,7 @@ class ScreenBrightnessDisplayModel : public QAbstractListModel
 public:
     enum {
         LabelRole = Qt::DisplayRole,
-        DisplayIdRole = Qt::UserRole,
+        DisplayNameRole = Qt::UserRole,
         IsInternalRole,
         BrightnessRole,
         MaxBrightnessRole,
@@ -29,21 +29,21 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-    QModelIndex displayIndex(const QString &displayId) const;
-    void appendDisplay(const QString &displayId, const QString &label, bool isInternal, int brightness, int maxBrightness);
-    void removeDisplay(const QString &displayId);
+    QModelIndex displayIndex(const QString &displayName) const;
+    void insertDisplay(const QString &displayName, const QModelIndex &index, const QString &label, bool isInternal, int brightness, int maxBrightness);
+    void removeMissingDisplays(const QStringList &displayNames);
 
-    void onBrightnessChanged(const QString &displayId, int value);
-    void onBrightnessRangeChanged(const QString &displayId, int max, int value);
+    void onBrightnessChanged(const QString &displayName, int value);
+    void onBrightnessRangeChanged(const QString &displayName, int max, int value);
 
 private:
     struct Data {
-        QString displayId;
+        QString displayName;
         QString label;
         int brightness;
         int maxBrightness;
         bool isInternal;
     };
-    QStringList m_displayIds;
+    QStringList m_displayNames;
     QList<Data> m_displays;
 };

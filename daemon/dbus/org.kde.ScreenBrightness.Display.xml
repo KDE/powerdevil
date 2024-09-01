@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
+  <interface name="org.kde.ScreenBrightness.Display">
+    <property name="Label" type="s" access="read">
+      <doc:doc>
+        <doc:summary>A user-visible name for a given display.</doc:summary>
+      </doc:doc>
+    </property>
+    <property name="IsInternal" type="b" access="read">
+      <doc:doc>
+        <doc:summary>true if the display is part of the system itself (e.g. laptop panel), false if external (e.g. monitor, drawing tablet) or unknown.</doc:summary>
+      </doc:doc>
+    </property>
+    <property name="MaxBrightness" type="i" access="read">
+      <doc:doc>
+        <doc:summary>The maximum brightness value for a given display.</doc:summary>
+      </doc:doc>
+    </property>
+    <property name="Brightness" type="i" access="read">
+      <doc:doc>
+        <doc:summary>The current brightness value for a given display, in the range from 0 (the lowest still-visible brightness level) to MaxBrightness.</doc:summary>
+        <doc:para>Note that not all external brightness changes can be observed. The actual screen brightness may differ from the value of this property.</doc:para>
+      </doc:doc>
+    </property>
+    <method name="SetBrightness">
+      <doc:doc>
+        <doc:summary>Set the brightness for a given display.</doc:summary>
+      </doc:doc>
+      <arg name="brightness" type="i" direction="in">
+        <doc:doc>
+          <doc:summary>The requested brightness value in the range from 0 (the lowest still-visible brightness) to GetMaxBrightness.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="flags" type="u" direction="in">
+        <doc:doc>
+          <doc:summary>Boolean options, combined in a single value with binary OR (pass 0 for default behavior).</doc:summary>
+          <doc:para>
+            <doc:list>
+              <doc:item>0x1: SuppressIndicator - don't show brightness change indicators such as OSD, notification, etc. ("silent mode").</doc:item>
+            </doc:list>
+          </doc:para>
+        </doc:doc>
+      </arg>
+    </method>
+    <method name="SetBrightnessWithContext">
+      <doc:doc>
+        <doc:summary>Set the brightness for a given display, with extra context passthrough.</doc:summary>
+        <doc:para>Arguments other than source_client_context are the same as in SetBrightness.</doc:para>
+      </doc:doc>
+      <arg name="brightness" type="i" direction="in"/>
+      <arg name="flags" type="u" direction="in"/>
+      <arg name="source_client_context" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>Will be passed through to any resulting BrightnessChanged signal in the parent org.kde.ScreenBrightness object.</doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+  </interface>
+</node>

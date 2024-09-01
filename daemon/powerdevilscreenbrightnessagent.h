@@ -21,12 +21,58 @@
 namespace PowerDevil
 {
 
+class ScreenBrightnessDisplay : public QObject, protected QDBusContext
+{
+    Q_OBJECT
+    Q_DISABLE_COPY(ScreenBrightnessDisplay)
+
+    Q_CLASSINFO("D-Bus Interface", "org.kde.ScreenBrightness.Display")
+
+    Q_PROPERTY(QString DBusName READ DBusName CONSTANT)
+    Q_PROPERTY(QString Label READ Label)
+    Q_PROPERTY(bool IsInternal READ IsInternal CONSTANT)
+    Q_PROPERTY(int Brightness READ Brightness)
+    Q_PROPERTY(int MaxBrightness READ MaxBrightness)
+
+public:
+    enum class SetBrightnessFlags : uint {
+        SuppressIndicator = 0x1, /// Don't show brightness change indicators such as OSD, notification, etc.
+    };
+
+public:
+    explicit ScreenBrightnessDisplay(QObject *parent, const QString &dbusName, ScreenBrightnessController *controller, const QString &displayId);
+
+    ~ScreenBrightnessDisplay();
+
+    // D-Bus object path elements can only contain "[A-Z][a-z][0-9]_", so we can't use
+    // the display ID as D-Bus name. Store it just for internal lookup purposes.
+    QString displayId() const;
+    QString dbusPath() const;
+
+    // D-Bus export
+    QString DBusName() const;
+    QString Label() const;
+    bool IsInternal() const;
+    int Brightness() const;
+    int MaxBrightness() const;
+
+    void SetBrightness(int value, uint flags = 0x0);
+    void SetBrightnessWithContext(int value, uint flags, const QString &sourceClientContext);
+
+private:
+    QString m_dbusName;
+    QString m_displayId;
+    ScreenBrightnessController *m_controller;
+};
+
 class POWERDEVILCORE_EXPORT ScreenBrightnessAgent : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_DISABLE_COPY(ScreenBrightnessAgent)
 
     Q_CLASSINFO("D-Bus Interface", "org.kde.ScreenBrightness")
+
+    Q_PROPERTY(QStringList DisplaysDBusNames READ DisplaysDBusNames)
 
 public:
     enum class AdjustBrightnessRatioFlags : uint {
@@ -44,19 +90,11 @@ public:
         SuppressIndicator = 0x1, /// Don't show brightness change indicators such as OSD, notification, etc.
     };
 
-    enum class SetBrightnessFlags : uint {
-        SuppressIndicator = 0x1, /// Don't show brightness change indicators such as OSD, notification, etc.
-    };
-
 public:
     explicit ScreenBrightnessAgent(QObject *parent, ScreenBrightnessController *controller);
 
-    // D-Bus export
-    QStringList GetDisplayIds() const;
-    QString GetLabel(const QString &displayId) const;
-    bool GetIsInternal(const QString &displayId) const;
-    int GetBrightness(const QString &displayId) const;
-    int GetMaxBrightness(const QString &displayId) const;
+    // D-Bus property
+    QStringList DisplaysDBusNames() const;
 
 public Q_SLOTS:
     // D-Bus export
@@ -64,8 +102,6 @@ public Q_SLOTS:
     void AdjustBrightnessRatioWithContext(double delta, uint flags, const QString &sourceClientContext);
     void AdjustBrightnessStep(uint stepAction, uint flags = 0x0);
     void AdjustBrightnessStepWithContext(uint stepDelta, uint flags, const QString &sourceClientContext);
-    void SetBrightness(const QString &displayId, int value, uint flags = 0x0);
-    void SetBrightnessWithContext(const QString &displayId, int value, uint flags, const QString &sourceClientContext);
 
 private Q_SLOTS:
     void onBrightnessChanged(const QString &displayId,
@@ -83,9 +119,12 @@ Q_SIGNALS:
     void BrightnessRangeChanged(const QString &displayId, int maxBrightness, int brightness);
 
 private:
+    QString insertDisplayChild(const QString &displayId);
     int brightnessPercent(double value, double max) const;
 
 private:
+    std::unordered_map<QString, std::unique_ptr<ScreenBrightnessDisplay>> m_displayChildren;
+    size_t m_nextDbusDisplayIndex = 0;
     ScreenBrightnessController *m_controller;
 };
 

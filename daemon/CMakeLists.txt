@@ -72,6 +72,9 @@ qt_add_dbus_interface(powerdevilcore_SRCS dbus/org.freedesktop.UPower.KbdBacklig
 qt_add_dbus_adaptor(powerdevilcore_SRCS dbus/org.kde.ScreenBrightness.xml
                                         powerdevilscreenbrightnessagent.h PowerDevil::ScreenBrightnessAgent
                                         screenbrightnessadaptor ScreenBrightnessAdaptor)
+qt_add_dbus_adaptor(powerdevilcore_SRCS dbus/org.kde.ScreenBrightness.Display.xml
+                                        powerdevilscreenbrightnessagent.h PowerDevil::ScreenBrightnessDisplay
+                                        screenbrightnessdisplayadaptor ScreenBrightnessDisplayAdaptor)
 
 add_library(powerdevilcore SHARED ${powerdevilcore_SRCS})
 set_target_properties(powerdevilcore PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION 2)

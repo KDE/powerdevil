@@ -52,7 +52,7 @@ PlasmaExtras.Representation {
                     id: screenBrightnessSlider
 
                     required property int index
-                    required property string displayId
+                    required property string displayName
                     required property string label
                     required property int brightness
                     required property int maxBrightness
@@ -76,7 +76,7 @@ PlasmaExtras.Representation {
 
                     stepSize: maxBrightness/100
 
-                    onMoved: screenBrightnessControl.setBrightness(displayId, value)
+                    onMoved: screenBrightnessControl.setBrightness(displayName, value)
                     onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
                 }
 

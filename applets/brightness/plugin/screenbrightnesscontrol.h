@@ -10,7 +10,10 @@
 
 #include <QBindable>
 #include <QCoroTask>
+#include <QModelIndex>
 #include <QObject>
+#include <QStringList>
+#include <QVariantMap>
 #include <qqmlregistration.h>
 
 class QDBusPendingCallWatcher;
@@ -57,20 +60,21 @@ public:
     Q_INVOKABLE void adjustBrightnessStep(StepAction stepAction);
 
 public Q_SLOTS:
-    void setBrightness(const QString &displayId, int value);
+    void setBrightness(const QString &displayName, int value);
 
 Q_SIGNALS:
     void isBrightnessAvailableChanged(bool status);
 
 private Q_SLOTS:
-    void onBrightnessChanged(const QString &displayId, int value, const QString &sourceClientName, const QString &sourceClientContext);
-    void onBrightnessRangeChanged(const QString &displayId, int max, int value);
-    void onDisplayAdded(const QString &displayId);
-    void onDisplayRemoved(const QString &displayId);
+    void onGlobalPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps);
+    void onBrightnessChanged(const QString &displayName, int value, const QString &sourceClientName, const QString &sourceClientContext);
+    void onBrightnessRangeChanged(const QString &displayName, int max, int value);
 
 private:
     QCoro::Task<void> init();
-    QCoro::Task<void> queryAndAppendDisplay(const QString &displayId);
+    QCoro::Task<bool> checkDisplayNames();
+    QCoro::Task<void> updateDisplayNames(const QStringList &displayNames);
+    QCoro::Task<void> queryAndInsertDisplay(const QString &displayNames, const QModelIndex &index);
 
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(ScreenBrightnessControl, bool, m_isBrightnessAvailable, false, &ScreenBrightnessControl::isBrightnessAvailableChanged);
 

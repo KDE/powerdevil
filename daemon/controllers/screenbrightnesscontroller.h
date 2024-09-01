@@ -150,6 +150,7 @@ public:
 
 Q_SIGNALS:
     void detectionFinished();
+    void displayIdsChanged(const QStringList &displayIds);
     void displayAdded(const QString &displayId);
     void displayRemoved(const QString &displayId);
     void brightnessChanged(const QString &displayId,

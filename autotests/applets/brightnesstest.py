@@ -292,22 +292,30 @@ class BrightnessTests(unittest.TestCase):
             slider_element.click()
             wait.until(lambda _: self.upower_interface.current_keyboard_brightness == target_brightness)
 
-    def read_powerdevil_first_display_id(self) -> int:
+    def read_powerdevil_first_display_name(self) -> str:
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
-        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.ScreenBrightness", "/org/kde/ScreenBrightness", "org.kde.ScreenBrightness", "GetDisplayIds")
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.ScreenBrightness", "/org/kde/ScreenBrightness", "org.freedesktop.DBus.Properties", "Get")
+        message.set_body(GLib.Variant("(ss)", ["org.kde.ScreenBrightness", "DisplaysDBusNames"]))
         reply, _ = session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 1000)
-        if not reply or reply.get_signature() != 'as':
-            return -1
-        return reply.get_body().get_child_value(0).get_child_value(0).get_string()
+        if not reply or reply.get_signature() != 'v':
+            return ""
+        variant = reply.get_body().get_child_value(0).get_variant()
+        if variant.get_type_string() != 'as':
+            return ""
+        return variant.get_child_value(0).get_string()
 
     def read_powerdevil_brightness(self) -> int:
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
-        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.ScreenBrightness", "/org/kde/ScreenBrightness", "org.kde.ScreenBrightness", "GetBrightness")
-        message.set_body(GLib.Variant("(s)", [self.read_powerdevil_first_display_id()]))
+        first_display_name: str = self.read_powerdevil_first_display_name()
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.ScreenBrightness", f"/org/kde/ScreenBrightness/{first_display_name}", "org.freedesktop.DBus.Properties", "Get")
+        message.set_body(GLib.Variant("(ss)", ["org.kde.ScreenBrightness.Display", "Brightness"]))
         reply, _ = session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 1000)
-        if not reply or reply.get_signature() != 'i':
+        if not reply or reply.get_signature() != 'v':
             return -1
-        return reply.get_body().get_child_value(0).get_int32()
+        variant = reply.get_body().get_child_value(0).get_variant()
+        if variant.get_type_string() != 'i':
+            return -1
+        return variant.get_int32()
 
     def test_2_set_display_brightness(self) -> None:
         """

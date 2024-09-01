@@ -20,6 +20,9 @@ namespace
 static const QString SCREENBRIGHTNESS_SERVICE = u"org.kde.ScreenBrightness"_s;
 static const QString SCREENBRIGHTNESS_PATH = u"/org/kde/ScreenBrightness"_s;
 static const QString SCREENBRIGHTNESS_IFACE = u"org.kde.ScreenBrightness"_s;
+static const QString SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE = u"/org/kde/ScreenBrightness/%1"_s;
+static const QString SCREENBRIGHTNESS_DISPLAY_IFACE = u"org.kde.ScreenBrightness.Display"_s;
+static const QString DBUS_PROPERTIES_IFACE = u"org.freedesktop.DBus.Properties"_s;
 static const QString ALREADY_CHANGED_CONTEXT = u"AlreadyChanged"_s;
 }
 
@@ -61,77 +64,83 @@ void ScreenBrightnessControl::adjustBrightnessStep(ScreenBrightnessControl::Step
     QDBusConnection::sessionBus().asyncCall(msg);
 }
 
-void ScreenBrightnessControl::setBrightness(const QString &displayId, int value)
+void ScreenBrightnessControl::setBrightness(const QString &displayName, int value)
 {
-    QVariant oldBrightness = m_displays.data(m_displays.displayIndex(displayId), ScreenBrightnessDisplayModel::BrightnessRole);
+    QVariant oldBrightness = m_displays.data(m_displays.displayIndex(displayName), ScreenBrightnessDisplayModel::BrightnessRole);
 
     if (oldBrightness == value) {
         return;
     }
 
-    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"SetBrightnessWithContext"_s);
+    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE,
+                                                      SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE.arg(displayName),
+                                                      SCREENBRIGHTNESS_DISPLAY_IFACE,
+                                                      u"SetBrightnessWithContext"_s);
     uint flags = m_isSilent ? 0x1 : 0x0;
 
-    msg << displayId << value << flags << ALREADY_CHANGED_CONTEXT;
+    msg << value << flags << ALREADY_CHANGED_CONTEXT;
     QDBusPendingCall async = QDBusConnection::sessionBus().asyncCall(msg);
     m_brightnessChangeWatcher.reset(new QDBusPendingCallWatcher(async));
 
     connect(m_brightnessChangeWatcher.get(),
             &QDBusPendingCallWatcher::finished,
             this,
-            [this, displayId, oldValue = oldBrightness.toInt()](QDBusPendingCallWatcher *watcher) {
+            [this, displayName, oldValue = oldBrightness.toInt()](QDBusPendingCallWatcher *watcher) {
                 const QDBusPendingReply<void> reply = *watcher;
                 if (reply.isError()) {
                     qDebug() << "error setting brightness via dbus" << reply.error();
-                    m_displays.onBrightnessChanged(displayId, oldValue);
+                    m_displays.onBrightnessChanged(displayName, oldValue);
                 }
                 m_brightnessChangeWatcher.reset();
             });
 
-    m_displays.onBrightnessChanged(displayId, value);
+    m_displays.onBrightnessChanged(displayName, value);
 }
 
-void ScreenBrightnessControl::onBrightnessChanged(const QString &displayId, int value, const QString &sourceClientName, const QString &sourceClientContext)
+void ScreenBrightnessControl::onGlobalPropertiesChanged(const QString &ifaceName, const QVariantMap &changedProps, const QStringList &invalidatedProps)
+{
+    const QString displayNamesKey = u"DisplaysDBusNames"_s;
+
+    if (ifaceName == SCREENBRIGHTNESS_IFACE) {
+        if (changedProps.contains(displayNamesKey) || invalidatedProps.contains(displayNamesKey)) {
+            checkDisplayNames();
+        }
+    }
+}
+
+void ScreenBrightnessControl::onBrightnessChanged(const QString &displayName, int value, const QString &sourceClientName, const QString &sourceClientContext)
 {
     if (sourceClientName == QDBusConnection::sessionBus().baseService() && sourceClientContext == ALREADY_CHANGED_CONTEXT) {
         qDebug() << "ignoring brightness change, it's coming from the applet itself";
         return;
     }
-    m_displays.onBrightnessChanged(displayId, value);
+    m_displays.onBrightnessChanged(displayName, value);
 }
 
-void ScreenBrightnessControl::onBrightnessRangeChanged(const QString &displayId, int max, int value)
+void ScreenBrightnessControl::onBrightnessRangeChanged(const QString &displayName, int max, int value)
 {
-    m_displays.onBrightnessRangeChanged(displayId, max, value);
+    m_displays.onBrightnessRangeChanged(displayName, max, value);
 
     QVariant firstDisplayMax = m_displays.data(m_displays.index(0, 0), ScreenBrightnessDisplayModel::MaxBrightnessRole);
 
     m_isBrightnessAvailable = firstDisplayMax.isValid() && firstDisplayMax.toInt() > 0;
 }
 
-void ScreenBrightnessControl::onDisplayAdded(const QString &displayId)
-{
-    queryAndAppendDisplay(displayId);
-}
-
-void ScreenBrightnessControl::onDisplayRemoved(const QString &displayId)
-{
-    m_displays.removeDisplay(displayId);
-}
-
 QCoro::Task<void> ScreenBrightnessControl::init()
 {
-    QDBusMessage displayIdsMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetDisplayIds"_s);
-    QPointer<ScreenBrightnessControl> alive{this};
-    const QDBusReply<QList<QString>> displayIdsReply = co_await QDBusConnection::sessionBus().asyncCall(displayIdsMsg);
-    if (!alive || !displayIdsReply.isValid()) {
-        qDebug() << "error getting display ids via dbus:" << displayIdsReply.error();
+    if (!co_await checkDisplayNames()) {
+        qDebug() << "error fetching display names via dbus";
         co_return;
     }
-    QStringList displayIds = displayIdsReply.value();
 
-    for (const QString &displayId : std::as_const(displayIds)) {
-        queryAndAppendDisplay(displayId);
+    if (!QDBusConnection::sessionBus().connect(SCREENBRIGHTNESS_SERVICE,
+                                               SCREENBRIGHTNESS_PATH,
+                                               DBUS_PROPERTIES_IFACE,
+                                               u"PropertiesChanged"_s,
+                                               this,
+                                               SLOT(onGlobalPropertiesChanged(QString, QVariantMap, QStringList)))) {
+        qDebug() << "error connecting to property changes via dbus";
+        co_return;
     }
 
     if (!QDBusConnection::sessionBus().connect(SCREENBRIGHTNESS_SERVICE,
@@ -150,66 +159,79 @@ QCoro::Task<void> ScreenBrightnessControl::init()
                                                u"BrightnessRangeChanged"_s,
                                                this,
                                                SLOT(onBrightnessRangeChanged(QString, int, int)))) {
-        qDebug() << "error connecting to brightness range changes via dbus:";
-        co_return;
-    }
-
-    if (!QDBusConnection::sessionBus()
-             .connect(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"DisplayAdded"_s, this, SLOT(onDisplayAdded(QString)))) {
-        qDebug() << "error connecting to brightness range changes via dbus:";
-        co_return;
-    }
-
-    if (!QDBusConnection::sessionBus()
-             .connect(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"DisplayRemoved"_s, this, SLOT(onDisplayRemoved(QString)))) {
-        qDebug() << "error connecting to brightness range changes via dbus:";
+        qDebug() << "error connecting to brightness range changes via dbus";
         co_return;
     }
 
     m_isBrightnessAvailable = true;
 }
 
-QCoro::Task<void> ScreenBrightnessControl::queryAndAppendDisplay(const QString &displayId)
+QCoro::Task<bool> ScreenBrightnessControl::checkDisplayNames()
 {
-    QDBusMessage labelMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetLabel"_s);
-    labelMsg << displayId;
+    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, DBUS_PROPERTIES_IFACE, u"Get"_s);
+    msg << SCREENBRIGHTNESS_IFACE << u"DisplaysDBusNames"_s;
+
     QPointer<ScreenBrightnessControl> alive{this};
-    const QDBusReply<QString> labelReply = QDBusConnection::sessionBus().call(labelMsg);
-    if (!alive || !labelReply.isValid()) {
-        qDebug() << "error getting display label via dbus:" << labelReply.error();
+    const QDBusReply<QVariant> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
+    if (!alive || !reply.isValid()) {
+        qDebug() << "error getting display ids via dbus:" << reply.error();
+        co_return false;
+    }
+    co_await updateDisplayNames(reply.value().value<QStringList>());
+    co_return true;
+}
+
+QCoro::Task<void> ScreenBrightnessControl::updateDisplayNames(const QStringList &displayNames)
+{
+    m_displays.removeMissingDisplays(displayNames);
+
+    for (const QString &displayName : std::as_const(displayNames)) {
+        if (m_displays.displayIndex(displayName) == QModelIndex()) {
+            co_await queryAndInsertDisplay(displayName, QModelIndex());
+        }
+    }
+}
+
+QCoro::Task<void> ScreenBrightnessControl::queryAndInsertDisplay(const QString &displayName, const QModelIndex &index)
+{
+    QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE,
+                                                      SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE.arg(displayName),
+                                                      DBUS_PROPERTIES_IFACE,
+                                                      QStringLiteral("GetAll"));
+    msg << SCREENBRIGHTNESS_DISPLAY_IFACE;
+    QPointer<ScreenBrightnessControl> alive{this};
+    const QDBusReply<QVariantMap> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
+    if (!alive || !reply.isValid()) {
+        qDebug() << "error getting display properties via dbus:" << reply.error();
         co_return;
     }
-    QString label = labelReply.value();
+    const QVariantMap &props = reply.value();
 
-    QDBusMessage isInternalMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetIsInternal"_s);
-    isInternalMsg << displayId;
-    const QDBusReply<bool> isInternalReply = QDBusConnection::sessionBus().call(isInternalMsg);
-    if (!alive || !isInternalReply.isValid()) {
-        qDebug() << "error getting display is-internal via dbus:" << isInternalReply.error();
+    auto label = props.value(u"Label"_s).value<QString>();
+    if (label.isEmpty()) {
+        qDebug() << "error getting display label via dbus: property missing";
         co_return;
     }
-    bool isInternal = isInternalReply.value();
 
-    QDBusMessage maxBrightnessMsg =
-        QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetMaxBrightness"_s);
-    maxBrightnessMsg << displayId;
-    const QDBusReply<int> maxBrightnessReply = QDBusConnection::sessionBus().call(maxBrightnessMsg);
-    if (!alive || !maxBrightnessReply.isValid()) {
-        qDebug() << "error getting max screen brightness via dbus:" << maxBrightnessReply.error();
+    if (!props.contains(u"IsInternal"_s)) {
+        qDebug() << "error getting display is-internal via dbus: property missing";
         co_return;
     }
-    int maxBrightness = maxBrightnessReply.value();
+    auto isInternal = props.value(u"IsInternal"_s).value<bool>();
 
-    QDBusMessage brightnessMsg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, SCREENBRIGHTNESS_IFACE, u"GetBrightness"_s);
-    brightnessMsg << displayId;
-    const QDBusReply<int> brightnessReply = QDBusConnection::sessionBus().call(brightnessMsg);
-    if (!alive || !brightnessReply.isValid()) {
-        qDebug() << "error getting screen brightness via dbus:" << brightnessReply.error();
+    if (!props.contains(u"Brightness"_s)) {
+        qDebug() << "error getting display brightness via dbus: property missing";
         co_return;
     }
-    int brightness = brightnessReply.value();
+    auto brightness = props.value(u"Brightness"_s).value<int>();
 
-    m_displays.appendDisplay(displayId, label, isInternal, brightness, maxBrightness);
+    auto maxBrightness = props.value(u"MaxBrightness"_s).value<int>();
+    if (maxBrightness <= 0) {
+        qDebug() << "error getting max display brightness via dbus: property missing";
+        co_return;
+    }
+
+    m_displays.insertDisplay(displayName, index, label, isInternal, brightness, maxBrightness);
 }
 
 QBindable<bool> ScreenBrightnessControl::bindableIsBrightnessAvailable()

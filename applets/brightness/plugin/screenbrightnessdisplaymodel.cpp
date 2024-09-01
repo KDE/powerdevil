@@ -15,7 +15,7 @@ int ScreenBrightnessDisplayModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return m_displayIds.count();
+    return m_displayNames.count();
 }
 
 QVariant ScreenBrightnessDisplayModel::data(const QModelIndex &index, int role) const
@@ -24,8 +24,8 @@ QVariant ScreenBrightnessDisplayModel::data(const QModelIndex &index, int role) 
         return QVariant();
     }
     switch (role) {
-    case DisplayIdRole:
-        return m_displayIds[index.row()];
+    case DisplayNameRole:
+        return m_displayNames[index.row()];
     case LabelRole:
         return m_displays[index.row()].label;
     case IsInternalRole:
@@ -41,7 +41,7 @@ QVariant ScreenBrightnessDisplayModel::data(const QModelIndex &index, int role) 
 QHash<int, QByteArray> ScreenBrightnessDisplayModel::roleNames() const
 {
     return QHash<int, QByteArray>{
-        {DisplayIdRole, "displayId"},
+        {DisplayNameRole, "displayName"},
         {LabelRole, "label"},
         {IsInternalRole, "isInternal"},
         {BrightnessRole, "brightness"},
@@ -49,49 +49,59 @@ QHash<int, QByteArray> ScreenBrightnessDisplayModel::roleNames() const
     };
 }
 
-QModelIndex ScreenBrightnessDisplayModel::displayIndex(const QString &displayId) const
+QModelIndex ScreenBrightnessDisplayModel::displayIndex(const QString &displayName) const
 {
-    int index = m_displayIds.indexOf(displayId);
-    return index == -1 ? QModelIndex() : QAbstractListModel::createIndex(index, 0);
+    int row = m_displayNames.indexOf(displayName);
+    return row == -1 ? QModelIndex() : QAbstractListModel::createIndex(row, 0);
 }
 
-void ScreenBrightnessDisplayModel::appendDisplay(const QString &displayId, const QString &label, bool isInternal, int brightness, int maxBrightness)
+void ScreenBrightnessDisplayModel::insertDisplay(const QString &displayName,
+                                                 const QModelIndex &index,
+                                                 const QString &label,
+                                                 bool isInternal,
+                                                 int brightness,
+                                                 int maxBrightness)
 {
-    beginInsertRows(QModelIndex(), m_displayIds.count(), m_displayIds.count());
-    m_displayIds.append(displayId);
-    m_displays.append({
-        .displayId = displayId,
-        .label = label,
-        .brightness = brightness,
-        .maxBrightness = maxBrightness,
-        .isInternal = isInternal,
-    });
+    int row = index.isValid() ? index.row() : m_displayNames.size();
+
+    beginInsertRows(QModelIndex(), row, row);
+    m_displayNames.insert(row, displayName);
+    m_displays.insert(row,
+                      {
+                          .displayName = displayName,
+                          .label = label,
+                          .brightness = brightness,
+                          .maxBrightness = maxBrightness,
+                          .isInternal = isInternal,
+                      });
     endInsertRows();
 }
 
-void ScreenBrightnessDisplayModel::removeDisplay(const QString &displayId)
+void ScreenBrightnessDisplayModel::removeMissingDisplays(const QStringList &displayNames)
 {
-    auto index = m_displayIds.indexOf(displayId);
-    if (index != -1) {
-        beginRemoveRows(QModelIndex(), index, index);
-        m_displayIds.remove(index);
-        m_displays.remove(index);
-        endRemoveRows();
+    for (int row = 0; row < m_displayNames.size(); ++row) {
+        if (!displayNames.contains(m_displayNames.at(row))) {
+            beginRemoveRows(QModelIndex(), row, row);
+            m_displayNames.remove(row);
+            m_displays.remove(row);
+            endRemoveRows();
+            --row;
+        }
     }
 }
 
-void ScreenBrightnessDisplayModel::onBrightnessChanged(const QString &displayId, int value)
+void ScreenBrightnessDisplayModel::onBrightnessChanged(const QString &displayName, int value)
 {
-    QModelIndex modelIndex = displayIndex(displayId);
+    QModelIndex modelIndex = displayIndex(displayName);
     if (modelIndex.isValid()) {
         m_displays[modelIndex.row()].brightness = value;
         dataChanged(modelIndex, modelIndex, {BrightnessRole});
     }
 }
 
-void ScreenBrightnessDisplayModel::onBrightnessRangeChanged(const QString &displayId, int max, int value)
+void ScreenBrightnessDisplayModel::onBrightnessRangeChanged(const QString &displayName, int max, int value)
 {
-    QModelIndex modelIndex = displayIndex(displayId);
+    QModelIndex modelIndex = displayIndex(displayName);
     if (modelIndex.isValid()) {
         auto &display = m_displays[modelIndex.row()];
         display.maxBrightness = max;

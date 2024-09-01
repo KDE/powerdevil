@@ -9,6 +9,7 @@
 
 #include <powerdevil_debug.h>
 #include <screenbrightnessadaptor.h>
+#include <screenbrightnessdisplayadaptor.h>
 
 #include <QAction>
 #include <QDBusConnection>
@@ -20,8 +21,80 @@
 
 using namespace Qt::Literals::StringLiterals;
 
+static const QString DBUS_PROPERTIES_IFACE = u"org.freedesktop.DBus.Properties"_s;
+static const QString SCREENBRIGHTNESS_PATH = u"/org/kde/ScreenBrightness"_s;
+static const QString SCREENBRIGHTNESS_IFACE = u"org.kde.ScreenBrightness"_s;
+static const QString SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE = u"/org/kde/ScreenBrightness/%1"_s;
+static const QString SCREENBRIGHTNESS_DISPLAY_DBUS_NAME_TEMPLATE = u"display%1"_s; // same as above, last path element only
+
 namespace PowerDevil
 {
+ScreenBrightnessDisplay::ScreenBrightnessDisplay(QObject *parent, const QString &dbusName, ScreenBrightnessController *controller, const QString &displayId)
+    : QObject(parent)
+    , m_dbusName(dbusName)
+    , m_displayId(displayId)
+    , m_controller(controller)
+{
+    new ScreenBrightnessDisplayAdaptor(this);
+    QDBusConnection::sessionBus().registerObject(dbusPath(), this);
+}
+
+ScreenBrightnessDisplay::~ScreenBrightnessDisplay()
+{
+    QDBusConnection::sessionBus().unregisterObject(dbusPath());
+}
+
+QString ScreenBrightnessDisplay::displayId() const
+{
+    return m_displayId;
+}
+
+QString ScreenBrightnessDisplay::DBusName() const
+{
+    return m_dbusName;
+}
+
+QString ScreenBrightnessDisplay::dbusPath() const
+{
+    return SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE.arg(m_dbusName);
+}
+
+QString ScreenBrightnessDisplay::Label() const
+{
+    return m_controller->label(m_displayId);
+}
+
+bool ScreenBrightnessDisplay::IsInternal() const
+{
+    return m_controller->isInternal(m_displayId);
+}
+
+int ScreenBrightnessDisplay::Brightness() const
+{
+    return m_controller->brightness(m_displayId) - m_controller->minBrightness(m_displayId);
+}
+
+int ScreenBrightnessDisplay::MaxBrightness() const
+{
+    return m_controller->maxBrightness(m_displayId) - m_controller->minBrightness(m_displayId);
+}
+
+void ScreenBrightnessDisplay::SetBrightness(int value, uint flags)
+{
+    SetBrightnessWithContext(value, flags, QString());
+}
+
+void ScreenBrightnessDisplay::SetBrightnessWithContext(int value, uint flags, const QString &sourceClientContext)
+{
+    ScreenBrightnessController::IndicatorHint hint = flags & static_cast<uint>(SetBrightnessFlags::SuppressIndicator)
+        ? ScreenBrightnessController::SuppressIndicator
+        : ScreenBrightnessController::ShowIndicator;
+
+    QString sourceClientName = message().service();
+
+    m_controller->setBrightness(m_displayId, value + m_controller->minBrightness(m_displayId), sourceClientName, sourceClientContext, hint);
+}
+
 ScreenBrightnessAgent::ScreenBrightnessAgent(QObject *parent, ScreenBrightnessController *controller)
     : QObject(parent)
     , m_controller(controller)
@@ -31,8 +104,43 @@ ScreenBrightnessAgent::ScreenBrightnessAgent(QObject *parent, ScreenBrightnessCo
 
     connect(m_controller, &ScreenBrightnessController::brightnessChanged, this, &ScreenBrightnessAgent::onBrightnessChanged);
     // TODO: handle max brightness change via new ScreenBrightnessController::brightnessRangeChanged signal?
-    connect(m_controller, &ScreenBrightnessController::displayAdded, this, &ScreenBrightnessAgent::DisplayAdded);
-    connect(m_controller, &ScreenBrightnessController::displayRemoved, this, &ScreenBrightnessAgent::DisplayRemoved);
+
+    connect(m_controller, &ScreenBrightnessController::displayAdded, this, [this](const QString &displayId) {
+        const QString dbusName = insertDisplayChild(displayId);
+        Q_EMIT DisplayAdded(dbusName);
+    });
+    connect(m_controller, &ScreenBrightnessController::displayRemoved, this, [this](const QString &displayId) {
+        auto displayIt = m_displayChildren.find(displayId);
+        if (displayIt == m_displayChildren.end()) {
+            qCWarning(POWERDEVIL) << "onDisplayRemoved: Agent could not find display object for ID" << displayId;
+            return;
+        }
+        const QString dbusName = displayIt->second->DBusName();
+
+        m_displayChildren.erase(displayIt);
+        Q_EMIT DisplayRemoved(dbusName);
+    });
+
+    const QStringList initialDisplayIds = m_controller->displayIds();
+    std::ranges::for_each(initialDisplayIds, std::bind(&ScreenBrightnessAgent::insertDisplayChild, this, std::placeholders::_1));
+
+    connect(m_controller, &ScreenBrightnessController::displayIdsChanged, this, [this](const QStringList &) {
+        QDBusMessage signal = QDBusMessage::createSignal(SCREENBRIGHTNESS_PATH, DBUS_PROPERTIES_IFACE, u"PropertiesChanged"_s);
+        signal << SCREENBRIGHTNESS_IFACE << QVariantMap() << QStringList({u"DisplaysDBusNames"_s});
+        QDBusConnection::sessionBus().send(signal);
+    });
+}
+
+QString ScreenBrightnessAgent::insertDisplayChild(const QString &displayId)
+{
+    const size_t dbusDisplayIndex = m_nextDbusDisplayIndex;
+    ++m_nextDbusDisplayIndex;
+
+    const auto &[it, wasInserted] = m_displayChildren.insert_or_assign(
+        displayId,
+        std::make_unique<ScreenBrightnessDisplay>(nullptr, SCREENBRIGHTNESS_DISPLAY_DBUS_NAME_TEMPLATE.arg(dbusDisplayIndex), m_controller, displayId));
+
+    return it->second->DBusName();
 }
 
 void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
@@ -41,7 +149,19 @@ void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
                                                 const QString &sourceClientContext,
                                                 ScreenBrightnessController::IndicatorHint hint)
 {
-    Q_EMIT BrightnessChanged(displayId, info.value - info.valueMin, sourceClientName, sourceClientContext);
+    auto displayIt = m_displayChildren.find(displayId);
+    if (displayIt == m_displayChildren.end()) {
+        qCWarning(POWERDEVIL) << "onBrightnessChanged: Agent could not find display object for ID" << displayId;
+        return;
+    }
+    int newBrightness = info.value - info.valueMin;
+
+    Q_EMIT BrightnessChanged(displayIt->second->DBusName(), newBrightness, sourceClientName, sourceClientContext);
+
+    QDBusMessage signal = QDBusMessage::createSignal(displayIt->second->dbusPath(), DBUS_PROPERTIES_IFACE, u"PropertiesChanged"_s);
+    QVariantMap changedProps = {{u"Brightness"_s, newBrightness}};
+    signal << u"org.kde.ScreenBrightness.Display"_s << changedProps << QStringList();
+    QDBusConnection::sessionBus().send(signal);
 
     if (hint == ScreenBrightnessController::ShowIndicator) {
         // Try to match the controller's display to a KScreen display for optimized OSD presentation.
@@ -51,8 +171,8 @@ void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
                                                           QStringLiteral("/org/kde/osdService"),
                                                           QStringLiteral("org.kde.osdService"),
                                                           QLatin1String("screenBrightnessChanged"));
-        msg << brightnessPercent(info.value - info.valueMin, info.valueMax - info.valueMin) << (matchedOutput ? matchedOutput->name() : displayId)
-            << GetLabel(displayId) << static_cast<int>(m_controller->displayIds().indexOf(displayId))
+        msg << brightnessPercent(newBrightness, info.valueMax - info.valueMin) << (matchedOutput ? matchedOutput->name() : displayId)
+            << m_controller->label(displayId) << static_cast<int>(m_controller->displayIds().indexOf(displayId))
             << (matchedOutput && matchedOutput->isPositionable() ? matchedOutput->geometry() : QRect());
         QDBusConnection::sessionBus().asyncCall(msg);
     }
@@ -60,32 +180,35 @@ void ScreenBrightnessAgent::onBrightnessChanged(const QString &displayId,
 
 void ScreenBrightnessAgent::onBrightnessRangeChanged(const QString &displayId, const BrightnessLogic::BrightnessInfo &info)
 {
-    Q_EMIT BrightnessRangeChanged(displayId, info.valueMax - info.valueMin, info.value - info.valueMin);
+    auto displayIt = m_displayChildren.find(displayId);
+    if (displayIt == m_displayChildren.end()) {
+        qCWarning(POWERDEVIL) << "onBrightnessRangeChanged: Agent could not find display object for ID" << displayId;
+        return;
+    }
+
+    int newBrightness = info.value - info.valueMin;
+    int newMaxBrightness = info.valueMax - info.valueMin;
+
+    Q_EMIT BrightnessRangeChanged(displayIt->second->DBusName(), newMaxBrightness, newBrightness);
+
+    QDBusMessage signal = QDBusMessage::createSignal(displayIt->second->dbusPath(), DBUS_PROPERTIES_IFACE, u"PropertiesChanged"_s);
+    QVariantMap changedProps = {{u"Brightness"_s, newBrightness}, {u"MaxBrightness"_s, newMaxBrightness}};
+    signal << u"org.kde.ScreenBrightness.Display"_s << changedProps << QStringList();
+    QDBusConnection::sessionBus().send(signal);
 }
 
-QStringList ScreenBrightnessAgent::GetDisplayIds() const
+QStringList ScreenBrightnessAgent::DisplaysDBusNames() const
 {
-    return m_controller->displayIds();
-}
-
-QString ScreenBrightnessAgent::GetLabel(const QString &displayId) const
-{
-    return m_controller->label(displayId);
-}
-
-bool ScreenBrightnessAgent::GetIsInternal(const QString &displayId) const
-{
-    return m_controller->isInternal(displayId);
-}
-
-int ScreenBrightnessAgent::GetBrightness(const QString &displayId) const
-{
-    return m_controller->brightness(displayId) - m_controller->minBrightness(displayId);
-}
-
-int ScreenBrightnessAgent::GetMaxBrightness(const QString &displayId) const
-{
-    return m_controller->maxBrightness(displayId) - m_controller->minBrightness(displayId);
+    QStringList names;
+    std::ranges::transform(m_controller->displayIds(), std::back_inserter(names), [this](const QString &displayId) {
+        if (auto it = m_displayChildren.find(displayId); it != m_displayChildren.end()) {
+            return it->second->DBusName();
+        } else {
+            qCWarning(POWERDEVIL) << "DisplaysDBusNames: Agent could not find display object for ID" << displayId;
+            return QString();
+        }
+    });
+    return names;
 }
 
 void ScreenBrightnessAgent::AdjustBrightnessRatio(double delta, uint flags)
@@ -137,22 +260,6 @@ void ScreenBrightnessAgent::AdjustBrightnessStepWithContext(uint stepAction, uin
     QString sourceClientName = message().service();
 
     m_controller->adjustBrightnessStep(adjustment, sourceClientName, sourceClientContext, hint);
-}
-
-void ScreenBrightnessAgent::SetBrightness(const QString &displayId, int value, uint flags)
-{
-    SetBrightnessWithContext(displayId, value, flags, QString());
-}
-
-void ScreenBrightnessAgent::SetBrightnessWithContext(const QString &displayId, int value, uint flags, const QString &sourceClientContext)
-{
-    ScreenBrightnessController::IndicatorHint hint = flags & static_cast<uint>(SetBrightnessFlags::SuppressIndicator)
-        ? ScreenBrightnessController::SuppressIndicator
-        : ScreenBrightnessController::ShowIndicator;
-
-    QString sourceClientName = message().service();
-
-    m_controller->setBrightness(displayId, value + m_controller->minBrightness(displayId), sourceClientName, sourceClientContext, hint);
 }
 
 int ScreenBrightnessAgent::brightnessPercent(double value, double max) const
