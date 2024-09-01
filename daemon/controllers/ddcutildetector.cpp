@@ -92,12 +92,12 @@ DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 0, 0)
     qCDebug(POWERDEVIL) << "[DDCutilDetector]: Initializing ddcutil API (create ddcutil configuration file for tracing & more)...";
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    DDCA_Status init_status = ddca_init2(nullptr, DDCA_SYSLOG_NOTICE, DDCA_INIT_OPTIONS_CLIENT_OPENED_SYSLOG, nullptr);
+    DDCA_Status status = ddca_init2(nullptr, DDCA_SYSLOG_NOTICE, DDCA_INIT_OPTIONS_CLIENT_OPENED_SYSLOG, nullptr);
 #else
-    DDCA_Status init_status = ddca_init(nullptr, DDCA_SYSLOG_NOTICE, DDCA_INIT_OPTIONS_CLIENT_OPENED_SYSLOG);
+    DDCA_Status status = ddca_init(nullptr, DDCA_SYSLOG_NOTICE, DDCA_INIT_OPTIONS_CLIENT_OPENED_SYSLOG);
 #endif
 
-    if (init_status < 0) {
+    if (status < 0) {
         m_noDdcutil = true;
         qCWarning(POWERDEVIL) << "[DDCutilDetector]: Could not initialize ddcutil API. Not using DDC for monitor brightness.";
         return;
