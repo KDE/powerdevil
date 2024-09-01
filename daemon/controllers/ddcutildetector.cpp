@@ -97,6 +97,7 @@ DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 #endif
 
     if (init_status < 0) {
+        m_noDdcutil = true;
         qCWarning(POWERDEVIL) << "[DDCutilDetector]: Could not initialize ddcutil API. Not using DDC for monitor brightness.";
         return;
     }
