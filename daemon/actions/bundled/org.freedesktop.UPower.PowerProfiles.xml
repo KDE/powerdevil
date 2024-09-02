@@ -4,7 +4,7 @@
 <node>
 
   <!--
-      net.hadess.PowerProfiles:
+      org.freedesktop.UPower.PowerProfiles:
       @short_description: Power Profiles daemon
 
       The power-profiles-daemon API is meant to be used by parts of the OS or
@@ -18,12 +18,12 @@
       a different one.
 
       Note that the reason why the project exists and how it is different from
-      existing projects is explained <ulink href=" https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/blob/master/README.md">
+      existing projects is explained <ulink href=" https://gitlab.freedesktop.org/upower/power-profiles-daemon/-/blob/main/README.md">
       in the project's README file</ulink>.
 
-      The object path will be "/net/hadess/PowerProfiles".
+      The object path will be "/org/freedesktop/UPower/PowerProfiles".
   -->
-  <interface name="net.hadess.PowerProfiles">
+  <interface name="org.freedesktop.UPower.PowerProfiles">
 
     <!--
         HoldProfile:
@@ -139,6 +139,13 @@
     <property name="ActiveProfileHolds" type="aa{sv}" access="read">
         <annotation name="org.qtproject.QtDBus.QtTypeName" value="QList&lt;QVariantMap&gt;"/>
     </property>
+
+    <!--
+        Version:
+
+        The version of the power-profiles-daemon software.
+    -->
+    <property name="Version" type="s" access="read"/>
 
   </interface>
 </node>

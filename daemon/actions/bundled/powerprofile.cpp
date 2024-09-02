@@ -29,12 +29,12 @@ static const QString performanceInhibitedProperty = QStringLiteral("PerformanceI
 static const QString performanceDegradedProperty = QStringLiteral("PerformanceDegraded");
 static const QString profileHoldsProperty = QStringLiteral("ActiveProfileHolds");
 
-static const QString ppdName = QStringLiteral("net.hadess.PowerProfiles");
-static const QString ppdPath = QStringLiteral("/net/hadess/PowerProfiles");
+static const QString ppdName = QStringLiteral("org.freedesktop.UPower.PowerProfiles");
+static const QString ppdPath = QStringLiteral("/org/freedesktop/UPower/PowerProfiles");
 
 PowerProfile::PowerProfile(QObject *parent)
     : Action(parent)
-    , m_powerProfilesInterface(new NetHadessPowerProfilesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
+    , m_powerProfilesInterface(new OrgFreedesktopUPowerPowerProfilesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
     , m_powerProfilesPropertiesInterface(new OrgFreedesktopDBusPropertiesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
     , m_holdWatcher(new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration, this))
 {
@@ -42,7 +42,7 @@ PowerProfile::PowerProfile(QObject *parent)
 
     connect(m_holdWatcher, &QDBusServiceWatcher::serviceUnregistered, this, &PowerProfile::serviceUnregistered);
     connect(m_powerProfilesPropertiesInterface, &OrgFreedesktopDBusPropertiesInterface::PropertiesChanged, this, &PowerProfile::propertiesChanged);
-    connect(m_powerProfilesInterface, &NetHadessPowerProfilesInterface::ProfileReleased, this, [this](unsigned int cookie) {
+    connect(m_powerProfilesInterface, &OrgFreedesktopUPowerPowerProfilesInterface::ProfileReleased, this, [this](unsigned int cookie) {
         auto it = std::find(m_holdMap.begin(), m_holdMap.end(), cookie);
         if (it != m_holdMap.end()) {
             if (m_holdMap.count(it.key()) == 1) {

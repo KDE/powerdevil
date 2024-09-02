@@ -30,7 +30,7 @@ PowerProfilesControl::PowerProfilesControl(QObject *parent)
     qDBusRegisterMetaType<QVariantMap>();
 
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
-        if (QDBusConnection::systemBus().interface()->isServiceRegistered(QStringLiteral("net.hadess.PowerProfiles"))) {
+        if (QDBusConnection::systemBus().interface()->isServiceRegistered(QStringLiteral("org.freedesktop.UPower.PowerProfiles"))) {
             QDBusMessage profileChoices = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
                                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),

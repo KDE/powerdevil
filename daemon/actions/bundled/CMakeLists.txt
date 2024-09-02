@@ -45,7 +45,7 @@ add_powerdevil_bundled_action(powerprofile)
 target_dbus_files(powerdevil_powerprofileaction org.kde.Solid.PowerManagement.Actions.PowerProfile.xml powerprofile.h PowerDevil::BundledActions::PowerProfile)
 set(powerprofile_dbus_SRCS)
 qt_add_dbus_interface(powerprofile_dbus_SRCS org.freedesktop.DBus.Properties.xml properties_interface)
-qt_add_dbus_interface(powerprofile_dbus_SRCS net.hadess.PowerProfiles.xml power_profiles_interface)
+qt_add_dbus_interface(powerprofile_dbus_SRCS org.freedesktop.UPower.PowerProfiles.xml power_profiles_interface)
 target_sources(powerdevil_powerprofileaction PRIVATE ${powerprofile_dbus_SRCS} ${handlebuttons_SRCS})
 
 kcoreaddons_add_plugin(powerdevil_handlebuttoneventsaction SOURCES powerdevilhandlebuttonevents_plugin.cpp ${handlebuttons_SRCS} INSTALL_NAMESPACE "powerdevil/action")

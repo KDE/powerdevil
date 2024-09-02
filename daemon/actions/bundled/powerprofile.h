@@ -10,7 +10,7 @@
 #include <powerdevilaction.h>
 
 class OrgFreedesktopDBusPropertiesInterface;
-class NetHadessPowerProfilesInterface;
+class OrgFreedesktopUPowerPowerProfilesInterface;
 
 namespace PowerDevil::BundledActions
 {
@@ -64,7 +64,7 @@ private:
     void readProperties(const QVariantMap &properties);
     void serviceUnregistered(const QString &name);
 
-    NetHadessPowerProfilesInterface *m_powerProfilesInterface;
+    OrgFreedesktopUPowerPowerProfilesInterface *m_powerProfilesInterface;
     OrgFreedesktopDBusPropertiesInterface *m_powerProfilesPropertiesInterface;
     QStringList m_profileChoices;
     QString m_currentProfile;

@@ -17,12 +17,12 @@ current_folder: Final = os.path.dirname(os.path.abspath(__file__))
 
 class NetHadessPowerProfiles:
     """
-    D-Bus interface for net.hadess.PowerProfiles/org.freedesktop.UPower.PowerProfiles
+    D-Bus interface for org.freedesktop.UPower.PowerProfiles/org.freedesktop.UPower.PowerProfiles
     """
 
-    BUS_NAME: Final = "net.hadess.PowerProfiles"
-    OBJECT_PATH: Final = "/net/hadess/PowerProfiles"
-    IFACE_NAME: Final = "net.hadess.PowerProfiles"
+    BUS_NAME: Final = "org.freedesktop.UPower.PowerProfiles"
+    OBJECT_PATH: Final = "/org/freedesktop/UPower/PowerProfiles"
+    IFACE_NAME: Final = "org.freedesktop.UPower.PowerProfiles"
 
     __connection: Gio.DBusConnection
 
@@ -72,7 +72,7 @@ class NetHadessPowerProfiles:
         """
         self.__connection = connection
 
-        with open(os.path.join(current_folder, os.pardir, os.pardir, "daemon/actions/bundled/net.hadess.PowerProfiles.xml"), encoding="utf-8") as file_handler:
+        with open(os.path.join(current_folder, os.pardir, os.pardir, "daemon/actions/bundled/org.freedesktop.UPower.PowerProfiles.xml"), encoding="utf-8") as file_handler:
             introspection_xml: str = '\n'.join(file_handler.readlines())
             introspection_data = Gio.DBusNodeInfo.new_for_xml(introspection_xml)
             self.__ppd_reg_id = connection.register_object(self.OBJECT_PATH, introspection_data.interfaces[0], self.ppd_handle_method_call, self.ppd_handle_get_property, self.ppd_handle_set_property)
