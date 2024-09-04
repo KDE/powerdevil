@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-05 16:01+0200\n"
+"PO-Revision-Date: 2024-09-03 14:52+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -212,8 +212,8 @@ msgid ""
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
 "Le action que tu ha previemente configurate per attinger le nivello critic "
-"de batteria es nunc non supportate per tu systema. Pro favor seile un altere "
-"differente."
+"de batteria es nunc non supportate per tu systema. Pro favor selige un "
+"altere differente."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -410,19 +410,14 @@ msgid "Suspend Session"
 msgstr "Suspende session"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"Le action que tu ha previemente configurate per quando le coperculo es "
-"claudite  es nunc no nsupportate per tu systema. Pro favor seile un altere "
-"differente."
+"Le action que tu ha previemente configurate per quando inactive es  nunc non "
+"supportate per tu systema. Pro favor selihge un altere differente."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -430,7 +425,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "Quando &inactive:"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -470,8 +465,8 @@ msgid ""
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
 "Le action que tu ha previemente configurate per quando le button de potentia "
-"es pressate es nunc no nsupportate per tu systema. Pro favor seile un altere "
-"differente."
+"es pressate es nunc non supportate per tu systema. Pro favor selige un "
+"altere differente."
 
 #: ui/ProfileConfig.qml:154
 #, kde-format
@@ -495,7 +490,7 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 "Le action que tu ha previemente configurate per quando le coperculo es "
-"claudite  es nunc no nsupportate per tu systema. Pro favor seile un altere "
+"claudite  es nunc non supportate per tu systema. Pro favor selige un altere "
 "differente."
 
 #: ui/ProfileConfig.qml:193
@@ -712,39 +707,27 @@ msgid "Switch to power profile"
 msgstr "Commuta a profilo de energia"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "Executa script personalisate:"
+msgstr "Executa commando o script"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Selige conditiones de executation..."
+msgstr "Selige conditiones de executation"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Selige conditiones de executation per commando de script"
+msgstr "Selige conditiones de executation per commando o script"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -752,11 +735,7 @@ msgid "When entering \"%1\" state"
 msgstr "Quando insertar stato \"%1\""
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -767,14 +746,10 @@ msgstr "Quando exitar istato \"%1\""
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "Quando inactive"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -782,19 +757,13 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "Quando i&nsertar  stato \"%1\":"
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Commando de script quando insertar stato \"%1\""
+msgstr "Commando  o  script quando insertar stato \"%1\""
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -802,94 +771,80 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "Quando e&xitar stato \"%1\":"
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Commando de script quando exitar stato \"%1\""
+msgstr "Commando o script quando exitar stato \"%1\""
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "Periodo de inactivitate usque le commando de script executa"
+msgstr "Periodo de inactivitate usque le commando o script executa"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "Quando i&nactive:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "Executa script personalisate:"
+msgstr "Executa commando o script post:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 seconds"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "post %1  secundas"
-msgstr[1] "post %1  secundas"
+msgstr[0] "Executa post %1  secunda"
+msgstr[1] "Executa post %1 secundas"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minutes"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "post %1 minutas"
-msgstr[1] "post %1 minutas"
+msgstr[0] "Executa post %1 minuta"
+msgstr[1] "Executa post %1 minutas"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "Commando o script quando inactive"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Inserta commando o selectiona file..."
+msgstr "Inserta commando o  file de script"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Inserta commando o selectiona file..."
+msgstr "Inserta commando o selectiona file de script"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Selige..."
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Selige file de script"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Selige file de script"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
