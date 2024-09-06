@@ -2,7 +2,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2013, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: libpowerdevilcommonconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2019-05-20 03:26+0200\n"
 "PO-Revision-Date: 2014-03-20 12:15+0100\n"

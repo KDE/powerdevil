@@ -4,7 +4,7 @@
 # Frank Steinmetzger <dev-kde@felsenfleischer.de>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilactivitiesconfig\n"
+"Project-Id-Version: kcm_powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-20 00:47+0000\n"
 "PO-Revision-Date: 2022-11-10 20:41+0100\n"
