@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-05-04 11:52+0400\n"
+"PO-Revision-Date: 2024-09-05 10:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
@@ -54,18 +55,16 @@ msgid "%1%"
 msgstr "%1٪"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "سطوع العرض"
+msgstr "السطوع"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "سطوع العرض"
+msgstr "سطوع العرض - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -83,11 +82,10 @@ msgid "Screen brightness at %1%"
 msgstr "سطوع الشاشة %1٪"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "سطوع الشاشة %1٪"
+msgstr "سطوع الشاشة %1 عند %2٪"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -259,10 +257,9 @@ msgid "Transition to day scheduled for:"
 msgstr "الانتقال إلى النهار مجدول عند:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "سطوع لوحة المفاتيح"
+msgstr "الإضاءة الخلفيّة للوحة المفاتيح"
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format

@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-01-28 12:13+0200\n"
+"PO-Revision-Date: 2024-08-30 12:39+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -45,25 +45,25 @@ msgstr "Energokontroles sistēma"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr "Palielināt ekrāna gaišumu"
+msgstr "Palielināt ekrāna spilgtumu"
 
 #: actions/bundled/brightnesscontrol.cpp:50
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr "Palielināt ekrāna gaišumu par 1%"
+msgstr "Palielināt ekrāna spilgtumu par 1%"
 
 #: actions/bundled/brightnesscontrol.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr "Samazināt ekrāna gaišumu"
+msgstr "Samazināt ekrāna spilgtumu"
 
 #: actions/bundled/brightnesscontrol.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr "Samazināt ekrāna gaišumu"
+msgstr "Samazināt ekrāna spilgtumu"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -100,13 +100,13 @@ msgstr "Piespiedu izslēgt"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr "Palielināt tastatūras gaišumu"
+msgstr "Palielināt tastatūras spilgtumu"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr "Samazināt tastatūras gaišumu"
+msgstr "Samazināt tastatūras spilgtumu"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
@@ -115,19 +115,16 @@ msgid "Toggle Keyboard Backlight"
 msgstr "Pārslēgt tastatūras apgaismojumu"
 
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
-#, fuzzy, kde-format
-#| msgid "Lock screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "Slēgt ekrānu"
+msgstr "Iebūvētais ekrāns"
 
 #: controllers/kwinbrightness.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr "„%1“ „%2“"
 
 #: powerdevilapp.cpp:55
 #, kde-format
@@ -139,13 +136,13 @@ msgstr "KDE energokontroles sistēma"
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr "„PowerDevil“ ir moderns, modulārs un viegls energokontroles dēmons"
+msgstr "„PowerDevil“ ir moderns, modulārs un efektīvs energokontroles dēmons"
 
 #: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
-msgstr "(c) 2015–2019 Kai Uwe Broulik"
+msgstr "(c) 2015—2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:60
 #, kde-format
@@ -202,22 +199,21 @@ msgid "Extra Battery Added"
 msgstr "Pievienota papildu baterija"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "Dators vairs neieies miega režīmā."
+msgstr "Sistēma vairs neieies miega režīmā."
 
 #: powerdevilcore.cpp:523
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr "„%1“ „%2“"
 
 #: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Ierīces baterijas līmenis ir zems (atlicis %1%)"
+msgstr "Ierīces baterijas līmenis ir zems (atlicis %1 %)"
 
 #: powerdevilcore.cpp:528
 #, kde-format
@@ -232,17 +228,17 @@ msgstr ""
 #: powerdevilcore.cpp:535
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Peles baterijas līmenis ir zems (atlicis %1%)"
+msgstr "Peles baterijas līmenis ir zems (atlicis %1 %)"
 
 #: powerdevilcore.cpp:539
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Tastatūras baterijas līmenis ir zems (atlicis %1%)"
+msgstr "Tastatūras baterijas līmenis ir zems (atlicis %1 %)"
 
 #: powerdevilcore.cpp:543
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "„Bluetooth“ ierīces baterijas līmenis ir zems (atlicis %1%)"
+msgstr "„Bluetooth“ ierīces baterijas līmenis ir zems (atlicis %1 %)"
 
 #: powerdevilcore.cpp:545
 #, kde-format
@@ -255,9 +251,7 @@ msgstr ""
 "brīdī izslēgties. Uzlādējiet vai nomainiet bateriju."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
@@ -266,19 +260,14 @@ msgstr ""
 "enerģiju."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
 msgstr "Piespraudiet datoru strāvai."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr ""
-"Jūsu baterijas līmenis ir kritiski zems, dators tiks izslēgts pēc 30 "
-"sekundēm."
+msgstr "Sistēma izslēgsies pēc 60 sekundēm."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -288,14 +277,9 @@ msgid "Shut Down Now"
 msgstr "Izslēgt tagad"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be hibernated in 30 "
-#| "seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
-"Jūsu baterijas līmenis ir kritiski zems, dators tiks hibernēts pēc 30 "
-"sekundēm."
+msgstr "Sistēma hibernēsies pēc 60 sekundēm."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -306,25 +290,21 @@ msgid "Hibernate Now"
 msgstr "Hibernēt tagad"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Your battery level is critical, the computer will be halted in 30 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr ""
-"Jūsu baterijas līmenis ir kritiski zems, dators tiks izslēgts pēc 30 "
-"sekundēm."
+msgstr "Sistēma iesnaudināsies pēc 60 sekundēm."
 
 #: powerdevilcore.cpp:626
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "Iesnaudināt"
+msgstr "Iesnaudināt tagad"
 
 #: powerdevilcore.cpp:632
 #, kde-format
 msgid "Please save your work."
-msgstr "Saglabājiet iesākto darbu."
+msgstr "Saglabājiet visu iesākto darbu."
 
 #: powerdevilcore.cpp:638
 #, kde-format
@@ -337,18 +317,17 @@ msgstr "Atcelt"
 #: powerdevilcore.cpp:650
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Baterijas līmenis ir zems (atlicis %1%)"
+msgstr "Baterijas līmenis ir zems (atlicis %1 %)"
 
 #: powerdevilcore.cpp:654
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Baterijas līmenis ir kritiski zemes (atlicis %1%)"
+msgstr "Baterijas līmenis ir kritiski zemes (atlicis %1 %)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Elektrotīkla adapters ir pievienots"
+msgstr "Ierīce pievienota strāvai"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -361,21 +340,19 @@ msgid "Running on AC power"
 msgstr "Darbojas no elektrotīkla"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Ir iesprausts strāvas adapters."
+msgstr "Ir iesprausts strāvas vads."
 
 #: powerdevilcore.cpp:684
 #, kde-format
 msgid "Running on Battery Power"
-msgstr "Darbojas no baterijas jaudas"
+msgstr "Darbojas no baterijas"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Strāvas adapters ir atvienots."
+msgstr "Strāvas vads ir atvienots."
 
 #: powerdevilcore.cpp:745
 #, kde-format
