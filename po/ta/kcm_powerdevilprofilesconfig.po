@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-06 21:39+0530\n"
+"PO-Revision-Date: 2024-09-08 13:06+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -404,18 +404,14 @@ msgid "Suspend Session"
 msgstr "அமர்வை உறங்கசெய்"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"மடிக்கணினியின் மூடியை மூடும்போது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், "
-"தற்போது உங்கள் கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
+"மடிக்கணினி பயனிலில்லாதபோது செய்யவேண்டியதாக நீங்கள் முன்பு அமைத்திருந்த செயல், தற்போது "
+"உங்கள் கணினியால் அதரிக்கப்படாத‍து. வேறொன்றைத் தேர்ந்தெடுக்கவும்."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -423,7 +419,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "&பயனிலில்லாதபோது:"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -701,39 +697,27 @@ msgid "Switch to power profile"
 msgstr "ஆற்றல் பயன்முறைக்கு மாறு"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "விருப்ப சிறுநிரலை இயக்கு:"
+msgstr "சிறுநிரலையோ செயலியையோ இயக்கு:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "இயக்க நிபந்தனைகளைத் தேர்ந்தெடு…"
+msgstr "இயக்க நிபந்தனைகளை அமை"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "சிறுநிரல் இயங்குவதற்கான நிபந்தனைகளைத் தேர்ந்தெடுக்க விடும்"
+msgstr "சிறுநிரல் இயங்குவதற்கான நிபந்தனைகளைத் அமைக்க விடும்"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -741,11 +725,7 @@ msgid "When entering \"%1\" state"
 msgstr "\"%1\" நிலையில் நுழையம்போது"
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -756,14 +736,10 @@ msgstr "\"%1\" நிலையிலிருந்து வெளியேற�
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "பயனிலில்லாதபோது"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -771,19 +747,13 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "\"%1\" &நிலையில் நுழையம்போது:"
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "\"%1\" நிலையில் நுழையும்போது இயக்க வேண்டிய கட்டளை"
+msgstr "\"%1\" நிலையில் நுழையும்போது இயக்க வேண்டிய கட்டளையோ சிறுநிரலோ"
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -791,17 +761,13 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "\"%1\" நி&லையிலிருந்து வெளியேறும்போது:"
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "\"%1\" நிலையிலிருந்து வெளியேறும்போது இயக்க வேண்டிய கட்டளை"
+msgstr "\"%1\" நிலையிலிருந்து வெளியேறும்போது இயக்க வேண்டிய கட்டளையோ சிறுநிரலோ"
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "எவ்வளவு நேரம் ஒன்றும் செய்யாமல் இருந்தால் சிறுநிரலை இயக்க வேண்டும்"
@@ -810,21 +776,16 @@ msgstr "எவ்வளவு நேரம் ஒன்றும் செய்
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "&பயனிலில்லாதபோது:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "விருப்ப சிறுநிரலை இயக்கு:"
+msgstr "இதற்கு விருப்ப சிறுநிரலை இயக்குவது:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 seconds"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
@@ -832,10 +793,7 @@ msgstr[0] "%1 நொடிக்கு பின்"
 msgstr[1] "%1 நொடிக்கு பின்"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minutes"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
@@ -846,39 +804,37 @@ msgstr[1] "%1 நிமிடத்திற்கு பின்"
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "செயலிலில்லாதபோது சிறுநிரலோ கட்டளையோ"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "கட்டளையை உள்ளிடவும் அல்லது கோப்பை தேர்ந்தெடுக்கவும்…"
+msgstr "கட்டளையையோ சிறுநிரலுக்கான பாதையையோ உள்ளிடவும்"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "கட்டளையை உள்ளிடவும் அல்லது கோப்பை தேர்ந்தெடுக்கவும்…"
+msgstr "கட்டளையையோ சிறுநிரலுக்கான பாதையையோ உள்ளிடவும்"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "தேர்ந்தெடு…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "சிறுநிரல் கோப்பைத் தேர்ந்தெடு"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "சிறுநிரல் கோப்பைத் தேர்ந்தெடுப்பது"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
