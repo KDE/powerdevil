@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"POT-Creation-Date: 2024-09-11 00:41+0000\n"
 "PO-Revision-Date: 2024-08-24 11:40+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -31,6 +31,7 @@ msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
 #: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
+#: actions/bundled/powerprofile.cpp:67
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -109,6 +110,11 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr "Toggle Keyboard Backlight"
 
+#: actions/bundled/powerprofile.cpp:70
+#, kde-format
+msgid "Switch Power Profile"
+msgstr "Switch Power Profile"
+
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
@@ -121,12 +127,12 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:51
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE Power Management System"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:53
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -134,42 +140,37 @@ msgid ""
 msgstr ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Maintainer"
 
-#: powerdevilapp.cpp:61
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:61
+#: powerdevilapp.cpp:57
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Previous maintainer"
 
-#: powerdevilapp.cpp:103
-#, kde-format
-msgid "Switch Power Profile"
-msgstr "Switch Power Profile"
-
-#: powerdevilapp.cpp:117
+#: powerdevilapp.cpp:107
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Replace an existing instance"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"POT-Creation-Date: 2024-09-11 00:41+0000\n"
 "PO-Revision-Date: 2008-11-20 22:42+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <i18n@mova.org>\n"
@@ -33,6 +33,7 @@ msgstr "ihar.hrachyshka@gmail.com"
 #: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
 #: actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
+#: actions/bundled/powerprofile.cpp:67
 #, fuzzy, kde-format
 #| msgid "Profile Management"
 msgctxt "Name for powerdevil shortcuts category"
@@ -114,6 +115,12 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
 msgstr ""
 
+#: actions/bundled/powerprofile.cpp:70
+#, fuzzy, kde-format
+#| msgid "Import PowerDevil profiles"
+msgid "Switch Power Profile"
+msgstr "Zimpartuj profili „PowerDevil”"
+
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, fuzzy, kde-format
 #| msgid "Lock Screen"
@@ -127,59 +134,53 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:51
 #, fuzzy, kde-format
 #| msgid "A Power Management tool for KDE4"
 msgid "KDE Power Management System"
 msgstr "Pryłada dla kiravańnia enerhijaj u systemie „KDE4”"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:53
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:55
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:56
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Dahladnik"
 
-#: powerdevilapp.cpp:61
+#: powerdevilapp.cpp:57
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:61
+#: powerdevilapp.cpp:57
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Dahladnik"
 
-#: powerdevilapp.cpp:103
-#, fuzzy, kde-format
-#| msgid "Import PowerDevil profiles"
-msgid "Switch Power Profile"
-msgstr "Zimpartuj profili „PowerDevil”"
-
-#: powerdevilapp.cpp:117
+#: powerdevilapp.cpp:107
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
