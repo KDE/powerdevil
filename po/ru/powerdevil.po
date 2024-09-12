@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-11 00:41+0000\n"
+"POT-Creation-Date: 2024-09-12 00:41+0000\n"
 "PO-Revision-Date: 2024-07-21 12:01+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -37,38 +37,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shaforostoff@kde.ru,skull@kde.ru"
 
-#: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
-#: actions/bundled/handlebuttonevents.cpp:44
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67
+#: actions/bundled/screenbrightnesscontrol.cpp:34
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Управление питанием"
-
-#: actions/bundled/brightnesscontrol.cpp:45
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Увеличить яркость экрана"
-
-#: actions/bundled/brightnesscontrol.cpp:50
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Увеличить яркость экрана на 1%"
-
-#: actions/bundled/brightnesscontrol.cpp:55
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Уменьшить яркость экрана"
-
-#: actions/bundled/brightnesscontrol.cpp:60
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Уменьшить яркость экрана на 1%"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -128,6 +104,30 @@ msgstr "Сменить состояние подсветки клавиатур�
 msgid "Switch Power Profile"
 msgstr "Переключить профиль энергопотребления"
 
+#: actions/bundled/screenbrightnesscontrol.cpp:37
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Увеличить яркость экрана"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:44
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Увеличить яркость экрана на 1%"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:51
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Уменьшить яркость экрана"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:58
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Уменьшить яркость экрана на 1%"
+
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
@@ -140,49 +140,49 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:51
+#: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Система управления питанием KDE"
 
-#: powerdevilapp.cpp:53
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil — система управления питанием KDE в виде модульной службы."
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "© Kai Uwe Broulik, 2015-2019"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Сопровождающий"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Прежний сопровождающий"
 
-#: powerdevilapp.cpp:107
+#: powerdevilapp.cpp:114
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Заменить существующий запущенный процесс."

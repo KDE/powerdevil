@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-11 00:41+0000\n"
+"POT-Creation-Date: 2024-09-12 00:41+0000\n"
 "PO-Revision-Date: 2024-08-14 09:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,38 +31,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
-#: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
-#: actions/bundled/handlebuttonevents.cpp:44
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67
+#: actions/bundled/screenbrightnesscontrol.cpp:34
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Gestió de l'energia"
-
-#: actions/bundled/brightnesscontrol.cpp:45
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Augmenta la brillantor de la pantalla"
-
-#: actions/bundled/brightnesscontrol.cpp:50
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Augmenta la brillantor de la pantalla un 1%"
-
-#: actions/bundled/brightnesscontrol.cpp:55
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Disminuïx la brillantor de la pantalla"
-
-#: actions/bundled/brightnesscontrol.cpp:60
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Disminuïx la brillantor de la pantalla un 1%"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -119,6 +95,30 @@ msgstr "Canvia la retroil·luminació del teclat"
 msgid "Switch Power Profile"
 msgstr "Canvia el perfil d'energia"
 
+#: actions/bundled/screenbrightnesscontrol.cpp:37
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Augmenta la brillantor de la pantalla"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:44
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Augmenta la brillantor de la pantalla un 1%"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:51
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Disminuïx la brillantor de la pantalla"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:58
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Disminuïx la brillantor de la pantalla un 1%"
+
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
@@ -131,12 +131,12 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:51
+#: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "Sistema de gestió de l'energia de KDE"
 
-#: powerdevilapp.cpp:53
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -144,37 +144,37 @@ msgid ""
 msgstr ""
 "«PowerDevil», un dimoni avançat, modular i lleuger de gestió de l'energia"
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Mantenidor"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Mantenidor anterior"
 
-#: powerdevilapp.cpp:107
+#: powerdevilapp.cpp:114
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Substituïx una instància existent"

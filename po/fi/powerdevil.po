@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-11 00:41+0000\n"
+"POT-Creation-Date: 2024-09-12 00:41+0000\n"
 "PO-Revision-Date: 2023-10-12 18:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -36,38 +36,14 @@ msgstr ""
 "karvonen.jorma@gmail.com, lasse.liehu@gmail.com, translator@legisign.org, "
 "teemu.rytilahti@kde-fi.org"
 
-#: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
-#: actions/bundled/handlebuttonevents.cpp:44
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67
+#: actions/bundled/screenbrightnesscontrol.cpp:34
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "Virranhallinta"
-
-#: actions/bundled/brightnesscontrol.cpp:45
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Lisää näytön kirkkautta"
-
-#: actions/bundled/brightnesscontrol.cpp:50
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Lisää näytön kirkkautta 1 %"
-
-#: actions/bundled/brightnesscontrol.cpp:55
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Vähennä näytön kirkkautta"
-
-#: actions/bundled/brightnesscontrol.cpp:60
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Vähennä näytön kirkkautta 1 %"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -123,6 +99,30 @@ msgstr "Näppäimistön taustavalo päälle/pois"
 msgid "Switch Power Profile"
 msgstr "Vaihda virranhallintaprofiilia"
 
+#: actions/bundled/screenbrightnesscontrol.cpp:37
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Lisää näytön kirkkautta"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:44
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Lisää näytön kirkkautta 1 %"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:51
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Vähennä näytön kirkkautta"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:58
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Vähennä näytön kirkkautta 1 %"
+
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
@@ -137,49 +137,49 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:51
+#: powerdevilapp.cpp:54
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "KDE:n virranhallintatyökalu"
 
-#: powerdevilapp.cpp:53
+#: powerdevilapp.cpp:56
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil on kehittynyt, modulaarinen ja kevyt virranhallintapalvelu"
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "Kai Uwe Broulik"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "Ylläpitäjä"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "Edellinen ylläpitäjä"
 
-#: powerdevilapp.cpp:107
+#: powerdevilapp.cpp:114
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Korvaa aiempi instanssi"

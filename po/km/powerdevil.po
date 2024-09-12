@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-11 00:41+0000\n"
+"POT-Creation-Date: 2024-09-12 00:41+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -30,47 +30,15 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: actions/bundled/brightnesscontrol.cpp:42 actions/bundled/dpms.cpp:73
-#: actions/bundled/handlebuttonevents.cpp:44
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67
+#: actions/bundled/screenbrightnesscontrol.cpp:34
 #, fuzzy, kde-format
 #| msgid "KDE Power Management System"
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
 msgstr "ឧបករណ៍​គ្រប់គ្រង​ថាមពល​សម្រាប់ KDE4​"
-
-#: actions/bundled/brightnesscontrol.cpp:45
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Increase Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "បង្កើន​ពន្លឺ​អេក្រង់"
-
-#: actions/bundled/brightnesscontrol.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Increase Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "បង្កើន​ពន្លឺ​អេក្រង់"
-
-#: actions/bundled/brightnesscontrol.cpp:55
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Decrease Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
-
-#: actions/bundled/brightnesscontrol.cpp:60
-#, fuzzy, kde-format
-#| msgctxt "Global shortcut"
-#| msgid "Decrease Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
 
 #: actions/bundled/dpms.cpp:76
 #, fuzzy, kde-format
@@ -133,6 +101,38 @@ msgstr ""
 msgid "Switch Power Profile"
 msgstr "បិទ​ក្រោយ​ពេល​"
 
+#: actions/bundled/screenbrightnesscontrol.cpp:37
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "បង្កើន​ពន្លឺ​អេក្រង់"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:44
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "បង្កើន​ពន្លឺ​អេក្រង់"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:51
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
+
+#: actions/bundled/screenbrightnesscontrol.cpp:58
+#, fuzzy, kde-format
+#| msgctxt "Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "បន្ថយ​ពន្លឺ​អេក្រង់"
+
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
 #, fuzzy, kde-format
 #| msgid "Lock screen"
@@ -146,13 +146,13 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilapp.cpp:51
+#: powerdevilapp.cpp:54
 #, fuzzy, kde-format
 #| msgid "KDE Power Management System"
 msgid "KDE Power Management System"
 msgstr "ឧបករណ៍​គ្រប់គ្រង​ថាមពល​សម្រាប់ KDE4​"
 
-#: powerdevilapp.cpp:53
+#: powerdevilapp.cpp:56
 #, fuzzy, kde-format
 #| msgid ""
 #| "KDE Power Management System is PowerDevil, an advanced, modular and "
@@ -164,40 +164,40 @@ msgstr ""
 "ប្រព័ន្ធ​គ្រប់គ្រង​ថាមពល​ KDE ​គឺ​ PowerDevil ​កម្រិត​ខ្ពស់​​ ដេមិន​​ការ​គ្រប់គ្រង​ថាមពី​ modular និង​ "
 "lightweight "
 
-#: powerdevilapp.cpp:55
+#: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr ""
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:59
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "អ្នកថែទាំ"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, fuzzy, kde-format
 #| msgid "Dario Freddi"
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "Dario Freddi"
 
-#: powerdevilapp.cpp:57
+#: powerdevilapp.cpp:60
 #, fuzzy, kde-format
 #| msgid "Maintainer"
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "អ្នកថែទាំ"
 
-#: powerdevilapp.cpp:107
+#: powerdevilapp.cpp:114
 #, kde-format
 msgid "Replace an existing instance"
 msgstr ""
