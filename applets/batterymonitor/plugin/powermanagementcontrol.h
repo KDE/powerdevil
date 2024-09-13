@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "applicationdata_p.h"
+
 #include <QHash>
 #include <QIcon>
 #include <QObject>
@@ -16,9 +18,11 @@
 #include <qqmlregistration.h>
 #include <qtmetamacros.h>
 
-#include "applicationdata_p.h"
+#include <memory>
 
 using InhibitionInfo = QPair<QString, QString>;
+
+class QDBusServiceWatcher;
 
 class PowerManagementControl : public QObject
 {
@@ -53,6 +57,8 @@ Q_SIGNALS:
     void isManuallyInhibitedErrorChanged(bool status);
 
 private Q_SLOTS:
+    void onServiceRegistered(const QString &serviceName);
+    void onServiceUnregistered(const QString &serviceName);
     void onInhibitionsChanged(const QList<InhibitionInfo> &added, const QStringList &removed);
     void onPermanentlyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
     void onTemporarilyBlockedInhibitionsChanged(const QList<InhibitionInfo> &added, const QList<InhibitionInfo> &removed);
@@ -79,7 +85,7 @@ private:
 
     Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, QList<QVariantMap>, m_inhibitions, &PowerManagementControl::inhibitionsChanged)
     Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, QList<QVariantMap>, m_blockedInhibitions, &PowerManagementControl::blockedInhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, bool, m_hasInhibition, &PowerManagementControl::hasInhibitionChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_hasInhibition, false, &PowerManagementControl::hasInhibitionChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_isLidPresent, false, &PowerManagementControl::isLidPresentChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_triggersLidAction, false, &PowerManagementControl::triggersLidActionChanged)
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_isManuallyInhibited, false, &PowerManagementControl::isManuallyInhibitedChanged)
@@ -89,6 +95,8 @@ private:
                                          false,
                                          &PowerManagementControl::isManuallyInhibitedErrorChanged)
 
+    std::unique_ptr<QDBusServiceWatcher> m_solidWatcher;
+    std::unique_ptr<QDBusServiceWatcher> m_fdoWatcher;
     bool m_isSilent = false;
 
     ApplicationData m_data;

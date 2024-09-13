@@ -6,13 +6,17 @@
 
 #pragma once
 
+#include "applicationdata_p.h"
+
 #include <QDBusPendingCall>
 #include <QObject>
 #include <QObjectBindableProperty>
 #include <QStringList>
 #include <qqmlregistration.h>
 
-#include "applicationdata_p.h"
+#include <memory>
+
+class QDBusServiceWatcher;
 
 class PowerProfilesControl : public QObject
 {
@@ -52,6 +56,9 @@ private:
     QBindable<QList<QVariantMap>> bindableProfileHolds();
 
 private Q_SLOTS:
+    void onServiceRegistered(const QString &serviceName);
+    void onServiceUnregistered(const QString &serviceName);
+
     void updatePowerProfileChoices(const QStringList &choices);
     void updatePowerProfileConfiguredProfile(const QString &profile);
     void updatePowerProfileCurrentProfile(const QString &profile);
@@ -82,6 +89,8 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QString, m_inhibitionReason, &PowerProfilesControl::inhibitionReasonChanged)
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QString, m_degradationReason, &PowerProfilesControl::degradationReasonChanged)
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QList<QVariantMap>, m_profileHolds, &PowerProfilesControl::profileHoldsChanged)
+
+    std::unique_ptr<QDBusServiceWatcher> m_solidWatcher;
 
     bool m_isSilent = false;
     bool m_isTlpInstalled = false;

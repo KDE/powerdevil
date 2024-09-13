@@ -13,6 +13,7 @@
 #include <QDBusMetaType>
 #include <QDBusPendingCallWatcher>
 #include <QDBusReply>
+#include <QDBusServiceWatcher>
 #include <QFile>
 #include <QFileInfo>
 #include <QIcon>
@@ -25,11 +26,31 @@ static constexpr QLatin1StringView SOLID_POWERMANAGEMENT_SERVICE("org.kde.Solid.
 
 PowerProfilesControl::PowerProfilesControl(QObject *parent)
     : QObject(parent)
+    , m_solidWatcher(new QDBusServiceWatcher)
 {
     qDBusRegisterMetaType<QList<QVariantMap>>();
     qDBusRegisterMetaType<QVariantMap>();
 
+    // Watch for PowerDevil's power management service
+    m_solidWatcher->setConnection(QDBusConnection::sessionBus());
+    m_solidWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
+    m_solidWatcher->addWatchedService(SOLID_POWERMANAGEMENT_SERVICE);
+
+    connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &PowerProfilesControl::onServiceRegistered);
+    connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &PowerProfilesControl::onServiceUnregistered);
+    // If it's up and running already, let's cache it
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
+        onServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE);
+    }
+}
+
+PowerProfilesControl::~PowerProfilesControl()
+{
+}
+
+void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
+{
+    if (serviceName == SOLID_POWERMANAGEMENT_SERVICE) {
         if (QDBusConnection::systemBus().interface()->isServiceRegistered(QStringLiteral("org.freedesktop.UPower.PowerProfiles"))) {
             QDBusMessage profileChoices = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
                                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
@@ -181,6 +202,7 @@ PowerProfilesControl::PowerProfilesControl(QObject *parent)
                                                        SLOT(updatePowerProfileHolds(QList<QVariantMap>)))) {
                 qCDebug(APPLETS::BATTERYMONITOR) << "error connecting to profile hold changes via dbus";
             }
+            m_isTlpInstalled = false;
             m_isPowerProfileDaemonInstalled = true;
         } else {
             m_isTlpInstalled = !QStandardPaths::findExecutable(QStringLiteral("tlp")).isEmpty();
@@ -188,8 +210,62 @@ PowerProfilesControl::PowerProfilesControl(QObject *parent)
     }
 }
 
-PowerProfilesControl::~PowerProfilesControl()
+void PowerProfilesControl::onServiceUnregistered(const QString &serviceName)
 {
+    if (serviceName == SOLID_POWERMANAGEMENT_SERVICE) {
+        m_isPowerProfileDaemonInstalled = false;
+        // leave m_isTlpInstalled as is, it's not going to change just because PowerDevil disappeared
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                 QStringLiteral("configuredProfileChanged"),
+                                                 this,
+                                                 SLOT(updatePowerProfileConfiguredProfile(QString)));
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                 QStringLiteral("currentProfileChanged"),
+                                                 this,
+                                                 SLOT(updatePowerProfileCurrentProfile(QString)));
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                 QStringLiteral("profileChoicesChanged"),
+                                                 this,
+                                                 SLOT(updatePowerProfileChoices(QStringList)));
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                 QStringLiteral("performanceInhibitedReasonChanged"),
+                                                 this,
+                                                 SLOT(updatePowerProfilePerformanceInhibitedReason(QString)));
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                 QStringLiteral("performanceDegradedReasonChanged"),
+                                                 this,
+                                                 SLOT(updatePowerProfilePerformanceDegradedReason(QString)));
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
+                                                 QStringLiteral("profileHoldsChanged"),
+                                                 this,
+                                                 SLOT(updatePowerProfileHolds(QList<QVariantMap>)));
+
+        updatePowerProfileHolds({});
+        updatePowerProfilePerformanceDegradedReason(QString());
+        updatePowerProfilePerformanceInhibitedReason(QString());
+        updatePowerProfileChoices({});
+        updatePowerProfileCurrentProfile(QString());
+        updatePowerProfileConfiguredProfile(QString());
+        m_profileError = QString();
+    }
 }
 
 bool PowerProfilesControl::isTlpInstalled() const
