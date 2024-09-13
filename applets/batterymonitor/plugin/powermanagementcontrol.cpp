@@ -14,6 +14,7 @@
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusReply>
+#include <QDBusServiceWatcher>
 #include <QString>
 #include <QVariant>
 
@@ -26,11 +27,53 @@ static constexpr QLatin1StringView FDO_POWERMANAGEMENT_SERVICE("org.freedesktop.
 
 PowerManagementControl::PowerManagementControl(QObject *parent)
     : QObject(parent)
+    , m_solidWatcher(new QDBusServiceWatcher)
+    , m_fdoWatcher(new QDBusServiceWatcher)
 {
     qDBusRegisterMetaType<QList<InhibitionInfo>>();
     qDBusRegisterMetaType<InhibitionInfo>();
 
+    // Watch for PowerDevil's power management service
+    m_solidWatcher->setConnection(QDBusConnection::sessionBus());
+    m_solidWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
+    m_solidWatcher->addWatchedService(SOLID_POWERMANAGEMENT_SERVICE);
+
+    connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &PowerManagementControl::onServiceRegistered);
+    connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &PowerManagementControl::onServiceUnregistered);
+    // If it's up and running already, let's cache it
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
+        onServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE);
+    }
+
+    // Watch for the freedesktop.org power management service
+    m_fdoWatcher->setConnection(QDBusConnection::sessionBus());
+    m_fdoWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
+    m_fdoWatcher->addWatchedService(FDO_POWERMANAGEMENT_SERVICE);
+
+    connect(m_fdoWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &PowerManagementControl::onServiceRegistered);
+    connect(m_fdoWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &PowerManagementControl::onServiceUnregistered);
+    // If it's up and running already, let's cache it
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(FDO_POWERMANAGEMENT_SERVICE)) {
+        onServiceRegistered(FDO_POWERMANAGEMENT_SERVICE);
+    }
+}
+
+PowerManagementControl::~PowerManagementControl()
+{
+}
+
+void PowerManagementControl::onServiceRegistered(const QString &serviceName)
+{
+    if (serviceName == FDO_POWERMANAGEMENT_SERVICE) {
+        if (!QDBusConnection::sessionBus().connect(FDO_POWERMANAGEMENT_SERVICE,
+                                                   QStringLiteral("/org/freedesktop/PowerManagement"),
+                                                   QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
+                                                   QStringLiteral("HasInhibitChanged"),
+                                                   this,
+                                                   SLOT(onHasInhibitionChanged(bool)))) {
+            qCDebug(APPLETS::BATTERYMONITOR) << "Error connecting to fdo inhibition changes via dbus";
+        }
+    } else if (serviceName == SOLID_POWERMANAGEMENT_SERVICE) {
         m_isManuallyInhibited = InhibitMonitor::self().getInhibit();
         connect(&InhibitMonitor::self(), &InhibitMonitor::isManuallyInhibitedChanged, this, &PowerManagementControl::onIsManuallyInhibitedChanged);
         connect(&InhibitMonitor::self(), &InhibitMonitor::isManuallyInhibitedChangeError, this, &PowerManagementControl::onisManuallyInhibitedErrorChanged);
@@ -119,21 +162,54 @@ PowerManagementControl::PowerManagementControl(QObject *parent)
             qCDebug(APPLETS::BATTERYMONITOR) << "Error connecting to temporarily blocked inhibition changes via dbus";
         }
     }
-
-    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(FDO_POWERMANAGEMENT_SERVICE)) {
-        if (!QDBusConnection::sessionBus().connect(FDO_POWERMANAGEMENT_SERVICE,
-                                                   QStringLiteral("/org/freedesktop/PowerManagement"),
-                                                   QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
-                                                   QStringLiteral("HasInhibitChanged"),
-                                                   this,
-                                                   SLOT(onHasInhibitionChanged(bool)))) {
-            qCDebug(APPLETS::BATTERYMONITOR) << "Error connecting to fdo inhibition changes via dbus";
-        }
-    }
 }
 
-PowerManagementControl::~PowerManagementControl()
+void PowerManagementControl::onServiceUnregistered(const QString &serviceName)
 {
+    if (serviceName == FDO_POWERMANAGEMENT_SERVICE) {
+        QDBusConnection::sessionBus().disconnect(FDO_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/freedesktop/PowerManagement"),
+                                                 QStringLiteral("org.freedesktop.PowerManagement.Inhibit"),
+                                                 QStringLiteral("HasInhibitChanged"),
+                                                 this,
+                                                 SLOT(onHasInhibitionChanged(bool)));
+    } else if (serviceName == SOLID_POWERMANAGEMENT_SERVICE) {
+        disconnect(&InhibitMonitor::self(), &InhibitMonitor::isManuallyInhibitedChanged, this, &PowerManagementControl::onIsManuallyInhibitedChanged);
+        disconnect(&InhibitMonitor::self(), &InhibitMonitor::isManuallyInhibitedChangeError, this, &PowerManagementControl::onisManuallyInhibitedErrorChanged);
+
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/Actions/HandleButtonEvents"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.Actions.HandleButtonEvents"),
+                                                 QStringLiteral("triggersLidActionChanged"),
+                                                 this,
+                                                 SLOT(triggersLidActionChanged(bool)));
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                 QStringLiteral("InhibitionsChanged"),
+                                                 this,
+                                                 SLOT(onInhibitionsChanged(QList<InhibitionInfo>, QStringList)));
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                 QStringLiteral("PermanentlyBlockedInhibitionsChanged"),
+                                                 this,
+                                                 SLOT(onPermanentlyBlockedInhibitionsChanged(QList<InhibitionInfo>, QList<InhibitionInfo>)));
+        QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                                 QStringLiteral("/org/kde/Solid/PowerManagement/PolicyAgent"),
+                                                 QStringLiteral("org.kde.Solid.PowerManagement.PolicyAgent"),
+                                                 QStringLiteral("TemporarilyBlockedInhibitionsChanged"),
+                                                 this,
+                                                 SLOT(onTemporarilyBlockedInhibitionsChanged(QList<InhibitionInfo>, QList<InhibitionInfo>)));
+
+        m_inhibitions = QList<QVariantMap>();
+        m_blockedInhibitions = QList<QVariantMap>();
+        m_hasInhibition = false;
+        m_isManuallyInhibited = false;
+        m_isManuallyInhibitedError = false;
+        m_isLidPresent = false;
+        m_triggersLidAction = false;
+    }
 }
 
 void PowerManagementControl::inhibit(const QString &reason)
