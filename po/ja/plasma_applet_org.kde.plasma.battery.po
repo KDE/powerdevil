@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-29 00:41+0000\n"
-"PO-Revision-Date: 2024-04-28 19:29+0900\n"
+"PO-Revision-Date: 2024-09-12 22:32+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -105,10 +105,9 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/main.qml:75
-#, fuzzy, kde-format
-#| msgid "The battery applet has enabled system-wide inhibition"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "バッテリ アプレットがシステム全体の抑制を有効化しました"
+msgstr "バッテリアプレットがスリープと画面ロックを有効化しています"
 
 #: package/contents/ui/main.qml:96
 #: package/contents/ui/PowerManagementItem.qml:51
@@ -125,12 +124,12 @@ msgstr "電源とバッテリ"
 #: package/contents/ui/main.qml:115
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "バッテリがベイに装着されていません"
 
 #: package/contents/ui/main.qml:128
 #, kde-format
 msgid "Battery at %1%, not Charging"
-msgstr "バッテリ %1%, 充電していません"
+msgstr "バッテリ %1%, 充電されていません"
 
 #: package/contents/ui/main.qml:130
 #, kde-format
@@ -238,7 +237,7 @@ msgstr "無操作状態が続いた後スリープ＆画面ロック"
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
-msgstr "ブロック"
+msgstr "無効"
 
 #: package/contents/ui/PowerManagementItem.qml:88
 #, kde-format
@@ -488,7 +487,7 @@ msgstr "%1: %2"
 #: package/contents/ui/PowerProfileItem.qml:299
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "TLP サービスが自動的に電源プロファイルを制御します"
 
 #: package/contents/ui/PowerProfileItem.qml:300
 #, kde-kuit-format
@@ -501,12 +500,3 @@ msgstr ""
 "いのディストリビューションのパッケージマネージャを利用して <command>power-"
 "profiles-daemon</command> パッケージをインストールし、再起動してみてくださ"
 "い。"
-
-#, fuzzy
-#~| msgid "Battery at %1%"
-#~ msgctxt "Placeholder is the battery number"
-#~ msgid "Battery %1"
-#~ msgstr "バッテリ %1%"
-
-#~ msgid "Battery"
-#~ msgstr "バッテリ"
