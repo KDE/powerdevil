@@ -51,8 +51,8 @@ PlasmaExtras.Representation {
 
     collapseMarginsHint: true
 
-    KeyNavigation.down: batteryRepeater.headerItem
-    KeyNavigation.up: batteryRepeater.footerItem
+    KeyNavigation.down: powerItemList.powerProfileItem
+    KeyNavigation.up: powerItemList.powerManagementItem
 
     contentItem: PlasmaComponents3.ScrollView {
         id: scrollView
@@ -71,84 +71,85 @@ PlasmaExtras.Representation {
             }
         }
 
-        ListView {
-
-            id: batteryRepeater
-
+        ColumnLayout {
+            id: powerItemList
+                
             spacing: Kirigami.Units.smallSpacing * 2
 
+            PowerProfileItem {
+                id: powerProfileItem
 
-            header: Column {
-                    PowerProfileItem {
-                    id: powerProfileItem
+                width: scrollView.availableWidth
 
+                KeyNavigation.up: powerItemList.powerManagementItem
+                KeyNavigation.down: batteryRepeater.count > 0 ? batteryRepeater.itemAtIndex(0) : powerItemList.powerManagementItem
+                KeyNavigation.backtab: KeyNavigation.up
+                KeyNavigation.tab: KeyNavigation.down
+
+                profilesInstalled: dialog.profilesInstalled
+                profilesAvailable: dialog.profiles.length > 0
+                activeProfile: dialog.activeProfile
+                activeProfileError: dialog.activeProfileError
+                inhibitionReason: dialog.inhibitionReason
+                degradationReason: dialog.degradationReason
+                profileHolds: dialog.profileHolds
+
+                isTlpInstalled: dialog.isTlpInstalled
+
+                onActivateProfileRequested: profile => {
+                    dialog.activateProfileRequested(profile);
+                }
+
+                onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
+            }
+
+            ListView {
+                id: batteryRepeater
+
+                spacing: Kirigami.Units.smallSpacing * 2
+
+                delegate: BatteryItem {
                     width: scrollView.availableWidth
 
-                    KeyNavigation.up: batteryRepeater.footerItem
-                    KeyNavigation.down: batteryRepeater.count > 0 ? batteryRepeater.itemAtIndex(0) : batteryRepeater.footerItem
+                    batteryPercent: Percent
+                    batteryCapacity: Capacity
+                    batteryEnergy: Energy
+                    batteryPluggedIn: PluggedIn
+                    batteryIsPowerSupply: IsPowerSupply
+                    batteryChargeState: ChargeState
+                    batteryPrettyName: PrettyName
+                    batteryType: Type
+                    remainingTime: dialog.remainingTime
+
+                    KeyNavigation.up: index === 0 ? (powerItemList.powerProfileItem) : batteryRepeater.itemAtIndex(index - 1)
+                    KeyNavigation.down: index + 1 < batteryRepeater.count ? batteryRepeater.itemAtIndex(index + 1) : powerItemList.powerManagementItem
+
+                    pluggedIn: dialog.pluggedIn
+                    chargeStopThreshold: dialog.chargeStopThreshold
+
                     KeyNavigation.backtab: KeyNavigation.up
                     KeyNavigation.tab: KeyNavigation.down
 
-                    profilesInstalled: dialog.profilesInstalled
-                    profilesAvailable: dialog.profiles.length > 0
-                    activeProfile: dialog.activeProfile
-                    activeProfileError: dialog.activeProfileError
-                    inhibitionReason: dialog.inhibitionReason
-                    degradationReason: dialog.degradationReason
-                    profileHolds: dialog.profileHolds
-
-                    isTlpInstalled: dialog.isTlpInstalled
-
-                    onActivateProfileRequested: profile => {
-                        dialog.activateProfileRequested(profile);
+                    Keys.onTabPressed: event => {
+                        if (index === batteryRepeater.count - 1) {
+                            // Workaround to leave applet's focus on desktop
+                            nextItemInFocusChain(false).forceActiveFocus(Qt.TabFocusReason);
+                        } else {
+                            event.accepted = false;
+                        }
                     }
 
                     onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
                 }
             }
 
-            delegate: BatteryItem {
-                width: scrollView.availableWidth
-
-                batteryPercent: Percent
-                batteryCapacity: Capacity
-                batteryEnergy: Energy
-                batteryPluggedIn: PluggedIn
-                batteryIsPowerSupply: IsPowerSupply
-                batteryChargeState: ChargeState
-                batteryPrettyName: PrettyName
-                batteryType: Type
-                remainingTime: dialog.remainingTime
-
-
-                KeyNavigation.up: index === 0 ? (batteryRepeater.headerItem) : batteryRepeater.itemAtIndex(index - 1)
-                KeyNavigation.down: index + 1 < batteryRepeater.count ? batteryRepeater.itemAtIndex(index + 1) : batteryRepeater.footerItem
-
-                pluggedIn: dialog.pluggedIn
-                chargeStopThreshold: dialog.chargeStopThreshold
-
-                KeyNavigation.backtab: KeyNavigation.up
-                KeyNavigation.tab: KeyNavigation.down
-
-                Keys.onTabPressed: event => {
-                    if (index === batteryRepeater.count - 1) {
-                        // Workaround to leave applet's focus on desktop
-                        nextItemInFocusChain(false).forceActiveFocus(Qt.TabFocusReason);
-                    } else {
-                        event.accepted = false;
-                    }
-                }
-
-                onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
-            }
-
-            footer:  PowerManagementItem {
+            PowerManagementItem {
                 id: powerManagementItem
 
                 width: scrollView.availableWidth
 
-                KeyNavigation.up: batteryRepeater.count > 0 ? batteryRepeater.itemAtIndex(batteryRepeater.count - 1) : batteryRepeater.headerItem
-                KeyNavigation.down: batteryRepeater.headerItem
+                KeyNavigation.up: batteryRepeater.count > 0 ? batteryRepeater.itemAtIndex(batteryRepeater.count - 1) : powerItemList.powerProfileItem
+                KeyNavigation.down: powerItemList.powerProfileItem
                 KeyNavigation.backtab:KeyNavigation.up
                 KeyNavigation.tab: powerManagementItem.manualInhibitionSwitch
 
