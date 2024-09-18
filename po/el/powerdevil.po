@@ -229,17 +229,13 @@ msgid "Device Battery Low (%1% Remaining)"
 msgstr "Χαμηλή ισχύς μπαταρίας συσκευής (απομένει %1%)"
 
 #: powerdevilcore.cpp:528
-#, fuzzy, kde-format
-#| msgctxt "Placeholder is device name"
-#| msgid ""
-#| "The battery in (\"%1\") is running low, and the device may turn off at "
-#| "any time. Please recharge or replace the battery."
+#, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
-"Η ισχύς της μπαταρίας στο (\"%1\") είναι χαμηλή και η συσκευή ενδέχεται να "
+"Η ισχύς της μπαταρίας στο \"%1\" είναι χαμηλή και η συσκευή ενδέχεται να "
 "απενεργοποιηθεί οποιαδήποτε στιγμή. Φορτίστε ή αντικαταστήστε τη μπαταρία."
 
 #: powerdevilcore.cpp:535

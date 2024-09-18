@@ -123,10 +123,9 @@ msgstr ""
 "μέγιστης φωτεινότητάς της"
 
 #: PowerDevilRunner.cpp:85
-#, fuzzy, kde-format
-#| msgid "Set Brightness to %1"
+#, kde-format
 msgid "Set Brightness to %1%"
-msgstr "Ρύθμιση λαμπρότητας σε %1"
+msgstr "Ρύθμιση λαμπρότητας σε %1%"
 
 #: PowerDevilRunner.cpp:94
 #, kde-format
