@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-12 00:41+0000\n"
-"PO-Revision-Date: 2024-01-02 14:51+0100\n"
+"PO-Revision-Date: 2024-09-18 21:12+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -119,16 +119,13 @@ msgid "Decrease Screen Brightness by 1%"
 msgstr "Képernyő fényerejének csökkentése 1%-kal"
 
 #: controllers/backlightbrightness.cpp:164 controllers/kwinbrightness.cpp:131
-#, fuzzy, kde-format
-#| msgid "Locking Screen"
+#, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr "A képernyő zárolása"
+msgstr "Beépített képernyő"
 
 #: controllers/kwinbrightness.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
@@ -203,10 +200,9 @@ msgid "Extra Battery Added"
 msgstr "További akkumulátor hozzáadva"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "A számítógép nem kerül többet alvó állapotba."
+msgstr "A rendszer nem kerül többet alvó állapotba."
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -256,28 +252,23 @@ msgstr ""
 "kikapcsolhat. Cserélje ki vagy töltse fel az akkumulátort, amint lehet."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
-"Ellenőrizze, hogy a hálózati adapter be van-e dugva, és elegendő energiát "
-"biztosít-e."
+"Ellenőrizze, hogy a hálózati kábel rendesen be van-e dugva, és elegendő "
+"energiát biztosít-e."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Csatlakoztassa a számítógépet."
+msgstr "Csatlakoztassa a hálózati kábelt."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will be put into standby in 1 second."
-#| msgid_plural "The computer will be put into standby in %1 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "A számítógép %1 másodperc múlva készenléti állapotba kerül."
+msgstr "A rendszer 60 másodperc múlva leáll."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -287,11 +278,9 @@ msgid "Shut Down Now"
 msgstr "Leállítás most"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "A számítógép fel lesz függesztve memóriába %1 másodperc múlva."
+msgstr "A rendszer 60 másodperc múlva hibernál."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -302,11 +291,9 @@ msgid "Hibernate Now"
 msgstr "Hibernálás most"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will be suspended to RAM in 1 second."
-#| msgid_plural "The computer will be suspended to RAM in %1 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "A számítógép fel lesz függesztve memóriába %1 másodperc múlva."
+msgstr "A rendszer 60 másodperc múlva alvó állapotba kerül."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -339,10 +326,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritikus lemerültség (%1% van hátra)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Tápcsatlakozó bedugva"
+msgstr "Hálózati kábel csatlakoztatva"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -355,10 +341,9 @@ msgid "Running on AC power"
 msgstr "Hálózatról üzemel"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "A hálózati csatlakozót csatlakoztatták."
+msgstr "A hálózati kábelt csatlakoztatták."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -366,10 +351,9 @@ msgid "Running on Battery Power"
 msgstr "Akkumulátorról üzemel"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "A hálózati csatlakozót kihúzták."
+msgstr "A hálózati kábelt kihúzták."
 
 #: powerdevilcore.cpp:745
 #, kde-format
