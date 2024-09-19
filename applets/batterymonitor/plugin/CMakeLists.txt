@@ -5,7 +5,7 @@ ecm_add_qml_module(batterymonitorplugin URI org.kde.plasma.private.batterymonito
 
 target_sources(batterymonitorplugin PRIVATE
         powerprofilescontrol.cpp
-        powermanagementcontrol.cpp
+        inhibitioncontrol.cpp
         applicationdata_p.cpp
         inhibitmonitor_p.cpp
 )

@@ -143,8 +143,8 @@ PlasmaExtras.Representation {
                 onActiveFocusChanged: if (activeFocus) scrollView.positionViewAtItem(this)
             }
 
-            footer: PowerManagementItem {
-                readonly property var pmControl: dialog.pmControl
+            footer: InhibitionItem {
+                readonly property var inhibitionControl: dialog.inhibitionControl
 
                 width: scrollView.availableWidth
 

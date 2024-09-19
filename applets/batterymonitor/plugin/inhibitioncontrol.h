@@ -24,7 +24,7 @@ using InhibitionInfo = QPair<QString, QString>;
 
 class QDBusServiceWatcher;
 
-class PowerManagementControl : public QObject
+class InhibitionControl : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
@@ -44,8 +44,8 @@ public:
     Q_INVOKABLE void blockInhibition(const QString &appName, const QString &reason, bool permanently = false);
     Q_INVOKABLE void unblockInhibition(const QString &appName, const QString &reason, bool permanently = false);
 
-    explicit PowerManagementControl(QObject *parent = nullptr);
-    ~PowerManagementControl() override;
+    explicit InhibitionControl(QObject *parent = nullptr);
+    ~InhibitionControl() override;
 
 Q_SIGNALS:
     void inhibitionsChanged(const QList<QVariantMap> &inhibitions);
@@ -83,17 +83,13 @@ private:
     QBindable<bool> bindableIsManuallyInhibited();
     QBindable<bool> bindableIsManuallyInhibitedError();
 
-    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, QList<QVariantMap>, m_inhibitions, &PowerManagementControl::inhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY(PowerManagementControl, QList<QVariantMap>, m_blockedInhibitions, &PowerManagementControl::blockedInhibitionsChanged)
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_hasInhibition, false, &PowerManagementControl::hasInhibitionChanged)
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_isLidPresent, false, &PowerManagementControl::isLidPresentChanged)
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_triggersLidAction, false, &PowerManagementControl::triggersLidActionChanged)
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl, bool, m_isManuallyInhibited, false, &PowerManagementControl::isManuallyInhibitedChanged)
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerManagementControl,
-                                         bool,
-                                         m_isManuallyInhibitedError,
-                                         false,
-                                         &PowerManagementControl::isManuallyInhibitedErrorChanged)
+    Q_OBJECT_BINDABLE_PROPERTY(InhibitionControl, QList<QVariantMap>, m_inhibitions, &InhibitionControl::inhibitionsChanged)
+    Q_OBJECT_BINDABLE_PROPERTY(InhibitionControl, QList<QVariantMap>, m_blockedInhibitions, &InhibitionControl::blockedInhibitionsChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_hasInhibition, &InhibitionControl::hasInhibitionChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_isLidPresent, false, &InhibitionControl::isLidPresentChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_triggersLidAction, false, &InhibitionControl::triggersLidActionChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_isManuallyInhibited, false, &InhibitionControl::isManuallyInhibitedChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(InhibitionControl, bool, m_isManuallyInhibitedError, false, &InhibitionControl::isManuallyInhibitedErrorChanged)
 
     std::unique_ptr<QDBusServiceWatcher> m_solidWatcher;
     std::unique_ptr<QDBusServiceWatcher> m_fdoWatcher;
