@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-29 00:41+0000\n"
+"POT-Creation-Date: 2024-09-22 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 19:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -96,17 +96,176 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/main.qml:75
+#: package/contents/ui/InhibitionItem.qml:44
 #, kde-format
-msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "电池挂件已启用阻止睡眠和锁屏"
+msgctxt "@title:group"
+msgid "Sleep and Screen Locking after Inactivity"
+msgstr "空闲时睡眠并锁屏"
 
-#: package/contents/ui/main.qml:96
-#: package/contents/ui/PowerManagementItem.qml:51
+#: package/contents/ui/InhibitionItem.qml:51 package/contents/ui/main.qml:96
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "电源管理"
+
+#: package/contents/ui/InhibitionItem.qml:88
+#, kde-format
+msgctxt "Sleep and Screen Locking after Inactivity"
+msgid "Blocked"
+msgstr "已阻止"
+
+#: package/contents/ui/InhibitionItem.qml:88
+#, kde-format
+msgctxt "Sleep and Screen Locking after Inactivity"
+msgid "Automatic"
+msgstr "自动"
+
+#: package/contents/ui/InhibitionItem.qml:105
+#, kde-format
+msgctxt "Minimize the length of this string as much as possible"
+msgid ""
+"Your laptop is configured not to sleep when closing the lid while an "
+"external monitor is connected."
+msgstr "此笔记本已配置为在外接显示器时合上盖子不睡眠。"
+
+#: package/contents/ui/InhibitionItem.qml:117
+#, kde-format
+msgid "%1 application is currently blocking sleep and screen locking:"
+msgid_plural "%1 applications are currently blocking sleep and screen locking:"
+msgstr[0] "有 %1 个应用程序正在阻止睡眠和锁屏："
+
+#: package/contents/ui/InhibitionItem.qml:143
+#, kde-format
+msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgstr "%1 正在阻止睡眠和锁屏 (%2)"
+
+#: package/contents/ui/InhibitionItem.qml:145
+#, kde-format
+msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
+msgstr "%1 正在阻止睡眠和锁屏 (未知原因)"
+
+#: package/contents/ui/InhibitionItem.qml:147
+#, kde-format
+msgid "An application is currently blocking sleep and screen locking (%1)"
+msgstr "有一个应用程序正在阻止睡眠和锁屏 (%1)"
+
+#: package/contents/ui/InhibitionItem.qml:149
+#, kde-format
+msgid ""
+"An application is currently blocking sleep and screen locking (unknown "
+"reason)"
+msgstr "有一个应用程序正在阻止睡眠和锁屏 (未知原因)"
+
+#: package/contents/ui/InhibitionItem.qml:153
+#: package/contents/ui/InhibitionItem.qml:288
+#, kde-format
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "%1: %2"
+msgstr "%1：%2"
+
+#: package/contents/ui/InhibitionItem.qml:155
+#, kde-format
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "%1: unknown reason"
+msgstr "%1：未知原因"
+
+#: package/contents/ui/InhibitionItem.qml:157
+#, kde-format
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "Unknown application: %1"
+msgstr "未知应用程序：%1"
+
+#: package/contents/ui/InhibitionItem.qml:159
+#, kde-format
+msgctxt "Application name: reason for preventing sleep and screen locking"
+msgid "Unknown application: unknown reason"
+msgstr "未知应用程序：未知原因"
+
+#: package/contents/ui/InhibitionItem.qml:171
+#: package/contents/ui/InhibitionItem.qml:201
+#, kde-format
+msgctxt ""
+"@action:button Prevent an app from blocking automatic sleep and screen "
+"locking after inactivity"
+msgid "Unblock"
+msgstr "取消阻止"
+
+#: package/contents/ui/InhibitionItem.qml:183
+#: package/contents/ui/InhibitionItem.qml:311
+#, kde-format
+msgctxt ""
+"@action:button Prevent an app from blocking automatic sleep and screen "
+"locking after inactivity"
+msgid "Only this time"
+msgstr "仅这一次"
+
+#: package/contents/ui/InhibitionItem.qml:188
+#: package/contents/ui/InhibitionItem.qml:316
+#, kde-format
+msgctxt ""
+"@action:button Prevent an app from blocking automatic sleep and screen "
+"locking after inactivity"
+msgid "Every time for this app and reason"
+msgstr "每次遇到此应用和理由时"
+
+#: package/contents/ui/InhibitionItem.qml:214
+#, kde-format
+msgctxt "Minimize the length of this string as much as possible"
+msgid "You have manually blocked sleep and screen locking."
+msgstr "您已经手动阻止了睡眠和屏幕锁定。"
+
+#: package/contents/ui/InhibitionItem.qml:219
+#, kde-format
+msgctxt ""
+"@action:button Undo blocking sleep and screen locking after inactivity"
+msgid "Unblock"
+msgstr "取消阻止"
+
+#: package/contents/ui/InhibitionItem.qml:238
+#: package/contents/ui/InhibitionItem.qml:363
+#, kde-format
+msgid "Failed to unblock automatic sleep and screen locking"
+msgstr "解除阻止自动睡眠和锁屏失败"
+
+#: package/contents/ui/InhibitionItem.qml:241
+#: package/contents/ui/InhibitionItem.qml:366
+#, kde-format
+msgid "Failed to block automatic sleep and screen locking"
+msgstr "阻止自动睡眠和锁屏失败"
+
+#: package/contents/ui/InhibitionItem.qml:259
+#, kde-format
+msgid ""
+"%1 application has been prevented from blocking sleep and screen locking:"
+msgid_plural ""
+"%1 applications have been prevented from blocking sleep and screen locking:"
+msgstr[0] "有 %1 个应用程序已被禁止阻止睡眠和锁屏："
+
+#: package/contents/ui/InhibitionItem.qml:286
+#, kde-format
+msgctxt "Application name; reason"
+msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+msgstr "%1 已被禁止阻止睡眠和锁屏，理由是 %2"
+
+#: package/contents/ui/InhibitionItem.qml:299
+#: package/contents/ui/InhibitionItem.qml:329
+#, kde-format
+msgctxt ""
+"@action:button Undo preventing an app from blocking automatic sleep and "
+"screen locking after inactivity"
+msgid "Block Again"
+msgstr "再次阻止"
+
+#: package/contents/ui/InhibitionItem.qml:344
+#, kde-format
+msgctxt "@action:button Block sleep and screen locking after inactivity"
+msgid "Manually Block"
+msgstr "手动阻止"
+
+#: package/contents/ui/main.qml:75
+#, kde-format
+msgid "The battery applet has enabled suppressing sleep and screen locking"
+msgstr "电池挂件已启用阻止睡眠和锁屏"
 
 #: package/contents/ui/main.qml:96
 #, kde-format
@@ -217,166 +376,6 @@ msgstr "电池未充满时在图标上显示电量百分比"
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "配置电源管理(&C)…"
-
-#: package/contents/ui/PowerManagementItem.qml:44
-#, kde-format
-msgctxt "@title:group"
-msgid "Sleep and Screen Locking after Inactivity"
-msgstr "空闲时睡眠并锁屏"
-
-#: package/contents/ui/PowerManagementItem.qml:88
-#, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Blocked"
-msgstr "已阻止"
-
-#: package/contents/ui/PowerManagementItem.qml:88
-#, kde-format
-msgctxt "Sleep and Screen Locking after Inactivity"
-msgid "Automatic"
-msgstr "自动"
-
-#: package/contents/ui/PowerManagementItem.qml:105
-#, kde-format
-msgctxt "Minimize the length of this string as much as possible"
-msgid ""
-"Your laptop is configured not to sleep when closing the lid while an "
-"external monitor is connected."
-msgstr "此笔记本已配置为在外接显示器时合上盖子不睡眠。"
-
-#: package/contents/ui/PowerManagementItem.qml:117
-#, kde-format
-msgid "%1 application is currently blocking sleep and screen locking:"
-msgid_plural "%1 applications are currently blocking sleep and screen locking:"
-msgstr[0] "有 %1 个应用程序正在阻止睡眠和锁屏："
-
-#: package/contents/ui/PowerManagementItem.qml:143
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "%1 正在阻止睡眠和锁屏 (%2)"
-
-#: package/contents/ui/PowerManagementItem.qml:145
-#, kde-format
-msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "%1 正在阻止睡眠和锁屏 (未知原因)"
-
-#: package/contents/ui/PowerManagementItem.qml:147
-#, kde-format
-msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "有一个应用程序正在阻止睡眠和锁屏 (%1)"
-
-#: package/contents/ui/PowerManagementItem.qml:149
-#, kde-format
-msgid ""
-"An application is currently blocking sleep and screen locking (unknown "
-"reason)"
-msgstr "有一个应用程序正在阻止睡眠和锁屏 (未知原因)"
-
-#: package/contents/ui/PowerManagementItem.qml:153
-#: package/contents/ui/PowerManagementItem.qml:288
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: %2"
-msgstr "%1：%2"
-
-#: package/contents/ui/PowerManagementItem.qml:155
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "%1: unknown reason"
-msgstr "%1：未知原因"
-
-#: package/contents/ui/PowerManagementItem.qml:157
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: %1"
-msgstr "未知应用程序：%1"
-
-#: package/contents/ui/PowerManagementItem.qml:159
-#, kde-format
-msgctxt "Application name: reason for preventing sleep and screen locking"
-msgid "Unknown application: unknown reason"
-msgstr "未知应用程序：未知原因"
-
-#: package/contents/ui/PowerManagementItem.qml:171
-#: package/contents/ui/PowerManagementItem.qml:201
-#, kde-format
-msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Unblock"
-msgstr "取消阻止"
-
-#: package/contents/ui/PowerManagementItem.qml:183
-#: package/contents/ui/PowerManagementItem.qml:311
-#, kde-format
-msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Only this time"
-msgstr "仅这一次"
-
-#: package/contents/ui/PowerManagementItem.qml:188
-#: package/contents/ui/PowerManagementItem.qml:316
-#, kde-format
-msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Every time for this app and reason"
-msgstr "每次遇到此应用和理由时"
-
-#: package/contents/ui/PowerManagementItem.qml:214
-#, kde-format
-msgctxt "Minimize the length of this string as much as possible"
-msgid "You have manually blocked sleep and screen locking."
-msgstr "您已经手动阻止了睡眠和屏幕锁定。"
-
-#: package/contents/ui/PowerManagementItem.qml:219
-#, kde-format
-msgctxt ""
-"@action:button Undo blocking sleep and screen locking after inactivity"
-msgid "Unblock"
-msgstr "取消阻止"
-
-#: package/contents/ui/PowerManagementItem.qml:238
-#: package/contents/ui/PowerManagementItem.qml:363
-#, kde-format
-msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "解除阻止自动睡眠和锁屏失败"
-
-#: package/contents/ui/PowerManagementItem.qml:241
-#: package/contents/ui/PowerManagementItem.qml:366
-#, kde-format
-msgid "Failed to block automatic sleep and screen locking"
-msgstr "阻止自动睡眠和锁屏失败"
-
-#: package/contents/ui/PowerManagementItem.qml:259
-#, kde-format
-msgid ""
-"%1 application has been prevented from blocking sleep and screen locking:"
-msgid_plural ""
-"%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "有 %1 个应用程序已被禁止阻止睡眠和锁屏："
-
-#: package/contents/ui/PowerManagementItem.qml:286
-#, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 已被禁止阻止睡眠和锁屏，理由是 %2"
-
-#: package/contents/ui/PowerManagementItem.qml:299
-#: package/contents/ui/PowerManagementItem.qml:329
-#, kde-format
-msgctxt ""
-"@action:button Undo preventing an app from blocking automatic sleep and "
-"screen locking after inactivity"
-msgid "Block Again"
-msgstr "再次阻止"
-
-#: package/contents/ui/PowerManagementItem.qml:344
-#, kde-format
-msgctxt "@action:button Block sleep and screen locking after inactivity"
-msgid "Manually Block"
-msgstr "手动阻止"
 
 #: package/contents/ui/PowerProfileItem.qml:41
 #, kde-format
