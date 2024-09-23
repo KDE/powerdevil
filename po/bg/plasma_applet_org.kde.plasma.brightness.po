@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-06-04 13:37+0200\n"
+"PO-Revision-Date: 2024-09-22 12:56+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
@@ -54,18 +54,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Яркост на екрана"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Яркост на екрана"
+msgstr "Яркост на екрана - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -83,11 +81,10 @@ msgid "Screen brightness at %1%"
 msgstr "Яркост на екрана %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Яркост на екрана %1%"
+msgstr "Яркост на екрана на %1 на %2"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -150,8 +147,7 @@ msgstr "Скролиране за регулиране на яркостта н�
 #: package/contents/ui/main.qml:156
 #, kde-format
 msgid "Middle-click to suspend Night Light"
-msgstr ""
-"Превключване на Вечерни цветове с кликване на средния бутон на мишката "
+msgstr "Превключване на Вечерни цветове с кликване на средния бутон на мишката"
 
 #: package/contents/ui/main.qml:236
 #, kde-format
@@ -260,8 +256,7 @@ msgid "Transition to day scheduled for:"
 msgstr "Преминаване към дневен режим планувано за:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
 msgstr "Яркост на клавиатурата"
 
