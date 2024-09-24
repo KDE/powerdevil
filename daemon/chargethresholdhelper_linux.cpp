@@ -123,7 +123,7 @@ ActionReply ChargeThresholdHelper::getthreshold(const QVariantMap &args)
 
     // In the rare case there are multiple batteries with varying charge thresholds, try to use something sensible
     const auto stopThresholdIt = std::ranges::min_element(std::as_const(stopThresholds));
-    if (stopThresholdIt == stopThresholds.end()) {
+    if (stopThresholdIt == stopThresholds.cend()) {
         auto reply = ActionReply::HelperErrorReply();
         reply.setErrorDescription(QStringLiteral("Charge thresholds are not supported by the kernel for this hardware"));
         return reply;
