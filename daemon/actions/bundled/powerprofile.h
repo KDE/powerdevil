@@ -66,6 +66,7 @@ private:
 
     OrgFreedesktopUPowerPowerProfilesInterface *m_powerProfilesInterface;
     OrgFreedesktopDBusPropertiesInterface *m_powerProfilesPropertiesInterface;
+    QDBusServiceWatcher *m_powerProfilesServiceWatcher;
     QStringList m_profileChoices;
     QString m_currentProfile;
     QString m_performanceInhibitedReason;

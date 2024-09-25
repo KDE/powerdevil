@@ -36,6 +36,7 @@ PowerProfile::PowerProfile(QObject *parent)
     : Action(parent)
     , m_powerProfilesInterface(new OrgFreedesktopUPowerPowerProfilesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
     , m_powerProfilesPropertiesInterface(new OrgFreedesktopDBusPropertiesInterface(ppdName, ppdPath, QDBusConnection::systemBus(), this))
+    , m_powerProfilesServiceWatcher(new QDBusServiceWatcher(ppdName, QDBusConnection::systemBus(), QDBusServiceWatcher::WatchForRegistration, this))
     , m_holdWatcher(new QDBusServiceWatcher(QString(), QDBusConnection::sessionBus(), QDBusServiceWatcher::WatchForUnregistration, this))
 {
     new PowerProfileAdaptor(this);
@@ -63,21 +64,23 @@ PowerProfile::PowerProfile(QObject *parent)
     });
     qDBusRegisterMetaType<QList<QVariantMap>>();
 
-    KActionCollection *actionCollection = new KActionCollection(this);
-    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
-
-    QAction *globalAction = actionCollection->addAction(QStringLiteral("powerProfile"));
-    globalAction->setText(i18n("Switch Power Profile"));
-    KGlobalAccel::setGlobalShortcut(globalAction, QList<QKeySequence>{Qt::Key_Battery, Qt::MetaModifier | Qt::Key_B});
-    connect(globalAction, &QAction::triggered, this, [this] {
-        auto newIndex = m_profileChoices.indexOf(m_currentProfile);
-        if (newIndex != -1) { // cycle through profiles
-            setProfile(m_profileChoices[(newIndex + 1) % m_profileChoices.size()], ProfileIndicatorVisibility::ShowIndicator);
-        } else {
-            // This can happen mainly if m_profileChoices is empty, e.g. power-profiles-daemon isn't available
-            qCDebug(POWERDEVIL) << "Error cycling through power profiles: current profile" << m_currentProfile << "not found in list of available profiles"
-                                << m_profileChoices;
-        }
+    m_powerProfilesServiceWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration);
+    connect(m_powerProfilesServiceWatcher, &QDBusServiceWatcher::serviceRegistered, this, [this] {
+        KActionCollection *actionCollection = new KActionCollection(this);
+        actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
+        QAction *globalAction = actionCollection->addAction(QStringLiteral("powerProfile"));
+        globalAction->setText(i18n("Switch Power Profile"));
+        KGlobalAccel::setGlobalShortcut(globalAction, QList<QKeySequence>{Qt::Key_Battery, Qt::MetaModifier | Qt::Key_B});
+        connect(globalAction, &QAction::triggered, this, [this] {
+            auto newIndex = m_profileChoices.indexOf(m_currentProfile);
+            if (newIndex != -1) { // cycle through profiles
+                setProfile(m_profileChoices[(newIndex + 1) % m_profileChoices.size()], ProfileIndicatorVisibility::ShowIndicator);
+            } else {
+                // This can happen mainly if m_profileChoices is empty, e.g. power-profiles-daemon isn't available
+                qCDebug(POWERDEVIL) << "Error cycling through power profiles: current profile" << m_currentProfile << "not found in list of available profiles"
+                                    << m_profileChoices;
+            }
+        });
     });
 }
 
