@@ -123,6 +123,9 @@ void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
 
 void HandleButtonEvents::onLidClosedChanged(bool closed)
 {
+    qCDebug(POWERDEVIL) << "lid closed changed" << closed << "triggering action" << m_lidAction;
+    qCDebug(POWERDEVIL) << "triggers lid action" << !triggersLidAction() << m_triggerLidActionWhenExternalMonitorPresent
+                        << !m_externalMonitorPresent.value_or(false) << m_screenConfiguration;
     if (closed) {
         if (m_oldKeyboardBrightness.has_value()) {
             core()->keyboardBrightnessController()->setBrightness(0);
