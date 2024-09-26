@@ -13,6 +13,7 @@ import QtQuick.Controls
 import org.kde.notification
 import org.kde.kwindowsystem as KWindowSystem
 import org.kde.plasma.components as PlasmaComponents3
+import org.kde.plasma.extras as PlasmaExtras
 import org.kde.ksvg as KSvg
 import org.kde.kirigami as Kirigami
 
@@ -174,19 +175,17 @@ PlasmaComponents3.ItemDelegate {
                                 onClicked: blockMenuButtonMenu.open()
                             }
 
-                            Menu {
+                            PlasmaExtras.Menu {
                                 id: blockMenuButtonMenu
-                                x: blockMenuButton.x + blockMenuButton.width - blockMenuButtonMenu.width
-                                y: blockMenuButton.y + blockMenuButton.height
 
-                                MenuItem {
+                                PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Only this time")
-                                    onTriggered: pmControl.blockInhibition(app, reason, false)
+                                    onClicked: pmControl.blockInhibition(app, reason, false)
                                 }
 
-                                MenuItem {
+                                PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Every time for this app and reason")
-                                    onTriggered: pmControl.blockInhibition(app, reason, true)
+                                    onClicked: pmControl.blockInhibition(app, reason, true)
                                 }
                             }
                         }
@@ -302,19 +301,17 @@ PlasmaComponents3.ItemDelegate {
                                 onClicked: unblockButtonMenu.open()
                             }
 
-                            Menu {
+                            PlasmaExtras.Menu {
                                 id: unblockButtonMenu
-                                x: unblockMenuButton.x + unblockMenuButton.width - unblockMenuButton.width
-                                y: unblockMenuButton.y + unblockMenuButton.height
 
-                                MenuItem {
+                                PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Only this time")
-                                    onTriggered: pmControl.unblockInhibition(app, reason, false)
+                                    onClicked: pmControl.unblockInhibition(app, reason, false)
                                 }
 
-                                MenuItem {
+                                PlasmaExtras.MenuItem {
                                     text: i18nc("@action:button Prevent an app from blocking automatic sleep and screen locking after inactivity", "Every time for this app and reason")
-                                    onTriggered: pmControl.unblockInhibition(app, reason, true)
+                                    onClicked: pmControl.unblockInhibition(app, reason, true)
                                 }
                             }
                         }
