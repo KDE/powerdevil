@@ -851,39 +851,3 @@ msgstr "Избиране на скрипт"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Друга продължителност"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "The action you had previously configured for after a period of inactivity "
-#~ "is now unsupported on your system. Please select a different one."
-#~ msgstr ""
-#~ "Действието, което сте конфигурирали по -рано за извършване след период на "
-#~ "бездействие, вече не се поддържа. Моля, изберете друго действие."
-
-#~ msgctxt ""
-#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
-#~ "the system is idle"
-#~ msgid "A&fter a period of inactivity:"
-#~ msgstr "След  период на бездействие:"
-
-#~ msgctxt "@text:action:menu Script command to execute"
-#~ msgid "After a period of inactivity"
-#~ msgstr "След период на бездействие"
-
-#~ msgctxt "@label:textfield Script command to execute"
-#~ msgid "After a period of inacti&vity:"
-#~ msgstr "След  период на бездействие:"
-
-#~ msgctxt "@@accessible:name:textfield"
-#~ msgid "Script command after a period of inactivity"
-#~ msgstr "Скрипт команда след период на неактивност"
-
-#~ msgctxt "@label:spinbox After X minutes"
-#~ msgid "Execute script after:"
-#~ msgstr "Изпълнение на скрипт след:"
-
-#~ msgid "Select executable file…"
-#~ msgstr "Изберете файл за изпълнение…"
-
-#~ msgid "Select executable file"
-#~ msgstr "Изберете изпълним файл"

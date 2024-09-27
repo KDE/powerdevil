@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-29 00:41+0000\n"
+"POT-Creation-Date: 2024-09-27 02:38+0000\n"
 "PO-Revision-Date: 2024-06-11 15:38+0400\n"
 "Last-Translator: Kheyyam Godjayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -106,7 +106,7 @@ msgstr ""
 "alınması aktiv edildi"
 
 #: package/contents/ui/main.qml:96
-#: package/contents/ui/PowerManagementItem.qml:51
+#: package/contents/ui/PowerManagementItem.qml:52
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
@@ -227,25 +227,25 @@ msgstr "Tam dolmadıqda batareyanın faizi nişanda göstərilsin"
 msgid "&Configure Power Management…"
 msgstr "&Enerjiyə qənaət rejimini tənzimləyin..."
 
-#: package/contents/ui/PowerManagementItem.qml:44
+#: package/contents/ui/PowerManagementItem.qml:45
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Boşdayanmadan sonra yuxu rejimi və ekranın kilidlənməsi"
 
-#: package/contents/ui/PowerManagementItem.qml:88
+#: package/contents/ui/PowerManagementItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr "Əngəllənib"
 
-#: package/contents/ui/PowerManagementItem.qml:88
+#: package/contents/ui/PowerManagementItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr "Avtomatik"
 
-#: package/contents/ui/PowerManagementItem.qml:105
+#: package/contents/ui/PowerManagementItem.qml:106
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -255,7 +255,7 @@ msgstr ""
 "Sizin noutbukunuz xarici monitor qoşulduqda qapağı bağlanarsa yuxu rejiminə "
 "keçməmək üçün tənzimlənmişdir."
 
-#: package/contents/ui/PowerManagementItem.qml:117
+#: package/contents/ui/PowerManagementItem.qml:118
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
@@ -263,25 +263,25 @@ msgstr[0] ""
 "%1 tətbiqi hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir:"
 msgstr[1] "%1 tətbiq hazırda yuxu və ekran kilidini əngəlləyir:"
 
-#: package/contents/ui/PowerManagementItem.qml:143
+#: package/contents/ui/PowerManagementItem.qml:144
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "%1 hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir (%2)"
 
-#: package/contents/ui/PowerManagementItem.qml:145
+#: package/contents/ui/PowerManagementItem.qml:146
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr ""
 "%1 hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir (səbəbi "
 "bilinmir)"
 
-#: package/contents/ui/PowerManagementItem.qml:147
+#: package/contents/ui/PowerManagementItem.qml:148
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr ""
 "Bir tətbiq hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir (%1)"
 
-#: package/contents/ui/PowerManagementItem.qml:149
+#: package/contents/ui/PowerManagementItem.qml:150
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
@@ -290,33 +290,33 @@ msgstr ""
 "Bir tətbiq hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir "
 "(səbəbi bilinmir)"
 
-#: package/contents/ui/PowerManagementItem.qml:153
-#: package/contents/ui/PowerManagementItem.qml:288
+#: package/contents/ui/PowerManagementItem.qml:154
+#: package/contents/ui/PowerManagementItem.qml:287
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerManagementItem.qml:155
+#: package/contents/ui/PowerManagementItem.qml:156
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1: naməlum səbəb"
 
-#: package/contents/ui/PowerManagementItem.qml:157
+#: package/contents/ui/PowerManagementItem.qml:158
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "Naməlum tətbiq: %1"
 
-#: package/contents/ui/PowerManagementItem.qml:159
+#: package/contents/ui/PowerManagementItem.qml:160
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "Naməlum tətbiq: naməlum səbəb"
 
-#: package/contents/ui/PowerManagementItem.qml:171
-#: package/contents/ui/PowerManagementItem.qml:201
+#: package/contents/ui/PowerManagementItem.qml:172
+#: package/contents/ui/PowerManagementItem.qml:200
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -324,8 +324,8 @@ msgctxt ""
 msgid "Unblock"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:183
-#: package/contents/ui/PowerManagementItem.qml:311
+#: package/contents/ui/PowerManagementItem.qml:182
+#: package/contents/ui/PowerManagementItem.qml:308
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -333,8 +333,8 @@ msgctxt ""
 msgid "Only this time"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:188
-#: package/contents/ui/PowerManagementItem.qml:316
+#: package/contents/ui/PowerManagementItem.qml:187
+#: package/contents/ui/PowerManagementItem.qml:313
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -342,7 +342,7 @@ msgctxt ""
 msgid "Every time for this app and reason"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:214
+#: package/contents/ui/PowerManagementItem.qml:213
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid "Manually block sleep and screen locking"
@@ -350,26 +350,26 @@ msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
 msgstr "Avtomatik yuxu və ekran kilidinə keçidi əl ilə əngəlləmək"
 
-#: package/contents/ui/PowerManagementItem.qml:219
+#: package/contents/ui/PowerManagementItem.qml:218
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:238
-#: package/contents/ui/PowerManagementItem.qml:363
+#: package/contents/ui/PowerManagementItem.qml:237
+#: package/contents/ui/PowerManagementItem.qml:360
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Avtomatik yuxu və ekran kilidinə keçidi açmaq mümkün olmadı"
 
-#: package/contents/ui/PowerManagementItem.qml:241
-#: package/contents/ui/PowerManagementItem.qml:366
+#: package/contents/ui/PowerManagementItem.qml:240
+#: package/contents/ui/PowerManagementItem.qml:363
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Avtomatik yuxu və ekran kilidinə keçidi əngəlləmək mümkün olmadı"
 
-#: package/contents/ui/PowerManagementItem.qml:259
+#: package/contents/ui/PowerManagementItem.qml:258
 #, fuzzy, kde-format
 #| msgid "%1 application is currently blocking sleep and screen locking:"
 #| msgid_plural ""
@@ -382,15 +382,15 @@ msgstr[0] ""
 "%1 tətbiqi hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir:"
 msgstr[1] "%1 tətbiq hazırda yuxu və ekran kilidini əngəlləyir:"
 
-#: package/contents/ui/PowerManagementItem.qml:286
+#: package/contents/ui/PowerManagementItem.qml:285
 #, fuzzy, kde-format
 #| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
 msgstr "%1 hazırda yuxu rejimini və ekranın kilidlənməsini əngəlləyir (%2)"
 
-#: package/contents/ui/PowerManagementItem.qml:299
-#: package/contents/ui/PowerManagementItem.qml:329
+#: package/contents/ui/PowerManagementItem.qml:298
+#: package/contents/ui/PowerManagementItem.qml:326
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -398,7 +398,7 @@ msgctxt ""
 msgid "Block Again"
 msgstr ""
 
-#: package/contents/ui/PowerManagementItem.qml:344
+#: package/contents/ui/PowerManagementItem.qml:341
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@option:check Manually block sleep and screen locking after inactivity"

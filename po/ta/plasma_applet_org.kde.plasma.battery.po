@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-29 00:41+0000\n"
+"POT-Creation-Date: 2024-09-27 02:38+0000\n"
 "PO-Revision-Date: 2024-09-01 20:08+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -103,7 +103,7 @@ msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "திரை பூட்டல் மற்றும் தானியக்க உறக்கம், மின்கல பிளாஸ்மாய்டால் தடுக்கப்பட்டுள்ளது"
 
 #: package/contents/ui/main.qml:96
-#: package/contents/ui/PowerManagementItem.qml:51
+#: package/contents/ui/PowerManagementItem.qml:52
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
@@ -221,25 +221,25 @@ msgstr "ஆற்றல் நிறைந்திராத பட்சத்�
 msgid "&Configure Power Management…"
 msgstr "&ஆற்றல் மேலாண்மையை அமை…"
 
-#: package/contents/ui/PowerManagementItem.qml:44
+#: package/contents/ui/PowerManagementItem.qml:45
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "ஒன்றும் செய்யாதபோது தூங்குவதும் திரையை பூட்டுவதும்"
 
-#: package/contents/ui/PowerManagementItem.qml:88
+#: package/contents/ui/PowerManagementItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr "தடுக்கப்பட்டுள்ளது"
 
-#: package/contents/ui/PowerManagementItem.qml:88
+#: package/contents/ui/PowerManagementItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr "தானியக்கம்"
 
-#: package/contents/ui/PowerManagementItem.qml:105
+#: package/contents/ui/PowerManagementItem.qml:106
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -249,62 +249,62 @@ msgstr ""
 "மூடியை மூடும்போது, ஒரு வெளி காட்சிக் கருவி இணைக்கப்பட்டிருந்தால், தூங்காதவாறு உங்கள் "
 "கணினி அமைக்கப்பட்டுள்ளது."
 
-#: package/contents/ui/PowerManagementItem.qml:117
+#: package/contents/ui/PowerManagementItem.qml:118
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
 msgstr[0] "%1 செயலி தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது:"
 msgstr[1] "%1 செயலிகள் தூக்கம் மற்றும் திரை பூட்டுதலை தடுக்கின்றன:"
 
-#: package/contents/ui/PowerManagementItem.qml:143
+#: package/contents/ui/PowerManagementItem.qml:144
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%2)"
 
-#: package/contents/ui/PowerManagementItem.qml:145
+#: package/contents/ui/PowerManagementItem.qml:146
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (தெரியாத காரணம்)"
 
-#: package/contents/ui/PowerManagementItem.qml:147
+#: package/contents/ui/PowerManagementItem.qml:148
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr "ஒரு செயலி தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (%1)"
 
-#: package/contents/ui/PowerManagementItem.qml:149
+#: package/contents/ui/PowerManagementItem.qml:150
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
 msgstr "ஒரு செயலி தூக்கம் மற்றும் திரை பூட்டலை தடுக்கிறது (தெரியாத காரணம்)"
 
-#: package/contents/ui/PowerManagementItem.qml:153
-#: package/contents/ui/PowerManagementItem.qml:288
+#: package/contents/ui/PowerManagementItem.qml:154
+#: package/contents/ui/PowerManagementItem.qml:287
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerManagementItem.qml:155
+#: package/contents/ui/PowerManagementItem.qml:156
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1: தெரியாத காரணம்"
 
-#: package/contents/ui/PowerManagementItem.qml:157
+#: package/contents/ui/PowerManagementItem.qml:158
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "தெரியாத செயலி: %1"
 
-#: package/contents/ui/PowerManagementItem.qml:159
+#: package/contents/ui/PowerManagementItem.qml:160
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "தெரியாத செயலி: தெரியாத காரணம்"
 
-#: package/contents/ui/PowerManagementItem.qml:171
-#: package/contents/ui/PowerManagementItem.qml:201
+#: package/contents/ui/PowerManagementItem.qml:172
+#: package/contents/ui/PowerManagementItem.qml:200
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -312,8 +312,8 @@ msgctxt ""
 msgid "Unblock"
 msgstr "தடையை நீக்கு"
 
-#: package/contents/ui/PowerManagementItem.qml:183
-#: package/contents/ui/PowerManagementItem.qml:311
+#: package/contents/ui/PowerManagementItem.qml:182
+#: package/contents/ui/PowerManagementItem.qml:308
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -321,8 +321,8 @@ msgctxt ""
 msgid "Only this time"
 msgstr "இம்முறைமட்டும்"
 
-#: package/contents/ui/PowerManagementItem.qml:188
-#: package/contents/ui/PowerManagementItem.qml:316
+#: package/contents/ui/PowerManagementItem.qml:187
+#: package/contents/ui/PowerManagementItem.qml:313
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -330,32 +330,32 @@ msgctxt ""
 msgid "Every time for this app and reason"
 msgstr "இந்த செயலிக்கும் காரணத்திற்கும் எப்போதும்"
 
-#: package/contents/ui/PowerManagementItem.qml:214
+#: package/contents/ui/PowerManagementItem.qml:213
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
 msgstr "தூக்கத்தையும் திரைபூட்டலையும் தடுத்துள்ளீர்."
 
-#: package/contents/ui/PowerManagementItem.qml:219
+#: package/contents/ui/PowerManagementItem.qml:218
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
 msgstr "தடையை நீக்கு"
 
-#: package/contents/ui/PowerManagementItem.qml:238
-#: package/contents/ui/PowerManagementItem.qml:363
+#: package/contents/ui/PowerManagementItem.qml:237
+#: package/contents/ui/PowerManagementItem.qml:360
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "தானாக தூங்குவதற்கும் திரைபூட்டுவதற்குமான தடையை நீக்க முடியவில்லை"
 
-#: package/contents/ui/PowerManagementItem.qml:241
-#: package/contents/ui/PowerManagementItem.qml:366
+#: package/contents/ui/PowerManagementItem.qml:240
+#: package/contents/ui/PowerManagementItem.qml:363
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "தானாக தூங்குவதையும் திரைபூட்டுவதையும் தடுக்க முடியவில்லை"
 
-#: package/contents/ui/PowerManagementItem.qml:259
+#: package/contents/ui/PowerManagementItem.qml:258
 #, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
@@ -364,14 +364,14 @@ msgid_plural ""
 msgstr[0] "%1 செயலி தூக்கம் மற்றும் திரை பூட்டலை இனிமேல் தடுக்காது:"
 msgstr[1] "%1 செயலிகள் தூக்கம் மற்றும் திரை பூட்டலை இனிமேல் தடுக்காது:"
 
-#: package/contents/ui/PowerManagementItem.qml:286
+#: package/contents/ui/PowerManagementItem.qml:285
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
 msgstr "%1 தூக்கம் மற்றும் திரை பூட்டலை இனிமேல் %2 எனும் காரணத்திற்கு தடுக்காது"
 
-#: package/contents/ui/PowerManagementItem.qml:299
-#: package/contents/ui/PowerManagementItem.qml:329
+#: package/contents/ui/PowerManagementItem.qml:298
+#: package/contents/ui/PowerManagementItem.qml:326
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -379,7 +379,7 @@ msgctxt ""
 msgid "Block Again"
 msgstr "மீண்டும் தடு"
 
-#: package/contents/ui/PowerManagementItem.qml:344
+#: package/contents/ui/PowerManagementItem.qml:341
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"

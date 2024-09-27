@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-08-25 12:07+0200\n"
+"PO-Revision-Date: 2024-09-25 21:11+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -133,13 +133,13 @@ msgstr "Overgang til kveld (ferdig %1)"
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
-msgstr "Overgang til kveld tek til %1"
+msgstr "Overgang til kveld tek til kl. %1"
 
 #: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
-msgstr "Overgang til morgon tek til %1"
+msgstr "Overgang til morgon tek til kl. %1"
 
 #: package/contents/ui/main.qml:153
 #, kde-format
