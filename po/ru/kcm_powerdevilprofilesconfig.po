@@ -7,19 +7,20 @@
 # Nick Shaforostoff <shafff@ukr.net>, 2011.
 # Julia Dronova <juliette.tux@gmail.com>, 2012.
 # Alexander Yavorsky <kekcuha@gmail.com>, 2023, 2024.
+# SPDX-FileCopyrightText: 2024 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-21 12:04+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2024-09-26 16:56+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -434,19 +435,14 @@ msgid "Suspend Session"
 msgstr "Приостановка сеанса"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"Настроенное ранее действие, выполняемое при закрытии крышки, сейчас не "
-"поддерживается вашей системой. Выберете другое действие, которое будет "
-"выполняться при нажатии закрытии крышки."
+"Настроенное ранее действие, выполняемое при неактивности, сейчас не "
+"поддерживается вашей системой. Выберете другое действие."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -454,7 +450,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "При &неактивности:"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -750,39 +746,27 @@ msgid "Switch to power profile"
 msgstr "Профиль энергопотребления"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "Запустить пользовательский сценарий:"
+msgstr "Запустить команду или сценарий:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Настроить условия запуска…"
+msgstr "Настроить условия запуска"
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Настройка условий запуска сценария"
+msgstr "Настройка условий запуска команды или сценария"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -790,11 +774,7 @@ msgid "When entering \"%1\" state"
 msgstr "При переходе в режим «%1»"
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -805,131 +785,109 @@ msgstr "При выходе из режима «%1»"
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "При неактивности"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr "При переходе в режим «%1»:"
+msgstr "При &переходе в режим «%1»:"
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Сценарий при переходе в этот режим «%1»:"
+msgstr "Команда или сценарий при переходе в режим «%1»"
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "При выходе из режима «%1»:"
+msgstr "При &выходе из режима «%1»:"
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Сценарий при выходе из режима «%1»"
+msgstr "Команда или сценарий при выходе из режима «%1»"
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "Период бездействия до запуска сценария"
+msgstr "Продолжительность неактивности до запуска команды или сценария"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "При н&еактивности:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "Запустить пользовательский сценарий:"
+msgstr "Запустить команду или сценарий через:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgid "after %1 sec"
-#| msgid_plural "after %1 sec"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "через %1 секунду"
-msgstr[1] "через %1 секунды"
-msgstr[2] "через %1 секунд"
-msgstr[3] "через %1 секунду"
+msgstr[0] "Запустить через %1 секунду"
+msgstr[1] "Запустить через %1 секунды"
+msgstr[2] "Запустить через %1 секунд"
+msgstr[3] "Запустить через %1 секунду"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "через %1 минуту"
-msgstr[1] "через %1 минуты"
-msgstr[2] "через %1 минут"
-msgstr[3] "через %1 минуту"
+msgstr[0] "Запустить через %1 минуту"
+msgstr[1] "Запустить через %1 минуты"
+msgstr[2] "Запустить через %1 минут"
+msgstr[3] "Запустить через %1 минуту"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "Команда или сценарий при неактивности"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Введите команду или выберите файл…"
+msgstr "Укажите команду или файл сценария"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Введите команду или выберите файл…"
+msgstr "Введите команду или выберите файл сценария"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Выбрать…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Выбрать файл сценария"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Выбор файла сценария"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format

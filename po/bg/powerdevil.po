@@ -362,10 +362,3 @@ msgstr "Зареждането завърши"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батерията сега е напълно заредена."
-
-#~ msgid ""
-#~ "Battery level critical. Your computer will enter hibernation mode in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "Критично ниво на батерията. Компютърът ви ще влезе в режим на хибернация "
-#~ "след 60 секунди."
