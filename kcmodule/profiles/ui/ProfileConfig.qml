@@ -355,16 +355,16 @@ Kirigami.FormLayout {
         id: dimDisplayIdleTimeoutCombo
         visible: kcm.supportedActions["DimDisplay"] === true
         Layout.fillWidth: true
-        Kirigami.FormData.label: i18nc("@label:combobox Dim screen after X minutes", "Di&m automatically:")
+        Kirigami.FormData.label: i18nc("@label:combobox Dim screen after X minutes", "When inactive, di&m:")
 
-        durationPromptLabel: i18nc("@label:spinbox Dim screen after X minutes", "Di&m automatically after:")
+        durationPromptLabel: i18nc("@label:spinbox Dim screen after X minutes", "When inactive, di&m after:")
         durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
 
         function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
             return formatUnit == DurationPromptDialog.Unit.Minutes
-                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "%1 second", "%1 seconds", n);
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "After %1 second", "After %1 seconds", n);
         }
-        function translateMinutes(n) { return i18ncp("@option:combobox", "%1 minute", "%1 minutes", n); }
+        function translateMinutes(n) { return i18ncp("@option:combobox", "After %1 minute", "After %1 minutes", n); }
 
         valueRole: "seconds"
         textRole: "text"
@@ -428,7 +428,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         id: turnOffDisplayRow
-        Kirigami.FormData.label: i18nc("@label:combobox After X minutes", "&Turn off screen:")
+        Kirigami.FormData.label: i18nc("@label:combobox After X minutes", "When inactive, &turn off screen:")
         Kirigami.FormData.buddyFor: turnOffDisplayIdleTimeoutCombo
 
         visible: kcm.supportedActions["DPMSControl"] === true
@@ -440,13 +440,13 @@ Kirigami.FormLayout {
             Layout.fillWidth: true
 
             durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
-            durationPromptLabel: i18nc("@label:spinbox After X minutes", "Turn off screen after:")
+            durationPromptLabel: i18nc("@label:spinbox After X minutes", "When inactive, turn off screen after:")
 
             function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
                 return formatUnit == DurationPromptDialog.Unit.Minutes
-                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%1 second", "%1 seconds", n);
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "After %1 second", "After %1 seconds", n);
             }
-            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%1 minute", "%1 minutes", n); }
+            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "After %1 minute", " After %1 minutes", n); }
 
             valueRole: "seconds"
             textRole: "text"
@@ -503,9 +503,9 @@ Kirigami.FormLayout {
 
             function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
                 return formatUnit == DurationPromptDialog.Unit.Minutes
-                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: %1 second", "When locked: %1 seconds", n);
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: After %1 second", "When locked: After %1 seconds", n);
             }
-            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: %1 minute", "When locked: %1 minutes", n); }
+            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: After %1 minute", "When locked: After %1 minutes", n); }
 
             valueRole: "seconds"
             textRole: "text"
