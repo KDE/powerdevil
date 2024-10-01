@@ -309,7 +309,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change scr&een brightness:")
+        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Set scr&een brightness to:")
 
         visible: kcm.supportedActions["ScreenBrightnessControl"] === true
         Layout.fillWidth: true
@@ -553,7 +553,7 @@ Kirigami.FormLayout {
     }
 
     RowLayout {
-        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change key&board brightness:")
+        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Set key&board brightness to:")
 
         visible: kcm.supportedActions["KeyboardBrightnessControl"] === true
         Layout.fillWidth: true
