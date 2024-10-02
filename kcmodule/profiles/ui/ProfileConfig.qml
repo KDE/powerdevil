@@ -604,8 +604,9 @@ Kirigami.FormLayout {
         visible: kcm.supportedActions["RunScript"] === true || powerProfileCombo.visible
     }
 
-    QQC2.ComboBox {
-        id: powerProfileCombo
+    RowLayout {
+        id: powerProfileRow
+        
         Kirigami.FormData.label: i18nc(
             "@label:combobox Power Save, Balanced or Performance profile - same options as in the Battery applet",
             "Switch to po&wer profile:"
@@ -617,23 +618,53 @@ Kirigami.FormLayout {
 
         visible: kcm.supportedActions["PowerProfile"] === true && count > 1
         Layout.fillWidth: true
-        implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted
+        spacing: Kirigami.Units.smallSpacing
 
-        model: kcm.powerProfileModel
-        textRole: "name"
-        valueRole: "value"
+        QQC2.CheckBox {
+            id: powerProfileCheck
 
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "PowerProfile"
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "UseProfileSpecificDisplayBrightness"
+            }
+            checked: profileSettings.useProfileSpecificDisplayBrightness
+            onToggled: { profileSettings.useProfileSpecificDisplayBrightness = checked; }
         }
-        Component.onCompleted: {
-            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-            // Also observe count - PowerProfileModel has delayed initialization due to a D-Bus call.
-            currentIndex = Qt.binding(() => count ? indexOfValue(profileSettings.powerProfile) : -1);
+
+        PlasmaComponents3.Slider {
+            id: powerProfileSlider
+            enabled: powerProfileCheck.checked
+            Layout.columnSpan: grid.columns - 1
+            Layout.fillWidth: true
+
+            activeFocusOnTab: false
+            from: 0
+            to: 2
+            stepSize: 1
+            value: kcm.powerProfileModel.indexOf(currentValue)
+            snapMode: PlasmaComponents3.Slider.SnapAlways
+
+            Accessible.name: i18nc("accessible:name:slider", "Power Profile")
+            Accessible.description: powerProfileLabel.text
+            Accessible.onPressAction: moved()
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "PowerProfile"
+            }
+            Component.onCompleted: {
+                // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+                // Also observe count - PowerProfileModel has delayed initialization due to a D-Bus call.
+                currentIndex = Qt.binding(() => count ? indexOfValue(profileSettings.powerProfile) : -1);
+            }
+            onActivated: {
+                profileSettings.powerProfile = currentValue;
+            }
         }
-        onActivated: {
-            profileSettings.powerProfile = currentValue;
+
+        QQC2.Label {
+            id: powerProfileLabel
+            text: kcm.powerProfileModel[powerProfileSlider.index]
         }
     }
 

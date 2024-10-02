@@ -44,7 +44,6 @@ PowerProfileModel::PowerProfileModel(QObject *parent)
 
         beginResetModel();
         m_data.clear();
-        m_data.append(PowerProfileModel::Data{.name = i18n("Leave unchanged"), .value = QString()});
 
         for (const QString &choice : reply.value()) {
             m_data.append(PowerProfileModel::Data{
