@@ -26,17 +26,185 @@ Kirigami.FormLayout {
     }
 
     //
-    // Suspend Session
+    // Enter state
 
     Item {
         Kirigami.FormData.isSection: true
-        Kirigami.FormData.label: i18nc("@title:group", "Suspend Session")
+        Kirigami.FormData.label: i18nc("@title:group", "When Entering this State")
+        visible: (kcm.supportsBatteryProfiles && (
+            screenBrightnessRow.visible
+            || keyboardBrightnessRow.visible
+            || powerProfileCombo.visible
+            || profileLoadCommandEdit.visible
+        ))
+    }
+
+    RowLayout {
+        id: screenBrightnessRow
+
+        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Set scr&een brightness:")
+
+        visible: kcm.supportedActions["ScreenBrightnessControl"] === true
+        Layout.fillWidth: true
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.CheckBox {
+            id: displayBrightnessCheck
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "UseProfileSpecificDisplayBrightness"
+            }
+            checked: profileSettings.useProfileSpecificDisplayBrightness
+            onToggled: { profileSettings.useProfileSpecificDisplayBrightness = checked; }
+        }
+        QQC2.Slider {
+            id: displayBrightnessSlider
+            Layout.fillWidth: true
+            from: 1
+            to: 100
+            stepSize: 1
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "DisplayBrightness"
+                extraEnabledConditions: displayBrightnessCheck.checked
+            }
+            value: profileSettings.displayBrightness
+            onMoved: { profileSettings.displayBrightness = value; }
+        }
+        QQC2.Label {
+            enabled: displayBrightnessCheck.checked
+            text: formatPercentageText(displayBrightnessSlider.value)
+            Layout.preferredWidth: displayBrightnessPercentageMetrics.width
+        }
+        TextMetrics {
+            id: displayBrightnessPercentageMetrics
+            text: formatPercentageText(100)
+        }
+    }
+
+    RowLayout {
+        id: keyboardBrightnessRow
+
+        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Set key&board brightness:")
+
+        visible: kcm.supportedActions["KeyboardBrightnessControl"] === true
+        Layout.fillWidth: true
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.CheckBox {
+            id: keyboardBrightnessCheck
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "UseProfileSpecificKeyboardBrightness"
+            }
+            checked: profileSettings.useProfileSpecificKeyboardBrightness
+            onToggled: { profileSettings.useProfileSpecificKeyboardBrightness = checked; }
+        }
+        QQC2.Slider {
+            id: keyboardBrightnessSlider
+            Layout.fillWidth: true
+            from: 0
+            to: 100
+            stepSize: 1
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "KeyboardBrightness"
+                extraEnabledConditions: keyboardBrightnessCheck.checked
+            }
+            value: profileSettings.keyboardBrightness
+            onMoved: { profileSettings.keyboardBrightness = value; }
+        }
+        QQC2.Label {
+            enabled: keyboardBrightnessCheck.checked
+            text: formatPercentageText(keyboardBrightnessSlider.value)
+            Layout.preferredWidth: keyboardBrightnessPercentageMetrics.width
+        }
+        TextMetrics {
+            id: keyboardBrightnessPercentageMetrics
+            text: formatPercentageText(100)
+        }
+    }
+
+    QQC2.ComboBox {
+        id: powerProfileCombo
+        Kirigami.FormData.label: i18nc(
+            "@label:combobox Power Save, Balanced or Performance profile - same options as in the Battery applet",
+            "Set po&wer profile:"
+        )
+        Accessible.name: i18nc(
+            "@accessible:name:combobox Power Save, Balanced or Performance profile - same options as in the Battery applet",
+            "Set power profile"
+        )
+
+        visible: kcm.supportedActions["PowerProfile"] === true
+        Layout.fillWidth: true
+        implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted
+
+        model: kcm.powerProfileModel
+        textRole: "name"
+        valueRole: "value"
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "PowerProfile"
+        }
+        Component.onCompleted: {
+            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
+            // Also observe count - PowerProfileModel has delayed initialization due to a D-Bus call.
+            currentIndex = Qt.binding(() => count ? indexOfValue(profileSettings.powerProfile) : -1);
+        }
+        onActivated: {
+            profileSettings.powerProfile = currentValue;
+        }
+    }
+
+    RunScriptEdit {
+        id: profileLoadCommandEdit
+
+        Kirigami.FormData.label: i18nc(
+            "@label:textfield Command or script to run for power state (On AC Power, On Battery, ...)", 
+            "Run command or script:")
+        Accessible.name: i18nc(
+            "@label:textfield for power state (On AC Power, On Battery, ...)", 
+            "Command or script when entering \"%1\" state", root.profileLabel)
+        visible: kcm.supportedActions["RunScript"] === true && kcm.supportsBatteryProfiles
+        Layout.fillWidth: true
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "ProfileLoadCommand"
+        }
+        command: profileSettings.profileLoadCommand
+        onCommandChanged: {
+            profileSettings.profileLoadCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.profileLoadCommand;
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
+        }
+        Connections {
+            target: profileSettings
+            function onProfileLoadCommandChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
+        }
+    }
+
+    //
+    // Idle
+
+    Item {
+        Kirigami.FormData.isSection: true
+        Kirigami.FormData.label: i18nc("@title:group", "When Inactive")
         visible: (
             autoSuspendActionRow.visible
-            || powerButtonActionCombo.visible
-            || lidActionCombo.visible
-            || triggersLidActionWhenExternalMonitorPresentCheck.visible
-            || sleepModeCombo.visible
+            || dimDisplayIdleTimeoutCombo.visible
+            || turnOffDisplayWhenUnlockedRow.visible
         )
     }
 
@@ -52,7 +220,7 @@ Kirigami.FormLayout {
         id: autoSuspendActionRow
         Kirigami.FormData.label: i18nc(
             "@label:combobox Suspend action such as sleep/hibernate to perform when the system is idle",
-            "When &inactive:"
+            "Suspend &session:"
         )
         visible: kcm.supportedActions["SuspendSession"] === true
         Layout.fillWidth: true
@@ -137,6 +305,369 @@ Kirigami.FormLayout {
                 extraEnabledConditions: autoSuspendActionCombo.currentValue !== PD.PowerDevil.PowerButtonAction.NoAction
             }
         }
+    }
+
+    TimeDurationComboBox {
+        id: dimDisplayIdleTimeoutCombo
+        visible: kcm.supportedActions["DimDisplay"] === true
+        Layout.fillWidth: true
+        Kirigami.FormData.label: i18nc("@label:combobox Dim screen after X minutes", "Di&m screen:")
+
+        durationPromptLabel: i18nc("@label:spinbox Dim screen after X minutes", "Di&m after:")
+        durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+
+        function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+            return formatUnit == DurationPromptDialog.Unit.Minutes
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "After %1 second", "After %1 seconds", n);
+        }
+        function translateMinutes(n) { return i18ncp("@option:combobox", "After %1 minute", "After %1 minutes", n); }
+
+        valueRole: "seconds"
+        textRole: "text"
+        unitOfValueRole: DurationPromptDialog.Unit.Seconds
+        durationPromptFromValue: 10
+        presetOptions: [
+            { seconds: -1, text: i18nc("@option:combobox Dim screen", "Never") },
+            { seconds: 30, text: translateSeconds(30), unit: DurationPromptDialog.Unit.Seconds },
+            { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+            { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+        ]
+        customRequesterValue: -2
+        configuredValue: profileSettings.dimDisplayWhenIdle ? profileSettings.dimDisplayIdleTimeoutSec : -1
+        configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
+
+        onRegularValueActivated: {
+            profileSettings.dimDisplayIdleTimeoutSec = currentValue;
+            profileSettings.dimDisplayWhenIdle = currentValue > 0;
+        }
+        onCustomDurationAccepted: {
+            profileSettings.dimDisplayIdleTimeoutSec = valueToUnit(
+                customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+            profileSettings.dimDisplayWhenIdle = customDuration.value > 0;
+        }
+
+        onConfiguredValueOptionMissing: {
+            const unit = configuredValue % 60 === 0
+                ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                : DurationPromptDialog.Unit.Seconds;
+
+            customOptions = [{
+                seconds: configuredValue,
+                text: translateSeconds(configuredValue, unit),
+                unit: unit,
+            }];
+            customDuration = null;
+        }
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "DimDisplayIdleTimeoutSec"
+        }
+    }
+
+    Kirigami.InlineMessage {
+        Kirigami.FormData.isSection: true
+        visible: (
+            dimDisplayIdleTimeoutCombo.visible
+            && profileSettings.dimDisplayWhenIdle && profileSettings.turnOffDisplayWhenIdle
+            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutSec
+            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
+        )
+        Layout.fillWidth: true
+        type: Kirigami.MessageType.Warning
+        text: i18nc("@info:status", "The screen will not be dimmed because it is configured to turn off sooner.")
+    }
+
+    RowLayout {
+        id: turnOffDisplayWhenUnlockedRow
+        Kirigami.FormData.label: i18nc("@label:combobox After X minutes", "&Turn off screen:")
+        Kirigami.FormData.buddyFor: turnOffDisplayIdleTimeoutCombo
+
+        visible: kcm.supportedActions["DPMSControl"] === true
+        Layout.fillWidth: true
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.Label {
+            text: i18nc("@label When locked, turn off screen after X minutes", "When unlocked:")
+        }
+
+        TimeDurationComboBox {
+            id: turnOffDisplayIdleTimeoutCombo
+
+            Layout.fillWidth: true
+
+            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+            durationPromptLabel: i18nc("@label:spinbox After X minutes", "Turn off screen after:")
+
+            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+                return formatUnit == DurationPromptDialog.Unit.Minutes
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%After 1 second", "%After 1 seconds", n);
+            }
+            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%After 1 minute", "After %1 minutes", n); }
+
+            valueRole: "seconds"
+            textRole: "text"
+            unitOfValueRole: DurationPromptDialog.Unit.Seconds
+            durationPromptFromValue: 30
+            presetOptions: [
+                { seconds: -1, text: i18nc("@option:combobox Turn off screen (caution: watch for string length)", "Never") },
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values (caution: watch for string length)", "Custom…") },
+            ]
+            customRequesterValue: -2
+            configuredValue: profileSettings.turnOffDisplayWhenIdle ? profileSettings.turnOffDisplayIdleTimeoutSec : -1
+            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
+
+            onRegularValueActivated: {
+                profileSettings.turnOffDisplayIdleTimeoutSec = currentValue;
+                profileSettings.turnOffDisplayWhenIdle = currentValue > 0;
+            }
+            onCustomDurationAccepted: {
+                profileSettings.turnOffDisplayIdleTimeoutSec = valueToUnit(
+                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+                profileSettings.turnOffDisplayWhenIdle = customDuration.value > 0;
+            }
+
+            onConfiguredValueOptionMissing: {
+                const unit = configuredValue % 60 === 0
+                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                    : DurationPromptDialog.Unit.Seconds;
+
+                customOptions = [{
+                    seconds: configuredValue,
+                    text: translateSeconds(configuredValue, unit),
+                    unit: unit,
+                }];
+                customDuration = null;
+            }
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "TurnOffDisplayIdleTimeoutSec"
+            }
+        }
+    }
+
+    RowLayout {
+        id: turnOffDisplayWhenLockedRow
+
+        visible: kcm.supportedActions["DPMSControl"] === true
+        Layout.fillWidth: true
+        spacing: Kirigami.Units.smallSpacing
+
+        QQC2.Label {
+            text: i18nc("@label When locked, turn off screen after X minutes", "When locked:")
+        }
+
+        TimeDurationComboBox {
+            id: turnOffDisplayIdleTimeoutWhenLockedCombo
+
+            Layout.fillWidth: true
+
+            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+            durationPromptLabel: i18nc("@label:spinbox After X minutes", "When locked, turn off screen after:")
+
+            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+                return formatUnit == DurationPromptDialog.Unit.Minutes
+                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "After %1 second", "After %1 seconds", n);
+            }
+            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "After %1 minute", "After %1 minutes", n); }
+
+            valueRole: "seconds"
+            textRole: "text"
+            unitOfValueRole: DurationPromptDialog.Unit.Seconds
+            durationPromptFromValue: 10
+            presetOptions: [
+                { seconds: -2, text: i18nc("@option:combobox Turn off screen after X minutes regardless of lock screen (caution: watch for string length)", "When locked and unlocked")  },
+                // -1 would be "Never", same as for the unlocked timeout, if we want that option
+                { seconds: 0, text: i18nc("@option:combobox Turn off screen (caution: watch for string length)", "Immediately") },
+                { seconds: 20, text: translateSeconds(20), unit: DurationPromptDialog.Unit.Seconds },
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -3, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+            ]
+            customRequesterValue: -3
+            configuredValue: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
+            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Seconds
+
+            onRegularValueActivated: { profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = currentValue; }
+            onCustomDurationAccepted: {
+                profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = valueToUnit(
+                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+            }
+
+            onConfiguredValueOptionMissing: {
+                const unit = configuredValue % 60 === 0
+                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                    : DurationPromptDialog.Unit.Seconds;
+
+                customOptions = [{
+                    seconds: configuredValue,
+                    text: translateSeconds(configuredValue, unit),
+                    unit: unit,
+                }];
+                customDuration = null;
+            }
+
+            KCM.SettingStateBinding {
+                configObject: profileSettings
+                settingName: "TurnOffDisplayIdleTimeoutWhenLockedSec"
+                extraEnabledConditions: profileSettings.turnOffDisplayWhenIdle
+            }
+        }
+    }
+
+    RunScriptEdit {
+        id: idleTimeoutCommandEdit
+
+        visible: kcm.supportedActions["RunScript"] === true
+
+        Kirigami.FormData.label: i18nc("@label:button", "Run command or script:")
+        Accessible.name: i18nc("@accessible:name:textfield", "Command or script when inactive")
+
+        Layout.fillWidth: true
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "IdleTimeoutCommand"
+        }
+        command: profileSettings.idleTimeoutCommand
+        onCommandChanged: {
+            profileSettings.idleTimeoutCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.idleTimeoutCommand;
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
+        }
+        Connections {
+            target: profileSettings
+            function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
+        }
+        
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "RunScriptIdleTimeoutSec"
+        }
+    }
+
+    TimeDurationComboBox {
+        id: idleTimeoutCommandTimeDelayCombo
+        Accessible.name: i18nc("@accessible:name:spinbox", "Duration of inactivity before the command or script runs")
+        visible: idleTimeoutCommandEdit.visible
+
+        Layout.fillWidth: true
+        
+        durationPromptLabel: i18nc("@label:spinbox After X minutes", "Run command or script after:")
+        durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
+
+        function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
+            return formatUnit == DurationPromptDialog.Unit.Minutes
+                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "After %1 second", "After %1 seconds", n);
+        }
+        function translateMinutes(n) { return i18ncp("@option:combobox", "After %1 minute", "After %1 minutes", n); }
+
+        valueRole: "seconds"
+        textRole: "text"
+        unitOfValueRole: DurationPromptDialog.Unit.Seconds
+        durationPromptFromValue: 10
+        presetOptions: [
+                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
+                { seconds: -1, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
+        ]
+        customRequesterValue: -1
+        configuredValue: profileSettings.runScriptIdleTimeoutSec
+        configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
+
+        onRegularValueActivated: { profileSettings.runScriptIdleTimeoutSec = currentValue; }
+        onCustomDurationAccepted: {
+            profileSettings.runScriptIdleTimeoutSec = valueToUnit(
+                customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+        }
+
+        onConfiguredValueOptionMissing: {
+            const unit = configuredValue % 60 === 0
+                ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
+                : DurationPromptDialog.Unit.Seconds;
+
+            customOptions = [{
+                seconds: configuredValue,
+                text: translateSeconds(configuredValue, unit),
+                unit: unit,
+            }];
+            customDuration = null;
+        }
+    }
+
+    //
+    // Exit state
+
+    Item {
+        Kirigami.FormData.isSection: true
+        Kirigami.FormData.label: i18nc("@title:group", "When Leaving this State")
+        visible: profileLoadCommandEdit.visible
+    }
+
+    RunScriptEdit {
+        id: profileUnloadCommandEdit
+        Kirigami.FormData.label: i18nc(
+            "@label:textfield Command or script to run for power state (On AC Power, On Battery, ...)",
+            "Run command or script:")
+        Accessible.name: i18nc(
+            "@label:textfield for power state (On AC Power, On Battery, ...)",
+            "Command or script when exiting \"%1\" state", root.profileLabel
+        )
+        visible: kcm.supportedActions["RunScript"] === true && kcm.supportsBatteryProfiles
+        Layout.fillWidth: true
+
+        KCM.SettingStateBinding {
+            configObject: profileSettings
+            settingName: "ProfileUnloadCommand"
+        }
+        command: profileSettings.profileUnloadCommand
+        onCommandChanged: {
+            profileSettings.profileUnloadCommand = command;
+        }
+        function resetToProfileSettings() {
+            command = profileSettings.profileUnloadCommand;
+        }
+        Connections {
+            target: root
+            function onProfileSettingsChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
+        }
+        Connections {
+            target: profileSettings
+            function onProfileUnloadCommandChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
+        }
+    }
+
+    // General Behaviors
+
+    Item {
+        Kirigami.FormData.isSection: true
+        Kirigami.FormData.label: i18nc("@title:group", "General Behaviors")
+        visible: (
+            powerButtonActionCombo.visible
+            || lidActionCombo.visible
+            || sleepModeCombo.visible
+        )
     }
 
     Kirigami.InlineMessage {
@@ -291,600 +822,6 @@ Kirigami.FormLayout {
         }
         onActivated: {
             profileSettings.sleepMode = currentValue;
-        }
-    }
-
-    //
-    // Display and Brightness
-
-    Item {
-        Kirigami.FormData.isSection: true
-        Kirigami.FormData.label: i18nc("@title:group", "Display and Brightness")
-        visible: (
-            kcm.supportedActions["DimDisplay"] === true
-            || kcm.supportedActions["DPMSControl"] === true
-            || kcm.supportedActions["KeyboardBrightnessControl"] === true
-            || kcm.supportedActions["ScreenBrightnessControl"] === true
-        )
-    }
-
-    RowLayout {
-        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change scr&een brightness:")
-
-        visible: kcm.supportedActions["ScreenBrightnessControl"] === true
-        Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
-
-        QQC2.CheckBox {
-            id: displayBrightnessCheck
-
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "UseProfileSpecificDisplayBrightness"
-            }
-            checked: profileSettings.useProfileSpecificDisplayBrightness
-            onToggled: { profileSettings.useProfileSpecificDisplayBrightness = checked; }
-        }
-        QQC2.Slider {
-            id: displayBrightnessSlider
-            Layout.fillWidth: true
-            from: 1
-            to: 100
-            stepSize: 1
-
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "DisplayBrightness"
-                extraEnabledConditions: displayBrightnessCheck.checked
-            }
-            value: profileSettings.displayBrightness
-            onMoved: { profileSettings.displayBrightness = value; }
-        }
-        QQC2.Label {
-            enabled: displayBrightnessCheck.checked
-            text: formatPercentageText(displayBrightnessSlider.value)
-            Layout.preferredWidth: displayBrightnessPercentageMetrics.width
-        }
-        TextMetrics {
-            id: displayBrightnessPercentageMetrics
-            text: formatPercentageText(100)
-        }
-    }
-
-    TimeDurationComboBox {
-        id: dimDisplayIdleTimeoutCombo
-        visible: kcm.supportedActions["DimDisplay"] === true
-        Layout.fillWidth: true
-        Kirigami.FormData.label: i18nc("@label:combobox Dim screen after X minutes", "Di&m automatically:")
-
-        durationPromptLabel: i18nc("@label:spinbox Dim screen after X minutes", "Di&m automatically after:")
-        durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
-
-        function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
-            return formatUnit == DurationPromptDialog.Unit.Minutes
-                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "%1 second", "%1 seconds", n);
-        }
-        function translateMinutes(n) { return i18ncp("@option:combobox", "%1 minute", "%1 minutes", n); }
-
-        valueRole: "seconds"
-        textRole: "text"
-        unitOfValueRole: DurationPromptDialog.Unit.Seconds
-        durationPromptFromValue: 10
-        presetOptions: [
-            { seconds: -1, text: i18nc("@option:combobox Dim screen automatically", "Never") },
-            { seconds: 30, text: translateSeconds(30), unit: DurationPromptDialog.Unit.Seconds },
-            { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
-            { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
-            { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
-            { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
-            { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
-            { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
-        ]
-        customRequesterValue: -2
-        configuredValue: profileSettings.dimDisplayWhenIdle ? profileSettings.dimDisplayIdleTimeoutSec : -1
-        configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
-
-        onRegularValueActivated: {
-            profileSettings.dimDisplayIdleTimeoutSec = currentValue;
-            profileSettings.dimDisplayWhenIdle = currentValue > 0;
-        }
-        onCustomDurationAccepted: {
-            profileSettings.dimDisplayIdleTimeoutSec = valueToUnit(
-                customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-            profileSettings.dimDisplayWhenIdle = customDuration.value > 0;
-        }
-
-        onConfiguredValueOptionMissing: {
-            const unit = configuredValue % 60 === 0
-                ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
-                : DurationPromptDialog.Unit.Seconds;
-
-            customOptions = [{
-                seconds: configuredValue,
-                text: translateSeconds(configuredValue, unit),
-                unit: unit,
-            }];
-            customDuration = null;
-        }
-
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "DimDisplayIdleTimeoutSec"
-        }
-    }
-
-    Kirigami.InlineMessage {
-        Kirigami.FormData.isSection: true
-        visible: (
-            dimDisplayIdleTimeoutCombo.visible
-            && profileSettings.dimDisplayWhenIdle && profileSettings.turnOffDisplayWhenIdle
-            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutSec
-            && profileSettings.dimDisplayIdleTimeoutSec >= profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
-        )
-        Layout.fillWidth: true
-        type: Kirigami.MessageType.Warning
-        text: i18nc("@info:status", "The screen will not be dimmed because it is configured to turn off sooner.")
-    }
-
-    RowLayout {
-        id: turnOffDisplayRow
-        Kirigami.FormData.label: i18nc("@label:combobox After X minutes", "&Turn off screen:")
-        Kirigami.FormData.buddyFor: turnOffDisplayIdleTimeoutCombo
-
-        visible: kcm.supportedActions["DPMSControl"] === true
-        Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
-
-        TimeDurationComboBox {
-            id: turnOffDisplayIdleTimeoutCombo
-            Layout.fillWidth: true
-
-            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
-            durationPromptLabel: i18nc("@label:spinbox After X minutes", "Turn off screen after:")
-
-            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
-                return formatUnit == DurationPromptDialog.Unit.Minutes
-                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%1 second", "%1 seconds", n);
-            }
-            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "%1 minute", "%1 minutes", n); }
-
-            valueRole: "seconds"
-            textRole: "text"
-            unitOfValueRole: DurationPromptDialog.Unit.Seconds
-            durationPromptFromValue: 30
-            presetOptions: [
-                { seconds: -1, text: i18nc("@option:combobox Turn off screen (caution: watch for string length)", "Never") },
-                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: -2, text: i18nc("@option:combobox Choose a custom value outside the list of preset values (caution: watch for string length)", "Custom…") },
-            ]
-            customRequesterValue: -2
-            configuredValue: profileSettings.turnOffDisplayWhenIdle ? profileSettings.turnOffDisplayIdleTimeoutSec : -1
-            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
-
-            onRegularValueActivated: {
-                profileSettings.turnOffDisplayIdleTimeoutSec = currentValue;
-                profileSettings.turnOffDisplayWhenIdle = currentValue > 0;
-            }
-            onCustomDurationAccepted: {
-                profileSettings.turnOffDisplayIdleTimeoutSec = valueToUnit(
-                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-                profileSettings.turnOffDisplayWhenIdle = customDuration.value > 0;
-            }
-
-            onConfiguredValueOptionMissing: {
-                const unit = configuredValue % 60 === 0
-                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
-                    : DurationPromptDialog.Unit.Seconds;
-
-                customOptions = [{
-                    seconds: configuredValue,
-                    text: translateSeconds(configuredValue, unit),
-                    unit: unit,
-                }];
-                customDuration = null;
-            }
-
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "TurnOffDisplayIdleTimeoutSec"
-            }
-        }
-
-        TimeDurationComboBox {
-            id: turnOffDisplayIdleTimeoutWhenLockedCombo
-
-            durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
-            durationPromptLabel: i18nc("@label:spinbox After X minutes", "When locked, turn off screen after:")
-
-            function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
-                return formatUnit == DurationPromptDialog.Unit.Minutes
-                    ? translateMinutes(n / 60) : i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: %1 second", "When locked: %1 seconds", n);
-            }
-            function translateMinutes(n) { return i18ncp("@option:combobox Turn off screen (caution: watch for string length)", "When locked: %1 minute", "When locked: %1 minutes", n); }
-
-            valueRole: "seconds"
-            textRole: "text"
-            unitOfValueRole: DurationPromptDialog.Unit.Seconds
-            durationPromptFromValue: 10
-            presetOptions: [
-                { seconds: -2, text: i18nc("@option:combobox Turn off screen after X minutes regardless of lock screen (caution: watch for string length)", "When locked and unlocked")  },
-                // -1 would be "Never", same as for the unlocked timeout, if we want that option
-                { seconds: 0, text: i18nc("@option:combobox Turn off screen (caution: watch for string length)", "When locked: Immediately") },
-                { seconds: 20, text: translateSeconds(20), unit: DurationPromptDialog.Unit.Seconds },
-                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: -3, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
-            ]
-            customRequesterValue: -3
-            configuredValue: profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec
-            configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Seconds
-
-            onRegularValueActivated: { profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = currentValue; }
-            onCustomDurationAccepted: {
-                profileSettings.turnOffDisplayIdleTimeoutWhenLockedSec = valueToUnit(
-                    customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-            }
-
-            onConfiguredValueOptionMissing: {
-                const unit = configuredValue % 60 === 0
-                    ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
-                    : DurationPromptDialog.Unit.Seconds;
-
-                customOptions = [{
-                    seconds: configuredValue,
-                    text: translateSeconds(configuredValue, unit),
-                    unit: unit,
-                }];
-                customDuration = null;
-            }
-
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "TurnOffDisplayIdleTimeoutWhenLockedSec"
-                extraEnabledConditions: profileSettings.turnOffDisplayWhenIdle
-            }
-        }
-    }
-
-    RowLayout {
-        Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change key&board brightness:")
-
-        visible: kcm.supportedActions["KeyboardBrightnessControl"] === true
-        Layout.fillWidth: true
-        spacing: Kirigami.Units.smallSpacing
-
-        QQC2.CheckBox {
-            id: keyboardBrightnessCheck
-
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "UseProfileSpecificKeyboardBrightness"
-            }
-            checked: profileSettings.useProfileSpecificKeyboardBrightness
-            onToggled: { profileSettings.useProfileSpecificKeyboardBrightness = checked; }
-        }
-        QQC2.Slider {
-            id: keyboardBrightnessSlider
-            Layout.fillWidth: true
-            from: 0
-            to: 100
-            stepSize: 1
-
-            KCM.SettingStateBinding {
-                configObject: profileSettings
-                settingName: "KeyboardBrightness"
-                extraEnabledConditions: keyboardBrightnessCheck.checked
-            }
-            value: profileSettings.keyboardBrightness
-            onMoved: { profileSettings.keyboardBrightness = value; }
-        }
-        QQC2.Label {
-            enabled: keyboardBrightnessCheck.checked
-            text: formatPercentageText(keyboardBrightnessSlider.value)
-            Layout.preferredWidth: keyboardBrightnessPercentageMetrics.width
-        }
-        TextMetrics {
-            id: keyboardBrightnessPercentageMetrics
-            text: formatPercentageText(100)
-        }
-    }
-
-    //
-    // Advanced customization options
-
-    Item {
-        Kirigami.FormData.isSection: true
-        Kirigami.FormData.label: i18nc("@title:group", "Other Settings")
-        visible: kcm.supportedActions["RunScript"] === true || powerProfileCombo.visible
-    }
-
-    QQC2.ComboBox {
-        id: powerProfileCombo
-        Kirigami.FormData.label: i18nc(
-            "@label:combobox Power Save, Balanced or Performance profile - same options as in the Battery applet",
-            "Switch to po&wer profile:"
-        )
-        Accessible.name: i18nc(
-            "@accessible:name:combobox Power Save, Balanced or Performance profile - same options as in the Battery applet",
-            "Switch to power profile"
-        )
-
-        visible: kcm.supportedActions["PowerProfile"] === true && count > 1
-        Layout.fillWidth: true
-        implicitContentWidthPolicy: QQC2.ComboBox.WidestTextWhenCompleted
-
-        model: kcm.powerProfileModel
-        textRole: "name"
-        valueRole: "value"
-
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "PowerProfile"
-        }
-        Component.onCompleted: {
-            // indexOfValue() is invalid before onCompleted, so wait until here to bind currentIndex.
-            // Also observe count - PowerProfileModel has delayed initialization due to a D-Bus call.
-            currentIndex = Qt.binding(() => count ? indexOfValue(profileSettings.powerProfile) : -1);
-        }
-        onActivated: {
-            profileSettings.powerProfile = currentValue;
-        }
-    }
-
-    QQC2.Button {
-        id: addScriptCommandButton
-        Kirigami.FormData.label: i18nc("@label:button", "Run command or script:")
-
-        visible: (kcm.supportedActions["RunScript"] === true
-            // If power states aren't switchable, only show the idleTimeoutCommand field
-            // because profile load and unload fields are not useful, just confusing.
-            && kcm.supportsBatteryProfiles
-        )
-        icon.name: "settings-configure"
-        text: i18nc(
-            "@text:button Determine what will trigger a command or script to run in this power state",
-            "Choose run conditions"
-        )
-        Accessible.name: i18nc("@accessible:name:button", "Choose run conditions for command or script")
-        Accessible.role: Accessible.ButtonMenu
-
-        onClicked: {
-            if (addScriptCommandMenu.opened) {
-                addScriptCommandMenu.close(); // closePolicy: Popup.CloseOnPressOutside does not seem to work?
-            } else {
-                addScriptCommandMenu.open();
-            }
-        }
-
-        QQC2.Menu {
-            id: addScriptCommandMenu
-            title: addScriptCommandButton.text
-            y: addScriptCommandButton.height
-
-            Kirigami.Action {
-                id: profileLoadCommandEditAction
-                text: i18nc(
-                    "@text:action:menu Command or script to run for power state (On AC Power, On Battery, ...)",
-                    "When entering \"%1\" state", root.profileLabel
-                )
-                checkable: true
-                Component.onCompleted: {
-                    profileLoadCommandEditAction.checked = profileSettings.profileLoadCommand !== "";
-                }
-                onToggled: {
-                    if (checked) {
-                        profileLoadCommandEdit.forceActiveFocus();
-                    } else {
-                        profileSettings.profileLoadCommand = "";
-                    }
-                }
-            }
-            Kirigami.Action {
-                id: profileUnloadCommandEditAction
-                text: i18nc(
-                    "@text:action:menu Command or script to run for power state (On AC Power, On Battery, ...)",
-                    "When exiting \"%1\" state", root.profileLabel
-                )
-                checkable: true
-                Component.onCompleted: {
-                    profileUnloadCommandEditAction.checked = profileSettings.profileUnloadCommand !== "";
-                }
-                onToggled: {
-                    if (checked) {
-                        profileUnloadCommandEdit.forceActiveFocus();
-                    } else {
-                        profileSettings.profileUnloadCommand = "";
-                    }
-                }
-            }
-            Kirigami.Action {
-                id: idleTimeoutCommandEditAction
-                text: i18nc(
-                    "@text:action:menu Command or script to run",
-                    "When inactive"
-                )
-                checkable: true
-                Component.onCompleted: {
-                    idleTimeoutCommandEditAction.checked = (profileSettings.idleTimeoutCommand !== ""
-                        // Always show field, regardless of addScriptCommandButton.visible.
-                        || (kcm.supportedActions["RunScript"] === true && !kcm.supportsBatteryProfiles));
-                }
-                onToggled: {
-                    if (checked) {
-                        idleTimeoutCommandEdit.forceActiveFocus();
-                    } else {
-                        profileSettings.idleTimeoutCommand = "";
-                    }
-                }
-            }
-        }
-    }
-
-    RunScriptEdit {
-        id: profileLoadCommandEdit
-        Kirigami.FormData.label: i18nc(
-            "@label:textfield Command or script to run for power state (On AC Power, On Battery, ...)",
-            "When e&ntering \"%1\" state:", root.profileLabel
-        )
-        Accessible.name: i18nc(
-            "@label:textfield for power state (On AC Power, On Battery, ...)",
-            "Command or script when entering \"%1\" state", root.profileLabel
-        )
-        visible: profileLoadCommandEditAction.checked
-        Layout.fillWidth: true
-
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "ProfileLoadCommand"
-        }
-        command: profileSettings.profileLoadCommand
-        onCommandChanged: {
-            profileSettings.profileLoadCommand = command;
-        }
-        function resetToProfileSettings() {
-            command = profileSettings.profileLoadCommand;
-            profileLoadCommandEditAction.checked |= profileSettings.profileLoadCommand !== "";
-        }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onProfileLoadCommandChanged() { profileLoadCommandEdit.resetToProfileSettings(); }
-        }
-    }
-
-    RunScriptEdit {
-        id: profileUnloadCommandEdit
-        Kirigami.FormData.label: i18nc(
-            "@label:textfield Command or script to run for power state (On AC Power, On Battery, ...)",
-            "When e&xiting \"%1\" state:", root.profileLabel
-        )
-        Accessible.name: i18nc(
-            "@label:textfield for power state (On AC Power, On Battery, ...)",
-            "Command or script when exiting \"%1\" state", root.profileLabel
-        )
-        visible: profileUnloadCommandEditAction.checked
-        Layout.fillWidth: true
-
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "ProfileUnloadCommand"
-        }
-        command: profileSettings.profileUnloadCommand
-        onCommandChanged: {
-            profileSettings.profileUnloadCommand = command;
-        }
-        function resetToProfileSettings() {
-            command = profileSettings.profileUnloadCommand;
-            profileUnloadCommandEditAction.checked |= profileSettings.profileUnloadCommand !== "";
-        }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onProfileUnloadCommandChanged() { profileUnloadCommandEdit.resetToProfileSettings(); }
-        }
-    }
-
-    TimeDurationComboBox {
-        id: idleTimeoutCommandTimeDelayCombo
-        Accessible.name: i18nc("@accessible:name:spinbox", "Duration of inactivity before the command or script runs")
-        Layout.fillWidth: true
-        visible: idleTimeoutCommandEdit.visible
-
-        Kirigami.FormData.label: i18nc(
-            "@label:textfield Command or script to run",
-            "When i&nactive:"
-        )
-        
-        durationPromptLabel: i18nc("@label:spinbox After X minutes", "Run command or script after:")
-        durationPromptAcceptsUnits: [DurationPromptDialog.Unit.Seconds, DurationPromptDialog.Unit.Minutes]
-
-        function translateSeconds(n, formatUnit = DurationPromptDialog.Unit.Seconds) {
-            return formatUnit == DurationPromptDialog.Unit.Minutes
-                ? translateMinutes(n / 60) : i18ncp("@option:combobox", "Run after %1 second", "Run after %1 seconds", n);
-        }
-        function translateMinutes(n) { return i18ncp("@option:combobox", "Run after %1 minute", "Run after %1 minutes", n); }
-
-        valueRole: "seconds"
-        textRole: "text"
-        unitOfValueRole: DurationPromptDialog.Unit.Seconds
-        durationPromptFromValue: 10
-        presetOptions: [
-                { seconds: 1 * 60, text: translateMinutes(1), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 2 * 60, text: translateMinutes(2), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 5 * 60, text: translateMinutes(5), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 10 * 60, text: translateMinutes(10), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 15 * 60, text: translateMinutes(15), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: 30 * 60, text: translateMinutes(30), unit: DurationPromptDialog.Unit.Minutes },
-                { seconds: -1, text: i18nc("@option:combobox Choose a custom value outside the list of preset values", "Custom…") },
-        ]
-        customRequesterValue: -1
-        configuredValue: profileSettings.runScriptIdleTimeoutSec
-        configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
-
-        onRegularValueActivated: { profileSettings.runScriptIdleTimeoutSec = currentValue; }
-        onCustomDurationAccepted: {
-            profileSettings.runScriptIdleTimeoutSec = valueToUnit(
-                customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-        }
-
-        onConfiguredValueOptionMissing: {
-            const unit = configuredValue % 60 === 0
-                ? customDuration?.unit ?? DurationPromptDialog.Unit.Minutes
-                : DurationPromptDialog.Unit.Seconds;
-
-            customOptions = [{
-                seconds: configuredValue,
-                text: translateSeconds(configuredValue, unit),
-                unit: unit,
-            }];
-            customDuration = null;
-        }
-    }
-
-    RunScriptEdit {
-        id: idleTimeoutCommandEdit
-        
-        Accessible.name: i18nc("@accessible:name:textfield", "Command or script when inactive")
-
-        visible: idleTimeoutCommandEditAction.checked
-        Layout.fillWidth: true
-
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "IdleTimeoutCommand"
-        }
-        command: profileSettings.idleTimeoutCommand
-        onCommandChanged: {
-            profileSettings.idleTimeoutCommand = command;
-        }
-        function resetToProfileSettings() {
-            command = profileSettings.idleTimeoutCommand;
-            idleTimeoutCommandEditAction.checked |= profileSettings.idleTimeoutCommand !== "";
-        }
-        Connections {
-            target: root
-            function onProfileSettingsChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
-        }
-        Connections {
-            target: profileSettings
-            function onIdleTimeoutCommandChanged() { idleTimeoutCommandEdit.resetToProfileSettings(); }
-        }
-        
-        KCM.SettingStateBinding {
-            configObject: profileSettings
-            settingName: "RunScriptIdleTimeoutSec"
         }
     }
 }
