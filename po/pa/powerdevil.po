@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-12 00:41+0000\n"
-"PO-Revision-Date: 2024-07-21 21:49-0500\n"
-"Last-Translator: aalam <aalam@punlinux.org>\n"
-"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2024-10-01 21:12-0500\n"
+"Last-Translator: A S Alam <aman@punlinux.org>\n"
+"Language-Team: pa\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -197,10 +197,9 @@ msgid "Extra Battery Added"
 msgstr "ਵਾਧੂ ਬੈਟਰੀ ਜੋੜੀ ਗਈ"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "ਕੰਪਿਊਟਰ ਹੁਣ ਸਲੀਪ ਨਹੀਂ ਹੋਵੇਗਾ।"
+msgstr "ਸਿਸਟਮ ਹੁਣ ਸਲੀਪ ਨਹੀਂ ਹੋਵੇਗਾ।"
 
 #: powerdevilcore.cpp:523
 #, kde-format
@@ -250,25 +249,21 @@ msgstr ""
 "ਮੁੜ-ਚਾਰਜ ਕਰੋ ਜਾਂ ਬਦਲੋ।"
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr "ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਪਾਵਰ ਪਲੱਗ ਲੱਗਾ ਹੈ ਅਤੇ ਇਸ ਲੋੜੀਂਦੀ ਪਾਵਰ ਦੇ ਰਿਹਾ ਹੈ।"
+msgstr "ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਲੱਗਾ ਹੈ ਅਤੇ ਇਸ ਲੋੜੀਂਦੀ ਪਾਵਰ ਦੇ ਰਿਹਾ ਹੈ।"
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "ਕੰਪਿਊਟਰ ਦਾ ਪਲੱਗ ਲਾਓ।"
+msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਲਾਓ।"
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "The computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "ਕੰਪਿਊਟਰ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਬੰਦ ਕੀਤਾ ਜਾਵੇਗਾ। "
+msgstr "ਸਿਸਟਮ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਬੰਦ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -278,10 +273,9 @@ msgid "Shut Down Now"
 msgstr "ਹੁਣੇ ਬੰਦ ਕਰੋ"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid "The computer will hibernate in 60 seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "ਕੰਪਿਊਟਰ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਹਾਈਬਰਨੇਟ ਕੀਤਾ ਜਾਵੇਗਾ।"
+msgstr "ਸਿਸਟਮ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਹਾਈਬਰਨੇਟ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -292,10 +286,9 @@ msgid "Hibernate Now"
 msgstr "ਹੁਣੇ ਹਾਈਬਰਨੇਟ"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid "The computer will sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "ਕੰਪਿਊਟਰ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਸਲੀਪ ਕੀਤਾ ਜਾਵੇਗਾ।"
+msgstr "ਸਿਸਟਮ ਨੂੰ 60 ਸਕਿੰਟਾਂ ਵਿੱਚ ਸਲੀਪ ਕੀਤਾ ਜਾਵੇਗਾ।"
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -328,10 +321,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "ਬੈਟਰੀ ਨਾਜ਼ੁਕ (%1% ਬਾਕੀ)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "AC ਐਡਪਟਰ ਦਾ ਪਲੱਗ ਲੱਗਾ"
+msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਲੱਗਾ"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -344,10 +336,9 @@ msgid "Running on AC power"
 msgstr "AC ਪਾਵਰ ਉੱਤੇ ਚੱਲ ਰਿਹਾ ਹੈ"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "ਪਾਵਰ ਐਡਪਟਰ ਦਾ ਪਲੱਗ ਲੱਗਾ ਹੈ।"
+msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਲਾਇਆ ਗਿਆ ਹੈ।"
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -355,10 +346,9 @@ msgid "Running on Battery Power"
 msgstr "ਬੈਟਰੀ ਪਾਵਰ ਉੱਤੇ ਹੈ"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "ਪਾਵਰ ਐਡਪਟਰ ਦਾ ਪਲੱਗ ਕੱਢਿਆ ਹੋਇਆ ਹੈ।"
+msgstr "ਬਿਜਲੀ ਦੀ ਤਾਰ ਲਈ ਪਲੱਗ ਕੱਢਿਆ ਹੋਇਆ ਹੈ।"
 
 #: powerdevilcore.cpp:745
 #, kde-format
