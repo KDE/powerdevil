@@ -72,8 +72,7 @@ private Q_SLOTS:
 
 private:
     QCoro::Task<void> init();
-    QCoro::Task<bool> checkDisplayNames();
-    QCoro::Task<void> updateDisplayNames(const QStringList &displayNames);
+    QCoro::Task<bool> queryAndUpdateDisplays();
     QCoro::Task<void> queryAndInsertDisplay(const QString &displayNames, const QModelIndex &index);
 
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(ScreenBrightnessControl, bool, m_isBrightnessAvailable, false, &ScreenBrightnessControl::isBrightnessAvailableChanged);
@@ -82,4 +81,6 @@ private:
     std::unique_ptr<QDBusPendingCallWatcher> m_brightnessChangeWatcher;
 
     bool m_isSilent = false;
+    bool m_displaysUpdating = false;
+    bool m_shouldRecheckDisplays = false;
 };
