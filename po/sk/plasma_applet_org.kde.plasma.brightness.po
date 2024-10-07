@@ -1,24 +1,23 @@
 # translation of plasma_applet_org.kde.plasma.brightness.po to Slovak
 # SPDX-FileCopyrightText: 2023 Roman Paholík <wizzardsk@gmail.com>
+# SPDX-FileCopyrightText: 2024 Matej Mrenica <matejm98mthw@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2023-12-09 09:39+0100\n"
-"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
-"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"PO-Revision-Date: 2024-10-06 12:27+0200\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Off"
+#, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Vypnuté"
@@ -27,24 +26,22 @@ msgstr "Vypnuté"
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
-msgstr ""
+msgstr "Nízky"
 
 #: package/contents/ui/BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
-msgstr ""
+msgstr "Stredný"
 
 #: package/contents/ui/BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
-msgstr ""
+msgstr "Vysoký"
 
 #: package/contents/ui/BrightnessItem.qml:34
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "On"
+#, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "Zapnuté"
@@ -56,18 +53,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Jas obrazovky"
+msgstr "Jas"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Jas obrazovky"
+msgstr "Jas obrazovky - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -77,23 +72,23 @@ msgstr ""
 #: package/contents/ui/main.qml:61
 #, kde-format
 msgid "Brightness and Color"
-msgstr ""
+msgstr "Jas a farba"
 
 #: package/contents/ui/main.qml:101
 #, kde-format
 msgid "Screen brightness at %1%"
-msgstr ""
+msgstr "Jas obrazovky na úrovni %1%"
 
 #: package/contents/ui/main.qml:102
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr ""
+msgstr "Jas %1 na úrovni %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Keyboard brightness at %1%"
-msgstr ""
+msgstr "Jas klávesnice na úrovni %1%"
 
 #: package/contents/ui/main.qml:113
 #, kde-format
@@ -154,17 +149,16 @@ msgid "Middle-click to suspend Night Light"
 msgstr ""
 
 #: package/contents/ui/main.qml:236
-#, fuzzy, kde-format
-#| msgid "Configure…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
-msgstr "Nastaviť..."
+msgstr "Konfigurácia nočného svetla..."
 
 #: package/contents/ui/NightLightItem.qml:75
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
-msgstr ""
+msgstr "Pozastavené"
 
 #: package/contents/ui/NightLightItem.qml:78
 #, kde-format
@@ -176,7 +170,7 @@ msgstr "Nedostupné"
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
-msgstr ""
+msgstr "Vypnuté"
 
 #: package/contents/ui/NightLightItem.qml:84
 #, kde-format
@@ -194,7 +188,7 @@ msgstr "Zapnuté"
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
-msgstr ""
+msgstr "Ranný prechod"
 
 #: package/contents/ui/NightLightItem.qml:92
 #, kde-format
@@ -206,7 +200,7 @@ msgstr "Deň"
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
-msgstr ""
+msgstr "Večerný prechod"
 
 #: package/contents/ui/NightLightItem.qml:96
 #, kde-format
@@ -224,7 +218,7 @@ msgstr "%1K"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
-msgstr ""
+msgstr "Uspať"
 
 #: package/contents/ui/NightLightItem.qml:146
 #, kde-format
@@ -234,7 +228,7 @@ msgstr "Nastaviť..."
 #: package/contents/ui/NightLightItem.qml:146
 #, kde-format
 msgid "Enable and Configure…"
-msgstr ""
+msgstr "Povoliť a nastaviť..."
 
 #: package/contents/ui/NightLightItem.qml:172
 #, kde-format
@@ -261,16 +255,14 @@ msgid "Transition to day scheduled for:"
 msgstr ""
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
 msgstr "Jas klávesnice"
 
 #: package/contents/ui/PopupDialog.qml:154
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Color"
-msgstr "Jas klávesnice"
+msgstr "Farba klávesnice"
 
 #: package/contents/ui/PopupDialog.qml:165
 #, kde-format

@@ -1,21 +1,21 @@
 # translation of powerdevil.po to Slovak
 # Roman Paholík <wizzardsk@gmail.com>, 2014, 2015, 2016, 2017.
 # Mthw <jari_45@hotmail.com>, 2019.
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023 Matej Mrenica <matejm98mthw@gmail.com>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2023, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-12 00:41+0000\n"
-"PO-Revision-Date: 2023-11-11 13:04+0100\n"
+"PO-Revision-Date: 2024-10-06 12:25+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.08.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -119,12 +119,10 @@ msgstr "Znížiť jas obrazovky o 1%"
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "Zabudovaná obrazovka"
 
 #: controllers/kwinbrightness.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "%1 is vendor name, %2 is product name"
-#| msgid "%1 %2"
+#, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
@@ -197,8 +195,7 @@ msgid "Extra Battery Added"
 msgstr "Pridaná dodatočná batéria"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Tento počítač sa viac neuspí."
 
@@ -250,9 +247,7 @@ msgstr ""
 "chvíľu vypnúť. Prosím, vymeňte alebo opätovne nabite batériu."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
@@ -261,16 +256,14 @@ msgstr ""
 "energie."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
 msgstr "Zapojte počítač do siete."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Úroveň batérie je kritická, počítač bude vypnutý za 60 sekúnd."
+msgstr "Počítač bude vypnutý za 60 sekúnd."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -280,12 +273,9 @@ msgid "Shut Down Now"
 msgstr "Vypnúť teraz"
 
 #: powerdevilcore.cpp:616
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will enter hibernation mode in 60 "
-#| "seconds."
+#, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Úroveň batérie je kritická, počítač bude hibernovaný za 60 sekúnd."
+msgstr "Počítač bude hibernovaný za 60 sekúnd."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -296,11 +286,9 @@ msgid "Hibernate Now"
 msgstr "Hibernovať teraz"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Úroveň batérie je kritická, počítač bude uspatý za 60 sekúnd."
+msgstr "Počítač bude uspatý za 60 sekúnd."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -333,8 +321,7 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Kritická úroveň batérie (%1% zostáva)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Napájací adaptér zapojený"
 
@@ -349,8 +336,7 @@ msgid "Running on AC power"
 msgstr "Spustené s napájaním zo siete"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Napájanie zo siete bolo pripojené."
 
@@ -360,8 +346,7 @@ msgid "Running on Battery Power"
 msgstr "Spustené s napájaním z batérie"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Napájanie zo siete bolo odpojené."
 
