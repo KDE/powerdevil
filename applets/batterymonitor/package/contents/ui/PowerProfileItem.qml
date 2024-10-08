@@ -297,9 +297,11 @@ PlasmaComponents3.ItemDelegate {
         }
 
         PlasmaComponents3.Label {
-            visible: !root.profilesInstalled
+            visible: !root.profilesAvailable
             text: root.isTlpInstalled
                 ? i18n("The TLP service automatically controls power profiles")
+                : !root.profilesInstalled
+                ? i18n("Power profiles are not supported on your device.")
                 : xi18n("Power profiles may be supported on your device.<nl/>Try installing the <command>power-profiles-daemon</command> package using your distribution's package manager and restarting the system.")
             textFormat: Text.PlainText
             enabled: false
