@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/powerdevil/libpowerdevilcommonconfig."
+"X-Crowdin-File: /kf6-stable/messages/powerdevil/libpowerdevilcommonconfig."
 "pot\n"
-"X-Crowdin-File-ID: 42785\n"
+"X-Crowdin-File-ID: 52278\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format

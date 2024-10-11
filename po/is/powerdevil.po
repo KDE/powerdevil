@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-12 00:41+0000\n"
-"PO-Revision-Date: 2024-06-30 15:38+0000\n"
+"PO-Revision-Date: 2024-09-27 09:09+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -198,8 +198,7 @@ msgid "Extra Battery Added"
 msgstr "Aukarafhlöðu bætt við"
 
 #: powerdevilcore.cpp:459
-#, fuzzy, kde-format
-#| msgid "The computer will no longer go to sleep."
+#, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
@@ -251,25 +250,22 @@ msgstr ""
 "tækinu hvenær sem er. Settu rafhlöðuna í hleðslu eða skiptu um hana."
 
 #: powerdevilcore.cpp:587
-#, fuzzy, kde-format
-#| msgid ""
-#| "Ensure that the power adapter is plugged in and provides enough power."
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr "Gakktu úr skugga um að spennugjafinn sé í sambandi og veiti næga orku."
+msgstr ""
+"Gakktu úr skugga um að rafmagnssnúran sé í sambandi og veiti næga orku."
 
 #: powerdevilcore.cpp:589
-#, fuzzy, kde-format
-#| msgid "Plug in the computer."
+#, kde-format
 msgid "Plug in the power cord."
 msgstr "Settu tölvuna í samband."
 
 #: powerdevilcore.cpp:608
-#, fuzzy, kde-format
-#| msgid "Battery level critical. Your computer will shut down in 60 seconds."
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "Rafhlaðan er nánast tóm. Tölvan slekkur á sér eftir 60 sekúndur."
+msgstr "Tölvan slekkur á sér eftir 60 sekúndur."
 
 #: powerdevilcore.cpp:610
 #, kde-format
@@ -281,7 +277,7 @@ msgstr "Slökkva núna"
 #: powerdevilcore.cpp:616
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "Tölvan fer í dvala eftir 60 sekúndur."
 
 #: powerdevilcore.cpp:618
 #, kde-format
@@ -292,11 +288,9 @@ msgid "Hibernate Now"
 msgstr "Setja í dvala núna"
 
 #: powerdevilcore.cpp:624
-#, fuzzy, kde-format
-#| msgid ""
-#| "Battery level critical. Your computer will go to sleep in 60 seconds."
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "Rafhlaðan er nánast tóm. Tölvan verður svæfð eftir 60 sekúndur."
+msgstr "Tölvan verður svæfð eftir 60 sekúndur."
 
 #: powerdevilcore.cpp:626
 #, kde-format
@@ -329,10 +323,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Rafhlaða nánast tóm (%1% eftir)"
 
 #: powerdevilcore.cpp:678
-#, fuzzy, kde-format
-#| msgid "AC Adapter Plugged In"
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "AC-spennugjafi í sambandi"
+msgstr "Rafmagnssnúra í sambandi"
 
 #: powerdevilcore.cpp:679
 #, kde-format
@@ -345,10 +338,9 @@ msgid "Running on AC power"
 msgstr "Keyri á AC-spennugjafa"
 
 #: powerdevilcore.cpp:681
-#, fuzzy, kde-format
-#| msgid "The power adapter has been plugged in."
+#, kde-format
 msgid "The power cord has been plugged in."
-msgstr "Spennugjafanum var stungið í samband."
+msgstr "Rafmagnssnúrunni var stungið í samband."
 
 #: powerdevilcore.cpp:684
 #, kde-format
@@ -356,10 +348,9 @@ msgid "Running on Battery Power"
 msgstr "Keyrir á rafhlöðu"
 
 #: powerdevilcore.cpp:684
-#, fuzzy, kde-format
-#| msgid "The power adapter has been unplugged."
+#, kde-format
 msgid "The power cord has been unplugged."
-msgstr "Spennugjafinn var tekinn úr sambandi."
+msgstr "Rafmagnssnúran var tekin úr sambandi."
 
 #: powerdevilcore.cpp:745
 #, kde-format
