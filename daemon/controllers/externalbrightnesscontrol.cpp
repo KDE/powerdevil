@@ -37,9 +37,15 @@ ExternalBrightnessControl::ExternalBrightnessControl(ExternalBrightnessControlle
         set_edid(QString::fromStdString(data->toBase64().toStdString()));
     }
     set_max_brightness(display->maxBrightness());
+    if (version() >= KDE_EXTERNAL_BRIGHTNESS_DEVICE_V1_SET_OBSERVED_BRIGHTNESS_SINCE_VERSION) {
+        set_observed_brightness(m_display->brightness());
+    }
     commit();
     connect(display, &DisplayBrightness::externalBrightnessChangeObserved, this, [this]() {
         set_max_brightness(m_display->maxBrightness());
+        if (version() >= KDE_EXTERNAL_BRIGHTNESS_DEVICE_V1_SET_OBSERVED_BRIGHTNESS_SINCE_VERSION) {
+            set_observed_brightness(m_display->brightness());
+        }
         commit();
     });
 }
