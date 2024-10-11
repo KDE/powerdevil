@@ -167,8 +167,8 @@ msgid ""
 "The battery charge will be considered low when it drops to this level. "
 "Settings for low battery will be used instead of regular battery settings."
 msgstr ""
-"当电池电量下降到这个临界值时，系统将把它视作低电量。系统将使用低电量的电池设"
-"置，而不是正常的设置。"
+"当电池电量低于此临界值时将被视作低电量。系统将使用低电量的电池设置，而不是正"
+"常设置。"
 
 #: ui/GlobalConfig.qml:105
 #, kde-format
@@ -192,8 +192,8 @@ msgid ""
 "After a brief warning, the system will automatically suspend or shut down, "
 "according to the configured critical battery level action."
 msgstr ""
-"当电池电量下降到这个临界值时，系统将把它视作危机电量。系统将发出一条短暂的警"
-"告，然后按照危机电量操作中的设置自动挂起系统或者关机。"
+"当电池电量低于此临界值时将被视作危急电量。系统将发出一条短暂警告，然后按照“进"
+"入危急电量时”的设置自动挂起系统或者关机。"
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -235,7 +235,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
-msgstr "当外设的电池电量下降到这个临界值时，系统将把它视作低电量。"
+msgstr "当外设的电池电量低于此临界值时将被视作低电量。"
 
 #: ui/GlobalConfig.qml:222
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 00:41+0000\n"
-"PO-Revision-Date: 2024-06-30 15:33+0000\n"
+"PO-Revision-Date: 2024-09-29 18:00+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -198,7 +198,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Opna á"
 
 #: package/contents/ui/InhibitionItem.qml:182
 #: package/contents/ui/InhibitionItem.qml:308
@@ -207,7 +207,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "Bara í þetta skipti"
 
 #: package/contents/ui/InhibitionItem.qml:187
 #: package/contents/ui/InhibitionItem.qml:313
@@ -216,22 +216,20 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Every time for this app and reason"
-msgstr ""
+msgstr "Alltaf fyrir þetta forrit og af þessari ástæðu"
 
 #: package/contents/ui/InhibitionItem.qml:213
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
-msgstr "Loka handvirkt á svæfingu og skjálæsingu"
+msgstr "Þú hefur lokað handvirkt á svæfingu og skjálæsingu."
 
 #: package/contents/ui/InhibitionItem.qml:218
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Opna á"
 
 #: package/contents/ui/InhibitionItem.qml:237
 #: package/contents/ui/InhibitionItem.qml:360
@@ -246,23 +244,19 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Mistókst að loka á sjálfvirka svæfingu og skjálæsingu"
 
 #: package/contents/ui/InhibitionItem.qml:258
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "%1 forrit kemur í veg fyrir svæfingu og skjálæsingu:"
+msgstr[0] "%1 forrit hefur verið hindrað í að loka á svæfingu og skjálæsingu:"
 msgstr[1] "%1 forrit koma í veg fyrir svæfingu og skjálæsingu:"
 
 #: package/contents/ui/InhibitionItem.qml:285
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 kemur í veg fyrir svæfingu og skjálæsingu (%2)"
+msgstr "%1 hefur verið hindrað í að loka á svæfingu og skjálæsingu vegna %2"
 
 #: package/contents/ui/InhibitionItem.qml:298
 #: package/contents/ui/InhibitionItem.qml:326
@@ -271,13 +265,10 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "Loka á aftur"
 
 #: package/contents/ui/InhibitionItem.qml:341
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Manually block sleep and screen locking after inactivity"
-#| msgid "Manually block"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
 msgstr "Loka á handvirkt"

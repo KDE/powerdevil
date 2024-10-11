@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-07-22 13:06+0000\n"
+"PO-Revision-Date: 2024-09-29 18:00+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -406,18 +406,14 @@ msgid "Suspend Session"
 msgstr "Setja setu í dvala"
 
 #: ui/ProfileConfig.qml:48
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid ""
-#| "The action you had previously configured for when the lid is closed is "
-#| "now unsupported on your system. Please select a different one."
+#, kde-format
 msgctxt "@info:status"
 msgid ""
 "The action you had previously configured to happen when inactive is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"Aðgerðin sem þú valdir áður að myndi gerast þegar tölvunni væri lokað er "
-"ekki lengur studd í kerfinu. Veldu aðra aðgerð."
+"Aðgerðin sem þú valdir áður að myndi gerast við aðgerðarleysi er ekki lengur "
+"studd í kerfinu. Veldu aðra aðgerð."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -425,7 +421,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "Við að&gerðarleysi:"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
@@ -701,39 +697,27 @@ msgid "Switch to power profile"
 msgstr "Skipta í orkuprófíl"
 
 #: ui/ProfileConfig.qml:642
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "Keyra sérsniðna skriftu:"
+msgstr "Keyra skipun eða skriftu:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Veldu keyrsluskilyrði..."
+msgstr "Velja keyrsluskilyrði..."
 
 #: ui/ProfileConfig.qml:654
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:button"
-#| msgid "Choose run conditions for script command"
+#, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Velja keyrsluskilyrði fyrir skriftuskipunina"
+msgstr "Velja keyrsluskilyrði fyrir skipun eða skriftu"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -741,11 +725,7 @@ msgid "When entering \"%1\" state"
 msgstr "Þegar farið er í stöðuna \"%1\""
 
 #: ui/ProfileConfig.qml:692
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When exiting \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -756,14 +736,10 @@ msgstr "Þegar hætt er í stöðunni \"%1\""
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "Við aðgerðarleysi"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -771,19 +747,13 @@ msgid "When e&ntering \"%1\" state:"
 msgstr "Þegar fa&rið er í stöðuna \"%1\":"
 
 #: ui/ProfileConfig.qml:737
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when entering \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Skriftuskipun þegar farið er í stöðuna \"%1\""
+msgstr "Skipun eða skrifta þegar farið er í stöðuna \"%1\""
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -791,94 +761,80 @@ msgid "When e&xiting \"%1\" state:"
 msgstr "Þegar h&ætt er í stöðunni \"%1\":"
 
 #: ui/ProfileConfig.qml:772
-#, fuzzy, kde-format
-#| msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
-#| msgid "Script command when exiting \"%1\" state"
+#, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Skriftuskipun þegar hætt er í stöðunni \"%1\""
+msgstr "Skipun eða skrifta þegar hætt er í stöðunni \"%1\""
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "Tími aðgerðaleysis þar til skriftuskipunin er keyrð"
+msgstr "Tímalengd aðgerðaleysis þar til skipun eða skrifta er keyrð"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "Við að&gerðaleysi:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "Keyra sérsniðna skriftu:"
+msgstr "Keyra aftur skipun eða skriftu:"
 
 #: ui/ProfileConfig.qml:815
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 seconds"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "eftir %1 sekúndur"
-msgstr[1] "eftir %1 sekúndur"
+msgstr[0] "Keyra eftir %1 sekúndu"
+msgstr[1] "Keyra eftir %1 sekúndur"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minutes"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "eftir %1 mínútur"
-msgstr[1] "eftir %1 mínútur"
+msgstr[0] "Keyra eftir %1 mínútu"
+msgstr[1] "Keyra eftir %1 mínútur"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "Skipun eða skrifta við aðgerðaleysi"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Sláðu inn skipun eða veldu skrá..."
+msgstr "Slá inn skipun eða skriftuskrá"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Sláðu inn skipun eða veldu skrá..."
+msgstr "Slá inn skipun eða velja skriftuskrá"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr ""
+msgstr "Velja…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr ""
+msgstr "Velja skriftuskrá"
 
 #: ui/RunScriptEdit.qml:66
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
-msgstr ""
+msgstr "Velja skriftuskrá"
 
 #: ui/TimeDurationComboBox.qml:21
 #, kde-format
