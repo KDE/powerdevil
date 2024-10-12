@@ -129,8 +129,15 @@ void ScreenBrightnessControl::onBrightnessRangeChanged(const QString &displayNam
 
 QCoro::Task<void> ScreenBrightnessControl::init()
 {
+    QPointer<ScreenBrightnessControl> alive{this};
+
     if (!co_await queryAndUpdateDisplays()) {
         qDebug() << "error fetching display names via dbus";
+        co_return;
+    }
+
+    if (!alive) {
+        qDebug() << "ScreenBrightnessControl destroyed while waiting for dbus, returning early";
         co_return;
     }
 
@@ -175,8 +182,9 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
         // by the already running function once it's done with its current update.
         co_return false;
     }
+    QPointer<ScreenBrightnessControl> alive{this};
 
-    while (m_shouldRecheckDisplays) {
+    while (alive && m_shouldRecheckDisplays) {
         m_shouldRecheckDisplays = false; // can be set to true while waiting for async calls
         m_displaysUpdating = true;
         QScopeGuard whenDone([this] {
