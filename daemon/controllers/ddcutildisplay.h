@@ -34,10 +34,13 @@ class DDCutilDisplay : public DisplayBrightness
 public:
 #ifdef WITH_DDCUTIL
     DDCutilDisplay(DDCA_Display_Ref, QMutex *openDisplayMutex);
+    void init();
     DDCA_IO_Path ioPath() const;
     static QString generatePathId(const DDCA_IO_Path &displayPath);
 #endif
     ~DDCutilDisplay();
+
+    void scheduleRetryInit();
 
     QString id() const override;
     QString label() const override;
@@ -51,12 +54,14 @@ public:
     std::optional<QByteArray> edidData() const override;
 
 Q_SIGNALS:
+    void retryInitFinished(bool success);
     void supportsBrightnessChanged(bool supportsBrightness);
     void ddcBrightnessChangeRequested(int value, DDCutilDisplay *display);
 
 private Q_SLOTS:
-    void ddcBrightnessChangeFinished(bool isSuccessful);
-    void onTimeout();
+    void onInitRetryTimeout();
+    void onSetBrightnessTimeout();
+    void ddcBrightnessChangeFinished(bool success);
 
 private:
 #ifdef WITH_DDCUTIL
@@ -68,6 +73,7 @@ private:
     BrightnessWorker *m_brightnessWorker;
     QThread m_brightnessWorkerThread;
     QTimer *m_timer;
+    uint m_retryCounter;
     QMutex *m_openDisplayMutex;
     int m_brightness;
     int m_maxBrightness;
