@@ -137,7 +137,7 @@ QCoro::Task<void> ScreenBrightnessControl::init()
     }
 
     if (!alive) {
-        qDebug() << "ScreenBrightnessControl destroyed while waiting for dbus, returning early";
+        qDebug() << "ScreenBrightnessControl destroyed during initialization, returning early";
         co_return;
     }
 
@@ -184,17 +184,18 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
     }
     QPointer<ScreenBrightnessControl> alive{this};
 
-    while (alive && m_shouldRecheckDisplays) {
+    while (m_shouldRecheckDisplays) {
         m_shouldRecheckDisplays = false; // can be set to true while waiting for async calls
         m_displaysUpdating = true;
-        QScopeGuard whenDone([this] {
-            m_displaysUpdating = false;
+        QScopeGuard whenDone([this, alive] {
+            if (alive) {
+                m_displaysUpdating = false;
+            }
         });
 
         QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE, SCREENBRIGHTNESS_PATH, DBUS_PROPERTIES_IFACE, u"Get"_s);
         msg << SCREENBRIGHTNESS_IFACE << u"DisplaysDBusNames"_s;
 
-        QPointer<ScreenBrightnessControl> alive{this};
         const QDBusReply<QVariant> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
         if (!alive || !reply.isValid()) {
             qDebug() << "error getting display ids via dbus:" << reply.error();
@@ -207,6 +208,10 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
         for (const QString &displayName : displayNames) {
             if (m_displays.displayIndex(displayName) == QModelIndex()) {
                 co_await queryAndInsertDisplay(displayName, QModelIndex());
+                if (!alive) {
+                    qDebug() << "ScreenBrightnessControl destroyed while querying displays, returning early";
+                    co_return false;
+                }
             }
         }
     }
