@@ -49,8 +49,6 @@ public:
     int brightness() const override;
     void setBrightness(int value, bool allowAnimations) override;
     bool supportsBrightness() const;
-    void resumeWorker();
-    void pauseWorker();
     std::optional<QByteArray> edidData() const override;
 
 Q_SIGNALS:

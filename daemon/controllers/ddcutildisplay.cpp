@@ -275,29 +275,6 @@ bool DDCutilDisplay::supportsBrightness() const
     return m_supportsBrightness;
 }
 
-void DDCutilDisplay::resumeWorker()
-{
-#ifdef WITH_DDCUTIL
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
-
-    // Allow some delay before starting to work with the monitor
-    // because the monitor may not yet be ready to work through DDC/CI after waking up
-    m_retryCounter = 0;
-    m_timer->start(1000ms);
-#endif
-#endif
-}
-
-void DDCutilDisplay::pauseWorker()
-{
-#ifdef WITH_DDCUTIL
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    disconnect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
-#endif
-#endif
-}
-
 std::optional<QByteArray> DDCutilDisplay::edidData() const
 {
 #ifdef WITH_DDCUTIL
