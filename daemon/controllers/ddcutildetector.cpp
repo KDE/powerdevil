@@ -63,6 +63,7 @@ private Q_SLOTS:
 
 private:
     std::map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
+    std::map<QString, std::unique_ptr<DDCutilDisplay>> m_pendingDisplays;
     // ddcutil has global state, let's avoid simultaneous access to its open display map
     QMutex m_openDisplayMutex;
     bool m_performedDetection = false;
@@ -157,22 +158,31 @@ void DDCutilPrivateSingleton::detect()
         }
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: Created ID:" << id << "for display:" << display->label();
 
-        if (!display->supportsBrightness()) {
-            qCInfo(POWERDEVIL) << "[DDCutilDetector]: Display" << display->label() << "does not seem to support brightness control - ignoring";
-            continue;
-        }
-        qCDebug(POWERDEVIL) << "[DDCutilDetector]: Display supports Brightness, adding handle to list";
-
-        m_displays.emplace(std::move(id), std::move(display));
-    }
-
-    for (auto it = m_displays.cbegin(); it != m_displays.cend(); ++it) {
-        DDCutilDisplay *display = it->second.get();
-        connect(display, &DDCutilDisplay::supportsBrightnessChanged, this, [this, id = it->first](bool isSupported) {
+        // Now we'll keep it one way or another, make sure it disappears again if anything goes wrong.
+        connect(display.get(), &DDCutilDisplay::supportsBrightnessChanged, this, [this, id](bool isSupported) {
             if (!isSupported) {
                 removeDisplay(id);
             }
         });
+
+        if (!display->supportsBrightness()) {
+            qCWarning(POWERDEVIL) << "[DDCutilDetector]: Display" << display->label()
+                                  << "does not seem to support brightness control - wait before retrying initialization";
+            display->scheduleRetryInit();
+            connect(display.get(), &DDCutilDisplay::retryInitFinished, this, [this, id](bool success) {
+                auto displayNode = m_pendingDisplays.extract(id);
+                if (success) {
+                    m_displays.insert(std::move(displayNode));
+                    Q_EMIT displaysChanged();
+                }
+            });
+            m_pendingDisplays.emplace(id, std::move(display));
+            continue;
+        }
+        qCDebug(POWERDEVIL) << "[DDCutilDetector]: Display supports Brightness, adding handle to list";
+
+        m_pendingDisplays.erase(id);
+        m_displays.emplace(id, std::move(display));
     }
 }
 
@@ -226,6 +236,8 @@ void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &ev
 
 void DDCutilPrivateSingleton::removeDisplay(const QString &id)
 {
+    m_pendingDisplays.erase(id); // cancel any scheduled initialization retries
+
     if (auto deletedAfterEmit = m_displays.extract(id); !deletedAfterEmit.empty()) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: Removing display" << id;
         Q_EMIT displaysChanged();

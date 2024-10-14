@@ -14,13 +14,17 @@
 
 using namespace std::chrono_literals;
 
-#define BRIGHTNESS_VCP_FEATURE_CODE 0x10
+constexpr std::chrono::milliseconds s_setBrightnessDelay = 1s;
+constexpr std::array<std::chrono::milliseconds, 3> s_backoffRetryIntervals = {1s, 2s, 3s};
 
 #ifdef WITH_DDCUTIL
+constexpr DDCA_Vcp_Feature_Code BRIGHTNESS_VCP_FEATURE_CODE = 0x10;
+
 DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayMutex)
     : m_displayRef(displayRef)
     , m_brightnessWorker(new BrightnessWorker)
     , m_timer(new QTimer(this))
+    , m_retryCounter(0)
     , m_openDisplayMutex(openDisplayMutex)
     , m_brightness(-1)
     , m_maxBrightness(-1)
@@ -48,7 +52,12 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayM
 
     ddca_free_display_info(displayInfo);
 
-    //
+    // Remaining parts in init(), which can be retried if supportsBrightness() is still false
+    init();
+}
+
+void DDCutilDisplay::init()
+{
     // Part 2: temporarily opened display handle
     //
     // We don't want to keep it open permanently, because doing so will block other programs
@@ -59,6 +68,7 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayM
         // the brightness setter of a different, previously created object running simultaneously.
         QMutexLocker locker(m_openDisplayMutex);
 
+        DDCA_Status status = DDCRC_OK;
         DDCA_Display_Handle displayHandle = nullptr;
         if (status = ddca_open_display2(m_displayRef, true, &displayHandle); status != DDCRC_OK) {
             qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
@@ -86,14 +96,16 @@ DDCutilDisplay::DDCutilDisplay(DDCA_Display_Ref displayRef, QMutex *openDisplayM
     // Part 3: timer & worker setup
 
     m_timer->setSingleShot(true);
-    m_timer->setInterval(std::chrono::milliseconds(1000));
-    connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onTimeout);
+    disconnect(m_timer, &QTimer::timeout, nullptr, nullptr);
+    connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onSetBrightnessTimeout);
 
     m_brightnessWorker->moveToThread(&m_brightnessWorkerThread);
     connect(&m_brightnessWorkerThread, &QThread::finished, m_brightnessWorker, &QObject::deleteLater);
     connect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
     connect(m_brightnessWorker, &BrightnessWorker::ddcBrightnessChangeApplied, this, &DDCutilDisplay::ddcBrightnessChangeFinished);
     m_brightnessWorkerThread.start();
+
+    Q_EMIT supportsBrightnessChanged(true);
 }
 
 DDCA_IO_Path DDCutilDisplay::ioPath() const
@@ -147,21 +159,70 @@ int DDCutilDisplay::brightness() const
     return m_brightness;
 }
 
+void DDCutilDisplay::scheduleRetryInit()
+{
+    disconnect(m_timer, &QTimer::timeout, nullptr, nullptr);
+    connect(m_timer, &QTimer::timeout, this, &DDCutilDisplay::onInitRetryTimeout);
+
+    m_retryCounter = 0;
+    m_timer->setSingleShot(true);
+    m_timer->start(m_supportsBrightness ? 0ms : s_backoffRetryIntervals[m_retryCounter]);
+
+    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "retrying to initialize DDC/CI brightness in" << m_timer->interval()
+                          << "milliseconds - attempt no." << (m_retryCounter + 1);
+}
+
+void DDCutilDisplay::onInitRetryTimeout()
+{
+#ifdef WITH_DDCUTIL
+    if (!m_supportsBrightness) {
+        init();
+    }
+    if (!m_supportsBrightness) {
+        if (++m_retryCounter; m_retryCounter < s_backoffRetryIntervals.size()) {
+            m_timer->start(s_backoffRetryIntervals[m_retryCounter]);
+
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "retrying to initialize DDC/CI brightness in" << m_timer->interval()
+                                  << "milliseconds - attempt no." << (m_retryCounter + 1);
+            return;
+        }
+    }
+#endif
+    qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << (m_supportsBrightness ? "succeeded" : "failed") << "to initialize DDC/CI brightness";
+    Q_EMIT retryInitFinished(m_supportsBrightness);
+}
+
 void DDCutilDisplay::setBrightness(int value)
 {
 #ifdef WITH_DDCUTIL
     if (m_supportsBrightness) {
-        m_timer->start();
+        m_retryCounter = 0;
+        m_timer->start(s_setBrightnessDelay);
         m_brightness = value;
     }
 #endif
 }
 
-void DDCutilDisplay::ddcBrightnessChangeFinished(bool isSuccessful)
+void DDCutilDisplay::onSetBrightnessTimeout()
 {
-    if (!isSuccessful) {
+    Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
+}
+
+void DDCutilDisplay::ddcBrightnessChangeFinished(bool success)
+{
+    if (!success) {
+        if (m_retryCounter < s_backoffRetryIntervals.size()) {
+            m_timer->start(s_backoffRetryIntervals[m_retryCounter]);
+            ++m_retryCounter;
+            qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "retrying to set DDC/CI brightness in" << m_timer->interval()
+                                  << "milliseconds - attempt no." << m_retryCounter;
+            return;
+        }
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "failed to set DDC/CI brightness";
         m_supportsBrightness = false;
         Q_EMIT supportsBrightnessChanged(false);
+    } else if (m_retryCounter > 0) { // only yell if we also logged the "retrying" message
+        qCWarning(POWERDEVIL) << "[DDCutilDisplay]:" << m_label << "succeeded to set DDC/CI brightness";
     }
 }
 
@@ -210,7 +271,7 @@ void DDCutilDisplay::resumeWorker()
 
     // Allow some delay before starting to work with the monitor
     // because the monitor may not yet be ready to work through DDC/CI after waking up
-    m_timer->start();
+    m_timer->start(s_setBrightnessDelay);
 #endif
 #endif
 }
@@ -221,13 +282,6 @@ void DDCutilDisplay::pauseWorker()
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
     disconnect(this, &DDCutilDisplay::ddcBrightnessChangeRequested, m_brightnessWorker, &BrightnessWorker::ddcSetBrightness);
 #endif
-#endif
-}
-
-void DDCutilDisplay::onTimeout()
-{
-#ifdef WITH_DDCUTIL
-    Q_EMIT ddcBrightnessChangeRequested(m_brightness, this);
 #endif
 }
 
