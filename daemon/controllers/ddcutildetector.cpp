@@ -54,12 +54,10 @@ Q_SIGNALS:
     // emitted from the ddcutil callback from potentially outside the object's thread
     void displayAdded();
     void displayRemoved(const QString &id);
-    void dpmsStateChanged(const QString &id, bool isSleeping);
 
 private Q_SLOTS:
     void redetect();
     void removeDisplay(const QString &id);
-    void setDpmsState(const QString &id, bool isSleeping);
 
 private:
     std::map<QString, std::unique_ptr<DDCutilDisplay>> m_displays;
@@ -111,7 +109,6 @@ DDCutilPrivateSingleton::DDCutilPrivateSingleton()
 
     connect(this, &DDCutilPrivateSingleton::displayAdded, this, &DDCutilPrivateSingleton::redetect);
     connect(this, &DDCutilPrivateSingleton::displayRemoved, this, &DDCutilPrivateSingleton::removeDisplay);
-    connect(this, &DDCutilPrivateSingleton::dpmsStateChanged, this, &DDCutilPrivateSingleton::setDpmsState);
 
     ddca_start_watch_displays(DDCA_Display_Event_Class(DDCA_EVENT_CLASS_ALL));
 #endif
@@ -127,7 +124,6 @@ DDCutilPrivateSingleton::~DDCutilPrivateSingleton()
     ddca_unregister_display_status_callback(ddcaCallback);
     disconnect(this, &DDCutilPrivateSingleton::displayAdded, this, &DDCutilPrivateSingleton::redetect);
     disconnect(this, &DDCutilPrivateSingleton::displayRemoved, this, &DDCutilPrivateSingleton::removeDisplay);
-    disconnect(this, &DDCutilPrivateSingleton::dpmsStateChanged, this, &DDCutilPrivateSingleton::setDpmsState);
 #endif
 }
 
@@ -150,6 +146,11 @@ void DDCutilPrivateSingleton::detect()
     qCInfo(POWERDEVIL) << "[DDCutilDetector]:" << displayCount << "display(s) were detected";
 
     for (int i = 0; i < displayCount; ++i) {
+#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
+        if (ddca_validate_display_ref(displayRefs[i], true /*require_not_asleep*/) != DDCRC_OK) {
+            continue;
+        }
+#endif
         auto display = std::make_unique<DDCutilDisplay>(displayRefs[i], &m_openDisplayMutex);
 
         QString id = DDCutilDisplay::generatePathId(display->ioPath());
@@ -227,10 +228,10 @@ void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &ev
         Q_EMIT displayRemoved(DDCutilDisplay::generatePathId(event.io_path));
     } else if (event.event_type == DDCA_EVENT_DPMS_ASLEEP) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DPMS_ASLEEP signal arrived";
-        Q_EMIT dpmsStateChanged(DDCutilDisplay::generatePathId(event.io_path), true);
+        Q_EMIT displayRemoved(DDCutilDisplay::generatePathId(event.io_path));
     } else if (event.event_type == DDCA_EVENT_DPMS_AWAKE) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DPMS_AWAKE signal arrived";
-        Q_EMIT dpmsStateChanged(DDCutilDisplay::generatePathId(event.io_path), false);
+        Q_EMIT displayAdded();
     }
 }
 #endif
@@ -245,21 +246,6 @@ void DDCutilPrivateSingleton::removeDisplay(const QString &id)
     } else {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: Failed to remove display" << id;
     }
-}
-
-void DDCutilPrivateSingleton::setDpmsState(const QString &id, bool isSleeping)
-{
-#if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
-    if (const auto &it = m_displays.find(id); it != m_displays.end()) {
-        if (isSleeping) {
-            qCDebug(POWERDEVIL) << "[DDCutilDetector]: Display" << id << "asleep - pause worker";
-            it->second->pauseWorker();
-        } else {
-            qCDebug(POWERDEVIL) << "[DDCutilDetector]: Display" << id << "awake - resume worker";
-            it->second->resumeWorker();
-        }
-    }
-#endif
 }
 #endif
 
