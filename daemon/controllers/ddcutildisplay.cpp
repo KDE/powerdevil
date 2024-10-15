@@ -271,7 +271,8 @@ void DDCutilDisplay::resumeWorker()
 
     // Allow some delay before starting to work with the monitor
     // because the monitor may not yet be ready to work through DDC/CI after waking up
-    m_timer->start(s_setBrightnessDelay);
+    m_retryCounter = 0;
+    m_timer->start(1000ms);
 #endif
 #endif
 }
