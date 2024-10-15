@@ -6,6 +6,8 @@
 
 #include "keyboardcolorcontrol.h"
 
+#include <brightnesscontrolplugin_debug.h>
+
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusMetaType>
@@ -26,28 +28,28 @@ KeyboardColorControl::KeyboardColorControl(QObject *parent)
     : QObject(parent)
 {
     if (!QDBusConnection::sessionBus().interface()->isServiceRegistered(KAMELEON_SERVICE)) {
-        qWarning() << "error connecting to kameleon via dbus: kded service is not registered";
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to kameleon via dbus: kded service is not registered";
         return;
     }
 
     QDBusReply<bool> supported =
         QDBusConnection::sessionBus().call(QDBusMessage::createMethodCall(KAMELEON_SERVICE, KAMELEON_PATH, KAMELEON_INTERFACE, u"isSupported"_s));
     if (!supported.isValid()) {
-        qWarning() << "error connecting to kameleon via dbus:" << supported.error().message();
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to kameleon via dbus:" << supported.error().message();
         return;
     } else {
         m_supported = supported.value();
-        qDebug() << "kameleon supported" << m_supported;
+        qCInfo(APPLETS::BRIGHTNESS) << "kameleon supported" << m_supported;
     }
 
     QDBusReply<bool> enabled =
         QDBusConnection::sessionBus().call(QDBusMessage::createMethodCall(KAMELEON_SERVICE, KAMELEON_PATH, KAMELEON_INTERFACE, u"isEnabled"_s));
     if (!enabled.isValid()) {
-        qWarning() << "error connecting to kameleon via dbus:" << enabled.error().message();
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to kameleon via dbus:" << enabled.error().message();
         return;
     } else {
         m_enabled = enabled.value();
-        qDebug() << "kameleon enabled" << m_enabled;
+        qCInfo(APPLETS::BRIGHTNESS) << "kameleon enabled" << m_enabled;
     }
 }
 

@@ -6,6 +6,8 @@
 
 #include "keyboardbrightnesscontrol.h"
 
+#include <brightnesscontrolplugin_debug.h>
+
 #include <QCoroDBusPendingCall>
 #include <QDBusConnectionInterface>
 #include <QDBusInterface>
@@ -84,7 +86,7 @@ QCoro::Task<void> KeyboardBrightnessControl::init()
     QPointer<KeyboardBrightnessControl> alive{this};
     const QDBusReply<int> brightnessMaxReply = co_await QDBusConnection::sessionBus().asyncCall(brightnessMax);
     if (!alive || !brightnessMaxReply.isValid()) {
-        qDebug() << "error getting max keyboard brightness via dbus" << brightnessMaxReply.error();
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting max keyboard brightness via dbus" << brightnessMaxReply.error();
         co_return;
     }
     m_maxBrightness = brightnessMaxReply.value();
@@ -95,7 +97,7 @@ QCoro::Task<void> KeyboardBrightnessControl::init()
                                                              u"keyboardBrightness"_s);
     const QDBusReply<int> brightnessReply = co_await QDBusConnection::sessionBus().asyncCall(brightness);
     if (!alive || !brightnessReply.isValid()) {
-        qDebug() << "error getting keyboard brightness via dbus" << brightnessReply.error();
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting keyboard brightness via dbus" << brightnessReply.error();
         co_return;
     }
     m_brightness = brightnessReply.value();
@@ -106,7 +108,7 @@ QCoro::Task<void> KeyboardBrightnessControl::init()
                                                u"keyboardBrightnessChanged"_s,
                                                this,
                                                SLOT(onBrightnessChanged(int)))) {
-        qDebug() << "error connecting to Keyboard Brightness changes via dbus";
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to Keyboard Brightness changes via dbus";
         co_return;
     }
 
@@ -116,7 +118,7 @@ QCoro::Task<void> KeyboardBrightnessControl::init()
                                                u"keyboardBrightnessMaxChanged"_s,
                                                this,
                                                SLOT(onBrightnessMaxChanged(int)))) {
-        qDebug() << "error connecting to max keyboard Brightness changes via dbus";
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to max keyboard Brightness changes via dbus";
         co_return;
     }
 

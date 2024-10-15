@@ -6,6 +6,8 @@
 
 #include "screenbrightnesscontrol.h"
 
+#include <brightnesscontrolplugin_debug.h>
+
 #include <QCoroDBusPendingCall>
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
@@ -89,7 +91,7 @@ void ScreenBrightnessControl::setBrightness(const QString &displayName, int valu
             [this, displayName, oldValue = oldBrightness.toInt()](QDBusPendingCallWatcher *watcher) {
                 const QDBusPendingReply<void> reply = *watcher;
                 if (reply.isError()) {
-                    qDebug() << "error setting brightness via dbus" << reply.error();
+                    qCWarning(APPLETS::BRIGHTNESS) << "error setting brightness via dbus" << reply.error();
                     m_displays.onBrightnessChanged(displayName, oldValue);
                 }
                 m_brightnessChangeWatcher.reset();
@@ -112,7 +114,7 @@ void ScreenBrightnessControl::onGlobalPropertiesChanged(const QString &ifaceName
 void ScreenBrightnessControl::onBrightnessChanged(const QString &displayName, int value, const QString &sourceClientName, const QString &sourceClientContext)
 {
     if (sourceClientName == QDBusConnection::sessionBus().baseService() && sourceClientContext == ALREADY_CHANGED_CONTEXT) {
-        qDebug() << "ignoring brightness change, it's coming from the applet itself";
+        qCDebug(APPLETS::BRIGHTNESS) << "ignoring brightness change, it's coming from the applet itself";
         return;
     }
     m_displays.onBrightnessChanged(displayName, value);
@@ -132,12 +134,12 @@ QCoro::Task<void> ScreenBrightnessControl::init()
     QPointer<ScreenBrightnessControl> alive{this};
 
     if (!co_await queryAndUpdateDisplays()) {
-        qDebug() << "error fetching display names via dbus";
+        qCWarning(APPLETS::BRIGHTNESS) << "error fetching display names via dbus";
         co_return;
     }
 
     if (!alive) {
-        qDebug() << "ScreenBrightnessControl destroyed during initialization, returning early";
+        qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed during initialization, returning early";
         co_return;
     }
 
@@ -147,7 +149,7 @@ QCoro::Task<void> ScreenBrightnessControl::init()
                                                u"PropertiesChanged"_s,
                                                this,
                                                SLOT(onGlobalPropertiesChanged(QString, QVariantMap, QStringList)))) {
-        qDebug() << "error connecting to property changes via dbus";
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to property changes via dbus";
         co_return;
     }
 
@@ -157,7 +159,7 @@ QCoro::Task<void> ScreenBrightnessControl::init()
                                                u"BrightnessChanged"_s,
                                                this,
                                                SLOT(onBrightnessChanged(QString, int, QString, QString)))) {
-        qDebug() << "error connecting to Brightness changes via dbus";
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to Brightness changes via dbus";
         co_return;
     }
 
@@ -167,7 +169,7 @@ QCoro::Task<void> ScreenBrightnessControl::init()
                                                u"BrightnessRangeChanged"_s,
                                                this,
                                                SLOT(onBrightnessRangeChanged(QString, int, int)))) {
-        qDebug() << "error connecting to brightness range changes via dbus";
+        qCWarning(APPLETS::BRIGHTNESS) << "error connecting to brightness range changes via dbus";
         co_return;
     }
 
@@ -198,7 +200,7 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
 
         const QDBusReply<QVariant> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
         if (!alive || !reply.isValid()) {
-            qDebug() << "error getting display ids via dbus:" << reply.error();
+            qCWarning(APPLETS::BRIGHTNESS) << "error getting display ids via dbus:" << reply.error();
             co_return false;
         }
         const QStringList displayNames = reply.value().value<QStringList>();
@@ -209,7 +211,7 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
             if (m_displays.displayIndex(displayName) == QModelIndex()) {
                 co_await queryAndInsertDisplay(displayName, QModelIndex());
                 if (!alive) {
-                    qDebug() << "ScreenBrightnessControl destroyed while querying displays, returning early";
+                    qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed while querying displays, returning early";
                     co_return false;
                 }
             }
@@ -228,32 +230,32 @@ QCoro::Task<void> ScreenBrightnessControl::queryAndInsertDisplay(const QString &
     QPointer<ScreenBrightnessControl> alive{this};
     const QDBusReply<QVariantMap> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
     if (!alive || !reply.isValid()) {
-        qDebug() << "error getting display properties via dbus:" << reply.error();
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting display properties via dbus:" << reply.error();
         co_return;
     }
     const QVariantMap &props = reply.value();
 
     auto label = props.value(u"Label"_s).value<QString>();
     if (label.isEmpty()) {
-        qDebug() << "error getting display label via dbus: property missing";
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting display label via dbus: property missing";
         co_return;
     }
 
     if (!props.contains(u"IsInternal"_s)) {
-        qDebug() << "error getting display is-internal via dbus: property missing";
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting display is-internal via dbus: property missing";
         co_return;
     }
     auto isInternal = props.value(u"IsInternal"_s).value<bool>();
 
     if (!props.contains(u"Brightness"_s)) {
-        qDebug() << "error getting display brightness via dbus: property missing";
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting display brightness via dbus: property missing";
         co_return;
     }
     auto brightness = props.value(u"Brightness"_s).value<int>();
 
     auto maxBrightness = props.value(u"MaxBrightness"_s).value<int>();
     if (maxBrightness <= 0) {
-        qDebug() << "error getting max display brightness via dbus: property missing";
+        qCWarning(APPLETS::BRIGHTNESS) << "error getting max display brightness via dbus: property missing";
         co_return;
     }
 

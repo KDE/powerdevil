@@ -18,4 +18,13 @@ target_link_libraries(brightnesscontrolplugin PRIVATE
     QCoro::Coro
     QCoro::DBus
 )
+
+ecm_qt_declare_logging_category(brightnesscontrolplugin
+    HEADER "brightnesscontrolplugin_debug.h"
+    IDENTIFIER "APPLETS::BRIGHTNESS"
+    CATEGORY_NAME org.kde.applets.brightness
+    DEFAULT_SEVERITY Warning
+    DESCRIPTION "Brightness and Color applet" EXPORT "APPLETS::BRIGHTNESS"
+)
+
 ecm_finalize_qml_module(brightnesscontrolplugin)
