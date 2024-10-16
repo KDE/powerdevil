@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:41+0000\n"
+"POT-Creation-Date: 2024-10-16 00:43+0000\n"
 "PO-Revision-Date: 2024-08-29 06:56+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -429,18 +429,26 @@ msgstr "Zmogljivost"
 msgid "Power Profile"
 msgstr "Profil upravljanja z energijo"
 
-#: package/contents/ui/PowerProfileItem.qml:108
+#: package/contents/ui/PowerProfileItem.qml:110
+#, fuzzy, kde-format
+#| msgctxt "Sleep and Screen Locking after Inactivity"
+#| msgid "Automatic"
+msgctxt "Power profile"
+msgid "Automatic"
+msgstr "Samodejno"
+
+#: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Ni na voljo"
 
-#: package/contents/ui/PowerProfileItem.qml:148
+#: package/contents/ui/PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Vklop načina %1 ni uspel"
 
-#: package/contents/ui/PowerProfileItem.qml:225
+#: package/contents/ui/PowerProfileItem.qml:228
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -449,18 +457,18 @@ msgstr ""
 "Način zmogljivosti je bil onemogočen, da bi se zmanjšalo gretje, ker je "
 "računalnik zaznal, da se morda nahaja v vašem naročju."
 
-#: package/contents/ui/PowerProfileItem.qml:227
+#: package/contents/ui/PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr "Način zmogljivosti ni na voljo, ker je računalnik že preveč segret."
 
-#: package/contents/ui/PowerProfileItem.qml:229
+#: package/contents/ui/PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Način zmogljivosti ni na voljo."
 
-#: package/contents/ui/PowerProfileItem.qml:245
+#: package/contents/ui/PowerProfileItem.qml:248
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -469,17 +477,17 @@ msgstr ""
 "Zmogljivost je lahko zmanjšana, da bi se zmanjšalo gretje, ker je računalnik "
 "zaznal, da se morda nahaja v vašem naročju."
 
-#: package/contents/ui/PowerProfileItem.qml:247
+#: package/contents/ui/PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "Zmogljivost je lahko zmanjšana, ker je računalnik preveč segret."
 
-#: package/contents/ui/PowerProfileItem.qml:249
+#: package/contents/ui/PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Zmogljivost je lahko zmanjšana."
 
-#: package/contents/ui/PowerProfileItem.qml:262
+#: package/contents/ui/PowerProfileItem.qml:265
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
@@ -488,7 +496,7 @@ msgstr[1] "%1 program je zahteval vklop %2:"
 msgstr[2] "%1 programa sta zahtevala vklop %2:"
 msgstr[3] "%1 programi so zahtevali vklop %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:281
+#: package/contents/ui/PowerProfileItem.qml:284
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -496,12 +504,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerProfileItem.qml:299
+#: package/contents/ui/PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "Storitev TLP samodejno nadzoruje profile moči"
 
-#: package/contents/ui/PowerProfileItem.qml:300
+#: package/contents/ui/PowerProfileItem.qml:304
+#, kde-format
+msgid "Power profiles are not supported on your device."
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

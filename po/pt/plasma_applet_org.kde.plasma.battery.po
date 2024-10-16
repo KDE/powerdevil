@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:41+0000\n"
+"POT-Creation-Date: 2024-10-16 00:43+0000\n"
 "PO-Revision-Date: 2023-02-17 12:33+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -423,19 +423,25 @@ msgstr "Performance"
 msgid "Power Profile"
 msgstr "Perfil de Energia"
 
-#: package/contents/ui/PowerProfileItem.qml:108
+#: package/contents/ui/PowerProfileItem.qml:110
+#, kde-format
+msgctxt "Power profile"
+msgid "Automatic"
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:111
 #, fuzzy, kde-format
 #| msgid "No Batteries Available"
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Sem Baterias Disponíveis"
 
-#: package/contents/ui/PowerProfileItem.qml:148
+#: package/contents/ui/PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Não foi possível activar o modo %1"
 
-#: package/contents/ui/PowerProfileItem.qml:225
+#: package/contents/ui/PowerProfileItem.qml:228
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -444,7 +450,7 @@ msgstr ""
 "O modo de performance foi desactivado para reduzir a geração de calor, "
 "porque o computador detectou que está ao seu colo."
 
-#: package/contents/ui/PowerProfileItem.qml:227
+#: package/contents/ui/PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
@@ -452,12 +458,12 @@ msgstr ""
 "O modo de performance não está disponível, porque o computador está "
 "demasiado quente."
 
-#: package/contents/ui/PowerProfileItem.qml:229
+#: package/contents/ui/PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "O modo de performance não está disponível."
 
-#: package/contents/ui/PowerProfileItem.qml:245
+#: package/contents/ui/PowerProfileItem.qml:248
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -466,26 +472,26 @@ msgstr ""
 "A performance pode ser diminuída para reduzir a geração de calor, porque o "
 "computador detectou que está ao seu colo."
 
-#: package/contents/ui/PowerProfileItem.qml:247
+#: package/contents/ui/PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr ""
 "A performance pode ser diminuída, porque o computador está a ficar demasiado "
 "quente."
 
-#: package/contents/ui/PowerProfileItem.qml:249
+#: package/contents/ui/PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "A performance pode ter sido reduzida."
 
-#: package/contents/ui/PowerProfileItem.qml:262
+#: package/contents/ui/PowerProfileItem.qml:265
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] "Uma aplicação pediu a activação de %2:"
 msgstr[1] "%1 aplicações pediram a activação de %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:281
+#: package/contents/ui/PowerProfileItem.qml:284
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -493,12 +499,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerProfileItem.qml:299
+#: package/contents/ui/PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr ""
 
-#: package/contents/ui/PowerProfileItem.qml:300
+#: package/contents/ui/PowerProfileItem.qml:304
+#, kde-format
+msgid "Power profiles are not supported on your device."
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:41+0000\n"
+"POT-Creation-Date: 2024-10-16 00:43+0000\n"
 "PO-Revision-Date: 2024-09-22 16:23+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -426,18 +426,26 @@ msgstr "Yting"
 msgid "Power Profile"
 msgstr "Straumprofil"
 
-#: package/contents/ui/PowerProfileItem.qml:108
+#: package/contents/ui/PowerProfileItem.qml:110
+#, fuzzy, kde-format
+#| msgctxt "Sleep and Screen Locking after Inactivity"
+#| msgid "Automatic"
+msgctxt "Power profile"
+msgid "Automatic"
+msgstr "Automatisk"
+
+#: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Ikkje tilgjengeleg"
 
-#: package/contents/ui/PowerProfileItem.qml:148
+#: package/contents/ui/PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Klarte ikkje å aktivera %1-modus"
 
-#: package/contents/ui/PowerProfileItem.qml:225
+#: package/contents/ui/PowerProfileItem.qml:228
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -446,18 +454,18 @@ msgstr ""
 "Ytingsmodusen vart slått av for å redusera varme­utviklinga, då maskina har "
 "funne ut at du truleg har ho plassert i fanget."
 
-#: package/contents/ui/PowerProfileItem.qml:227
+#: package/contents/ui/PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr "Utyingsmodusen er utilgjengeleg grunna overoppheting av datamaskina."
 
-#: package/contents/ui/PowerProfileItem.qml:229
+#: package/contents/ui/PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Utyingsmodusen er utilgjengeleg."
 
-#: package/contents/ui/PowerProfileItem.qml:245
+#: package/contents/ui/PowerProfileItem.qml:248
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -466,24 +474,24 @@ msgstr ""
 "Ytinga kan verta redusert for å redusera varme­utviklinga, då maskina har "
 "funne ut at du truleg har ho plassert i fanget."
 
-#: package/contents/ui/PowerProfileItem.qml:247
+#: package/contents/ui/PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "Ytinga kan verta redusert grunna overoppheting av datamaskina."
 
-#: package/contents/ui/PowerProfileItem.qml:249
+#: package/contents/ui/PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Ytinga kan verta redusert."
 
-#: package/contents/ui/PowerProfileItem.qml:262
+#: package/contents/ui/PowerProfileItem.qml:265
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] "Eitt program har bedt om aktivering av %2:"
 msgstr[1] "%1 program har bedt om aktivering av %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:281
+#: package/contents/ui/PowerProfileItem.qml:284
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -491,12 +499,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerProfileItem.qml:299
+#: package/contents/ui/PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "TLP-tenesta styrer automatisk straumprofilar"
 
-#: package/contents/ui/PowerProfileItem.qml:300
+#: package/contents/ui/PowerProfileItem.qml:304
+#, kde-format
+msgid "Power profiles are not supported on your device."
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

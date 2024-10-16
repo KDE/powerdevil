@@ -163,7 +163,7 @@ msgstr "Αναστολή στο δίσκο"
 #, kde-format
 msgctxt "Suspend to both RAM and disk"
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Υβριδική αναστολή"
 
 #: PowerDevilRunner.cpp:144
 #, kde-format
@@ -174,13 +174,13 @@ msgstr ""
 #, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "screen brightness "
-msgstr "λαμπρότητα οθόνης"
+msgstr "λαμπρότητα οθόνης "
 
 #: PowerDevilRunner.cpp:224
 #, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "dim screen "
-msgstr "σβήσιμο οθόνης"
+msgstr "σβήσιμο οθόνης "
 
 #~ msgctxt "Note this is a KRunner keyword"
 #~ msgid "screen brightness"

@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the plasma_applet_battery package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2010-2014.
 # SPDX-FileCopyrightText: 2017, 2018, 2019, 2020, 2021, 2024 Wantoyo <wantoyek@gmail.com>
-# Linerly <linerly@protonmail.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Linerly <linerly@protonmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-27 00:41+0000\n"
-"PO-Revision-Date: 2024-07-22 08:35+0700\n"
-"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
-"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
+"POT-Creation-Date: 2024-10-16 00:43+0000\n"
+"PO-Revision-Date: 2024-10-14 17:21+0700\n"
+"Last-Translator: Linerly <linerly@protonmail.com>\n"
+"Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -139,8 +139,8 @@ msgstr ""
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
-msgstr[0] "%1 aplikasi telah mencegah tidur dan penguncian layar:"
-msgstr[1] "%1 aplikasi telah mencegah tidur dan penguncian layar:"
+msgstr[0] "%1 aplikasi saat ini mencegah tidur dan penguncian layar:"
+msgstr[1] "%1 aplikasi saat ini mencegah tidur dan penguncian layar:"
 
 #: package/contents/ui/InhibitionItem.qml:144
 #, kde-format
@@ -199,7 +199,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Buka blokir"
 
 #: package/contents/ui/InhibitionItem.qml:182
 #: package/contents/ui/InhibitionItem.qml:308
@@ -208,7 +208,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "Hanya kali ini"
 
 #: package/contents/ui/InhibitionItem.qml:187
 #: package/contents/ui/InhibitionItem.qml:313
@@ -217,7 +217,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Every time for this app and reason"
-msgstr ""
+msgstr "Setiap kali untuk aplikasi dan alasan ini"
 
 #: package/contents/ui/InhibitionItem.qml:213
 #, fuzzy, kde-format
@@ -232,7 +232,7 @@ msgstr "Cegah tidur dan penguncian layar secara manual"
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Buka blokir"
 
 #: package/contents/ui/InhibitionItem.qml:237
 #: package/contents/ui/InhibitionItem.qml:360
@@ -247,23 +247,21 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Gagal memblokir otomatis tidur dan penguncian layar"
 
 #: package/contents/ui/InhibitionItem.qml:258
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "%1 aplikasi telah mencegah tidur dan penguncian layar:"
-msgstr[1] "%1 aplikasi telah mencegah tidur dan penguncian layar:"
+msgstr[0] ""
+"%1 aplikasi telah dicegah untuk mencegah tidur dan penguncian layar:"
+msgstr[1] ""
+"%1 aplikasi telah dicegah untuk mencegah tidur dan penguncian layar:"
 
 #: package/contents/ui/InhibitionItem.qml:285
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 saat ini mencegah tidur dan penguncian layar (%2)"
+msgstr "%1 telah dicegah untuk mencegah tidur dan penguncian layar untuk %2"
 
 #: package/contents/ui/InhibitionItem.qml:298
 #: package/contents/ui/InhibitionItem.qml:326
@@ -272,7 +270,7 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "Blokir Ulang"
 
 #: package/contents/ui/InhibitionItem.qml:341
 #, fuzzy, kde-format
@@ -422,18 +420,26 @@ msgstr "Performa"
 msgid "Power Profile"
 msgstr "Profil Daya"
 
-#: package/contents/ui/PowerProfileItem.qml:108
+#: package/contents/ui/PowerProfileItem.qml:110
+#, fuzzy, kde-format
+#| msgctxt "Sleep and Screen Locking after Inactivity"
+#| msgid "Automatic"
+msgctxt "Power profile"
+msgid "Automatic"
+msgstr "Otomatis"
+
+#: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Tidak tersedia"
 
-#: package/contents/ui/PowerProfileItem.qml:148
+#: package/contents/ui/PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Gagal mengaktifkan mode %1"
 
-#: package/contents/ui/PowerProfileItem.qml:225
+#: package/contents/ui/PowerProfileItem.qml:228
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -442,18 +448,18 @@ msgstr ""
 "Mode performa telah dinonaktifkan untuk mengurangi kepanasan karena komputer "
 "telah mendeteksi bahwa komputer mungkin ada di pangkuan Anda."
 
-#: package/contents/ui/PowerProfileItem.qml:227
+#: package/contents/ui/PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr "Mode performa tidak tersedia karena komputer kepanasan."
 
-#: package/contents/ui/PowerProfileItem.qml:229
+#: package/contents/ui/PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Mode performa tidak tersedia."
 
-#: package/contents/ui/PowerProfileItem.qml:245
+#: package/contents/ui/PowerProfileItem.qml:248
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -462,24 +468,24 @@ msgstr ""
 "Performa mungkin direndahkan untuk mengurangi kepanasan karena komputer "
 "telah mendeteksi bahwa komputer mungkin ada di pangkuan Anda."
 
-#: package/contents/ui/PowerProfileItem.qml:247
+#: package/contents/ui/PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "Performa mungkin dikurangi karena komputer kepanasan."
 
-#: package/contents/ui/PowerProfileItem.qml:249
+#: package/contents/ui/PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Performa mungkin dikurangi."
 
-#: package/contents/ui/PowerProfileItem.qml:262
+#: package/contents/ui/PowerProfileItem.qml:265
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
 msgstr[0] "Satu aplikasi telah meminta mengaktifkan %2:"
 msgstr[1] "%1 aplikasi telah meminta mengaktifkan %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:281
+#: package/contents/ui/PowerProfileItem.qml:284
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -487,12 +493,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerProfileItem.qml:299
+#: package/contents/ui/PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "Layanan TLP secara otomatis mengendalikan profil daya"
 
-#: package/contents/ui/PowerProfileItem.qml:300
+#: package/contents/ui/PowerProfileItem.qml:304
+#, kde-format
+msgid "Power profiles are not supported on your device."
+msgstr ""
+
+#: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "
