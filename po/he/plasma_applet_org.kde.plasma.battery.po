@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-09-14 17:47+0300\n"
+"PO-Revision-Date: 2024-10-16 10:01+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -415,9 +415,7 @@ msgid "Power Profile"
 msgstr "פרופיל צריכת חשמל"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "אוטומטי"
@@ -497,7 +495,7 @@ msgstr "שירות TLP שולט אוטומטית בפרופילי צריכת ה�
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "אין תמיכה בפרופילים של ניהול חשמל במכשיר שלך."
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format

@@ -398,12 +398,10 @@ msgid "Power Profile"
 msgstr "电源管理方案"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr "自动"
+msgstr ""
 
 #: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format

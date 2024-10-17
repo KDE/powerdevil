@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-08-29 13:55+0300\n"
+"PO-Revision-Date: 2024-10-16 11:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -422,9 +422,7 @@ msgid "Power Profile"
 msgstr "Güç Profili"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Kendiliğinden"
@@ -502,7 +500,7 @@ msgstr "TLP hizmeti, kendiliğinden güç profillerini denetler"
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Aygıtınızda güç profilleri desteklenmiyor."
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
