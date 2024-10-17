@@ -235,9 +235,11 @@ PlasmoidItem {
             icon.name: "configure"
             text: i18nc("@action:inmenu", "Configure Night Light…")
             visible: KAuthorized.authorize("kcm_nightlight")
-            priority: PlasmaCore.Action.LowPriority
             onTriggered: KCMLauncher.openSystemSettings("kcm_nightlight")
         }
     ]
 
+    // Applet's own config is empty, so redirect "Configure" to Night Light,
+    // like Bluetooth and Networks applets
+    Component.onCompleted: Plasmoid.setInternalAction("configure", configureNightLight)
 }
