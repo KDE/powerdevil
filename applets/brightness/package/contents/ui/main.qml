@@ -240,4 +240,7 @@ PlasmoidItem {
         }
     ]
 
+    // Remove configure action - applet's config is empty, and it also handles
+    // brightness; replacing with configureNightLight is inappropriate
+    Component.onCompleted: Plasmoid.removeInternalAction("configure")
 }
