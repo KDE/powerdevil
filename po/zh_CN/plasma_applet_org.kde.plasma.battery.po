@@ -401,7 +401,7 @@ msgstr "电源管理方案"
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "自动"
 
 #: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
@@ -473,7 +473,7 @@ msgstr "TLP 服务会自动控制电源管理方案"
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "您的设备不支持电源管理方案。"
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
