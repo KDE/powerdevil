@@ -415,12 +415,10 @@ msgid "Power Profile"
 msgstr "Profil napájení"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr "Automaticky"
+msgstr ""
 
 #: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
