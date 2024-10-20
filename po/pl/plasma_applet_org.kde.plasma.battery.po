@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-08-31 07:06+0200\n"
+"PO-Revision-Date: 2024-10-19 13:08+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -415,9 +415,7 @@ msgid "Power Profile"
 msgstr "Tryb zasilania"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Samoczynnie"
@@ -496,7 +494,7 @@ msgstr "Usługa TLP sama steruje profilami zasilania"
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Profile zasilania nie są dostępne na twoim urządzeniu."
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format

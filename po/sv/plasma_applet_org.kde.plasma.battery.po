@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-08-29 20:13+0200\n"
+"PO-Revision-Date: 2024-10-19 16:16+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -413,12 +413,10 @@ msgid "Power Profile"
 msgstr "Strömsparprofil"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr "Automatiskt"
+msgstr "Automatisk"
 
 #: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
@@ -493,7 +491,7 @@ msgstr "TLP-tjänsten hanterar strömprofiler automatiskt"
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Strömsparprofiler stöds inte på enheten."
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
