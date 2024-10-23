@@ -208,7 +208,7 @@ class BrightnessTests(unittest.TestCase):
             cls.addClassCleanup(shutil.rmtree, f"/builds/frameworks/kauth/_install/lib64/plugins/kf{KDE_VERSION}/kauth")
 
         debug_env = os.environ.copy()
-        debug_env["QT_LOGGING_RULES"] = "*.debug=true"
+        debug_env["QT_LOGGING_RULES"] = "qt.dbus*.debug=true"
         debug_env["UMOCKDEV_DIR"] = cls.testbed.get_root_dir()
         cls.backlighthelper = subprocess.Popen([BACKLIGHTHELPER_PATH], env=debug_env, stdout=sys.stderr, stderr=sys.stderr)
         cls.addClassCleanup(cls.backlighthelper.kill)
