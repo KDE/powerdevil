@@ -17,11 +17,13 @@
 #include <QObject>
 #include <QStringList>
 
+#include <optional>
 #include <unordered_map>
 
 #include <powerdevilcore_export.h>
 
 #include "displaybrightness.h"
+#include "displaymatch.h"
 #include "powerdevilscreenbrightnesslogic.h"
 
 class BacklightDetector;
@@ -137,6 +139,26 @@ public:
 
     int brightnessSteps(const QString &displayId) const;
 
+    /**
+     * Add, modify or remove a brightness limit for dimming, with a @p ratio between 0.0 and 1.0.
+     *
+     * Several limits can be set independently, distinguished by their @p dimmingId.
+     * The lowest one will apply. Setting the @p ratio to 1.0 will remove this limit.
+     *
+     * Setting a dimming limit will have the same visible effect as calling setBrightness()
+     * for all affected displays with the brightness value multiplied by @p ratio. However,
+     * unlike setBrightness(), this function will not affect the value returned by brightness().
+     * Subsequent setBrightness() calls will apply the same multiplier.
+     *
+     * By default, all currently connected displays are affected. Optional display id filter
+     * parameters may be added in the future.
+     *
+     * Newly connected displays will remain at full brightness (i.e ratio of 1.0) until another
+     * call of this function affects them. Displays which were previously dimmed and are
+     * re-recognized after reconnection will be restored to the current applicable limit.
+     */
+    void setDimmingRatio(const QString &dimmingId, double ratio);
+
     KScreen::OutputPtr tryMatchKScreenOutput(const QString &displayId) const;
 
     // legacy API without displayId parameter, kept for backward compatibility
@@ -170,10 +192,16 @@ private Q_SLOTS:
     void onExternalBrightnessChangeObserved(DisplayBrightness *display, int value);
 
 private:
+    int brightnessMultiplied(int value, double multiplier, int min) const;
+    double dimmingRatioForDisplay(const QString &displayId);
+
+private:
     struct DisplayInfo {
         DisplayBrightness *display = nullptr;
         DisplayBrightnessDetector *detector = nullptr;
         PowerDevil::ScreenBrightnessLogic brightnessLogic = {};
+        DisplayMatch match;
+        double dimmingRatio = 1.0;
         double trackingError = 0.0;
         bool zombie = false;
     };
@@ -189,6 +217,18 @@ private:
     QList<DetectorInfo> m_detectors;
     int m_finishedDetectingCount = 0;
     std::unique_ptr<ExternalBrightnessController> m_externalBrightnessController;
+
+    struct RememberedDisplayState {
+        int brightness;
+        int minBrightness = 0;
+        std::optional<double> latestActiveDimmingRatio;
+    };
+    std::map<DisplayMatch, RememberedDisplayState> m_rememberedDisplayState;
+
+    struct DimmingLimit {
+        double ratio = 1.0;
+    };
+    std::unordered_map<QString, DimmingLimit> m_dimmingLimits;
 
     KScreen::ConfigPtr m_kscreenConfig = nullptr;
 };
