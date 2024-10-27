@@ -29,9 +29,11 @@
 
 #include <QDebug>
 #include <QPropertyAnimation>
+
+#include <algorithm>
 #include <ranges>
 
-#include <algorithm> // std::ranges::find_if
+using namespace Qt::Literals::StringLiterals;
 
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
@@ -145,6 +147,12 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
                 info = DisplayInfo{
                     .display = display,
                     .detector = detectorInfo.detector,
+                    .match =
+                        DisplayMatch{
+                            .maxBrightness = display->maxBrightness(),
+                            .isInternal = display->isInternal(),
+                            .edidData = display->edidData(),
+                        },
                 };
                 info.brightnessLogic.setValueRange(display->knownSafeMinBrightness(), display->maxBrightness());
                 info.brightnessLogic.setValue(display->brightness());
@@ -171,9 +179,13 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
 
     QStringList addedDisplayIds;
     QStringList brightnessChangedDisplayIds;
+    auto newRememberedDisplayState = m_rememberedDisplayState;
+
     for (auto &[displayId, info] : newDisplayById) {
         const auto it = m_displaysById.find(displayId);
+        const auto rememberedIt = m_rememberedDisplayState.find(info.match);
         const bool added = it == m_displaysById.end();
+        const bool readded = added && rememberedIt != m_rememberedDisplayState.end();
         const bool replaced = !added && info.display != it->second.display;
         const bool valueChanged = replaced
             && (it->second.brightnessLogic.info().value != info.display->brightness()
@@ -191,9 +203,33 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
         if (added) {
             addedDisplayIds.push_back(displayId);
         }
+        if (readded) {
+            const RememberedDisplayState &remembered = rememberedIt->second;
+            info.brightnessLogic.setValueRange(remembered.minBrightness, info.display->maxBrightness());
+
+            if (remembered.latestActiveDimmingRatio.has_value()
+                && info.display->brightness() == brightnessMultiplied(remembered.brightness, *remembered.latestActiveDimmingRatio, remembered.minBrightness)) {
+                qCDebug(POWERDEVIL) << "Re-recognized display" << displayId << "at brightness" << remembered.brightness << "* dimming ratio"
+                                    << *remembered.latestActiveDimmingRatio;
+
+                info.brightnessLogic.setValue(remembered.brightness);
+                info.dimmingRatio = dimmingRatioForDisplay(displayId);
+
+                if (info.dimmingRatio != *remembered.latestActiveDimmingRatio) {
+                    qCDebug(POWERDEVIL) << "=> reset brightness for" << displayId << "to current dimming ratio" << info.dimmingRatio;
+                    const PowerDevil::BrightnessLogic::BrightnessInfo bi = info.brightnessLogic.info();
+                    const int dimmedValue = brightnessMultiplied(bi.value, info.dimmingRatio, bi.valueMin);
+                    info.display->setBrightness(dimmedValue);
+                }
+            }
+            // delay removing the display state from m_rememberedDisplayState, in case several
+            // simultaneously added displays both use the same EDID (some EDIDs lack serial numbers)
+            newRememberedDisplayState.erase(info.match);
+        }
     }
 
     m_displaysById = std::move(newDisplayById);
+    m_rememberedDisplayState = std::move(newRememberedDisplayState);
     m_externalBrightnessController->setDisplays(newForExternalControl);
 
     for (const QString &removed : removedDisplayIds) {
@@ -299,6 +335,11 @@ int ScreenBrightnessController::brightness(const QString &displayId) const
     return 0;
 }
 
+int ScreenBrightnessController::brightnessMultiplied(int value, double multiplier, int min) const
+{
+    return multiplier == 1.0 ? value : std::max<int>(min, value * multiplier);
+}
+
 void ScreenBrightnessController::setBrightness(const QString &displayId,
                                                int value,
                                                const QString &sourceClientName,
@@ -308,11 +349,15 @@ void ScreenBrightnessController::setBrightness(const QString &displayId,
     if (auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie) {
         auto &[id, info] = *it;
         const PowerDevil::BrightnessLogic::BrightnessInfo bi = info.brightnessLogic.info();
-        const int boundedValue = qBound(bi.valueMin, value, bi.valueMax);
+        const int boundedValue = std::clamp(value, bi.valueMin, bi.valueMax);
+        const int dimmedValue = brightnessMultiplied(boundedValue, info.dimmingRatio, bi.valueMin);
 
-        qCDebug(POWERDEVIL) << "Set screen brightness of" << displayId << "to" << boundedValue << "/" << bi.valueMax;
+        qCDebug(POWERDEVIL) << "Set screen brightness of" << displayId << "to" << dimmedValue << "/" << bi.valueMax;
         if (value != boundedValue) {
             qCDebug(POWERDEVIL) << "- clamped from" << value;
+        }
+        if (boundedValue != dimmedValue) {
+            qCDebug(POWERDEVIL) << "- dimmed as" << boundedValue << "*" << info.dimmingRatio;
         }
 
         // notify only when the internally tracked brightness value is actually different
@@ -327,8 +372,9 @@ void ScreenBrightnessController::setBrightness(const QString &displayId,
             }
         }
 
-        // but always call setBrightness() on the display, in case we're unaware of an external change
-        info.display->setBrightness(boundedValue);
+        // but always call setBrightness() on the display, both for changes to the
+        // brightness multiplier and in case we're unaware of an external change
+        info.display->setBrightness(dimmedValue);
     } else {
         qCWarning(POWERDEVIL) << "Set screen brightness failed: no display with id" << displayId;
     }
@@ -423,6 +469,41 @@ int ScreenBrightnessController::brightnessSteps(const QString &displayId) const
     return 1;
 }
 
+void ScreenBrightnessController::setDimmingRatio(const QString &dimmingId, double ratio)
+{
+    const double boundedRatio = std::clamp(ratio, 0.0, 1.0);
+    m_dimmingLimits[dimmingId] = DimmingLimit{
+        .ratio = std::clamp(ratio, 0.0, 1.0),
+    };
+    qCDebug(POWERDEVIL) << "Set screen brightness dimming ratio with ID" << dimmingId << "to" << boundedRatio;
+
+    for (auto &[id, info] : m_displaysById) {
+        const double newRatio = dimmingRatioForDisplay(id);
+        if (info.dimmingRatio != newRatio) {
+            info.dimmingRatio = newRatio;
+            // set brightness to the currently stored value, but with the new multiplier
+            setBrightness(id, info.brightnessLogic.info().value, u"(internal)"_s, u"dimming"_s);
+
+            if (newRatio != 1.0 && info.match.isValid()) {
+                m_rememberedDisplayState[info.match] = RememberedDisplayState{
+                    .brightness = info.brightnessLogic.info().value,
+                    .minBrightness = info.brightnessLogic.info().valueMin,
+                    .latestActiveDimmingRatio = info.dimmingRatio,
+                };
+            }
+        }
+    }
+}
+
+double ScreenBrightnessController::dimmingRatioForDisplay(const QString &displayId)
+{
+    Q_UNUSED(displayId); // we may add display filtering options in the future
+
+    return std::accumulate(m_dimmingLimits.begin(), m_dimmingLimits.end(), 1.0, [](double current, const auto &kv) {
+        return std::min(current, kv.second.ratio);
+    });
+}
+
 KScreen::OutputPtr ScreenBrightnessController::tryMatchKScreenOutput(const QString &displayId) const
 {
     if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie && m_kscreenConfig) {
@@ -460,13 +541,15 @@ void ScreenBrightnessController::onExternalBrightnessChangeObserved(DisplayBrigh
         return;
     }
     auto &[displayId, info] = *it;
-    if (value == info.brightnessLogic.info().value) {
+    const PowerDevil::BrightnessLogic::BrightnessInfo bi = info.brightnessLogic.info();
+    if (value == brightnessMultiplied(bi.value, info.dimmingRatio, bi.valueMin)) {
         qCDebug(POWERDEVIL) << "External brightness change of display" << displayId << "ignored - same as previous value";
         return;
     }
-    qCDebug(POWERDEVIL) << "External brightness change of display" << displayId << "to" << value << "/" << info.brightnessLogic.info().valueMax;
+    qCDebug(POWERDEVIL) << "External brightness change of display" << displayId << "to" << value << "/" << bi.valueMax;
 
     info.brightnessLogic.setValue(value);
+    info.dimmingRatio = 1.0;
     info.trackingError = 0.0;
 
     Q_EMIT brightnessChanged(displayId, info.brightnessLogic.info(), QString(), QString(), SuppressIndicator);

@@ -18,6 +18,10 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::DimDisplay, "powerdevildimdisplayaction.json")
 
+using namespace Qt::Literals::StringLiterals;
+
+static const QString DIMMING_ID = u"DimDisplay"_s;
+
 namespace PowerDevil::BundledActions
 {
 DimDisplay::DimDisplay(QObject *parent)
@@ -41,8 +45,8 @@ void DimDisplay::onWakeupFromIdle()
     // We should wait a bit screen to wake-up from sleep
     QTimer::singleShot(0, this, [this]() {
         qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on wake-up from idle";
-        setBrightnessHelper(m_oldScreenBrightness, m_oldKeyboardBrightness);
-        m_oldScreenBrightness.clear();
+        core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
+        setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
     });
     m_dimmed = false;
 }
@@ -55,50 +59,22 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
         return;
     }
 
-    const QStringList displayIds = core()->screenBrightnessController()->displayIds();
-    QMap<QString, int> oldScreenBrightness;
-    QMap<QString, int> newScreenBrightness;
+    qCDebug(POWERDEVIL) << "DimDisplay: triggered on idle timeout, dimming";
 
-    for (const QString &displayId : displayIds) {
-        const int oldBrightness = core()->screenBrightnessController()->brightness(displayId);
+    // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on the
+    // assumption that e.g. 50% may be too bright for returning user to notice that
+    // the screen is going to go off, while 20% may be too dark to be able to read
+    // something on the screen.
+    core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 0.3);
 
-        if (oldBrightness <= 0) {
-            // Some drivers report brightness == 0 when display is off because of DPMS
-            //(especially Intel driver). Don't change brightness in this case, or
-            // backlight won't switch on later.
-            // Furthermore, we can't dim if brightness is 0 already.
-            continue;
-        }
-        oldScreenBrightness[displayId] = oldBrightness;
+    m_oldKeyboardBrightness = core()->keyboardBrightnessController()->brightness();
+    setKeyboardBrightnessHelper(0);
 
-        // Dim brightness to 30% of the original. 30% is chosen arbitrarily based on
-        // assumption that e.g. 50% may be too bright for returning user to notice that
-        // the screen is going to go off, while 20% may be too dark to be able to read
-        // something on the screen.
-        newScreenBrightness[displayId] = qRound(oldBrightness * 0.3);
-    }
-
-    if (!newScreenBrightness.isEmpty()) {
-        qCDebug(POWERDEVIL) << "DimDisplay: triggered on idle timeout, dimming";
-        m_oldScreenBrightness = oldScreenBrightness;
-        m_oldKeyboardBrightness = core()->keyboardBrightnessController()->brightness();
-
-        setBrightnessHelper(newScreenBrightness, 0);
-
-        m_dimmed = true;
-    }
+    m_dimmed = true;
 }
 
-void DimDisplay::setBrightnessHelper(const QMap<QString, int> &screenBrightness, int keyboardBrightness)
+void DimDisplay::setKeyboardBrightnessHelper(int keyboardBrightness)
 {
-    // don't arbitrarily turn-off the display
-    for (auto it = screenBrightness.keyValueBegin(); it != screenBrightness.keyValueEnd(); ++it) {
-        const auto &[displayId, brightness] = *it;
-        if (brightness > 0) {
-            core()->screenBrightnessController()->setBrightness(displayId, brightness, QString(), QString(), ScreenBrightnessController::SuppressIndicator);
-        }
-    }
-
     // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
     if (m_oldKeyboardBrightness > 0) {
         core()->keyboardBrightnessController()->setBrightness(keyboardBrightness);
@@ -122,22 +98,12 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     // but do not update m_dimmed so onIdleTimeout would not override them
     if (!profileSettings.dimDisplayWhenIdle()) {
         if (m_dimmed) {
-            if (!profileSettings.useProfileSpecificDisplayBrightness() && !m_oldScreenBrightness.isEmpty()) {
+            if (!profileSettings.useProfileSpecificDisplayBrightness()) {
                 qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
-
-                const QMap<QString, int> &oldScreenBrightness = std::as_const(m_oldScreenBrightness);
-                for (auto it = oldScreenBrightness.keyValueBegin(); it != oldScreenBrightness.keyValueEnd(); ++it) {
-                    const auto &[displayId, brightness] = *it;
-                    core()->screenBrightnessController()->setBrightness(displayId,
-                                                                        brightness,
-                                                                        QString(),
-                                                                        QString(),
-                                                                        ScreenBrightnessController::SuppressIndicator);
-                }
-                m_oldScreenBrightness.clear();
+                core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
             }
-            if (!profileSettings.useProfileSpecificKeyboardBrightness() && m_oldKeyboardBrightness > 0) {
-                core()->keyboardBrightnessController()->setBrightness(m_oldKeyboardBrightness);
+            if (!profileSettings.useProfileSpecificKeyboardBrightness()) {
+                setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
             }
             m_dimmed = false;
         }
@@ -145,29 +111,6 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     }
 
     if (m_dimmed) {
-        if (profileSettings.useProfileSpecificDisplayBrightness()) {
-            const double configuredBrightnessRatio = profileSettings.displayBrightness() / 100.0;
-
-            // Mirror behavior of ScreenBrightnessControl::onProfileLoad(): Limit the setting
-            // to internal displays if any are available, otherwise assign to all external ones.
-            // TODO: Better centralize all this, see https://invent.kde.org/plasma/powerdevil/-/issues/38
-            const ScreenBrightnessController *controller = core()->screenBrightnessController();
-            const QStringList displayIds = core()->screenBrightnessController()->displayIds();
-            bool hasInternal = false;
-            QMap<QString, int> configuredScreenBrightness;
-
-            for (const QString &displayId : displayIds) {
-                const bool isDisplayInternal = controller->isInternal(displayId);
-                if (hasInternal && !isDisplayInternal) {
-                    continue;
-                } else if (!hasInternal && isDisplayInternal) {
-                    hasInternal = true;
-                    configuredScreenBrightness.clear();
-                }
-                configuredScreenBrightness[displayId] = std::round(configuredBrightnessRatio * controller->maxBrightness(displayId));
-            }
-            m_oldScreenBrightness.insert(configuredScreenBrightness);
-        }
         if (profileSettings.useProfileSpecificKeyboardBrightness()) {
             m_oldKeyboardBrightness = profileSettings.keyboardBrightness();
         }
