@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 00:41+0000\n"
-"PO-Revision-Date: 2024-10-09 20:19+0530\n"
+"PO-Revision-Date: 2024-10-27 11:20+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
@@ -84,7 +84,7 @@ msgstr "திரையின் பிரகாசம் %1%-ஆக உள்�
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "%1 திரையின் பிரகாசம் %2%-ஆக உள்ளது"
+msgstr "%1 தனின் பிரகாசம் %2%-ஆக உள்ளது"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
