@@ -23,6 +23,7 @@
 #include <sys/socket.h>
 
 static constexpr QLatin1StringView SOLID_POWERMANAGEMENT_SERVICE("org.kde.Solid.PowerManagement");
+static constexpr QLatin1StringView UPOWER_POWERPROFILE_SERVICE("org.freedesktop.UPower.PowerProfiles");
 
 PowerProfilesControl::PowerProfilesControl(QObject *parent)
     : QObject(parent)
@@ -35,6 +36,7 @@ PowerProfilesControl::PowerProfilesControl(QObject *parent)
     m_solidWatcher->setConnection(QDBusConnection::sessionBus());
     m_solidWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
     m_solidWatcher->addWatchedService(SOLID_POWERMANAGEMENT_SERVICE);
+    m_solidWatcher->addWatchedService(UPOWER_POWERPROFILE_SERVICE);
 
     connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &PowerProfilesControl::onServiceRegistered);
     connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &PowerProfilesControl::onServiceUnregistered);
@@ -50,9 +52,10 @@ PowerProfilesControl::~PowerProfilesControl()
 
 void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
 {
-    if (serviceName == SOLID_POWERMANAGEMENT_SERVICE) {
-        if (QDBusConnection::systemBus().interface()->isServiceRegistered(QStringLiteral("net.hadess.PowerProfiles"))) {
-            QDBusMessage profileChoices = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+    if (serviceName == SOLID_POWERMANAGEMENT_SERVICE || serviceName == UPOWER_POWERPROFILE_SERVICE) {
+        if (QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_POWERPROFILE_SERVICE)
+            && QDBusConnection::systemBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
+            QDBusMessage profileChoices = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                                          QStringLiteral("profileChoices"));
@@ -69,7 +72,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                 watcher->deleteLater();
             });
 
-            QDBusMessage configuredProfile = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+            QDBusMessage configuredProfile = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                             QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                             QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                                             QStringLiteral("configuredProfile"));
@@ -85,7 +88,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                 watcher->deleteLater();
             });
 
-            QDBusMessage currentProfile = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+            QDBusMessage currentProfile = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                                          QStringLiteral("currentProfile"));
@@ -101,7 +104,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                 watcher->deleteLater();
             });
 
-            QDBusMessage inhibitionReason = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+            QDBusMessage inhibitionReason = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                            QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                            QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                                            QStringLiteral("performanceInhibitedReason"));
@@ -117,7 +120,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                 watcher->deleteLater();
             });
 
-            QDBusMessage degradedReason = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+            QDBusMessage degradedReason = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                                          QStringLiteral("performanceDegradedReason"));
@@ -133,7 +136,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                 watcher->deleteLater();
             });
 
-            QDBusMessage profileHolds = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+            QDBusMessage profileHolds = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                        QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                        QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                                        QStringLiteral("profileHolds"));
@@ -202,10 +205,11 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                                                        SLOT(updatePowerProfileHolds(QList<QVariantMap>)))) {
                 qCDebug(APPLETS::BATTERYMONITOR) << "error connecting to profile hold changes via dbus";
             }
-            m_isTlpInstalled = false;
+
+            setTlpInstalled(false);
             m_isPowerProfileDaemonInstalled = true;
         } else {
-            m_isTlpInstalled = !QStandardPaths::findExecutable(QStringLiteral("tlp")).isEmpty();
+            setTlpInstalled(!QStandardPaths::findExecutable(QStringLiteral("tlp")).isEmpty());
         }
     }
 }
@@ -268,9 +272,12 @@ void PowerProfilesControl::onServiceUnregistered(const QString &serviceName)
     }
 }
 
-bool PowerProfilesControl::isTlpInstalled() const
+void PowerProfilesControl::setTlpInstalled(bool installed)
 {
-    return m_isTlpInstalled;
+    if (installed != m_isTlpInstalled) {
+        m_isTlpInstalled = installed;
+        Q_EMIT isTlpInstallChanged(m_isTlpInstalled);
+    }
 }
 
 bool PowerProfilesControl::isSilent()
@@ -323,9 +330,14 @@ QBindable<QList<QVariantMap>> PowerProfilesControl::bindableProfileHolds()
     return &m_profileHolds;
 }
 
+QBindable<bool> PowerProfilesControl::bindableIsTlpInstalled()
+{
+    return &m_isTlpInstalled;
+}
+
 void PowerProfilesControl::setProfile(const QString &profile)
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+    QDBusMessage msg = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                       QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                       QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
                                                       QStringLiteral("setProfile"));
