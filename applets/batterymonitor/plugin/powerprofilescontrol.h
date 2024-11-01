@@ -32,7 +32,7 @@ class PowerProfilesControl : public QObject
     Q_PROPERTY(QString degradationReason READ default NOTIFY degradationReasonChanged BINDABLE bindableDegradationReason)
     Q_PROPERTY(QList<QVariantMap> profileHolds READ default NOTIFY profileHoldsChanged BINDABLE bindableProfileHolds)
     Q_PROPERTY(bool isSilent READ isSilent WRITE setIsSilent)
-    Q_PROPERTY(bool isTlpInstalled READ isTlpInstalled CONSTANT)
+    Q_PROPERTY(bool isTlpInstalled READ default NOTIFY isTlpInstallChanged BINDABLE bindableIsTlpInstalled)
 
 public:
     explicit PowerProfilesControl(QObject *parent = nullptr);
@@ -44,7 +44,7 @@ private:
     bool isSilent();
     void setIsSilent(bool status);
     void showPowerProfileOsd(const QString &reason);
-    bool isTlpInstalled() const;
+    void setTlpInstalled(bool installed);
 
     QBindable<bool> bindableIsPowerProfileDaemonInstalled();
     QBindable<QStringList> bindableProfiles();
@@ -54,6 +54,7 @@ private:
     QBindable<QString> bindableInhibitionReason();
     QBindable<QString> bindableDegradationReason();
     QBindable<QList<QVariantMap>> bindableProfileHolds();
+    QBindable<bool> bindableIsTlpInstalled();
 
 private Q_SLOTS:
     void onServiceRegistered(const QString &serviceName);
@@ -75,6 +76,7 @@ Q_SIGNALS:
     void inhibitionReasonChanged(const QString &reason);
     void degradationReasonChanged(const QString &reason);
     void profileHoldsChanged(const QList<QVariantMap> &profileHolds);
+    void isTlpInstallChanged(bool installed);
 
 private:
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerProfilesControl,
@@ -89,11 +91,11 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QString, m_inhibitionReason, &PowerProfilesControl::inhibitionReasonChanged)
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QString, m_degradationReason, &PowerProfilesControl::degradationReasonChanged)
     Q_OBJECT_BINDABLE_PROPERTY(PowerProfilesControl, QList<QVariantMap>, m_profileHolds, &PowerProfilesControl::profileHoldsChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerProfilesControl, bool, m_isTlpInstalled, false, &PowerProfilesControl::isTlpInstallChanged)
 
     std::unique_ptr<QDBusServiceWatcher> m_solidWatcher;
 
     bool m_isSilent = false;
-    bool m_isTlpInstalled = false;
 
     ApplicationData m_data;
 };
