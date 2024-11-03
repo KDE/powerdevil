@@ -5,6 +5,7 @@
 */
 #include "externalbrightnesscontrol.h"
 #include "displaybrightness.h"
+#include "kwinbrightness.h"
 
 ExternalBrightnessController::ExternalBrightnessController()
     : QWaylandClientExtensionTemplate<ExternalBrightnessController, &QtWayland::kde_external_brightness_v1::destroy>(1)
@@ -51,5 +52,7 @@ ExternalBrightnessControl::~ExternalBrightnessControl()
 
 void ExternalBrightnessControl::kde_external_brightness_device_v1_requested_brightness(uint32_t value)
 {
-    m_display->setBrightness(value);
+    if (KWinDisplayDetector::shouldUseKWinSdrBrightness()) {
+        m_display->setBrightness(value);
+    }
 }

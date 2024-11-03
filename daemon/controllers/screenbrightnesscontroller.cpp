@@ -128,9 +128,10 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
     // add new displays
     for (const DetectorInfo &detectorInfo : m_detectors) {
         const bool shouldUseExternalControl = m_externalBrightnessController->isActive() && !dynamic_cast<KWinDisplayDetector *>(detectorInfo.detector);
+        const bool shouldUseInternalControl = !shouldUseExternalControl || !KWinDisplayDetector::shouldUseKWinSdrBrightness();
         QList<DisplayBrightness *> detectorDisplays = detectorInfo.detector->displays();
 
-        if (!detectorDisplays.isEmpty() && !shouldUseExternalControl) {
+        if (!detectorDisplays.isEmpty() && shouldUseInternalControl) {
             if (firstSupportedDetector == nullptr) {
                 firstSupportedDetector = detectorInfo.detector;
             }
@@ -140,7 +141,8 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
             const QString displayId = QString::fromLocal8Bit(detectorInfo.displayIdPrefix) + display->id();
             if (shouldUseExternalControl) {
                 newForExternalControl.push_back(display);
-            } else {
+            }
+            if (shouldUseInternalControl) {
                 auto &info = newDisplayById[displayId];
                 info = DisplayInfo{
                     .display = display,
