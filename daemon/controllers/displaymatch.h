@@ -24,6 +24,18 @@ struct DisplayMatch {
         return maxBrightness > 0 && (isInternal || edidData.has_value());
     }
 
+    bool matchesExcludingMaxBrightness(const DisplayMatch &other) const
+    {
+        if (isInternal && other.isInternal) {
+            return true;
+        }
+        if (edidData.has_value() && other.edidData.has_value()) {
+            // EDID data could be the mandatory first 128 bytes, or the complete EDID with extension chunks.
+            return edidData->size() > other.edidData->size() ? edidData->startsWith(*other.edidData) : other.edidData->startsWith(*edidData);
+        }
+        return false;
+    }
+
     // Unfortunately, `auto operator<=>(const DisplayMatch &other) const = default;` doesn't build
     // on KDE Invent's FreeBSD CI. Define comparison operators manually instead.
     bool operator==(const DisplayMatch &other) const = default;

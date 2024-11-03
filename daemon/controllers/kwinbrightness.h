@@ -51,6 +51,8 @@ public:
     explicit KWinDisplayDetector(QObject *parent = nullptr);
     ~KWinDisplayDetector();
 
+    static bool shouldUseKWinSdrBrightness();
+
     void detect() override;
     QList<DisplayBrightness *> displays() const override;
 

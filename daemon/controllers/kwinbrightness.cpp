@@ -22,6 +22,12 @@ KWinDisplayDetector::~KWinDisplayDetector()
 {
 }
 
+bool KWinDisplayDetector::shouldUseKWinSdrBrightness()
+{
+    static const bool shouldUse = qEnvironmentVariableIntValue("POWERDEVIL_USE_KWIN_SDR_BRIGHTNESS") > 0;
+    return shouldUse;
+}
+
 void KWinDisplayDetector::detect()
 {
     const auto op = new KScreen::GetConfigOperation(KScreen::GetConfigOperation::Option::NoOptions, this);
@@ -56,10 +62,12 @@ void KWinDisplayDetector::checkOutputs()
     });
     // remove all that can't do brightness control (anymore)
     changed |= std::erase_if(m_displays, [](const auto &pair) {
-        return !(pair.first->capabilities() & KScreen::Output::Capability::BrightnessControl) || !pair.first->isEnabled();
+        return !(pair.first->capabilities() & KScreen::Output::Capability::BrightnessControl) || !pair.first->isEnabled()
+            || (!KWinDisplayDetector::shouldUseKWinSdrBrightness() && !pair.first->isHdrEnabled());
     });
     for (const auto &output : outputs) {
-        if (!(output->capabilities() & KScreen::Output::Capability::BrightnessControl) || !output->isEnabled()) {
+        if (!(output->capabilities() & KScreen::Output::Capability::BrightnessControl) || !output->isEnabled()
+            || (!KWinDisplayDetector::shouldUseKWinSdrBrightness() && !output->isHdrEnabled())) {
             continue;
         }
         auto &brightness = m_displays[output.get()];
