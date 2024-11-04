@@ -28,6 +28,7 @@ static constexpr QLatin1StringView UPOWER_POWERPROFILE_SERVICE("org.freedesktop.
 PowerProfilesControl::PowerProfilesControl(QObject *parent)
     : QObject(parent)
     , m_solidWatcher(new QDBusServiceWatcher)
+    , m_powerProfileWatcher(new QDBusServiceWatcher)
 {
     qDBusRegisterMetaType<QList<QVariantMap>>();
     qDBusRegisterMetaType<QVariantMap>();
@@ -36,12 +37,21 @@ PowerProfilesControl::PowerProfilesControl(QObject *parent)
     m_solidWatcher->setConnection(QDBusConnection::sessionBus());
     m_solidWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
     m_solidWatcher->addWatchedService(SOLID_POWERMANAGEMENT_SERVICE);
-    m_solidWatcher->addWatchedService(UPOWER_POWERPROFILE_SERVICE);
 
     connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &PowerProfilesControl::onServiceRegistered);
     connect(m_solidWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &PowerProfilesControl::onServiceUnregistered);
+
+    // Watch for PowerDevil's power management service
+    m_powerProfileWatcher->setConnection(QDBusConnection::systemBus());
+    m_powerProfileWatcher->setWatchMode(QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
+    m_powerProfileWatcher->addWatchedService(UPOWER_POWERPROFILE_SERVICE);
+
+    connect(m_powerProfileWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &PowerProfilesControl::onServiceRegistered);
+    connect(m_powerProfileWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &PowerProfilesControl::onServiceUnregistered);
+
     // If it's up and running already, let's cache it
-    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)
+        && QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_POWERPROFILE_SERVICE)) {
         onServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE);
     }
 }
@@ -54,7 +64,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
 {
     if (serviceName == SOLID_POWERMANAGEMENT_SERVICE || serviceName == UPOWER_POWERPROFILE_SERVICE) {
         if (QDBusConnection::systemBus().interface()->isServiceRegistered(UPOWER_POWERPROFILE_SERVICE)
-            && QDBusConnection::systemBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
+            && QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
             QDBusMessage profileChoices = QDBusMessage::createMethodCall(SOLID_POWERMANAGEMENT_SERVICE,
                                                                          QStringLiteral("/org/kde/Solid/PowerManagement/Actions/PowerProfile"),
                                                                          QStringLiteral("org.kde.Solid.PowerManagement.Actions.PowerProfile"),
@@ -206,8 +216,10 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
                 qCDebug(APPLETS::BATTERYMONITOR) << "error connecting to profile hold changes via dbus";
             }
 
-            setTlpInstalled(false);
             m_isPowerProfileDaemonInstalled = true;
+            Q_EMIT isPowerProfileDaemonInstalledChanged(true);
+
+            setTlpInstalled(false);
         } else {
             setTlpInstalled(!QStandardPaths::findExecutable(QStringLiteral("tlp")).isEmpty());
         }
@@ -216,7 +228,7 @@ void PowerProfilesControl::onServiceRegistered(const QString &serviceName)
 
 void PowerProfilesControl::onServiceUnregistered(const QString &serviceName)
 {
-    if (serviceName == SOLID_POWERMANAGEMENT_SERVICE) {
+    if ((serviceName == SOLID_POWERMANAGEMENT_SERVICE || serviceName == UPOWER_POWERPROFILE_SERVICE) && m_isPowerProfileDaemonInstalled) {
         m_isPowerProfileDaemonInstalled = false;
         // leave m_isTlpInstalled as is, it's not going to change just because PowerDevil disappeared
 
@@ -269,6 +281,7 @@ void PowerProfilesControl::onServiceUnregistered(const QString &serviceName)
         updatePowerProfileCurrentProfile(QString());
         updatePowerProfileConfiguredProfile(QString());
         m_profileError = QString();
+        Q_EMIT isPowerProfileDaemonInstalledChanged(false);
     }
 }
 
