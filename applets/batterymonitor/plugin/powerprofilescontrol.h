@@ -94,6 +94,7 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(PowerProfilesControl, bool, m_isTlpInstalled, false, &PowerProfilesControl::isTlpInstallChanged)
 
     std::unique_ptr<QDBusServiceWatcher> m_solidWatcher;
+    std::unique_ptr<QDBusServiceWatcher> m_powerProfileWatcher;
 
     bool m_isSilent = false;
 
