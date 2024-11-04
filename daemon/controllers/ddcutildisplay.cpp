@@ -240,11 +240,23 @@ void BrightnessWorker::ddcSetBrightness(int value, DDCutilDisplay *display)
         if (status = ddca_open_display2(display->m_displayRef, true, &displayHandle); status != DDCRC_OK) {
             qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_open_display2" << status;
         } else {
-            uint8_t sh = value >> 8 & 0xff;
-            uint8_t sl = value & 0xff;
+            int currentBrightness = -1;
+            DDCA_Non_Table_Vcp_Value vcpValue;
+            if (status = ddca_get_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, &vcpValue); status != DDCRC_OK) {
+                qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_get_non_table_vcp_value" << status;
+            } else {
+                currentBrightness = vcpValue.sh << 8 | vcpValue.sl;
+            }
 
-            if (status = ddca_set_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl); status != DDCRC_OK) {
-                qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_set_non_table_vcp_value" << status;
+            if (value == currentBrightness) {
+                qCDebug(POWERDEVIL) << "[DDCutilDisplay]:" << display->m_label << "hardware brightness already at" << value;
+            } else {
+                uint8_t sh = value >> 8 & 0xff;
+                uint8_t sl = value & 0xff;
+
+                if (status = ddca_set_non_table_vcp_value(displayHandle, BRIGHTNESS_VCP_FEATURE_CODE, sh, sl); status != DDCRC_OK) {
+                    qCWarning(POWERDEVIL) << "[DDCutilDisplay]: ddca_set_non_table_vcp_value" << status;
+                }
             }
 
             if (DDCA_Status closeStatus = ddca_close_display(displayHandle); closeStatus != DDCRC_OK) {
