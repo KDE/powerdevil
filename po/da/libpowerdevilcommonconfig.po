@@ -2,119 +2,120 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Martin Schlander <mschlander@opensuse.org>, 2014.
+# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:41+0000\n"
-"PO-Revision-Date: 2014-03-05 20:06+0100\n"
-"Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
+"PO-Revision-Date: 2024-11-05 13:02+0100\n"
+"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Gør ingenting"
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Slumre"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Dvale"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Luk ned"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Lås skærmen"
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Vis log ud-skærm"
 
 #: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
-msgstr ""
+msgstr "Sluk for skærmen"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Slå skærm til/fra"
 
 #: PowerProfileModel.cpp:40
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Strømbesparelse"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Balanceret"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Ydelse"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Efterlad uændret"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Gem session til hukommelse"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybridslumre"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Gem session til både hukommelse og disk"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Standby, derefter dvale"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "Skift til at dvale efter en periode med inaktivitet"
 
 #~ msgid ""
 #~ "Power Management configuration module could not be loaded.\n"

@@ -1,0 +1,271 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
+#
+# SPDX-FileCopyrightText: 2024 rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>
+msgid ""
+msgstr ""
+"Project-Id-Version: powerdevil\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"PO-Revision-Date: 2024-11-05 13:21+0100\n"
+"Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
+"Language-Team: Danish <kde-i18n-doc@kde.org>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.08.2\n"
+
+#: package/contents/ui/BrightnessItem.qml:30
+#, kde-format
+msgctxt "Backlight on or off"
+msgid "Off"
+msgstr "Slukket"
+
+#: package/contents/ui/BrightnessItem.qml:31
+#, kde-format
+msgctxt "Brightness level"
+msgid "Low"
+msgstr "Lav"
+
+#: package/contents/ui/BrightnessItem.qml:32
+#, kde-format
+msgctxt "Brightness level"
+msgid "Medium"
+msgstr "Mellem"
+
+#: package/contents/ui/BrightnessItem.qml:33
+#, kde-format
+msgctxt "Brightness level"
+msgid "High"
+msgstr "Høj"
+
+#: package/contents/ui/BrightnessItem.qml:34
+#, kde-format
+msgctxt "Backlight on or off"
+msgid "On"
+msgstr "Tændt"
+
+#: package/contents/ui/BrightnessItem.qml:46
+#, kde-format
+msgctxt "Placeholder is brightness percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: package/contents/ui/BrightnessItem.qml:90
+#, kde-format
+msgctxt "Display brightness"
+msgid "Brightness"
+msgstr "Lysstyrke"
+
+#: package/contents/ui/BrightnessItem.qml:113
+#, kde-format
+msgctxt "Placeholder is display name"
+msgid "Display Brightness - %1"
+msgstr "Lysstyrke - %1"
+
+#: package/contents/ui/KeyboardColorItem.qml:77
+#, kde-format
+msgid "Follow accent color"
+msgstr "Følg accentfarve"
+
+#: package/contents/ui/main.qml:61
+#, kde-format
+msgid "Brightness and Color"
+msgstr "Lysstyrke og farve"
+
+#: package/contents/ui/main.qml:101
+#, kde-format
+msgid "Screen brightness at %1%"
+msgstr "Skærmens lysstyrke er på %1%"
+
+#: package/contents/ui/main.qml:102
+#, kde-format
+msgctxt "Brightness of named display at percentage"
+msgid "Brightness of %1 at %2%"
+msgstr "Lysstyrke af %1 på %2%"
+
+#: package/contents/ui/main.qml:107
+#, kde-format
+msgid "Keyboard brightness at %1%"
+msgstr "Tastaturets lysstyrke er på %1%"
+
+#: package/contents/ui/main.qml:113
+#, kde-format
+msgctxt "Status"
+msgid "Night Light suspended; middle-click to resume"
+msgstr "Nattelys suspenderet; midterklik for at genaktivere"
+
+#: package/contents/ui/main.qml:115
+#, kde-format
+msgctxt "Status"
+msgid "Night Light suspended"
+msgstr "Nattelys suspenderet"
+
+#: package/contents/ui/main.qml:120
+#, kde-format
+msgctxt "Status"
+msgid "Night Light at day color temperature"
+msgstr "Nattelys ved dagens farvetemperatur"
+
+#: package/contents/ui/main.qml:122
+#, kde-format
+msgctxt "Status"
+msgid "Night Light at night color temperature"
+msgstr "Nattelys ved nattens farvetemperatur"
+
+#: package/contents/ui/main.qml:127
+#, kde-format
+msgctxt "Status; placeholder is a time"
+msgid "Night Light in morning transition (complete by %1)"
+msgstr "Nattelys i morgenovergang (færdig kl. %1)"
+
+#: package/contents/ui/main.qml:129
+#, kde-format
+msgctxt "Status; placeholder is a time"
+msgid "Night Light in evening transition (complete by %1)"
+msgstr "Nattelys i aftenovergang (færdig kl. %1)"
+
+#: package/contents/ui/main.qml:147
+#, kde-format
+msgctxt "Status; placeholder is a time"
+msgid "Night Light evening transition scheduled for %1"
+msgstr "Nattelysets aftenovergang planlagt kl. %1"
+
+#: package/contents/ui/main.qml:149
+#, kde-format
+msgctxt "Status; placeholder is a time"
+msgid "Night Light morning transition scheduled for %1"
+msgstr "Nattelysets morgenovergang planlagt kl. %1"
+
+#: package/contents/ui/main.qml:153
+#, kde-format
+msgid "Scroll to adjust screen brightness"
+msgstr "Rul for at justere skærmens lysstyrke"
+
+#: package/contents/ui/main.qml:156
+#, kde-format
+msgid "Middle-click to suspend Night Light"
+msgstr "Midterklik for at suspendere nattelys"
+
+#: package/contents/ui/main.qml:236
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Configure Night Light…"
+msgstr "Indstil nattelys…"
+
+#: package/contents/ui/NightLightItem.qml:75
+#, kde-format
+msgctxt "Night light status"
+msgid "Suspended"
+msgstr "Suspenderet"
+
+#: package/contents/ui/NightLightItem.qml:78
+#, kde-format
+msgctxt "Night light status"
+msgid "Unavailable"
+msgstr "Utilgængelig"
+
+#: package/contents/ui/NightLightItem.qml:81
+#, kde-format
+msgctxt "Night light status"
+msgid "Not enabled"
+msgstr "Ikke aktiveret"
+
+#: package/contents/ui/NightLightItem.qml:84
+#, kde-format
+msgctxt "Night light status"
+msgid "Not running"
+msgstr "Kører ikke"
+
+#: package/contents/ui/NightLightItem.qml:87
+#, kde-format
+msgctxt "Night light status"
+msgid "On"
+msgstr "Til"
+
+#: package/contents/ui/NightLightItem.qml:90
+#, kde-format
+msgctxt "Night light phase"
+msgid "Morning Transition"
+msgstr "Morgenovergang"
+
+#: package/contents/ui/NightLightItem.qml:92
+#, kde-format
+msgctxt "Night light phase"
+msgid "Day"
+msgstr "Dag"
+
+#: package/contents/ui/NightLightItem.qml:94
+#, kde-format
+msgctxt "Night light phase"
+msgid "Evening Transition"
+msgstr "Aftenovergang"
+
+#: package/contents/ui/NightLightItem.qml:96
+#, kde-format
+msgctxt "Night light phase"
+msgid "Night"
+msgstr "Nat"
+
+#: package/contents/ui/NightLightItem.qml:107
+#, kde-format
+msgctxt "Placeholder is screen color temperature"
+msgid "%1K"
+msgstr "%1K"
+
+#: package/contents/ui/NightLightItem.qml:122
+#, kde-format
+msgctxt "@action:button Night Light"
+msgid "Suspend"
+msgstr "Suspendér"
+
+#: package/contents/ui/NightLightItem.qml:146
+#, kde-format
+msgid "Configure…"
+msgstr "Indstil…"
+
+#: package/contents/ui/NightLightItem.qml:146
+#, kde-format
+msgid "Enable and Configure…"
+msgstr "Aktivér og indstil…"
+
+#: package/contents/ui/NightLightItem.qml:172
+#, kde-format
+msgctxt "Label for a time"
+msgid "Transition to day complete by:"
+msgstr "Overgang til dag færdig kl.:"
+
+#: package/contents/ui/NightLightItem.qml:174
+#, kde-format
+msgctxt "Label for a time"
+msgid "Transition to night scheduled for:"
+msgstr "Overgang til nat planlagt kl.:"
+
+#: package/contents/ui/NightLightItem.qml:176
+#, kde-format
+msgctxt "Label for a time"
+msgid "Transition to night complete by:"
+msgstr "Overgang til nat færdig kl.:"
+
+#: package/contents/ui/NightLightItem.qml:178
+#, kde-format
+msgctxt "Label for a time"
+msgid "Transition to day scheduled for:"
+msgstr "Overgang til dag planlagt kl.:"
+
+#: package/contents/ui/PopupDialog.qml:121
+#, kde-format
+msgid "Keyboard Backlight"
+msgstr "Tastaturets baglys"
+
+#: package/contents/ui/PopupDialog.qml:154
+#, kde-format
+msgid "Keyboard Color"
+msgstr "Tastaturfarve"
+
+#: package/contents/ui/PopupDialog.qml:165
+#, kde-format
+msgid "Night Light"
+msgstr "Nattelys"
