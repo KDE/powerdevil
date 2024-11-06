@@ -66,6 +66,7 @@ Name[bg]=Проверка за наличност на отделен графи
 Name[ca]=Comprova l'existència d'una GPU dedicada
 Name[ca@valencia]=Comprova l'existència d'una GPU dedicada
 Name[cs]=Zkontrolovat přítomnost diskrétní GPU
+Name[da]=Tjek om diskret GPU findes
 Name[en_GB]=Check for existence of discrete GPU
 Name[eo]=Kontroli pri ekzisto de diskreta GPU
 Name[es]=Comprobar la existencia de una GPU discreta
