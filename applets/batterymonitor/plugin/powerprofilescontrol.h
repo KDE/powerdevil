@@ -57,7 +57,7 @@ private:
     QBindable<bool> bindableIsTlpInstalled();
 
 private Q_SLOTS:
-    void onServiceRegistered(const QString &serviceName);
+    void onServiceRegistered();
     void onServiceUnregistered(const QString &serviceName);
 
     void updatePowerProfileChoices(const QStringList &choices);
