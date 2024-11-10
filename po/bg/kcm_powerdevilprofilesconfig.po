@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-08-12 23:09+0200\n"
+"PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -732,7 +732,7 @@ msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr "При влизане в режим \"%1\""
+msgstr "При влизане в режим „%1“"
 
 #: ui/ProfileConfig.qml:692
 #, kde-format
@@ -740,7 +740,7 @@ msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When exiting \"%1\" state"
-msgstr "При напускане на режим \"%1\""
+msgstr "При напускане на режим „%1“"
 
 #: ui/ProfileConfig.qml:710
 #, kde-format
@@ -754,13 +754,13 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&ntering \"%1\" state:"
-msgstr "При в&лизане в режим \"%1\":"
+msgstr "При в&лизане в режим „%1“:"
 
 #: ui/ProfileConfig.qml:737
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Скрипт или команда при влизане в режим \"%1\""
+msgstr "Скрипт или команда при влизане в режим „%1“"
 
 #: ui/ProfileConfig.qml:768
 #, kde-format
@@ -768,13 +768,13 @@ msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When e&xiting \"%1\" state:"
-msgstr "При &напускане на режим \"%1\":"
+msgstr "При &напускане на режим „%1“:"
 
 #: ui/ProfileConfig.qml:772
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Скрипт или команда при напускане на режим \"%1\""
+msgstr "Скрипт или команда при напускане на режим „%1“"
 
 #: ui/ProfileConfig.qml:801
 #, kde-format
