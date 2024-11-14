@@ -216,7 +216,7 @@ void ScreenBrightnessControl::onServiceUnregistered()
                                              this,
                                              SLOT(onBrightnessRangeChanged(QString, int, int)));
 
-    m_displays.removeMissingDisplays({});
+    m_displays.setKnownDisplayNames({});
     m_isBrightnessAvailable = false;
 }
 
@@ -249,22 +249,20 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
         }
         const QStringList displayNames = reply.value().value<QStringList>();
 
-        m_displays.removeMissingDisplays(displayNames);
+        m_displays.setKnownDisplayNames(displayNames);
 
-        for (const QString &displayName : displayNames) {
-            if (m_displays.displayIndex(displayName) == QModelIndex()) {
-                co_await queryAndInsertDisplay(displayName, QModelIndex());
-                if (!alive || !m_serviceRegistered) {
-                    qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed or service unregistered querying displays, returning early";
-                    co_return false;
-                }
+        for (const QString &displayName : m_displays.knownDisplayNamesWithMissingData()) {
+            co_await queryAndInsertDisplayData(displayName);
+            if (!alive || !m_serviceRegistered) {
+                qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed while querying displays, returning early";
+                co_return false;
             }
         }
     }
     co_return true;
 }
 
-QCoro::Task<void> ScreenBrightnessControl::queryAndInsertDisplay(const QString &displayName, const QModelIndex &index)
+QCoro::Task<void> ScreenBrightnessControl::queryAndInsertDisplayData(const QString &displayName)
 {
     QDBusMessage msg = QDBusMessage::createMethodCall(SCREENBRIGHTNESS_SERVICE,
                                                       SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE.arg(displayName),
@@ -303,7 +301,7 @@ QCoro::Task<void> ScreenBrightnessControl::queryAndInsertDisplay(const QString &
         co_return;
     }
 
-    m_displays.insertDisplay(displayName, index, label, isInternal, brightness, maxBrightness);
+    m_displays.setDisplayData(displayName, label, isInternal, brightness, maxBrightness);
 }
 
 QBindable<bool> ScreenBrightnessControl::bindableIsBrightnessAvailable()

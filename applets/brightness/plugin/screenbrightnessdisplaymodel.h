@@ -9,6 +9,7 @@
 #include "screenbrightnessdisplaymodel.h"
 
 #include <QAbstractListModel>
+#include <QMap>
 
 class ScreenBrightnessDisplayModel : public QAbstractListModel
 {
@@ -30,8 +31,13 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     QModelIndex displayIndex(const QString &displayName) const;
-    void insertDisplay(const QString &displayName, const QModelIndex &index, const QString &label, bool isInternal, int brightness, int maxBrightness);
-    void removeMissingDisplays(const QStringList &displayNames);
+
+    // Shown display names (i.e. included in the model, with valid index) are displays included in
+    // known display names that also have display data set. Data for any display outside the list of
+    // known display names will be removed / not set.
+    void setKnownDisplayNames(const QStringList &displayNames);
+    void setDisplayData(const QString &displayName, const QString &label, bool isInternal, int brightness, int maxBrightness);
+    QStringList knownDisplayNamesWithMissingData() const;
 
     void onBrightnessChanged(const QString &displayName, int value);
     void onBrightnessRangeChanged(const QString &displayName, int max, int value);
@@ -44,6 +50,10 @@ private:
         int maxBrightness;
         bool isInternal;
     };
-    QStringList m_displayNames;
-    QList<Data> m_displays;
+
+    void updateRows();
+
+    QStringList m_knownDisplayNames;
+    QStringList m_shownDisplayNames;
+    QMap<QString, Data> m_displays;
 };

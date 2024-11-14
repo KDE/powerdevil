@@ -75,7 +75,7 @@ private:
     QCoro::Task<void> onServiceRegistered();
     void onServiceUnregistered();
     QCoro::Task<bool> queryAndUpdateDisplays();
-    QCoro::Task<void> queryAndInsertDisplay(const QString &displayNames, const QModelIndex &index);
+    QCoro::Task<void> queryAndInsertDisplayData(const QString &displayNames);
 
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(ScreenBrightnessControl, bool, m_isBrightnessAvailable, false, &ScreenBrightnessControl::isBrightnessAvailableChanged);
 
