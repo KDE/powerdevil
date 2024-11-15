@@ -26,12 +26,15 @@ static const QString SCREENBRIGHTNESS_IFACE = u"org.kde.ScreenBrightness"_s;
 static const QString SCREENBRIGHTNESS_DISPLAY_PATH_TEMPLATE = u"/org/kde/ScreenBrightness/%1"_s;
 static const QString SCREENBRIGHTNESS_DISPLAY_IFACE = u"org.kde.ScreenBrightness.Display"_s;
 static const QString DBUS_PROPERTIES_IFACE = u"org.freedesktop.DBus.Properties"_s;
-static const QString ALREADY_CHANGED_CONTEXT = u"AlreadyChanged"_s;
 }
 
 ScreenBrightnessControl::ScreenBrightnessControl(QObject *parent)
     : QObject(parent)
 {
+    static uint pluginId = 0;
+    ++pluginId;
+    m_alreadyChangedContext = QStringLiteral("AlreadyChanged-%1").arg(pluginId);
+
     init();
 }
 
@@ -81,7 +84,7 @@ void ScreenBrightnessControl::setBrightness(const QString &displayName, int valu
                                                       u"SetBrightnessWithContext"_s);
     uint flags = m_isSilent ? 0x1 : 0x0;
 
-    msg << value << flags << ALREADY_CHANGED_CONTEXT;
+    msg << value << flags << m_alreadyChangedContext;
     QDBusPendingCall async = QDBusConnection::sessionBus().asyncCall(msg);
     m_brightnessChangeWatcher.reset(new QDBusPendingCallWatcher(async));
 
@@ -113,7 +116,7 @@ void ScreenBrightnessControl::onGlobalPropertiesChanged(const QString &ifaceName
 
 void ScreenBrightnessControl::onBrightnessChanged(const QString &displayName, int value, const QString &sourceClientName, const QString &sourceClientContext)
 {
-    if (sourceClientName == QDBusConnection::sessionBus().baseService() && sourceClientContext == ALREADY_CHANGED_CONTEXT) {
+    if (sourceClientName == QDBusConnection::sessionBus().baseService() && sourceClientContext == m_alreadyChangedContext) {
         qCDebug(APPLETS::BRIGHTNESS) << "ignoring brightness change, it's coming from the applet itself";
         return;
     }
