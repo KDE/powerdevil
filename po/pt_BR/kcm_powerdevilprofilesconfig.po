@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-04-04 14:59-0300\n"
+"PO-Revision-Date: 2024-11-14 10:55-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -854,14 +854,12 @@ msgstr[0] "depois de %1 segundo"
 msgstr[1] "depois de %1 segundos"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgid "after %1 min"
-#| msgid_plural "after %1 min"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "depois de %1 minuto"
-msgstr[1] "depois de %1 minutos"
+msgstr[0] "Executar depois de %1 minuto"
+msgstr[1] "Executar depois de %1 minutos"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
@@ -870,18 +868,16 @@ msgid "Command or script when inactive"
 msgstr ""
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Digite o comando ou selecione o arquivo…"
+msgstr "Digite o comando ou selecione o arquivo de script"
 
 #: ui/RunScriptEdit.qml:34
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Digite o comando ou selecione o arquivo…"
+msgstr "Digite o comando ou selecione o arquivo de script"
 
 #: ui/RunScriptEdit.qml:52
 #, kde-format
