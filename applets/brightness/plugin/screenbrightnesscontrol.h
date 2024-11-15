@@ -78,6 +78,7 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(ScreenBrightnessControl, bool, m_isBrightnessAvailable, false, &ScreenBrightnessControl::isBrightnessAvailableChanged);
 
     ScreenBrightnessDisplayModel m_displays;
+    QString m_alreadyChangedContext;
     std::unique_ptr<QDBusPendingCallWatcher> m_brightnessChangeWatcher;
 
     bool m_isSilent = false;
