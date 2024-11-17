@@ -27,6 +27,7 @@ public:
     int brightness() const override;
     void setBrightness(int brightness, bool allowAnimations) override;
     bool isInternal() const override;
+    std::optional<QByteArray> edidData() const override;
 
     void applyPendingBrightness();
     void setConfigOperationDone();

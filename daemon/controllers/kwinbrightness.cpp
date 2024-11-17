@@ -164,6 +164,12 @@ bool KWinDisplayBrightness::isInternal() const
     return m_output->type() == KScreen::Output::Panel;
 }
 
+std::optional<QByteArray> KWinDisplayBrightness::edidData() const
+{
+    KScreen::Edid *edid = m_output->edid();
+    return edid ? std::make_optional(edid->rawData()) : std::nullopt;
+}
+
 void KWinDisplayBrightness::handleBrightnessChanged()
 {
     if (m_inhibitChangeSignal) {
