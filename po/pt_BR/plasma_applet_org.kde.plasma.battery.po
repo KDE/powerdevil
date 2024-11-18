@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-27 02:38+0000\n"
-"PO-Revision-Date: 2024-07-19 13:10-0300\n"
+"PO-Revision-Date: 2024-11-16 01:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -331,7 +331,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: package/contents/ui/PowerManagementItem.qml:182
 #: package/contents/ui/PowerManagementItem.qml:308
@@ -340,7 +340,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "Somente dessa vez"
 
 #: package/contents/ui/PowerManagementItem.qml:187
 #: package/contents/ui/PowerManagementItem.qml:313
@@ -349,22 +349,20 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Every time for this app and reason"
-msgstr ""
+msgstr "Toda vez para este aplicativo e razão"
 
 #: package/contents/ui/PowerManagementItem.qml:213
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
-msgstr "Bloquear manualmente a suspensão e bloqueio da tela"
+msgstr "Você bloqueou manualmente o modo de suspensão e o bloqueio de tela."
 
 #: package/contents/ui/PowerManagementItem.qml:218
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: package/contents/ui/PowerManagementItem.qml:237
 #: package/contents/ui/PowerManagementItem.qml:360
@@ -379,25 +377,24 @@ msgid "Failed to block automatic sleep and screen locking"
 msgstr "Falha ao bloquear a suspensão automática e o bloqueio de tela"
 
 #: package/contents/ui/PowerManagementItem.qml:258
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
 msgstr[0] ""
-"%1 aplicativo está atualmente bloqueando a suspensão e bloqueio de tela:"
+"%1 aplicativo foi impedido de bloquear o modo de suspensão e o bloqueio de "
+"tela:"
 msgstr[1] ""
-"%1 aplicativos estão atualmente bloqueando a suspensão e bloqueio de tela:"
+"%1 aplicativos foram impedidos de bloquear o modo de suspensão e o bloqueio "
+"de tela:"
 
 #: package/contents/ui/PowerManagementItem.qml:285
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 está atualmente bloqueando a suspensão e bloqueio de tela (%2)"
+msgstr ""
+"%1 foi impedido de bloquear o modo de suspensão e o bloqueio de tela para %2"
 
 #: package/contents/ui/PowerManagementItem.qml:298
 #: package/contents/ui/PowerManagementItem.qml:326
@@ -406,16 +403,13 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "Bloquear novamente"
 
 #: package/contents/ui/PowerManagementItem.qml:341
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Manually block sleep and screen locking after inactivity"
-#| msgid "Manually block"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
-msgstr "Bloqueado manualmente"
+msgstr "Bloquear manualmente"
 
 #: package/contents/ui/PowerProfileItem.qml:41
 #, kde-format
