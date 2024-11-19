@@ -207,7 +207,9 @@ PlasmoidItem {
         onPressed: wasExpanded = brightnessAndColorControl.expanded
         onClicked: mouse => {
             if (mouse.button == Qt.MiddleButton) {
-                nightLightControl.toggleInhibition();
+                if (nightLightControl.enabled) {
+                    nightLightControl.toggleInhibition();
+                }
             } else {
                 brightnessAndColorControl.expanded = !wasExpanded;
             }
