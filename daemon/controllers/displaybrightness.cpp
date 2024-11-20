@@ -26,4 +26,13 @@ std::optional<QByteArray> DisplayBrightness::edidData() const
     return std::nullopt;
 }
 
+bool DisplayBrightness::supportsDimmingMultiplier() const
+{
+    return false;
+}
+
+void DisplayBrightness::setDimmingMultiplier(double)
+{
+}
+
 #include "moc_displaybrightness.cpp"

@@ -205,8 +205,13 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
             const RememberedDisplayState &remembered = rememberedIt->second;
             info.brightnessLogic.setValueRange(remembered.minBrightness, info.display->maxBrightness());
 
-            if (remembered.latestActiveDimmingRatio.has_value()
-                && info.display->brightness() == brightnessMultiplied(remembered.brightness, *remembered.latestActiveDimmingRatio, remembered.minBrightness)) {
+            if (info.display->supportsDimmingMultiplier()) {
+                info.dimmingRatio = dimmingRatioForDisplay(displayId);
+                info.display->setDimmingMultiplier(info.dimmingRatio);
+
+            } else if (remembered.latestActiveDimmingRatio.has_value()
+                       && info.display->brightness()
+                           == brightnessMultiplied(remembered.brightness, *remembered.latestActiveDimmingRatio, remembered.minBrightness)) {
                 qCDebug(POWERDEVIL) << "Re-recognized display" << displayId << "at brightness" << remembered.brightness << "* dimming ratio"
                                     << *remembered.latestActiveDimmingRatio;
 
@@ -345,7 +350,7 @@ void ScreenBrightnessController::setBrightness(const QString &displayId,
         auto &[id, info] = *it;
         const PowerDevil::BrightnessLogic::BrightnessInfo bi = info.brightnessLogic.info();
         const int boundedValue = std::clamp(value, bi.valueMin, bi.valueMax);
-        const int dimmedValue = brightnessMultiplied(boundedValue, info.dimmingRatio, bi.valueMin);
+        const int dimmedValue = info.display->supportsDimmingMultiplier() ? boundedValue : brightnessMultiplied(boundedValue, info.dimmingRatio, bi.valueMin);
 
         qCDebug(POWERDEVIL) << "Set screen brightness of" << displayId << "to" << dimmedValue << "/" << bi.valueMax;
         if (value != boundedValue) {
@@ -474,8 +479,14 @@ void ScreenBrightnessController::setDimmingRatio(const QString &dimmingId, doubl
 
     for (auto &[id, info] : m_displaysById) {
         const double newRatio = dimmingRatioForDisplay(id);
-        if (info.dimmingRatio != newRatio) {
-            info.dimmingRatio = newRatio;
+        if (info.dimmingRatio == newRatio) {
+            continue;
+        }
+        info.dimmingRatio = newRatio;
+
+        if (info.display->supportsDimmingMultiplier()) {
+            info.display->setDimmingMultiplier(info.dimmingRatio);
+        } else {
             // set brightness to the currently stored value, but with the new multiplier
             setBrightness(id, info.brightnessLogic.info().value, u"(internal)"_s, u"dimming"_s);
 

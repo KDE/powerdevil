@@ -62,6 +62,22 @@ public:
      */
     virtual std::optional<QByteArray> edidData() const;
 
+    /**
+     * Returns false by default. Override to return true if the display device can set a dimming
+     * multiplier independently of the brightness() itself. If this is supported,
+     * setDimmingMultiplier() must be overridden as well.
+     */
+    virtual bool supportsDimmingMultiplier() const;
+
+    /**
+     * Set a dimming multiplier between 0.0 and 1.0 to scale down display brightness temporarily,
+     * without affecting the value returned by brightness(). It is not assumed that this value will
+     * persist across disconnection or reboot scenarios.
+     *
+     * Must be implemented if supportsDimmingMultiplier() returns true, otherwise never called.
+     */
+    virtual void setDimmingMultiplier(double multiplier);
+
 Q_SIGNALS:
     void externalBrightnessChangeObserved(DisplayBrightness *self, int brightness);
 };
