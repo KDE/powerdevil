@@ -3,20 +3,21 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011.
 # Burkhard Lück <lueck@hube-lueck.de>, 2020.
 # SPDX-FileCopyrightText: 2024 Frank Steinmetzger <dev-kde@felsenfleischer.de>
+# SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-06-28 00:22+0200\n"
-"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
+"PO-Revision-Date: 2024-11-19 15:58+0100\n"
+"Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
@@ -434,26 +435,20 @@ msgid "Action to perform when the system is idle"
 msgstr "Aktion, die ausgeführt werden soll, wenn das System nichts tut"
 
 #: ui/ProfileConfig.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 second"
-#| msgid_plural "after %1 seconds"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
-msgstr[0] "nach %1 Sekunde"
-msgstr[1] "nach %1 Sekunden"
+msgstr[0] "Nach %1 Sekunde"
+msgstr[1] "Nach %1 Sekunden"
 
 #: ui/ProfileConfig.qml:96
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minute"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
-msgstr[0] "nach %1 Minute"
-msgstr[1] "nach %1 Minuten"
+msgstr[0] "Nach %1 Minute"
+msgstr[1] "Nach %1 Minuten"
 
 #: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
 #: ui/ProfileConfig.qml:830
@@ -719,16 +714,12 @@ msgid "Run command or script:"
 msgstr "Befehl oder Skript ausführen:"
 
 #: ui/ProfileConfig.qml:652
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Determine what will trigger a script command to run in this "
-#| "power state"
-#| msgid "Choose run conditions…"
+#, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Ausführungsbedingungen auswählen …"
+msgstr "Ausführungsbedingungen auswählen"
 
 #: ui/ProfileConfig.qml:654
 #, kde-format
@@ -737,16 +728,12 @@ msgid "Choose run conditions for command or script"
 msgstr "Die Bedingungen für das Ausführen des Befehls oder Skripts auswählen"
 
 #: ui/ProfileConfig.qml:674
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:action:menu Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When entering \"%1\" state"
+#, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
 msgid "When entering \"%1\" state"
-msgstr "Beim &Betreten des Zustands „%1“"
+msgstr "Beim Betreten des Zustands „%1“"
 
 #: ui/ProfileConfig.qml:692
 #, kde-format
@@ -763,11 +750,7 @@ msgid "When inactive"
 msgstr "Bei Aktivität"
 
 #: ui/ProfileConfig.qml:733
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&ntering \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -781,11 +764,7 @@ msgid "Command or script when entering \"%1\" state"
 msgstr "Befehl oder Skript beim Betreten des Zustands „%1“"
 
 #: ui/ProfileConfig.qml:768
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@label:textfield Script command to execute for power state (On AC Power, "
-#| "On Battery, ...)"
-#| msgid "When e&xiting \"%1\" state:"
+#, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
 "Battery, ...)"
@@ -799,45 +778,39 @@ msgid "Command or script when exiting \"%1\" state"
 msgstr "Befehl oder Skript beim Verlassen des Zustands „%1“"
 
 #: ui/ProfileConfig.qml:801
-#, fuzzy, kde-format
-#| msgctxt "@accessible:name:spinbox"
-#| msgid "Period of inactivity until the script command executes"
+#, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
-msgstr "Die Dauer der Inaktivität bevor das Skript ausgeführt wird"
+msgstr ""
+"Die Dauer der Inaktivität bevor der Befehl oder das Skript ausgeführt wird"
 
 #: ui/ProfileConfig.qml:807
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "Bei &Inaktivität:"
 
 #: ui/ProfileConfig.qml:810
-#, fuzzy, kde-format
-#| msgctxt "@label:button"
-#| msgid "Run custom script:"
+#, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
-msgstr "Eigenes Skript ausführen:"
+msgstr "Befehl oder Skript ausführen nach:"
 
 #: ui/ProfileConfig.qml:815
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
-msgstr[0] "nach %1 Sekunde"
-msgstr[1] "nach %1 Sekunden"
+msgstr[0] "nach %1 Sekunde ausführen"
+msgstr[1] "nach %1 Sekunden ausführen"
 
 #: ui/ProfileConfig.qml:817
-#, fuzzy, kde-format
-#| msgctxt "@option:combobox"
-#| msgid "after %1 minutes"
-#| msgid_plural "after %1 minutes"
+#, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
-msgstr[0] "nach %1 Minuten"
-msgstr[1] "nach %1 Minuten"
+msgstr[0] "Nach %1 Minute ausführen"
+msgstr[1] "Nach %1 Minuten ausführen"
 
 #: ui/ProfileConfig.qml:859
 #, kde-format
@@ -846,11 +819,10 @@ msgid "Command or script when inactive"
 msgstr "Befehl oder Skript bei Inaktivität"
 
 #: ui/RunScriptEdit.qml:33
-#, fuzzy, kde-format
-#| msgid "Enter command or select file…"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
-msgstr "Geben Sie einen Befehl ein oder wählen Sie eine Datei …"
+msgstr "Geben Sie einen Befehl oder Skriptdatei ein"
 
 #: ui/RunScriptEdit.qml:34
 #, kde-format
