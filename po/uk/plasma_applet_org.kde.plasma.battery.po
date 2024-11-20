@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-10-16 14:46+0300\n"
+"PO-Revision-Date: 2024-11-19 18:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -58,7 +58,7 @@ msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
 "manufacturer."
 msgstr ""
-"Рівень зношеності цього акумулятора складає %1%. Його варто замінити. Будь "
+"Залишкова місткість цього акумулятора складає %1%. Його варто замінити. Будь "
 "ласка, зв'яжіться із представниками виробника."
 
 #: package/contents/ui/BatteryItem.qml:203
@@ -80,7 +80,7 @@ msgstr "Оцінювання…"
 #: package/contents/ui/BatteryItem.qml:220
 #, kde-format
 msgid "Battery Health:"
-msgstr "Рівень зношеності:"
+msgstr "Залишкова місткість:"
 
 #: package/contents/ui/BatteryItem.qml:226
 #, kde-format

@@ -1,19 +1,20 @@
 # SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Burkhard Lück <lueck@hube-lueck.de>, 2013, 2014.
+# SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: libpowerdevilcommonconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:41+0000\n"
-"PO-Revision-Date: 2024-03-27 19:58+0100\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2024-11-04 20:02+0100\n"
+"Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -90,29 +91,29 @@ msgstr "Standby"
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Sitzung im Arbeitsspeicher ablegen"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybrider Standby-Modus"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Sitzung im Arbeitsspeicher und auf Festplatte speichern"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Standby, dann Ruhezustand"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "Nach einer Weile Inaktivität in Ruhezustand wechseln"
 
 #~ msgid ""
 #~ "Power Management configuration module could not be loaded.\n"

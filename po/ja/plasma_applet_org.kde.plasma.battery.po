@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-09-12 22:32+0900\n"
+"PO-Revision-Date: 2024-11-17 22:42+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -135,14 +135,14 @@ msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
-"このラップトップは外部モニタが接続されている間は画面を閉じてもスリープしない"
-"ように設定されています。"
+"このラップトップは、外部モニタが接続されている間は画面を閉じてもスリープしな"
+"いように設定されています。"
 
 #: package/contents/ui/InhibitionItem.qml:118
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
-msgstr[0] "現在 %1 つのアプリケーションがスリープと画面ロックを妨げています:"
+msgstr[0] "現在 %1 個のアプリケーションがスリープと画面ロックを妨げています:"
 
 #: package/contents/ui/InhibitionItem.qml:144
 #, kde-format
@@ -157,7 +157,7 @@ msgstr "現在 %1 がスリープと画面ロックを妨げています (未知
 #: package/contents/ui/InhibitionItem.qml:148
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "現在 1 つのアプリケーションがスリープと画面ロックを妨げています (%1)"
+msgstr "現在 1 個のアプリケーションがスリープと画面ロックを妨げています (%1)"
 
 #: package/contents/ui/InhibitionItem.qml:150
 #, kde-format
@@ -165,7 +165,7 @@ msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
 msgstr ""
-"現在 1 つのアプリケーションがスリープと画面ロックを妨げています (未知の理由)"
+"現在 1 個のアプリケーションがスリープと画面ロックを妨げています (未知の理由)"
 
 #: package/contents/ui/InhibitionItem.qml:154
 #: package/contents/ui/InhibitionItem.qml:287
@@ -199,7 +199,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "解除"
 
 #: package/contents/ui/InhibitionItem.qml:182
 #: package/contents/ui/InhibitionItem.qml:308
@@ -208,7 +208,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "今回のみ"
 
 #: package/contents/ui/InhibitionItem.qml:187
 #: package/contents/ui/InhibitionItem.qml:313
@@ -217,21 +217,20 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Every time for this app and reason"
-msgstr ""
+msgstr "このアプリケーションと理由では常に"
 
 #: package/contents/ui/InhibitionItem.qml:213
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
-msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+msgstr "スリープと画面ロックを手動で妨げています。"
 
 #: package/contents/ui/InhibitionItem.qml:218
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "解除"
 
 #: package/contents/ui/InhibitionItem.qml:237
 #: package/contents/ui/InhibitionItem.qml:360
@@ -243,25 +242,22 @@ msgstr "自動的なスリープと画面ロックの有効化に失敗しまし
 #: package/contents/ui/InhibitionItem.qml:363
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "自動的なスリープと画面ロックのブロックに失敗しました"
+msgstr "自動的なスリープと画面ロックの無効化に失敗しました"
 
 #: package/contents/ui/InhibitionItem.qml:258
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "現在 %1 つのアプリケーションがスリープと画面ロックを妨げています:"
+msgstr[0] ""
+"現在 %1 個のアプリケーションはスリープと画面ロックを妨げることができません:"
 
 #: package/contents/ui/InhibitionItem.qml:285
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "現在 %1 がスリープと画面ロックを妨げています (%2)"
+msgstr "現在 %1 はスリープと画面ロックを妨げることができません (%2)"
 
 #: package/contents/ui/InhibitionItem.qml:298
 #: package/contents/ui/InhibitionItem.qml:326
@@ -270,16 +266,13 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "再度妨げる"
 
 #: package/contents/ui/InhibitionItem.qml:341
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@option:check Manually block sleep and screen locking after inactivity"
-#| msgid "Manually block"
+#, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
-msgstr "手動でブロック"
+msgstr "手動で無効化"
 
 #: package/contents/ui/main.qml:75
 #, kde-format
@@ -319,7 +312,7 @@ msgstr "バッテリ %1%"
 #: package/contents/ui/main.qml:143
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
-msgstr "供給電力はバッテリを充電するには不十分です"
+msgstr "供給されている電力はバッテリを充電するには不十分です"
 
 #: package/contents/ui/main.qml:147
 #, kde-format
@@ -418,9 +411,7 @@ msgid "Power Profile"
 msgstr "電源プロファイル"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "自動"
@@ -499,7 +490,7 @@ msgstr "TLP サービスが自動的に電源プロファイルを制御しま�
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "電源プロファイルはこのデバイスではサポートされていません。"
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
