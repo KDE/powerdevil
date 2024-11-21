@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"POT-Creation-Date: 2024-11-21 02:29+0000\n"
 "PO-Revision-Date: 2024-06-11 17:19+0400\n"
 "Last-Translator: Kheyyam Godjayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -152,7 +152,7 @@ msgstr "Ekranın parlaqlığını dəyişmək üçün sürüşdürün"
 msgid "Middle-click to suspend Night Light"
 msgstr "gecə işıqlanmasını orta düymə ilə dayandırmaq"
 
-#: package/contents/ui/main.qml:236
+#: package/contents/ui/main.qml:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
