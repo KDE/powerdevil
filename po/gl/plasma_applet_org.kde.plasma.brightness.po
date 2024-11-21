@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"POT-Creation-Date: 2024-11-21 00:42+0000\n"
 "PO-Revision-Date: 2024-08-25 15:44+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -149,7 +149,7 @@ msgstr "Desprace para axustar o brillo da pantalla"
 msgid "Middle-click to suspend Night Light"
 msgstr "Faga un clic central para suspender a luz nocturna."
 
-#: package/contents/ui/main.qml:236
+#: package/contents/ui/main.qml:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"

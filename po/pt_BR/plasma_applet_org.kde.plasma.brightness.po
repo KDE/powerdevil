@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"POT-Creation-Date: 2024-11-21 00:42+0000\n"
 "PO-Revision-Date: 2024-11-16 01:26-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "Rolar para ajustar o brilho da tela"
 msgid "Middle-click to suspend Night Light"
 msgstr "Clique com o botão do meio suspender a luz noturna"
 
-#: package/contents/ui/main.qml:236
+#: package/contents/ui/main.qml:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"

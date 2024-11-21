@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 00:41+0000\n"
+"POT-Creation-Date: 2024-11-21 00:42+0000\n"
 "PO-Revision-Date: 2024-08-24 11:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -151,7 +151,7 @@ msgstr "Desplaceu per a ajustar la lluminositat de la pantalla"
 msgid "Middle-click to suspend Night Light"
 msgstr "Clic del mig per a suspendre la llum de nit"
 
-#: package/contents/ui/main.qml:236
+#: package/contents/ui/main.qml:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
