@@ -93,7 +93,7 @@ ecm_set_disabled_deprecation_versions(QT 5.15.2
 
 add_subdirectory(applets)
 add_subdirectory(daemon)
-add_subdirectory(kcmodule)
+add_subdirectory(kcm)
 add_subdirectory(doc)
 kdoctools_install(po)
 add_subdirectory(runners)

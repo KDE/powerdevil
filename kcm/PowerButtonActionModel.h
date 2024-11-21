@@ -14,14 +14,12 @@
 #include <QList>
 #include <QString>
 
-#include "powerdevilconfigcommonprivate_export.h"
-
 namespace PowerDevil
 {
 class PowerManagement;
 }
 
-class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT PowerButtonActionModel : public QAbstractListModel
+class PowerButtonActionModel : public QAbstractListModel
 {
     Q_OBJECT
 

@@ -12,14 +12,12 @@
 #include <QList>
 #include <QString>
 
-#include "powerdevilconfigcommonprivate_export.h"
-
 namespace PowerDevil
 {
 class PowerManagement;
 }
 
-class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT SleepModeModel : public QAbstractListModel
+class SleepModeModel : public QAbstractListModel
 {
     Q_OBJECT
 
