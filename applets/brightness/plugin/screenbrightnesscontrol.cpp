@@ -13,6 +13,7 @@
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 #include <QDBusReply>
+#include <QDBusServiceWatcher>
 #include <QPointer>
 #include <QScopeGuard>
 
@@ -35,7 +36,17 @@ ScreenBrightnessControl::ScreenBrightnessControl(QObject *parent)
     ++pluginId;
     m_alreadyChangedContext = QStringLiteral("AlreadyChanged-%1").arg(pluginId);
 
-    init();
+    m_serviceWatcher = std::make_unique<QDBusServiceWatcher>(SCREENBRIGHTNESS_SERVICE,
+                                                             QDBusConnection::sessionBus(),
+                                                             QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
+    connect(m_serviceWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &ScreenBrightnessControl::onServiceRegistered);
+    connect(m_serviceWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &ScreenBrightnessControl::onServiceUnregistered);
+
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SCREENBRIGHTNESS_SERVICE)) {
+        onServiceRegistered();
+    } else {
+        qCWarning(APPLETS::BRIGHTNESS) << "D-Bus service not available:" << SCREENBRIGHTNESS_SERVICE;
+    }
 }
 
 ScreenBrightnessControl::~ScreenBrightnessControl()
@@ -132,8 +143,9 @@ void ScreenBrightnessControl::onBrightnessRangeChanged(const QString &displayNam
     m_isBrightnessAvailable = firstDisplayMax.isValid() && firstDisplayMax.toInt() > 0;
 }
 
-QCoro::Task<void> ScreenBrightnessControl::init()
+QCoro::Task<void> ScreenBrightnessControl::onServiceRegistered()
 {
+    m_serviceRegistered = true;
     QPointer<ScreenBrightnessControl> alive{this};
 
     if (!co_await queryAndUpdateDisplays()) {
@@ -141,8 +153,8 @@ QCoro::Task<void> ScreenBrightnessControl::init()
         co_return;
     }
 
-    if (!alive) {
-        qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed during initialization, returning early";
+    if (!alive || !m_serviceRegistered) {
+        qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed during initialization, or service got unregistered. Returning early";
         co_return;
     }
 
@@ -179,6 +191,35 @@ QCoro::Task<void> ScreenBrightnessControl::init()
     m_isBrightnessAvailable = true;
 }
 
+void ScreenBrightnessControl::onServiceUnregistered()
+{
+    m_serviceRegistered = false;
+
+    QDBusConnection::sessionBus().disconnect(SCREENBRIGHTNESS_SERVICE,
+                                             SCREENBRIGHTNESS_PATH,
+                                             DBUS_PROPERTIES_IFACE,
+                                             u"PropertiesChanged"_s,
+                                             this,
+                                             SLOT(onGlobalPropertiesChanged(QString, QVariantMap, QStringList)));
+
+    QDBusConnection::sessionBus().disconnect(SCREENBRIGHTNESS_SERVICE,
+                                             SCREENBRIGHTNESS_PATH,
+                                             SCREENBRIGHTNESS_IFACE,
+                                             u"BrightnessChanged"_s,
+                                             this,
+                                             SLOT(onBrightnessChanged(QString, int, QString, QString)));
+
+    QDBusConnection::sessionBus().disconnect(SCREENBRIGHTNESS_SERVICE,
+                                             SCREENBRIGHTNESS_PATH,
+                                             SCREENBRIGHTNESS_IFACE,
+                                             u"BrightnessRangeChanged"_s,
+                                             this,
+                                             SLOT(onBrightnessRangeChanged(QString, int, int)));
+
+    m_displays.removeMissingDisplays({});
+    m_isBrightnessAvailable = false;
+}
+
 QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
 {
     m_shouldRecheckDisplays = true;
@@ -202,7 +243,7 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
         msg << SCREENBRIGHTNESS_IFACE << u"DisplaysDBusNames"_s;
 
         const QDBusReply<QVariant> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
-        if (!alive || !reply.isValid()) {
+        if (!alive || !reply.isValid() || !m_serviceRegistered) {
             qCWarning(APPLETS::BRIGHTNESS) << "error getting display ids via dbus:" << reply.error();
             co_return false;
         }
@@ -213,8 +254,8 @@ QCoro::Task<bool> ScreenBrightnessControl::queryAndUpdateDisplays()
         for (const QString &displayName : displayNames) {
             if (m_displays.displayIndex(displayName) == QModelIndex()) {
                 co_await queryAndInsertDisplay(displayName, QModelIndex());
-                if (!alive) {
-                    qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed while querying displays, returning early";
+                if (!alive || !m_serviceRegistered) {
+                    qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed or service unregistered querying displays, returning early";
                     co_return false;
                 }
             }
@@ -232,7 +273,7 @@ QCoro::Task<void> ScreenBrightnessControl::queryAndInsertDisplay(const QString &
     msg << SCREENBRIGHTNESS_DISPLAY_IFACE;
     QPointer<ScreenBrightnessControl> alive{this};
     const QDBusReply<QVariantMap> reply = co_await QDBusConnection::sessionBus().asyncCall(msg);
-    if (!alive || !reply.isValid()) {
+    if (!alive || !reply.isValid() || !m_serviceRegistered) {
         qCWarning(APPLETS::BRIGHTNESS) << "error getting display properties via dbus:" << reply.error();
         co_return;
     }

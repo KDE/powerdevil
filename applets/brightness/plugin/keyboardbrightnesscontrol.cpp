@@ -14,6 +14,7 @@
 #include <QDBusMetaType>
 #include <QDBusPendingCall>
 #include <QDBusReply>
+#include <QDBusServiceWatcher>
 #include <QPointer>
 
 using namespace Qt::StringLiterals;
@@ -26,7 +27,17 @@ constexpr QLatin1String SOLID_POWERMANAGEMENT_SERVICE("org.kde.Solid.PowerManage
 KeyboardBrightnessControl::KeyboardBrightnessControl(QObject *parent)
     : QObject(parent)
 {
-    init();
+    m_serviceWatcher = std::make_unique<QDBusServiceWatcher>(SOLID_POWERMANAGEMENT_SERVICE,
+                                                             QDBusConnection::sessionBus(),
+                                                             QDBusServiceWatcher::WatchForRegistration | QDBusServiceWatcher::WatchForUnregistration);
+    connect(m_serviceWatcher.get(), &QDBusServiceWatcher::serviceRegistered, this, &KeyboardBrightnessControl::onServiceRegistered);
+    connect(m_serviceWatcher.get(), &QDBusServiceWatcher::serviceUnregistered, this, &KeyboardBrightnessControl::onServiceUnregistered);
+
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered(SOLID_POWERMANAGEMENT_SERVICE)) {
+        onServiceRegistered();
+    } else {
+        qCWarning(APPLETS::BRIGHTNESS) << "D-Bus service not available:" << SOLID_POWERMANAGEMENT_SERVICE;
+    }
 }
 
 KeyboardBrightnessControl::~KeyboardBrightnessControl()
@@ -77,15 +88,17 @@ void KeyboardBrightnessControl::onBrightnessMaxChanged(int value)
     m_isBrightnessAvailable = value > 0;
 }
 
-QCoro::Task<void> KeyboardBrightnessControl::init()
+QCoro::Task<void> KeyboardBrightnessControl::onServiceRegistered()
 {
+    m_serviceRegistered = true;
+
     QDBusMessage brightnessMax = QDBusMessage::createMethodCall(u"org.kde.Solid.PowerManagement"_s,
                                                                 u"/org/kde/Solid/PowerManagement/Actions/KeyboardBrightnessControl"_s,
                                                                 u"org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl"_s,
                                                                 u"keyboardBrightnessMax"_s);
     QPointer<KeyboardBrightnessControl> alive{this};
     const QDBusReply<int> brightnessMaxReply = co_await QDBusConnection::sessionBus().asyncCall(brightnessMax);
-    if (!alive || !brightnessMaxReply.isValid()) {
+    if (!alive || !brightnessMaxReply.isValid() || !m_serviceRegistered) {
         qCWarning(APPLETS::BRIGHTNESS) << "error getting max keyboard brightness via dbus" << brightnessMaxReply.error();
         co_return;
     }
@@ -96,7 +109,7 @@ QCoro::Task<void> KeyboardBrightnessControl::init()
                                                              u"org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl"_s,
                                                              u"keyboardBrightness"_s);
     const QDBusReply<int> brightnessReply = co_await QDBusConnection::sessionBus().asyncCall(brightness);
-    if (!alive || !brightnessReply.isValid()) {
+    if (!alive || !brightnessReply.isValid() || !m_serviceRegistered) {
         qCWarning(APPLETS::BRIGHTNESS) << "error getting keyboard brightness via dbus" << brightnessReply.error();
         co_return;
     }
@@ -123,6 +136,26 @@ QCoro::Task<void> KeyboardBrightnessControl::init()
     }
 
     m_isBrightnessAvailable = true;
+}
+
+void KeyboardBrightnessControl::onServiceUnregistered()
+{
+    m_serviceRegistered = false;
+
+    QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                             u"/org/kde/Solid/PowerManagement/Actions/KeyboardBrightnessControl"_s,
+                                             u"org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl"_s,
+                                             u"keyboardBrightnessChanged"_s,
+                                             this,
+                                             SLOT(onBrightnessChanged(int)));
+    QDBusConnection::sessionBus().disconnect(SOLID_POWERMANAGEMENT_SERVICE,
+                                             u"/org/kde/Solid/PowerManagement/Actions/KeyboardBrightnessControl"_s,
+                                             u"org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl"_s,
+                                             u"keyboardBrightnessMaxChanged"_s,
+                                             this,
+                                             SLOT(onBrightnessMaxChanged(int)));
+
+    m_isBrightnessAvailable = false;
 }
 
 #include "moc_keyboardbrightnesscontrol.cpp"

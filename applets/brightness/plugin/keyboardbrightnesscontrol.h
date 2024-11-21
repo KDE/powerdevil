@@ -11,6 +11,8 @@
 #include <QObject>
 #include <qqmlregistration.h>
 
+class QDBusServiceWatcher;
+
 class KeyboardBrightnessControl : public QObject
 {
     Q_OBJECT
@@ -42,7 +44,10 @@ private Q_SLOTS:
     void onBrightnessMaxChanged(int value);
 
 private:
-    QCoro::Task<void> init();
+    QCoro::Task<void> onServiceRegistered();
+    void onServiceUnregistered();
+
+    std::unique_ptr<QDBusServiceWatcher> m_serviceWatcher;
 
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl,
                                          bool,
@@ -53,4 +58,5 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl, int, m_maxBrightness, 0, &KeyboardBrightnessControl::brightnessMaxChanged);
 
     bool m_isSilent = false;
+    bool m_serviceRegistered = false;
 };

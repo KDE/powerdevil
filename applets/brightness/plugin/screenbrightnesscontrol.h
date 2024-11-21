@@ -17,6 +17,7 @@
 #include <qqmlregistration.h>
 
 class QDBusPendingCallWatcher;
+class QDBusServiceWatcher;
 
 class ScreenBrightnessControl : public QObject
 {
@@ -71,7 +72,8 @@ private Q_SLOTS:
     void onBrightnessRangeChanged(const QString &displayName, int max, int value);
 
 private:
-    QCoro::Task<void> init();
+    QCoro::Task<void> onServiceRegistered();
+    void onServiceUnregistered();
     QCoro::Task<bool> queryAndUpdateDisplays();
     QCoro::Task<void> queryAndInsertDisplay(const QString &displayNames, const QModelIndex &index);
 
@@ -80,8 +82,10 @@ private:
     ScreenBrightnessDisplayModel m_displays;
     QString m_alreadyChangedContext;
     std::unique_ptr<QDBusPendingCallWatcher> m_brightnessChangeWatcher;
+    std::unique_ptr<QDBusServiceWatcher> m_serviceWatcher;
 
     bool m_isSilent = false;
     bool m_displaysUpdating = false;
     bool m_shouldRecheckDisplays = false;
+    bool m_serviceRegistered = false;
 };
