@@ -153,7 +153,10 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
             this,
             &PowerKCM::isChargeStartThresholdSupportedChanged);
     connect(m_externalServiceSettings, &ExternalServiceSettings::isChargeStopThresholdSupportedChanged, this, &PowerKCM::isChargeStopThresholdSupportedChanged);
-    connect(m_externalServiceSettings, &ExternalServiceSettings::isBatteryConservationModeSupportedChanged, this, &PowerKCM::isBatteryConservationModeSupportedChanged);
+    connect(m_externalServiceSettings,
+            &ExternalServiceSettings::isBatteryConservationModeSupportedChanged,
+            this,
+            &PowerKCM::isBatteryConservationModeSupportedChanged);
     connect(m_externalServiceSettings,
             &ExternalServiceSettings::chargeStopThresholdMightNeedReconnectChanged,
             this,

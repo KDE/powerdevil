@@ -18,7 +18,10 @@ class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT PowerProfileModel : public QAbstractL
     Q_OBJECT
 
 public:
-    enum { Name = Qt::DisplayRole, Value = Qt::UserRole };
+    enum {
+        Name = Qt::DisplayRole,
+        Value = Qt::UserRole
+    };
 
     PowerProfileModel(QObject *parent = nullptr);
 

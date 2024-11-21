@@ -26,7 +26,12 @@ class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT PowerButtonActionModel : public QAbst
     Q_OBJECT
 
 public:
-    enum { Icon = Qt::DecorationRole, Name = Qt::DisplayRole, Value = Qt::UserRole, IconName = Qt::UserRole + 1 };
+    enum {
+        Icon = Qt::DecorationRole,
+        Name = Qt::DisplayRole,
+        Value = Qt::UserRole,
+        IconName = Qt::UserRole + 1
+    };
 
     PowerButtonActionModel(QObject *parent,
                            PowerDevil::PowerManagement *pm,

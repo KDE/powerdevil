@@ -24,7 +24,11 @@ class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT SleepModeModel : public QAbstractList
     Q_OBJECT
 
 public:
-    enum { Name = Qt::DisplayRole, Subtitle = Qt::StatusTipRole, Value = Qt::UserRole };
+    enum {
+        Name = Qt::DisplayRole,
+        Subtitle = Qt::StatusTipRole,
+        Value = Qt::UserRole
+    };
 
     SleepModeModel(QObject *parent, PowerDevil::PowerManagement *pm);
 

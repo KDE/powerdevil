@@ -69,7 +69,11 @@ void PowerDevilRunner::updateSyntaxes()
                    "e.g. screen brightness 50 would dim the screen to 50% maximum brightness"));
 }
 
-enum SleepState { SuspendState, HibernateState, HybridSuspendState };
+enum SleepState {
+    SuspendState,
+    HibernateState,
+    HybridSuspendState
+};
 
 void PowerDevilRunner::match(KRunner::RunnerContext &context)
 {

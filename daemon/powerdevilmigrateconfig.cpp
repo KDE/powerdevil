@@ -93,11 +93,10 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         }
         PowerDevil::ProfileSettings profileSettings(profileName, isMobile, isVM, canSuspend);
 
-        auto migrateEntry = [&]<typename T, typename Transformer = IdentityTransformer<T>>(KConfigGroup & oldGroup,
+        auto migrateEntry = [&]<typename T, typename Transformer = IdentityTransformer<T>>(KConfigGroup &oldGroup,
                                                                                            const QString &oldKey,
                                                                                            void (ProfileSettings::*setter)(T),
-                                                                                           Transformer transform = IdentityTransformer<T>())
-        {
+                                                                                           Transformer transform = IdentityTransformer<T>()) {
             if (!oldGroup.hasKey(oldKey)) {
                 return;
             }
