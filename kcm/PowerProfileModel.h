@@ -11,9 +11,7 @@
 #include <QList>
 #include <QString>
 
-#include "powerdevilconfigcommonprivate_export.h"
-
-class POWERDEVILCONFIGCOMMONPRIVATE_EXPORT PowerProfileModel : public QAbstractListModel
+class PowerProfileModel : public QAbstractListModel
 {
     Q_OBJECT
 
