@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:40+0000\n"
+"POT-Creation-Date: 2024-11-22 00:42+0000\n"
 "PO-Revision-Date: 2023-09-07 10:58+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -113,61 +113,61 @@ msgstr ""
 "valores definite per le termino de cerca; p.ex. intensitate de schermo 50 "
 "fixara le dim del schermo al 50 % de intensitate maxime"
 
-#: PowerDevilRunner.cpp:85
+#: PowerDevilRunner.cpp:89
 #, kde-format
 msgid "Set Brightness to %1%"
 msgstr "Fixa intensitate de illumination a %1%"
 
-#: PowerDevilRunner.cpp:94
+#: PowerDevilRunner.cpp:98
 #, kde-format
 msgid "Dim screen totally"
 msgstr "Dim schermo totalmente"
 
-#: PowerDevilRunner.cpp:102
+#: PowerDevilRunner.cpp:106
 #, kde-format
 msgid "Dim screen by half"
 msgstr "Dim schermo per meditate"
 
-#: PowerDevilRunner.cpp:131
+#: PowerDevilRunner.cpp:135
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Dormi"
 
-#: PowerDevilRunner.cpp:132
+#: PowerDevilRunner.cpp:136
 #, kde-format
 msgid "Suspend to RAM"
 msgstr "Suspende a RAM"
 
-#: PowerDevilRunner.cpp:137
+#: PowerDevilRunner.cpp:141
 #, kde-format
 msgctxt "Suspend to disk"
 msgid "Hibernate"
 msgstr "Hiberna"
 
-#: PowerDevilRunner.cpp:138
+#: PowerDevilRunner.cpp:142
 #, kde-format
 msgid "Suspend to disk"
 msgstr "Suspende a Disco"
 
-#: PowerDevilRunner.cpp:143
+#: PowerDevilRunner.cpp:147
 #, kde-format
 msgctxt "Suspend to both RAM and disk"
 msgid "Hybrid sleep"
 msgstr "Dormi Hybrid"
 
-#: PowerDevilRunner.cpp:144
+#: PowerDevilRunner.cpp:148
 #, kde-format
 msgid "Sleep now and fall back to hibernate"
 msgstr "Dormi nunc e retorna a hibernate"
 
-#: PowerDevilRunner.cpp:222
+#: PowerDevilRunner.cpp:226
 #, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "screen brightness "
 msgstr "illumination de schermo"
 
-#: PowerDevilRunner.cpp:224
+#: PowerDevilRunner.cpp:228
 #, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "dim screen "

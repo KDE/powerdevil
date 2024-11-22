@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: krunner_powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-25 00:40+0000\n"
+"POT-Creation-Date: 2024-11-22 00:42+0000\n"
 "PO-Revision-Date: 2009-01-07 15:13+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
@@ -112,60 +112,60 @@ msgid ""
 "brightness"
 msgstr ""
 
-#: PowerDevilRunner.cpp:85
+#: PowerDevilRunner.cpp:89
 #, fuzzy, kde-format
 #| msgid "Set Brightness to %1"
 msgid "Set Brightness to %1%"
 msgstr "ಕಾಂತಿಯನ್ನು %1 ಗೆ ಹೊಂದಿಸು"
 
-#: PowerDevilRunner.cpp:94
+#: PowerDevilRunner.cpp:98
 #, kde-format
 msgid "Dim screen totally"
 msgstr "ತೆರೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಮಬ್ಬಾಗಿಸು"
 
-#: PowerDevilRunner.cpp:102
+#: PowerDevilRunner.cpp:106
 #, kde-format
 msgid "Dim screen by half"
 msgstr "ತೆರೆಯನ್ನು ಅರ್ಧದಷ್ಟು ಮಬ್ಬುಗೊಳಿಸು"
 
-#: PowerDevilRunner.cpp:131
+#: PowerDevilRunner.cpp:135
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
-#: PowerDevilRunner.cpp:132
+#: PowerDevilRunner.cpp:136
 #, fuzzy, kde-format
 #| msgctxt "Note this is a KRunner keyword"
 #| msgid "suspend"
 msgid "Suspend to RAM"
 msgstr "ತಾತ್ಕಾಲಿಕ ವಜಾಗೊಳಿಸು"
 
-#: PowerDevilRunner.cpp:137
+#: PowerDevilRunner.cpp:141
 #, kde-format
 msgctxt "Suspend to disk"
 msgid "Hibernate"
 msgstr ""
 
-#: PowerDevilRunner.cpp:138
+#: PowerDevilRunner.cpp:142
 #, fuzzy, kde-format
 #| msgctxt "Note this is a KRunner keyword"
 #| msgid "suspend"
 msgid "Suspend to disk"
 msgstr "ತಾತ್ಕಾಲಿಕ ವಜಾಗೊಳಿಸು"
 
-#: PowerDevilRunner.cpp:143
+#: PowerDevilRunner.cpp:147
 #, kde-format
 msgctxt "Suspend to both RAM and disk"
 msgid "Hybrid sleep"
 msgstr ""
 
-#: PowerDevilRunner.cpp:144
+#: PowerDevilRunner.cpp:148
 #, kde-format
 msgid "Sleep now and fall back to hibernate"
 msgstr ""
 
-#: PowerDevilRunner.cpp:222
+#: PowerDevilRunner.cpp:226
 #, fuzzy, kde-format
 #| msgctxt "Note this is a KRunner keyword"
 #| msgid "screen brightness"
@@ -173,7 +173,7 @@ msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "screen brightness "
 msgstr "ತೆರೆಯ ಕಾಂತಿ"
 
-#: PowerDevilRunner.cpp:224
+#: PowerDevilRunner.cpp:228
 #, fuzzy, kde-format
 #| msgid "Dim screen totally"
 msgctxt "Note this is a KRunner keyword, it should end with a space"
