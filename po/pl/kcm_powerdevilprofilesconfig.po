@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:42+0000\n"
-"PO-Revision-Date: 2024-08-10 12:53+0200\n"
+"PO-Revision-Date: 2024-11-23 14:18+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: PowerKCM.cpp:458
 #, kde-format
@@ -611,7 +611,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
-msgstr "&Wyłącz ekran:"
+msgstr "&Wyłącz ekran po:"
 
 #: ui/ProfileConfig.qml:443
 #, kde-format
@@ -624,18 +624,18 @@ msgstr "Wyłącz ekran po:"
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
-msgstr[0] "%1 sekunda"
-msgstr[1] "%1 sekundy"
-msgstr[2] "%1 sekund"
+msgstr[0] "%1 sekundzie"
+msgstr[1] "%1 sekundach"
+msgstr[2] "%1 sekundach"
 
 #: ui/ProfileConfig.qml:449
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
-msgstr[0] "%1 minuta"
-msgstr[1] "%1 minuty"
-msgstr[2] "%1 minut"
+msgstr[0] "%1 minucie"
+msgstr[1] "%1 minutach"
+msgstr[2] "%1 minutach"
 
 #: ui/ProfileConfig.qml:456
 #, kde-format
@@ -649,7 +649,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr "Własna…"
+msgstr "Podam czas…"
 
 #: ui/ProfileConfig.qml:502
 #, kde-format
@@ -662,18 +662,18 @@ msgstr "Po zablokowaniu, wyłącz ekran po:"
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "Gdy zablokowany: %1 sekunda"
-msgstr[1] "Gdy zablokowany: %1 sekundy"
-msgstr[2] "Gdy zablokowany: %1 sekund"
+msgstr[0] "Będąc zablokowanym: %1 sekundę"
+msgstr[1] "Będąc zablokowanym: %1 sekundy"
+msgstr[2] "Będąc zablokowanym: %1 sekund"
 
 #: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] "Gdy zablokowany: %1 minuta"
-msgstr[1] "Gdy zablokowany: %1 minuty"
-msgstr[2] "Gdy zablokowany: %1 minut"
+msgstr[0] "Będąc zablokowanym: %1 minutę"
+msgstr[1] "Będąc zablokowanym: %1 minuty"
+msgstr[2] "Będąc zablokowanym: %1 minut"
 
 #: ui/ProfileConfig.qml:515
 #, kde-format
@@ -681,13 +681,13 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "Gdy zablokowany lub odblokowany"
+msgstr "Będąc zablokowanym lub odblokowanym"
 
 #: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr "Gdy zablokowany: natychmiast"
+msgstr "Będąc zablokowanym: natychmiast"
 
 #: ui/ProfileConfig.qml:556
 #, kde-format
@@ -863,7 +863,7 @@ msgstr "Wybierz plik skryptu"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr "Własny czas trwania"
+msgstr "Własny czas oczekiwania"
 
 #~ msgctxt "@info:status"
 #~ msgid ""
