@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-12 00:41+0000\n"
+"POT-Creation-Date: 2024-11-26 02:31+0000\n"
 "PO-Revision-Date: 2024-09-27 10:57+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -246,12 +246,12 @@ msgstr "Низкий уровень заряда батареи мыши (ост
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи клавиатуры (осталось %1%)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:549
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда устройства Bluetooth (осталось %1%)"
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:551
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -262,7 +262,7 @@ msgstr ""
 "отключиться в любой момент. Если вы хотите продолжать его использовать, "
 "замените батарею или зарядите аккумулятор."
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:593
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -271,18 +271,18 @@ msgstr ""
 "Убедитесь, что кабель питания корректно подключён к электрической сети и "
 "обеспечивает необходимую мощность."
 
-#: powerdevilcore.cpp:589
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Подключите кабель питания к электрической сети."
 
 # shutdown-method
-#: powerdevilcore.cpp:608
+#: powerdevilcore.cpp:614
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Система завершит работу через 60 секунд."
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:616
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
@@ -290,13 +290,13 @@ msgid "Shut Down Now"
 msgstr "Выключить"
 
 # shutdown-method
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:622
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Система будет переведена в режим гибернации через 60 секунд."
 
 # shutdown-method --aspotashev
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -305,25 +305,25 @@ msgid "Hibernate Now"
 msgstr "Гибернация"
 
 # shutdown-method
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Система будет переведена в режим сна через 60 секунд."
 
 # shutdown-method --aspotashev
-#: powerdevilcore.cpp:626
+#: powerdevilcore.cpp:632
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Сон"
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:638
 #, kde-format
 msgid "Please save your work."
 msgstr "Сохраните результаты своей работы как можно быстрее."
 
-#: powerdevilcore.cpp:638
+#: powerdevilcore.cpp:644
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -331,52 +331,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Отменить"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:656
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Низкий уровень заряда батареи (осталось %1%)"
 
-#: powerdevilcore.cpp:654
+#: powerdevilcore.cpp:660
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Критический уровень заряда батареи (осталось %1%)"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Кабель питания подключён"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:685
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Компьютер более не будет переходить в режим ожидания."
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:687
 #, kde-format
 msgid "Running on AC power"
 msgstr "Работа от сети"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:687
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Кабель питания подключён к электрической сети."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Работа от батареи"
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Кабель питания отключён от электрической сети."
 
-#: powerdevilcore.cpp:745
+#: powerdevilcore.cpp:751
 #, kde-format
 msgid "Charging Complete"
 msgstr "Батарея полностью заряжена"
 
-#: powerdevilcore.cpp:745
+#: powerdevilcore.cpp:751
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батарея теперь полностью заряжена"

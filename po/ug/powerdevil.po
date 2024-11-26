@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-12 00:41+0000\n"
+"POT-Creation-Date: 2024-11-26 02:31+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -245,12 +245,12 @@ msgstr ""
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:549
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:551
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -258,19 +258,19 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:593
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
 
-#: powerdevilcore.cpp:589
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Plug in the power cord."
 msgstr ""
 
-#: powerdevilcore.cpp:608
+#: powerdevilcore.cpp:614
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
@@ -279,7 +279,7 @@ msgstr ""
 "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
 "سېكۇنت ئىچىدە توختايدۇ."
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:616
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -287,7 +287,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "تاقا"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:622
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be hibernated in 30 "
@@ -297,7 +297,7 @@ msgstr ""
 "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
 "سېكۇنت ئىچىدە ئۈچەككە كىرىدۇ."
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:624
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt ""
@@ -306,7 +306,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "ئۈچەك"
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:630
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery level is critical, the computer will be halted in 30 seconds."
@@ -315,7 +315,7 @@ msgstr ""
 "توكداندىكى توكنىڭ دەرىجىسى ئەڭ توۋەن دەرىجىگە چۈشۈپ قالدى. كومپيۇتېر 30 "
 "سېكۇنت ئىچىدە توختايدۇ."
 
-#: powerdevilcore.cpp:626
+#: powerdevilcore.cpp:632
 #, fuzzy, kde-format
 #| msgid "Sleep"
 msgctxt ""
@@ -323,12 +323,12 @@ msgctxt ""
 msgid "Sleep Now"
 msgstr "ئۇخلات"
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:638
 #, kde-format
 msgid "Please save your work."
 msgstr ""
 
-#: powerdevilcore.cpp:638
+#: powerdevilcore.cpp:644
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -336,54 +336,54 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:656
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:654
+#: powerdevilcore.cpp:660
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr ""
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:685
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr ""
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:687
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:687
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in."
 msgid "The power cord has been plugged in."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى چېتىلدى."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "Running on Battery Power"
 msgstr ""
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:690
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged."
 msgid "The power cord has been unplugged."
 msgstr "توك مەنبە ماسلاشتۇرغۇچى ئاجرىتىۋېتىلدى."
 
-#: powerdevilcore.cpp:745
+#: powerdevilcore.cpp:751
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:745
+#: powerdevilcore.cpp:751
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-12 00:41+0000\n"
+"POT-Creation-Date: 2024-11-26 02:31+0000\n"
 "PO-Revision-Date: 2024-09-03 14:20+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -231,12 +231,12 @@ msgstr "Batteria de mus  basse (Remanente %1%)"
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Batteria de claviero basse (Remanente %1%)"
 
-#: powerdevilcore.cpp:543
+#: powerdevilcore.cpp:549
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Batteria de dispositivo Bluetooth basse (Remanente %1%)"
 
-#: powerdevilcore.cpp:545
+#: powerdevilcore.cpp:551
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -247,7 +247,7 @@ msgstr ""
 "pote extinguer se in qualquer momento. Pro favor recarga o reimplacia le "
 "batteria."
 
-#: powerdevilcore.cpp:587
+#: powerdevilcore.cpp:593
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -256,29 +256,29 @@ msgstr ""
 "Assecura te que le corda de alimentation es connectite e que illo forni "
 "assatis energia."
 
-#: powerdevilcore.cpp:589
+#: powerdevilcore.cpp:595
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Insere le corda de alimentation."
 
-#: powerdevilcore.cpp:608
+#: powerdevilcore.cpp:614
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Le systema essera stoppate in 60 secundas."
 
-#: powerdevilcore.cpp:610
+#: powerdevilcore.cpp:616
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Stoppa (shut down) Nunc"
 
-#: powerdevilcore.cpp:616
+#: powerdevilcore.cpp:622
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Le systema essera hibernate in 60 secundas."
 
-#: powerdevilcore.cpp:618
+#: powerdevilcore.cpp:624
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -286,24 +286,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Hiberna Nunc"
 
-#: powerdevilcore.cpp:624
+#: powerdevilcore.cpp:630
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Le systemaessera ponite in dormir in 60 secundas."
 
-#: powerdevilcore.cpp:626
+#: powerdevilcore.cpp:632
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Dormi nunc"
 
-#: powerdevilcore.cpp:632
+#: powerdevilcore.cpp:638
 #, kde-format
 msgid "Please save your work."
 msgstr "Pro favor tu salveguarda tu travalio."
 
-#: powerdevilcore.cpp:638
+#: powerdevilcore.cpp:644
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -311,52 +311,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Cancella"
 
-#: powerdevilcore.cpp:650
+#: powerdevilcore.cpp:656
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batteria basse (Remanente %1%)"
 
-#: powerdevilcore.cpp:654
+#: powerdevilcore.cpp:660
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteria critic (Remanente %1%)"
 
-#: powerdevilcore.cpp:678
+#: powerdevilcore.cpp:684
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Corda de alimentation connectite"
 
-#: powerdevilcore.cpp:679
+#: powerdevilcore.cpp:685
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Le computator jammais essera suspendite in dormir."
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:687
 #, kde-format
 msgid "Running on AC power"
 msgstr "Executante con le energia AC"
 
-#: powerdevilcore.cpp:681
+#: powerdevilcore.cpp:687
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Le corda de alimentation ha essite inserite."
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Executante con le sol energia del batteria"
 
-#: powerdevilcore.cpp:684
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Le corda de alimentation ha essite de-inserite. "
 
-#: powerdevilcore.cpp:745
+#: powerdevilcore.cpp:751
 #, kde-format
 msgid "Charging Complete"
 msgstr "Cargamento complete"
 
-#: powerdevilcore.cpp:745
+#: powerdevilcore.cpp:751
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batteria nunc completemente cargate."
