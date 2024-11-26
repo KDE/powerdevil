@@ -115,6 +115,12 @@ void ScreenBrightnessController::onDisplayDestroyed(QObject *obj)
 
 void ScreenBrightnessController::onDetectorDisplaysChanged()
 {
+    auto containsDisplay = [](const std::unordered_map<QString, DisplayInfo> &displays, const DisplayMatch &match) {
+        return std::ranges::any_of(displays, [&match](const std::pair<QString, DisplayInfo> &element) {
+            return element.second.match.matchesExcludingMaxBrightness(match);
+        });
+    };
+
     m_sortedDisplayIds.clear();
     QStringList legacyDisplayIds;
 
@@ -142,11 +148,17 @@ void ScreenBrightnessController::onDetectorDisplaysChanged()
             if (shouldUseExternalControl) {
                 newForExternalControl.push_back(display);
             }
-            if (shouldUseInternalControl) {
+            DisplayMatch match{
+                .maxBrightness = display->maxBrightness(),
+                .isInternal = display->isInternal(),
+                .edidData = display->edidData(),
+            };
+            if (shouldUseInternalControl && !containsDisplay(newDisplayById, match)) {
                 auto &info = newDisplayById[displayId];
                 info = DisplayInfo{
                     .display = display,
                     .detector = detectorInfo.detector,
+                    .match = std::move(match),
                 };
                 info.brightnessLogic.setValueRange(display->knownSafeMinBrightness(), display->maxBrightness());
                 info.brightnessLogic.setValue(display->brightness());

@@ -22,6 +22,7 @@
 #include <powerdevilcore_export.h>
 
 #include "displaybrightness.h"
+#include "displaymatch.h"
 #include "powerdevilscreenbrightnesslogic.h"
 
 class BacklightDetector;
@@ -174,6 +175,7 @@ private:
         DisplayBrightness *display = nullptr;
         DisplayBrightnessDetector *detector = nullptr;
         PowerDevil::ScreenBrightnessLogic brightnessLogic = {};
+        DisplayMatch match;
         double trackingError = 0.0;
         bool zombie = false;
     };
