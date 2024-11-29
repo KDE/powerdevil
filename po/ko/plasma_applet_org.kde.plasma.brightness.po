@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 02:29+0000\n"
-"PO-Revision-Date: 2024-08-21 00:01+0200\n"
+"PO-Revision-Date: 2024-11-28 23:20+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -54,18 +54,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "화면 밝기"
+msgstr "밝기"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "화면 밝기"
+msgstr "화면 밝기 - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -83,11 +81,10 @@ msgid "Screen brightness at %1%"
 msgstr "화면 밝기: %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "화면 밝기: %1%"
+msgstr "%1의 화면 밝기: %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -259,10 +256,9 @@ msgid "Transition to day scheduled for:"
 msgstr "일출 전환 시작 시간:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "키보드 밝기"
+msgstr "키보드 백라이트"
 
 #: package/contents/ui/PopupDialog.qml:154
 #, kde-format
