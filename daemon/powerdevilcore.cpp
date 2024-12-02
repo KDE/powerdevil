@@ -564,6 +564,11 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return false;
     }
 
+    if (!m_batteryController->batteryPresent()) {
+        // Don't send warning about levels when no battery is even present in its bay
+        return false;
+    }
+
     if (currentPercent <= m_globalSettings->batteryCriticalLevel() && previousPercent > m_globalSettings->batteryCriticalLevel()) {
         handleCriticalBattery(currentPercent);
         return true;

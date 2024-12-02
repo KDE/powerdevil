@@ -61,6 +61,15 @@ public:
      */
     qulonglong smoothedBatteryRemainingTime() const;
 
+    /**
+     * Some batteries are hotpluggable and may not be in the bay currently. This
+     * property indicates whether the system has at least one battery plugged in
+     * at the moment.
+     *
+     * @return whether at least one battery is in the bay
+     */
+    bool batteryPresent() const;
+
 Q_SIGNALS:
 
     /**
@@ -103,6 +112,7 @@ private:
     OrgFreedesktopUPowerInterface *m_upowerInterface;
 
     bool m_onBattery = false;
+    bool m_batteryPresent = false; // batteries may be hotpluggable, and not present
 
     AcAdapterState m_acAdapterState = UnknownAcAdapterState;
 

@@ -113,11 +113,19 @@ void BatteryController::updateDeviceProps()
             energyRateTotal = -std::abs(m_displayDevice->energyRate());
         }
     } else {
+        m_batteryPresent = false;
         for (const auto &[key, upowerDevice] : m_devices) {
+
             if (!upowerDevice->isPowerSupply() || !upowerDevice->isPresent()) {
                 continue;
             }
+
             const auto type = upowerDevice->type();
+
+            if (type == UPowerDevice::Type::Battery && upowerDevice->isPresent()) {
+                m_batteryPresent = true;
+            }
+
             if (type == UPowerDevice::Type::Battery || type == UPowerDevice::Type::Ups) {
                 const auto state = upowerDevice->state();
                 energyFullTotal += upowerDevice->energyFull();
@@ -230,6 +238,11 @@ qulonglong BatteryController::batteryRemainingTime() const
 qulonglong BatteryController::smoothedBatteryRemainingTime() const
 {
     return m_smoothedBatteryRemainingTime;
+}
+
+bool BatteryController::batteryPresent() const
+{
+    return m_batteryPresent;
 }
 
 #include "moc_batterycontroller.cpp"
