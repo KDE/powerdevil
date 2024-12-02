@@ -70,7 +70,7 @@ void ScreenBrightnessControl::onProfileLoad(const QString &previousProfile, cons
     ScreenBrightnessController *controller = core()->screenBrightnessController();
     QList<QString> displayIds = controller->displayIds();
 
-    bool hasInternal;
+    bool hasInternal { false };
     QList<bool> isInternal;
     isInternal.reserve(displayIds.size());
 
