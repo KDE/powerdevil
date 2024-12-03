@@ -42,10 +42,15 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onBrightnessChanged(int value);
     void onBrightnessMaxChanged(int value);
+    QCoro::Task<void> onSupportedActionsChanged();
 
 private:
-    QCoro::Task<void> onServiceRegistered();
+    void onServiceRegistered();
     void onServiceUnregistered();
+
+    QCoro::Task<bool> isActionSupported(const QString &actionName);
+    QCoro::Task<void> onActionSupported();
+    void onActionUnsupported();
 
     std::unique_ptr<QDBusServiceWatcher> m_serviceWatcher;
 
@@ -58,5 +63,5 @@ private:
     Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl, int, m_maxBrightness, 0, &KeyboardBrightnessControl::brightnessMaxChanged);
 
     bool m_isSilent = false;
-    bool m_serviceRegistered = false;
+    bool m_initialized = false;
 };
