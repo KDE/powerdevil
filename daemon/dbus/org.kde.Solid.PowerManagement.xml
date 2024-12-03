@@ -117,5 +117,7 @@
     <signal name="chargeStopThresholdChanged">
       <arg type="i" direction="out" />
     </signal>
+    <signal name="supportedActionsChanged">
+    </signal>
   </interface>
 </node>
