@@ -211,6 +211,7 @@ void Core::onControllersReady()
 
 void Core::refreshActions()
 {
+    bool actionsChanged = false;
     const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
     for (const KPluginMetaData &data : offers) {
         const QString actionId = data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
@@ -223,6 +224,7 @@ void Core::refreshActions()
                 QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, action.get());
             }
             m_actionPool.emplace(actionId, std::move(action));
+            actionsChanged = true;
         }
     }
 
@@ -233,9 +235,14 @@ void Core::refreshActions()
             m_registeredActionTimeouts.remove(action);
             m_pendingResumeFromIdleActions.remove(action);
             it = m_actionPool.erase(it);
+            actionsChanged = true;
         } else {
             ++it;
         }
+    }
+
+    if (actionsChanged) {
+        Q_EMIT supportedActionsChanged();
     }
 }
 

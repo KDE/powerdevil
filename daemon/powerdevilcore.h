@@ -128,6 +128,7 @@ Q_SIGNALS:
     void batteryConservationModeChanged(bool enabled);
     void chargeStartThresholdChanged(int threshold);
     void chargeStopThresholdChanged(int threshold);
+    void supportedActionsChanged();
 
 private:
     void unloadAllActiveActions();
