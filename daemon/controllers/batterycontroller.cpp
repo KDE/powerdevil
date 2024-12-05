@@ -10,6 +10,7 @@
 */
 
 #include "batterycontroller.h"
+#include "powerdevil_debug.h"
 
 #include <QDBusConnection>
 
@@ -92,6 +93,8 @@ void BatteryController::slotDeviceRemoved(const QDBusObjectPath &path)
 
 void BatteryController::updateDeviceProps()
 {
+    qCWarning(POWERDEVIL) << "*** DBG updateDeviceProps ***";
+
     double energyTotal = 0.0;
     double energyRateTotal = 0.0; // +: charging, -: discharging (contrary to EnergyRate)
     double energyFullTotal = 0.0;
@@ -113,8 +116,14 @@ void BatteryController::updateDeviceProps()
             energyRateTotal = -std::abs(m_displayDevice->energyRate());
         }
     } else {
+        qCWarning(POWERDEVIL) << " DBG Setting m_batteryPresent = false";
+
         m_batteryPresent = false;
+
         for (const auto &[key, upowerDevice] : m_devices) {
+            qCWarning(POWERDEVIL) << "DBG  upowerDevice->isPowerSupply() = " << upowerDevice->isPowerSupply()
+                                << "upowerDevice->isPresent() = " << upowerDevice->isPresent()
+                                << "upowerDevice->type() == Battery? " << (upowerDevice->type() == UPowerDevice::Type::Battery);
 
             if (!upowerDevice->isPowerSupply() || !upowerDevice->isPresent()) {
                 continue;
@@ -124,6 +133,9 @@ void BatteryController::updateDeviceProps()
 
             if (type == UPowerDevice::Type::Battery && upowerDevice->isPresent()) {
                 m_batteryPresent = true;
+                qCWarning(POWERDEVIL) << "DBG Setting m_batteryPresent = true";
+            } else {
+                qCWarning(POWERDEVIL) << "DBG not setting batteryPresent";
             }
 
             if (type == UPowerDevice::Type::Battery || type == UPowerDevice::Type::Ups) {
@@ -144,6 +156,7 @@ void BatteryController::updateDeviceProps()
                 }
             }
         }
+        qCWarning(POWERDEVIL) << "DBG deviceLoop done, m_batteryPresent = " << m_batteryPresent;
     }
 
     m_batteryEnergy = energyTotal;
