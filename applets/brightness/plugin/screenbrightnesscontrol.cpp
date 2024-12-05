@@ -148,16 +148,6 @@ QCoro::Task<void> ScreenBrightnessControl::onServiceRegistered()
     m_serviceRegistered = true;
     QPointer<ScreenBrightnessControl> alive{this};
 
-    if (!co_await queryAndUpdateDisplays()) {
-        qCWarning(APPLETS::BRIGHTNESS) << "error fetching display names via dbus";
-        co_return;
-    }
-
-    if (!alive || !m_serviceRegistered) {
-        qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed during initialization, or service got unregistered. Returning early";
-        co_return;
-    }
-
     if (!QDBusConnection::sessionBus().connect(SCREENBRIGHTNESS_SERVICE,
                                                SCREENBRIGHTNESS_PATH,
                                                DBUS_PROPERTIES_IFACE,
@@ -185,6 +175,16 @@ QCoro::Task<void> ScreenBrightnessControl::onServiceRegistered()
                                                this,
                                                SLOT(onBrightnessRangeChanged(QString, int, int)))) {
         qCWarning(APPLETS::BRIGHTNESS) << "error connecting to brightness range changes via dbus";
+        co_return;
+    }
+
+    if (!co_await queryAndUpdateDisplays()) {
+        qCWarning(APPLETS::BRIGHTNESS) << "error fetching display names via dbus";
+        co_return;
+    }
+
+    if (!alive || !m_serviceRegistered) {
+        qCWarning(APPLETS::BRIGHTNESS) << "ScreenBrightnessControl destroyed during initialization, or service got unregistered. Returning early";
         co_return;
     }
 
