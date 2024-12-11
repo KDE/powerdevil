@@ -194,6 +194,7 @@ void DDCutilDisplay::onInitRetryTimeout()
 
 void DDCutilDisplay::setBrightness(int value, bool allowAnimations)
 {
+    Q_UNUSED(allowAnimations)
 #ifdef WITH_DDCUTIL
     if (m_supportsBrightness) {
         m_retryCounter = 0;

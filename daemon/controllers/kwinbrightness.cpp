@@ -155,6 +155,7 @@ int KWinDisplayBrightness::brightness() const
 
 void KWinDisplayBrightness::setBrightness(int brightness, bool allowAnimations)
 {
+    Q_UNUSED(allowAnimations)
     m_desiredBrightness = brightness / 10'000.0;
     m_detector->scheduleSetConfig();
 }
