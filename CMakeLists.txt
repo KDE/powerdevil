@@ -35,7 +35,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     Config
     Crash
     DBusAddons
-    DocTools
     I18n
     IdleTime
     ItemModels
@@ -57,6 +56,12 @@ find_package(LibKWorkspace ${PROJECT_DEP_VERSION} REQUIRED)
 find_package(UDev REQUIRED)
 
 find_package(XCB REQUIRED COMPONENTS XCB RANDR DPMS)
+
+find_package(KF6DocTools ${KF6_MIN_VERSION})
+set_package_properties(KF6DocTools PROPERTIES
+    DESCRIPTION "Tools to generate documentation"
+    TYPE OPTIONAL
+)
 
 find_package(Libcap)
 set_package_properties(Libcap PROPERTIES
@@ -94,8 +99,12 @@ ecm_set_disabled_deprecation_versions(QT 5.15.2
 add_subdirectory(applets)
 add_subdirectory(daemon)
 add_subdirectory(kcmodule)
-add_subdirectory(doc)
-kdoctools_install(po)
+
+if(KF6DocTools_FOUND)
+    add_subdirectory(doc)
+    kdoctools_install(po)
+endif()
+
 add_subdirectory(runners)
 
 add_subdirectory(autotests)
