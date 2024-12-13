@@ -203,6 +203,9 @@ bool KWinDisplayBrightness::supportsDimmingMultiplier() const
 
 void KWinDisplayBrightness::setDimmingMultiplier(double multiplier)
 {
+    if (m_desiredDimming == multiplier) {
+        return;
+    }
     m_desiredDimming = multiplier;
     m_detector->scheduleSetConfig();
 }

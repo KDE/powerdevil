@@ -482,14 +482,13 @@ void ScreenBrightnessController::setDimmingRatio(const QString &dimmingId, doubl
 
     for (auto &[id, info] : m_displaysById) {
         const double newRatio = dimmingRatioForDisplay(id);
-        if (info.dimmingRatio == newRatio) {
-            continue;
-        }
-        info.dimmingRatio = newRatio;
-
         if (info.display->supportsDimmingMultiplier()) {
-            info.display->setDimmingMultiplier(info.dimmingRatio);
+            info.display->setDimmingMultiplier(newRatio);
         } else {
+            if (info.dimmingRatio == newRatio) {
+                continue;
+            }
+            info.dimmingRatio = newRatio;
             // set brightness to the currently stored value, but with the new multiplier
             setBrightness(id, info.brightnessLogic.info().value, u"(internal)"_s, u"dimming"_s);
 
