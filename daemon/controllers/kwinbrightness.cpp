@@ -191,7 +191,7 @@ void KWinDisplayBrightness::applyPendingBrightness()
 void KWinDisplayBrightness::setConfigOperationDone()
 {
     m_inhibitChangeSignal = false;
-    if (m_desiredBrightness != std::round(m_output->brightness() * 10'000)) {
+    if (m_desiredBrightness != m_output->brightness()) {
         handleBrightnessChanged();
     }
 }
