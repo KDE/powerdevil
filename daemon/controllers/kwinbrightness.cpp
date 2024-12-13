@@ -115,6 +115,7 @@ KWinDisplayBrightness::KWinDisplayBrightness(const KScreen::OutputPtr &output, K
     : m_output(output)
     , m_detector(detector)
     , m_desiredBrightness(m_output->brightness())
+    , m_desiredDimming(m_output->dimming())
 {
     connect(m_output.get(), &KScreen::Output::brightnessChanged, this, &KWinDisplayBrightness::handleBrightnessChanged);
 }
@@ -184,6 +185,7 @@ void KWinDisplayBrightness::applyPendingBrightness()
     m_inhibitChangeSignal = true;
     // this will trigger handleBrightnessChanged
     m_output->setBrightness(m_desiredBrightness);
+    m_output->setDimming(m_desiredDimming);
 }
 
 void KWinDisplayBrightness::setConfigOperationDone()
@@ -192,4 +194,15 @@ void KWinDisplayBrightness::setConfigOperationDone()
     if (m_desiredBrightness != std::round(m_output->brightness() * 10'000)) {
         handleBrightnessChanged();
     }
+}
+
+bool KWinDisplayBrightness::supportsDimmingMultiplier() const
+{
+    return true;
+}
+
+void KWinDisplayBrightness::setDimmingMultiplier(double multiplier)
+{
+    m_desiredDimming = multiplier;
+    m_detector->scheduleSetConfig();
 }

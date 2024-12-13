@@ -28,6 +28,8 @@ public:
     void setBrightness(int brightness, bool allowAnimations) override;
     bool isInternal() const override;
     std::optional<QByteArray> edidData() const override;
+    bool supportsDimmingMultiplier() const override;
+    void setDimmingMultiplier(double multiplier) override;
 
     void applyPendingBrightness();
     void setConfigOperationDone();
@@ -38,6 +40,7 @@ private:
     const KScreen::OutputPtr m_output;
     KWinDisplayDetector *const m_detector;
     double m_desiredBrightness;
+    double m_desiredDimming = 1.0;
     bool m_inhibitChangeSignal = false;
 };
 
