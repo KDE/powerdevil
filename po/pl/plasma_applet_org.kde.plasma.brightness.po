@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-21 00:42+0000\n"
-"PO-Revision-Date: 2024-08-24 12:12+0200\n"
+"PO-Revision-Date: 2024-12-14 13:46+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
@@ -64,7 +64,7 @@ msgstr "Jasność"
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Jasność wyświetlacza - %1"
+msgstr "Jasność ekranu - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
@@ -79,18 +79,18 @@ msgstr "Jasność i barwa"
 #: package/contents/ui/main.qml:101
 #, kde-format
 msgid "Screen brightness at %1%"
-msgstr "Jasność ekranu przy %1%"
+msgstr "Jasność ekranu na %1%"
 
 #: package/contents/ui/main.qml:102
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Jasność %1 przy %2%"
+msgstr "%1 ma jasność na %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
 msgid "Keyboard brightness at %1%"
-msgstr "Jasność klawiatury przy %1%"
+msgstr "Jasność klawiatury na %1%"
 
 #: package/contents/ui/main.qml:113
 #, kde-format
@@ -120,13 +120,13 @@ msgstr "Temperatura nocnych barw w nocy"
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
-msgstr "Nocne barwy w porannym przejściu (ukończ przed %1)"
+msgstr "Nocne barwy w trakcie porannego przejścia (jego koniec o %1)"
 
 #: package/contents/ui/main.qml:129
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
-msgstr "Nocne barwy w wieczornym przejściu (ukończ przed %1)"
+msgstr "Nocne barwy w trakcie wieczornego przejścia (jego koniec o %1)"
 
 #: package/contents/ui/main.qml:147
 #, kde-format

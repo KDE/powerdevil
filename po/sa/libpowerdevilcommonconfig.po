@@ -25,7 +25,7 @@ msgstr "किमपि न कुरु"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "शयनं करोतु"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
@@ -36,7 +36,7 @@ msgstr "शीतनिद्रा"
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "निरुद्धं कुरुत"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
@@ -62,19 +62,19 @@ msgstr "स्क्रीन चालू/बन्दं कुर्वन्
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "पावर सेव"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "सन्तुलितम्"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "प्रदर्शनम्‌"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
@@ -85,13 +85,13 @@ msgstr "अपरिवर्तितं त्यजतु"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "स्टैण्डबाई"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "सत्रं स्मृतौ रक्षन्तु"
 
 #: SleepModeModel.cpp:29
 #, kde-format
@@ -102,7 +102,7 @@ msgstr "संकरनिद्रा"
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "सत्रं स्मृति-डिस्क-योः मध्ये रक्षन्तु"
 
 #: SleepModeModel.cpp:37
 #, kde-format
@@ -113,4 +113,4 @@ msgstr "स्टैण्डबाई, ततः हाइबरनेट"
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "निष्क्रियतायाः अवधिपश्चात् शीतनिद्रां प्रति गच्छन्तु"

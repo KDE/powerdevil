@@ -20,55 +20,55 @@ msgstr ""
 #, kde-format
 msgctxt "Note this is a KRunner keyword; 'power' as in 'power saving mode'"
 msgid "power"
-msgstr ""
+msgstr "शक्ति"
 
 #: PowerDevilRunner.cpp:32
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "suspend"
-msgstr ""
+msgstr "निलम्बनम्"
 
 #: PowerDevilRunner.cpp:33
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "to ram"
-msgstr ""
+msgstr "रम् इति"
 
 #: PowerDevilRunner.cpp:34
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "sleep"
-msgstr ""
+msgstr "शयनं करोतु"
 
 #: PowerDevilRunner.cpp:35
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hibernate"
-msgstr ""
+msgstr "शीतनिद्रा"
 
 #: PowerDevilRunner.cpp:36
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "to disk"
-msgstr ""
+msgstr "डिस्कं प्रति"
 
 #: PowerDevilRunner.cpp:37
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid sleep"
-msgstr ""
+msgstr "संकरनिद्रा"
 
 #: PowerDevilRunner.cpp:38
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "hybrid"
-msgstr ""
+msgstr "संकरः"
 
 #: PowerDevilRunner.cpp:39 PowerDevilRunner.cpp:40 PowerDevilRunner.cpp:66
 #, kde-format
 msgctxt "Note this is a KRunner keyword"
 msgid "dim screen"
-msgstr ""
+msgstr "मन्द पर्दा"
 
 #: PowerDevilRunner.cpp:50
 #, kde-format
@@ -99,7 +99,7 @@ msgstr "इदानीं निद्रां करोति, पुनः �
 msgctxt ""
 "Note this is a KRunner keyword, <> is a placeholder and should be at the end"
 msgid "screen brightness <percent value>"
-msgstr ""
+msgstr "पटलस्य प्रकाशः <प्रतिशतमूल्यं>"
 
 #: PowerDevilRunner.cpp:68
 #, no-c-format, kde-format
@@ -130,7 +130,7 @@ msgstr "अर्धं मन्दं पटलम्"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "शयनं करोतु"
 
 #: PowerDevilRunner.cpp:136
 #, kde-format
@@ -141,7 +141,7 @@ msgstr "RAM प्रति निलम्बनं कुर्वन्तु
 #, kde-format
 msgctxt "Suspend to disk"
 msgid "Hibernate"
-msgstr ""
+msgstr "शीतनिद्रा"
 
 #: PowerDevilRunner.cpp:142
 #, kde-format
@@ -152,7 +152,7 @@ msgstr "डिस्कं प्रति निलम्बयन्तु"
 #, kde-format
 msgctxt "Suspend to both RAM and disk"
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "संकरनिद्रा"
 
 #: PowerDevilRunner.cpp:148
 #, kde-format
@@ -163,10 +163,10 @@ msgstr "इदानीं निद्रां कुरुत, पुनः �
 #, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "screen brightness "
-msgstr ""
+msgstr "पटलस्य प्रकाशः "
 
 #: PowerDevilRunner.cpp:228
 #, kde-format
 msgctxt "Note this is a KRunner keyword, it should end with a space"
 msgid "dim screen "
-msgstr ""
+msgstr "मन्द पर्दा "

@@ -19,12 +19,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:44
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
@@ -33,56 +33,56 @@ msgstr ""
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr ""
+msgstr "शक्ति प्रबन्धन"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
-msgstr ""
+msgstr "स्क्रीन अवरुद्धं कुर्वन्तु"
 
 #: actions/bundled/handlebuttonevents.cpp:49
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
-msgstr ""
+msgstr "निलम्बनम्"
 
 #: actions/bundled/handlebuttonevents.cpp:54
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
-msgstr ""
+msgstr "शीतनिद्रा"
 
 #: actions/bundled/handlebuttonevents.cpp:59
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
-msgstr ""
+msgstr "पावर ऑफ"
 
 #: actions/bundled/handlebuttonevents.cpp:73
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"
 msgid "Power Down"
-msgstr ""
+msgstr "पावर डाउन"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Keyboard Brightness"
-msgstr ""
+msgstr "कीबोर्डस्य प्रकाशं वर्धयन्तु"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Keyboard Brightness"
-msgstr ""
+msgstr "कीबोर्डस्य प्रकाशं न्यूनीकरोतु"
 
 #: actions/bundled/keyboardbrightnesscontrol.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr ""
+msgstr "कीबोर्ड बैकलाइट टॉगल करें"
 
 #: actions/bundled/powerprofile.cpp:70
 #, kde-format
@@ -93,37 +93,37 @@ msgstr "स्विच पावर प्रोफाइल"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness"
-msgstr ""
+msgstr "स्क्रीन ब्राइटनेस् वर्धयन्तु"
 
 #: actions/bundled/screenbrightnesscontrol.cpp:44
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Increase Screen Brightness by 1%"
-msgstr ""
+msgstr "Screen Brightness 1% वर्धयन्तु"
 
 #: actions/bundled/screenbrightnesscontrol.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness"
-msgstr ""
+msgstr "Screen Brightness न्यूनीकरोतु"
 
 #: actions/bundled/screenbrightnesscontrol.cpp:58
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
-msgstr ""
+msgstr "Screen Brightness 1% न्यूनीकरोतु"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:131
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
-msgstr ""
+msgstr "अन्तः निर्मितः स्क्रीनः"
 
 #: controllers/kwinbrightness.cpp:135
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilapp.cpp:54
 #, kde-format
@@ -135,37 +135,37 @@ msgstr "KDE शक्ति प्रबन्धन प्रणाली"
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr ""
+msgstr "PowerDevil, एकः उन्नतः, मॉड्यूलरः, हल्कः च शक्तिप्रबन्धन-डेमनः"
 
 #: powerdevilapp.cpp:58
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
-msgstr ""
+msgstr "(ग) 2015-2019 कै उवे ब्रौलिक"
 
 #: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr ""
+msgstr "कै उवे ब्रौलिक"
 
 #: powerdevilapp.cpp:59
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr ""
+msgstr "परिपालकः"
 
 #: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
-msgstr ""
+msgstr "डारियो फ्रेडी"
 
 #: powerdevilapp.cpp:60
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr ""
+msgstr "पूर्वपालकः"
 
 #: powerdevilapp.cpp:114
 #, kde-format
@@ -201,13 +201,13 @@ msgstr "व्यवस्था पुनः निद्रां न गम�
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: powerdevilcore.cpp:533
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr ""
+msgstr "उपकरणस्य बैटरी न्यूनः (%1% अवशिष्टः)"
 
 #: powerdevilcore.cpp:535
 #, kde-format
@@ -216,6 +216,8 @@ msgid ""
 "The battery in \"%1\" is running low, and the device may turn off at any "
 "time. Please recharge or replace the battery."
 msgstr ""
+"\"%1\" इत्यस्मिन् बैटरी न्यूना भवति, तथा च यन्त्रं कदापि निष्क्रियं कर्तुं शक्नोति । कृपया "
+"बैटरी पुनः चार्जं कुर्वन्तु अथवा प्रतिस्थापयन्तु।"
 
 #: powerdevilcore.cpp:542
 #, kde-format
@@ -239,6 +241,8 @@ msgid ""
 "The battery in Bluetooth device \"%1\" is running low, and the device may "
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
+"Bluetooth-यन्त्रे \"%1\" बैटरी न्यूना भवति, तथा च यन्त्रं कदापि निष्क्रियं भवितुम् अर्हति । "
+"कृपया बैटरी पुनः चार्जं कुर्वन्तु अथवा प्रतिस्थापयन्तु।"
 
 #: powerdevilcore.cpp:600
 #, kde-format
@@ -262,7 +266,7 @@ msgstr "६० सेकेण्ड् मध्ये प्रणाली �
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
-msgstr ""
+msgstr "अधुना निरुद्धं कुरुत"
 
 #: powerdevilcore.cpp:629
 #, kde-format
@@ -275,7 +279,7 @@ msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
 "critical timer"
 msgid "Hibernate Now"
-msgstr ""
+msgstr "अधुना हाइबरनेटं कुर्वन्तु"
 
 #: powerdevilcore.cpp:637
 #, kde-format
@@ -287,7 +291,7 @@ msgstr "प्रणाली ६० सेकेण्ड् मध्ये �
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr ""
+msgstr "अधुना निद्रातु"
 
 #: powerdevilcore.cpp:645
 #, kde-format
@@ -300,7 +304,7 @@ msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
 "battery"
 msgid "Cancel"
-msgstr ""
+msgstr "निरसयतु"
 
 #: powerdevilcore.cpp:663
 #, kde-format

@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the powerdevil package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:12+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -41,13 +43,13 @@ msgstr "न चार्जिंग्"
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
-msgstr ""
+msgstr "न वर्तमानः"
 
 #: package/contents/ui/BatteryItem.qml:120
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: package/contents/ui/BatteryItem.qml:184
 #, kde-format
@@ -70,7 +72,7 @@ msgstr "अवशिष्टः समयः : १."
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
-msgstr ""
+msgstr "अनुमानं कृत्वा..."
 
 #: package/contents/ui/BatteryItem.qml:220
 #, kde-format
@@ -81,7 +83,7 @@ msgstr "बैटरी स्वास्थ्यः : १."
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: package/contents/ui/BatteryItem.qml:238
 #, kde-format
@@ -93,13 +95,13 @@ msgstr "बैटरी प्रायः %1% पर्यन्तं चा�
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
-msgstr ""
+msgstr "%1% २."
 
 #: package/contents/ui/InhibitionItem.qml:45
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "निष्क्रियतायाः अनन्तरं निद्रा तथा स्क्रीन लॉकिंग"
 
 #: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:96
 #: package/contents/ui/PowerProfileItem.qml:76
@@ -111,13 +113,13 @@ msgstr "शक्ति प्रबन्धन"
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
-msgstr ""
+msgstr "अवरुद्धम्"
 
 #: package/contents/ui/InhibitionItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
-msgstr ""
+msgstr "स्वतः"
 
 #: package/contents/ui/InhibitionItem.qml:106
 #, kde-format
@@ -126,13 +128,15 @@ msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
+"बाह्यनिरीक्षकस्य सम्बद्धतायाः समये ढक्कनं पिधाय न निद्रां कर्तुं भवतः लैपटॉपः विन्यस्तः अस्ति "
+"।"
 
 #: package/contents/ui/InhibitionItem.qml:118
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 अनुप्रयोगः सम्प्रति निद्रां स्क्रीन-लॉकिंग् च अवरुद्धं करोति:"
+msgstr[1] "%1 अनुप्रयोगाः सम्प्रति निद्रां स्क्रीन-लॉकिंग् च अवरुद्धयन्ति:"
 
 #: package/contents/ui/InhibitionItem.qml:144
 #, kde-format
@@ -161,25 +165,25 @@ msgstr "एकः अनुप्रयोगः सम्प्रति नि
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: package/contents/ui/InhibitionItem.qml:156
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
-msgstr ""
+msgstr "%1: अज्ञातकारणम्"
 
 #: package/contents/ui/InhibitionItem.qml:158
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
-msgstr ""
+msgstr "अज्ञात अनुप्रयोगः %1"
 
 #: package/contents/ui/InhibitionItem.qml:160
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
-msgstr ""
+msgstr "अज्ञात अनुप्रयोग : अज्ञात कारण"
 
 #: package/contents/ui/InhibitionItem.qml:172
 #: package/contents/ui/InhibitionItem.qml:200
@@ -188,7 +192,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "अनब्लॉक"
 
 #: package/contents/ui/InhibitionItem.qml:182
 #: package/contents/ui/InhibitionItem.qml:308
@@ -197,7 +201,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr ""
+msgstr "केवलम् अस्मिन् समये"
 
 #: package/contents/ui/InhibitionItem.qml:187
 #: package/contents/ui/InhibitionItem.qml:313
@@ -206,20 +210,20 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Every time for this app and reason"
-msgstr ""
+msgstr "प्रत्येकं समये अस्य एप् कृते कारणं च"
 
 #: package/contents/ui/InhibitionItem.qml:213
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
-msgstr ""
+msgstr "भवता निद्रा, स्क्रीन-लॉकिंग् च मैन्युअल् रूपेण अवरुद्धम् अस्ति ।"
 
 #: package/contents/ui/InhibitionItem.qml:218
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "अनब्लॉक"
 
 #: package/contents/ui/InhibitionItem.qml:237
 #: package/contents/ui/InhibitionItem.qml:360
@@ -239,14 +243,14 @@ msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 अनुप्रयोगः निद्रां अवरुद्धुं स्क्रीन-लॉकिंग् च निवारितः अस्ति:"
+msgstr[1] "%1 अनुप्रयोगाः निद्रां अवरुद्ध्य स्क्रीन-तालान् अवरुद्धुं निवारिताः सन्ति:"
 
 #: package/contents/ui/InhibitionItem.qml:285
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr ""
+msgstr "%1 %2 कृते निद्रां स्क्रीन-लॉकिंग् च अवरुद्धुं निवारितम् अस्ति"
 
 #: package/contents/ui/InhibitionItem.qml:298
 #: package/contents/ui/InhibitionItem.qml:326
@@ -255,13 +259,13 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "पुनः अवरोधः"
 
 #: package/contents/ui/InhibitionItem.qml:341
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
-msgstr ""
+msgstr "मैन्युअल् रूपेण अवरोधं कुर्वन्तु"
 
 #: package/contents/ui/main.qml:75
 #, kde-format
@@ -312,13 +316,13 @@ msgstr "बैटरी उपलब्धा नास्ति"
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
-msgstr ""
+msgstr "%1 यावत् पूर्णतया चार्ज न भवति"
 
 #: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
-msgstr ""
+msgstr "%1 अवशिष्टम्"
 
 #: package/contents/ui/main.qml:159
 #, kde-format
@@ -340,8 +344,8 @@ msgstr "स्वचालितनिद्रा, स्क्रीन-लॉ
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "एकेन अनुप्रयोगेन Performance mode सक्रियीकरणस्य अनुरोधः कृतः अस्ति"
+msgstr[1] "%1 अनुप्रयोगैः Performance mode सक्रियीकरणस्य अनुरोधः कृतः"
 
 #: package/contents/ui/main.qml:175
 #, kde-format
@@ -352,8 +356,8 @@ msgstr "प्रणाली Performance mode इत्यत्र अस्�
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "एकेन अनुप्रयोगेन Power Save मोड् सक्रियीकरणस्य अनुरोधः कृतः अस्ति"
+msgstr[1] "%1 अनुप्रयोगाः Power Save मोड् सक्रियीकरणस्य अनुरोधं कृतवन्तः"
 
 #: package/contents/ui/main.qml:183
 #, kde-format
@@ -404,13 +408,13 @@ msgstr "शक्ति प्रोफाइल"
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "स्वतः"
 
 #: package/contents/ui/PowerProfileItem.qml:111
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
-msgstr ""
+msgstr "न लभ्यते"
 
 #: package/contents/ui/PowerProfileItem.qml:151
 #, kde-format
@@ -460,8 +464,8 @@ msgstr "प्रदर्शनं न्यूनीकर्तुं शक�
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "एकेन अनुप्रयोगेन %2 सक्रियीकरणाय अनुरोधः कृतः:"
+msgstr[1] "%1 अनुप्रयोगाः %2 सक्रियीकरणस्य अनुरोधं कृतवन्तः:"
 
 #: package/contents/ui/PowerProfileItem.qml:284
 #, kde-format
@@ -469,7 +473,7 @@ msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
 "activating performance mode"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: package/contents/ui/PowerProfileItem.qml:302
 #, kde-format
