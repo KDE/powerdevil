@@ -1,4 +1,4 @@
-# Sanskrit translations for powerdevil package.
+# Hindi translations for powerdevil package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -8,110 +8,109 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:41+0000\n"
-"PO-Revision-Date: 2024-12-13 19:09+0530\n"
+"PO-Revision-Date: 2024-12-15 15:57+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
-"Language: sa\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr "किमपि न कुरु"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "शयनं करोतु"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr "शीतनिद्रा"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr "निरुद्धं कुरुत"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr "लॉक स्क्रीन"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr "लॉगआउट् पटलं दर्शयतु"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
-msgstr "पटलं निष्क्रियं कुर्वन्तु"
+msgstr ""
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr "स्क्रीन चालू/बन्दं कुर्वन्तु"
+msgstr ""
 
 #: PowerProfileModel.cpp:40
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr "पावर सेव"
+msgstr ""
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr "सन्तुलितम्"
+msgstr ""
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr "प्रदर्शनम्‌"
+msgstr ""
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr "अपरिवर्तितं त्यजतु"
+msgstr ""
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr "स्टैण्डबाई"
+msgstr ""
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr "सत्रं स्मृतौ रक्षन्तु"
+msgstr ""
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr "संकरनिद्रा"
+msgstr ""
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr "सत्रं स्मृति-डिस्क-योः मध्ये रक्षन्तु"
+msgstr ""
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr "स्टैण्डबाई, ततः हाइबरनेट"
+msgstr ""
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr "निष्क्रियतायाः अवधिपश्चात् शीतनिद्रां प्रति गच्छन्तु"
+msgstr ""

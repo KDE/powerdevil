@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-11-09 16:13+0100\n"
+"PO-Revision-Date: 2024-12-15 10:41+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -303,7 +303,7 @@ msgstr "Enerxía e batería"
 #: package/contents/ui/main.qml:115
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr "O compartimento de batería está baleiro."
+msgstr "A batería non está no seu compartimento."
 
 #: package/contents/ui/main.qml:128
 #, kde-format
