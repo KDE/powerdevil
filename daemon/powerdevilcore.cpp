@@ -230,10 +230,10 @@ void Core::refreshActions()
 
     // Remove now-unsupported actions
     for (auto it = m_actionPool.begin(); it != m_actionPool.end();) {
-        Action *action = it->second.get();
-        if (!action->isSupported()) {
-            m_registeredActionTimeouts.remove(action);
-            m_pendingResumeFromIdleActions.remove(action);
+        if (const auto &[actionId, action] = *it; !action->isSupported()) {
+            m_activeActions.removeOne(actionId);
+            m_registeredActionTimeouts.remove(action.get());
+            m_pendingResumeFromIdleActions.remove(action.get());
             it = m_actionPool.erase(it);
             actionsChanged = true;
         } else {
