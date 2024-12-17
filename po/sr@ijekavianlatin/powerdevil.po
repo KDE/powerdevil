@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-12 00:42+0000\n"
+"POT-Creation-Date: 2024-12-17 00:42+0000\n"
 "PO-Revision-Date: 2017-03-19 22:40+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -126,13 +126,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Smanji osvjetljaj ekrana"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:131
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr ""
 
-#: controllers/kwinbrightness.cpp:135
+#: controllers/kwinbrightness.cpp:136
 #, fuzzy, kde-format
 #| msgctxt "%1 is vendor name, %2 is product name"
 #| msgid "%1 %2"

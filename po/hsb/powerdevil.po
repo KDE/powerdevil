@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: desktop_kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-12 00:42+0000\n"
+"POT-Creation-Date: 2024-12-17 00:42+0000\n"
 "PO-Revision-Date: 2008-11-06 22:08+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -119,13 +119,13 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "Swětłosć wobrazowki pomjeńšić"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:131
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr ""
 
-#: controllers/kwinbrightness.cpp:135
+#: controllers/kwinbrightness.cpp:136
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"

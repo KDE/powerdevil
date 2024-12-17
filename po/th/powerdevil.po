@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-12 00:42+0000\n"
+"POT-Creation-Date: 2024-12-17 00:42+0000\n"
 "PO-Revision-Date: 2010-12-18 14:04+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -135,14 +135,14 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Decrease Screen Brightness by 1%"
 msgstr "ลดความสว่างของหน้าจอ"
 
-#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:131
+#: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, fuzzy, kde-format
 #| msgid "Lock screen"
 msgctxt "Display label"
 msgid "Built-in Screen"
 msgstr "ล็อคหน้าจอ"
 
-#: controllers/kwinbrightness.cpp:135
+#: controllers/kwinbrightness.cpp:136
 #, kde-format
 msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
