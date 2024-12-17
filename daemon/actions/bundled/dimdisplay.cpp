@@ -98,10 +98,9 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
     // but do not update m_dimmed so onIdleTimeout would not override them
     if (!profileSettings.dimDisplayWhenIdle()) {
         if (m_dimmed) {
-            if (!profileSettings.useProfileSpecificDisplayBrightness()) {
-                qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
-                core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
-            }
+            qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
+            core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
+
             if (!profileSettings.useProfileSpecificKeyboardBrightness()) {
                 setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
             }
