@@ -8,33 +8,34 @@ add_subdirectory(actions)
 # target no.1 - powerdevil core library
 set(powerdevilcore_SRCS
     powerdevil_debug.cpp
-    powerdevilaction.cpp
+    powerdevilaction.cpp powerdevilaction.h
     powerdevilcore.cpp
-    powerdevilenums.cpp
-    powerdevilmigrateconfig.cpp
+    powerdevilenums.cpp powerdevilenums.h
+    powerdevilmigrateconfig.cpp powerdevilmigrateconfig.h
     powerdevilpolicyagent.cpp
-    powerdevilbrightnesslogic.cpp
+    powerdevilbrightnesslogic.cpp powerdevilbrightnesslogic.h
     powerdevilscreenbrightnessagent.cpp
-    powerdevilscreenbrightnesslogic.cpp
-    powerdevilkeyboardbrightnesslogic.cpp
-    powerdevilpowermanagement.cpp
-    powerdevilsettingsdefaults.cpp
-    brightnessosdwidget.cpp
-    kwinkscreenhelpereffect.cpp
-    upowerdevice.cpp
-    controllers/lidcontroller.cpp
-    controllers/batterycontroller.cpp
-    controllers/suspendcontroller.cpp
-    controllers/keyboardbrightnesscontroller.cpp
-    controllers/screenbrightnesscontroller.cpp
-    controllers/displaybrightness.cpp
-    controllers/backlightbrightness.cpp
-    controllers/ddcutildetector.cpp
-    controllers/ddcutildisplay.cpp
-    controllers/udevqtclient.cpp
-    controllers/udevqtdevice.cpp
-    controllers/kwinbrightness.cpp
-    controllers/externalbrightnesscontrol.cpp
+    powerdevilscreenbrightnesslogic.cpp powerdevilscreenbrightnesslogic.h
+    powerdevilkeyboardbrightnesslogic.cpp powerdevilkeyboardbrightnesslogic.h
+    powerdevilpowermanagement.cpp powerdevilpowermanagement.h
+    powerdevilsettingsdefaults.cpp powerdevilsettingsdefaults.h
+    brightnessosdwidget.cpp brightnessosdwidget.h
+    kwinkscreenhelpereffect.cpp kwinkscreenhelpereffect.h
+    upowerdevice.cpp upowerdevice.h
+    controllers/lidcontroller.cpp controllers/lidcontroller.h
+    controllers/batterycontroller.cpp controllers/batterycontroller.h
+    controllers/suspendcontroller.cpp controllers/suspendcontroller.h
+    controllers/keyboardbrightnesscontroller.cpp controllers/keyboardbrightnesscontroller.h
+    controllers/screenbrightnesscontroller.cpp controllers/screenbrightnesscontroller.h
+    controllers/displaybrightness.cpp controllers/displaybrightness.h
+    controllers/backlightbrightness.cpp controllers/backlightbrightness.h
+    controllers/ddcutildetector.cpp controllers/ddcutildetector.h
+    controllers/ddcutildisplay.cpp controllers/ddcutildisplay.h
+    controllers/udevqtclient.cpp controllers/udevqtclient.h
+    controllers/udevqtdevice.cpp controllers/udevqtdevice.h
+    controllers/kwinbrightness.cpp controllers/kwinbrightness.h
+    controllers/externalbrightnesscontrol.cpp controllers/externalbrightnesscontrol.h
+    controllers/displaymatch.h
 )
 
 add_library(powerdevil_log_static STATIC)
@@ -121,7 +122,7 @@ endif()
 # target no.2 - powerdevil kded module
 set(powerdevil_SRCS
     powerdevil_debug.cpp
-    powerdevilapp.cpp
+    powerdevilapp.cpp powerdevilapp.h
     powerdevilfdoconnector.cpp
 )
 
@@ -147,7 +148,7 @@ kauth_install_helper_files(chargethresholdhelper org.kde.powerdevil.chargethresh
 kauth_install_actions(org.kde.powerdevil.chargethresholdhelper chargethreshold_helper_actions.actions)
 
 ## discrete gpu helper executable
-add_executable(discretegpuhelper discretegpuhelper.cpp ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+add_executable(discretegpuhelper discretegpuhelper.cpp discretegpuhelper.h ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 target_link_libraries(discretegpuhelper Qt::Core KF6::AuthCore)
 install(TARGETS discretegpuhelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(discretegpuhelper org.kde.powerdevil.discretegpuhelper root)
@@ -157,9 +158,9 @@ kauth_install_actions(org.kde.powerdevil.discretegpuhelper discretegpu_helper_ac
 ## backlight helper executable
 set(backlighthelpers_SRCS ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
 if (CMAKE_SYSTEM_NAME STREQUAL FreeBSD)
-    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_freebsd.cpp)
+    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_freebsd.cpp controllers/backlighthelper_freebsd.h)
 else()
-    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_linux.cpp)
+    list(APPEND backlighthelpers_SRCS controllers/backlighthelper_linux.cpp controllers/backlighthelper_linux.h)
 endif()
 
 add_executable(backlighthelper ${backlighthelpers_SRCS})

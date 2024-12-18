@@ -3,11 +3,11 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_powerdevilprofilesconfig\")
 kcmutils_add_qml_kcm(kcm_powerdevilprofilesconfig)
 
 target_sources(kcm_powerdevilprofilesconfig PRIVATE
-    PowerKCM.cpp
-    ExternalServiceSettings.cpp
-    PowerButtonActionModel.cpp
-    PowerProfileModel.cpp
-    SleepModeModel.cpp
+    PowerKCM.cpp PowerKCM.h
+    ExternalServiceSettings.cpp ExternalServiceSettings.h
+    PowerButtonActionModel.cpp PowerButtonActionModel.h
+    PowerProfileModel.cpp PowerProfileModel.h
+    SleepModeModel.cpp SleepModeModel.h
 )
 
 target_link_libraries(kcm_powerdevilprofilesconfig
