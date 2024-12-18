@@ -58,9 +58,9 @@ private:
                                          bool,
                                          m_isBrightnessAvailable,
                                          false,
-                                         &KeyboardBrightnessControl::isBrightnessAvailableChanged);
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl, int, m_brightness, 0, &KeyboardBrightnessControl::brightnessChanged);
-    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl, int, m_maxBrightness, 0, &KeyboardBrightnessControl::brightnessMaxChanged);
+                                         &KeyboardBrightnessControl::isBrightnessAvailableChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl, int, m_brightness, 0, &KeyboardBrightnessControl::brightnessChanged)
+    Q_OBJECT_BINDABLE_PROPERTY_WITH_ARGS(KeyboardBrightnessControl, int, m_maxBrightness, 0, &KeyboardBrightnessControl::brightnessMaxChanged)
 
     bool m_isSilent = false;
     bool m_initialized = false;
