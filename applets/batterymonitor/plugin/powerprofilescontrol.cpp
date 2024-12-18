@@ -423,3 +423,5 @@ void PowerProfilesControl::updatePowerProfileHolds(QList<QVariantMap> holds)
 
     Q_EMIT profileHoldsChanged(m_profileHolds);
 }
+
+#include "moc_powerprofilescontrol.cpp"

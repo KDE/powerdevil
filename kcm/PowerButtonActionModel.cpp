@@ -128,3 +128,5 @@ QHash<int, QByteArray> PowerButtonActionModel::roleNames() const
 {
     return QHash<int, QByteArray>{{Icon, "icon"_ba}, {Name, "name"_ba}, {Value, "value"_ba}, {IconName, "iconName"_ba}};
 }
+
+#include "moc_PowerButtonActionModel.cpp"

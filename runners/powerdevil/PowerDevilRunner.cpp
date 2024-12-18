@@ -240,3 +240,5 @@ int PowerDevilRunner::matchesScreenBrightnessKeywords(const QString &query) cons
 }
 
 #include "PowerDevilRunner.moc"
+
+#include "moc_PowerDevilRunner.cpp"

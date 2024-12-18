@@ -275,3 +275,5 @@ ActionReply BacklightHelper::brightnessmax(const QVariantMap &args)
 }
 
 KAUTH_HELPER_MAIN("org.kde.powerdevil.backlighthelper", BacklightHelper)
+
+#include "moc_backlighthelper_freebsd.cpp"

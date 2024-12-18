@@ -53,3 +53,5 @@ void ExternalBrightnessControl::kde_external_brightness_device_v1_requested_brig
 {
     m_display->setBrightness(value, false);
 }
+
+#include "moc_externalbrightnesscontrol.cpp"

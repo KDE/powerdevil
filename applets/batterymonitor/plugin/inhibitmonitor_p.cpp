@@ -169,3 +169,5 @@ void InhibitMonitor::stopSuppressingScreenPowerManagement()
         watcher->deleteLater();
     });
 }
+
+#include "moc_inhibitmonitor_p.cpp"

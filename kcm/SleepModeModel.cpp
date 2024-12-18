@@ -70,3 +70,5 @@ QHash<int, QByteArray> SleepModeModel::roleNames() const
 {
     return QHash<int, QByteArray>{{Name, "name"}, {Subtitle, "subtext"}, {Value, "value"}};
 }
+
+#include "moc_SleepModeModel.cpp"

@@ -209,3 +209,5 @@ void KWinDisplayBrightness::setDimmingMultiplier(double multiplier)
     m_desiredDimming = multiplier;
     m_detector->scheduleSetConfig();
 }
+
+#include "moc_kwinbrightness.cpp"

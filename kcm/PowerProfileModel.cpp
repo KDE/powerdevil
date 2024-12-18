@@ -82,3 +82,5 @@ QHash<int, QByteArray> PowerProfileModel::roleNames() const
 {
     return QHash<int, QByteArray>{{Name, "name"}, {Value, "value"}};
 }
+
+#include "moc_PowerProfileModel.cpp"
