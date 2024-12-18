@@ -21,7 +21,7 @@ public:
         Value = Qt::UserRole
     };
 
-    PowerProfileModel(QObject *parent = nullptr);
+    explicit PowerProfileModel(QObject *parent = nullptr);
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex &parent) const override;

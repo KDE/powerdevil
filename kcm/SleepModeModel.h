@@ -28,7 +28,7 @@ public:
         Value = Qt::UserRole
     };
 
-    SleepModeModel(QObject *parent, PowerDevil::PowerManagement *pm);
+    explicit SleepModeModel(QObject *parent, PowerDevil::PowerManagement *pm);
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     int rowCount(const QModelIndex &parent) const override;
