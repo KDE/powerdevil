@@ -14,8 +14,6 @@
 
 #include "displaybrightness.h"
 
-class QTimer;
-
 namespace UdevQt
 {
 class Device;

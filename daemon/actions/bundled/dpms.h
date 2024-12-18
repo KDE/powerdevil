@@ -11,8 +11,6 @@
 
 #include <QScopedPointer>
 
-class AbstractDpmsHelper;
-
 namespace KScreen
 {
 class Dpms;

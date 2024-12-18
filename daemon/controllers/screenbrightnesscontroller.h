@@ -26,8 +26,6 @@
 #include "displaymatch.h"
 #include "powerdevilscreenbrightnesslogic.h"
 
-class BacklightDetector;
-class DDCutilDetector;
 class ExternalBrightnessController;
 
 class POWERDEVILCORE_EXPORT ScreenBrightnessController : public QObject
