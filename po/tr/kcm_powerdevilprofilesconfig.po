@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 00:43+0000\n"
-"PO-Revision-Date: 2024-08-11 22:57+0300\n"
+"PO-Revision-Date: 2024-12-18 12:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: PowerKCM.cpp:455
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Güç Yönetimi Hizmeti çalışıyor gibi görünmüyor."
+msgstr "Güç Yönetimi Hizmeti çalışmıyor gibi görünmüyor."
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
@@ -343,7 +343,7 @@ msgstr "Bildirimler: Güç Yönetimi"
 #: ui/GlobalConfig.qml:383
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "‘Bildirimler’ ayarları sayfasında ‘Güç Yönetimi’ bölümünü açın"
+msgstr "“Bildirimler” ayarları sayfasında “Güç Yönetimi” bölümünü açın"
 
 #: ui/GlobalConfig.qml:390
 #, kde-format
@@ -354,7 +354,7 @@ msgstr "Masaüstü Oturumu"
 #: ui/GlobalConfig.qml:391
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
-msgstr "‘Masaüstü Oturumu’ ayarları sayfasını açın"
+msgstr "“Masaüstü Oturumu” ayarları sayfasını açın"
 
 #: ui/GlobalConfig.qml:398
 #, kde-format
@@ -365,7 +365,7 @@ msgstr "Etkinlikler"
 #: ui/GlobalConfig.qml:399
 #, kde-format
 msgid "Open \"Activities\" settings page"
-msgstr "‘Etkinlikler’ ayarları sayfasını açın"
+msgstr "“Etkinlikler” ayarları sayfasını açın"
 
 #: ui/main.qml:19
 #, kde-format
