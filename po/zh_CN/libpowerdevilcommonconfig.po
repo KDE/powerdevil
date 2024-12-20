@@ -109,7 +109,7 @@ msgstr "保存会话到内存和磁盘"
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr "待机之后休眠"
+msgstr "待机，然后休眠"
 
 #: SleepModeModel.cpp:38
 #, kde-format
