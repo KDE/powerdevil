@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:42+0000\n"
-"PO-Revision-Date: 2024-12-14 01:12+0530\n"
+"PO-Revision-Date: 2024-12-19 22:17+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -17,51 +17,49 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "किमपि न कुरु"
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "शयनं करोतु"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "शीतनिद्रा"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "निरुद्धं कुरुत"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "स्क्रीन् लॉक् कुर्वन्तु"
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "लॉगआउट् स्क्रीन् दर्शयतु"
 
 #: PowerButtonActionModel.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgid "Turn off screen"
-msgstr "&पर्दे निष्क्रियं कुर्वन्तु:"
+msgstr "स्क्रीनम् अवरम्भयन्तु"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "स्क्रीन चालू/बन्दं कुर्वन्तु"
 
 #: PowerKCM.cpp:458
 #, kde-format
@@ -72,58 +70,58 @@ msgstr "विद्युत्प्रबन्धनसेवा न प्�
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "शक्तिं रक्षतु"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "सन्तुलितम्"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "प्रदर्शनम्‌"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "अपरिवर्तितं त्यजतु"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "स्टैंडबाई"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "सत्रं स्मृतौ रक्षन्तु"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "संकरनिद्रा"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "सत्रं स्मृति-डिस्क-योः मध्ये रक्षन्तु"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "स्टैण्डबाई, ततः हाइबरनेट"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "निष्क्रियतायाः अवधिपश्चात् शीतनिद्रां प्रति गच्छन्तु"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
@@ -249,7 +247,7 @@ msgctxt ""
 "Percentage value example, used for formatting battery levels in the power "
 "management settings"
 msgid "10%"
-msgstr "१०% २."
+msgstr "१०%"
 
 #: ui/GlobalConfig.qml:57
 #, kde-format
@@ -262,7 +260,7 @@ msgstr "बैटरी स्तर"
 msgctxt ""
 "@label:spinbox Low battery level percentage for the main power supply battery"
 msgid "&Low level:"
-msgstr "&निम्नस्तरः : १."
+msgstr "&निम्नस्तरः :"
 
 #: ui/GlobalConfig.qml:73
 #, kde-format
@@ -286,7 +284,7 @@ msgctxt ""
 "@label:spinbox Critical battery level percentage for the main power supply "
 "battery"
 msgid "Cr&itical level:"
-msgstr "Cr&itical स्तरः : १."
+msgstr "Cr&itical स्तरः :"
 
 #: ui/GlobalConfig.qml:113
 #, kde-format
@@ -322,7 +320,7 @@ msgctxt ""
 "@label:combobox Power action such as sleep/hibernate that will be executed "
 "when the critical battery level is reached"
 msgid "A&t critical level:"
-msgstr "ए एण्ड टी क्रिटिकल लेवल : १."
+msgstr "ए एण्ड टी क्रिटिकल लेवल :"
 
 #: ui/GlobalConfig.qml:156
 #, kde-format
@@ -334,7 +332,7 @@ msgstr "गम्भीरबैटरीस्तरस्य कृतक्�
 #, kde-format
 msgctxt "@label:spinbox Low battery level percentage for peripheral devices"
 msgid "Low level for peripheral d&evices:"
-msgstr "परिधीय d&evices कृते निम्नस्तरः : १."
+msgstr "परिधीय d&evices कृते निम्नस्तरः :"
 
 #: ui/GlobalConfig.qml:189
 #, kde-format
@@ -360,7 +358,7 @@ msgstr "शुल्क सीमा"
 #, kde-format
 msgctxt "@label:checkbox"
 msgid "&Battery protection:"
-msgstr "&बैटरी रक्षणम् : १."
+msgstr "&बैटरी रक्षणम् :"
 
 #: ui/GlobalConfig.qml:234
 #, kde-format
@@ -428,7 +426,7 @@ msgstr "निलम्बनकाले मीडियाप्लेयर�
 #, kde-format
 msgctxt "@label:button"
 msgid "Related pages:"
-msgstr "सम्बन्धित पृष्ठ : १."
+msgstr "सम्बन्धित पृष्ठ :"
 
 #: ui/GlobalConfig.qml:381
 #, kde-format
@@ -520,7 +518,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr "यदा &निष्क्रियः : १."
+msgstr "यदा &निष्क्रियः :"
 
 #: ui/ProfileConfig.qml:63
 #, kde-format
