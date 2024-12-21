@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:42+0000\n"
-"PO-Revision-Date: 2024-12-19 22:17+0530\n"
+"PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -494,7 +494,7 @@ msgctxt ""
 "Percentage value example, used for formatting brightness levels in the power "
 "management settings"
 msgid "10%"
-msgstr "१०% २."
+msgstr "१०%"
 
 #: ui/ProfileConfig.qml:33
 #, kde-format
@@ -626,7 +626,7 @@ msgstr ""
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr "सुप्तसमये प्रविशतु : १."
+msgstr "सुप्तसमये प्रविशतु :"
 
 #: ui/ProfileConfig.qml:253
 #, kde-format
@@ -644,13 +644,13 @@ msgstr "प्रदर्शनं तथा कान्तिः"
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
-msgstr "पटलस्य प्रकाशं परिवर्तयन्तु : १."
+msgstr "पटलस्य प्रकाशं परिवर्तयन्तु :"
 
 #: ui/ProfileConfig.qml:358
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr "Di&m स्वयमेव : १."
+msgstr "Di&m स्वयमेव :"
 
 #: ui/ProfileConfig.qml:360
 #, kde-format
@@ -797,7 +797,7 @@ msgstr "शक्तिप्रोफाइलं प्रति स्वि�
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
-msgstr "आदेशं वा स्क्रिप्ट् वा चालयन्तु : १."
+msgstr "आदेशं वा स्क्रिप्ट् वा चालयन्तु :"
 
 #: ui/ProfileConfig.qml:652
 #, kde-format
