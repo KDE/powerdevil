@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-17 00:42+0000\n"
-"PO-Revision-Date: 2024-08-14 06:35+0200\n"
+"PO-Revision-Date: 2024-12-31 07:56+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -285,7 +285,7 @@ msgstr "Izklopi zdaj"
 #: powerdevilcore.cpp:629
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "Sistem bo prešel v hibernacijo čez 60 sekund."
+msgstr "Sistem bo prešel v mirovanje čez 60 sekund."
 
 #: powerdevilcore.cpp:631
 #, kde-format

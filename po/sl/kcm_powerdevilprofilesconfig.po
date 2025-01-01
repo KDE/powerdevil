@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:42+0000\n"
-"PO-Revision-Date: 2024-12-18 07:27+0100\n"
+"PO-Revision-Date: 2024-12-31 08:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -33,7 +33,7 @@ msgstr "Zaspi"
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr "Hiberniraj"
+msgstr "V mirovanje"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
@@ -115,13 +115,13 @@ msgstr "Shrani sejo v pomnilnik in na disk"
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr "V pripravljenost, nato hiberniraj"
+msgstr "V pripravljenost, nato v mirovanje"
 
 #: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr "Preklopi v hibernacijo po obdobju nedejevnosti"
+msgstr "Preklopi v mirovanje po obdobju nedejevnosti"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
