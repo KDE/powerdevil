@@ -33,7 +33,7 @@ PlasmoidItem {
         readonly property bool isInPowersaveProfile: activeProfile === "power-saver"
         readonly property bool isHeldOnPowerProfile: profileHolds.length > 0
         readonly property string defaultPowerProfile: configuredProfile ? configuredProfile : "balanced"
-        readonly property bool isInDefaultPowerProfile: activeProfile && activeProfile === defaultPowerProfile
+        readonly property bool isInDefaultPowerProfile: !activeProfile || activeProfile === defaultPowerProfile
     }
 
     BatteryControlModel {
