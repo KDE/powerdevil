@@ -54,8 +54,6 @@ msgstr ""
 
 #: PowerButtonActionModel.cpp:84
 #, fuzzy, kde-format
-#| msgctxt "@label:combobox After X minutes"
-#| msgid "&Turn off screen:"
 msgid "Turn off screen"
 msgstr "Slå &av skjermen:"
 
