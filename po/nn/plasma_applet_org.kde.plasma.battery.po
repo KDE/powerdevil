@@ -345,7 +345,6 @@ msgstr "Kvar gong for denne appen og grunnen"
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
 #: package/contents/ui/PowerManagementItem.qml:213
 #, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt "Minimize the length of this string as much as possible"
 msgid "You have manually blocked sleep and screen locking."
 msgstr "%1 hindrar skjermlåsing og kvilemodus (%2)"
@@ -374,9 +373,6 @@ msgstr "Klarte ikkje hindra automatisk skjermlåsing og kvilemodus"
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
 #: package/contents/ui/PowerManagementItem.qml:258
 #, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
@@ -387,7 +383,6 @@ msgstr[1] "%1 program hindrar skjermlåsing og kvilemodus:"
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
 #: package/contents/ui/PowerManagementItem.qml:285
 #, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
 msgstr "%1 hindrar skjermlåsing og kvilemodus (%2)"
