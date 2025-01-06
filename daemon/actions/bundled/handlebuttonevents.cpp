@@ -28,6 +28,7 @@
 #include <Kirigami/Platform/TabletModeWatcher>
 
 using namespace Qt::StringLiterals;
+using namespace std::chrono_literals;
 
 namespace PowerDevil::BundledActions
 {
@@ -98,6 +99,10 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
                     m_oldKeyboardBrightness = brightnessInfo.value;
                 }
             });
+
+    m_wakeupCheckTimer.setSingleShot(true);
+    connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, &HandleButtonEvents::onResumeFromSuspend);
+    connect(&m_wakeupCheckTimer, &QTimer::timeout, this, &HandleButtonEvents::checkWakeup);
 }
 
 HandleButtonEvents::~HandleButtonEvents()
@@ -258,6 +263,25 @@ void HandleButtonEvents::checkOutputs()
     }
 }
 
+void HandleButtonEvents::onResumeFromSuspend()
+{
+    // don't check wakeup immediately, give the system some time to detect external screens
+    m_wakeupCheckTimer.start(10s);
+}
+
+void HandleButtonEvents::checkWakeup()
+{
+    if (!triggersLidAction() || !core()->lidController()->isLidClosed()) {
+        return;
+    }
+    if (m_lidAction != PowerButtonAction::Sleep && m_lidAction != PowerButtonAction::Hibernate) {
+        return;
+    }
+    // if the lid is still closed and no external monitor is connected,
+    // then this must've been an unintended wakeup caused by firmware bugs,
+    // hardware quirks or whatever -> just suspend again
+    processAction(m_lidAction);
+}
 }
 
 #include "moc_handlebuttonevents.cpp"
