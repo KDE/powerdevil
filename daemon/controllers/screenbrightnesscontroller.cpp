@@ -515,16 +515,14 @@ double ScreenBrightnessController::dimmingRatioForDisplay(const QString &display
 KScreen::OutputPtr ScreenBrightnessController::tryMatchKScreenOutput(const QString &displayId) const
 {
     if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie && m_kscreenConfig) {
-        const DisplayBrightness *display = it->second.display;
+        const DisplayMatch &displayMatch = it->second.match;
         for (const KScreen::OutputPtr &output : m_kscreenConfig->outputs()) {
-            if (display->id() == output->name()) { // for KWinDisplayDetector, primarily
-                return output;
-            }
-            if (output->type() == KScreen::Output::Panel && display->isInternal()) {
-                return output;
-            }
-            const std::optional<QByteArray> displayEdid = display->edidData();
-            if (displayEdid && output->edid() && output->edid()->rawData().startsWith(*displayEdid)) {
+            bool matched = DisplayFilter()
+                               .includeByDefault(false)
+                               .isInternalEquals(output->type() == KScreen::Output::Panel)
+                               .includeEdids(output->edid() ? QList<QByteArray>{output->edid()->rawData()} : QList<QByteArray>{})
+                               .includes(displayMatch);
+            if (matched) {
                 return output;
             }
         }
