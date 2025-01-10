@@ -103,6 +103,9 @@ HandleButtonEvents::HandleButtonEvents(QObject *parent)
     m_wakeupCheckTimer.setSingleShot(true);
     connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, &HandleButtonEvents::onResumeFromSuspend);
     connect(&m_wakeupCheckTimer, &QTimer::timeout, this, &HandleButtonEvents::checkWakeup);
+
+    m_delayedDisplayHotunplugTimer.setSingleShot(true);
+    connect(&m_delayedDisplayHotunplugTimer, &QTimer::timeout, this, &HandleButtonEvents::reactToDisplayHotunplug);
 }
 
 HandleButtonEvents::~HandleButtonEvents()
@@ -256,10 +259,12 @@ void HandleButtonEvents::checkOutputs()
 
         // when the lid is closed but we don't suspend because of an external monitor but we then
         // unplug said monitor, re-trigger the lid action (Bug 379265)
-        if (triggersLidAction() && core()->lidController()->isLidClosed()) {
-            qCDebug(POWERDEVIL) << "External monitor that kept us from suspending is gone and lid is closed, re-triggering lid action";
-            onLidClosedChanged(true);
-        }
+
+        // this shouldn't be done immediately though, as (especially with docks) displays can trigger
+        // very temporary hotunplug events that don't correspond to the user actually unplugging
+        // the display(s) - see bug 486328
+        // The 2s were chosen to match a similar workaround in KWin
+        m_delayedDisplayHotunplugTimer.start(2s);
     }
 }
 
@@ -280,6 +285,15 @@ void HandleButtonEvents::checkWakeup()
     // if the lid is still closed and no external monitor is connected,
     // then this must've been an unintended wakeup caused by firmware bugs,
     // hardware quirks or whatever -> just suspend again
+    processAction(m_lidAction);
+}
+
+void HandleButtonEvents::reactToDisplayHotunplug()
+{
+    // the lid and output states might've changed since the timer was started
+    if (!triggersLidAction() || !core()->lidController()->isLidClosed()) {
+        return;
+    }
     processAction(m_lidAction);
 }
 }
