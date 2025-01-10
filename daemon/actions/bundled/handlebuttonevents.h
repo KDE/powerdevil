@@ -51,6 +51,7 @@ private Q_SLOTS:
     void checkOutputs();
     void onResumeFromSuspend();
     void checkWakeup();
+    void reactToDisplayHotunplug();
 
 private:
     void processAction(PowerDevil::PowerButtonAction action);
@@ -69,6 +70,7 @@ private:
     std::optional<int> m_oldKeyboardBrightness;
 
     QTimer m_wakeupCheckTimer;
+    QTimer m_delayedDisplayHotunplugTimer;
 };
 
 }
