@@ -12,6 +12,7 @@
 #include <powerdevilaction.h>
 #include <powerdevilenums.h>
 
+#include <QTimer>
 #include <optional>
 
 namespace PowerDevil::BundledActions
@@ -48,6 +49,8 @@ private Q_SLOTS:
     void hibernate();
 
     void checkOutputs();
+    void onResumeFromSuspend();
+    void checkWakeup();
 
 private:
     void processAction(PowerDevil::PowerButtonAction action);
@@ -64,6 +67,8 @@ private:
     PowerDevil::PowerButtonAction m_hibernateButtonAction = PowerDevil::PowerButtonAction::Hibernate;
 
     std::optional<int> m_oldKeyboardBrightness;
+
+    QTimer m_wakeupCheckTimer;
 };
 
 }
