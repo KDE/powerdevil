@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-17 00:42+0000\n"
+"POT-Creation-Date: 2025-01-11 00:42+0000\n"
 "PO-Revision-Date: 2008-12-30 15:12+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
 "Language-Team: Bengali INDIA <fedora-trans-bn_IN@redhat.com>\n"
@@ -28,7 +28,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "runab@redhat.com"
 
-#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:44
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67
 #: actions/bundled/screenbrightnesscontrol.cpp:34
@@ -44,26 +44,26 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:49
+#: actions/bundled/handlebuttonevents.cpp:50
 #, fuzzy, kde-format
 #| msgid "Suspend to RAM"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "RAM-এ বিরত করুন"
 
-#: actions/bundled/handlebuttonevents.cpp:54
+#: actions/bundled/handlebuttonevents.cpp:55
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:59
+#: actions/bundled/handlebuttonevents.cpp:60
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:73
+#: actions/bundled/handlebuttonevents.cpp:74
 #, fuzzy, kde-format
 #| msgid "PowerDevil"
 msgctxt ""
