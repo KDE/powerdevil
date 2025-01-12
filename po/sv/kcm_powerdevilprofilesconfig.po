@@ -1,65 +1,63 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2020, 2024 Stefan Asserhall <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011, 2020, 2024, 2025 Stefan Asserhall <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:42+0000\n"
-"PO-Revision-Date: 2024-08-11 09:08+0200\n"
+"PO-Revision-Date: 2025-01-11 21:13+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.12.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Gör ingenting"
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Viloläge"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Dvala"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Stäng av"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Lås skärmen"
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Visa utloggningsskärm"
 
 #: PowerButtonActionModel.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgid "Turn off screen"
-msgstr "S&täng av skärmen:"
+msgstr "Stäng av skärmen"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Sätt på eller stäng av skärmen"
 
 #: PowerKCM.cpp:458
 #, kde-format
@@ -70,60 +68,58 @@ msgstr "Tjänsten för strömsparhantering verkar inte köra."
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Spara ström"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Balanserad"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Prestanda"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Lämna orört"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Vänta"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Spara session i minnet"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybridviloläge"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Spara session både i minnet och på disk"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Vänta, sedan dvala"
 
 #: SleepModeModel.cpp:38
-#, fuzzy, kde-format
-#| msgctxt "@@accessible:name:textfield"
-#| msgid "Script command after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr "Skriptkommando efter en period av inaktivitet"
+msgstr "Gå till dvala efter en period av inaktivitet"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
