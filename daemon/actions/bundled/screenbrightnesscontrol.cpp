@@ -26,6 +26,17 @@ namespace PowerDevil::BundledActions
 ScreenBrightnessControl::ScreenBrightnessControl(QObject *parent)
     : Action(parent)
 {
+    connect(core()->screenBrightnessController(), &ScreenBrightnessController::displayAdded, this, &ScreenBrightnessControl::displayAdded);
+}
+
+void ScreenBrightnessControl::displayAdded(const QString &displayId)
+{
+    ScreenBrightnessController *controller = core()->screenBrightnessController();
+
+    if (m_configuredBrightnessRatio.has_value() && controller->isInternal(displayId)) {
+        const int newBrightness = std::round(*m_configuredBrightnessRatio * controller->maxBrightness(displayId));
+        controller->setBrightness(displayId, newBrightness, u"(internal)"_s, u"profile_brightness"_s, ScreenBrightnessController::SuppressIndicator);
+    }
 }
 
 void ScreenBrightnessControl::onProfileLoad(const QString &previousProfile, const QString &newProfile)
@@ -34,53 +45,43 @@ void ScreenBrightnessControl::onProfileLoad(const QString &previousProfile, cons
         || (newProfile == "LowBattery"_L1 && (previousProfile == "AC"_L1 || previousProfile == "Battery"_L1));
 
     ScreenBrightnessController *controller = core()->screenBrightnessController();
-    QList<QString> displayIds = controller->displayIds();
 
-    bool hasInternal;
-    QList<bool> isInternal;
-    isInternal.reserve(displayIds.size());
-
-    for (const QString &displayId : std::as_const(displayIds)) {
-        bool isDisplayInternal = controller->isInternal(displayId);
-        isInternal.append(isDisplayInternal);
-        hasInternal |= isDisplayInternal;
-    }
-
-    for (int i = 0; i < displayIds.size(); ++i) {
-        // Brightness changes based on power states makes the most sense for internal displays,
-        // as external ones are independently powered anyway. Limit this to internal displays if
-        // any are available. Only change brightness for external displays if the setting was
-        // configured anyway. This also limits annoyances for brightness changed to a different
-        // value but not restored prior to unplugging, especially as long as pre-dimming brightness
-        // is not persisted and restored for each display.
-        if (isInternal[i] != hasInternal) {
-            continue;
-        }
-        const auto &displayId = displayIds.at(i);
-        const int newBrightness = std::round(m_configuredBrightnessRatio * controller->maxBrightness(displayId));
+    // Brightness changes based on power states make the most sense for internal displays,
+    // as external ones are independently powered anyway. Limit to internal displays only,
+    // both to avoid confusion with hotplugging display setup changes and to limit annoyances with
+    // external monitors that are easily unplugged without being able to first restore brightness.
+    for (const QString &displayId : controller->displayIds(DisplayFilter().isInternalEquals(true))) {
+        const int newBrightness = std::round(*m_configuredBrightnessRatio * controller->maxBrightness(displayId));
 
         // don't change anything if the configuration would have us increase brightness when
         // switching to a more conservative profile
         if (isNewProfileMoreConservative && controller->brightness(displayId) < newBrightness) {
             qCDebug(POWERDEVIL) << "Display" << displayId << "not changing brightness: current brightness is lower and the new profile is more conservative";
-        } else if (newBrightness >= controller->minBrightness(displayId)) {
-            controller->setBrightness(displayId, newBrightness, QString(), QString(), ScreenBrightnessController::SuppressIndicator);
+        } else {
+            controller->setBrightness(displayId, newBrightness, u"(internal)"_s, u"profile_brightness"_s, ScreenBrightnessController::SuppressIndicator);
         }
     }
 }
 
+void ScreenBrightnessControl::onProfileUnload()
+{
+    m_configuredBrightnessRatio = std::nullopt;
+}
+
 bool ScreenBrightnessControl::isSupported()
 {
-    return core()->screenBrightnessController()->isSupported();
+    return core()->screenBrightnessController()->isSupported() //
+        && !core()->screenBrightnessController()->displayIds(DisplayFilter().isInternalEquals(true)).isEmpty();
 }
 
 bool ScreenBrightnessControl::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     if (!profileSettings.useProfileSpecificDisplayBrightness()) {
+        onProfileUnload();
         return false;
     }
 
-    m_configuredBrightnessRatio = profileSettings.displayBrightness() / 100.0;
+    m_configuredBrightnessRatio = std::clamp(profileSettings.displayBrightness(), 0, 100) / 100.0;
     return true;
 }
 }
