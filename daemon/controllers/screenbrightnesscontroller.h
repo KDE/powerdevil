@@ -67,6 +67,13 @@ public:
     QStringList displayIds() const;
 
     /**
+     * A filtered list of string identifiers for displays that support brightness operations.
+     *
+     * Like `displayIds()`, but the list is narrowed down by a DisplayFilter.
+     */
+    QStringList displayIds(const DisplayFilter &) const;
+
+    /**
      * A human-readable name for this display.
      */
     QString label(const QString &label) const;

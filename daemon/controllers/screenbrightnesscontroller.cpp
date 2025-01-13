@@ -104,6 +104,18 @@ QStringList ScreenBrightnessController::displayIds() const
     return m_sortedDisplayIds;
 }
 
+QStringList ScreenBrightnessController::displayIds(const DisplayFilter &filter) const
+{
+    auto appendIfIncluded = [this, &filter](QStringList &&filtered, const QString &displayId) {
+        const DisplayMatch &match = m_displaysById.find(displayId)->second.match;
+        if (filter.includes(match)) {
+            filtered.append(displayId);
+        }
+        return filtered;
+    };
+    return std::accumulate(m_sortedDisplayIds.constBegin(), m_sortedDisplayIds.constEnd(), QStringList{}, appendIfIncluded);
+}
+
 void ScreenBrightnessController::onDisplayDestroyed(QObject *obj)
 {
     for (auto &[id, info] : m_displaysById) {

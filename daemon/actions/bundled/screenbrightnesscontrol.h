@@ -19,15 +19,19 @@ class ScreenBrightnessControl : public PowerDevil::Action, protected QDBusContex
 public:
     explicit ScreenBrightnessControl(QObject *parent);
 
-protected:
-    void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
-    void triggerImpl(const QVariantMap &args) override;
-    bool isSupported() override;
-
 public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
+protected:
+    void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
+    void onProfileUnload() override;
+    void triggerImpl(const QVariantMap &args) override;
+    bool isSupported() override;
+
+private Q_SLOTS:
+    void displayAdded(const QString &displayId);
+
 private:
-    double m_configuredBrightnessRatio = 0.0;
+    std::optional<double> m_configuredBrightnessRatio;
 };
 }
