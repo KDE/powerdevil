@@ -14,7 +14,7 @@ target_link_libraries(kcm_powerdevilprofilesconfig
     Qt::DBus
     KF6::AuthCore
     KF6::KCMUtils
-    KF6::Kirigami2
+    KF6::Kirigami
     KF6::I18n
     KF6::ItemModels
     KF6::Solid

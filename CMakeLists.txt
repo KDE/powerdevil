@@ -40,7 +40,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     ItemModels
     GlobalAccel
     KIO
-    Kirigami2
+    Kirigami
     KCMUtils
     Notifications
     Runner
