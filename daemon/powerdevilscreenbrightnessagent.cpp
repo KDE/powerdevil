@@ -17,6 +17,9 @@
 #include <QDBusPendingCall>
 #include <QDebug>
 
+#include <KActionCollection>
+#include <KGlobalAccel>
+#include <KLocalizedString>
 #include <KScreen/Output>
 
 using namespace Qt::Literals::StringLiterals;
@@ -128,6 +131,38 @@ ScreenBrightnessAgent::ScreenBrightnessAgent(QObject *parent, ScreenBrightnessCo
         QDBusMessage signal = QDBusMessage::createSignal(SCREENBRIGHTNESS_PATH, DBUS_PROPERTIES_IFACE, u"PropertiesChanged"_s);
         signal << SCREENBRIGHTNESS_IFACE << QVariantMap() << QStringList({u"DisplaysDBusNames"_s});
         QDBusConnection::sessionBus().send(signal);
+    });
+
+    // shortcuts to increase/decrease brightness
+    KActionCollection *actionCollection = new KActionCollection(this);
+    actionCollection->setComponentDisplayName(i18nc("Name for powerdevil shortcuts category", "Power Management"));
+
+    QAction *globalAction = actionCollection->addAction("Increase Screen Brightness"_L1);
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness"));
+    KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessUp);
+    connect(globalAction, &QAction::triggered, this, [this] {
+        actOnBrightnessKey(BrightnessLogic::Increase);
+    });
+
+    globalAction = actionCollection->addAction("Increase Screen Brightness Small"_L1);
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Increase Screen Brightness by 1%"));
+    KGlobalAccel::setGlobalShortcut(globalAction, Qt::ShiftModifier | Qt::Key_MonBrightnessUp);
+    connect(globalAction, &QAction::triggered, this, [this] {
+        actOnBrightnessKey(BrightnessLogic::IncreaseSmall);
+    });
+
+    globalAction = actionCollection->addAction("Decrease Screen Brightness"_L1);
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness"));
+    KGlobalAccel::setGlobalShortcut(globalAction, Qt::Key_MonBrightnessDown);
+    connect(globalAction, &QAction::triggered, this, [this] {
+        actOnBrightnessKey(BrightnessLogic::Decrease);
+    });
+
+    globalAction = actionCollection->addAction("Decrease Screen Brightness Small"_L1);
+    globalAction->setText(i18nc("@action:inmenu Global shortcut", "Decrease Screen Brightness by 1%"));
+    KGlobalAccel::setGlobalShortcut(globalAction, Qt::ShiftModifier | Qt::Key_MonBrightnessDown);
+    connect(globalAction, &QAction::triggered, this, [this] {
+        actOnBrightnessKey(BrightnessLogic::DecreaseSmall);
     });
 }
 
@@ -265,6 +300,14 @@ void ScreenBrightnessAgent::AdjustBrightnessStepWithContext(uint stepAction, uin
 int ScreenBrightnessAgent::brightnessPercent(double value, double max) const
 {
     return max > 0 ? std::round(value / max * 100) : 0;
+}
+
+void ScreenBrightnessAgent::actOnBrightnessKey(BrightnessLogic::StepAdjustmentAction action)
+{
+    if (!m_controller->isSupported()) {
+        return;
+    }
+    m_controller->adjustBrightnessStep(action, u"(internal)"_s, u"brightness_key"_s, ScreenBrightnessController::ShowIndicator);
 }
 }
 

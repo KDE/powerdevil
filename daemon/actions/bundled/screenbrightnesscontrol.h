@@ -8,7 +8,6 @@
 #pragma once
 
 #include <powerdevilaction.h>
-#include <powerdevilbrightnesslogic.h>
 
 namespace PowerDevil::BundledActions
 {
@@ -28,8 +27,6 @@ public:
     bool loadAction(const PowerDevil::ProfileSettings &profileSettings) override;
 
 private:
-    void actOnBrightnessKey(BrightnessLogic::StepAdjustmentAction action);
-
     double m_configuredBrightnessRatio = 0.0;
 };
 }

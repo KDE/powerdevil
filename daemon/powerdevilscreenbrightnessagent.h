@@ -111,6 +111,8 @@ private Q_SLOTS:
                              ScreenBrightnessController::IndicatorHint hint);
     void onBrightnessRangeChanged(const QString &displayId, const BrightnessLogic::BrightnessInfo &brightnessInfo);
 
+    void actOnBrightnessKey(BrightnessLogic::StepAdjustmentAction action);
+
 Q_SIGNALS:
     // D-Bus export
     void DisplayAdded(const QString &displayId);
