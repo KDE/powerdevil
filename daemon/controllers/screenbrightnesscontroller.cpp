@@ -370,7 +370,7 @@ void ScreenBrightnessController::setBrightness(const QString &displayId,
             Q_EMIT brightnessChanged(displayId, info.brightnessLogic.info(), sourceClientName, sourceClientContext, hint);
 
             // legacy API without displayId parameter: notify only if the first supported display changed
-            if (displayId == m_legacyDisplayIds.first()) {
+            if (!m_legacyDisplayIds.isEmpty() && displayId == m_legacyDisplayIds.first()) {
                 Q_EMIT legacyBrightnessInfoChanged(info.brightnessLogic.info(), hint);
             }
         }
