@@ -131,6 +131,7 @@ Q_SIGNALS:
     void supportedActionsChanged();
 
 private:
+    void loadAllInactiveActions(const QString &previousProfile, const QString &newProfile);
     void unloadAllActiveActions();
     void registerActionTimeout(Action *action, std::chrono::milliseconds timeout);
     void unregisterActionTimeouts(Action *action);
@@ -166,6 +167,7 @@ private:
 
     GlobalSettings *m_globalSettings = nullptr;
 
+    bool m_isProfileActive = false;
     QString m_currentProfile;
 
     QHash<QString, int> m_batteriesPercent;
@@ -194,7 +196,7 @@ private:
     QHash<QString, int> m_screenActivityInhibit;
 
     std::unordered_map<QString, std::unique_ptr<Action>> m_actionPool;
-    QStringList m_activeActions;
+    QSet<QString> m_activeActions;
 
 private Q_SLOTS:
     void onAcAdapterStateChanged(BatteryController::AcAdapterState);

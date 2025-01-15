@@ -91,8 +91,7 @@ void Core::loadCore()
     m_screenBrightnessController = std::make_unique<ScreenBrightnessController>();
 
     connect(m_screenBrightnessController.get(), &ScreenBrightnessController::detectionFinished, this, &Core::onControllersReady);
-    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::displayAdded, this, &Core::refreshActions);
-    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::displayRemoved, this, &Core::refreshActions);
+    connect(m_screenBrightnessController.get(), &ScreenBrightnessController::displayIdsChanged, this, &Core::refreshActions);
     m_screenBrightnessController->detectDisplays();
 }
 
@@ -151,6 +150,7 @@ void Core::onControllersReady()
             // force reload profile so all actions re-register their idle timeouts
             loadProfile(true /*force*/);
         } else {
+            m_isProfileActive = false;
             // Bug 354250: Keep us from sending the computer to sleep when switching
             // to an idle session by removing all idle timeouts
             KIdleTime::instance()->removeAllIdleTimeouts();
@@ -158,7 +158,7 @@ void Core::onControllersReady()
         }
     });
 
-    // Initialize the action pool, which will also load the needed startup actions.
+    // Initialize the action pool, which may also initialize profile-independent functionality
     refreshActions();
 
     // Set up the critical battery timer
@@ -212,7 +212,9 @@ void Core::onControllersReady()
 void Core::refreshActions()
 {
     bool actionsChanged = false;
+    bool actionsAdded = false;
     const QList<KPluginMetaData> offers = KPluginMetaData::findPlugins(QStringLiteral("powerdevil/action"));
+
     for (const KPluginMetaData &data : offers) {
         const QString actionId = data.value(QStringLiteral("X-KDE-PowerDevil-Action-ID"));
         if (m_actionPool.contains(actionId)) {
@@ -224,6 +226,7 @@ void Core::refreshActions()
                 QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/Solid/PowerManagement/Actions/") + actionId, action.get());
             }
             m_actionPool.emplace(actionId, std::move(action));
+            actionsAdded = true;
             actionsChanged = true;
         }
     }
@@ -231,7 +234,7 @@ void Core::refreshActions()
     // Remove now-unsupported actions
     for (auto it = m_actionPool.begin(); it != m_actionPool.end();) {
         if (const auto &[actionId, action] = *it; !action->isSupported()) {
-            m_activeActions.removeOne(actionId);
+            m_activeActions.remove(actionId);
             m_registeredActionTimeouts.remove(action.get());
             m_pendingResumeFromIdleActions.remove(action.get());
             it = m_actionPool.erase(it);
@@ -242,6 +245,9 @@ void Core::refreshActions()
     }
 
     if (actionsChanged) {
+        if (m_isProfileActive && actionsAdded) {
+            loadAllInactiveActions(m_currentProfile, m_currentProfile);
+        }
         Q_EMIT supportedActionsChanged();
     }
 }
@@ -325,13 +331,6 @@ void Core::loadProfile(bool force)
         }
     }
 
-    // Load settings for the current profile
-    const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
-    const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
-    bool canSuspend = m_suspendController->canSuspend();
-
-    PowerDevil::ProfileSettings profileSettings(profileId, isMobile, isVM, canSuspend);
-
     // Release any special inhibitions
     {
         QHash<QString, int>::iterator i = m_sessionActivityInhibit.begin();
@@ -369,16 +368,11 @@ void Core::loadProfile(bool force)
             m_pendingWakeupEvent = false;
         }
 
-        // Cool, now let's load the needed actions. Mark the ones as active that want to be loaded
-        for (const auto &[id, action] : m_actionPool) {
-            if (action->loadAction(profileSettings)) {
-                m_activeActions.append(id);
-                action->onProfileLoad(m_currentProfile, profileId);
-            }
-        }
+        loadAllInactiveActions(m_currentProfile, profileId);
 
         // We are now on a different profile
         m_currentProfile = profileId;
+        m_isProfileActive = true;
         Q_EMIT profileChanged(m_currentProfile);
     }
 
@@ -1008,6 +1002,24 @@ Action *Core::action(const QString actionId)
 {
     const auto it = m_actionPool.find(actionId);
     return it == m_actionPool.end() ? nullptr : it->second.get();
+}
+
+void Core::loadAllInactiveActions(const QString &previousProfile, const QString &newProfile)
+{
+    // Load settings for the current profile
+    const bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
+    const bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
+    bool canSuspend = m_suspendController->canSuspend();
+
+    PowerDevil::ProfileSettings profileSettings(newProfile, isMobile, isVM, canSuspend);
+
+    // Cool, now let's load the needed actions. Mark the ones as active that want to be loaded
+    for (const auto &[id, action] : m_actionPool) {
+        if (!m_activeActions.contains(id) && action->loadAction(profileSettings)) {
+            m_activeActions.insert(id);
+            action->onProfileLoad(previousProfile, newProfile);
+        }
+    }
 }
 
 void Core::unloadAllActiveActions()
