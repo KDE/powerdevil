@@ -16,6 +16,8 @@
 #include <QDebug>
 
 #include <KPluginFactory>
+#include <Solid/Battery>
+#include <Solid/Device>
 
 K_PLUGIN_CLASS_WITH_JSON(PowerDevil::BundledActions::ScreenBrightnessControl, "powerdevilscreenbrightnesscontrolaction.json")
 
@@ -27,6 +29,14 @@ ScreenBrightnessControl::ScreenBrightnessControl(QObject *parent)
     : Action(parent)
 {
     connect(core()->screenBrightnessController(), &ScreenBrightnessController::displayAdded, this, &ScreenBrightnessControl::displayAdded);
+
+    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, QString());
+    for (const Solid::Device &device : devices) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+        if (b->isPowerSupply() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
+            m_supportsBatteryProfiles = true;
+        }
+    }
 }
 
 void ScreenBrightnessControl::displayAdded(const QString &displayId)
@@ -74,7 +84,8 @@ void ScreenBrightnessControl::triggerImpl(const QVariantMap & /*args*/)
 
 bool ScreenBrightnessControl::isSupported()
 {
-    return core()->screenBrightnessController()->isSupported() //
+    return m_supportsBatteryProfiles // users with only AC power should set brightness via applet or kcm_kscreen
+        && core()->screenBrightnessController()->isSupported()
         && !core()->screenBrightnessController()->displayIds(DisplayFilter().isInternalEquals(true)).isEmpty();
 }
 
