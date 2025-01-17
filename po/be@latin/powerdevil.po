@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-11 00:42+0000\n"
+"POT-Creation-Date: 2025-01-17 00:43+0000\n"
 "PO-Revision-Date: 2008-11-20 22:42+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <i18n@mova.org>\n"
@@ -185,28 +185,28 @@ msgstr "Dahladnik"
 msgid "Replace an existing instance"
 msgstr ""
 
-#: powerdevilcore.cpp:391 powerdevilcore.cpp:402
+#: powerdevilcore.cpp:385 powerdevilcore.cpp:396
 #, kde-format
 msgid "Activity Manager"
 msgstr ""
 
-#: powerdevilcore.cpp:392
+#: powerdevilcore.cpp:386
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr ""
 
-#: powerdevilcore.cpp:403
+#: powerdevilcore.cpp:397
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 
-#: powerdevilcore.cpp:465
+#: powerdevilcore.cpp:459
 #, fuzzy, kde-format
 #| msgid "Critical battery level"
 msgid "Extra Battery Added"
 msgstr "Vielmi nizki zarad batarei"
 
-#: powerdevilcore.cpp:466
+#: powerdevilcore.cpp:460
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
@@ -216,19 +216,19 @@ msgstr ""
 "Kamputar budzie vyklučany praz %1 sekund. Klikni siudy, kab anulavać hetuju "
 "dzieju."
 
-#: powerdevilcore.cpp:530
+#: powerdevilcore.cpp:524
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr ""
 
-#: powerdevilcore.cpp:533
+#: powerdevilcore.cpp:527
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:535
+#: powerdevilcore.cpp:529
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -236,22 +236,22 @@ msgid ""
 "time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:536
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:546
+#: powerdevilcore.cpp:540
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:556
+#: powerdevilcore.cpp:550
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:558
+#: powerdevilcore.cpp:552
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -259,19 +259,19 @@ msgid ""
 "turn off at any time. Please recharge or replace the battery."
 msgstr ""
 
-#: powerdevilcore.cpp:600
+#: powerdevilcore.cpp:594
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr ""
 
-#: powerdevilcore.cpp:602
+#: powerdevilcore.cpp:596
 #, kde-format
 msgid "Plug in the power cord."
 msgstr ""
 
-#: powerdevilcore.cpp:621
+#: powerdevilcore.cpp:615
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be put into standby in %1 seconds. Click here to block "
@@ -281,7 +281,7 @@ msgstr ""
 "Kamputar pačnie čakać praz %1 sekund. Klikni siudy, kab anulavać hetuju "
 "dzieju."
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:617
 #, fuzzy, kde-format
 #| msgid "Shutdown"
 msgctxt ""
@@ -289,7 +289,7 @@ msgctxt ""
 msgid "Shut Down Now"
 msgstr "Vyklučy kamputar"
 
-#: powerdevilcore.cpp:629
+#: powerdevilcore.cpp:623
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be suspended to RAM in %1 seconds. Click here to block "
@@ -299,7 +299,7 @@ msgstr ""
 "Kamputar zaśnie ŭ pamiaci praz %1 sekund. Klikni siudy, kab anulavać hetuju "
 "dzieju."
 
-#: powerdevilcore.cpp:631
+#: powerdevilcore.cpp:625
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -307,7 +307,7 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr ""
 
-#: powerdevilcore.cpp:637
+#: powerdevilcore.cpp:631
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be suspended to RAM in %1 seconds. Click here to block "
@@ -317,14 +317,14 @@ msgstr ""
 "Kamputar zaśnie ŭ pamiaci praz %1 sekund. Klikni siudy, kab anulavać hetuju "
 "dzieju."
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:633
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr ""
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:639
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your battery has reached critical level, save your work as soon as "
@@ -334,7 +334,7 @@ msgstr ""
 "Tvaja batareja maje vielmi nizki zarad. Jak maha chutčej zapišy vynik svajoj "
 "pracy!"
 
-#: powerdevilcore.cpp:651
+#: powerdevilcore.cpp:645
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -342,23 +342,23 @@ msgctxt ""
 msgid "Cancel"
 msgstr ""
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:657
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:667
+#: powerdevilcore.cpp:661
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr ""
 
-#: powerdevilcore.cpp:691
+#: powerdevilcore.cpp:685
 #, fuzzy, kde-format
 #| msgid "When AC Adaptor is plugged in"
 msgid "Power Cord Plugged In"
 msgstr "Kali padłučany blok siłkavańnia"
 
-#: powerdevilcore.cpp:692
+#: powerdevilcore.cpp:686
 #, fuzzy, kde-format
 #| msgid ""
 #| "The computer will be halted in %1 seconds. Click here to block the "
@@ -368,35 +368,35 @@ msgstr ""
 "Kamputar budzie vyklučany praz %1 sekund. Klikni siudy, kab anulavać hetuju "
 "dzieju."
 
-#: powerdevilcore.cpp:694
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "Running on AC power"
 msgstr ""
 
-#: powerdevilcore.cpp:694
+#: powerdevilcore.cpp:688
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been plugged in"
 msgid "The power cord has been plugged in."
 msgstr "Blok siłkavańnia padłučany."
 
-#: powerdevilcore.cpp:697
+#: powerdevilcore.cpp:691
 #, fuzzy, kde-format
 #| msgid "When on battery Power"
 msgid "Running on Battery Power"
 msgstr "Kali kamputar pracuje z batarei"
 
-#: powerdevilcore.cpp:697
+#: powerdevilcore.cpp:691
 #, fuzzy, kde-format
 #| msgid "The power adaptor has been unplugged"
 msgid "The power cord has been unplugged."
 msgstr "Blok siłkavańnia adłučany."
 
-#: powerdevilcore.cpp:758
+#: powerdevilcore.cpp:752
 #, kde-format
 msgid "Charging Complete"
 msgstr ""
 
-#: powerdevilcore.cpp:758
+#: powerdevilcore.cpp:752
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
