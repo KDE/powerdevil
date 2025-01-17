@@ -31,5 +31,6 @@ private Q_SLOTS:
 
 private:
     std::optional<double> m_configuredBrightnessRatio;
+    bool m_supportsBatteryProfiles = false;
 };
 }
