@@ -234,11 +234,18 @@ PlasmoidItem {
     Plasmoid.contextualActions: [
         PlasmaCore.Action {
             id: configureNightLight
-            icon.name: "configure"
+            icon.name: "redshift-status-on"
             text: i18nc("@action:inmenu", "Configure Night Light…")
             visible: KAuthorized.authorize("kcm_nightlight")
             priority: PlasmaCore.Action.LowPriority
             onTriggered: KCMLauncher.openSystemSettings("kcm_nightlight")
+        },
+        PlasmaCore.Action {
+            text: i18n("&Configure Power Management…")
+            icon.name: "configure"
+            visible: KAuthorized.authorizeControlModule("powerdevilprofilesconfig")
+            priority: PlasmaCore.Action.LowPriority
+            onTriggered: KCMLauncher.openSystemSettings("kcm_powerdevilprofilesconfig")
         }
     ]
 
