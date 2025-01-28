@@ -319,7 +319,6 @@ PlasmoidItem {
         id: configureAction
         text: i18n("&Configure Power Management…")
         icon.name: "configure"
-        shortcut: "alt+d, s"
         onTriggered: checked => {
             KCMUtils.KCMLauncher.openSystemSettings("kcm_powerdevilprofilesconfig");
         }
