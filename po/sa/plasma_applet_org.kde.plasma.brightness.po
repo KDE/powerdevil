@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-21 00:42+0000\n"
+"POT-Creation-Date: 2025-01-29 00:43+0000\n"
 "PO-Revision-Date: 2024-12-20 12:26+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -156,6 +156,11 @@ msgstr "Night Light स्थगयितुं मध्य-क्लिक् 
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "रात्रौ प्रकाशं विन्यस्तं कुर्वन्तु..."
+
+#: package/contents/ui/main.qml:244
+#, kde-format
+msgid "&Configure Power Management…"
+msgstr ""
 
 #: package/contents/ui/NightLightItem.qml:75
 #, kde-format

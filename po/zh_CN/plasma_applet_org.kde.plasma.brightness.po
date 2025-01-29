@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-21 00:42+0000\n"
+"POT-Creation-Date: 2025-01-29 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -155,6 +155,11 @@ msgstr "中键点击以暂停夜间色温"
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "配置夜间颜色…"
+
+#: package/contents/ui/main.qml:244
+#, kde-format
+msgid "&Configure Power Management…"
+msgstr ""
 
 #: package/contents/ui/NightLightItem.qml:75
 #, kde-format

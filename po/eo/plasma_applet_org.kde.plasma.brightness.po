@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-21 00:42+0000\n"
+"POT-Creation-Date: 2025-01-29 00:43+0000\n"
 "PO-Revision-Date: 2024-08-24 09:18+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -155,6 +155,11 @@ msgstr "Mezklaku por suspend Noktolumon"
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "Agordi Noktlumon…"
+
+#: package/contents/ui/main.qml:244
+#, kde-format
+msgid "&Configure Power Management…"
+msgstr ""
 
 #: package/contents/ui/NightLightItem.qml:75
 #, kde-format

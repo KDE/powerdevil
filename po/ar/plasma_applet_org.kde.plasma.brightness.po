@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-21 00:42+0000\n"
+"POT-Creation-Date: 2025-01-29 00:43+0000\n"
 "PO-Revision-Date: 2024-09-05 10:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -155,6 +155,11 @@ msgstr "انقر بالزر الأوسط لتعليق وضع الإضاءة ال
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "اضبط إضاءة الليل…"
+
+#: package/contents/ui/main.qml:244
+#, kde-format
+msgid "&Configure Power Management…"
+msgstr ""
 
 #: package/contents/ui/NightLightItem.qml:75
 #, kde-format
