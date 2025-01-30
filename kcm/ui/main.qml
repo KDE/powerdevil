@@ -158,7 +158,7 @@ KCM.AbstractKCM {
 
                 Item {
                     id: tabContentContainer
-                    width: Math.max(scrollBarContainer.width - flickable.leftMargin - flickable.rightMargin, profileConfig.width + Kirigami.Units.smallSpacing * 2)
+                    width: scrollBarContainer.width - flickable.leftMargin - flickable.rightMargin
                     height: Math.max(scrollBarContainer.height - flickable.topMargin - flickable.bottomMargin, profileConfig.height + Kirigami.Units.smallSpacing)
 
                     MouseArea {
@@ -174,6 +174,7 @@ KCM.AbstractKCM {
                         profileId: profileTabBar.selectedProfile
                         profileLabel: profileTabBar.profileInfo[profileTabBar.selectedProfile].label
 
+                        width: tabContentContainer.width - 2 * Kirigami.Units.smallSpacing
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: tabContentContainer.top
                     }
