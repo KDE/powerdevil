@@ -19,6 +19,7 @@ KCM.AbstractKCM {
         text: i18nc("@action:button", "Advanced Power &Settings…")
         icon.name: "settings-configure"
         enabled: kcm.powerManagementServiceRegistered
+        displayHint: Kirigami.DisplayHint.KeepVisible
         onTriggered: { kcm.push("GlobalConfig.qml"); }
     }
 
