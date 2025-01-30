@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the plasma-workspace package.
 # Automatically generated, 2023.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-29 00:43+0000\n"
-"PO-Revision-Date: 2024-08-24 12:25+0200\n"
+"PO-Revision-Date: 2025-01-29 12:59+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
 #, kde-format
@@ -160,7 +160,7 @@ msgstr "Configurar la luz nocturna..."
 #: package/contents/ui/main.qml:244
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr ""
+msgstr "&Configurar la gestión de energía..."
 
 #: package/contents/ui/NightLightItem.qml:75
 #, kde-format
