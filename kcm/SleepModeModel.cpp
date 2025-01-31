@@ -13,7 +13,7 @@
 
 #include <type_traits> // std::is_same_v, std::underlying_type_t
 
-SleepModeModel::SleepModeModel(QObject *parent, PowerDevil::PowerManagement *pm)
+SleepModeModel::SleepModeModel(QObject *parent, PowerDevil::PowerManagement *pm, bool isPowerSupplyBatteryPresent)
     : QAbstractListModel(parent)
 {
     if (pm->canSuspend()) {
@@ -35,7 +35,9 @@ SleepModeModel::SleepModeModel(QObject *parent, PowerDevil::PowerManagement *pm)
     if (pm->canSuspendThenHibernate()) {
         m_data.append(Data{
             .name = i18n("Standby, then hibernate"),
-            .subtitle = i18nc("Subtitle description for 'Standby, then hibernate' sleep option", "Switch to hibernation after a period of inactivity"),
+            .subtitle = isPowerSupplyBatteryPresent
+                ? i18nc("Subtitle description for 'Standby, then hibernate' sleep option", "Switch to hibernation when battery runs low")
+                : i18nc("Subtitle description for 'Standby, then hibernate' sleep option", "Switch to hibernation after a period of inactivity"),
             .value = qToUnderlying(PowerDevil::SleepMode::SuspendThenHibernate),
         });
     }

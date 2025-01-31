@@ -141,7 +141,7 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
                                                       PowerButtonAction::LockScreen,
                                                       PowerButtonAction::TurnOffScreen,
                                                   }))
-    , m_sleepModeModel(new SleepModeModel(this, PowerManagement::instance()))
+    , m_sleepModeModel(nullptr) // initialized below
     , m_powerProfileModel(new PowerProfileModel(this))
 {
     qmlRegisterUncreatableMetaObject(PowerDevil::staticMetaObject, "org.kde.powerdevil", 1, 0, "PowerDevil", QStringLiteral("For enums and flags only"));
@@ -175,6 +175,8 @@ PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
             setPeripheralBatteryPresent(true);
         }
     }
+
+    m_sleepModeModel = new SleepModeModel(this, PowerManagement::instance(), isPowerSupplyBatteryPresent());
 
     // Look for PowerDevil's own service
     QDBusServiceWatcher *watcher = new QDBusServiceWatcher(u"org.kde.Solid.PowerManagement"_s,
