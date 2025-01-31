@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-03-24 11:40+0100\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -485,23 +485,23 @@ msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
 msgstr "Pokročilé nastavenia napájania…"
 
-#: ui/main.qml:43
+#: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Nastavenia správy napájania sa nepodarilo načítať"
 
-#: ui/main.qml:65
+#: ui/main.qml:66
 #, kde-format
 msgid "On AC Power"
 msgstr "Pri napájaní zo siete"
 
-#: ui/main.qml:66
+#: ui/main.qml:67
 #, kde-format
 msgid "On Battery"
 msgstr "Pri napájaní z batérie"
 
-#: ui/main.qml:67
+#: ui/main.qml:68
 #, kde-format
 msgid "On Low Battery"
 msgstr "Pri slabej batérii"

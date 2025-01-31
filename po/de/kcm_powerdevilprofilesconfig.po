@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-11-19 15:58+0100\n"
 "Last-Translator: Flori G <Renner03@protonmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -478,23 +478,23 @@ msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
 msgstr "Erweiterte Energieein&stellungen …"
 
-#: ui/main.qml:43
+#: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Energieverwaltungseinstellungen können nicht geladen werden"
 
-#: ui/main.qml:65
+#: ui/main.qml:66
 #, kde-format
 msgid "On AC Power"
 msgstr "Am Netzkabel"
 
-#: ui/main.qml:66
+#: ui/main.qml:67
 #, kde-format
 msgid "On Battery"
 msgstr "Im Akkubetrieb"
 
-#: ui/main.qml:67
+#: ui/main.qml:68
 #, kde-format
 msgid "On Low Battery"
 msgstr "Im Akkubetrieb bei niedrigem Ladestand"

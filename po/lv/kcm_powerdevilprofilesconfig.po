@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-01-31 00:43+0000\n"
 "PO-Revision-Date: 2024-08-30 12:34+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -487,23 +487,23 @@ msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
 msgstr "&Papildu Jaudas iestatījumi…"
 
-#: ui/main.qml:43
+#: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Energokontroles iestatījumus neizdodas ielādēt"
 
-#: ui/main.qml:65
+#: ui/main.qml:66
 #, kde-format
 msgid "On AC Power"
 msgstr "Pie elektrotīkla"
 
-#: ui/main.qml:66
+#: ui/main.qml:67
 #, kde-format
 msgid "On Battery"
 msgstr "No baterijas"
 
-#: ui/main.qml:67
+#: ui/main.qml:68
 #, kde-format
 msgid "On Low Battery"
 msgstr "Zems baterijas līmenis"
