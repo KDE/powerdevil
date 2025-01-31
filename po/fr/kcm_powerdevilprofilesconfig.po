@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2025-01-06 17:11+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -482,23 +482,23 @@ msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
 msgstr "Paramètre&s avancés pour la gestion de l'énergie..."
 
-#: ui/main.qml:43
+#: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Les paramètres de gestion de l'énergie n'ont pas pu être chargés"
 
-#: ui/main.qml:65
+#: ui/main.qml:66
 #, kde-format
 msgid "On AC Power"
 msgstr "Sur secteur"
 
-#: ui/main.qml:66
+#: ui/main.qml:67
 #, kde-format
 msgid "On Battery"
 msgstr "Sur batterie"
 
-#: ui/main.qml:67
+#: ui/main.qml:68
 #, kde-format
 msgid "On Low Battery"
 msgstr "Sur batterie faible"

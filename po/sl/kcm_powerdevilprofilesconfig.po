@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:42+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2024-12-31 08:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -489,23 +489,23 @@ msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
 msgstr "Napredne nastavitve napajanja…"
 
-#: ui/main.qml:43
+#: ui/main.qml:44
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
 msgstr "Nastavitev upravljanja porabe ni bilo mogoče naložiti"
 
-#: ui/main.qml:65
+#: ui/main.qml:66
 #, kde-format
 msgid "On AC Power"
 msgstr "Pri omrežnem napajanju"
 
-#: ui/main.qml:66
+#: ui/main.qml:67
 #, kde-format
 msgid "On Battery"
 msgstr "Pri bateriji"
 
-#: ui/main.qml:67
+#: ui/main.qml:68
 #, kde-format
 msgid "On Low Battery"
 msgstr "Pri nizki ravni baterije"
