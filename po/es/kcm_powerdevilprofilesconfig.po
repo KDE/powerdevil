@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-12-19 01:25+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -61,7 +61,7 @@ msgstr "Apagar la pantalla"
 msgid "Toggle screen on/off"
 msgstr "Encender/apagar la pantalla"
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Parece que el servicio de gestión de energía no está funcionando."
@@ -117,7 +117,15 @@ msgstr "Guardar sesión en la memoria y en el disco"
 msgid "Standby, then hibernate"
 msgstr "En espera, y luego hibernar"
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+#| msgid "Switch to hibernation after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "Cambiar a hibernación tras un período de inactividad"
+
+#: SleepModeModel.cpp:40
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

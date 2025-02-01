@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-12-22 15:18+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -63,7 +63,7 @@ msgstr "Itzali pantaila"
 msgid "Toggle screen on/off"
 msgstr "Txandakatu pantaila piztea/itzaltzea"
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Ematen du energia kudeatzeko zerbitzua ez dagoela martxan."
@@ -119,7 +119,15 @@ msgstr "Saioa bietan gorde, memorian eta diskoan"
 msgid "Standby, then hibernate"
 msgstr "Egonean, ondoren hibernatu"
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+#| msgid "Switch to hibernation after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "Aldatu hibernatzera jarduerarik gabeko aldi baten ondoren"
+
+#: SleepModeModel.cpp:40
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -61,7 +61,7 @@ msgstr "स्क्रीनम् अवरम्भयन्तु"
 msgid "Toggle screen on/off"
 msgstr "स्क्रीन चालू/बन्दं कुर्वन्तु"
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "विद्युत्प्रबन्धनसेवा न प्रचलति इति दृश्यते।"
@@ -117,7 +117,15 @@ msgstr "सत्रं स्मृति-डिस्क-योः मध्�
 msgid "Standby, then hibernate"
 msgstr "स्टैण्डबाई, ततः हाइबरनेट"
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+#| msgid "Switch to hibernation after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "निष्क्रियतायाः अवधिपश्चात् शीतनिद्रां प्रति गच्छन्तु"
+
+#: SleepModeModel.cpp:40
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

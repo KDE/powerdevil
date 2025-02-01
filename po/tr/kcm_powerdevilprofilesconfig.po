@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-12-18 12:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -61,7 +61,7 @@ msgstr "Ekranı kapat"
 msgid "Toggle screen on/off"
 msgstr "Ekranı aç/kapat"
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Güç Yönetimi Hizmeti çalışmıyor gibi görünmüyor."
@@ -117,7 +117,15 @@ msgstr "Oturumu hem belleğe hem diske kaydet"
 msgid "Standby, then hibernate"
 msgstr "Bekleme kipine al, sonra derin uykuya geçir"
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+#| msgid "Switch to hibernation after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "Bir süre hareketsizlikten sonra derin uykuya geç"
+
+#: SleepModeModel.cpp:40
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

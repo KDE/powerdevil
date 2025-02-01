@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-08-30 12:34+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -64,7 +64,7 @@ msgstr "&Izslēgt ekrānu:"
 msgid "Toggle screen on/off"
 msgstr ""
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Izskatās, ka energokontroles serviss nav palaists."
@@ -120,7 +120,16 @@ msgstr ""
 msgid "Standby, then hibernate"
 msgstr ""
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@@accessible:name:textfield"
+#| msgid "Script command after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr ""
+"Skripta komanda, ko palaist, kādu laiku neveicot ar ierīci nekādas darbības"
+
+#: SleepModeModel.cpp:40
 #, fuzzy, kde-format
 #| msgctxt "@@accessible:name:textfield"
 #| msgid "Script command after a period of inactivity"

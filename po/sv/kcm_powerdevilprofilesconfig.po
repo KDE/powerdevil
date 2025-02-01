@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2025-01-11 21:13+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr "Stäng av skärmen"
 msgid "Toggle screen on/off"
 msgstr "Sätt på eller stäng av skärmen"
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Tjänsten för strömsparhantering verkar inte köra."
@@ -115,7 +115,15 @@ msgstr "Spara session både i minnet och på disk"
 msgid "Standby, then hibernate"
 msgstr "Vänta, sedan dvala"
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+#| msgid "Switch to hibernation after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "Gå till dvala efter en period av inaktivitet"
+
+#: SleepModeModel.cpp:40
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

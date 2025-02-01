@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-07-21 22:00-0500\n"
 "Last-Translator: aalam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -61,7 +61,7 @@ msgstr "ਸਕਰੀਨ ਬੰਦ ਕਰੋ(&T):"
 msgid "Toggle screen on/off"
 msgstr ""
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "ਪਾਵਰ ਮੈਨਿਜਮੈਂਟ ਸਰਵਿਸ ਚੱਲਦੀ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।"
@@ -117,7 +117,15 @@ msgstr ""
 msgid "Standby, then hibernate"
 msgstr ""
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@@accessible:name:textfield"
+#| msgid "Script command after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "ਇਸ ਸਮੇਂ ਦੀ ਗ਼ੈਰ-ਸਰਗਰਮੀ ਦੇ ਬਾਅਦ ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ"
+
+#: SleepModeModel.cpp:40
 #, fuzzy, kde-format
 #| msgctxt "@@accessible:name:textfield"
 #| msgid "Script command after a period of inactivity"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-02-01 00:43+0000\n"
 "PO-Revision-Date: 2024-06-20 05:36\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -66,7 +66,7 @@ msgstr "&Выключыць экран:"
 msgid "Toggle screen on/off"
 msgstr ""
 
-#: PowerKCM.cpp:458
+#: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
 msgstr "Выглядае, што служба кіравання сілкаваннем на запушчаная."
@@ -122,7 +122,15 @@ msgstr ""
 msgid "Standby, then hibernate"
 msgstr ""
 
-#: SleepModeModel.cpp:38
+#: SleepModeModel.cpp:39
+#, fuzzy, kde-format
+#| msgctxt "@@accessible:name:textfield"
+#| msgid "Script command after a period of inactivity"
+msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
+msgid "Switch to hibernation when battery runs low"
+msgstr "Каманда скрыпта пасля перыяду бяздзейнасці"
+
+#: SleepModeModel.cpp:40
 #, fuzzy, kde-format
 #| msgctxt "@@accessible:name:textfield"
 #| msgid "Script command after a period of inactivity"
