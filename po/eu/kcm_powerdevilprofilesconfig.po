@@ -1,24 +1,24 @@
 # Translation for powerdevilprofilesconfig.po to Euskara/Basque (eu).
-# Copyright (C) 2011-2024 This file is copyright:
+# Copyright (C) 2011-2025 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
-# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# SPDX-FileCopyrightText: 2011, 2014, 2020, 2023, 2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2011, 2020, 2023, 2024, 2025.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:43+0000\n"
-"PO-Revision-Date: 2024-12-22 15:18+0100\n"
+"PO-Revision-Date: 2025-02-01 20:38+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: PowerButtonActionModel.cpp:32
@@ -120,12 +120,10 @@ msgid "Standby, then hibernate"
 msgstr "Egonean, ondoren hibernatu"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Aldatu hibernatzera jarduerarik gabeko aldi baten ondoren"
+msgstr "Aldatu hibernatzera bateriaren karga agortzen ari denean"
 
 #: SleepModeModel.cpp:40
 #, kde-format

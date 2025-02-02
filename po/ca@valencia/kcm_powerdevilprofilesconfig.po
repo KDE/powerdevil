@@ -1,16 +1,16 @@
 # Translation of kcm_powerdevilprofilesconfig.po to Catalan (Valencian)
-# Copyright (C) 2010-2024 This_file_is_part_of_KDE
+# Copyright (C) 2010-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2023, 2024 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2017, 2020, 2021, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2017, 2020, 2021, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:43+0000\n"
-"PO-Revision-Date: 2024-12-18 11:00+0100\n"
+"PO-Revision-Date: 2025-02-01 10:29+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -120,12 +120,10 @@ msgid "Standby, then hibernate"
 msgstr "Repòs, després hiberna"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Canvia a hibernació després d'un període d'inactivitat"
+msgstr "Canvia a hibernació quan la bateria estiga baixa"
 
 #: SleepModeModel.cpp:40
 #, kde-format
