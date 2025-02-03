@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:43+0000\n"
-"PO-Revision-Date: 2025-01-06 17:11+0100\n"
+"PO-Revision-Date: 2025-02-02 09:29+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 "X-Text-Markup: kde4\n"
 
 #: PowerButtonActionModel.cpp:32
@@ -124,12 +124,10 @@ msgid "Standby, then hibernate"
 msgstr "Mettre en attente, puis en hibernation"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Basculer en hibernation après une période d'inactivité"
+msgstr "Basculer en hibernation lorsque la batterie est faible"
 
 #: SleepModeModel.cpp:40
 #, kde-format
