@@ -13,8 +13,12 @@ import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami as Kirigami
 
+import org.kde.plasma.workspace.dbus as DBus
+
 PlasmaExtras.Representation {
     id: dialog
+
+    required property DBus.Properties nightLightControl
 
     readonly property Item firstItemAfterScreenBrightnessRepeater: keyboardBrightnessSlider.visible ? keyboardBrightnessSlider : keyboardBrightnessSlider.KeyNavigation.down
     KeyNavigation.down: screenBrightnessRepeater.firstSlider ?? firstItemAfterScreenBrightnessRepeater
@@ -163,6 +167,7 @@ PlasmaExtras.Representation {
                 KeyNavigation.backtab: KeyNavigation.up
 
                 text: i18n("Night Light")
+                nightLightControl: dialog.nightLightControl
             }
 
         }

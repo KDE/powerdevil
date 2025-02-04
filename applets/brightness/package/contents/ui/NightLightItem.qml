@@ -17,9 +17,12 @@ import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
 import org.kde.plasma.private.brightnesscontrolplugin
+import org.kde.plasma.workspace.dbus as DBus
 
 PlasmaComponents3.ItemDelegate {
     id: root
+
+    required property DBus.Properties nightLightControl
 
     background.visible: highlighted
     highlighted: activeFocus
@@ -36,11 +39,11 @@ PlasmaComponents3.ItemDelegate {
             Layout.preferredWidth: Kirigami.Units.iconSizes.medium
             Layout.preferredHeight: Kirigami.Units.iconSizes.medium
             source: {
-                if (!control.enabled) {
+                if (!root.nightLightControl.enabled) {
                     return "redshift-status-on"; // not configured: show generic night light icon rather "manually turned off" icon
-                } else if (!control.running) {
+                } else if (!root.nightLightControl.running) {
                     return "redshift-status-off";
-                } else if (control.daylight && control.targetTemperature != 6500) { // show daylight icon only when temperature during the day is actually modified
+                } else if (root.nightLightControl.daylight && root.nightLightControl.targetTemperature != 6500) { // show daylight icon only when temperature during the day is actually modified
                     return "redshift-status-day";
                 } else {
                     return "redshift-status-on";
@@ -71,26 +74,26 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Label {
                     id: status
                     text: {
-                        if (control.inhibited && control.enabled) {
+                        if (root.nightLightControl.inhibited && root.nightLightControl.enabled) {
                             return i18nc("Night light status", "Suspended");
                         }
-                        if (!control.available) {
+                        if (!root.nightLightControl.available) {
                             return i18nc("Night light status", "Unavailable");
                         }
-                        if (!control.enabled) {
+                        if (!root.nightLightControl.enabled) {
                             return i18nc("Night light status", "Not enabled");
                         }
-                        if (!control.running) {
+                        if (!root.nightLightControl.running) {
                             return i18nc("Night light status", "Not running");
                         }
-                        if (!control.hasSwitchingTimes) {
+                        if (!root.nightLightControl.hasSwitchingTimes) {
                             return i18nc("Night light status", "On");
                         }
-                        if (control.daylight && control.transitioning) {
+                        if (root.nightLightControl.daylight && root.nightLightControl.transitioning) {
                             return i18nc("Night light phase", "Morning Transition");
-                        } else if (control.daylight) {
+                        } else if (root.nightLightControl.daylight) {
                             return i18nc("Night light phase", "Day");
-                        } else if (control.transitioning) {
+                        } else if (root.nightLightControl.transitioning) {
                             return i18nc("Night light phase", "Evening Transition");
                         } else {
                             return i18nc("Night light phase", "Night");
@@ -103,8 +106,8 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Label {
                     id: currentTemp
-                    visible: control.available && control.enabled && control.running
-                    text: i18nc("Placeholder is screen color temperature", "%1K", control.currentTemperature)
+                    visible: root.nightLightControl.available && root.nightLightControl.enabled && root.nightLightControl.running
+                    text: i18nc("Placeholder is screen color temperature", "%1K", root.nightLightControl.currentTemperature)
                     textFormat: Text.PlainText
 
                     horizontalAlignment: Text.AlignRight
@@ -116,9 +119,9 @@ PlasmaComponents3.ItemDelegate {
 
                 PlasmaComponents3.Switch {
                     id: inhibitionSwitch
-                    visible: control.enabled
-                    enabled: control.togglable
-                    checked: control.inhibited
+                    visible: root.nightLightControl.enabled
+                    enabled: root.nightLightControl.togglable
+                    checked: root.nightLightControl.inhibited
                     text: i18nc("@action:button Night Light", "Suspend")
 
                     Layout.fillWidth: true
@@ -135,7 +138,7 @@ PlasmaComponents3.ItemDelegate {
                             toggle();
                         }
                     }
-                    onToggled: control.toggleInhibition()
+                    onToggled: NightLightInhibitor.toggleInhibition()
                 }
 
                 PlasmaComponents3.Button {
@@ -143,7 +146,7 @@ PlasmaComponents3.ItemDelegate {
                     visible: KConfig.KAuthorized.authorizeControlModule("kcm_nightlight")
 
                     icon.name: "configure"
-                    text: control.enabled ? i18n("Configure…") : i18n("Enable and Configure…")
+                    text: root.nightLightControl.enabled ? i18n("Configure…") : i18n("Enable and Configure…")
 
                     Layout.alignment: Qt.AlignRight
 
@@ -161,18 +164,19 @@ PlasmaComponents3.ItemDelegate {
             }
 
             RowLayout {
-                visible: control.running && control.hasSwitchingTimes
+                visible: root.nightLightControl.running && root.nightLightControl.hasSwitchingTimes
 
                 spacing: Kirigami.Units.smallSpacing
 
                 PlasmaComponents3.Label {
                     id: transitionLabel
                     text: {
-                        if (control.daylight && control.transitioning) {
-                            return i18nc("Label for a time", "Transition to day complete by:");
-                        } else if (control.daylight) {
+                        if (root.nightLightControl.daylight) {
+                            if (root.nightLightControl.transitioning) {
+                                return i18nc("Label for a time", "Transition to day complete by:");
+                            }
                             return i18nc("Label for a time", "Transition to night scheduled for:");
-                        } else if (control.transitioning) {
+                        } else if (root.nightLightControl.transitioning) {
                             return i18nc("Label for a time", "Transition to night complete by:");
                         } else {
                             return i18nc("Label for a time", "Transition to day scheduled for:");
@@ -189,10 +193,10 @@ PlasmaComponents3.ItemDelegate {
                 PlasmaComponents3.Label {
                     id: transitionTime
                     text: {
-                        if (control.transitioning) {
-                            return new Date(control.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                        if (root.nightLightControl.transitioning) {
+                            return new Date(root.nightLightControl.currentTransitionEndTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
                         } else {
-                            return new Date(control.scheduledTransitionStartTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+                            return new Date(root.nightLightControl.scheduledTransitionStartTime).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
                         }
                     }
                     textFormat: Text.PlainText
@@ -203,16 +207,6 @@ PlasmaComponents3.ItemDelegate {
                     horizontalAlignment: Text.AlignRight
                 }
             }
-
         }
     }
-
-    NightLightControl {
-        id: control
-
-        readonly property bool transitioning: control.currentTemperature != control.targetTemperature
-        readonly property bool hasSwitchingTimes: control.mode != 3
-        readonly property bool togglable: !control.inhibited || control.inhibitedFromApplet
-    }
-
 }

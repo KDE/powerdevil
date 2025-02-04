@@ -7,12 +7,14 @@
 
 #include "nightlightinhibitor.h"
 
+#include <memory>
+
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 #include <QLoggingCategory>
-#include <memory>
+#include <QQmlEngine>
 
 Q_LOGGING_CATEGORY(NIGHTLIGHT_CONTROL, "org.kde.plasma.nightlightcontrol")
 
@@ -30,11 +32,9 @@ NightLightInhibitor::~NightLightInhibitor()
     uninhibit();
 }
 
-NightLightInhibitor &NightLightInhibitor::instance()
+NightLightInhibitor *NightLightInhibitor::create(QQmlEngine *qmlEngine, QJSEngine *)
 {
-    static NightLightInhibitor nightLightInhibitor;
-
-    return nightLightInhibitor;
+    return new NightLightInhibitor(qmlEngine);
 }
 
 bool NightLightInhibitor::isInhibited() const

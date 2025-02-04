@@ -8,6 +8,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 
@@ -21,6 +23,7 @@ import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels as KItemModels
 
 import org.kde.plasma.private.brightnesscontrolplugin
+import org.kde.plasma.workspace.dbus as DBus
 
 PlasmoidItem {
     id: brightnessAndColorControl
@@ -30,9 +33,41 @@ PlasmoidItem {
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
         || Plasmoid.location === PlasmaCore.Types.LeftEdge)
 
-    NightLightControl {
+    DBus.Properties {
         id: nightLightControl
+        busType: DBus.BusType.Session
+        service: "org.kde.KWin.NightLight"
+        path: "/org/kde/KWin/NightLight"
+        iface: "org.kde.KWin.NightLight"
+
+        // This property holds a value to indicate if Night Light is available.
+        readonly property bool available: Boolean(properties.available)
+        // This property holds a value to indicate if Night Light is enabled.
+        readonly property bool enabled: Boolean(properties.enabled)
+        // This property holds a value to indicate if Night Light is running.
+        readonly property bool running: Boolean(properties.running)
+        // This property holds a value to indicate whether night light is currently inhibited.
+        readonly property bool inhibited: Boolean(properties.inhibited)
+        // This property holds a value to indicate whether night light is currently inhibited from the applet can be uninhibited through it.
+        readonly property bool inhibitedFromApplet: NightLightInhibitor.inhibited
+        // This property holds a value to indicate which mode is set for transitions (0 - automatic location, 1 - manual location, 2 - manual timings, 3 - constant)
+        readonly property int mode: Number(properties.mode)
+        // This property holds a value to indicate if Night Light is on day mode.
+        readonly property bool daylight: Boolean(properties.daylight)
+        // This property holds a value to indicate currently applied color temperature.
+        readonly property int currentTemperature: Number(properties.currentTemperature)
+        // This property holds a value to indicate currently applied color temperature.
+        readonly property int targetTemperature: Number(properties.targetTemperature)
+        // This property holds a value to indicate the end time of the previous color transition in msec since epoch.
+        readonly property double currentTransitionEndTime: Number(properties.previousTransitionDateTime) * 1000 + Number(properties.previousTransitionDuration)
+        // This property holds a value to indicate the start time of the next color transition in msec since epoch.
+        readonly property double scheduledTransitionStartTime: Number(properties.scheduledTransitionDateTime) * 1000
+
+        readonly property bool transitioning: currentTemperature != targetTemperature
+        readonly property bool hasSwitchingTimes: mode != 3
+        readonly property bool togglable: !inhibited || inhibitedFromApplet
     }
+
     ScreenBrightnessControl {
         id: screenBrightnessControl
         isSilent: brightnessAndColorControl.expanded
@@ -42,9 +77,9 @@ PlasmoidItem {
         isSilent: brightnessAndColorControl.expanded
     }
 
-    property bool isNightLightActive: nightLightControl.running && nightLightControl.currentTemperature != 6500
-    property bool isNightLightInhibited: nightLightControl.inhibited && nightLightControl.targetTemperature != 6500
-    property int keyboardBrightnessPercent: keyboardBrightnessControl.brightnessMax ? Math.round(100 * keyboardBrightnessControl.brightness / keyboardBrightnessControl.brightnessMax) : 0
+    readonly property bool isNightLightActive: nightLightControl.running && nightLightControl.currentTemperature != 6500
+    readonly property bool isNightLightInhibited: nightLightControl.inhibited && nightLightControl.targetTemperature != 6500
+    readonly property int keyboardBrightnessPercent: keyboardBrightnessControl.brightnessMax ? Math.round(100 * keyboardBrightnessControl.brightness / keyboardBrightnessControl.brightnessMax) : 0
 
     function symbolicizeIconName(iconName) {
         const symbolicSuffix = "-symbolic";
@@ -208,7 +243,7 @@ PlasmoidItem {
         onClicked: mouse => {
             if (mouse.button == Qt.MiddleButton) {
                 if (nightLightControl.enabled) {
-                    nightLightControl.toggleInhibition();
+                    NightLightInhibitor.toggleInhibition();
                 }
             } else {
                 brightnessAndColorControl.expanded = !wasExpanded;
@@ -220,6 +255,7 @@ PlasmoidItem {
         id: dialogItem
 
         readonly property var appletInterface: brightnessAndColorControl
+        nightLightControl: nightLightControl
 
         Layout.minimumWidth: Kirigami.Units.gridUnit * 10
         Layout.maximumWidth: Kirigami.Units.gridUnit * 80

@@ -10,12 +10,17 @@
 #include <QObject>
 #include <qqmlregistration.h>
 
+class QQmlEngine;
+class QJSEngine;
+
 /**
  * The Inhibitor class provides a convenient way to temporarily disable Night Light.
  */
 class NightLightInhibitor : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+    QML_SINGLETON
 
     /**
      * This property holds whether Night Light is currently inhibited, inhibiting or has a pending inhibit.
@@ -23,10 +28,7 @@ class NightLightInhibitor : public QObject
     Q_PROPERTY(bool inhibited READ isInhibited NOTIFY inhibitedChanged)
 
 public:
-    explicit NightLightInhibitor(QObject *parent = nullptr);
-    ~NightLightInhibitor() override;
-
-    static NightLightInhibitor &instance();
+    static NightLightInhibitor *create(QQmlEngine *qmlEngine, QJSEngine *jsEngine);
 
     /**
      * This enum type is used to specify the state of the inhibitor.
@@ -44,11 +46,10 @@ public:
      */
     bool isInhibited() const;
 
-public Q_SLOTS:
     /**
      *  Attemmpts to temporarily disable Night Light if currently uninhibited or uninhibiting, and uto re-enable it if currently inhibited or inhibiting.
      */
-    void toggleInhibition();
+    Q_INVOKABLE void toggleInhibition();
 
 Q_SIGNALS:
     /**
@@ -57,6 +58,8 @@ Q_SIGNALS:
     void inhibitedChanged();
 
 private:
+    explicit NightLightInhibitor(QObject *parent = nullptr);
+    ~NightLightInhibitor() override;
     class Private;
 
     uint m_cookie = 0;
