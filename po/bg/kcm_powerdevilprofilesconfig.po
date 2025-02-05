@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Svetoslav Stefanov <svetlisashkov@yahoo.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:43+0000\n"
-"PO-Revision-Date: 2024-12-20 18:13+0100\n"
+"PO-Revision-Date: 2025-02-04 13:17+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -118,12 +118,10 @@ msgid "Standby, then hibernate"
 msgstr "Приспиване, след това хибернация"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "При период на бездействие да се извърши хибернация"
+msgstr "Преминаване към хибернация при ниско ниво на батерията"
 
 #: SleepModeModel.cpp:40
 #, kde-format

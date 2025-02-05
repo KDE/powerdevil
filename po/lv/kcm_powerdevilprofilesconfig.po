@@ -3,66 +3,64 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Maris Nartiss <maris.kde@gmail.com>, 2011.
-# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2024, 2025 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-01 00:43+0000\n"
-"PO-Revision-Date: 2024-08-30 12:34+0300\n"
+"PO-Revision-Date: 2025-02-02 10:42+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Nedarīt neko"
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Iesnaudināt"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Hibernēt"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Izslēgt"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Bloķēt ekrānu"
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Rādīt izrakstīšanās ekrānu"
 
 #: PowerButtonActionModel.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgid "Turn off screen"
-msgstr "&Izslēgt ekrānu:"
+msgstr "Izslēgt ekrānu"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Ieslēgt/izslēgt ekrānu"
 
 #: PowerKCM.cpp:460
 #, kde-format
@@ -73,70 +71,64 @@ msgstr "Izskatās, ka energokontroles serviss nav palaists."
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Enerģijas taupība"
 
 #: PowerProfileModel.cpp:41
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Balansēta"
 
 #: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Maksimālā jauda"
 
 #: PowerProfileModel.cpp:47
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Atstāt nemainītu"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Gaidstāve"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Saglabāt sesiju atmiņā"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hibrīda snauda"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Saglabāt sesiju atmiņā un diskā"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Gaidstāve, tad izslēgt"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@@accessible:name:textfield"
-#| msgid "Script command after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr ""
-"Skripta komanda, ko palaist, kādu laiku neveicot ar ierīci nekādas darbības"
+msgstr "Baterijas līmenim esot zemam, hibernēt sistēmu"
 
 #: SleepModeModel.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@@accessible:name:textfield"
-#| msgid "Script command after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
-"Skripta komanda, ko palaist, kādu laiku neveicot ar ierīci nekādas darbības"
+msgstr "Hibernēt sistēmu, ja kādu laiku nav bijusi aktivitāte"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
@@ -771,25 +763,25 @@ msgstr "Pielāgots…"
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
-msgstr "Kad slēgts, izslēgt ekrānu:"
+msgstr "Kad bloķēts, izslēgt ekrānu pēc:"
 
 #: ui/ProfileConfig.qml:506
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "Kad slēgts: %1 sekunde"
-msgstr[1] "Kad slēgts: %1 sekundes"
-msgstr[2] "Kad slēgts: %1 sekunžu"
+msgstr[0] "Kad bloķēts: %1 sekunde"
+msgstr[1] "Kad bloķēts: %1 sekundes"
+msgstr[2] "Kad bloķēts: %1 sekunžu"
 
 #: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] "Kad slēgts: %1 minūte"
-msgstr[1] "Kad slēgts: %1 minūtes"
-msgstr[2] "Kad slēgts: %1 minūšu"
+msgstr[0] "Kad bloķēts: %1 minūte"
+msgstr[1] "Kad bloķēts: %1 minūtes"
+msgstr[2] "Kad bloķēts: %1 minūšu"
 
 #: ui/ProfileConfig.qml:515
 #, kde-format
@@ -797,13 +789,13 @@ msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
 "(caution: watch for string length)"
 msgid "When locked and unlocked"
-msgstr "Kad slēgts un atslēgts"
+msgstr "Kad bloķēts un atbloķēts"
 
 #: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
-msgstr "Kad slēgts: nekavējoties"
+msgstr "Kad bloķēts: nekavējoties"
 
 #: ui/ProfileConfig.qml:556
 #, kde-format

@@ -8,13 +8,13 @@
 # Marcus Vinícius de Andrade Gama <marcus.gama@gmail.com>, 2010, 2012.
 # Aracele Torres <araceletorres@gmail.com>, 2011.
 # Thiago Masato Costa Sueto <herzenschein@gmail.com>, 2021.
-# SPDX-FileCopyrightText: 2024 Geraldo Simiao <geraldosimiao@fedoraproject.org>
+# SPDX-FileCopyrightText: 2024, 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-16 00:43+0000\n"
-"PO-Revision-Date: 2024-11-16 01:01-0300\n"
+"PO-Revision-Date: 2025-02-04 12:09-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -431,9 +431,7 @@ msgid "Power Profile"
 msgstr "Perfil de energia"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Automático"
@@ -514,7 +512,7 @@ msgstr "O serviço TLP controla automaticamente os perfis de energia"
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Seu dispositivo não oferece suporte a perfis de energia."
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format
