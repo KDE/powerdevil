@@ -219,7 +219,7 @@ PlasmaComponents3.ItemDelegate {
                         icon.name: "edit-delete-remove"
 
                         Keys.onPressed: (event) => {
-                            if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
+                            if (event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
                                 click();
                             }
                         }
@@ -342,7 +342,7 @@ PlasmaComponents3.ItemDelegate {
                         icon.name: "dialog-cancel"
 
                         Keys.onPressed: (event) => {
-                            if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
+                            if (event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
                                 click();
                             }
                         }
