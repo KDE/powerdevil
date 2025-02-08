@@ -23,6 +23,12 @@ static const QString s_conservationModeSysFsPath = QStringLiteral("/sys/bus/plat
 
 static const QString s_chargeStartThreshold = QStringLiteral("charge_control_start_threshold");
 static const QString s_chargeEndThreshold = QStringLiteral("charge_control_end_threshold");
+static const QString s_chargeTypesFilename = QStringLiteral("charge_types");
+
+// Charge types supported by this helper, the device & kernel may support more than these. Docs:
+// https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-power - see "charge_type" and "charge_types"
+static const QByteArray s_chargeTypeStandard = QByteArrayLiteral("Standard");
+static const QByteArray s_chargeTypeCustom = QByteArrayLiteral("Custom");
 
 ChargeThresholdHelper::ChargeThresholdHelper(QObject *parent)
     : QObject(parent)
@@ -86,7 +92,8 @@ static QMap<QString, int> getThresholds(const QString &which)
 {
     QMap<QString, int> thresholds;
 
-    for (const QString &battery : getBatteries()) {
+    const QStringList batteries = getBatteries();
+    for (const QString &battery : batteries) {
         if (int threshold = getThreshold(battery, which); threshold != -1) {
             thresholds.insert(battery, threshold);
         }
@@ -97,7 +104,8 @@ static QMap<QString, int> getThresholds(const QString &which)
 
 static bool setThresholds(const QString &which, int threshold)
 {
-    for (const QString &battery : getBatteries()) {
+    const QStringList batteries = getBatteries();
+    for (const QString &battery : batteries) {
         QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + battery + QLatin1Char('/') + which);
         // TODO should we check the current value before writing the new one or is it clever
         // enough not to shred some chip by writing the same thing again?
@@ -108,6 +116,30 @@ static bool setThresholds(const QString &which, int threshold)
 
         if (file.write(QByteArray::number(threshold)) == -1) {
             qWarning() << "Failed to write threshold into" << file.fileName();
+            return false;
+        }
+    }
+
+    return true;
+}
+
+static bool setChargeType(const QByteArray &chargeType)
+{
+    const QStringList batteries = getBatteries();
+    for (const QString &battery : batteries) {
+        QFile file(s_powerSupplySysFsPath + QLatin1Char('/') + battery + QLatin1Char('/') + s_chargeTypesFilename);
+        if (!file.exists()) {
+            // some drivers support start/end threshold without charge type selection - ignore those
+            continue;
+        }
+
+        if (!file.open(QIODevice::WriteOnly)) {
+            qWarning() << "Failed to open" << file.fileName() << "for writing";
+            return false;
+        }
+
+        if (file.write(chargeType) == -1) {
+            qWarning() << "Failed to charge type into" << file.fileName();
             return false;
         }
     }
@@ -150,23 +182,53 @@ ActionReply ChargeThresholdHelper::setthreshold(const QVariantMap &args)
     const int stopThreshold = args.value(QStringLiteral("chargeStopThreshold"), -1).toInt(&hasStopThreshold);
     hasStopThreshold &= stopThreshold != -1;
 
-    if ((hasStartThreshold && (startThreshold < 0 || startThreshold > 100)) || (hasStopThreshold && (stopThreshold < 0 || stopThreshold > 100))
-        || (hasStartThreshold && hasStopThreshold && startThreshold > stopThreshold) || (!hasStartThreshold && !hasStopThreshold)) {
+    QByteArray chargeType = args.value(QStringLiteral("chargeType"), QString()).toByteArray();
+    bool requiresCustomThresholds = chargeType.isEmpty() || chargeType == s_chargeTypeCustom;
+    bool hasCustomThresholds = hasStartThreshold || hasStopThreshold;
+
+    if (requiresCustomThresholds && !hasCustomThresholds) {
         auto reply = ActionReply::HelperErrorReply(); // is there an "invalid arguments" error?
-        reply.setErrorDescription(QStringLiteral("Invalid thresholds provided"));
+        reply.setErrorDescription(QStringLiteral("Thresholds required, but not provided"));
         return reply;
     }
 
-    if (hasStartThreshold && !setThresholds(s_chargeStartThreshold, startThreshold)) {
-        auto reply = ActionReply::HelperErrorReply();
-        reply.setErrorDescription(QStringLiteral("Failed to write start charge threshold"));
-        return reply;
+    if (requiresCustomThresholds) {
+        bool thresholdsInvalid = //
+            (hasStartThreshold && (startThreshold < 0 || startThreshold > 100)) //
+            || (hasStopThreshold && (stopThreshold < 0 || stopThreshold > 100)) //
+            || (hasStartThreshold && hasStopThreshold && startThreshold > stopThreshold);
+
+        if (thresholdsInvalid) {
+            auto reply = ActionReply::HelperErrorReply(); // is there an "invalid arguments" error?
+            reply.setErrorDescription(QStringLiteral("Invalid thresholds provided"));
+            return reply;
+        }
+
+        if (hasStartThreshold && !setThresholds(s_chargeStartThreshold, startThreshold)) {
+            auto reply = ActionReply::HelperErrorReply();
+            reply.setErrorDescription(QStringLiteral("Failed to write start charge threshold"));
+            return reply;
+        }
+
+        if (hasStopThreshold && !setThresholds(s_chargeEndThreshold, stopThreshold)) {
+            auto reply = ActionReply::HelperErrorReply();
+            reply.setErrorDescription(QStringLiteral("Failed to write stop charge threshold"));
+            return reply;
+        }
     }
 
-    if (hasStopThreshold && !setThresholds(s_chargeEndThreshold, stopThreshold)) {
-        auto reply = ActionReply::HelperErrorReply();
-        reply.setErrorDescription(QStringLiteral("Failed to write stop charge threshold"));
-        return reply;
+    if (!chargeType.isEmpty()) {
+        if (!setChargeType(chargeType)) {
+            auto reply = ActionReply::HelperErrorReply();
+            reply.setErrorDescription(QStringLiteral("Failed to write start charge type"));
+            return reply;
+        }
+    } else if (requiresCustomThresholds) { // best effort automatic assignment, no errors
+        if ((startThreshold == 0 || startThreshold == 100) && (stopThreshold == 0 || stopThreshold == 100)) {
+            setChargeType(s_chargeTypeStandard);
+        } else {
+            setChargeType(s_chargeTypeCustom);
+        }
     }
 
     return ActionReply();
