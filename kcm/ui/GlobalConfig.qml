@@ -369,6 +369,7 @@ Kirigami.ScrollablePage {
 
             readonly property real maxPageButtonImplicitWidth: Math.max(
                 firstRelatedPage.implicitWidth,
+                keyboardShortcutsPage.implicitWidth,
                 desktopSessionsPage.implicitWidth,
                 activitiesPage.implicitWidth,
             )
@@ -383,6 +384,17 @@ Kirigami.ScrollablePage {
                 Accessible.name: i18n("Open \"Notifications\" settings page, \"Power Management\" section")
                 Layout.preferredWidth: relatedPagesLayout.maxPageButtonImplicitWidth
                 onClicked: KCM.KCMLauncher.openSystemSettings("kcm_notifications", "--notifyrc=powerdevil")
+            }
+            MostUsedItem {
+                id: keyboardShortcutsPage
+                kcmIcon: "preferences-desktop-keyboard-shortcut"
+                kcmName: i18nc(
+                    "@text:button Name of KCM, plus Power Management shortcut category",
+                    "Shortcuts: Power Management"
+                )
+                Accessible.name: i18n("Open \"Shortcuts\" settings page, \"Power Management\" section")
+                Layout.preferredWidth: relatedPagesLayout.maxPageButtonImplicitWidth
+                onClicked: KCM.KCMLauncher.openSystemSettings("kcm_keys", "org_kde_powerdevil")
             }
             MostUsedItem {
                 id: desktopSessionsPage
