@@ -607,7 +607,7 @@ Kirigami.FormLayout {
         visible: kcm.supportedActions["RunScript"] === true || powerProfileCombo.visible
     }
 
-    QQC2.ComboBox {
+    ComboBoxWithIcon {
         id: powerProfileCombo
         Kirigami.FormData.label: i18nc(
             "@label:combobox Power Save, Balanced or Performance profile - same options as in the Battery applet",

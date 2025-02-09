@@ -18,6 +18,7 @@ class PowerProfileModel : public QAbstractListModel
 public:
     enum {
         Name = Qt::DisplayRole,
+        IconName = Qt::DecorationRole,
         Value = Qt::UserRole
     };
 
@@ -30,6 +31,7 @@ public:
 private:
     struct Data {
         QString name;
+        QString iconName;
         QString value;
     };
 

@@ -16,6 +16,8 @@
 #include <QDBusPendingReply>
 #include <QDebug>
 
+using namespace Qt::StringLiterals;
+
 PowerProfileModel::PowerProfileModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -36,21 +38,20 @@ PowerProfileModel::PowerProfileModel(QObject *parent)
             return;
         }
 
-        const QHash<QString, QString> profileNames = {
-            {QStringLiteral("power-saver"), i18nc("@option:combobox Power profile", "Power Save")},
-            {QStringLiteral("balanced"), i18nc("@option:combobox Power profile", "Balanced")},
-            {QStringLiteral("performance"), i18nc("@option:combobox Power profile", "Performance")},
-        };
+        const PowerProfileModel::Data profiles[] = {
+            {.name = i18nc("@option:combobox Power profile", "Power Save"), .iconName = u"battery-profile-powersave"_s, .value = u"power-saver"_s},
+            {.name = i18nc("@option:combobox Power profile", "Balanced"), .iconName = u"battery-profile-balanced"_s, .value = u"balanced"_s},
+            {.name = i18nc("@option:combobox Power profile", "Performance"), .iconName = u"battery-profile-performance"_s, .value = u"performance"_s}};
 
         beginResetModel();
         m_data.clear();
-        m_data.append(PowerProfileModel::Data{.name = i18n("Leave unchanged"), .value = QString()});
+        m_data.append(PowerProfileModel::Data{.name = i18n("Leave unchanged"), .iconName = u"dialog-cancel-symbolic"_s, .value = QString()});
 
-        for (const QString &choice : reply.value()) {
-            m_data.append(PowerProfileModel::Data{
-                .name = profileNames.value(choice, choice),
-                .value = choice,
-            });
+        const QStringList availableProfiles = reply.value();
+        for (const auto &profile : profiles) {
+            if (availableProfiles.contains(profile.value)) {
+                m_data.append(profile);
+            }
         }
         endResetModel();
     });
@@ -62,14 +63,18 @@ QVariant PowerProfileModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
+    const auto &item = m_data.at(index.row());
+
     switch (role) {
     case Name:
-        return m_data[index.row()].name;
+        return item.name;
+    case IconName:
+        return item.iconName;
     case Value:
-        return m_data[index.row()].value;
-    default:
-        return {};
+        return item.value;
     }
+
+    return {};
 }
 
 int PowerProfileModel::rowCount(const QModelIndex &parent) const
@@ -80,7 +85,7 @@ int PowerProfileModel::rowCount(const QModelIndex &parent) const
 
 QHash<int, QByteArray> PowerProfileModel::roleNames() const
 {
-    return QHash<int, QByteArray>{{Name, "name"}, {Value, "value"}};
+    return QHash<int, QByteArray>{{Name, "name"_ba}, {IconName, "iconName"_ba}, {Value, "value"_ba}};
 }
 
 #include "moc_PowerProfileModel.cpp"
