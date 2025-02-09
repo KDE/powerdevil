@@ -87,21 +87,21 @@ KCM.AbstractKCM {
             actions: [ // can't use Repeater here, because Action is not an Item
                 Kirigami.Action {
                     readonly property string profileId: "AC"
-                    text: profileTabBar.profileInfo[profileId].label
+                    text: i18nc("@title:tab", "On &AC Power")
                     icon.name: profileTabBar.profileInfo[profileId].icon
                     checked: profileTabBar.selectedProfile == profileId
                     onTriggered: { profileTabBar.setProfileAndStopAutoSwitch(profileId); }
                 },
                 Kirigami.Action {
                     readonly property string profileId: "Battery"
-                    text: profileTabBar.profileInfo[profileId].label
+                    text: i18nc("@title:tab", "On &Battery")
                     icon.name: profileTabBar.profileInfo[profileId].icon
                     checked: profileTabBar.selectedProfile == profileId
                     onTriggered: { profileTabBar.setProfileAndStopAutoSwitch(profileId); }
                 },
                 Kirigami.Action {
                     readonly property string profileId: "LowBattery"
-                    text: profileTabBar.profileInfo[profileId].label
+                    text: i18nc("@title:tab", "On &Low Battery")
                     icon.name: profileTabBar.profileInfo[profileId].icon
                     checked: profileTabBar.selectedProfile == profileId
                     onTriggered: { profileTabBar.setProfileAndStopAutoSwitch(profileId); }
