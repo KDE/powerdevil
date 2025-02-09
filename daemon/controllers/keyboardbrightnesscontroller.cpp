@@ -30,22 +30,22 @@ KeyboardBrightnessController::KeyboardBrightnessController()
 {
     m_kbdBacklight =
         new OrgFreedesktopUPowerKbdBacklightInterface(UPOWER_SERVICE, u"/org/freedesktop/UPower/KbdBacklight"_s, QDBusConnection::systemBus(), this);
-    if (m_kbdBacklight->isValid()) {
-        // Cache max value
-        QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
-        rep.waitForFinished();
-        if (rep.isValid()) {
-            m_maxBrightness = rep.value();
-            m_isSupported = true;
-        }
-        // TODO Do a proper check if the kbd backlight dbus object exists. But that should work for now ..
-        if (m_maxBrightness) {
-            m_cachedBrightness = brightness();
-            qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedBrightness;
-            connect(m_kbdBacklight,
-                    &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChangedWithSource,
-                    this,
-                    &KeyboardBrightnessController::onBrightnessChanged);
+
+    QDBusPendingReply<int> rep = m_kbdBacklight->GetMaxBrightness();
+    rep.waitForFinished();
+    if (rep.isValid()) {
+        m_maxBrightness = rep.value();
+        m_isSupported = true;
+        m_cachedBrightness = brightness();
+        qCDebug(POWERDEVIL) << "current keyboard backlight brightness value: " << m_cachedBrightness;
+        connect(m_kbdBacklight,
+                &OrgFreedesktopUPowerKbdBacklightInterface::BrightnessChangedWithSource,
+                this,
+                &KeyboardBrightnessController::onBrightnessChanged);
+    } else {
+        // Don't warn when no keyboard backlight is available, only for other errors
+        if (rep.error().type() != QDBusError::UnknownMethod) {
+            qCWarning(POWERDEVIL) << "Could not query keyboard backlight brightness" << rep.error().message();
         }
     }
 }
