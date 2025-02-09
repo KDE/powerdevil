@@ -28,11 +28,11 @@ FdoConnector::FdoConnector(PowerDevil::Core *parent)
 
     QDBusConnection c = QDBusConnection::sessionBus();
 
-    c.registerService(u"org.freedesktop.PowerManagement"_s);
     c.registerObject(u"/org/freedesktop/PowerManagement"_s, this);
+    c.registerService(u"org.freedesktop.PowerManagement"_s);
 
-    c.registerService(u"org.freedesktop.PowerManagement.Inhibit"_s);
     c.registerObject(u"/org/freedesktop/PowerManagement/Inhibit"_s, this);
+    c.registerService(u"org.freedesktop.PowerManagement.Inhibit"_s);
 
     connect(m_core->batteryController(), &BatteryController::acAdapterStateChanged, this, &FdoConnector::onAcAdapterStateChanged);
     connect(PolicyAgent::instance(),

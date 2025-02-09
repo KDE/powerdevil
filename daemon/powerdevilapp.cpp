@@ -84,8 +84,8 @@ void PowerDevilApp::onCoreReady()
     new PowerManagementAdaptor(m_core);
     new PowerDevil::FdoConnector(m_core);
 
-    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement"));
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement"), m_core);
+    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement"));
 
     QDBusConnection::systemBus().interface()->registerService(u"org.freedesktop.Policy.Power"_s);
 
@@ -94,12 +94,12 @@ void PowerDevilApp::onCoreReady()
     qDBusRegisterMetaType<InhibitionInfo>();
     new PowerManagementPolicyAgentAdaptor(PowerDevil::PolicyAgent::instance());
 
-    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
     QDBusConnection::sessionBus().registerObject(QLatin1String("/org/kde/Solid/PowerManagement/PolicyAgent"), PowerDevil::PolicyAgent::instance());
+    QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Solid.PowerManagement.PolicyAgent"));
 
     // Start the ScreenBrightness service
-    QDBusConnection::sessionBus().registerService(u"org.kde.ScreenBrightness"_s);
     new PowerDevil::ScreenBrightnessAgent(m_core->screenBrightnessController(), m_core->screenBrightnessController());
+    QDBusConnection::sessionBus().registerService(u"org.kde.ScreenBrightness"_s);
 }
 
 int main(int argc, char **argv)
