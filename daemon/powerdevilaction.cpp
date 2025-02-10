@@ -75,6 +75,11 @@ void Action::setRequiredPolicies(PolicyAgent::RequiredPolicies requiredPolicies)
     m_requiredPolicies = requiredPolicies;
 }
 
+void Action::triggerImpl(const QVariantMap &args)
+{
+    Q_UNUSED(args);
+}
+
 void Action::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
 {
 }

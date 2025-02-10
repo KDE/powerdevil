@@ -103,10 +103,6 @@ void ScreenBrightnessControl::onProfileLoad(const QString &previousProfile, cons
     }
 }
 
-void ScreenBrightnessControl::triggerImpl(const QVariantMap & /*args*/)
-{
-}
-
 bool ScreenBrightnessControl::isSupported()
 {
     return core()->screenBrightnessController()->isSupported();

@@ -33,7 +33,6 @@ Q_SIGNALS:
     void triggersLidActionChanged(bool triggers);
 
 protected:
-    void triggerImpl(const QVariantMap &args) override;
     void onProfileUnload() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
 

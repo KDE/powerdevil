@@ -188,10 +188,6 @@ void HandleButtonEvents::triggerAction(const QString &action, const QVariant &ty
     }
 }
 
-void HandleButtonEvents::triggerImpl(const QVariantMap & /*args*/)
-{
-}
-
 bool HandleButtonEvents::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     m_lidAction = static_cast<PowerDevil::PowerButtonAction>(profileSettings.lidAction());

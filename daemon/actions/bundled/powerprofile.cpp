@@ -90,11 +90,6 @@ void PowerProfile::onProfileLoad(const QString & /*previousProfile*/, const QStr
     }
 }
 
-void PowerProfile::triggerImpl(const QVariantMap &args)
-{
-    Q_UNUSED(args);
-}
-
 bool PowerProfile::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     QString newConfiguredProfile = profileSettings.powerProfile();

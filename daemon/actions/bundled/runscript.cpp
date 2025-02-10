@@ -47,11 +47,6 @@ void RunScript::onProfileLoad(const QString & /*previousProfile*/, const QString
     }
 }
 
-void RunScript::triggerImpl(const QVariantMap &args)
-{
-    Q_UNUSED(args);
-}
-
 bool RunScript::loadAction(const PowerDevil::ProfileSettings &profileSettings)
 {
     m_profileLoadCommand = profileSettings.profileLoadCommand();

@@ -81,10 +81,6 @@ void DimDisplay::setKeyboardBrightnessHelper(int keyboardBrightness)
     }
 }
 
-void DimDisplay::triggerImpl(const QVariantMap & /*args*/)
-{
-}
-
 bool DimDisplay::isSupported()
 {
     return core()->screenBrightnessController()->isSupported();

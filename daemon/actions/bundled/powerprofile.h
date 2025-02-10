@@ -55,7 +55,6 @@ Q_SIGNALS:
 
 protected:
     void onProfileLoad(const QString &previousProfile, const QString &newProfile) override;
-    void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 private Q_SLOTS:
     void propertiesChanged(const QString &interface, const QVariantMap &changed, const QStringList &invalidated);

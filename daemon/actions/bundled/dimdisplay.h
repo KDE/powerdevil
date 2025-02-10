@@ -22,7 +22,6 @@ public:
 protected:
     void onWakeupFromIdle() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
-    void triggerImpl(const QVariantMap &args) override;
     bool isSupported() override;
 
 public:

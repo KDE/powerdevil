@@ -141,11 +141,11 @@ protected:
     void setRequiredPolicies(PowerDevil::PolicyAgent::RequiredPolicies requiredPolicies);
 
     /**
-     * This function's body should undertake the Action's execution. It has to be reimplemented in a new Action.
+     * This function's body should undertake the Action's execution.
      *
      * @param args The arguments for triggering the action
      */
-    virtual void triggerImpl(const QVariantMap &args) = 0;
+    virtual void triggerImpl(const QVariantMap &args);
 
     /**
      * @returns The PowerDevil Core

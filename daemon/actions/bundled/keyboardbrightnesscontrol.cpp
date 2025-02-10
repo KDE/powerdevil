@@ -87,10 +87,6 @@ void KeyboardBrightnessControl::onProfileLoad(const QString &previousProfile, co
     }
 }
 
-void KeyboardBrightnessControl::triggerImpl(const QVariantMap & /*args*/)
-{
-}
-
 bool KeyboardBrightnessControl::isSupported()
 {
     return core()->keyboardBrightnessController()->isSupported();
