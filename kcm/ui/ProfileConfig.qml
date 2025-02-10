@@ -54,6 +54,7 @@ Kirigami.FormLayout {
             "@label:combobox Suspend action such as sleep/hibernate to perform when the system is idle",
             "When &inactive:"
         )
+        Kirigami.FormData.buddyFor: autoSuspendActionCombo
         visible: kcm.supportedActions["SuspendSession"] === true
         Layout.fillWidth: true
         spacing: Kirigami.Units.smallSpacing
@@ -310,6 +311,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change scr&een brightness:")
+        Kirigami.FormData.buddyFor: displayBrightnessCheck
 
         visible: kcm.supportedActions["ScreenBrightnessControl"] === true
         Layout.fillWidth: true
@@ -554,6 +556,7 @@ Kirigami.FormLayout {
 
     RowLayout {
         Kirigami.FormData.label: i18nc("@label:slider Brightness level", "Change key&board brightness:")
+        Kirigami.FormData.buddyFor: keyboardBrightnessCheck
 
         visible: kcm.supportedActions["KeyboardBrightnessControl"] === true
         Layout.fillWidth: true
