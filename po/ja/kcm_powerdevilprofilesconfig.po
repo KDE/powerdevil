@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-01 00:43+0000\n"
+"POT-Creation-Date: 2025-02-11 00:43+0000\n"
 "PO-Revision-Date: 2024-09-11 03:38+0900\n"
 "Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -70,25 +70,25 @@ msgstr ""
 msgid "The Power Management Service appears not to be running."
 msgstr "電源管理サービスが動作していないようです。"
 
-#: PowerProfileModel.cpp:40
+#: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
 msgstr ""
 
-#: PowerProfileModel.cpp:41
+#: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
 msgstr ""
 
-#: PowerProfileModel.cpp:42
+#: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
 msgstr ""
 
-#: PowerProfileModel.cpp:47
+#: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
 msgstr ""
@@ -430,35 +430,50 @@ msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "関連ページ:"
 
-#: ui/GlobalConfig.qml:381
+#: ui/GlobalConfig.qml:382
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "通知: 電源管理"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "「通知」設定ページの「電源管理」セクションを開く"
 
-#: ui/GlobalConfig.qml:390
+#: ui/GlobalConfig.qml:393
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@text:button Name of KCM, plus Power Management notification category"
+#| msgid "Notifications: Power Management"
+msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
+msgid "Shortcuts: Power Management"
+msgstr "通知: 電源管理"
+
+#: ui/GlobalConfig.qml:395
+#, fuzzy, kde-format
+#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
+msgstr "「通知」設定ページの「電源管理」セクションを開く"
+
+#: ui/GlobalConfig.qml:402
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "デスクトップセッション"
 
-#: ui/GlobalConfig.qml:391
+#: ui/GlobalConfig.qml:403
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "「デスクトップセッション」設定ページを開く"
 
-#: ui/GlobalConfig.qml:398
+#: ui/GlobalConfig.qml:410
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "アクティビティ"
 
-#: ui/GlobalConfig.qml:399
+#: ui/GlobalConfig.qml:411
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "「アクティビティ」設定ページを開く"
@@ -522,35 +537,35 @@ msgctxt ""
 msgid "When &inactive:"
 msgstr "非アクティブの場合(&I):"
 
-#: ui/ProfileConfig.qml:63
+#: ui/ProfileConfig.qml:64
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "システムがアイドル状態のときの動作"
 
-#: ui/ProfileConfig.qml:94
+#: ui/ProfileConfig.qml:95
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
 msgstr[0] "%1 秒後"
 
-#: ui/ProfileConfig.qml:96
+#: ui/ProfileConfig.qml:97
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
 msgstr[0] "%1 分後"
 
-#: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
-#: ui/ProfileConfig.qml:830
+#: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:524
+#: ui/ProfileConfig.qml:833
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "カスタム..."
 
-#: ui/ProfileConfig.qml:147
+#: ui/ProfileConfig.qml:148
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -560,7 +575,7 @@ msgstr ""
 "以前に設定した電源ボタンを押したときのアクションは、現在のシステムではサポー"
 "トされていません。別のアクションを選択してください。"
 
-#: ui/ProfileConfig.qml:154
+#: ui/ProfileConfig.qml:155
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -568,13 +583,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "電源ボタンが押されたとき(&P):"
 
-#: ui/ProfileConfig.qml:156
+#: ui/ProfileConfig.qml:157
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "電源ボタンが押されたときの動作"
 
-#: ui/ProfileConfig.qml:186
+#: ui/ProfileConfig.qml:187
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -584,7 +599,7 @@ msgstr ""
 "以前に設定したフタを閉じたときのアクションは、現在のシステムではサポートされ"
 "ていません。別のアクションを選択してください。"
 
-#: ui/ProfileConfig.qml:193
+#: ui/ProfileConfig.qml:194
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -592,13 +607,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "ラップトップのふたが閉じられたとき(&L):"
 
-#: ui/ProfileConfig.qml:195
+#: ui/ProfileConfig.qml:196
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "ラップトップのふたが閉じられたときの動作"
 
-#: ui/ProfileConfig.qml:224
+#: ui/ProfileConfig.qml:225
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -606,13 +621,13 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "外部モニターが接続されているときでも"
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:227
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr ""
 "外部モニターが接続されていてもラップトップのふたが閉じられたときの動作を行う"
 
-#: ui/ProfileConfig.qml:244
+#: ui/ProfileConfig.qml:245
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -622,103 +637,103 @@ msgstr ""
 "以前に設定したスリープモードは、現在のシステムではサポートされていません。別"
 "のモードを選択してください。"
 
-#: ui/ProfileConfig.qml:251
+#: ui/ProfileConfig.qml:252
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "スリープ時:"
 
-#: ui/ProfileConfig.qml:253
+#: ui/ProfileConfig.qml:254
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "スリープ時、この省電力モードをオンにする"
 
-#: ui/ProfileConfig.qml:302
+#: ui/ProfileConfig.qml:303
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "ディスプレイと明るさ"
 
-#: ui/ProfileConfig.qml:312
+#: ui/ProfileConfig.qml:313
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "スクリーンの明るさを変える(&E):"
 
-#: ui/ProfileConfig.qml:358
+#: ui/ProfileConfig.qml:360
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "自動的に暗くする(&M):"
 
-#: ui/ProfileConfig.qml:360
+#: ui/ProfileConfig.qml:362
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "次の時間後に自動的に暗くする(&M):"
 
-#: ui/ProfileConfig.qml:365
+#: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
 
-#: ui/ProfileConfig.qml:367
+#: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 分"
 
-#: ui/ProfileConfig.qml:374
+#: ui/ProfileConfig.qml:376
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "しない"
 
-#: ui/ProfileConfig.qml:426
+#: ui/ProfileConfig.qml:428
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr "画面がすぐオフになるよう設定されているため、暗くなりません。"
 
-#: ui/ProfileConfig.qml:431
+#: ui/ProfileConfig.qml:433
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "スクリーンの電源を切る(&T):"
 
-#: ui/ProfileConfig.qml:443
+#: ui/ProfileConfig.qml:445
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "次の時間後にスクリーンの電源を切る:"
 
-#: ui/ProfileConfig.qml:447
+#: ui/ProfileConfig.qml:449
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1 秒"
 
-#: ui/ProfileConfig.qml:449
+#: ui/ProfileConfig.qml:451
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1 分"
 
-#: ui/ProfileConfig.qml:456
+#: ui/ProfileConfig.qml:458
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "しない"
 
-#: ui/ProfileConfig.qml:463
+#: ui/ProfileConfig.qml:465
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -726,27 +741,27 @@ msgctxt ""
 msgid "Custom…"
 msgstr "カスタム..."
 
-#: ui/ProfileConfig.qml:502
+#: ui/ProfileConfig.qml:504
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "ロック時は次の時間後にスクリーンの電源を切る:"
 
-#: ui/ProfileConfig.qml:506
+#: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
 msgstr[0] "ロック時: %1 秒"
 
-#: ui/ProfileConfig.qml:508
+#: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
 msgstr[0] "ロック時: %1 分"
 
-#: ui/ProfileConfig.qml:515
+#: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -754,25 +769,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "ロック時とロック解除時"
 
-#: ui/ProfileConfig.qml:517
+#: ui/ProfileConfig.qml:519
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "ロック時: すぐに"
 
-#: ui/ProfileConfig.qml:556
+#: ui/ProfileConfig.qml:558
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "キーボードの明るさを変える(&B):"
 
-#: ui/ProfileConfig.qml:603
+#: ui/ProfileConfig.qml:606
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "その他の設定"
 
-#: ui/ProfileConfig.qml:611
+#: ui/ProfileConfig.qml:614
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -780,7 +795,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "電源プロファイルを切り替え(&W):"
 
-#: ui/ProfileConfig.qml:615
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -788,13 +803,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "電源プロファイルを切り替え"
 
-#: ui/ProfileConfig.qml:642
+#: ui/ProfileConfig.qml:645
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
 msgstr "コマンドまたはスクリプトを実行:"
 
-#: ui/ProfileConfig.qml:652
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
@@ -802,13 +817,13 @@ msgctxt ""
 msgid "Choose run conditions"
 msgstr "実行条件を選択"
 
-#: ui/ProfileConfig.qml:654
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
 msgstr "コマンドまたはスクリプトの実行条件を選択する"
 
-#: ui/ProfileConfig.qml:674
+#: ui/ProfileConfig.qml:677
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -816,7 +831,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "「%1」状態に入るとき"
 
-#: ui/ProfileConfig.qml:692
+#: ui/ProfileConfig.qml:695
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -824,13 +839,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "「%1」状態を終了するとき"
 
-#: ui/ProfileConfig.qml:710
+#: ui/ProfileConfig.qml:713
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
 msgstr "非アクティブ時"
 
-#: ui/ProfileConfig.qml:733
+#: ui/ProfileConfig.qml:736
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -838,13 +853,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "「%1」状態に入るとき(&N):"
 
-#: ui/ProfileConfig.qml:737
+#: ui/ProfileConfig.qml:740
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "「%1」状態に入るときのコマンドまたはスクリプト"
 
-#: ui/ProfileConfig.qml:768
+#: ui/ProfileConfig.qml:771
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -852,75 +867,75 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "「%1」状態を終了するとき(&X):"
 
-#: ui/ProfileConfig.qml:772
+#: ui/ProfileConfig.qml:775
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "「%1」状態を終了するときのコマンドまたはスクリプト"
 
-#: ui/ProfileConfig.qml:801
+#: ui/ProfileConfig.qml:804
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "コマンドまたはスクリプトが実行される前の非アクティブ期間"
 
-#: ui/ProfileConfig.qml:807
+#: ui/ProfileConfig.qml:810
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
 msgstr "非アクティブ時(&N):"
 
-#: ui/ProfileConfig.qml:810
+#: ui/ProfileConfig.qml:813
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "次の時間後にコマンドまたはスクリプトを実行:"
 
-#: ui/ProfileConfig.qml:815
+#: ui/ProfileConfig.qml:818
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
 msgstr[0] "%1 秒後に実行"
 
-#: ui/ProfileConfig.qml:817
+#: ui/ProfileConfig.qml:820
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
 msgstr[0] "%1 分後に実行"
 
-#: ui/ProfileConfig.qml:859
+#: ui/ProfileConfig.qml:862
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
 msgstr "非アクティブ時のコマンドまたはスクリプト"
 
-#: ui/RunScriptEdit.qml:33
+#: ui/RunScriptEdit.qml:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
 msgstr "コマンドまたはスクリプトファイルを入力"
 
-#: ui/RunScriptEdit.qml:34
+#: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
 msgstr "コマンドを入力するかスクリプトファイルを選択"
 
-#: ui/RunScriptEdit.qml:52
+#: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
 msgstr "選択..."
 
-#: ui/RunScriptEdit.qml:53
+#: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
 msgstr "スクリプトファイルを選択"
 
-#: ui/RunScriptEdit.qml:66
+#: ui/RunScriptEdit.qml:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"

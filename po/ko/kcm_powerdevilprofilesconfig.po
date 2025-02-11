@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-01 00:43+0000\n"
+"POT-Creation-Date: 2025-02-11 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 19:11+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -64,25 +64,25 @@ msgstr "화면 켜짐/꺼짐 전환"
 msgid "The Power Management Service appears not to be running."
 msgstr "전원 관리 서비스가 실행 중이 아닌 것 같습니다."
 
-#: PowerProfileModel.cpp:40
+#: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
 msgstr "절전"
 
-#: PowerProfileModel.cpp:41
+#: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
 msgstr "균형 조정"
 
-#: PowerProfileModel.cpp:42
+#: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
 msgstr "성능"
 
-#: PowerProfileModel.cpp:47
+#: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
 msgstr "변경하지 않기"
@@ -426,35 +426,50 @@ msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "관련된 페이지:"
 
-#: ui/GlobalConfig.qml:381
+#: ui/GlobalConfig.qml:382
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "알림: 전원 관리"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "\"알림\" 설정 페이지의 \"전원 관리\" 부분 열기"
 
-#: ui/GlobalConfig.qml:390
+#: ui/GlobalConfig.qml:393
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@text:button Name of KCM, plus Power Management notification category"
+#| msgid "Notifications: Power Management"
+msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
+msgid "Shortcuts: Power Management"
+msgstr "알림: 전원 관리"
+
+#: ui/GlobalConfig.qml:395
+#, fuzzy, kde-format
+#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
+msgstr "\"알림\" 설정 페이지의 \"전원 관리\" 부분 열기"
+
+#: ui/GlobalConfig.qml:402
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "데스크톱 세션"
 
-#: ui/GlobalConfig.qml:391
+#: ui/GlobalConfig.qml:403
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "\"데스크톱 세션\" 설정 페이지 열기"
 
-#: ui/GlobalConfig.qml:398
+#: ui/GlobalConfig.qml:410
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "활동"
 
-#: ui/GlobalConfig.qml:399
+#: ui/GlobalConfig.qml:411
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "\"활동\" 설정 페이지 열기"
@@ -518,35 +533,35 @@ msgctxt ""
 msgid "When &inactive:"
 msgstr "비활성 상태일 때(&I):"
 
-#: ui/ProfileConfig.qml:63
+#: ui/ProfileConfig.qml:64
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "시스템이 유휴 상태일 때 동작"
 
-#: ui/ProfileConfig.qml:94
+#: ui/ProfileConfig.qml:95
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
 msgid_plural "After %1 seconds"
 msgstr[0] "%1초 후"
 
-#: ui/ProfileConfig.qml:96
+#: ui/ProfileConfig.qml:97
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
 msgid_plural "After %1 minutes"
 msgstr[0] "%1분 후"
 
-#: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
-#: ui/ProfileConfig.qml:830
+#: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:524
+#: ui/ProfileConfig.qml:833
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "사용자 정의…"
 
-#: ui/ProfileConfig.qml:147
+#: ui/ProfileConfig.qml:148
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -556,7 +571,7 @@ msgstr ""
 "전원 단추를 눌렀을 때 취할 이전에 설정했던 동작은 시스템에서 더 이상 지원되"
 "지 않습니다. 다른 동작을 선택하십시오."
 
-#: ui/ProfileConfig.qml:154
+#: ui/ProfileConfig.qml:155
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -564,13 +579,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "전원 단추를 눌렀을 때(&P):"
 
-#: ui/ProfileConfig.qml:156
+#: ui/ProfileConfig.qml:157
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "전원 단추를 눌렀을 때 동작"
 
-#: ui/ProfileConfig.qml:186
+#: ui/ProfileConfig.qml:187
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -580,7 +595,7 @@ msgstr ""
 "덮개를 닫았을 때 취할 이전에 설정했던 동작은 시스템에서 더 이상 지원되지 않습"
 "니다. 다른 동작을 선택하십시오."
 
-#: ui/ProfileConfig.qml:193
+#: ui/ProfileConfig.qml:194
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -588,13 +603,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "노트북 덮개가 닫힐 때(&L):"
 
-#: ui/ProfileConfig.qml:195
+#: ui/ProfileConfig.qml:196
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "노트북 덮개가 닫힐 때 동작"
 
-#: ui/ProfileConfig.qml:224
+#: ui/ProfileConfig.qml:225
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -602,12 +617,12 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "외부 모니터가 연결된 경우에도 진행"
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:227
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr "외부 모니터가 연결되어 있어도 노트북 덮개 동작 실행"
 
-#: ui/ProfileConfig.qml:244
+#: ui/ProfileConfig.qml:245
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -617,103 +632,103 @@ msgstr ""
 "이전에 설정했던 대기 모드는 시스템에서 더 이상 지원되지 않습니다. 다른 항목"
 "을 선택하십시오."
 
-#: ui/ProfileConfig.qml:251
+#: ui/ProfileConfig.qml:252
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "절전 모드로 들어갈 때:"
 
-#: ui/ProfileConfig.qml:253
+#: ui/ProfileConfig.qml:254
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "절전 모드로 들어갈 때 이 모드 사용"
 
-#: ui/ProfileConfig.qml:302
+#: ui/ProfileConfig.qml:303
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "디스플레이와 밝기"
 
-#: ui/ProfileConfig.qml:312
+#: ui/ProfileConfig.qml:313
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "화면 밝기 변경(&E):"
 
-#: ui/ProfileConfig.qml:358
+#: ui/ProfileConfig.qml:360
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "자동으로 어둡게 하기(&M):"
 
-#: ui/ProfileConfig.qml:360
+#: ui/ProfileConfig.qml:362
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "자동으로 어둡게 하기(&M):"
 
-#: ui/ProfileConfig.qml:365
+#: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1초"
 
-#: ui/ProfileConfig.qml:367
+#: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1분"
 
-#: ui/ProfileConfig.qml:374
+#: ui/ProfileConfig.qml:376
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "하지 않음"
 
-#: ui/ProfileConfig.qml:426
+#: ui/ProfileConfig.qml:428
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr "화면이 더 빨리 꺼지도록 설정되어 있어서 화면이 어두워지지 않습니다."
 
-#: ui/ProfileConfig.qml:431
+#: ui/ProfileConfig.qml:433
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "화면 끄기(&T):"
 
-#: ui/ProfileConfig.qml:443
+#: ui/ProfileConfig.qml:445
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "다음 시간 후 화면 끄기:"
 
-#: ui/ProfileConfig.qml:447
+#: ui/ProfileConfig.qml:449
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
 msgid_plural "%1 seconds"
 msgstr[0] "%1초"
 
-#: ui/ProfileConfig.qml:449
+#: ui/ProfileConfig.qml:451
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
 msgid_plural "%1 minutes"
 msgstr[0] "%1분"
 
-#: ui/ProfileConfig.qml:456
+#: ui/ProfileConfig.qml:458
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "하지 않음"
 
-#: ui/ProfileConfig.qml:463
+#: ui/ProfileConfig.qml:465
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -721,27 +736,27 @@ msgctxt ""
 msgid "Custom…"
 msgstr "사용자 정의…"
 
-#: ui/ProfileConfig.qml:502
+#: ui/ProfileConfig.qml:504
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "잠겼을 때 화면 끄기:"
 
-#: ui/ProfileConfig.qml:506
+#: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
 msgstr[0] "잠겼을 때: %1초"
 
-#: ui/ProfileConfig.qml:508
+#: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
 msgstr[0] "잠겼을 때: %1분"
 
-#: ui/ProfileConfig.qml:515
+#: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -749,25 +764,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "잠겼을 때와 잠금 해제되었을 때"
 
-#: ui/ProfileConfig.qml:517
+#: ui/ProfileConfig.qml:519
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "잠겼을 때: 즉시"
 
-#: ui/ProfileConfig.qml:556
+#: ui/ProfileConfig.qml:558
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "키보드 밝기 변경(&B):"
 
-#: ui/ProfileConfig.qml:603
+#: ui/ProfileConfig.qml:606
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "기타 설정"
 
-#: ui/ProfileConfig.qml:611
+#: ui/ProfileConfig.qml:614
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -775,7 +790,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "전원 프로필로 전환(&W):"
 
-#: ui/ProfileConfig.qml:615
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -783,13 +798,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "전원 프로필로 전환"
 
-#: ui/ProfileConfig.qml:642
+#: ui/ProfileConfig.qml:645
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
 msgstr "명령이나 스크립트 실행:"
 
-#: ui/ProfileConfig.qml:652
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
@@ -797,13 +812,13 @@ msgctxt ""
 msgid "Choose run conditions"
 msgstr "실행 조건 선택"
 
-#: ui/ProfileConfig.qml:654
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
 msgstr "스크립트나 명령의 실행 조건 선택"
 
-#: ui/ProfileConfig.qml:674
+#: ui/ProfileConfig.qml:677
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -811,7 +826,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "\"%1 상태로 들어갈 때"
 
-#: ui/ProfileConfig.qml:692
+#: ui/ProfileConfig.qml:695
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -819,13 +834,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "\"%1\" 상태를 빠져나올 때"
 
-#: ui/ProfileConfig.qml:710
+#: ui/ProfileConfig.qml:713
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
 msgstr "비활성 상태일 때"
 
-#: ui/ProfileConfig.qml:733
+#: ui/ProfileConfig.qml:736
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -833,13 +848,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "\"%1\" 상태로 들어갈 때(&N):"
 
-#: ui/ProfileConfig.qml:737
+#: ui/ProfileConfig.qml:740
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "\"%1\" 상태로 들어갈 때 명령이나 스크립트"
 
-#: ui/ProfileConfig.qml:768
+#: ui/ProfileConfig.qml:771
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -847,75 +862,75 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "\"%1\" 상태를 빠져나올 때(&X):"
 
-#: ui/ProfileConfig.qml:772
+#: ui/ProfileConfig.qml:775
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "\"%1\" 상태를 빠져나올 때 명령이나 스크립트"
 
-#: ui/ProfileConfig.qml:801
+#: ui/ProfileConfig.qml:804
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "스크립트나 명령을 실행할 때까지 활동 없음 시간"
 
-#: ui/ProfileConfig.qml:807
+#: ui/ProfileConfig.qml:810
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
 msgstr "비활성 상태일 때(&N):"
 
-#: ui/ProfileConfig.qml:810
+#: ui/ProfileConfig.qml:813
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "다음 시간 이후 명령이나 스크립트 실행:"
 
-#: ui/ProfileConfig.qml:815
+#: ui/ProfileConfig.qml:818
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
 msgid_plural "Run after %1 seconds"
 msgstr[0] "%1초 후 실행"
 
-#: ui/ProfileConfig.qml:817
+#: ui/ProfileConfig.qml:820
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
 msgid_plural "Run after %1 minutes"
 msgstr[0] "%1분 후 실행"
 
-#: ui/ProfileConfig.qml:859
+#: ui/ProfileConfig.qml:862
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
 msgstr "비활성 상태일 때 명령이나 스크립트"
 
-#: ui/RunScriptEdit.qml:33
+#: ui/RunScriptEdit.qml:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
 msgstr "명령이나 스크립트 파일 입력"
 
-#: ui/RunScriptEdit.qml:34
+#: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
 msgstr "명령을 입력하거나 스크립트 파일 선택"
 
-#: ui/RunScriptEdit.qml:52
+#: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
 msgstr "선택…"
 
-#: ui/RunScriptEdit.qml:53
+#: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
 msgstr "스크립트 파일 선택"
 
-#: ui/RunScriptEdit.qml:66
+#: ui/RunScriptEdit.qml:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"

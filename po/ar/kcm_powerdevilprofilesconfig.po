@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-01 00:43+0000\n"
+"POT-Creation-Date: 2025-02-11 00:43+0000\n"
 "PO-Revision-Date: 2025-02-03 16:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -67,25 +67,25 @@ msgstr "شغل/أطفئ الشاشة"
 msgid "The Power Management Service appears not to be running."
 msgstr "يبدو أن خدمة إدارة الطاقة لا تعمل."
 
-#: PowerProfileModel.cpp:40
+#: PowerProfileModel.cpp:42
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
 msgstr "حفظ الطاقة"
 
-#: PowerProfileModel.cpp:41
+#: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
 msgstr "متوازن"
 
-#: PowerProfileModel.cpp:42
+#: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
 msgstr "الأداء"
 
-#: PowerProfileModel.cpp:47
+#: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
 msgstr "لا تغيّر"
@@ -466,35 +466,50 @@ msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "صفحات ذات صلة:"
 
-#: ui/GlobalConfig.qml:381
+#: ui/GlobalConfig.qml:382
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "الإخطارات: إدارة الطاقة"
 
-#: ui/GlobalConfig.qml:383
+#: ui/GlobalConfig.qml:384
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "افتح صفحة إعدادات \"الإخطارات\"، قسم \"إدارة الطاقة\""
 
-#: ui/GlobalConfig.qml:390
+#: ui/GlobalConfig.qml:393
+#, fuzzy, kde-format
+#| msgctxt ""
+#| "@text:button Name of KCM, plus Power Management notification category"
+#| msgid "Notifications: Power Management"
+msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
+msgid "Shortcuts: Power Management"
+msgstr "الإخطارات: إدارة الطاقة"
+
+#: ui/GlobalConfig.qml:395
+#, fuzzy, kde-format
+#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
+msgstr "افتح صفحة إعدادات \"الإخطارات\"، قسم \"إدارة الطاقة\""
+
+#: ui/GlobalConfig.qml:402
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "جلسة سطح المكتب"
 
-#: ui/GlobalConfig.qml:391
+#: ui/GlobalConfig.qml:403
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "افتح صفحة إعدادات \"جلسة سطح المكتب\""
 
-#: ui/GlobalConfig.qml:398
+#: ui/GlobalConfig.qml:410
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "الأنشطة"
 
-#: ui/GlobalConfig.qml:399
+#: ui/GlobalConfig.qml:411
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "افتح صفحة إعدادات \"الأنشطة\""
@@ -558,13 +573,13 @@ msgctxt ""
 msgid "When &inactive:"
 msgstr "عند ال&خمول:"
 
-#: ui/ProfileConfig.qml:63
+#: ui/ProfileConfig.qml:64
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the system is idle"
 msgstr "الإجراء الذي يجب تنفيذه عندما يكون النظام خاملا"
 
-#: ui/ProfileConfig.qml:94
+#: ui/ProfileConfig.qml:95
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 second"
@@ -576,7 +591,7 @@ msgstr[3] "بعد %1 ثانية"
 msgstr[4] "بعد %1 ثانية"
 msgstr[5] "بعد %1 ثانية"
 
-#: ui/ProfileConfig.qml:96
+#: ui/ProfileConfig.qml:97
 #, kde-format
 msgctxt "@option:combobox"
 msgid "After %1 minute"
@@ -588,15 +603,15 @@ msgstr[3] "بعد %1 دقائق"
 msgstr[4] "بعد %1 دقيقة"
 msgstr[5] "بعد %1 دقيقة"
 
-#: ui/ProfileConfig.qml:109 ui/ProfileConfig.qml:381 ui/ProfileConfig.qml:522
-#: ui/ProfileConfig.qml:830
+#: ui/ProfileConfig.qml:110 ui/ProfileConfig.qml:383 ui/ProfileConfig.qml:524
+#: ui/ProfileConfig.qml:833
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
 msgstr "مخصّص…"
 
-#: ui/ProfileConfig.qml:147
+#: ui/ProfileConfig.qml:148
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -606,7 +621,7 @@ msgstr ""
 "الإجراء الذي أعددتَه مسبقا عندما يُضغط على زر الطاقة غير مدعوم الآن على نظامك. "
 "يرجى تحديد واحد مختلف."
 
-#: ui/ProfileConfig.qml:154
+#: ui/ProfileConfig.qml:155
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -614,13 +629,13 @@ msgctxt ""
 msgid "When &power button pressed:"
 msgstr "عند ضغط زر الطا&قة:"
 
-#: ui/ProfileConfig.qml:156
+#: ui/ProfileConfig.qml:157
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the power button is pressed"
 msgstr "الإجراء الذي يجب تنفيذه عند الضغط على زر الطاقة"
 
-#: ui/ProfileConfig.qml:186
+#: ui/ProfileConfig.qml:187
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -630,7 +645,7 @@ msgstr ""
 "الإجراء الذي أعددتَه مسبقا عند إغلاق الغطاء هو الآن غير مدعوم على نظامك. يرجى "
 "تحديد واحد مختلف."
 
-#: ui/ProfileConfig.qml:193
+#: ui/ProfileConfig.qml:194
 #, kde-format
 msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
@@ -638,13 +653,13 @@ msgctxt ""
 msgid "When laptop &lid closed:"
 msgstr "عند إغلاق غطاء الم&حمول:"
 
-#: ui/ProfileConfig.qml:195
+#: ui/ProfileConfig.qml:196
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
 msgstr "إجراء يجب تنفيذه عند إغلاق غطاء الكمبيوتر المحمول"
 
-#: ui/ProfileConfig.qml:224
+#: ui/ProfileConfig.qml:225
 #, kde-format
 msgctxt ""
 "@text:checkbox Trigger laptop lid action even when an external monitor is "
@@ -652,12 +667,12 @@ msgctxt ""
 msgid "Even when an external monitor is connected"
 msgstr "حتى عند توصيل شاشة خارجية"
 
-#: ui/ProfileConfig.qml:226
+#: ui/ProfileConfig.qml:227
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
 msgstr "أجرِ عملية غطاء الكمبيوتر المحمول حتى عند توصيل شاشة خارجية"
 
-#: ui/ProfileConfig.qml:244
+#: ui/ProfileConfig.qml:245
 #, kde-format
 msgctxt "@info:status"
 msgid ""
@@ -666,44 +681,44 @@ msgid ""
 msgstr ""
 "وضع السكون الذي أعددتَه مسبقا غير مدعوم الآن على نظامك. يرجى تحديد واحد مختلف."
 
-#: ui/ProfileConfig.qml:251
+#: ui/ProfileConfig.qml:252
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
 msgstr "عند النوم، أدخِل:"
 
-#: ui/ProfileConfig.qml:253
+#: ui/ProfileConfig.qml:254
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
 msgstr "عند النوم، ادخل وضع توفير الطاقة هذا"
 
-#: ui/ProfileConfig.qml:302
+#: ui/ProfileConfig.qml:303
 #, kde-format
 msgctxt "@title:group"
 msgid "Display and Brightness"
 msgstr "العرض والسطوع"
 
-#: ui/ProfileConfig.qml:312
+#: ui/ProfileConfig.qml:313
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change scr&een brightness:"
 msgstr "غيّر سطوع الشا&شة:"
 
-#: ui/ProfileConfig.qml:358
+#: ui/ProfileConfig.qml:360
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
 msgstr "عتّ&م تلقائيا:"
 
-#: ui/ProfileConfig.qml:360
+#: ui/ProfileConfig.qml:362
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
 msgstr "عتّ&م تلقائيا بعد:"
 
-#: ui/ProfileConfig.qml:365
+#: ui/ProfileConfig.qml:367
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 second"
@@ -715,7 +730,7 @@ msgstr[3] "%1 ثواني"
 msgstr[4] "%1 ثانية"
 msgstr[5] "%1 ثانية"
 
-#: ui/ProfileConfig.qml:367
+#: ui/ProfileConfig.qml:369
 #, kde-format
 msgctxt "@option:combobox"
 msgid "%1 minute"
@@ -727,32 +742,32 @@ msgstr[3] "%1 دقائق"
 msgstr[4] "%1 دقيقة"
 msgstr[5] "%1 دقيقة"
 
-#: ui/ProfileConfig.qml:374
+#: ui/ProfileConfig.qml:376
 #, kde-format
 msgctxt "@option:combobox Dim screen automatically"
 msgid "Never"
 msgstr "البتة"
 
-#: ui/ProfileConfig.qml:426
+#: ui/ProfileConfig.qml:428
 #, kde-format
 msgctxt "@info:status"
 msgid ""
 "The screen will not be dimmed because it is configured to turn off sooner."
 msgstr "لن تكون الشاشة خافتة لأنها ضبطت لإيقاف التشغيل حالاً."
 
-#: ui/ProfileConfig.qml:431
+#: ui/ProfileConfig.qml:433
 #, kde-format
 msgctxt "@label:combobox After X minutes"
 msgid "&Turn off screen:"
 msgstr "أ&طفئ الشاشة:"
 
-#: ui/ProfileConfig.qml:443
+#: ui/ProfileConfig.qml:445
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Turn off screen after:"
 msgstr "أطفئ الشاشة بعد:"
 
-#: ui/ProfileConfig.qml:447
+#: ui/ProfileConfig.qml:449
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 second"
@@ -764,7 +779,7 @@ msgstr[3] "%1 ثواني"
 msgstr[4] "%1 ثانية"
 msgstr[5] "%1 ثانية"
 
-#: ui/ProfileConfig.qml:449
+#: ui/ProfileConfig.qml:451
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "%1 minute"
@@ -776,13 +791,13 @@ msgstr[3] "%1 دقائق"
 msgstr[4] "%1 دقيقة"
 msgstr[5] "%1 دقيقة"
 
-#: ui/ProfileConfig.qml:456
+#: ui/ProfileConfig.qml:458
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "Never"
 msgstr "البتة"
 
-#: ui/ProfileConfig.qml:463
+#: ui/ProfileConfig.qml:465
 #, kde-format
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
@@ -790,13 +805,13 @@ msgctxt ""
 msgid "Custom…"
 msgstr "مخصّص…"
 
-#: ui/ProfileConfig.qml:502
+#: ui/ProfileConfig.qml:504
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "When locked, turn off screen after:"
 msgstr "عند القفل، أوقف تشغيل الشاشة بعد:"
 
-#: ui/ProfileConfig.qml:506
+#: ui/ProfileConfig.qml:508
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
@@ -808,7 +823,7 @@ msgstr[3] "بعد القفل: %1 دقائق"
 msgstr[4] "بعد القفل: %1 دقيقة"
 msgstr[5] "بعد القفل: %1 دقيقة"
 
-#: ui/ProfileConfig.qml:508
+#: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
@@ -820,7 +835,7 @@ msgstr[3] "عند القفل: %1 دقائق"
 msgstr[4] "عند القفل: %1 دقيقة"
 msgstr[5] "عند القفل: %1 دقيقة"
 
-#: ui/ProfileConfig.qml:515
+#: ui/ProfileConfig.qml:517
 #, kde-format
 msgctxt ""
 "@option:combobox Turn off screen after X minutes regardless of lock screen "
@@ -828,25 +843,25 @@ msgctxt ""
 msgid "When locked and unlocked"
 msgstr "عند القفل وفك القفل"
 
-#: ui/ProfileConfig.qml:517
+#: ui/ProfileConfig.qml:519
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: Immediately"
 msgstr "عند القفل: حالاً"
 
-#: ui/ProfileConfig.qml:556
+#: ui/ProfileConfig.qml:558
 #, kde-format
 msgctxt "@label:slider Brightness level"
 msgid "Change key&board brightness:"
 msgstr "غيّر سطوع لوحة ال&مفاتيح:"
 
-#: ui/ProfileConfig.qml:603
+#: ui/ProfileConfig.qml:606
 #, kde-format
 msgctxt "@title:group"
 msgid "Other Settings"
 msgstr "إعدادات أخرى"
 
-#: ui/ProfileConfig.qml:611
+#: ui/ProfileConfig.qml:614
 #, kde-format
 msgctxt ""
 "@label:combobox Power Save, Balanced or Performance profile - same options "
@@ -854,7 +869,7 @@ msgctxt ""
 msgid "Switch to po&wer profile:"
 msgstr "بدل إلى وضع الطا&قة:"
 
-#: ui/ProfileConfig.qml:615
+#: ui/ProfileConfig.qml:618
 #, kde-format
 msgctxt ""
 "@accessible:name:combobox Power Save, Balanced or Performance profile - same "
@@ -862,13 +877,13 @@ msgctxt ""
 msgid "Switch to power profile"
 msgstr "بدّل إلى وضع الطاقة"
 
-#: ui/ProfileConfig.qml:642
+#: ui/ProfileConfig.qml:645
 #, kde-format
 msgctxt "@label:button"
 msgid "Run command or script:"
 msgstr "شغّل أمر أو سكربت"
 
-#: ui/ProfileConfig.qml:652
+#: ui/ProfileConfig.qml:655
 #, kde-format
 msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
@@ -876,13 +891,13 @@ msgctxt ""
 msgid "Choose run conditions"
 msgstr "اختر شروط التشغيل"
 
-#: ui/ProfileConfig.qml:654
+#: ui/ProfileConfig.qml:657
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
 msgstr "اختر شروط التشغيل للأمر أو السكربت"
 
-#: ui/ProfileConfig.qml:674
+#: ui/ProfileConfig.qml:677
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -890,7 +905,7 @@ msgctxt ""
 msgid "When entering \"%1\" state"
 msgstr "عند الدخول إلى حالة \"%1\" "
 
-#: ui/ProfileConfig.qml:692
+#: ui/ProfileConfig.qml:695
 #, kde-format
 msgctxt ""
 "@text:action:menu Command or script to run for power state (On AC Power, On "
@@ -898,13 +913,13 @@ msgctxt ""
 msgid "When exiting \"%1\" state"
 msgstr "عند الخروج من حالة \"%1\" "
 
-#: ui/ProfileConfig.qml:710
+#: ui/ProfileConfig.qml:713
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
 msgstr "عند الخمول"
 
-#: ui/ProfileConfig.qml:733
+#: ui/ProfileConfig.qml:736
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -912,13 +927,13 @@ msgctxt ""
 msgid "When e&ntering \"%1\" state:"
 msgstr "عند الد&خول إلى حالة \"%1\" :"
 
-#: ui/ProfileConfig.qml:737
+#: ui/ProfileConfig.qml:740
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
 msgstr "أمر أو سكربت عند دخول حالة \"%1\""
 
-#: ui/ProfileConfig.qml:768
+#: ui/ProfileConfig.qml:771
 #, kde-format
 msgctxt ""
 "@label:textfield Command or script to run for power state (On AC Power, On "
@@ -926,31 +941,31 @@ msgctxt ""
 msgid "When e&xiting \"%1\" state:"
 msgstr "عند الخرو&ج من حالة \"%1\" :"
 
-#: ui/ProfileConfig.qml:772
+#: ui/ProfileConfig.qml:775
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
 msgstr "أمر أو سكربت عند الخروج من حالة \"%1\""
 
-#: ui/ProfileConfig.qml:801
+#: ui/ProfileConfig.qml:804
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Duration of inactivity before the command or script runs"
 msgstr "فترة الخمول قبل تنفيذ الأمر أو السكربت"
 
-#: ui/ProfileConfig.qml:807
+#: ui/ProfileConfig.qml:810
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
 msgstr "عند الخ&مول:"
 
-#: ui/ProfileConfig.qml:810
+#: ui/ProfileConfig.qml:813
 #, kde-format
 msgctxt "@label:spinbox After X minutes"
 msgid "Run command or script after:"
 msgstr "شغّل أمر أو سكربت بعد:"
 
-#: ui/ProfileConfig.qml:815
+#: ui/ProfileConfig.qml:818
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 second"
@@ -962,7 +977,7 @@ msgstr[3] "شغّل بعد %1 ثواني"
 msgstr[4] "شغّل بعد %1 ثانية"
 msgstr[5] "شغّلب عد %1 ثانية"
 
-#: ui/ProfileConfig.qml:817
+#: ui/ProfileConfig.qml:820
 #, kde-format
 msgctxt "@option:combobox"
 msgid "Run after %1 minute"
@@ -974,37 +989,37 @@ msgstr[3] "شغّل بعد %1 دقائق"
 msgstr[4] "شغّل بعد %1 دقيقة"
 msgstr[5] "شغّل بعد %1 دقيقة"
 
-#: ui/ProfileConfig.qml:859
+#: ui/ProfileConfig.qml:862
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
 msgstr "الأمر أو السكربت عند الخمول"
 
-#: ui/RunScriptEdit.qml:33
+#: ui/RunScriptEdit.qml:34
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter command or script file"
 msgstr "أدخِل أمرًا أو ملفًا برمجيًا نصيًا"
 
-#: ui/RunScriptEdit.qml:34
+#: ui/RunScriptEdit.qml:35
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
 msgstr "أدخِل أمرًا أو اختر ملف برمجي نصي"
 
-#: ui/RunScriptEdit.qml:52
+#: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
 msgstr "اختر…"
 
-#: ui/RunScriptEdit.qml:53
+#: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
 msgstr "اختر ملف برمجي نصي"
 
-#: ui/RunScriptEdit.qml:66
+#: ui/RunScriptEdit.qml:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose script file"
