@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:43+0000\n"
-"PO-Revision-Date: 2025-02-01 09:54+0200\n"
+"PO-Revision-Date: 2025-02-11 08:55+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -469,20 +469,16 @@ msgstr ""
 "Відкрити сторінку параметрів «Сповіщення», розділ «Керування живленням»"
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Сповіщення: Керування живленням"
+msgstr "Скорочення: Керування живленням"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr ""
-"Відкрити сторінку параметрів «Сповіщення», розділ «Керування живленням»"
+"Відкрити сторінку параметрів «Скорочення», розділ «Керування живленням»"
 
 #: ui/GlobalConfig.qml:402
 #, kde-format

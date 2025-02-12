@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:43+0000\n"
-"PO-Revision-Date: 2025-02-01 17:27+0100\n"
+"PO-Revision-Date: 2025-02-11 11:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -452,19 +452,16 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Instellingenpagina openen van sectie \"Meldingen\", \"Energiebeheer\""
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Meldingen: Energiebeheer"
+msgstr "Sneltoetsen: energiebeheer"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Instellingenpagina openen van sectie \"Meldingen\", \"Energiebeheer\""
+msgstr ""
+"Instellingenpagina openen van \"Sneltoetsen\", sectie \"Energiebeheer\""
 
 #: ui/GlobalConfig.qml:402
 #, kde-format

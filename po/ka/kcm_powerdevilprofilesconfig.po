@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:43+0000\n"
-"PO-Revision-Date: 2025-02-01 05:26+0100\n"
+"PO-Revision-Date: 2025-02-11 04:12+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -449,19 +449,15 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "გახსენით \"გაფრთხილების\" მორგების გვერდი, \"კვების მართვის\" სექცია"
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "გაფრთხილებები: კვების მართვა"
+msgstr "მალსახმობები: კვების მართვა"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "გახსენით \"გაფრთხილების\" მორგების გვერდი, \"კვების მართვის\" სექცია"
+msgstr "გახსენით \"მალსახმობების\" მორგების გვერდი, \"კვების მართვის\" სექცია"
 
 #: ui/GlobalConfig.qml:402
 #, kde-format
