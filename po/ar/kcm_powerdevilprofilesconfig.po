@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:43+0000\n"
-"PO-Revision-Date: 2025-02-03 16:34+0400\n"
+"PO-Revision-Date: 2025-02-12 17:22+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -478,19 +478,15 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "افتح صفحة إعدادات \"الإخطارات\"، قسم \"إدارة الطاقة\""
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "الإخطارات: إدارة الطاقة"
+msgstr "اختصارات: إدارة الطاقة"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "افتح صفحة إعدادات \"الإخطارات\"، قسم \"إدارة الطاقة\""
+msgstr "افتح صفحة إعدادات \"الاختصارات\"، قسم \"إدارة الطاقة\""
 
 #: ui/GlobalConfig.qml:402
 #, kde-format

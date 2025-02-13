@@ -159,7 +159,7 @@ msgstr "配置夜间颜色…"
 #: package/contents/ui/main.qml:280
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr ""
+msgstr "配置电源管理(&C)…"
 
 #: package/contents/ui/NightLightItem.qml:78
 #, kde-format

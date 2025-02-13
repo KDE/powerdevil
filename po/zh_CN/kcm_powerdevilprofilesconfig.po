@@ -117,12 +117,10 @@ msgid "Standby, then hibernate"
 msgstr "待机，然后休眠"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "空闲一段时间之后切换至休眠状态"
+msgstr "电量低时切换到休眠状态"
 
 #: SleepModeModel.cpp:40
 #, kde-format
@@ -435,19 +433,15 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "打开“通知”设置页面的“电源管理”栏目"
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "通知：电源管理"
+msgstr "快捷键：电源管理"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "打开“通知”设置页面的“电源管理”栏目"
+msgstr "打开“快捷键”设置页面的“电源管理”栏目"
 
 #: ui/GlobalConfig.qml:402
 #, kde-format

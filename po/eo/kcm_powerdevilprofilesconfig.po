@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:43+0000\n"
-"PO-Revision-Date: 2025-01-01 09:06+0100\n"
+"PO-Revision-Date: 2025-02-12 22:59+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -117,12 +117,10 @@ msgid "Standby, then hibernate"
 msgstr "Pretstari, poste pasivumigi"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Ŝalti al pasivumigo post periodo de neaktiveco"
+msgstr "Ŝalti al pasivumigo kiam baterio malfortiĝas"
 
 #: SleepModeModel.cpp:40
 #, kde-format
@@ -451,19 +449,15 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Malfermu \"Sciigoj\" agordopaĝon, sekcion \"Energia Administrado\""
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Sciigoj: Energia Administrado"
+msgstr "Ŝparvojoj: Energia Administrado"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Malfermu \"Sciigoj\" agordopaĝon, sekcion \"Energia Administrado\""
+msgstr "Malfermu \"Ŝparvojoj\" agordopaĝon, sekcion \"Energia Administrado\""
 
 #: ui/GlobalConfig.qml:402
 #, kde-format
