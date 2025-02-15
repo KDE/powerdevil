@@ -95,8 +95,7 @@ ecm_set_disabled_deprecation_versions(QT 6.8.0
 
 add_subdirectory(applets)
 add_subdirectory(daemon)
-add_subdirectory(kcm)
-add_subdirectory(kcm_mobile)
+add_subdirectory(kcms)
 
 if(KF6DocTools_FOUND)
     add_subdirectory(doc)
