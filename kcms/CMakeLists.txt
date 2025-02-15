@@ -1,0 +1,2 @@
+add_subdirectory(profilesconfig)
+add_subdirectory(kcm_mobile)
