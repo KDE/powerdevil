@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 02:28+0000\n"
-"PO-Revision-Date: 2024-07-14 12:35+0200\n"
+"PO-Revision-Date: 2025-02-16 12:33+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.12.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -454,9 +454,7 @@ msgstr "Slå av no"
 msgid ""
 "Battery level critical. Your computer will enter hibernation mode in 60 "
 "seconds."
-msgstr ""
-"Batterinivået er kritisk lågt. Maskina går automatisk i dvalemodus om "
-"60 sekund."
+msgstr "Batterinivået er kritisk lågt. Maskina går i dvalemodus om 60 sekund."
 
 #: powerdevilcore.cpp:685
 #, kde-format
@@ -469,9 +467,7 @@ msgstr "Gå i dvalemodus no"
 #: powerdevilcore.cpp:690
 #, kde-format
 msgid "Battery level critical. Your computer will go to sleep in 60 seconds."
-msgstr ""
-"Batterinivået er kritisk lågt. Maskina går automatisk i kvilemodus om 60 "
-"sekund."
+msgstr "Batterinivået er kritisk lågt. Maskina går i kvilemodus om 60 sekund."
 
 #: powerdevilcore.cpp:691
 #, kde-format
