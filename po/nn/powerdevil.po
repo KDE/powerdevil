@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KDE 4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-17 02:33+0000\n"
-"PO-Revision-Date: 2024-07-14 12:35+0200\n"
+"PO-Revision-Date: 2025-02-16 12:33+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.12.2\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -197,7 +197,7 @@ msgid "Extra Battery Added"
 msgstr "Eit ekstra batteri er kopla til"
 
 #: powerdevilcore.cpp:460
-#, fuzzy, kde-format
+#, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Datamaskina vil ikkje lenger gå i kvilemodus."
 
@@ -250,22 +250,21 @@ msgstr ""
 "mogleg."
 
 #: powerdevilcore.cpp:594
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
-msgstr "Sjå til at straum­kabelen er kopla til og gjev nok straum."
+msgstr "Sjå til at straum­kabelen er kopla skikkeleg til og gjev nok straum."
 
 #: powerdevilcore.cpp:596
-#, fuzzy, kde-format
+#, kde-format
 msgid "Plug in the power cord."
-msgstr "Kopla maskina til eit straumuttak."
+msgstr "Kopla til straum­kabelen."
 
 #: powerdevilcore.cpp:615
-#, fuzzy, kde-format
+#, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr ""
-"Batterinivået er kritisk lågt. Maskina vert automatisk slått av om 60 sekund."
+msgstr "Maskina vert automatisk slått av om 60 sekund."
 
 #: powerdevilcore.cpp:617
 #, kde-format
@@ -277,7 +276,7 @@ msgstr "Slå av no"
 #: powerdevilcore.cpp:623
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr ""
+msgstr "Maskina går i dvalemodus om 60 sekund."
 
 #: powerdevilcore.cpp:625
 #, kde-format
@@ -288,11 +287,9 @@ msgid "Hibernate Now"
 msgstr "Gå i dvalemodus no"
 
 #: powerdevilcore.cpp:631
-#, fuzzy, kde-format
+#, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr ""
-"Batterinivået er kritisk lågt. Maskina går automatisk i kvilemodus om 60 "
-"sekund."
+msgstr "Maskina går i kvilemodus om 60 sekund."
 
 #: powerdevilcore.cpp:633
 #, kde-format
@@ -325,9 +322,9 @@ msgid "Battery Critical (%1% Remaining)"
 msgstr "Batteri på kritisk nivå (%1 % att)"
 
 #: powerdevilcore.cpp:685
-#, fuzzy, kde-format
+#, kde-format
 msgid "Power Cord Plugged In"
-msgstr "Straumkabelen er kopla til"
+msgstr "Straumkabel kopla til"
 
 #: powerdevilcore.cpp:686
 #, kde-format
@@ -340,7 +337,7 @@ msgid "Running on AC power"
 msgstr "Køyrer på nettstraum"
 
 #: powerdevilcore.cpp:688
-#, fuzzy, kde-format
+#, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Straumkabelen er kopla til."
 
@@ -350,7 +347,7 @@ msgid "Running on Battery Power"
 msgstr "Køyrer på batteri"
 
 #: powerdevilcore.cpp:691
-#, fuzzy, kde-format
+#, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Straumkabelen er kopla frå."
 
