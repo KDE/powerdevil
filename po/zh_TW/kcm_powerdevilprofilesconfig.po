@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-11 00:43+0000\n"
-"PO-Revision-Date: 2025-02-06 20:15+0900\n"
+"PO-Revision-Date: 2025-02-18 15:59+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -435,19 +435,15 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "開啟「通知」設定頁面中的「電源管理」區塊"
 
 #: ui/GlobalConfig.qml:393
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "通知：電源管理"
+msgstr "快捷鍵：電源管理"
 
 #: ui/GlobalConfig.qml:395
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "開啟「通知」設定頁面中的「電源管理」區塊"
+msgstr "開啟「快捷鍵」設定頁面中的「電源管理」區塊"
 
 #: ui/GlobalConfig.qml:402
 #, kde-format
