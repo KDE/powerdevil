@@ -229,14 +229,58 @@ PlasmaComponents3.ItemDelegate {
                 }
             }
 
+            PlasmaComponents3.Switch {
+                id: batteryConservationModeSwitch
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+
+                //checked: root.batteryConservationMode
+                text: i18nc("@action:button", "Limit the maximum battery charge")
+
+                Accessible.onPressAction: toggled()
+
+                /*
+                KeyNavigation.up: root.KeyNavigation.up
+                KeyNavigation.tab: kcmButton
+                KeyNavigation.right: kcmButton
+                KeyNavigation.backtab: root
+                */
+
+                Keys.onPressed: (event) => {
+                    if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
+                        toggle();
+                    }
+                }
+                onToggled: root.batteryConservationMode = checked
+            }
+
+            PlasmaComponents3.Label {
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+
+                horizontalAlignment: Text.AlignLeft
+                font: Kirigami.Theme.smallFont
+                textFormat: Text.PlainText
+                wrapMode: Text.WordWrap
+                enabled: false
+
+                text: i18n("Battery is configured to charge up to approximately %1%", root.chargeStopThreshold)
+                //visible: root.pluggedIn && root.batteryIsPowerSupply && root.chargeStopThreshold > 0 && root.chargeStopThreshold < 100
+                visible: true
+            }
+
+            // TODO: Remove InhibitionHint
+            /*
             InhibitionHint {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                visible: root.pluggedIn && root.batteryIsPowerSupply && root.chargeStopThreshold > 0 && root.chargeStopThreshold < 100
+                //visible: root.pluggedIn && root.batteryIsPowerSupply && root.chargeStopThreshold > 0 && root.chargeStopThreshold < 100
+                visible: true
                 iconSource: "kt-speed-limits" // FIXME good icon
                 text: i18n("Battery is configured to charge up to approximately %1%.", root.chargeStopThreshold)
             }
+            */
         }
     }
 }
