@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 02:33+0000\n"
+"POT-Creation-Date: 2025-02-22 02:33+0000\n"
 "PO-Revision-Date: 2020-04-26 10:46+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -30,8 +30,7 @@ msgstr "qiilaq69@gmail.com"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67
-#: actions/bundled/screenbrightnesscontrol.cpp:34
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -91,34 +90,6 @@ msgstr "Klaviatuuri taustavalguse lülitamine"
 #| msgid "Import Profiles"
 msgid "Switch Power Profile"
 msgstr "Import profiilid"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:37
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Ekraani heleduse suurendamine"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Ekraani heleduse suurendamine"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:51
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Ekraani heleduse vähendamine"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Ekraani heleduse vähendamine"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, fuzzy, kde-format
@@ -391,6 +362,34 @@ msgstr "Laadimine on tehtud"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Aku on nüüd täielikult laetud."
+
+#: powerdevilscreenbrightnessagent.cpp:141
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Ekraani heleduse suurendamine"
+
+#: powerdevilscreenbrightnessagent.cpp:148
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Ekraani heleduse suurendamine"
+
+#: powerdevilscreenbrightnessagent.cpp:155
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Ekraani heleduse vähendamine"
+
+#: powerdevilscreenbrightnessagent.cpp:162
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Ekraani heleduse vähendamine"
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr ""

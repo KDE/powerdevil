@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 02:33+0000\n"
+"POT-Creation-Date: 2025-02-22 02:33+0000\n"
 "PO-Revision-Date: 2024-08-18 17:08+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -29,8 +29,7 @@ msgstr "Kde-l10n-ta@kde.org"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67
-#: actions/bundled/screenbrightnesscontrol.cpp:34
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -89,30 +88,6 @@ msgstr "விசைப்பலகை விளக்கை நிலைமா�
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "ஆற்றல் பயன்முறையை மாற்று"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:37
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "திரையின் பிரகாசத்தை கூட்டு"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:44
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "திரையின் பிரகாசத்தை 1% கூட்டு"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:51
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "திரையின் பிரகாசத்தை குறை"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:58
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "திரையின் பிரகாசத்தை 1% குறை"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
@@ -357,6 +332,30 @@ msgstr "ஆற்றலேற்றம் முடிந்த‍து"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "மின்கலத்தில் ஆற்றல் முழுதாக ஏறியுள்ளது."
+
+#: powerdevilscreenbrightnessagent.cpp:141
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "திரையின் பிரகாசத்தை கூட்டு"
+
+#: powerdevilscreenbrightnessagent.cpp:148
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "திரையின் பிரகாசத்தை 1% கூட்டு"
+
+#: powerdevilscreenbrightnessagent.cpp:155
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "திரையின் பிரகாசத்தை குறை"
+
+#: powerdevilscreenbrightnessagent.cpp:162
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "திரையின் பிரகாசத்தை 1% குறை"
 
 #~ msgid ""
 #~ "Battery level critical. Your computer will enter hibernation mode in 60 "

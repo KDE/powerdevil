@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 02:33+0000\n"
+"POT-Creation-Date: 2025-02-22 02:33+0000\n"
 "PO-Revision-Date: 2018-06-24 00:29+0100\n"
 "Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -36,8 +36,7 @@ msgstr ""
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67
-#: actions/bundled/screenbrightnesscontrol.cpp:34
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -96,30 +95,6 @@ msgstr "Slå tastaturbaklys på/av"
 #, fuzzy, kde-format
 msgid "Switch Power Profile"
 msgstr "Slå av etter"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:37
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Øk lysstyrke på skjermen"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:44
-#, fuzzy, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Øk lysstyrke på skjermen"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:51
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Reduser lysstyrke på skjermen"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:58
-#, fuzzy, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Reduser lysstyrke på skjermen"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
@@ -359,3 +334,27 @@ msgstr ""
 #, kde-format
 msgid "Battery now fully charged."
 msgstr ""
+
+#: powerdevilscreenbrightnessagent.cpp:141
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Øk lysstyrke på skjermen"
+
+#: powerdevilscreenbrightnessagent.cpp:148
+#, fuzzy, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Øk lysstyrke på skjermen"
+
+#: powerdevilscreenbrightnessagent.cpp:155
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Reduser lysstyrke på skjermen"
+
+#: powerdevilscreenbrightnessagent.cpp:162
+#, fuzzy, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Reduser lysstyrke på skjermen"

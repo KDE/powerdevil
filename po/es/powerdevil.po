@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 02:33+0000\n"
+"POT-Creation-Date: 2025-02-22 02:33+0000\n"
 "PO-Revision-Date: 2024-08-14 12:37+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -31,8 +31,7 @@ msgstr "ecuadra@eloihr.net"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67
-#: actions/bundled/screenbrightnesscontrol.cpp:34
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -91,30 +90,6 @@ msgstr "Conmutar la luz trasera del teclado"
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "Cambiar perfil de energía"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:37
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Aumentar el brillo de la pantalla"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:44
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Aumentar el brillo de la pantalla un 1%"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:51
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Disminuir el brillo de la pantalla"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:58
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Disminuir el brillo de la pantalla un 1%"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
@@ -363,6 +338,30 @@ msgstr "Carga completa"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batería está completamente cargada."
+
+#: powerdevilscreenbrightnessagent.cpp:141
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Aumentar el brillo de la pantalla"
+
+#: powerdevilscreenbrightnessagent.cpp:148
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Aumentar el brillo de la pantalla un 1%"
+
+#: powerdevilscreenbrightnessagent.cpp:155
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Disminuir el brillo de la pantalla"
+
+#: powerdevilscreenbrightnessagent.cpp:162
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Disminuir el brillo de la pantalla un 1%"
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr ""

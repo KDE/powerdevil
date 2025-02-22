@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 02:33+0000\n"
+"POT-Creation-Date: 2025-02-22 02:33+0000\n"
 "PO-Revision-Date: 2024-08-14 07:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -31,8 +31,7 @@ msgstr "netanel@gmx.com,ttv200@gmail.com,kde-l10n-he@kde.org"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67
-#: actions/bundled/screenbrightnesscontrol.cpp:34
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
@@ -91,30 +90,6 @@ msgstr "הפעלה/כיבוי של תאורת מקלדת"
 #, kde-format
 msgid "Switch Power Profile"
 msgstr "החלפת פרופיל צריכת חשמל"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:37
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "הבהרת המסך"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:44
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "הבהרת המסך ב־1%"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:51
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "החשכת המסך"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:58
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "החשכת המסך ב־1%"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, kde-format
@@ -358,6 +333,30 @@ msgstr "הטעינה הושלמה"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "הסוללה טעונה במלואה כעת."
+
+#: powerdevilscreenbrightnessagent.cpp:141
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "הבהרת המסך"
+
+#: powerdevilscreenbrightnessagent.cpp:148
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "הבהרת המסך ב־1%"
+
+#: powerdevilscreenbrightnessagent.cpp:155
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "החשכת המסך"
+
+#: powerdevilscreenbrightnessagent.cpp:162
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "החשכת המסך ב־1%"
 
 #~ msgid "Battery level critical. Your computer will shut down in 60 seconds."
 #~ msgstr "מצב הסוללה קריטי. המחשב ייכבה בעוד 60 שניות."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-17 02:33+0000\n"
+"POT-Creation-Date: 2025-02-22 02:33+0000\n"
 "PO-Revision-Date: 2013-06-21 05:51+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -46,8 +46,7 @@ msgstr "sairan@computer.org"
 
 #: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:45
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
-#: actions/bundled/powerprofile.cpp:67
-#: actions/bundled/screenbrightnesscontrol.cpp:34
+#: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, fuzzy, kde-format
 #| msgid "Profile Management"
 msgctxt "Name for powerdevil shortcuts category"
@@ -111,34 +110,6 @@ msgstr "Перенетақта жарықтық күйін ауыстыру"
 #| msgid "Import PowerDevil Profiles"
 msgid "Switch Power Profile"
 msgstr "PowerDevil профильдерін импорттау"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:37
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness"
-msgstr "Экранның жарықтығын үлкейту"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:44
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Increase Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Increase Screen Brightness by 1%"
-msgstr "Экранның жарықтығын үлкейту"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:51
-#, kde-format
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness"
-msgstr "Экранның жарықтығын азайту"
-
-#: actions/bundled/screenbrightnesscontrol.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Global shortcut"
-#| msgid "Decrease Screen Brightness"
-msgctxt "@action:inmenu Global shortcut"
-msgid "Decrease Screen Brightness by 1%"
-msgstr "Экранның жарықтығын азайту"
 
 #: controllers/backlightbrightness.cpp:190 controllers/kwinbrightness.cpp:132
 #, fuzzy, kde-format
@@ -422,6 +393,34 @@ msgstr "Толтыруы бітті"
 #| msgid "Your battery is now fully charged."
 msgid "Battery now fully charged."
 msgstr "Батареяңыз әбден толды."
+
+#: powerdevilscreenbrightnessagent.cpp:141
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness"
+msgstr "Экранның жарықтығын үлкейту"
+
+#: powerdevilscreenbrightnessagent.cpp:148
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Increase Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Increase Screen Brightness by 1%"
+msgstr "Экранның жарықтығын үлкейту"
+
+#: powerdevilscreenbrightnessagent.cpp:155
+#, kde-format
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness"
+msgstr "Экранның жарықтығын азайту"
+
+#: powerdevilscreenbrightnessagent.cpp:162
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu Global shortcut"
+#| msgid "Decrease Screen Brightness"
+msgctxt "@action:inmenu Global shortcut"
+msgid "Decrease Screen Brightness by 1%"
+msgstr "Экранның жарықтығын азайту"
 
 #, fuzzy
 #~| msgid ""
