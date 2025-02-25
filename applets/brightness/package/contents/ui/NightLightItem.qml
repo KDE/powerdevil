@@ -126,7 +126,7 @@ PlasmaComponents3.ItemDelegate {
 
                     Layout.fillWidth: true
 
-                    Accessible.onPressAction: toggled()
+                    Accessible.onPressAction: clicked()
 
                     KeyNavigation.up: root.KeyNavigation.up
                     KeyNavigation.tab: kcmButton
@@ -135,10 +135,11 @@ PlasmaComponents3.ItemDelegate {
 
                     Keys.onPressed: (event) => {
                         if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
-                            toggle();
+                            clicked()
+                            event.accepted = true
                         }
                     }
-                    onToggled: NightLightInhibitor.toggleInhibition()
+                    onClicked: NightLightInhibitor.toggleInhibition()
                 }
 
                 PlasmaComponents3.Button {
@@ -157,6 +158,7 @@ PlasmaComponents3.ItemDelegate {
                     Keys.onPressed: (event) => {
                         if (event.key == Qt.Key_Space || event.key == Qt.Key_Return || event.key == Qt.Key_Enter) {
                             clicked();
+                            event.accepted = true
                         }
                     }
                     onClicked: KCMLauncher.openSystemSettings("kcm_nightlight")
