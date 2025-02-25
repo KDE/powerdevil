@@ -27,6 +27,10 @@
 #include <KScreen/GetConfigOperation>
 #include <KScreen/Output>
 
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QDebug>
 #include <QPropertyAnimation>
 
@@ -34,6 +38,10 @@
 #include <ranges>
 
 using namespace Qt::Literals::StringLiterals;
+
+static const QString s_activeOutputServiceName = u"org.kde.KWin"_s;
+static const QString s_activeOutputPath = u"/KWin"_s;
+static const QString s_activeOutputInterface = u"org.kde.KWin"_s;
 
 ScreenBrightnessController::ScreenBrightnessController()
     : QObject()
@@ -403,28 +411,23 @@ void ScreenBrightnessController::adjustBrightnessRatio(const QString &displayId,
 
 void ScreenBrightnessController::adjustBrightnessRatio(double delta, const QString &sourceClientName, const QString &sourceClientContext, IndicatorHint hint)
 {
-    if (m_sortedDisplayIds.isEmpty()) {
-        qCWarning(POWERDEVIL) << "Adjust screen brightness ratio failed: no displays available to adjust";
-        return;
-    }
+    QDBusMessage message = QDBusMessage::createMethodCall(s_activeOutputServiceName, s_activeOutputPath, s_activeOutputInterface, u"activeOutputName"_s);
+    QDBusPendingReply<QString> reply = QDBusConnection::sessionBus().asyncCall(message);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
 
-    // if we're going to adjust brightness and accumulate tracking errors, let's make sure at least
-    // one display will actually change its brightness as a result
-    bool any = std::ranges::any_of(std::as_const(m_sortedDisplayIds), [this, delta](const QString &displayId) {
-        if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie) {
-            // return true if the display still has room to go in the direction of the delta
-            const PowerDevil::BrightnessLogic::BrightnessInfo bi = it->second.brightnessLogic.info();
-            return (bi.value < bi.valueMax && delta > 0.0) || (bi.value > bi.valueMin && delta < 0.0);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, delta, sourceClientName, sourceClientContext, hint](QDBusPendingCallWatcher *self) {
+        const QDBusPendingReply<QString> reply = *self;
+        self->deleteLater();
+
+        if (reply.isError()) {
+            qCWarning(POWERDEVIL) << "Adjust screen brightness ratio failed: could not get active output:" << reply.error().message();
+            return;
         }
-        return false;
-    });
-    if (!any) {
-        return;
-    }
 
-    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
+        const QString displayId = u"kwin:"_s + reply.value();
+
         adjustBrightnessRatio(displayId, delta, sourceClientName, sourceClientContext, hint);
-    }
+    });
 }
 
 void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogic::StepAdjustmentAction adjustment,
@@ -432,35 +435,30 @@ void ScreenBrightnessController::adjustBrightnessStep(PowerDevil::BrightnessLogi
                                                       const QString &sourceClientContext,
                                                       IndicatorHint hint)
 {
-    if (m_sortedDisplayIds.isEmpty()) {
-        qCWarning(POWERDEVIL) << "Adjust screen brightness step failed: no displays available to adjust";
-        return;
-    }
+    QDBusMessage message = QDBusMessage::createMethodCall(s_activeOutputServiceName, s_activeOutputPath, s_activeOutputInterface, u"activeOutputName"_s);
+    QDBusPendingReply<QString> reply = QDBusConnection::sessionBus().asyncCall(message);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
 
-    double referenceDisplayDelta = 0.0;
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, adjustment, sourceClientName, sourceClientContext, hint](QDBusPendingCallWatcher *self) {
+        const QDBusPendingReply<QString> reply = *self;
+        self->deleteLater();
 
-    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
-        if (const auto it = m_displaysById.find(displayId); it != m_displaysById.end() && !it->second.zombie) {
-            const auto &[id, info] = *it;
-            double oldRatio = info.brightnessLogic.valueAsRatio();
-
-            int referenceDisplayBrightness = info.brightnessLogic.adjusted(adjustment);
-            if (referenceDisplayBrightness < 0) {
-                return;
-            }
-            if (referenceDisplayBrightness != info.brightnessLogic.info().value) {
-                referenceDisplayDelta = info.brightnessLogic.ratio(referenceDisplayBrightness) - oldRatio;
-                break;
-            }
+        if (reply.isError()) {
+            qCWarning(POWERDEVIL) << "Adjust screen brightness ratio failed: could not get active output:" << reply.error().message();
+            return;
         }
-    }
 
-    if (referenceDisplayDelta == 0.0) {
-        return;
-    }
-    for (const QString &displayId : std::as_const(m_sortedDisplayIds)) {
-        adjustBrightnessRatio(displayId, referenceDisplayDelta, sourceClientName, sourceClientContext, hint);
-    }
+        const QString displayId = u"kwin:"_s + reply.value();
+
+        const auto it = m_displaysById.find(displayId);
+        if (it == m_displaysById.end()) {
+            qCWarning(POWERDEVIL) << "Adjust screen brightness step failed: no display with id" << displayId;
+            return;
+        }
+        const auto &[id, info] = *it;
+
+        setBrightness(displayId, info.brightnessLogic.adjusted(adjustment), sourceClientName, sourceClientContext, hint);
+    });
 }
 
 int ScreenBrightnessController::brightnessSteps(const QString &displayId) const

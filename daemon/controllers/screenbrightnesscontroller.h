@@ -109,7 +109,7 @@ public:
     void adjustBrightnessRatio(const QString &displayId, double delta, const QString &sourceClientName, const QString &sourceClientContext, IndicatorHint hint);
 
     /**
-     * Adjust display brightness for a predetermined set of displays by a @p delta between -1.0 and 1.0.
+     * Adjust display brightness for active display by a @p delta between -1.0 and 1.0.
      *
      * The @p delta will be converted to and clamped to the valid brightness range for each
      * affected display. @p sourceClientName and @p sourceClientContext are passed to the
@@ -120,13 +120,12 @@ public:
     void adjustBrightnessRatio(double delta, const QString &sourceClientName, const QString &sourceClientContext, IndicatorHint hint = SuppressIndicator);
 
     /**
-     * Adjust display brightness for a predetermined set of displays by a step up or down the
-     * brightness scale.
+     * Adjust display brightness for active display by a step up or down the brightness scale.
      *
      * The direction and size of each step are specified by @p step. The exact behavior of step
-     * movement and the set of affected displays are an implementation detail that may change
-     * over time. @p sourceClientName and @p sourceClientContext are passed to the
-     * `brightnessChanged` signal that is emitted when a change has indeed happened.
+     * movement is an implementation detail that may change over time. @p sourceClientName and
+     * @p sourceClientContext are passed to the `brightnessChanged` signal that is emitted when a
+     * change has indeed happened.
      *
      * @see brightnessChanged
      */
