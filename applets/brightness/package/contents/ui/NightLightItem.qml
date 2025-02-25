@@ -29,6 +29,7 @@ PlasmaComponents3.ItemDelegate {
     hoverEnabled: false
 
     Accessible.description: status.text
+    KeyNavigation.tab: inhibitionSwitch.visible ? inhibitionSwitch : kcmButton
 
     contentItem: RowLayout {
         spacing: Kirigami.Units.gridUnit
@@ -50,8 +51,6 @@ PlasmaComponents3.ItemDelegate {
                 }
             }
         }
-
-        KeyNavigation.tab: inhibitionSwitch.visible ? inhibitionSwitch : kcmButton
 
         ColumnLayout {
             Layout.fillWidth: true
