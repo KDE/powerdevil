@@ -47,9 +47,9 @@ int ProfileDefaults::defaultDimDisplayIdleTimeoutSec(const QString &profileGroup
 {
     if (isMobile) {
         return profileGroup == QStringLiteral("AC")        ? 300 // 5 minutes
-            : profileGroup == QStringLiteral("Battery")    ? 60 // 1 minute
+            : profileGroup == QStringLiteral("Battery")    ? 30 // half a minute
             : profileGroup == QStringLiteral("LowBattery") ? 30 // half a minute
-                                                           : 60; // any other profileGroup
+                                                           : 30; // any other profileGroup
     }
 
     return profileGroup == QStringLiteral("AC")        ? 300 // 5 minutes
@@ -67,10 +67,10 @@ bool ProfileDefaults::defaultTurnOffDisplayWhenIdle()
 int ProfileDefaults::defaultTurnOffDisplayIdleTimeoutSec(const QString &profileGroup, bool isMobile)
 {
     if (isMobile) {
-        return profileGroup == QStringLiteral("AC")        ? 600 // 10 minutes
-            : profileGroup == QStringLiteral("Battery")    ? 120 // 2 minutes
-            : profileGroup == QStringLiteral("LowBattery") ? 60 // 1 minute
-                                                           : 120; // any other profileGroup
+        return profileGroup == QStringLiteral("AC")        ? 60 // 1 minute
+            : profileGroup == QStringLiteral("Battery")    ? 60 // 1 minute
+            : profileGroup == QStringLiteral("LowBattery") ? 30 // half a minute
+                                                           : 60; // any other profileGroup
     }
 
     return profileGroup == QStringLiteral("AC")        ? 600 // 10 minutes
@@ -106,7 +106,7 @@ bool ProfileDefaults::defaultAutoSuspendWhenIdle(bool isVM, bool canSuspend)
 int ProfileDefaults::defaultAutoSuspendIdleTimeoutSec(const QString &profileGroup, bool isMobile)
 {
     if (isMobile) {
-        return profileGroup == QStringLiteral("AC")        ? 900 // 15 minutes
+        return profileGroup == QStringLiteral("AC")        ? 420 // 7 minutes
             : profileGroup == QStringLiteral("Battery")    ? 300 // 5 minutes
             : profileGroup == QStringLiteral("LowBattery") ? 300 // 5 minutes
                                                            : 300; // any other profileGroup
