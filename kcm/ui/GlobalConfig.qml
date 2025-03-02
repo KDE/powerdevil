@@ -370,6 +370,7 @@ Kirigami.ScrollablePage {
             readonly property real maxPageButtonImplicitWidth: Math.max(
                 firstRelatedPage.implicitWidth,
                 keyboardShortcutsPage.implicitWidth,
+                screenLockingPage.implicitWidth,
                 desktopSessionsPage.implicitWidth,
                 activitiesPage.implicitWidth,
             )
@@ -395,6 +396,14 @@ Kirigami.ScrollablePage {
                 Accessible.name: i18n("Open \"Shortcuts\" settings page, \"Power Management\" section")
                 Layout.preferredWidth: relatedPagesLayout.maxPageButtonImplicitWidth
                 onClicked: KCM.KCMLauncher.openSystemSettings("kcm_keys", "org_kde_powerdevil")
+            }
+            MostUsedItem {
+                id: screenLockingPage
+                kcmIcon: "preferences-desktop-user-password"
+                kcmName: i18nc("@text:button Name of KCM", "Screen Locking")
+                Accessible.name: i18n("Open \"Screen Locking\" settings page")
+                Layout.preferredWidth: relatedPagesLayout.maxPageButtonImplicitWidth
+                onClicked: KCM.KCMLauncher.openSystemSettings("kcm_screenlocker")
             }
             MostUsedItem {
                 id: desktopSessionsPage
