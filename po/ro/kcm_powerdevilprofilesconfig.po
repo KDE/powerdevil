@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:43+0000\n"
+"POT-Creation-Date: 2025-03-03 00:43+0000\n"
 "PO-Revision-Date: 2024-02-25 17:43+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -453,19 +453,19 @@ msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Pagini similare:"
 
-#: ui/GlobalConfig.qml:382
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Notificări: Gestiunea energiei"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Deschide pagina de configurare „Notificări”, secțiunea „Gestiunea energiei”"
 
-#: ui/GlobalConfig.qml:393
+#: ui/GlobalConfig.qml:394
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "@text:button Name of KCM, plus Power Management notification category"
@@ -474,31 +474,43 @@ msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "Notificări: Gestiunea energiei"
 
-#: ui/GlobalConfig.qml:395
+#: ui/GlobalConfig.qml:396
 #, fuzzy, kde-format
 #| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr ""
 "Deschide pagina de configurare „Notificări”, secțiunea „Gestiunea energiei”"
 
-#: ui/GlobalConfig.qml:402
+#: ui/GlobalConfig.qml:403
+#, kde-format
+msgctxt "@text:button Name of KCM"
+msgid "Screen Locking"
+msgstr ""
+
+#: ui/GlobalConfig.qml:404
+#, fuzzy, kde-format
+#| msgid "Open \"Desktop Session\" settings page"
+msgid "Open \"Screen Locking\" settings page"
+msgstr "Deschide pagina de configurare „Sesiune de birou”"
+
+#: ui/GlobalConfig.qml:411
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Sesiune de birou"
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:412
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Deschide pagina de configurare „Sesiune de birou”"
 
-#: ui/GlobalConfig.qml:410
+#: ui/GlobalConfig.qml:419
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Activități"
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:420
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Deschide pagina de configurare „Activități”"

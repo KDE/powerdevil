@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:43+0000\n"
+"POT-Creation-Date: 2025-03-03 00:43+0000\n"
 "PO-Revision-Date: 2010-12-23 11:25+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -423,48 +423,59 @@ msgctxt "@label:button"
 msgid "Related pages:"
 msgstr ""
 
-#: ui/GlobalConfig.qml:382
+#: ui/GlobalConfig.qml:383
 #, fuzzy, kde-format
 #| msgid "Import Power Management Profiles"
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "પાવર વ્યવસ્થાપન રૂપરેખાને આયાત કરો"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 
-#: ui/GlobalConfig.qml:393
+#: ui/GlobalConfig.qml:394
 #, fuzzy, kde-format
 #| msgid "Import Power Management Profiles"
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "પાવર વ્યવસ્થાપન રૂપરેખાને આયાત કરો"
 
-#: ui/GlobalConfig.qml:395
+#: ui/GlobalConfig.qml:396
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr ""
 
-#: ui/GlobalConfig.qml:402
+#: ui/GlobalConfig.qml:403
+#, kde-format
+msgctxt "@text:button Name of KCM"
+msgid "Screen Locking"
+msgstr ""
+
+#: ui/GlobalConfig.qml:404
+#, kde-format
+msgid "Open \"Screen Locking\" settings page"
+msgstr ""
+
+#: ui/GlobalConfig.qml:411
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr ""
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:412
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr ""
 
-#: ui/GlobalConfig.qml:410
+#: ui/GlobalConfig.qml:419
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr ""
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:420
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr ""

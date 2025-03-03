@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-11 00:43+0000\n"
+"POT-Creation-Date: 2025-03-03 00:43+0000\n"
 "PO-Revision-Date: 2025-02-14 22:01-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -442,50 +442,62 @@ msgctxt "@label:button"
 msgid "Related pages:"
 msgstr "Páginas relacionadas:"
 
-#: ui/GlobalConfig.qml:382
+#: ui/GlobalConfig.qml:383
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
 msgstr "Notificações: gerenciamento de energia"
 
-#: ui/GlobalConfig.qml:384
+#: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr ""
 "Abrir a página de configurações de \"Notificações\", seção \"Gerenciamento "
 "de energia\""
 
-#: ui/GlobalConfig.qml:393
+#: ui/GlobalConfig.qml:394
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "Atalhos: gerenciamento de energia"
 
-#: ui/GlobalConfig.qml:395
+#: ui/GlobalConfig.qml:396
 #, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr ""
 "Abrir a página de configurações de \"Atalhos\", seção \"Gerenciamento de "
 "energia\""
 
-#: ui/GlobalConfig.qml:402
+#: ui/GlobalConfig.qml:403
+#, kde-format
+msgctxt "@text:button Name of KCM"
+msgid "Screen Locking"
+msgstr ""
+
+#: ui/GlobalConfig.qml:404
+#, fuzzy, kde-format
+#| msgid "Open \"Desktop Session\" settings page"
+msgid "Open \"Screen Locking\" settings page"
+msgstr "Abrir a página de configurações da sessão de área de trabalho"
+
+#: ui/GlobalConfig.qml:411
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Desktop Session"
 msgstr "Sessão de área de trabalho"
 
-#: ui/GlobalConfig.qml:403
+#: ui/GlobalConfig.qml:412
 #, kde-format
 msgid "Open \"Desktop Session\" settings page"
 msgstr "Abrir a página de configurações da sessão de área de trabalho"
 
-#: ui/GlobalConfig.qml:410
+#: ui/GlobalConfig.qml:419
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Activities"
 msgstr "Atividades"
 
-#: ui/GlobalConfig.qml:411
+#: ui/GlobalConfig.qml:420
 #, kde-format
 msgid "Open \"Activities\" settings page"
 msgstr "Abrir a página de configurações de \"Atividades\""
