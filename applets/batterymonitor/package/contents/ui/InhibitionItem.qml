@@ -210,7 +210,8 @@ PlasmaComponents3.ItemDelegate {
                     visible: root.isManuallyInhibited
 
                     iconSource: "user"
-                    text: i18nc("Minimize the length of this string as much as possible", "You have manually blocked sleep and screen locking.")
+                    // EU Regulation 2023/826 requires a warning if user disables auto suspend.
+                    text: i18nc("Minimize the length of this string as much as possible", "You have manually blocked sleep and screen locking. This will result in higher energy consumption.")
 
                     PlasmaComponents3.Button {
                         id: manualUninhibitionButton
