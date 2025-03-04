@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-03 00:43+0000\n"
-"PO-Revision-Date: 2025-02-11 11:27+0100\n"
+"PO-Revision-Date: 2025-03-03 11:05+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -467,13 +467,12 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Scherm vergrendelen"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Instellingenpagina openen van \"Bureaubladsessie\""
+msgstr "Instellingenpagina openen van \"Scherm vergrendelen\""
 
 #: ui/GlobalConfig.qml:411
 #, kde-format

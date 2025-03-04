@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-03 00:43+0000\n"
-"PO-Revision-Date: 2025-02-12 17:22+0400\n"
+"PO-Revision-Date: 2025-03-03 22:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -492,13 +492,12 @@ msgstr "افتح صفحة إعدادات \"الاختصارات\"، قسم \"إ�
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "قفل الشاشة"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "افتح صفحة إعدادات \"جلسة سطح المكتب\""
+msgstr "افتح صفحة إعدادات \"قفل الشاشة\""
 
 #: ui/GlobalConfig.qml:411
 #, kde-format

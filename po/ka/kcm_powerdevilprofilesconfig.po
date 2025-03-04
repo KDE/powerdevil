@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-03 00:43+0000\n"
-"PO-Revision-Date: 2025-02-11 04:12+0100\n"
+"PO-Revision-Date: 2025-03-03 04:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -463,13 +463,12 @@ msgstr "გახსენით \"მალსახმობების\" მ
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "ეკრანის დაბლოკვა"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "\"სამუშაო მაგიდის სესიის\" მორგების გვერდის გახსნა"
+msgstr "\"ეკრანის დაბლოკვის\" მორგების გვერდის გახსნა"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format

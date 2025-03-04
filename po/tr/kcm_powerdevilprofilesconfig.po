@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-03 00:43+0000\n"
-"PO-Revision-Date: 2025-02-11 10:34+0300\n"
+"PO-Revision-Date: 2025-03-03 13:44+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -465,13 +465,12 @@ msgstr "“Kısayollar” ayarları sayfasında “Güç Yönetimi” bölümün
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Ekranı Kilitle"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "“Masaüstü Oturumu” ayarları sayfasını açın"
+msgstr "“Ekranı Kilitle” ayarları sayfasını açın"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
