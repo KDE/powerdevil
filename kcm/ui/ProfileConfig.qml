@@ -82,6 +82,7 @@ Kirigami.FormLayout {
             }
             onActivated: {
                 profileSettings.autoSuspendAction = currentValue;
+                suspendComplianceWarning.showIfNeeded();
             }
         }
 
@@ -113,10 +114,14 @@ Kirigami.FormLayout {
             configuredValue: profileSettings.autoSuspendIdleTimeoutSec
             configuredDisplayUnit: model[indexOfValue(configuredValue)]?.unit ?? DurationPromptDialog.Unit.Minutes
 
-            onRegularValueActivated: { profileSettings.autoSuspendIdleTimeoutSec = currentValue; }
+            onRegularValueActivated: {
+                profileSettings.autoSuspendIdleTimeoutSec = currentValue;
+                suspendComplianceWarning.showIfNeeded();
+            }
             onCustomDurationAccepted: {
                 profileSettings.autoSuspendIdleTimeoutSec = valueToUnit(
                     customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+                suspendComplianceWarning.showIfNeeded();
             }
 
             onConfiguredValueOptionMissing: {
@@ -136,6 +141,27 @@ Kirigami.FormLayout {
                 configObject: profileSettings
                 settingName: "AutoSuspendIdleTimeoutSec"
                 extraEnabledConditions: autoSuspendActionCombo.currentValue !== PD.PowerDevil.PowerButtonAction.NoAction
+            }
+        }
+    }
+
+    // EU Regulation 2023/826 requires automatic suspend after max. 20 minutes and a warning
+    // if the user disables auto suspend.
+    Kirigami.InlineMessage {
+        id: suspendComplianceWarning
+        Layout.fillWidth: true
+        Kirigami.FormData.isSection: true
+        type: Kirigami.MessageType.Warning
+        visible: text !== ""
+
+        // Not a binding, it should only show when user explicitly changes the setting.
+        function showIfNeeded() {
+            if (profileSettings.autoSuspendAction === PD.PowerDevil.PowerButtonAction.NoAction) {
+                text = i18nc("@info:status", "Disabling automatic suspend will result in higher energy consumption.");
+            } else if (profileSettings.autoSuspendIdleTimeoutSec > 20 * 60) {
+                text = i18nc("@info:status A long duration until suspend/shutdown", "A long duration will result in higher energy consumption.");
+            } else {
+                text = "";
             }
         }
     }
