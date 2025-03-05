@@ -714,14 +714,14 @@ msgstr "锁屏后关闭屏幕等待时间："
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 second"
 msgid_plural "When locked: %1 seconds"
-msgstr[0] "锁定 %1 秒后"
+msgstr[0] "锁屏 %1 秒后"
 
 #: ui/ProfileConfig.qml:510
 #, kde-format
 msgctxt "@option:combobox Turn off screen (caution: watch for string length)"
 msgid "When locked: %1 minute"
 msgid_plural "When locked: %1 minutes"
-msgstr[0] "锁定 %1 分钟后"
+msgstr[0] "锁屏 %1 分钟后"
 
 #: ui/ProfileConfig.qml:517
 #, kde-format

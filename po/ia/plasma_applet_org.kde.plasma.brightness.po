@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
 #
-# SPDX-FileCopyrightText: 2023, 2024 giovanni <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-26 02:36+0000\n"
-"PO-Revision-Date: 2024-09-03 14:12+0200\n"
+"PO-Revision-Date: 2025-03-04 15:41+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -132,13 +132,13 @@ msgstr "Lumine de nocte in transistion de vispere (complete per %1)"
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
-msgstr "Lunime de Nocte in transition de vispere previste per %1"
+msgstr "Lumine de Nocte in transition de vispere previste per %1"
 
 #: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
-msgstr "Lunime de Nocte transition de mattino previste per %1"
+msgstr "Lumine de Nocte transition de mattino previste per %1"
 
 #: package/contents/ui/main.qml:153
 #, kde-format
@@ -254,7 +254,7 @@ msgstr "Transition a nocte complete per:"
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
-msgstr "Tramsition a die previste per:"
+msgstr "Transition a die previste per:"
 
 #: package/contents/ui/PopupDialog.qml:121
 #, kde-format
