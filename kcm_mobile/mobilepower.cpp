@@ -53,10 +53,10 @@ const QMap<int, qreal> idxToSeconds = {
 MobilePower::MobilePower(QObject *parent, const KPluginMetaData &metaData)
     : KQuickConfigModule(parent, metaData)
     , m_batteries{new BatteryModel(this)}
-    , m_profilesConfig{KSharedConfig::openConfig("powerdevilrc", KConfig::SimpleConfig | KConfig::CascadeConfig)}
+    , m_profilesConfig{KSharedConfig::openConfig(QStringLiteral("powerdevilrc"), KConfig::SimpleConfig | KConfig::CascadeConfig)}
 {
     qmlRegisterUncreatableType<BatteryModel>("org.kde.kcm.power.mobile.private", 1, 0, "BatteryModel", QStringLiteral("Use BatteryModel"));
-    qmlRegisterUncreatableType<Solid::Battery>("org.kde.kcm.power.mobile.private", 1, 0, "Battery", "");
+    qmlRegisterUncreatableType<Solid::Battery>("org.kde.kcm.power.mobile.private", 1, 0, "Battery", QStringLiteral(""));
     qmlRegisterType<StatisticsProvider>("org.kde.kcm.power.mobile.private", 1, 0, "HistoryModel");
 
     setButtons(KQuickConfigModule::NoAdditionalButton);
@@ -68,16 +68,16 @@ void MobilePower::load()
     // we assume that the [AC], [Battery], and [LowBattery] groups have the same value
     // (which is done by this kcm)
 
-    KConfigGroup batteryGroup = m_profilesConfig->group("Battery");
+    KConfigGroup batteryGroup = m_profilesConfig->group(QStringLiteral("Battery"));
 
-    if (batteryGroup.hasGroup("Display")) {
+    if (batteryGroup.hasGroup(QStringLiteral("Display"))) {
         qDebug() << "[Battery][Display] group is listed";
-        KConfigGroup displaySettings = batteryGroup.group("Display");
-        m_dimScreenTime = displaySettings.readEntry("DimDisplayIdleTimeoutSec", 30);
-        m_dimScreen = displaySettings.readEntry("DimDisplayWhenIdle", true);
+        KConfigGroup displaySettings = batteryGroup.group(QStringLiteral("Display"));
+        m_dimScreenTime = displaySettings.readEntry(QStringLiteral("DimDisplayIdleTimeoutSec"), 30);
+        m_dimScreen = displaySettings.readEntry(QStringLiteral("DimDisplayWhenIdle"), true);
 
-        m_screenOffTime = displaySettings.readEntry("TurnOffDisplayIdleTimeoutSec", 60);
-        m_screenOff = displaySettings.readEntry("TurnOffDisplayWhenIdle", true);
+        m_screenOffTime = displaySettings.readEntry(QStringLiteral("TurnOffDisplayIdleTimeoutSec"), 60);
+        m_screenOff = displaySettings.readEntry(QStringLiteral("TurnOffDisplayWhenIdle"), true);
     } else {
         qDebug() << "[Battery][Display] Group is not listed";
         m_dimScreenTime = 30;
@@ -86,10 +86,10 @@ void MobilePower::load()
         m_screenOff = true;
     }
 
-    if (batteryGroup.hasGroup("SuspendAndShutdown")) {
+    if (batteryGroup.hasGroup(QStringLiteral("SuspendAndShutdown"))) {
         qDebug() << "[Battery][SuspendAndShutdown] group is listed";
-        KConfigGroup suspendSessionGroup = batteryGroup.group("SuspendAndShutdown");
-        m_suspendSessionTime = suspendSessionGroup.readEntry("AutoSuspendIdleTimeoutSec", 300);
+        KConfigGroup suspendSessionGroup = batteryGroup.group(QStringLiteral("SuspendAndShutdown"));
+        m_suspendSessionTime = suspendSessionGroup.readEntry(QStringLiteral("AutoSuspendIdleTimeoutSec"), 300);
     } else {
         qDebug() << "[Battery][SuspendAndShutdown] is not listed";
         m_suspendSessionTime = 300;
@@ -99,32 +99,34 @@ void MobilePower::load()
 void MobilePower::save()
 {
     // we set all profiles at the same time, since our UI is a simple global toggle
-    KConfigGroup acGroup = m_profilesConfig->group("AC");
-    KConfigGroup batteryGroup = m_profilesConfig->group("Battery");
-    KConfigGroup lowBatteryGroup = m_profilesConfig->group("LowBattery");
+    KConfigGroup acGroup = m_profilesConfig->group(QStringLiteral("AC"));
+    KConfigGroup batteryGroup = m_profilesConfig->group(QStringLiteral("Battery"));
+    KConfigGroup lowBatteryGroup = m_profilesConfig->group(QStringLiteral("LowBattery"));
 
-    acGroup.group("Display").writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
-    acGroup.group("Display").writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
-    batteryGroup.group("Display").writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
-    batteryGroup.group("Display").writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
-    lowBatteryGroup.group("Display").writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
-    lowBatteryGroup.group("Display").writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
+    acGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
+    acGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
+    batteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
+    batteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
+    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
+    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
 
-    acGroup.group("Display").writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
-    acGroup.group("Display").writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
-    batteryGroup.group("Display").writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
-    batteryGroup.group("Display").writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
-    lowBatteryGroup.group("Display").writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
-    lowBatteryGroup.group("Display").writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
+    acGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
+    acGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
+    batteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
+    batteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
+    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
+    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
 
-    acGroup.group("SuspendAndShutdown").writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
-    batteryGroup.group("SuspendAndShutdown").writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
-    lowBatteryGroup.group("SuspendAndShutdown").writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
+    acGroup.group(QStringLiteral("SuspendAndShutdown")).writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
+    batteryGroup.group(QStringLiteral("SuspendAndShutdown")).writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
+    lowBatteryGroup.group(QStringLiteral("SuspendAndShutdown")).writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
 
     m_profilesConfig->sync();
 
-    QDBusMessage call =
-        QDBusMessage::createMethodCall("org.kde.Solid.PowerManagement", "/org/kde/Solid/PowerManagement", "org.kde.Solid.PowerManagement", "refreshStatus");
+    QDBusMessage call = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                       QStringLiteral("/org/kde/Solid/PowerManagement"),
+                                                       QStringLiteral("org.kde.Solid.PowerManagement"),
+                                                       QStringLiteral("refreshStatus"));
     QDBusConnection::sessionBus().asyncCall(call);
 }
 

@@ -34,7 +34,7 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QHash<int, QByteArray> roleNames() const override;
 
-signals:
+Q_SIGNALS:
     void countChanged();
 
 private:

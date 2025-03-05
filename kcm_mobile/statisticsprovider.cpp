@@ -91,7 +91,7 @@ QVariantList StatisticsProvider::asPoints() const
 {
     QVariantList points;
     points.reserve(m_values.count());
-    foreach (const HistoryReply &h, m_values) {
+    for (const HistoryReply &h : m_values) {
         points.append(QPointF(h.time, h.value));
     }
 
@@ -177,7 +177,7 @@ void StatisticsProvider::load()
             return;
         }
 
-        foreach (const HistoryReply &r, reply.value()) {
+        for (const HistoryReply &r : reply.value()) {
             if (r.value > 0) { // we get back some values which contain no value, possibly to indicate if charging changes, ignore them
                 m_values.prepend(r);
             }
