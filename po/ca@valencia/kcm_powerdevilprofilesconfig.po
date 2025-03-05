@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-03 00:43+0000\n"
-"PO-Revision-Date: 2025-02-11 10:02+0100\n"
+"PO-Revision-Date: 2025-03-03 08:58+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -469,13 +469,12 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Bloqueig de la pantalla"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Obri la pàgina de configuració «Sessió d'escriptori»"
+msgstr "Obri la pàgina de configuració «Bloqueig de la pantalla»"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format

@@ -1,4 +1,4 @@
-# Spanish translations for powerdevilprofilesconfig.po package.
+# Spanish translations for kcm_powerdevilprofilesconfig.po package.
 # Copyright (C) 2014-2025 This_file_is_part_of_KDE
 # This file is distributed under the same license as the powerdevil package.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-03 00:43+0000\n"
-"PO-Revision-Date: 2025-02-11 19:55+0100\n"
+"PO-Revision-Date: 2025-03-04 17:49+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -470,13 +470,12 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Bloqueo de la pantalla"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Abrir la página de preferencias «Sesión de escritorio»"
+msgstr "Abrir la página de preferencias «Bloqueo de la pantalla»"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -504,7 +503,7 @@ msgstr "Abrir la página de preferencias de las «Actividades»"
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr "Preferencias a&vanzadas de energía..."
+msgstr "Preferencias a&vanzadas de energía…"
 
 #: ui/main.qml:44
 #, kde-format
@@ -587,7 +586,7 @@ msgstr[1] "Tras %1 minutos"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr "Personalizado..."
+msgstr "Personalizado…"
 
 #: ui/ProfileConfig.qml:148
 #, kde-format
@@ -769,7 +768,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr "Personalizado..."
+msgstr "Personalizado…"
 
 #: ui/ProfileConfig.qml:504
 #, kde-format
@@ -955,13 +954,13 @@ msgstr "Introduzca orden o archivo de guion"
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Introduzca una orden o escoja un archivo de guion..."
+msgstr "Introduzca una orden o escoja un archivo de guion…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr "Escoger..."
+msgstr "Escoger…"
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
