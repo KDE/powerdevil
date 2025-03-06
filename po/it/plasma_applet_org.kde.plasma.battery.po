@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-16 00:43+0000\n"
+"POT-Creation-Date: 2025-03-06 00:43+0000\n"
 "PO-Revision-Date: 2024-10-16 14:31+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -173,7 +173,7 @@ msgstr ""
 "schermo (motivo sconosciuto)"
 
 #: package/contents/ui/InhibitionItem.qml:154
-#: package/contents/ui/InhibitionItem.qml:287
+#: package/contents/ui/InhibitionItem.qml:288
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
@@ -207,7 +207,7 @@ msgid "Unblock"
 msgstr "Sblocca"
 
 #: package/contents/ui/InhibitionItem.qml:182
-#: package/contents/ui/InhibitionItem.qml:308
+#: package/contents/ui/InhibitionItem.qml:309
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -216,7 +216,7 @@ msgid "Only this time"
 msgstr "Solo questa volta"
 
 #: package/contents/ui/InhibitionItem.qml:187
-#: package/contents/ui/InhibitionItem.qml:313
+#: package/contents/ui/InhibitionItem.qml:314
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -224,34 +224,38 @@ msgctxt ""
 msgid "Every time for this app and reason"
 msgstr "Ogni volta per questa applicazione e per questo motivo"
 
-#: package/contents/ui/InhibitionItem.qml:213
-#, kde-format
+#: package/contents/ui/InhibitionItem.qml:214
+#, fuzzy, kde-format
+#| msgctxt "Minimize the length of this string as much as possible"
+#| msgid "You have manually blocked sleep and screen locking."
 msgctxt "Minimize the length of this string as much as possible"
-msgid "You have manually blocked sleep and screen locking."
+msgid ""
+"You have manually blocked sleep and screen locking. This will result in "
+"higher energy consumption."
 msgstr "Hai bloccato manualmente la sospensione e il blocco dello schermo."
 
-#: package/contents/ui/InhibitionItem.qml:218
+#: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
 msgstr "Sblocca"
 
-#: package/contents/ui/InhibitionItem.qml:237
-#: package/contents/ui/InhibitionItem.qml:360
+#: package/contents/ui/InhibitionItem.qml:238
+#: package/contents/ui/InhibitionItem.qml:361
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr ""
 "Impossibile sbloccare la sospensione automatica e il blocco dello schermo"
 
-#: package/contents/ui/InhibitionItem.qml:240
-#: package/contents/ui/InhibitionItem.qml:363
+#: package/contents/ui/InhibitionItem.qml:241
+#: package/contents/ui/InhibitionItem.qml:364
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr ""
 "Impossibile bloccare la sospensione automatica e il blocco dello schermo"
 
-#: package/contents/ui/InhibitionItem.qml:258
+#: package/contents/ui/InhibitionItem.qml:259
 #, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
@@ -263,7 +267,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%1 applicazioni impediscono la sospensione e il blocco dello schermo:"
 
-#: package/contents/ui/InhibitionItem.qml:285
+#: package/contents/ui/InhibitionItem.qml:286
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
@@ -271,8 +275,8 @@ msgstr ""
 "A %1 è stato impedito di bloccare la sospensione e il blocco dello schermo "
 "per %2"
 
-#: package/contents/ui/InhibitionItem.qml:298
-#: package/contents/ui/InhibitionItem.qml:326
+#: package/contents/ui/InhibitionItem.qml:299
+#: package/contents/ui/InhibitionItem.qml:327
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -280,7 +284,7 @@ msgctxt ""
 msgid "Block Again"
 msgstr "Blocca ancora"
 
-#: package/contents/ui/InhibitionItem.qml:341
+#: package/contents/ui/InhibitionItem.qml:342
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
