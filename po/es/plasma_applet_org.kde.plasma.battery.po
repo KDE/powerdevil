@@ -1,10 +1,10 @@
-# translation of plasma_applet_battery.po to Spanish
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Translation of plasma_applet_battery.po to Spanish
+# Copyright (C) 2007-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the powerdevil package.
 #
 # SPDX-FileCopyrightText: 2007 Santiago Fernández Sancho <santi@kde-es.org>
 # SPDX-FileCopyrightText: 2007, 2008 Jaime Robles <jaime@kde.org>
-# SPDX-FileCopyrightText: 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2009, 2010, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 # SPDX-FileCopyrightText: 2010, 2011 Cristina Yenyxe González García <the.blue.valkyrie@gmail.com>
 # SPDX-FileCopyrightText: 2012 Javier Vinal <fjvinal@gmail.com>
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2024-10-16 13:26+0200\n"
+"PO-Revision-Date: 2025-03-06 20:30+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "com>\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: package/contents/ui/BatteryItem.qml:99
@@ -78,7 +78,7 @@ msgstr "Tiempo restante:"
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
-msgstr "Estimando..."
+msgstr "Estimando…"
 
 #: package/contents/ui/BatteryItem.qml:220
 #, kde-format
@@ -231,14 +231,14 @@ msgid "Every time for this app and reason"
 msgstr "Siempre para esta aplicación y motivo"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Ha bloqueado manualmente la suspensión y el bloqueo de pantalla."
+msgstr ""
+"Ha bloqueado manualmente la suspensión y el bloqueo de pantalla. Esto "
+"provocará que se consuma más energía."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
@@ -414,7 +414,7 @@ msgstr ""
 #: package/contents/ui/main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
-msgstr "Mo&strar información sobre la energía..."
+msgstr "Mo&strar información sobre la energía…"
 
 #: package/contents/ui/main.qml:307
 #, kde-format
@@ -426,7 +426,7 @@ msgstr ""
 #: package/contents/ui/main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Configurar la gestión de energía..."
+msgstr "&Configurar la gestión de energía…"
 
 #: package/contents/ui/PowerProfileItem.qml:41
 #, kde-format

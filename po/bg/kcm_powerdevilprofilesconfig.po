@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-02-13 09:18+0100\n"
+"PO-Revision-Date: 2025-03-06 19:58+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -470,13 +470,12 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Заключване на екрана"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Отваряне на настройки за Сесия на работния плот"
+msgstr "Отваряне на настройки за „Заключване на екрана“"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -594,12 +593,14 @@ msgstr "Потребителски…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Деактивирането на автоматичното спиране ще доведе до по-висока консумация на "
+"енергия."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Дългата продължителност ще доведе до по-висока консумация на енергия."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format

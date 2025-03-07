@@ -6,7 +6,7 @@
 # Josep M. Ferrer <txemaq@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma-mobile\n"
+"Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
 "PO-Revision-Date: 2024-01-04 08:26+0200\n"
@@ -281,10 +281,3 @@ msgstr "Apaga la pantalla després de"
 msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
 msgid "Suspend device after"
 msgstr "Suspèn el dispositiu després de"
-
-#~ msgid "%"
-#~ msgstr "%"
-
-#~ msgctxt "%1 is value, %2 is unit"
-#~ msgid "%1%2"
-#~ msgstr "%1%2"
