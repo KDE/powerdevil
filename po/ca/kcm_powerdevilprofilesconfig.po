@@ -1,16 +1,16 @@
 # Translation of kcm_powerdevilprofilesconfig.po to Catalan
-# Copyright (C) 2010-2024 This_file_is_part_of_KDE
+# Copyright (C) 2010-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # SPDX-FileCopyrightText: 2023, 2024 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2017, 2020, 2021, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2017, 2020, 2021, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-12-18 11:00+0100\n"
+"PO-Revision-Date: 2025-03-07 09:33+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -564,12 +564,14 @@ msgstr "Personalitzat…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"La desactivació de la suspensió automàtica donarà lloc a un consum d'energia "
+"més alt."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Una durada més llarga donarà lloc a un consum d'energia més alt."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
@@ -962,55 +964,3 @@ msgstr "Tria d'un fitxer de script"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Durada personalitzada"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "The action you had previously configured for after a period of inactivity "
-#~ "is now unsupported on your system. Please select a different one."
-#~ msgstr ""
-#~ "L'acció que havíeu configurat prèviament per a després d'un període "
-#~ "d'inactivitat ara no és compatible amb el sistema. Seleccioneu-ne una de "
-#~ "diferent."
-
-#~ msgctxt ""
-#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
-#~ "the system is idle"
-#~ msgid "A&fter a period of inactivity:"
-#~ msgstr "D&esprés d'un període d'inactivitat:"
-
-#~ msgctxt "@text:action:menu Script command to execute"
-#~ msgid "After a period of inactivity"
-#~ msgstr "Després d'un període d'inactivitat"
-
-#~ msgctxt "@label:textfield Script command to execute"
-#~ msgid "After a period of inacti&vity:"
-#~ msgstr "Després d'un període d'inacti&vitat:"
-
-#~ msgctxt "@label:spinbox After X minutes"
-#~ msgid "Execute script after:"
-#~ msgstr "Executa l'script després de:"
-
-#~ msgid "Select executable file…"
-#~ msgstr "Seleccioneu un fitxer executable…"
-
-#~ msgid "Select executable file"
-#~ msgstr "Seleccioneu un fitxer executable"
-
-#~ msgctxt ""
-#~ "List of recognized strings for 'minutes' in a time delay expression such "
-#~ "as 'after 10 min'"
-#~ msgid "m|min|mins|minutes"
-#~ msgstr "m|min|mins|minuts"
-
-#~ msgctxt ""
-#~ "List of recognized strings for 'seconds' in a time delay expression such "
-#~ "as 'after 10 sec'"
-#~ msgid "s|sec|secs|seconds"
-#~ msgstr "s|seg|segs|segons"
-
-#~ msgctxt ""
-#~ "Validator/extractor regular expression for a time delay number and unit, "
-#~ "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds "
-#~ "as %1 and %2."
-#~ msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-#~ msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"

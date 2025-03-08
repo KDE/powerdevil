@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-10-16 09:41+0200\n"
+"PO-Revision-Date: 2025-03-07 07:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -224,14 +224,14 @@ msgid "Every time for this app and reason"
 msgstr "Vsakič za to aplikacijo in razlog"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Ročno ste preprečili spanje in zaklepanje zaslona."
+msgstr ""
+"Ročno ste blokirali spanje in zaklepanje zaslona. To bo povzročilo večjo "
+"porabo energije."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format

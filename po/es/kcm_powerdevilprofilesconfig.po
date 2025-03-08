@@ -1,15 +1,15 @@
-# Spanish translations for powerdevilprofilesconfig.po package.
-# Copyright (C) 2014 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for kcm_powerdevilprofilesconfig.po package.
+# Copyright (C) 2014-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the powerdevil package.
 #
 # Automatically generated, 2014.
-# SPDX-FileCopyrightText: 2014, 2020, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2014, 2020, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: powerdevilprofilesconfig\n"
+"Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-12-19 01:25+0100\n"
+"PO-Revision-Date: 2025-03-07 16:39+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -473,7 +473,7 @@ msgstr "Abrir la página de preferencias de las «Actividades»"
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr "Preferencias a&vanzadas de energía..."
+msgstr "Preferencias a&vanzadas de energía…"
 
 #: ui/main.qml:44
 #, kde-format
@@ -556,19 +556,20 @@ msgstr[1] "Tras %1 minutos"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr "Personalizado..."
+msgstr "Personalizado…"
 
 #: ui/ProfileConfig.qml:160
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"La desactivación de la suspensión automática hará que se consuma más energía."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Una duración grande hará que se consuma más energía."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
@@ -750,7 +751,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr "Personalizado..."
+msgstr "Personalizado…"
 
 #: ui/ProfileConfig.qml:530
 #, kde-format
@@ -936,13 +937,13 @@ msgstr "Introduzca orden o archivo de guion"
 #, kde-format
 msgctxt "@label:textbox accessible"
 msgid "Enter command or choose script file"
-msgstr "Introduzca una orden o escoja un archivo de guion..."
+msgstr "Introduzca una orden o escoja un archivo de guion…"
 
 #: ui/RunScriptEdit.qml:53
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr "Escoger..."
+msgstr "Escoger…"
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
@@ -961,84 +962,3 @@ msgstr "Escoger archivo de guion"
 msgctxt "@title:window"
 msgid "Custom Duration"
 msgstr "Duración personalizada"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "The action you had previously configured for after a period of inactivity "
-#~ "is now unsupported on your system. Please select a different one."
-#~ msgstr ""
-#~ "La acción que había configurado anteriormente para cuando se alcanza un "
-#~ "período de inactividad ya no está permitida en su sistema. Seleccione "
-#~ "otra."
-
-#~ msgctxt ""
-#~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
-#~ "the system is idle"
-#~ msgid "A&fter a period of inactivity:"
-#~ msgstr "Tras un período de inacti&vidad:"
-
-#~ msgctxt "@text:action:menu Script command to execute"
-#~ msgid "After a period of inactivity"
-#~ msgstr "Tras un período de inactividad"
-
-#~ msgctxt "@label:textfield Script command to execute"
-#~ msgid "After a period of inacti&vity:"
-#~ msgstr "Tras un período de inacti&vidad:"
-
-#~ msgctxt "@label:spinbox After X minutes"
-#~ msgid "Execute script after:"
-#~ msgstr "Ejecutar guion tras:"
-
-#~ msgid "Select executable file…"
-#~ msgstr "Seleccione un archivo ejecutable..."
-
-#~ msgid "Select executable file"
-#~ msgstr "Seleccionar un archivo ejecutable"
-
-#~ msgctxt ""
-#~ "List of recognized strings for 'minutes' in a time delay expression such "
-#~ "as 'after 10 min'"
-#~ msgid "m|min|mins|minutes"
-#~ msgstr "m|min|mins|minutos"
-
-#~ msgctxt ""
-#~ "List of recognized strings for 'seconds' in a time delay expression such "
-#~ "as 'after 10 sec'"
-#~ msgid "s|sec|secs|seconds"
-#~ msgstr "s|seg|segs|segundos"
-
-#~ msgctxt ""
-#~ "Validator/extractor regular expression for a time delay number and unit, "
-#~ "from e.g. 'after 10 min'. Uses recognized strings for minutes and seconds "
-#~ "as %1 and %2."
-#~ msgid "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-#~ msgstr "[^\\d]*(\\d+)\\s*(%1|%2)\\s*"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Eloy Cuadra"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "ecuadra@eloihr.net"
-
-#~ msgid ""
-#~ "The KDE Power Management System will now generate a set of defaults based "
-#~ "on your computer's capabilities. This will also erase all existing "
-#~ "modifications you made. Are you sure you want to continue?"
-#~ msgstr ""
-#~ "El sistema de gestión de energía de KDE generará ahora un conjunto de "
-#~ "preferencias por omisión basándose en las capacidades de su equipo. Esto "
-#~ "también borrará todas las modificaciones que haya realizado. ¿Seguro que "
-#~ "desea continuar?"
-
-#~ msgid "Restore Default Profiles"
-#~ msgstr "Restaurar los perfiles por omisión"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Parece que el servicio de gestión de energía no está en ejecución.\n"
-#~ "Esto se puede solucionar iniciándolo o programándolo en «Inicio y apagado»"
