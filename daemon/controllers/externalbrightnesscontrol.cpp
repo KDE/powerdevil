@@ -6,7 +6,7 @@
 #include "externalbrightnesscontrol.h"
 #include "displaybrightness.h"
 
-static constexpr uint32_t s_version = 2;
+static constexpr uint32_t s_version = 3;
 
 ExternalBrightnessController::ExternalBrightnessController()
     : QWaylandClientExtensionTemplate<ExternalBrightnessController, &QtWayland::kde_external_brightness_v1::destroy>(s_version)
@@ -41,6 +41,9 @@ ExternalBrightnessControl::ExternalBrightnessControl(ExternalBrightnessControlle
     set_max_brightness(display->maxBrightness());
     if (version() >= 2) {
         set_observed_brightness(m_display->brightness());
+    }
+    if (version() >= 3) {
+        set_uses_ddc_ci(m_display->usesDdcCi() ? 1 : 0);
     }
     commit();
     connect(display, &DisplayBrightness::externalBrightnessChangeObserved, this, [this]() {

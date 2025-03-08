@@ -26,6 +26,11 @@ std::optional<QByteArray> DisplayBrightness::edidData() const
     return std::nullopt;
 }
 
+bool DisplayBrightness::usesDdcCi() const
+{
+    return false;
+}
+
 bool DisplayBrightness::supportsDimmingMultiplier() const
 {
     return false;
