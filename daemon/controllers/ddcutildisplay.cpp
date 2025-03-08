@@ -284,4 +284,9 @@ std::optional<QByteArray> DDCutilDisplay::edidData() const
 #endif
 }
 
+bool DDCutilDisplay::usesDdcCi() const
+{
+    return true;
+}
+
 #include "moc_ddcutildisplay.cpp"
