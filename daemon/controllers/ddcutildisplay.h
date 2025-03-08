@@ -50,6 +50,7 @@ public:
     void setBrightness(int value, bool allowAnimations) override;
     bool supportsBrightness() const;
     std::optional<QByteArray> edidData() const override;
+    bool usesDdcCi() const override;
 
 Q_SIGNALS:
     void retryInitFinished(bool success);

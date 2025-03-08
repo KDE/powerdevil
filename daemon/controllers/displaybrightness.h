@@ -63,6 +63,12 @@ public:
     virtual std::optional<QByteArray> edidData() const;
 
     /**
+     * Returns false by default. Override to return true if the display device uses DDC/CI to
+     * read and write its settings.
+     */
+    virtual bool usesDdcCi() const;
+
+    /**
      * Returns false by default. Override to return true if the display device can set a dimming
      * multiplier independently of the brightness() itself. If this is supported,
      * setDimmingMultiplier() must be overridden as well.
