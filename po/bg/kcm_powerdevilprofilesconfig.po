@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Svetoslav Stefanov <svetlisashkov@yahoo.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-12-20 18:13+0100\n"
+"PO-Revision-Date: 2025-03-08 18:26+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -54,7 +54,7 @@ msgstr "Показване на екран за напускане на сеси
 #: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
-msgstr "Изключване на екрана:"
+msgstr "Изключване на екрана"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
@@ -563,12 +563,14 @@ msgstr "Потребителски…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Деактивирането на автоматичното спиране ще доведе до по-висока консумация на "
+"енергия."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Дългата продължителност ще доведе до по-висока консумация на енергия."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format

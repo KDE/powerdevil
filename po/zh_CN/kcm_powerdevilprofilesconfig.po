@@ -537,13 +537,13 @@ msgstr "自定义…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr ""
+msgstr "禁用自动挂起将导致能耗增加。"
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "挂起前等待时间越长，能耗越高。"
 
 #: ui/ProfileConfig.qml:174
 #, kde-format

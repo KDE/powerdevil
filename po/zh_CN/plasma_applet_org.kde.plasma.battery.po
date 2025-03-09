@@ -209,14 +209,12 @@ msgid "Every time for this app and reason"
 msgstr "每次遇到此应用和理由时"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "您已经手动阻止了睡眠和屏幕锁定。"
+msgstr "您手动阻止了睡眠和锁屏。这将导致能耗增加。"
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
