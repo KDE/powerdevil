@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofiles.config\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-03-06 19:58+0100\n"
+"PO-Revision-Date: 2025-03-08 18:21+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -54,7 +54,7 @@ msgstr "Показване на екран за напускане на сеси
 #: PowerButtonActionModel.cpp:84
 #, kde-format
 msgid "Turn off screen"
-msgstr "Изключване на екрана:"
+msgstr "Изключване на екрана"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
