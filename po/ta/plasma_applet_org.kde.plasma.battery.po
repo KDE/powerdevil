@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-09-01 20:08+0200\n"
+"PO-Revision-Date: 2025-03-09 17:06+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -213,14 +213,12 @@ msgid "Every time for this app and reason"
 msgstr "இந்த செயலிக்கும் காரணத்திற்கும் எப்போதும்"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "தூக்கத்தையும் திரைபூட்டலையும் தடுத்துள்ளீர்."
+msgstr "தூக்கத்தையும் திரைபூட்டலையும் தடுத்துள்ளீர். மின்சார பயன்பாட்டு இதனால் அதிகமாகும்."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
@@ -409,9 +407,7 @@ msgid "Power Profile"
 msgstr "ஆற்றல் பயன்முறை"
 
 #: package/contents/ui/PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "தானியக்கம்"
@@ -489,7 +485,7 @@ msgstr "TLP பின்னணி சேவை ஆற்றல் பயன்�
 #: package/contents/ui/PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "இச்சாதனத்தில் ஆற்றல் பயன்முறைகள் ஆதரிக்கப்படா."
 
 #: package/contents/ui/PowerProfileItem.qml:305
 #, kde-kuit-format

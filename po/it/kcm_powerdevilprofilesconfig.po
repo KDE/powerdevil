@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-12-18 18:24+0100\n"
+"PO-Revision-Date: 2025-03-06 16:42+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -563,12 +563,14 @@ msgstr "Personalizzato…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"La disattivazione della sospensione automatica comporterà un maggiore "
+"consumo energetico."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Una durata lunga comporterà un consumo energetico maggiore."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format

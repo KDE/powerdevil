@@ -4,14 +4,14 @@
 # Marcello Anni <marcello.anni@alice.it>, 2007, 2008, 2009, 2010, 2012.
 # Pino Toscano <toscano.pino@tiscali.it>, 2010.
 # Nicola Ruggero <nicola@nxnt.org>, 2013.
-# SPDX-FileCopyrightText: 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-10-16 14:31+0200\n"
+"PO-Revision-Date: 2025-03-06 16:41+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -225,14 +225,14 @@ msgid "Every time for this app and reason"
 msgstr "Ogni volta per questa applicazione e per questo motivo"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Hai bloccato manualmente la sospensione e il blocco dello schermo."
+msgstr ""
+"Hai bloccato manualmente la sospensione e il blocco dello schermo. Ciò "
+"comporterà un maggiore consumo di energia."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
