@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2022-11-16 00:49+0000\n"
+"PO-Revision-Date: 2025-03-10 00:33+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,266 +17,267 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.5\n"
 
 #: mobilepower.cpp:30
 #, kde-format
 msgid "30 sec"
-msgstr ""
+msgstr "30 sek."
 
 #: mobilepower.cpp:31
 #, kde-format
 msgid "1 min"
-msgstr ""
+msgstr "1 min."
 
 #: mobilepower.cpp:32
 #, kde-format
 msgid "2 min"
-msgstr ""
+msgstr "2 min."
 
 #: mobilepower.cpp:33
 #, kde-format
 msgid "5 min"
-msgstr ""
+msgstr "5 min."
 
 #: mobilepower.cpp:34
 #, kde-format
 msgid "10 min"
-msgstr ""
+msgstr "10 min."
 
 #: mobilepower.cpp:35
 #, kde-format
 msgid "15 min"
-msgstr ""
+msgstr "15 min."
 
 #: mobilepower.cpp:36
 #, kde-format
 msgid "30 min"
-msgstr ""
+msgstr "30 min."
 
 #: mobilepower.cpp:37
 #, kde-format
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: ui/BatteryPage.qml:23
 #, kde-format
 msgid "Battery Information"
-msgstr ""
+msgstr "Informacija apie akumuliatorių"
 
 #: ui/BatteryPage.qml:34
 #, kde-format
 msgid "Usage Graph"
-msgstr ""
+msgstr "Naudojimo diagrama"
 
 #: ui/BatteryPage.qml:77
 #, kde-format
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #: ui/BatteryPage.qml:83
 #, kde-format
 msgid "Is Rechargeable"
-msgstr ""
+msgstr "Yra pakartotinai įkraunamas"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Taip"
 
 #: ui/BatteryPage.qml:84
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: ui/BatteryPage.qml:91
 #, kde-format
 msgid "Charge State"
-msgstr ""
+msgstr "Įkrovos būsena"
 
 #: ui/BatteryPage.qml:94
 #, kde-format
 msgid "Not charging"
-msgstr ""
+msgstr "Nekraunamas"
 
 #: ui/BatteryPage.qml:95
 #, kde-format
 msgid "Charging"
-msgstr ""
+msgstr "Įkraunamas"
 
 #: ui/BatteryPage.qml:96
 #, kde-format
 msgid "Discharging"
-msgstr ""
+msgstr "Išsikrauna"
 
 #: ui/BatteryPage.qml:97
 #, kde-format
 msgid "Fully charged"
-msgstr ""
+msgstr "Pilnai įkrautas"
 
 #: ui/BatteryPage.qml:98
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Nežinoma"
 
 #: ui/BatteryPage.qml:107
 #, kde-format
 msgid "Current Charge"
-msgstr ""
+msgstr "Dabartinė įkrova"
 
 #: ui/BatteryPage.qml:108 ui/BatteryPage.qml:116
 #, kde-format
 msgctxt "%1 is percentage value"
 msgid "%1 %"
-msgstr ""
+msgstr "%1 %"
 
 #: ui/BatteryPage.qml:115
 #, kde-format
 msgid "Health"
-msgstr ""
+msgstr "Naudingumas"
 
 #: ui/BatteryPage.qml:123
 #, kde-format
 msgid "Vendor"
-msgstr ""
+msgstr "Tiekėjas"
 
 #: ui/BatteryPage.qml:131
 #, kde-format
 msgid "Model"
-msgstr ""
+msgstr "Modelis"
 
 #: ui/BatteryPage.qml:139
 #, kde-format
 msgid "Serial Number"
-msgstr ""
+msgstr "Serijos numeris"
 
 #: ui/BatteryPage.qml:147
 #, kde-format
 msgid "Technology"
-msgstr ""
+msgstr "Technologija"
 
 #: ui/BatteryPage.qml:150
 #, kde-format
 msgid "Lithium ion"
-msgstr ""
+msgstr "Ličio jonų"
 
 #: ui/BatteryPage.qml:151
 #, kde-format
 msgid "Lithium polymer"
-msgstr ""
+msgstr "Ličio polimerų"
 
 #: ui/BatteryPage.qml:152
 #, kde-format
 msgid "Lithium iron phosphate"
-msgstr ""
+msgstr "Ličio geležies fosfatų"
 
 #: ui/BatteryPage.qml:153
 #, kde-format
 msgid "Lead acid"
-msgstr ""
+msgstr "Švino rūgšties"
 
 #: ui/BatteryPage.qml:154
 #, kde-format
 msgid "Nickel cadmium"
-msgstr ""
+msgstr "Nikelio kadmio"
 
 #: ui/BatteryPage.qml:155
 #, kde-format
 msgid "Nickel metal hydride"
-msgstr ""
+msgstr "Nikelio metalo hidridų"
 
 #: ui/BatteryPage.qml:156
 #, kde-format
 msgid "Unknown technology"
-msgstr ""
+msgstr "Nežinoma technologija"
 
 #: ui/Graph.qml:141
 #, kde-format
 msgctxt "%1 is a percentage value"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: ui/main.qml:33
 #, kde-format
 msgid "Devices"
-msgstr ""
+msgstr "Įrenginiai"
 
 #: ui/main.qml:79
 #, kde-format
 msgid "Internal battery"
-msgstr ""
+msgstr "Vidinis akumuliatorius"
 
 #: ui/main.qml:80
 #, kde-format
 msgid "UPS battery"
-msgstr ""
+msgstr "NMŠ akumuliatorius"
 
 #: ui/main.qml:81
 #, kde-format
 msgid "Monitor battery"
-msgstr ""
+msgstr "Monitoriaus akumuliatorius"
 
 #: ui/main.qml:82
 #, kde-format
 msgid "Mouse battery"
-msgstr ""
+msgstr "Pelės akumuliatorius"
 
 #: ui/main.qml:83
 #, kde-format
 msgid "Keyboard battery"
-msgstr ""
+msgstr "Klaviatūros akumuliatorius"
 
 #: ui/main.qml:84
 #, kde-format
 msgid "PDA battery"
-msgstr ""
+msgstr "Delninuko akumuliatorius"
 
 #: ui/main.qml:85
 #, kde-format
 msgid "Phone battery"
-msgstr ""
+msgstr "Telefono akumuliatorius"
 
 #: ui/main.qml:86
 #, kde-format
 msgid "Unknown battery"
-msgstr ""
+msgstr "Nežinomas akumuliatorius"
 
 #: ui/main.qml:89
 #, kde-format
 msgctxt "%1 is the charge percent, % is the percent sign"
 msgid "%1%"
-msgstr ""
+msgstr "%1%"
 
 #: ui/main.qml:91
 #, kde-format
 msgctxt "%1 is battery type, %2 is charge percent"
 msgid "%1 %2 (Charging)"
-msgstr ""
+msgstr "%1 %2 (Įkraunamas)"
 
 #: ui/main.qml:91
 #, kde-format
 msgctxt "%1 is battery type, %2 is charge percent"
 msgid "%1 %2"
-msgstr ""
+msgstr "%1 %2"
 
 #: ui/main.qml:115
 #, kde-format
 msgid "Screen"
-msgstr ""
+msgstr "Ekranas"
 
 #: ui/main.qml:121
 #, kde-format
 msgctxt "Part of a sentence like 'Dim screen after 5 minutes'"
 msgid "Dim screen after"
-msgstr ""
+msgstr "Pritemdyti ekraną po"
 
 #: ui/main.qml:131
 #, kde-format
 msgctxt "Part of a sentence like 'Turn off screen after 5 minutes'"
 msgid "Turn off screen after"
-msgstr ""
+msgstr "Išjungti ekraną po"
 
 #: ui/main.qml:141
 #, kde-format
 msgctxt "Part of a sentence like 'Suspend device after 5 minutes'"
 msgid "Suspend device after"
-msgstr ""
+msgstr "Pristabdyti įrenginį po"
