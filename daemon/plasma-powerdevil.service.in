@@ -4,6 +4,7 @@ PartOf=graphical-session.target
 After=plasma-core.target
 
 [Service]
+AmbientCapabilities=CAP_WAKE_ALARM
 ExecStart=@KDE_INSTALL_FULL_LIBEXECDIR@/org_kde_powerdevil
 Type=dbus
 BusName=org.kde.Solid.PowerManagement
