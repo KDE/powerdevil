@@ -148,7 +148,7 @@ class BatteryMonitorTests(unittest.TestCase):
             time.sleep(1)
 
         session_bus: Gio.DBusConnection = Gio.bus_get_sync(Gio.BusType.SESSION)
-        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("local.org_kde_powerdevil", "/MainApplication", "org.qtproject.Qt.QCoreApplication", "quit")
+        message: Gio.DBusMessage = Gio.DBusMessage.new_method_call("org.kde.org_kde_powerdevil", "/MainApplication", "org.qtproject.Qt.QCoreApplication", "quit")
         session_bus.send_message_with_reply_sync(message, Gio.DBusSendMessageFlags.NONE, 5000)
         cls.powerdevil.wait(5)
 
