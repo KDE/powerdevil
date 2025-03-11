@@ -231,7 +231,9 @@ msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Uyku ve ekran kilitlemesini engellediniz."
+msgstr ""
+"Uyku ve ekran kilitlemesini elle engellediniz. Bu, daha yüksek enerji "
+"tüketimine neden olacaktır."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format

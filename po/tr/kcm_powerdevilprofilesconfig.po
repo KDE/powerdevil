@@ -560,12 +560,14 @@ msgstr "Özel…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Kendiliğinden askıya almayı engellemek, daha yüksek enerji tüketimine neden "
+"olur."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Daha uzun bir süre, daha yüksek enerji tüketimine neden olur."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
