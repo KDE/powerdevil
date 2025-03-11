@@ -45,6 +45,9 @@
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
+#ifdef WITH_LIBCAP
+#include <sys/capability.h>
+#endif
 #endif
 
 using namespace Qt::StringLiterals;
@@ -182,6 +185,28 @@ void Core::onControllersReady()
     }
 
 #ifdef Q_OS_LINUX
+
+#ifdef WITH_LIBCAP
+    cap_t caps;
+    cap_value_t cap_list[1];
+
+    caps = cap_get_proc();
+
+    if (caps == NULL)
+    {
+        qCDebug(POWERDEVIL) << "Unable to get process current capabilities, will not try to add CAP_WAKE_ALARM";
+    } else {
+        cap_list[0] = CAP_WAKE_ALARM;
+        int err = cap_set_flag(caps, CAP_EFFECTIVE, 1, cap_list, CAP_SET);
+        if (err != -1) {
+            err = cap_set_proc(caps);
+        }
+        if (err == -1) {
+            qCWarning(POWERDEVIL) << "Failed to set process capability to CAP_WAKE_ALARM";
+        }
+        cap_free(caps);
+    }
+#endif
 
     // try creating a timerfd which can wake system from suspend
     m_timerFd = timerfd_create(CLOCK_REALTIME_ALARM, TFD_CLOEXEC);

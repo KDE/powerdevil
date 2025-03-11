@@ -72,7 +72,10 @@ set_package_properties(Libcap PROPERTIES
     TYPE OPTIONAL
     PURPOSE "Needed for scheduled wakeup which can wake from suspend (CAP_WAKE_ALARM)"
 )
-set(HAVE_LIBCAP ${Libcap_FOUND})
+if(Libcap_FOUND)
+    set(HAVE_LIBCAP ${Libcap_FOUND})
+    add_definitions(-DWITH_LIBCAP)
+endif()
 
 find_package(DDCUtil)
 if(DDCUtil_FOUND)
