@@ -67,13 +67,6 @@ set_package_properties(KF6DocTools PROPERTIES
     TYPE OPTIONAL
 )
 
-find_package(Libcap)
-set_package_properties(Libcap PROPERTIES
-    TYPE OPTIONAL
-    PURPOSE "Needed for scheduled wakeup which can wake from suspend (CAP_WAKE_ALARM)"
-)
-set(HAVE_LIBCAP ${Libcap_FOUND})
-
 find_package(DDCUtil)
 if(DDCUtil_FOUND)
     add_definitions(-DWITH_DDCUTIL)
