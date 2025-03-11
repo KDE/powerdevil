@@ -48,20 +48,6 @@ PowerDevilApp::~PowerDevilApp()
 
 void PowerDevilApp::init()
 {
-    KLocalizedString::setApplicationDomain(QByteArrayLiteral("powerdevil"));
-
-    KAboutData aboutData(QStringLiteral("org_kde_powerdevil"),
-                         i18n("KDE Power Management System"),
-                         QStringLiteral(POWERDEVIL_VERSION_STRING),
-                         i18nc("@title", "PowerDevil, an advanced, modular and lightweight power management daemon"),
-                         KAboutLicense::GPL,
-                         i18nc("@info:credit", "(c) 2015-2019 Kai Uwe Broulik"));
-    aboutData.addAuthor(i18nc("@info:credit", "Kai Uwe Broulik"), i18nc("@info:credit", "Maintainer"), QStringLiteral("kde@privat.broulik.de"));
-    aboutData.addAuthor(i18nc("@info:credit", "Dario Freddi"), i18nc("@info:credit", "Previous maintainer"), QStringLiteral("drf@kde.org"));
-    aboutData.setProductName("Powerdevil");
-
-    KAboutData::setApplicationData(aboutData);
-
     if (QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.PowerManagement"))
         || QDBusConnection::systemBus().interface()->isServiceRegistered(QLatin1String("org.freedesktop.Policy.Power"))) {
         qCCritical(POWERDEVIL) << "KDE Power Management system not initialized, another power manager has been detected";
@@ -107,6 +93,20 @@ int main(int argc, char **argv)
     QGuiApplication::setDesktopSettingsAware(false);
     QGuiApplication::setAttribute(Qt::AA_DisableSessionManager);
     PowerDevilApp app(argc, argv);
+
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("powerdevil"));
+
+    KAboutData aboutData(QStringLiteral("org_kde_powerdevil"),
+                         i18n("KDE Power Management System"),
+                         QStringLiteral(POWERDEVIL_VERSION_STRING),
+                         i18nc("@title", "PowerDevil, an advanced, modular and lightweight power management daemon"),
+                         KAboutLicense::GPL,
+                         i18nc("@info:credit", "(c) 2015-2019 Kai Uwe Broulik"));
+    aboutData.addAuthor(i18nc("@info:credit", "Kai Uwe Broulik"), i18nc("@info:credit", "Maintainer"), QStringLiteral("kde@privat.broulik.de"));
+    aboutData.addAuthor(i18nc("@info:credit", "Dario Freddi"), i18nc("@info:credit", "Previous maintainer"), QStringLiteral("drf@kde.org"));
+    aboutData.setProductName("Powerdevil");
+
+    KAboutData::setApplicationData(aboutData);
 
     bool replace = false;
     {
