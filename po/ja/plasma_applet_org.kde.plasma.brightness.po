@@ -1,10 +1,10 @@
-# SPDX-FileCopyrightText: 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2024, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-26 02:36+0000\n"
-"PO-Revision-Date: 2024-02-06 18:39+0900\n"
+"PO-Revision-Date: 2025-03-08 20:38+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
@@ -14,12 +14,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: package/contents/ui/BrightnessItem.qml:30
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "Off"
+#, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "オフ"
@@ -28,24 +26,22 @@ msgstr "オフ"
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 #: package/contents/ui/BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
-msgstr ""
+msgstr "中"
 
 #: package/contents/ui/BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #: package/contents/ui/BrightnessItem.qml:34
-#, fuzzy, kde-format
-#| msgctxt "Night light status"
-#| msgid "On"
+#, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "オン"
@@ -57,23 +53,21 @@ msgid "%1%"
 msgstr "%1%"
 
 #: package/contents/ui/BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "ディスプレイの明るさ"
+msgstr "明るさ"
 
 #: package/contents/ui/BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "ディスプレイの明るさ"
+msgstr "ディスプレイの明るさ - %1"
 
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
 msgid "Follow accent color"
-msgstr ""
+msgstr "アクセントカラーに従う"
 
 #: package/contents/ui/main.qml:61
 #, kde-format
@@ -86,11 +80,10 @@ msgid "Screen brightness at %1%"
 msgstr "スクリーンの明るさ %1%"
 
 #: package/contents/ui/main.qml:102
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "スクリーンの明るさ %1%"
+msgstr "スクリーン %1 の明るさ %2%"
 
 #: package/contents/ui/main.qml:107
 #, kde-format
@@ -101,50 +94,49 @@ msgstr "キーボードの明るさ %1%"
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
-msgstr ""
+msgstr "Night Light は停止されています - 中クリックして再開"
 
 #: package/contents/ui/main.qml:115
-#, fuzzy, kde-format
-#| msgid "Night Light"
+#, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
-msgstr "Night Light"
+msgstr "Night Light は停止されています"
 
 #: package/contents/ui/main.qml:120
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
-msgstr ""
+msgstr "Night Light 昼の色温度"
 
 #: package/contents/ui/main.qml:122
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
-msgstr ""
+msgstr "Night Light 夜の色温度"
 
 #: package/contents/ui/main.qml:127
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
-msgstr ""
+msgstr "Night Light 朝の移り変わり (%1 に完了)"
 
 #: package/contents/ui/main.qml:129
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
-msgstr ""
+msgstr "Night Light 夕方の移り変わり (%1 に完了)"
 
 #: package/contents/ui/main.qml:147
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
-msgstr ""
+msgstr "Night Light 夕方の移り変わり (%1 開始)"
 
 #: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
-msgstr ""
+msgstr "Night Light 朝の移り変わり (%1 開始)"
 
 #: package/contents/ui/main.qml:153
 #, kde-format
@@ -152,10 +144,9 @@ msgid "Scroll to adjust screen brightness"
 msgstr "スクロールしてスクリーンの明るさを調整"
 
 #: package/contents/ui/main.qml:156
-#, fuzzy, kde-format
-#| msgid "Middle-click to toggle Night Light"
+#, kde-format
 msgid "Middle-click to suspend Night Light"
-msgstr "中クリックして Night Light をオン/オフ"
+msgstr "中クリックして Night Light を停止"
 
 #: package/contents/ui/main.qml:238
 #, kde-format
@@ -167,7 +158,7 @@ msgstr "Night Light を設定…"
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
-msgstr ""
+msgstr "停止中"
 
 #: package/contents/ui/NightLightItem.qml:78
 #, kde-format
@@ -227,7 +218,7 @@ msgstr "%1K"
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
-msgstr ""
+msgstr "停止"
 
 #: package/contents/ui/NightLightItem.qml:147
 #, kde-format
@@ -264,30 +255,16 @@ msgid "Transition to day scheduled for:"
 msgstr "昼モードへの移行を開始:"
 
 #: package/contents/ui/PopupDialog.qml:121
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "キーボードの明るさ"
+msgstr "キーボードバックライト"
 
 #: package/contents/ui/PopupDialog.qml:154
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Color"
-msgstr "キーボードの明るさ"
+msgstr "キーボードの色"
 
 #: package/contents/ui/PopupDialog.qml:165
 #, kde-format
 msgid "Night Light"
 msgstr "Night Light"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light off"
-#~ msgstr "Night Light オフ"
-
-#~ msgctxt "Night light status"
-#~ msgid "Off"
-#~ msgstr "オフ"
-
-#~ msgctxt "Status; placeholder is a temperature"
-#~ msgid "Night Light at %1K"
-#~ msgstr "Night Light: %1K"
