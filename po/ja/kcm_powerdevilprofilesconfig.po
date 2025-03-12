@@ -1,5 +1,5 @@
 # Translation of powerdevil into Japanese.
-# SPDX-FileCopyrightText: 2022, 2023 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2008, 2009.
 # Taiki Komoda <kom@kde.gr.jp>, 2010.
 # Fuminobu Takeyama <ftake@geeko.jp>, 2018.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2024-09-11 03:38+0900\n"
-"Last-Translator: UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
+"PO-Revision-Date: 2025-03-08 22:04+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -19,51 +19,49 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "何もしない"
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "スリープ"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "ハイバネート"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "シャットダウン"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "スクリーンをロック"
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "ログアウト画面を表示"
 
 #: PowerButtonActionModel.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgid "Turn off screen"
-msgstr "スクリーンの電源を切る(&T):"
+msgstr "スクリーンの電源を切る"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "スクリーンをオン/オフ"
 
 #: PowerKCM.cpp:460
 #, kde-format
@@ -74,64 +72,64 @@ msgstr "電源管理サービスが動作していないようです。"
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "省電力"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "バランス"
 
 #: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "パフォーマンス"
 
 #: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "変更しない"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "サスペンド"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "セッションをメモリに保存"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "ハイブリッドスリープ"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "セッションをメモリとディスクの両方に保存"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "サスペンドしてハイバネート"
 
 #: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr ""
+msgstr "バッテリ残量低下時にハイバネートに切り替え"
 
 #: SleepModeModel.cpp:40
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr ""
+msgstr "一定の期間が経過した後ハイバネートに切り替え"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
@@ -313,8 +311,8 @@ msgid ""
 "The action you had previously configured for reaching the critical battery "
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
-"バッテリ残量が限界に達した場合に実行するよう設定したアクションは、現在システ"
-"ムでサポートされていません。別のアクションを選択してください。"
+"バッテリ残量が限界に達した場合に実行するよう設定されたアクションは、現在シス"
+"テムでサポートされていません。別のアクションを選択してください。"
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -442,17 +440,13 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "「通知」設定ページの「電源管理」セクションを開く"
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "通知: 電源管理"
+msgstr "ショートカット: 電源管理"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr "「通知」設定ページの「電源管理」セクションを開く"
 
@@ -505,17 +499,17 @@ msgstr "電源管理設定の読み込みに失敗しました"
 #: ui/main.qml:66
 #, kde-format
 msgid "On AC Power"
-msgstr "AC アダプタで動作時"
+msgstr "AC 電源使用時"
 
 #: ui/main.qml:67
 #, kde-format
 msgid "On Battery"
-msgstr "バッテリ動作時"
+msgstr "バッテリ使用時"
 
 #: ui/main.qml:68
 #, kde-format
 msgid "On Low Battery"
-msgstr "バッテリ残量低レベル時"
+msgstr "バッテリ残量低下時"
 
 #: ui/ProfileConfig.qml:24
 #, kde-format
@@ -547,7 +541,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr "非アクティブの場合(&I):"
+msgstr "非アクティブ時(&I):"
 
 #: ui/ProfileConfig.qml:64
 #, kde-format
@@ -620,7 +614,7 @@ msgid ""
 "The action you had previously configured for when the lid is closed is now "
 "unsupported on your system. Please select a different one."
 msgstr ""
-"以前に設定したフタを閉じたときのアクションは、現在のシステムではサポートされ"
+"以前に設定したふたを閉じたときのアクションは、現在のシステムではサポートされ"
 "ていません。別のアクションを選択してください。"
 
 #: ui/ProfileConfig.qml:220
