@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-03-09 00:04-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-03-12 22:03-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -372,13 +372,13 @@ msgstr ""
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
-msgstr[0] "Um aplicativo solicitou a ativação do modo performance"
-msgstr[1] "%1 aplicativos solicitaram a ativação do modo performance"
+msgstr[0] "Um aplicativo solicitou a ativação do modo desempenho"
+msgstr[1] "%1 aplicativos solicitaram a ativação do modo desempenho"
 
 #: package/contents/ui/main.qml:175
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr "O sistema está no modo performance; use a rolagem para trocar"
+msgstr "O sistema está no modo desempenho; use a rolagem para trocar"
 
 #: package/contents/ui/main.qml:179
 #, kde-format
