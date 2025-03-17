@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-02-16 16:23+0530\n"
+"PO-Revision-Date: 2025-03-16 15:27+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -461,13 +461,12 @@ msgstr ""
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "திரையை பூட்டவது"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "\"பணிமேடை அமர்வு\" அமைப்புகளுக்கான பக்கத்தைத் திறக்கும்"
+msgstr "\"திரையை பூட்டுவது\" எனும் அமைப்புப்பக்கத்தைத் திறக்கும்"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -584,13 +583,13 @@ msgstr "விருப்பமானது…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr ""
+msgstr "தானியக்க உறக்கத்தை முடக்குவது ஆற்றல் பயன்பாட்டை அதிகரிக்கலாம்."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "இந்த இடைவெளி அதிகமாக இருந்தால், அதிக ஆற்றல் வீணாகும்"
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
