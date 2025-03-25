@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-27 00:42+0000\n"
-"PO-Revision-Date: 2025-03-11 13:03-0500\n"
+"PO-Revision-Date: 2025-03-24 14:50-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -68,7 +68,7 @@ msgstr "ਡਿਸਪਲੇਅ ਚਮਕ - %1"
 #: package/contents/ui/KeyboardColorItem.qml:77
 #, kde-format
 msgid "Follow accent color"
-msgstr ""
+msgstr "ਤੀਬਰ ਰੰਗ ਦੇ ਮੁਤਾਬਕ"
 
 #: package/contents/ui/main.qml:96
 #, kde-format
@@ -107,13 +107,13 @@ msgstr "ਰਾਤ ਦਾ ਰੰਗ ਸਸਪੈਂਡ ਹੈ"
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
-msgstr ""
+msgstr "ਦਿਨ ਦੇ ਰੰਗ ਤਾਪਮਾਨ ਉੱਤੇ ਰਾਤ ਦੀ ਰੌਸ਼ਨੀ"
 
 #: package/contents/ui/main.qml:157
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
-msgstr ""
+msgstr "ਰਾਤ ਦੇ ਰੰਗ ਤਾਪਮਾਨ ਉੱਤੇ ਰਾਤ ਦੀ ਰੌਸ਼ਨੀ"
 
 #: package/contents/ui/main.qml:162
 #, kde-format
