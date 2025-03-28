@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-22 02:33+0000\n"
+"POT-Creation-Date: 2025-03-28 02:39+0000\n"
 "PO-Revision-Date: 2024-08-14 07:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -103,43 +103,43 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:54
+#: powerdevilapp.cpp:100
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "מערכת ניהול צריכת החשמל של KDE"
 
-#: powerdevilapp.cpp:56
+#: powerdevilapp.cpp:102
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr "PowerDevil, סוכן ניהול צריכת חשמל מתקדם, גמיש וקליל"
 
-#: powerdevilapp.cpp:58
+#: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@info:credit"
 msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgstr "(c) 2015-2019 קאי אווה ברוליק"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:105
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "קאי אווה ברוליק"
 
-#: powerdevilapp.cpp:59
+#: powerdevilapp.cpp:105
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "מתחזק"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "דאריו פרדי"
 
-#: powerdevilapp.cpp:60
+#: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
