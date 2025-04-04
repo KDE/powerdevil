@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-02-14 19:57+0200\n"
+"PO-Revision-Date: 2025-03-15 08:56+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -466,13 +466,12 @@ msgstr "Avaa pikanäppäinten asetussivun virranhallinnan osio"
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Näytön lukitus"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Avaa ”Työpöytäistunto”-asetussivu"
+msgstr "Avaa ”Näytön lukitus” -asetussivu"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -590,12 +589,14 @@ msgstr "Mukautettu…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Automaattisen lepotilan poistaminen käytöstä johtaa suurempaan "
+"virrankulutukseen."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Pitkä kesto johtaa suurempaan virrankulutukseen."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
