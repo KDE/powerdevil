@@ -143,7 +143,7 @@ QCoro::Task<void> KeyboardBrightnessControl::onSupportedActionsChanged()
     if (actionSupported) {
         onActionSupported();
     } else {
-        qCWarning(APPLETS::BRIGHTNESS) << "D-Bus action" << KEYBOARD_BRIGHTNESS_ACTION << "is not available at service" << SOLID_POWERMANAGEMENT_SERVICE;
+        qCInfo(APPLETS::BRIGHTNESS) << "D-Bus action" << KEYBOARD_BRIGHTNESS_ACTION << "is not available at service" << SOLID_POWERMANAGEMENT_SERVICE;
         onActionUnsupported();
     }
 }
