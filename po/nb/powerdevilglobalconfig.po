@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2018-06-24 20:29+0100\n"
-"Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
+"PO-Revision-Date: 2025-03-29 08:07+0100\n"
+"Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
@@ -25,14 +25,14 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "Knut Yrvin,Gunnhild Lurås,Børre Gaup,Bjørn Steensrud,Axel Bojer,Øyvind A. "
-"Holm"
+"Holm,Martin Hansen"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 "knut.yrvin@gmail.com,gluras@c2i.net,boerre@skolelinux.no,bjornst@skogkatt."
-"homelinux.org,fri_programvare@bojer.no,sunny@sunbase.org"
+"homelinux.org,fri_programvare@bojer.no,sunny@sunbase.org,mh306602@gmail.com"
 
 #: GeneralPage.cpp:108
 #, kde-format
@@ -43,7 +43,7 @@ msgstr "Ikke gjør noe"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Gå i hvilemodus"
 
 #: GeneralPage.cpp:113
 #, kde-format
@@ -53,12 +53,12 @@ msgstr "Gå i dvalemodus"
 #: GeneralPage.cpp:115
 #, kde-format
 msgid "Shut down"
-msgstr "Slå av"
+msgstr "Slå av maskinen"
 
 #: GeneralPage.cpp:264
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr ""
+msgstr "Det ser ikke ut til at strømstyringstjenesten kjører."
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
@@ -93,7 +93,7 @@ msgstr "Batteriet regnes for å være på lavt nivå når det når dette nivået
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr " %"
+msgstr "%"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
@@ -118,19 +118,19 @@ msgstr ""
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr "&På kritisk lavt nivå:"
+msgstr "&Kritisk lavt batterinivå:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr "Lavt nivå for tilleggsmaskinvare:"
+msgstr "Lavt batterinivå for tilkoblede enheter:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "Ladegrense"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -141,6 +141,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>Hvis du holder batteriet fulladet over lengre tid, kan "
+"det gjøre at batteriet mister ladekapasiteten raskere. Hvis du passer på at "
+"batteriet aldri lades over eit visst nivå, kan det hjelpe til å opprettholde "
+"kapasiteten.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -149,18 +153,20 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"Det kan være du må koble fra og til strømkilden for at batteriet skal "
+"startes på nytt."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "Bare start lading når nivået er under:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "Lade alltid når tilkoblet strømnettet"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
@@ -178,16 +184,16 @@ msgstr "På"
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr ""
+msgstr "Sett opp varslinger …"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "Andre innstillinger"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "Stopp lading når nivået er over:"
