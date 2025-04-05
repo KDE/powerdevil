@@ -452,16 +452,12 @@ msgstr "Opna kategorien «Straumstyring» i «Varslingar»-innstillingane"
 
 #: ui/GlobalConfig.qml:394
 #, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
 msgstr "Varslingar: Straumstyring"
 
 #: ui/GlobalConfig.qml:396
 #, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
 msgstr "Opna kategorien «Straumstyring» i «Varslingar»-innstillingane"
 
@@ -473,7 +469,6 @@ msgstr ""
 
 #: ui/GlobalConfig.qml:404
 #, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
 msgid "Open \"Screen Locking\" settings page"
 msgstr "Opna «Skrivebordsøkt»-innstillingane"
 
