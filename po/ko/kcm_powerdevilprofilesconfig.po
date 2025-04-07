@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2010, 2012, 2020, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2010, 2012, 2020, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2024-12-24 19:11+0100\n"
+"PO-Revision-Date: 2025-04-07 00:33+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -116,12 +116,10 @@ msgid "Standby, then hibernate"
 msgstr "절전 이후 최대 절전 모드"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "일정 기간 동안 활동이 없으면 최대 절전 모드로 진입"
+msgstr "배터리가 부족하면 최대 절전 모드로 진입"
 
 #: SleepModeModel.cpp:40
 #, kde-format
@@ -438,29 +436,24 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "\"알림\" 설정 페이지의 \"전원 관리\" 부분 열기"
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "알림: 전원 관리"
+msgstr "단축키: 전원 관리"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "\"알림\" 설정 페이지의 \"전원 관리\" 부분 열기"
+msgstr "\"단축키\" 설정 페이지를 열고 \"전원 관리\" 부분 탐색"
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "화면 잠금"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
 msgstr "\"데스크톱 세션\" 설정 페이지 열기"
 
@@ -577,13 +570,13 @@ msgstr "사용자 정의…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr ""
+msgstr "자동 절전 모드를 비활성화하면 에너지를 더 많이 소모합니다."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "기간을 길게 설정하면 에너지를 더 많이 소모합니다."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
