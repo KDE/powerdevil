@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-07 02:40+0000\n"
-"PO-Revision-Date: 2024-12-18 03:17+0100\n"
+"PO-Revision-Date: 2025-04-13 05:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -558,12 +558,13 @@ msgstr "ხელით…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"ავტომატური ძილის გათიშვამ, შეიძლება, უფრო მეტი ენერგიის ხარჯვამდე მიგიყვანოთ."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "დიდი ხანგრძლივობა უფრო მეტი ენერგიის დახარჯვას გამოიწვევს."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
