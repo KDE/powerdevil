@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-02-01 20:38+0100\n"
+"PO-Revision-Date: 2025-04-14 18:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: PowerButtonActionModel.cpp:32
@@ -453,31 +453,26 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Ireki \"Jakinarazpenak\" ezarpen-orria, \"Energia kudeaketa\" atalean"
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Jakinarazpenak: Energia kudeaketa"
+msgstr "Lasterbideak: Energia kudeaketa"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Ireki \"Jakinarazpenak\" ezarpen-orria, \"Energia kudeaketa\" atalean"
+msgstr "Ireki \"Lasterbideak\" ezarpen-orria, \"Energia kudeaketa\" atalean"
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Pantaila giltzatzea"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Ireki \"Mahaigaineko saioa\" ezarpen-orria"
+msgstr "Ireki \"Pantaila giltzatzea\" ezarpen-orria"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -594,13 +589,13 @@ msgstr "Neurrira…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr ""
+msgstr "Esekitze automatikoa ezgaituz gero, energiaren kontsumoa handituko da."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Iraupen luze baten ondorioz, energiaren kontsumoa handituko da."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
