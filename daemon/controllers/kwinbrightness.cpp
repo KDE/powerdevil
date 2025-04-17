@@ -39,6 +39,10 @@ void KWinDisplayDetector::detect()
     });
 }
 
+void KWinDisplayDetector::recheck()
+{
+}
+
 QList<DisplayBrightness *> KWinDisplayDetector::displays() const
 {
     return m_displayList;
@@ -46,6 +50,7 @@ QList<DisplayBrightness *> KWinDisplayDetector::displays() const
 
 void KWinDisplayDetector::checkOutputs()
 {
+    qDebug() << "Check outputs called";
     const KScreen::OutputList outputs = m_config->outputs();
     bool changed = false;
     // remove all actually removed outputs

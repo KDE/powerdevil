@@ -195,6 +195,11 @@ private Q_SLOTS:
     void onDisplayDestroyed(QObject *);
     void onDetectorDisplaysChanged();
     void onExternalBrightnessChangeObserved(DisplayBrightness *display, int value);
+    /**
+     * Re-trigger display detection mechanism in backends. Plugin can send displayAdded/displayRemoved
+     * signal if change in display connection is observed.
+     */
+    void recheckDisplays();
 
 private:
     int brightnessMultiplied(int value, double multiplier, int min) const;

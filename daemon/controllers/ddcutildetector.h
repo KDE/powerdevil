@@ -22,5 +22,6 @@ public:
     ~DDCutilDetector();
 
     void detect() override;
+    void recheck() override;
     QList<DisplayBrightness *> displays() const override;
 };

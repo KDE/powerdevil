@@ -101,6 +101,10 @@ void BacklightDetector::detect()
     brightnessJob->start();
 }
 
+void BacklightDetector::recheck()
+{
+}
+
 QList<DisplayBrightness *> BacklightDetector::displays() const
 {
     return m_display ? QList<DisplayBrightness *>(1, m_display.get()) : QList<DisplayBrightness *>();

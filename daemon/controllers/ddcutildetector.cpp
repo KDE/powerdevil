@@ -110,7 +110,7 @@ DDCutilPrivateSingleton::DDCutilPrivateSingleton()
     connect(this, &DDCutilPrivateSingleton::displayAdded, this, &DDCutilPrivateSingleton::redetect);
     connect(this, &DDCutilPrivateSingleton::displayRemoved, this, &DDCutilPrivateSingleton::removeDisplay);
 
-    ddca_start_watch_displays(DDCA_Display_Event_Class(DDCA_EVENT_CLASS_ALL));
+    // ddca_start_watch_displays(DDCA_Display_Event_Class(DDCA_EVENT_CLASS_DPMS));
 #endif
 }
 
@@ -220,13 +220,7 @@ void DDCutilPrivateSingleton::redetect()
 #if DDCUTIL_VERSION >= QT_VERSION_CHECK(2, 1, 0)
 void DDCutilPrivateSingleton::displayStatusChanged(DDCA_Display_Status_Event &event)
 {
-    if (event.event_type == DDCA_EVENT_DISPLAY_CONNECTED) {
-        qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DISPLAY_CONNECTED signal arrived";
-        Q_EMIT displayAdded();
-    } else if (event.event_type == DDCA_EVENT_DISPLAY_DISCONNECTED) {
-        qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DISPLAY_DISCONNECTED signal arrived";
-        Q_EMIT displayRemoved(DDCutilDisplay::generatePathId(event.io_path));
-    } else if (event.event_type == DDCA_EVENT_DPMS_ASLEEP) {
+    if (event.event_type == DDCA_EVENT_DPMS_ASLEEP) {
         qCDebug(POWERDEVIL) << "[DDCutilDetector]: DDCA_EVENT_DPMS_ASLEEP signal arrived";
         Q_EMIT displayRemoved(DDCutilDisplay::generatePathId(event.io_path));
     } else if (event.event_type == DDCA_EVENT_DPMS_AWAKE) {
@@ -277,6 +271,11 @@ void DDCutilDetector::detect()
     qCInfo(POWERDEVIL) << "[DDCutilDetector] compiled without DDC/CI support";
     Q_EMIT detectionFinished(false);
 #endif
+}
+
+void DDCutilDetector::recheck()
+{
+    DDCutilPrivateSingleton::instance().redetect();
 }
 
 QList<DisplayBrightness *> DDCutilDetector::displays() const

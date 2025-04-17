@@ -65,6 +65,7 @@ ScreenBrightnessController::ScreenBrightnessController()
         }
         m_kscreenConfig = static_cast<KScreen::GetConfigOperation *>(configOp)->config();
         KScreen::ConfigMonitor::instance()->addConfig(m_kscreenConfig);
+        connect(KScreen::ConfigMonitor::instance(), &KScreen::ConfigMonitor::configurationChanged, this, &ScreenBrightnessController::recheckDisplays);
     });
 }
 
@@ -92,6 +93,14 @@ void ScreenBrightnessController::detectDisplays()
         });
         detector->detect();
     }
+}
+
+void ScreenBrightnessController::recheckDisplays()
+{
+    qCDebug(POWERDEVIL) << "Re-checking configuration for all plugins";
+    // for (const DetectorInfo &detectorInfo : m_detectors) {
+    //   detectorInfo.detector->recheck();
+    // }
 }
 
 bool ScreenBrightnessController::isSupported() const

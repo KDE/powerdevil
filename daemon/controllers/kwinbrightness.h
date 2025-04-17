@@ -52,6 +52,7 @@ public:
     ~KWinDisplayDetector();
 
     void detect() override;
+    void recheck() override;
     QList<DisplayBrightness *> displays() const override;
 
     void scheduleSetConfig();

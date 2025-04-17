@@ -29,6 +29,7 @@ public:
     explicit BacklightDetector(QObject *parent = nullptr);
 
     void detect() override;
+    void recheck() override;
     QList<DisplayBrightness *> displays() const override;
 
 private:

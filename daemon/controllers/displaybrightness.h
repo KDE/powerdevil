@@ -105,6 +105,11 @@ public:
     virtual void detect() = 0;
 
     /**
+     * Re-check for changes in display connections, it should emit displayAdded/displayRemoved accordingly.
+     */
+    virtual void recheck() = 0;
+
+    /**
      * Retrieve a list of displays that support brightness operations.
      * Call detect() and wait for the detectionFinished() signal before using this.
      *
