@@ -8,10 +8,14 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KSharedConfig>
+#include <Kirigami/Platform/TabletModeWatcher>
 
 #include <Solid/Battery>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
+
+#include <powerdevilenums.h>
+#include <powerdevilpowermanagement.h>
 
 K_PLUGIN_CLASS_WITH_JSON(MobilePower, "kcm_mobile_power.json")
 
@@ -53,13 +57,22 @@ const QMap<int, qreal> idxToSeconds = {
 MobilePower::MobilePower(QObject *parent, const KPluginMetaData &metaData)
     : KQuickConfigModule(parent, metaData)
     , m_batteries{new BatteryModel(this)}
-    , m_profilesConfig{KSharedConfig::openConfig(QStringLiteral("powerdevilrc"), KConfig::SimpleConfig | KConfig::CascadeConfig)}
 {
     qmlRegisterUncreatableType<BatteryModel>("org.kde.kcm.power.mobile.private", 1, 0, "BatteryModel", QStringLiteral("Use BatteryModel"));
     qmlRegisterUncreatableType<Solid::Battery>("org.kde.kcm.power.mobile.private", 1, 0, "Battery", QStringLiteral(""));
     qmlRegisterType<StatisticsProvider>("org.kde.kcm.power.mobile.private", 1, 0, "HistoryModel");
 
     setButtons(KQuickConfigModule::NoAdditionalButton);
+
+    bool isMobile = Kirigami::Platform::TabletModeWatcher::self()->isTabletMode();
+    bool isVM = PowerDevil::PowerManagement::instance()->isVirtualMachine();
+    bool canSuspend = PowerDevil::PowerManagement::instance()->canSuspend();
+
+    m_settingsAC = new PowerDevil::ProfileSettings(QStringLiteral("AC"), isMobile, isVM, canSuspend, this);
+    m_settingsBattery = new PowerDevil::ProfileSettings(QStringLiteral("Battery"), isMobile, isVM, canSuspend, this);
+    m_settingsLowBattery = new PowerDevil::ProfileSettings(QStringLiteral("LowBattery"), isMobile, isVM, canSuspend, this);
+    m_settings = {m_settingsAC, m_settingsBattery, m_settingsLowBattery};
+
     load();
 }
 
@@ -68,60 +81,27 @@ void MobilePower::load()
     // we assume that the [AC], [Battery], and [LowBattery] groups have the same value
     // (which is done by this kcm)
 
-    KConfigGroup batteryGroup = m_profilesConfig->group(QStringLiteral("Battery"));
+    m_dimScreenTime = m_settingsAC->dimDisplayIdleTimeoutSec();
+    m_dimScreen = m_settingsAC->dimDisplayWhenIdle();
 
-    if (batteryGroup.hasGroup(QStringLiteral("Display"))) {
-        qDebug() << "[Battery][Display] group is listed";
-        KConfigGroup displaySettings = batteryGroup.group(QStringLiteral("Display"));
-        m_dimScreenTime = displaySettings.readEntry(QStringLiteral("DimDisplayIdleTimeoutSec"), 30);
-        m_dimScreen = displaySettings.readEntry(QStringLiteral("DimDisplayWhenIdle"), true);
+    m_screenOffTime = m_settingsAC->turnOffDisplayIdleTimeoutSec();
+    m_screenOff = m_settingsAC->turnOffDisplayWhenIdle();
 
-        m_screenOffTime = displaySettings.readEntry(QStringLiteral("TurnOffDisplayIdleTimeoutSec"), 60);
-        m_screenOff = displaySettings.readEntry(QStringLiteral("TurnOffDisplayWhenIdle"), true);
-    } else {
-        qDebug() << "[Battery][Display] Group is not listed";
-        m_dimScreenTime = 30;
-        m_dimScreen = true;
-        m_screenOffTime = 60;
-        m_screenOff = true;
-    }
-
-    if (batteryGroup.hasGroup(QStringLiteral("SuspendAndShutdown"))) {
-        qDebug() << "[Battery][SuspendAndShutdown] group is listed";
-        KConfigGroup suspendSessionGroup = batteryGroup.group(QStringLiteral("SuspendAndShutdown"));
-        m_suspendSessionTime = suspendSessionGroup.readEntry(QStringLiteral("AutoSuspendIdleTimeoutSec"), 300);
-    } else {
-        qDebug() << "[Battery][SuspendAndShutdown] is not listed";
-        m_suspendSessionTime = 300;
-    }
+    m_suspendSessionTime = m_settingsAC->autoSuspendIdleTimeoutSec();
 }
 
 void MobilePower::save()
 {
     // we set all profiles at the same time, since our UI is a simple global toggle
-    KConfigGroup acGroup = m_profilesConfig->group(QStringLiteral("AC"));
-    KConfigGroup batteryGroup = m_profilesConfig->group(QStringLiteral("Battery"));
-    KConfigGroup lowBatteryGroup = m_profilesConfig->group(QStringLiteral("LowBattery"));
+    for (auto *settings : m_settings) {
+        settings->setDimDisplayIdleTimeoutSec(m_dimScreenTime);
+        settings->setDimDisplayWhenIdle(m_dimScreen);
+        settings->setTurnOffDisplayWhenIdle(m_screenOff);
+        settings->setTurnOffDisplayIdleTimeoutSec(m_screenOffTime);
+        settings->setAutoSuspendIdleTimeoutSec(m_suspendSessionTime);
 
-    acGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
-    acGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
-    batteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
-    batteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
-    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayWhenIdle", m_dimScreen, KConfigGroup::Notify);
-    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("DimDisplayIdleTimeoutSec", m_dimScreenTime, KConfigGroup::Notify);
-
-    acGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
-    acGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
-    batteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
-    batteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
-    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayWhenIdle", m_screenOff, KConfigGroup::Notify);
-    lowBatteryGroup.group(QStringLiteral("Display")).writeEntry("TurnOffDisplayIdleTimeoutSec", m_screenOffTime, KConfigGroup::Notify);
-
-    acGroup.group(QStringLiteral("SuspendAndShutdown")).writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
-    batteryGroup.group(QStringLiteral("SuspendAndShutdown")).writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
-    lowBatteryGroup.group(QStringLiteral("SuspendAndShutdown")).writeEntry("AutoSuspendIdleTimeoutSec", m_suspendSessionTime, KConfigGroup::Notify);
-
-    m_profilesConfig->sync();
+        settings->save();
+    }
 
     QDBusMessage call = QDBusMessage::createMethodCall(QStringLiteral("org.kde.Solid.PowerManagement"),
                                                        QStringLiteral("/org/kde/Solid/PowerManagement"),

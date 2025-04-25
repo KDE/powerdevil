@@ -15,8 +15,10 @@ target_link_libraries(kcm_mobile_power PRIVATE
     Qt::Core
     KF6::CoreAddons
     KF6::I18n
+    KF6::Kirigami
     KF6::KCMUtilsQuick
     KF6::ConfigCore
     KF6::Solid
+    powerdevilcore
 )
 

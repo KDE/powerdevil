@@ -9,6 +9,8 @@
 #include <KSharedConfig>
 #include <memory>
 
+#include <PowerDevilProfileSettings.h>
+
 class MobilePower : public KQuickConfigModule
 {
     Q_OBJECT
@@ -42,7 +44,11 @@ public:
 
 private:
     BatteryModel *m_batteries;
-    KSharedConfig::Ptr m_profilesConfig;
+
+    PowerDevil::ProfileSettings *m_settingsAC;
+    PowerDevil::ProfileSettings *m_settingsBattery;
+    PowerDevil::ProfileSettings *m_settingsLowBattery;
+    QList<PowerDevil::ProfileSettings *> m_settings;
 
     int m_suspendSessionTime;
     int m_dimScreenTime;
