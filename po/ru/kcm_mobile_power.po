@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-settings\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-06 00:43+0000\n"
+"POT-Creation-Date: 2025-05-02 00:43+0000\n"
 "PO-Revision-Date: 2024-09-23 11:48+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -19,42 +19,42 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: mobilepower.cpp:30
+#: mobilepower.cpp:34
 #, kde-format
 msgid "30 sec"
 msgstr "30 с"
 
-#: mobilepower.cpp:31
+#: mobilepower.cpp:35
 #, kde-format
 msgid "1 min"
 msgstr "1 минута"
 
-#: mobilepower.cpp:32
+#: mobilepower.cpp:36
 #, kde-format
 msgid "2 min"
 msgstr "2 минуты"
 
-#: mobilepower.cpp:33
+#: mobilepower.cpp:37
 #, kde-format
 msgid "5 min"
 msgstr "5 минут"
 
-#: mobilepower.cpp:34
+#: mobilepower.cpp:38
 #, kde-format
 msgid "10 min"
 msgstr "10 минут"
 
-#: mobilepower.cpp:35
+#: mobilepower.cpp:39
 #, kde-format
 msgid "15 min"
 msgstr "15 минут"
 
-#: mobilepower.cpp:36
+#: mobilepower.cpp:40
 #, kde-format
 msgid "30 min"
 msgstr "30 минут"
 
-#: mobilepower.cpp:37
+#: mobilepower.cpp:41
 #, kde-format
 msgid "Never"
 msgstr "Никогда"
