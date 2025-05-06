@@ -26,6 +26,8 @@ add_powerdevil_bundled_action(keyboardbrightnesscontrol)
 target_dbus_files(powerdevil_keyboardbrightnesscontrolaction
     org.kde.Solid.PowerManagement.Actions.KeyboardBrightnessControl.xml
     keyboardbrightnesscontrol.h PowerDevil::BundledActions::KeyboardBrightnessControl)
+add_powerdevil_bundled_action(turnoffkeyboardbacklight)
+target_link_libraries(powerdevil_turnoffkeyboardbacklightaction KF6::ScreenDpms)
 
 add_powerdevil_bundled_action(dimdisplay)
 add_powerdevil_bundled_action(runscript KF6::KIOCore KF6::KIOWidgets)

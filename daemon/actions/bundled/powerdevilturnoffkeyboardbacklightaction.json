@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "Description": "Automatically disables keyboard backlight when idle",
+        "Icon": "input-keyboard-brightness",
+        "Name": "Turn off keyboard backlight"
+    },
+    "X-KDE-PowerDevil-Action-HasRuntimeRequirement": true,
+    "X-KDE-PowerDevil-Action-ID": "TurnOffKeyboardBacklight"
+}

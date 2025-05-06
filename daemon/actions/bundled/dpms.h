@@ -50,7 +50,6 @@ private Q_SLOTS:
     void onResumeFromSuspend();
 
 private:
-    void setKeyboardBrightnessHelper(int brightness);
     void registerStandardIdleTimeout();
 
     std::chrono::milliseconds m_idleTimeoutWhenUnlocked{-1};
@@ -60,7 +59,6 @@ private:
     bool m_isAboutToSuspend = false;
     PowerDevil::PolicyAgent::RequiredPolicies m_inhibitScreen = PowerDevil::PolicyAgent::None;
 
-    int m_oldKeyboardBrightness = 0;
     QScopedPointer<KScreen::Dpms> m_dpms;
 
     bool m_lockBeforeTurnOff = false;

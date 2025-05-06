@@ -107,11 +107,6 @@ void DPMS::onWakeupFromIdle()
         registerStandardIdleTimeout();
     }
     Q_EMIT stopFade(); // only actively used in X11
-
-    if (m_oldKeyboardBrightness > 0) {
-        setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
-        m_oldKeyboardBrightness = 0;
-    }
 }
 
 void DPMS::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
@@ -127,33 +122,17 @@ void DPMS::onIdleTimeout(std::chrono::milliseconds /*timeout*/)
 
 void DPMS::turnOffOnIdleTimeout()
 {
-    qCDebug(POWERDEVIL) << "DPMS: triggered on idle timeout, turning off display and keyboard backlight";
+    qCDebug(POWERDEVIL) << "DPMS: triggered on idle timeout, turning off display backlight";
 
-    const int keyboardBrightness = core()->keyboardBrightnessController()->brightness();
-    if (keyboardBrightness > 0) {
-        m_oldKeyboardBrightness = keyboardBrightness;
-        setKeyboardBrightnessHelper(0);
-    }
     if (isSupported()) {
         m_dpms->switchMode(KScreen::Dpms::Off);
     }
-}
-
-void DPMS::setKeyboardBrightnessHelper(int brightness)
-{
-    trigger({{u"KeyboardBrightness"_s, QVariant::fromValue(brightness)}});
 }
 
 void DPMS::triggerImpl(const QVariantMap &args)
 {
     QString type = args.value(QStringLiteral("Type")).toString();
     qCDebug(POWERDEVIL) << "DPMS: triggered from externally, type:" << (type.isEmpty() ? u"TurnOn"_s : type);
-
-    QString KEYBOARD_BRIGHTNESS = QStringLiteral("KeyboardBrightness");
-    if (args.contains(KEYBOARD_BRIGHTNESS)) {
-        core()->keyboardBrightnessController()->setBrightness(args.value(KEYBOARD_BRIGHTNESS).toInt());
-        return;
-    }
 
     if (!isSupported()) {
         return;

@@ -46,7 +46,6 @@ void DimDisplay::onWakeupFromIdle()
     QTimer::singleShot(0, this, [this]() {
         qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on wake-up from idle";
         core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
-        setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
     });
     m_dimmed = false;
 }
@@ -67,18 +66,7 @@ void DimDisplay::onIdleTimeout(std::chrono::milliseconds timeout)
     // something on the screen.
     core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 0.3);
 
-    m_oldKeyboardBrightness = core()->keyboardBrightnessController()->brightness();
-    setKeyboardBrightnessHelper(0);
-
     m_dimmed = true;
-}
-
-void DimDisplay::setKeyboardBrightnessHelper(int keyboardBrightness)
-{
-    // don't manipulate keyboard brightness if it's already zero to prevent races with DPMS action
-    if (m_oldKeyboardBrightness > 0) {
-        core()->keyboardBrightnessController()->setBrightness(keyboardBrightness);
-    }
 }
 
 bool DimDisplay::isSupported()
@@ -96,19 +84,9 @@ bool DimDisplay::loadAction(const PowerDevil::ProfileSettings &profileSettings)
         if (m_dimmed) {
             qCDebug(POWERDEVIL) << "DimDisplay: restoring brightness on reload";
             core()->screenBrightnessController()->setDimmingRatio(DIMMING_ID, 1.0);
-
-            if (!profileSettings.useProfileSpecificKeyboardBrightness()) {
-                setKeyboardBrightnessHelper(m_oldKeyboardBrightness);
-            }
             m_dimmed = false;
         }
         return false;
-    }
-
-    if (m_dimmed) {
-        if (profileSettings.useProfileSpecificKeyboardBrightness()) {
-            m_oldKeyboardBrightness = profileSettings.keyboardBrightness();
-        }
     }
 
     m_dimOnIdleTime = std::chrono::seconds(profileSettings.dimDisplayIdleTimeoutSec());
