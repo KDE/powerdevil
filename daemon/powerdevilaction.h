@@ -179,7 +179,7 @@ private:
     PowerDevil::Core *m_core;
 
     QList<std::chrono::milliseconds> m_registeredIdleTimeouts;
-    PowerDevil::PolicyAgent::RequiredPolicies m_requiredPolicies;
+    PowerDevil::PolicyAgent::RequiredPolicies m_requiredPolicies = PowerDevil::PolicyAgent::None;
 
     friend class Core;
 };
