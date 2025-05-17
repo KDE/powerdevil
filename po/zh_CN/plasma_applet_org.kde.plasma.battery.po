@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/powerdevil/plasma_applet_org.kde.plasma."
+"X-Crowdin-File: /kf6-stable/messages/powerdevil/plasma_applet_org.kde.plasma."
 "battery.pot\n"
-"X-Crowdin-File-ID: 54392\n"
+"X-Crowdin-File-ID: 55840\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
