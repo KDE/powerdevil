@@ -1,7 +1,7 @@
 # translation of powerdevil.po to Arabic
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2008, 2024 zayed <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2024, 2025 zayed <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2021, 2022, 2023.
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012, 2014.
 # Safa Alfulaij <safaalfulaij@hotmail.con>, 2013.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 02:28+0000\n"
-"PO-Revision-Date: 2022-11-26 10:59+0400\n"
+"PO-Revision-Date: 2025-05-17 18:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -123,7 +123,7 @@ msgstr "لا تفعل شيئا"
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr "نَم"
+msgstr "علّق"
 
 #: actions/bundled/handlebuttoneventsconfig.cpp:102
 #: actions/bundled/suspendsessionconfig.cpp:96
@@ -473,7 +473,7 @@ msgstr "بلغت البطارية المستوى الحرج، سينام الح�
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
-msgstr "نَم الآن"
+msgstr "علّق الآن"
 
 #: powerdevilcore.cpp:696
 #, kde-format
