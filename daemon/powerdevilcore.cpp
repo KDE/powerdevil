@@ -204,6 +204,15 @@ void Core::onControllersReady()
 
 #endif
 
+    // If inhibited, there is no reason to keep actions running, we can unload them and stop their timers.
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::InhibitionsChanged, this, [this]() {
+        if (PowerDevil::PolicyAgent::instance()->ListInhibitions().count() > 0 && m_activeActions.count() > 0) {
+            unloadAllActiveActions();
+        } else if (m_activeActions.count() == 0) {
+            refreshStatus();
+        }
+    });
+
     // All systems up Houston, let's go!
     Q_EMIT coreReady();
     refreshStatus();
