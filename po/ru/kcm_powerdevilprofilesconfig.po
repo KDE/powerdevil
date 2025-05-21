@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2020, 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2023, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
 # SPDX-FileCopyrightText: 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 # Alexander Potashev <aspotashev@gmail.com>, 2010, 2011.
 # Andrey Cherepanov <skull@kde.ru>, 2011.
@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-04-08 10:01+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
-"Language-Team: Basealt Translation Team\n"
+"PO-Revision-Date: 2025-05-20 21:14+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -126,10 +126,10 @@ msgid "Standby, then hibernate"
 msgstr "Спящий режим, а затем гибернация"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Гибернация при бездействии"
+msgstr "Гибернация при низком заряде батареи"
 
 #: SleepModeModel.cpp:40
 #, kde-format
@@ -477,26 +477,27 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Открыть страницу настроек «Уведомления», раздел «Управление питанием»"
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Уведомления: управление питанием"
+msgstr "Комбинации клавиш: управление питанием"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Открыть страницу настроек «Уведомления», раздел «Управление питанием»"
+msgstr ""
+"Открыть страницу настроек «Комбинации клавиш», раздел «Управление питанием»"
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Блокировка экрана"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Открыть страницу настроек «Сеансы»"
+msgstr "Открыть страницу настроек «Блокировка экрана»"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
