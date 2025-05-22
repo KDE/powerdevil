@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.2\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-01-30 09:12+0100\n"
+"PO-Revision-Date: 2025-05-21 21:58+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -218,14 +218,14 @@ msgid "Every time for this app and reason"
 msgstr "Mindig ezt az alkalmazást és ezért"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Kézzel kikapcsolta az alvó módot és a képernyőzárolást."
+msgstr ""
+"Kézzel kikapcsolta az alvó módot és a képernyőzárolást. Ez magasabb "
+"energiafogyasztást eredményez."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
