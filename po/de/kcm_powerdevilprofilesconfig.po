@@ -4,64 +4,63 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2020.
 # SPDX-FileCopyrightText: 2024 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Sven J. Grewe <svengrewe@posteo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2024-11-19 15:58+0100\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2025-04-24 15:18+0200\n"
+"Last-Translator: Sven J. Grewe <svengrewe@posteo.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
 msgid "Do nothing"
-msgstr ""
+msgstr "Nichts unternehmen"
 
 #: PowerButtonActionModel.cpp:41
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "Standby-Modus"
 
 #: PowerButtonActionModel.cpp:51
 #, kde-format
 msgid "Hibernate"
-msgstr ""
+msgstr "Ruhezustand"
 
 #: PowerButtonActionModel.cpp:60
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
-msgstr ""
+msgstr "Herunterfahren"
 
 #: PowerButtonActionModel.cpp:68
 #, kde-format
 msgid "Lock screen"
-msgstr ""
+msgstr "Bildschirm sperren"
 
 #: PowerButtonActionModel.cpp:76
 #, kde-format
 msgid "Show logout screen"
-msgstr ""
+msgstr "Abmeldebildschirm anzeigen"
 
 #: PowerButtonActionModel.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@label:combobox After X minutes"
-#| msgid "&Turn off screen:"
+#, kde-format
 msgid "Turn off screen"
-msgstr "Bildschirm &ausschalten:"
+msgstr "Bildschirm ausschalten"
 
 #: PowerButtonActionModel.cpp:92
 #, kde-format
 msgid "Toggle screen on/off"
-msgstr ""
+msgstr "Bildschirm ein-/ausschalten"
 
 #: PowerKCM.cpp:460
 #, kde-format
@@ -72,68 +71,64 @@ msgstr "Der Energieverwaltungsdienst scheint nicht zu laufen."
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Power Save"
-msgstr ""
+msgstr "Energie sparen"
 
 #: PowerProfileModel.cpp:43
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Balanced"
-msgstr ""
+msgstr "Ausgeglichen"
 
 #: PowerProfileModel.cpp:44
 #, kde-format
 msgctxt "@option:combobox Power profile"
 msgid "Performance"
-msgstr ""
+msgstr "Leistung"
 
 #: PowerProfileModel.cpp:48
 #, kde-format
 msgid "Leave unchanged"
-msgstr ""
+msgstr "Unverändert lassen"
 
 #: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 #: SleepModeModel.cpp:22
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
-msgstr ""
+msgstr "Sitzung im Arbeitsspeicher halten"
 
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr ""
+msgstr "Hybrider Standby-Modus"
 
 #: SleepModeModel.cpp:30
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
-msgstr ""
+msgstr "Sitzung im Arbeitsspeicher und auf der Festplatte speichern"
 
 #: SleepModeModel.cpp:37
 #, kde-format
 msgid "Standby, then hibernate"
-msgstr ""
+msgstr "Standby und dann Ruhezustand"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "@@accessible:name:textfield"
-#| msgid "Script command after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Skriptbefehl beim Betreten dieses Energiezustands"
+msgstr "In den Ruhezustand wechseln, wenn der Akku-Ladestand niedrig ist"
 
 #: SleepModeModel.cpp:40
-#, fuzzy, kde-format
-#| msgctxt "@@accessible:name:textfield"
-#| msgid "Script command after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
-msgstr "Skriptbefehl beim Betreten dieses Energiezustands"
+msgstr "Bei längerer Inaktivität in den Ruhezustand wechseln"
 
 #: ui/DurationPromptDialog.qml:130
 #, kde-format
@@ -353,7 +348,7 @@ msgstr "Niedriger Stand bei angeschlossenen &Geräten:"
 #, kde-format
 msgctxt "@accessible:name:spinbox"
 msgid "Low battery level for peripheral devices"
-msgstr "Niedriger Batterie-Ladestand bei angeschlossenen &Geräten"
+msgstr "Niedrige Akku-/Batterie-Ladung bei angeschlossenen &Geräten"
 
 #: ui/GlobalConfig.qml:214
 #, kde-format
@@ -362,7 +357,7 @@ msgid ""
 "The battery charge for peripheral devices will be considered low when it "
 "reaches this level."
 msgstr ""
-"Der Batterie-Ladestand bei angeschlossenen Geräten wird als niedrig "
+"Die Akku-/Batterie-Ladung bei angeschlossenen Geräten wird als niedrig "
 "betrachtet, sobald er dieses Niveau erreicht."
 
 #: ui/GlobalConfig.qml:222
@@ -459,31 +454,26 @@ msgid "Open \"Notifications\" settings page, \"Power Management\" section"
 msgstr "Öffnen der Seite „Benachrichtigungen“, Abschnitt „Energieverwaltung“"
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Benachrichtigungen: Energieverwaltung"
+msgstr "Kurzbefehle: Energieverwaltung"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Öffnen der Seite „Benachrichtigungen“, Abschnitt „Energieverwaltung“"
+msgstr "Öffnen der Seite „Kurzbefehle“, Abschnitt „Energieverwaltung“"
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
 msgctxt "@text:button Name of KCM"
 msgid "Screen Locking"
-msgstr ""
+msgstr "Bildschirmsperre"
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Öffnen der Seite „Arbeitsflächen-Sitzung“"
+msgstr "Öffnen der Seite „Bildschirmsperre“"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format

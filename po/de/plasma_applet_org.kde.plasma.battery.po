@@ -5,20 +5,21 @@
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010, 2011.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
 # Jannick Kuhr <opensource@kuhr.org>, 2023.
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-01-26 16:48+0100\n"
-"Last-Translator: Stephan Brunner <s.brunner@stephan-brunner.net>\n"
+"PO-Revision-Date: 2025-05-25 14:03+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -104,7 +105,7 @@ msgstr "%1 %"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr "Ruhezustand und Bildschirmsperre nach Inaktivität"
+msgstr "Ruhemodus und Bildschirmsperre nach Inaktivität"
 
 #: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:96
 #: package/contents/ui/PowerProfileItem.qml:76
@@ -198,7 +199,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr "Entsperren"
+msgstr "Erlauben"
 
 #: package/contents/ui/InhibitionItem.qml:182
 #: package/contents/ui/InhibitionItem.qml:309
@@ -207,7 +208,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Only this time"
-msgstr "Nur dieses Mal"
+msgstr "Nur diesmal"
 
 #: package/contents/ui/InhibitionItem.qml:187
 #: package/contents/ui/InhibitionItem.qml:314
@@ -231,7 +232,7 @@ msgstr "Ruhezustand und Bildschirmsperre sind manuell blockiert."
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr "Entsperren"
+msgstr "Erlauben"
 
 #: package/contents/ui/InhibitionItem.qml:238
 #: package/contents/ui/InhibitionItem.qml:361
@@ -300,7 +301,7 @@ msgstr "Energie und Akku"
 #: package/contents/ui/main.qml:115
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr "Batterie nicht eingesetzt"
+msgstr "Kein Akku im Schacht eingesetzt"
 
 #: package/contents/ui/main.qml:128
 #, kde-format
