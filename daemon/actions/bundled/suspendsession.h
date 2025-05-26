@@ -32,6 +32,7 @@ protected:
     void onWakeupFromIdle() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
     void triggerImpl(const QVariantMap &args) override;
+    void refreshOnInhibitionChange() override;
 
 public Q_SLOTS:
     void suspendToRam();
