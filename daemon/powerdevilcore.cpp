@@ -141,6 +141,11 @@ void Core::onControllersReady()
                 Q_UNUSED(newPolicies);
                 KIdleTime::instance()->simulateUserActivity();
             });
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::InhibitionsChanged, this, [this]() {
+        for (const QString &action : std::as_const(m_activeActions)) {
+            m_actionPool[action]->refreshOnInhibitionChange();
+        }
+    });
 
     // Bug 354250: Simulate user activity when session becomes inactive,
     // this keeps us from sending the computer to sleep when switching to an idle session.

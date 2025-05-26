@@ -152,6 +152,13 @@ protected:
      */
     PowerDevil::Core *core() const;
 
+    /**
+     * Called whenever inhibitions change in core.
+     * By default does nothing, but can be used to
+     * have specific refresh actions, such as restarting idle timers.
+     */
+    virtual void refreshOnInhibitionChange();
+
 protected Q_SLOTS:
     /**
      * This function is called whenever a profile is loaded. Please note that this is slightly different from

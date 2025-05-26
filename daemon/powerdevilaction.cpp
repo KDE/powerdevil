@@ -96,6 +96,10 @@ void Action::onProfileUnload()
 {
 }
 
+void Action::refreshOnInhibitionChange()
+{
+}
+
 } // namespace PowerDevil
 
 #include "moc_powerdevilaction.cpp"
