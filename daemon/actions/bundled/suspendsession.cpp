@@ -169,6 +169,16 @@ void SuspendSession::triggerSuspendSession(PowerDevil::PowerButtonAction action)
         {QStringLiteral("Type"), qToUnderlying(action)},
     });
 }
+
+void SuspendSession::refreshOnInhibitionChange()
+{
+    qCDebug(POWERDEVIL) << "Suspend session was refreshed due to inhibition change";
+    unregisterIdleTimeouts();
+    if (m_idleTime != 0s) {
+        registerIdleTimeout(m_idleTime - 5s);
+        registerIdleTimeout(m_idleTime);
+    }
+}
 }
 #include "suspendsession.moc"
 
