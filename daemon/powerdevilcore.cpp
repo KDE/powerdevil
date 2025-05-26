@@ -300,17 +300,6 @@ void Core::loadProfile(bool force)
 {
     QString profileId;
 
-    // Check the activity in which we are in
-    QString activity = m_activityConsumer->currentActivity();
-    qCDebug(POWERDEVIL) << "Currently using activity " << activity;
-
-    PowerDevil::ActivitySettings activitySettings(activity);
-
-    qCDebug(POWERDEVIL) << "Settings for loaded activity:";
-    for (KConfigSkeletonItem *item : activitySettings.items()) {
-        qCDebug(POWERDEVIL) << item->key() << "=" << item->property();
-    }
-
     // let's load the current state's profile
     if (m_batteriesPercent.isEmpty()) {
         qCDebug(POWERDEVIL) << "No batteries found, loading AC";
@@ -376,27 +365,40 @@ void Core::loadProfile(bool force)
         Q_EMIT profileChanged(m_currentProfile);
     }
 
-    // Now... any special behaviors we'd like to consider?
-    if (activitySettings.inhibitSuspend()) {
-        qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
-        // Trigger a special inhibition - if we don't have one yet
-        if (!m_sessionActivityInhibit.contains(activity)) {
-            int cookie = PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession,
-                                                                i18n("Activity Manager"),
-                                                                i18n("This activity's policies prevent the system from going to sleep"));
+    // Check the activity in which we are in
+    const QString activity = m_activityConsumer->currentActivity();
+    qCDebug(POWERDEVIL) << "Currently using activity" << activity;
 
-            m_sessionActivityInhibit.insert(activity, cookie);
+    if (!activity.isEmpty()) {
+        PowerDevil::ActivitySettings activitySettings(activity);
+
+        qCDebug(POWERDEVIL) << "Settings for loaded activity:";
+        for (KConfigSkeletonItem *item : activitySettings.items()) {
+            qCDebug(POWERDEVIL) << item->key() << "=" << item->property();
         }
-    }
-    if (activitySettings.inhibitScreenManagement()) {
-        qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
-        // Trigger a special inhibition - if we don't have one yet
-        if (!m_screenActivityInhibit.contains(activity)) {
-            int cookie = PolicyAgent::instance()->AddInhibition(PolicyAgent::ChangeScreenSettings,
-                                                                i18n("Activity Manager"),
-                                                                i18n("This activity's policies prevent screen power management"));
 
-            m_screenActivityInhibit.insert(activity, cookie);
+        // Now... any special behaviors we'd like to consider?
+        if (activitySettings.inhibitSuspend()) {
+            qCDebug(POWERDEVIL) << "Activity triggers a suspend inhibition"; // debug hence not sleep
+            // Trigger a special inhibition - if we don't have one yet
+            if (!m_sessionActivityInhibit.contains(activity)) {
+                int cookie = PolicyAgent::instance()->AddInhibition(PolicyAgent::InterruptSession,
+                                                                    i18n("Activity Manager"),
+                                                                    i18n("This activity's policies prevent the system from going to sleep"));
+
+                m_sessionActivityInhibit.insert(activity, cookie);
+            }
+        }
+        if (activitySettings.inhibitScreenManagement()) {
+            qCDebug(POWERDEVIL) << "Activity triggers a screen management inhibition";
+            // Trigger a special inhibition - if we don't have one yet
+            if (!m_screenActivityInhibit.contains(activity)) {
+                int cookie = PolicyAgent::instance()->AddInhibition(PolicyAgent::ChangeScreenSettings,
+                                                                    i18n("Activity Manager"),
+                                                                    i18n("This activity's policies prevent screen power management"));
+
+                m_screenActivityInhibit.insert(activity, cookie);
+            }
         }
     }
 
