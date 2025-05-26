@@ -21,6 +21,7 @@ MouseArea {
     id: root
 
     readonly property bool isConstrained: [PlasmaCore.Types.Vertical, PlasmaCore.Types.Horizontal].includes(Plasmoid.formFactor)
+        || Plasmoid.containmentDisplayHints & PlasmaCore.Types.ContainmentForcesSquarePlasmoids
     property int batteryPercent: 0
     property bool batteryPluggedIn: false
     property bool hasBatteries: false
