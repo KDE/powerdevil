@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:44+0000\n"
+"POT-Creation-Date: 2025-05-27 00:43+0000\n"
 "PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -151,46 +151,46 @@ msgstr "Предишен поддържащ"
 msgid "Replace an existing instance"
 msgstr "Заменяне на съществуваща инстанция"
 
-#: powerdevilcore.cpp:385 powerdevilcore.cpp:396
+#: powerdevilcore.cpp:386 powerdevilcore.cpp:397
 #, kde-format
 msgid "Activity Manager"
 msgstr "Управление на дейностите"
 
-#: powerdevilcore.cpp:386
+#: powerdevilcore.cpp:387
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Политиките на тази дейност предотвратяват приспиването на системата"
 
-#: powerdevilcore.cpp:397
+#: powerdevilcore.cpp:398
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Политиките на тази дейност не позволяват управление на енергоспестяването на "
 "монитора"
 
-#: powerdevilcore.cpp:459
+#: powerdevilcore.cpp:461
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Добавена е допълнителна батерия"
 
-#: powerdevilcore.cpp:460
+#: powerdevilcore.cpp:462
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Системата вече няма да преминава в режим приспиване."
 
-#: powerdevilcore.cpp:524
+#: powerdevilcore.cpp:526
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:527
+#: powerdevilcore.cpp:529
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Ниско ниво на батерията на устройството (остават %1%)"
 
-#: powerdevilcore.cpp:529
+#: powerdevilcore.cpp:531
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -200,22 +200,22 @@ msgstr ""
 "Батерията в „%1“ е изтощена и устройството може да се изключи по всяко "
 "време. Моля, презаредете или сменете батерията."
 
-#: powerdevilcore.cpp:536
+#: powerdevilcore.cpp:538
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Ниско ниво на батерията на мишката (остават %1%)"
 
-#: powerdevilcore.cpp:540
+#: powerdevilcore.cpp:542
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Ниско ниво на батерията на клавиатурата (остават %1%)"
 
-#: powerdevilcore.cpp:550
+#: powerdevilcore.cpp:552
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Ниско ниво на батерията на Bluetooth устройството (остават %1%)"
 
-#: powerdevilcore.cpp:552
+#: powerdevilcore.cpp:554
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -225,7 +225,7 @@ msgstr ""
 "Батерията в Bluetooth устройство „%1“ е изтощена и устройството може да "
 "изключи по всяко време. Моля, презаредете или сменете батерията."
 
-#: powerdevilcore.cpp:594
+#: powerdevilcore.cpp:596
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -233,29 +233,29 @@ msgid ""
 msgstr ""
 "Уверете се, че захранващият адаптер е включен и осигурява достатъчно енергия."
 
-#: powerdevilcore.cpp:596
+#: powerdevilcore.cpp:598
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Включете компютъра към ел. мрежа."
 
-#: powerdevilcore.cpp:615
+#: powerdevilcore.cpp:617
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Системата ще се изключи след 60 секунди."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:619
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Моментално изключване"
 
-#: powerdevilcore.cpp:623
+#: powerdevilcore.cpp:625
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Системата ще влезе в хибернация след 60 секунди."
 
-#: powerdevilcore.cpp:625
+#: powerdevilcore.cpp:627
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -263,24 +263,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Моментална хибернация "
 
-#: powerdevilcore.cpp:631
+#: powerdevilcore.cpp:633
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Системата ще заспи след 60 секунди."
 
-#: powerdevilcore.cpp:633
+#: powerdevilcore.cpp:635
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Моментално приспиване"
 
-#: powerdevilcore.cpp:639
+#: powerdevilcore.cpp:641
 #, kde-format
 msgid "Please save your work."
 msgstr "Моля, запазете работата си."
 
-#: powerdevilcore.cpp:645
+#: powerdevilcore.cpp:647
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -288,52 +288,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Отказ"
 
-#: powerdevilcore.cpp:657
+#: powerdevilcore.cpp:659
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Ниско ниво на батерията (остават %1%)"
 
-#: powerdevilcore.cpp:661
+#: powerdevilcore.cpp:663
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Критично ниво на батерията (Остават още %1%)"
 
-#: powerdevilcore.cpp:685
+#: powerdevilcore.cpp:687
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Захранването от ел. мрежа е включено"
 
-#: powerdevilcore.cpp:686
+#: powerdevilcore.cpp:688
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Компютърът вече няма да преминава в режим приспиване."
 
-#: powerdevilcore.cpp:688
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "Running on AC power"
 msgstr "Работи на захранване от ел. мрежа"
 
-#: powerdevilcore.cpp:688
+#: powerdevilcore.cpp:690
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Захранващият адаптер е включен."
 
-#: powerdevilcore.cpp:691
+#: powerdevilcore.cpp:693
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Работи на захранване от батерията"
 
-#: powerdevilcore.cpp:691
+#: powerdevilcore.cpp:693
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Захранващият адаптер е изключен."
 
-#: powerdevilcore.cpp:752
+#: powerdevilcore.cpp:754
 #, kde-format
 msgid "Charging Complete"
 msgstr "Зареждането завърши"
 
-#: powerdevilcore.cpp:752
+#: powerdevilcore.cpp:754
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Батерията сега е напълно заредена."
