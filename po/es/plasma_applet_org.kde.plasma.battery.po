@@ -1,5 +1,5 @@
-# Translation of plasma_applet_battery.po to Spanish
-# Copyright (C) 2007-2025 This_file_is_part_of_KDE
+# Spanish translations for plasma_applet_org.kde.plasma.battery.po package.
+# Copyright (C) 2007-2025 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
 # SPDX-FileCopyrightText: 2007 Santiago Fernández Sancho <santi@kde-es.org>
@@ -9,17 +9,16 @@
 # SPDX-FileCopyrightText: 2012 Javier Vinal <fjvinal@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma_applet_battery\n"
+"Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-27 00:43+0000\n"
-"PO-Revision-Date: 2025-03-06 20:30+0100\n"
+"PO-Revision-Date: 2025-06-04 19:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"com>\n"
 "X-Generator: Lokalize 24.12.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -543,138 +542,3 @@ msgstr ""
 "Es posible que su dispositivo admita perfiles de energía.<nl/>Pruebe a "
 "instalar el paquete <command>power-profiles-daemon</command> mediante el "
 "gestor de paquetes de su distribución y reinicie el sistema."
-
-#~ msgctxt "Placeholder is the battery number"
-#~ msgid "Battery %1"
-#~ msgstr "Batería %1"
-
-#~ msgid "Battery"
-#~ msgstr "Batería"
-
-#~ msgid "The battery applet has enabled system-wide inhibition"
-#~ msgstr ""
-#~ "La miniaplicación de batería ha activado la inhibición completa del "
-#~ "sistema"
-
-#~ msgctxt "Placeholder is brightness percentage"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#~ msgid "Battery and Brightness"
-#~ msgstr "Batería y brillo"
-
-#~ msgid "Brightness"
-#~ msgstr "Brillo"
-
-#~ msgid "Scroll to adjust screen brightness"
-#~ msgstr "Desplace para ajustar el brillo de la pantalla"
-
-#~ msgid "Display Brightness"
-#~ msgstr "Brillo de la pantalla"
-
-#~ msgid "Keyboard Brightness"
-#~ msgstr "Brillo del teclado"
-
-#~ msgid "Performance mode has been manually enabled"
-#~ msgstr "El modo de rendimiento se ha activado de forma manual."
-
-#~ msgid ""
-#~ "Performance mode is unavailable because the computer has detected it is "
-#~ "sitting on your lap."
-#~ msgstr ""
-#~ "El modo de rendimiento no está disponible porque el equipo ha detectado "
-#~ "que está apoyado en su regazo."
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgctxt "short symbol to signal there is no battery currently available"
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "Configure Power Saving..."
-#~ msgstr "Configurar el ahorro de energía..."
-
-#~ msgid "Time To Empty:"
-#~ msgstr "Tiempo hasta que se agote:"
-
-#~ msgid "Power management is disabled"
-#~ msgstr "La gestión de energía está desactivada"
-
-#~ msgid ""
-#~ "Disabling power management will prevent your screen and computer from "
-#~ "turning off automatically.\n"
-#~ "\n"
-#~ "Most applications will automatically suppress power management when they "
-#~ "don't want to have you interrupted."
-#~ msgstr ""
-#~ "La desactivación de la gestión de energía impedirá que su pantalla y su "
-#~ "equipo se apaguen automáticamente.\n"
-#~ "\n"
-#~ "La mayor parte de las aplicaciones desactivarán automáticamente la "
-#~ "gestión de energía cuando no quieran que usted sea interrumpido."
-
-#~ msgctxt "Some Application and n others are currently suppressing PM"
-#~ msgid ""
-#~ "%2 and %1 other application are currently suppressing power management."
-#~ msgid_plural ""
-#~ "%2 and %1 other applications are currently suppressing power management."
-#~ msgstr[0] ""
-#~ "%2 y %1 aplicación más están suprimiendo la gestión de energía en la "
-#~ "actualidad."
-#~ msgstr[1] ""
-#~ "%2 y %1 aplicaciones más están suprimiendo la gestión de energía en la "
-#~ "actualidad."
-
-#~ msgctxt "Some Application is suppressing PM"
-#~ msgid "%1 is currently suppressing power management."
-#~ msgstr "%1 está suprimiendo la gestión de energía en la actualidad."
-
-#~ msgctxt "Some Application is suppressing PM: Reason provided by the app"
-#~ msgid "%1 is currently suppressing power management: %2"
-#~ msgstr "%1 está suprimiendo la gestión de energía en la actualidad: %2"
-
-#~ msgctxt "Used for measurement"
-#~ msgid "100%"
-#~ msgstr "100%"
-
-#~ msgid "%1% Charging"
-#~ msgstr "%1% Cargando"
-
-#~ msgid "%1% Plugged in"
-#~ msgstr "%1% Conectado"
-
-#~ msgid "%1% Battery Remaining"
-#~ msgstr "%1% de batería restante"
-
-#~ msgctxt "The degradation in the battery's energy capacity"
-#~ msgid "Capacity degradation:"
-#~ msgstr "Degradación de la capacidad:"
-
-#~ msgctxt "Placeholder is battery's capacity degradation"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#~ msgctxt "Placeholder is battery capacity"
-#~ msgid "%1%"
-#~ msgstr "%1%"
-
-#~ msgid "Vendor:"
-#~ msgstr "Fabricante:"
-
-#~ msgid "Model:"
-#~ msgstr "Modelo:"
-
-#~ msgid "No screen or keyboard brightness controls available"
-#~ msgstr "No se dispone de controles de brillo de la pantalla ni del teclado"
-
-#~ msgctxt "Placeholders are current and maximum brightness step"
-#~ msgid "%1/%2"
-#~ msgstr "%1/%2"
-
-#~ msgctxt "Placeholder is battery name"
-#~ msgid "%1:"
-#~ msgstr "%1:"
-
-#~ msgid "N/A"
-#~ msgstr "N/D"
