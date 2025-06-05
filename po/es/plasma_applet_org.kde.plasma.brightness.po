@@ -1,15 +1,15 @@
 # Spanish translations for plasma_applet_org.kde.plasma.brightness.po package.
-# Copyright (C) 2023 This file is copyright:
-# This file is distributed under the same license as the plasma-workspace package.
+# Copyright (C) 2023-2025 This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2023.
 #
 # SPDX-FileCopyrightText: 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: plasma_applet_org\n"
+"Project-Id-Version: plasma_applet_org.kde.plasma.brightness\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-02-27 00:42+0000\n"
-"PO-Revision-Date: 2025-01-29 12:59+0100\n"
+"PO-Revision-Date: 2025-06-04 20:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -155,12 +155,12 @@ msgstr "Clic central para suspender la luz nocturna"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
-msgstr "Configurar la luz nocturna..."
+msgstr "Configurar la luz nocturna…"
 
 #: package/contents/ui/main.qml:280
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Configurar la gestión de energía..."
+msgstr "&Configurar la gestión de energía…"
 
 #: package/contents/ui/NightLightItem.qml:77
 #, kde-format
@@ -231,12 +231,12 @@ msgstr "Suspender"
 #: package/contents/ui/NightLightItem.qml:149
 #, kde-format
 msgid "Configure…"
-msgstr "Configurar..."
+msgstr "Configurar…"
 
 #: package/contents/ui/NightLightItem.qml:149
 #, kde-format
 msgid "Enable and Configure…"
-msgstr "Activar y configurar..."
+msgstr "Activar y configurar…"
 
 #: package/contents/ui/NightLightItem.qml:177
 #, kde-format
@@ -276,15 +276,3 @@ msgstr "Color del teclado"
 #, kde-format
 msgid "Night Light"
 msgstr "Luz nocturna"
-
-#~ msgctxt "Status"
-#~ msgid "Night Light off"
-#~ msgstr "Luz nocturna desactivada"
-
-#~ msgctxt "Night light status"
-#~ msgid "Off"
-#~ msgstr "Desactivada"
-
-#~ msgctxt "Status; placeholder is a temperature"
-#~ msgid "Night Light at %1K"
-#~ msgstr "Luz nocturna a %1 K"
