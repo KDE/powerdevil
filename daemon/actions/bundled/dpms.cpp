@@ -252,12 +252,14 @@ void DPMS::onScreenLockerActiveChanged(bool active)
 void DPMS::onAboutToSuspend()
 {
     m_isAboutToSuspend = true;
+    m_dpms->switchMode(KScreen::Dpms::Off);
     unregisterIdleTimeouts();
 }
 
 void DPMS::onResumeFromSuspend()
 {
     m_isAboutToSuspend = false;
+    m_dpms->switchMode(KScreen::Dpms::On);
     registerStandardIdleTimeout();
 }
 
