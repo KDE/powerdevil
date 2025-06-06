@@ -35,7 +35,12 @@ SuspendSession::SuspendSession(QObject *parent)
 
     setRequiredPolicies(PowerDevil::PolicyAgent::InterruptSession);
 
+    connect(core()->suspendController(), &SuspendController::aboutToSuspend, this, [this]() {
+        m_isAboutToSuspend = true;
+    });
     connect(core()->suspendController(), &SuspendController::resumeFromSuspend, this, [this]() {
+        m_isAboutToSuspend = false;
+
         KIdleTime::instance()->simulateUserActivity();
 
         PowerDevil::PolicyAgent::instance()->setupSystemdInhibition();
@@ -79,6 +84,11 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
         // don't suspend if shutting down
         if (QDBusConnection::sessionBus().interface()->isServiceRegistered(QStringLiteral("org.kde.Shutdown"))) {
             qCDebug(POWERDEVIL) << "Not suspending because a shutdown is in progress";
+            return;
+        }
+        // don't suspend if suspending
+        if (m_isAboutToSuspend) {
+            qCDebug(POWERDEVIL) << "Not suspending because a suspend is in progress";
             return;
         }
     }

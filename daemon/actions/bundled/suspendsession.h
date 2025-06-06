@@ -47,6 +47,7 @@ private Q_SLOTS:
 
 private:
     std::chrono::milliseconds m_idleTime{0};
+    bool m_isAboutToSuspend = false;
     PowerDevil::PowerButtonAction m_autoSuspendAction;
     PowerDevil::SleepMode m_sleepMode = PowerDevil::SleepMode::SuspendToRam;
     QScopedPointer<PowerDevil::KWinKScreenHelperEffect> m_fadeEffect;
