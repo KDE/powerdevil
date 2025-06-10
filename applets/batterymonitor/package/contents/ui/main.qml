@@ -56,6 +56,7 @@ PlasmoidItem {
         PlasmaCore.Types.BottomEdge,
         PlasmaCore.Types.LeftEdge,
     ].includes(Plasmoid.location)
+    readonly property bool compactInPanel: inPanel && !!compactRepresentationItem?.visible
 
     function symbolicizeIconName(iconName: string): string {
         const symbolicSuffix = "-symbolic";
@@ -260,13 +261,13 @@ PlasmoidItem {
 
         readonly property var pmControl: inhibitionControl
 
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
+        Layout.minimumWidth: (batterymonitor.inPanel && !batterymonitor.compactInPanel) ? -1 : Kirigami.Units.gridUnit * 10
         Layout.maximumWidth: Kirigami.Units.gridUnit * 80
         Layout.preferredWidth: Kirigami.Units.gridUnit * 20
 
-        Layout.minimumHeight: Kirigami.Units.gridUnit * 10
+        Layout.minimumHeight: (batterymonitor.inPanel && !batterymonitor.compactInPanel) ? -1 : Kirigami.Units.gridUnit * 10
         Layout.maximumHeight: Kirigami.Units.gridUnit * 40
-        Layout.preferredHeight: implicitHeight
+        Layout.preferredHeight: (batterymonitor.inPanel && !batterymonitor.compactInPanel) ? -1 : implicitHeight
 
         model: batteryControl
 
