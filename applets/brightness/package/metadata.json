@@ -132,7 +132,7 @@
                 "Name[zh_TW]": "Natalie Clarius"
             }
         ],
-        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Brightness%20Control",
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Brightness%20and%20Color%20widget",
         "Category": "System Information",
         "Description": "Control brightness and color of your screens and keyboards",
         "Description[ar]": "التحكم في سطوع ولون الشاشات ولوحات المفاتيح",
