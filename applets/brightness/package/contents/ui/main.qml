@@ -32,6 +32,7 @@ PlasmoidItem {
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
         || Plasmoid.location === PlasmaCore.Types.LeftEdge)
+    readonly property bool compactInPanel: inPanel && !!compactRepresentationItem?.visible
 
     DBus.Properties {
         id: nightLightControl
@@ -257,13 +258,13 @@ PlasmoidItem {
         readonly property var appletInterface: brightnessAndColorControl
         nightLightControl: nightLightControl
 
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 10
+        Layout.minimumWidth: (brightnessAndColorControl.inPanel && !brightnessAndColorControl.compactInPanel) ? -1 : Kirigami.Units.gridUnit * 10
         Layout.maximumWidth: Kirigami.Units.gridUnit * 80
         Layout.preferredWidth: Kirigami.Units.gridUnit * 20
 
-        Layout.minimumHeight: Kirigami.Units.gridUnit * 10
+        Layout.minimumHeight: (brightnessAndColorControl.inPanel && !brightnessAndColorControl.compactInPanel) ? -1 : Kirigami.Units.gridUnit * 10
         Layout.maximumHeight: Kirigami.Units.gridUnit * 40
-        Layout.preferredHeight: implicitHeight
+        Layout.preferredHeight: (brightnessAndColorControl.inPanel && !brightnessAndColorControl.compactInPanel) ? -1 : implicitHeight
 
     } // todo
 
