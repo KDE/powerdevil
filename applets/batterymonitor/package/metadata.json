@@ -91,7 +91,7 @@
                 "Name[zh_TW]": "Kai Uwe Broulik"
             }
         ],
-        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Battery%20Monitor",
+        "BugReportUrl": "https://bugs.kde.org/enter_bug.cgi?product=plasmashell&component=Power%20and%20Battery%20%20widget",
         "Category": "System Information",
         "Description": "Control power management settings and see the power status of your battery",
         "Description[ar]": "التحكم في إعدادات إدارة الطاقة ومعرفة حالة طاقة البطارية",
