@@ -15,7 +15,7 @@ import org.kde.kirigami as Kirigami
 FocusScope {
     id: root
     required property string command
-    Kirigami.FormData.buddyFor: commandText
+    Kirigami.FormData.buddyFor: row
 
     implicitHeight: row.implicitHeight
     implicitWidth: row.implicitWidth
