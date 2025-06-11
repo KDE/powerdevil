@@ -3,20 +3,21 @@
 # Johannes Obermayr <johannesobermayr@gmx.de>, 2010.
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2015, 2016.
 # Burkhard Lück <lueck@hube-lueck.de>, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
+# SPDX-FileCopyrightText: 2025 Sven J. Grewe <svengrewe@posteo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2025-02-23 15:40+0100\n"
-"Last-Translator: Flori G <Renner03@protonmail.com>\n"
+"PO-Revision-Date: 2025-04-24 13:19+0200\n"
+"Last-Translator: Sven J. Grewe <svengrewe@posteo.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -140,10 +141,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Wenn Sie die Batterie über einen längeren Zeitraum zu "
-"100 % geladen halten, kann sich der Zustand der Batterie schnell "
-"verschlechtern. Durch Begrenzung der maximalen Akkuladung können Sie die "
-"Lebensdauer des Akkus verlängern.</p></body></html>"
+"<html><head/><body><p>Wenn Sie den Akku über einen längeren Zeitraum zu 100 "
+"% geladen halten, kann sich der Zustand des Akkus schnell verschlechtern. "
+"Durch Begrenzung der maximalen Akkuladung können Sie die Lebensdauer des "
+"Akkus verlängern.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -153,7 +154,7 @@ msgid ""
 "charging the battery again."
 msgstr ""
 "Möglicherweise müssen Sie die Stromquelle trennen und wieder anschließen, um "
-"den Ladevorgang der Batterie erneut zu starten."
+"den Ladevorgang des Akkus erneut zu starten."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
