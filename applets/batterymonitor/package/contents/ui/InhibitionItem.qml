@@ -211,7 +211,7 @@ PlasmaComponents3.ItemDelegate {
 
                     iconSource: "user"
                     // EU Regulation 2023/826 requires a warning if user disables auto suspend.
-                    text: i18nc("Minimize the length of this string as much as possible", "You have manually blocked sleep and screen locking. This will result in higher energy consumption.")
+                    text: i18nc("Minimize the length of this string as much as possible but the sentence about higher energy consumption must be included (EU regulations)", "You have manually blocked sleep and screen locking. This will result in higher energy consumption.")
 
                     PlasmaComponents3.Button {
                         id: manualUninhibitionButton
