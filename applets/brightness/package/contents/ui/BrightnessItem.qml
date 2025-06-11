@@ -89,7 +89,7 @@ PlasmaComponents3.ItemDelegate {
                     id: hint
                     text: i18nc("Display brightness", "Brightness")
                     textFormat: Text.PlainText
-                    enabled: false
+                    opacity: 0.75
                     visible: labelText != brightnessLevelOff && labelText != brightnessLevelOn
                 }
 

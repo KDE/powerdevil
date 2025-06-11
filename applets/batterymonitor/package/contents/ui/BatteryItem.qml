@@ -110,7 +110,7 @@ PlasmaComponents3.ItemDelegate {
                     textFormat: Text.PlainText
                     // For non-power supply batteries only show label for known-good states
                     visible: root.batteryIsPowerSupply || root.batteryChargeState !== BatteryControlModel.NoCharge
-                    enabled: false
+                    opacity: 0.75
                 }
 
                 PlasmaComponents3.Label {
@@ -165,14 +165,14 @@ PlasmaComponents3.ItemDelegate {
                     font: Kirigami.Theme.smallFont
                     textFormat: Text.PlainText
                     wrapMode: Text.WordWrap
-                    enabled: false
+                    opacity: 0.75
                 }
                 component RightLabel : PlasmaComponents3.Label {
                     // fillWidth is false, so using external (grid-cell-internal) alignment
                     Layout.alignment: Qt.AlignRight
                     Layout.fillWidth: false
                     font: Kirigami.Theme.smallFont
-                    enabled: false
+                    opacity: 0.75
                     textFormat: Text.PlainText
                 }
 
