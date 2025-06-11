@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:44+0000\n"
 "PO-Revision-Date: 2024-06-08 17:16+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -73,93 +73,93 @@ msgstr "Luminozitate ecran"
 msgid "Follow accent color"
 msgstr "Urmează culoarea de accent"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:97
 #, kde-format
 msgid "Brightness and Color"
 msgstr "Luminozitate și culoare"
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:137
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "Luminozitate ecran la %1%"
 
-#: package/contents/ui/main.qml:137
+#: package/contents/ui/main.qml:138
 #, fuzzy, kde-format
 #| msgid "Screen brightness at %1%"
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
 msgstr "Luminozitate ecran la %1%"
 
-#: package/contents/ui/main.qml:142
+#: package/contents/ui/main.qml:143
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "Luminozitate tastatură la %1%"
 
-#: package/contents/ui/main.qml:148
+#: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr "Lumină nocturnă suspendată; clic mijlociu pentru reluare"
 
-#: package/contents/ui/main.qml:150
+#: package/contents/ui/main.qml:151
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "Lumină nocturnă suspendată"
 
-#: package/contents/ui/main.qml:155
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "Lumina nocturnă la temperatura culorii de zi"
 
-#: package/contents/ui/main.qml:157
+#: package/contents/ui/main.qml:158
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "Lumina nocturnă la temperatura culorii de noapte"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr ""
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:165
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr ""
 
-#: package/contents/ui/main.qml:182
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr ""
 
-#: package/contents/ui/main.qml:184
+#: package/contents/ui/main.qml:185
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr ""
 
-#: package/contents/ui/main.qml:188
+#: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "Derulați pentru a ajusta luminozitatea ecranului"
 
-#: package/contents/ui/main.qml:191
+#: package/contents/ui/main.qml:192
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "Clic mijlociu pentru a suspenda lumina nocturnă"
 
-#: package/contents/ui/main.qml:274
+#: package/contents/ui/main.qml:275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "Configurează lumina nocturnă…"
 
-#: package/contents/ui/main.qml:280
+#: package/contents/ui/main.qml:281
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr ""

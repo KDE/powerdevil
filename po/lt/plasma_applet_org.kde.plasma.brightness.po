@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 00:44+0000\n"
 "PO-Revision-Date: 2024-08-25 22:57+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -72,28 +72,28 @@ msgstr "Ekrano ryškumas – %1"
 msgid "Follow accent color"
 msgstr "Laikytis paryškinimo spalvos"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:97
 #, kde-format
 msgid "Brightness and Color"
 msgstr "Ryškumas ir spalva"
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:137
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "Ekrano ryškumas ties %1%"
 
-#: package/contents/ui/main.qml:137
+#: package/contents/ui/main.qml:138
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
 msgstr "%1: ryškumas ties %2%"
 
-#: package/contents/ui/main.qml:142
+#: package/contents/ui/main.qml:143
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "Klaviatūros ryškumas ties %1%"
 
-#: package/contents/ui/main.qml:148
+#: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
@@ -101,66 +101,66 @@ msgstr ""
 "Naktinė šviesa pristabdyta; sputelėkite viduriniuoju pelės mygtuku norėdami "
 "pratęsti"
 
-#: package/contents/ui/main.qml:150
+#: package/contents/ui/main.qml:151
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "Naktinė šviesa pristabdyta"
 
-#: package/contents/ui/main.qml:155
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "Naktinė šviesa naudoja dieninės spalvos temperatūrą"
 
-#: package/contents/ui/main.qml:157
+#: package/contents/ui/main.qml:158
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "Naktinė šviesa naudoja naktinės spalvos temperatūrą"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "Naktinė šviesa yra rytinio perėjimo būsenoje (bus užbaigtas %1)"
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:165
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "Naktinė šviesa yra vakarinio perėjimo būsenoje (bus užbaigtas %1)"
 
-#: package/contents/ui/main.qml:182
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "Naktinės šviesos vakarinis perėjimas suplanuotas %1"
 
-#: package/contents/ui/main.qml:184
+#: package/contents/ui/main.qml:185
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "Naktinės šviesos rytinis perėjimas suplanuotas %1"
 
-#: package/contents/ui/main.qml:188
+#: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "Slinkite norėdami reguliuoti ryškumą"
 
-#: package/contents/ui/main.qml:191
+#: package/contents/ui/main.qml:192
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr ""
 "Spustelėkite viduriniuoju pelės mygtuku norėdami pristabdyti naktinę šviesą"
 
-#: package/contents/ui/main.qml:274
+#: package/contents/ui/main.qml:275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "Konfigūruoti naktinę šviesą…"
 
-#: package/contents/ui/main.qml:280
+#: package/contents/ui/main.qml:281
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr ""

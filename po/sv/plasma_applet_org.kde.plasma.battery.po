@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 00:43+0000\n"
+"POT-Creation-Date: 2025-06-11 00:44+0000\n"
 "PO-Revision-Date: 2025-04-05 09:12+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -27,7 +27,7 @@ msgstr "Laddas"
 msgid "Discharging"
 msgstr "Laddas ur"
 
-#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:121
+#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:122
 #, kde-format
 msgid "Fully Charged"
 msgstr "Fulladdat"
@@ -103,7 +103,7 @@ msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Viloläge och skärmlåsning efter inaktivitet"
 
-#: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:96
+#: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:97
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
@@ -275,71 +275,71 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
 msgstr "Blockera manuellt"
 
-#: package/contents/ui/main.qml:75
+#: package/contents/ui/main.qml:76
 #, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr ""
 "Batteriminiprogrammet har aktiverat undertryckande av viloläge och "
 "skärmlåsning:"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:97
 #, kde-format
 msgid "Power and Battery"
 msgstr "Strömhantering och batteri"
 
-#: package/contents/ui/main.qml:115
+#: package/contents/ui/main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
 msgstr "Batteriet finns inte på plats"
 
-#: package/contents/ui/main.qml:128
+#: package/contents/ui/main.qml:129
 #, kde-format
 msgid "Battery at %1%, not Charging"
 msgstr "Batteri %1 %, laddas inte"
 
-#: package/contents/ui/main.qml:130
+#: package/contents/ui/main.qml:131
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr "Batteri %1 %, inkopplat med laddas fortfarande ur"
 
-#: package/contents/ui/main.qml:132
+#: package/contents/ui/main.qml:133
 #, kde-format
 msgid "Battery at %1%, Charging"
 msgstr "Batteri %1 %, laddas"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Batteri %1 %"
 
-#: package/contents/ui/main.qml:143
+#: package/contents/ui/main.qml:144
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Kraftaggregatet är inte kraftfullt nog att ladda batteriet"
 
-#: package/contents/ui/main.qml:147
+#: package/contents/ui/main.qml:148
 #, kde-format
 msgid "No Batteries Available"
 msgstr "Inga batterier tillgängliga"
 
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:155
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
 msgstr "%1 till fulladdat"
 
-#: package/contents/ui/main.qml:156
+#: package/contents/ui/main.qml:157
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
 msgstr "%1 återstår"
 
-#: package/contents/ui/main.qml:159
+#: package/contents/ui/main.qml:160
 #, kde-format
 msgid "Not charging"
 msgstr "Laddas inte"
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:165
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
@@ -347,51 +347,51 @@ msgstr ""
 "Automatiskt viloläge och skärmlåsning är inaktiverade. Mittenklicka för att "
 "aktivera igen."
 
-#: package/contents/ui/main.qml:166
+#: package/contents/ui/main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr "Mittenklicka för att inaktivera automatiskt viloläge och skärmlåsning"
 
-#: package/contents/ui/main.qml:171
+#: package/contents/ui/main.qml:172
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
 msgstr[0] "Ett program har begärt att aktivera prestandaläge"
 msgstr[1] "%1 program har begärt att aktivera prestandaläge"
 
-#: package/contents/ui/main.qml:175
+#: package/contents/ui/main.qml:176
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Systemet är i prestandaläge. Rulla för att ändra."
 
-#: package/contents/ui/main.qml:179
+#: package/contents/ui/main.qml:180
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
 msgstr[0] "Ett program har begärt att aktivera strömsparläge"
 msgstr[1] "%1 program har begärt att aktivera strömsparläge"
 
-#: package/contents/ui/main.qml:183
+#: package/contents/ui/main.qml:184
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Systemet är i strömsparläge. Rulla för att ändra."
 
-#: package/contents/ui/main.qml:186
+#: package/contents/ui/main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Systemet är i balanserat strömläge. Rulla för att ändra."
 
-#: package/contents/ui/main.qml:301
+#: package/contents/ui/main.qml:302
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Vi&sa information om energi…"
 
-#: package/contents/ui/main.qml:307
+#: package/contents/ui/main.qml:308
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Visa batteriets procentvärde på ikon om inte fulladdat"
 
-#: package/contents/ui/main.qml:320
+#: package/contents/ui/main.qml:321
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "Anpassa strömspar&hantering…"
