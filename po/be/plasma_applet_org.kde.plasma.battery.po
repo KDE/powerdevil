@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 02:36+0000\n"
+"POT-Creation-Date: 2025-06-11 02:48+0000\n"
 "PO-Revision-Date: 2024-06-20 05:35\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -32,7 +32,7 @@ msgstr "Зараджаецца"
 msgid "Discharging"
 msgstr "Разраджаецца"
 
-#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:121
+#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:122
 #, kde-format
 msgid "Fully Charged"
 msgstr "Поўнасцю зараджана"
@@ -108,7 +108,7 @@ msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Пераход у рэжым сну і блакаванне экрана пасля бяздзейнасці"
 
-#: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:96
+#: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:97
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
@@ -290,69 +290,69 @@ msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
 msgstr "Уласнаручнае блакаванне"
 
-#: package/contents/ui/main.qml:75
+#: package/contents/ui/main.qml:76
 #, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr "Аплет батарэі ўключыў падаўленне сну і блакавання экрана"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:97
 #, kde-format
 msgid "Power and Battery"
 msgstr "Сілкаванне і батарэя"
 
-#: package/contents/ui/main.qml:115
+#: package/contents/ui/main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
 msgstr "Батарэі няма ў адсеку"
 
-#: package/contents/ui/main.qml:128
+#: package/contents/ui/main.qml:129
 #, kde-format
 msgid "Battery at %1%, not Charging"
 msgstr "Узровень зараду %1%, не зараджаецца"
 
-#: package/contents/ui/main.qml:130
+#: package/contents/ui/main.qml:131
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr "Узровень зараду %1%, падлучана да крыніцы, але не зараджаецца"
 
-#: package/contents/ui/main.qml:132
+#: package/contents/ui/main.qml:133
 #, kde-format
 msgid "Battery at %1%, Charging"
 msgstr "Узровень зараду %1%, зараджаецца"
 
-#: package/contents/ui/main.qml:135
+#: package/contents/ui/main.qml:136
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Узровень зараду %1%"
 
-#: package/contents/ui/main.qml:143
+#: package/contents/ui/main.qml:144
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Блок сілкавання недастаткова магутны, каб зарадзіць батарэю"
 
-#: package/contents/ui/main.qml:147
+#: package/contents/ui/main.qml:148
 #, kde-format
 msgid "No Batteries Available"
 msgstr "Няма даступных батарэй"
 
-#: package/contents/ui/main.qml:154
+#: package/contents/ui/main.qml:155
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
 msgstr "%1 да поўнага зараджэння"
 
-#: package/contents/ui/main.qml:156
+#: package/contents/ui/main.qml:157
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
 msgstr "Засталося %1"
 
-#: package/contents/ui/main.qml:159
+#: package/contents/ui/main.qml:160
 #, kde-format
 msgid "Not charging"
 msgstr "Не зараджаецца"
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:165
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
@@ -360,14 +360,14 @@ msgstr ""
 "Аўтаматычны пераход у рэжым сну і блакаванне экрана адключаныя; пстрыкніце "
 "сярэдняй кнопкай мышы, каб уключыць"
 
-#: package/contents/ui/main.qml:166
+#: package/contents/ui/main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Пстрыкніце сярэдняй кнопкай мышы, каб адключыць аўтаматычны пераход у рэжым "
 "сну і блакаванне экрана"
 
-#: package/contents/ui/main.qml:171
+#: package/contents/ui/main.qml:172
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -376,12 +376,12 @@ msgstr[1] "%1 праграмы запыталі актывацыю прадук�
 msgstr[2] "%1 праграм запыталі актывацыю прадукцыйнага рэжыму"
 msgstr[3] "%1 праграмы запыталі актывацыю прадукцыйнага рэжыму"
 
-#: package/contents/ui/main.qml:175
+#: package/contents/ui/main.qml:176
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Сістэма працуе ў прадукцыйным рэжыме; пракруціце, каб змяніць"
 
-#: package/contents/ui/main.qml:179
+#: package/contents/ui/main.qml:180
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -390,28 +390,28 @@ msgstr[1] "%1 праграмы запыталі актывацыю энерга�
 msgstr[2] "%1 праграм запыталі актывацыю энергазберагальнага рэжыму"
 msgstr[3] "%1 праграмы запыталі актывацыю энергазберагальнага рэжыму"
 
-#: package/contents/ui/main.qml:183
+#: package/contents/ui/main.qml:184
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Сістэма працуе ў энергазберагальным рэжыме; пракруціце, каб змяніць"
 
-#: package/contents/ui/main.qml:186
+#: package/contents/ui/main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Сістэма працуе ў збалансаваным рэжыме; пракруціце, каб змяніць"
 
-#: package/contents/ui/main.qml:301
+#: package/contents/ui/main.qml:302
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Паказаць інфармацыю пра сілкаванне…"
 
-#: package/contents/ui/main.qml:307
+#: package/contents/ui/main.qml:308
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Паказваць на значку ўзровень зараду батарэі, калі яна зараджаная не поўнасцю"
 
-#: package/contents/ui/main.qml:320
+#: package/contents/ui/main.qml:321
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Наладжванне кіравання сілкаваннем…"

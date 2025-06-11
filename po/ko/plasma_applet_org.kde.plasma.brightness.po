@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 02:48+0000\n"
 "PO-Revision-Date: 2025-04-07 00:33+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -70,92 +70,92 @@ msgstr "화면 밝기 - %1"
 msgid "Follow accent color"
 msgstr "강조색 따르기"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:97
 #, kde-format
 msgid "Brightness and Color"
 msgstr "밝기와 색상"
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:137
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "화면 밝기: %1%"
 
-#: package/contents/ui/main.qml:137
+#: package/contents/ui/main.qml:138
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
 msgstr "%1의 화면 밝기: %2%"
 
-#: package/contents/ui/main.qml:142
+#: package/contents/ui/main.qml:143
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "키보드 밝기: %1%"
 
-#: package/contents/ui/main.qml:148
+#: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr "야간 조명 중단됨. 가운데 단추로 클릭하여 다시 시작"
 
-#: package/contents/ui/main.qml:150
+#: package/contents/ui/main.qml:151
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "야간 조명 중단됨"
 
-#: package/contents/ui/main.qml:155
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "야간 조명이 주간 색온도임"
 
-#: package/contents/ui/main.qml:157
+#: package/contents/ui/main.qml:158
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "야간 조명이 야간 색온도임"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "야간 조명이 일출 전환 중(%1에 완료됨)"
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:165
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "야간 조명이 일몰 전환 중(%1에 완료됨)"
 
-#: package/contents/ui/main.qml:182
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "야간 조명 일몰 전환이 %1에 예정됨"
 
-#: package/contents/ui/main.qml:184
+#: package/contents/ui/main.qml:185
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "야간 조명 일출 전환이 %1에 예정됨"
 
-#: package/contents/ui/main.qml:188
+#: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "스크롤하여 화면 밝기 조정"
 
-#: package/contents/ui/main.qml:191
+#: package/contents/ui/main.qml:192
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "가운데 단추로 클릭하여 야간 조명 일시 정지"
 
-#: package/contents/ui/main.qml:274
+#: package/contents/ui/main.qml:275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "야간 조명 설정…"
 
-#: package/contents/ui/main.qml:280
+#: package/contents/ui/main.qml:281
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "전원 관리 설정(&C)…"

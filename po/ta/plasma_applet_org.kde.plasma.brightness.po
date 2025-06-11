@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-02-27 00:42+0000\n"
+"POT-Creation-Date: 2025-06-11 02:48+0000\n"
 "PO-Revision-Date: 2025-02-02 15:59+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -70,92 +70,92 @@ msgstr "திரையின் பிரகாசம் — %1"
 msgid "Follow accent color"
 msgstr "சிறப்பு நிறத்தைப் பயன்படுத்து"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:97
 #, kde-format
 msgid "Brightness and Color"
 msgstr "நிறமும் பிரகாசமும்"
 
-#: package/contents/ui/main.qml:136
+#: package/contents/ui/main.qml:137
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "திரையின் பிரகாசம் %1%-ஆக உள்ளது"
 
-#: package/contents/ui/main.qml:137
+#: package/contents/ui/main.qml:138
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
 msgstr "%1 தனின் பிரகாசம் %2%-ஆக உள்ளது"
 
-#: package/contents/ui/main.qml:142
+#: package/contents/ui/main.qml:143
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "விசைப்பலகையின் பிரகாசம் %1%-ஆக உள்ளது"
 
-#: package/contents/ui/main.qml:148
+#: package/contents/ui/main.qml:149
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr "இரவு நிறமாற்றம் இடைநிறுத்தப்பட்டுள்ளது; தொடர நடு-கிளிக் செய்யவும்"
 
-#: package/contents/ui/main.qml:150
+#: package/contents/ui/main.qml:151
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "இரவு நிறமாற்றம் இடைநிறுத்தப்பட்டுள்ளது"
 
-#: package/contents/ui/main.qml:155
+#: package/contents/ui/main.qml:156
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "பகலுக்கான நிறவெப்பநிலையில் உள்ளது"
 
-#: package/contents/ui/main.qml:157
+#: package/contents/ui/main.qml:158
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "இரவுக்கான நிறவெப்பநிலையில் உள்ளது"
 
-#: package/contents/ui/main.qml:162
+#: package/contents/ui/main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "இரவுக்கான நிறவெப்பநிலையிலிருந்து பகலுக்கானதற்கு மாறுகிறது (%1-க்குள் மாறும்)"
 
-#: package/contents/ui/main.qml:164
+#: package/contents/ui/main.qml:165
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "பகலுக்கான நிறவெப்பநிலையிலிருந்து இரவுக்கானதற்கு மாறுகிறது (%1-க்குள் மாறும்)"
 
-#: package/contents/ui/main.qml:182
+#: package/contents/ui/main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "பகலுக்கான நிறவெப்பநிலையிலிருந்து இரவுக்கானதற்கு %1-க்கு மாறும்"
 
-#: package/contents/ui/main.qml:184
+#: package/contents/ui/main.qml:185
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "இரவுக்கான நிறவெப்பநிலையிலிருந்து பகலுக்கானதற்கு %1-க்கு மாறும்"
 
-#: package/contents/ui/main.qml:188
+#: package/contents/ui/main.qml:189
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "திரையின் பிரகாசத்தை மாற்ற உருளவும்"
 
-#: package/contents/ui/main.qml:191
+#: package/contents/ui/main.qml:192
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "இரவு நிறமாற்றத்தை இடைநிறுத்த நடு-கிளிக் செய்யவும்"
 
-#: package/contents/ui/main.qml:274
+#: package/contents/ui/main.qml:275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "இரவு நிறமாற்றத்தை அமை…"
 
-#: package/contents/ui/main.qml:280
+#: package/contents/ui/main.qml:281
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "ஆற்றல் மேலாண்மையை அமை…"
