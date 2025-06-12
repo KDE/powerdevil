@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:44+0000\n"
+"POT-Creation-Date: 2025-06-12 00:44+0000\n"
 "PO-Revision-Date: 2025-05-25 14:03+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -221,11 +221,13 @@ msgstr "Jedes Mal für diese Anwendung und diesen Grund"
 
 #: package/contents/ui/InhibitionItem.qml:214
 #, kde-format
-msgctxt "Minimize the length of this string as much as possible"
+msgctxt ""
+"Minimize the length of this string as much as possible but the sentence "
+"about higher energy consumption must be included (EU regulations)"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Ruhezustand und Bildschirmsperre sind manuell blockiert."
+msgstr ""
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
