@@ -100,7 +100,7 @@ PlasmaComponents3.ItemDelegate {
                     }
                     textFormat: Text.PlainText
 
-                    enabled: false
+                    opacity: 0.75
                 }
 
                 PlasmaComponents3.Label {
@@ -185,7 +185,7 @@ PlasmaComponents3.ItemDelegate {
                     }
                     textFormat: Text.PlainText
 
-                    enabled: false
+                    opacity: 0.75
                     font: Kirigami.Theme.smallFont
                     wrapMode: Text.WordWrap
                     Layout.fillWidth: true
@@ -202,7 +202,7 @@ PlasmaComponents3.ItemDelegate {
                     }
                     textFormat: Text.PlainText
 
-                    enabled: false
+                    opacity: 0.75
                     font: Kirigami.Theme.smallFont
                     wrapMode: Text.WordWrap
                     horizontalAlignment: Text.AlignRight
