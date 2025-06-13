@@ -101,7 +101,7 @@ int main(int argc, char **argv)
                          QStringLiteral(POWERDEVIL_VERSION_STRING),
                          i18nc("@title", "PowerDevil, an advanced, modular and lightweight power management daemon"),
                          KAboutLicense::GPL,
-                         i18nc("@info:credit", "(c) 2015-2019 Kai Uwe Broulik"));
+                         i18nc("@info:credit", "© 2015–2019 Kai Uwe Broulik"));
     aboutData.addAuthor(i18nc("@info:credit", "Kai Uwe Broulik"), i18nc("@info:credit", "Maintainer"), QStringLiteral("kde@privat.broulik.de"));
     aboutData.addAuthor(i18nc("@info:credit", "Dario Freddi"), i18nc("@info:credit", "Previous maintainer"), QStringLiteral("drf@kde.org"));
     aboutData.setProductName("Powerdevil");
