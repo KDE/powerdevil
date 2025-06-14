@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 00:43+0000\n"
+"POT-Creation-Date: 2025-06-14 00:44+0000\n"
 "PO-Revision-Date: 2009-01-02 11:50+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
@@ -119,7 +119,7 @@ msgstr ""
 #: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@info:credit"
-msgid "(c) 2015-2019 Kai Uwe Broulik"
+msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr ""
 
 #: powerdevilapp.cpp:105

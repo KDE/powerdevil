@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 00:43+0000\n"
+"POT-Creation-Date: 2025-06-14 00:44+0000\n"
 "PO-Revision-Date: 2025-06-04 19:59+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -117,9 +117,11 @@ msgstr ""
 "PowerDevil, un demonio de gestión de energía ligero, modular y avanzado"
 
 #: powerdevilapp.cpp:104
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:credit"
+#| msgid "(c) 2015-2019 Kai Uwe Broulik"
 msgctxt "@info:credit"
-msgid "(c) 2015-2019 Kai Uwe Broulik"
+msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:105
