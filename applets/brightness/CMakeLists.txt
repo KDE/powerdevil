@@ -6,4 +6,13 @@ ecm_qt_install_logging_categories(
     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
 )
 
-plasma_install_package(package org.kde.plasma.brightness)
+plasma_add_applet(org.kde.plasma.brightness
+    QML_SOURCES
+        BrightnessItem.qml
+        CompactRepresentation.qml
+        KeyboardColorItem.qml
+        main.qml
+        NightLightItem.qml
+        PopupDialog.qml
+    GENERATE_APPLET_CLASS
+)

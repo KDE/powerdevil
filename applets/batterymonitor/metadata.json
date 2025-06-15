@@ -1,5 +1,4 @@
 {
-    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
@@ -136,7 +135,6 @@
             "desktop"
         ],
         "Icon": "battery-full",
-        "Id": "org.kde.plasma.battery",
         "License": "GPL-2.0+",
         "Name": "Power and Battery",
         "Name[ar]": "الطاقة والبطارية",

@@ -1,5 +1,4 @@
 {
-    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
@@ -180,7 +179,6 @@
             "desktop"
         ],
         "Icon": "brightness-high",
-        "Id": "org.kde.plasma.brightness",
         "License": "GPL-2.0+",
         "Name": "Brightness and Color",
         "Name[ar]": "السطوع والألوان",
