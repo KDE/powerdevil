@@ -117,7 +117,7 @@ msgstr "PowerDevil 是一款功能先进的轻量级模块化电源管理守护�
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr ""
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:105
 #, kde-format

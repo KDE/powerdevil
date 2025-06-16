@@ -7,20 +7,20 @@
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010.
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-14 00:44+0000\n"
-"PO-Revision-Date: 2024-08-15 06:05+0900\n"
+"PO-Revision-Date: 2025-06-15 18:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -120,12 +120,10 @@ msgid ""
 msgstr "PowerDevil，進階、模組化且輕量的電源管理守護程式"
 
 #: powerdevilapp.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:105
 #, kde-format
