@@ -141,6 +141,17 @@ void Core::onControllersReady()
                 Q_UNUSED(newPolicies);
                 KIdleTime::instance()->simulateUserActivity();
             });
+    // Refresh action timers during inhibition change, to avoid timers reaching zero right after inhibitions end.
+    connect(PowerDevil::PolicyAgent::instance(), &PowerDevil::PolicyAgent::InhibitionsChanged, this, [this]() {
+        qCDebug(POWERDEVIL) << "Refreshing timers for actions on inhibitionsChanged";
+        for (const QString &action : std::as_const(m_activeActions)) {
+            const auto timeouts = m_actionPool[action]->m_registeredIdleTimeouts;
+            m_actionPool[action]->unregisterIdleTimeouts();
+            for (const auto &timeout : timeouts) {
+                m_actionPool[action]->registerIdleTimeout(timeout);
+            }
+        }
+    });
 
     // Bug 354250: Simulate user activity when session becomes inactive,
     // this keeps us from sending the computer to sleep when switching to an idle session.
