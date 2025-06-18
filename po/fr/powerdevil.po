@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Julien Richard-Foy <julien.rf@no-log.org>, 2008, 2009, 2010.
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2009, 2012.
-# SPDX-FileCopyrightText: 2013, 2014, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2013, 2014, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Maxime Corteel <mcorteel@gmail.com>, 2015.
 # Vincent Pinon <vpinon@kde.org>, 2016, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2019, 2020.
@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-27 02:36+0000\n"
+"POT-Creation-Date: 2025-06-18 02:36+0000\n"
 "PO-Revision-Date: 2024-08-15 11:30+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.2\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -164,44 +164,44 @@ msgstr "Mainteneur précédent"
 msgid "Replace an existing instance"
 msgstr "Remplacer une instance existante"
 
-#: powerdevilcore.cpp:386 powerdevilcore.cpp:397
+#: powerdevilcore.cpp:397 powerdevilcore.cpp:408
 #, kde-format
 msgid "Activity Manager"
 msgstr "Gestionnaire d'activités"
 
-#: powerdevilcore.cpp:387
+#: powerdevilcore.cpp:398
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Ces règles d'activités empêchent le système d'être mis en veille"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:409
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Ces règles d'activité empêchent la gestion de l'énergie de l'écran"
 
-#: powerdevilcore.cpp:461
+#: powerdevilcore.cpp:472
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Batterie supplémentaire ajoutée"
 
-#: powerdevilcore.cpp:462
+#: powerdevilcore.cpp:473
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "L'ordinateur ne sera plus mis en veille."
 
-#: powerdevilcore.cpp:526
+#: powerdevilcore.cpp:537
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:529
+#: powerdevilcore.cpp:540
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Batterie du périphérique faible (%1 % restant)"
 
-#: powerdevilcore.cpp:531
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -211,22 +211,22 @@ msgstr ""
 "La batterie dans « %1 ») est faible et le périphérique risque de s'éteindre "
 "à tout moment. Veuillez recharger ou remplacer la batterie."
 
-#: powerdevilcore.cpp:538
+#: powerdevilcore.cpp:549
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Batterie de la souris faible (%1 % restant)"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:553
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Batterie du clavier faible (%1 % restant)"
 
-#: powerdevilcore.cpp:552
+#: powerdevilcore.cpp:563
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Batterie du périphérique Bluetooth faible (%1 % restant)"
 
-#: powerdevilcore.cpp:554
+#: powerdevilcore.cpp:565
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -237,7 +237,7 @@ msgstr ""
 "risque de s'éteindre à tout moment. Veuillez remplacer ou charger la "
 "batterie."
 
-#: powerdevilcore.cpp:596
+#: powerdevilcore.cpp:607
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -246,29 +246,29 @@ msgstr ""
 "Veuillez vous assurer que l'adaptateur secteur est branché et qu'il fournit "
 "assez d'énergie."
 
-#: powerdevilcore.cpp:598
+#: powerdevilcore.cpp:609
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Veuillez brancher l'adaptateur secteur."
 
-#: powerdevilcore.cpp:617
+#: powerdevilcore.cpp:628
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Votre ordinateur s'éteindra dans 60 secondes."
 
-#: powerdevilcore.cpp:619
+#: powerdevilcore.cpp:630
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Éteindre maintenant"
 
-#: powerdevilcore.cpp:625
+#: powerdevilcore.cpp:636
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Votre ordinateur sera mis en hibernation dans 60 secondes."
 
-#: powerdevilcore.cpp:627
+#: powerdevilcore.cpp:638
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -276,12 +276,12 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Mettre en hibernation maintenant"
 
-#: powerdevilcore.cpp:633
+#: powerdevilcore.cpp:644
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Votre ordinateur sera mis en veille dans 60 secondes."
 
-#: powerdevilcore.cpp:635
+#: powerdevilcore.cpp:646
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
@@ -289,12 +289,12 @@ msgid "Sleep Now"
 msgstr "Mettre en veille maintenant"
 
 # unreviewed-context
-#: powerdevilcore.cpp:641
+#: powerdevilcore.cpp:652
 #, kde-format
 msgid "Please save your work."
 msgstr "Veuillez enregistrer vos travaux."
 
-#: powerdevilcore.cpp:647
+#: powerdevilcore.cpp:658
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -302,52 +302,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Annuler"
 
-#: powerdevilcore.cpp:659
+#: powerdevilcore.cpp:670
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Batterie faible (%1 % restant)"
 
-#: powerdevilcore.cpp:663
+#: powerdevilcore.cpp:674
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Niveau de la batterie critique (%1 % restant)"
 
-#: powerdevilcore.cpp:687
+#: powerdevilcore.cpp:698
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "L'adaptateur secteur est branché."
 
-#: powerdevilcore.cpp:688
+#: powerdevilcore.cpp:699
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "L'ordinateur ne sera plus mis en veille."
 
-#: powerdevilcore.cpp:690
+#: powerdevilcore.cpp:701
 #, kde-format
 msgid "Running on AC power"
 msgstr "Fonctionnement sur secteur"
 
-#: powerdevilcore.cpp:690
+#: powerdevilcore.cpp:701
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "L'adaptateur secteur a été branché."
 
-#: powerdevilcore.cpp:693
+#: powerdevilcore.cpp:704
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Fonctionnement sur batterie"
 
-#: powerdevilcore.cpp:693
+#: powerdevilcore.cpp:704
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "L'adaptateur secteur a été débranché."
 
-#: powerdevilcore.cpp:754
+#: powerdevilcore.cpp:765
 #, kde-format
 msgid "Charging Complete"
 msgstr "Charge complète"
 
-#: powerdevilcore.cpp:754
+#: powerdevilcore.cpp:765
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batterie est maintenant complètement chargée."
