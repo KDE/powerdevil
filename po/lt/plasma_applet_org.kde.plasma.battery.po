@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-12 00:44+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2025-01-10 00:32+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -24,39 +24,39 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: package/contents/ui/BatteryItem.qml:99
+#: BatteryItem.qml:99
 #, kde-format
 msgid "Charging"
 msgstr "Įkraunamas"
 
-#: package/contents/ui/BatteryItem.qml:101
+#: BatteryItem.qml:101
 #, kde-format
 msgid "Discharging"
 msgstr "Išsikrauna"
 
-#: package/contents/ui/BatteryItem.qml:103 package/contents/ui/main.qml:122
+#: BatteryItem.qml:103 main.qml:122
 #, kde-format
 msgid "Fully Charged"
 msgstr "Pilnai įkrautas"
 
-#: package/contents/ui/BatteryItem.qml:105
+#: BatteryItem.qml:105
 #, kde-format
 msgid "Not Charging"
 msgstr "Nekraunamas"
 
-#: package/contents/ui/BatteryItem.qml:108
+#: BatteryItem.qml:108
 #, kde-format
 msgctxt "Battery is currently not present in the bay"
 msgid "Not present"
 msgstr "Nėra"
 
-#: package/contents/ui/BatteryItem.qml:120
+#: BatteryItem.qml:120
 #, kde-format
 msgctxt "Placeholder is battery percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/BatteryItem.qml:184
+#: BatteryItem.qml:184
 #, kde-format
 msgid ""
 "This battery's health is at only %1% and it should be replaced. Contact the "
@@ -65,70 +65,68 @@ msgstr ""
 "Šio akumuliatoriaus naudingumas yra tik %1%, todėl jis turėtų būti "
 "pakeistas. Susisiekite su gamintoju."
 
-#: package/contents/ui/BatteryItem.qml:203
+#: BatteryItem.qml:203
 #, kde-format
 msgid "Time To Full:"
 msgstr "Laikas iki pilno įkrovimo:"
 
-#: package/contents/ui/BatteryItem.qml:204
+#: BatteryItem.qml:204
 #, kde-format
 msgid "Remaining Time:"
 msgstr "Liko laiko:"
 
-#: package/contents/ui/BatteryItem.qml:210
+#: BatteryItem.qml:210
 #, kde-format
 msgctxt "@info"
 msgid "Estimating…"
 msgstr "Apskaičiuojama…"
 
-#: package/contents/ui/BatteryItem.qml:220
+#: BatteryItem.qml:220
 #, kde-format
 msgid "Battery Health:"
 msgstr "Akumuliatoriaus naudingumas:"
 
-#: package/contents/ui/BatteryItem.qml:226
+#: BatteryItem.qml:226
 #, kde-format
 msgctxt "Placeholder is battery health percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/BatteryItem.qml:238
+#: BatteryItem.qml:238
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
 msgstr "Jūsų akumuliatorius yra sukonfigūruotas įsikrauti iki maždaug %1%."
 
-#: package/contents/ui/CompactRepresentation.qml:101
-#: package/contents/ui/CompactRepresentation.qml:150
+#: CompactRepresentation.qml:101 CompactRepresentation.qml:150
 #, kde-format
 msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/InhibitionItem.qml:45
+#: InhibitionItem.qml:45
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Pristabdymas ir ekrano užrakinimas po neveiklumo"
 
-#: package/contents/ui/InhibitionItem.qml:52 package/contents/ui/main.qml:97
-#: package/contents/ui/PowerProfileItem.qml:76
+#: InhibitionItem.qml:52 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "Energijos valdymas"
 
-#: package/contents/ui/InhibitionItem.qml:89
+#: InhibitionItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr "Užblokuotas"
 
-#: package/contents/ui/InhibitionItem.qml:89
+#: InhibitionItem.qml:89
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr "Automatinis"
 
-#: package/contents/ui/InhibitionItem.qml:106
+#: InhibitionItem.qml:106
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -138,7 +136,7 @@ msgstr ""
 "Jūsų įrenginys sukonfigūruotas taip, kad uždarius dangtį, kol yra prijungtas "
 "išorinis monitorius, kompiuteris nebūtų pristabdomas."
 
-#: package/contents/ui/InhibitionItem.qml:118
+#: InhibitionItem.qml:118
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
@@ -151,26 +149,26 @@ msgstr[2] ""
 msgstr[3] ""
 "Šiuo metu %1 programa blokuoja kompiuterio pristabdymą ir ekrano užrakinimą:"
 
-#: package/contents/ui/InhibitionItem.qml:144
+#: InhibitionItem.qml:144
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr ""
 "Šiuo metu %1 blokuoja kompiuterio pristabdymą ir ekrano užrakinimą (%2)"
 
-#: package/contents/ui/InhibitionItem.qml:146
+#: InhibitionItem.qml:146
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr ""
 "Šiuo metu %1 blokuoja kompiuterio pristabdymą ir ekrano užrakinimą "
 "(priežastis nežinoma)"
 
-#: package/contents/ui/InhibitionItem.qml:148
+#: InhibitionItem.qml:148
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr ""
 "Šiuo metu programa blokuoja kompiuterio pristabdymą ir ekrano užrakinimą (%1)"
 
-#: package/contents/ui/InhibitionItem.qml:150
+#: InhibitionItem.qml:150
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
@@ -179,33 +177,31 @@ msgstr ""
 "Šiuo metu programa blokuoja kompiuterio pristabdymą ir ekrano užrakinimą "
 "(priežastis nežinoma)"
 
-#: package/contents/ui/InhibitionItem.qml:154
-#: package/contents/ui/InhibitionItem.qml:288
+#: InhibitionItem.qml:154 InhibitionItem.qml:288
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/InhibitionItem.qml:156
+#: InhibitionItem.qml:156
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1: priežastis nežinoma"
 
-#: package/contents/ui/InhibitionItem.qml:158
+#: InhibitionItem.qml:158
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "Nežinoma programa: %1"
 
-#: package/contents/ui/InhibitionItem.qml:160
+#: InhibitionItem.qml:160
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "Nežinoma programa: priežastis nežinoma"
 
-#: package/contents/ui/InhibitionItem.qml:172
-#: package/contents/ui/InhibitionItem.qml:200
+#: InhibitionItem.qml:172 InhibitionItem.qml:200
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -213,8 +209,7 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Atblokuoti"
 
-#: package/contents/ui/InhibitionItem.qml:182
-#: package/contents/ui/InhibitionItem.qml:309
+#: InhibitionItem.qml:182 InhibitionItem.qml:309
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -222,8 +217,7 @@ msgctxt ""
 msgid "Only this time"
 msgstr "Tik šį kartą"
 
-#: package/contents/ui/InhibitionItem.qml:187
-#: package/contents/ui/InhibitionItem.qml:314
+#: InhibitionItem.qml:187 InhibitionItem.qml:314
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -231,7 +225,7 @@ msgctxt ""
 msgid "Every time for this app and reason"
 msgstr "Kas kartą šiai programai dėl šios priežasties"
 
-#: package/contents/ui/InhibitionItem.qml:214
+#: InhibitionItem.qml:214
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid "You have manually blocked sleep and screen locking."
@@ -243,26 +237,24 @@ msgid ""
 "higher energy consumption."
 msgstr "Jūs esate rankiniu būdu užblokavę pristabdymą ir ekrano užrakinimą."
 
-#: package/contents/ui/InhibitionItem.qml:219
+#: InhibitionItem.qml:219
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
 msgstr "Atblokuoti"
 
-#: package/contents/ui/InhibitionItem.qml:238
-#: package/contents/ui/InhibitionItem.qml:361
+#: InhibitionItem.qml:238 InhibitionItem.qml:361
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Nepavyko atblokuoti automatinio pristabdymo ir ekrano užrakinimo"
 
-#: package/contents/ui/InhibitionItem.qml:241
-#: package/contents/ui/InhibitionItem.qml:364
+#: InhibitionItem.qml:241 InhibitionItem.qml:364
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Nepavyko blokuoti automatinio pristabdymo ir ekrano užrakinimo"
 
-#: package/contents/ui/InhibitionItem.qml:259
+#: InhibitionItem.qml:259
 #, kde-format
 msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
@@ -281,7 +273,7 @@ msgstr[3] ""
 "%1 programai buvo neleista užblokuoti kompiuterio pristabdymo ir ekrano "
 "užrakinimo:"
 
-#: package/contents/ui/InhibitionItem.qml:286
+#: InhibitionItem.qml:286
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
@@ -289,8 +281,7 @@ msgstr ""
 "Programai %1 buvo neleista užblokuoti kompiuterio pristabdymo ir ekrano "
 "užrakinimo šiuo tikslu: %2"
 
-#: package/contents/ui/InhibitionItem.qml:299
-#: package/contents/ui/InhibitionItem.qml:327
+#: InhibitionItem.qml:299 InhibitionItem.qml:327
 #, kde-format
 msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
@@ -298,77 +289,77 @@ msgctxt ""
 msgid "Block Again"
 msgstr "Blokuoti vėl"
 
-#: package/contents/ui/InhibitionItem.qml:342
+#: InhibitionItem.qml:342
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
 msgstr "Blokuoti rankiniu būdu"
 
-#: package/contents/ui/main.qml:76
+#: main.qml:76
 #, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
 msgstr ""
 "Akumuliatoriaus programėlė įjungė kompiuterio pristabdymo ir ekrano "
 "užrakinimo slopinimą"
 
-#: package/contents/ui/main.qml:97
+#: main.qml:97
 #, kde-format
 msgid "Power and Battery"
 msgstr "Maitinimas ir akumuliatorius"
 
-#: package/contents/ui/main.qml:116
+#: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
 msgstr "Akumuliatoriaus skyriuje nėra akumuliatoriaus"
 
-#: package/contents/ui/main.qml:129
+#: main.qml:129
 #, kde-format
 msgid "Battery at %1%, not Charging"
 msgstr "Akumuliatorius ties %1%, nekraunamas"
 
-#: package/contents/ui/main.qml:131
+#: main.qml:131
 #, kde-format
 msgid "Battery at %1%, plugged in but still discharging"
 msgstr "Akumuliatorius ties %1%, prijungtas, bet vis tiek išsikrauna"
 
-#: package/contents/ui/main.qml:133
+#: main.qml:133
 #, kde-format
 msgid "Battery at %1%, Charging"
 msgstr "Akumuliatorius ties %1%, įkraunamas"
 
-#: package/contents/ui/main.qml:136
+#: main.qml:136
 #, kde-format
 msgid "Battery at %1%"
 msgstr "Akumuliatorius ties %1%"
 
-#: package/contents/ui/main.qml:144
+#: main.qml:144
 #, kde-format
 msgid "The power supply is not powerful enough to charge the battery"
 msgstr "Maitinimo šaltinis nėra pakankamai galingas, kad įkrautų akumuliatorių"
 
-#: package/contents/ui/main.qml:148
+#: main.qml:148
 #, kde-format
 msgid "No Batteries Available"
 msgstr "Nėra jokių prieinamų akumuliatorių"
 
-#: package/contents/ui/main.qml:155
+#: main.qml:155
 #, kde-format
 msgctxt "time until fully charged - HH:MM"
 msgid "%1 until fully charged"
 msgstr "%1 iki pilnai įkrauto"
 
-#: package/contents/ui/main.qml:157
+#: main.qml:157
 #, kde-format
 msgctxt "remaining time left of battery usage - HH:MM"
 msgid "%1 remaining"
 msgstr "Liko %1"
 
-#: package/contents/ui/main.qml:160
+#: main.qml:160
 #, kde-format
 msgid "Not charging"
 msgstr "Nekraunamas"
 
-#: package/contents/ui/main.qml:165
+#: main.qml:165
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
@@ -376,14 +367,14 @@ msgstr ""
 "Automatinis pristabdymas ir ekrano užrakinimas yra išjungti; spustelėkite "
 "viduriniuoju pelės mygtuku norėdami įjungti iš naujo"
 
-#: package/contents/ui/main.qml:167
+#: main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
 msgstr ""
 "Spustelėkite viduriniuoju pelės mygtuku norėdami išjungti automatinį "
 "pristabdymą ir ekrano užrakinimą"
 
-#: package/contents/ui/main.qml:172
+#: main.qml:172
 #, kde-format
 msgid "An application has requested activating Performance mode"
 msgid_plural "%1 applications have requested activating Performance mode"
@@ -392,12 +383,12 @@ msgstr[1] "%1 programos paprašė aktyvuoti našumo veikseną"
 msgstr[2] "%1 programų paprašė aktyvuoti našumo veikseną"
 msgstr[3] "%1 programa paprašė aktyvuoti našumo veikseną"
 
-#: package/contents/ui/main.qml:176
+#: main.qml:176
 #, kde-format
 msgid "System is in Performance mode; scroll to change"
 msgstr "Sistema yra našumo veiksenoje; slinkite norėdami pakeisti"
 
-#: package/contents/ui/main.qml:180
+#: main.qml:180
 #, kde-format
 msgid "An application has requested activating Power Save mode"
 msgid_plural "%1 applications have requested activating Power Save mode"
@@ -406,72 +397,72 @@ msgstr[1] "%1 programos paprašė aktyvuoti energijos taupymo veikseną"
 msgstr[2] "%1 programų paprašė aktyvuoti energijos taupymo veikseną"
 msgstr[3] "%1 programa paprašė aktyvuoti energijos taupymo veikseną"
 
-#: package/contents/ui/main.qml:184
+#: main.qml:184
 #, kde-format
 msgid "System is in Power Save mode; scroll to change"
 msgstr "Sistema yra energijos taupymo veiksenoje; slinkite norėdami pakeisti"
 
-#: package/contents/ui/main.qml:187
+#: main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 "Sistema yra subalansuotoje energijos veiksenoje; slinkite norėdami pakeisti"
 
-#: package/contents/ui/main.qml:302
+#: main.qml:302
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Rodyti energijos informaciją…"
 
-#: package/contents/ui/main.qml:308
+#: main.qml:308
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr ""
 "Kai akumuliatorius nėra pilnai įkrautas, rodyti piktogramoje jo įkrovos "
 "procentinę dalį"
 
-#: package/contents/ui/main.qml:321
+#: main.qml:321
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Konfigūruoti energijos valdymą…"
 
-#: package/contents/ui/PowerProfileItem.qml:41
+#: PowerProfileItem.qml:41
 #, kde-format
 msgid "Power Save"
 msgstr "Energijos taupymas"
 
-#: package/contents/ui/PowerProfileItem.qml:45
+#: PowerProfileItem.qml:45
 #, kde-format
 msgid "Balanced"
 msgstr "Subalansuotas"
 
-#: package/contents/ui/PowerProfileItem.qml:49
+#: PowerProfileItem.qml:49
 #, kde-format
 msgid "Performance"
 msgstr "Našumas"
 
-#: package/contents/ui/PowerProfileItem.qml:66
+#: PowerProfileItem.qml:66
 #, kde-format
 msgid "Power Profile"
 msgstr "Maitinimo profilis"
 
-#: package/contents/ui/PowerProfileItem.qml:110
+#: PowerProfileItem.qml:110
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Automatinis"
 
-#: package/contents/ui/PowerProfileItem.qml:111
+#: PowerProfileItem.qml:111
 #, kde-format
 msgctxt "Power profile"
 msgid "Not available"
 msgstr "Neprieinamas"
 
-#: package/contents/ui/PowerProfileItem.qml:151
+#: PowerProfileItem.qml:151
 #, kde-format
 msgid "Failed to activate %1 mode"
 msgstr "Nepavyko aktyvuoti veiksenos %1"
 
-#: package/contents/ui/PowerProfileItem.qml:228
+#: PowerProfileItem.qml:228
 #, kde-format
 msgid ""
 "Performance mode has been disabled to reduce heat generation because the "
@@ -480,18 +471,18 @@ msgstr ""
 "Našumo veiksena išjungta, kad būtų sumažinta šilumos gamyba, nes kompiuteris "
 "aptiko, kad jis, galimai, guli jums ant kelių."
 
-#: package/contents/ui/PowerProfileItem.qml:230
+#: PowerProfileItem.qml:230
 #, kde-format
 msgid ""
 "Performance mode is unavailable because the computer is running too hot."
 msgstr "Našumo veiksena yra neprieinama, nes kompiuteris per daug įkaito."
 
-#: package/contents/ui/PowerProfileItem.qml:232
+#: PowerProfileItem.qml:232
 #, kde-format
 msgid "Performance mode is unavailable."
 msgstr "Našumo veiksena neprieinama."
 
-#: package/contents/ui/PowerProfileItem.qml:248
+#: PowerProfileItem.qml:248
 #, kde-format
 msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
@@ -500,17 +491,17 @@ msgstr ""
 "Našumas gali būti sumažintas, kad būtų sumažinta šilumos gamyba, nes "
 "kompiuteris aptiko, kad jis, galimai, guli jums ant kelių."
 
-#: package/contents/ui/PowerProfileItem.qml:250
+#: PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
 msgstr "Našumas gali būti sumažintas, nes kompiuteris per daug įkaito."
 
-#: package/contents/ui/PowerProfileItem.qml:252
+#: PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
 msgstr "Gali sumažėti našumas."
 
-#: package/contents/ui/PowerProfileItem.qml:265
+#: PowerProfileItem.qml:265
 #, kde-format
 msgid "One application has requested activating %2:"
 msgid_plural "%1 applications have requested activating %2:"
@@ -519,7 +510,7 @@ msgstr[1] "%1 programos paprašė, kad būtų aktyvuotas %2:"
 msgstr[2] "%1 programų paprašė, kad būtų aktyvuotas %2:"
 msgstr[3] "%1 programa paprašė, kad būtų aktyvuotas %2:"
 
-#: package/contents/ui/PowerProfileItem.qml:284
+#: PowerProfileItem.qml:284
 #, kde-format
 msgctxt ""
 "%1 is the name of the application, %2 is the reason provided by it for "
@@ -527,17 +518,17 @@ msgctxt ""
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: package/contents/ui/PowerProfileItem.qml:302
+#: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
 msgstr "TLP tarnyba automatiškai valdo maitinimo profilius"
 
-#: package/contents/ui/PowerProfileItem.qml:304
+#: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
 msgstr "Maitinimo profiliai yra nepalaikomi jūsų įrenginyje."
 
-#: package/contents/ui/PowerProfileItem.qml:305
+#: PowerProfileItem.qml:305
 #, kde-kuit-format
 msgid ""
 "Power profiles may be supported on your device.<nl/>Try installing the "

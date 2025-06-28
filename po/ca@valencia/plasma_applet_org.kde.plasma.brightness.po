@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-11 00:44+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2025-01-29 10:30+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -19,260 +19,260 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: package/contents/ui/BrightnessItem.qml:30
+#: BrightnessItem.qml:30
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "Off"
 msgstr "Apagada"
 
-#: package/contents/ui/BrightnessItem.qml:31
+#: BrightnessItem.qml:31
 #, kde-format
 msgctxt "Brightness level"
 msgid "Low"
 msgstr "Baixa"
 
-#: package/contents/ui/BrightnessItem.qml:32
+#: BrightnessItem.qml:32
 #, kde-format
 msgctxt "Brightness level"
 msgid "Medium"
 msgstr "Mitjana"
 
-#: package/contents/ui/BrightnessItem.qml:33
+#: BrightnessItem.qml:33
 #, kde-format
 msgctxt "Brightness level"
 msgid "High"
 msgstr "Alta"
 
-#: package/contents/ui/BrightnessItem.qml:34
+#: BrightnessItem.qml:34
 #, kde-format
 msgctxt "Backlight on or off"
 msgid "On"
 msgstr "Activa"
 
-#: package/contents/ui/BrightnessItem.qml:46
+#: BrightnessItem.qml:46
 #, kde-format
 msgctxt "Placeholder is brightness percentage"
 msgid "%1%"
 msgstr "%1%"
 
-#: package/contents/ui/BrightnessItem.qml:90
+#: BrightnessItem.qml:90
 #, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
 msgstr "Brillantor"
 
-#: package/contents/ui/BrightnessItem.qml:113
+#: BrightnessItem.qml:113
 #, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
 msgstr "Brillantor de la pantalla - %1"
 
-#: package/contents/ui/KeyboardColorItem.qml:77
+#: KeyboardColorItem.qml:77
 #, kde-format
 msgid "Follow accent color"
 msgstr "Seguix el color d'accent"
 
-#: package/contents/ui/main.qml:97
+#: main.qml:97
 #, kde-format
 msgid "Brightness and Color"
 msgstr "Brillantor i color"
 
-#: package/contents/ui/main.qml:137
+#: main.qml:137
 #, kde-format
 msgid "Screen brightness at %1%"
 msgstr "Brillantor de la pantalla al %1%"
 
-#: package/contents/ui/main.qml:138
+#: main.qml:138
 #, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
 msgstr "Brillantor de %1 al %2%"
 
-#: package/contents/ui/main.qml:143
+#: main.qml:143
 #, kde-format
 msgid "Keyboard brightness at %1%"
 msgstr "Brillantor del teclat al %1%"
 
-#: package/contents/ui/main.qml:149
+#: main.qml:149
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended; middle-click to resume"
 msgstr "S'ha suspés la llum de nit; clic del mig per a reprendre"
 
-#: package/contents/ui/main.qml:151
+#: main.qml:151
 #, kde-format
 msgctxt "Status"
 msgid "Night Light suspended"
 msgstr "S'ha suspés la llum de nit"
 
-#: package/contents/ui/main.qml:156
+#: main.qml:156
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at day color temperature"
 msgstr "Llum de nit a la temperatura de color de dia"
 
-#: package/contents/ui/main.qml:158
+#: main.qml:158
 #, kde-format
 msgctxt "Status"
 msgid "Night Light at night color temperature"
 msgstr "Llum de nit a la temperatura de color de nit"
 
-#: package/contents/ui/main.qml:163
+#: main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
 msgstr "Llum de nit en la transició del matí (completat a les %1)"
 
-#: package/contents/ui/main.qml:165
+#: main.qml:165
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
 msgstr "Llum de nit en la transició de la vesprada (completat a les %1)"
 
-#: package/contents/ui/main.qml:183
+#: main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
 msgstr "Transició de la vesprada de la llum de nit planificada a les %1"
 
-#: package/contents/ui/main.qml:185
+#: main.qml:185
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
 msgstr "Transició del matí de la llum de nit planificada a les %1"
 
-#: package/contents/ui/main.qml:189
+#: main.qml:189
 #, kde-format
 msgid "Scroll to adjust screen brightness"
 msgstr "Desplaceu per a ajustar la brillantor de la pantalla"
 
-#: package/contents/ui/main.qml:192
+#: main.qml:192
 #, kde-format
 msgid "Middle-click to suspend Night Light"
 msgstr "Clic del mig per a suspendre la llum de nit"
 
-#: package/contents/ui/main.qml:275
+#: main.qml:275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
 msgstr "Configura la llum de nit…"
 
-#: package/contents/ui/main.qml:281
+#: main.qml:281
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Configura la gestió de l'energia…"
 
-#: package/contents/ui/NightLightItem.qml:77
+#: NightLightItem.qml:77
 #, kde-format
 msgctxt "Night light status"
 msgid "Suspended"
 msgstr "Suspesa"
 
-#: package/contents/ui/NightLightItem.qml:80
+#: NightLightItem.qml:80
 #, kde-format
 msgctxt "Night light status"
 msgid "Unavailable"
 msgstr "No disponible"
 
-#: package/contents/ui/NightLightItem.qml:83
+#: NightLightItem.qml:83
 #, kde-format
 msgctxt "Night light status"
 msgid "Not enabled"
 msgstr "No activada"
 
-#: package/contents/ui/NightLightItem.qml:86
+#: NightLightItem.qml:86
 #, kde-format
 msgctxt "Night light status"
 msgid "Not running"
 msgstr "No s'està executant"
 
-#: package/contents/ui/NightLightItem.qml:89
+#: NightLightItem.qml:89
 #, kde-format
 msgctxt "Night light status"
 msgid "On"
 msgstr "Activa"
 
-#: package/contents/ui/NightLightItem.qml:92
+#: NightLightItem.qml:92
 #, kde-format
 msgctxt "Night light phase"
 msgid "Morning Transition"
 msgstr "Transició del matí"
 
-#: package/contents/ui/NightLightItem.qml:94
+#: NightLightItem.qml:94
 #, kde-format
 msgctxt "Night light phase"
 msgid "Day"
 msgstr "Dia"
 
-#: package/contents/ui/NightLightItem.qml:96
+#: NightLightItem.qml:96
 #, kde-format
 msgctxt "Night light phase"
 msgid "Evening Transition"
 msgstr "Transició de la vesprada"
 
-#: package/contents/ui/NightLightItem.qml:98
+#: NightLightItem.qml:98
 #, kde-format
 msgctxt "Night light phase"
 msgid "Night"
 msgstr "Nit"
 
-#: package/contents/ui/NightLightItem.qml:109
+#: NightLightItem.qml:109
 #, kde-format
 msgctxt "Placeholder is screen color temperature"
 msgid "%1K"
 msgstr "%1 K"
 
-#: package/contents/ui/NightLightItem.qml:124
+#: NightLightItem.qml:124
 #, kde-format
 msgctxt "@action:button Night Light"
 msgid "Suspend"
 msgstr "Suspén"
 
-#: package/contents/ui/NightLightItem.qml:149
+#: NightLightItem.qml:149
 #, kde-format
 msgid "Configure…"
 msgstr "Configura…"
 
-#: package/contents/ui/NightLightItem.qml:149
+#: NightLightItem.qml:149
 #, kde-format
 msgid "Enable and Configure…"
 msgstr "Activa i configura…"
 
-#: package/contents/ui/NightLightItem.qml:177
+#: NightLightItem.qml:177
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day complete by:"
 msgstr "Transició al dia completa a les:"
 
-#: package/contents/ui/NightLightItem.qml:179
+#: NightLightItem.qml:179
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night scheduled for:"
 msgstr "Transició a la nit programada a les:"
 
-#: package/contents/ui/NightLightItem.qml:181
+#: NightLightItem.qml:181
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to night complete by:"
 msgstr "Transició a la nit completa a les:"
 
-#: package/contents/ui/NightLightItem.qml:183
+#: NightLightItem.qml:183
 #, kde-format
 msgctxt "Label for a time"
 msgid "Transition to day scheduled for:"
 msgstr "Transició al dia programada a les:"
 
-#: package/contents/ui/PopupDialog.qml:125
+#: PopupDialog.qml:125
 #, kde-format
 msgid "Keyboard Backlight"
 msgstr "Retroil·luminació del teclat"
 
-#: package/contents/ui/PopupDialog.qml:158
+#: PopupDialog.qml:158
 #, kde-format
 msgid "Keyboard Color"
 msgstr "Color del teclat"
 
-#: package/contents/ui/PopupDialog.qml:169
+#: PopupDialog.qml:169
 #, kde-format
 msgid "Night Light"
 msgstr "Llum de nit"
