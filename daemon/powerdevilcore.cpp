@@ -42,6 +42,7 @@
 
 #include <Kirigami/Platform/TabletModeWatcher>
 #include <algorithm>
+#include <knotification.h>
 
 #ifdef Q_OS_LINUX
 #include <sys/timerfd.h>
@@ -683,7 +684,7 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
     loadProfile();
 
     if (state == BatteryController::Plugged) {
-        // If the AC Adaptor has been plugged in, let's clear some pending suspend actions
+        // If the AC Adapter has been plugged in, let's clear some other notifications that will no longer be relevant
         if (m_lowBatteryNotification) {
             m_lowBatteryNotification->close();
         }
@@ -692,16 +693,35 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
             m_criticalBatteryNotification->close();
         }
 
+        if (m_powerCordUnpluggedNotification) {
+            m_powerCordUnpluggedNotification->close();
+        }
+
+        m_powerCordPluggedInNotification = new KNotification(QStringLiteral("pluggedin"));
+        m_powerCordPluggedInNotification->setComponentName(QStringLiteral("powerdevil"));
+        m_powerCordPluggedInNotification->setUrgency(KNotification::LowUrgency);
+
         if (m_criticalBatteryTimer->isActive()) {
             m_criticalBatteryTimer->stop();
-            emitRichNotification(QStringLiteral("pluggedin"), //
-                                 i18n("Power Cord Plugged In"),
-                                 i18n("The computer will no longer go to sleep."));
+            m_powerCordPluggedInNotification->setTitle(i18n("Power Cord Plugged In"));
+            m_powerCordPluggedInNotification->setText(i18n("The computer will no longer go to sleep."));
         } else {
-            emitRichNotification(QStringLiteral("pluggedin"), i18n("Running on AC power"), i18n("The power cord has been plugged in."));
+            m_powerCordPluggedInNotification->setTitle(i18n("Running on AC power"));
+            m_powerCordPluggedInNotification->setText(i18n("The power cord has been plugged in."));
         }
+        m_powerCordPluggedInNotification->sendEvent();
     } else if (state == BatteryController::Unplugged) {
-        emitRichNotification(QStringLiteral("unplugged"), i18n("Running on Battery Power"), i18n("The power cord has been unplugged."));
+        if (m_powerCordPluggedInNotification) {
+            m_powerCordPluggedInNotification->close();
+        }
+
+        m_powerCordUnpluggedNotification = new KNotification(QStringLiteral("unplugged"));
+        m_powerCordUnpluggedNotification->setComponentName(QStringLiteral("powerdevil"));
+        m_powerCordUnpluggedNotification->setUrgency(KNotification::LowUrgency);
+        m_powerCordUnpluggedNotification->setTitle(i18n("Running on Battery Power"));
+        m_powerCordUnpluggedNotification->setText(i18n("The power cord has been unplugged."));
+
+        m_powerCordUnpluggedNotification->sendEvent();
     }
 }
 

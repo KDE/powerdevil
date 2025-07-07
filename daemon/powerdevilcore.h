@@ -177,6 +177,8 @@ private:
     QPointer<KNotification> m_lowBatteryNotification;
     QTimer *const m_criticalBatteryTimer;
     QPointer<KNotification> m_criticalBatteryNotification;
+    QPointer<KNotification> m_powerCordPluggedInNotification;
+    QPointer<KNotification> m_powerCordUnpluggedNotification;
 
     KActivities::Consumer *const m_activityConsumer;
 
