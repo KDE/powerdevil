@@ -184,7 +184,7 @@ msgstr "Aktiviert"
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr "Benachrichtigungen festlegen ..."
+msgstr "Benachrichtigungen festlegen …"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
