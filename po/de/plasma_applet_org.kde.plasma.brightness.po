@@ -157,12 +157,12 @@ msgstr "Zum Aussetzen des Nachtlichts mittelklicken"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Night Light…"
-msgstr "Nachtlicht einrichten …"
+msgstr "Nachtlicht einrichten …"
 
 #: main.qml:281
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "Energieverwaltung &einrichten …"
+msgstr "Energieverwaltung &einrichten …"
 
 #: NightLightItem.qml:77
 #, kde-format
@@ -233,12 +233,12 @@ msgstr "Aussetzen"
 #: NightLightItem.qml:149
 #, kde-format
 msgid "Configure…"
-msgstr "Einrichten …"
+msgstr "Einrichten …"
 
 #: NightLightItem.qml:149
 #, kde-format
 msgid "Enable and Configure…"
-msgstr "Aktivieren und einrichten …"
+msgstr "Aktivieren und einrichten …"
 
 #: NightLightItem.qml:177
 #, kde-format

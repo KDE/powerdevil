@@ -121,12 +121,10 @@ msgstr ""
 "fortschrittlicher, modularer und leichtgewichtiger Energieverwaltungsdienst"
 
 #: powerdevilapp.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:105
 #, kde-format
