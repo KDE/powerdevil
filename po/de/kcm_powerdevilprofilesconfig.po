@@ -5,20 +5,21 @@
 # SPDX-FileCopyrightText: 2024 Frank Steinmetzger <dev-kde@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2024 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Sven J. Grewe <svengrewe@posteo.de>
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-04-24 15:18+0200\n"
-"Last-Translator: Sven J. Grewe <svengrewe@posteo.de>\n"
+"PO-Revision-Date: 2025-06-19 13:29+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -501,7 +502,7 @@ msgstr "Öffnen der Seite „Aktivitäten“"
 #, kde-format
 msgctxt "@action:button"
 msgid "Advanced Power &Settings…"
-msgstr "Erweiterte Energieein&stellungen …"
+msgstr "Erweiterte Energieein&stellungen …"
 
 #: ui/main.qml:44
 #, kde-format
@@ -584,19 +585,21 @@ msgstr[1] "Nach %1 Minuten"
 msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values"
 msgid "Custom…"
-msgstr "Benutzerdefiniert …"
+msgstr "Benutzerdefiniert …"
 
 #: ui/ProfileConfig.qml:160
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Den automatischen Ruhezustand zu deaktivieren verursacht einen höheren "
+"Energieverbrauch."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Eine lange Dauer verursacht einen höheren Energieverbrauch."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
@@ -781,7 +784,7 @@ msgctxt ""
 "@option:combobox Choose a custom value outside the list of preset values "
 "(caution: watch for string length)"
 msgid "Custom…"
-msgstr "Benutzerdefiniert …"
+msgstr "Benutzerdefiniert …"
 
 #: ui/ProfileConfig.qml:530
 #, kde-format
@@ -974,7 +977,7 @@ msgstr "Geben Sie einen Befehl ein oder wählen Sie eine Skriptdatei"
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr "Auswählen …"
+msgstr "Auswählen …"
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
