@@ -82,6 +82,11 @@ private:
 
     // login1 interface
     QPointer<QDBusInterface> m_login1Interface;
+
+#ifdef Q_OS_LINUX
+    void snapshotWakeupCounts(bool active);
+    QHash<QString, int> m_wakeupCounts;
+#endif
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::SuspendMethods)
