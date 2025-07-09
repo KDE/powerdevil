@@ -14,6 +14,8 @@
 
 #include <kwinkscreenhelpereffect.h>
 
+#include <KAuth/Action>
+#include <KAuth/ExecuteJob>
 #include <KIdleTime>
 #include <KJob>
 #include <KLocalizedString>
@@ -91,6 +93,18 @@ void SuspendSession::triggerImpl(const QVariantMap &args)
             qCDebug(POWERDEVIL) << "Not suspending because a suspend is in progress";
             return;
         }
+
+#ifdef Q_OS_LINUX
+        KAuth::Action wakeupCountAction(QStringLiteral("org.kde.powerdevil.wakeupsourcehelper.setwakeupcount"));
+        wakeupCountAction.setHelperId(QStringLiteral("org.kde.powerdevil.wakeupsourcehelper"));
+
+        KAuth::ExecuteJob *job = wakeupCountAction.execute();
+        if (!job->exec()) {
+            // For now do not abort the suspend here,
+            // if something wrong happened kernel will abort sleep anyway
+            qCWarning(POWERDEVIL) << "Failed to write wakeup_count:" << job->errorString();
+        }
+#endif
     }
 
     // Switch for real action
