@@ -53,6 +53,12 @@ private:
     void setKeyboardBrightnessHelper(int brightness);
     void registerStandardIdleTimeout();
 
+#ifdef Q_OS_LINUX
+    void snapshotWakeupCounts();
+    void findWakeupSource();
+    QHash<QString, int> m_wakeupCounts;
+#endif
+
     std::chrono::milliseconds m_idleTimeoutWhenUnlocked{-1};
     std::chrono::milliseconds m_idleTimeoutWhenLocked{-1};
     std::chrono::milliseconds m_idleTimeoutWhenActivatingLock{-1};

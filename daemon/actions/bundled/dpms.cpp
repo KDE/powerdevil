@@ -38,6 +38,8 @@ static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenUnlocked = 30s;
 static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenLocked = 10s;
 static constexpr std::chrono::milliseconds s_minIdleTimeoutWhenActivatingLock = 100ms;
 
+inline static const QLatin1String s_wakeupSysFsPath("/sys/class/wakeup");
+
 namespace PowerDevil
 {
 namespace BundledActions
@@ -249,16 +251,91 @@ void DPMS::onScreenLockerActiveChanged(bool active)
     }
 }
 
+#ifdef Q_OS_LINUX
+void DPMS::snapshotWakeupCounts()
+{
+    // clear out previously recorded values
+    m_wakeupCounts.clear();
+
+    // read all wakeups
+    const QStringList wakeups = QDir(s_wakeupSysFsPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QString &wakeup : wakeups) {
+        QDir wakeupDir(QString(s_wakeupSysFsPath + u'/' + wakeup));
+
+        // read wakeup source name
+        QFile file(wakeupDir.absoluteFilePath(u"name"_s));
+        if (!file.open(QIODevice::ReadOnly)) {
+            continue;
+        }
+        QString name;
+        QTextStream stream(&file);
+        stream >> name;
+
+        // read wakeup count
+        QFile countFile(wakeupDir.absoluteFilePath(u"wakeup_count"_s));
+        int count = -1;
+        if (countFile.open(QIODevice::ReadOnly)) {
+            count = countFile.readAll().trimmed().toInt();
+        }
+
+        // insert it in hash
+        m_wakeupCounts.insert(name, count);
+    }
+}
+
+void DPMS::findWakeupSource()
+{
+    // TODO: does this need to be list?
+    QStringList changed;
+
+    // read all wakeups and compare it with previous wakeups
+    const QStringList wakeups = QDir(s_wakeupSysFsPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QString &wakeup : wakeups) {
+        QDir wakeupDir(QString(s_wakeupSysFsPath + u'/' + wakeup));
+
+        // read wakeup source name
+        QFile file(wakeupDir.absoluteFilePath(u"name"_s));
+        if (!file.open(QIODevice::ReadOnly)) {
+            continue;
+        }
+        QString name;
+        QTextStream stream(&file);
+        stream >> name;
+
+        // read wakeup count
+        QFile countFile(wakeupDir.absoluteFilePath(u"wakeup_count"_s));
+        int count = -1;
+        if (countFile.open(QIODevice::ReadOnly)) {
+            count = countFile.readAll().trimmed().toInt();
+        }
+
+        if (m_wakeupCounts.contains(name) && (m_wakeupCounts.value(name) < count)) {
+            qCDebug(POWERDEVIL) << "Wakeup source" << name << "resumed system from suspend";
+            changed << name;
+        }
+    }
+    // <insert logic here to ignore certain wakeup sources and prevent dpms on from them>
+    qDebug() << "Changed" << changed;
+}
+
+#endif
+
 void DPMS::onAboutToSuspend()
 {
     m_isAboutToSuspend = true;
     m_dpms->switchMode(KScreen::Dpms::Off);
+#ifdef Q_OS_LINUX
+    snapshotWakeupCounts();
+#endif
     unregisterIdleTimeouts();
 }
 
 void DPMS::onResumeFromSuspend()
 {
     m_isAboutToSuspend = false;
+#ifdef Q_OS_LINUX
+    findWakeupSource();
+#endif
     m_dpms->switchMode(KScreen::Dpms::On);
     registerStandardIdleTimeout();
 }
