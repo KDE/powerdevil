@@ -12,13 +12,20 @@
 
 #include "suspendcontroller.h"
 
+#include <powerdevil_debug.h>
+
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+
+#include <QDir>
+#include <QFile>
 
 using namespace Qt::StringLiterals;
 
 inline constexpr QLatin1StringView LOGIN1_SERVICE("org.freedesktop.login1");
 inline constexpr QLatin1StringView CONSOLEKIT2_SERVICE("org.freedesktop.ConsoleKit");
+
+inline static const QLatin1String s_wakeupSysFsPath("/sys/class/wakeup");
 
 SuspendController::SuspendController()
     : QObject()
@@ -96,11 +103,62 @@ void SuspendController::suspendThenHibernate()
 
 void SuspendController::slotLogin1PrepareForSleep(bool active)
 {
+#ifdef Q_OS_LINUX
+    snapshotWakeupCounts(active);
+#endif
+
     if (active) {
         Q_EMIT aboutToSuspend();
     } else {
         Q_EMIT resumeFromSuspend();
     }
 }
+
+#ifdef Q_OS_LINUX
+
+void SuspendController::snapshotWakeupCounts(bool active)
+{
+    // TODO: does this need to be list?
+    QStringList changed;
+
+    // clear out previously recorded values
+    if (active) {
+        m_wakeupCounts.clear();
+    }
+
+    // read all wakeups, if we are waking up, check against previous values
+    const QStringList wakeups = QDir(s_wakeupSysFsPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QString &wakeup : wakeups) {
+        QDir wakeupDir(QString(s_wakeupSysFsPath + u'/' + wakeup));
+
+        // read wakeup source name
+        QFile file(wakeupDir.absoluteFilePath(u"name"_s));
+        if (!file.open(QIODevice::ReadOnly)) {
+            continue;
+        }
+        QString name;
+        QTextStream stream(&file);
+        stream >> name;
+
+        // read wakeup count
+        QFile countFile(wakeupDir.absoluteFilePath(u"wakeup_count"_s));
+        int count = 0;
+        if (countFile.open(QIODevice::ReadOnly)) {
+            count = countFile.readAll().trimmed().toInt();
+        }
+
+        if (active) {
+            m_wakeupCounts.insert(name, count);
+        } else {
+            if (m_wakeupCounts.contains(name) && (m_wakeupCounts.value(name) < count)) {
+                qCDebug(POWERDEVIL) << "Wakeup source" << name << "resumed system from suspend";
+                changed << name;
+            }
+        }
+    }
+    qDebug() << "Changed" << changed;
+}
+
+#endif
 
 #include "moc_suspendcontroller.cpp"
