@@ -1,0 +1,8 @@
+[Domain]
+Name=KDE
+Icon=kde
+
+[org.kde.powerdevil.wakeupsourcehelper.setwakeupcount]
+Name=Set the wakeup count
+Description=This allows to read wakeup count on next wakeup to identify wakeup source
+Policy=yes

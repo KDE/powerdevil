@@ -169,6 +169,14 @@ install(TARGETS backlighthelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
 kauth_install_helper_files(backlighthelper org.kde.powerdevil.backlighthelper root)
 kauth_install_actions(org.kde.powerdevil.backlighthelper controllers/backlight_helper_actions.actions)
 
+# Wakeup source helper
+if (CMAKE_SYSTEM_NAME STREQUAL Linux)
+    add_executable(wakeupsourcehelper wakeupsourcehelper.cpp wakeupsourcehelper.h ${CMAKE_BINARY_DIR}/daemon/powerdevil_debug.cpp)
+    target_link_libraries(wakeupsourcehelper Qt::Core KF6::AuthCore)
+    install(TARGETS wakeupsourcehelper DESTINATION ${KAUTH_HELPER_INSTALL_DIR})
+    kauth_install_helper_files(wakeupsourcehelper org.kde.powerdevil.wakeupsourcehelper root)
+    kauth_install_actions(org.kde.powerdevil.wakeupsourcehelper wakeupsource_helper_actions.actions)
+endif()
 
 add_executable(powerdevil ${powerdevil_SRCS})
 set_target_properties(powerdevil PROPERTIES OUTPUT_NAME org_kde_powerdevil)
