@@ -292,11 +292,13 @@ void Core::reparseConfiguration()
         m_criticalBatteryTimer->stop();
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
+            m_criticalBatteryNotification = nullptr;
         }
     }
 
     if (m_lowBatteryNotification && currentChargePercent() > m_globalSettings->batteryLowLevel()) {
         m_lowBatteryNotification->close();
+        m_lowBatteryNotification = nullptr;
     }
 
     readChargeThreshold();
@@ -460,11 +462,13 @@ void Core::onDeviceAdded(const QString &udi)
     // higher than the battery critical level. (See bug 329537)
     if (m_lowBatteryNotification && currentChargePercent() > m_globalSettings->batteryLowLevel()) {
         m_lowBatteryNotification->close();
+        m_lowBatteryNotification = nullptr;
     }
 
     if (currentChargePercent() > m_globalSettings->batteryCriticalLevel()) {
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
+            m_criticalBatteryNotification = nullptr;
         }
 
         if (m_criticalBatteryTimer->isActive()) {
@@ -617,6 +621,7 @@ void Core::handleCriticalBattery(int percent)
 {
     if (m_lowBatteryNotification) {
         m_lowBatteryNotification->close();
+        m_lowBatteryNotification = nullptr;
     }
 
     // no parent, but it won't leak, since it will be closed both in case of timeout or direct action
@@ -660,6 +665,7 @@ void Core::handleCriticalBattery(int percent)
     connect(cancelAction, &KNotificationAction::activated, this, [this] {
         m_criticalBatteryTimer->stop();
         m_criticalBatteryNotification->close();
+        m_criticalBatteryNotification = nullptr;
     });
 
     m_criticalBatteryNotification->sendEvent();
@@ -687,14 +693,17 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
         // If the AC Adapter has been plugged in, let's clear some other notifications that will no longer be relevant
         if (m_lowBatteryNotification) {
             m_lowBatteryNotification->close();
+            m_lowBatteryNotification = nullptr;
         }
 
         if (m_criticalBatteryNotification) {
             m_criticalBatteryNotification->close();
+            m_criticalBatteryNotification = nullptr;
         }
 
         if (m_powerCordUnpluggedNotification) {
             m_powerCordUnpluggedNotification->close();
+            m_powerCordUnpluggedNotification = nullptr;
         }
 
         m_powerCordPluggedInNotification = new KNotification(QStringLiteral("pluggedin"));
@@ -713,6 +722,7 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
     } else if (state == BatteryController::Unplugged) {
         if (m_powerCordPluggedInNotification) {
             m_powerCordPluggedInNotification->close();
+            m_powerCordPluggedInNotification = nullptr;
         }
 
         m_powerCordUnpluggedNotification = new KNotification(QStringLiteral("unplugged"));
@@ -791,6 +801,7 @@ void Core::onCriticalBatteryTimerExpired()
 {
     if (m_criticalBatteryNotification) {
         m_criticalBatteryNotification->close();
+        m_criticalBatteryNotification = nullptr;
     }
 
     // Do that only if we're not on AC
