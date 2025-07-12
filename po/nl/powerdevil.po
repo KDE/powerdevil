@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:44+0000\n"
+"POT-Creation-Date: 2025-07-12 00:45+0000\n"
 "PO-Revision-Date: 2025-06-16 13:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -149,45 +149,45 @@ msgstr "Vorige onderhouder"
 msgid "Replace an existing instance"
 msgstr "Een bestaand exemplaar vervangen"
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:408
+#: powerdevilcore.cpp:400 powerdevilcore.cpp:411
 #, kde-format
 msgid "Activity Manager"
 msgstr "Activiteitenbeheerder"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:401
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Dit beleid van de activiteit voorkomt het gaan slapen van het systeem"
 
-#: powerdevilcore.cpp:409
+#: powerdevilcore.cpp:412
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr ""
 "Dit beleid van de activiteit houdt energiebesparing voor het scherm tegen"
 
-#: powerdevilcore.cpp:472
+#: powerdevilcore.cpp:477
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Extra batterij toegevoegd"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:478
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Het systeem zal niet langer gaan slapen."
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:540
+#: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Batterij op laag niveau (%1% resteert nog)"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:547
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -197,22 +197,22 @@ msgstr ""
 "De batterij in \"%1\" heeft een laag niveau en het apparaat kan zichzelf elk "
 "moment uitschakelen. Laad de batterij zo spoedig mogelijk op of vervang deze."
 
-#: powerdevilcore.cpp:549
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Batterij van muis op laag niveau (%1% resteert nog)"
 
-#: powerdevilcore.cpp:553
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Batterij van toetsenbord is op een laag niveau (%1% resteert nog)"
 
-#: powerdevilcore.cpp:563
+#: powerdevilcore.cpp:568
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Bluetooth-apparaatbatterij op laag niveau (%1% resteert nog)"
 
-#: powerdevilcore.cpp:565
+#: powerdevilcore.cpp:570
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -223,36 +223,36 @@ msgstr ""
 "apparaat kan zichzelf elk moment uitschakelen. Laad de batterij zo spoedig "
 "mogelijk op of vervang deze."
 
-#: powerdevilcore.cpp:607
+#: powerdevilcore.cpp:612
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
 "power."
 msgstr "Ga na dat de stekker geheel is ingeplugd en voldoende vermogen levert."
 
-#: powerdevilcore.cpp:609
+#: powerdevilcore.cpp:614
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "De stekker inpluggen."
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Het systeem zal worden afgesloten na 60 seconden."
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:636
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Nu afsluiten"
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:642
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Het systeem zal in slaapstand naar schijf gaan na 60 seconden."
 
-#: powerdevilcore.cpp:638
+#: powerdevilcore.cpp:644
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -260,24 +260,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Nu naar slaapstand naar schijf"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Het systeem zal in slaap gaan na 60 seconden."
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:652
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Nu slapen"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:658
 #, kde-format
 msgid "Please save your work."
 msgstr "Sla uw werk op."
 
-#: powerdevilcore.cpp:658
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -285,52 +285,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: powerdevilcore.cpp:670
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Accu op laag niveau (%1% resteert nog)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Accu op kritiek niveau (%1% resteert nog)"
 
-#: powerdevilcore.cpp:698
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Stekker is ingeplugd"
 
-#: powerdevilcore.cpp:699
+#: powerdevilcore.cpp:716
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "De computer zal niet langer gaan slapen."
 
-#: powerdevilcore.cpp:701
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "Running on AC power"
 msgstr "Werkt op netstroom"
 
-#: powerdevilcore.cpp:701
+#: powerdevilcore.cpp:719
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "De stekker is ingeplugd."
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:731
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Werkt op de accu"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:732
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "De stekker is losgekoppeld."
 
-#: powerdevilcore.cpp:765
+#: powerdevilcore.cpp:795
 #, kde-format
 msgid "Charging Complete"
 msgstr "Laden voltooid"
 
-#: powerdevilcore.cpp:765
+#: powerdevilcore.cpp:795
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Batterij is nu volledig geladen."

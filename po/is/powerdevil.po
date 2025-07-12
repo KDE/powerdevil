@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-17 00:44+0000\n"
+"POT-Creation-Date: 2025-07-12 00:45+0000\n"
 "PO-Revision-Date: 2024-09-29 18:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -154,44 +154,44 @@ msgstr "Fyrri umsjónarmaður"
 msgid "Replace an existing instance"
 msgstr "Skipta út fyrirliggjandi tilviki"
 
-#: powerdevilcore.cpp:397 powerdevilcore.cpp:408
+#: powerdevilcore.cpp:400 powerdevilcore.cpp:411
 #, kde-format
 msgid "Activity Manager"
 msgstr "Athafnastjóri"
 
-#: powerdevilcore.cpp:398
+#: powerdevilcore.cpp:401
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
 msgstr "Reglur sem gilda í þessari athöfn koma í veg fyrir tölvan sé svæfð"
 
-#: powerdevilcore.cpp:409
+#: powerdevilcore.cpp:412
 #, kde-format
 msgid "This activity's policies prevent screen power management"
 msgstr "Reglur sem gilda í þessari athöfn koma í veg fyrir umsjón með skjá"
 
-#: powerdevilcore.cpp:472
+#: powerdevilcore.cpp:477
 #, kde-format
 msgid "Extra Battery Added"
 msgstr "Aukarafhlöðu bætt við"
 
-#: powerdevilcore.cpp:473
+#: powerdevilcore.cpp:478
 #, kde-format
 msgid "The system will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
-#: powerdevilcore.cpp:537
+#: powerdevilcore.cpp:542
 #, kde-format
 msgctxt "%1 is vendor name, %2 is product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilcore.cpp:540
+#: powerdevilcore.cpp:545
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
 msgstr "Lítil hleðsla á rafhlöðu tækis (%1% eftir)"
 
-#: powerdevilcore.cpp:542
+#: powerdevilcore.cpp:547
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -201,22 +201,22 @@ msgstr ""
 "Rafhlaðan í \"%1\" er að tæmast og það gæti slokknað á tækinu hvenær sem er. "
 "Settu rafhlöðuna í hleðslu eða skiptu um hana."
 
-#: powerdevilcore.cpp:549
+#: powerdevilcore.cpp:554
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
 msgstr "Músarrafhlaða að tæmast (%1% eftir)"
 
-#: powerdevilcore.cpp:553
+#: powerdevilcore.cpp:558
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
 msgstr "Lyklaborðsrafhlaða að tæmast (%1% eftir)"
 
-#: powerdevilcore.cpp:563
+#: powerdevilcore.cpp:568
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
 msgstr "Rafhlaða Bluetooth-tækis að tæmast (%1% eftir)"
 
-#: powerdevilcore.cpp:565
+#: powerdevilcore.cpp:570
 #, kde-format
 msgctxt "Placeholder is device name"
 msgid ""
@@ -226,7 +226,7 @@ msgstr ""
 "Rafhlaðan í Bluetooth-tækinu \"%1\" er að tæmast og það gæti slokknað á "
 "tækinu hvenær sem er. Settu rafhlöðuna í hleðslu eða skiptu um hana."
 
-#: powerdevilcore.cpp:607
+#: powerdevilcore.cpp:612
 #, kde-format
 msgid ""
 "Ensure that the power cord is plugged in all the way and provides enough "
@@ -234,29 +234,29 @@ msgid ""
 msgstr ""
 "Gakktu úr skugga um að rafmagnssnúran sé í sambandi og veiti næga orku."
 
-#: powerdevilcore.cpp:609
+#: powerdevilcore.cpp:614
 #, kde-format
 msgid "Plug in the power cord."
 msgstr "Settu tölvuna í samband."
 
-#: powerdevilcore.cpp:628
+#: powerdevilcore.cpp:634
 #, kde-format
 msgid "The system will shut down in 60 seconds."
 msgstr "Tölvan slekkur á sér eftir 60 sekúndur."
 
-#: powerdevilcore.cpp:630
+#: powerdevilcore.cpp:636
 #, kde-format
 msgctxt ""
 "@action:button Shut down without waiting for the battery critical timer"
 msgid "Shut Down Now"
 msgstr "Slökkva núna"
 
-#: powerdevilcore.cpp:636
+#: powerdevilcore.cpp:642
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
 msgstr "Tölvan fer í dvala eftir 60 sekúndur."
 
-#: powerdevilcore.cpp:638
+#: powerdevilcore.cpp:644
 #, kde-format
 msgctxt ""
 "@action:button Enter hibernation mode without waiting for the battery "
@@ -264,24 +264,24 @@ msgctxt ""
 msgid "Hibernate Now"
 msgstr "Setja í dvala núna"
 
-#: powerdevilcore.cpp:644
+#: powerdevilcore.cpp:650
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
 msgstr "Tölvan verður svæfð eftir 60 sekúndur."
 
-#: powerdevilcore.cpp:646
+#: powerdevilcore.cpp:652
 #, kde-format
 msgctxt ""
 "@action:button Suspend to ram without waiting for the battery critical timer"
 msgid "Sleep Now"
 msgstr "Svæfa núna"
 
-#: powerdevilcore.cpp:652
+#: powerdevilcore.cpp:658
 #, kde-format
 msgid "Please save your work."
 msgstr "Vistaðu vinnuna þína."
 
-#: powerdevilcore.cpp:658
+#: powerdevilcore.cpp:664
 #, kde-format
 msgctxt ""
 "Cancel timeout that will automatically put system to sleep because of low "
@@ -289,52 +289,52 @@ msgctxt ""
 msgid "Cancel"
 msgstr "Hætta við"
 
-#: powerdevilcore.cpp:670
+#: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
 msgstr "Lítil hleðsla á rafhlöðu (%1% eftir)"
 
-#: powerdevilcore.cpp:674
+#: powerdevilcore.cpp:681
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
 msgstr "Rafhlaða nánast tóm (%1% eftir)"
 
-#: powerdevilcore.cpp:698
+#: powerdevilcore.cpp:715
 #, kde-format
 msgid "Power Cord Plugged In"
 msgstr "Rafmagnssnúra í sambandi"
 
-#: powerdevilcore.cpp:699
+#: powerdevilcore.cpp:716
 #, kde-format
 msgid "The computer will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
-#: powerdevilcore.cpp:701
+#: powerdevilcore.cpp:718
 #, kde-format
 msgid "Running on AC power"
 msgstr "Keyri á AC-spennugjafa"
 
-#: powerdevilcore.cpp:701
+#: powerdevilcore.cpp:719
 #, kde-format
 msgid "The power cord has been plugged in."
 msgstr "Rafmagnssnúrunni var stungið í samband."
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:731
 #, kde-format
 msgid "Running on Battery Power"
 msgstr "Keyrir á rafhlöðu"
 
-#: powerdevilcore.cpp:704
+#: powerdevilcore.cpp:732
 #, kde-format
 msgid "The power cord has been unplugged."
 msgstr "Rafmagnssnúran var tekin úr sambandi."
 
-#: powerdevilcore.cpp:765
+#: powerdevilcore.cpp:795
 #, kde-format
 msgid "Charging Complete"
 msgstr "Hleðslu lokið"
 
-#: powerdevilcore.cpp:765
+#: powerdevilcore.cpp:795
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "Rafhlaðan er nú fullhlaðin."
