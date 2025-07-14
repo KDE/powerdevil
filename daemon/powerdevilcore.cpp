@@ -715,7 +715,7 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
             m_powerCordPluggedInNotification->setTitle(i18n("Power Cord Plugged In"));
             m_powerCordPluggedInNotification->setText(i18n("The computer will no longer go to sleep."));
         } else {
-            m_powerCordPluggedInNotification->setTitle(i18n("Running on AC power"));
+            m_powerCordPluggedInNotification->setTitle(i18n("Running on AC Power"));
             m_powerCordPluggedInNotification->setText(i18n("The power cord has been plugged in."));
         }
         m_powerCordPluggedInNotification->sendEvent();
