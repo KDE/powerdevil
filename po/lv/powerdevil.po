@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2025-06-18 16:54+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -311,8 +311,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "Dators vairs neieies miega režīmā."
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
+#, fuzzy, kde-format
+#| msgid "Running on AC power"
+msgid "Running on AC Power"
 msgstr "Darbojas no elektrotīkla"
 
 #: powerdevilcore.cpp:719

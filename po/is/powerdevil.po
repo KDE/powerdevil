@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2024-09-29 18:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -310,8 +310,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
+#, fuzzy, kde-format
+#| msgid "Running on AC power"
+msgid "Running on AC Power"
 msgstr "Keyri á AC-spennugjafa"
 
 #: powerdevilcore.cpp:719

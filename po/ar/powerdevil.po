@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2025-06-14 17:17+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -307,8 +307,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "لن ينتقل الحاسوب إلى وضع السكون بعد الآن."
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
+#, fuzzy, kde-format
+#| msgid "Running on AC power"
+msgid "Running on AC Power"
 msgstr "يعمل على قابس الطاقة"
 
 #: powerdevilcore.cpp:719

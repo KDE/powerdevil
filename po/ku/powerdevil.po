@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2008-12-31 04:01+0200\n"
 "Last-Translator: Omer Ensari <oensari@gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -340,9 +340,10 @@ msgstr ""
 "rawestandin."
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "When on battery Power"
+msgid "Running on AC Power"
+msgstr "Wextê di Hêza pîlê de"
 
 #: powerdevilcore.cpp:719
 #, fuzzy, kde-format

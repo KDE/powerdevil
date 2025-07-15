@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2009-12-28 19:26+0530\n"
 "Last-Translator: Danishka Navin <danishka@gmail.com>\n"
 "Language-Team: Sinhala <danishka@gmail.com>\n"
@@ -325,9 +325,10 @@ msgid "The computer will no longer go to sleep."
 msgstr "පරිගණකය තත් 1 කදී නවතිනු ඇත."
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "When on battery power"
+msgid "Running on AC Power"
+msgstr "බැටරි බලයේ පවතින විට"
 
 #: powerdevilcore.cpp:719
 #, fuzzy, kde-format

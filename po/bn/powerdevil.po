@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: potwerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2010-06-01 18:58+0530\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: American English <kde-translation@bengalinux.org>\n"
@@ -319,9 +319,10 @@ msgid "The computer will no longer go to sleep."
 msgstr "গণক যন্ত্র %1 সেকেন্ডে haltওয়া হবে। পদ্ধতি বাধা দিতে এখানে ক্লিক করো।"
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "When on battery Power"
+msgid "Running on AC Power"
+msgstr "যখন ব্যাটারিতে চলছে"
 
 #: powerdevilcore.cpp:719
 #, fuzzy, kde-format

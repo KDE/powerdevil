@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-12 00:45+0000\n"
+"POT-Creation-Date: 2025-07-15 00:46+0000\n"
 "PO-Revision-Date: 2008-11-20 22:42+0200\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian Latin <i18n@mova.org>\n"
@@ -344,9 +344,10 @@ msgstr ""
 "dzieju."
 
 #: powerdevilcore.cpp:718
-#, kde-format
-msgid "Running on AC power"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "When on battery Power"
+msgid "Running on AC Power"
+msgstr "Kali kamputar pracuje z batarei"
 
 #: powerdevilcore.cpp:719
 #, fuzzy, kde-format
