@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:46+0000\n"
-"PO-Revision-Date: 2025-06-14 20:36+0300\n"
+"PO-Revision-Date: 2025-07-15 15:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -313,8 +313,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "Комп'ютер надалі не переходитиме до режиму сну."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Працюємо від мережі живлення"
 

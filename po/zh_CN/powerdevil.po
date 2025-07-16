@@ -300,10 +300,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "计算机将不再进入睡眠状态。"
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
-msgstr "正在使用交流电"
+msgstr ""
 
 #: powerdevilcore.cpp:719
 #, kde-format
