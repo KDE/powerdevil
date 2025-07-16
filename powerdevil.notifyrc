@@ -987,7 +987,7 @@ Comment[zh_CN]=电源已连接
 Comment[zh_TW]=已插入電源
 Contexts=stdnot
 Sound=power-plug
-Action=Sound
+Action=Sound|Popup
 IconName=battery-charging-low
 
 [Event/unplugged]
@@ -1089,5 +1089,5 @@ Comment[zh_CN]=电源已断开连接
 Comment[zh_TW]=已拔出電源
 Contexts=stdnot
 Sound=power-unplug
-Action=Sound
+Action=Sound|Popup
 IconName=battery-low
