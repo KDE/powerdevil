@@ -302,7 +302,7 @@ msgstr "计算机将不再进入睡眠状态。"
 #: powerdevilcore.cpp:718
 #, kde-format
 msgid "Running on AC Power"
-msgstr ""
+msgstr "正在使用交流电"
 
 #: powerdevilcore.cpp:719
 #, kde-format
