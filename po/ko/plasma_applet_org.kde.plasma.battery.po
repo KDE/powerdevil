@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-04-07 00:33+0200\n"
+"PO-Revision-Date: 2025-07-20 01:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -207,11 +207,7 @@ msgid "Every time for this app and reason"
 msgstr "이 앱과 이유에 대하여 항상"
 
 #: InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid ""
-#| "You have manually blocked sleep and screen locking. This will result in "
-#| "higher energy consumption."
+#, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
 "about higher energy consumption must be included (EU regulations)"

@@ -1,11 +1,11 @@
-# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 # Jung Hee Lee <daemul72@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:46+0000\n"
-"PO-Revision-Date: 2024-08-21 00:04+0200\n"
+"PO-Revision-Date: 2025-07-20 01:17+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -112,12 +112,10 @@ msgid ""
 msgstr "PowerDevil, 고급, 모듈화, 경량 전원 관리 데몬"
 
 #: powerdevilapp.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:105
 #, kde-format
@@ -303,10 +301,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "컴퓨터가 더 이상 절전 모드로 전환되지 않습니다."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
-msgstr "AC 어댑터 전원으로 실행 중"
+msgstr "AC 전원으로 실행 중"
 
 #: powerdevilcore.cpp:719
 #, kde-format
