@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the powerdevil package.
 #
-# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 02:36+0000\n"
-"PO-Revision-Date: 2024-08-18 17:08+0530\n"
+"PO-Revision-Date: 2025-07-19 18:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -112,6 +112,7 @@ msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
+"பவர்டெவில், ஓர் மேம்பட்ட, நீட்டிக்கக்கூடிய, மற்றும் சுமையுண்டாக்காத ஆற்றல் மேலாண்மை சேவை"
 
 #: powerdevilapp.cpp:104
 #, kde-format
@@ -311,7 +312,7 @@ msgstr "மின்னூற்றின் ஆற்றலில் இயங�
 #: powerdevilcore.cpp:701
 #, kde-format
 msgid "The power cord has been plugged in."
-msgstr "மின்னூற்று கணினியில் சொருகப்பட்டுள்ளது."
+msgstr "கணினி மின்னூற்றில் சொருகப்பட்டுள்ளது."
 
 #: powerdevilcore.cpp:704
 #, kde-format
