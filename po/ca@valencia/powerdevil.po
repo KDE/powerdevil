@@ -1,23 +1,23 @@
 # Translation of powerdevil.po to Catalan (Valencian)
-# Copyright (C) 2008-2024 This_file_is_part_of_KDE
+# Copyright (C) 2008-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2015, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-18 02:36+0000\n"
-"PO-Revision-Date: 2024-08-14 09:52+0200\n"
+"PO-Revision-Date: 2025-07-23 23:30+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -245,7 +245,7 @@ msgstr "Endolleu el cable d'alimentació."
 #: powerdevilcore.cpp:628
 #, kde-format
 msgid "The system will shut down in 60 seconds."
-msgstr "El sistema es pararà en 60 segons."
+msgstr "El sistema es pararà d'ací a 60 segons."
 
 #: powerdevilcore.cpp:630
 #, kde-format
@@ -257,7 +257,7 @@ msgstr "Para ara"
 #: powerdevilcore.cpp:636
 #, kde-format
 msgid "The system will hibernate in 60 seconds."
-msgstr "El sistema hibernarà en 60 segons."
+msgstr "El sistema hibernarà d'ací a 60 segons."
 
 #: powerdevilcore.cpp:638
 #, kde-format
@@ -270,7 +270,7 @@ msgstr "Hiberna ara"
 #: powerdevilcore.cpp:644
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "El sistema se suspendrà en 60 segons."
+msgstr "El sistema se suspendrà d'ací a 60 segons."
 
 #: powerdevilcore.cpp:646
 #, kde-format
