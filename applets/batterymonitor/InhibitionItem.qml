@@ -115,8 +115,8 @@ PlasmaComponents3.ItemDelegate {
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 3
-                    text: i18np("%1 application is currently blocking sleep and screen locking:",
-                                "%1 applications are currently blocking sleep and screen locking:",
+                    text: i18np("%1 application is currently blocking sleep and/or screen locking:",
+                                "%1 applications are currently blocking sleep and/or screen locking:",
                                 root.inhibitions.length)
                     textFormat: Text.PlainText
                 }
@@ -141,13 +141,13 @@ PlasmaComponents3.ItemDelegate {
                         text: {
                             if (root.inhibitions.length === 1) {
                                 if (reason && name) {
-                                    return i18n("%1 is currently blocking sleep and screen locking (%2)", name, reason)
+                                    return i18n("%1 is currently blocking sleep and/or screen locking (%2)", name, reason)
                                 } else if (name) {
-                                    return i18n("%1 is currently blocking sleep and screen locking (unknown reason)", name)
+                                    return i18n("%1 is currently blocking sleep and/or screen locking (unknown reason)", name)
                                 } else if (reason) {
-                                    return i18n("An application is currently blocking sleep and screen locking (%1)", reason)
+                                    return i18n("An application is currently blocking sleep and/or screen locking (%1)", reason)
                                 } else {
-                                    return i18n("An application is currently blocking sleep and screen locking (unknown reason)")
+                                    return i18n("An application is currently blocking sleep and/or screen locking (unknown reason)")
                                 }
                             } else {
                                 if (reason && name) {
@@ -256,8 +256,8 @@ PlasmaComponents3.ItemDelegate {
                     wrapMode: Text.WordWrap
                     elide: Text.ElideRight
                     maximumLineCount: 3
-                    text: i18np("%1 application has been prevented from blocking sleep and screen locking:",
-                                "%1 applications have been prevented from blocking sleep and screen locking:",
+                    text: i18np("%1 application has been prevented from blocking sleep and/or screen locking:",
+                                "%1 applications have been prevented from blocking sleep and/or screen locking:",
                                 root.blockedInhibitions.length)
                     textFormat: Text.PlainText
                 }
@@ -283,7 +283,7 @@ PlasmaComponents3.ItemDelegate {
                         iconSource: icon
                         text: {
                             if (root.blockedInhibitions.length === 1) {
-                                return i18nc("Application name; reason", "%1 has been prevented from blocking sleep and screen locking for %2", name, reason)
+                                return i18nc("Application name; reason", "%1 has been prevented from blocking sleep and/or screen locking for %2", name, reason)
                             } else {
                                 return i18nc("Application name: reason for preventing sleep and screen locking", "%1: %2", name, reason)
                             }
