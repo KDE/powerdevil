@@ -71,9 +71,6 @@ Core::Core(QObject *parent)
         m_hasDualGpu = discreteGpuJob->data()[QStringLiteral("hasdualgpu")].toBool();
     });
     discreteGpuJob->start();
-
-    readChargeThreshold();
-    readBatteryConservationMode();
 }
 
 Core::~Core()
@@ -120,6 +117,8 @@ void Core::onControllersReady()
             onDeviceAdded(device.udi());
         }
     }
+    readChargeThreshold();
+    readBatteryConservationMode();
 
     connect(m_batteryController.get(), &BatteryController::acAdapterStateChanged, this, &Core::onAcAdapterStateChanged);
     connect(m_batteryController.get(), &BatteryController::batteryRemainingTimeChanged, this, &Core::onBatteryRemainingTimeChanged);
@@ -981,6 +980,11 @@ void Core::onServiceRegistered(const QString &service)
 
 void Core::readChargeThreshold()
 {
+    if (m_globalSettings->useUPowerForChargeLimits()) {
+        // global charge threshold values are obsolete, prefer per-battery info from UPower/Solid
+        return;
+    }
+
     KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getthreshold"));
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
     KAuth::ExecuteJob *job = action.execute();
@@ -1011,6 +1015,11 @@ void Core::readChargeThreshold()
 
 void Core::readBatteryConservationMode()
 {
+    if (m_globalSettings->useUPowerForChargeLimits()) {
+        // global charge threshold values are obsolete, prefer per-battery info from UPower/Solid
+        return;
+    }
+
     KAuth::Action action(QStringLiteral("org.kde.powerdevil.chargethresholdhelper.getconservationmode"));
     action.setHelperId(QStringLiteral("org.kde.powerdevil.chargethresholdhelper"));
     KAuth::ExecuteJob *job = action.execute();
@@ -1108,6 +1117,11 @@ int Core::chargeStartThreshold() const
 int Core::chargeStopThreshold() const
 {
     return m_chargeStopThreshold;
+}
+
+bool Core::isChargeLimitInfoObsolete() const
+{
+    return m_globalSettings->useUPowerForChargeLimits();
 }
 
 uint Core::scheduleWakeup(const QString &service, const QDBusObjectPath &path, qint64 timeout)

@@ -1,5 +1,5 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
-<node>
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
   <interface name="org.kde.Solid.PowerManagement">
     <method name="refreshStatus" />
     <method name="reparseConfiguration" />
@@ -39,6 +39,25 @@
     </method>
     <method name="chargeStopThreshold">
       <arg type="i" direction="out" />
+    </method>
+    <method name="isChargeLimitInfoObsolete">
+      <arg type="b" direction="out" />
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            This interface has traditionally exposed the methods chargeStopThreshold,
+            chargeStartThreshold and isBatteryConservationModeEnabled.
+            In the future, these should be ignored as Plasma moves toward using the UPower
+            D-Bus API for charge limits, which provides this information separately for
+            each battery. UPower's charge limit info can also be read via KF6 Solid API.
+          </doc:para>
+          <doc:para>
+            This method allows gradual migration. If the user has migrated to UPower
+            for setting charge limits, this will return true. Systems that have not yet
+            migrated will return false, or an error for older releases without this method.
+          </doc:para>
+        </doc:description>
+      </doc:doc>
     </method>
 
     <!-- schedule system wakeup in future -->

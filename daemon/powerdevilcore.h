@@ -109,6 +109,7 @@ public Q_SLOTS:
     bool isBatteryConservationModeEnabled() const;
     int chargeStartThreshold() const;
     int chargeStopThreshold() const;
+    bool isChargeLimitInfoObsolete() const; // if true, use Solid/UPower directly
 
     // service - dbus interface to ping when wakeup is done
     // path - dbus path on service
