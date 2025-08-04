@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-05-17 17:59+0400\n"
+"PO-Revision-Date: 2025-08-03 14:07+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -105,7 +105,7 @@ msgstr "احفظ الجلسة إلى الذاكرة"
 #: SleepModeModel.cpp:29
 #, kde-format
 msgid "Hybrid sleep"
-msgstr "نوم هجين"
+msgstr "تعليق هجين"
 
 #: SleepModeModel.cpp:30
 #, kde-format
@@ -689,7 +689,7 @@ msgstr "حتى عند توصيل شاشة خارجية"
 #: ui/ProfileConfig.qml:253
 #, kde-format
 msgid "Perform laptop lid action even when an external monitor is connected"
-msgstr "أجرِ عملية غطاء الكمبيوتر المحمول حتى عند توصيل شاشة خارجية"
+msgstr "أجرِ عملية غطاء الحاسوب المحمول حتى عند توصيل شاشة خارجية"
 
 #: ui/ProfileConfig.qml:271
 #, kde-format
@@ -698,20 +698,21 @@ msgid ""
 "The sleep mode you had previously configured is now unsupported on your "
 "system. Please select a different one."
 msgstr ""
-"وضع السكون الذي أعددتَه مسبقا غير مدعوم الآن على نظامك. يرجى تحديد واحد مختلف."
+"وضع التعليق الذي أعددتَه مسبقا غير مدعوم الآن على نظامك. يرجى تحديد واحد "
+"مختلف."
 
 #: ui/ProfileConfig.qml:278
 #, kde-format
 msgctxt ""
 "@label:combobox Sleep mode selection - suspend to memory, disk or both"
 msgid "When sleeping, enter:"
-msgstr "عند النوم، أدخِل:"
+msgstr "عند التعليق، أدخِل:"
 
 #: ui/ProfileConfig.qml:280
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "When sleeping, enter this power-save mode"
-msgstr "عند النوم، ادخل وضع توفير الطاقة هذا"
+msgstr "عند التعليق، ادخل وضع توفير الطاقة هذا"
 
 #: ui/ProfileConfig.qml:329
 #, kde-format
