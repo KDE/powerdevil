@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-15 00:46+0000\n"
-"PO-Revision-Date: 2025-07-15 23:15+0400\n"
+"PO-Revision-Date: 2025-08-03 13:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -127,25 +127,25 @@ msgstr "© 2015–2019 كاي أووي بروتيك"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
-msgstr "Kai Uwe Broulik"
+msgstr "وأوف فروليك"
 
 #: powerdevilapp.cpp:105
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "المشرف"
+msgstr "الصائن"
 
 #: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
-msgstr "Dario Freddi"
+msgstr "داريو فريدي"
 
 #: powerdevilapp.cpp:106
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "المصين السّابق"
+msgstr "الصائن السّابق"
 
 #: powerdevilapp.cpp:114
 #, kde-format
@@ -160,7 +160,7 @@ msgstr "مدير الأنشطة"
 #: powerdevilcore.cpp:401
 #, kde-format
 msgid "This activity's policies prevent the system from going to sleep"
-msgstr "سياسات النشاط منعت النظام من النوم"
+msgstr "سياسات النشاط منعت النظام من وضع التعليق"
 
 #: powerdevilcore.cpp:412
 #, kde-format
@@ -175,7 +175,7 @@ msgstr "أضيفت بطارية إضافية"
 #: powerdevilcore.cpp:478
 #, kde-format
 msgid "The system will no longer go to sleep."
-msgstr "لن ينتقل النظام إلى وضع النوم بعد الآن."
+msgstr "لن ينتقل النظام إلى وضع التعليق بعد الآن."
 
 #: powerdevilcore.cpp:542
 #, kde-format
@@ -264,7 +264,7 @@ msgstr "أسبت الآن"
 #: powerdevilcore.cpp:650
 #, kde-format
 msgid "The system will go to sleep in 60 seconds."
-msgstr "سينام النظام في 60 ثانية."
+msgstr "النظام سيدخل إلى وضع التعليق في 60 ثانية."
 
 #: powerdevilcore.cpp:652
 #, kde-format
@@ -304,7 +304,7 @@ msgstr "وصل سلك الطاقة"
 #: powerdevilcore.cpp:716
 #, kde-format
 msgid "The computer will no longer go to sleep."
-msgstr "لن ينتقل الحاسوب إلى وضع السكون بعد الآن."
+msgstr "لن ينتقل الحاسوب إلى وضع التعليق بعد الآن."
 
 #: powerdevilcore.cpp:718
 #, kde-format

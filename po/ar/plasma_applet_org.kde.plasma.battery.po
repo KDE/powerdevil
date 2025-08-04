@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-06-14 17:18+0400\n"
+"PO-Revision-Date: 2025-08-03 14:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -100,7 +100,7 @@ msgstr "%1٪"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr "وضع السكون وقفل الشاشة بعد الخمول"
+msgstr "وضع التعليق وقفل الشاشة بعد الخمول"
 
 #: InhibitionItem.qml:52 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
@@ -132,34 +132,34 @@ msgstr ""
 #, kde-format
 msgid "%1 application is currently blocking sleep and screen locking:"
 msgid_plural "%1 applications are currently blocking sleep and screen locking:"
-msgstr[0] "‏%1 يمنع وضع السكون وقفل الشاشة:"
-msgstr[1] "تطبيق يمنع وضع السكون وقفل الشاشة:"
-msgstr[2] "تطبيقان يمنعان وضع السكون وقفل الشاشة:"
-msgstr[3] "%1 تطبيقات يمنعن وضع السكون وقفل الشاشة:"
-msgstr[4] "%1 تطبيقا يمنع وضع السكون وقفل الشاشة:"
-msgstr[5] "%1 تطبيق يمنع وضع السكون وقفل الشاشة:"
+msgstr[0] "‏%1 يمنع وضع التعليق وقفل الشاشة:"
+msgstr[1] "تطبيق يمنع وضع التعليق وقفل الشاشة:"
+msgstr[2] "تطبيقان يمنعان وضع التعليق وقفل الشاشة:"
+msgstr[3] "%1 تطبيقات يمنعن وضع التعليق وقفل الشاشة:"
+msgstr[4] "%1 تطبيقا يمنع وضع التعليق وقفل الشاشة:"
+msgstr[5] "%1 تطبيق يمنع وضع التعليق وقفل الشاشة:"
 
 #: InhibitionItem.qml:144
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "‏%1 يمنع وضع السكون وقفل الشاشة (%2)"
+msgstr "‏%1 يمنع وضع التعليق وقفل الشاشة (%2)"
 
 #: InhibitionItem.qml:146
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "‏%1 يمنع وضع السكون وقفل الشاشة (سبب مجهول)"
+msgstr "‏%1 يمنع وضع التعليق وقفل الشاشة (سبب مجهول)"
 
 #: InhibitionItem.qml:148
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
-msgstr "هناك تطبيق يمنع وضع السكون وقفل الشاشة (‏%1)"
+msgstr "هناك تطبيق يمنع وضع التعليق وقفل الشاشة (‏%1)"
 
 #: InhibitionItem.qml:150
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
-msgstr "‏هناك تطبيق يمنع وضع السكون وقفل الشاشة (سبب مجهول)"
+msgstr "‏هناك تطبيق يمنع وضع التعليق وقفل الشاشة (سبب مجهول)"
 
 #: InhibitionItem.qml:154 InhibitionItem.qml:288
 #, kde-format
@@ -218,7 +218,7 @@ msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
 msgstr ""
-"حظرت وضع السكون وقفل الشاشة يدويًا. سيؤدي هذا إلى ارتفاع استهلاك الطاقة."
+"حظرت وضع التعليق وقفل الشاشة يدويًا. سيؤدي هذا إلى ارتفاع استهلاك الطاقة."
 
 #: InhibitionItem.qml:219
 #, kde-format
@@ -230,12 +230,12 @@ msgstr "الغِ الحظر"
 #: InhibitionItem.qml:238 InhibitionItem.qml:361
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "فشل في إلغاء حظر وضع السكون التلقائي وقفل الشاشة"
+msgstr "فشل في إلغاء حظر وضع التعليق التلقائي وقفل الشاشة"
 
 #: InhibitionItem.qml:241 InhibitionItem.qml:364
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "فشل في منع وضع السكون التلقائي وقفل الشاشة"
+msgstr "فشل في منع وضع التعليق التلقائي وقفل الشاشة"
 
 #: InhibitionItem.qml:259
 #, kde-format
@@ -243,18 +243,18 @@ msgid ""
 "%1 application has been prevented from blocking sleep and screen locking:"
 msgid_plural ""
 "%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "مُنع التطبيق ‏%1 من حظر وضع السكون وقفل الشاشة:"
-msgstr[1] "مُنع التطبيق ‏%1 من حظر وضع السكون وقفل الشاشة:"
-msgstr[2] "مُنع التطبيقين ‏%1 من حظر وضع السكون وقفل الشاشة:"
-msgstr[3] "مُنعت التطبيقات ‏%1 من حظر وضع السكون وقفل الشاشة:"
-msgstr[4] "مُنعت التطبيقات ‏%1 من حظر وضع السكون وقفل الشاشة:"
-msgstr[5] "مُنعت التطبيقات ‏%1 من حظر وضع السكون وقفل الشاشة:"
+msgstr[0] "مُنع التطبيق ‏%1 من حظر وضع التعليق وقفل الشاشة:"
+msgstr[1] "مُنع التطبيق ‏%1 من حظر وضع التعليق وقفل الشاشة:"
+msgstr[2] "مُنع التطبيقين ‏%1 من حظر وضع التعليق وقفل الشاشة:"
+msgstr[3] "مُنعت التطبيقات ‏%1 من حظر وضع التعليق وقفل الشاشة:"
+msgstr[4] "مُنعت التطبيقات ‏%1 من حظر وضع التعليق وقفل الشاشة:"
+msgstr[5] "مُنعت التطبيقات ‏%1 من حظر وضع التعليق وقفل الشاشة:"
 
 #: InhibitionItem.qml:286
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "مُنع %1 من حظر وضع السكون وقفل الشاشة لـ %2"
+msgstr "مُنع %1 من حظر وضع التعليق وقفل الشاشة لـ %2"
 
 #: InhibitionItem.qml:299 InhibitionItem.qml:327
 #, kde-format
@@ -273,7 +273,7 @@ msgstr "احظر يدويًا"
 #: main.qml:76
 #, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "عطل تطبيق البطارية وضع السكون وقفل الشاشة."
+msgstr "عطلَ تطبيق البطارية وضع التعليق وقفل الشاشة."
 
 #: main.qml:97
 #, kde-format
@@ -336,13 +336,12 @@ msgstr "لا تشحن"
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
-msgstr ""
-"عُطل السكون التلقائي وقفل الشاشة، انقر بالزر الفأرة الأوسط لإعادة التفعيل"
+msgstr "عُطل التعليق الآلي وقفل الشاشة، انقر بالزر الفأرة الأوسط لإعادة التفعيل"
 
 #: main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "انقر بزر الفأرة الأوسط لتعطيل وضع السكون التلقائي وقفل الشاشة"
+msgstr "انقر بزر الفأرة الأوسط لتعطيل وضع التعليق التلقائي وقفل الشاشة"
 
 #: main.qml:172
 #, kde-format
@@ -492,7 +491,7 @@ msgstr "‏%1:‏ %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr "تتحكم خدمة TLP تلقائيًا في تشكيلات الطاقة"
+msgstr "تتحكم خدمة TLP آليًا في تشكيلات الطاقة"
 
 #: PowerProfileItem.qml:304
 #, kde-format
