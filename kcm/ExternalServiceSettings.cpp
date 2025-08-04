@@ -8,6 +8,9 @@
 
 #include "ExternalServiceSettings.h"
 
+// powerdevil/daemon
+#include <PowerDevilGlobalSettings.h>
+
 // KDE
 #include <KAuth/Action>
 #include <KAuth/ExecuteJob>
@@ -19,7 +22,6 @@
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
-#include <QDBusPendingCall>
 #include <QDBusServiceWatcher>
 #include <QPointer>
 
@@ -31,17 +33,21 @@ using namespace Qt::StringLiterals;
 namespace
 {
 constexpr int ChargeThresholdUnsupported = -1;
+
+constexpr QLatin1StringView UPOWER_SERVICE("org.freedesktop.UPower");
+constexpr QLatin1StringView UPOWER_IFACE_DEVICE("org.freedesktop.UPower.Device");
 }
 
 namespace PowerDevil
 {
 
-ExternalServiceSettings::ExternalServiceSettings(QObject *parent)
+ExternalServiceSettings::ExternalServiceSettings(QObject *parent, const GlobalSettings *globalSettings)
     : QObject(parent)
     , m_chargeStartThreshold(ChargeThresholdUnsupported)
     , m_chargeStopThreshold(ChargeThresholdUnsupported)
     , m_savedChargeStartThreshold(ChargeThresholdUnsupported)
     , m_savedChargeStopThreshold(ChargeThresholdUnsupported)
+    , m_useUPowerForChargeLimits(globalSettings->useUPowerForChargeLimits())
     , m_chargeStopThresholdMightNeedReconnect(false)
     , m_isBatteryConservationModeSupported(false)
     , m_batteryConservationMode(false)
@@ -77,6 +83,80 @@ void ExternalServiceSettings::executeChargeThresholdHelperAction(const QString &
 
 void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
 {
+    if (m_useUPowerForChargeLimits) {
+        loadUPowerChargeLimits();
+    } else {
+        loadKAuthChargeLimits(parentWindowForKAuth);
+    }
+}
+
+void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
+{
+    if (m_useUPowerForChargeLimits) {
+        saveUPowerChargeLimits();
+    } else {
+        saveKAuthChargeLimits(parentWindowForKAuth);
+    }
+}
+
+void ExternalServiceSettings::loadUPowerChargeLimits()
+{
+    // Once UPower supports setting custom charge thresholds, we can expose these for configuration.
+    // Until then, set them as unsupported and use just the "limit charging" checkbox.
+    setSavedChargeStartThreshold(ChargeThresholdUnsupported);
+    setSavedChargeStopThreshold(ChargeThresholdUnsupported);
+
+    // Find batteries provided by UPower specifically - we could show generic ones, but we may not
+    // be able to change their settings.
+    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, u"/org/freedesktop/UPower"_s);
+    for (const Solid::Device &device : devices) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+
+        if (b->chargeLimitSupported() && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)) {
+            setSavedBatteryConservationMode(b->chargeLimitEnabled());
+            setBatteryConservationMode(m_savedBatteryConservationMode);
+            setBatteryConservationModeSupported(true);
+            break;
+        }
+    }
+}
+
+void ExternalServiceSettings::saveUPowerChargeLimits()
+{
+    if (!isBatteryConservationModeSupported() || m_batteryConservationMode == m_savedBatteryConservationMode) {
+        return;
+    }
+
+    // Find batteries provided by UPower specifically - we could show generic ones, but we may not
+    // be able to change their settings.
+    const auto devices = Solid::Device::listFromType(Solid::DeviceInterface::Battery, u"/org/freedesktop/UPower"_s);
+    for (const Solid::Device &device : devices) {
+        const Solid::Battery *b = qobject_cast<const Solid::Battery *>(device.asDeviceInterface(Solid::DeviceInterface::Battery));
+
+        if (b->chargeLimitSupported() //
+            && (b->type() == Solid::Battery::PrimaryBattery || b->type() == Solid::Battery::UpsBattery)
+            && b->chargeLimitEnabled() == m_savedBatteryConservationMode) {
+            const auto deviceDbusPath = device.udi();
+
+            QDBusMessage call = QDBusMessage::createMethodCall(UPOWER_SERVICE, deviceDbusPath, UPOWER_IFACE_DEVICE, u"EnableChargeThreshold"_s);
+            call << m_batteryConservationMode;
+
+            qCDebug(POWERDEVIL) << "Setting charge limit to enabled:" << m_batteryConservationMode << "for battery" << deviceDbusPath;
+            QDBusReply<void> reply = QDBusConnection::systemBus().call(call);
+
+            if (reply.isValid()) {
+                qDebug() << "DBUS reply is valid";
+                setSavedBatteryConservationMode(m_batteryConservationMode);
+            } else {
+                qDebug() << "DBUS reply is invalid:" << reply.error();
+                setBatteryConservationMode(m_savedBatteryConservationMode);
+            }
+        }
+    }
+}
+
+void ExternalServiceSettings::loadKAuthChargeLimits(QWindow *parentWindowForKAuth)
+{
     // Battery thresholds (start / stop)
     executeChargeThresholdHelperAction(u"getthreshold"_s, parentWindowForKAuth, {}, [&](KAuth::ExecuteJob *job) {
         if (job->error()) {
@@ -107,7 +187,7 @@ void ExternalServiceSettings::load(QWindow *parentWindowForKAuth)
     });
 }
 
-void ExternalServiceSettings::save(QWindow *parentWindowForKAuth)
+void ExternalServiceSettings::saveKAuthChargeLimits(QWindow *parentWindowForKAuth)
 {
     // Battery threshold (start / stop)
     if ((isChargeStartThresholdSupported() && m_chargeStartThreshold != m_savedChargeStartThreshold)

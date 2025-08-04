@@ -97,7 +97,7 @@ ProfileSettings *PowerConfigData::profileLowBattery() const
 PowerKCM::PowerKCM(QObject *parent, const KPluginMetaData &metaData)
     : KQuickManagedConfigModule(parent, metaData)
     , m_settings(new PowerConfigData(this, metaData))
-    , m_externalServiceSettings(new ExternalServiceSettings(this))
+    , m_externalServiceSettings(new ExternalServiceSettings(this, m_settings->global()))
     , m_supportsBatteryProfiles(false)
     , m_isPowerSupplyBatteryPresent(false)
     , m_isPeripheralBatteryPresent(false)

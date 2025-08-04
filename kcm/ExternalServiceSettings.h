@@ -14,6 +14,7 @@ class QWindow;
 
 namespace PowerDevil
 {
+class GlobalSettings;
 
 class ExternalServiceSettings : public QObject
 {
@@ -24,7 +25,7 @@ class ExternalServiceSettings : public QObject
     Q_PROPERTY(int batteryConservationMode READ batteryConservationMode WRITE setBatteryConservationMode NOTIFY batteryConservationModeChanged)
 
 public:
-    explicit ExternalServiceSettings(QObject *parent);
+    explicit ExternalServiceSettings(QObject *parent, const GlobalSettings *globalSettings);
 
     bool isSaveNeeded() const;
 
@@ -61,6 +62,12 @@ Q_SIGNALS:
     void chargeStopThresholdMightNeedReconnectChanged();
 
 private:
+    void loadUPowerChargeLimits();
+    void saveUPowerChargeLimits();
+
+    void loadKAuthChargeLimits(QWindow *parentWindowForKAuth = nullptr);
+    void saveKAuthChargeLimits(QWindow *parentWindowForKAuth = nullptr);
+
     void setBatteryConservationModeSupported(bool);
     void setSavedBatteryConservationMode(bool);
 
@@ -78,6 +85,8 @@ private:
 
     int m_savedChargeStartThreshold;
     int m_savedChargeStopThreshold;
+
+    bool m_useUPowerForChargeLimits;
 
     bool m_chargeStopThresholdMightNeedReconnect;
 
