@@ -43,7 +43,10 @@ PlasmaComponents3.ItemDelegate {
 
     property int remainingTime: 0
 
-    property int chargeStopThreshold: 0
+    property bool chargeLimitEnabled: false
+
+    property bool chargeEndThresholdSupported: false
+    property int chargeEndThreshold: 0
 
     // Existing instance of a slider to use as a reference to calculate extra
     // margins for a progress bar, so that the row of labels on top of it
@@ -233,9 +236,11 @@ PlasmaComponents3.ItemDelegate {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                visible: root.pluggedIn && root.batteryIsPowerSupply && root.chargeStopThreshold > 0 && root.chargeStopThreshold < 100
+                visible: root.pluggedIn && root.batteryIsPowerSupply && root.chargeLimitEnabled
                 iconSource: "kt-speed-limits" // FIXME good icon
-                text: i18n("Battery is configured to charge up to approximately %1%.", root.chargeStopThreshold)
+                text: (root.chargeEndThresholdSupported && root.chargeEndThreshold > 0 && root.chargeEndThreshold < 100
+                    ? i18n("Battery is configured to charge up to approximately %1%.", root.chargeEndThreshold)
+                    : i18n("Battery is configured to charge to less than full capacity."))
             }
         }
     }

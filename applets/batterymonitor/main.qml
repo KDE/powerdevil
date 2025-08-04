@@ -274,7 +274,8 @@ PlasmoidItem {
         isManuallyInhibited: inhibitionControl.isManuallyInhibited
         isManuallyInhibitedError: inhibitionControl.isManuallyInhibitedError
         pluggedIn: batteryControl.pluggedIn
-        chargeStopThreshold: batteryControl.chargeStopThreshold
+        chargeEndThreshold: batteryControl.chargeStopThreshold
+        usePerBatteryChargeEndThreshold: batteryControl.usePerBatteryChargeLimits
         remainingTime: batteryControl.remainingTime
         activeProfile: powerProfilesControl.activeProfile
         activeProfileError: powerProfilesControl.profileError

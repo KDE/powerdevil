@@ -17,7 +17,8 @@ PlasmaExtras.Representation {
 
     property alias model: batteryRepeater.model
     property bool pluggedIn
-    property int chargeStopThreshold
+    property int chargeEndThreshold
+    property bool usePerBatteryChargeEndThreshold: false // provided by UPower, not PowerDevil
     property bool isManuallyInhibited
     property bool isManuallyInhibitedError
 
@@ -126,7 +127,12 @@ PlasmaExtras.Representation {
                 KeyNavigation.down: index + 1 < batteryRepeater.count ? batteryRepeater.itemAtIndex(index + 1) : batteryRepeater.footerItem
 
                 pluggedIn: dialog.pluggedIn
-                chargeStopThreshold: dialog.chargeStopThreshold
+
+                chargeLimitEnabled: ChargeLimitSupported && ChargeLimitEnabled
+                chargeEndThresholdSupported: ChargeEndThresholdSupported
+                chargeEndThreshold: (usePerBatteryChargeEndThreshold
+                    ? (ChargeLimitEnabled ? ChargeEndThreshold : 100)
+                    : dialog.chargeEndThreshold)
 
                 KeyNavigation.backtab: KeyNavigation.up
                 KeyNavigation.tab: KeyNavigation.down
