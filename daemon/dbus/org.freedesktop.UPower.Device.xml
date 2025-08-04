@@ -148,13 +148,12 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
         </doc:description>
         <doc:permission>Callers will need to make sure that the daemon was started in debug mode</doc:permission>
         <doc:errors>
-          <doc:error name="&ERROR_GENERAL;">if an error occured while refreshing</doc:error>
+          <doc:error name="&ERROR_GENERAL;">if an error occurred while refreshing</doc:error>
         </doc:errors>
       </doc:doc>
     </method>
 
     <!-- ************************************************************ -->
-    <!--
     <method name="GetHistory">
       <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
       <arg name="type" direction="in" type="s">
@@ -208,10 +207,8 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
         </doc:description>
       </doc:doc>
     </method>
-    -->
 
     <!-- ************************************************************ -->
-    <!--
     <method name="GetStatistics">
       <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
       <arg name="type" direction="in" type="s">
@@ -247,7 +244,29 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
         </doc:description>
       </doc:doc>
     </method>
-    -->
+
+    <!-- ************************************************************ -->
+    <method name="EnableChargeThreshold">
+      <arg name="chargeThreshold" direction="in" type="b">
+        <doc:doc>
+          <doc:summary>
+            If it is true, the battery charge will be limited to ChargeEndThreshold and start to charge when the battery is lower than ChargeStartThreshold.
+            Moreovere, if ChargeEndThreshold and/or ChargeStartThreshold are not supported, charge limit functionality on the whole may still be supported but the firmware will choose its own thresholds.
+            If it is false, the battery will always be fully charged.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            Limiting the battery charge to the configured thresholds ChargeStartThreshold and ChargeEndThreshold.
+          </doc:para>
+        </doc:description>
+        <doc:errors>
+          <doc:error name="&ERROR_GENERAL;">if an error occurred while setting the battery charge limits</doc:error>
+        </doc:errors>
+      </doc:doc>
+    </method>
 
     <!-- ************************************************************ -->
     <property name="NativePath" type="s" access="read">
@@ -338,6 +357,66 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
             </doc:item>
             <doc:item>
               <doc:term>8</doc:term><doc:definition>Phone</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>9</doc:term><doc:definition>Media Player</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>10</doc:term><doc:definition>Tablet</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>11</doc:term><doc:definition>Computer</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>12</doc:term><doc:definition>Gaming Input</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>13</doc:term><doc:definition>Pen</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>14</doc:term><doc:definition>Touchpad</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>15</doc:term><doc:definition>Modem</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>16</doc:term><doc:definition>Network</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>17</doc:term><doc:definition>Headset</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>18</doc:term><doc:definition>Speakers</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>19</doc:term><doc:definition>Headphones</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>20</doc:term><doc:definition>Video</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>21</doc:term><doc:definition>Other Audio</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>22</doc:term><doc:definition>Remote Control</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>23</doc:term><doc:definition>Printer</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>24</doc:term><doc:definition>Scanner</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>25</doc:term><doc:definition>Camera</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>26</doc:term><doc:definition>Wearable</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>27</doc:term><doc:definition>Toy</doc:definition>
+            </doc:item>
+            <doc:item>
+              <doc:term>28</doc:term><doc:definition>Bluetooth Generic</doc:definition>
             </doc:item>
           </doc:list>
           <doc:para>
@@ -768,6 +847,48 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
           <doc:para>
             <p>An icon name, following the <a href="http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">Icon Naming Specification</a></p>
             <p>Note that the icons might not match end-user expectations in terms of presentation relative to the amount of battery left or perceived to be left. It is recommended that front-ends use the BatteryLevel property first, if available, followed by the Percentage, to present a more realistic battery level to the user.</p>
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <property name="ChargeStartThreshold" type="u" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            <p>When a start charge threshold is set the battery won't get charged until the charge drops under this threshold.</p>
+            <p>In general case, ChargeStartThreshold is between 0 and 100. If it is G_MAXUINT, upower will skip to set charge_control_start_threshold.</p>
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <property name="ChargeEndThreshold" type="u" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            <p>The end charge threshold stops the battery from getting charged after the set threshold</p>
+            <p>In general case, ChargeEndThreshold is between 0 and 100. If it is G_MAXUINT, upower will skip to set charge_control_end_threshold.</p>
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <property name="ChargeThresholdEnabled" type="b" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            <p>If battery charge start and end limits are applied.</p>
+          </doc:para>
+        </doc:description>
+      </doc:doc>
+    </property>
+
+    <property name="ChargeThresholdSupported" type="b" access="read">
+      <doc:doc>
+        <doc:description>
+          <doc:para>
+            <p>If setting battery charge limits is supported.</p>
           </doc:para>
         </doc:description>
       </doc:doc>
