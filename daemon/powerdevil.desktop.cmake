@@ -61,7 +61,7 @@ X-systemd-skip=true
 X-KDE-autostart-phase=0
 
 Comment=Battery, Display and CPU power management and notification
-Comment[ar]=تنبيهات وإدارة طاقة المعالِج والعَرض والبطارية
+Comment[ar]=الإشعارات وإدارة طاقة المعالِج والعَرض والبطارية
 Comment[az]=Batareya, Ekran parlaqlığı və CPU-nun enerjiyə qənaətini ayarlamaq
 Comment[be]=Кіраванне сілкаваннем батарэі, дысплэя, працэсара і апавяшчэнні
 Comment[bg]=Управление и известия на захранването, батерия, екран и процесор
