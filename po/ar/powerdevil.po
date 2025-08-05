@@ -250,7 +250,7 @@ msgstr "بعد "
 #: actions/bundled/suspendsessionconfig.cpp:111
 #, kde-format
 msgid "Automatically"
-msgstr "آليا"
+msgstr "آليّا"
 
 #: actions/bundled/suspendsessionconfig.cpp:118
 #, kde-format
