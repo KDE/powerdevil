@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-08-03 14:07+0400\n"
+"PO-Revision-Date: 2025-08-04 18:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -340,7 +340,7 @@ msgid ""
 "according to the configured critical battery level action."
 msgstr ""
 "سيعتبر شحن البطارية حرجا عندما ينخفض إلى هذا المستوى. بعد تحذير قصير، سيُعلّق "
-"النظام أو يوقف تشغيله تلقائيا، وفقا لإجراء مستوى البطارية الحرج الذي ضُبط."
+"النظام أو يوقف تشغيله آليّا، وفقا لإجراء مستوى البطارية الحرج الذي ضُبط."
 
 #: ui/GlobalConfig.qml:147
 #, kde-format
@@ -622,7 +622,7 @@ msgstr "مخصّص…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
-msgstr "سيؤدي تعطيل التعليق الآلي إلى زيادة استهلاك الطاقة."
+msgstr "سيؤدي تعطيل التعليق الآليّ إلى زيادة استهلاك الطاقة."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
@@ -730,13 +730,13 @@ msgstr "غيّر سطوع الشا&شة:"
 #, kde-format
 msgctxt "@label:combobox Dim screen after X minutes"
 msgid "Di&m automatically:"
-msgstr "عتّ&م تلقائيا:"
+msgstr "عتّ&م آليّا:"
 
 #: ui/ProfileConfig.qml:388
 #, kde-format
 msgctxt "@label:spinbox Dim screen after X minutes"
 msgid "Di&m automatically after:"
-msgstr "عتّ&م تلقائيا بعد:"
+msgstr "عتّ&م آليّا بعد:"
 
 #: ui/ProfileConfig.qml:393
 #, kde-format
