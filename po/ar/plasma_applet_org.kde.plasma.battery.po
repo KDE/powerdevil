@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-08-03 14:00+0400\n"
+"PO-Revision-Date: 2025-08-03 23:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -230,12 +230,12 @@ msgstr "الغِ الحظر"
 #: InhibitionItem.qml:238 InhibitionItem.qml:361
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "فشل في إلغاء حظر وضع التعليق التلقائي وقفل الشاشة"
+msgstr "فشل في إلغاء حظر وضع التعليق الآليّ وقفل الشاشة"
 
 #: InhibitionItem.qml:241 InhibitionItem.qml:364
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "فشل في منع وضع التعليق التلقائي وقفل الشاشة"
+msgstr "فشل في منع وضع التعليق الآليّ وقفل الشاشة"
 
 #: InhibitionItem.qml:259
 #, kde-format
@@ -336,12 +336,12 @@ msgstr "لا تشحن"
 #, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
-msgstr "عُطل التعليق الآلي وقفل الشاشة، انقر بالزر الفأرة الأوسط لإعادة التفعيل"
+msgstr "عُطل التعليق الآليّ وقفل الشاشة، انقر بالزر الفأرة الأوسط لإعادة التفعيل"
 
 #: main.qml:167
 #, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "انقر بزر الفأرة الأوسط لتعطيل وضع التعليق التلقائي وقفل الشاشة"
+msgstr "انقر بزر الفأرة الأوسط لتعطيل وضع التعليق الآليّ وقفل الشاشة"
 
 #: main.qml:172
 #, kde-format
@@ -491,7 +491,7 @@ msgstr "‏%1:‏ %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr "تتحكم خدمة TLP آليًا في تشكيلات الطاقة"
+msgstr "تتحكم خدمة TLP آليًّا في تشكيلات الطاقة"
 
 #: PowerProfileItem.qml:304
 #, kde-format
