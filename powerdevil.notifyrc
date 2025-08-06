@@ -345,7 +345,7 @@ Comment[zh_TW]=用於標準通知
 
 [Context/criticalnot]
 Name=Critical notification
-Name[ar]=تحذير حَرِج
+Name[ar]=إشعار حَرِج
 Name[az]=Kritik bildirişlər
 Name[be]=Крытычныя апавяшчэнні
 Name[bg]=Критични известия

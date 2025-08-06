@@ -76,7 +76,7 @@
         "Name[zh_TW]": "電源"
     },
     "X-KDE-Keywords": "video, monitor, graphics, timeout, sleep, lock, screenlocker, screensaver",
-    "X-KDE-Keywords[ar]": "فيديو، شاشة, رسومات, مهلة زمنية, وضع السكون, قفل, قفل الشاشة, شاشة التوقف",
+    "X-KDE-Keywords[ar]": "فيديو، شاشة, رسومات, مهلة زمنية, وضع التعليق, قفل, قفل الشاشة, شاشة التوقف",
     "X-KDE-Keywords[bg]": "видео, монитор, графика, изчакване, заспиване, заключване, заключване на екрана, скрийнсейвър",
     "X-KDE-Keywords[ca@valencia]": "vídeo,monitor,gràfics,temps d'espera,dormir,bloqueig,bloqueig de la pantalla,estil de la pantalla",
     "X-KDE-Keywords[ca]": "vídeo,monitor,gràfics,temps d'espera,dormir,bloqueig,bloqueig de pantalla,estil de pantalla",
