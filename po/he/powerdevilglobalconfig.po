@@ -3,46 +3,47 @@
 #
 # Elkana Bardugo <ttv200@gmail.com>, 2016.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2017-05-22 05:02-0400\n"
-"Last-Translator: Elkana Bardugo <ttv200@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-08-07 10:07+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "אלקנה ברדוגו"
+msgstr "אלקנה ברדוגו,צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ttv200@gmail.com"
+msgstr "ttv200@gmail.com,kde-l10n-he@kde.org"
 
 #: GeneralPage.cpp:108
 #, kde-format
 msgid "Do nothing"
-msgstr "אל תעשה כלום"
+msgstr "לא לעשות כלום"
 
 #: GeneralPage.cpp:110
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
-msgstr ""
+msgstr "שינה"
 
 #: GeneralPage.cpp:113
 #, kde-format
 msgid "Hibernate"
-msgstr "השהה לכונן"
+msgstr "תרדמת"
 
 #: GeneralPage.cpp:115
 #, kde-format
@@ -52,7 +53,7 @@ msgstr "כבה"
 #: GeneralPage.cpp:264
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr ""
+msgstr "נראה ששירות צריכת החשמל לא פועל."
 
 #. i18n: ectx: property (text), widget (QLabel, batteryLevelsLabel)
 #: generalPage.ui:22
@@ -64,19 +65,19 @@ msgstr "<b>רמות סוללה                     </b>"
 #: generalPage.ui:29
 #, kde-format
 msgid "&Low level:"
-msgstr "סוללה נמוכה:"
+msgstr "רמה &נמוכה:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, lowSpin)
 #: generalPage.ui:39
 #, kde-format
 msgid "Low battery level"
-msgstr "רמת הסוללה נמוכה"
+msgstr "רמת סוללה חלשה"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, lowSpin)
 #: generalPage.ui:42
 #, kde-format
 msgid "Battery will be considered low when it reaches this level"
-msgstr "רמת הסוללה תחשב לנמוכה מתחת לאחוז זה:"
+msgstr "הסוללה תיחשב חלשה כשהיא מגיעה לרמה הזאת"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, lowSpin)
 #. i18n: ectx: property (suffix), widget (QSpinBox, criticalSpin)
@@ -93,37 +94,37 @@ msgstr "%"
 #: generalPage.ui:55
 #, kde-format
 msgid "&Critical level:"
-msgstr "סוללה במצב קריטי:"
+msgstr "רמה מ&שמעותית:"
 
 #. i18n: ectx: property (toolTip), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:65
 #, kde-format
 msgid "Critical battery level"
-msgstr "סוללה במצב קריטי"
+msgstr "רמת סוללה משמעותית"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, criticalSpin)
 #: generalPage.ui:68
 #, kde-format
 msgid "Battery will be considered critical when it reaches this level"
-msgstr "רמת הסוללה תחשב לקריטית מתחת לאחוז זה:"
+msgstr "מצב הסוללה ייחשב משמעותי כשהיא מגיעה לרמה הזאת"
 
 #. i18n: ectx: property (text), widget (QLabel, BatteryCriticalLabel)
 #: generalPage.ui:81
 #, kde-format
 msgid "A&t critical level:"
-msgstr "במצב קריטי:"
+msgstr "ברמה מ&שמעותית:"
 
 #. i18n: ectx: property (text), widget (QLabel, lowPeripheralLabel)
 #: generalPage.ui:107
 #, kde-format
 msgid "Low level for peripheral devices:"
-msgstr "רמת סוללה נמוכה לציוד היקפי:"
+msgstr "רמה חלשה להתקנים חיצוניים:"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdLabel)
 #: generalPage.ui:130
 #, kde-format
 msgid "Charge Limit"
-msgstr ""
+msgstr "מגבלת טעינה"
 
 #. i18n: ectx: property (text), widget (QLabel, batteryThresholdExplanation)
 #: generalPage.ui:137
@@ -134,6 +135,9 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
+"<html><head/><body><p>סוללה טעונה ב־100% למשך זמן רב עשוי להאץ את הידרדרות "
+"חיי הסוללה. הגבלת הטעינה המרבית של הסוללה עשויה לסייע בהארכת חיי הסוללה.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -142,49 +146,50 @@ msgid ""
 "You might have to disconnect and re-connect the power source to start "
 "charging the battery again."
 msgstr ""
+"יכול להיות שצריך לנתק ולחבר את מקור החשמל מחדש כדי להתחיל לטעון שוב את "
+"הסוללה."
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStartThresholdLabel)
 #: generalPage.ui:157
 #, kde-format
 msgid "Start charging only once below:"
-msgstr ""
+msgstr "להתחיל לטעון רק מתחת ל־:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, chargeStartThresholdSpin)
 #: generalPage.ui:164
 #, kde-format
 msgid "Always charge when plugged in"
-msgstr ""
+msgstr "תמיד לטעון כשיש חיבור לחשמל"
 
 #. i18n: ectx: property (text), widget (QLabel, pausePlayersLabel)
 #: generalPage.ui:177
 #, kde-format
 msgid "Pause media players when suspending:"
-msgstr "השהה ניגון מדיה בכניסה מצב שינה:"
+msgstr "להשהות ניגון מדיה בכניסה למצב השהיה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, pausePlayersCheckBox)
 #: generalPage.ui:184
 #, kde-format
 msgid "Enabled"
-msgstr "מאופשר"
+msgstr "פעיל"
 
 #. i18n: ectx: property (text), widget (QPushButton, notificationsButton)
 #: generalPage.ui:203
-#, fuzzy, kde-format
-#| msgid "Configure Notifications..."
+#, kde-format
 msgid "Configure Notifications…"
-msgstr "הגדרת התראות..."
+msgstr "הגדרת התראות…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
 #, kde-format
 msgid "Other Settings"
-msgstr ""
+msgstr "הגדרות אחרות"
 
 #. i18n: ectx: property (text), widget (QLabel, chargeStopThresholdLabel)
 #: generalPage.ui:223
 #, kde-format
 msgid "Stop charging at:"
-msgstr ""
+msgstr "להפסיק לטעון ב־:"
 
 #~ msgid ""
 #~ "The Power Management Service appears not to be running.\n"
