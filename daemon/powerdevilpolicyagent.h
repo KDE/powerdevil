@@ -131,9 +131,6 @@ private:
     void checkLogindInhibitions();
 
     // Screen locker integration
-    void onScreenLockerOwnerChanged(const QString &serviceName, const QString &oldOwner, const QString &newOwner);
-    QDBusServiceWatcher *m_screenLockerWatcher;
-
     void onScreenLockerActiveChanged(bool active);
     OrgFreedesktopScreenSaverInterface *m_screenLockerInterface = nullptr;
     bool m_screenLockerActive = false;
