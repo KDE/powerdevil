@@ -1,0 +1,7 @@
+File=brightness_kdeglobalssettings.kcfg
+ClassName=BrightnessGlobalsSettings
+Mutators=true
+DefaultValueGetters=true
+GenerateProperties=true
+ParentInConstructor=true
+Notifiers=defaultLightLookAndFeel,defaultDarkLookAndFeel
