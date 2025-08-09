@@ -163,10 +163,19 @@ PlasmaExtras.Representation {
                 width: scrollView.availableWidth
 
                 KeyNavigation.up: keyboardColorItem.visible ? keyboardColorItem : keyboardColorItem.KeyNavigation.up
+                KeyNavigation.down: darkModeItem
+                KeyNavigation.tab: KeyNavigation.down
                 KeyNavigation.backtab: KeyNavigation.up
 
                 text: i18n("Night Light")
                 nightLightControl: dialog.nightLightControl
+            }
+
+            DarkModeItem {
+                id: darkModeItem
+
+                width: scrollView.availableWidth
+                text: i18n("Theme")
             }
 
         }

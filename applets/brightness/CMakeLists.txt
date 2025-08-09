@@ -10,6 +10,7 @@ plasma_add_applet(org.kde.plasma.brightness
     QML_SOURCES
         BrightnessItem.qml
         CompactRepresentation.qml
+        DarkModeItem.qml
         KeyboardColorItem.qml
         main.qml
         NightLightItem.qml
