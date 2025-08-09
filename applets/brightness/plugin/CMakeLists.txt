@@ -4,16 +4,20 @@
 
 ecm_add_qml_module(brightnesscontrolplugin URI org.kde.plasma.private.brightnesscontrolplugin GENERATE_PLUGIN_SOURCE DEPENDENCIES QtCore)
 target_sources(brightnesscontrolplugin PRIVATE
+    darkmodecontrol.cpp darkmodecontrol.h
     nightlightinhibitor.cpp nightlightinhibitor.h
     screenbrightnesscontrol.cpp screenbrightnesscontrol.h
     screenbrightnessdisplaymodel.cpp screenbrightnessdisplaymodel.h
     keyboardbrightnesscontrol.cpp
     keyboardcolorcontrol.cpp keyboardcolorcontrol.h
 )
+kconfig_add_kcfg_files(brightnesscontrolplugin brightness_kdeglobalssettings.kcfgc GENERATE_MOC)
 target_link_libraries(brightnesscontrolplugin PRIVATE
     Qt::Core
     Qt::DBus
     Qt::Qml
+    KF6::ConfigGui
+    KF6::Package
     QCoro::Coro
     QCoro::DBus
 )
