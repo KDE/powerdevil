@@ -137,7 +137,7 @@ msgid ""
 msgstr ""
 "<html><head/><body><p>الحفاظ على البطارية مشحونة بنسبة 100٪ لفترة طويلةقد "
 "تؤدي فترة زمنية إلى تسريع تدهور صحة البطارية. من خلال تحديد الحد الأقصى لشحن "
-"البطارية ، يمكنك المساعدة في إطالة عمر البطارية. </p></body></html>"
+"البطارية، يمكنك المساعدة في إطالة عمر البطارية. </p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
