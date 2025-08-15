@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:43+0000\n"
+"POT-Creation-Date: 2025-08-15 00:48+0000\n"
 "PO-Revision-Date: 2025-06-15 18:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -100,30 +100,30 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: InhibitionItem.qml:45
+#: InhibitionItem.qml:51
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "閒置一段時間後是否自動睡眠或鎖定螢幕"
 
-#: InhibitionItem.qml:52 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "電源管理"
 
-#: InhibitionItem.qml:89
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr "已阻擋"
 
-#: InhibitionItem.qml:89
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr "自動"
 
-#: InhibitionItem.qml:106
+#: InhibitionItem.qml:112
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -131,59 +131,69 @@ msgid ""
 "external monitor is connected."
 msgstr "您的筆記型電腦設定成蓋起上蓋時若有外接螢幕則不會進入睡眠。"
 
-#: InhibitionItem.qml:118
-#, kde-format
-msgid "%1 application is currently blocking sleep and screen locking:"
-msgid_plural "%1 applications are currently blocking sleep and screen locking:"
+#: InhibitionItem.qml:124
+#, fuzzy, kde-format
+#| msgid "%1 application is currently blocking sleep and screen locking:"
+#| msgid_plural ""
+#| "%1 applications are currently blocking sleep and screen locking:"
+msgid "%1 application currently wants to block sleep and screen locking:"
+msgid_plural ""
+"%1 applications currently want to block sleep and screen locking:"
 msgstr[0] "%1 個應用程式目前正阻擋睡眠與螢幕鎖定："
 
-#: InhibitionItem.qml:144
+#: InhibitionItem.qml:146
+#, kde-format
+msgctxt "Application name; reason"
+msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+msgstr "%1 已阻擋睡眠與螢幕鎖定；原因：%2"
+
+#: InhibitionItem.qml:149
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "%1 目前正阻擋睡眠與螢幕鎖定（%2）"
 
-#: InhibitionItem.qml:146
+#: InhibitionItem.qml:151
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr "%1 目前正阻擋睡眠與螢幕鎖定（原因不明）"
 
-#: InhibitionItem.qml:148
+#: InhibitionItem.qml:153
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr "某個應用程式目前正阻擋睡眠與螢幕鎖定 (%1)"
 
-#: InhibitionItem.qml:150
+#: InhibitionItem.qml:155
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
 msgstr "某個應用程式目前正阻擋睡眠與螢幕鎖定（原因不明）"
 
-#: InhibitionItem.qml:154 InhibitionItem.qml:288
+#: InhibitionItem.qml:159
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1：%2"
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:161
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1：不明的原因"
 
-#: InhibitionItem.qml:158
+#: InhibitionItem.qml:163
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "未知應用程式：%1"
 
-#: InhibitionItem.qml:160
+#: InhibitionItem.qml:165
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "未知應用程式：不明的原因"
 
-#: InhibitionItem.qml:172 InhibitionItem.qml:200
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -191,23 +201,15 @@ msgctxt ""
 msgid "Unblock"
 msgstr "解除阻擋"
 
-#: InhibitionItem.qml:182 InhibitionItem.qml:309
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Only this time"
-msgstr "只有這一次"
+"@action:button Undo preventing an app from blocking automatic sleep and "
+"screen locking after inactivity"
+msgid "Block Again"
+msgstr "再次阻擋"
 
-#: InhibitionItem.qml:187 InhibitionItem.qml:314
-#, kde-format
-msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Every time for this app and reason"
-msgstr "此應用程式每次以此理由要求阻擋時"
-
-#: InhibitionItem.qml:214
+#: InhibitionItem.qml:194
 #, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
@@ -217,46 +219,24 @@ msgid ""
 "higher energy consumption."
 msgstr "您已手動阻擋睡眠與螢幕鎖定。這會增加能源消耗。"
 
-#: InhibitionItem.qml:219
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
 msgstr "解除阻擋"
 
-#: InhibitionItem.qml:238 InhibitionItem.qml:361
+#: InhibitionItem.qml:218 InhibitionItem.qml:256
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "無法解除阻擋自動睡眠與螢幕鎖定"
 
-#: InhibitionItem.qml:241 InhibitionItem.qml:364
+#: InhibitionItem.qml:221 InhibitionItem.qml:259
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "無法阻擋自動睡眠與螢幕鎖定"
 
-#: InhibitionItem.qml:259
-#, kde-format
-msgid ""
-"%1 application has been prevented from blocking sleep and screen locking:"
-msgid_plural ""
-"%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "%1 個應用程式已阻擋睡眠與螢幕鎖定："
-
-#: InhibitionItem.qml:286
-#, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 已阻擋睡眠與螢幕鎖定；原因：%2"
-
-#: InhibitionItem.qml:299 InhibitionItem.qml:327
-#, kde-format
-msgctxt ""
-"@action:button Undo preventing an app from blocking automatic sleep and "
-"screen locking after inactivity"
-msgid "Block Again"
-msgstr "再次阻擋"
-
-#: InhibitionItem.qml:342
+#: InhibitionItem.qml:237
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
@@ -362,17 +342,17 @@ msgstr "系統目前使用省電模式；捲動來變更"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "系統目前使用均衡電力模式；捲動來變更"
 
-#: main.qml:302
+#: main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "顯示能源資訊(&S)…"
 
-#: main.qml:308
+#: main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "尚未充飽時在圖示上顯示電池百分比"
 
-#: main.qml:321
+#: main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "設定電源管理(&C)…"
@@ -482,6 +462,25 @@ msgid ""
 msgstr ""
 "您的裝置可能可以支援電源設定檔。<nl/>請試著從您的發行版的軟體包管理員安裝 "
 "<command>power-profiles-daemon</command> 軟體包後重新啟動系統。"
+
+#~ msgctxt ""
+#~ "@action:button Prevent an app from blocking automatic sleep and screen "
+#~ "locking after inactivity"
+#~ msgid "Only this time"
+#~ msgstr "只有這一次"
+
+#~ msgctxt ""
+#~ "@action:button Prevent an app from blocking automatic sleep and screen "
+#~ "locking after inactivity"
+#~ msgid "Every time for this app and reason"
+#~ msgstr "此應用程式每次以此理由要求阻擋時"
+
+#~ msgid ""
+#~ "%1 application has been prevented from blocking sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications have been prevented from blocking sleep and screen "
+#~ "locking:"
+#~ msgstr[0] "%1 個應用程式已阻擋睡眠與螢幕鎖定："
 
 #~ msgctxt "Placeholder is the battery number"
 #~ msgid "Battery %1"

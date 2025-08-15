@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:43+0000\n"
+"POT-Creation-Date: 2025-08-15 00:48+0000\n"
 "PO-Revision-Date: 2024-09-22 16:23+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -99,30 +99,30 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1 %"
 
-#: InhibitionItem.qml:45
+#: InhibitionItem.qml:51
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr "Skjermlåsing og kvilemodus etter periode utan aktivitet"
 
-#: InhibitionItem.qml:52 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "Straumstyring"
 
-#: InhibitionItem.qml:89
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr "Blokkert"
 
-#: InhibitionItem.qml:89
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr "Automatisk"
 
-#: InhibitionItem.qml:106
+#: InhibitionItem.qml:112
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -133,64 +133,75 @@ msgstr ""
 "lokket og ein ekstern skjerm er kopla til."
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:118
-#, kde-format
-msgid "%1 application is currently blocking sleep and screen locking:"
-msgid_plural "%1 applications are currently blocking sleep and screen locking:"
+#: InhibitionItem.qml:124
+#, fuzzy, kde-format
+#| msgid "%1 application is currently blocking sleep and screen locking:"
+#| msgid_plural ""
+#| "%1 applications are currently blocking sleep and screen locking:"
+msgid "%1 application currently wants to block sleep and screen locking:"
+msgid_plural ""
+"%1 applications currently want to block sleep and screen locking:"
 msgstr[0] "%1 program hindrar skjermlåsing og kvilemodus:"
 msgstr[1] "%1 program hindrar skjermlåsing og kvilemodus:"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:144
+#: InhibitionItem.qml:146
+#, fuzzy, kde-format
+msgctxt "Application name; reason"
+msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+msgstr "%1 hindrar skjermlåsing og kvilemodus (%2)"
+
+# Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
+#: InhibitionItem.qml:149
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "%1 hindrar skjermlåsing og kvilemodus (%2)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:146
+#: InhibitionItem.qml:151
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr "%1 hindrar skjermlåsing og kvilemodus (ukjend grunn)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:148
+#: InhibitionItem.qml:153
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr "Eit program hindrar skjermlåsing og kvilemodus (%1)"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:150
+#: InhibitionItem.qml:155
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
 "reason)"
 msgstr "Eit program hindrar skjermlåsing og kvilemodus (ukjend grunn)"
 
-#: InhibitionItem.qml:154 InhibitionItem.qml:288
+#: InhibitionItem.qml:159
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:161
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1: ukjend grunn"
 
-#: InhibitionItem.qml:158
+#: InhibitionItem.qml:163
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "Ukjent program: %1"
 
-#: InhibitionItem.qml:160
+#: InhibitionItem.qml:165
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "Ukjent program: ukjend grunn"
 
-#: InhibitionItem.qml:172 InhibitionItem.qml:200
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -198,24 +209,16 @@ msgctxt ""
 msgid "Unblock"
 msgstr "Avblokker"
 
-#: InhibitionItem.qml:182 InhibitionItem.qml:309
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Only this time"
-msgstr "Berre denne gongen"
-
-#: InhibitionItem.qml:187 InhibitionItem.qml:314
-#, kde-format
-msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Every time for this app and reason"
-msgstr "Kvar gong for denne appen og grunnen"
+"@action:button Undo preventing an app from blocking automatic sleep and "
+"screen locking after inactivity"
+msgid "Block Again"
+msgstr "Blokker på nytt"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:214
+#: InhibitionItem.qml:194
 #, fuzzy, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
@@ -225,7 +228,7 @@ msgid ""
 "higher energy consumption."
 msgstr "%1 hindrar skjermlåsing og kvilemodus (%2)"
 
-#: InhibitionItem.qml:219
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
@@ -233,43 +236,18 @@ msgid "Unblock"
 msgstr "Avblokker"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:238 InhibitionItem.qml:361
+#: InhibitionItem.qml:218 InhibitionItem.qml:256
 #, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Klarte ikkje slå på automatisk skjermlåsing og kvilemodus"
 
 # Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:241 InhibitionItem.qml:364
+#: InhibitionItem.qml:221 InhibitionItem.qml:259
 #, kde-format
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Klarte ikkje hindra automatisk skjermlåsing og kvilemodus"
 
-# Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:259
-#, fuzzy, kde-format
-msgid ""
-"%1 application has been prevented from blocking sleep and screen locking:"
-msgid_plural ""
-"%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "%1 program hindrar skjermlåsing og kvilemodus:"
-msgstr[1] "%1 program hindrar skjermlåsing og kvilemodus:"
-
-# Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
-#: InhibitionItem.qml:286
-#, fuzzy, kde-format
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 hindrar skjermlåsing og kvilemodus (%2)"
-
-#: InhibitionItem.qml:299 InhibitionItem.qml:327
-#, kde-format
-msgctxt ""
-"@action:button Undo preventing an app from blocking automatic sleep and "
-"screen locking after inactivity"
-msgid "Block Again"
-msgstr "Blokker på nytt"
-
-#: InhibitionItem.qml:342
+#: InhibitionItem.qml:237
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
@@ -381,17 +359,17 @@ msgstr "Systemet er i straumsparemodus – rull for å byta"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr "Systemet er i balansert straumsparemodus – rull for å byta"
 
-#: main.qml:302
+#: main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "&Vis energiinformasjon …"
 
-#: main.qml:308
+#: main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Vis batteriprosent på ikonet viss ikkje fullada"
 
-#: main.qml:321
+#: main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
 msgstr "&Set opp straumstyring …"
@@ -507,3 +485,25 @@ msgstr ""
 "Straumprofilar er kanskje støtta på eininga di.<nl/>Prøv å installera pakken "
 "<command>power-profiles-daemon</command> via pakke­handsamaren til distroen "
 "din, og start så maskina på nytt."
+
+#~ msgctxt ""
+#~ "@action:button Prevent an app from blocking automatic sleep and screen "
+#~ "locking after inactivity"
+#~ msgid "Only this time"
+#~ msgstr "Berre denne gongen"
+
+#~ msgctxt ""
+#~ "@action:button Prevent an app from blocking automatic sleep and screen "
+#~ "locking after inactivity"
+#~ msgid "Every time for this app and reason"
+#~ msgstr "Kvar gong for denne appen og grunnen"
+
+# Er meir naturleg å nemna skjermlåsing først (sidan det er det som skjer først).
+#, fuzzy
+#~ msgid ""
+#~ "%1 application has been prevented from blocking sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications have been prevented from blocking sleep and screen "
+#~ "locking:"
+#~ msgstr[0] "%1 program hindrar skjermlåsing og kvilemodus:"
+#~ msgstr[1] "%1 program hindrar skjermlåsing og kvilemodus:"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-06-28 00:43+0000\n"
+"POT-Creation-Date: 2025-08-15 00:48+0000\n"
 "PO-Revision-Date: 2023-02-17 12:33+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
@@ -93,30 +93,30 @@ msgctxt "battery percentage below battery icon"
 msgid "%1%"
 msgstr "%1%"
 
-#: InhibitionItem.qml:45
+#: InhibitionItem.qml:51
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
 msgstr ""
 
-#: InhibitionItem.qml:52 main.qml:97 PowerProfileItem.qml:76
+#: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
 msgstr "Gestão de Energia"
 
-#: InhibitionItem.qml:89
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
 msgstr ""
 
-#: InhibitionItem.qml:89
+#: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
 msgstr ""
 
-#: InhibitionItem.qml:106
+#: InhibitionItem.qml:112
 #, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
@@ -126,30 +126,41 @@ msgstr ""
 "O seu portátil está configurado para não se suspender, quando fechar o "
 "tampo, enquanto estiver ligado a um monitor externo."
 
-#: InhibitionItem.qml:118
-#, kde-format
-msgid "%1 application is currently blocking sleep and screen locking:"
-msgid_plural "%1 applications are currently blocking sleep and screen locking:"
+#: InhibitionItem.qml:124
+#, fuzzy, kde-format
+#| msgid "%1 application is currently blocking sleep and screen locking:"
+#| msgid_plural ""
+#| "%1 applications are currently blocking sleep and screen locking:"
+msgid "%1 application currently wants to block sleep and screen locking:"
+msgid_plural ""
+"%1 applications currently want to block sleep and screen locking:"
 msgstr[0] "%1 aplicação está a impedir a suspensão e o bloqueio do ecrã:"
 msgstr[1] "%1 aplicações estão a impedir a suspensão e o bloqueio do ecrã:"
 
-#: InhibitionItem.qml:144
+#: InhibitionItem.qml:146
+#, fuzzy, kde-format
+#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+msgctxt "Application name; reason"
+msgid "%1 has been prevented from blocking sleep and screen locking for %2"
+msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
+
+#: InhibitionItem.qml:149
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
 msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
 
-#: InhibitionItem.qml:146
+#: InhibitionItem.qml:151
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
 msgstr ""
 "O %1 está a impedir a suspensão e o bloqueio do ecrã (razão desconhecida)"
 
-#: InhibitionItem.qml:148
+#: InhibitionItem.qml:153
 #, kde-format
 msgid "An application is currently blocking sleep and screen locking (%1)"
 msgstr "Uma aplicação está a impedir a suspensão e o bloqueio do ecrã (%1)"
 
-#: InhibitionItem.qml:150
+#: InhibitionItem.qml:155
 #, kde-format
 msgid ""
 "An application is currently blocking sleep and screen locking (unknown "
@@ -158,31 +169,31 @@ msgstr ""
 "Uma aplicação está a impedir a suspensão e o bloqueio do ecrã (razão "
 "desconhecida)"
 
-#: InhibitionItem.qml:154 InhibitionItem.qml:288
+#: InhibitionItem.qml:159
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: InhibitionItem.qml:156
+#: InhibitionItem.qml:161
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "%1: unknown reason"
 msgstr "%1: razão desconhecida"
 
-#: InhibitionItem.qml:158
+#: InhibitionItem.qml:163
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: %1"
 msgstr "Aplicação desconhecida: %1"
 
-#: InhibitionItem.qml:160
+#: InhibitionItem.qml:165
 #, kde-format
 msgctxt "Application name: reason for preventing sleep and screen locking"
 msgid "Unknown application: unknown reason"
 msgstr "Aplicação desconhecida: razão desconhecida"
 
-#: InhibitionItem.qml:172 InhibitionItem.qml:200
+#: InhibitionItem.qml:173
 #, kde-format
 msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
@@ -190,23 +201,15 @@ msgctxt ""
 msgid "Unblock"
 msgstr ""
 
-#: InhibitionItem.qml:182 InhibitionItem.qml:309
+#: InhibitionItem.qml:181
 #, kde-format
 msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Only this time"
+"@action:button Undo preventing an app from blocking automatic sleep and "
+"screen locking after inactivity"
+msgid "Block Again"
 msgstr ""
 
-#: InhibitionItem.qml:187 InhibitionItem.qml:314
-#, kde-format
-msgctxt ""
-"@action:button Prevent an app from blocking automatic sleep and screen "
-"locking after inactivity"
-msgid "Every time for this app and reason"
-msgstr ""
-
-#: InhibitionItem.qml:214
+#: InhibitionItem.qml:194
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid "Manually block sleep and screen locking"
@@ -218,55 +221,28 @@ msgid ""
 "higher energy consumption."
 msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
 
-#: InhibitionItem.qml:219
+#: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
 msgstr ""
 
-#: InhibitionItem.qml:238 InhibitionItem.qml:361
+#: InhibitionItem.qml:218 InhibitionItem.qml:256
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid "Manually block sleep and screen locking"
 msgid "Failed to unblock automatic sleep and screen locking"
 msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
 
-#: InhibitionItem.qml:241 InhibitionItem.qml:364
+#: InhibitionItem.qml:221 InhibitionItem.qml:259
 #, fuzzy, kde-format
 #| msgctxt "Minimize the length of this string as much as possible"
 #| msgid "Manually block sleep and screen locking"
 msgid "Failed to block automatic sleep and screen locking"
 msgstr "Bloquear manualmente a suspensão e o bloqueio do ecrã"
 
-#: InhibitionItem.qml:259
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
-msgid ""
-"%1 application has been prevented from blocking sleep and screen locking:"
-msgid_plural ""
-"%1 applications have been prevented from blocking sleep and screen locking:"
-msgstr[0] "%1 aplicação está a impedir a suspensão e o bloqueio do ecrã:"
-msgstr[1] "%1 aplicações estão a impedir a suspensão e o bloqueio do ecrã:"
-
-#: InhibitionItem.qml:286
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgctxt "Application name; reason"
-msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "O %1 está a impedir a suspensão e o bloqueio do ecrã (%2)"
-
-#: InhibitionItem.qml:299 InhibitionItem.qml:327
-#, kde-format
-msgctxt ""
-"@action:button Undo preventing an app from blocking automatic sleep and "
-"screen locking after inactivity"
-msgid "Block Again"
-msgstr ""
-
-#: InhibitionItem.qml:342
+#: InhibitionItem.qml:237
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
@@ -382,17 +358,17 @@ msgstr "O sistema está no modo de Poupança de Energia"
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
 
-#: main.qml:302
+#: main.qml:301
 #, kde-format
 msgid "&Show Energy Information…"
 msgstr "Mo&strar a Informação de Energia…"
 
-#: main.qml:308
+#: main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
 msgstr "Mostrar a Percentagem da Bateria no Ícone com a Carga Incompleta"
 
-#: main.qml:321
+#: main.qml:320
 #, fuzzy, kde-format
 #| msgid "&Configure Energy Saving…"
 msgid "&Configure Power Management…"
@@ -511,6 +487,18 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
+
+#, fuzzy
+#~| msgid "%1 application is currently blocking sleep and screen locking:"
+#~| msgid_plural ""
+#~| "%1 applications are currently blocking sleep and screen locking:"
+#~ msgid ""
+#~ "%1 application has been prevented from blocking sleep and screen locking:"
+#~ msgid_plural ""
+#~ "%1 applications have been prevented from blocking sleep and screen "
+#~ "locking:"
+#~ msgstr[0] "%1 aplicação está a impedir a suspensão e o bloqueio do ecrã:"
+#~ msgstr[1] "%1 aplicações estão a impedir a suspensão e o bloqueio do ecrã:"
 
 #, fuzzy
 #~| msgid "Battery at %1%"

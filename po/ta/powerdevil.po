@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-15 00:46+0000\n"
+"POT-Creation-Date: 2025-08-15 00:48+0000\n"
 "PO-Revision-Date: 2025-07-19 18:40+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -101,12 +101,12 @@ msgctxt "Display label: vendor + product name"
 msgid "%1 %2"
 msgstr "%1 %2"
 
-#: powerdevilapp.cpp:100
+#: powerdevilapp.cpp:98
 #, kde-format
 msgid "KDE Power Management System"
 msgstr "கே.டீ.யீ. ஆற்றல் மேலாண்மை சேவை"
 
-#: powerdevilapp.cpp:102
+#: powerdevilapp.cpp:100
 #, kde-format
 msgctxt "@title"
 msgid ""
@@ -114,37 +114,37 @@ msgid ""
 msgstr ""
 "பவர்டெவில், ஓர் மேம்பட்ட, நீட்டிக்கக்கூடிய, மற்றும் சுமையுண்டாக்காத ஆற்றல் மேலாண்மை சேவை"
 
-#: powerdevilapp.cpp:104
+#: powerdevilapp.cpp:102
 #, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
 msgstr "© 2015-2019 காய் ஊவே புரோலிக்"
 
-#: powerdevilapp.cpp:105
+#: powerdevilapp.cpp:103
 #, kde-format
 msgctxt "@info:credit"
 msgid "Kai Uwe Broulik"
 msgstr "காய் ஊவே புரோலிக்"
 
-#: powerdevilapp.cpp:105
+#: powerdevilapp.cpp:103
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
 msgstr "பராமரிப்பாளர்"
 
-#: powerdevilapp.cpp:106
+#: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@info:credit"
 msgid "Dario Freddi"
 msgstr "டாரியோ ஃபிரெடி"
 
-#: powerdevilapp.cpp:106
+#: powerdevilapp.cpp:104
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
 msgstr "முந்தைய பராமரிப்பாளர்"
 
-#: powerdevilapp.cpp:114
+#: powerdevilapp.cpp:112
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "ஏற்கனவே உள்ளதற்கு பதிலாக இது இயங்கட்டும்"
