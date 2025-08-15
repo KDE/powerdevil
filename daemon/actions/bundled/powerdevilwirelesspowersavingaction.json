@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Description": "Turns off signal-transmitting devices",
-        "Description[ar]": "يقوم بإيقاف تشغيل أجهزة إرسال الإشارات",
+        "Description[ar]": "يوقف تشغيل أجهزة إرسال الإشارات",
         "Description[be]": "Адключэнне прылад, якія перадаюць сігнал",
         "Description[bg]": "Изключва безжичните устройства",
         "Description[ca@valencia]": "Apaga els dispositius de transmissió de senyals",
