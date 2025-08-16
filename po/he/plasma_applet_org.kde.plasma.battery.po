@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-06-12 06:56+0300\n"
+"PO-Revision-Date: 2025-08-15 13:27+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -132,17 +132,14 @@ msgstr ""
 "המחשב הנייד שלך מוגדר לא לישון כשהמסך הפנימי נסגר בזמן שמחובר צג חיצוני."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "יישום אחד חוסם כרגע שינה ונעילת מסך:"
-msgstr[1] "שני יישומים חוסמים כרגע שינה ונעילת מסך:"
-msgstr[2] "%1 יישומים חוסמים כרגע שינה ונעילת מסך:"
-msgstr[3] "%1 יישומים חוסמים כרגע שינה ונעילת מסך:"
+msgstr[0] "יישום אחד רוצה כרגע לחסום שינה ונעילת מסך:"
+msgstr[1] "שני יישומים רוצים כרגע לחסום שינה ונעילת מסך:"
+msgstr[2] "%1 יישומים רוצים כרגע לחסום שינה ונעילת מסך:"
+msgstr[3] "%1 יישומים רוצים כרגע לחסום שינה ונעילת מסך:"
 
 #: InhibitionItem.qml:146
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-06-12 17:19+0200\n"
+"PO-Revision-Date: 2025-08-15 07:23+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -130,15 +130,12 @@ msgstr ""
 "och en extern bildskärm är ansluten."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 program förhindrar för närvarande viloläge och skärmlåsning:"
-msgstr[1] "%1 program förhindrar för närvarande viloläge och skärmlåsning:"
+msgstr[0] "%1 program vill för närvarande blockera viloläge och skärmlåsning:"
+msgstr[1] "%1 program vill för närvarande blockera viloläge och skärmlåsning:"
 
 #: InhibitionItem.qml:146
 #, kde-format

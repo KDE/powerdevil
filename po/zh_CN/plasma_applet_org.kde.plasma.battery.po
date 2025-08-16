@@ -127,14 +127,11 @@ msgid ""
 msgstr "此笔记本已配置为在外接显示器时合上盖子不睡眠。"
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "有 %1 个应用程序正在阻止睡眠和锁屏："
+msgstr[0] ""
 
 #: InhibitionItem.qml:146
 #, kde-format
@@ -459,22 +456,3 @@ msgid ""
 msgstr ""
 "此设备可能支持电源管理方案。<nl/>请尝试使用本机发行版的软件包管理器安装 "
 "<command>power-profiles-daemon</command> 软件包，然后重新启动系统。"
-
-#~ msgctxt ""
-#~ "@action:button Prevent an app from blocking automatic sleep and screen "
-#~ "locking after inactivity"
-#~ msgid "Only this time"
-#~ msgstr "仅这一次"
-
-#~ msgctxt ""
-#~ "@action:button Prevent an app from blocking automatic sleep and screen "
-#~ "locking after inactivity"
-#~ msgid "Every time for this app and reason"
-#~ msgstr "每次遇到此应用和理由时"
-
-#~ msgid ""
-#~ "%1 application has been prevented from blocking sleep and screen locking:"
-#~ msgid_plural ""
-#~ "%1 applications have been prevented from blocking sleep and screen "
-#~ "locking:"
-#~ msgstr[0] "有 %1 个应用程序已被禁止阻止睡眠和锁屏："
