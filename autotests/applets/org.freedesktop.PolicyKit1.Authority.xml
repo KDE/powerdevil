@@ -8,21 +8,24 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
   <interface name="org.freedesktop.PolicyKit1.Authority">
     <annotation name="org.gtk.EggDBus.DocString.Summary" value="Authority Interface"/>
-    <annotation name="org.gtk.EggDBus.DocString" value="This D-Bus interface is implemented by the <literal>/org/freedesktop/PoliycKit1/Authority</literal> object on the well-known name <literal>org.freedesktop.PolicyKit1</literal> on the system message bus."/>
+    <annotation name="org.gtk.EggDBus.DocString" value="This D-Bus interface is implemented by the `/org/freedesktop/PoliycKit1/Authority` object on the well-known name `org.freedesktop.PolicyKit1` on the system message bus."/>
 
     <!-- Subject struct -->
     <annotation name="org.gtk.EggDBus.DeclareStruct" value="Subject">
       <annotation name="org.gtk.EggDBus.DocString.Summary" value="Subjects"/>
-      <annotation name="org.gtk.EggDBus.DocString" value="<para>This struct describes subjects such as UNIX processes. It is typically used to check if a given process is authorized for an action.</para><para>The following kinds of subjects are known:</para>
-                  <formalpara><title>Unix Process</title><para><literal>subject_kind</literal> should be set to <literal>unix-process</literal> with keys <literal>pidfd</literal> (of type <literal>int32</literal>) and <literal>uid</literal> (of type <literal>int32</literal>) (if the operating system supports ProcessID File Descriptors), or alternatively with keys <literal>pid</literal> (of type <literal>uint32</literal>), <literal>uid</literal> (of type <literal>int32</literal>) and <literal>start-time</literal> (of type <literal>uint64</literal>).</para></formalpara>
-                  <formalpara><title>Unix Session</title><para><literal>subject_kind</literal> should be set to <literal>unix-session</literal> with the key <literal>session-id</literal> (of type <literal>string</literal>).</para></formalpara>
-                  <formalpara><title>System Bus Name</title><para><literal>subject_kind</literal> should be set to <literal>system-bus-name</literal> with the key <literal>name</literal> (of type <literal>string</literal>).</para></formalpara>"/>
+      <annotation name="org.gtk.EggDBus.DocString" value="This struct describes subjects such as UNIX processes. It is typically used to check if a given process is authorized for an action. The following kinds of subjects are known:
+                  Unix Process
+                    `subject_kind` should be set to `unix-process` with keys `pidfd` (of type `int32`) and `uid` (of type `int32`) (if the operating system supports ProcessID File Descriptors), or alternatively with keys `pid` (of type `uint32`), `uid` (of type `int32`) and `start-time` (of type `uint64`).
+                  Unix Session
+                    `subject_kind` should be set to `unix-session` with the key `session-id` (of type `string`).
+                  System Bus Name
+                    `subject_kind` should be set to `system-bus-name` with the key `name` (of type `string`)."/>
 
       <annotation name="org.gtk.EggDBus.Struct.Member"  value="String:subject_kind">
         <annotation name="org.gtk.EggDBus.DocString" value="The type of the subject."/>
       </annotation>
 
-      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict<String,Variant>:subject_details">
+      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict[String,Variant]:subject_details">
         <annotation name="org.gtk.EggDBus.DocString" value="Details about the subject. Depending of the value of @subject_kind, a set of well-defined key/value pairs are guaranteed to be available."/>
       </annotation>
 
@@ -31,9 +34,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
     <!-- Identity struct -->
     <annotation name="org.gtk.EggDBus.DeclareStruct" value="Identity">
       <annotation name="org.gtk.EggDBus.DocString.Summary" value="Identities"/>
-      <annotation name="org.gtk.EggDBus.DocString" value="<para>This struct describes identities such as UNIX users and UNIX groups. It is typically used to check if a given process is authorized for an action.</para><para>The following kinds of identities are known:</para>
-                  <formalpara><title>Unix User</title><para><literal>identity_kind</literal> should be set to <literal>unix-user</literal> with key <literal>uid</literal> (of type <literal>uint32</literal>).</para></formalpara>
-                  <formalpara><title>Unix Group</title><para><literal>identity_kind</literal> should be set to <literal>unix-group</literal> with key <literal>gid</literal> (of type <literal>uint32</literal>).</para></formalpara>
+      <annotation name="org.gtk.EggDBus.DocString" value="This struct describes identities such as UNIX users and UNIX groups. It is typically used to check if a given process is authorized for an action.The following kinds of identities are known:
+                  Unix User
+                    `identity_kind` should be set to `unix-user` with key `uid` (of type `uint32`).
+                  Unix Group
+                    `identity_kind` should be set to `unix-group` with key `gid` (of type `uint32`).
 
 "/>
 
@@ -41,7 +46,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
         <annotation name="org.gtk.EggDBus.DocString" value="Type of identity."/>
       </annotation>
 
-      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict<String,Variant>:identity_details">
+      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict[String,Variant]:identity_details">
         <annotation name="org.gtk.EggDBus.DocString" value="Details about the identity. Depending of the value of @identity_kind, a set of well-defined key/value pairs are guaranteed to be available."/>
       </annotation>
 
@@ -93,7 +98,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
         <annotation name="org.gtk.EggDBus.DocString" value="A value from the #ImplicitAuthorization enumeration for implicit authorizations that apply any #Subject in an active user session on the local console."/>
       </annotation>
 
-      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict<String,String>:annotations">
+      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict[String,String]:annotations">
         <annotation name="org.gtk.EggDBus.DocString" value="Annotations for the action."/>
       </annotation>
 
@@ -122,8 +127,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
         <annotation name="org.gtk.EggDBus.DocString" value="TRUE if the given #Subject could be authorized if more information was provided, and %CheckAuthorizationFlags.AllowUserInteraction wasn't passed or no suitable authentication agent was available."/>
       </annotation>
 
-      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict<String,String>:details">
-        <annotation name="org.gtk.EggDBus.DocString" value="Details for the result or empty if not authorized. Known key/value-pairs include <literal>polkit.temporary_authorization_id</literal> (if the authorization is temporary, this is set to the opaque temporary authorization id), <literal>polkit.retains_authorization_after_challenge</literal> (Set to a non-empty string if the authorization will be retained after authentication (if is_challenge is TRUE)) and <literal>polkit.lockdown</literal> (set to a non-empty string if the action is locked down)."/>
+      <annotation name="org.gtk.EggDBus.Struct.Member"  value="Dict[String,String]:details">
+        <annotation name="org.gtk.EggDBus.DocString" value="Details for the result or empty if not authorized. Known key/value-pairs include `polkit.temporary_authorization_id` (if the authorization is temporary, this is set to the opaque temporary authorization id), `polkit.retains_authorization_after_challenge` (Set to a non-empty string if the authorization will be retained after authentication (if is_challenge is TRUE)) and `polkit.lockdown` (set to a non-empty string if the action is locked down)."/>
       </annotation>
     </annotation>
 
@@ -218,13 +223,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
       </arg>
 
       <arg name="action_descriptions" direction="out" type="a(ssssssuuua{ss})">
-        <annotation name="org.gtk.EggDBus.Type" value="Array<ActionDescription>"/>
+        <annotation name="org.gtk.EggDBus.Type" value="Array[ActionDescription]"/>
         <annotation name="org.gtk.EggDBus.DocString" value="An array of #ActionDescription structs."/>
       </arg>
     </method>
 
     <method name="CheckAuthorization">
-      <annotation name="org.gtk.EggDBus.DocString" value="<para>Checks if @subject is authorized to perform the action with identifier @action_id.</para><para>If @cancellation_id is non-empty and already in use for the caller, the %org.freedesktop.PolicyKit1.Error.CancellationIdNotUnique error is returned.</para><para>Note that %CheckAuthorizationFlags.AllowUserInteraction SHOULD be passed ONLY if the event that triggered the authorization check is stemming from an user action, e.g. the user pressing a button or attaching a device.</para>"/>
+      <annotation name="org.gtk.EggDBus.DocString" value="Checks if @subject is authorized to perform the action with identifier @action_id. If @cancellation_id is non-empty and already in use for the caller, the %org.freedesktop.PolicyKit1.Error.CancellationIdNotUnique error is returned. Note that %CheckAuthorizationFlags.AllowUserInteraction SHOULD be passed ONLY if the event that triggered the authorization check is stemming from an user action, e.g. the user pressing a button or attaching a device."/>
 
       <arg name="subject" direction="in" type="(sa{sv})">
         <annotation name="org.gtk.EggDBus.DocString" value="A #Subject struct."/>
@@ -236,7 +241,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
       </arg>
 
       <arg name="details" direction="in" type="a{ss}">
-        <annotation name="org.gtk.EggDBus.DocString" value="Details describing the action. Keys starting with <literal>polkit.</literal> are reserved for internal use and cannot be used."/>
+        <annotation name="org.gtk.EggDBus.DocString" value="Details describing the action. Keys starting with `polkit.` are reserved for internal use and cannot be used."/>
       </arg>
 
       <arg name="flags" direction="in" type="u">
@@ -263,7 +268,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
     </method>
 
     <method name="RegisterAuthenticationAgent">
-      <annotation name="org.gtk.EggDBus.DocString" value="<para>Register an authentication agent.</para><para>Note that this should be called by the same effective UID which will be passed to org.freedesktop.PolicyKit1.Authority.AuthenticationAgentResponse2().</para>"/>
+      <annotation name="org.gtk.EggDBus.DocString" value="Register an authentication agent. Note that this should be called by the same effective UID which will be passed to org.freedesktop.PolicyKit1.Authority.AuthenticationAgentResponse2()."/>
 
       <arg name="subject" direction="in" type="(sa{sv})">
         <annotation name="org.gtk.EggDBus.Type" value="Subject"/>
@@ -366,7 +371,7 @@ Must match the effective UID of the caller of org.freedesktop.PolicyKit1.Authori
       </arg>
 
       <arg name="temporary_authorizations" direction="out" type="a(ss(sa{sv})tt)">
-        <annotation name="org.gtk.EggDBus.Type" value="Array<TemporaryAuthorization>"/>
+        <annotation name="org.gtk.EggDBus.Type" value="Array[TemporaryAuthorization]"/>
         <annotation name="org.gtk.EggDBus.DocString" value="An array of #TemporaryAuthorization structs."/>
       </arg>
     </method>
