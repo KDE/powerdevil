@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-06-15 18:10+0900\n"
+"PO-Revision-Date: 2025-08-16 14:42+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -132,14 +132,11 @@ msgid ""
 msgstr "您的筆記型電腦設定成蓋起上蓋時若有外接螢幕則不會進入睡眠。"
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 個應用程式目前正阻擋睡眠與螢幕鎖定："
+msgstr[0] "%1 個應用程式目前希望阻擋睡眠與螢幕鎖定："
 
 #: InhibitionItem.qml:146
 #, kde-format

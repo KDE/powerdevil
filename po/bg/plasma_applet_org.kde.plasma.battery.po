@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-06-12 10:04+0200\n"
+"PO-Revision-Date: 2025-08-16 22:25+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -132,15 +132,14 @@ msgstr ""
 "докато е свързан с външен монитор."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 приложение предотвратява приспиването и заключването на екрана:"
-msgstr[1] "%1 приложения предотвратяват приспиването и заключването на екрана:"
+msgstr[0] ""
+"%1 приложение иска да предотврати приспиването и заключването на екрана:"
+msgstr[1] ""
+"%1 приложения искат да предотврати приспиването и заключването на екрана:"
 
 #: InhibitionItem.qml:146
 #, kde-format
