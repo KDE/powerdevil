@@ -131,7 +131,7 @@ msgstr "此笔记本已配置为在外接显示器时合上盖子不睡眠。"
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] ""
+msgstr[0] "当前有 %1 个应用程序想要阻止设备进入睡眠和锁屏："
 
 #: InhibitionItem.qml:146
 #, kde-format
