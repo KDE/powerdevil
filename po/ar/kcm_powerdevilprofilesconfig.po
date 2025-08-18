@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-08-05 12:56+0400\n"
+"PO-Revision-Date: 2025-08-17 21:52+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -670,13 +670,13 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "power button is pressed"
 msgid "When laptop &lid closed:"
-msgstr "عند إغلاق غطاء الم&حمول:"
+msgstr "عند إغلاق غطاء الحاسوب الم&حمول:"
 
 #: ui/ProfileConfig.qml:222
 #, kde-format
 msgctxt "@accessible:name:combobox"
 msgid "Action to perform when the laptop lid is closed"
-msgstr "إجراء يجب تنفيذه عند إغلاق غطاء الكمبيوتر المحمول"
+msgstr "إجراء يجب تنفيذه عند إغلاق غطاء الحاسوب المحمول"
 
 #: ui/ProfileConfig.qml:251
 #, kde-format
