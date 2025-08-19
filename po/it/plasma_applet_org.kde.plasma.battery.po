@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-06-13 07:39+0200\n"
+"PO-Revision-Date: 2025-08-16 08:50+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -135,16 +135,16 @@ msgstr ""
 "dello schermo quando è collegato un monitor esterno."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 applicazione impedisce la sospensione e il blocco dello schermo:"
+msgstr[0] ""
+"L'applicazione %1 attualmente desidera bloccare la sospensione e il blocco "
+"dello schermo:"
 msgstr[1] ""
-"%1 applicazioni impediscono la sospensione e il blocco dello schermo:"
+"%1 applicazioni attualmente vogliono bloccare la sospensione e il blocco "
+"dello schermo:"
 
 #: InhibitionItem.qml:146
 #, kde-format
