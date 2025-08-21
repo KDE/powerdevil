@@ -34,3 +34,4 @@ RuntimeDependencies:
 
 Options:
   require-passing-tests-on: ['Linux/Qt6', 'FreeBSD']
+  run-qmllint: true
