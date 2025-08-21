@@ -7,7 +7,6 @@
 */
 
 import QtQuick
-import QtQuick.Layouts
 
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.plasma.extras as PlasmaExtras

@@ -13,10 +13,8 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 
-import org.kde.coreaddons as KCoreAddons
 import org.kde.kcmutils // KCMLauncher
 import org.kde.config // KAuthorized
-import org.kde.notification
 import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import org.kde.kirigami as Kirigami

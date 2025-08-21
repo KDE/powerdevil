@@ -11,8 +11,6 @@ import QtQuick.Layouts
 
 import org.kde.kcmutils // KCMLauncher
 import org.kde.config as KConfig  // KAuthorized.authorizeControlModule
-import org.kde.plasma.core as PlasmaCore
-import org.kde.plasma.plasmoid
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
