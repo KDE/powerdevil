@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-01-10 00:32+0200\n"
+"PO-Revision-Date: 2025-08-23 14:34+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Pristabdymas ir ekrano užrakinimas po neveiklumo"
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
-msgstr "Energijos valdymas"
+msgstr "Maitinimo valdymas"
 
 #: InhibitionItem.qml:95
 #, kde-format
@@ -137,21 +137,22 @@ msgstr ""
 "išorinis monitorius, kompiuteris nebūtų pristabdomas."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
 msgstr[0] ""
-"Šiuo metu %1 programa blokuoja kompiuterio pristabdymą ir ekrano užrakinimą:"
+"Šiuo metu %1 programa nori užblokuoti kompiuterio pristabdymą ir ekrano "
+"užrakinimą:"
 msgstr[1] ""
-"Šiuo metu %1 programos blokuoja kompiuterio pristabdymą ir ekrano užrakinimą:"
+"Šiuo metu %1 programos nori užblokuoti kompiuterio pristabdymą ir ekrano "
+"užrakinimą:"
 msgstr[2] ""
-"Šiuo metu %1 programų blokuoja kompiuterio pristabdymą ir ekrano užrakinimą:"
+"Šiuo metu %1 programų nori užblokuoti kompiuterio pristabdymą ir ekrano "
+"užrakinimą:"
 msgstr[3] ""
-"Šiuo metu %1 programa blokuoja kompiuterio pristabdymą ir ekrano užrakinimą:"
+"Šiuo metu %1 programa nori užblokuoti kompiuterio pristabdymą ir ekrano "
+"užrakinimą:"
 
 #: InhibitionItem.qml:146
 #, kde-format
@@ -230,16 +231,16 @@ msgid "Block Again"
 msgstr "Blokuoti vėl"
 
 #: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
 "about higher energy consumption must be included (EU regulations)"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Jūs esate rankiniu būdu užblokavę pristabdymą ir ekrano užrakinimą."
+msgstr ""
+"Jūs esate rankiniu būdu užblokavę pristabdymą ir ekrano užrakinimą. Tai "
+"sąlygos didesnį energijos vartojimą."
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -392,7 +393,7 @@ msgstr ""
 #: main.qml:320
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Konfigūruoti energijos valdymą…"
+msgstr "&Konfigūruoti maitinimo valdymą…"
 
 #: PowerProfileItem.qml:41
 #, kde-format

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-08-06 19:42+0300\n"
+"PO-Revision-Date: 2025-08-23 14:27+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -39,7 +39,7 @@ msgstr "andrius@stikonas.eu, liudas@akmc.lt, <>"
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Energijos valdymas"
+msgstr "Maitinimo valdymas"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -110,7 +110,7 @@ msgstr "%1 %2"
 #: powerdevilapp.cpp:98
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "KDE energijos valdymo sistema"
+msgstr "KDE maitinimo valdymo sistema"
 
 #: powerdevilapp.cpp:100
 #, kde-format
@@ -118,7 +118,7 @@ msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
 msgstr ""
-"PowerDevil, išplėstinė, modulinė ir supaprastinta energijos valdymo tarnyba"
+"PowerDevil, išplėstinė, modulinė ir supaprastinta maitinimo valdymo tarnyba"
 
 #: powerdevilapp.cpp:102
 #, kde-format
@@ -168,7 +168,7 @@ msgstr "Šios veiklos politika neleidžia pristabdyti sistemos"
 #: powerdevilcore.cpp:412
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr "Šios veiklos politika neleidžia valdyti ekrano energijos"
+msgstr "Šios veiklos politika neleidžia valdyti ekrano maitinimo"
 
 #: powerdevilcore.cpp:477
 #, kde-format
