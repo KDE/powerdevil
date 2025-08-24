@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-11 02:48+0000\n"
-"PO-Revision-Date: 2025-01-10 00:32+0200\n"
+"PO-Revision-Date: 2025-08-23 14:33+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: package/contents/ui/BatteryItem.qml:99
 #, kde-format
@@ -114,7 +114,7 @@ msgstr "Pristabdymas ir ekrano užrakinimas po neveiklumo"
 #: package/contents/ui/PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
-msgstr "Energijos valdymas"
+msgstr "Maitinimo valdymas"
 
 #: package/contents/ui/InhibitionItem.qml:89
 #, kde-format
@@ -232,14 +232,14 @@ msgid "Every time for this app and reason"
 msgstr "Kas kartą šiai programai dėl šios priežasties"
 
 #: package/contents/ui/InhibitionItem.qml:214
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt "Minimize the length of this string as much as possible"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Jūs esate rankiniu būdu užblokavę pristabdymą ir ekrano užrakinimą."
+msgstr ""
+"Jūs esate rankiniu būdu užblokavę pristabdymą ir ekrano užrakinimą. Tai "
+"sąlygos didesnį energijos vartojimą."
 
 #: package/contents/ui/InhibitionItem.qml:219
 #, kde-format
@@ -430,7 +430,7 @@ msgstr ""
 #: package/contents/ui/main.qml:321
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr "&Konfigūruoti energijos valdymą…"
+msgstr "&Konfigūruoti maitinimo valdymą…"
 
 #: package/contents/ui/PowerProfileItem.qml:41
 #, kde-format

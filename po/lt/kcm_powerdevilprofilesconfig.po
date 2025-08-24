@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-01-10 00:34+0200\n"
+"PO-Revision-Date: 2025-08-23 14:18+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: PowerButtonActionModel.cpp:32
 #, kde-format
@@ -67,7 +67,7 @@ msgstr "Perjungti ekrano įjungimą/išjungimą"
 #: PowerKCM.cpp:460
 #, kde-format
 msgid "The Power Management Service appears not to be running."
-msgstr "Atrodo, kad energijos valdymo tarnyba neveikia."
+msgstr "Atrodo, kad maitinimo valdymo tarnyba neveikia."
 
 #: PowerProfileModel.cpp:42
 #, kde-format
@@ -121,12 +121,10 @@ msgid "Standby, then hibernate"
 msgstr "Pristabdyti, o tuomet užmigdyti"
 
 #: SleepModeModel.cpp:39
-#, fuzzy, kde-format
-#| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
-#| msgid "Switch to hibernation after a period of inactivity"
+#, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
-msgstr "Po neveiklumo laikotarpio perjungti į užmigdymą"
+msgstr "Perjungti į užmigdymą, kai akumuliatoriaus įkrova pasiekia žemą lygį"
 
 #: SleepModeModel.cpp:40
 #, kde-format
@@ -464,27 +462,24 @@ msgstr "Susiję puslapiai:"
 #, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management notification category"
 msgid "Notifications: Power Management"
-msgstr "Pranešimai: Energijos valdymas"
+msgstr "Pranešimai: Maitinimo valdymas"
 
 #: ui/GlobalConfig.qml:385
 #, kde-format
 msgid "Open \"Notifications\" settings page, \"Power Management\" section"
-msgstr "Atverti „Pranešimų“ nuostatų puslapį, „Energijos valdymo“ sekciją"
+msgstr "Atverti „Pranešimų“ nuostatų puslapį, „Maitinimo valdymo“ sekciją"
 
 #: ui/GlobalConfig.qml:394
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "@text:button Name of KCM, plus Power Management notification category"
-#| msgid "Notifications: Power Management"
+#, kde-format
 msgctxt "@text:button Name of KCM, plus Power Management shortcut category"
 msgid "Shortcuts: Power Management"
-msgstr "Pranešimai: Energijos valdymas"
+msgstr "Spartieji klavišai: Maitinimo valdymas"
 
 #: ui/GlobalConfig.qml:396
-#, fuzzy, kde-format
-#| msgid "Open \"Notifications\" settings page, \"Power Management\" section"
+#, kde-format
 msgid "Open \"Shortcuts\" settings page, \"Power Management\" section"
-msgstr "Atverti „Pranešimų“ nuostatų puslapį, „Energijos valdymo“ sekciją"
+msgstr ""
+"Atverti „Sparčiųjų klavišų“ nuostatų puslapį, „Maitinimo valdymo“ sekciją"
 
 #: ui/GlobalConfig.qml:403
 #, kde-format
@@ -493,10 +488,9 @@ msgid "Screen Locking"
 msgstr ""
 
 #: ui/GlobalConfig.qml:404
-#, fuzzy, kde-format
-#| msgid "Open \"Desktop Session\" settings page"
+#, kde-format
 msgid "Open \"Screen Locking\" settings page"
-msgstr "Atverti „Darbalaukio seanso“ nuostatų puslapį"
+msgstr "Atverti „Ekrano užrakto“ nuostatų puslapį"
 
 #: ui/GlobalConfig.qml:411
 #, kde-format
@@ -530,7 +524,7 @@ msgstr "Išplėstinės maitinimo nuo&statos…"
 #, kde-format
 msgctxt "@text:placeholdermessage"
 msgid "Power Management settings could not be loaded"
-msgstr "Nepavyko įkelti energijos valdymo nuostatų"
+msgstr "Nepavyko įkelti maitinimo valdymo nuostatų"
 
 #: ui/main.qml:66
 #, kde-format
@@ -618,12 +612,13 @@ msgstr "Tinkinta…"
 msgctxt "@info:status"
 msgid "Disabling automatic suspend will result in higher energy consumption."
 msgstr ""
+"Automatinio pristabdymo išjungimas sąlygos didesnį energijos vartojimą."
 
 #: ui/ProfileConfig.qml:162
 #, kde-format
 msgctxt "@info:status A long duration until suspend/shutdown"
 msgid "A long duration will result in higher energy consumption."
-msgstr ""
+msgstr "Ilga trukmė sąlygos didesnį energijos vartojimą."
 
 #: ui/ProfileConfig.qml:174
 #, kde-format
@@ -941,7 +936,7 @@ msgstr "Kai įže&ngiama į „%1“ būseną:"
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when entering \"%1\" state"
-msgstr "Komanda ar scenarijus, kuomet įžengiama į „%1“ būseną"
+msgstr "Komanda ar scenarijus, kai įžengiama į „%1“ būseną"
 
 #: ui/ProfileConfig.qml:797
 #, kde-format
@@ -955,7 +950,7 @@ msgstr "Kai iše&inama iš „%1“ būsenos:"
 #, kde-format
 msgctxt "@label:textfield for power state (On AC Power, On Battery, ...)"
 msgid "Command or script when exiting \"%1\" state"
-msgstr "Komanda ar scenarijus, kuomet išeinama iš „%1“ būsenos"
+msgstr "Komanda ar scenarijus, kai išeinama iš „%1“ būsenos"
 
 #: ui/ProfileConfig.qml:830
 #, kde-format
