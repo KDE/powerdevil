@@ -59,6 +59,10 @@ SuspendController::SuspendController()
     if (m_login1Interface) {
         connect(m_login1Interface.data(), SIGNAL(PrepareForSleep(bool)), this, SLOT(slotLogin1PrepareForSleep(bool)));
     }
+
+#ifdef Q_OS_LINUX
+    m_udevClient = new UdevQt::Client(this);
+#endif
 }
 
 bool SuspendController::canSuspend() const
@@ -115,18 +119,16 @@ void SuspendController::slotLogin1PrepareForSleep(bool active)
 }
 
 #ifdef Q_OS_LINUX
-
 void SuspendController::snapshotWakeupCounts(bool active)
 {
-    // TODO: does this need to be list?
-    QStringList changed;
-
     // clear out previously recorded values
     if (active) {
         m_wakeupCounts.clear();
+    } else {
+        m_lastWakeupSources.clear();
     }
 
-    // read all wakeups, if we are waking up, check against previous values
+    // read all wakeups, if we are waking up, diff against previous values
     const QStringList wakeups = QDir(s_wakeupSysFsPath).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
     for (const QString &wakeup : wakeups) {
         QDir wakeupDir(QString(s_wakeupSysFsPath + u'/' + wakeup));
@@ -147,18 +149,44 @@ void SuspendController::snapshotWakeupCounts(bool active)
             count = countFile.readAll().trimmed().toInt();
         }
 
+        // if the count after waking up is higher than before waking up,
+        // then this wakeup source is responsible for the wakeup
         if (active) {
             m_wakeupCounts.insert(name, count);
         } else {
-            if (m_wakeupCounts.contains(name) && (m_wakeupCounts.value(name) < count)) {
-                qCDebug(POWERDEVIL) << "Wakeup source" << name << "resumed system from suspend";
-                changed << name;
+            if (m_wakeupCounts.value(name, 0) < count) {
+                m_lastWakeupSources << wakeupDir.absoluteFilePath(u"device"_s);
             }
         }
     }
-    qDebug() << "Changed" << changed;
+
+    if (!active) {
+        qCDebug(POWERDEVIL) << "Wakeup source of type" << lastWakeupType() << "resumed from sleep, devices:" << m_lastWakeupSources;
+    }
+}
+#endif
+
+SuspendController::WakeupSources SuspendController::lastWakeupType()
+{
+    WakeupSources sources = WakeupSource::UnknownSource;
+    for (const QString &wakeupDevice : m_lastWakeupSources) {
+        UdevQt::Device device = m_udevClient->deviceBySysfsPath(wakeupDevice);
+        if (device.subsystem() == u"power_supply"_s) {
+            sources |= WakeupSource::PowerManagement;
+        } else if (device.subsystem() == u"rpmsg"_s) {
+            sources |= WakeupSource::Telephony;
+        } else if (device.driver().contains(u"alarmtimer"_s) || device.driver().contains(u"rtc"_s)) {
+            sources |= WakeupSource::Timer;
+        } else if (device.driver().contains(u"ath"_s) || device.driver().contains(u"iwl"_s)) {
+            sources |= WakeupSource::Network;
+        }
+    }
+    return sources;
 }
 
-#endif
+QStringList SuspendController::wakeupDevices()
+{
+    return m_lastWakeupSources;
+}
 
 #include "moc_suspendcontroller.cpp"

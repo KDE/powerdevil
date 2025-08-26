@@ -20,6 +20,7 @@
 #include <sessionmanagement.h>
 
 #include "powerdevilcore_export.h"
+#include "udevqtclient.h"
 
 class POWERDEVILCORE_EXPORT SuspendController : public QObject
 {
@@ -51,6 +52,20 @@ public:
      */
     Q_DECLARE_FLAGS(SuspendMethods, SuspendMethod)
 
+    enum class WakeupSource {
+        UnknownSource = 0,
+        Timer = 1,
+        PowerManagement = 2,
+        Network = 4,
+        Telephony = 8,
+    };
+    Q_ENUM(WakeupSource)
+
+    /**
+     * This type stores an OR combination of WakeupSource values
+     */
+    Q_DECLARE_FLAGS(WakeupSources, WakeupSource)
+
     bool canSuspend() const;
     void suspend();
 
@@ -62,6 +77,9 @@ public:
 
     bool canSuspendThenHibernate() const;
     void suspendThenHibernate();
+
+    WakeupSources lastWakeupType();
+    QStringList wakeupDevices();
 
 Q_SIGNALS:
     /**
@@ -85,8 +103,11 @@ private:
 
 #ifdef Q_OS_LINUX
     void snapshotWakeupCounts(bool active);
-    QHash<QString, int> m_wakeupCounts;
 #endif
+    QHash<QString, int> m_wakeupCounts;
+    QStringList m_lastWakeupSources;
+    UdevQt::Client *m_udevClient;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::SuspendMethods)
+Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::WakeupSources)
