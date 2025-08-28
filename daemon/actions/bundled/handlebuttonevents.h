@@ -35,6 +35,7 @@ Q_SIGNALS:
 protected:
     void onProfileUnload() override;
     void onIdleTimeout(std::chrono::milliseconds timeout) override;
+    void onWakeupFromIdle() override;
 
 public Q_SLOTS:
     int lidAction() const;
