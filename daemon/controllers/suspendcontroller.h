@@ -28,30 +28,6 @@ class POWERDEVILCORE_EXPORT SuspendController : public QObject
 public:
     SuspendController();
 
-    /**
-     * This enum type defines the different suspend methods.
-     *
-     * - UnknownSuspendMethod: The name says it all
-     * - Standby: Processes are stopped, some hardware is deactivated (ACPI S1)
-     * - ToRam: Most devices are deactivated, only RAM is powered (ACPI S3)
-     * - ToDisk: State of the machine is saved to disk, and it's powered down (ACPI S4)
-     * - SuspendThenHibernate: Same as ToRam, but after a delay it switches to ToDisk
-     */
-    enum SuspendMethod {
-        UnknownSuspendMethod = 0,
-        Standby = 1,
-        ToRam = 2,
-        ToDisk = 4,
-        HybridSuspend = 8,
-        SuspendThenHibernate = 16,
-    };
-    Q_ENUM(SuspendMethod)
-
-    /**
-     * This type stores an OR combination of SuspendMethod values.
-     */
-    Q_DECLARE_FLAGS(SuspendMethods, SuspendMethod)
-
     enum class WakeupSource {
         UnknownSource = 0,
         Timer = 1,
@@ -109,5 +85,4 @@ private:
     UdevQt::Client *m_udevClient;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::SuspendMethods)
 Q_DECLARE_OPERATORS_FOR_FLAGS(SuspendController::WakeupSources)
