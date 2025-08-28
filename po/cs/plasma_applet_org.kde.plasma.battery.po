@@ -134,16 +134,13 @@ msgstr ""
 "externího monitoru."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 aplikace právě brání spánku nebo zamčení obrazovky:"
-msgstr[1] "%1 aplikace právě brání spánku nebo zamčení obrazovky:"
-msgstr[2] "%1 aplikací právě brání spánku nebo zamčení obrazovky:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: InhibitionItem.qml:146
 #, kde-format
@@ -476,9 +473,3 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
-
-#~ msgctxt ""
-#~ "@action:button Prevent an app from blocking automatic sleep and screen "
-#~ "locking after inactivity"
-#~ msgid "Only this time"
-#~ msgstr "Pouze tentokrát"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-08-17 21:57+0400\n"
+"PO-Revision-Date: 2025-08-27 17:42+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -88,7 +88,7 @@ msgstr "%1٪"
 #: BatteryItem.qml:238
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr "ضبطت بطاريتك لتشحن إلى %1٪ تقريبا."
+msgstr "ضبطت بطاريتك لتشحن إلى %1٪ تقريبًا."
 
 #: CompactRepresentation.qml:101 CompactRepresentation.qml:150
 #, kde-format
@@ -105,7 +105,7 @@ msgstr "وضع التعليق وقفل الشاشة بعد الخمول"
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
-msgstr "إدارة الطّاقة"
+msgstr "إدارة الطاقة"
 
 #: InhibitionItem.qml:95
 #, kde-format
@@ -360,7 +360,7 @@ msgstr "أ&ظهر معلومات الطاقة..."
 #: main.qml:307
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
-msgstr "إظهار نسبة البطارية على الأيقونة إن لم يكن مشحون بالكامل"
+msgstr "أظهر نسبة البطارية على الأيقونة إن لم يكن مشحون بالكامل"
 
 #: main.qml:320
 #, kde-format

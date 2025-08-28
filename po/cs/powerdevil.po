@@ -119,12 +119,10 @@ msgid ""
 msgstr "PowerDevil je pokročilý, modulární a nenáročný démon správy napájení"
 
 #: powerdevilapp.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr ""
 
 #: powerdevilapp.cpp:103
 #, kde-format
@@ -311,10 +309,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "Počítač už nebude uspán."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
-msgstr "Napájeno ze sítě"
+msgstr ""
 
 #: powerdevilcore.cpp:719
 #, kde-format
