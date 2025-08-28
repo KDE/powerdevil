@@ -30,6 +30,8 @@
 using namespace Qt::StringLiterals;
 using namespace std::chrono_literals;
 
+static constexpr std::chrono::milliseconds s_minIdleTimeWithWakeups = 30s;
+
 namespace PowerDevil::BundledActions
 {
 HandleButtonEvents::HandleButtonEvents(QObject *parent)
@@ -126,7 +128,16 @@ void HandleButtonEvents::onProfileUnload()
 
 void HandleButtonEvents::onIdleTimeout(std::chrono::milliseconds timeout)
 {
-    Q_UNUSED(timeout)
+    if (timeout == s_minIdleTimeWithWakeups) {
+        qCDebug(POWERDEVIL) << "HandleButtonEvents going back to suspend on timeout";
+        processAction(m_sleepButtonAction);
+    }
+}
+
+void HandleButtonEvents::onWakeupFromIdle()
+{
+    qCDebug(POWERDEVIL) << "HandleButtonEvents cleaning up timer";
+    unregisterIdleTimeouts();
 }
 
 void HandleButtonEvents::onLidClosedChanged(bool closed)
@@ -266,6 +277,25 @@ void HandleButtonEvents::checkOutputs()
 
 void HandleButtonEvents::onResumeFromSuspend()
 {
+    // We start with type of resume, if we find we don't like we ask it to suspend directly.
+    const auto wakeupType = core()->suspendController()->lastWakeupType();
+    if (wakeupType & SuspendController::WakeupSource::Network || wakeupType & SuspendController::WakeupSource::Telephony
+        || wakeupType & SuspendController::WakeupSource::Timer) {
+        qCDebug(POWERDEVIL) << "HandleButtonEvents wakeupType" << wakeupType << "waiting for user input now";
+        // set idle timeout of 30s, if we don't get any activity from user, we shut down
+        // This is also enough time for consumer of such wakeup events to register a user activity
+        // and wakeup system fully (DPMS on).
+        registerIdleTimeout(s_minIdleTimeWithWakeups);
+        // we register dummy timeout to provide a next onWakeupFromIdle event, which is provided only
+        // after an actual idle timeout has been reached, if we just have one timer, we will get it only
+        // after system is idle 30s. Which would mean even if user interacts with system, it would not
+        // notify action and we would not clear out idle timeout, this though is probably use-case that
+        // should be integrated in KIdleTime, a way to setup a oneshot idle timeout which cancels on any
+        // user activity.
+        registerIdleTimeout(1s);
+        return;
+    }
+    // if resume is not from those sources, we do regular lid related checking
     // don't check wakeup immediately, give the system some time to detect external screens
     m_wakeupCheckTimer.start(10s);
 }
