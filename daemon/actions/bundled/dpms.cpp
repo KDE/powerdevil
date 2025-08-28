@@ -259,6 +259,22 @@ void DPMS::onAboutToSuspend()
 void DPMS::onResumeFromSuspend()
 {
     m_isAboutToSuspend = false;
+    const auto wakeupType = core()->suspendController()->lastWakeupType();
+
+    // for the following wakeup types, HandleButtonEvents::onIdleTimeout() will automatically
+    // put the device back to sleep again if:
+    // a) no user interaction is observed or,
+    // b) if application does not request full wakeup.
+    if (wakeupType & SuspendController::WakeupSource::Timer) {
+        qCDebug(POWERDEVIL) << "Wakeup was from timer, not turning on display";
+        return;
+    } else if (wakeupType & SuspendController::WakeupSource::Telephony) {
+        qCDebug(POWERDEVIL) << "Wakeup was from telephony, not turning on display here, telephony application will turn on if required";
+        return;
+    } else if (wakeupType & SuspendController::WakeupSource::Network) {
+        qCDebug(POWERDEVIL) << "Wakeup was from network source, not turning on display, consumer will turn on if required";
+        return;
+    }
     m_dpms->switchMode(KScreen::Dpms::On);
     registerStandardIdleTimeout();
 }
