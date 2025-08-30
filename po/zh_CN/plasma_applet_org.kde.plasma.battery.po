@@ -372,7 +372,7 @@ msgstr "显示电量信息(&S)…"
 #: package/contents/ui/main.qml:308
 #, kde-format
 msgid "Show Battery Percentage on Icon When Not Fully Charged"
-msgstr "电池未充满时在图标上显示电量百分比"
+msgstr "电池图标在未充满时显示电量百分比"
 
 #: package/contents/ui/main.qml:321
 #, kde-format
