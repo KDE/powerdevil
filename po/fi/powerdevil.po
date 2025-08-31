@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-07-17 19:05+0300\n"
+"PO-Revision-Date: 2025-08-14 18:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -312,8 +312,7 @@ msgid "The computer will no longer go to sleep."
 msgstr "Tietokone ei enää siirry keskeytystilaan."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
 msgstr "Verkkovirta käytössä"
 
