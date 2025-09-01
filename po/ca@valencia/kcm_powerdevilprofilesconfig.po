@@ -321,7 +321,7 @@ msgid ""
 "level is now unsupported on your system. Please select a different one."
 msgstr ""
 "L'acció que havíeu configurat prèviament en assolir el nivell de bateria "
-"crítica ara no és compatible amb el sistema. Seleccioneu-ne una de diferent."
+"crítica ara no és compatible amb el sistema. Trieu-ne una de diferent."
 
 #: ui/GlobalConfig.qml:154
 #, kde-format
@@ -547,7 +547,7 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 "L'acció que havíeu configurat prèviament per a la inactivitat ara no és "
-"compatible amb el sistema. Seleccioneu-ne una de diferent."
+"compatible amb el sistema. Trieu-ne una de diferent."
 
 #: ui/ProfileConfig.qml:55
 #, kde-format
@@ -609,8 +609,7 @@ msgid ""
 "pressed is now unsupported on your system. Please select a different one."
 msgstr ""
 "L'acció que havíeu configurat prèviament per a quan es prem el botó d'encesa "
-"o apagada ara no és compatible amb el sistema. Seleccioneu-ne una de "
-"diferent."
+"o apagada ara no és compatible amb el sistema. Trieu-ne una de diferent."
 
 #: ui/ProfileConfig.qml:181
 #, kde-format
@@ -634,7 +633,7 @@ msgid ""
 "unsupported on your system. Please select a different one."
 msgstr ""
 "L'acció que havíeu configurat prèviament per a quan es tanque la tapa ara no "
-"és compatible amb el sistema. Seleccioneu-ne una de diferent."
+"és compatible amb el sistema. Trieu-ne una de diferent."
 
 #: ui/ProfileConfig.qml:220
 #, kde-format
@@ -673,7 +672,7 @@ msgid ""
 "system. Please select a different one."
 msgstr ""
 "El mode d'adormir-se que havíeu configurat prèviament ara no és compatible "
-"amb el sistema. Seleccioneu-ne un de diferent."
+"amb el sistema. Trieu-ne un de diferent."
 
 #: ui/ProfileConfig.qml:278
 #, kde-format
@@ -860,13 +859,13 @@ msgctxt ""
 "@text:button Determine what will trigger a command or script to run in this "
 "power state"
 msgid "Choose run conditions"
-msgstr "Seleccioneu les condicions d'execució"
+msgstr "Trieu les condicions d'execució"
 
 #: ui/ProfileConfig.qml:683
 #, kde-format
 msgctxt "@accessible:name:button"
 msgid "Choose run conditions for command or script"
-msgstr "Seleccioneu les condicions d'execució de l'ordre o l'script"
+msgstr "Trieu les condicions d'execució de l'ordre o l'script"
 
 #: ui/ProfileConfig.qml:703
 #, kde-format
@@ -974,13 +973,13 @@ msgstr "Introduïu una ordre o trieu un fitxer de script"
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose…"
-msgstr "Seleccioneu…"
+msgstr "Trieu…"
 
 #: ui/RunScriptEdit.qml:54
 #, kde-format
 msgctxt "@action:button opens file picker"
 msgid "Choose script file"
-msgstr "Seleccioneu un fitxer de script"
+msgstr "Trieu un fitxer de script"
 
 #: ui/RunScriptEdit.qml:67
 #, kde-format
