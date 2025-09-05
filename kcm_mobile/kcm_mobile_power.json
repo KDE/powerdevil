@@ -38,8 +38,7 @@
         "Description[zh_TW]": "調整電源管理設定值",
         "FormFactors": [
             "handset",
-            "tablet",
-            "mediacenter"
+            "tablet"
         ],
         "Icon": "preferences-system-power-management",
         "Name": "Energy",
