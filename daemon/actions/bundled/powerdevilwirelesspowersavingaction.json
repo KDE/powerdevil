@@ -35,7 +35,6 @@
         "Description[ta]": "அருகலை சாதனங்களை முடக்கும்",
         "Description[tr]": "Sinyal ileten aygıtları kapatır",
         "Description[uk]": "Вимкнути пристрої, що передають радіосигнал",
-        "Description[x-test]": "xxTurns off signal-transmitting devicesxx",
         "Description[zh_CN]": "关闭信号收发设备",
         "Description[zh_TW]": "關閉訊號傳送裝置",
         "Icon": "preferences-system-network",
@@ -87,7 +86,6 @@
         "Name[tg]": "Бесим",
         "Name[tr]": "Kablosuz",
         "Name[uk]": "Бездротова",
-        "Name[x-test]": "xxWirelessxx",
         "Name[zh_CN]": "无线",
         "Name[zh_TW]": "無線"
     },

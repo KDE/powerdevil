@@ -36,7 +36,6 @@
         "Description[ta]": "மேம்பட்ட ஆற்றல் மேலாண்மை அமைப்புகள்",
         "Description[tr]": "Gelişmiş Güç Yönetimi Ayarları",
         "Description[uk]": "Налаштування додаткових параметрів керування живленням",
-        "Description[x-test]": "xxAdvanced Power Management Settingsxx",
         "Description[zh_CN]": "高级电源管理设置",
         "Description[zh_TW]": "進階電源管理設定",
         "Icon": "preferences-other",
@@ -82,7 +81,6 @@
         "Name[ta]": "மேம்பட்ட ஆற்றல் அமைப்புகள்",
         "Name[tr]": "Gelişmiş Güç Ayarları",
         "Name[uk]": "Додаткові параметри живлення",
-        "Name[x-test]": "xxAdvanced Power Settingsxx",
         "Name[zh_CN]": "高级电源设置",
         "Name[zh_TW]": "進階電源設定"
     },
@@ -118,7 +116,6 @@
     "X-KDE-Keywords[ta]": "system,power,power management,advanced,energy,laptop,battery,suspension,AC,suspend,hibernate,lid,charge,charging,limit,charge limit,charging limit,suspending,hibernating,discharge,discharging,turn off,battery levels,low battery,low level,critical level,power notifications, கணினி, அமைப்பு, ஆற்றல், ஆற்றல் மேலாண்மை, ஆற்றல் நிர்வாகம், மேம்பட்ட, கூடுதல், மடிக்கணினி, பாட்டரி, மின்கலம், தூக்கம், உறக்கம், மின்சாரம், மின், மின்னேற்றம், ஆழுறக்கம், ஹைபர்னேட், மூடி, மின்னேறு, முடக்கு, நிறுத்து, மின்கல நிலை, மின்கல அளவு, குறைவான மின்கலம், குறைந்த மின்கலம்,  குறைவான அளவு, குறைவான நிலை, இக்கட்டான அளவு, நெருக்கடியான நிலை, ஆற்றல் அறிவிப்புகள்",
     "X-KDE-Keywords[tr]": "sistem,güç,güç yönetimi,gelişmiş,enerji,dizüstü,pil,askıya alma,AC,askıya al,hazırda beklet, kapak,şarj,şarj oluyor,limit,şarj limiti,askıya alınıyor,hazırda bekletiliyor,şarj boşalıyor,boşalım, kapat,pil düzeyleri,düşük pil,düşük düzey,kritik düzey,güç bildirimleri",
     "X-KDE-Keywords[uk]": "system,power,power management,advanced,energy,laptop,battery,suspension,AC,suspend,hibernate,lid,charge,charging,limit,charge limit,charging limit,suspending,hibernating,discharge,discharging,turn off,battery levels,low battery,low level,critical level,power notifications,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність,рівні,критичний,заряд,заряджання,межа,межа заряджання,обмеження,розряджання,вимикання,рівень акумулятора,рівень батареї,низький заряд,критичний рівень,критичний заряд,сповіщення щодо живлення",
-    "X-KDE-Keywords[x-test]": "xxsystemxx,xxpowerxx,xxpower managementxx,xxadvancedxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxhibernatexx,xxlidxx,xxchargexx,xxchargingxx,xxlimitxx,xxcharge limitxx,xxcharging limitxx,xxsuspendingxx,xxhibernatingxx,xxdischargexx,xxdischargingxx,xxturn offxx,xxbattery levelsxx,xxlow batteryxx,xxlow levelxx,xxcritical levelxx,xxpower notificationsxx",
     "X-KDE-System-Settings-Parent-Category": "power-management",
     "X-KDE-Weight": 99
 }

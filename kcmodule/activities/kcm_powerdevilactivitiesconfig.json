@@ -36,7 +36,6 @@
         "Description[ta]": "தனிப்பட்ட செயல்பாடுகளுக்கான ஆற்றல் மேலாண் அமைப்புகள்",
         "Description[tr]": "Etkinlik Başı Güç Yönetimi",
         "Description[uk]": "Налаштування окремих параметрів керування живленням простору дій",
-        "Description[x-test]": "xxPer-Activity Power Managementxx",
         "Description[zh_CN]": "每个活动的电源管理",
         "Description[zh_TW]": "個別活動的電源管理",
         "Icon": "preferences-desktop-activities",
@@ -81,7 +80,6 @@
         "Name[ta]": "செயல்பாடுகளுக்கான ஆற்றல் அமைப்பு",
         "Name[tr]": "Etkinlik Güç Ayarları",
         "Name[uk]": "Параметри живлення у просторі дій",
-        "Name[x-test]": "xxActivity Power Settingsxx",
         "Name[zh_CN]": "活动电源设置",
         "Name[zh_TW]": "活動電源設定"
     },
@@ -115,7 +113,6 @@
     "X-KDE-Keywords[ta]": "system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,low battery,plug,unplug,activity,activities,workspaces,workspace,special behavior, கணினி, ஆற்றல், ஆற்றல் மேலாண்மை, ஆற்றல் நிர்வாகம், மடிக்கணினி, லாப்டாப், மின்கலம், பாட்டரி, தூக்கம், உறக்கம், இடைநிறுத்தம், மின், மின்சாரம், ஆழுறக்கம், ஹைபர்னேட், பிரகாசம், ஒளி, செயல்திறன், மூடி, ஆற்றல் சேமிப்பு, மின்னேற்றம், திரையை மங்கசெய், மங்கசெய், மங்கல், பூட்டு, திரையை பூட்டு, திரைபூட்டு, பூட்டுதிரை, திரையை அணை, அணை, முடக்கு, திரையை முடக்கு, பட்டன், கழற்று, செயல்பாடு, செயல்பாடுகள், செயல்பாட்டு, பணிமேடை, பணிமேடைகள், தனிப்பட்ட நடத்தை, தனிப்பட்ட பயன்முறை",
     "X-KDE-Keywords[tr]": "sistem,güç,güç yönetimi,enerji,dizüstü,pil,askıya alma,AC,askıya al,askıya alınıyor,hazırda bekletiliyor, hazırda beklet,parlaklık,başarım,kapak,güç tasarrufu,şarj oluyor,şarj,şarj boşalıyor,boşalıyor,ekranı karart, uyut,ekranı kilitle,kilit ekranı,ekranı kapat,gücü kapat,güç düğmesi,güç düğmeleri,düşük pil,tak,çıkar, etkinlik,etkinlikler,çalışma alanları,çalışma alanı,özel davranış",
     "X-KDE-Keywords[uk]": "system,power,power management,energy,laptop,battery,suspension,AC,suspend,suspending,hibernating,hibernate,brightness,performance,lid,power saving,charging,charge,discharge,discharging,dim screen,sleep,lock screen,lockscreen,turn screen off,turn off,power button,power buttons,low battery,plug,unplug,activity,activities,workspaces,workspace,special behavior,система,живлення,мережа,струм,керування,енергія,ноутбук,акумулятор,батарея,батареї,присипляння,призупинення,призупинка,яскравість,швидкодія,кришка,кришки,простір,дій,простори,активність,рівні,критичний,заряд,заряджання,межа,межа заряджання,обмеження,розряджання,розрядка,притлумлення,сон,блокування екрана,вимикання екрана,кнопка живлення,кнопки живлення,низький заряд,з'єднання,роз'єднання,простір дій,простори дій,робочі простори,робочий простір,спеціальна поведінка,особлива поведінка",
-    "X-KDE-Keywords[x-test]": "xxsystemxx,xxpowerxx,xxpower managementxx,xxenergyxx,xxlaptopxx,xxbatteryxx,xxsuspensionxx,xxACxx,xxsuspendxx,xxsuspendingxx,xxhibernatingxx,xxhibernatexx,xxbrightnessxx,xxperformancexx,xxlidxx,xxpower savingxx,xxchargingxx,xxchargexx,xxdischargexx,xxdischargingxx,xxdim screenxx,xxsleepxx,xxlock screenxx,xxlockscreenxx,xxturn screen offxx,xxturn offxx,xxpower buttonxx,xxpower buttonsxx,xxlow batteryxx,xxplugxx,xxunplugxx,xxactivityxx,xxactivitiesxx,xxworkspacesxx,xxworkspacexx,xxspecial behaviorxx",
     "X-KDE-System-Settings-Parent-Category": "power-management",
     "X-KDE-Weight": 50
 }

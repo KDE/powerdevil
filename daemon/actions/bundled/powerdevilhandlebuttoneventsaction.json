@@ -36,7 +36,6 @@
         "Description[ta]": "பட்டன் அழுத்தப்படும்போது ஓர் செயலை செய்யும்",
         "Description[tr]": "Bir düğmeye basıldığında bir işlem gerçekleştirir",
         "Description[uk]": "Виконання дій у відповідь на натискання кнопки",
-        "Description[x-test]": "xxPerforms an action whenever a button is pressedxx",
         "Description[zh_CN]": "按键时执行操作",
         "Description[zh_TW]": "按鍵被按下時執行動作",
         "Icon": "system-suspend",
@@ -90,7 +89,6 @@
         "Name[tg]": "Коркарди рӯйдодҳои тугма",
         "Name[tr]": "Düğme İşlevleri",
         "Name[uk]": "Обробка натискань кнопок",
-        "Name[x-test]": "xxButton events handlingxx",
         "Name[zh_CN]": "按键事件处理",
         "Name[zh_TW]": "按鍵事件處理"
     },

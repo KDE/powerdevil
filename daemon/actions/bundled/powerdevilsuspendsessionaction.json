@@ -36,7 +36,6 @@
         "Description[ta]": "அமர்வை உறங்கசெய்யும்",
         "Description[tr]": "Geçerli oturumu askıya alır",
         "Description[uk]": "Призупиняє сеанс",
-        "Description[x-test]": "xxSuspends the sessionxx",
         "Description[zh_CN]": "挂起会话",
         "Description[zh_TW]": "暫停工作階段",
         "Icon": "system-shutdown",
@@ -91,7 +90,6 @@
         "Name[tg]": "Таваққуф кардани ҷаласа",
         "Name[tr]": "Oturumu Askıya Al",
         "Name[uk]": "Призупинити сеанс",
-        "Name[x-test]": "xxSuspend sessionxx",
         "Name[zh_CN]": "挂起会话",
         "Name[zh_TW]": "暫停工作階段"
     },
