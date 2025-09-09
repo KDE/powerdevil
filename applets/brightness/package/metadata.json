@@ -42,7 +42,6 @@
                 "Name[ta]": "ஸெபாஸ்டியன் கூக்லர்",
                 "Name[tr]": "Sebastian Kügler",
                 "Name[uk]": "Sebastian Kügler",
-                "Name[x-test]": "xxSebastian Küglerxx",
                 "Name[zh_CN]": "Sebastian Kügler",
                 "Name[zh_TW]": "Sebastian Kügler"
             },
@@ -86,7 +85,6 @@
                 "Name[ta]": "காய் ஊவே புரோலிக்",
                 "Name[tr]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
-                "Name[x-test]": "xxKai Uwe Broulikxx",
                 "Name[zh_CN]": "Kai Uwe Broulik",
                 "Name[zh_TW]": "Kai Uwe Broulik"
             },
@@ -130,7 +128,6 @@
                 "Name[ta]": "நாட்டலி கிளாரியசு",
                 "Name[tr]": "Natalie Clarius",
                 "Name[uk]": "Natalie Clarius",
-                "Name[x-test]": "xxNatalie Clariusxx",
                 "Name[zh_CN]": "Natalie Clarius",
                 "Name[zh_TW]": "Natalie Clarius"
             }
@@ -176,7 +173,6 @@
         "Description[ta]": "உங்கள் திரைகளின் மற்றும் விசைப்பலகைகளின் பிரகாசத்தை கட்டுப்படுத்த உதவும்",
         "Description[tr]": "Ekranların veya klavyelerin parlaklığını ve rengini denetleyin",
         "Description[uk]": "Керування яскравістю і кольором екранів та підсвічування клавіатури",
-        "Description[x-test]": "xxControl brightness and color of your screens and keyboardsxx",
         "Description[zh_CN]": "控制屏幕和键盘的亮度和颜色",
         "Description[zh_TW]": "控制您的螢幕與鍵盤的亮度及顏色",
         "EnabledByDefault": true,
@@ -225,7 +221,6 @@
         "Name[ta]": "நிறமும் பிரகாசமும்",
         "Name[tr]": "Parlaklık ve Renk",
         "Name[uk]": "Яскравість і колір",
-        "Name[x-test]": "xxBrightness and Colorxx",
         "Name[zh_CN]": "亮度和颜色",
         "Name[zh_TW]": "亮度與顏色",
         "Website": "https://kde.org/plasma-desktop/"

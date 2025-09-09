@@ -42,7 +42,6 @@
                 "Name[ta]": "ஸெபாஸ்டியன் கூக்லர்",
                 "Name[tr]": "Sebastian Kügler",
                 "Name[uk]": "Sebastian Kügler",
-                "Name[x-test]": "xxSebastian Küglerxx",
                 "Name[zh_CN]": "Sebastian Kügler",
                 "Name[zh_TW]": "Sebastian Kügler"
             },
@@ -86,7 +85,6 @@
                 "Name[ta]": "காய் ஊவே புரோலிக்",
                 "Name[tr]": "Kai Uwe Broulik",
                 "Name[uk]": "Kai Uwe Broulik",
-                "Name[x-test]": "xxKai Uwe Broulikxx",
                 "Name[zh_CN]": "Kai Uwe Broulik",
                 "Name[zh_TW]": "Kai Uwe Broulik"
             }
@@ -131,7 +129,6 @@
         "Description[ta]": "ஆற்றல் மேலாண் அமைப்புகளை மாற்றி உங்கள் மின்கலத்தின் ஆற்றல் நிலையைப் பாருங்கள்",
         "Description[tr]": "Güç yönetimi ayarlarını denetleyin ve pilin güç durumunu görün",
         "Description[uk]": "Керування параметрами керування живленням та перегляд стану заряду акумулятора",
-        "Description[x-test]": "xxControl power management settings and see the power status of your batteryxx",
         "Description[zh_CN]": "控制电源管理设置和查看电池的电量状态",
         "Description[zh_TW]": "控制電源管理設定或查看您的電池的電力狀態",
         "EnabledByDefault": true,
@@ -180,7 +177,6 @@
         "Name[ta]": "ஆற்றலும் மின்கலமும்",
         "Name[tr]": "Güç ve Pil",
         "Name[uk]": "Живлення і акумулятор",
-        "Name[x-test]": "xxPower and Batteryxx",
         "Name[zh_CN]": "电量和电池",
         "Name[zh_TW]": "電源與電池",
         "Website": "https://kde.org/plasma-desktop/"
