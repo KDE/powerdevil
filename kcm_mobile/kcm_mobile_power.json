@@ -33,7 +33,6 @@
         "Description[ta]": "ஆற்றல் மேலாண்மை அமைப்புகளை மாற்றலாம்",
         "Description[tr]": "Güç yönetimi ayarlarını yapılandırın",
         "Description[uk]": "Налаштовування керування живленням",
-        "Description[x-test]": "xxConfigure power management settingsxx",
         "Description[zh_CN]": "配置电源管理设置。",
         "Description[zh_TW]": "調整電源管理設定值",
         "FormFactors": [
@@ -72,7 +71,6 @@
         "Name[ta]": "ஆற்றல்",
         "Name[tr]": "Enerji",
         "Name[uk]": "Живлення",
-        "Name[x-test]": "xxEnergyxx",
         "Name[zh_CN]": "电量",
         "Name[zh_TW]": "電源"
     },
@@ -105,7 +103,6 @@
     "X-KDE-Keywords[ta]": "video, monitor, graphics, timeout, sleep, lock, screenlocker, screensaver, திரை, வரைகலை, காலாவதி, தூக்கம், உறக்கம், பூட்டு, மூடு, திரைகாப்பு, திரைகாப்பி, திரைபூட்டு",
     "X-KDE-Keywords[tr]": "video, monitör, monitor, grafik, graphics, zaman aşımı, timeout, uyku, kilit, lock, sleep, ekran kilidi, screen locker, screensaver, ekran koruyucusu",
     "X-KDE-Keywords[uk]": "video, monitor, graphics, timeout, sleep, lock, screenlocker, screensaver, відео, монітор, графіка, час очікування, присипляння, блокування, збереження, екран",
-    "X-KDE-Keywords[x-test]": "xxvideoxx,xx monitorxx,xx graphicsxx,xx timeoutxx,xx sleepxx,xx lockxx,xx screenlockerxx,xx screensaverxx",
     "X-KDE-Keywords[zh_CN]": "video, monitor, graphics, timeout, sleep, lock, screenlocker, screensaver, shipin, xianshiqi, jianshiqi, tuxing, tuxiang, chaoshi, shuimian, suoping, pingmubaohu, pingmusuoding, pingbao, suoding, 视频, 显示器, 监视器, 图形, 图像, 超时, 睡眠, 锁屏, 屏幕保护, 屏幕锁定, 屏保, 锁定",
     "X-KDE-Keywords[zh_TW]": "影片,螢幕,圖形,逾時,睡眠,鎖定,螢幕鎖定,螢幕保護",
     "X-KDE-System-Settings-Parent-Category": "system-administration",

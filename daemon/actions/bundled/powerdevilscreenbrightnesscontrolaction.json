@@ -43,7 +43,6 @@
         "Description[ta]": "திரையின் பிரகாசத்திற்கான அடிப்படை இயக்கிகள்",
         "Description[tr]": "Parlaklık için temel denetimler",
         "Description[uk]": "Базове керування яскравістю",
-        "Description[x-test]": "xxBasic Controls for brightnessxx",
         "Description[zh_CN]": "亮度基本控制",
         "Description[zh_TW]": "基本亮度控制",
         "Icon": "preferences-system-power-management",
@@ -101,7 +100,6 @@
         "Name[tg]": "Дурахшонии экран",
         "Name[tr]": "Ekran Parlaklığı",
         "Name[uk]": "Яскравість екрана",
-        "Name[x-test]": "xxScreen brightnessxx",
         "Name[zh_CN]": "屏幕亮度",
         "Name[zh_TW]": "螢幕亮度"
     },
