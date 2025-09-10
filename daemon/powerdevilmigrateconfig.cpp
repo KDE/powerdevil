@@ -4,11 +4,15 @@
  *  SPDX-License-Identifier: GPL-2.0-or-later
  */
 
+#include <config-powerdevil.h>
+
 #include "powerdevilmigrateconfig.h"
 
 #include "powerdevilenums.h"
 
+#if ENABLE_ACTIVITIES
 #include <PowerDevilActivitySettings.h>
+#endif
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_version.h>
 
@@ -37,6 +41,7 @@ struct IdentityTransformer {
 namespace PowerDevil
 {
 
+#if ENABLE_ACTIVITIES
 void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
 {
     KConfigGroup migrationGroup = profilesConfig->group(QStringLiteral("Migration"));
@@ -67,7 +72,7 @@ void migrateActivitiesConfig(KSharedConfig::Ptr profilesConfig)
     migrationGroup.writeEntry("MigratedActivitiesToPlasma6", "powerdevilrc");
     profilesConfig->sync();
 }
-
+#endif
 void ensureLockScreenIdleTimeoutInKScreenLockerKCM(int seconds)
 {
     KSharedConfig::Ptr lockerConfig = KSharedConfig::openConfig(QStringLiteral("kscreenlockerrc"));
@@ -244,7 +249,9 @@ void migrateConfig(bool isMobile, bool isVM, bool canSuspend)
     KSharedConfig::Ptr profilesConfig = KSharedConfig::openConfig(QStringLiteral("powermanagementprofilesrc"));
     // TODO KF7 (or perhaps earlier): Remove Plasma 5->6 migration code and delete powermanagementprofilesrc
 
+#if ENABLE_ACTIVITIES
     migrateActivitiesConfig(profilesConfig);
+#endif
     migrateProfilesConfig(profilesConfig, isMobile, isVM, canSuspend);
 }
 

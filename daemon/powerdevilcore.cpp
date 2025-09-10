@@ -13,7 +13,9 @@
 #include "powerdevilpolicyagent.h"
 #include "powerdevilpowermanagement.h"
 
+#if ENABLE_ACTIVITIES
 #include <PowerDevilActivitySettings.h>
+#endif
 #include <PowerDevilGlobalSettings.h>
 #include <PowerDevilProfileSettings.h>
 
@@ -30,9 +32,9 @@
 #include <KNotification>
 #include <KPluginFactory>
 #include <KPluginMetaData>
-
+#if ENABLE_ACTIVITIES
 #include <PlasmaActivities/Consumer>
-
+#endif
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusServiceWatcher>
@@ -56,7 +58,9 @@ Core::Core(QObject *parent)
     : QObject(parent)
     , m_hasDualGpu(false)
     , m_criticalBatteryTimer(new QTimer(this))
+#if ENABLE_ACTIVITIES
     , m_activityConsumer(new KActivities::Consumer(this))
+#endif
     , m_pendingWakeupEvent(true)
 {
     KAuth::Action discreteGpuAction(QStringLiteral("org.kde.powerdevil.discretegpuhelper.hasdualgpu"));
@@ -129,10 +133,11 @@ void Core::onControllersReady()
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
+#if ENABLE_ACTIVITIES
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
         loadProfile();
     });
-
+#endif
     // Set up the policy agent
     PowerDevil::PolicyAgent::instance()->init(m_globalSettings);
     // When inhibitions change, simulate user activity, see Bug 315438
@@ -379,6 +384,7 @@ void Core::loadProfile(bool force)
         Q_EMIT profileChanged(m_currentProfile);
     }
 
+#if ENABLE_ACTIVITIES
     // Check the activity in which we are in
     const QString activity = m_activityConsumer->currentActivity();
     qCDebug(POWERDEVIL) << "Currently using activity" << activity;
@@ -415,6 +421,7 @@ void Core::loadProfile(bool force)
             }
         }
     }
+#endif
 
     // If the lid is closed, retrigger the lid close signal
     // so that "switching profile then closing the lid" has the same result as

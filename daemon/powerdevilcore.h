@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <config-powerdevil.h>
+
 #include <QPointer>
 #include <QSet>
 #include <QStringList>
@@ -26,10 +28,12 @@
 #include "controllers/suspendcontroller.h"
 #include "powerdevilcore_export.h"
 
+#if ENABLE_ACTIVITIES
 namespace KActivities
 {
 class Consumer;
 } // namespace KActivities
+#endif
 
 class QDBusServiceWatcher;
 class QTimer;
@@ -180,9 +184,9 @@ private:
     QPointer<KNotification> m_criticalBatteryNotification;
     QPointer<KNotification> m_powerCordPluggedInNotification;
     QPointer<KNotification> m_powerCordUnpluggedNotification;
-
+#if ENABLE_ACTIVITIES
     KActivities::Consumer *const m_activityConsumer;
-
+#endif
     // Idle time management
     QHash<Action *, QList<int>> m_registeredActionTimeouts;
     QSet<Action *> m_pendingResumeFromIdleActions;

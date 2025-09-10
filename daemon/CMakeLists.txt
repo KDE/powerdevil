@@ -50,9 +50,15 @@ ecm_qt_declare_logging_category(powerdevil_log_static
 kconfig_add_kcfg_files(powerdevilcore_SRCS
     ${CMAKE_SOURCE_DIR}/PowerDevilGlobalSettings.kcfgc
     ${CMAKE_SOURCE_DIR}/PowerDevilProfileSettings.kcfgc
-    ${CMAKE_SOURCE_DIR}/PowerDevilActivitySettings.kcfgc
     GENERATE_MOC
 )
+
+if(ENABLE_ACTIVITIES)
+    kconfig_add_kcfg_files(powerdevilcore_SRCS
+        ${CMAKE_SOURCE_DIR}/PowerDevilActivitySettings.kcfgc
+        GENERATE_MOC
+    )
+endif()
 
 # DBus Adaptors
 
@@ -86,7 +92,6 @@ generate_export_header(powerdevilcore)
 
 # not exported, so just make the deps public
 target_link_libraries(powerdevilcore
-    Plasma::Activities
     Qt::DBus
     PW::KWorkspace
     KF6::CoreAddons
@@ -107,6 +112,12 @@ target_link_libraries(powerdevilcore
     ${UDEV_LIBS}
     Qt::WaylandClient
 )
+
+if(ENABLE_ACTIVITIES)
+    target_link_libraries(powerdevilcore Plasma::Activities)
+endif()
+
+configure_file(config-powerdevil.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-powerdevil.h )
 
 if(DDCUTIL_FOUND)
     target_link_libraries(powerdevilcore ${LIBDDCUTIL_LIBRARY})

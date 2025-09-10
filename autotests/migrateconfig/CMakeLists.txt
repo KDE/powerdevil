@@ -58,6 +58,7 @@ add_migrateconfig_test(
     ASSERT_NO_POWERDEVILRC_AFTER_MIGRATION
 )
 
+if(ENABLE_ACTIVITIES)
 add_migrateconfig_test(
     NAME migrateconfig_test2_activities
     INPUT_POWERDEVILRC test2_initial_powerdevilrc
@@ -73,6 +74,7 @@ add_migrateconfig_test(
     EXPECTED_POWERDEVILRC test2_migrated_powerdevilrc
     EXPECTED_PROFILESRC test2_migrated_powermanagementprofilesrc
 )
+endif()
 
 add_migrateconfig_test(
     NAME migrateconfig_test3_profiles
