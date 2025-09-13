@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-07-17 18:13+0300\n"
+"PO-Revision-Date: 2025-09-11 17:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -139,15 +139,12 @@ msgstr ""
 "näyttö on kytketty."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "Valmiustilan ja näytön lukituksen estää %1 sovellus:"
-msgstr[1] "Valmiustilan ja näytön lukituksen estää %1 sovellusta:"
+msgstr[0] "%1 sovellus haluaa estää valmiustilan ja näytönlukituksen:"
+msgstr[1] "%1 sovellusta haluaa estää valmiustilan ja näytönlukituksen:"
 
 # Tässä voisi tietysti miettiä kahta eri verbiä, mutta sekä ”prevent” että ”block” ovat usein Plasmassa ”estää” (joskus taitaa olla ”torjua”, mitä voisi harkita)
 #: InhibitionItem.qml:146
