@@ -120,7 +120,7 @@ msgstr ""
 #: PowerDevilRunner.cpp:89
 #, kde-format
 msgid "Set Brightness to %1%"
-msgstr "Establecer el brillo al %1%"
+msgstr "Establecer el brillo al %1 %"
 
 #: PowerDevilRunner.cpp:98
 #, kde-format
