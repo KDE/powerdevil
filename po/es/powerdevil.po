@@ -187,7 +187,7 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Batería del dispositivo baja (queda el %1%)"
+msgstr "Batería del dispositivo baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:547
 #, kde-format
@@ -202,17 +202,17 @@ msgstr ""
 #: powerdevilcore.cpp:554
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Batería del ratón baja (queda el %1%)"
+msgstr "Batería del ratón baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:558
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Batería del teclado baja (queda el %1%)"
+msgstr "Batería del teclado baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:568
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Batería de dispositivo Bluetooth baja (queda el %1%)"
+msgstr "Batería de dispositivo Bluetooth baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:570
 #, kde-format
@@ -292,12 +292,12 @@ msgstr "Cancelar"
 #: powerdevilcore.cpp:677
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Batería baja (queda el %1%)"
+msgstr "Batería baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:681
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Batería en estado crítico (queda el %1%)"
+msgstr "Batería en estado crítico (queda el %1 %)"
 
 #: powerdevilcore.cpp:715
 #, kde-format

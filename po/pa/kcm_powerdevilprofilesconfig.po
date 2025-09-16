@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-06 00:43+0000\n"
-"PO-Revision-Date: 2025-03-11 13:13-0500\n"
+"PO-Revision-Date: 2025-09-15 09:39-0500\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: PowerButtonActionModel.cpp:32
@@ -542,7 +542,7 @@ msgctxt ""
 "@label:combobox Suspend action such as sleep/hibernate to perform when the "
 "system is idle"
 msgid "When &inactive:"
-msgstr ""
+msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ(&i):"
 
 #: ui/ProfileConfig.qml:64
 #, kde-format
@@ -863,7 +863,7 @@ msgstr "ਜਦੋਂ \"%1\" ਹਾਲਤ ਤੋਂ ਬਾਹਰ ਆਉਣਾ ਹ
 #, kde-format
 msgctxt "@text:action:menu Command or script to run"
 msgid "When inactive"
-msgstr ""
+msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ"
 
 #: ui/ProfileConfig.qml:762
 #, kde-format
@@ -911,7 +911,7 @@ msgstr "ਸਕ੍ਰਿਪਟ ਕਮਾਂਡ ਚਲਾਉਣ ਲਈ ਨਾ-ਸ�
 #, kde-format
 msgctxt "@label:textfield Command or script to run"
 msgid "When i&nactive:"
-msgstr ""
+msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ(&n):"
 
 #: ui/ProfileConfig.qml:839
 #, fuzzy, kde-format
@@ -941,7 +941,7 @@ msgstr[1] "%1 ਮਿੰਟ ਬਾਅਦ ਚਲਾਓ"
 #, kde-format
 msgctxt "@accessible:name:textfield"
 msgid "Command or script when inactive"
-msgstr ""
+msgstr "ਜਦੋਂ ਨਾ-ਸਰਗਰਮ ਹੋਵੇ ਤਾਂ ਕਮਾਂਡ ਜਾਂ ਸਕ੍ਰਿਪਟ"
 
 #: ui/RunScriptEdit.qml:34
 #, kde-format
@@ -977,7 +977,7 @@ msgstr "ਸਕ੍ਰਿਪਟ ਫ਼ਾਇਲ ਨੂੰ ਚੁਣੋ"
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Duration"
-msgstr ""
+msgstr "ਪਸੰਦੀਦਾ ਅੰਤਰਾਲ"
 
 #~ msgctxt ""
 #~ "@label:combobox Suspend action such as sleep/hibernate to perform when "
