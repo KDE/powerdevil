@@ -84,6 +84,10 @@ Kirigami.FormLayout {
                 profileSettings.autoSuspendAction = currentValue;
                 suspendComplianceWarning.showIfNeeded();
             }
+            // This is intentional, and catches when the user clicks "Reset" or "Defaults"
+            onCurrentIndexChanged: {
+                suspendComplianceWarning.showIfNeeded();
+            }
         }
 
         TimeDurationComboBox {
@@ -121,6 +125,10 @@ Kirigami.FormLayout {
             onCustomDurationAccepted: {
                 profileSettings.autoSuspendIdleTimeoutSec = valueToUnit(
                     customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
+                suspendComplianceWarning.showIfNeeded();
+            }
+            // This is intentional, and catches when the user clicks "Reset" or "Defaults"
+            onCurrentIndexChanged: {
                 suspendComplianceWarning.showIfNeeded();
             }
 
