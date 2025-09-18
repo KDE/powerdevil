@@ -78,7 +78,7 @@ if(DDCUtil_FOUND)
 endif()
 
 find_package(Qt6WaylandClient COMPONENTS Private)
-find_package(PlasmaWaylandProtocols 1.18 REQUIRED)
+find_package(PlasmaWaylandProtocols 1.19 REQUIRED)
 find_package(Wayland REQUIRED COMPONENTS Client)
 
 include_directories (
