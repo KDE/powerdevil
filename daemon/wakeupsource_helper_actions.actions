@@ -60,5 +60,23 @@ Icon=kde
 
 [org.kde.powerdevil.wakeupsourcehelper.setwakeupcount]
 Name=Set the wakeup count
+Name[ca]=Estableix el comptador d'activacions
+Name[es]=Definir el contador de reanudación
+Name[he]=הגדרת כמות ההשכמות
+Name[ka]=გაღვიძების რაოდენობების დაყენება
+Name[nl]=Zet het aantal keer ontwaken
+Name[pt_BR]=Definir a contagem de despertar
+Name[sl]=Nastavi število prebujanj
+Name[tr]=Uyanma Sayısını Say
+Name[uk]=Встановити відлік пробудження
 Description=This allows to read wakeup count on next wakeup to identify wakeup source
+Description[ca]=Això permet llegir el comptador d'activacions a l'activació següent per a identificar l'origen d'activació
+Description[es]=Permite leer el contador de reanudación de la siguiente reanudación para identificar la fuente de reanudación
+Description[he]=מאפשר לך לקרוא את כמות ההשכמות בהשכמה הבאה כדי לזהות את מקור ההשכמה
+Description[ka]=ეს უფლებას გაძლევთ, წაიკითხოთ გაღვიძებების რაოდენობა შემდეგი გაღვიძებისას, რომ დაადგინოთ გაღვიძების წყარო
+Description[nl]=Dit biedt het lezen van het aantal keer ontwaken bij de volgende keer ontwaken om de bron van ontwaken te identificeren
+Description[pt_BR]=Isso permite ler a contagem de despertares no próximo despertar para identificar a fonte de despertar
+Description[sl]=To omogoča branje števila prebujanj ob naslednjem prebujanju za identifikacijo vira prebujanja
+Description[tr]=Bu, uyanma hizmetini tanımlamak için sonraki uyanmadaki uyanma sayısını okumaya olanak tanır
+Description[uk]=Надає змогу читати відлік пробудження при наступному пробудженні для визначення джерела пробудження
 Policy=yes
