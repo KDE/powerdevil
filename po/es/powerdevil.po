@@ -1,15 +1,15 @@
 # Spanish translations for powerdevil.po package.
-# Copyright (C) 2014 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2014-2025 This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+#
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-23 02:28+0000\n"
-"PO-Revision-Date: 2022-11-26 00:30+0100\n"
+"PO-Revision-Date: 2025-09-20 20:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -373,7 +373,7 @@ msgstr "%1 %2"
 #, kde-format
 msgctxt "The battery in an external device"
 msgid "Device Battery Low (%1% Remaining)"
-msgstr "Batería del dispositivo baja (queda el %1%)"
+msgstr "Batería del dispositivo baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:587
 #, kde-format
@@ -388,17 +388,17 @@ msgstr ""
 #: powerdevilcore.cpp:593
 #, kde-format
 msgid "Mouse Battery Low (%1% Remaining)"
-msgstr "Batería del ratón baja (queda el %1%)"
+msgstr "Batería del ratón baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:597
 #, kde-format
 msgid "Keyboard Battery Low (%1% Remaining)"
-msgstr "Batería del teclado baja (queda el %1%)"
+msgstr "Batería del teclado baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:601
 #, kde-format
 msgid "Bluetooth Device Battery Low (%1% Remaining)"
-msgstr "Batería de dispositivo Bluetooth baja (queda el %1%)"
+msgstr "Batería de dispositivo Bluetooth baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:603
 #, kde-format
@@ -488,12 +488,12 @@ msgstr "El nivel de batería es crítico. Por favor, guarde su trabajo."
 #: powerdevilcore.cpp:707
 #, kde-format
 msgid "Battery Low (%1% Remaining)"
-msgstr "Batería baja (queda el %1%)"
+msgstr "Batería baja (queda el %1 %)"
 
 #: powerdevilcore.cpp:711
 #, kde-format
 msgid "Battery Critical (%1% Remaining)"
-msgstr "Batería en estado crítico (queda el %1%)"
+msgstr "Batería en estado crítico (queda el %1 %)"
 
 #: powerdevilcore.cpp:735
 #, kde-format
@@ -529,131 +529,3 @@ msgstr "Carga completa"
 #, kde-format
 msgid "Battery now fully charged."
 msgstr "La batería está completamente cargada."
-
-#~ msgid "Can't open file"
-#~ msgstr "No se puede abrir el archivo"
-
-#~ msgid ""
-#~ "No valid Power Management backend plugins available. A new installation "
-#~ "might solve this problem."
-#~ msgstr ""
-#~ "No se ha encontrado ningún complemento de motor de gestión de energía "
-#~ "válido. Una nueva instalación podría solucionar el problema."
-
-#~ msgid ""
-#~ "Profile \"%1\" has been selected but does not exist.\n"
-#~ "Please check your PowerDevil configuration."
-#~ msgstr ""
-#~ "Se ha seleccionado el perfil «%1», aunque no existe.\n"
-#~ "Por favor, revise la configuración de PowerDevil."
-
-#~ msgid ""
-#~ "Could not connect to battery interface.\n"
-#~ "Please check your system configuration"
-#~ msgstr ""
-#~ "No se ha podido conectar a la interfaz de la batería.\n"
-#~ "Por favor, revise la configuración de su sistema"
-
-#~ msgid ""
-#~ "The KDE Power Management System could not be initialized. The backend "
-#~ "reported the following error: %1\n"
-#~ "Please check your system configuration"
-#~ msgstr ""
-#~ "No se ha podido iniciar el sistema de gestión de energía de KDE. El motor "
-#~ "ha informado del siguiente fallo: %1\n"
-#~ "Por favor, compruebe la configuración de su sistema"
-
-#~ msgid "All pending suspend actions have been canceled."
-#~ msgstr "Se han cancelado todas las acciones de suspensión pendientes."
-
-#~ msgctxt "Placeholder is device name"
-#~ msgid ""
-#~ "The battery in your keyboard (\"%1\") is low, and the device may turn "
-#~ "itself off at any time. Please replace or charge the battery as soon as "
-#~ "possible."
-#~ msgstr ""
-#~ "La batería de su teclado («%1») está baja y el dispositivo se puede "
-#~ "apagar por sí mismo en cualquier momento. Por favor, sustituya o cargue "
-#~ "la batería tan pronto como le sea posible."
-
-#~ msgctxt "Placeholder is device name"
-#~ msgid ""
-#~ "The battery in a connected device (\"%1\") is low, and the device may "
-#~ "turn itself off at any time. Please replace or charge the battery as soon "
-#~ "as possible."
-#~ msgstr ""
-#~ "La batería de un dispositivo conectado («%1») está baja y el dispositivo "
-#~ "se puede apagar por sí mismo en cualquier momento. Por favor, sustituya o "
-#~ "cargue la batería tan pronto como le sea posible."
-
-#~ msgid ""
-#~ "Your battery level is critical, the computer will be suspended in 60 "
-#~ "seconds."
-#~ msgstr ""
-#~ "El nivel de batería es crítico: el equipo se suspenderá en 60 segundos."
-
-#~ msgid "Hybrid suspend"
-#~ msgstr "Suspensión híbrida"
-
-#~ msgid "Suspend"
-#~ msgstr "Suspender"
-
-#~ msgctxt "@action:inmenu Global shortcut"
-#~ msgid "Sleep"
-#~ msgstr "Dormir"
-
-#~ msgid ""
-#~ "Your battery capacity is %1%. This means your battery is broken and needs "
-#~ "a replacement. Please contact your hardware vendor for more details."
-#~ msgstr ""
-#~ "La capacidad de su batería está al %1%, lo que significa que está "
-#~ "averiada y es necesario sustituirla. Para más información, contacte con "
-#~ "su proveedor de hardware."
-
-#~ msgid ""
-#~ "One of your batteries (ID %2) has a capacity of %1%. This means it is "
-#~ "broken and needs a replacement. Please contact your hardware vendor for "
-#~ "more details."
-#~ msgstr ""
-#~ "La capacidad de una de sus baterías (ID %2) está al %1%, lo que significa "
-#~ "que está averiada y es necesario sustituirla. Para más información, "
-#~ "contacte con su proveedor de hardware."
-
-#~ msgid "Broken Battery"
-#~ msgstr "Batería dañada"
-
-#~ msgid ""
-#~ "Your battery might have been recalled by %1. Usually, when vendors recall "
-#~ "the hardware, it is because of factory defects which are usually eligible "
-#~ "for a free repair or substitution. Please check <a href=\"%2\">%1's "
-#~ "website</a> to verify if your battery is faulted."
-#~ msgstr ""
-#~ "Su batería puede haber sido retirada por %1. Generalmente, cuando los "
-#~ "vendedores retiran el hardware suele ser por defectos de fábrica para los "
-#~ "que se puede realizar una reparación o sustitución gratuitas. Por favor, "
-#~ "consulte el <a href=\"%2\">sitio web de %1</a> para comprobar si su "
-#~ "batería es defectuosa."
-
-#~ msgid ""
-#~ "One of your batteries (ID %3) might have been recalled by %1. Usually, "
-#~ "when vendors recall the hardware, it is because of factory defects which "
-#~ "are usually eligible for a free repair or substitution. Please check <a "
-#~ "href=\"%2\">%1's website</a> to verify if your battery is faulted."
-#~ msgstr ""
-#~ "Una de sus baterías (ID %3) puede haber sido retirada por %1. "
-#~ "Generalmente, cuando los vendedores retiran el hardware suele ser por "
-#~ "defectos de fábrica para los que se puede realizar una reparación o "
-#~ "sustitución gratuitas. Por favor, consulte el <a href=\"%2\">sitio web de "
-#~ "%1</a> para comprobar si su batería es defectuosa."
-
-#~ msgid "Check Your Battery"
-#~ msgstr "Compruebe la batería"
-
-#~ msgid ""
-#~ "Your Power Profiles have been updated to be used with the new KDE Power "
-#~ "Management System. You can tweak them or generate a new set of defaults "
-#~ "from System Settings."
-#~ msgstr ""
-#~ "Sus perfiles de energía se han actualizado para que utilicen el nuevo "
-#~ "sistema de gestión de energía de KDE. Puede modificarlos o generar un "
-#~ "nuevo conjunto predeterminado desde las preferencias del sistema."

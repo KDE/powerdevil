@@ -1,15 +1,15 @@
 # Spanish translations for powerdevilactivitiesconfig.po package.
-# Copyright (C) 2014 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2014-2025 This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2019, 2020, 2022.
+#
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2019, 2020, 2022, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilactivitiesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-20 00:47+0000\n"
-"PO-Revision-Date: 2022-11-26 14:42+0100\n"
+"PO-Revision-Date: 2025-09-20 20:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -144,40 +144,3 @@ msgstr " min"
 #, kde-format
 msgid "Use separate settings"
 msgstr "Usar preferencias independientes"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Parece que el servicio de gestión de energía no está en ejecución.\n"
-#~ "Esto se puede solucionar iniciándolo o programándolo en «Inicio y apagado»"
-
-#~ msgid "Suspend"
-#~ msgstr "Suspender"
-
-#~ msgid "Never suspend or shutdown the computer"
-#~ msgstr "No suspender ni apagar el equipo nunca"
-
-#~ msgid "Activities Power Management Configuration"
-#~ msgstr "Configuración de la gestión de energía de las actividades"
-
-#~ msgid "A per-activity configurator of KDE Power Management System"
-#~ msgstr ""
-#~ "Un configurador del sistema de gestión de energía de KDE por actividad"
-
-#~ msgid "(c), 2010 Dario Freddi"
-#~ msgstr "©, 2010 Dario Freddi"
-
-#~ msgid ""
-#~ "From this module, you can fine tune power management settings for each of "
-#~ "your activities."
-#~ msgstr ""
-#~ "En este módulo puede ajustar las preferencias de gestión de energía para "
-#~ "cada una de sus actividades."
-
-#~ msgid "Dario Freddi"
-#~ msgstr "Dario Freddi"
-
-#~ msgid "Maintainer"
-#~ msgstr "Responsable"

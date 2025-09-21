@@ -1,15 +1,15 @@
 # Spanish translations for powerdevilglobalconfig.po package.
-# Copyright (C) 2014 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2014-2025 This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+#
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilglobalconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-08-17 00:47+0000\n"
-"PO-Revision-Date: 2022-11-26 14:42+0100\n"
+"PO-Revision-Date: 2025-09-20 20:54+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.80\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -88,7 +88,7 @@ msgstr "La batería se considerará en nivel bajo cuando alcance este nivel"
 #: generalPage.ui:230
 #, no-c-format, kde-format
 msgid "%"
-msgstr "%"
+msgstr " %"
 
 #. i18n: ectx: property (text), widget (QLabel, criticalLabel)
 #: generalPage.ui:55
@@ -135,10 +135,10 @@ msgid ""
 "the maximum battery charge you can help extend the battery lifespan.</p></"
 "body></html>"
 msgstr ""
-"<html><head/><body><p>Mantener la batería cargada al 100% durante un período "
-"de tiempo prolongado puede acelerar el deterioro de la salud de la batería. "
-"Al limitar la carga máxima de la batería, puede ayudar a extender la vida "
-"útil de la batería.</p></body></html>"
+"<html><head/><body><p>Mantener la batería cargada al 100 % durante un "
+"período de tiempo prolongado puede acelerar el deterioro de la salud de la "
+"batería. Al limitar la carga máxima de la batería, puede ayudar a extender "
+"la vida útil de la batería.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, chargeStopThresholdMessage)
 #: generalPage.ui:147
@@ -178,7 +178,7 @@ msgstr "Activado"
 #: generalPage.ui:203
 #, kde-format
 msgid "Configure Notifications…"
-msgstr "Configurar notificaciones..."
+msgstr "Configurar notificaciones…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: generalPage.ui:216
@@ -191,43 +191,3 @@ msgstr "Otras preferencias"
 #, kde-format
 msgid "Stop charging at:"
 msgstr "Dejar de cargar al:"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Parece que el servicio de gestión de energía no está en ejecución.\n"
-#~ "Esto se puede solucionar iniciándolo o programándolo en «Inicio y apagado»"
-
-#~ msgid "Suspend"
-#~ msgstr "Suspender"
-
-#~ msgid "<b>Events</b>"
-#~ msgstr "<b>Eventos</b>"
-
-#~ msgid ""
-#~ "When this option is selected, applications will not be allowed to inhibit "
-#~ "sleep when the lid is closed"
-#~ msgstr ""
-#~ "Si selecciona esta opción, las aplicaciones no podrán inhibir la "
-#~ "suspensión cuando se cierre la tapa"
-
-#~ msgid "Never prevent an action on lid close"
-#~ msgstr "No impedir acciones nunca al cerrar la tapa"
-
-#~ msgid "Locks screen when waking up from suspension"
-#~ msgstr "Bloquea la pantalla cuando se despierta de una suspensión"
-
-#~ msgid "You will be asked for a password when resuming from sleep state"
-#~ msgstr ""
-#~ "Se le pedirá una contraseña cuando continúe tras un estado de suspensión"
-
-#~ msgid "Loc&k screen on resume"
-#~ msgstr "Blo&quear la pantalla al continuar"
-
-#~ msgid "Battery is at low level at"
-#~ msgstr "La batería está en nivel bajo en"
-
-#~ msgid "When battery is at critical level"
-#~ msgstr "Cuando la batería esté en nivel crítico"

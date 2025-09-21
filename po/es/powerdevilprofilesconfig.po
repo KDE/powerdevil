@@ -1,15 +1,15 @@
 # Spanish translations for powerdevilprofilesconfig.po package.
-# Copyright (C) 2014 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2014-2025 This file is copyright:
+# This file is distributed under the same license as the powerdevil package.
 # Automatically generated, 2014.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2020.
+#
+# SPDX-FileCopyrightText: 2014, 2020, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-07 02:25+0000\n"
-"PO-Revision-Date: 2020-07-13 15:29+0200\n"
+"PO-Revision-Date: 2025-09-20 20:53+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -68,11 +68,3 @@ msgstr "Con batería"
 #, kde-format
 msgid "On Low Battery"
 msgstr "Con batería baja"
-
-#~ msgid ""
-#~ "The Power Management Service appears not to be running.\n"
-#~ "This can be solved by starting or scheduling it inside \"Startup and "
-#~ "Shutdown\""
-#~ msgstr ""
-#~ "Parece que el servicio de gestión de energía no está en ejecución.\n"
-#~ "Esto se puede solucionar iniciándolo o programándolo en «Inicio y apagado»"
