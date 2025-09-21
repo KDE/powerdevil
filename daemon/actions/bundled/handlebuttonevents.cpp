@@ -11,7 +11,6 @@
 #include <PowerDevilProfileSettings.h>
 #include <powerdevil_debug.h>
 #include <powerdevilcore.h>
-#include <powerdevilenums.h>
 
 #include <QAction>
 

@@ -11,7 +11,6 @@
 #include <QDBusMetaType>
 #include <QDBusReply>
 #include <QGuiApplication>
-#include <QString>
 
 InhibitMonitor &InhibitMonitor::self()
 {

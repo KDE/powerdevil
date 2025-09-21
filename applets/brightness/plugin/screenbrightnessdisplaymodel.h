@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "screenbrightnessdisplaymodel.h"
-
 #include <QAbstractListModel>
 #include <QMap>
 

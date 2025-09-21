@@ -10,7 +10,6 @@
 
 // KDE
 #include <KAuth/Action>
-#include <KAuth/ExecuteJob>
 #include <KLocalizedString>
 #include <Solid/Battery>
 #include <Solid/Device>

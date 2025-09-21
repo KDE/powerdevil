@@ -7,7 +7,6 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KPluginFactory>
-#include <KSharedConfig>
 #include <Kirigami/Platform/TabletModeWatcher>
 
 #include <Solid/Battery>

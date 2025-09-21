@@ -7,7 +7,6 @@
 
 #include "PowerButtonActionModel.h"
 
-#include <powerdevilenums.h>
 #include <powerdevilpowermanagement.h>
 
 #include <KLocalizedString>

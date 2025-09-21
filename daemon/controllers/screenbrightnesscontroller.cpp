@@ -15,7 +15,6 @@
 
 #include "backlightbrightness.h"
 #include "ddcutildetector.h"
-#include "displaybrightness.h"
 #include "externalbrightnesscontrol.h"
 #include "kwinbrightness.h"
 

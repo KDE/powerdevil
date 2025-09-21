@@ -23,12 +23,10 @@
 
 #include <KConfigGroup>
 #include <KIdleTime>
-#include <KSharedConfig>
 
 #include <algorithm>
 #include <unistd.h>
 
-#include "PowerDevilGlobalSettings.h"
 #include "powerdevil_debug.h"
 #include "powerdevilpolicyagent.h"
 
