@@ -105,6 +105,8 @@ void Core::onControllersReady()
     const bool canSuspend = m_suspendController->canSuspend();
     const bool canHibernate = m_suspendController->canHibernate();
 
+    m_lastSeenAcAdapterState = m_batteryController->acAdapterState();
+
     PowerDevil::migrateConfig(isMobile, isVM, canSuspend);
     m_globalSettings = new PowerDevil::GlobalSettings(canSuspend, canHibernate, this);
 
@@ -126,6 +128,7 @@ void Core::onControllersReady()
     connect(m_batteryController.get(), &BatteryController::smoothedBatteryRemainingTimeChanged, this, &Core::onSmoothedBatteryRemainingTimeChanged);
     connect(m_lidController.get(), &LidController::lidClosedChanged, this, &Core::onLidClosedChanged);
     connect(m_suspendController.get(), &SuspendController::aboutToSuspend, this, &Core::onAboutToSuspend);
+    connect(m_suspendController.get(), &SuspendController::resumeFromSuspend, this, &Core::onResumeFromSuspend);
     connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &Core::onKIdleTimeoutReached);
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &Core::onResumingFromIdle);
     connect(m_activityConsumer, &KActivities::Consumer::currentActivityChanged, this, [this]() {
@@ -687,6 +690,7 @@ void Core::onAcAdapterStateChanged(BatteryController::AcAdapterState state)
     qCDebug(POWERDEVIL);
     // Post request for faking an activity event - usually adapters don't plug themselves out :)
     m_pendingWakeupEvent = true;
+    m_lastSeenAcAdapterState = state;
     loadProfile();
 
     if (state == BatteryController::Plugged) {
@@ -893,6 +897,16 @@ void Core::onAboutToSuspend()
                 QDBusConnection::sessionBus().asyncCall(pauseMsg);
             }
         });
+    }
+}
+
+void Core::onResumeFromSuspend()
+{
+    const BatteryController::AcAdapterState currentAcAdapterState = m_batteryController->acAdapterState();
+
+    if (m_lastSeenAcAdapterState != currentAcAdapterState) {
+        // Have the battery controller emit the signal, because things outside of Core connect to it
+        Q_EMIT m_batteryController->acAdapterStateChanged(currentAcAdapterState);
     }
 }
 

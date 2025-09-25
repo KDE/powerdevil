@@ -174,11 +174,13 @@ private:
     QHash<QString, int> m_peripheralBatteriesPercent;
     QHash<QString, bool> m_batteriesCharged;
 
+    // Battery & power cord management
     QPointer<KNotification> m_lowBatteryNotification;
     QTimer *const m_criticalBatteryTimer;
     QPointer<KNotification> m_criticalBatteryNotification;
     QPointer<KNotification> m_powerCordPluggedInNotification;
     QPointer<KNotification> m_powerCordUnpluggedNotification;
+    BatteryController::AcAdapterState m_lastSeenAcAdapterState;
 
     KActivities::Consumer *const m_activityConsumer;
 
@@ -215,6 +217,7 @@ private Q_SLOTS:
     void onServiceRegistered(const QString &service);
     void onLidClosedChanged(bool closed);
     void onAboutToSuspend();
+    void onResumeFromSuspend();
     // handlers for handling wakeup dbus call
     void resetAndScheduleNextWakeup();
     void timerfdEventHandler();
