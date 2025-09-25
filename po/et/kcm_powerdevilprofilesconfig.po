@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-06 00:43+0000\n"
+"POT-Creation-Date: 2025-09-25 00:44+0000\n"
 "PO-Revision-Date: 2020-09-28 14:09+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -18,44 +18,44 @@ msgstr ""
 "X-Generator: Lokalize 20.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: PowerButtonActionModel.cpp:32
+#: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:41
+#: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:51
+#: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:60
+#: PowerButtonActionModel.cpp:59
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:67
 #, kde-format
 msgid "Lock screen"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:83
 #, kde-format
 msgid "Turn off screen"
 msgstr ""
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr ""
@@ -88,41 +88,41 @@ msgstr ""
 msgid "Leave unchanged"
 msgstr ""
 
-#: SleepModeModel.cpp:21
+#: SleepModeModel.cpp:20
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
 msgstr ""
 
-#: SleepModeModel.cpp:22
+#: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr ""
 
-#: SleepModeModel.cpp:29
+#: SleepModeModel.cpp:28
 #, kde-format
 msgid "Hybrid sleep"
 msgstr ""
 
-#: SleepModeModel.cpp:30
+#: SleepModeModel.cpp:29
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
 msgstr ""
 
-#: SleepModeModel.cpp:37
+#: SleepModeModel.cpp:36
 #, kde-format
 msgid "Standby, then hibernate"
 msgstr ""
 
-#: SleepModeModel.cpp:39
+#: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
 msgstr ""
 
-#: SleepModeModel.cpp:40
+#: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

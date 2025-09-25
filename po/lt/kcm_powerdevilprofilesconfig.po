@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevilprofilesconfig\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-06 00:43+0000\n"
+"POT-Creation-Date: 2025-09-25 00:44+0000\n"
 "PO-Revision-Date: 2025-08-23 14:13+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -22,44 +22,44 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: PowerButtonActionModel.cpp:32
+#: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
 msgstr "Nieko nedaryti"
 
-#: PowerButtonActionModel.cpp:41
+#: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "Pristabdyti"
 
-#: PowerButtonActionModel.cpp:51
+#: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
 msgstr "Užmigdyti"
 
-#: PowerButtonActionModel.cpp:60
+#: PowerButtonActionModel.cpp:59
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "Išjungti"
 
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:67
 #, kde-format
 msgid "Lock screen"
 msgstr "Užrakinti ekraną"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
 msgstr "Rodyti atsijungimo ekraną"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:83
 #, kde-format
 msgid "Turn off screen"
 msgstr "Išjungti ekraną"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "Perjungti ekrano įjungimą/išjungimą"
@@ -92,41 +92,41 @@ msgstr "Našumas"
 msgid "Leave unchanged"
 msgstr "Nekeisti"
 
-#: SleepModeModel.cpp:21
+#: SleepModeModel.cpp:20
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
 msgstr "Pristabdyti"
 
-#: SleepModeModel.cpp:22
+#: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "Įrašyti seansą į atmintį"
 
-#: SleepModeModel.cpp:29
+#: SleepModeModel.cpp:28
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "Mišrus miegas"
 
-#: SleepModeModel.cpp:30
+#: SleepModeModel.cpp:29
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
 msgstr "Įrašyti seansą tiek į atmintį, tiek į diską"
 
-#: SleepModeModel.cpp:37
+#: SleepModeModel.cpp:36
 #, kde-format
 msgid "Standby, then hibernate"
 msgstr "Pristabdyti, o tuomet užmigdyti"
 
-#: SleepModeModel.cpp:39
+#: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
 msgstr "Perjungti į užmigdymą, kai akumuliatoriaus įkrova pasiekia žemą lygį"
 
-#: SleepModeModel.cpp:40
+#: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

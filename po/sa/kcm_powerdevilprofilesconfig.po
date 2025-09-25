@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-06 00:43+0000\n"
+"POT-Creation-Date: 2025-09-25 00:44+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,44 +19,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: PowerButtonActionModel.cpp:32
+#: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
 msgstr "किमपि न कुरु"
 
-#: PowerButtonActionModel.cpp:41
+#: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "शयनं करोतु"
 
-#: PowerButtonActionModel.cpp:51
+#: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
 msgstr "शीतनिद्रा"
 
-#: PowerButtonActionModel.cpp:60
+#: PowerButtonActionModel.cpp:59
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "निरुद्धं कुरुत"
 
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:67
 #, kde-format
 msgid "Lock screen"
 msgstr "स्क्रीन् लॉक् कुर्वन्तु"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
 msgstr "लॉगआउट् स्क्रीन् दर्शयतु"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:83
 #, kde-format
 msgid "Turn off screen"
 msgstr "स्क्रीनम् अवरम्भयन्तु"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "स्क्रीन चालू/बन्दं कुर्वन्तु"
@@ -89,35 +89,35 @@ msgstr "प्रदर्शनम्‌"
 msgid "Leave unchanged"
 msgstr "अपरिवर्तितं त्यजतु"
 
-#: SleepModeModel.cpp:21
+#: SleepModeModel.cpp:20
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
 msgstr "स्टैंडबाई"
 
-#: SleepModeModel.cpp:22
+#: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "सत्रं स्मृतौ रक्षन्तु"
 
-#: SleepModeModel.cpp:29
+#: SleepModeModel.cpp:28
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "संकरनिद्रा"
 
-#: SleepModeModel.cpp:30
+#: SleepModeModel.cpp:29
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
 msgstr "सत्रं स्मृति-डिस्क-योः मध्ये रक्षन्तु"
 
-#: SleepModeModel.cpp:37
+#: SleepModeModel.cpp:36
 #, kde-format
 msgid "Standby, then hibernate"
 msgstr "स्टैण्डबाई, ततः हाइबरनेट"
 
-#: SleepModeModel.cpp:39
+#: SleepModeModel.cpp:38
 #, fuzzy, kde-format
 #| msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 #| msgid "Switch to hibernation after a period of inactivity"
@@ -125,7 +125,7 @@ msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
 msgstr "निष्क्रियतायाः अवधिपश्चात् शीतनिद्रां प्रति गच्छन्तु"
 
-#: SleepModeModel.cpp:40
+#: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"

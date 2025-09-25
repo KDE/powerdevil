@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:44+0000\n"
+"POT-Creation-Date: 2025-09-25 00:44+0000\n"
 "PO-Revision-Date: 2024-09-29 18:01+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -31,7 +31,7 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 
-#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:47
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, kde-format
@@ -45,25 +45,25 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "Slökkva á skjá"
 
-#: actions/bundled/handlebuttonevents.cpp:52
+#: actions/bundled/handlebuttonevents.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr "Svæfa"
 
-#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/handlebuttonevents.cpp:56
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "Leggja í dvala"
 
-#: actions/bundled/handlebuttonevents.cpp:62
+#: actions/bundled/handlebuttonevents.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr "Slökkva"
 
-#: actions/bundled/handlebuttonevents.cpp:76
+#: actions/bundled/handlebuttonevents.cpp:75
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"

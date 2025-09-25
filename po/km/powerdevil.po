@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-09-19 00:44+0000\n"
+"POT-Creation-Date: 2025-09-25 00:44+0000\n"
 "PO-Revision-Date: 2012-06-14 13:53+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -30,7 +30,7 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:47
+#: actions/bundled/dpms.cpp:73 actions/bundled/handlebuttonevents.cpp:46
 #: actions/bundled/keyboardbrightnesscontrol.cpp:47
 #: actions/bundled/powerprofile.cpp:67 powerdevilscreenbrightnessagent.cpp:138
 #, fuzzy, kde-format
@@ -46,26 +46,26 @@ msgctxt "@action:inmenu Global shortcut"
 msgid "Turn Off Screen"
 msgstr "បិទ​អេក្រង់​"
 
-#: actions/bundled/handlebuttonevents.cpp:52
+#: actions/bundled/handlebuttonevents.cpp:51
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Suspend"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:57
+#: actions/bundled/handlebuttonevents.cpp:56
 #, fuzzy, kde-format
 #| msgid "Hibernate"
 msgctxt "@action:inmenu Global shortcut"
 msgid "Hibernate"
 msgstr "សម្ងំ"
 
-#: actions/bundled/handlebuttonevents.cpp:62
+#: actions/bundled/handlebuttonevents.cpp:61
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Power Off"
 msgstr ""
 
-#: actions/bundled/handlebuttonevents.cpp:76
+#: actions/bundled/handlebuttonevents.cpp:75
 #, kde-format
 msgctxt ""
 "@action:inmenu Global shortcut, used for long presses of the power button"

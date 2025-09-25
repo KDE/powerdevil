@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-06 00:43+0000\n"
+"POT-Creation-Date: 2025-09-25 00:44+0000\n"
 "PO-Revision-Date: 2025-03-08 22:04+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -21,44 +21,44 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 24.12.2\n"
 
-#: PowerButtonActionModel.cpp:32
+#: PowerButtonActionModel.cpp:31
 #, kde-format
 msgid "Do nothing"
 msgstr "何もしない"
 
-#: PowerButtonActionModel.cpp:41
+#: PowerButtonActionModel.cpp:40
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Sleep"
 msgstr "スリープ"
 
-#: PowerButtonActionModel.cpp:51
+#: PowerButtonActionModel.cpp:50
 #, kde-format
 msgid "Hibernate"
 msgstr "ハイバネート"
 
-#: PowerButtonActionModel.cpp:60
+#: PowerButtonActionModel.cpp:59
 #, kde-format
 msgctxt "Power down the computer"
 msgid "Shut down"
 msgstr "シャットダウン"
 
-#: PowerButtonActionModel.cpp:68
+#: PowerButtonActionModel.cpp:67
 #, kde-format
 msgid "Lock screen"
 msgstr "スクリーンをロック"
 
-#: PowerButtonActionModel.cpp:76
+#: PowerButtonActionModel.cpp:75
 #, kde-format
 msgid "Show logout screen"
 msgstr "ログアウト画面を表示"
 
-#: PowerButtonActionModel.cpp:84
+#: PowerButtonActionModel.cpp:83
 #, kde-format
 msgid "Turn off screen"
 msgstr "スクリーンの電源を切る"
 
-#: PowerButtonActionModel.cpp:92
+#: PowerButtonActionModel.cpp:91
 #, kde-format
 msgid "Toggle screen on/off"
 msgstr "スクリーンをオン/オフ"
@@ -91,41 +91,41 @@ msgstr "パフォーマンス"
 msgid "Leave unchanged"
 msgstr "変更しない"
 
-#: SleepModeModel.cpp:21
+#: SleepModeModel.cpp:20
 #, kde-format
 msgctxt "Suspend to RAM"
 msgid "Standby"
 msgstr "サスペンド"
 
-#: SleepModeModel.cpp:22
+#: SleepModeModel.cpp:21
 #, kde-format
 msgctxt "Subtitle description for 'Standby' sleep option"
 msgid "Save session to memory"
 msgstr "セッションをメモリに保存"
 
-#: SleepModeModel.cpp:29
+#: SleepModeModel.cpp:28
 #, kde-format
 msgid "Hybrid sleep"
 msgstr "ハイブリッドスリープ"
 
-#: SleepModeModel.cpp:30
+#: SleepModeModel.cpp:29
 #, kde-format
 msgctxt "Subtitle description for 'Hybrid sleep' sleep option"
 msgid "Save session to both memory and disk"
 msgstr "セッションをメモリとディスクの両方に保存"
 
-#: SleepModeModel.cpp:37
+#: SleepModeModel.cpp:36
 #, kde-format
 msgid "Standby, then hibernate"
 msgstr "サスペンドしてハイバネート"
 
-#: SleepModeModel.cpp:39
+#: SleepModeModel.cpp:38
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation when battery runs low"
 msgstr "バッテリ残量低下時にハイバネートに切り替え"
 
-#: SleepModeModel.cpp:40
+#: SleepModeModel.cpp:39
 #, kde-format
 msgctxt "Subtitle description for 'Standby, then hibernate' sleep option"
 msgid "Switch to hibernation after a period of inactivity"
