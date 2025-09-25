@@ -25,6 +25,12 @@ Kirigami.FormLayout {
         ).replace("10", value);
     }
 
+    Connections {
+        target: profileSettings
+        onAutoSuspendIdleTimeoutSecChanged: suspendComplianceWarning.showIfNeeded();
+        onAutoSuspendActionChanged: suspendComplianceWarning.showIfNeeded();
+    }
+
     //
     // Suspend Session
 
@@ -82,7 +88,6 @@ Kirigami.FormLayout {
             }
             onActivated: {
                 profileSettings.autoSuspendAction = currentValue;
-                suspendComplianceWarning.showIfNeeded();
             }
         }
 
@@ -116,12 +121,10 @@ Kirigami.FormLayout {
 
             onRegularValueActivated: {
                 profileSettings.autoSuspendIdleTimeoutSec = currentValue;
-                suspendComplianceWarning.showIfNeeded();
             }
             onCustomDurationAccepted: {
                 profileSettings.autoSuspendIdleTimeoutSec = valueToUnit(
                     customDuration.value, customDuration.unit, DurationPromptDialog.Unit.Seconds);
-                suspendComplianceWarning.showIfNeeded();
             }
 
             onConfiguredValueOptionMissing: {
@@ -154,7 +157,6 @@ Kirigami.FormLayout {
         type: Kirigami.MessageType.Warning
         visible: text !== ""
 
-        // Not a binding, it should only show when user explicitly changes the setting.
         function showIfNeeded() {
             if (profileSettings.autoSuspendAction === PD.PowerDevil.PowerButtonAction.NoAction) {
                 text = i18nc("@info:status", "Disabling automatic suspend will result in higher energy consumption.");
