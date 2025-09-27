@@ -12,14 +12,14 @@ msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-06-18 16:53+0300\n"
+"PO-Revision-Date: 2025-09-24 16:39+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -136,16 +136,14 @@ msgstr ""
 "pieslēgts ārējais monitors."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 programma šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu:"
-msgstr[1] "%1 programmas šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu:"
-msgstr[2] "%1 programmu šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu:"
+msgstr[0] "%1 programma šobrīd vēlas bloķēt iesnaudināšanu un ekrāna slēgšanu:"
+msgstr[1] ""
+"%1 programmas šobrīd vēlas bloķēt iesnaudināšanu un ekrāna slēgšanu:"
+msgstr[2] "%1 programmu šobrīd vēlas bloķēt iesnaudināšanu un ekrāna slēgšanu:"
 
 #: InhibitionItem.qml:146
 #, kde-format
@@ -156,12 +154,12 @@ msgstr "„%1“ ir liegts bloķēt iesnaudināšanu un ekrāna slēgšanu, jo %
 #: InhibitionItem.qml:149
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (%2)"
-msgstr "%1 šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
+msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (%2)"
 
 #: InhibitionItem.qml:151
 #, kde-format
 msgid "%1 is currently blocking sleep and screen locking (unknown reason)"
-msgstr "%1 šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (iemesls nezināms)"
+msgstr "„%1“ šobrīd bloķē iesnaudināšanu un ekrāna slēgšanu (iemesls nezināms)"
 
 #: InhibitionItem.qml:153
 #, kde-format
