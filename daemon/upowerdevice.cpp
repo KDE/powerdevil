@@ -50,7 +50,7 @@ void UPowerDevice::onPropertiesChanged(const QString &ifaceName, const QVariantM
 bool UPowerDevice::updateProperties(const QVariantMap &properties)
 {
     qCDebug(POWERDEVIL) << "Update:" << properties;
-    // Set whan any properties affecting charging state are updated
+    // Set when any properties affecting charging state are updated
     bool updated = false;
 
     for (auto it = properties.begin(); it != properties.end(); it++) {

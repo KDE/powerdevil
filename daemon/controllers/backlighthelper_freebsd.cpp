@@ -84,7 +84,7 @@ void BacklightHelper::initUsingSysctl()
      * device with brightness management, then.
      */
     /*
-     * The acpi_video interface is not standartized and will not work for some vendors due to
+     * The acpi_video interface is not standardized and will not work for some vendors due to
      * the sysctl being named hw.acpi.video_<vendor>.*
      */
     QStringList types;

@@ -51,7 +51,7 @@ void InhibitMonitor::uninhibit(bool isSilent)
 
 void InhibitMonitor::beginSuppressingSleep(const QString &reason, bool isSilent)
 {
-    qDebug() << "Begin Suppresing sleep signal arrived";
+    qDebug() << "Begin Suppressing sleep signal arrived";
     if (m_sleepInhibitionCookie) { // an inhibition request is already active; don't trigger another one
         Q_EMIT isManuallyInhibitedChanged(true);
         return;
@@ -70,7 +70,7 @@ void InhibitMonitor::beginSuppressingSleep(const QString &reason, bool isSilent)
         if (reply.isValid()) {
             m_sleepInhibitionCookie = reply.value();
             if (!isSilent) {
-                qDebug() << "Begin Suppresing sleep signal is used";
+                qDebug() << "Begin Suppressing sleep signal is used";
                 QDBusMessage osdMsg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
                                                                      QStringLiteral("/org/kde/osdService"),
                                                                      QStringLiteral("org.kde.osdService"),
@@ -88,7 +88,7 @@ void InhibitMonitor::beginSuppressingSleep(const QString &reason, bool isSilent)
 
 void InhibitMonitor::stopSuppressingSleep(bool isSilent)
 {
-    qDebug() << "Stop Suppresing sleep signal arrived";
+    qDebug() << "Stop Suppressing sleep signal arrived";
     if (!m_sleepInhibitionCookie) {
         Q_EMIT isManuallyInhibitedChanged(false);
         return;
@@ -107,7 +107,7 @@ void InhibitMonitor::stopSuppressingSleep(bool isSilent)
         if (reply.isValid()) {
             m_sleepInhibitionCookie.reset();
             if (!isSilent) {
-                qDebug() << "Stop Suppresing sleep signal is used";
+                qDebug() << "Stop Suppressing sleep signal is used";
                 QDBusMessage osdMsg = QDBusMessage::createMethodCall(QStringLiteral("org.kde.plasmashell"),
                                                                      QStringLiteral("/org/kde/osdService"),
                                                                      QStringLiteral("org.kde.osdService"),

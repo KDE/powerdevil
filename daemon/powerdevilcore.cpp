@@ -198,7 +198,7 @@ void Core::onControllersReady()
     // try creating a timerfd which can wake system from suspend
     m_timerFd = timerfd_create(CLOCK_REALTIME_ALARM, TFD_CLOEXEC);
 
-    // if that fails due to privilges maybe, try normal timerfd
+    // if that fails due to privileges maybe, try normal timerfd
     if (m_timerFd == -1) {
         qCDebug(POWERDEVIL)
             << "Unable to create a CLOCK_REALTIME_ALARM timer, trying CLOCK_REALTIME\n This would mean that wakeup requests won't wake device from suspend";
@@ -582,7 +582,7 @@ bool Core::emitBatteryChargePercentNotification(int currentPercent, int previous
         return true;
     }
 
-    // Make sure a notificaton that's kept open updates its percentage live.
+    // Make sure a notification that's kept open updates its percentage live.
     updateBatteryNotifications(currentPercent);
 
     if (m_batteryController->acAdapterState() == BatteryController::Plugged && !flags.testFlag(ChargeNotificationFlag::NotifyWhenAcPluggedIn)) {
@@ -1223,7 +1223,7 @@ void Core::timerfdEventHandler()
 
     // At this point scheduled wakeup list should not be empty, but just in case
     if (m_scheduledWakeups.isEmpty()) {
-        qWarning(POWERDEVIL) << "Wakeup was recieved but list is now empty! This should not happen!";
+        qWarning(POWERDEVIL) << "Wakeup was received but list is now empty! This should not happen!";
         return;
     }
 

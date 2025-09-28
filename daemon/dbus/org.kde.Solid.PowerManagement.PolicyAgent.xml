@@ -54,7 +54,7 @@
       <doc:doc>
         <doc:summary>Requested inhibitions are allowed by default, but they can be suppressed with this method by setting allowed to false.</doc:summary>
         <doc:para>
-          An inhibition may only become active if allowed. When calling this method with allowed set to false, a currenly requested active inhibition will stop being active and disappear from the ActiveInhibitions property, but will continue to be listed in the RequestedInhibitions property. This setting is persisted and will apply to future inhibitions of the same name and reason. Within RequestedInhibitions, each item's flags describe whether or not the inhibition is allowed (and active).
+          An inhibition may only become active if allowed. When calling this method with allowed set to false, a currently requested active inhibition will stop being active and disappear from the ActiveInhibitions property, but will continue to be listed in the RequestedInhibitions property. This setting is persisted and will apply to future inhibitions of the same name and reason. Within RequestedInhibitions, each item's flags describe whether or not the inhibition is allowed (and active).
         </doc:para>
       </doc:doc>
     </method>

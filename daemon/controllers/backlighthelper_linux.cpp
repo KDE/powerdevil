@@ -101,7 +101,7 @@ QStringList BacklightHelper::getBacklightTypeDevices() const
 
     QDir backlightDir(BACKLIGHT_SYSFS_PATH);
     backlightDir.setFilter(QDir::AllDirs | QDir::NoDot | QDir::NoDotDot | QDir::NoDotAndDotDot | QDir::Readable);
-    backlightDir.setSorting(QDir::Name | QDir::Reversed); // Reverse is needed to priorize acpi_video1 over 0
+    backlightDir.setSorting(QDir::Name | QDir::Reversed); // Reverse is needed to prioritize acpi_video1 over 0
 
     const QStringList interfaces = backlightDir.entryList();
 

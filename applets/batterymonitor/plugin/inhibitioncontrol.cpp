@@ -156,7 +156,7 @@ void InhibitionControl::onServiceRegistered(const QString &serviceName)
             if (reply.isValid()) {
                 m_hasInhibition = reply.value();
             } else {
-                qCDebug(APPLETS::BATTERYMONITOR) << "Failed to retrive has inhibit";
+                qCDebug(APPLETS::BATTERYMONITOR) << "Failed to retrieve has inhibit";
             }
             watcher->deleteLater();
         });

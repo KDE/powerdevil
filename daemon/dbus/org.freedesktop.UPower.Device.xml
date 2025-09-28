@@ -148,7 +148,7 @@ method return sender=:1.386 -> dest=:1.477 reply_serial=2
         </doc:description>
         <doc:permission>Callers will need to make sure that the daemon was started in debug mode</doc:permission>
         <doc:errors>
-          <doc:error name="&ERROR_GENERAL;">if an error occured while refreshing</doc:error>
+          <doc:error name="&ERROR_GENERAL;">if an error occurred while refreshing</doc:error>
         </doc:errors>
       </doc:doc>
     </method>

@@ -122,7 +122,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
         if (KConfigGroup group = oldProfileGroup.group(QStringLiteral("DimDisplay")); group.exists()) {
             profileSettings.setDimDisplayWhenIdle(true);
             migrateEntry(group, u"idleTime"_s, &ProfileSettings::setDimDisplayIdleTimeoutSec, [](int oldMsec) {
-                return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
+                return oldMsec / 1000; // standardize on using seconds, see powerdevil issue #3 on KDE Invent
             });
         } else {
             profileSettings.setDimDisplayWhenIdle(false);
@@ -159,7 +159,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
                 return oldAction;
             });
             migrateEntry(group, u"idleTime"_s, &ProfileSettings::setAutoSuspendIdleTimeoutSec, [](int oldMsec) {
-                return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
+                return oldMsec / 1000; // standardize on using seconds, see powerdevil issue #3 on KDE Invent
             });
             // Note: setSleepMode() is called at the end, completing this section.
         } else {
@@ -217,7 +217,7 @@ void migrateProfilesConfig(KSharedConfig::Ptr profilesConfig, bool isMobile, boo
                 break;
             }
             migrateEntry(group, u"idleTime"_s, &ProfileSettings::setRunScriptIdleTimeoutSec, [](int oldMsec) {
-                return oldMsec / 1000; // standarize on using seconds, see powerdevil issue #3 on KDE Invent
+                return oldMsec / 1000; // standardize on using seconds, see powerdevil issue #3 on KDE Invent
             });
         }
 
