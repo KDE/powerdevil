@@ -96,6 +96,26 @@ void Core::loadCore()
     m_screenBrightnessController->detectDisplays();
 }
 
+void Core::removeOldActivitiesFromConfig()
+{
+    const QStringList activities = m_activityConsumer->activities();
+
+    if (activities.isEmpty()) {
+        // Most likely the activity manager isn't running, don't clear all config then
+        return;
+    }
+
+    KConfig config(u"powerdevilrc"_s);
+    auto activitiesGroup = config.group(u"Activities"_s);
+    const auto list = activitiesGroup.groupList();
+
+    for (auto activityId : list) {
+        if (!activities.contains(activityId)) {
+            activitiesGroup.deleteGroup(activityId);
+        }
+    }
+}
+
 void Core::onControllersReady()
 {
     qCDebug(POWERDEVIL) << "Controllers ready, KDE Power Management system initialized";
@@ -106,6 +126,7 @@ void Core::onControllersReady()
     const bool canHibernate = m_suspendController->canHibernate();
 
     PowerDevil::migrateConfig(isMobile, isVM, canSuspend);
+    removeOldActivitiesFromConfig();
     m_globalSettings = new PowerDevil::GlobalSettings(canSuspend, canHibernate, this);
 
     // Get the battery devices ready

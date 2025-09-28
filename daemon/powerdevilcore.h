@@ -142,6 +142,7 @@ private:
 
     void readChargeThreshold();
     void readBatteryConservationMode();
+    void removeOldActivitiesFromConfig();
 
     /**
      * Computes the current global charge percentage.
