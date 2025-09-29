@@ -1,18 +1,18 @@
-# SPDX-FileCopyrightText: 2025 Stephan Brunner <s.brunner@stephan-brunner.net>
-# Thomas Reitelbach <tr@erdfunkstelle.de>, 2007, 2008, 2009, 2010.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2009, 2010, 2023.
-# Frederik Schwarzer <schwarzer@kde.org>, 2010, 2011, 2012, 2013, 2016, 2020, 2022.
-# Panagiotis Papadopoulos <pano_90@gmx.net>, 2010, 2011.
-# Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
-# Jannick Kuhr <opensource@kuhr.org>, 2023.
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2009, 2010, 2023 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2010, 2011 Panagiotis Papadopoulos <pano_90@gmx.net>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2016, 2020, 2022 Frederik Schwarzer <schwarzer@kde.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2023 Jannick Kuhr <opensource@kuhr.org>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n@prly.mozmail.com>
+# SPDX-FileCopyrightText: 2025 Stephan Brunner <s.brunner@stephan-brunner.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2025-07-01 23:02+0200\n"
+"PO-Revision-Date: 2025-09-02 01:47+0200\n"
 "Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -135,15 +135,14 @@ msgstr ""
 "wenn ein externer Bildschirm angeschlossen ist."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 Anwendung blockiert zurzeit Ruhezustand und Bildschirmsperre:"
-msgstr[1] "%1 Anwendungen blockieren zurzeit Ruhezustand und Bildschirmsperre:"
+msgstr[0] ""
+"%1 Anwendung möchte zurzeit Ruhezustand und Bildschirmsperre blockieren"
+msgstr[1] ""
+"%1 Anwendungen möchten zurzeit Ruhezustand und Bildschirmsperre blockieren"
 
 #: InhibitionItem.qml:146
 #, kde-format
