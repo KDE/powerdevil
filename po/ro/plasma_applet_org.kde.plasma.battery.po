@@ -3,14 +3,14 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the plasma_applet_battery package.
 # Laurenţiu Buzdugan <lbuz@rolix.org>, 2008".
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2010, 2011, 2012, 2013, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2011, 2012, 2013, 2020, 2021, 2022, 2023, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2024-02-24 18:30+0000\n"
+"PO-Revision-Date: 2025-10-05 00:21+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: BatteryItem.qml:99
 #, kde-format
@@ -104,7 +104,7 @@ msgstr "%1%"
 #, kde-format
 msgctxt "@title:group"
 msgid "Sleep and Screen Locking after Inactivity"
-msgstr ""
+msgstr "Adormirea și blocarea ecranului după inactivitate"
 
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
@@ -115,13 +115,13 @@ msgstr "Gestiunea alimentării"
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Blocked"
-msgstr ""
+msgstr "Blocată"
 
 #: InhibitionItem.qml:95
 #, kde-format
 msgctxt "Sleep and Screen Locking after Inactivity"
 msgid "Automatic"
-msgstr ""
+msgstr "Automată"
 
 #: InhibitionItem.qml:112
 #, kde-format
@@ -134,23 +134,20 @@ msgstr ""
 "conectat un monitor extern."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 aplicație blochează acum adormirea și blocarea ecranului:"
+msgstr[0] "%1 aplicație vrea acum să blocheze adormirea și blocarea ecranului:"
 msgstr[1] "%1 aplicații blochează acum adormirea și blocarea ecranului:"
 msgstr[2] "%1 de aplicații blochează acum adormirea și blocarea ecranului:"
 
 #: InhibitionItem.qml:146
-#, fuzzy, kde-format
-#| msgid "%1 is currently blocking sleep and screen locking (%2)"
+#, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 blochează acum adormirea și blocarea ecranului (%2)"
+msgstr ""
+"%1 nu a fost lăsat să blocheze adormirea și blocarea ecranului pentru %2"
 
 #: InhibitionItem.qml:149
 #, kde-format
@@ -205,7 +202,7 @@ msgctxt ""
 "@action:button Prevent an app from blocking automatic sleep and screen "
 "locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Deblochează"
 
 #: InhibitionItem.qml:181
 #, kde-format
@@ -213,52 +210,49 @@ msgctxt ""
 "@action:button Undo preventing an app from blocking automatic sleep and "
 "screen locking after inactivity"
 msgid "Block Again"
-msgstr ""
+msgstr "Blochează din nou"
 
 #: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
 "about higher energy consumption must be included (EU regulations)"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Blochează manual adormirea și blocarea ecranului"
+msgstr ""
+"Ați blocat manual adormirea și blocarea ecranului. Aceasta va duce la "
+"creșterea consumului de energie."
 
 #: InhibitionItem.qml:199
 #, kde-format
 msgctxt ""
 "@action:button Undo blocking sleep and screen locking after inactivity"
 msgid "Unblock"
-msgstr ""
+msgstr "Deblochează"
 
 #: InhibitionItem.qml:218 InhibitionItem.qml:256
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to unblock automatic sleep and screen locking"
-msgstr "Blochează manual adormirea și blocarea ecranului"
+msgstr "Adormirea și blocarea ecranului automate nu au putut fi deblocate"
 
 #: InhibitionItem.qml:221 InhibitionItem.qml:259
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Failed to block automatic sleep and screen locking"
-msgstr "Blochează manual adormirea și blocarea ecranului"
+msgstr "Adormirea și blocarea ecranului automate nu au putut fi blocate"
 
 #: InhibitionItem.qml:237
 #, kde-format
 msgctxt "@action:button Block sleep and screen locking after inactivity"
 msgid "Manually Block"
-msgstr ""
+msgstr "Blochează manual"
 
 #: main.qml:76
-#, fuzzy, kde-format
-#| msgid "An application is preventing sleep and screen locking:"
+#, kde-format
 msgid "The battery applet has enabled suppressing sleep and screen locking"
-msgstr "O aplicație previne adormirea și blocarea ecranului:"
+msgstr ""
+"Miniaplicația pentru baterie a activat suprimarea adormirii și blocării "
+"ecranului"
 
 #: main.qml:97
 #, kde-format
@@ -268,7 +262,7 @@ msgstr "Alimentare și acumulator"
 #: main.qml:116
 #, kde-format
 msgid "Battery is not present in the bay"
-msgstr ""
+msgstr "Bateria nu e prezentă în compartiment"
 
 #: main.qml:129
 #, kde-format
@@ -319,18 +313,19 @@ msgid "Not charging"
 msgstr "Nu se încarcă"
 
 #: main.qml:165
-#, fuzzy, kde-format
-#| msgid "Automatic sleep and screen locking are disabled"
+#, kde-format
 msgid ""
 "Automatic sleep and screen locking are disabled; middle-click to re-enable"
-msgstr "Adormirea și blocarea ecranului automate sunt dezactivate"
+msgstr ""
+"Adormirea și blocarea ecranului automate sunt dezactivate; clic mijlociu "
+"pentru reactivare"
 
 #: main.qml:167
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "Manually block sleep and screen locking"
+#, kde-format
 msgid "Middle-click to disable automatic sleep and screen locking"
-msgstr "Blochează manual adormirea și blocarea ecranului"
+msgstr ""
+"Faceți clic mijlociu pentru a dezactiva adormirea și blocarea ecranului "
+"automate"
 
 #: main.qml:172
 #, kde-format
@@ -341,10 +336,9 @@ msgstr[1] "%1 aplicații au cerut activarea regimului de performanță"
 msgstr[2] "%1 de aplicații au cerut activarea regimului de performanță"
 
 #: main.qml:176
-#, fuzzy, kde-format
-#| msgid "System is in Performance mode"
+#, kde-format
 msgid "System is in Performance mode; scroll to change"
-msgstr "Sistemul e în regim de performanță"
+msgstr "Sistemul e în regim de performanță; derulați pentru a schimba"
 
 #: main.qml:180
 #, kde-format
@@ -355,15 +349,15 @@ msgstr[1] "%1 aplicații au cerut activarea regimului de economisire"
 msgstr[2] "%1 de aplicații au cerut activarea regimului de economisire"
 
 #: main.qml:184
-#, fuzzy, kde-format
-#| msgid "System is in Power Save mode"
+#, kde-format
 msgid "System is in Power Save mode; scroll to change"
-msgstr "Sistemul e în regim de economisire"
+msgstr "Sistemul e în regim de economisire; derulați pentru a schimba"
 
 #: main.qml:187
 #, kde-format
 msgid "System is in Balanced Power mode; scroll to change"
 msgstr ""
+"Sistemul e în regim de alimentare echilibrat; derulați pentru a schimba"
 
 #: main.qml:301
 #, kde-format
@@ -405,7 +399,7 @@ msgstr "Profil de alimentare"
 #, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
-msgstr ""
+msgstr "Automat"
 
 #: PowerProfileItem.qml:111
 #, kde-format
@@ -479,12 +473,13 @@ msgstr "%1: %2"
 #: PowerProfileItem.qml:302
 #, kde-format
 msgid "The TLP service automatically controls power profiles"
-msgstr ""
+msgstr "Serviciul TLP controlează automat profilurile de alimentare"
 
 #: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
 msgstr ""
+"Profilurile de alimentare nu sunt susținute pe dispozitivul dumneavoastră."
 
 #: PowerProfileItem.qml:305
 #, kde-kuit-format

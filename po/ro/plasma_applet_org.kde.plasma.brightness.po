@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the plasma-workspace package.
-# Sergiu Bivol <sergiu@cip.md>, 2024.
+# SPDX-FileCopyrightText: 2024, 2025 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-workspace\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-23 00:45+0000\n"
-"PO-Revision-Date: 2024-06-08 17:16+0100\n"
+"PO-Revision-Date: 2025-10-05 00:22+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: BrightnessItem.qml:30
 #, kde-format
@@ -55,18 +55,16 @@ msgid "%1%"
 msgstr "%1%"
 
 #: BrightnessItem.qml:90
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Display brightness"
 msgid "Brightness"
-msgstr "Luminozitate ecran"
+msgstr "Luminozitate"
 
 #: BrightnessItem.qml:113
-#, fuzzy, kde-format
-#| msgid "Display Brightness"
+#, kde-format
 msgctxt "Placeholder is display name"
 msgid "Display Brightness - %1"
-msgstr "Luminozitate ecran"
+msgstr "Luminozitate ecran - %1"
 
 #: KeyboardColorItem.qml:73
 #, kde-format
@@ -84,11 +82,10 @@ msgid "Screen brightness at %1%"
 msgstr "Luminozitate ecran la %1%"
 
 #: main.qml:136
-#, fuzzy, kde-format
-#| msgid "Screen brightness at %1%"
+#, kde-format
 msgctxt "Brightness of named display at percentage"
 msgid "Brightness of %1 at %2%"
-msgstr "Luminozitate ecran la %1%"
+msgstr "Luminozitatea %1 la %2%"
 
 #: main.qml:141
 #, kde-format
@@ -123,25 +120,25 @@ msgstr "Lumina nocturnă la temperatura culorii de noapte"
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in morning transition (complete by %1)"
-msgstr ""
+msgstr "Lumina de noapte e în tranziția de dimineață (se încheie până la %1)"
 
 #: main.qml:163
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light in evening transition (complete by %1)"
-msgstr ""
+msgstr "Lumina de noapte e în tranziția de seară (se încheie până la %1)"
 
 #: main.qml:181
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light evening transition scheduled for %1"
-msgstr ""
+msgstr "Tranziția de seară a luminii de noapte e programată pentru %1"
 
 #: main.qml:183
 #, kde-format
 msgctxt "Status; placeholder is a time"
 msgid "Night Light morning transition scheduled for %1"
-msgstr ""
+msgstr "Tranziția de dimineață a luminii de noapte e programată pentru %1"
 
 #: main.qml:187
 #, kde-format
@@ -162,7 +159,7 @@ msgstr "Configurează lumina nocturnă…"
 #: main.qml:279
 #, kde-format
 msgid "&Configure Power Management…"
-msgstr ""
+msgstr "&Configurează gestiunea alimentării…"
 
 #: NightLightItem.qml:75
 #, kde-format
@@ -265,10 +262,9 @@ msgid "Transition to day scheduled for:"
 msgstr "Tranziția la zi programată pentru:"
 
 #: PopupDialog.qml:124
-#, fuzzy, kde-format
-#| msgid "Keyboard Brightness"
+#, kde-format
 msgid "Keyboard Backlight"
-msgstr "Luminozitate tastatură"
+msgstr "Iluminarea tastaturii"
 
 #: PopupDialog.qml:157
 #, kde-format
