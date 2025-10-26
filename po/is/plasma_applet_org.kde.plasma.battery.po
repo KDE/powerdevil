@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2010, 2011.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_battery\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-08-15 00:48+0000\n"
-"PO-Revision-Date: 2024-09-29 18:00+0000\n"
+"PO-Revision-Date: 2025-10-18 20:29+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -83,7 +83,7 @@ msgstr "Áætla..."
 #: BatteryItem.qml:220
 #, kde-format
 msgid "Battery Health:"
-msgstr "Geta rafhlöðu:"
+msgstr "Ástand rafhlöðu:"
 
 #: BatteryItem.qml:226
 #, kde-format
@@ -94,7 +94,7 @@ msgstr "%1%"
 #: BatteryItem.qml:238
 #, kde-format
 msgid "Battery is configured to charge up to approximately %1%."
-msgstr "Rafhlaðan er grunnstillt þannig að hún hlaðist upp í u.þ.b. %1%."
+msgstr "Rafhlaðan er stillt á að hlaðast upp í u.þ.b. %1%."
 
 #: CompactRepresentation.qml:101 CompactRepresentation.qml:150
 #, kde-format
@@ -111,7 +111,7 @@ msgstr "Svæfing og skjálæsing eftir aðgerðaleysi"
 #: InhibitionItem.qml:58 main.qml:97 PowerProfileItem.qml:76
 #, kde-format
 msgid "Power Management"
-msgstr "Orkustjórnun"
+msgstr "Orkustillingar"
 
 #: InhibitionItem.qml:95
 #, kde-format
@@ -132,25 +132,22 @@ msgid ""
 "Your laptop is configured not to sleep when closing the lid while an "
 "external monitor is connected."
 msgstr ""
-"Fartölvan þín er stillt þannig að hún sofni ekki þegar henni er lokað á "
-"meðan ytri skjár er tengdur."
+"Fartölvan þín er stillt á að sofna ekki þegar henni er lokað ef ytri skjár "
+"er tengdur."
 
 #: InhibitionItem.qml:124
-#, fuzzy, kde-format
-#| msgid "%1 application is currently blocking sleep and screen locking:"
-#| msgid_plural ""
-#| "%1 applications are currently blocking sleep and screen locking:"
+#, kde-format
 msgid "%1 application currently wants to block sleep and screen locking:"
 msgid_plural ""
 "%1 applications currently want to block sleep and screen locking:"
-msgstr[0] "%1 forrit kemur í veg fyrir svæfingu og skjálæsingu:"
-msgstr[1] "%1 forrit koma í veg fyrir svæfingu og skjálæsingu:"
+msgstr[0] "%1 forrit vill koma í veg fyrir svæfingu og skjálæsingu:"
+msgstr[1] "%1 forrit vilja koma í veg fyrir svæfingu og skjálæsingu:"
 
 #: InhibitionItem.qml:146
 #, kde-format
 msgctxt "Application name; reason"
 msgid "%1 has been prevented from blocking sleep and screen locking for %2"
-msgstr "%1 hefur verið hindrað í að loka á svæfingu og skjálæsingu vegna %2"
+msgstr "%1 var hindrað í að loka á svæfingu og skjálæsingu vegna %2"
 
 #: InhibitionItem.qml:149
 #, kde-format
@@ -215,16 +212,16 @@ msgid "Block Again"
 msgstr "Loka á aftur"
 
 #: InhibitionItem.qml:194
-#, fuzzy, kde-format
-#| msgctxt "Minimize the length of this string as much as possible"
-#| msgid "You have manually blocked sleep and screen locking."
+#, kde-format
 msgctxt ""
 "Minimize the length of this string as much as possible but the sentence "
 "about higher energy consumption must be included (EU regulations)"
 msgid ""
 "You have manually blocked sleep and screen locking. This will result in "
 "higher energy consumption."
-msgstr "Þú hefur lokað handvirkt á svæfingu og skjálæsingu."
+msgstr ""
+"Þú hefur lokað handvirkt á svæfingu og skjálæsingu. Það hefur í för með sér "
+"meiri orkunotkun."
 
 #: InhibitionItem.qml:199
 #, kde-format
@@ -389,9 +386,7 @@ msgid "Power Profile"
 msgstr "Orkuprófíll"
 
 #: PowerProfileItem.qml:110
-#, fuzzy, kde-format
-#| msgctxt "Sleep and Screen Locking after Inactivity"
-#| msgid "Automatic"
+#, kde-format
 msgctxt "Power profile"
 msgid "Automatic"
 msgstr "Sjálfvirkt"
@@ -414,7 +409,7 @@ msgid ""
 "computer has detected that it may be sitting on your lap."
 msgstr ""
 "Afkastasnið var gert óvirkt til að draga úr hitamyndun þar sem tölvan "
-"greindi að hún situr hugsanlega í kjöltu þinni."
+"skynjaði að hún situr hugsanlega í kjöltu þinni."
 
 #: PowerProfileItem.qml:230
 #, kde-format
@@ -433,18 +428,18 @@ msgid ""
 "Performance may be lowered to reduce heat generation because the computer "
 "has detected that it may be sitting on your lap."
 msgstr ""
-"Mögulega er dregið úr afköstum til að draga úr hitamyndun þar sem tölvan "
-"greindi að hún situr hugsanlega í kjöltu þinni."
+"Hugsanlega er dregið úr afköstum til að draga úr hitamyndun þar sem tölvan "
+"skynjaði að hún situr hugsanlega í kjöltu þinni."
 
 #: PowerProfileItem.qml:250
 #, kde-format
 msgid "Performance may be reduced because the computer is running too hot."
-msgstr "Mögulega er dregið úr afköstum þar sem tölvan er orðin of heit."
+msgstr "Hugsanlega er dregið úr afköstum þar sem tölvan er orðin of heit."
 
 #: PowerProfileItem.qml:252
 #, kde-format
 msgid "Performance may be reduced."
-msgstr "Mögulega er dregið úr afköstum."
+msgstr "Hugsanlega er dregið úr afköstum."
 
 #: PowerProfileItem.qml:265
 #, kde-format
@@ -469,7 +464,7 @@ msgstr "TLP-þjónustan stjórnar sjálfkrafa orkuprófílum"
 #: PowerProfileItem.qml:304
 #, kde-format
 msgid "Power profiles are not supported on your device."
-msgstr ""
+msgstr "Tölvan þín styður ekki orkuprófíla."
 
 #: PowerProfileItem.qml:305
 #, kde-kuit-format
@@ -478,9 +473,9 @@ msgid ""
 "<command>power-profiles-daemon</command> package using your distribution's "
 "package manager and restarting the system."
 msgstr ""
-"Orkuprófílar eru hugsanleg studdir í tækinu þínu.<nl/>Prófaðu að setja "
+"Tölvan þín styður hugsanlega orkuprófíla.<nl/>Prófaðu að setja "
 "upp<command>power-profiles-daemon</command>-pakkann með pakkastjóra "
-"stýrikerfisútgáfunnar þinnar og endurræstu tölvuna."
+"stýrikerfisútgáfu þinnar og endurræstu tölvuna."
 
 #~ msgctxt ""
 #~ "@action:button Prevent an app from blocking automatic sleep and screen "

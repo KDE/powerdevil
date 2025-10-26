@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Sveinn í Felli <sveinki@nett.is>, 2009, 2016.
-# SPDX-FileCopyrightText: 2023, 2024 Guðmundur Erlingsson <gudmundure@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Guðmundur Erlingsson <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: powerdevil\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-25 00:44+0000\n"
-"PO-Revision-Date: 2024-09-29 18:01+0000\n"
+"PO-Revision-Date: 2025-10-18 20:40+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -37,7 +37,7 @@ msgstr "sv1@fellsnet.is, gudmundure@gmail.com"
 #, kde-format
 msgctxt "Name for powerdevil shortcuts category"
 msgid "Power Management"
-msgstr "Orkustjórnun"
+msgstr "Orkustillingar"
 
 #: actions/bundled/dpms.cpp:76
 #, kde-format
@@ -86,7 +86,7 @@ msgstr "Minnka lyklaborðsbirtu"
 #, kde-format
 msgctxt "@action:inmenu Global shortcut"
 msgid "Toggle Keyboard Backlight"
-msgstr "Kveikja/slökkva á baklýsingu í lyklaborði"
+msgstr "Kveikja/slökkva á lyklaborðsljósi"
 
 #: actions/bundled/powerprofile.cpp:70
 #, kde-format
@@ -108,22 +108,20 @@ msgstr "%1 %2"
 #: powerdevilapp.cpp:98
 #, kde-format
 msgid "KDE Power Management System"
-msgstr "Orkustjórnun KDE"
+msgstr "Orkustillingar KDE"
 
 #: powerdevilapp.cpp:100
 #, kde-format
 msgctxt "@title"
 msgid ""
 "PowerDevil, an advanced, modular and lightweight power management daemon"
-msgstr "PowerDevil, öflugur og léttur orkustjórnunarmiðlari byggður á einingum"
+msgstr "PowerDevil, öflugur og léttur orkustillingamiðlari"
 
 #: powerdevilapp.cpp:102
-#, fuzzy, kde-format
-#| msgctxt "@info:credit"
-#| msgid "(c) 2015-2019 Kai Uwe Broulik"
+#, kde-format
 msgctxt "@info:credit"
 msgid "© 2015–2019 Kai Uwe Broulik"
-msgstr "(c) 2015-2019 Kai Uwe Broulik"
+msgstr "© 2015–2019 Kai Uwe Broulik"
 
 #: powerdevilapp.cpp:103
 #, kde-format
@@ -135,7 +133,7 @@ msgstr "Kai Uwe Broulik"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Maintainer"
-msgstr "Umsjónarmaður"
+msgstr "Umsjónaraðili"
 
 #: powerdevilapp.cpp:104
 #, kde-format
@@ -147,7 +145,7 @@ msgstr "Dario Freddi"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Previous maintainer"
-msgstr "Fyrri umsjónarmaður"
+msgstr "Fyrri umsjónaraðili"
 
 #: powerdevilapp.cpp:112
 #, kde-format
@@ -167,7 +165,8 @@ msgstr "Reglur sem gilda í þessari athöfn koma í veg fyrir tölvan sé svæf
 #: powerdevilcore.cpp:412
 #, kde-format
 msgid "This activity's policies prevent screen power management"
-msgstr "Reglur sem gilda í þessari athöfn koma í veg fyrir umsjón með skjá"
+msgstr ""
+"Reglur sem gilda í þessari athöfn koma í veg fyrir orkustýringar fyrir skjá"
 
 #: powerdevilcore.cpp:477
 #, kde-format
@@ -310,10 +309,9 @@ msgid "The computer will no longer go to sleep."
 msgstr "Tölvan verður ekki lengur svæfð."
 
 #: powerdevilcore.cpp:718
-#, fuzzy, kde-format
-#| msgid "Running on AC power"
+#, kde-format
 msgid "Running on AC Power"
-msgstr "Keyri á AC-spennugjafa"
+msgstr "Keyrir á AC-spennugjafa"
 
 #: powerdevilcore.cpp:719
 #, kde-format
